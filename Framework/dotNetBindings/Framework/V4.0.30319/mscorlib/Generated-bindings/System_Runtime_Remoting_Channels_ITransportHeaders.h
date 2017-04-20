@@ -24,6 +24,6 @@
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IEnumerator
 	// Managed param types : 
-    - (System_Collections_IEnumerator *)getEnumerator;
+    - (id <System_Collections_IEnumerator>)getEnumerator;
 @end
 //--Dubrovnik.CodeGenerator

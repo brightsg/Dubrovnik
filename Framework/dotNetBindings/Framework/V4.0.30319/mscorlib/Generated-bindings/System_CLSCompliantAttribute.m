@@ -32,7 +32,10 @@
 	// Managed param types : System.Boolean
     + (System_CLSCompliantAttribute *)new_withIsCompliant:(BOOL)p1
     {
-		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_CLSCompliantAttribute * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,8 +46,18 @@
     @synthesize isCompliant = _isCompliant;
     - (BOOL)isCompliant
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsCompliant"];
-		_isCompliant = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsCompliant");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isCompliant = monoObject;
 
 		return _isCompliant;
 	}

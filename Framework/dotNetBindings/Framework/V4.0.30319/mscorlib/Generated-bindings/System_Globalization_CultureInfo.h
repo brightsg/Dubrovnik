@@ -2,7 +2,7 @@
 //
 // Managed class : CultureInfo
 //
-@interface System_Globalization_CultureInfo : System_Object <System_ICloneable, System_IFormatProvider>
+@interface System_Globalization_CultureInfo : System_Object <System_ICloneable_, System_IFormatProvider_>
 
 #pragma mark -
 #pragma mark Setup
@@ -47,15 +47,17 @@
 
 	// Managed property name : CultureTypes
 	// Managed property type : System.Globalization.CultureTypes
-    @property (nonatomic, readonly) System_Globalization_CultureTypes cultureTypes;
+    @property (nonatomic, readonly) int32_t cultureTypes;
 
 	// Managed property name : CurrentCulture
 	// Managed property type : System.Globalization.CultureInfo
     + (System_Globalization_CultureInfo *)currentCulture;
+    + (void)setCurrentCulture:(System_Globalization_CultureInfo *)value;
 
 	// Managed property name : CurrentUICulture
 	// Managed property type : System.Globalization.CultureInfo
     + (System_Globalization_CultureInfo *)currentUICulture;
+    + (void)setCurrentUICulture:(System_Globalization_CultureInfo *)value;
 
 	// Managed property name : DateTimeFormat
 	// Managed property type : System.Globalization.DateTimeFormatInfo
@@ -198,7 +200,7 @@
 	// Managed method name : GetCultures
 	// Managed return type : System.Globalization.CultureInfo[]
 	// Managed param types : System.Globalization.CultureTypes
-    + (DBSystem_Array *)getCultures_withTypes:(System_Globalization_CultureTypes)p1;
+    + (DBSystem_Array *)getCultures_withTypes:(int32_t)p1;
 
 	// Managed method name : GetFormat
 	// Managed return type : System.Object

@@ -32,7 +32,10 @@
 	// Managed param types : System.String
     + (System_Globalization_RegionInfo *)new_withName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Globalization_RegionInfo * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Int32
     + (System_Globalization_RegionInfo *)new_withCulture:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Globalization_RegionInfo * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -51,7 +57,17 @@
     @synthesize currencyEnglishName = _currencyEnglishName;
     - (NSString *)currencyEnglishName
     {
-		MonoObject *monoObject = [self getMonoProperty:"CurrencyEnglishName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrencyEnglishName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_currencyEnglishName isEqualToMonoObject:monoObject]) return _currencyEnglishName;					
 		_currencyEnglishName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -63,7 +79,17 @@
     @synthesize currencyNativeName = _currencyNativeName;
     - (NSString *)currencyNativeName
     {
-		MonoObject *monoObject = [self getMonoProperty:"CurrencyNativeName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrencyNativeName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_currencyNativeName isEqualToMonoObject:monoObject]) return _currencyNativeName;					
 		_currencyNativeName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -75,7 +101,17 @@
     @synthesize currencySymbol = _currencySymbol;
     - (NSString *)currencySymbol
     {
-		MonoObject *monoObject = [self getMonoProperty:"CurrencySymbol"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrencySymbol");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_currencySymbol isEqualToMonoObject:monoObject]) return _currencySymbol;					
 		_currencySymbol = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -87,9 +123,19 @@
     static System_Globalization_RegionInfo * m_currentRegion;
     + (System_Globalization_RegionInfo *)currentRegion
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"CurrentRegion"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrentRegion");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_currentRegion isEqualToMonoObject:monoObject]) return m_currentRegion;					
-		m_currentRegion = [System_Globalization_RegionInfo objectWithMonoObject:monoObject];
+		m_currentRegion = [System_Globalization_RegionInfo bestObjectWithMonoObject:monoObject];
 
 		return m_currentRegion;
 	}
@@ -99,7 +145,17 @@
     @synthesize displayName = _displayName;
     - (NSString *)displayName
     {
-		MonoObject *monoObject = [self getMonoProperty:"DisplayName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DisplayName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_displayName isEqualToMonoObject:monoObject]) return _displayName;					
 		_displayName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -111,7 +167,17 @@
     @synthesize englishName = _englishName;
     - (NSString *)englishName
     {
-		MonoObject *monoObject = [self getMonoProperty:"EnglishName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EnglishName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_englishName isEqualToMonoObject:monoObject]) return _englishName;					
 		_englishName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -123,8 +189,18 @@
     @synthesize geoId = _geoId;
     - (int32_t)geoId
     {
-		MonoObject *monoObject = [self getMonoProperty:"GeoId"];
-		_geoId = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "GeoId");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_geoId = monoObject;
 
 		return _geoId;
 	}
@@ -134,8 +210,18 @@
     @synthesize isMetric = _isMetric;
     - (BOOL)isMetric
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsMetric"];
-		_isMetric = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsMetric");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isMetric = monoObject;
 
 		return _isMetric;
 	}
@@ -145,7 +231,17 @@
     @synthesize iSOCurrencySymbol = _iSOCurrencySymbol;
     - (NSString *)iSOCurrencySymbol
     {
-		MonoObject *monoObject = [self getMonoProperty:"ISOCurrencySymbol"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ISOCurrencySymbol");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_iSOCurrencySymbol isEqualToMonoObject:monoObject]) return _iSOCurrencySymbol;					
 		_iSOCurrencySymbol = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -157,7 +253,17 @@
     @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -169,7 +275,17 @@
     @synthesize nativeName = _nativeName;
     - (NSString *)nativeName
     {
-		MonoObject *monoObject = [self getMonoProperty:"NativeName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NativeName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_nativeName isEqualToMonoObject:monoObject]) return _nativeName;					
 		_nativeName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -181,7 +297,17 @@
     @synthesize threeLetterISORegionName = _threeLetterISORegionName;
     - (NSString *)threeLetterISORegionName
     {
-		MonoObject *monoObject = [self getMonoProperty:"ThreeLetterISORegionName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ThreeLetterISORegionName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_threeLetterISORegionName isEqualToMonoObject:monoObject]) return _threeLetterISORegionName;					
 		_threeLetterISORegionName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -193,7 +319,17 @@
     @synthesize threeLetterWindowsRegionName = _threeLetterWindowsRegionName;
     - (NSString *)threeLetterWindowsRegionName
     {
-		MonoObject *monoObject = [self getMonoProperty:"ThreeLetterWindowsRegionName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ThreeLetterWindowsRegionName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_threeLetterWindowsRegionName isEqualToMonoObject:monoObject]) return _threeLetterWindowsRegionName;					
 		_threeLetterWindowsRegionName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -205,7 +341,17 @@
     @synthesize twoLetterISORegionName = _twoLetterISORegionName;
     - (NSString *)twoLetterISORegionName
     {
-		MonoObject *monoObject = [self getMonoProperty:"TwoLetterISORegionName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TwoLetterISORegionName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_twoLetterISORegionName isEqualToMonoObject:monoObject]) return _twoLetterISORegionName;					
 		_twoLetterISORegionName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

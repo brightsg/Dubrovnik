@@ -32,7 +32,10 @@
 	// Managed param types : System.Security.SecurityElement
     + (System_Security_ReadOnlyPermissionSet *)new_withPermissionSetXml:(System_Security_SecurityElement *)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.SecurityElement" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Security_ReadOnlyPermissionSet * object = [[self alloc] initWithSignature:"System.Security.SecurityElement" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,8 +46,18 @@
     @synthesize isReadOnly = _isReadOnly;
     - (BOOL)isReadOnly
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsReadOnly"];
-		_isReadOnly = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsReadOnly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isReadOnly = monoObject;
 
 		return _isReadOnly;
 	}
@@ -60,7 +73,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
 		
-		return [System_Security_PermissionSet objectWithMonoObject:monoObject];
+		return [System_Security_PermissionSet bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromXml
@@ -68,7 +81,9 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)fromXml_withEt:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : ToXml
@@ -79,7 +94,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml()" withNumArgs:0];
 		
-		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
+		return [System_Security_SecurityElement bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

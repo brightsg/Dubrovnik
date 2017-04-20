@@ -2,7 +2,7 @@
 //
 // Managed struct : UIntPtr
 //
-@interface System_UIntPtr : DBManagedObject <System_Runtime_Serialization_ISerializable>
+@interface System_UIntPtr : DBManagedObject <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -73,13 +73,13 @@
 
 	// Managed method name : op_Explicit
 	// Managed return type : System.UIntPtr
-	// Managed param types : System.UInt64
-    + (void *)op_Explicit_withValueUlong:(uint64_t)p1;
+	// Managed param types : System.UInt32
+    + (void *)op_Explicit_withValueUint:(uint32_t)p1;
 
 	// Managed method name : op_Explicit
 	// Managed return type : System.UIntPtr
-	// Managed param types : System.UInt32
-    + (void *)op_Explicit_withValueUint:(uint32_t)p1;
+	// Managed param types : System.UInt64
+    + (void *)op_Explicit_withValueUlong:(uint64_t)p1;
 
 	// Managed method name : op_Explicit
 	// Managed return type : System.UIntPtr

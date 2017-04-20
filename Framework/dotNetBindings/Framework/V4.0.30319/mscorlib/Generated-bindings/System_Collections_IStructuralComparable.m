@@ -30,7 +30,7 @@
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
 	// Managed param types : System.Object, System.Collections.IComparer
-    - (int32_t)compareTo_withOther:(System_Object *)p1 comparer:(System_Collections_IComparer *)p2
+    - (int32_t)compareTo_withOther:(System_Object *)p1 comparer:(id <System_Collections_IComparer_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IStructuralComparable.CompareTo(object,System.Collections.IComparer)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];

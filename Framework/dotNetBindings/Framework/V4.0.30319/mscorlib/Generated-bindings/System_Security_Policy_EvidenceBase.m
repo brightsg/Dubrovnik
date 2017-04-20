@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
 		
-		return [System_Security_Policy_EvidenceBase objectWithMonoObject:monoObject];
+		return [System_Security_Policy_EvidenceBase bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

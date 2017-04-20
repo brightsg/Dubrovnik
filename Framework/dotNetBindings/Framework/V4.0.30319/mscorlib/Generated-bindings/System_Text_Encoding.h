@@ -2,7 +2,7 @@
 //
 // Managed class : Encoding
 //
-@interface System_Text_Encoding : System_Object <System_ICloneable>
+@interface System_Text_Encoding : System_Object <System_ICloneable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -263,6 +263,11 @@
 
 	// Managed method name : GetString
 	// Managed return type : System.String
+	// Managed param types : System.Byte*, System.Int32
+    - (NSString *)getString_withBytes:(uint8_t*)p1 byteCount:(int32_t)p2;
+
+	// Managed method name : GetString
+	// Managed return type : System.String
 	// Managed param types : System.Byte[]
     - (NSString *)getString_withBytes:(NSData *)p1;
 
@@ -279,6 +284,11 @@
 	// Managed method name : IsAlwaysNormalized
 	// Managed return type : System.Boolean
 	// Managed param types : System.Text.NormalizationForm
-    - (BOOL)isAlwaysNormalized_withForm:(System_Text_NormalizationForm)p1;
+    - (BOOL)isAlwaysNormalized_withForm:(int32_t)p1;
+
+	// Managed method name : RegisterProvider
+	// Managed return type : System.Void
+	// Managed param types : System.Text.EncodingProvider
+    + (void)registerProvider_withProvider:(System_Text_EncodingProvider *)p1;
 @end
 //--Dubrovnik.CodeGenerator

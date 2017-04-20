@@ -32,8 +32,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -43,8 +53,18 @@
     @synthesize isSynchronized = _isSynchronized;
     - (BOOL)isSynchronized
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsSynchronized"];
-		_isSynchronized = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsSynchronized");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isSynchronized = monoObject;
 
 		return _isSynchronized;
 	}
@@ -54,9 +74,19 @@
     @synthesize item = _item;
     - (System_Security_Policy_ApplicationTrust *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
-		_item = [System_Security_Policy_ApplicationTrust objectWithMonoObject:monoObject];
+		_item = [System_Security_Policy_ApplicationTrust bestObjectWithMonoObject:monoObject];
 
 		return _item;
 	}
@@ -66,9 +96,19 @@
     @synthesize item = _item;
     - (System_Security_Policy_ApplicationTrust *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
-		_item = [System_Security_Policy_ApplicationTrust objectWithMonoObject:monoObject];
+		_item = [System_Security_Policy_ApplicationTrust bestObjectWithMonoObject:monoObject];
 
 		return _item;
 	}
@@ -78,7 +118,17 @@
     @synthesize syncRoot = _syncRoot;
     - (System_Object *)syncRoot
     {
-		MonoObject *monoObject = [self getMonoProperty:"SyncRoot"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SyncRoot");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_syncRoot isEqualToMonoObject:monoObject]) return _syncRoot;					
 		_syncRoot = [System_Object objectWithMonoObject:monoObject];
 
@@ -102,9 +152,11 @@
 	// Managed method name : AddRange
 	// Managed return type : System.Void
 	// Managed param types : System.Security.Policy.ApplicationTrust[]
-    - (void)addRange_withTrustsSArray:(DBSystem_Array *)p1
+    - (void)addRange_withTrustsSSPApplicationTrust:(DBSystem_Array *)p1
     {
-		[self invokeMonoMethod:"AddRange(System.Array[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"AddRange(System.Security.Policy.ApplicationTrust[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : AddRange
@@ -112,7 +164,9 @@
 	// Managed param types : System.Security.Policy.ApplicationTrustCollection
     - (void)addRange_withTrustsSSPApplicationTrustCollection:(System_Security_Policy_ApplicationTrustCollection *)p1
     {
-		[self invokeMonoMethod:"AddRange(System.Security.Policy.ApplicationTrustCollection)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"AddRange(System.Security.Policy.ApplicationTrustCollection)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Clear
@@ -120,7 +174,9 @@
 	// Managed param types : 
     - (void)clear
     {
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];
+        
     }
 
 	// Managed method name : CopyTo
@@ -128,18 +184,20 @@
 	// Managed param types : System.Security.Policy.ApplicationTrust[], System.Int32
     - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(System.Array[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"CopyTo(System.Security.Policy.ApplicationTrust[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : Find
 	// Managed return type : System.Security.Policy.ApplicationTrustCollection
 	// Managed param types : System.ApplicationIdentity, System.Security.Policy.ApplicationVersionMatch
-    - (System_Security_Policy_ApplicationTrustCollection *)find_withApplicationIdentity:(System_ApplicationIdentity *)p1 versionMatch:(System_Security_Policy_ApplicationVersionMatch)p2
+    - (System_Security_Policy_ApplicationTrustCollection *)find_withApplicationIdentity:(System_ApplicationIdentity *)p1 versionMatch:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Find(System.ApplicationIdentity,System.Security.Policy.ApplicationVersionMatch)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [System_Security_Policy_ApplicationTrustCollection objectWithMonoObject:monoObject];
+		return [System_Security_Policy_ApplicationTrustCollection bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEnumerator
@@ -150,15 +208,17 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
 		
-		return [System_Security_Policy_ApplicationTrustEnumerator objectWithMonoObject:monoObject];
+		return [System_Security_Policy_ApplicationTrustEnumerator bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Remove
 	// Managed return type : System.Void
 	// Managed param types : System.ApplicationIdentity, System.Security.Policy.ApplicationVersionMatch
-    - (void)remove_withApplicationIdentity:(System_ApplicationIdentity *)p1 versionMatch:(System_Security_Policy_ApplicationVersionMatch)p2
+    - (void)remove_withApplicationIdentity:(System_ApplicationIdentity *)p1 versionMatch:(int32_t)p2
     {
-		[self invokeMonoMethod:"Remove(System.ApplicationIdentity,System.Security.Policy.ApplicationVersionMatch)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"Remove(System.ApplicationIdentity,System.Security.Policy.ApplicationVersionMatch)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : Remove
@@ -166,15 +226,19 @@
 	// Managed param types : System.Security.Policy.ApplicationTrust
     - (void)remove_withTrust:(System_Security_Policy_ApplicationTrust *)p1
     {
-		[self invokeMonoMethod:"Remove(System.Security.Policy.ApplicationTrust)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Remove(System.Security.Policy.ApplicationTrust)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : RemoveRange
 	// Managed return type : System.Void
 	// Managed param types : System.Security.Policy.ApplicationTrust[]
-    - (void)removeRange_withTrustsSArray:(DBSystem_Array *)p1
+    - (void)removeRange_withTrustsSSPApplicationTrust:(DBSystem_Array *)p1
     {
-		[self invokeMonoMethod:"RemoveRange(System.Array[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"RemoveRange(System.Security.Policy.ApplicationTrust[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : RemoveRange
@@ -182,7 +246,9 @@
 	// Managed param types : System.Security.Policy.ApplicationTrustCollection
     - (void)removeRange_withTrustsSSPApplicationTrustCollection:(System_Security_Policy_ApplicationTrustCollection *)p1
     {
-		[self invokeMonoMethod:"RemoveRange(System.Security.Policy.ApplicationTrustCollection)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"RemoveRange(System.Security.Policy.ApplicationTrustCollection)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

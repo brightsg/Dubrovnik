@@ -16,13 +16,13 @@
 
 	// Managed method name : AwaitOnCompleted
 	// Managed return type : System.Void
-	// Managed param types : ref <TAwaiter&>, ref <TStateMachine&>
-    - (void)awaitOnCompleted_withAwaiterRef:(System_Object **)p1 stateMachineRef:(System_Object **)p2;
+	// Managed param types : ref TAwaiter&, ref TStateMachine&
+    - (void)awaitOnCompleted_withAwaiterRef:(System_Runtime_CompilerServices_AsyncVoidMethodBuilder__TAwaiter **)p1 stateMachineRef:(System_Runtime_CompilerServices_AsyncVoidMethodBuilder__TStateMachine **)p2;
 
 	// Managed method name : AwaitUnsafeOnCompleted
 	// Managed return type : System.Void
-	// Managed param types : ref <TAwaiter&>, ref <TStateMachine&>
-    - (void)awaitUnsafeOnCompleted_withAwaiterRef:(System_Object **)p1 stateMachineRef:(System_Object **)p2;
+	// Managed param types : ref TAwaiter&, ref TStateMachine&
+    - (void)awaitUnsafeOnCompleted_withAwaiterRef:(System_Runtime_CompilerServices_AsyncVoidMethodBuilder__TAwaiter **)p1 stateMachineRef:(System_Runtime_CompilerServices_AsyncVoidMethodBuilder__TStateMachine **)p2;
 
 	// Managed method name : Create
 	// Managed return type : System.Runtime.CompilerServices.AsyncVoidMethodBuilder
@@ -42,11 +42,11 @@
 	// Managed method name : SetStateMachine
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.CompilerServices.IAsyncStateMachine
-    - (void)setStateMachine_withStateMachine:(System_Runtime_CompilerServices_IAsyncStateMachine *)p1;
+    - (void)setStateMachine_withStateMachine:(id <System_Runtime_CompilerServices_IAsyncStateMachine_>)p1;
 
 	// Managed method name : Start
 	// Managed return type : System.Void
-	// Managed param types : ref <TStateMachine&>
-    - (void)start_withStateMachineRef:(System_Object **)p1;
+	// Managed param types : ref TStateMachine&
+    - (void)start_withStateMachineRef:(System_Runtime_CompilerServices_AsyncVoidMethodBuilder__TStateMachine **)p1;
 @end
 //--Dubrovnik.CodeGenerator

@@ -32,7 +32,17 @@
     @synthesize current = _current;
     - (System_Object *)current
     {
-		MonoObject *monoObject = [self getMonoProperty:"Current"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Current");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_current isEqualToMonoObject:monoObject]) return _current;					
 		_current = [System_Object objectWithMonoObject:monoObject];
 
@@ -44,8 +54,18 @@
     @synthesize elementIndex = _elementIndex;
     - (int32_t)elementIndex
     {
-		MonoObject *monoObject = [self getMonoProperty:"ElementIndex"];
-		_elementIndex = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ElementIndex");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_elementIndex = monoObject;
 
 		return _elementIndex;
 	}
@@ -80,7 +100,9 @@
 	// Managed param types : 
     - (void)reset
     {
-		[self invokeMonoMethod:"Reset()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Reset()" withNumArgs:0];
+        
     }
 
 #pragma mark -

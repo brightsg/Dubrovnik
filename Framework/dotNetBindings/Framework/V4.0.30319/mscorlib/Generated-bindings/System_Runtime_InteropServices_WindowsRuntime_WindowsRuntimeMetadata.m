@@ -30,23 +30,23 @@
 	// Managed method name : ResolveNamespace
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.String>
 	// Managed param types : System.String, System.Collections.Generic.IEnumerable`1<System.String>
-    + (System_Collections_Generic_IEnumerableA1 *)resolveNamespace_withNamespaceName:(NSString *)p1 packageGraphFilePaths:(System_Collections_Generic_IEnumerableA1 *)p2
+    + (id <System_Collections_Generic_IEnumerableA1>)resolveNamespace_withNamespaceName:(NSString *)p1 packageGraphFilePaths:(id <System_Collections_Generic_IEnumerableA1_>)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ResolveNamespace(string,System.Collections.Generic.IEnumerable`1<System.String>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ResolveNamespace(string,System.Collections.Generic.IEnumerable`1<string>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolveNamespace
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.String>
 	// Managed param types : System.String, System.String, System.Collections.Generic.IEnumerable`1<System.String>
-    + (System_Collections_Generic_IEnumerableA1 *)resolveNamespace_withNamespaceName:(NSString *)p1 windowsSdkFilePath:(NSString *)p2 packageGraphFilePaths:(System_Collections_Generic_IEnumerableA1 *)p3
+    + (id <System_Collections_Generic_IEnumerableA1>)resolveNamespace_withNamespaceName:(NSString *)p1 windowsSdkFilePath:(NSString *)p2 packageGraphFilePaths:(id <System_Collections_Generic_IEnumerableA1_>)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ResolveNamespace(string,string,System.Collections.Generic.IEnumerable`1<System.String>)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ResolveNamespace(string,string,System.Collections.Generic.IEnumerable`1<string>)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Serialization.ObjectManager
 	// Managed param types : System.Runtime.Serialization.ISurrogateSelector, System.Runtime.Serialization.StreamingContext
-    + (System_Runtime_Serialization_ObjectManager *)new_withSelector:(System_Runtime_Serialization_ISurrogateSelector *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
+    + (System_Runtime_Serialization_ObjectManager *)new_withSelector:(id <System_Runtime_Serialization_ISurrogateSelector_>)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		return [[self alloc] initWithSignature:"System.Runtime.Serialization.ISurrogateSelector,System.Runtime.Serialization.StreamingContext" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Runtime_Serialization_ObjectManager * object = [[self alloc] initWithSignature:"System.Runtime.Serialization.ISurrogateSelector,System.Runtime.Serialization.StreamingContext" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,7 +46,9 @@
 	// Managed param types : 
     - (void)doFixups
     {
-		[self invokeMonoMethod:"DoFixups()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"DoFixups()" withNumArgs:0];
+        
     }
 
 	// Managed method name : GetObject
@@ -62,7 +67,9 @@
 	// Managed param types : 
     - (void)raiseDeserializationEvent
     {
-		[self invokeMonoMethod:"RaiseDeserializationEvent()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"RaiseDeserializationEvent()" withNumArgs:0];
+        
     }
 
 	// Managed method name : RaiseOnDeserializingEvent
@@ -70,7 +77,9 @@
 	// Managed param types : System.Object
     - (void)raiseOnDeserializingEvent_withObj:(System_Object *)p1
     {
-		[self invokeMonoMethod:"RaiseOnDeserializingEvent(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"RaiseOnDeserializingEvent(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : RecordArrayElementFixup
@@ -78,7 +87,9 @@
 	// Managed param types : System.Int64, System.Int32[], System.Int64
     - (void)recordArrayElementFixup_withArrayToBeFixed:(int64_t)p1 indices:(DBSystem_Array *)p2 objectRequired:(int64_t)p3
     {
-		[self invokeMonoMethod:"RecordArrayElementFixup(long,int[],long)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3)];;
+		
+		[self invokeMonoMethod:"RecordArrayElementFixup(long,int[],long)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3)];
+        
     }
 
 	// Managed method name : RecordArrayElementFixup
@@ -86,7 +97,9 @@
 	// Managed param types : System.Int64, System.Int32, System.Int64
     - (void)recordArrayElementFixup_withArrayToBeFixed:(int64_t)p1 index:(int32_t)p2 objectRequired:(int64_t)p3
     {
-		[self invokeMonoMethod:"RecordArrayElementFixup(long,int,long)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		[self invokeMonoMethod:"RecordArrayElementFixup(long,int,long)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
+        
     }
 
 	// Managed method name : RecordDelayedFixup
@@ -94,7 +107,9 @@
 	// Managed param types : System.Int64, System.String, System.Int64
     - (void)recordDelayedFixup_withObjectToBeFixed:(int64_t)p1 memberName:(NSString *)p2 objectRequired:(int64_t)p3
     {
-		[self invokeMonoMethod:"RecordDelayedFixup(long,string,long)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3)];;
+		
+		[self invokeMonoMethod:"RecordDelayedFixup(long,string,long)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3)];
+        
     }
 
 	// Managed method name : RecordFixup
@@ -102,7 +117,9 @@
 	// Managed param types : System.Int64, System.Reflection.MemberInfo, System.Int64
     - (void)recordFixup_withObjectToBeFixed:(int64_t)p1 member:(System_Reflection_MemberInfo *)p2 objectRequired:(int64_t)p3
     {
-		[self invokeMonoMethod:"RecordFixup(long,System.Reflection.MemberInfo,long)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3)];;
+		
+		[self invokeMonoMethod:"RecordFixup(long,System.Reflection.MemberInfo,long)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3)];
+        
     }
 
 	// Managed method name : RegisterObject
@@ -110,7 +127,9 @@
 	// Managed param types : System.Object, System.Int64
     - (void)registerObject_withObj:(System_Object *)p1 objectID:(int64_t)p2
     {
-		[self invokeMonoMethod:"RegisterObject(object,long)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"RegisterObject(object,long)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : RegisterObject
@@ -118,7 +137,9 @@
 	// Managed param types : System.Object, System.Int64, System.Runtime.Serialization.SerializationInfo
     - (void)registerObject_withObj:(System_Object *)p1 objectID:(int64_t)p2 info:(System_Runtime_Serialization_SerializationInfo *)p3
     {
-		[self invokeMonoMethod:"RegisterObject(object,long,System.Runtime.Serialization.SerializationInfo)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"RegisterObject(object,long,System.Runtime.Serialization.SerializationInfo)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : RegisterObject
@@ -126,7 +147,9 @@
 	// Managed param types : System.Object, System.Int64, System.Runtime.Serialization.SerializationInfo, System.Int64, System.Reflection.MemberInfo
     - (void)registerObject_withObj:(System_Object *)p1 objectID:(int64_t)p2 info:(System_Runtime_Serialization_SerializationInfo *)p3 idOfContainingObj:(int64_t)p4 member:(System_Reflection_MemberInfo *)p5
     {
-		[self invokeMonoMethod:"RegisterObject(object,long,System.Runtime.Serialization.SerializationInfo,long,System.Reflection.MemberInfo)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], DB_VALUE(p4), [p5 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"RegisterObject(object,long,System.Runtime.Serialization.SerializationInfo,long,System.Reflection.MemberInfo)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], DB_VALUE(p4), [p5 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : RegisterObject
@@ -134,7 +157,9 @@
 	// Managed param types : System.Object, System.Int64, System.Runtime.Serialization.SerializationInfo, System.Int64, System.Reflection.MemberInfo, System.Int32[]
     - (void)registerObject_withObj:(System_Object *)p1 objectID:(int64_t)p2 info:(System_Runtime_Serialization_SerializationInfo *)p3 idOfContainingObj:(int64_t)p4 member:(System_Reflection_MemberInfo *)p5 arrayIndex:(DBSystem_Array *)p6
     {
-		[self invokeMonoMethod:"RegisterObject(object,long,System.Runtime.Serialization.SerializationInfo,long,System.Reflection.MemberInfo,int[])" withNumArgs:6, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], DB_VALUE(p4), [p5 monoRTInvokeArg], [p6 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"RegisterObject(object,long,System.Runtime.Serialization.SerializationInfo,long,System.Reflection.MemberInfo,int[])" withNumArgs:6, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], DB_VALUE(p4), [p5 monoRTInvokeArg], [p6 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

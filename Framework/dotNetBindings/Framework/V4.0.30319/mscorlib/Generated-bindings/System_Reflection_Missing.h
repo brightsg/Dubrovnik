@@ -2,7 +2,7 @@
 //
 // Managed class : Missing
 //
-@interface System_Reflection_Missing : System_Object <System_Runtime_Serialization_ISerializable>
+@interface System_Reflection_Missing : System_Object <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup

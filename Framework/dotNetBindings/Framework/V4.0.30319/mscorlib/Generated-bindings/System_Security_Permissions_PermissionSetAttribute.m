@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.PermissionSetAttribute
 	// Managed param types : System.Security.Permissions.SecurityAction
-    + (System_Security_Permissions_PermissionSetAttribute *)new_withAction:(System_Security_Permissions_SecurityAction)p1
+    + (System_Security_Permissions_PermissionSetAttribute *)new_withAction:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.SecurityAction" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Security_Permissions_PermissionSetAttribute * object = [[self alloc] initWithSignature:"System.Security.Permissions.SecurityAction" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,7 +46,17 @@
     @synthesize file = _file;
     - (NSString *)file
     {
-		MonoObject *monoObject = [self getMonoProperty:"File"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "File");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_file isEqualToMonoObject:monoObject]) return _file;					
 		_file = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -52,8 +65,17 @@
     - (void)setFile:(NSString *)value
 	{
 		_file = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"File" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "File");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Hex
@@ -61,7 +83,17 @@
     @synthesize hex = _hex;
     - (NSString *)hex
     {
-		MonoObject *monoObject = [self getMonoProperty:"Hex"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Hex");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_hex isEqualToMonoObject:monoObject]) return _hex;					
 		_hex = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -70,8 +102,17 @@
     - (void)setHex:(NSString *)value
 	{
 		_hex = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"Hex" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Hex");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Name
@@ -79,7 +120,17 @@
     @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -88,8 +139,17 @@
     - (void)setName:(NSString *)value
 	{
 		_name = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"Name" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : UnicodeEncoded
@@ -97,16 +157,35 @@
     @synthesize unicodeEncoded = _unicodeEncoded;
     - (BOOL)unicodeEncoded
     {
-		MonoObject *monoObject = [self getMonoProperty:"UnicodeEncoded"];
-		_unicodeEncoded = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UnicodeEncoded");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_unicodeEncoded = monoObject;
 
 		return _unicodeEncoded;
 	}
     - (void)setUnicodeEncoded:(BOOL)value
 	{
 		_unicodeEncoded = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"UnicodeEncoded" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "UnicodeEncoded");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : XML
@@ -114,7 +193,17 @@
     @synthesize xML = _xML;
     - (NSString *)xML
     {
-		MonoObject *monoObject = [self getMonoProperty:"XML"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "XML");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_xML isEqualToMonoObject:monoObject]) return _xML;					
 		_xML = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -123,8 +212,17 @@
     - (void)setXML:(NSString *)value
 	{
 		_xML = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"XML" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "XML");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -133,12 +231,12 @@
 	// Managed method name : CreatePermission
 	// Managed return type : System.Security.IPermission
 	// Managed param types : 
-    - (System_Security_IPermission *)createPermission
+    - (id <System_Security_IPermission>)createPermission
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreatePermission()" withNumArgs:0];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreatePermissionSet
@@ -149,7 +247,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreatePermissionSet()" withNumArgs:0];
 		
-		return [System_Security_PermissionSet objectWithMonoObject:monoObject];
+		return [System_Security_PermissionSet bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

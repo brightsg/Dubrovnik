@@ -30,17 +30,23 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Serialization.StreamingContext
 	// Managed param types : System.Runtime.Serialization.StreamingContextStates
-    + (System_Runtime_Serialization_StreamingContext *)new_withState:(System_Runtime_Serialization_StreamingContextStates)p1
+    + (System_Runtime_Serialization_StreamingContext *)new_withState:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.Serialization.StreamingContextStates" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Runtime_Serialization_StreamingContext * object = [[self alloc] initWithSignature:"System.Runtime.Serialization.StreamingContextStates" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Serialization.StreamingContext
 	// Managed param types : System.Runtime.Serialization.StreamingContextStates, System.Object
-    + (System_Runtime_Serialization_StreamingContext *)new_withState:(System_Runtime_Serialization_StreamingContextStates)p1 additional:(System_Object *)p2
+    + (System_Runtime_Serialization_StreamingContext *)new_withState:(int32_t)p1 additional:(System_Object *)p2
     {
-		return [[self alloc] initWithSignature:"System.Runtime.Serialization.StreamingContextStates,object" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		System_Runtime_Serialization_StreamingContext * object = [[self alloc] initWithSignature:"System.Runtime.Serialization.StreamingContextStates,object" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -51,7 +57,17 @@
     @synthesize context = _context;
     - (System_Object *)context
     {
-		MonoObject *monoObject = [self getMonoProperty:"Context"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Context");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_context isEqualToMonoObject:monoObject]) return _context;					
 		_context = [System_Object objectWithMonoObject:monoObject];
 
@@ -61,10 +77,20 @@
 	// Managed property name : State
 	// Managed property type : System.Runtime.Serialization.StreamingContextStates
     @synthesize state = _state;
-    - (System_Runtime_Serialization_StreamingContextStates)state
+    - (int32_t)state
     {
-		MonoObject *monoObject = [self getMonoProperty:"State"];
-		_state = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "State");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_state = monoObject;
 
 		return _state;
 	}

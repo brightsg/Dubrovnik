@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Nullable`1<System.Nullable`1+T>";
+		return "System.Nullable`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,7 +32,10 @@
 	// Managed param types : <System.Nullable`1+T>
     + (System_NullableA1 *)new_withValue:(System_Object *)p1
     {
-		return [[self alloc] initWithSignature:"<_T_0>" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_NullableA1 * object = [[self alloc] initWithSignature:"<_T_0>" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,8 +46,18 @@
     @synthesize hasValue = _hasValue;
     - (BOOL)hasValue
     {
-		MonoObject *monoObject = [self getMonoProperty:"HasValue"];
-		_hasValue = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HasValue");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_hasValue = monoObject;
 
 		return _hasValue;
 	}
@@ -54,9 +67,19 @@
     @synthesize value = _value;
     - (System_Object *)value
     {
-		MonoObject *monoObject = [self getMonoProperty:"Value"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Value");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_value isEqualToMonoObject:monoObject]) return _value;					
-		_value = [System_Object subclassObjectWithMonoObject:monoObject];
+		_value = [System_Object bestObjectWithMonoObject:monoObject];
 
 		return _value;
 	}
@@ -94,7 +117,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetValueOrDefault()" withNumArgs:0];
 		
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetValueOrDefault
@@ -105,7 +128,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetValueOrDefault(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : op_Explicit
@@ -116,7 +139,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(System.Nullable`1<System.Nullable`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : op_Implicit
@@ -127,7 +150,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_NullableA1 objectWithMonoObject:monoObject];
+		return [System_NullableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToString

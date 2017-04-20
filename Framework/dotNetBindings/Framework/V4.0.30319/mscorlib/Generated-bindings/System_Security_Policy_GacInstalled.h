@@ -2,7 +2,7 @@
 //
 // Managed class : GacInstalled
 //
-@interface System_Security_Policy_GacInstalled : System_Security_Policy_EvidenceBase <System_Security_Policy_IIdentityPermissionFactory>
+@interface System_Security_Policy_GacInstalled : System_Security_Policy_EvidenceBase <System_Security_Policy_IIdentityPermissionFactory_>
 
 #pragma mark -
 #pragma mark Setup
@@ -27,7 +27,7 @@
 	// Managed method name : CreateIdentityPermission
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.Policy.Evidence
-    - (System_Security_IPermission *)createIdentityPermission_withEvidence:(System_Security_Policy_Evidence *)p1;
+    - (id <System_Security_IPermission>)createIdentityPermission_withEvidence:(System_Security_Policy_Evidence *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

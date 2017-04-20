@@ -32,7 +32,7 @@
 
 	// Managed property name : InitializationFlags
 	// Managed property type : System.AppDomainManagerInitializationOptions
-    @property (nonatomic) System_AppDomainManagerInitializationOptions initializationFlags;
+    @property (nonatomic) int32_t initializationFlags;
 
 #pragma mark -
 #pragma mark Methods

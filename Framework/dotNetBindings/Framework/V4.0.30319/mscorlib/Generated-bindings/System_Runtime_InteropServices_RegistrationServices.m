@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetManagedCategoryGuid()" withNumArgs:0];
 		
-		return [System_Guid objectWithMonoObject:monoObject];
+		return [System_Guid bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetProgIdForType
@@ -63,7 +63,7 @@
 	// Managed method name : RegisterAssembly
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.Assembly, System.Runtime.InteropServices.AssemblyRegistrationFlags
-    - (BOOL)registerAssembly_withAssembly:(System_Reflection_Assembly *)p1 flags:(System_Runtime_InteropServices_AssemblyRegistrationFlags)p2
+    - (BOOL)registerAssembly_withAssembly:(System_Reflection_Assembly *)p1 flags:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"RegisterAssembly(System.Reflection.Assembly,System.Runtime.InteropServices.AssemblyRegistrationFlags)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
@@ -76,14 +76,18 @@
 	// Managed param types : System.Type, ref System.Guid&
     - (void)registerTypeForComClients_withType:(System_Type *)p1 gRef:(System_Guid **)p2
     {
+		void *refPtr2 = [*p2 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"RegisterTypeForComClients(System.Type,System.Guid&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
-;
+
+        *p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+
     }
 
 	// Managed method name : RegisterTypeForComClients
 	// Managed return type : System.Int32
 	// Managed param types : System.Type, System.Runtime.InteropServices.RegistrationClassContext, System.Runtime.InteropServices.RegistrationConnectionType
-    - (int32_t)registerTypeForComClients_withType:(System_Type *)p1 classContext:(System_Runtime_InteropServices_RegistrationClassContext)p2 flags:(System_Runtime_InteropServices_RegistrationConnectionType)p3
+    - (int32_t)registerTypeForComClients_withType:(System_Type *)p1 classContext:(int32_t)p2 flags:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"RegisterTypeForComClients(System.Type,System.Runtime.InteropServices.RegistrationClassContext,System.Runtime.InteropServices.RegistrationConnectionType)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
@@ -129,7 +133,9 @@
 	// Managed param types : System.Int32
     - (void)unregisterTypeForComClients_withCookie:(int32_t)p1
     {
-		[self invokeMonoMethod:"UnregisterTypeForComClients(int)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"UnregisterTypeForComClients(int)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 #pragma mark -

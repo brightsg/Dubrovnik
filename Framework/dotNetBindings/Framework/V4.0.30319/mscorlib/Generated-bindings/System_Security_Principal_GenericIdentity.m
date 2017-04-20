@@ -29,18 +29,24 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Principal.GenericIdentity
-	// Managed param types : System.String
-    + (System_Security_Principal_GenericIdentity *)new_withName:(NSString *)p1
+	// Managed param types : System.String, System.String
+    + (System_Security_Principal_GenericIdentity *)new_withName:(NSString *)p1 type:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Security_Principal_GenericIdentity * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Principal.GenericIdentity
-	// Managed param types : System.String, System.String
-    + (System_Security_Principal_GenericIdentity *)new_withName:(NSString *)p1 type:(NSString *)p2
+	// Managed param types : System.String
+    + (System_Security_Principal_GenericIdentity *)new_withName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Security_Principal_GenericIdentity * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -51,7 +57,17 @@
     @synthesize authenticationType = _authenticationType;
     - (NSString *)authenticationType
     {
-		MonoObject *monoObject = [self getMonoProperty:"AuthenticationType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AuthenticationType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_authenticationType isEqualToMonoObject:monoObject]) return _authenticationType;					
 		_authenticationType = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -63,9 +79,19 @@
     @synthesize claims = _claims;
     - (System_Collections_Generic_IEnumerableA1 *)claims
     {
-		MonoObject *monoObject = [self getMonoProperty:"Claims"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Claims");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_claims isEqualToMonoObject:monoObject]) return _claims;					
-		_claims = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		_claims = [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
 
 		return _claims;
 	}
@@ -75,8 +101,18 @@
     @synthesize isAuthenticated = _isAuthenticated;
     - (BOOL)isAuthenticated
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsAuthenticated"];
-		_isAuthenticated = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsAuthenticated");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isAuthenticated = monoObject;
 
 		return _isAuthenticated;
 	}
@@ -86,7 +122,17 @@
     @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -104,7 +150,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
 		
-		return [System_Security_Claims_ClaimsIdentity objectWithMonoObject:monoObject];
+		return [System_Security_Claims_ClaimsIdentity bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

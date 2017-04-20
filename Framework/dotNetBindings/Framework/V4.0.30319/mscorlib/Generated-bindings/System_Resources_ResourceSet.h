@@ -2,7 +2,7 @@
 //
 // Managed class : ResourceSet
 //
-@interface System_Resources_ResourceSet : System_Object <System_IDisposable, System_Collections_IEnumerable>
+@interface System_Resources_ResourceSet : System_Object <System_IDisposable_, System_Collections_IEnumerable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -27,7 +27,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Resources.ResourceSet
 	// Managed param types : System.Resources.IResourceReader
-    + (System_Resources_ResourceSet *)new_withReader:(System_Resources_IResourceReader *)p1;
+    + (System_Resources_ResourceSet *)new_withReader:(id <System_Resources_IResourceReader_>)p1;
 
 #pragma mark -
 #pragma mark Methods
@@ -55,7 +55,7 @@
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IDictionaryEnumerator
 	// Managed param types : 
-    - (System_Collections_IDictionaryEnumerator *)getEnumerator;
+    - (id <System_Collections_IDictionaryEnumerator>)getEnumerator;
 
 	// Managed method name : GetObject
 	// Managed return type : System.Object

@@ -2,7 +2,7 @@
 //
 // Managed class : TaskSchedulerException
 //
-@interface System_Threading_Tasks_TaskSchedulerException : System_Exception <System_Runtime_Serialization_ISerializable, System_Runtime_InteropServices__Exception>
+@interface System_Threading_Tasks_TaskSchedulerException : System_Exception <System_Runtime_Serialization_ISerializable_, System_Runtime_InteropServices__Exception_>
 
 #pragma mark -
 #pragma mark Setup

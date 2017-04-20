@@ -28,7 +28,7 @@
 
 	// Managed field name : varkind
 	// Managed field type : System.Runtime.InteropServices.VarEnum
-    @property (nonatomic) System_Runtime_InteropServices_VarEnum varkind;
+    @property (nonatomic) int32_t varkind;
 
 	// Managed field name : wVarFlags
 	// Managed field type : System.Int16

@@ -32,8 +32,12 @@
 	// Managed param types : ref System.Runtime.InteropServices.UCOMIEnumString&
     - (void)clone_withPpenumRef:(System_Runtime_InteropServices_UCOMIEnumString **)p1
     {
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIEnumString.Clone(System.Runtime.InteropServices.UCOMIEnumString&)" withNumArgs:1, &refPtr1];
-;
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+
     }
 
 	// Managed method name : Next

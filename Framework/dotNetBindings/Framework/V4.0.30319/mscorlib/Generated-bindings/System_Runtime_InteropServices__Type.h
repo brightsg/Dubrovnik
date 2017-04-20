@@ -24,7 +24,7 @@
 
 	// Managed property name : Attributes
 	// Managed property type : System.Reflection.TypeAttributes
-    @property (nonatomic, readonly) System_Reflection_TypeAttributes attributes;
+    @property (nonatomic, readonly) int32_t attributes;
 
 	// Managed property name : BaseType
 	// Managed property type : System.Type
@@ -168,7 +168,7 @@
 
 	// Managed property name : MemberType
 	// Managed property type : System.Reflection.MemberTypes
-    @property (nonatomic, readonly) System_Reflection_MemberTypes memberType;
+    @property (nonatomic, readonly) int32_t memberType;
 
 	// Managed property name : Module
 	// Managed property type : System.Reflection.Module
@@ -219,7 +219,7 @@
 	// Managed method name : FindMembers
 	// Managed return type : System.Reflection.MemberInfo[]
 	// Managed param types : System.Reflection.MemberTypes, System.Reflection.BindingFlags, System.Reflection.MemberFilter, System.Object
-    - (DBSystem_Array *)findMembers_withMemberType:(System_Reflection_MemberTypes)p1 bindingAttr:(System_Reflection_BindingFlags)p2 filter:(System_Reflection_MemberFilter *)p3 filterCriteria:(System_Object *)p4;
+    - (DBSystem_Array *)findMembers_withMemberType:(int32_t)p1 bindingAttr:(int32_t)p2 filter:(System_Reflection_MemberFilter *)p3 filterCriteria:(System_Object *)p4;
 
 	// Managed method name : GetArrayRank
 	// Managed return type : System.Int32
@@ -229,12 +229,12 @@
 	// Managed method name : GetConstructor
 	// Managed return type : System.Reflection.ConstructorInfo
 	// Managed param types : System.Reflection.BindingFlags, System.Reflection.Binder, System.Reflection.CallingConventions, System.Type[], System.Reflection.ParameterModifier[]
-    - (System_Reflection_ConstructorInfo *)getConstructor_withBindingAttr:(System_Reflection_BindingFlags)p1 binder:(System_Reflection_Binder *)p2 callConvention:(System_Reflection_CallingConventions)p3 types:(DBSystem_Array *)p4 modifiers:(DBSystem_Array *)p5;
+    - (System_Reflection_ConstructorInfo *)getConstructor_withBindingAttr:(int32_t)p1 binder:(System_Reflection_Binder *)p2 callConvention:(int32_t)p3 types:(DBSystem_Array *)p4 modifiers:(DBSystem_Array *)p5;
 
 	// Managed method name : GetConstructor
 	// Managed return type : System.Reflection.ConstructorInfo
 	// Managed param types : System.Reflection.BindingFlags, System.Reflection.Binder, System.Type[], System.Reflection.ParameterModifier[]
-    - (System_Reflection_ConstructorInfo *)getConstructor_withBindingAttr:(System_Reflection_BindingFlags)p1 binder:(System_Reflection_Binder *)p2 types:(DBSystem_Array *)p3 modifiers:(DBSystem_Array *)p4;
+    - (System_Reflection_ConstructorInfo *)getConstructor_withBindingAttr:(int32_t)p1 binder:(System_Reflection_Binder *)p2 types:(DBSystem_Array *)p3 modifiers:(DBSystem_Array *)p4;
 
 	// Managed method name : GetConstructor
 	// Managed return type : System.Reflection.ConstructorInfo
@@ -244,7 +244,7 @@
 	// Managed method name : GetConstructors
 	// Managed return type : System.Reflection.ConstructorInfo[]
 	// Managed param types : System.Reflection.BindingFlags
-    - (DBSystem_Array *)getConstructors_withBindingAttr:(System_Reflection_BindingFlags)p1;
+    - (DBSystem_Array *)getConstructors_withBindingAttr:(int32_t)p1;
 
 	// Managed method name : GetConstructors
 	// Managed return type : System.Reflection.ConstructorInfo[]
@@ -274,7 +274,7 @@
 	// Managed method name : GetEvent
 	// Managed return type : System.Reflection.EventInfo
 	// Managed param types : System.String, System.Reflection.BindingFlags
-    - (System_Reflection_EventInfo *)getEvent_withName:(NSString *)p1 bindingAttr:(System_Reflection_BindingFlags)p2;
+    - (System_Reflection_EventInfo *)getEvent_withName:(NSString *)p1 bindingAttr:(int32_t)p2;
 
 	// Managed method name : GetEvent
 	// Managed return type : System.Reflection.EventInfo
@@ -289,12 +289,12 @@
 	// Managed method name : GetEvents
 	// Managed return type : System.Reflection.EventInfo[]
 	// Managed param types : System.Reflection.BindingFlags
-    - (DBSystem_Array *)getEvents_withBindingAttr:(System_Reflection_BindingFlags)p1;
+    - (DBSystem_Array *)getEvents_withBindingAttr:(int32_t)p1;
 
 	// Managed method name : GetField
 	// Managed return type : System.Reflection.FieldInfo
 	// Managed param types : System.String, System.Reflection.BindingFlags
-    - (System_Reflection_FieldInfo *)getField_withName:(NSString *)p1 bindingAttr:(System_Reflection_BindingFlags)p2;
+    - (System_Reflection_FieldInfo *)getField_withName:(NSString *)p1 bindingAttr:(int32_t)p2;
 
 	// Managed method name : GetField
 	// Managed return type : System.Reflection.FieldInfo
@@ -304,7 +304,7 @@
 	// Managed method name : GetFields
 	// Managed return type : System.Reflection.FieldInfo[]
 	// Managed param types : System.Reflection.BindingFlags
-    - (DBSystem_Array *)getFields_withBindingAttr:(System_Reflection_BindingFlags)p1;
+    - (DBSystem_Array *)getFields_withBindingAttr:(int32_t)p1;
 
 	// Managed method name : GetFields
 	// Managed return type : System.Reflection.FieldInfo[]
@@ -344,12 +344,12 @@
 	// Managed method name : GetMember
 	// Managed return type : System.Reflection.MemberInfo[]
 	// Managed param types : System.String, System.Reflection.MemberTypes, System.Reflection.BindingFlags
-    - (DBSystem_Array *)getMember_withName:(NSString *)p1 type:(System_Reflection_MemberTypes)p2 bindingAttr:(System_Reflection_BindingFlags)p3;
+    - (DBSystem_Array *)getMember_withName:(NSString *)p1 type:(int32_t)p2 bindingAttr:(int32_t)p3;
 
 	// Managed method name : GetMember
 	// Managed return type : System.Reflection.MemberInfo[]
 	// Managed param types : System.String, System.Reflection.BindingFlags
-    - (DBSystem_Array *)getMember_withName:(NSString *)p1 bindingAttr:(System_Reflection_BindingFlags)p2;
+    - (DBSystem_Array *)getMember_withName:(NSString *)p1 bindingAttr:(int32_t)p2;
 
 	// Managed method name : GetMember
 	// Managed return type : System.Reflection.MemberInfo[]
@@ -359,7 +359,7 @@
 	// Managed method name : GetMembers
 	// Managed return type : System.Reflection.MemberInfo[]
 	// Managed param types : System.Reflection.BindingFlags
-    - (DBSystem_Array *)getMembers_withBindingAttr:(System_Reflection_BindingFlags)p1;
+    - (DBSystem_Array *)getMembers_withBindingAttr:(int32_t)p1;
 
 	// Managed method name : GetMembers
 	// Managed return type : System.Reflection.MemberInfo[]
@@ -369,17 +369,17 @@
 	// Managed method name : GetMethod
 	// Managed return type : System.Reflection.MethodInfo
 	// Managed param types : System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Type[], System.Reflection.ParameterModifier[]
-    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 bindingAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 types:(DBSystem_Array *)p4 modifiers:(DBSystem_Array *)p5;
+    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 bindingAttr:(int32_t)p2 binder:(System_Reflection_Binder *)p3 types:(DBSystem_Array *)p4 modifiers:(DBSystem_Array *)p5;
 
 	// Managed method name : GetMethod
 	// Managed return type : System.Reflection.MethodInfo
 	// Managed param types : System.String, System.Reflection.BindingFlags
-    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 bindingAttr:(System_Reflection_BindingFlags)p2;
+    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 bindingAttr:(int32_t)p2;
 
 	// Managed method name : GetMethod
 	// Managed return type : System.Reflection.MethodInfo
 	// Managed param types : System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Reflection.CallingConventions, System.Type[], System.Reflection.ParameterModifier[]
-    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 bindingAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 callConvention:(System_Reflection_CallingConventions)p4 types:(DBSystem_Array *)p5 modifiers:(DBSystem_Array *)p6;
+    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 bindingAttr:(int32_t)p2 binder:(System_Reflection_Binder *)p3 callConvention:(int32_t)p4 types:(DBSystem_Array *)p5 modifiers:(DBSystem_Array *)p6;
 
 	// Managed method name : GetMethod
 	// Managed return type : System.Reflection.MethodInfo
@@ -399,7 +399,7 @@
 	// Managed method name : GetMethods
 	// Managed return type : System.Reflection.MethodInfo[]
 	// Managed param types : System.Reflection.BindingFlags
-    - (DBSystem_Array *)getMethods_withBindingAttr:(System_Reflection_BindingFlags)p1;
+    - (DBSystem_Array *)getMethods_withBindingAttr:(int32_t)p1;
 
 	// Managed method name : GetMethods
 	// Managed return type : System.Reflection.MethodInfo[]
@@ -409,7 +409,7 @@
 	// Managed method name : GetNestedType
 	// Managed return type : System.Type
 	// Managed param types : System.String, System.Reflection.BindingFlags
-    - (System_Type *)getNestedType_withName:(NSString *)p1 bindingAttr:(System_Reflection_BindingFlags)p2;
+    - (System_Type *)getNestedType_withName:(NSString *)p1 bindingAttr:(int32_t)p2;
 
 	// Managed method name : GetNestedType
 	// Managed return type : System.Type
@@ -419,7 +419,7 @@
 	// Managed method name : GetNestedTypes
 	// Managed return type : System.Type[]
 	// Managed param types : System.Reflection.BindingFlags
-    - (DBSystem_Array *)getNestedTypes_withBindingAttr:(System_Reflection_BindingFlags)p1;
+    - (DBSystem_Array *)getNestedTypes_withBindingAttr:(int32_t)p1;
 
 	// Managed method name : GetNestedTypes
 	// Managed return type : System.Type[]
@@ -429,7 +429,7 @@
 	// Managed method name : GetProperties
 	// Managed return type : System.Reflection.PropertyInfo[]
 	// Managed param types : System.Reflection.BindingFlags
-    - (DBSystem_Array *)getProperties_withBindingAttr:(System_Reflection_BindingFlags)p1;
+    - (DBSystem_Array *)getProperties_withBindingAttr:(int32_t)p1;
 
 	// Managed method name : GetProperties
 	// Managed return type : System.Reflection.PropertyInfo[]
@@ -439,12 +439,12 @@
 	// Managed method name : GetProperty
 	// Managed return type : System.Reflection.PropertyInfo
 	// Managed param types : System.String, System.Reflection.BindingFlags
-    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 bindingAttr:(System_Reflection_BindingFlags)p2;
+    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 bindingAttr:(int32_t)p2;
 
 	// Managed method name : GetProperty
 	// Managed return type : System.Reflection.PropertyInfo
 	// Managed param types : System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Type, System.Type[], System.Reflection.ParameterModifier[]
-    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 bindingAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 returnType:(System_Type *)p4 types:(DBSystem_Array *)p5 modifiers:(DBSystem_Array *)p6;
+    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 bindingAttr:(int32_t)p2 binder:(System_Reflection_Binder *)p3 returnType:(System_Type *)p4 types:(DBSystem_Array *)p5 modifiers:(DBSystem_Array *)p6;
 
 	// Managed method name : GetProperty
 	// Managed return type : System.Reflection.PropertyInfo
@@ -494,17 +494,17 @@
 	// Managed method name : InvokeMember
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object, System.Object[], System.Reflection.ParameterModifier[], System.Globalization.CultureInfo, System.String[]
-    - (System_Object *)invokeMember_withName:(NSString *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 target:(System_Object *)p4 args:(DBSystem_Array *)p5 modifiers:(DBSystem_Array *)p6 culture:(System_Globalization_CultureInfo *)p7 namedParameters:(DBSystem_Array *)p8;
+    - (System_Object *)invokeMember_withName:(NSString *)p1 invokeAttr:(int32_t)p2 binder:(System_Reflection_Binder *)p3 target:(System_Object *)p4 args:(DBSystem_Array *)p5 modifiers:(DBSystem_Array *)p6 culture:(System_Globalization_CultureInfo *)p7 namedParameters:(DBSystem_Array *)p8;
 
 	// Managed method name : InvokeMember
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object, System.Object[], System.Globalization.CultureInfo
-    - (System_Object *)invokeMember_withName:(NSString *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 target:(System_Object *)p4 args:(DBSystem_Array *)p5 culture:(System_Globalization_CultureInfo *)p6;
+    - (System_Object *)invokeMember_withName:(NSString *)p1 invokeAttr:(int32_t)p2 binder:(System_Reflection_Binder *)p3 target:(System_Object *)p4 args:(DBSystem_Array *)p5 culture:(System_Globalization_CultureInfo *)p6;
 
 	// Managed method name : InvokeMember
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object, System.Object[]
-    - (System_Object *)invokeMember_withName:(NSString *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 target:(System_Object *)p4 args:(DBSystem_Array *)p5;
+    - (System_Object *)invokeMember_withName:(NSString *)p1 invokeAttr:(int32_t)p2 binder:(System_Reflection_Binder *)p3 target:(System_Object *)p4 args:(DBSystem_Array *)p5;
 
 	// Managed method name : IsAssignableFrom
 	// Managed return type : System.Boolean

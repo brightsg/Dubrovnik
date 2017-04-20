@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateObjRef(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_ObjRef objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_ObjRef bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetLifetimeService

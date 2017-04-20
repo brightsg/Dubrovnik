@@ -2,7 +2,7 @@
 //
 // Managed class : CryptographicUnexpectedOperationException
 //
-@interface System_Security_Cryptography_CryptographicUnexpectedOperationException : System_Security_Cryptography_CryptographicException <System_Runtime_Serialization_ISerializable, System_Runtime_InteropServices__Exception>
+@interface System_Security_Cryptography_CryptographicUnexpectedOperationException : System_Security_Cryptography_CryptographicException <System_Runtime_Serialization_ISerializable_, System_Runtime_InteropServices__Exception_>
 
 #pragma mark -
 #pragma mark Setup

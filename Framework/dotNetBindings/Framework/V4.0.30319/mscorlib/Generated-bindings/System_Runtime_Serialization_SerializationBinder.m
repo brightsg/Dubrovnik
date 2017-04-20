@@ -32,8 +32,14 @@
 	// Managed param types : System.Type, ref System.String&, ref System.String&
     - (void)bindToName_withSerializedType:(System_Type *)p1 assemblyNameRef:(NSString **)p2 typeNameRef:(NSString **)p3
     {
+		void *refPtr2 = [*p2 monoRTInvokeArg];
+void *refPtr3 = [*p3 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"BindToName(System.Type,string&,string&)" withNumArgs:3, [p1 monoRTInvokeArg], &refPtr2, &refPtr3];
-;
+
+        *p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
+
     }
 
 	// Managed method name : BindToType
@@ -44,7 +50,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"BindToType(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

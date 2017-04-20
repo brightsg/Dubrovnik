@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Tuple`1<System.Tuple`1+T1>";
+		return "System.Tuple`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,7 +32,10 @@
 	// Managed param types : <System.Tuple`1+T1>
     + (System_TupleA1 *)new_withItem1:(System_Object *)p1
     {
-		return [[self alloc] initWithSignature:"<_T_0>" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_TupleA1 * object = [[self alloc] initWithSignature:"<_T_0>" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,9 +46,19 @@
     @synthesize item1 = _item1;
     - (System_Object *)item1
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item1"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item1");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item1 isEqualToMonoObject:monoObject]) return _item1;					
-		_item1 = [System_Object subclassObjectWithMonoObject:monoObject];
+		_item1 = [System_Object bestObjectWithMonoObject:monoObject];
 
 		return _item1;
 	}

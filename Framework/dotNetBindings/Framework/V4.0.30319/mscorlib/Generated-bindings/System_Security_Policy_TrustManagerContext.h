@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Policy.TrustManagerContext
 	// Managed param types : System.Security.Policy.TrustManagerUIContext
-    + (System_Security_Policy_TrustManagerContext *)new_withUiContext:(System_Security_Policy_TrustManagerUIContext)p1;
+    + (System_Security_Policy_TrustManagerContext *)new_withUiContext:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -44,6 +44,6 @@
 
 	// Managed property name : UIContext
 	// Managed property type : System.Security.Policy.TrustManagerUIContext
-    @property (nonatomic) System_Security_Policy_TrustManagerUIContext uIContext;
+    @property (nonatomic) int32_t uIContext;
 @end
 //--Dubrovnik.CodeGenerator

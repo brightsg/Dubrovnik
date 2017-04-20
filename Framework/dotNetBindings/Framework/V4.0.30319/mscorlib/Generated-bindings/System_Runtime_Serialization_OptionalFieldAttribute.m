@@ -32,16 +32,35 @@
     @synthesize versionAdded = _versionAdded;
     - (int32_t)versionAdded
     {
-		MonoObject *monoObject = [self getMonoProperty:"VersionAdded"];
-		_versionAdded = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "VersionAdded");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_versionAdded = monoObject;
 
 		return _versionAdded;
 	}
     - (void)setVersionAdded:(int32_t)value
 	{
 		_versionAdded = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"VersionAdded" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "VersionAdded");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

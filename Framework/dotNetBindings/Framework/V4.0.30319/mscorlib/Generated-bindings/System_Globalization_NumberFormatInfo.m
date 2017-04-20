@@ -32,16 +32,35 @@
     @synthesize currencyDecimalDigits = _currencyDecimalDigits;
     - (int32_t)currencyDecimalDigits
     {
-		MonoObject *monoObject = [self getMonoProperty:"CurrencyDecimalDigits"];
-		_currencyDecimalDigits = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrencyDecimalDigits");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_currencyDecimalDigits = monoObject;
 
 		return _currencyDecimalDigits;
 	}
     - (void)setCurrencyDecimalDigits:(int32_t)value
 	{
 		_currencyDecimalDigits = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"CurrencyDecimalDigits" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CurrencyDecimalDigits");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CurrencyDecimalSeparator
@@ -49,7 +68,17 @@
     @synthesize currencyDecimalSeparator = _currencyDecimalSeparator;
     - (NSString *)currencyDecimalSeparator
     {
-		MonoObject *monoObject = [self getMonoProperty:"CurrencyDecimalSeparator"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrencyDecimalSeparator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_currencyDecimalSeparator isEqualToMonoObject:monoObject]) return _currencyDecimalSeparator;					
 		_currencyDecimalSeparator = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -58,8 +87,17 @@
     - (void)setCurrencyDecimalSeparator:(NSString *)value
 	{
 		_currencyDecimalSeparator = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"CurrencyDecimalSeparator" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CurrencyDecimalSeparator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CurrencyGroupSeparator
@@ -67,7 +105,17 @@
     @synthesize currencyGroupSeparator = _currencyGroupSeparator;
     - (NSString *)currencyGroupSeparator
     {
-		MonoObject *monoObject = [self getMonoProperty:"CurrencyGroupSeparator"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrencyGroupSeparator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_currencyGroupSeparator isEqualToMonoObject:monoObject]) return _currencyGroupSeparator;					
 		_currencyGroupSeparator = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -76,8 +124,17 @@
     - (void)setCurrencyGroupSeparator:(NSString *)value
 	{
 		_currencyGroupSeparator = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"CurrencyGroupSeparator" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CurrencyGroupSeparator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CurrencyGroupSizes
@@ -85,7 +142,17 @@
     @synthesize currencyGroupSizes = _currencyGroupSizes;
     - (DBSystem_Array *)currencyGroupSizes
     {
-		MonoObject *monoObject = [self getMonoProperty:"CurrencyGroupSizes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrencyGroupSizes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_currencyGroupSizes isEqualToMonoObject:monoObject]) return _currencyGroupSizes;					
 		_currencyGroupSizes = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -94,8 +161,17 @@
     - (void)setCurrencyGroupSizes:(DBSystem_Array *)value
 	{
 		_currencyGroupSizes = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"CurrencyGroupSizes" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CurrencyGroupSizes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CurrencyNegativePattern
@@ -103,16 +179,35 @@
     @synthesize currencyNegativePattern = _currencyNegativePattern;
     - (int32_t)currencyNegativePattern
     {
-		MonoObject *monoObject = [self getMonoProperty:"CurrencyNegativePattern"];
-		_currencyNegativePattern = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrencyNegativePattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_currencyNegativePattern = monoObject;
 
 		return _currencyNegativePattern;
 	}
     - (void)setCurrencyNegativePattern:(int32_t)value
 	{
 		_currencyNegativePattern = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"CurrencyNegativePattern" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CurrencyNegativePattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CurrencyPositivePattern
@@ -120,16 +215,35 @@
     @synthesize currencyPositivePattern = _currencyPositivePattern;
     - (int32_t)currencyPositivePattern
     {
-		MonoObject *monoObject = [self getMonoProperty:"CurrencyPositivePattern"];
-		_currencyPositivePattern = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrencyPositivePattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_currencyPositivePattern = monoObject;
 
 		return _currencyPositivePattern;
 	}
     - (void)setCurrencyPositivePattern:(int32_t)value
 	{
 		_currencyPositivePattern = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"CurrencyPositivePattern" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CurrencyPositivePattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CurrencySymbol
@@ -137,7 +251,17 @@
     @synthesize currencySymbol = _currencySymbol;
     - (NSString *)currencySymbol
     {
-		MonoObject *monoObject = [self getMonoProperty:"CurrencySymbol"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrencySymbol");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_currencySymbol isEqualToMonoObject:monoObject]) return _currencySymbol;					
 		_currencySymbol = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -146,8 +270,17 @@
     - (void)setCurrencySymbol:(NSString *)value
 	{
 		_currencySymbol = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"CurrencySymbol" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CurrencySymbol");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CurrentInfo
@@ -155,9 +288,19 @@
     static System_Globalization_NumberFormatInfo * m_currentInfo;
     + (System_Globalization_NumberFormatInfo *)currentInfo
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"CurrentInfo"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrentInfo");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_currentInfo isEqualToMonoObject:monoObject]) return m_currentInfo;					
-		m_currentInfo = [System_Globalization_NumberFormatInfo objectWithMonoObject:monoObject];
+		m_currentInfo = [System_Globalization_NumberFormatInfo bestObjectWithMonoObject:monoObject];
 
 		return m_currentInfo;
 	}
@@ -165,18 +308,37 @@
 	// Managed property name : DigitSubstitution
 	// Managed property type : System.Globalization.DigitShapes
     @synthesize digitSubstitution = _digitSubstitution;
-    - (System_Globalization_DigitShapes)digitSubstitution
+    - (int32_t)digitSubstitution
     {
-		MonoObject *monoObject = [self getMonoProperty:"DigitSubstitution"];
-		_digitSubstitution = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DigitSubstitution");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_digitSubstitution = monoObject;
 
 		return _digitSubstitution;
 	}
-    - (void)setDigitSubstitution:(System_Globalization_DigitShapes)value
+    - (void)setDigitSubstitution:(int32_t)value
 	{
 		_digitSubstitution = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"DigitSubstitution" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "DigitSubstitution");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : InvariantInfo
@@ -184,9 +346,19 @@
     static System_Globalization_NumberFormatInfo * m_invariantInfo;
     + (System_Globalization_NumberFormatInfo *)invariantInfo
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"InvariantInfo"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InvariantInfo");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_invariantInfo isEqualToMonoObject:monoObject]) return m_invariantInfo;					
-		m_invariantInfo = [System_Globalization_NumberFormatInfo objectWithMonoObject:monoObject];
+		m_invariantInfo = [System_Globalization_NumberFormatInfo bestObjectWithMonoObject:monoObject];
 
 		return m_invariantInfo;
 	}
@@ -196,8 +368,18 @@
     @synthesize isReadOnly = _isReadOnly;
     - (BOOL)isReadOnly
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsReadOnly"];
-		_isReadOnly = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsReadOnly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isReadOnly = monoObject;
 
 		return _isReadOnly;
 	}
@@ -207,7 +389,17 @@
     @synthesize naNSymbol = _naNSymbol;
     - (NSString *)naNSymbol
     {
-		MonoObject *monoObject = [self getMonoProperty:"NaNSymbol"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NaNSymbol");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_naNSymbol isEqualToMonoObject:monoObject]) return _naNSymbol;					
 		_naNSymbol = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -216,8 +408,17 @@
     - (void)setNaNSymbol:(NSString *)value
 	{
 		_naNSymbol = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"NaNSymbol" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "NaNSymbol");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : NativeDigits
@@ -225,7 +426,17 @@
     @synthesize nativeDigits = _nativeDigits;
     - (DBSystem_Array *)nativeDigits
     {
-		MonoObject *monoObject = [self getMonoProperty:"NativeDigits"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NativeDigits");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_nativeDigits isEqualToMonoObject:monoObject]) return _nativeDigits;					
 		_nativeDigits = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -234,8 +445,17 @@
     - (void)setNativeDigits:(DBSystem_Array *)value
 	{
 		_nativeDigits = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"NativeDigits" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "NativeDigits");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : NegativeInfinitySymbol
@@ -243,7 +463,17 @@
     @synthesize negativeInfinitySymbol = _negativeInfinitySymbol;
     - (NSString *)negativeInfinitySymbol
     {
-		MonoObject *monoObject = [self getMonoProperty:"NegativeInfinitySymbol"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NegativeInfinitySymbol");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_negativeInfinitySymbol isEqualToMonoObject:monoObject]) return _negativeInfinitySymbol;					
 		_negativeInfinitySymbol = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -252,8 +482,17 @@
     - (void)setNegativeInfinitySymbol:(NSString *)value
 	{
 		_negativeInfinitySymbol = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"NegativeInfinitySymbol" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "NegativeInfinitySymbol");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : NegativeSign
@@ -261,7 +500,17 @@
     @synthesize negativeSign = _negativeSign;
     - (NSString *)negativeSign
     {
-		MonoObject *monoObject = [self getMonoProperty:"NegativeSign"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NegativeSign");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_negativeSign isEqualToMonoObject:monoObject]) return _negativeSign;					
 		_negativeSign = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -270,8 +519,17 @@
     - (void)setNegativeSign:(NSString *)value
 	{
 		_negativeSign = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"NegativeSign" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "NegativeSign");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : NumberDecimalDigits
@@ -279,16 +537,35 @@
     @synthesize numberDecimalDigits = _numberDecimalDigits;
     - (int32_t)numberDecimalDigits
     {
-		MonoObject *monoObject = [self getMonoProperty:"NumberDecimalDigits"];
-		_numberDecimalDigits = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NumberDecimalDigits");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_numberDecimalDigits = monoObject;
 
 		return _numberDecimalDigits;
 	}
     - (void)setNumberDecimalDigits:(int32_t)value
 	{
 		_numberDecimalDigits = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"NumberDecimalDigits" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "NumberDecimalDigits");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : NumberDecimalSeparator
@@ -296,7 +573,17 @@
     @synthesize numberDecimalSeparator = _numberDecimalSeparator;
     - (NSString *)numberDecimalSeparator
     {
-		MonoObject *monoObject = [self getMonoProperty:"NumberDecimalSeparator"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NumberDecimalSeparator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_numberDecimalSeparator isEqualToMonoObject:monoObject]) return _numberDecimalSeparator;					
 		_numberDecimalSeparator = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -305,8 +592,17 @@
     - (void)setNumberDecimalSeparator:(NSString *)value
 	{
 		_numberDecimalSeparator = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"NumberDecimalSeparator" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "NumberDecimalSeparator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : NumberGroupSeparator
@@ -314,7 +610,17 @@
     @synthesize numberGroupSeparator = _numberGroupSeparator;
     - (NSString *)numberGroupSeparator
     {
-		MonoObject *monoObject = [self getMonoProperty:"NumberGroupSeparator"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NumberGroupSeparator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_numberGroupSeparator isEqualToMonoObject:monoObject]) return _numberGroupSeparator;					
 		_numberGroupSeparator = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -323,8 +629,17 @@
     - (void)setNumberGroupSeparator:(NSString *)value
 	{
 		_numberGroupSeparator = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"NumberGroupSeparator" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "NumberGroupSeparator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : NumberGroupSizes
@@ -332,7 +647,17 @@
     @synthesize numberGroupSizes = _numberGroupSizes;
     - (DBSystem_Array *)numberGroupSizes
     {
-		MonoObject *monoObject = [self getMonoProperty:"NumberGroupSizes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NumberGroupSizes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_numberGroupSizes isEqualToMonoObject:monoObject]) return _numberGroupSizes;					
 		_numberGroupSizes = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -341,8 +666,17 @@
     - (void)setNumberGroupSizes:(DBSystem_Array *)value
 	{
 		_numberGroupSizes = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"NumberGroupSizes" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "NumberGroupSizes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : NumberNegativePattern
@@ -350,16 +684,35 @@
     @synthesize numberNegativePattern = _numberNegativePattern;
     - (int32_t)numberNegativePattern
     {
-		MonoObject *monoObject = [self getMonoProperty:"NumberNegativePattern"];
-		_numberNegativePattern = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NumberNegativePattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_numberNegativePattern = monoObject;
 
 		return _numberNegativePattern;
 	}
     - (void)setNumberNegativePattern:(int32_t)value
 	{
 		_numberNegativePattern = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"NumberNegativePattern" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "NumberNegativePattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : PercentDecimalDigits
@@ -367,16 +720,35 @@
     @synthesize percentDecimalDigits = _percentDecimalDigits;
     - (int32_t)percentDecimalDigits
     {
-		MonoObject *monoObject = [self getMonoProperty:"PercentDecimalDigits"];
-		_percentDecimalDigits = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PercentDecimalDigits");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_percentDecimalDigits = monoObject;
 
 		return _percentDecimalDigits;
 	}
     - (void)setPercentDecimalDigits:(int32_t)value
 	{
 		_percentDecimalDigits = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"PercentDecimalDigits" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "PercentDecimalDigits");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : PercentDecimalSeparator
@@ -384,7 +756,17 @@
     @synthesize percentDecimalSeparator = _percentDecimalSeparator;
     - (NSString *)percentDecimalSeparator
     {
-		MonoObject *monoObject = [self getMonoProperty:"PercentDecimalSeparator"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PercentDecimalSeparator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_percentDecimalSeparator isEqualToMonoObject:monoObject]) return _percentDecimalSeparator;					
 		_percentDecimalSeparator = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -393,8 +775,17 @@
     - (void)setPercentDecimalSeparator:(NSString *)value
 	{
 		_percentDecimalSeparator = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"PercentDecimalSeparator" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "PercentDecimalSeparator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : PercentGroupSeparator
@@ -402,7 +793,17 @@
     @synthesize percentGroupSeparator = _percentGroupSeparator;
     - (NSString *)percentGroupSeparator
     {
-		MonoObject *monoObject = [self getMonoProperty:"PercentGroupSeparator"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PercentGroupSeparator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_percentGroupSeparator isEqualToMonoObject:monoObject]) return _percentGroupSeparator;					
 		_percentGroupSeparator = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -411,8 +812,17 @@
     - (void)setPercentGroupSeparator:(NSString *)value
 	{
 		_percentGroupSeparator = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"PercentGroupSeparator" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "PercentGroupSeparator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : PercentGroupSizes
@@ -420,7 +830,17 @@
     @synthesize percentGroupSizes = _percentGroupSizes;
     - (DBSystem_Array *)percentGroupSizes
     {
-		MonoObject *monoObject = [self getMonoProperty:"PercentGroupSizes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PercentGroupSizes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_percentGroupSizes isEqualToMonoObject:monoObject]) return _percentGroupSizes;					
 		_percentGroupSizes = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -429,8 +849,17 @@
     - (void)setPercentGroupSizes:(DBSystem_Array *)value
 	{
 		_percentGroupSizes = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"PercentGroupSizes" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "PercentGroupSizes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : PercentNegativePattern
@@ -438,16 +867,35 @@
     @synthesize percentNegativePattern = _percentNegativePattern;
     - (int32_t)percentNegativePattern
     {
-		MonoObject *monoObject = [self getMonoProperty:"PercentNegativePattern"];
-		_percentNegativePattern = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PercentNegativePattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_percentNegativePattern = monoObject;
 
 		return _percentNegativePattern;
 	}
     - (void)setPercentNegativePattern:(int32_t)value
 	{
 		_percentNegativePattern = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"PercentNegativePattern" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "PercentNegativePattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : PercentPositivePattern
@@ -455,16 +903,35 @@
     @synthesize percentPositivePattern = _percentPositivePattern;
     - (int32_t)percentPositivePattern
     {
-		MonoObject *monoObject = [self getMonoProperty:"PercentPositivePattern"];
-		_percentPositivePattern = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PercentPositivePattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_percentPositivePattern = monoObject;
 
 		return _percentPositivePattern;
 	}
     - (void)setPercentPositivePattern:(int32_t)value
 	{
 		_percentPositivePattern = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"PercentPositivePattern" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "PercentPositivePattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : PercentSymbol
@@ -472,7 +939,17 @@
     @synthesize percentSymbol = _percentSymbol;
     - (NSString *)percentSymbol
     {
-		MonoObject *monoObject = [self getMonoProperty:"PercentSymbol"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PercentSymbol");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_percentSymbol isEqualToMonoObject:monoObject]) return _percentSymbol;					
 		_percentSymbol = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -481,8 +958,17 @@
     - (void)setPercentSymbol:(NSString *)value
 	{
 		_percentSymbol = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"PercentSymbol" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "PercentSymbol");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : PerMilleSymbol
@@ -490,7 +976,17 @@
     @synthesize perMilleSymbol = _perMilleSymbol;
     - (NSString *)perMilleSymbol
     {
-		MonoObject *monoObject = [self getMonoProperty:"PerMilleSymbol"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PerMilleSymbol");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_perMilleSymbol isEqualToMonoObject:monoObject]) return _perMilleSymbol;					
 		_perMilleSymbol = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -499,8 +995,17 @@
     - (void)setPerMilleSymbol:(NSString *)value
 	{
 		_perMilleSymbol = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"PerMilleSymbol" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "PerMilleSymbol");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : PositiveInfinitySymbol
@@ -508,7 +1013,17 @@
     @synthesize positiveInfinitySymbol = _positiveInfinitySymbol;
     - (NSString *)positiveInfinitySymbol
     {
-		MonoObject *monoObject = [self getMonoProperty:"PositiveInfinitySymbol"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PositiveInfinitySymbol");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_positiveInfinitySymbol isEqualToMonoObject:monoObject]) return _positiveInfinitySymbol;					
 		_positiveInfinitySymbol = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -517,8 +1032,17 @@
     - (void)setPositiveInfinitySymbol:(NSString *)value
 	{
 		_positiveInfinitySymbol = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"PositiveInfinitySymbol" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "PositiveInfinitySymbol");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : PositiveSign
@@ -526,7 +1050,17 @@
     @synthesize positiveSign = _positiveSign;
     - (NSString *)positiveSign
     {
-		MonoObject *monoObject = [self getMonoProperty:"PositiveSign"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PositiveSign");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_positiveSign isEqualToMonoObject:monoObject]) return _positiveSign;					
 		_positiveSign = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -535,8 +1069,17 @@
     - (void)setPositiveSign:(NSString *)value
 	{
 		_positiveSign = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"PositiveSign" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "PositiveSign");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -567,12 +1110,12 @@
 	// Managed method name : GetInstance
 	// Managed return type : System.Globalization.NumberFormatInfo
 	// Managed param types : System.IFormatProvider
-    + (System_Globalization_NumberFormatInfo *)getInstance_withFormatProvider:(System_IFormatProvider *)p1
+    + (System_Globalization_NumberFormatInfo *)getInstance_withFormatProvider:(id <System_IFormatProvider_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetInstance(System.IFormatProvider)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Globalization_NumberFormatInfo objectWithMonoObject:monoObject];
+		return [System_Globalization_NumberFormatInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReadOnly
@@ -583,7 +1126,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Globalization.NumberFormatInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Globalization_NumberFormatInfo objectWithMonoObject:monoObject];
+		return [System_Globalization_NumberFormatInfo bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

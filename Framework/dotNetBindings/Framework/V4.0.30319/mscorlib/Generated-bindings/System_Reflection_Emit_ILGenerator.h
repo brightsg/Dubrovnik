@@ -2,7 +2,7 @@
 //
 // Managed class : ILGenerator
 //
-@interface System_Reflection_Emit_ILGenerator : System_Object <System_Runtime_InteropServices__ILGenerator>
+@interface System_Reflection_Emit_ILGenerator : System_Object <System_Runtime_InteropServices__ILGenerator_>
 
 #pragma mark -
 #pragma mark Setup
@@ -159,12 +159,12 @@
 	// Managed method name : EmitCalli
 	// Managed return type : System.Void
 	// Managed param types : System.Reflection.Emit.OpCode, System.Reflection.CallingConventions, System.Type, System.Type[], System.Type[]
-    - (void)emitCalli_withOpcode:(System_Reflection_Emit_OpCode *)p1 callingConvention:(System_Reflection_CallingConventions)p2 returnType:(System_Type *)p3 parameterTypes:(DBSystem_Array *)p4 optionalParameterTypes:(DBSystem_Array *)p5;
+    - (void)emitCalli_withOpcode:(System_Reflection_Emit_OpCode *)p1 callingConvention:(int32_t)p2 returnType:(System_Type *)p3 parameterTypes:(DBSystem_Array *)p4 optionalParameterTypes:(DBSystem_Array *)p5;
 
 	// Managed method name : EmitCalli
 	// Managed return type : System.Void
 	// Managed param types : System.Reflection.Emit.OpCode, System.Runtime.InteropServices.CallingConvention, System.Type, System.Type[]
-    - (void)emitCalli_withOpcode:(System_Reflection_Emit_OpCode *)p1 unmanagedCallConv:(System_Runtime_InteropServices_CallingConvention)p2 returnType:(System_Type *)p3 parameterTypes:(DBSystem_Array *)p4;
+    - (void)emitCalli_withOpcode:(System_Reflection_Emit_OpCode *)p1 unmanagedCallConv:(int32_t)p2 returnType:(System_Type *)p3 parameterTypes:(DBSystem_Array *)p4;
 
 	// Managed method name : EmitWriteLine
 	// Managed return type : System.Void
@@ -199,7 +199,7 @@
 	// Managed method name : MarkSequencePoint
 	// Managed return type : System.Void
 	// Managed param types : System.Diagnostics.SymbolStore.ISymbolDocumentWriter, System.Int32, System.Int32, System.Int32, System.Int32
-    - (void)markSequencePoint_withDocument:(System_Diagnostics_SymbolStore_ISymbolDocumentWriter *)p1 startLine:(int32_t)p2 startColumn:(int32_t)p3 endLine:(int32_t)p4 endColumn:(int32_t)p5;
+    - (void)markSequencePoint_withDocument:(id <System_Diagnostics_SymbolStore_ISymbolDocumentWriter_>)p1 startLine:(int32_t)p2 startColumn:(int32_t)p3 endLine:(int32_t)p4 endColumn:(int32_t)p5;
 
 	// Managed method name : ThrowException
 	// Managed return type : System.Void

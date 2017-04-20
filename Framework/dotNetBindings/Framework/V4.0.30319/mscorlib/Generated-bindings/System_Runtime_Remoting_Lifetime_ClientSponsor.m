@@ -32,7 +32,10 @@
 	// Managed param types : System.TimeSpan
     + (System_Runtime_Remoting_Lifetime_ClientSponsor *)new_withRenewalTime:(System_TimeSpan *)p1
     {
-		return [[self alloc] initWithSignature:"System.TimeSpan" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Runtime_Remoting_Lifetime_ClientSponsor * object = [[self alloc] initWithSignature:"System.TimeSpan" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,17 +46,36 @@
     @synthesize renewalTime = _renewalTime;
     - (System_TimeSpan *)renewalTime
     {
-		MonoObject *monoObject = [self getMonoProperty:"RenewalTime"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RenewalTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_renewalTime isEqualToMonoObject:monoObject]) return _renewalTime;					
-		_renewalTime = [System_TimeSpan objectWithMonoObject:monoObject];
+		_renewalTime = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
 		return _renewalTime;
 	}
     - (void)setRenewalTime:(System_TimeSpan *)value
 	{
 		_renewalTime = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"RenewalTime" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "RenewalTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -64,7 +86,9 @@
 	// Managed param types : 
     - (void)close
     {
-		[self invokeMonoMethod:"Close()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Close()" withNumArgs:0];
+        
     }
 
 	// Managed method name : InitializeLifetimeService
@@ -92,12 +116,12 @@
 	// Managed method name : Renewal
 	// Managed return type : System.TimeSpan
 	// Managed param types : System.Runtime.Remoting.Lifetime.ILease
-    - (System_TimeSpan *)renewal_withLease:(System_Runtime_Remoting_Lifetime_ILease *)p1
+    - (System_TimeSpan *)renewal_withLease:(id <System_Runtime_Remoting_Lifetime_ILease_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Renewal(System.Runtime.Remoting.Lifetime.ILease)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Unregister
@@ -105,7 +129,9 @@
 	// Managed param types : System.MarshalByRefObject
     - (void)unregister_withObj:(System_MarshalByRefObject *)p1
     {
-		[self invokeMonoMethod:"Unregister(System.MarshalByRefObject)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Unregister(System.MarshalByRefObject)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

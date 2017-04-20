@@ -29,26 +29,35 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Queue
-	// Managed param types : System.Int32, System.Single
-    + (System_Collections_Queue *)new_withCapacity:(int32_t)p1 growFactor:(float)p2
+	// Managed param types : System.Int32
+    + (System_Collections_Queue *)new_withCapacity:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int,single" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		System_Collections_Queue * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Queue
-	// Managed param types : System.Int32
-    + (System_Collections_Queue *)new_withCapacity:(int32_t)p1
+	// Managed param types : System.Int32, System.Single
+    + (System_Collections_Queue *)new_withCapacity:(int32_t)p1 growFactor:(float)p2
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Collections_Queue * object = [[self alloc] initWithSignature:"int,single" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Queue
 	// Managed param types : System.Collections.ICollection
-    + (System_Collections_Queue *)new_withCol:(System_Collections_ICollection *)p1
+    + (System_Collections_Queue *)new_withCol:(id <System_Collections_ICollection_>)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.ICollection" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Collections_Queue * object = [[self alloc] initWithSignature:"System.Collections.ICollection" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -59,8 +68,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -70,8 +89,18 @@
     @synthesize isSynchronized = _isSynchronized;
     - (BOOL)isSynchronized
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsSynchronized"];
-		_isSynchronized = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsSynchronized");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isSynchronized = monoObject;
 
 		return _isSynchronized;
 	}
@@ -81,7 +110,17 @@
     @synthesize syncRoot = _syncRoot;
     - (System_Object *)syncRoot
     {
-		MonoObject *monoObject = [self getMonoProperty:"SyncRoot"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SyncRoot");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_syncRoot isEqualToMonoObject:monoObject]) return _syncRoot;					
 		_syncRoot = [System_Object objectWithMonoObject:monoObject];
 
@@ -96,7 +135,9 @@
 	// Managed param types : 
     - (void)clear
     {
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Clone
@@ -126,7 +167,9 @@
 	// Managed param types : System.Array, System.Int32
     - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : Dequeue
@@ -145,18 +188,20 @@
 	// Managed param types : System.Object
     - (void)enqueue_withObj:(System_Object *)p1
     {
-		[self invokeMonoMethod:"Enqueue(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Enqueue(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IEnumerator
 	// Managed param types : 
-    - (System_Collections_IEnumerator *)getEnumerator
+    - (id <System_Collections_IEnumerator>)getEnumerator
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
 		
-		return [System_Collections_IEnumerator objectWithMonoObject:monoObject];
+		return [System_Collections_IEnumerator bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Peek
@@ -178,7 +223,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Synchronized(System.Collections.Queue)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Collections_Queue objectWithMonoObject:monoObject];
+		return [System_Collections_Queue bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToArray
@@ -197,7 +242,9 @@
 	// Managed param types : 
     - (void)trimToSize
     {
-		[self invokeMonoMethod:"TrimToSize()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"TrimToSize()" withNumArgs:0];
+        
     }
 
 #pragma mark -

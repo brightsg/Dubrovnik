@@ -32,7 +32,10 @@
 	// Managed param types : System.Byte[]
     + (System_Security_Cryptography_MACTripleDES *)new_withRgbKey:(NSData *)p1
     {
-		return [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_MACTripleDES * object = [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.String, System.Byte[]
     + (System_Security_Cryptography_MACTripleDES *)new_withStrTripleDES:(NSString *)p1 rgbKey:(NSData *)p2
     {
-		return [[self alloc] initWithSignature:"string,byte[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_MACTripleDES * object = [[self alloc] initWithSignature:"string,byte[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -49,18 +55,37 @@
 	// Managed property name : Padding
 	// Managed property type : System.Security.Cryptography.PaddingMode
     @synthesize padding = _padding;
-    - (System_Security_Cryptography_PaddingMode)padding
+    - (int32_t)padding
     {
-		MonoObject *monoObject = [self getMonoProperty:"Padding"];
-		_padding = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Padding");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_padding = monoObject;
 
 		return _padding;
 	}
-    - (void)setPadding:(System_Security_Cryptography_PaddingMode)value
+    - (void)setPadding:(int32_t)value
 	{
 		_padding = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Padding" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Padding");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -71,7 +96,9 @@
 	// Managed param types : 
     - (void)initialize
     {
-		[self invokeMonoMethod:"Initialize()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Initialize()" withNumArgs:0];
+        
     }
 
 #pragma mark -

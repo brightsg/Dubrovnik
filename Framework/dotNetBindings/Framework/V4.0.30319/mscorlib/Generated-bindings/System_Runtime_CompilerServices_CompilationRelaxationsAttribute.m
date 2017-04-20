@@ -32,15 +32,21 @@
 	// Managed param types : System.Int32
     + (System_Runtime_CompilerServices_CompilationRelaxationsAttribute *)new_withRelaxationsInt:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Runtime_CompilerServices_CompilationRelaxationsAttribute * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.CompilerServices.CompilationRelaxationsAttribute
 	// Managed param types : System.Runtime.CompilerServices.CompilationRelaxations
-    + (System_Runtime_CompilerServices_CompilationRelaxationsAttribute *)new_withRelaxationsSRCCompilationRelaxations:(System_Runtime_CompilerServices_CompilationRelaxations)p1
+    + (System_Runtime_CompilerServices_CompilationRelaxationsAttribute *)new_withRelaxationsSRCCompilationRelaxations:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.CompilerServices.CompilationRelaxations" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Runtime_CompilerServices_CompilationRelaxationsAttribute * object = [[self alloc] initWithSignature:"System.Runtime.CompilerServices.CompilationRelaxations" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -51,8 +57,18 @@
     @synthesize compilationRelaxations = _compilationRelaxations;
     - (int32_t)compilationRelaxations
     {
-		MonoObject *monoObject = [self getMonoProperty:"CompilationRelaxations"];
-		_compilationRelaxations = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CompilationRelaxations");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_compilationRelaxations = monoObject;
 
 		return _compilationRelaxations;
 	}

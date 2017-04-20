@@ -30,12 +30,12 @@
 	// Managed method name : CreateConstructionReturnMessage
 	// Managed return type : System.Runtime.Remoting.Activation.IConstructionReturnMessage
 	// Managed param types : System.Runtime.Remoting.Activation.IConstructionCallMessage, System.MarshalByRefObject
-    + (System_Runtime_Remoting_Activation_IConstructionReturnMessage *)createConstructionReturnMessage_withCtorMsg:(System_Runtime_Remoting_Activation_IConstructionCallMessage *)p1 retObj:(System_MarshalByRefObject *)p2
+    + (id <System_Runtime_Remoting_Activation_IConstructionReturnMessage>)createConstructionReturnMessage_withCtorMsg:(id <System_Runtime_Remoting_Activation_IConstructionCallMessage_>)p1 retObj:(System_MarshalByRefObject *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateConstructionReturnMessage(System.Runtime.Remoting.Activation.IConstructionCallMessage,System.MarshalByRefObject)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_Activation_IConstructionReturnMessage objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Activation_IConstructionReturnMessage bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SwitchWrappers
@@ -43,7 +43,9 @@
 	// Managed param types : System.Runtime.Remoting.Proxies.RealProxy, System.Runtime.Remoting.Proxies.RealProxy
     + (void)switchWrappers_withOldcp:(System_Runtime_Remoting_Proxies_RealProxy *)p1 newcp:(System_Runtime_Remoting_Proxies_RealProxy *)p2
     {
-		[self invokeMonoClassMethod:"SwitchWrappers(System.Runtime.Remoting.Proxies.RealProxy,System.Runtime.Remoting.Proxies.RealProxy)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SwitchWrappers(System.Runtime.Remoting.Proxies.RealProxy,System.Runtime.Remoting.Proxies.RealProxy)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : WrapIUnknownWithComObject

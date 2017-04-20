@@ -30,17 +30,23 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.EnvironmentPermission
 	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Security_Permissions_EnvironmentPermission *)new_withState:(System_Security_Permissions_PermissionState)p1
+    + (System_Security_Permissions_EnvironmentPermission *)new_withState:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Security_Permissions_EnvironmentPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.EnvironmentPermission
 	// Managed param types : System.Security.Permissions.EnvironmentPermissionAccess, System.String
-    + (System_Security_Permissions_EnvironmentPermission *)new_withFlag:(System_Security_Permissions_EnvironmentPermissionAccess)p1 pathList:(NSString *)p2
+    + (System_Security_Permissions_EnvironmentPermission *)new_withFlag:(int32_t)p1 pathList:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.EnvironmentPermissionAccess,string" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		System_Security_Permissions_EnvironmentPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.EnvironmentPermissionAccess,string" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -49,20 +55,22 @@
 	// Managed method name : AddPathList
 	// Managed return type : System.Void
 	// Managed param types : System.Security.Permissions.EnvironmentPermissionAccess, System.String
-    - (void)addPathList_withFlag:(System_Security_Permissions_EnvironmentPermissionAccess)p1 pathList:(NSString *)p2
+    - (void)addPathList_withFlag:(int32_t)p1 pathList:(NSString *)p2
     {
-		[self invokeMonoMethod:"AddPathList(System.Security.Permissions.EnvironmentPermissionAccess,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"AddPathList(System.Security.Permissions.EnvironmentPermissionAccess,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Copy
 	// Managed return type : System.Security.IPermission
 	// Managed param types : 
-    - (System_Security_IPermission *)copy
+    - (id <System_Security_IPermission>)copy
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromXml
@@ -70,13 +78,15 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)fromXml_withEsd:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetPathList
 	// Managed return type : System.String
 	// Managed param types : System.Security.Permissions.EnvironmentPermissionAccess
-    - (NSString *)getPathList_withFlag:(System_Security_Permissions_EnvironmentPermissionAccess)p1
+    - (NSString *)getPathList_withFlag:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetPathList(System.Security.Permissions.EnvironmentPermissionAccess)" withNumArgs:1, DB_VALUE(p1)];
@@ -87,18 +97,18 @@
 	// Managed method name : Intersect
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.IPermission
-    - (System_Security_IPermission *)intersect_withTarget:(System_Security_IPermission *)p1
+    - (id <System_Security_IPermission>)intersect_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsSubsetOf
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.IPermission
-    - (BOOL)isSubsetOf_withTarget:(System_Security_IPermission *)p1
+    - (BOOL)isSubsetOf_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -120,9 +130,11 @@
 	// Managed method name : SetPathList
 	// Managed return type : System.Void
 	// Managed param types : System.Security.Permissions.EnvironmentPermissionAccess, System.String
-    - (void)setPathList_withFlag:(System_Security_Permissions_EnvironmentPermissionAccess)p1 pathList:(NSString *)p2
+    - (void)setPathList_withFlag:(int32_t)p1 pathList:(NSString *)p2
     {
-		[self invokeMonoMethod:"SetPathList(System.Security.Permissions.EnvironmentPermissionAccess,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetPathList(System.Security.Permissions.EnvironmentPermissionAccess,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : ToXml
@@ -133,18 +145,18 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml()" withNumArgs:0];
 		
-		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
+		return [System_Security_SecurityElement bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Union
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.IPermission
-    - (System_Security_IPermission *)union_withOther:(System_Security_IPermission *)p1
+    - (id <System_Security_IPermission>)union_withOther:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

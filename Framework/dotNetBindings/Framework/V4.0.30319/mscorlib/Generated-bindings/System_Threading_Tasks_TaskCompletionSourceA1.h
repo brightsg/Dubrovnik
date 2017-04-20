@@ -16,18 +16,18 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.Tasks.TaskCompletionSource`1<System.Threading.Tasks.TaskCompletionSource`1+TResult>
-	// Managed param types : System.Object, System.Threading.Tasks.TaskCreationOptions
-    + (System_Threading_Tasks_TaskCompletionSourceA1 *)new_withState:(System_Object *)p1 creationOptions:(System_Threading_Tasks_TaskCreationOptions)p2;
-
-	// Managed method name : .ctor
-	// Managed return type : System.Threading.Tasks.TaskCompletionSource`1<System.Threading.Tasks.TaskCompletionSource`1+TResult>
 	// Managed param types : System.Threading.Tasks.TaskCreationOptions
-    + (System_Threading_Tasks_TaskCompletionSourceA1 *)new_withCreationOptions:(System_Threading_Tasks_TaskCreationOptions)p1;
+    + (System_Threading_Tasks_TaskCompletionSourceA1 *)new_withCreationOptions:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.Tasks.TaskCompletionSource`1<System.Threading.Tasks.TaskCompletionSource`1+TResult>
 	// Managed param types : System.Object
     + (System_Threading_Tasks_TaskCompletionSourceA1 *)new_withState:(System_Object *)p1;
+
+	// Managed method name : .ctor
+	// Managed return type : System.Threading.Tasks.TaskCompletionSource`1<System.Threading.Tasks.TaskCompletionSource`1+TResult>
+	// Managed param types : System.Object, System.Threading.Tasks.TaskCreationOptions
+    + (System_Threading_Tasks_TaskCompletionSourceA1 *)new_withState:(System_Object *)p1 creationOptions:(int32_t)p2;
 
 #pragma mark -
 #pragma mark Properties
@@ -52,7 +52,7 @@
 	// Managed method name : SetException
 	// Managed return type : System.Void
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Exception>
-    - (void)setException_withExceptions:(System_Collections_Generic_IEnumerableA1 *)p1;
+    - (void)setException_withExceptions:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
 	// Managed method name : SetResult
 	// Managed return type : System.Void
@@ -64,6 +64,11 @@
 	// Managed param types : 
     - (BOOL)trySetCanceled;
 
+	// Managed method name : TrySetCanceled
+	// Managed return type : System.Boolean
+	// Managed param types : System.Threading.CancellationToken
+    - (BOOL)trySetCanceled_withCancellationToken:(System_Threading_CancellationToken *)p1;
+
 	// Managed method name : TrySetException
 	// Managed return type : System.Boolean
 	// Managed param types : System.Exception
@@ -72,7 +77,7 @@
 	// Managed method name : TrySetException
 	// Managed return type : System.Boolean
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Exception>
-    - (BOOL)trySetException_withExceptions:(System_Collections_Generic_IEnumerableA1 *)p1;
+    - (BOOL)trySetException_withExceptions:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
 	// Managed method name : TrySetResult
 	// Managed return type : System.Boolean

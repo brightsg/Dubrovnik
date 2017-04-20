@@ -2,7 +2,7 @@
 //
 // Managed struct : DateTimeOffset
 //
-@interface System_DateTimeOffset : DBManagedObject <System_IComparable, System_IFormattable, System_Runtime_Serialization_ISerializable, System_Runtime_Serialization_IDeserializationCallback, System_IComparableA1, System_IEquatableA1>
+@interface System_DateTimeOffset : DBManagedObject <System_IComparable_, System_IFormattable_, System_Runtime_Serialization_ISerializable_, System_Runtime_Serialization_IDeserializationCallback_, System_IComparableA1_, System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -72,7 +72,7 @@
 
 	// Managed property name : DayOfWeek
 	// Managed property type : System.DayOfWeek
-    @property (nonatomic, readonly) System_DayOfWeek dayOfWeek;
+    @property (nonatomic, readonly) int32_t dayOfWeek;
 
 	// Managed property name : DayOfYear
 	// Managed property type : System.Int32
@@ -217,6 +217,16 @@
 	// Managed param types : System.Int64
     + (System_DateTimeOffset *)fromFileTime_withFileTime:(int64_t)p1;
 
+	// Managed method name : FromUnixTimeMilliseconds
+	// Managed return type : System.DateTimeOffset
+	// Managed param types : System.Int64
+    + (System_DateTimeOffset *)fromUnixTimeMilliseconds_withMilliseconds:(int64_t)p1;
+
+	// Managed method name : FromUnixTimeSeconds
+	// Managed return type : System.DateTimeOffset
+	// Managed param types : System.Int64
+    + (System_DateTimeOffset *)fromUnixTimeSeconds_withSeconds:(int64_t)p1;
+
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
 	// Managed param types : 
@@ -280,27 +290,27 @@
 	// Managed method name : Parse
 	// Managed return type : System.DateTimeOffset
 	// Managed param types : System.String, System.IFormatProvider
-    + (System_DateTimeOffset *)parse_withInput:(NSString *)p1 formatProvider:(System_IFormatProvider *)p2;
+    + (System_DateTimeOffset *)parse_withInput:(NSString *)p1 formatProvider:(id <System_IFormatProvider_>)p2;
 
 	// Managed method name : Parse
 	// Managed return type : System.DateTimeOffset
 	// Managed param types : System.String, System.IFormatProvider, System.Globalization.DateTimeStyles
-    + (System_DateTimeOffset *)parse_withInput:(NSString *)p1 formatProvider:(System_IFormatProvider *)p2 styles:(System_Globalization_DateTimeStyles)p3;
+    + (System_DateTimeOffset *)parse_withInput:(NSString *)p1 formatProvider:(id <System_IFormatProvider_>)p2 styles:(int32_t)p3;
 
 	// Managed method name : ParseExact
 	// Managed return type : System.DateTimeOffset
 	// Managed param types : System.String, System.String, System.IFormatProvider
-    + (System_DateTimeOffset *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(System_IFormatProvider *)p3;
+    + (System_DateTimeOffset *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(id <System_IFormatProvider_>)p3;
 
 	// Managed method name : ParseExact
 	// Managed return type : System.DateTimeOffset
 	// Managed param types : System.String, System.String, System.IFormatProvider, System.Globalization.DateTimeStyles
-    + (System_DateTimeOffset *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_DateTimeStyles)p4;
+    + (System_DateTimeOffset *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(id <System_IFormatProvider_>)p3 styles:(int32_t)p4;
 
 	// Managed method name : ParseExact
 	// Managed return type : System.DateTimeOffset
 	// Managed param types : System.String, System.String[], System.IFormatProvider, System.Globalization.DateTimeStyles
-    + (System_DateTimeOffset *)parseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_DateTimeStyles)p4;
+    + (System_DateTimeOffset *)parseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(id <System_IFormatProvider_>)p3 styles:(int32_t)p4;
 
 	// Managed method name : Subtract
 	// Managed return type : System.TimeSpan
@@ -329,11 +339,6 @@
 
 	// Managed method name : ToString
 	// Managed return type : System.String
-	// Managed param types : System.String, System.IFormatProvider
-    - (NSString *)toString_withFormat:(NSString *)p1 formatProvider:(System_IFormatProvider *)p2;
-
-	// Managed method name : ToString
-	// Managed return type : System.String
 	// Managed param types : 
     - (NSString *)toString;
 
@@ -345,12 +350,27 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.IFormatProvider
-    - (NSString *)toString_withFormatProvider:(System_IFormatProvider *)p1;
+    - (NSString *)toString_withFormatProvider:(id <System_IFormatProvider_>)p1;
+
+	// Managed method name : ToString
+	// Managed return type : System.String
+	// Managed param types : System.String, System.IFormatProvider
+    - (NSString *)toString_withFormat:(NSString *)p1 formatProvider:(id <System_IFormatProvider_>)p2;
 
 	// Managed method name : ToUniversalTime
 	// Managed return type : System.DateTimeOffset
 	// Managed param types : 
     - (System_DateTimeOffset *)toUniversalTime;
+
+	// Managed method name : ToUnixTimeMilliseconds
+	// Managed return type : System.Int64
+	// Managed param types : 
+    - (int64_t)toUnixTimeMilliseconds;
+
+	// Managed method name : ToUnixTimeSeconds
+	// Managed return type : System.Int64
+	// Managed param types : 
+    - (int64_t)toUnixTimeSeconds;
 
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
@@ -360,16 +380,16 @@
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.IFormatProvider, System.Globalization.DateTimeStyles, ref System.DateTimeOffset&
-    + (BOOL)tryParse_withInput:(NSString *)p1 formatProvider:(System_IFormatProvider *)p2 styles:(System_Globalization_DateTimeStyles)p3 resultRef:(System_DateTimeOffset **)p4;
-
-	// Managed method name : TryParseExact
-	// Managed return type : System.Boolean
-	// Managed param types : System.String, System.String[], System.IFormatProvider, System.Globalization.DateTimeStyles, ref System.DateTimeOffset&
-    + (BOOL)tryParseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_DateTimeStyles)p4 resultRef:(System_DateTimeOffset **)p5;
+    + (BOOL)tryParse_withInput:(NSString *)p1 formatProvider:(id <System_IFormatProvider_>)p2 styles:(int32_t)p3 resultRef:(System_DateTimeOffset **)p4;
 
 	// Managed method name : TryParseExact
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.String, System.IFormatProvider, System.Globalization.DateTimeStyles, ref System.DateTimeOffset&
-    + (BOOL)tryParseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_DateTimeStyles)p4 resultRef:(System_DateTimeOffset **)p5;
+    + (BOOL)tryParseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(id <System_IFormatProvider_>)p3 styles:(int32_t)p4 resultRef:(System_DateTimeOffset **)p5;
+
+	// Managed method name : TryParseExact
+	// Managed return type : System.Boolean
+	// Managed param types : System.String, System.String[], System.IFormatProvider, System.Globalization.DateTimeStyles, ref System.DateTimeOffset&
+    + (BOOL)tryParseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(id <System_IFormatProvider_>)p3 styles:(int32_t)p4 resultRef:(System_DateTimeOffset **)p5;
 @end
 //--Dubrovnik.CodeGenerator

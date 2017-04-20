@@ -32,7 +32,17 @@
     @synthesize channelData = _channelData;
     - (System_Object *)channelData
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Channels.IChannelReceiver.ChannelData"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Channels.IChannelReceiver.ChannelData");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_channelData isEqualToMonoObject:monoObject]) return _channelData;					
 		_channelData = [System_Object objectWithMonoObject:monoObject];
 
@@ -58,7 +68,9 @@
 	// Managed param types : System.Object
     - (void)startListening_withData:(System_Object *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IChannelReceiver.StartListening(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IChannelReceiver.StartListening(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : StopListening
@@ -66,7 +78,9 @@
 	// Managed param types : System.Object
     - (void)stopListening_withData:(System_Object *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IChannelReceiver.StopListening(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IChannelReceiver.StopListening(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

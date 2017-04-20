@@ -2,7 +2,7 @@
 //
 // Managed class : RIPEMD160Managed
 //
-@interface System_Security_Cryptography_RIPEMD160Managed : System_Security_Cryptography_RIPEMD160 <System_Security_Cryptography_ICryptoTransform, System_IDisposable>
+@interface System_Security_Cryptography_RIPEMD160Managed : System_Security_Cryptography_RIPEMD160 <System_IDisposable_, System_Security_Cryptography_ICryptoTransform_>
 
 #pragma mark -
 #pragma mark Setup

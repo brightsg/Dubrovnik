@@ -2,7 +2,7 @@
 //
 // Managed class : BufferedStream
 //
-@interface System_IO_BufferedStream : System_IO_Stream <System_IDisposable>
+@interface System_IO_BufferedStream : System_IO_Stream <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -53,22 +53,22 @@
 	// Managed method name : BeginRead
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.AsyncCallback, System.Object
-    - (System_IAsyncResult *)beginRead_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5;
+    - (id <System_IAsyncResult>)beginRead_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5;
 
 	// Managed method name : BeginWrite
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.AsyncCallback, System.Object
-    - (System_IAsyncResult *)beginWrite_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5;
+    - (id <System_IAsyncResult>)beginWrite_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5;
 
 	// Managed method name : EndRead
 	// Managed return type : System.Int32
 	// Managed param types : System.IAsyncResult
-    - (int32_t)endRead_withAsyncResult:(System_IAsyncResult *)p1;
+    - (int32_t)endRead_withAsyncResult:(id <System_IAsyncResult_>)p1;
 
 	// Managed method name : EndWrite
 	// Managed return type : System.Void
 	// Managed param types : System.IAsyncResult
-    - (void)endWrite_withAsyncResult:(System_IAsyncResult *)p1;
+    - (void)endWrite_withAsyncResult:(id <System_IAsyncResult_>)p1;
 
 	// Managed method name : Flush
 	// Managed return type : System.Void
@@ -98,7 +98,7 @@
 	// Managed method name : Seek
 	// Managed return type : System.Int64
 	// Managed param types : System.Int64, System.IO.SeekOrigin
-    - (int64_t)seek_withOffset:(int64_t)p1 origin:(System_IO_SeekOrigin)p2;
+    - (int64_t)seek_withOffset:(int64_t)p1 origin:(int32_t)p2;
 
 	// Managed method name : SetLength
 	// Managed return type : System.Void

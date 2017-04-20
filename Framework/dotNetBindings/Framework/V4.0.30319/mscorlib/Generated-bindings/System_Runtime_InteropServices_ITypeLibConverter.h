@@ -17,17 +17,17 @@
 	// Managed method name : ConvertAssemblyToTypeLib
 	// Managed return type : System.Object
 	// Managed param types : System.Reflection.Assembly, System.String, System.Runtime.InteropServices.TypeLibExporterFlags, System.Runtime.InteropServices.ITypeLibExporterNotifySink
-    - (System_Object *)convertAssemblyToTypeLib_withAssembly:(System_Reflection_Assembly *)p1 typeLibName:(NSString *)p2 flags:(System_Runtime_InteropServices_TypeLibExporterFlags)p3 notifySink:(System_Runtime_InteropServices_ITypeLibExporterNotifySink *)p4;
+    - (System_Object *)convertAssemblyToTypeLib_withAssembly:(System_Reflection_Assembly *)p1 typeLibName:(NSString *)p2 flags:(int32_t)p3 notifySink:(id <System_Runtime_InteropServices_ITypeLibExporterNotifySink_>)p4;
 
 	// Managed method name : ConvertTypeLibToAssembly
 	// Managed return type : System.Reflection.Emit.AssemblyBuilder
 	// Managed param types : System.Object, System.String, System.Runtime.InteropServices.TypeLibImporterFlags, System.Runtime.InteropServices.ITypeLibImporterNotifySink, System.Byte[], System.Reflection.StrongNameKeyPair, System.String, System.Version
-    - (System_Reflection_Emit_AssemblyBuilder *)convertTypeLibToAssembly_withTypeLib:(System_Object *)p1 asmFileName:(NSString *)p2 flags:(System_Runtime_InteropServices_TypeLibImporterFlags)p3 notifySink:(System_Runtime_InteropServices_ITypeLibImporterNotifySink *)p4 publicKey:(NSData *)p5 keyPair:(System_Reflection_StrongNameKeyPair *)p6 asmNamespace:(NSString *)p7 asmVersion:(System_Version *)p8;
+    - (System_Reflection_Emit_AssemblyBuilder *)convertTypeLibToAssembly_withTypeLib:(System_Object *)p1 asmFileName:(NSString *)p2 flags:(int32_t)p3 notifySink:(id <System_Runtime_InteropServices_ITypeLibImporterNotifySink_>)p4 publicKey:(NSData *)p5 keyPair:(System_Reflection_StrongNameKeyPair *)p6 asmNamespace:(NSString *)p7 asmVersion:(System_Version *)p8;
 
 	// Managed method name : ConvertTypeLibToAssembly
 	// Managed return type : System.Reflection.Emit.AssemblyBuilder
 	// Managed param types : System.Object, System.String, System.Int32, System.Runtime.InteropServices.ITypeLibImporterNotifySink, System.Byte[], System.Reflection.StrongNameKeyPair, System.Boolean
-    - (System_Reflection_Emit_AssemblyBuilder *)convertTypeLibToAssembly_withTypeLib:(System_Object *)p1 asmFileName:(NSString *)p2 flags:(int32_t)p3 notifySink:(System_Runtime_InteropServices_ITypeLibImporterNotifySink *)p4 publicKey:(NSData *)p5 keyPair:(System_Reflection_StrongNameKeyPair *)p6 unsafeInterfaces:(BOOL)p7;
+    - (System_Reflection_Emit_AssemblyBuilder *)convertTypeLibToAssembly_withTypeLib:(System_Object *)p1 asmFileName:(NSString *)p2 flags:(int32_t)p3 notifySink:(id <System_Runtime_InteropServices_ITypeLibImporterNotifySink_>)p4 publicKey:(NSData *)p5 keyPair:(System_Reflection_StrongNameKeyPair *)p6 unsafeInterfaces:(BOOL)p7;
 
 	// Managed method name : GetPrimaryInteropAssembly
 	// Managed return type : System.Boolean

@@ -32,7 +32,10 @@
 	// Managed param types : System.Boolean
     + (System_Text_UTF8Encoding *)new_withEncoderShouldEmitUTF8Identifier:(BOOL)p1
     {
-		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Text_UTF8Encoding * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Boolean, System.Boolean
     + (System_Text_UTF8Encoding *)new_withEncoderShouldEmitUTF8Identifier:(BOOL)p1 throwOnInvalidBytes:(BOOL)p2
     {
-		return [[self alloc] initWithSignature:"bool,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		System_Text_UTF8Encoding * object = [[self alloc] initWithSignature:"bool,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -175,7 +181,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDecoder()" withNumArgs:0];
 		
-		return [System_Text_Decoder objectWithMonoObject:monoObject];
+		return [System_Text_Decoder bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEncoder
@@ -186,7 +192,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEncoder()" withNumArgs:0];
 		
-		return [System_Text_Encoder objectWithMonoObject:monoObject];
+		return [System_Text_Encoder bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetHashCode

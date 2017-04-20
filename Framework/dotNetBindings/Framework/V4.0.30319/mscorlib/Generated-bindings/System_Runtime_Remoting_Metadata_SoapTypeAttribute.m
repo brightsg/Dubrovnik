@@ -30,18 +30,37 @@
 	// Managed property name : SoapOptions
 	// Managed property type : System.Runtime.Remoting.Metadata.SoapOption
     @synthesize soapOptions = _soapOptions;
-    - (System_Runtime_Remoting_Metadata_SoapOption)soapOptions
+    - (int32_t)soapOptions
     {
-		MonoObject *monoObject = [self getMonoProperty:"SoapOptions"];
-		_soapOptions = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SoapOptions");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_soapOptions = monoObject;
 
 		return _soapOptions;
 	}
-    - (void)setSoapOptions:(System_Runtime_Remoting_Metadata_SoapOption)value
+    - (void)setSoapOptions:(int32_t)value
 	{
 		_soapOptions = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"SoapOptions" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "SoapOptions");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : UseAttribute
@@ -49,16 +68,35 @@
     @synthesize useAttribute = _useAttribute;
     - (BOOL)useAttribute
     {
-		MonoObject *monoObject = [self getMonoProperty:"UseAttribute"];
-		_useAttribute = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UseAttribute");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_useAttribute = monoObject;
 
 		return _useAttribute;
 	}
     - (void)setUseAttribute:(BOOL)value
 	{
 		_useAttribute = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"UseAttribute" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "UseAttribute");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : XmlElementName
@@ -66,7 +104,17 @@
     @synthesize xmlElementName = _xmlElementName;
     - (NSString *)xmlElementName
     {
-		MonoObject *monoObject = [self getMonoProperty:"XmlElementName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "XmlElementName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_xmlElementName isEqualToMonoObject:monoObject]) return _xmlElementName;					
 		_xmlElementName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -75,25 +123,53 @@
     - (void)setXmlElementName:(NSString *)value
 	{
 		_xmlElementName = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"XmlElementName" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "XmlElementName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : XmlFieldOrder
 	// Managed property type : System.Runtime.Remoting.Metadata.XmlFieldOrderOption
     @synthesize xmlFieldOrder = _xmlFieldOrder;
-    - (System_Runtime_Remoting_Metadata_XmlFieldOrderOption)xmlFieldOrder
+    - (int32_t)xmlFieldOrder
     {
-		MonoObject *monoObject = [self getMonoProperty:"XmlFieldOrder"];
-		_xmlFieldOrder = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "XmlFieldOrder");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_xmlFieldOrder = monoObject;
 
 		return _xmlFieldOrder;
 	}
-    - (void)setXmlFieldOrder:(System_Runtime_Remoting_Metadata_XmlFieldOrderOption)value
+    - (void)setXmlFieldOrder:(int32_t)value
 	{
 		_xmlFieldOrder = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"XmlFieldOrder" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "XmlFieldOrder");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : XmlNamespace
@@ -101,7 +177,17 @@
     @synthesize xmlNamespace = _xmlNamespace;
     - (NSString *)xmlNamespace
     {
-		MonoObject *monoObject = [self getMonoProperty:"XmlNamespace"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "XmlNamespace");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_xmlNamespace isEqualToMonoObject:monoObject]) return _xmlNamespace;					
 		_xmlNamespace = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -110,8 +196,17 @@
     - (void)setXmlNamespace:(NSString *)value
 	{
 		_xmlNamespace = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"XmlNamespace" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "XmlNamespace");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : XmlTypeName
@@ -119,7 +214,17 @@
     @synthesize xmlTypeName = _xmlTypeName;
     - (NSString *)xmlTypeName
     {
-		MonoObject *monoObject = [self getMonoProperty:"XmlTypeName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "XmlTypeName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_xmlTypeName isEqualToMonoObject:monoObject]) return _xmlTypeName;					
 		_xmlTypeName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -128,8 +233,17 @@
     - (void)setXmlTypeName:(NSString *)value
 	{
 		_xmlTypeName = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"XmlTypeName" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "XmlTypeName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : XmlTypeNamespace
@@ -137,7 +251,17 @@
     @synthesize xmlTypeNamespace = _xmlTypeNamespace;
     - (NSString *)xmlTypeNamespace
     {
-		MonoObject *monoObject = [self getMonoProperty:"XmlTypeNamespace"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "XmlTypeNamespace");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_xmlTypeNamespace isEqualToMonoObject:monoObject]) return _xmlTypeNamespace;					
 		_xmlTypeNamespace = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -146,8 +270,17 @@
     - (void)setXmlTypeNamespace:(NSString *)value
 	{
 		_xmlTypeNamespace = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"XmlTypeNamespace" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "XmlTypeNamespace");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

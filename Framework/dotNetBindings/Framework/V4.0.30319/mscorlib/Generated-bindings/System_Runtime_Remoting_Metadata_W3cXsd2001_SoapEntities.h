@@ -2,7 +2,7 @@
 //
 // Managed class : SoapEntities
 //
-@interface System_Runtime_Remoting_Metadata_W3cXsd2001_SoapEntities : System_Object <System_Runtime_Remoting_Metadata_W3cXsd2001_ISoapXsd>
+@interface System_Runtime_Remoting_Metadata_W3cXsd2001_SoapEntities : System_Object <System_Runtime_Remoting_Metadata_W3cXsd2001_ISoapXsd_>
 
 #pragma mark -
 #pragma mark Setup

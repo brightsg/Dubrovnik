@@ -32,7 +32,17 @@
     static NSString * m_commandLine;
     + (NSString *)commandLine
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"CommandLine"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CommandLine");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_commandLine isEqualToMonoObject:monoObject]) return m_commandLine;					
 		m_commandLine = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -44,7 +54,17 @@
     static NSString * m_currentDirectory;
     + (NSString *)currentDirectory
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"CurrentDirectory"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrentDirectory");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_currentDirectory isEqualToMonoObject:monoObject]) return m_currentDirectory;					
 		m_currentDirectory = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -53,8 +73,17 @@
     + (void)setCurrentDirectory:(NSString *)value
 	{
 		m_currentDirectory = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[[self class] setMonoClassProperty:"CurrentDirectory" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CurrentDirectory");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk([value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CurrentManagedThreadId
@@ -62,8 +91,18 @@
     static int32_t m_currentManagedThreadId;
     + (int32_t)currentManagedThreadId
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"CurrentManagedThreadId"];
-		m_currentManagedThreadId = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrentManagedThreadId");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_currentManagedThreadId = monoObject;
 
 		return m_currentManagedThreadId;
 	}
@@ -73,16 +112,35 @@
     static int32_t m_exitCode;
     + (int32_t)exitCode
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"ExitCode"];
-		m_exitCode = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ExitCode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_exitCode = monoObject;
 
 		return m_exitCode;
 	}
     + (void)setExitCode:(int32_t)value
 	{
 		m_exitCode = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[[self class] setMonoClassProperty:"ExitCode" valueObject:monoObject];          
+		typedef void (*Thunk)(int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ExitCode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : HasShutdownStarted
@@ -90,8 +148,18 @@
     static BOOL m_hasShutdownStarted;
     + (BOOL)hasShutdownStarted
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"HasShutdownStarted"];
-		m_hasShutdownStarted = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HasShutdownStarted");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_hasShutdownStarted = monoObject;
 
 		return m_hasShutdownStarted;
 	}
@@ -101,8 +169,18 @@
     static BOOL m_is64BitOperatingSystem;
     + (BOOL)is64BitOperatingSystem
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Is64BitOperatingSystem"];
-		m_is64BitOperatingSystem = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Is64BitOperatingSystem");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_is64BitOperatingSystem = monoObject;
 
 		return m_is64BitOperatingSystem;
 	}
@@ -112,8 +190,18 @@
     static BOOL m_is64BitProcess;
     + (BOOL)is64BitProcess
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Is64BitProcess"];
-		m_is64BitProcess = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Is64BitProcess");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_is64BitProcess = monoObject;
 
 		return m_is64BitProcess;
 	}
@@ -123,7 +211,17 @@
     static NSString * m_machineName;
     + (NSString *)machineName
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"MachineName"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MachineName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_machineName isEqualToMonoObject:monoObject]) return m_machineName;					
 		m_machineName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -135,7 +233,17 @@
     static NSString * m_newLine;
     + (NSString *)newLine
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"NewLine"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NewLine");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_newLine isEqualToMonoObject:monoObject]) return m_newLine;					
 		m_newLine = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -147,9 +255,19 @@
     static System_OperatingSystem * m_oSVersion;
     + (System_OperatingSystem *)oSVersion
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"OSVersion"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OSVersion");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_oSVersion isEqualToMonoObject:monoObject]) return m_oSVersion;					
-		m_oSVersion = [System_OperatingSystem objectWithMonoObject:monoObject];
+		m_oSVersion = [System_OperatingSystem bestObjectWithMonoObject:monoObject];
 
 		return m_oSVersion;
 	}
@@ -159,8 +277,18 @@
     static int32_t m_processorCount;
     + (int32_t)processorCount
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"ProcessorCount"];
-		m_processorCount = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ProcessorCount");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_processorCount = monoObject;
 
 		return m_processorCount;
 	}
@@ -170,7 +298,17 @@
     static NSString * m_stackTrace;
     + (NSString *)stackTrace
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"StackTrace"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "StackTrace");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_stackTrace isEqualToMonoObject:monoObject]) return m_stackTrace;					
 		m_stackTrace = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -182,7 +320,17 @@
     static NSString * m_systemDirectory;
     + (NSString *)systemDirectory
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"SystemDirectory"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SystemDirectory");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_systemDirectory isEqualToMonoObject:monoObject]) return m_systemDirectory;					
 		m_systemDirectory = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -194,8 +342,18 @@
     static int32_t m_systemPageSize;
     + (int32_t)systemPageSize
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"SystemPageSize"];
-		m_systemPageSize = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SystemPageSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_systemPageSize = monoObject;
 
 		return m_systemPageSize;
 	}
@@ -205,8 +363,18 @@
     static int32_t m_tickCount;
     + (int32_t)tickCount
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"TickCount"];
-		m_tickCount = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TickCount");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_tickCount = monoObject;
 
 		return m_tickCount;
 	}
@@ -216,7 +384,17 @@
     static NSString * m_userDomainName;
     + (NSString *)userDomainName
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"UserDomainName"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UserDomainName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_userDomainName isEqualToMonoObject:monoObject]) return m_userDomainName;					
 		m_userDomainName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -228,8 +406,18 @@
     static BOOL m_userInteractive;
     + (BOOL)userInteractive
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"UserInteractive"];
-		m_userInteractive = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UserInteractive");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_userInteractive = monoObject;
 
 		return m_userInteractive;
 	}
@@ -239,7 +427,17 @@
     static NSString * m_userName;
     + (NSString *)userName
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"UserName"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UserName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_userName isEqualToMonoObject:monoObject]) return m_userName;					
 		m_userName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -251,9 +449,19 @@
     static System_Version * m_version;
     + (System_Version *)version
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Version"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Version");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_version isEqualToMonoObject:monoObject]) return m_version;					
-		m_version = [System_Version objectWithMonoObject:monoObject];
+		m_version = [System_Version bestObjectWithMonoObject:monoObject];
 
 		return m_version;
 	}
@@ -263,8 +471,18 @@
     static int64_t m_workingSet;
     + (int64_t)workingSet
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"WorkingSet"];
-		m_workingSet = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WorkingSet");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_workingSet = monoObject;
 
 		return m_workingSet;
 	}
@@ -277,7 +495,9 @@
 	// Managed param types : System.Int32
     + (void)exit_withExitCode:(int32_t)p1
     {
-		[self invokeMonoClassMethod:"Exit(int)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoClassMethod:"Exit(int)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : ExpandEnvironmentVariables
@@ -296,7 +516,9 @@
 	// Managed param types : System.String
     + (void)failFast_withMessage:(NSString *)p1
     {
-		[self invokeMonoClassMethod:"FailFast(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"FailFast(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : FailFast
@@ -304,7 +526,9 @@
 	// Managed param types : System.String, System.Exception
     + (void)failFast_withMessage:(NSString *)p1 exception:(System_Exception *)p2
     {
-		[self invokeMonoClassMethod:"FailFast(string,System.Exception)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"FailFast(string,System.Exception)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetCommandLineArgs
@@ -332,7 +556,7 @@
 	// Managed method name : GetEnvironmentVariable
 	// Managed return type : System.String
 	// Managed param types : System.String, System.EnvironmentVariableTarget
-    + (NSString *)getEnvironmentVariable_withVariable:(NSString *)p1 target:(System_EnvironmentVariableTarget)p2
+    + (NSString *)getEnvironmentVariable_withVariable:(NSString *)p1 target:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEnvironmentVariable(string,System.EnvironmentVariableTarget)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
@@ -343,32 +567,32 @@
 	// Managed method name : GetEnvironmentVariables
 	// Managed return type : System.Collections.IDictionary
 	// Managed param types : 
-    + (System_Collections_IDictionary *)getEnvironmentVariables
+    + (id <System_Collections_IDictionary>)getEnvironmentVariables
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEnvironmentVariables()" withNumArgs:0];
 		
-		return [System_Collections_IDictionary objectWithMonoObject:monoObject];
+		return [System_Collections_IDictionary bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEnvironmentVariables
 	// Managed return type : System.Collections.IDictionary
 	// Managed param types : System.EnvironmentVariableTarget
-    + (System_Collections_IDictionary *)getEnvironmentVariables_withTarget:(System_EnvironmentVariableTarget)p1
+    + (id <System_Collections_IDictionary>)getEnvironmentVariables_withTarget:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEnvironmentVariables(System.EnvironmentVariableTarget)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Collections_IDictionary objectWithMonoObject:monoObject];
+		return [System_Collections_IDictionary bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetFolderPath
 	// Managed return type : System.String
 	// Managed param types : System.Environment+SpecialFolder
-    + (NSString *)getFolderPath_withFolder:(System_Environment__SpecialFolder)p1
+    + (NSString *)getFolderPath_withFolder:(int32_t)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetFolderPath(System.Environment+SpecialFolder)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetFolderPath(System.Environment/SpecialFolder)" withNumArgs:1, DB_VALUE(p1)];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -376,10 +600,10 @@
 	// Managed method name : GetFolderPath
 	// Managed return type : System.String
 	// Managed param types : System.Environment+SpecialFolder, System.Environment+SpecialFolderOption
-    + (NSString *)getFolderPath_withFolder:(System_Environment__SpecialFolder)p1 option:(System_Environment__SpecialFolderOption)p2
+    + (NSString *)getFolderPath_withFolder:(int32_t)p1 option:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetFolderPath(System.Environment+SpecialFolder,System.Environment+SpecialFolderOption)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetFolderPath(System.Environment/SpecialFolder,System.Environment/SpecialFolderOption)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -400,15 +624,19 @@
 	// Managed param types : System.String, System.String
     + (void)setEnvironmentVariable_withVariable:(NSString *)p1 value:(NSString *)p2
     {
-		[self invokeMonoClassMethod:"SetEnvironmentVariable(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SetEnvironmentVariable(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetEnvironmentVariable
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.String, System.EnvironmentVariableTarget
-    + (void)setEnvironmentVariable_withVariable:(NSString *)p1 value:(NSString *)p2 target:(System_EnvironmentVariableTarget)p3
+    + (void)setEnvironmentVariable_withVariable:(NSString *)p1 value:(NSString *)p2 target:(int32_t)p3
     {
-		[self invokeMonoClassMethod:"SetEnvironmentVariable(string,string,System.EnvironmentVariableTarget)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
+		
+		[self invokeMonoClassMethod:"SetEnvironmentVariable(string,string,System.EnvironmentVariableTarget)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+        
     }
 
 #pragma mark -

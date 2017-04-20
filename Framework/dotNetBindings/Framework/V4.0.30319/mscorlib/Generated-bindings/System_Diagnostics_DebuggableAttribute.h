@@ -2,7 +2,7 @@
 //
 // Managed class : DebuggableAttribute
 //
-@interface System_Diagnostics_DebuggableAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Diagnostics_DebuggableAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -22,14 +22,14 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.DebuggableAttribute
 	// Managed param types : System.Diagnostics.DebuggableAttribute+DebuggingModes
-    + (System_Diagnostics_DebuggableAttribute *)new_withModes:(System_Diagnostics_DebuggableAttribute__DebuggingModes)p1;
+    + (System_Diagnostics_DebuggableAttribute *)new_withModes:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : DebuggingFlags
 	// Managed property type : System.Diagnostics.DebuggableAttribute+DebuggingModes
-    @property (nonatomic, readonly) System_Diagnostics_DebuggableAttribute__DebuggingModes debuggingFlags;
+    @property (nonatomic, readonly) int32_t debuggingFlags;
 
 	// Managed property name : IsJITOptimizerDisabled
 	// Managed property type : System.Boolean

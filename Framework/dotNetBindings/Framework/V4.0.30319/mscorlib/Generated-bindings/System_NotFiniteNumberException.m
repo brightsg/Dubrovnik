@@ -32,7 +32,10 @@
 	// Managed param types : System.Double
     + (System_NotFiniteNumberException *)new_withOffendingNumber:(double)p1
     {
-		return [[self alloc] initWithSignature:"double" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_NotFiniteNumberException * object = [[self alloc] initWithSignature:"double" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.String
     + (System_NotFiniteNumberException *)new_withMessage:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_NotFiniteNumberException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +54,10 @@
 	// Managed param types : System.String, System.Double
     + (System_NotFiniteNumberException *)new_withMessage:(NSString *)p1 offendingNumber:(double)p2
     {
-		return [[self alloc] initWithSignature:"string,double" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		System_NotFiniteNumberException * object = [[self alloc] initWithSignature:"string,double" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +65,10 @@
 	// Managed param types : System.String, System.Exception
     + (System_NotFiniteNumberException *)new_withMessage:(NSString *)p1 innerException:(System_Exception *)p2
     {
-		return [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_NotFiniteNumberException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +76,10 @@
 	// Managed param types : System.String, System.Double, System.Exception
     + (System_NotFiniteNumberException *)new_withMessage:(NSString *)p1 offendingNumber:(double)p2 innerException:(System_Exception *)p3
     {
-		return [[self alloc] initWithSignature:"string,double,System.Exception" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];;
+		
+		System_NotFiniteNumberException * object = [[self alloc] initWithSignature:"string,double,System.Exception" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -75,8 +90,18 @@
     @synthesize offendingNumber = _offendingNumber;
     - (double)offendingNumber
     {
-		MonoObject *monoObject = [self getMonoProperty:"OffendingNumber"];
-		_offendingNumber = DB_UNBOX_DOUBLE(monoObject);
+		typedef double (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OffendingNumber");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		double monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_offendingNumber = monoObject;
 
 		return _offendingNumber;
 	}
@@ -89,7 +114,9 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

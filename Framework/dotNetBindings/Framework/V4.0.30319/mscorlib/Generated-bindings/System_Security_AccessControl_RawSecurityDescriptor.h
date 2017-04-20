@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.RawSecurityDescriptor
 	// Managed param types : System.Security.AccessControl.ControlFlags, System.Security.Principal.SecurityIdentifier, System.Security.Principal.SecurityIdentifier, System.Security.AccessControl.RawAcl, System.Security.AccessControl.RawAcl
-    + (System_Security_AccessControl_RawSecurityDescriptor *)new_withFlags:(System_Security_AccessControl_ControlFlags)p1 owner:(System_Security_Principal_SecurityIdentifier *)p2 group:(System_Security_Principal_SecurityIdentifier *)p3 systemAcl:(System_Security_AccessControl_RawAcl *)p4 discretionaryAcl:(System_Security_AccessControl_RawAcl *)p5;
+    + (System_Security_AccessControl_RawSecurityDescriptor *)new_withFlags:(int32_t)p1 owner:(System_Security_Principal_SecurityIdentifier *)p2 group:(System_Security_Principal_SecurityIdentifier *)p3 systemAcl:(System_Security_AccessControl_RawAcl *)p4 discretionaryAcl:(System_Security_AccessControl_RawAcl *)p5;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.RawSecurityDescriptor
@@ -34,7 +34,7 @@
 
 	// Managed property name : ControlFlags
 	// Managed property type : System.Security.AccessControl.ControlFlags
-    @property (nonatomic, readonly) System_Security_AccessControl_ControlFlags controlFlags;
+    @property (nonatomic, readonly) int32_t controlFlags;
 
 	// Managed property name : DiscretionaryAcl
 	// Managed property type : System.Security.AccessControl.RawAcl
@@ -62,6 +62,6 @@
 	// Managed method name : SetFlags
 	// Managed return type : System.Void
 	// Managed param types : System.Security.AccessControl.ControlFlags
-    - (void)setFlags_withFlags:(System_Security_AccessControl_ControlFlags)p1;
+    - (void)setFlags_withFlags:(int32_t)p1;
 @end
 //--Dubrovnik.CodeGenerator

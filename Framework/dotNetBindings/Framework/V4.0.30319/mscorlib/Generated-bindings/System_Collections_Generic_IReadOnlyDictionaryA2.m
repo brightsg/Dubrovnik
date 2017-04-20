@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey,System.Collections.Generic.IReadOnlyDictionary`2+TValue>";
+		return "System.Collections.Generic.IReadOnlyDictionary`2";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,9 +32,19 @@
     @synthesize item = _item;
     - (System_Object *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey, System.Collections.Generic.IReadOnlyDictionary`2+TValue>.Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey, System.Collections.Generic.IReadOnlyDictionary`2+TValue>.Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
-		_item = [System_Object subclassObjectWithMonoObject:monoObject];
+		_item = [System_Object bestObjectWithMonoObject:monoObject];
 
 		return _item;
 	}
@@ -44,9 +54,19 @@
     @synthesize keys = _keys;
     - (System_Collections_Generic_IEnumerableA1 *)keys
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey, System.Collections.Generic.IReadOnlyDictionary`2+TValue>.Keys"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey, System.Collections.Generic.IReadOnlyDictionary`2+TValue>.Keys");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_keys isEqualToMonoObject:monoObject]) return _keys;					
-		_keys = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		_keys = [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
 
 		return _keys;
 	}
@@ -56,9 +76,19 @@
     @synthesize values = _values;
     - (System_Collections_Generic_IEnumerableA1 *)values
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey, System.Collections.Generic.IReadOnlyDictionary`2+TValue>.Values"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey, System.Collections.Generic.IReadOnlyDictionary`2+TValue>.Values");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_values isEqualToMonoObject:monoObject]) return _values;					
-		_values = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		_values = [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
 
 		return _values;
 	}
@@ -79,14 +109,14 @@
 
 	// Managed method name : TryGetValue
 	// Managed return type : System.Boolean
-	// Managed param types : <System.Collections.Generic.IReadOnlyDictionary`2+TKey>, ref <TValue&>
-    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2
+	// Managed param types : <System.Collections.Generic.IReadOnlyDictionary`2+TKey>, ref TValue&
+    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Collections_Generic_IReadOnlyDictionaryA2__TValue **)p2
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey, System.Collections.Generic.IReadOnlyDictionary`2+TValue>.TryGetValue(<_T_0>,<_T_1>&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey, System.Collections.Generic.IReadOnlyDictionary`2+TValue>.TryGetValue(<_T_0>,System.Collections.Generic.IReadOnlyDictionary`2+TValue&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 
-		*p2 = [System_Object subclassObjectWithMonoObject:refPtr2];
+		*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

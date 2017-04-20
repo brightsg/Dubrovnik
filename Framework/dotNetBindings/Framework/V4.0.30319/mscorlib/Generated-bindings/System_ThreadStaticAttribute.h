@@ -2,7 +2,7 @@
 //
 // Managed class : ThreadStaticAttribute
 //
-@interface System_ThreadStaticAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_ThreadStaticAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup

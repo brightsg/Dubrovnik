@@ -17,7 +17,7 @@
 	// Managed method name : CheckTypeSecurity
 	// Managed return type : System.Void
 	// Managed param types : System.Type, System.Runtime.Serialization.Formatters.TypeFilterLevel
-    + (void)checkTypeSecurity_withT:(System_Type *)p1 securityLevel:(System_Runtime_Serialization_Formatters_TypeFilterLevel)p2;
+    + (void)checkTypeSecurity_withT:(System_Type *)p1 securityLevel:(int32_t)p2;
 
 	// Managed method name : GetObjectData
 	// Managed return type : System.Object[]
@@ -42,7 +42,7 @@
 	// Managed method name : GetSurrogateForCyclicalReference
 	// Managed return type : System.Runtime.Serialization.ISerializationSurrogate
 	// Managed param types : System.Runtime.Serialization.ISerializationSurrogate
-    + (System_Runtime_Serialization_ISerializationSurrogate *)getSurrogateForCyclicalReference_withInnerSurrogate:(System_Runtime_Serialization_ISerializationSurrogate *)p1;
+    + (id <System_Runtime_Serialization_ISerializationSurrogate>)getSurrogateForCyclicalReference_withInnerSurrogate:(id <System_Runtime_Serialization_ISerializationSurrogate_>)p1;
 
 	// Managed method name : GetTypeFromAssembly
 	// Managed return type : System.Type

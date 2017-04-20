@@ -32,8 +32,18 @@
     @synthesize isAllocated = _isAllocated;
     - (BOOL)isAllocated
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsAllocated"];
-		_isAllocated = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsAllocated");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isAllocated = monoObject;
 
 		return _isAllocated;
 	}
@@ -43,7 +53,17 @@
     @synthesize target = _target;
     - (System_Object *)target
     {
-		MonoObject *monoObject = [self getMonoProperty:"Target"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Target");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_target isEqualToMonoObject:monoObject]) return _target;					
 		_target = [System_Object objectWithMonoObject:monoObject];
 
@@ -52,8 +72,17 @@
     - (void)setTarget:(System_Object *)value
 	{
 		_target = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"Target" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Target");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -78,18 +107,18 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Alloc(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Runtime_InteropServices_GCHandle objectWithMonoObject:monoObject];
+		return [System_Runtime_InteropServices_GCHandle bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Alloc
 	// Managed return type : System.Runtime.InteropServices.GCHandle
 	// Managed param types : System.Object, System.Runtime.InteropServices.GCHandleType
-    + (System_Runtime_InteropServices_GCHandle *)alloc_withValue:(System_Object *)p1 type:(System_Runtime_InteropServices_GCHandleType)p2
+    + (System_Runtime_InteropServices_GCHandle *)alloc_withValue:(System_Object *)p1 type:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Alloc(object,System.Runtime.InteropServices.GCHandleType)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [System_Runtime_InteropServices_GCHandle objectWithMonoObject:monoObject];
+		return [System_Runtime_InteropServices_GCHandle bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals
@@ -108,7 +137,9 @@
 	// Managed param types : 
     - (void)free
     {
-		[self invokeMonoMethod:"Free()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Free()" withNumArgs:0];
+        
     }
 
 	// Managed method name : FromIntPtr
@@ -119,7 +150,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"FromIntPtr(intptr)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Runtime_InteropServices_GCHandle objectWithMonoObject:monoObject];
+		return [System_Runtime_InteropServices_GCHandle bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetHashCode
@@ -152,7 +183,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(intptr)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Runtime_InteropServices_GCHandle objectWithMonoObject:monoObject];
+		return [System_Runtime_InteropServices_GCHandle bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : op_Explicit

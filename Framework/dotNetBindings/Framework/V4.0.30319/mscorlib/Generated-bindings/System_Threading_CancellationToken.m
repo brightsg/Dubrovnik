@@ -32,7 +32,10 @@
 	// Managed param types : System.Boolean
     + (System_Threading_CancellationToken *)new_withCanceled:(BOOL)p1
     {
-		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Threading_CancellationToken * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,8 +46,18 @@
     @synthesize canBeCanceled = _canBeCanceled;
     - (BOOL)canBeCanceled
     {
-		MonoObject *monoObject = [self getMonoProperty:"CanBeCanceled"];
-		_canBeCanceled = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CanBeCanceled");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_canBeCanceled = monoObject;
 
 		return _canBeCanceled;
 	}
@@ -54,8 +67,18 @@
     @synthesize isCancellationRequested = _isCancellationRequested;
     - (BOOL)isCancellationRequested
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsCancellationRequested"];
-		_isCancellationRequested = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsCancellationRequested");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isCancellationRequested = monoObject;
 
 		return _isCancellationRequested;
 	}
@@ -65,9 +88,19 @@
     static System_Threading_CancellationToken * m_none;
     + (System_Threading_CancellationToken *)none
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"None"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "None");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_none isEqualToMonoObject:monoObject]) return m_none;					
-		m_none = [System_Threading_CancellationToken objectWithMonoObject:monoObject];
+		m_none = [System_Threading_CancellationToken bestObjectWithMonoObject:monoObject];
 
 		return m_none;
 	}
@@ -77,9 +110,19 @@
     @synthesize waitHandle = _waitHandle;
     - (System_Threading_WaitHandle *)waitHandle
     {
-		MonoObject *monoObject = [self getMonoProperty:"WaitHandle"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WaitHandle");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_waitHandle isEqualToMonoObject:monoObject]) return _waitHandle;					
-		_waitHandle = [System_Threading_WaitHandle objectWithMonoObject:monoObject];
+		_waitHandle = [System_Threading_WaitHandle bestObjectWithMonoObject:monoObject];
 
 		return _waitHandle;
 	}
@@ -150,7 +193,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Register(System.Action)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Threading_CancellationTokenRegistration objectWithMonoObject:monoObject];
+		return [System_Threading_CancellationTokenRegistration bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Register
@@ -161,7 +204,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Register(System.Action,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [System_Threading_CancellationTokenRegistration objectWithMonoObject:monoObject];
+		return [System_Threading_CancellationTokenRegistration bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Register
@@ -170,9 +213,9 @@
     - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_ActionA1 *)p1 state:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Register(System.Action`1<System.Object>,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Register(System.Action`1<object>,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Threading_CancellationTokenRegistration objectWithMonoObject:monoObject];
+		return [System_Threading_CancellationTokenRegistration bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Register
@@ -181,9 +224,9 @@
     - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_ActionA1 *)p1 state:(System_Object *)p2 useSynchronizationContext:(BOOL)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Register(System.Action`1<System.Object>,object,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Register(System.Action`1<object>,object,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
 		
-		return [System_Threading_CancellationTokenRegistration objectWithMonoObject:monoObject];
+		return [System_Threading_CancellationTokenRegistration bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ThrowIfCancellationRequested
@@ -191,7 +234,9 @@
 	// Managed param types : 
     - (void)throwIfCancellationRequested
     {
-		[self invokeMonoMethod:"ThrowIfCancellationRequested()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"ThrowIfCancellationRequested()" withNumArgs:0];
+        
     }
 
 #pragma mark -

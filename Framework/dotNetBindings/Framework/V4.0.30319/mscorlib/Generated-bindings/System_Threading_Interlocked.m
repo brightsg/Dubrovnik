@@ -102,7 +102,7 @@
 
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CompareExchange(object&,object,object)" withNumArgs:3, &refPtr1, [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 
-		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+		*p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -120,16 +120,16 @@
 
 	// Managed method name : CompareExchange
 	// Managed return type : <System.Threading.Interlocked+T>
-	// Managed param types : ref <T&>, <System.Threading.Interlocked+T>, <System.Threading.Interlocked+T>
-    + (System_Object *)compareExchange_withLocation1Ref:(System_Object **)p1 value:(System_Object *)p2 comparand:(System_Object *)p3
+	// Managed param types : ref T&, <System.Threading.Interlocked+T>, <System.Threading.Interlocked+T>
+    + (System_Object *)compareExchange_withLocation1STInterlocked__TRef:(System_Threading_Interlocked__T **)p1 value_T_0:(System_Object *)p2 comparand_T_0:(System_Object *)p3
     {
 		void *refPtr1 = [*p1 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CompareExchange(<_T_0>&,<_T_0>,<_T_0>)" withNumArgs:3, &refPtr1, [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CompareExchange(System.Threading.Interlocked+T&,<_T_0>,<_T_0>)" withNumArgs:3, &refPtr1, [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 
-		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+		*p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Decrement
@@ -207,7 +207,7 @@
 
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Exchange(object&,object)" withNumArgs:2, &refPtr1, [p2 monoRTInvokeArg]];
 
-		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+		*p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -225,16 +225,16 @@
 
 	// Managed method name : Exchange
 	// Managed return type : <System.Threading.Interlocked+T>
-	// Managed param types : ref <T&>, <System.Threading.Interlocked+T>
-    + (System_Object *)exchange_withLocation1Ref:(System_Object **)p1 value:(System_Object *)p2
+	// Managed param types : ref T&, <System.Threading.Interlocked+T>
+    + (System_Object *)exchange_withLocation1STInterlocked__TRef:(System_Threading_Interlocked__T **)p1 value_T_0:(System_Object *)p2
     {
 		void *refPtr1 = [*p1 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Exchange(<_T_0>&,<_T_0>)" withNumArgs:2, &refPtr1, [p2 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Exchange(System.Threading.Interlocked+T&,<_T_0>)" withNumArgs:2, &refPtr1, [p2 monoRTInvokeArg]];
 
-		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+		*p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Increment
@@ -264,7 +264,9 @@
 	// Managed param types : 
     + (void)memoryBarrier
     {
-		[self invokeMonoClassMethod:"MemoryBarrier()" withNumArgs:0];;
+		
+		[self invokeMonoClassMethod:"MemoryBarrier()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Read

@@ -32,16 +32,35 @@
     static BOOL m_checkExecutionRights;
     + (BOOL)checkExecutionRights
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"CheckExecutionRights"];
-		m_checkExecutionRights = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CheckExecutionRights");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_checkExecutionRights = monoObject;
 
 		return m_checkExecutionRights;
 	}
     + (void)setCheckExecutionRights:(BOOL)value
 	{
 		m_checkExecutionRights = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[[self class] setMonoClassProperty:"CheckExecutionRights" valueObject:monoObject];          
+		typedef void (*Thunk)(BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CheckExecutionRights");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : SecurityEnabled
@@ -49,16 +68,35 @@
     static BOOL m_securityEnabled;
     + (BOOL)securityEnabled
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"SecurityEnabled"];
-		m_securityEnabled = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SecurityEnabled");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_securityEnabled = monoObject;
 
 		return m_securityEnabled;
 	}
     + (void)setSecurityEnabled:(BOOL)value
 	{
 		m_securityEnabled = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[[self class] setMonoClassProperty:"SecurityEnabled" valueObject:monoObject];          
+		typedef void (*Thunk)(BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "SecurityEnabled");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -83,7 +121,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetStandardSandbox(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_PermissionSet objectWithMonoObject:monoObject];
+		return [System_Security_PermissionSet bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetZoneAndOrigin
@@ -91,14 +129,20 @@
 	// Managed param types : ref System.Collections.ArrayList&, ref System.Collections.ArrayList&
     + (void)getZoneAndOrigin_withZoneRef:(DBSystem_Collections_ArrayList **)p1 originRef:(DBSystem_Collections_ArrayList **)p2
     {
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+void *refPtr2 = [*p2 monoRTInvokeArg];
+
 		[self invokeMonoClassMethod:"GetZoneAndOrigin(System.Collections.ArrayList&,System.Collections.ArrayList&)" withNumArgs:2, &refPtr1, &refPtr2];
-;
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+
     }
 
 	// Managed method name : IsGranted
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.IPermission
-    + (BOOL)isGranted_withPerm:(System_Security_IPermission *)p1
+    + (BOOL)isGranted_withPerm:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"IsGranted(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -109,34 +153,34 @@
 	// Managed method name : LoadPolicyLevelFromFile
 	// Managed return type : System.Security.Policy.PolicyLevel
 	// Managed param types : System.String, System.Security.PolicyLevelType
-    + (System_Security_Policy_PolicyLevel *)loadPolicyLevelFromFile_withPath:(NSString *)p1 type:(System_Security_PolicyLevelType)p2
+    + (System_Security_Policy_PolicyLevel *)loadPolicyLevelFromFile_withPath:(NSString *)p1 type:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"LoadPolicyLevelFromFile(string,System.Security.PolicyLevelType)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [System_Security_Policy_PolicyLevel objectWithMonoObject:monoObject];
+		return [System_Security_Policy_PolicyLevel bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : LoadPolicyLevelFromString
 	// Managed return type : System.Security.Policy.PolicyLevel
 	// Managed param types : System.String, System.Security.PolicyLevelType
-    + (System_Security_Policy_PolicyLevel *)loadPolicyLevelFromString_withStr:(NSString *)p1 type:(System_Security_PolicyLevelType)p2
+    + (System_Security_Policy_PolicyLevel *)loadPolicyLevelFromString_withStr:(NSString *)p1 type:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"LoadPolicyLevelFromString(string,System.Security.PolicyLevelType)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [System_Security_Policy_PolicyLevel objectWithMonoObject:monoObject];
+		return [System_Security_Policy_PolicyLevel bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : PolicyHierarchy
 	// Managed return type : System.Collections.IEnumerator
 	// Managed param types : 
-    + (System_Collections_IEnumerator *)policyHierarchy
+    + (id <System_Collections_IEnumerator>)policyHierarchy
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"PolicyHierarchy()" withNumArgs:0];
 		
-		return [System_Collections_IEnumerator objectWithMonoObject:monoObject];
+		return [System_Collections_IEnumerator bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolvePolicy
@@ -148,9 +192,9 @@
 
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ResolvePolicy(System.Security.Policy.Evidence,System.Security.PermissionSet,System.Security.PermissionSet,System.Security.PermissionSet,System.Security.PermissionSet&)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], &refPtr5];
 
-		*p5 = [System_Object subclassObjectWithMonoObject:refPtr5];
+		*p5 = [System_Object bestObjectWithMonoObject:refPtr5];
 
-		return [System_Security_PermissionSet objectWithMonoObject:monoObject];
+		return [System_Security_PermissionSet bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolvePolicy
@@ -161,7 +205,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ResolvePolicy(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_PermissionSet objectWithMonoObject:monoObject];
+		return [System_Security_PermissionSet bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolvePolicy
@@ -170,20 +214,20 @@
     + (System_Security_PermissionSet *)resolvePolicy_withEvidences:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ResolvePolicy(System.Array[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ResolvePolicy(System.Security.Policy.Evidence[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_PermissionSet objectWithMonoObject:monoObject];
+		return [System_Security_PermissionSet bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolvePolicyGroups
 	// Managed return type : System.Collections.IEnumerator
 	// Managed param types : System.Security.Policy.Evidence
-    + (System_Collections_IEnumerator *)resolvePolicyGroups_withEvidence:(System_Security_Policy_Evidence *)p1
+    + (id <System_Collections_IEnumerator>)resolvePolicyGroups_withEvidence:(System_Security_Policy_Evidence *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ResolvePolicyGroups(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Collections_IEnumerator objectWithMonoObject:monoObject];
+		return [System_Collections_IEnumerator bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolveSystemPolicy
@@ -194,7 +238,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ResolveSystemPolicy(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_PermissionSet objectWithMonoObject:monoObject];
+		return [System_Security_PermissionSet bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SavePolicy
@@ -202,7 +246,9 @@
 	// Managed param types : 
     + (void)savePolicy
     {
-		[self invokeMonoClassMethod:"SavePolicy()" withNumArgs:0];;
+		
+		[self invokeMonoClassMethod:"SavePolicy()" withNumArgs:0];
+        
     }
 
 	// Managed method name : SavePolicyLevel
@@ -210,7 +256,9 @@
 	// Managed param types : System.Security.Policy.PolicyLevel
     + (void)savePolicyLevel_withLevel:(System_Security_Policy_PolicyLevel *)p1
     {
-		[self invokeMonoClassMethod:"SavePolicyLevel(System.Security.Policy.PolicyLevel)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SavePolicyLevel(System.Security.Policy.PolicyLevel)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

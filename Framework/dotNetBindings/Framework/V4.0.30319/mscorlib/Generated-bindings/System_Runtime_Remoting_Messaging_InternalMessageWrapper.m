@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Remoting.Messaging.InternalMessageWrapper
 	// Managed param types : System.Runtime.Remoting.Messaging.IMessage
-    + (System_Runtime_Remoting_Messaging_InternalMessageWrapper *)new_withMsg:(System_Runtime_Remoting_Messaging_IMessage *)p1
+    + (System_Runtime_Remoting_Messaging_InternalMessageWrapper *)new_withMsg:(id <System_Runtime_Remoting_Messaging_IMessage_>)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.Remoting.Messaging.IMessage" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Runtime_Remoting_Messaging_InternalMessageWrapper * object = [[self alloc] initWithSignature:"System.Runtime.Remoting.Messaging.IMessage" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -

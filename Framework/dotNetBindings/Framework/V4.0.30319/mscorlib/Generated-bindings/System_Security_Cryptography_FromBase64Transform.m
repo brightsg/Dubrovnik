@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.FromBase64Transform
 	// Managed param types : System.Security.Cryptography.FromBase64TransformMode
-    + (System_Security_Cryptography_FromBase64Transform *)new_withWhitespaces:(System_Security_Cryptography_FromBase64TransformMode)p1
+    + (System_Security_Cryptography_FromBase64Transform *)new_withWhitespaces:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Cryptography.FromBase64TransformMode" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Security_Cryptography_FromBase64Transform * object = [[self alloc] initWithSignature:"System.Security.Cryptography.FromBase64TransformMode" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,8 +46,18 @@
     @synthesize canReuseTransform = _canReuseTransform;
     - (BOOL)canReuseTransform
     {
-		MonoObject *monoObject = [self getMonoProperty:"CanReuseTransform"];
-		_canReuseTransform = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CanReuseTransform");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_canReuseTransform = monoObject;
 
 		return _canReuseTransform;
 	}
@@ -54,8 +67,18 @@
     @synthesize canTransformMultipleBlocks = _canTransformMultipleBlocks;
     - (BOOL)canTransformMultipleBlocks
     {
-		MonoObject *monoObject = [self getMonoProperty:"CanTransformMultipleBlocks"];
-		_canTransformMultipleBlocks = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CanTransformMultipleBlocks");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_canTransformMultipleBlocks = monoObject;
 
 		return _canTransformMultipleBlocks;
 	}
@@ -65,8 +88,18 @@
     @synthesize inputBlockSize = _inputBlockSize;
     - (int32_t)inputBlockSize
     {
-		MonoObject *monoObject = [self getMonoProperty:"InputBlockSize"];
-		_inputBlockSize = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InputBlockSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_inputBlockSize = monoObject;
 
 		return _inputBlockSize;
 	}
@@ -76,8 +109,18 @@
     @synthesize outputBlockSize = _outputBlockSize;
     - (int32_t)outputBlockSize
     {
-		MonoObject *monoObject = [self getMonoProperty:"OutputBlockSize"];
-		_outputBlockSize = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OutputBlockSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_outputBlockSize = monoObject;
 
 		return _outputBlockSize;
 	}
@@ -90,7 +133,9 @@
 	// Managed param types : 
     - (void)clear
     {
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Dispose
@@ -98,7 +143,9 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+        
     }
 
 	// Managed method name : TransformBlock

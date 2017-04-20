@@ -32,7 +32,17 @@
     @synthesize parameters = _parameters;
     - (NSString *)parameters
     {
-		MonoObject *monoObject = [self getMonoProperty:"Parameters"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Parameters");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_parameters isEqualToMonoObject:monoObject]) return _parameters;					
 		_parameters = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -69,7 +79,9 @@
 	// Managed param types : System.Security.Cryptography.AsymmetricAlgorithm
     - (void)setKey_withKey:(System_Security_Cryptography_AsymmetricAlgorithm *)p1
     {
-		[self invokeMonoMethod:"SetKey(System.Security.Cryptography.AsymmetricAlgorithm)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetKey(System.Security.Cryptography.AsymmetricAlgorithm)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

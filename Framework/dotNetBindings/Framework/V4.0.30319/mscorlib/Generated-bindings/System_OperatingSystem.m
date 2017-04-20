@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.OperatingSystem
 	// Managed param types : System.PlatformID, System.Version
-    + (System_OperatingSystem *)new_withPlatform:(System_PlatformID)p1 version:(System_Version *)p2
+    + (System_OperatingSystem *)new_withPlatform:(int32_t)p1 version:(System_Version *)p2
     {
-		return [[self alloc] initWithSignature:"System.PlatformID,System.Version" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		System_OperatingSystem * object = [[self alloc] initWithSignature:"System.PlatformID,System.Version" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -41,10 +44,20 @@
 	// Managed property name : Platform
 	// Managed property type : System.PlatformID
     @synthesize platform = _platform;
-    - (System_PlatformID)platform
+    - (int32_t)platform
     {
-		MonoObject *monoObject = [self getMonoProperty:"Platform"];
-		_platform = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Platform");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_platform = monoObject;
 
 		return _platform;
 	}
@@ -54,7 +67,17 @@
     @synthesize servicePack = _servicePack;
     - (NSString *)servicePack
     {
-		MonoObject *monoObject = [self getMonoProperty:"ServicePack"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ServicePack");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_servicePack isEqualToMonoObject:monoObject]) return _servicePack;					
 		_servicePack = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -66,9 +89,19 @@
     @synthesize version = _version;
     - (System_Version *)version
     {
-		MonoObject *monoObject = [self getMonoProperty:"Version"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Version");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_version isEqualToMonoObject:monoObject]) return _version;					
-		_version = [System_Version objectWithMonoObject:monoObject];
+		_version = [System_Version bestObjectWithMonoObject:monoObject];
 
 		return _version;
 	}
@@ -78,7 +111,17 @@
     @synthesize versionString = _versionString;
     - (NSString *)versionString
     {
-		MonoObject *monoObject = [self getMonoProperty:"VersionString"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "VersionString");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_versionString isEqualToMonoObject:monoObject]) return _versionString;					
 		_versionString = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -104,7 +147,9 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : ToString

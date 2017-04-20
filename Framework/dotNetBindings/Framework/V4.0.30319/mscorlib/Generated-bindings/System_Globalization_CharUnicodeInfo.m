@@ -96,7 +96,7 @@
 	// Managed method name : GetUnicodeCategory
 	// Managed return type : System.Globalization.UnicodeCategory
 	// Managed param types : System.Char
-    + (System_Globalization_UnicodeCategory)getUnicodeCategory_withCh:(uint16_t)p1
+    + (int32_t)getUnicodeCategory_withCh:(uint16_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetUnicodeCategory(char)" withNumArgs:1, DB_VALUE(p1)];
@@ -107,7 +107,7 @@
 	// Managed method name : GetUnicodeCategory
 	// Managed return type : System.Globalization.UnicodeCategory
 	// Managed param types : System.String, System.Int32
-    + (System_Globalization_UnicodeCategory)getUnicodeCategory_withS:(NSString *)p1 index:(int32_t)p2
+    + (int32_t)getUnicodeCategory_withS:(NSString *)p1 index:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetUnicodeCategory(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];

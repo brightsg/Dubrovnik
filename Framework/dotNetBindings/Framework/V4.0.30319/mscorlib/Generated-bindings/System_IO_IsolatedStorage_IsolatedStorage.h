@@ -44,7 +44,7 @@
 
 	// Managed property name : Scope
 	// Managed property type : System.IO.IsolatedStorage.IsolatedStorageScope
-    @property (nonatomic, readonly) System_IO_IsolatedStorage_IsolatedStorageScope scope;
+    @property (nonatomic, readonly) int32_t scope;
 
 	// Managed property name : UsedSize
 	// Managed property type : System.Int64

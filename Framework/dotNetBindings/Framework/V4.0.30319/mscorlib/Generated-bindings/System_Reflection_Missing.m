@@ -34,7 +34,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Value"];
 		if ([self object:m_value isEqualToMonoObject:monoObject]) return m_value;					
-		m_value = [System_Reflection_Missing objectWithMonoObject:monoObject];
+		m_value = [System_Reflection_Missing bestObjectWithMonoObject:monoObject];
 
 		return m_value;
 	}

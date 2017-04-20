@@ -32,7 +32,10 @@
 	// Managed param types : System.Int32
     + (void *)new_withValueInt:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		
+		void * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Int64
     + (void *)new_withValueLong:(int64_t)p1
     {
-		return [[self alloc] initWithSignature:"long" withNumArgs:1, DB_VALUE(p1)];;
+		
+		void * object = [[self alloc] initWithSignature:"long" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +54,10 @@
 	// Managed param types : System.Void*
     + (void *)new_withValueVoid:(void*)p1
     {
-		return [[self alloc] initWithSignature:"void*" withNumArgs:1, p1];;
+		
+		void * object = [[self alloc] initWithSignature:"void*" withNumArgs:1, p1];
+        
+        return object;
     }
 
 #pragma mark -
@@ -73,8 +82,18 @@
     static int32_t m_size;
     + (int32_t)size
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Size"];
-		m_size = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Size");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_size = monoObject;
 
 		return m_size;
 	}

@@ -2,7 +2,7 @@
 //
 // Managed struct : TimeSpan
 //
-@interface System_TimeSpan : DBManagedObject <System_IComparable, System_IComparableA1, System_IEquatableA1, System_IFormattable>
+@interface System_TimeSpan : DBManagedObject <System_IComparable_, System_IComparableA1_, System_IEquatableA1_, System_IFormattable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -257,27 +257,27 @@
 	// Managed method name : Parse
 	// Managed return type : System.TimeSpan
 	// Managed param types : System.String, System.IFormatProvider
-    + (System_TimeSpan *)parse_withInput:(NSString *)p1 formatProvider:(System_IFormatProvider *)p2;
+    + (System_TimeSpan *)parse_withInput:(NSString *)p1 formatProvider:(id <System_IFormatProvider_>)p2;
 
 	// Managed method name : ParseExact
 	// Managed return type : System.TimeSpan
 	// Managed param types : System.String, System.String, System.IFormatProvider
-    + (System_TimeSpan *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(System_IFormatProvider *)p3;
+    + (System_TimeSpan *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(id <System_IFormatProvider_>)p3;
 
 	// Managed method name : ParseExact
 	// Managed return type : System.TimeSpan
 	// Managed param types : System.String, System.String[], System.IFormatProvider
-    + (System_TimeSpan *)parseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(System_IFormatProvider *)p3;
+    + (System_TimeSpan *)parseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(id <System_IFormatProvider_>)p3;
 
 	// Managed method name : ParseExact
 	// Managed return type : System.TimeSpan
 	// Managed param types : System.String, System.String, System.IFormatProvider, System.Globalization.TimeSpanStyles
-    + (System_TimeSpan *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_TimeSpanStyles)p4;
+    + (System_TimeSpan *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(id <System_IFormatProvider_>)p3 styles:(int32_t)p4;
 
 	// Managed method name : ParseExact
 	// Managed return type : System.TimeSpan
 	// Managed param types : System.String, System.String[], System.IFormatProvider, System.Globalization.TimeSpanStyles
-    + (System_TimeSpan *)parseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_TimeSpanStyles)p4;
+    + (System_TimeSpan *)parseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(id <System_IFormatProvider_>)p3 styles:(int32_t)p4;
 
 	// Managed method name : Subtract
 	// Managed return type : System.TimeSpan
@@ -297,7 +297,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.String, System.IFormatProvider
-    - (NSString *)toString_withFormat:(NSString *)p1 formatProvider:(System_IFormatProvider *)p2;
+    - (NSString *)toString_withFormat:(NSString *)p1 formatProvider:(id <System_IFormatProvider_>)p2;
 
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
@@ -307,26 +307,26 @@
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.IFormatProvider, ref System.TimeSpan&
-    + (BOOL)tryParse_withInput:(NSString *)p1 formatProvider:(System_IFormatProvider *)p2 resultRef:(System_TimeSpan **)p3;
+    + (BOOL)tryParse_withInput:(NSString *)p1 formatProvider:(id <System_IFormatProvider_>)p2 resultRef:(System_TimeSpan **)p3;
 
 	// Managed method name : TryParseExact
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.String, System.IFormatProvider, ref System.TimeSpan&
-    + (BOOL)tryParseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(System_IFormatProvider *)p3 resultRef:(System_TimeSpan **)p4;
+    + (BOOL)tryParseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(id <System_IFormatProvider_>)p3 resultRef:(System_TimeSpan **)p4;
 
 	// Managed method name : TryParseExact
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.String[], System.IFormatProvider, ref System.TimeSpan&
-    + (BOOL)tryParseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(System_IFormatProvider *)p3 resultRef:(System_TimeSpan **)p4;
+    + (BOOL)tryParseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(id <System_IFormatProvider_>)p3 resultRef:(System_TimeSpan **)p4;
 
 	// Managed method name : TryParseExact
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.String, System.IFormatProvider, System.Globalization.TimeSpanStyles, ref System.TimeSpan&
-    + (BOOL)tryParseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_TimeSpanStyles)p4 resultRef:(System_TimeSpan **)p5;
+    + (BOOL)tryParseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(id <System_IFormatProvider_>)p3 styles:(int32_t)p4 resultRef:(System_TimeSpan **)p5;
 
 	// Managed method name : TryParseExact
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.String[], System.IFormatProvider, System.Globalization.TimeSpanStyles, ref System.TimeSpan&
-    + (BOOL)tryParseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_TimeSpanStyles)p4 resultRef:(System_TimeSpan **)p5;
+    + (BOOL)tryParseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(id <System_IFormatProvider_>)p3 styles:(int32_t)p4 resultRef:(System_TimeSpan **)p5;
 @end
 //--Dubrovnik.CodeGenerator

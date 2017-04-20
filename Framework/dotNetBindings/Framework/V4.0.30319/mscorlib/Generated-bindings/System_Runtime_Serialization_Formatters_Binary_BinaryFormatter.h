@@ -2,7 +2,7 @@
 //
 // Managed class : BinaryFormatter
 //
-@interface System_Runtime_Serialization_Formatters_Binary_BinaryFormatter : System_Object <System_Runtime_Remoting_Messaging_IRemotingFormatter, System_Runtime_Serialization_IFormatter>
+@interface System_Runtime_Serialization_Formatters_Binary_BinaryFormatter : System_Object <System_Runtime_Remoting_Messaging_IRemotingFormatter_, System_Runtime_Serialization_IFormatter_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,14 +17,14 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
 	// Managed param types : System.Runtime.Serialization.ISurrogateSelector, System.Runtime.Serialization.StreamingContext
-    + (System_Runtime_Serialization_Formatters_Binary_BinaryFormatter *)new_withSelector:(System_Runtime_Serialization_ISurrogateSelector *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2;
+    + (System_Runtime_Serialization_Formatters_Binary_BinaryFormatter *)new_withSelector:(id <System_Runtime_Serialization_ISurrogateSelector_>)p1 context:(System_Runtime_Serialization_StreamingContext *)p2;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : AssemblyFormat
 	// Managed property type : System.Runtime.Serialization.Formatters.FormatterAssemblyStyle
-    @property (nonatomic) System_Runtime_Serialization_Formatters_FormatterAssemblyStyle assemblyFormat;
+    @property (nonatomic) int32_t assemblyFormat;
 
 	// Managed property name : Binder
 	// Managed property type : System.Runtime.Serialization.SerializationBinder
@@ -36,7 +36,7 @@
 
 	// Managed property name : FilterLevel
 	// Managed property type : System.Runtime.Serialization.Formatters.TypeFilterLevel
-    @property (nonatomic) System_Runtime_Serialization_Formatters_TypeFilterLevel filterLevel;
+    @property (nonatomic) int32_t filterLevel;
 
 	// Managed property name : SurrogateSelector
 	// Managed property type : System.Runtime.Serialization.ISurrogateSelector
@@ -44,7 +44,7 @@
 
 	// Managed property name : TypeFormat
 	// Managed property type : System.Runtime.Serialization.Formatters.FormatterTypeStyle
-    @property (nonatomic) System_Runtime_Serialization_Formatters_FormatterTypeStyle typeFormat;
+    @property (nonatomic) int32_t typeFormat;
 
 #pragma mark -
 #pragma mark Methods
@@ -62,7 +62,7 @@
 	// Managed method name : DeserializeMethodResponse
 	// Managed return type : System.Object
 	// Managed param types : System.IO.Stream, System.Runtime.Remoting.Messaging.HeaderHandler, System.Runtime.Remoting.Messaging.IMethodCallMessage
-    - (System_Object *)deserializeMethodResponse_withSerializationStream:(System_IO_Stream *)p1 handler:(System_Runtime_Remoting_Messaging_HeaderHandler *)p2 methodCallMessage:(System_Runtime_Remoting_Messaging_IMethodCallMessage *)p3;
+    - (System_Object *)deserializeMethodResponse_withSerializationStream:(System_IO_Stream *)p1 handler:(System_Runtime_Remoting_Messaging_HeaderHandler *)p2 methodCallMessage:(id <System_Runtime_Remoting_Messaging_IMethodCallMessage_>)p3;
 
 	// Managed method name : Serialize
 	// Managed return type : System.Void
@@ -82,6 +82,6 @@
 	// Managed method name : UnsafeDeserializeMethodResponse
 	// Managed return type : System.Object
 	// Managed param types : System.IO.Stream, System.Runtime.Remoting.Messaging.HeaderHandler, System.Runtime.Remoting.Messaging.IMethodCallMessage
-    - (System_Object *)unsafeDeserializeMethodResponse_withSerializationStream:(System_IO_Stream *)p1 handler:(System_Runtime_Remoting_Messaging_HeaderHandler *)p2 methodCallMessage:(System_Runtime_Remoting_Messaging_IMethodCallMessage *)p3;
+    - (System_Object *)unsafeDeserializeMethodResponse_withSerializationStream:(System_IO_Stream *)p1 handler:(System_Runtime_Remoting_Messaging_HeaderHandler *)p2 methodCallMessage:(id <System_Runtime_Remoting_Messaging_IMethodCallMessage_>)p3;
 @end
 //--Dubrovnik.CodeGenerator

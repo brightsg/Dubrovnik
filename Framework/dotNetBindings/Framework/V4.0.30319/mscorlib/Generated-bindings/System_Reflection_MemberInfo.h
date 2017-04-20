@@ -2,7 +2,7 @@
 //
 // Managed class : MemberInfo
 //
-@interface System_Reflection_MemberInfo : System_Object <System_Reflection_ICustomAttributeProvider, System_Runtime_InteropServices__MemberInfo>
+@interface System_Reflection_MemberInfo : System_Object <System_Reflection_ICustomAttributeProvider_, System_Runtime_InteropServices__MemberInfo_>
 
 #pragma mark -
 #pragma mark Setup
@@ -24,7 +24,7 @@
 
 	// Managed property name : MemberType
 	// Managed property type : System.Reflection.MemberTypes
-    @property (nonatomic, readonly) System_Reflection_MemberTypes memberType;
+    @property (nonatomic, readonly) int32_t memberType;
 
 	// Managed property name : MetadataToken
 	// Managed property type : System.Int32
@@ -63,7 +63,7 @@
 	// Managed method name : GetCustomAttributesData
 	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : 
-    - (System_Collections_Generic_IListA1 *)getCustomAttributesData;
+    - (id <System_Collections_Generic_IListA1>)getCustomAttributesData;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

@@ -17,6 +17,6 @@
 	// Managed method name : GetDynamicSink
 	// Managed return type : System.Runtime.Remoting.Contexts.IDynamicMessageSink
 	// Managed param types : 
-    - (System_Runtime_Remoting_Contexts_IDynamicMessageSink *)getDynamicSink;
+    - (id <System_Runtime_Remoting_Contexts_IDynamicMessageSink>)getDynamicSink;
 @end
 //--Dubrovnik.CodeGenerator

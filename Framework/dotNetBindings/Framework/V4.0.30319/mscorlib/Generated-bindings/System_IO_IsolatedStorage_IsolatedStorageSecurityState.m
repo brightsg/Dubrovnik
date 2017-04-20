@@ -30,10 +30,20 @@
 	// Managed property name : Options
 	// Managed property type : System.IO.IsolatedStorage.IsolatedStorageSecurityOptions
     @synthesize options = _options;
-    - (System_IO_IsolatedStorage_IsolatedStorageSecurityOptions)options
+    - (int32_t)options
     {
-		MonoObject *monoObject = [self getMonoProperty:"Options"];
-		_options = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Options");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_options = monoObject;
 
 		return _options;
 	}
@@ -43,16 +53,35 @@
     @synthesize quota = _quota;
     - (int64_t)quota
     {
-		MonoObject *monoObject = [self getMonoProperty:"Quota"];
-		_quota = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Quota");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_quota = monoObject;
 
 		return _quota;
 	}
     - (void)setQuota:(int64_t)value
 	{
 		_quota = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Quota" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int64_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Quota");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : UsedSize
@@ -60,8 +89,18 @@
     @synthesize usedSize = _usedSize;
     - (int64_t)usedSize
     {
-		MonoObject *monoObject = [self getMonoProperty:"UsedSize"];
-		_usedSize = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UsedSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_usedSize = monoObject;
 
 		return _usedSize;
 	}
@@ -74,7 +113,9 @@
 	// Managed param types : 
     - (void)ensureState
     {
-		[self invokeMonoMethod:"EnsureState()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"EnsureState()" withNumArgs:0];
+        
     }
 
 #pragma mark -

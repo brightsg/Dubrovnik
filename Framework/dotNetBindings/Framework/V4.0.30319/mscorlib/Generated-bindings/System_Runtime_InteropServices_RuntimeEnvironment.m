@@ -32,7 +32,17 @@
     static NSString * m_systemConfigurationFile;
     + (NSString *)systemConfigurationFile
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"SystemConfigurationFile"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SystemConfigurationFile");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_systemConfigurationFile isEqualToMonoObject:monoObject]) return m_systemConfigurationFile;					
 		m_systemConfigurationFile = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

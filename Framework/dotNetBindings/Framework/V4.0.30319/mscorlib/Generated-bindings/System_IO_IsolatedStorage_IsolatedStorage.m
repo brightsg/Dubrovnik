@@ -32,7 +32,17 @@
     @synthesize applicationIdentity = _applicationIdentity;
     - (System_Object *)applicationIdentity
     {
-		MonoObject *monoObject = [self getMonoProperty:"ApplicationIdentity"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ApplicationIdentity");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_applicationIdentity isEqualToMonoObject:monoObject]) return _applicationIdentity;					
 		_applicationIdentity = [System_Object objectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize assemblyIdentity = _assemblyIdentity;
     - (System_Object *)assemblyIdentity
     {
-		MonoObject *monoObject = [self getMonoProperty:"AssemblyIdentity"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AssemblyIdentity");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_assemblyIdentity isEqualToMonoObject:monoObject]) return _assemblyIdentity;					
 		_assemblyIdentity = [System_Object objectWithMonoObject:monoObject];
 
@@ -56,8 +76,18 @@
     @synthesize availableFreeSpace = _availableFreeSpace;
     - (int64_t)availableFreeSpace
     {
-		MonoObject *monoObject = [self getMonoProperty:"AvailableFreeSpace"];
-		_availableFreeSpace = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AvailableFreeSpace");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_availableFreeSpace = monoObject;
 
 		return _availableFreeSpace;
 	}
@@ -67,8 +97,18 @@
     @synthesize currentSize = _currentSize;
     - (uint64_t)currentSize
     {
-		MonoObject *monoObject = [self getMonoProperty:"CurrentSize"];
-		_currentSize = DB_UNBOX_UINT64(monoObject);
+		typedef uint64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrentSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		uint64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_currentSize = monoObject;
 
 		return _currentSize;
 	}
@@ -78,7 +118,17 @@
     @synthesize domainIdentity = _domainIdentity;
     - (System_Object *)domainIdentity
     {
-		MonoObject *monoObject = [self getMonoProperty:"DomainIdentity"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DomainIdentity");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_domainIdentity isEqualToMonoObject:monoObject]) return _domainIdentity;					
 		_domainIdentity = [System_Object objectWithMonoObject:monoObject];
 
@@ -90,8 +140,18 @@
     @synthesize maximumSize = _maximumSize;
     - (uint64_t)maximumSize
     {
-		MonoObject *monoObject = [self getMonoProperty:"MaximumSize"];
-		_maximumSize = DB_UNBOX_UINT64(monoObject);
+		typedef uint64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MaximumSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		uint64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_maximumSize = monoObject;
 
 		return _maximumSize;
 	}
@@ -101,25 +161,54 @@
     @synthesize quota = _quota;
     - (int64_t)quota
     {
-		MonoObject *monoObject = [self getMonoProperty:"Quota"];
-		_quota = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Quota");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_quota = monoObject;
 
 		return _quota;
 	}
     - (void)setQuota:(int64_t)value
 	{
 		_quota = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Quota" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int64_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Quota");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Scope
 	// Managed property type : System.IO.IsolatedStorage.IsolatedStorageScope
     @synthesize scope = _scope;
-    - (System_IO_IsolatedStorage_IsolatedStorageScope)scope
+    - (int32_t)scope
     {
-		MonoObject *monoObject = [self getMonoProperty:"Scope"];
-		_scope = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Scope");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_scope = monoObject;
 
 		return _scope;
 	}
@@ -129,8 +218,18 @@
     @synthesize usedSize = _usedSize;
     - (int64_t)usedSize
     {
-		MonoObject *monoObject = [self getMonoProperty:"UsedSize"];
-		_usedSize = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UsedSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_usedSize = monoObject;
 
 		return _usedSize;
 	}
@@ -154,7 +253,9 @@
 	// Managed param types : 
     - (void)remove
     {
-		[self invokeMonoMethod:"Remove()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Remove()" withNumArgs:0];
+        
     }
 
 #pragma mark -

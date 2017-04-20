@@ -32,8 +32,18 @@
     @synthesize day = _day;
     - (int32_t)day
     {
-		MonoObject *monoObject = [self getMonoProperty:"Day"];
-		_day = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Day");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_day = monoObject;
 
 		return _day;
 	}
@@ -41,10 +51,20 @@
 	// Managed property name : DayOfWeek
 	// Managed property type : System.DayOfWeek
     @synthesize dayOfWeek = _dayOfWeek;
-    - (System_DayOfWeek)dayOfWeek
+    - (int32_t)dayOfWeek
     {
-		MonoObject *monoObject = [self getMonoProperty:"DayOfWeek"];
-		_dayOfWeek = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DayOfWeek");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_dayOfWeek = monoObject;
 
 		return _dayOfWeek;
 	}
@@ -54,8 +74,18 @@
     @synthesize isFixedDateRule = _isFixedDateRule;
     - (BOOL)isFixedDateRule
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsFixedDateRule"];
-		_isFixedDateRule = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsFixedDateRule");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isFixedDateRule = monoObject;
 
 		return _isFixedDateRule;
 	}
@@ -65,8 +95,18 @@
     @synthesize month = _month;
     - (int32_t)month
     {
-		MonoObject *monoObject = [self getMonoProperty:"Month"];
-		_month = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Month");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_month = monoObject;
 
 		return _month;
 	}
@@ -76,7 +116,17 @@
     @synthesize timeOfDay = _timeOfDay;
     - (NSDate *)timeOfDay
     {
-		MonoObject *monoObject = [self getMonoProperty:"TimeOfDay"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TimeOfDay");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_timeOfDay isEqualToMonoObject:monoObject]) return _timeOfDay;					
 		_timeOfDay = [NSDate dateWithMonoDateTime:monoObject];
 
@@ -88,8 +138,18 @@
     @synthesize week = _week;
     - (int32_t)week
     {
-		MonoObject *monoObject = [self getMonoProperty:"Week"];
-		_week = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Week");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_week = monoObject;
 
 		return _week;
 	}
@@ -105,18 +165,18 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFixedDateRule(System.DateTime,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
-		return [System_TimeZoneInfo__TransitionTime objectWithMonoObject:monoObject];
+		return [System_TimeZoneInfo__TransitionTime bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateFloatingDateRule
 	// Managed return type : System.TimeZoneInfo+TransitionTime
 	// Managed param types : System.DateTime, System.Int32, System.Int32, System.DayOfWeek
-    + (System_TimeZoneInfo__TransitionTime *)createFloatingDateRule_withTimeOfDay:(NSDate *)p1 month:(int32_t)p2 week:(int32_t)p3 dayOfWeek:(System_DayOfWeek)p4
+    + (System_TimeZoneInfo__TransitionTime *)createFloatingDateRule_withTimeOfDay:(NSDate *)p1 month:(int32_t)p2 week:(int32_t)p3 dayOfWeek:(int32_t)p4
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFloatingDateRule(System.DateTime,int,int,System.DayOfWeek)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
 		
-		return [System_TimeZoneInfo__TransitionTime objectWithMonoObject:monoObject];
+		return [System_TimeZoneInfo__TransitionTime bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals
@@ -136,7 +196,7 @@
     - (BOOL)equals_withOther:(System_TimeZoneInfo__TransitionTime *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.TimeZoneInfo+TransitionTime)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.TimeZoneInfo/TransitionTime)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -158,7 +218,7 @@
     + (BOOL)op_Equality_withT1:(System_TimeZoneInfo__TransitionTime *)p1 t2:(System_TimeZoneInfo__TransitionTime *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.TimeZoneInfo+TransitionTime,System.TimeZoneInfo+TransitionTime)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.TimeZoneInfo/TransitionTime,System.TimeZoneInfo/TransitionTime)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -169,7 +229,7 @@
     + (BOOL)op_Inequality_withT1:(System_TimeZoneInfo__TransitionTime *)p1 t2:(System_TimeZoneInfo__TransitionTime *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.TimeZoneInfo+TransitionTime,System.TimeZoneInfo+TransitionTime)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.TimeZoneInfo/TransitionTime,System.TimeZoneInfo/TransitionTime)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

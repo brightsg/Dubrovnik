@@ -32,7 +32,9 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+        
     }
 
 	// Managed method name : GetBytes
@@ -51,7 +53,9 @@
 	// Managed param types : 
     - (void)reset
     {
-		[self invokeMonoMethod:"Reset()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Reset()" withNumArgs:0];
+        
     }
 
 #pragma mark -

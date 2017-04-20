@@ -2,7 +2,7 @@
 //
 // Managed class : DiscretionaryAcl
 //
-@interface System_Security_AccessControl_DiscretionaryAcl : System_Security_AccessControl_CommonAcl <System_Collections_ICollection, System_Collections_IEnumerable>
+@interface System_Security_AccessControl_DiscretionaryAcl : System_Security_AccessControl_CommonAcl <System_Collections_ICollection_, System_Collections_IEnumerable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -35,41 +35,61 @@
 	// Managed method name : AddAccess
 	// Managed return type : System.Void
 	// Managed param types : System.Security.AccessControl.AccessControlType, System.Security.Principal.SecurityIdentifier, System.Int32, System.Security.AccessControl.InheritanceFlags, System.Security.AccessControl.PropagationFlags
-    - (void)addAccess_withAccessType:(System_Security_AccessControl_AccessControlType)p1 sid:(System_Security_Principal_SecurityIdentifier *)p2 accessMask:(int32_t)p3 inheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p4 propagationFlags:(System_Security_AccessControl_PropagationFlags)p5;
+    - (void)addAccess_withAccessType:(int32_t)p1 sid:(System_Security_Principal_SecurityIdentifier *)p2 accessMask:(int32_t)p3 inheritanceFlags:(int32_t)p4 propagationFlags:(int32_t)p5;
+
+	// Managed method name : AddAccess
+	// Managed return type : System.Void
+	// Managed param types : System.Security.AccessControl.AccessControlType, System.Security.Principal.SecurityIdentifier, System.Security.AccessControl.ObjectAccessRule
+    - (void)addAccess_withAccessType:(int32_t)p1 sid:(System_Security_Principal_SecurityIdentifier *)p2 rule:(System_Security_AccessControl_ObjectAccessRule *)p3;
 
 	// Managed method name : AddAccess
 	// Managed return type : System.Void
 	// Managed param types : System.Security.AccessControl.AccessControlType, System.Security.Principal.SecurityIdentifier, System.Int32, System.Security.AccessControl.InheritanceFlags, System.Security.AccessControl.PropagationFlags, System.Security.AccessControl.ObjectAceFlags, System.Guid, System.Guid
-    - (void)addAccess_withAccessType:(System_Security_AccessControl_AccessControlType)p1 sid:(System_Security_Principal_SecurityIdentifier *)p2 accessMask:(int32_t)p3 inheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p4 propagationFlags:(System_Security_AccessControl_PropagationFlags)p5 objectFlags:(System_Security_AccessControl_ObjectAceFlags)p6 objectType:(System_Guid *)p7 inheritedObjectType:(System_Guid *)p8;
+    - (void)addAccess_withAccessType:(int32_t)p1 sid:(System_Security_Principal_SecurityIdentifier *)p2 accessMask:(int32_t)p3 inheritanceFlags:(int32_t)p4 propagationFlags:(int32_t)p5 objectFlags:(int32_t)p6 objectType:(System_Guid *)p7 inheritedObjectType:(System_Guid *)p8;
 
 	// Managed method name : RemoveAccess
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.AccessControl.AccessControlType, System.Security.Principal.SecurityIdentifier, System.Int32, System.Security.AccessControl.InheritanceFlags, System.Security.AccessControl.PropagationFlags
-    - (BOOL)removeAccess_withAccessType:(System_Security_AccessControl_AccessControlType)p1 sid:(System_Security_Principal_SecurityIdentifier *)p2 accessMask:(int32_t)p3 inheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p4 propagationFlags:(System_Security_AccessControl_PropagationFlags)p5;
+    - (BOOL)removeAccess_withAccessType:(int32_t)p1 sid:(System_Security_Principal_SecurityIdentifier *)p2 accessMask:(int32_t)p3 inheritanceFlags:(int32_t)p4 propagationFlags:(int32_t)p5;
+
+	// Managed method name : RemoveAccess
+	// Managed return type : System.Boolean
+	// Managed param types : System.Security.AccessControl.AccessControlType, System.Security.Principal.SecurityIdentifier, System.Security.AccessControl.ObjectAccessRule
+    - (BOOL)removeAccess_withAccessType:(int32_t)p1 sid:(System_Security_Principal_SecurityIdentifier *)p2 rule:(System_Security_AccessControl_ObjectAccessRule *)p3;
 
 	// Managed method name : RemoveAccess
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.AccessControl.AccessControlType, System.Security.Principal.SecurityIdentifier, System.Int32, System.Security.AccessControl.InheritanceFlags, System.Security.AccessControl.PropagationFlags, System.Security.AccessControl.ObjectAceFlags, System.Guid, System.Guid
-    - (BOOL)removeAccess_withAccessType:(System_Security_AccessControl_AccessControlType)p1 sid:(System_Security_Principal_SecurityIdentifier *)p2 accessMask:(int32_t)p3 inheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p4 propagationFlags:(System_Security_AccessControl_PropagationFlags)p5 objectFlags:(System_Security_AccessControl_ObjectAceFlags)p6 objectType:(System_Guid *)p7 inheritedObjectType:(System_Guid *)p8;
+    - (BOOL)removeAccess_withAccessType:(int32_t)p1 sid:(System_Security_Principal_SecurityIdentifier *)p2 accessMask:(int32_t)p3 inheritanceFlags:(int32_t)p4 propagationFlags:(int32_t)p5 objectFlags:(int32_t)p6 objectType:(System_Guid *)p7 inheritedObjectType:(System_Guid *)p8;
 
 	// Managed method name : RemoveAccessSpecific
 	// Managed return type : System.Void
 	// Managed param types : System.Security.AccessControl.AccessControlType, System.Security.Principal.SecurityIdentifier, System.Int32, System.Security.AccessControl.InheritanceFlags, System.Security.AccessControl.PropagationFlags
-    - (void)removeAccessSpecific_withAccessType:(System_Security_AccessControl_AccessControlType)p1 sid:(System_Security_Principal_SecurityIdentifier *)p2 accessMask:(int32_t)p3 inheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p4 propagationFlags:(System_Security_AccessControl_PropagationFlags)p5;
+    - (void)removeAccessSpecific_withAccessType:(int32_t)p1 sid:(System_Security_Principal_SecurityIdentifier *)p2 accessMask:(int32_t)p3 inheritanceFlags:(int32_t)p4 propagationFlags:(int32_t)p5;
+
+	// Managed method name : RemoveAccessSpecific
+	// Managed return type : System.Void
+	// Managed param types : System.Security.AccessControl.AccessControlType, System.Security.Principal.SecurityIdentifier, System.Security.AccessControl.ObjectAccessRule
+    - (void)removeAccessSpecific_withAccessType:(int32_t)p1 sid:(System_Security_Principal_SecurityIdentifier *)p2 rule:(System_Security_AccessControl_ObjectAccessRule *)p3;
 
 	// Managed method name : RemoveAccessSpecific
 	// Managed return type : System.Void
 	// Managed param types : System.Security.AccessControl.AccessControlType, System.Security.Principal.SecurityIdentifier, System.Int32, System.Security.AccessControl.InheritanceFlags, System.Security.AccessControl.PropagationFlags, System.Security.AccessControl.ObjectAceFlags, System.Guid, System.Guid
-    - (void)removeAccessSpecific_withAccessType:(System_Security_AccessControl_AccessControlType)p1 sid:(System_Security_Principal_SecurityIdentifier *)p2 accessMask:(int32_t)p3 inheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p4 propagationFlags:(System_Security_AccessControl_PropagationFlags)p5 objectFlags:(System_Security_AccessControl_ObjectAceFlags)p6 objectType:(System_Guid *)p7 inheritedObjectType:(System_Guid *)p8;
+    - (void)removeAccessSpecific_withAccessType:(int32_t)p1 sid:(System_Security_Principal_SecurityIdentifier *)p2 accessMask:(int32_t)p3 inheritanceFlags:(int32_t)p4 propagationFlags:(int32_t)p5 objectFlags:(int32_t)p6 objectType:(System_Guid *)p7 inheritedObjectType:(System_Guid *)p8;
 
 	// Managed method name : SetAccess
 	// Managed return type : System.Void
 	// Managed param types : System.Security.AccessControl.AccessControlType, System.Security.Principal.SecurityIdentifier, System.Int32, System.Security.AccessControl.InheritanceFlags, System.Security.AccessControl.PropagationFlags
-    - (void)setAccess_withAccessType:(System_Security_AccessControl_AccessControlType)p1 sid:(System_Security_Principal_SecurityIdentifier *)p2 accessMask:(int32_t)p3 inheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p4 propagationFlags:(System_Security_AccessControl_PropagationFlags)p5;
+    - (void)setAccess_withAccessType:(int32_t)p1 sid:(System_Security_Principal_SecurityIdentifier *)p2 accessMask:(int32_t)p3 inheritanceFlags:(int32_t)p4 propagationFlags:(int32_t)p5;
+
+	// Managed method name : SetAccess
+	// Managed return type : System.Void
+	// Managed param types : System.Security.AccessControl.AccessControlType, System.Security.Principal.SecurityIdentifier, System.Security.AccessControl.ObjectAccessRule
+    - (void)setAccess_withAccessType:(int32_t)p1 sid:(System_Security_Principal_SecurityIdentifier *)p2 rule:(System_Security_AccessControl_ObjectAccessRule *)p3;
 
 	// Managed method name : SetAccess
 	// Managed return type : System.Void
 	// Managed param types : System.Security.AccessControl.AccessControlType, System.Security.Principal.SecurityIdentifier, System.Int32, System.Security.AccessControl.InheritanceFlags, System.Security.AccessControl.PropagationFlags, System.Security.AccessControl.ObjectAceFlags, System.Guid, System.Guid
-    - (void)setAccess_withAccessType:(System_Security_AccessControl_AccessControlType)p1 sid:(System_Security_Principal_SecurityIdentifier *)p2 accessMask:(int32_t)p3 inheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p4 propagationFlags:(System_Security_AccessControl_PropagationFlags)p5 objectFlags:(System_Security_AccessControl_ObjectAceFlags)p6 objectType:(System_Guid *)p7 inheritedObjectType:(System_Guid *)p8;
+    - (void)setAccess_withAccessType:(int32_t)p1 sid:(System_Security_Principal_SecurityIdentifier *)p2 accessMask:(int32_t)p3 inheritanceFlags:(int32_t)p4 propagationFlags:(int32_t)p5 objectFlags:(int32_t)p6 objectType:(System_Guid *)p7 inheritedObjectType:(System_Guid *)p8;
 @end
 //--Dubrovnik.CodeGenerator

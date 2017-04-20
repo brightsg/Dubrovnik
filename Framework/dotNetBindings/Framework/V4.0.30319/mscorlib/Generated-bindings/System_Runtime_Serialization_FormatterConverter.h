@@ -2,7 +2,7 @@
 //
 // Managed class : FormatterConverter
 //
-@interface System_Runtime_Serialization_FormatterConverter : System_Object <System_Runtime_Serialization_IFormatterConverter>
+@interface System_Runtime_Serialization_FormatterConverter : System_Object <System_Runtime_Serialization_IFormatterConverter_>
 
 #pragma mark -
 #pragma mark Setup
@@ -22,7 +22,7 @@
 	// Managed method name : Convert
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.TypeCode
-    - (System_Object *)convert_withValue:(System_Object *)p1 typeCode:(System_TypeCode)p2;
+    - (System_Object *)convert_withValue:(System_Object *)p1 typeCode:(int32_t)p2;
 
 	// Managed method name : ToBoolean
 	// Managed return type : System.Boolean

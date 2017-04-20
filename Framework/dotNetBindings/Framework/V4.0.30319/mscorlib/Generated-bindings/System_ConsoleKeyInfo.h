@@ -17,14 +17,14 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ConsoleKeyInfo
 	// Managed param types : System.Char, System.ConsoleKey, System.Boolean, System.Boolean, System.Boolean
-    + (System_ConsoleKeyInfo *)new_withKeyChar:(uint16_t)p1 key:(System_ConsoleKey)p2 shift:(BOOL)p3 alt:(BOOL)p4 control:(BOOL)p5;
+    + (System_ConsoleKeyInfo *)new_withKeyChar:(uint16_t)p1 key:(int32_t)p2 shift:(BOOL)p3 alt:(BOOL)p4 control:(BOOL)p5;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Key
 	// Managed property type : System.ConsoleKey
-    @property (nonatomic, readonly) System_ConsoleKey key;
+    @property (nonatomic, readonly) int32_t key;
 
 	// Managed property name : KeyChar
 	// Managed property type : System.Char
@@ -32,7 +32,7 @@
 
 	// Managed property name : Modifiers
 	// Managed property type : System.ConsoleModifiers
-    @property (nonatomic, readonly) System_ConsoleModifiers modifiers;
+    @property (nonatomic, readonly) int32_t modifiers;
 
 #pragma mark -
 #pragma mark Methods

@@ -2,7 +2,7 @@
 //
 // Managed struct : CancellationTokenRegistration
 //
-@interface System_Threading_CancellationTokenRegistration : DBManagedObject <System_IEquatableA1, System_IDisposable>
+@interface System_Threading_CancellationTokenRegistration : DBManagedObject <System_IEquatableA1_, System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

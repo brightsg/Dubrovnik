@@ -32,7 +32,10 @@
 	// Managed param types : System.Type, System.Type
     + (System_Runtime_InteropServices_ComEventInterfaceAttribute *)new_withSourceInterface:(System_Type *)p1 eventProvider:(System_Type *)p2
     {
-		return [[self alloc] initWithSignature:"System.Type,System.Type" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Runtime_InteropServices_ComEventInterfaceAttribute * object = [[self alloc] initWithSignature:"System.Type,System.Type" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,9 +46,19 @@
     @synthesize eventProvider = _eventProvider;
     - (System_Type *)eventProvider
     {
-		MonoObject *monoObject = [self getMonoProperty:"EventProvider"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EventProvider");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_eventProvider isEqualToMonoObject:monoObject]) return _eventProvider;					
-		_eventProvider = [System_Type objectWithMonoObject:monoObject];
+		_eventProvider = [System_Type bestObjectWithMonoObject:monoObject];
 
 		return _eventProvider;
 	}
@@ -55,9 +68,19 @@
     @synthesize sourceInterface = _sourceInterface;
     - (System_Type *)sourceInterface
     {
-		MonoObject *monoObject = [self getMonoProperty:"SourceInterface"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SourceInterface");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_sourceInterface isEqualToMonoObject:monoObject]) return _sourceInterface;					
-		_sourceInterface = [System_Type objectWithMonoObject:monoObject];
+		_sourceInterface = [System_Type bestObjectWithMonoObject:monoObject];
 
 		return _sourceInterface;
 	}

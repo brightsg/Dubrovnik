@@ -29,62 +29,62 @@
 
 	// Managed method name : EnsureInitialized
 	// Managed return type : <System.Threading.LazyInitializer+T>
-	// Managed param types : ref <T&>, System.Func`1<System.Threading.LazyInitializer+T>
-    + (System_Object *)ensureInitialized_withTargetRef:(System_Object **)p1 valueFactory:(System_FuncA1 *)p2
+	// Managed param types : ref T&
+    + (System_Object *)ensureInitialized_withTargetRef:(System_Threading_LazyInitializer__T **)p1
     {
 		void *refPtr1 = [*p1 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"EnsureInitialized(<_T_0>&,System.Func`1<System.Threading.LazyInitializer+T>)" withNumArgs:2, &refPtr1, [p2 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"EnsureInitialized(System.Threading.LazyInitializer+T&)" withNumArgs:1, &refPtr1];
 
-		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+		*p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnsureInitialized
 	// Managed return type : <System.Threading.LazyInitializer+T>
-	// Managed param types : ref <T&>
-    + (System_Object *)ensureInitialized_withTargetRef:(System_Object **)p1
+	// Managed param types : ref T&, System.Func`1<System.Threading.LazyInitializer+T>
+    + (System_Object *)ensureInitialized_withTargetRef:(System_Threading_LazyInitializer__T **)p1 valueFactory:(System_FuncA1 *)p2
     {
 		void *refPtr1 = [*p1 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"EnsureInitialized(<_T_0>&)" withNumArgs:1, &refPtr1];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"EnsureInitialized(System.Threading.LazyInitializer+T&,System.Func`1<System.Threading.LazyInitializer+T>)" withNumArgs:2, &refPtr1, [p2 monoRTInvokeArg]];
 
-		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+		*p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnsureInitialized
 	// Managed return type : <System.Threading.LazyInitializer+T>
-	// Managed param types : ref <T&>, ref System.Boolean&, ref System.Object&
-    + (System_Object *)ensureInitialized_withTargetRef:(System_Object **)p1 initializedRef:(BOOL*)p2 syncLockRef:(System_Object **)p3
+	// Managed param types : ref T&, ref System.Boolean&, ref System.Object&
+    + (System_Object *)ensureInitialized_withTargetRef:(System_Threading_LazyInitializer__T **)p1 initializedRef:(BOOL*)p2 syncLockRef:(System_Object **)p3
     {
 		void *refPtr1 = [*p1 monoRTInvokeArg];
 void *refPtr3 = [*p3 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"EnsureInitialized(<_T_0>&,bool&,object&)" withNumArgs:3, &refPtr1, p2, &refPtr3];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"EnsureInitialized(System.Threading.LazyInitializer+T&,bool&,object&)" withNumArgs:3, &refPtr1, p2, &refPtr3];
 
-		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
-*p3 = [System_Object subclassObjectWithMonoObject:refPtr3];
+		*p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
 
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnsureInitialized
 	// Managed return type : <System.Threading.LazyInitializer+T>
-	// Managed param types : ref <T&>, ref System.Boolean&, ref System.Object&, System.Func`1<System.Threading.LazyInitializer+T>
-    + (System_Object *)ensureInitialized_withTargetRef:(System_Object **)p1 initializedRef:(BOOL*)p2 syncLockRef:(System_Object **)p3 valueFactory:(System_FuncA1 *)p4
+	// Managed param types : ref T&, ref System.Boolean&, ref System.Object&, System.Func`1<System.Threading.LazyInitializer+T>
+    + (System_Object *)ensureInitialized_withTargetRef:(System_Threading_LazyInitializer__T **)p1 initializedRef:(BOOL*)p2 syncLockRef:(System_Object **)p3 valueFactory:(System_FuncA1 *)p4
     {
 		void *refPtr1 = [*p1 monoRTInvokeArg];
 void *refPtr3 = [*p3 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"EnsureInitialized(<_T_0>&,bool&,object&,System.Func`1<System.Threading.LazyInitializer+T>)" withNumArgs:4, &refPtr1, p2, &refPtr3, [p4 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"EnsureInitialized(System.Threading.LazyInitializer+T&,bool&,object&,System.Func`1<System.Threading.LazyInitializer+T>)" withNumArgs:4, &refPtr1, p2, &refPtr3, [p4 monoRTInvokeArg]];
 
-		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
-*p3 = [System_Object subclassObjectWithMonoObject:refPtr3];
+		*p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
 
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

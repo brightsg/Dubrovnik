@@ -32,7 +32,10 @@
 	// Managed param types : System.String, System.String
     + (System_Runtime_Remoting_ActivatedServiceTypeEntry *)new_withTypeName:(NSString *)p1 assemblyName:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Runtime_Remoting_ActivatedServiceTypeEntry * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Type
     + (System_Runtime_Remoting_ActivatedServiceTypeEntry *)new_withType:(System_Type *)p1
     {
-		return [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Runtime_Remoting_ActivatedServiceTypeEntry * object = [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -51,7 +57,17 @@
     @synthesize contextAttributes = _contextAttributes;
     - (DBSystem_Array *)contextAttributes
     {
-		MonoObject *monoObject = [self getMonoProperty:"ContextAttributes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ContextAttributes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_contextAttributes isEqualToMonoObject:monoObject]) return _contextAttributes;					
 		_contextAttributes = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -60,8 +76,17 @@
     - (void)setContextAttributes:(DBSystem_Array *)value
 	{
 		_contextAttributes = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"ContextAttributes" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ContextAttributes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ObjectType
@@ -69,9 +94,19 @@
     @synthesize objectType = _objectType;
     - (System_Type *)objectType
     {
-		MonoObject *monoObject = [self getMonoProperty:"ObjectType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ObjectType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_objectType isEqualToMonoObject:monoObject]) return _objectType;					
-		_objectType = [System_Type objectWithMonoObject:monoObject];
+		_objectType = [System_Type bestObjectWithMonoObject:monoObject];
 
 		return _objectType;
 	}

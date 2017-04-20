@@ -2,7 +2,7 @@
 //
 // Managed class : EventWaitHandle
 //
-@interface System_Threading_EventWaitHandle : System_Threading_WaitHandle <System_IDisposable>
+@interface System_Threading_EventWaitHandle : System_Threading_WaitHandle <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,22 +17,22 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.EventWaitHandle
 	// Managed param types : System.Boolean, System.Threading.EventResetMode
-    + (System_Threading_EventWaitHandle *)new_withInitialState:(BOOL)p1 mode:(System_Threading_EventResetMode)p2;
+    + (System_Threading_EventWaitHandle *)new_withInitialState:(BOOL)p1 mode:(int32_t)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.EventWaitHandle
 	// Managed param types : System.Boolean, System.Threading.EventResetMode, System.String
-    + (System_Threading_EventWaitHandle *)new_withInitialState:(BOOL)p1 mode:(System_Threading_EventResetMode)p2 name:(NSString *)p3;
+    + (System_Threading_EventWaitHandle *)new_withInitialState:(BOOL)p1 mode:(int32_t)p2 name:(NSString *)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.EventWaitHandle
 	// Managed param types : System.Boolean, System.Threading.EventResetMode, System.String, ref System.Boolean&
-    + (System_Threading_EventWaitHandle *)new_withInitialState:(BOOL)p1 mode:(System_Threading_EventResetMode)p2 name:(NSString *)p3 createdNewRef:(BOOL*)p4;
+    + (System_Threading_EventWaitHandle *)new_withInitialState:(BOOL)p1 mode:(int32_t)p2 name:(NSString *)p3 createdNewRef:(BOOL*)p4;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.EventWaitHandle
 	// Managed param types : System.Boolean, System.Threading.EventResetMode, System.String, ref System.Boolean&, System.Security.AccessControl.EventWaitHandleSecurity
-    + (System_Threading_EventWaitHandle *)new_withInitialState:(BOOL)p1 mode:(System_Threading_EventResetMode)p2 name:(NSString *)p3 createdNewRef:(BOOL*)p4 eventSecurity:(System_Security_AccessControl_EventWaitHandleSecurity *)p5;
+    + (System_Threading_EventWaitHandle *)new_withInitialState:(BOOL)p1 mode:(int32_t)p2 name:(NSString *)p3 createdNewRef:(BOOL*)p4 eventSecurity:(System_Security_AccessControl_EventWaitHandleSecurity *)p5;
 
 #pragma mark -
 #pragma mark Methods
@@ -50,7 +50,7 @@
 	// Managed method name : OpenExisting
 	// Managed return type : System.Threading.EventWaitHandle
 	// Managed param types : System.String, System.Security.AccessControl.EventWaitHandleRights
-    + (System_Threading_EventWaitHandle *)openExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_EventWaitHandleRights)p2;
+    + (System_Threading_EventWaitHandle *)openExisting_withName:(NSString *)p1 rights:(int32_t)p2;
 
 	// Managed method name : Reset
 	// Managed return type : System.Boolean
@@ -75,6 +75,6 @@
 	// Managed method name : TryOpenExisting
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.Security.AccessControl.EventWaitHandleRights, ref System.Threading.EventWaitHandle&
-    + (BOOL)tryOpenExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_EventWaitHandleRights)p2 resultRef:(System_Threading_EventWaitHandle **)p3;
+    + (BOOL)tryOpenExisting_withName:(NSString *)p1 rights:(int32_t)p2 resultRef:(System_Threading_EventWaitHandle **)p3;
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed class : IsolatedStoragePermissionAttribute
 //
-@interface System_Security_Permissions_IsolatedStoragePermissionAttribute : System_Security_Permissions_CodeAccessSecurityAttribute <System_Runtime_InteropServices__Attribute>
+@interface System_Security_Permissions_IsolatedStoragePermissionAttribute : System_Security_Permissions_CodeAccessSecurityAttribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -16,7 +16,7 @@
 
 	// Managed property name : UsageAllowed
 	// Managed property type : System.Security.Permissions.IsolatedStorageContainment
-    @property (nonatomic) System_Security_Permissions_IsolatedStorageContainment usageAllowed;
+    @property (nonatomic) int32_t usageAllowed;
 
 	// Managed property name : UserQuota
 	// Managed property type : System.Int64

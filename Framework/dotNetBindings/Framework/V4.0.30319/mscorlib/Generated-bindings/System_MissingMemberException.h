@@ -2,7 +2,7 @@
 //
 // Managed class : MissingMemberException
 //
-@interface System_MissingMemberException : System_MemberAccessException <System_Runtime_Serialization_ISerializable, System_Runtime_InteropServices__Exception>
+@interface System_MissingMemberException : System_MemberAccessException <System_Runtime_Serialization_ISerializable_, System_Runtime_InteropServices__Exception_>
 
 #pragma mark -
 #pragma mark Setup

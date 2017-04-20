@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1+TResult>";
+		return "System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,9 +32,19 @@
     @synthesize task = _task;
     - (System_Threading_Tasks_TaskA1 *)task
     {
-		MonoObject *monoObject = [self getMonoProperty:"Task"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Task");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_task isEqualToMonoObject:monoObject]) return _task;					
-		_task = [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
+		_task = [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
 
 		return _task;
 	}
@@ -44,20 +54,32 @@
 
 	// Managed method name : AwaitOnCompleted
 	// Managed return type : System.Void
-	// Managed param types : ref <TAwaiter&>, ref <TStateMachine&>
-    - (void)awaitOnCompleted_withAwaiterRef:(System_Object **)p1 stateMachineRef:(System_Object **)p2
+	// Managed param types : ref TAwaiter&, ref TStateMachine&
+    - (void)awaitOnCompleted_withAwaiterRef:(System_Runtime_CompilerServices_AsyncTaskMethodBuilderA1__TAwaiter **)p1 stateMachineRef:(System_Runtime_CompilerServices_AsyncTaskMethodBuilderA1__TStateMachine **)p2
     {
-		[self invokeMonoMethod:"AwaitOnCompleted(<_T_0>&,<_T_1>&)" withNumArgs:2, &refPtr1, &refPtr2];
-;
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+void *refPtr2 = [*p2 monoRTInvokeArg];
+
+		[self invokeMonoMethod:"AwaitOnCompleted(System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1+TAwaiter&,System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1+TStateMachine&)" withNumArgs:2, &refPtr1, &refPtr2];
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+
     }
 
 	// Managed method name : AwaitUnsafeOnCompleted
 	// Managed return type : System.Void
-	// Managed param types : ref <TAwaiter&>, ref <TStateMachine&>
-    - (void)awaitUnsafeOnCompleted_withAwaiterRef:(System_Object **)p1 stateMachineRef:(System_Object **)p2
+	// Managed param types : ref TAwaiter&, ref TStateMachine&
+    - (void)awaitUnsafeOnCompleted_withAwaiterRef:(System_Runtime_CompilerServices_AsyncTaskMethodBuilderA1__TAwaiter **)p1 stateMachineRef:(System_Runtime_CompilerServices_AsyncTaskMethodBuilderA1__TStateMachine **)p2
     {
-		[self invokeMonoMethod:"AwaitUnsafeOnCompleted(<_T_0>&,<_T_1>&)" withNumArgs:2, &refPtr1, &refPtr2];
-;
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+void *refPtr2 = [*p2 monoRTInvokeArg];
+
+		[self invokeMonoMethod:"AwaitUnsafeOnCompleted(System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1+TAwaiter&,System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1+TStateMachine&)" withNumArgs:2, &refPtr1, &refPtr2];
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+
     }
 
 	// Managed method name : Create
@@ -68,7 +90,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create()" withNumArgs:0];
 		
-		return [System_Runtime_CompilerServices_AsyncTaskMethodBuilderA1 objectWithMonoObject:monoObject];
+		return [System_Runtime_CompilerServices_AsyncTaskMethodBuilderA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SetException
@@ -76,7 +98,9 @@
 	// Managed param types : System.Exception
     - (void)setException_withException:(System_Exception *)p1
     {
-		[self invokeMonoMethod:"SetException(System.Exception)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetException(System.Exception)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetResult
@@ -84,24 +108,32 @@
 	// Managed param types : <System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1+TResult>
     - (void)setResult_withResult:(System_Object *)p1
     {
-		[self invokeMonoMethod:"SetResult(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetResult(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetStateMachine
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.CompilerServices.IAsyncStateMachine
-    - (void)setStateMachine_withStateMachine:(System_Runtime_CompilerServices_IAsyncStateMachine *)p1
+    - (void)setStateMachine_withStateMachine:(id <System_Runtime_CompilerServices_IAsyncStateMachine_>)p1
     {
-		[self invokeMonoMethod:"SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Start
 	// Managed return type : System.Void
-	// Managed param types : ref <TStateMachine&>
-    - (void)start_withStateMachineRef:(System_Object **)p1
+	// Managed param types : ref TStateMachine&
+    - (void)start_withStateMachineRef:(System_Runtime_CompilerServices_AsyncTaskMethodBuilderA1__TStateMachine **)p1
     {
-		[self invokeMonoMethod:"Start(<_T_0>&)" withNumArgs:1, &refPtr1];
-;
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+
+		[self invokeMonoMethod:"Start(System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1+TStateMachine&)" withNumArgs:1, &refPtr1];
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+
     }
 
 #pragma mark -

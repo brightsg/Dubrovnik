@@ -32,7 +32,10 @@
 	// Managed param types : System.Threading.Tasks.TaskScheduler
     + (System_Threading_Tasks_ConcurrentExclusiveSchedulerPair *)new_withTaskScheduler:(System_Threading_Tasks_TaskScheduler *)p1
     {
-		return [[self alloc] initWithSignature:"System.Threading.Tasks.TaskScheduler" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Threading_Tasks_ConcurrentExclusiveSchedulerPair * object = [[self alloc] initWithSignature:"System.Threading.Tasks.TaskScheduler" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Threading.Tasks.TaskScheduler, System.Int32
     + (System_Threading_Tasks_ConcurrentExclusiveSchedulerPair *)new_withTaskScheduler:(System_Threading_Tasks_TaskScheduler *)p1 maxConcurrencyLevel:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"System.Threading.Tasks.TaskScheduler,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		System_Threading_Tasks_ConcurrentExclusiveSchedulerPair * object = [[self alloc] initWithSignature:"System.Threading.Tasks.TaskScheduler,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +54,10 @@
 	// Managed param types : System.Threading.Tasks.TaskScheduler, System.Int32, System.Int32
     + (System_Threading_Tasks_ConcurrentExclusiveSchedulerPair *)new_withTaskScheduler:(System_Threading_Tasks_TaskScheduler *)p1 maxConcurrencyLevel:(int32_t)p2 maxItemsPerTask:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"System.Threading.Tasks.TaskScheduler,int,int" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		System_Threading_Tasks_ConcurrentExclusiveSchedulerPair * object = [[self alloc] initWithSignature:"System.Threading.Tasks.TaskScheduler,int,int" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -59,9 +68,19 @@
     @synthesize completion = _completion;
     - (System_Threading_Tasks_Task *)completion
     {
-		MonoObject *monoObject = [self getMonoProperty:"Completion"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Completion");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_completion isEqualToMonoObject:monoObject]) return _completion;					
-		_completion = [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
+		_completion = [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 
 		return _completion;
 	}
@@ -71,9 +90,19 @@
     @synthesize concurrentScheduler = _concurrentScheduler;
     - (System_Threading_Tasks_TaskScheduler *)concurrentScheduler
     {
-		MonoObject *monoObject = [self getMonoProperty:"ConcurrentScheduler"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ConcurrentScheduler");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_concurrentScheduler isEqualToMonoObject:monoObject]) return _concurrentScheduler;					
-		_concurrentScheduler = [System_Threading_Tasks_TaskScheduler objectWithMonoObject:monoObject];
+		_concurrentScheduler = [System_Threading_Tasks_TaskScheduler bestObjectWithMonoObject:monoObject];
 
 		return _concurrentScheduler;
 	}
@@ -83,9 +112,19 @@
     @synthesize exclusiveScheduler = _exclusiveScheduler;
     - (System_Threading_Tasks_TaskScheduler *)exclusiveScheduler
     {
-		MonoObject *monoObject = [self getMonoProperty:"ExclusiveScheduler"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ExclusiveScheduler");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_exclusiveScheduler isEqualToMonoObject:monoObject]) return _exclusiveScheduler;					
-		_exclusiveScheduler = [System_Threading_Tasks_TaskScheduler objectWithMonoObject:monoObject];
+		_exclusiveScheduler = [System_Threading_Tasks_TaskScheduler bestObjectWithMonoObject:monoObject];
 
 		return _exclusiveScheduler;
 	}
@@ -98,7 +137,9 @@
 	// Managed param types : 
     - (void)complete
     {
-		[self invokeMonoMethod:"Complete()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Complete()" withNumArgs:0];
+        
     }
 
 #pragma mark -

@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.PublisherIdentityPermissionAttribute
 	// Managed param types : System.Security.Permissions.SecurityAction
-    + (System_Security_Permissions_PublisherIdentityPermissionAttribute *)new_withAction:(System_Security_Permissions_SecurityAction)p1
+    + (System_Security_Permissions_PublisherIdentityPermissionAttribute *)new_withAction:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.SecurityAction" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Security_Permissions_PublisherIdentityPermissionAttribute * object = [[self alloc] initWithSignature:"System.Security.Permissions.SecurityAction" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,7 +46,17 @@
     @synthesize certFile = _certFile;
     - (NSString *)certFile
     {
-		MonoObject *monoObject = [self getMonoProperty:"CertFile"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CertFile");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_certFile isEqualToMonoObject:monoObject]) return _certFile;					
 		_certFile = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -52,8 +65,17 @@
     - (void)setCertFile:(NSString *)value
 	{
 		_certFile = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"CertFile" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CertFile");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : SignedFile
@@ -61,7 +83,17 @@
     @synthesize signedFile = _signedFile;
     - (NSString *)signedFile
     {
-		MonoObject *monoObject = [self getMonoProperty:"SignedFile"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SignedFile");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_signedFile isEqualToMonoObject:monoObject]) return _signedFile;					
 		_signedFile = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -70,8 +102,17 @@
     - (void)setSignedFile:(NSString *)value
 	{
 		_signedFile = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"SignedFile" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "SignedFile");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : X509Certificate
@@ -79,7 +120,17 @@
     @synthesize x509Certificate = _x509Certificate;
     - (NSString *)x509Certificate
     {
-		MonoObject *monoObject = [self getMonoProperty:"X509Certificate"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "X509Certificate");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_x509Certificate isEqualToMonoObject:monoObject]) return _x509Certificate;					
 		_x509Certificate = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -88,8 +139,17 @@
     - (void)setX509Certificate:(NSString *)value
 	{
 		_x509Certificate = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"X509Certificate" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "X509Certificate");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -98,12 +158,12 @@
 	// Managed method name : CreatePermission
 	// Managed return type : System.Security.IPermission
 	// Managed param types : 
-    - (System_Security_IPermission *)createPermission
+    - (id <System_Security_IPermission>)createPermission
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreatePermission()" withNumArgs:0];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

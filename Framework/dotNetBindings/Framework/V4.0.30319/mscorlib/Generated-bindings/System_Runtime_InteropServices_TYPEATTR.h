@@ -76,7 +76,7 @@
 
 	// Managed field name : typekind
 	// Managed field type : System.Runtime.InteropServices.TYPEKIND
-    @property (nonatomic) System_Runtime_InteropServices_TYPEKIND typekind;
+    @property (nonatomic) int32_t typekind;
 
 	// Managed field name : wMajorVerNum
 	// Managed field type : System.Int16
@@ -88,6 +88,6 @@
 
 	// Managed field name : wTypeFlags
 	// Managed field type : System.Runtime.InteropServices.TYPEFLAGS
-    @property (nonatomic) System_Runtime_InteropServices_TYPEFLAGS wTypeFlags;
+    @property (nonatomic) int16_t wTypeFlags;
 @end
 //--Dubrovnik.CodeGenerator

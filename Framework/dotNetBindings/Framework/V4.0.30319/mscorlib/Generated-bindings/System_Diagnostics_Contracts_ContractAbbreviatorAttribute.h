@@ -2,7 +2,7 @@
 //
 // Managed class : ContractAbbreviatorAttribute
 //
-@interface System_Diagnostics_Contracts_ContractAbbreviatorAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Diagnostics_Contracts_ContractAbbreviatorAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup

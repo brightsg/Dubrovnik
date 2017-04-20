@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Concurrent.ConcurrentDictionary`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey,System.Collections.Concurrent.ConcurrentDictionary`2+TValue>";
+		return "System.Collections.Concurrent.ConcurrentDictionary`2";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -29,50 +29,68 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Concurrent.ConcurrentDictionary`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
-	// Managed param types : System.Int32, System.Int32
-    + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withConcurrencyLevel:(int32_t)p1 capacity:(int32_t)p2
+	// Managed param types : System.Collections.Generic.IEqualityComparer`1<System.Collections.Concurrent.ConcurrentDictionary`2+TKey>
+    + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withComparer:(id <System_Collections_Generic_IEqualityComparerA1_>)p1
     {
-		return [[self alloc] initWithSignature:"int,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		System_Collections_Concurrent_ConcurrentDictionaryA2 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEqualityComparer`1<System.Collections.Concurrent.ConcurrentDictionary`2+TKey>" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Concurrent.ConcurrentDictionary`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
-	// Managed param types : System.Collections.Generic.IEqualityComparer`1<System.Collections.Concurrent.ConcurrentDictionary`2+TKey>
-    + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withComparer:(System_Collections_Generic_IEqualityComparerA1 *)p1
+	// Managed param types : System.Int32, System.Int32
+    + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withConcurrencyLevel:(int32_t)p1 capacity:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IEqualityComparer`1<System.Collections.Concurrent.ConcurrentDictionary`2+TKey>" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Collections_Concurrent_ConcurrentDictionaryA2 * object = [[self alloc] initWithSignature:"int,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Concurrent.ConcurrentDictionary`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>>
-    + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withCollection:(System_Collections_Generic_IEnumerableA1 *)p1
+    + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>>" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Collections_Concurrent_ConcurrentDictionaryA2 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>>" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Concurrent.ConcurrentDictionary`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>>, System.Collections.Generic.IEqualityComparer`1<System.Collections.Concurrent.ConcurrentDictionary`2+TKey>
-    + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withCollection:(System_Collections_Generic_IEnumerableA1 *)p1 comparer:(System_Collections_Generic_IEqualityComparerA1 *)p2
+    + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1 comparer:(id <System_Collections_Generic_IEqualityComparerA1_>)p2
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>>,System.Collections.Generic.IEqualityComparer`1<System.Collections.Concurrent.ConcurrentDictionary`2+TKey>" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Collections_Concurrent_ConcurrentDictionaryA2 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>>,System.Collections.Generic.IEqualityComparer`1<System.Collections.Concurrent.ConcurrentDictionary`2+TKey>" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Concurrent.ConcurrentDictionary`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
 	// Managed param types : System.Int32, System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>>, System.Collections.Generic.IEqualityComparer`1<System.Collections.Concurrent.ConcurrentDictionary`2+TKey>
-    + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withConcurrencyLevel:(int32_t)p1 collection:(System_Collections_Generic_IEnumerableA1 *)p2 comparer:(System_Collections_Generic_IEqualityComparerA1 *)p3
+    + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withConcurrencyLevel:(int32_t)p1 collection:(id <System_Collections_Generic_IEnumerableA1_>)p2 comparer:(id <System_Collections_Generic_IEqualityComparerA1_>)p3
     {
-		return [[self alloc] initWithSignature:"int,System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>>,System.Collections.Generic.IEqualityComparer`1<System.Collections.Concurrent.ConcurrentDictionary`2+TKey>" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		System_Collections_Concurrent_ConcurrentDictionaryA2 * object = [[self alloc] initWithSignature:"int,System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>>,System.Collections.Generic.IEqualityComparer`1<System.Collections.Concurrent.ConcurrentDictionary`2+TKey>" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Concurrent.ConcurrentDictionary`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
 	// Managed param types : System.Int32, System.Int32, System.Collections.Generic.IEqualityComparer`1<System.Collections.Concurrent.ConcurrentDictionary`2+TKey>
-    + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withConcurrencyLevel:(int32_t)p1 capacity:(int32_t)p2 comparer:(System_Collections_Generic_IEqualityComparerA1 *)p3
+    + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withConcurrencyLevel:(int32_t)p1 capacity:(int32_t)p2 comparer:(id <System_Collections_Generic_IEqualityComparerA1_>)p3
     {
-		return [[self alloc] initWithSignature:"int,int,System.Collections.Generic.IEqualityComparer`1<System.Collections.Concurrent.ConcurrentDictionary`2+TKey>" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];;
+		
+		System_Collections_Concurrent_ConcurrentDictionaryA2 * object = [[self alloc] initWithSignature:"int,int,System.Collections.Generic.IEqualityComparer`1<System.Collections.Concurrent.ConcurrentDictionary`2+TKey>" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -83,8 +101,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -94,8 +122,18 @@
     @synthesize isEmpty = _isEmpty;
     - (BOOL)isEmpty
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsEmpty"];
-		_isEmpty = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsEmpty");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isEmpty = monoObject;
 
 		return _isEmpty;
 	}
@@ -105,17 +143,36 @@
     @synthesize item = _item;
     - (System_Object *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
-		_item = [System_Object subclassObjectWithMonoObject:monoObject];
+		_item = [System_Object bestObjectWithMonoObject:monoObject];
 
 		return _item;
 	}
     - (void)setItem:(System_Object *)value
 	{
 		_item = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"Item" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Keys
@@ -123,9 +180,19 @@
     @synthesize keys = _keys;
     - (System_Collections_Generic_ICollectionA1 *)keys
     {
-		MonoObject *monoObject = [self getMonoProperty:"Keys"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Keys");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_keys isEqualToMonoObject:monoObject]) return _keys;					
-		_keys = [System_Collections_Generic_ICollectionA1 objectWithMonoObject:monoObject];
+		_keys = [System_Collections_Generic_ICollectionA1 bestObjectWithMonoObject:monoObject];
 
 		return _keys;
 	}
@@ -135,9 +202,19 @@
     @synthesize values = _values;
     - (System_Collections_Generic_ICollectionA1 *)values
     {
-		MonoObject *monoObject = [self getMonoProperty:"Values"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Values");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_values isEqualToMonoObject:monoObject]) return _values;					
-		_values = [System_Collections_Generic_ICollectionA1 objectWithMonoObject:monoObject];
+		_values = [System_Collections_Generic_ICollectionA1 bestObjectWithMonoObject:monoObject];
 
 		return _values;
 	}
@@ -153,7 +230,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"AddOrUpdate(<_T_0>,System.Func`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>,System.Func`3<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : AddOrUpdate
@@ -164,7 +241,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"AddOrUpdate(<_T_0>,<_T_1>,System.Func`3<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Clear
@@ -172,7 +249,9 @@
 	// Managed param types : 
     - (void)clear
     {
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];
+        
     }
 
 	// Managed method name : ContainsKey
@@ -189,12 +268,12 @@
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.Generic.IEnumerator`1<System.Collections.Generic.KeyValuePair`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumeratorA1 *)getEnumerator
+    - (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
 		
-		return [System_Collections_Generic_IEnumeratorA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumeratorA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetOrAdd
@@ -205,7 +284,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetOrAdd(<_T_0>,System.Func`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetOrAdd
@@ -216,7 +295,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetOrAdd(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToArray
@@ -243,28 +322,28 @@
 
 	// Managed method name : TryGetValue
 	// Managed return type : System.Boolean
-	// Managed param types : <System.Collections.Concurrent.ConcurrentDictionary`2+TKey>, ref <TValue&>
-    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2
+	// Managed param types : <System.Collections.Concurrent.ConcurrentDictionary`2+TKey>, ref TValue&
+    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Collections_Concurrent_ConcurrentDictionaryA2__TValue **)p2
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoMethod:"TryGetValue(<_T_0>,<_T_1>&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+		MonoObject *monoObject = [self invokeMonoMethod:"TryGetValue(<_T_0>,System.Collections.Concurrent.ConcurrentDictionary`2+TValue&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 
-		*p2 = [System_Object subclassObjectWithMonoObject:refPtr2];
+		*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : TryRemove
 	// Managed return type : System.Boolean
-	// Managed param types : <System.Collections.Concurrent.ConcurrentDictionary`2+TKey>, ref <TValue&>
-    - (BOOL)tryRemove_withKey:(System_Object *)p1 valueRef:(System_Object **)p2
+	// Managed param types : <System.Collections.Concurrent.ConcurrentDictionary`2+TKey>, ref TValue&
+    - (BOOL)tryRemove_withKey:(System_Object *)p1 valueRef:(System_Collections_Concurrent_ConcurrentDictionaryA2__TValue **)p2
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoMethod:"TryRemove(<_T_0>,<_T_1>&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+		MonoObject *monoObject = [self invokeMonoMethod:"TryRemove(<_T_0>,System.Collections.Concurrent.ConcurrentDictionary`2+TValue&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 
-		*p2 = [System_Object subclassObjectWithMonoObject:refPtr2];
+		*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

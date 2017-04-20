@@ -2,7 +2,9 @@
 //
 // Managed enumeration : NumberStyles
 //
-typedef NS_ENUM(int32_t, System_Globalization_NumberStyles) {
+
+// C enumeration
+typedef NS_ENUM(int32_t, enumSystem_Globalization_NumberStyles) {
 	System_Globalization_NumberStyles_AllowCurrencySymbol = 256,
 	System_Globalization_NumberStyles_AllowDecimalPoint = 32,
 	System_Globalization_NumberStyles_AllowExponent = 128,
@@ -21,4 +23,84 @@ typedef NS_ENUM(int32_t, System_Globalization_NumberStyles) {
 	System_Globalization_NumberStyles_None = 0,
 	System_Globalization_NumberStyles_Number = 111,
 };
+@interface System_Globalization_NumberStyles : DBSystem_Enum
+
+#pragma mark -
+#pragma mark Setup
+	// obligatory override
+	+ (const char *)monoClassName;
+	// obligatory override
+	+ (const char *)monoAssemblyName;
+
+#pragma mark -
+#pragma mark Fields
+
+	// Managed field name : AllowCurrencySymbol
+	// Managed field type : System.Globalization.NumberStyles
+    + (int32_t)allowCurrencySymbol;
+
+	// Managed field name : AllowDecimalPoint
+	// Managed field type : System.Globalization.NumberStyles
+    + (int32_t)allowDecimalPoint;
+
+	// Managed field name : AllowExponent
+	// Managed field type : System.Globalization.NumberStyles
+    + (int32_t)allowExponent;
+
+	// Managed field name : AllowHexSpecifier
+	// Managed field type : System.Globalization.NumberStyles
+    + (int32_t)allowHexSpecifier;
+
+	// Managed field name : AllowLeadingSign
+	// Managed field type : System.Globalization.NumberStyles
+    + (int32_t)allowLeadingSign;
+
+	// Managed field name : AllowLeadingWhite
+	// Managed field type : System.Globalization.NumberStyles
+    + (int32_t)allowLeadingWhite;
+
+	// Managed field name : AllowParentheses
+	// Managed field type : System.Globalization.NumberStyles
+    + (int32_t)allowParentheses;
+
+	// Managed field name : AllowThousands
+	// Managed field type : System.Globalization.NumberStyles
+    + (int32_t)allowThousands;
+
+	// Managed field name : AllowTrailingSign
+	// Managed field type : System.Globalization.NumberStyles
+    + (int32_t)allowTrailingSign;
+
+	// Managed field name : AllowTrailingWhite
+	// Managed field type : System.Globalization.NumberStyles
+    + (int32_t)allowTrailingWhite;
+
+	// Managed field name : Any
+	// Managed field type : System.Globalization.NumberStyles
+    + (int32_t)any;
+
+	// Managed field name : Currency
+	// Managed field type : System.Globalization.NumberStyles
+    + (int32_t)currency;
+
+	// Managed field name : Float
+	// Managed field type : System.Globalization.NumberStyles
+    + (int32_t)float;
+
+	// Managed field name : HexNumber
+	// Managed field type : System.Globalization.NumberStyles
+    + (int32_t)hexNumber;
+
+	// Managed field name : Integer
+	// Managed field type : System.Globalization.NumberStyles
+    + (int32_t)integer;
+
+	// Managed field name : None
+	// Managed field type : System.Globalization.NumberStyles
+    + (int32_t)none;
+
+	// Managed field name : Number
+	// Managed field type : System.Globalization.NumberStyles
+    + (int32_t)number;
+@end
 //--Dubrovnik.CodeGenerator

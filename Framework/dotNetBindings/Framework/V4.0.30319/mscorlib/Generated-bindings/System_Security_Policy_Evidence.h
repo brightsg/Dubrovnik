@@ -2,7 +2,7 @@
 //
 // Managed class : Evidence
 //
-@interface System_Security_Policy_Evidence : System_Object <System_Collections_ICollection, System_Collections_IEnumerable>
+@interface System_Security_Policy_Evidence : System_Object <System_Collections_ICollection_, System_Collections_IEnumerable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -27,7 +27,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Policy.Evidence
 	// Managed param types : System.Security.Policy.EvidenceBase[], System.Security.Policy.EvidenceBase[]
-    + (System_Security_Policy_Evidence *)new_withHostEvidenceSArray:(DBSystem_Array *)p1 assemblyEvidenceSArray:(DBSystem_Array *)p2;
+    + (System_Security_Policy_Evidence *)new_withHostEvidenceSSPEvidenceBase:(DBSystem_Array *)p1 assemblyEvidenceSSPEvidenceBase:(DBSystem_Array *)p2;
 
 #pragma mark -
 #pragma mark Properties
@@ -93,7 +93,7 @@
 	// Managed method name : GetAssemblyEnumerator
 	// Managed return type : System.Collections.IEnumerator
 	// Managed param types : 
-    - (System_Collections_IEnumerator *)getAssemblyEnumerator;
+    - (id <System_Collections_IEnumerator>)getAssemblyEnumerator;
 
 	// Managed method name : GetAssemblyEvidence
 	// Managed return type : <System.Security.Policy.Evidence+T>
@@ -103,12 +103,12 @@
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IEnumerator
 	// Managed param types : 
-    - (System_Collections_IEnumerator *)getEnumerator;
+    - (id <System_Collections_IEnumerator>)getEnumerator;
 
 	// Managed method name : GetHostEnumerator
 	// Managed return type : System.Collections.IEnumerator
 	// Managed param types : 
-    - (System_Collections_IEnumerator *)getHostEnumerator;
+    - (id <System_Collections_IEnumerator>)getHostEnumerator;
 
 	// Managed method name : GetHostEvidence
 	// Managed return type : <System.Security.Policy.Evidence+T>

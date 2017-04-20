@@ -32,7 +32,7 @@
 
 	// Managed field name : varkind
 	// Managed field type : System.Runtime.InteropServices.ComTypes.VARKIND
-    @property (nonatomic) System_Runtime_InteropServices_ComTypes_VARKIND varkind;
+    @property (nonatomic) int32_t varkind;
 
 	// Managed field name : wVarFlags
 	// Managed field type : System.Int16

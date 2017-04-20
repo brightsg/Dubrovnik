@@ -58,7 +58,7 @@
 	// Managed method name : Abs
 	// Managed return type : System.Decimal
 	// Managed param types : System.Decimal
-    + (NSDecimalNumber *)abs_withValueDecimal:(NSDecimalNumber *)p1;
+    + (NSDecimalNumber *)abs_withValueSDecimal:(NSDecimalNumber *)p1;
 
 	// Managed method name : Acos
 	// Managed return type : System.Double
@@ -123,7 +123,7 @@
 	// Managed method name : Floor
 	// Managed return type : System.Decimal
 	// Managed param types : System.Decimal
-    + (NSDecimalNumber *)floor_withDDecimal:(NSDecimalNumber *)p1;
+    + (NSDecimalNumber *)floor_withDSDecimal:(NSDecimalNumber *)p1;
 
 	// Managed method name : Floor
 	// Managed return type : System.Double
@@ -203,7 +203,7 @@
 	// Managed method name : Max
 	// Managed return type : System.Decimal
 	// Managed param types : System.Decimal, System.Decimal
-    + (NSDecimalNumber *)max_withVal1Decimal:(NSDecimalNumber *)p1 val2Decimal:(NSDecimalNumber *)p2;
+    + (NSDecimalNumber *)max_withVal1SDecimal:(NSDecimalNumber *)p1 val2SDecimal:(NSDecimalNumber *)p2;
 
 	// Managed method name : Min
 	// Managed return type : System.SByte
@@ -258,7 +258,7 @@
 	// Managed method name : Min
 	// Managed return type : System.Decimal
 	// Managed param types : System.Decimal, System.Decimal
-    + (NSDecimalNumber *)min_withVal1Decimal:(NSDecimalNumber *)p1 val2Decimal:(NSDecimalNumber *)p2;
+    + (NSDecimalNumber *)min_withVal1SDecimal:(NSDecimalNumber *)p1 val2SDecimal:(NSDecimalNumber *)p2;
 
 	// Managed method name : Pow
 	// Managed return type : System.Double
@@ -278,12 +278,12 @@
 	// Managed method name : Round
 	// Managed return type : System.Double
 	// Managed param types : System.Double, System.MidpointRounding
-    + (double)round_withValue:(double)p1 mode:(System_MidpointRounding)p2;
+    + (double)round_withValue:(double)p1 mode:(int32_t)p2;
 
 	// Managed method name : Round
 	// Managed return type : System.Double
 	// Managed param types : System.Double, System.Int32, System.MidpointRounding
-    + (double)round_withValue:(double)p1 digits:(int32_t)p2 mode:(System_MidpointRounding)p3;
+    + (double)round_withValue:(double)p1 digits:(int32_t)p2 mode:(int32_t)p3;
 
 	// Managed method name : Round
 	// Managed return type : System.Decimal
@@ -298,12 +298,12 @@
 	// Managed method name : Round
 	// Managed return type : System.Decimal
 	// Managed param types : System.Decimal, System.MidpointRounding
-    + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1 mode:(System_MidpointRounding)p2;
+    + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1 mode:(int32_t)p2;
 
 	// Managed method name : Round
 	// Managed return type : System.Decimal
 	// Managed param types : System.Decimal, System.Int32, System.MidpointRounding
-    + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1 decimals:(int32_t)p2 mode:(System_MidpointRounding)p3;
+    + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1 decimals:(int32_t)p2 mode:(int32_t)p3;
 
 	// Managed method name : Sign
 	// Managed return type : System.Int32
@@ -338,7 +338,7 @@
 	// Managed method name : Sign
 	// Managed return type : System.Int32
 	// Managed param types : System.Decimal
-    + (int32_t)sign_withValueDecimal:(NSDecimalNumber *)p1;
+    + (int32_t)sign_withValueSDecimal:(NSDecimalNumber *)p1;
 
 	// Managed method name : Sin
 	// Managed return type : System.Double
@@ -368,7 +368,7 @@
 	// Managed method name : Truncate
 	// Managed return type : System.Decimal
 	// Managed param types : System.Decimal
-    + (NSDecimalNumber *)truncate_withDDecimal:(NSDecimalNumber *)p1;
+    + (NSDecimalNumber *)truncate_withDSDecimal:(NSDecimalNumber *)p1;
 
 	// Managed method name : Truncate
 	// Managed return type : System.Double

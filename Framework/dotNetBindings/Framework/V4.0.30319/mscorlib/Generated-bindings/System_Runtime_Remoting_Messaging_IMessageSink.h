@@ -24,11 +24,11 @@
 	// Managed method name : AsyncProcessMessage
 	// Managed return type : System.Runtime.Remoting.Messaging.IMessageCtrl
 	// Managed param types : System.Runtime.Remoting.Messaging.IMessage, System.Runtime.Remoting.Messaging.IMessageSink
-    - (System_Runtime_Remoting_Messaging_IMessageCtrl *)asyncProcessMessage_withMsg:(System_Runtime_Remoting_Messaging_IMessage *)p1 replySink:(System_Runtime_Remoting_Messaging_IMessageSink *)p2;
+    - (id <System_Runtime_Remoting_Messaging_IMessageCtrl>)asyncProcessMessage_withMsg:(id <System_Runtime_Remoting_Messaging_IMessage_>)p1 replySink:(id <System_Runtime_Remoting_Messaging_IMessageSink_>)p2;
 
 	// Managed method name : SyncProcessMessage
 	// Managed return type : System.Runtime.Remoting.Messaging.IMessage
 	// Managed param types : System.Runtime.Remoting.Messaging.IMessage
-    - (System_Runtime_Remoting_Messaging_IMessage *)syncProcessMessage_withMsg:(System_Runtime_Remoting_Messaging_IMessage *)p1;
+    - (id <System_Runtime_Remoting_Messaging_IMessage>)syncProcessMessage_withMsg:(id <System_Runtime_Remoting_Messaging_IMessage_>)p1;
 @end
 //--Dubrovnik.CodeGenerator

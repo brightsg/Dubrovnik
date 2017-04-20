@@ -17,7 +17,7 @@
 	// Managed method name : AddressOfMember
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, System.Runtime.InteropServices.INVOKEKIND, ref System.IntPtr&
-    - (void)addressOfMember_withMemid:(int32_t)p1 invKind:(System_Runtime_InteropServices_INVOKEKIND)p2 ppvRef:(void **)p3;
+    - (void)addressOfMember_withMemid:(int32_t)p1 invKind:(int32_t)p2 ppvRef:(void **)p3;
 
 	// Managed method name : CreateInstance
 	// Managed return type : System.Void
@@ -32,7 +32,7 @@
 	// Managed method name : GetDllEntry
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, System.Runtime.InteropServices.INVOKEKIND, ref System.String&, ref System.String&, ref System.Int16&
-    - (void)getDllEntry_withMemid:(int32_t)p1 invKind:(System_Runtime_InteropServices_INVOKEKIND)p2 pBstrDllNameRef:(NSString **)p3 pBstrNameRef:(NSString **)p4 pwOrdinalRef:(int16_t*)p5;
+    - (void)getDllEntry_withMemid:(int32_t)p1 invKind:(int32_t)p2 pBstrDllNameRef:(NSString **)p3 pBstrNameRef:(NSString **)p4 pwOrdinalRef:(int16_t*)p5;
 
 	// Managed method name : GetDocumentation
 	// Managed return type : System.Void

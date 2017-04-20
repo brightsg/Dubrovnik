@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.CompoundAce
 	// Managed param types : System.Security.AccessControl.AceFlags, System.Int32, System.Security.AccessControl.CompoundAceType, System.Security.Principal.SecurityIdentifier
-    + (System_Security_AccessControl_CompoundAce *)new_withFlags:(System_Security_AccessControl_AceFlags)p1 accessMask:(int32_t)p2 compoundAceType:(System_Security_AccessControl_CompoundAceType)p3 sid:(System_Security_Principal_SecurityIdentifier *)p4;
+    + (System_Security_AccessControl_CompoundAce *)new_withFlags:(uint8_t)p1 accessMask:(int32_t)p2 compoundAceType:(int32_t)p3 sid:(System_Security_Principal_SecurityIdentifier *)p4;
 
 #pragma mark -
 #pragma mark Properties
@@ -28,7 +28,7 @@
 
 	// Managed property name : CompoundAceType
 	// Managed property type : System.Security.AccessControl.CompoundAceType
-    @property (nonatomic) System_Security_AccessControl_CompoundAceType compoundAceType;
+    @property (nonatomic) int32_t compoundAceType;
 
 #pragma mark -
 #pragma mark Methods

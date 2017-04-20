@@ -2,7 +2,7 @@
 //
 // Managed class : BaseChannelSinkWithProperties
 //
-@interface System_Runtime_Remoting_Channels_BaseChannelSinkWithProperties : System_Runtime_Remoting_Channels_BaseChannelObjectWithProperties <System_Collections_IDictionary, System_Collections_ICollection, System_Collections_IEnumerable>
+@interface System_Runtime_Remoting_Channels_BaseChannelSinkWithProperties : System_Runtime_Remoting_Channels_BaseChannelObjectWithProperties <System_Collections_IDictionary_, System_Collections_ICollection_, System_Collections_IEnumerable_>
 
 #pragma mark -
 #pragma mark Setup

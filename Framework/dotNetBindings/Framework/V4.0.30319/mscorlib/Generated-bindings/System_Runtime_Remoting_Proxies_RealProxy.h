@@ -47,12 +47,12 @@
 	// Managed method name : InitializeServerObject
 	// Managed return type : System.Runtime.Remoting.Activation.IConstructionReturnMessage
 	// Managed param types : System.Runtime.Remoting.Activation.IConstructionCallMessage
-    - (System_Runtime_Remoting_Activation_IConstructionReturnMessage *)initializeServerObject_withCtorMsg:(System_Runtime_Remoting_Activation_IConstructionCallMessage *)p1;
+    - (id <System_Runtime_Remoting_Activation_IConstructionReturnMessage>)initializeServerObject_withCtorMsg:(id <System_Runtime_Remoting_Activation_IConstructionCallMessage_>)p1;
 
 	// Managed method name : Invoke
 	// Managed return type : System.Runtime.Remoting.Messaging.IMessage
 	// Managed param types : System.Runtime.Remoting.Messaging.IMessage
-    - (System_Runtime_Remoting_Messaging_IMessage *)invoke_withMsg:(System_Runtime_Remoting_Messaging_IMessage *)p1;
+    - (id <System_Runtime_Remoting_Messaging_IMessage>)invoke_withMsg:(id <System_Runtime_Remoting_Messaging_IMessage_>)p1;
 
 	// Managed method name : SetCOMIUnknown
 	// Managed return type : System.Void

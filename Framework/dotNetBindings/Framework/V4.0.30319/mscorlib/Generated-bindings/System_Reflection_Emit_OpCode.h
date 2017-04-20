@@ -16,7 +16,7 @@
 
 	// Managed property name : FlowControl
 	// Managed property type : System.Reflection.Emit.FlowControl
-    @property (nonatomic, readonly) System_Reflection_Emit_FlowControl flowControl;
+    @property (nonatomic, readonly) int32_t flowControl;
 
 	// Managed property name : Name
 	// Managed property type : System.String
@@ -24,11 +24,11 @@
 
 	// Managed property name : OpCodeType
 	// Managed property type : System.Reflection.Emit.OpCodeType
-    @property (nonatomic, readonly) System_Reflection_Emit_OpCodeType opCodeType;
+    @property (nonatomic, readonly) int32_t opCodeType;
 
 	// Managed property name : OperandType
 	// Managed property type : System.Reflection.Emit.OperandType
-    @property (nonatomic, readonly) System_Reflection_Emit_OperandType operandType;
+    @property (nonatomic, readonly) int32_t operandType;
 
 	// Managed property name : Size
 	// Managed property type : System.Int32
@@ -36,11 +36,11 @@
 
 	// Managed property name : StackBehaviourPop
 	// Managed property type : System.Reflection.Emit.StackBehaviour
-    @property (nonatomic, readonly) System_Reflection_Emit_StackBehaviour stackBehaviourPop;
+    @property (nonatomic, readonly) int32_t stackBehaviourPop;
 
 	// Managed property name : StackBehaviourPush
 	// Managed property type : System.Reflection.Emit.StackBehaviour
-    @property (nonatomic, readonly) System_Reflection_Emit_StackBehaviour stackBehaviourPush;
+    @property (nonatomic, readonly) int32_t stackBehaviourPush;
 
 	// Managed property name : Value
 	// Managed property type : System.Int16
@@ -51,13 +51,13 @@
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
-	// Managed param types : System.Reflection.Emit.OpCode
-    - (BOOL)equals_withObjSREOpCode:(System_Reflection_Emit_OpCode *)p1;
+	// Managed param types : System.Object
+    - (BOOL)equals_withObjObject:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
-	// Managed param types : System.Object
-    - (BOOL)equals_withObjObject:(System_Object *)p1;
+	// Managed param types : System.Reflection.Emit.OpCode
+    - (BOOL)equals_withObjSREOpCode:(System_Reflection_Emit_OpCode *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

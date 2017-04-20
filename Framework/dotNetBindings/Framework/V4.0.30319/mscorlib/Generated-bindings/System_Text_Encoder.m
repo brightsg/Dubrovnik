@@ -32,17 +32,36 @@
     @synthesize fallback = _fallback;
     - (System_Text_EncoderFallback *)fallback
     {
-		MonoObject *monoObject = [self getMonoProperty:"Fallback"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Fallback");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_fallback isEqualToMonoObject:monoObject]) return _fallback;					
-		_fallback = [System_Text_EncoderFallback objectWithMonoObject:monoObject];
+		_fallback = [System_Text_EncoderFallback bestObjectWithMonoObject:monoObject];
 
 		return _fallback;
 	}
     - (void)setFallback:(System_Text_EncoderFallback *)value
 	{
 		_fallback = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Fallback" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Fallback");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : FallbackBuffer
@@ -50,9 +69,19 @@
     @synthesize fallbackBuffer = _fallbackBuffer;
     - (System_Text_EncoderFallbackBuffer *)fallbackBuffer
     {
-		MonoObject *monoObject = [self getMonoProperty:"FallbackBuffer"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FallbackBuffer");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_fallbackBuffer isEqualToMonoObject:monoObject]) return _fallbackBuffer;					
-		_fallbackBuffer = [System_Text_EncoderFallbackBuffer objectWithMonoObject:monoObject];
+		_fallbackBuffer = [System_Text_EncoderFallbackBuffer bestObjectWithMonoObject:monoObject];
 
 		return _fallbackBuffer;
 	}
@@ -65,7 +94,9 @@
 	// Managed param types : System.Char[], System.Int32, System.Int32, System.Byte[], System.Int32, System.Int32, System.Boolean, ref System.Int32&, ref System.Int32&, ref System.Boolean&
     - (void)convert_withChars:(DBSystem_Array *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5 byteCount:(int32_t)p6 flush:(BOOL)p7 charsUsedRef:(int32_t*)p8 bytesUsedRef:(int32_t*)p9 completedRef:(BOOL*)p10
     {
-		[self invokeMonoMethod:"Convert(char[],int,int,byte[],int,int,bool,int&,int&,bool&)" withNumArgs:10, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), p8, p9, p10];;
+		
+		[self invokeMonoMethod:"Convert(char[],int,int,byte[],int,int,bool,int&,int&,bool&)" withNumArgs:10, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), p8, p9, p10];
+        
     }
 
 	// Managed method name : Convert
@@ -73,7 +104,9 @@
 	// Managed param types : System.Char*, System.Int32, System.Byte*, System.Int32, System.Boolean, ref System.Int32&, ref System.Int32&, ref System.Boolean&
     - (void)convert_withChars:(uint16_t*)p1 charCount:(int32_t)p2 bytes:(uint8_t*)p3 byteCount:(int32_t)p4 flush:(BOOL)p5 charsUsedRef:(int32_t*)p6 bytesUsedRef:(int32_t*)p7 completedRef:(BOOL*)p8
     {
-		[self invokeMonoMethod:"Convert(char*,int,byte*,int,bool,int&,int&,bool&)" withNumArgs:8, p1, DB_VALUE(p2), p3, DB_VALUE(p4), DB_VALUE(p5), p6, p7, p8];;
+		
+		[self invokeMonoMethod:"Convert(char*,int,byte*,int,bool,int&,int&,bool&)" withNumArgs:8, p1, DB_VALUE(p2), p3, DB_VALUE(p4), DB_VALUE(p5), p6, p7, p8];
+        
     }
 
 	// Managed method name : GetByteCount
@@ -125,7 +158,9 @@
 	// Managed param types : 
     - (void)reset
     {
-		[self invokeMonoMethod:"Reset()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Reset()" withNumArgs:0];
+        
     }
 
 #pragma mark -

@@ -2,7 +2,7 @@
 //
 // Managed class : WindowsIdentity
 //
-@interface System_Security_Principal_WindowsIdentity : System_Security_Claims_ClaimsIdentity <System_Security_Principal_IIdentity, System_Runtime_Serialization_ISerializable, System_Runtime_Serialization_IDeserializationCallback, System_IDisposable>
+@interface System_Security_Principal_WindowsIdentity : System_Security_Claims_ClaimsIdentity <System_Security_Principal_IIdentity_, System_Runtime_Serialization_ISerializable_, System_Runtime_Serialization_IDeserializationCallback_, System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -27,12 +27,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Principal.WindowsIdentity
 	// Managed param types : System.IntPtr, System.String, System.Security.Principal.WindowsAccountType
-    + (System_Security_Principal_WindowsIdentity *)new_withUserToken:(void *)p1 type:(NSString *)p2 acctType:(System_Security_Principal_WindowsAccountType)p3;
+    + (System_Security_Principal_WindowsIdentity *)new_withUserToken:(void *)p1 type:(NSString *)p2 acctType:(int32_t)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Principal.WindowsIdentity
 	// Managed param types : System.IntPtr, System.String, System.Security.Principal.WindowsAccountType, System.Boolean
-    + (System_Security_Principal_WindowsIdentity *)new_withUserToken:(void *)p1 type:(NSString *)p2 acctType:(System_Security_Principal_WindowsAccountType)p3 isAuthenticated:(BOOL)p4;
+    + (System_Security_Principal_WindowsIdentity *)new_withUserToken:(void *)p1 type:(NSString *)p2 acctType:(int32_t)p3 isAuthenticated:(BOOL)p4;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Principal.WindowsIdentity
@@ -59,6 +59,10 @@
 #pragma mark -
 #pragma mark Properties
 
+	// Managed property name : AccessToken
+	// Managed property type : Microsoft.Win32.SafeHandles.SafeAccessTokenHandle
+    @property (nonatomic, strong, readonly) Microsoft_Win32_SafeHandles_SafeAccessTokenHandle * accessToken;
+
 	// Managed property name : AuthenticationType
 	// Managed property type : System.String
     @property (nonatomic, strong, readonly) NSString * authenticationType;
@@ -77,7 +81,7 @@
 
 	// Managed property name : ImpersonationLevel
 	// Managed property type : System.Security.Principal.TokenImpersonationLevel
-    @property (nonatomic, readonly) System_Security_Principal_TokenImpersonationLevel impersonationLevel;
+    @property (nonatomic, readonly) int32_t impersonationLevel;
 
 	// Managed property name : IsAnonymous
 	// Managed property type : System.Boolean
@@ -146,7 +150,7 @@
 	// Managed method name : GetCurrent
 	// Managed return type : System.Security.Principal.WindowsIdentity
 	// Managed param types : System.Security.Principal.TokenAccessLevels
-    + (System_Security_Principal_WindowsIdentity *)getCurrent_withDesiredAccess:(System_Security_Principal_TokenAccessLevels)p1;
+    + (System_Security_Principal_WindowsIdentity *)getCurrent_withDesiredAccess:(int32_t)p1;
 
 	// Managed method name : Impersonate
 	// Managed return type : System.Security.Principal.WindowsImpersonationContext
@@ -157,5 +161,15 @@
 	// Managed return type : System.Security.Principal.WindowsImpersonationContext
 	// Managed param types : System.IntPtr
     + (System_Security_Principal_WindowsImpersonationContext *)impersonate_withUserToken:(void *)p1;
+
+	// Managed method name : RunImpersonated
+	// Managed return type : System.Void
+	// Managed param types : Microsoft.Win32.SafeHandles.SafeAccessTokenHandle, System.Action
+    + (void)runImpersonated_withSafeAccessTokenHandle:(Microsoft_Win32_SafeHandles_SafeAccessTokenHandle *)p1 action:(System_Action *)p2;
+
+	// Managed method name : RunImpersonated
+	// Managed return type : <System.Security.Principal.WindowsIdentity+T>
+	// Managed param types : Microsoft.Win32.SafeHandles.SafeAccessTokenHandle, System.Func`1<System.Security.Principal.WindowsIdentity+T>
+    + (System_Object *)runImpersonated_withSafeAccessTokenHandle:(Microsoft_Win32_SafeHandles_SafeAccessTokenHandle *)p1 func:(System_FuncA1 *)p2;
 @end
 //--Dubrovnik.CodeGenerator

@@ -32,7 +32,9 @@
 	// Managed param types : System.Object, System.Guid, System.Int32, System.Delegate
     + (void)combine_withRcw:(System_Object *)p1 iid:(System_Guid *)p2 dispid:(int32_t)p3 d:(System_Delegate *)p4
     {
-		[self invokeMonoClassMethod:"Combine(object,System.Guid,int,System.Delegate)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), [p4 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Combine(object,System.Guid,int,System.Delegate)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), [p4 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Remove
@@ -43,7 +45,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Remove(object,System.Guid,int,System.Delegate)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), [p4 monoRTInvokeArg]];
 		
-		return [System_Delegate objectWithMonoObject:monoObject];
+		return [System_Delegate bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

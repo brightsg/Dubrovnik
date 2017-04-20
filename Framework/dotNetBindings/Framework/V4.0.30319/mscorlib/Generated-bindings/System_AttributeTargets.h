@@ -2,7 +2,9 @@
 //
 // Managed enumeration : AttributeTargets
 //
-typedef NS_ENUM(int32_t, System_AttributeTargets) {
+
+// C enumeration
+typedef NS_ENUM(int32_t, enumSystem_AttributeTargets) {
 	System_AttributeTargets_All = 32767,
 	System_AttributeTargets_Assembly = 1,
 	System_AttributeTargets_Class = 4,
@@ -20,4 +22,80 @@ typedef NS_ENUM(int32_t, System_AttributeTargets) {
 	System_AttributeTargets_ReturnValue = 8192,
 	System_AttributeTargets_Struct = 8,
 };
+@interface System_AttributeTargets : DBSystem_Enum
+
+#pragma mark -
+#pragma mark Setup
+	// obligatory override
+	+ (const char *)monoClassName;
+	// obligatory override
+	+ (const char *)monoAssemblyName;
+
+#pragma mark -
+#pragma mark Fields
+
+	// Managed field name : All
+	// Managed field type : System.AttributeTargets
+    + (int32_t)all;
+
+	// Managed field name : Assembly
+	// Managed field type : System.AttributeTargets
+    + (int32_t)assembly;
+
+	// Managed field name : Class
+	// Managed field type : System.AttributeTargets
+    + (int32_t)class;
+
+	// Managed field name : Constructor
+	// Managed field type : System.AttributeTargets
+    + (int32_t)constructor;
+
+	// Managed field name : Delegate
+	// Managed field type : System.AttributeTargets
+    + (int32_t)delegate;
+
+	// Managed field name : Enum
+	// Managed field type : System.AttributeTargets
+    + (int32_t)enum;
+
+	// Managed field name : Event
+	// Managed field type : System.AttributeTargets
+    + (int32_t)event;
+
+	// Managed field name : Field
+	// Managed field type : System.AttributeTargets
+    + (int32_t)field;
+
+	// Managed field name : GenericParameter
+	// Managed field type : System.AttributeTargets
+    + (int32_t)genericParameter;
+
+	// Managed field name : Interface
+	// Managed field type : System.AttributeTargets
+    + (int32_t)interface;
+
+	// Managed field name : Method
+	// Managed field type : System.AttributeTargets
+    + (int32_t)method;
+
+	// Managed field name : Module
+	// Managed field type : System.AttributeTargets
+    + (int32_t)module;
+
+	// Managed field name : Parameter
+	// Managed field type : System.AttributeTargets
+    + (int32_t)parameter;
+
+	// Managed field name : Property
+	// Managed field type : System.AttributeTargets
+    + (int32_t)property;
+
+	// Managed field name : ReturnValue
+	// Managed field type : System.AttributeTargets
+    + (int32_t)returnValue;
+
+	// Managed field name : Struct
+	// Managed field type : System.AttributeTargets
+    + (int32_t)struct;
+@end
 //--Dubrovnik.CodeGenerator

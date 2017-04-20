@@ -2,7 +2,7 @@
 //
 // Managed class : StrongNameKeyPair
 //
-@interface System_Reflection_StrongNameKeyPair : System_Object <System_Runtime_Serialization_IDeserializationCallback, System_Runtime_Serialization_ISerializable>
+@interface System_Reflection_StrongNameKeyPair : System_Object <System_Runtime_Serialization_IDeserializationCallback_, System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup

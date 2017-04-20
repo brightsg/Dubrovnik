@@ -2,7 +2,7 @@
 //
 // Managed class : DynamicMethod
 //
-@interface System_Reflection_Emit_DynamicMethod : System_Reflection_MethodInfo <System_Reflection_ICustomAttributeProvider, System_Runtime_InteropServices__MemberInfo, System_Runtime_InteropServices__MethodBase, System_Runtime_InteropServices__MethodInfo>
+@interface System_Reflection_Emit_DynamicMethod : System_Reflection_MethodInfo <System_Reflection_ICustomAttributeProvider_, System_Runtime_InteropServices__MemberInfo_, System_Runtime_InteropServices__MethodBase_, System_Runtime_InteropServices__MethodInfo_>
 
 #pragma mark -
 #pragma mark Setup
@@ -16,13 +16,33 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Reflection.Emit.DynamicMethod
+	// Managed param types : System.String, System.Type, System.Type[]
+    + (System_Reflection_Emit_DynamicMethod *)new_withName:(NSString *)p1 returnType:(System_Type *)p2 parameterTypes:(DBSystem_Array *)p3;
+
+	// Managed method name : .ctor
+	// Managed return type : System.Reflection.Emit.DynamicMethod
 	// Managed param types : System.String, System.Type, System.Type[], System.Boolean
     + (System_Reflection_Emit_DynamicMethod *)new_withName:(NSString *)p1 returnType:(System_Type *)p2 parameterTypes:(DBSystem_Array *)p3 restrictedSkipVisibility:(BOOL)p4;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Reflection.Emit.DynamicMethod
+	// Managed param types : System.String, System.Type, System.Type[], System.Reflection.Module
+    + (System_Reflection_Emit_DynamicMethod *)new_withName:(NSString *)p1 returnType:(System_Type *)p2 parameterTypes:(DBSystem_Array *)p3 m:(System_Reflection_Module *)p4;
+
+	// Managed method name : .ctor
+	// Managed return type : System.Reflection.Emit.DynamicMethod
 	// Managed param types : System.String, System.Type, System.Type[], System.Reflection.Module, System.Boolean
     + (System_Reflection_Emit_DynamicMethod *)new_withName:(NSString *)p1 returnType:(System_Type *)p2 parameterTypes:(DBSystem_Array *)p3 m:(System_Reflection_Module *)p4 skipVisibility:(BOOL)p5;
+
+	// Managed method name : .ctor
+	// Managed return type : System.Reflection.Emit.DynamicMethod
+	// Managed param types : System.String, System.Reflection.MethodAttributes, System.Reflection.CallingConventions, System.Type, System.Type[], System.Reflection.Module, System.Boolean
+    + (System_Reflection_Emit_DynamicMethod *)new_withName:(NSString *)p1 attributes:(int32_t)p2 callingConvention:(int32_t)p3 returnType:(System_Type *)p4 parameterTypes:(DBSystem_Array *)p5 m:(System_Reflection_Module *)p6 skipVisibility:(BOOL)p7;
+
+	// Managed method name : .ctor
+	// Managed return type : System.Reflection.Emit.DynamicMethod
+	// Managed param types : System.String, System.Type, System.Type[], System.Type
+    + (System_Reflection_Emit_DynamicMethod *)new_withName:(NSString *)p1 returnType:(System_Type *)p2 parameterTypes:(DBSystem_Array *)p3 owner:(System_Type *)p4;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Reflection.Emit.DynamicMethod
@@ -32,38 +52,18 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Reflection.Emit.DynamicMethod
 	// Managed param types : System.String, System.Reflection.MethodAttributes, System.Reflection.CallingConventions, System.Type, System.Type[], System.Type, System.Boolean
-    + (System_Reflection_Emit_DynamicMethod *)new_withName:(NSString *)p1 attributes:(System_Reflection_MethodAttributes)p2 callingConvention:(System_Reflection_CallingConventions)p3 returnType:(System_Type *)p4 parameterTypes:(DBSystem_Array *)p5 owner:(System_Type *)p6 skipVisibility:(BOOL)p7;
-
-	// Managed method name : .ctor
-	// Managed return type : System.Reflection.Emit.DynamicMethod
-	// Managed param types : System.String, System.Type, System.Type[]
-    + (System_Reflection_Emit_DynamicMethod *)new_withName:(NSString *)p1 returnType:(System_Type *)p2 parameterTypes:(DBSystem_Array *)p3;
-
-	// Managed method name : .ctor
-	// Managed return type : System.Reflection.Emit.DynamicMethod
-	// Managed param types : System.String, System.Type, System.Type[], System.Reflection.Module
-    + (System_Reflection_Emit_DynamicMethod *)new_withName:(NSString *)p1 returnType:(System_Type *)p2 parameterTypes:(DBSystem_Array *)p3 m:(System_Reflection_Module *)p4;
-
-	// Managed method name : .ctor
-	// Managed return type : System.Reflection.Emit.DynamicMethod
-	// Managed param types : System.String, System.Reflection.MethodAttributes, System.Reflection.CallingConventions, System.Type, System.Type[], System.Reflection.Module, System.Boolean
-    + (System_Reflection_Emit_DynamicMethod *)new_withName:(NSString *)p1 attributes:(System_Reflection_MethodAttributes)p2 callingConvention:(System_Reflection_CallingConventions)p3 returnType:(System_Type *)p4 parameterTypes:(DBSystem_Array *)p5 m:(System_Reflection_Module *)p6 skipVisibility:(BOOL)p7;
-
-	// Managed method name : .ctor
-	// Managed return type : System.Reflection.Emit.DynamicMethod
-	// Managed param types : System.String, System.Type, System.Type[], System.Type
-    + (System_Reflection_Emit_DynamicMethod *)new_withName:(NSString *)p1 returnType:(System_Type *)p2 parameterTypes:(DBSystem_Array *)p3 owner:(System_Type *)p4;
+    + (System_Reflection_Emit_DynamicMethod *)new_withName:(NSString *)p1 attributes:(int32_t)p2 callingConvention:(int32_t)p3 returnType:(System_Type *)p4 parameterTypes:(DBSystem_Array *)p5 owner:(System_Type *)p6 skipVisibility:(BOOL)p7;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Attributes
 	// Managed property type : System.Reflection.MethodAttributes
-    @property (nonatomic, readonly) System_Reflection_MethodAttributes attributes;
+    @property (nonatomic, readonly) int32_t attributes;
 
 	// Managed property name : CallingConvention
 	// Managed property type : System.Reflection.CallingConventions
-    @property (nonatomic, readonly) System_Reflection_CallingConventions callingConvention;
+    @property (nonatomic, readonly) int32_t callingConvention;
 
 	// Managed property name : DeclaringType
 	// Managed property type : System.Type
@@ -129,7 +129,7 @@
 	// Managed method name : DefineParameter
 	// Managed return type : System.Reflection.Emit.ParameterBuilder
 	// Managed param types : System.Int32, System.Reflection.ParameterAttributes, System.String
-    - (System_Reflection_Emit_ParameterBuilder *)defineParameter_withPosition:(int32_t)p1 attributes:(System_Reflection_ParameterAttributes)p2 parameterName:(NSString *)p3;
+    - (System_Reflection_Emit_ParameterBuilder *)defineParameter_withPosition:(int32_t)p1 attributes:(int32_t)p2 parameterName:(NSString *)p3;
 
 	// Managed method name : GetBaseDefinition
 	// Managed return type : System.Reflection.MethodInfo
@@ -164,7 +164,7 @@
 	// Managed method name : GetMethodImplementationFlags
 	// Managed return type : System.Reflection.MethodImplAttributes
 	// Managed param types : 
-    - (System_Reflection_MethodImplAttributes)getMethodImplementationFlags;
+    - (int32_t)getMethodImplementationFlags;
 
 	// Managed method name : GetParameters
 	// Managed return type : System.Reflection.ParameterInfo[]
@@ -174,7 +174,7 @@
 	// Managed method name : Invoke
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo
-    - (System_Object *)invoke_withObj:(System_Object *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 parameters:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5;
+    - (System_Object *)invoke_withObj:(System_Object *)p1 invokeAttr:(int32_t)p2 binder:(System_Reflection_Binder *)p3 parameters:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5;
 
 	// Managed method name : IsDefined
 	// Managed return type : System.Boolean

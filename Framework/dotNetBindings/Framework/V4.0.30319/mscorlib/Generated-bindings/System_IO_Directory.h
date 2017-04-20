@@ -37,47 +37,47 @@
 	// Managed method name : EnumerateDirectories
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.String>
 	// Managed param types : System.String
-    + (System_Collections_Generic_IEnumerableA1 *)enumerateDirectories_withPath:(NSString *)p1;
+    + (id <System_Collections_Generic_IEnumerableA1>)enumerateDirectories_withPath:(NSString *)p1;
 
 	// Managed method name : EnumerateDirectories
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.String>
 	// Managed param types : System.String, System.String
-    + (System_Collections_Generic_IEnumerableA1 *)enumerateDirectories_withPath:(NSString *)p1 searchPattern:(NSString *)p2;
+    + (id <System_Collections_Generic_IEnumerableA1>)enumerateDirectories_withPath:(NSString *)p1 searchPattern:(NSString *)p2;
 
 	// Managed method name : EnumerateDirectories
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.String>
 	// Managed param types : System.String, System.String, System.IO.SearchOption
-    + (System_Collections_Generic_IEnumerableA1 *)enumerateDirectories_withPath:(NSString *)p1 searchPattern:(NSString *)p2 searchOption:(System_IO_SearchOption)p3;
+    + (id <System_Collections_Generic_IEnumerableA1>)enumerateDirectories_withPath:(NSString *)p1 searchPattern:(NSString *)p2 searchOption:(int32_t)p3;
 
 	// Managed method name : EnumerateFiles
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.String>
 	// Managed param types : System.String
-    + (System_Collections_Generic_IEnumerableA1 *)enumerateFiles_withPath:(NSString *)p1;
+    + (id <System_Collections_Generic_IEnumerableA1>)enumerateFiles_withPath:(NSString *)p1;
 
 	// Managed method name : EnumerateFiles
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.String>
 	// Managed param types : System.String, System.String
-    + (System_Collections_Generic_IEnumerableA1 *)enumerateFiles_withPath:(NSString *)p1 searchPattern:(NSString *)p2;
+    + (id <System_Collections_Generic_IEnumerableA1>)enumerateFiles_withPath:(NSString *)p1 searchPattern:(NSString *)p2;
 
 	// Managed method name : EnumerateFiles
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.String>
 	// Managed param types : System.String, System.String, System.IO.SearchOption
-    + (System_Collections_Generic_IEnumerableA1 *)enumerateFiles_withPath:(NSString *)p1 searchPattern:(NSString *)p2 searchOption:(System_IO_SearchOption)p3;
+    + (id <System_Collections_Generic_IEnumerableA1>)enumerateFiles_withPath:(NSString *)p1 searchPattern:(NSString *)p2 searchOption:(int32_t)p3;
 
 	// Managed method name : EnumerateFileSystemEntries
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.String>
 	// Managed param types : System.String
-    + (System_Collections_Generic_IEnumerableA1 *)enumerateFileSystemEntries_withPath:(NSString *)p1;
+    + (id <System_Collections_Generic_IEnumerableA1>)enumerateFileSystemEntries_withPath:(NSString *)p1;
 
 	// Managed method name : EnumerateFileSystemEntries
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.String>
 	// Managed param types : System.String, System.String
-    + (System_Collections_Generic_IEnumerableA1 *)enumerateFileSystemEntries_withPath:(NSString *)p1 searchPattern:(NSString *)p2;
+    + (id <System_Collections_Generic_IEnumerableA1>)enumerateFileSystemEntries_withPath:(NSString *)p1 searchPattern:(NSString *)p2;
 
 	// Managed method name : EnumerateFileSystemEntries
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.String>
 	// Managed param types : System.String, System.String, System.IO.SearchOption
-    + (System_Collections_Generic_IEnumerableA1 *)enumerateFileSystemEntries_withPath:(NSString *)p1 searchPattern:(NSString *)p2 searchOption:(System_IO_SearchOption)p3;
+    + (id <System_Collections_Generic_IEnumerableA1>)enumerateFileSystemEntries_withPath:(NSString *)p1 searchPattern:(NSString *)p2 searchOption:(int32_t)p3;
 
 	// Managed method name : Exists
 	// Managed return type : System.Boolean
@@ -92,7 +92,7 @@
 	// Managed method name : GetAccessControl
 	// Managed return type : System.Security.AccessControl.DirectorySecurity
 	// Managed param types : System.String, System.Security.AccessControl.AccessControlSections
-    + (System_Security_AccessControl_DirectorySecurity *)getAccessControl_withPath:(NSString *)p1 includeSections:(System_Security_AccessControl_AccessControlSections)p2;
+    + (System_Security_AccessControl_DirectorySecurity *)getAccessControl_withPath:(NSString *)p1 includeSections:(int32_t)p2;
 
 	// Managed method name : GetCreationTime
 	// Managed return type : System.DateTime
@@ -122,7 +122,7 @@
 	// Managed method name : GetDirectories
 	// Managed return type : System.String[]
 	// Managed param types : System.String, System.String, System.IO.SearchOption
-    + (DBSystem_Array *)getDirectories_withPath:(NSString *)p1 searchPattern:(NSString *)p2 searchOption:(System_IO_SearchOption)p3;
+    + (DBSystem_Array *)getDirectories_withPath:(NSString *)p1 searchPattern:(NSString *)p2 searchOption:(int32_t)p3;
 
 	// Managed method name : GetDirectoryRoot
 	// Managed return type : System.String
@@ -142,7 +142,7 @@
 	// Managed method name : GetFiles
 	// Managed return type : System.String[]
 	// Managed param types : System.String, System.String, System.IO.SearchOption
-    + (DBSystem_Array *)getFiles_withPath:(NSString *)p1 searchPattern:(NSString *)p2 searchOption:(System_IO_SearchOption)p3;
+    + (DBSystem_Array *)getFiles_withPath:(NSString *)p1 searchPattern:(NSString *)p2 searchOption:(int32_t)p3;
 
 	// Managed method name : GetFileSystemEntries
 	// Managed return type : System.String[]
@@ -157,7 +157,7 @@
 	// Managed method name : GetFileSystemEntries
 	// Managed return type : System.String[]
 	// Managed param types : System.String, System.String, System.IO.SearchOption
-    + (DBSystem_Array *)getFileSystemEntries_withPath:(NSString *)p1 searchPattern:(NSString *)p2 searchOption:(System_IO_SearchOption)p3;
+    + (DBSystem_Array *)getFileSystemEntries_withPath:(NSString *)p1 searchPattern:(NSString *)p2 searchOption:(int32_t)p3;
 
 	// Managed method name : GetLastAccessTime
 	// Managed return type : System.DateTime

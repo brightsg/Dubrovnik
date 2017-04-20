@@ -30,18 +30,37 @@
 	// Managed property name : PartialTrustVisibilityLevel
 	// Managed property type : System.Security.PartialTrustVisibilityLevel
     @synthesize partialTrustVisibilityLevel = _partialTrustVisibilityLevel;
-    - (System_Security_PartialTrustVisibilityLevel)partialTrustVisibilityLevel
+    - (int32_t)partialTrustVisibilityLevel
     {
-		MonoObject *monoObject = [self getMonoProperty:"PartialTrustVisibilityLevel"];
-		_partialTrustVisibilityLevel = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PartialTrustVisibilityLevel");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_partialTrustVisibilityLevel = monoObject;
 
 		return _partialTrustVisibilityLevel;
 	}
-    - (void)setPartialTrustVisibilityLevel:(System_Security_PartialTrustVisibilityLevel)value
+    - (void)setPartialTrustVisibilityLevel:(int32_t)value
 	{
 		_partialTrustVisibilityLevel = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"PartialTrustVisibilityLevel" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "PartialTrustVisibilityLevel");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

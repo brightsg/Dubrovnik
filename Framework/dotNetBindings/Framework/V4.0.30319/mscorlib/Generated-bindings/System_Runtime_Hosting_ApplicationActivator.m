@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(System.ActivationContext)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_ObjectHandle objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_ObjectHandle bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateInstance
@@ -46,7 +46,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(System.ActivationContext,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_ObjectHandle objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_ObjectHandle bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

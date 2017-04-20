@@ -34,7 +34,7 @@
     {
 		MonoObject *monoObject = [self getMonoField:"guid"];
 		if ([self object:_guid isEqualToMonoObject:monoObject]) return _guid;					
-		_guid = [System_Guid objectWithMonoObject:monoObject];
+		_guid = [System_Guid bestObjectWithMonoObject:monoObject];
 
 		return _guid;
 	}
@@ -65,14 +65,14 @@
 	// Managed field name : syskind
 	// Managed field type : System.Runtime.InteropServices.SYSKIND
     @synthesize syskind = _syskind;
-    - (System_Runtime_InteropServices_SYSKIND)syskind
+    - (int32_t)syskind
     {
 		MonoObject *monoObject = [self getMonoField:"syskind"];
 		_syskind = DB_UNBOX_INT32(monoObject);
 
 		return _syskind;
 	}
-    - (void)setSyskind:(System_Runtime_InteropServices_SYSKIND)value
+    - (void)setSyskind:(int32_t)value
 	{
 		_syskind = value;
 		MonoObject *monoObject = DB_VALUE(value);
@@ -82,14 +82,14 @@
 	// Managed field name : wLibFlags
 	// Managed field type : System.Runtime.InteropServices.LIBFLAGS
     @synthesize wLibFlags = _wLibFlags;
-    - (System_Runtime_InteropServices_LIBFLAGS)wLibFlags
+    - (int16_t)wLibFlags
     {
 		MonoObject *monoObject = [self getMonoField:"wLibFlags"];
 		_wLibFlags = DB_UNBOX_INT16(monoObject);
 
 		return _wLibFlags;
 	}
-    - (void)setWLibFlags:(System_Runtime_InteropServices_LIBFLAGS)value
+    - (void)setWLibFlags:(int16_t)value
 	{
 		_wLibFlags = value;
 		MonoObject *monoObject = DB_VALUE(value);

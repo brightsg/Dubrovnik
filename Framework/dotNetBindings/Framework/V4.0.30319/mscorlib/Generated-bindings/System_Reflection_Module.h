@@ -2,7 +2,7 @@
 //
 // Managed class : Module
 //
-@interface System_Reflection_Module : System_Object <System_Runtime_InteropServices__Module, System_Runtime_Serialization_ISerializable, System_Reflection_ICustomAttributeProvider>
+@interface System_Reflection_Module : System_Object <System_Runtime_InteropServices__Module_, System_Runtime_Serialization_ISerializable_, System_Reflection_ICustomAttributeProvider_>
 
 #pragma mark -
 #pragma mark Setup
@@ -87,7 +87,7 @@
 	// Managed method name : GetCustomAttributesData
 	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : 
-    - (System_Collections_Generic_IListA1 *)getCustomAttributesData;
+    - (id <System_Collections_Generic_IListA1>)getCustomAttributesData;
 
 	// Managed method name : GetField
 	// Managed return type : System.Reflection.FieldInfo
@@ -97,7 +97,7 @@
 	// Managed method name : GetField
 	// Managed return type : System.Reflection.FieldInfo
 	// Managed param types : System.String, System.Reflection.BindingFlags
-    - (System_Reflection_FieldInfo *)getField_withName:(NSString *)p1 bindingAttr:(System_Reflection_BindingFlags)p2;
+    - (System_Reflection_FieldInfo *)getField_withName:(NSString *)p1 bindingAttr:(int32_t)p2;
 
 	// Managed method name : GetFields
 	// Managed return type : System.Reflection.FieldInfo[]
@@ -107,7 +107,7 @@
 	// Managed method name : GetFields
 	// Managed return type : System.Reflection.FieldInfo[]
 	// Managed param types : System.Reflection.BindingFlags
-    - (DBSystem_Array *)getFields_withBindingFlags:(System_Reflection_BindingFlags)p1;
+    - (DBSystem_Array *)getFields_withBindingFlags:(int32_t)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
@@ -117,7 +117,7 @@
 	// Managed method name : GetMethod
 	// Managed return type : System.Reflection.MethodInfo
 	// Managed param types : System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Reflection.CallingConventions, System.Type[], System.Reflection.ParameterModifier[]
-    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 bindingAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 callConvention:(System_Reflection_CallingConventions)p4 types:(DBSystem_Array *)p5 modifiers:(DBSystem_Array *)p6;
+    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 bindingAttr:(int32_t)p2 binder:(System_Reflection_Binder *)p3 callConvention:(int32_t)p4 types:(DBSystem_Array *)p5 modifiers:(DBSystem_Array *)p6;
 
 	// Managed method name : GetMethod
 	// Managed return type : System.Reflection.MethodInfo
@@ -137,7 +137,7 @@
 	// Managed method name : GetMethods
 	// Managed return type : System.Reflection.MethodInfo[]
 	// Managed param types : System.Reflection.BindingFlags
-    - (DBSystem_Array *)getMethods_withBindingFlags:(System_Reflection_BindingFlags)p1;
+    - (DBSystem_Array *)getMethods_withBindingFlags:(int32_t)p1;
 
 	// Managed method name : GetObjectData
 	// Managed return type : System.Void

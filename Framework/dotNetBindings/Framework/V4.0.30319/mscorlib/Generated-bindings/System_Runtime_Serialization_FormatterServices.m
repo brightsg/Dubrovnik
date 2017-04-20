@@ -30,9 +30,11 @@
 	// Managed method name : CheckTypeSecurity
 	// Managed return type : System.Void
 	// Managed param types : System.Type, System.Runtime.Serialization.Formatters.TypeFilterLevel
-    + (void)checkTypeSecurity_withT:(System_Type *)p1 securityLevel:(System_Runtime_Serialization_Formatters_TypeFilterLevel)p2
+    + (void)checkTypeSecurity_withT:(System_Type *)p1 securityLevel:(int32_t)p2
     {
-		[self invokeMonoClassMethod:"CheckTypeSecurity(System.Type,System.Runtime.Serialization.Formatters.TypeFilterLevel)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoClassMethod:"CheckTypeSecurity(System.Type,System.Runtime.Serialization.Formatters.TypeFilterLevel)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : GetObjectData
@@ -41,7 +43,7 @@
     + (DBSystem_Array *)getObjectData_withObj:(System_Object *)p1 members:(DBSystem_Array *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetObjectData(object,System.Array[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetObjectData(object,System.Reflection.MemberInfo[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -82,12 +84,12 @@
 	// Managed method name : GetSurrogateForCyclicalReference
 	// Managed return type : System.Runtime.Serialization.ISerializationSurrogate
 	// Managed param types : System.Runtime.Serialization.ISerializationSurrogate
-    + (System_Runtime_Serialization_ISerializationSurrogate *)getSurrogateForCyclicalReference_withInnerSurrogate:(System_Runtime_Serialization_ISerializationSurrogate *)p1
+    + (id <System_Runtime_Serialization_ISerializationSurrogate>)getSurrogateForCyclicalReference_withInnerSurrogate:(id <System_Runtime_Serialization_ISerializationSurrogate_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetSurrogateForCyclicalReference(System.Runtime.Serialization.ISerializationSurrogate)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Runtime_Serialization_ISerializationSurrogate objectWithMonoObject:monoObject];
+		return [System_Runtime_Serialization_ISerializationSurrogate bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypeFromAssembly
@@ -98,7 +100,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeFromAssembly(System.Reflection.Assembly,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetUninitializedObject
@@ -118,7 +120,7 @@
     + (System_Object *)populateObjectMembers_withObj:(System_Object *)p1 members:(DBSystem_Array *)p2 data:(DBSystem_Array *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"PopulateObjectMembers(object,System.Array[],object[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"PopulateObjectMembers(object,System.Reflection.MemberInfo[],object[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }

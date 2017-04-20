@@ -32,7 +32,10 @@
 	// Managed param types : System.Security.Principal.WindowsIdentity
     + (System_Security_Principal_WindowsPrincipal *)new_withNtIdentity:(System_Security_Principal_WindowsIdentity *)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Principal.WindowsIdentity" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Security_Principal_WindowsPrincipal * object = [[self alloc] initWithSignature:"System.Security.Principal.WindowsIdentity" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,9 +46,19 @@
     @synthesize deviceClaims = _deviceClaims;
     - (System_Collections_Generic_IEnumerableA1 *)deviceClaims
     {
-		MonoObject *monoObject = [self getMonoProperty:"DeviceClaims"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DeviceClaims");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_deviceClaims isEqualToMonoObject:monoObject]) return _deviceClaims;					
-		_deviceClaims = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		_deviceClaims = [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
 
 		return _deviceClaims;
 	}
@@ -55,9 +68,19 @@
     @synthesize identity = _identity;
     - (System_Security_Principal_IIdentity *)identity
     {
-		MonoObject *monoObject = [self getMonoProperty:"Identity"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Identity");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_identity isEqualToMonoObject:monoObject]) return _identity;					
-		_identity = [System_Security_Principal_IIdentity objectWithMonoObject:monoObject];
+		_identity = [System_Security_Principal_IIdentity bestObjectWithMonoObject:monoObject];
 
 		return _identity;
 	}
@@ -67,9 +90,19 @@
     @synthesize userClaims = _userClaims;
     - (System_Collections_Generic_IEnumerableA1 *)userClaims
     {
-		MonoObject *monoObject = [self getMonoProperty:"UserClaims"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UserClaims");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_userClaims isEqualToMonoObject:monoObject]) return _userClaims;					
-		_userClaims = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		_userClaims = [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
 
 		return _userClaims;
 	}
@@ -91,7 +124,7 @@
 	// Managed method name : IsInRole
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.Principal.WindowsBuiltInRole
-    - (BOOL)isInRole_withRoleSSPWindowsBuiltInRole:(System_Security_Principal_WindowsBuiltInRole)p1
+    - (BOOL)isInRole_withRoleSSPWindowsBuiltInRole:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsInRole(System.Security.Principal.WindowsBuiltInRole)" withNumArgs:1, DB_VALUE(p1)];

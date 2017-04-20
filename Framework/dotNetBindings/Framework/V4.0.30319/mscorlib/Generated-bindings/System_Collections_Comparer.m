@@ -32,7 +32,10 @@
 	// Managed param types : System.Globalization.CultureInfo
     + (System_Collections_Comparer *)new_withCulture:(System_Globalization_CultureInfo *)p1
     {
-		return [[self alloc] initWithSignature:"System.Globalization.CultureInfo" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Collections_Comparer * object = [[self alloc] initWithSignature:"System.Globalization.CultureInfo" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -45,7 +48,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Default"];
 		if ([self object:m_default isEqualToMonoObject:monoObject]) return m_default;					
-		m_default = [System_Collections_Comparer objectWithMonoObject:monoObject];
+		m_default = [System_Collections_Comparer bestObjectWithMonoObject:monoObject];
 
 		return m_default;
 	}
@@ -57,7 +60,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"DefaultInvariant"];
 		if ([self object:m_defaultInvariant isEqualToMonoObject:monoObject]) return m_defaultInvariant;					
-		m_defaultInvariant = [System_Collections_Comparer objectWithMonoObject:monoObject];
+		m_defaultInvariant = [System_Collections_Comparer bestObjectWithMonoObject:monoObject];
 
 		return m_defaultInvariant;
 	}
@@ -81,7 +84,9 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

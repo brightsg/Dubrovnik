@@ -2,7 +2,7 @@
 //
 // Managed class : CannotUnloadAppDomainException
 //
-@interface System_CannotUnloadAppDomainException : System_SystemException <System_Runtime_Serialization_ISerializable, System_Runtime_InteropServices__Exception>
+@interface System_CannotUnloadAppDomainException : System_SystemException <System_Runtime_Serialization_ISerializable_, System_Runtime_InteropServices__Exception_>
 
 #pragma mark -
 #pragma mark Setup

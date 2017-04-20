@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.ObjectModel.Collection`1<System.Collections.ObjectModel.Collection`1+T>";
+		return "System.Collections.ObjectModel.Collection`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.ObjectModel.Collection`1<System.Collections.ObjectModel.Collection`1+T>
 	// Managed param types : System.Collections.Generic.IList`1<System.Collections.ObjectModel.Collection`1+T>
-    + (System_Collections_ObjectModel_CollectionA1 *)new_withList:(System_Collections_Generic_IListA1 *)p1
+    + (System_Collections_ObjectModel_CollectionA1 *)new_withList:(id <System_Collections_Generic_IListA1_>)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IList`1<System.Collections.ObjectModel.Collection`1+T>" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Collections_ObjectModel_CollectionA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IList`1<System.Collections.ObjectModel.Collection`1+T>" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,8 +46,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -54,17 +67,36 @@
     @synthesize item = _item;
     - (System_Object *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
-		_item = [System_Object subclassObjectWithMonoObject:monoObject];
+		_item = [System_Object bestObjectWithMonoObject:monoObject];
 
 		return _item;
 	}
     - (void)setItem:(System_Object *)value
 	{
 		_item = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"Item" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -75,7 +107,9 @@
 	// Managed param types : <System.Collections.ObjectModel.Collection`1+T>
     - (void)add_withItem:(System_Object *)p1
     {
-		[self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Clear
@@ -83,7 +117,9 @@
 	// Managed param types : 
     - (void)clear
     {
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Contains
@@ -99,21 +135,23 @@
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : <T[]>, System.Int32
-    - (void)copyTo_withArray:(System_Object *)p1 index:(int32_t)p2
+	// Managed param types : T[], System.Int32
+    - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(<_T_0>[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.Generic.IEnumerator`1<System.Collections.ObjectModel.Collection`1+T>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumeratorA1 *)getEnumerator
+    - (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
 		
-		return [System_Collections_Generic_IEnumeratorA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumeratorA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IndexOf
@@ -132,7 +170,9 @@
 	// Managed param types : System.Int32, <System.Collections.ObjectModel.Collection`1+T>
     - (void)insert_withIndex:(int32_t)p1 item:(System_Object *)p2
     {
-		[self invokeMonoMethod:"Insert(int,<_T_0>)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Insert(int,<_T_0>)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Remove
@@ -151,7 +191,9 @@
 	// Managed param types : System.Int32
     - (void)removeAt_withIndex:(int32_t)p1
     {
-		[self invokeMonoMethod:"RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 #pragma mark -

@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.CompilerServices.DefaultDependencyAttribute
 	// Managed param types : System.Runtime.CompilerServices.LoadHint
-    + (System_Runtime_CompilerServices_DefaultDependencyAttribute *)new_withLoadHintArgument:(System_Runtime_CompilerServices_LoadHint)p1
+    + (System_Runtime_CompilerServices_DefaultDependencyAttribute *)new_withLoadHintArgument:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.CompilerServices.LoadHint" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Runtime_CompilerServices_DefaultDependencyAttribute * object = [[self alloc] initWithSignature:"System.Runtime.CompilerServices.LoadHint" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -41,10 +44,20 @@
 	// Managed property name : LoadHint
 	// Managed property type : System.Runtime.CompilerServices.LoadHint
     @synthesize loadHint = _loadHint;
-    - (System_Runtime_CompilerServices_LoadHint)loadHint
+    - (int32_t)loadHint
     {
-		MonoObject *monoObject = [self getMonoProperty:"LoadHint"];
-		_loadHint = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LoadHint");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_loadHint = monoObject;
 
 		return _loadHint;
 	}

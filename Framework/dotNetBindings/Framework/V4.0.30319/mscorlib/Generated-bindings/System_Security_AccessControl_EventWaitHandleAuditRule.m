@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.EventWaitHandleAuditRule
 	// Managed param types : System.Security.Principal.IdentityReference, System.Security.AccessControl.EventWaitHandleRights, System.Security.AccessControl.AuditFlags
-    + (System_Security_AccessControl_EventWaitHandleAuditRule *)new_withIdentity:(System_Security_Principal_IdentityReference *)p1 eventRights:(System_Security_AccessControl_EventWaitHandleRights)p2 flags:(System_Security_AccessControl_AuditFlags)p3
+    + (System_Security_AccessControl_EventWaitHandleAuditRule *)new_withIdentity:(System_Security_Principal_IdentityReference *)p1 eventRights:(int32_t)p2 flags:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"System.Security.Principal.IdentityReference,System.Security.AccessControl.EventWaitHandleRights,System.Security.AccessControl.AuditFlags" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		System_Security_AccessControl_EventWaitHandleAuditRule * object = [[self alloc] initWithSignature:"System.Security.Principal.IdentityReference,System.Security.AccessControl.EventWaitHandleRights,System.Security.AccessControl.AuditFlags" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -41,10 +44,20 @@
 	// Managed property name : EventWaitHandleRights
 	// Managed property type : System.Security.AccessControl.EventWaitHandleRights
     @synthesize eventWaitHandleRights = _eventWaitHandleRights;
-    - (System_Security_AccessControl_EventWaitHandleRights)eventWaitHandleRights
+    - (int32_t)eventWaitHandleRights
     {
-		MonoObject *monoObject = [self getMonoProperty:"EventWaitHandleRights"];
-		_eventWaitHandleRights = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EventWaitHandleRights");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_eventWaitHandleRights = monoObject;
 
 		return _eventWaitHandleRights;
 	}

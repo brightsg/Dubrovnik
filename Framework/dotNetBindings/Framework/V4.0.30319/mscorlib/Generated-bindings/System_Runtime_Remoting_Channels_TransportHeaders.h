@@ -2,7 +2,7 @@
 //
 // Managed class : TransportHeaders
 //
-@interface System_Runtime_Remoting_Channels_TransportHeaders : System_Object <System_Runtime_Remoting_Channels_ITransportHeaders>
+@interface System_Runtime_Remoting_Channels_TransportHeaders : System_Object <System_Runtime_Remoting_Channels_ITransportHeaders_>
 
 #pragma mark -
 #pragma mark Setup
@@ -24,6 +24,6 @@
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IEnumerator
 	// Managed param types : 
-    - (System_Collections_IEnumerator *)getEnumerator;
+    - (id <System_Collections_IEnumerator>)getEnumerator;
 @end
 //--Dubrovnik.CodeGenerator

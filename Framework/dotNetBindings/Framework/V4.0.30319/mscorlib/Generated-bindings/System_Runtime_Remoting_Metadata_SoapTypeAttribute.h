@@ -2,7 +2,7 @@
 //
 // Managed class : SoapTypeAttribute
 //
-@interface System_Runtime_Remoting_Metadata_SoapTypeAttribute : System_Runtime_Remoting_Metadata_SoapAttribute <System_Runtime_InteropServices__Attribute>
+@interface System_Runtime_Remoting_Metadata_SoapTypeAttribute : System_Runtime_Remoting_Metadata_SoapAttribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -16,7 +16,7 @@
 
 	// Managed property name : SoapOptions
 	// Managed property type : System.Runtime.Remoting.Metadata.SoapOption
-    @property (nonatomic) System_Runtime_Remoting_Metadata_SoapOption soapOptions;
+    @property (nonatomic) int32_t soapOptions;
 
 	// Managed property name : UseAttribute
 	// Managed property type : System.Boolean
@@ -28,7 +28,7 @@
 
 	// Managed property name : XmlFieldOrder
 	// Managed property type : System.Runtime.Remoting.Metadata.XmlFieldOrderOption
-    @property (nonatomic) System_Runtime_Remoting_Metadata_XmlFieldOrderOption xmlFieldOrder;
+    @property (nonatomic) int32_t xmlFieldOrder;
 
 	// Managed property name : XmlNamespace
 	// Managed property type : System.String

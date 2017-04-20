@@ -32,7 +32,10 @@
 	// Managed param types : System.String
     + (System_Security_XmlSyntaxException *)new_withMessage:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Security_XmlSyntaxException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.String, System.Exception
     + (System_Security_XmlSyntaxException *)new_withMessage:(NSString *)p1 inner:(System_Exception *)p2
     {
-		return [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Security_XmlSyntaxException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +54,10 @@
 	// Managed param types : System.Int32
     + (System_Security_XmlSyntaxException *)new_withLineNumber:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Security_XmlSyntaxException * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +65,10 @@
 	// Managed param types : System.Int32, System.String
     + (System_Security_XmlSyntaxException *)new_withLineNumber:(int32_t)p1 message:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"int,string" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		System_Security_XmlSyntaxException * object = [[self alloc] initWithSignature:"int,string" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -

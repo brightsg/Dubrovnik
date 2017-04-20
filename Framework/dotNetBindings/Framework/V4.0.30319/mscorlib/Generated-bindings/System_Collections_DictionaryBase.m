@@ -32,8 +32,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -46,7 +56,9 @@
 	// Managed param types : 
     - (void)clear
     {
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];
+        
     }
 
 	// Managed method name : CopyTo
@@ -54,18 +66,20 @@
 	// Managed param types : System.Array, System.Int32
     - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IDictionaryEnumerator
 	// Managed param types : 
-    - (System_Collections_IDictionaryEnumerator *)getEnumerator
+    - (id <System_Collections_IDictionaryEnumerator>)getEnumerator
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
 		
-		return [System_Collections_IDictionaryEnumerator objectWithMonoObject:monoObject];
+		return [System_Collections_IDictionaryEnumerator bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

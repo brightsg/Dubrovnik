@@ -20,6 +20,6 @@
 
 	// Managed field name : wIDLFlags
 	// Managed field type : System.Runtime.InteropServices.IDLFLAG
-    @property (nonatomic) System_Runtime_InteropServices_IDLFLAG wIDLFlags;
+    @property (nonatomic) int16_t wIDLFlags;
 @end
 //--Dubrovnik.CodeGenerator

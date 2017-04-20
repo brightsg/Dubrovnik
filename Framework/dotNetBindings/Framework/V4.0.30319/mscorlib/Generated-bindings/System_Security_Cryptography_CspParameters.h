@@ -67,7 +67,7 @@
 
 	// Managed property name : Flags
 	// Managed property type : System.Security.Cryptography.CspProviderFlags
-    @property (nonatomic) System_Security_Cryptography_CspProviderFlags flags;
+    @property (nonatomic) int32_t flags;
 
 	// Managed property name : KeyPassword
 	// Managed property type : System.Security.SecureString

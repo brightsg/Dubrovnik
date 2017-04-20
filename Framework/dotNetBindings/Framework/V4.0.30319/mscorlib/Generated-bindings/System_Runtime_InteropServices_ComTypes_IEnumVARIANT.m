@@ -30,12 +30,12 @@
 	// Managed method name : Clone
 	// Managed return type : System.Runtime.InteropServices.ComTypes.IEnumVARIANT
 	// Managed param types : 
-    - (System_Runtime_InteropServices_ComTypes_IEnumVARIANT *)clone
+    - (id <System_Runtime_InteropServices_ComTypes_IEnumVARIANT>)clone
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IEnumVARIANT.Clone()" withNumArgs:0];
 		
-		return [System_Runtime_InteropServices_ComTypes_IEnumVARIANT objectWithMonoObject:monoObject];
+		return [System_Runtime_InteropServices_ComTypes_IEnumVARIANT bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Next

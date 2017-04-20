@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Generic.EqualityComparer`1<System.Collections.Generic.EqualityComparer`1+T>";
+		return "System.Collections.Generic.EqualityComparer`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,9 +32,19 @@
     static System_Collections_Generic_EqualityComparerA1 * m_default;
     + (System_Collections_Generic_EqualityComparerA1 *)default
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Default"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Default");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_default isEqualToMonoObject:monoObject]) return m_default;					
-		m_default = [System_Collections_Generic_EqualityComparerA1 objectWithMonoObject:monoObject];
+		m_default = [System_Collections_Generic_EqualityComparerA1 bestObjectWithMonoObject:monoObject];
 
 		return m_default;
 	}

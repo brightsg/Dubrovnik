@@ -9,17 +9,17 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     7/28/2014 8:19:10 PM
+// Date:     20/04/2017 12:04:02
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
 // Path:     C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll
 //
-// Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
+// Platform: Microsoft Windows NT 6.2.9200.0
 // OS Arch:  64 bit
 // Process:  32 bit
 // Target:   mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-// Runtime:  4.0.30319.18444
+// Runtime:  4.0.30319.42000
 //
 // Manual changes to this file may cause unexpected behavior in your application.
 // Manual changes to this file will be overwritten if the code is regenerated.
@@ -32,7 +32,7 @@
 //
 // Extra include
 //
-#ifdef INCLUDE_MSCORLIB_EXTRA
+#if __has_include("mscorlib.__Extra__.h")
 #import "mscorlib.__Extra__.h"	// Not auto generated. Add manually to project.
 #endif
 
@@ -54,6 +54,48 @@
 #define MWRegistryKey_ Microsoft_Win32_RegistryKey
 #endif
 
+@class Microsoft_Win32_RegistryHive;
+#ifdef MWRegistryHive_
+#warning MWRegistryHive_ class name collision.
+#else
+#define MWRegistryHive_ Microsoft_Win32_RegistryHive
+#endif
+
+@class Microsoft_Win32_RegistryKeyPermissionCheck;
+#ifdef MWRegistryKeyPermissionCheck_
+#warning MWRegistryKeyPermissionCheck_ class name collision.
+#else
+#define MWRegistryKeyPermissionCheck_ Microsoft_Win32_RegistryKeyPermissionCheck
+#endif
+
+@class Microsoft_Win32_RegistryOptions;
+#ifdef MWRegistryOptions_
+#warning MWRegistryOptions_ class name collision.
+#else
+#define MWRegistryOptions_ Microsoft_Win32_RegistryOptions
+#endif
+
+@class Microsoft_Win32_RegistryValueKind;
+#ifdef MWRegistryValueKind_
+#warning MWRegistryValueKind_ class name collision.
+#else
+#define MWRegistryValueKind_ Microsoft_Win32_RegistryValueKind
+#endif
+
+@class Microsoft_Win32_RegistryValueOptions;
+#ifdef MWRegistryValueOptions_
+#warning MWRegistryValueOptions_ class name collision.
+#else
+#define MWRegistryValueOptions_ Microsoft_Win32_RegistryValueOptions
+#endif
+
+@class Microsoft_Win32_RegistryView;
+#ifdef MWRegistryView_
+#warning MWRegistryView_ class name collision.
+#else
+#define MWRegistryView_ Microsoft_Win32_RegistryView
+#endif
+
 @class Microsoft_Win32_SafeHandles_CriticalHandleMinusOneIsInvalid;
 #ifdef MWSCriticalHandleMinusOneIsInvalid_
 #warning MWSCriticalHandleMinusOneIsInvalid_ class name collision.
@@ -66,6 +108,13 @@
 #warning MWSCriticalHandleZeroOrMinusOneIsInvalid_ class name collision.
 #else
 #define MWSCriticalHandleZeroOrMinusOneIsInvalid_ Microsoft_Win32_SafeHandles_CriticalHandleZeroOrMinusOneIsInvalid
+#endif
+
+@class Microsoft_Win32_SafeHandles_SafeAccessTokenHandle;
+#ifdef MWSSafeAccessTokenHandle_
+#warning MWSSafeAccessTokenHandle_ class name collision.
+#else
+#define MWSSafeAccessTokenHandle_ Microsoft_Win32_SafeHandles_SafeAccessTokenHandle
 #endif
 
 @class Microsoft_Win32_SafeHandles_SafeFileHandle;
@@ -118,31 +167,31 @@
 #endif
 
 @class System_ActionA1;
-#ifdef SAActionA1_
-#warning SAActionA1_ class name collision.
+#ifdef SActionA1_
+#warning SActionA1_ class name collision.
 #else
-#define SAActionA1_ System_ActionA1
+#define SActionA1_ System_ActionA1
 #endif
 
 @class System_ActionA2;
-#ifdef SAAActionA2_
-#warning SAAActionA2_ class name collision.
+#ifdef SActionA2_
+#warning SActionA2_ class name collision.
 #else
-#define SAAActionA2_ System_ActionA2
+#define SActionA2_ System_ActionA2
 #endif
 
 @class System_ActionA3;
-#ifdef SAAAActionA3_
-#warning SAAAActionA3_ class name collision.
+#ifdef SActionA3_
+#warning SActionA3_ class name collision.
 #else
-#define SAAAActionA3_ System_ActionA3
+#define SActionA3_ System_ActionA3
 #endif
 
 @class System_ActionA4;
-#ifdef SAAAAActionA4_
-#warning SAAAAActionA4_ class name collision.
+#ifdef SActionA4_
+#warning SActionA4_ class name collision.
 #else
-#define SAAAAActionA4_ System_ActionA4
+#define SActionA4_ System_ActionA4
 #endif
 
 @class System_ActionA5;
@@ -192,6 +241,13 @@
 #warning SAggregateException_ class name collision.
 #else
 #define SAggregateException_ System_AggregateException
+#endif
+
+@class System_AppContext;
+#ifdef SAppContext_
+#warning SAppContext_ class name collision.
+#else
+#define SAppContext_ System_AppContext
 #endif
 
 @class System_AppDomain;
@@ -370,10 +426,10 @@
 #endif
 
 @class System_ComparisonA1;
-#ifdef SCComparisonA1_
-#warning SCComparisonA1_ class name collision.
+#ifdef SComparisonA1_
+#warning SComparisonA1_ class name collision.
 #else
-#define SCComparisonA1_ System_ComparisonA1
+#define SComparisonA1_ System_ComparisonA1
 #endif
 
 @class System_Console;
@@ -426,10 +482,10 @@
 #endif
 
 @class System_ConverterA2;
-#ifdef SCCConverterA2_
-#warning SCCConverterA2_ class name collision.
+#ifdef SConverterA2_
+#warning SConverterA2_ class name collision.
 #else
-#define SCCConverterA2_ System_ConverterA2
+#define SConverterA2_ System_ConverterA2
 #endif
 
 @class System_CrossAppDomainDelegate;
@@ -517,10 +573,10 @@
 #endif
 
 @class System_EventHandlerA1;
-#ifdef SEEventHandlerA1_
-#warning SEEventHandlerA1_ class name collision.
+#ifdef SEventHandlerA1_
+#warning SEventHandlerA1_ class name collision.
 #else
-#define SEEventHandlerA1_ System_EventHandlerA1
+#define SEventHandlerA1_ System_EventHandlerA1
 #endif
 
 @class System_Exception;
@@ -558,32 +614,39 @@
 #define SFormatException_ System_FormatException
 #endif
 
-@class System_FuncA1;
-#ifdef SFFuncA1_
-#warning SFFuncA1_ class name collision.
+@class System_FormattableString;
+#ifdef SFormattableString_
+#warning SFormattableString_ class name collision.
 #else
-#define SFFuncA1_ System_FuncA1
+#define SFormattableString_ System_FormattableString
+#endif
+
+@class System_FuncA1;
+#ifdef SFuncA1_
+#warning SFuncA1_ class name collision.
+#else
+#define SFuncA1_ System_FuncA1
 #endif
 
 @class System_FuncA2;
-#ifdef SFFFuncA2_
-#warning SFFFuncA2_ class name collision.
+#ifdef SFuncA2_
+#warning SFuncA2_ class name collision.
 #else
-#define SFFFuncA2_ System_FuncA2
+#define SFuncA2_ System_FuncA2
 #endif
 
 @class System_FuncA3;
-#ifdef SFFFFuncA3_
-#warning SFFFFuncA3_ class name collision.
+#ifdef SFuncA3_
+#warning SFuncA3_ class name collision.
 #else
-#define SFFFFuncA3_ System_FuncA3
+#define SFuncA3_ System_FuncA3
 #endif
 
 @class System_FuncA4;
-#ifdef SFFFFFuncA4_
-#warning SFFFFFuncA4_ class name collision.
+#ifdef SFuncA4_
+#warning SFuncA4_ class name collision.
 #else
-#define SFFFFFuncA4_ System_FuncA4
+#define SFuncA4_ System_FuncA4
 #endif
 
 @class System_FuncA5;
@@ -678,10 +741,10 @@
 #endif
 
 @class System_LazyA1;
-#ifdef SLLazyA1_
-#warning SLLazyA1_ class name collision.
+#ifdef SLazyA1_
+#warning SLazyA1_ class name collision.
 #else
-#define SLLazyA1_ System_LazyA1
+#define SLazyA1_ System_LazyA1
 #endif
 
 @class System_LoaderOptimizationAttribute;
@@ -874,17 +937,17 @@
 #endif
 
 @class System_PredicateA1;
-#ifdef SPPredicateA1_
-#warning SPPredicateA1_ class name collision.
+#ifdef SPredicateA1_
+#warning SPredicateA1_ class name collision.
 #else
-#define SPPredicateA1_ System_PredicateA1
+#define SPredicateA1_ System_PredicateA1
 #endif
 
 @class System_ProgressA1;
-#ifdef SPProgressA1_
-#warning SPProgressA1_ class name collision.
+#ifdef SProgressA1_
+#warning SProgressA1_ class name collision.
 #else
-#define SPProgressA1_ System_ProgressA1
+#define SProgressA1_ System_ProgressA1
 #endif
 
 @class System_Random;
@@ -1007,31 +1070,31 @@
 #endif
 
 @class System_TupleA1;
-#ifdef STTupleA1_
-#warning STTupleA1_ class name collision.
+#ifdef STupleA1_
+#warning STupleA1_ class name collision.
 #else
-#define STTupleA1_ System_TupleA1
+#define STupleA1_ System_TupleA1
 #endif
 
 @class System_TupleA2;
-#ifdef STTTupleA2_
-#warning STTTupleA2_ class name collision.
+#ifdef STupleA2_
+#warning STupleA2_ class name collision.
 #else
-#define STTTupleA2_ System_TupleA2
+#define STupleA2_ System_TupleA2
 #endif
 
 @class System_TupleA3;
-#ifdef STTTTupleA3_
-#warning STTTTupleA3_ class name collision.
+#ifdef STupleA3_
+#warning STupleA3_ class name collision.
 #else
-#define STTTTupleA3_ System_TupleA3
+#define STupleA3_ System_TupleA3
 #endif
 
 @class System_TupleA4;
-#ifdef STTTTTupleA4_
-#warning STTTTTupleA4_ class name collision.
+#ifdef STupleA4_
+#warning STupleA4_ class name collision.
 #else
-#define STTTTTupleA4_ System_TupleA4
+#define STupleA4_ System_TupleA4
 #endif
 
 @class System_TupleA5;
@@ -1140,10 +1203,10 @@
 #endif
 
 @class System_WeakReferenceA1;
-#ifdef SWWeakReferenceA1_
-#warning SWWeakReferenceA1_ class name collision.
+#ifdef SWeakReferenceA1_
+#warning SWeakReferenceA1_ class name collision.
 #else
-#define SWWeakReferenceA1_ System_WeakReferenceA1
+#define SWeakReferenceA1_ System_WeakReferenceA1
 #endif
 
 @class System__AppDomain;
@@ -1182,10 +1245,10 @@
 #endif
 
 @class System_IComparableA1;
-#ifdef SIIComparableA1_
-#warning SIIComparableA1_ class name collision.
+#ifdef SIComparableA1_
+#warning SIComparableA1_ class name collision.
 #else
-#define SIIComparableA1_ System_IComparableA1
+#define SIComparableA1_ System_IComparableA1
 #endif
 
 @class System_IConvertible;
@@ -1210,10 +1273,10 @@
 #endif
 
 @class System_IEquatableA1;
-#ifdef SIIEquatableA1_
-#warning SIIEquatableA1_ class name collision.
+#ifdef SIEquatableA1_
+#warning SIEquatableA1_ class name collision.
 #else
-#define SIIEquatableA1_ System_IEquatableA1
+#define SIEquatableA1_ System_IEquatableA1
 #endif
 
 @class System_IFormatProvider;
@@ -1231,24 +1294,24 @@
 #endif
 
 @class System_IObservableA1;
-#ifdef SIIObservableA1_
-#warning SIIObservableA1_ class name collision.
+#ifdef SIObservableA1_
+#warning SIObservableA1_ class name collision.
 #else
-#define SIIObservableA1_ System_IObservableA1
+#define SIObservableA1_ System_IObservableA1
 #endif
 
 @class System_IObserverA1;
-#ifdef SIIObserverA1_
-#warning SIIObserverA1_ class name collision.
+#ifdef SIObserverA1_
+#warning SIObserverA1_ class name collision.
 #else
-#define SIIObserverA1_ System_IObserverA1
+#define SIObserverA1_ System_IObserverA1
 #endif
 
 @class System_IProgressA1;
-#ifdef SIIProgressA1_
-#warning SIIProgressA1_ class name collision.
+#ifdef SIProgressA1_
+#warning SIProgressA1_ class name collision.
 #else
-#define SIIProgressA1_ System_IProgressA1
+#define SIProgressA1_ System_IProgressA1
 #endif
 
 @class System_IServiceProvider;
@@ -1266,10 +1329,10 @@
 #endif
 
 @class System_ArraySegmentA1;
-#ifdef SAArraySegmentA1_
-#warning SAArraySegmentA1_ class name collision.
+#ifdef SArraySegmentA1_
+#warning SArraySegmentA1_ class name collision.
 #else
-#define SAArraySegmentA1_ System_ArraySegmentA1
+#define SArraySegmentA1_ System_ArraySegmentA1
 #endif
 
 @class System_Boolean;
@@ -1371,10 +1434,10 @@
 #endif
 
 @class System_NullableA1;
-#ifdef SNNullableA1_
-#warning SNNullableA1_ class name collision.
+#ifdef SNullableA1_
+#warning SNullableA1_ class name collision.
 #else
-#define SNNullableA1_ System_NullableA1
+#define SNullableA1_ System_NullableA1
 #endif
 
 @class System_RuntimeArgumentHandle;
@@ -1473,6 +1536,153 @@
 #warning SVoid_ class name collision.
 #else
 #define SVoid_ System_Void
+#endif
+
+@class System_ActivationContext__ContextForm;
+#ifdef SActivationContext_ContextForm_
+#warning SActivationContext_ContextForm_ class name collision.
+#else
+#define SActivationContext_ContextForm_ System_ActivationContext__ContextForm
+#endif
+
+@class System_AppDomainManagerInitializationOptions;
+#ifdef SAppDomainManagerInitializationOptions_
+#warning SAppDomainManagerInitializationOptions_ class name collision.
+#else
+#define SAppDomainManagerInitializationOptions_ System_AppDomainManagerInitializationOptions
+#endif
+
+@class System_AttributeTargets;
+#ifdef SAttributeTargets_
+#warning SAttributeTargets_ class name collision.
+#else
+#define SAttributeTargets_ System_AttributeTargets
+#endif
+
+@class System_Base64FormattingOptions;
+#ifdef SBase64FormattingOptions_
+#warning SBase64FormattingOptions_ class name collision.
+#else
+#define SBase64FormattingOptions_ System_Base64FormattingOptions
+#endif
+
+@class System_ConsoleColor;
+#ifdef SConsoleColor_
+#warning SConsoleColor_ class name collision.
+#else
+#define SConsoleColor_ System_ConsoleColor
+#endif
+
+@class System_ConsoleKey;
+#ifdef SConsoleKey_
+#warning SConsoleKey_ class name collision.
+#else
+#define SConsoleKey_ System_ConsoleKey
+#endif
+
+@class System_ConsoleModifiers;
+#ifdef SConsoleModifiers_
+#warning SConsoleModifiers_ class name collision.
+#else
+#define SConsoleModifiers_ System_ConsoleModifiers
+#endif
+
+@class System_ConsoleSpecialKey;
+#ifdef SConsoleSpecialKey_
+#warning SConsoleSpecialKey_ class name collision.
+#else
+#define SConsoleSpecialKey_ System_ConsoleSpecialKey
+#endif
+
+@class System_DateTimeKind;
+#ifdef SDateTimeKind_
+#warning SDateTimeKind_ class name collision.
+#else
+#define SDateTimeKind_ System_DateTimeKind
+#endif
+
+@class System_DayOfWeek;
+#ifdef SDayOfWeek_
+#warning SDayOfWeek_ class name collision.
+#else
+#define SDayOfWeek_ System_DayOfWeek
+#endif
+
+@class System_Environment__SpecialFolder;
+#ifdef SEnvironment_SpecialFolder_
+#warning SEnvironment_SpecialFolder_ class name collision.
+#else
+#define SEnvironment_SpecialFolder_ System_Environment__SpecialFolder
+#endif
+
+@class System_Environment__SpecialFolderOption;
+#ifdef SEnvironment_SpecialFolderOption_
+#warning SEnvironment_SpecialFolderOption_ class name collision.
+#else
+#define SEnvironment_SpecialFolderOption_ System_Environment__SpecialFolderOption
+#endif
+
+@class System_EnvironmentVariableTarget;
+#ifdef SEnvironmentVariableTarget_
+#warning SEnvironmentVariableTarget_ class name collision.
+#else
+#define SEnvironmentVariableTarget_ System_EnvironmentVariableTarget
+#endif
+
+@class System_GCCollectionMode;
+#ifdef SGCCollectionMode_
+#warning SGCCollectionMode_ class name collision.
+#else
+#define SGCCollectionMode_ System_GCCollectionMode
+#endif
+
+@class System_GCNotificationStatus;
+#ifdef SGCNotificationStatus_
+#warning SGCNotificationStatus_ class name collision.
+#else
+#define SGCNotificationStatus_ System_GCNotificationStatus
+#endif
+
+@class System_LoaderOptimization;
+#ifdef SLoaderOptimization_
+#warning SLoaderOptimization_ class name collision.
+#else
+#define SLoaderOptimization_ System_LoaderOptimization
+#endif
+
+@class System_MidpointRounding;
+#ifdef SMidpointRounding_
+#warning SMidpointRounding_ class name collision.
+#else
+#define SMidpointRounding_ System_MidpointRounding
+#endif
+
+@class System_PlatformID;
+#ifdef SPlatformID_
+#warning SPlatformID_ class name collision.
+#else
+#define SPlatformID_ System_PlatformID
+#endif
+
+@class System_StringComparison;
+#ifdef SStringComparison_
+#warning SStringComparison_ class name collision.
+#else
+#define SStringComparison_ System_StringComparison
+#endif
+
+@class System_StringSplitOptions;
+#ifdef SStringSplitOptions_
+#warning SStringSplitOptions_ class name collision.
+#else
+#define SStringSplitOptions_ System_StringSplitOptions
+#endif
+
+@class System_TypeCode;
+#ifdef STypeCode_
+#warning STypeCode_ class name collision.
+#else
+#define STypeCode_ System_TypeCode
 #endif
 
 @class System_Collections_ArrayList;
@@ -1651,31 +1861,31 @@
 #endif
 
 @class System_Collections_Concurrent_ConcurrentDictionaryA2;
-#ifdef SCCCCCCCCConcurrentDictionaryA2_
-#warning SCCCCCCCCConcurrentDictionaryA2_ class name collision.
+#ifdef SCCConcurrentDictionaryA2_
+#warning SCCConcurrentDictionaryA2_ class name collision.
 #else
-#define SCCCCCCCCConcurrentDictionaryA2_ System_Collections_Concurrent_ConcurrentDictionaryA2
+#define SCCConcurrentDictionaryA2_ System_Collections_Concurrent_ConcurrentDictionaryA2
 #endif
 
 @class System_Collections_Concurrent_ConcurrentQueueA1;
-#ifdef SCCCCCConcurrentQueueA1_
-#warning SCCCCCConcurrentQueueA1_ class name collision.
+#ifdef SCCConcurrentQueueA1_
+#warning SCCConcurrentQueueA1_ class name collision.
 #else
-#define SCCCCCConcurrentQueueA1_ System_Collections_Concurrent_ConcurrentQueueA1
+#define SCCConcurrentQueueA1_ System_Collections_Concurrent_ConcurrentQueueA1
 #endif
 
 @class System_Collections_Concurrent_ConcurrentStackA1;
-#ifdef SCCCCCConcurrentStackA1_
-#warning SCCCCCConcurrentStackA1_ class name collision.
+#ifdef SCCConcurrentStackA1_
+#warning SCCConcurrentStackA1_ class name collision.
 #else
-#define SCCCCCConcurrentStackA1_ System_Collections_Concurrent_ConcurrentStackA1
+#define SCCConcurrentStackA1_ System_Collections_Concurrent_ConcurrentStackA1
 #endif
 
 @class System_Collections_Concurrent_OrderablePartitionerA1;
-#ifdef SCCOCCOrderablePartitionerA1_
-#warning SCCOCCOrderablePartitionerA1_ class name collision.
+#ifdef SCCOrderablePartitionerA1_
+#warning SCCOrderablePartitionerA1_ class name collision.
 #else
-#define SCCOCCOrderablePartitionerA1_ System_Collections_Concurrent_OrderablePartitionerA1
+#define SCCOrderablePartitionerA1_ System_Collections_Concurrent_OrderablePartitionerA1
 #endif
 
 @class System_Collections_Concurrent_Partitioner;
@@ -1686,52 +1896,59 @@
 #endif
 
 @class System_Collections_Concurrent_PartitionerA1;
-#ifdef SCCPCCPartitionerA1_
-#warning SCCPCCPartitionerA1_ class name collision.
+#ifdef SCCPartitionerA1_
+#warning SCCPartitionerA1_ class name collision.
 #else
-#define SCCPCCPartitionerA1_ System_Collections_Concurrent_PartitionerA1
+#define SCCPartitionerA1_ System_Collections_Concurrent_PartitionerA1
 #endif
 
 @class System_Collections_Concurrent_IProducerConsumerCollectionA1;
-#ifdef SCCICCIProducerConsumerCollectionA1_
-#warning SCCICCIProducerConsumerCollectionA1_ class name collision.
+#ifdef SCCIProducerConsumerCollectionA1_
+#warning SCCIProducerConsumerCollectionA1_ class name collision.
 #else
-#define SCCICCIProducerConsumerCollectionA1_ System_Collections_Concurrent_IProducerConsumerCollectionA1
+#define SCCIProducerConsumerCollectionA1_ System_Collections_Concurrent_IProducerConsumerCollectionA1
+#endif
+
+@class System_Collections_Concurrent_EnumerablePartitionerOptions;
+#ifdef SCCEnumerablePartitionerOptions_
+#warning SCCEnumerablePartitionerOptions_ class name collision.
+#else
+#define SCCEnumerablePartitionerOptions_ System_Collections_Concurrent_EnumerablePartitionerOptions
 #endif
 
 @class System_Collections_Generic_ComparerA1;
-#ifdef SCGCCGComparerA1_
-#warning SCGCCGComparerA1_ class name collision.
+#ifdef SCGComparerA1_
+#warning SCGComparerA1_ class name collision.
 #else
-#define SCGCCGComparerA1_ System_Collections_Generic_ComparerA1
+#define SCGComparerA1_ System_Collections_Generic_ComparerA1
 #endif
 
 @class System_Collections_Generic_DictionaryA2;
-#ifdef SCGDCGDCGDictionaryA2_
-#warning SCGDCGDCGDictionaryA2_ class name collision.
+#ifdef SCGDictionaryA2_
+#warning SCGDictionaryA2_ class name collision.
 #else
-#define SCGDCGDCGDictionaryA2_ System_Collections_Generic_DictionaryA2
+#define SCGDictionaryA2_ System_Collections_Generic_DictionaryA2
 #endif
 
 @class System_Collections_Generic_DictionaryA2__KeyCollection;
-#ifdef SCGDCGDCGDictionaryA2_KeyCollection_
-#warning SCGDCGDCGDictionaryA2_KeyCollection_ class name collision.
+#ifdef SCGDictionaryA2_KeyCollection_
+#warning SCGDictionaryA2_KeyCollection_ class name collision.
 #else
-#define SCGDCGDCGDictionaryA2_KeyCollection_ System_Collections_Generic_DictionaryA2__KeyCollection
+#define SCGDictionaryA2_KeyCollection_ System_Collections_Generic_DictionaryA2__KeyCollection
 #endif
 
 @class System_Collections_Generic_DictionaryA2__ValueCollection;
-#ifdef SCGDCGDCGDictionaryA2_ValueCollection_
-#warning SCGDCGDCGDictionaryA2_ValueCollection_ class name collision.
+#ifdef SCGDictionaryA2_ValueCollection_
+#warning SCGDictionaryA2_ValueCollection_ class name collision.
 #else
-#define SCGDCGDCGDictionaryA2_ValueCollection_ System_Collections_Generic_DictionaryA2__ValueCollection
+#define SCGDictionaryA2_ValueCollection_ System_Collections_Generic_DictionaryA2__ValueCollection
 #endif
 
 @class System_Collections_Generic_EqualityComparerA1;
-#ifdef SCGECGEqualityComparerA1_
-#warning SCGECGEqualityComparerA1_ class name collision.
+#ifdef SCGEqualityComparerA1_
+#warning SCGEqualityComparerA1_ class name collision.
 #else
-#define SCGECGEqualityComparerA1_ System_Collections_Generic_EqualityComparerA1
+#define SCGEqualityComparerA1_ System_Collections_Generic_EqualityComparerA1
 #endif
 
 @class System_Collections_Generic_KeyNotFoundException;
@@ -1742,157 +1959,157 @@
 #endif
 
 @class System_Collections_Generic_ListA1;
-#ifdef SCGLCGListA1_
-#warning SCGLCGListA1_ class name collision.
+#ifdef SCGListA1_
+#warning SCGListA1_ class name collision.
 #else
-#define SCGLCGListA1_ System_Collections_Generic_ListA1
+#define SCGListA1_ System_Collections_Generic_ListA1
 #endif
 
 @class System_Collections_Generic_ICollectionA1;
-#ifdef SCGICGICollectionA1_
-#warning SCGICGICollectionA1_ class name collision.
+#ifdef SCGICollectionA1_
+#warning SCGICollectionA1_ class name collision.
 #else
-#define SCGICGICollectionA1_ System_Collections_Generic_ICollectionA1
+#define SCGICollectionA1_ System_Collections_Generic_ICollectionA1
 #endif
 
 @class System_Collections_Generic_IComparerA1;
-#ifdef SCGICGIComparerA1_
-#warning SCGICGIComparerA1_ class name collision.
+#ifdef SCGIComparerA1_
+#warning SCGIComparerA1_ class name collision.
 #else
-#define SCGICGIComparerA1_ System_Collections_Generic_IComparerA1
+#define SCGIComparerA1_ System_Collections_Generic_IComparerA1
 #endif
 
 @class System_Collections_Generic_IDictionaryA2;
-#ifdef SCGICGICGIDictionaryA2_
-#warning SCGICGICGIDictionaryA2_ class name collision.
+#ifdef SCGIDictionaryA2_
+#warning SCGIDictionaryA2_ class name collision.
 #else
-#define SCGICGICGIDictionaryA2_ System_Collections_Generic_IDictionaryA2
+#define SCGIDictionaryA2_ System_Collections_Generic_IDictionaryA2
 #endif
 
 @class System_Collections_Generic_IEnumerableA1;
-#ifdef SCGICGIEnumerableA1_
-#warning SCGICGIEnumerableA1_ class name collision.
+#ifdef SCGIEnumerableA1_
+#warning SCGIEnumerableA1_ class name collision.
 #else
-#define SCGICGIEnumerableA1_ System_Collections_Generic_IEnumerableA1
+#define SCGIEnumerableA1_ System_Collections_Generic_IEnumerableA1
 #endif
 
 @class System_Collections_Generic_IEnumeratorA1;
-#ifdef SCGICGIEnumeratorA1_
-#warning SCGICGIEnumeratorA1_ class name collision.
+#ifdef SCGIEnumeratorA1_
+#warning SCGIEnumeratorA1_ class name collision.
 #else
-#define SCGICGIEnumeratorA1_ System_Collections_Generic_IEnumeratorA1
+#define SCGIEnumeratorA1_ System_Collections_Generic_IEnumeratorA1
 #endif
 
 @class System_Collections_Generic_IEqualityComparerA1;
-#ifdef SCGICGIEqualityComparerA1_
-#warning SCGICGIEqualityComparerA1_ class name collision.
+#ifdef SCGIEqualityComparerA1_
+#warning SCGIEqualityComparerA1_ class name collision.
 #else
-#define SCGICGIEqualityComparerA1_ System_Collections_Generic_IEqualityComparerA1
+#define SCGIEqualityComparerA1_ System_Collections_Generic_IEqualityComparerA1
 #endif
 
 @class System_Collections_Generic_IListA1;
-#ifdef SCGICGIListA1_
-#warning SCGICGIListA1_ class name collision.
+#ifdef SCGIListA1_
+#warning SCGIListA1_ class name collision.
 #else
-#define SCGICGIListA1_ System_Collections_Generic_IListA1
+#define SCGIListA1_ System_Collections_Generic_IListA1
 #endif
 
 @class System_Collections_Generic_IReadOnlyCollectionA1;
-#ifdef SCGICGIReadOnlyCollectionA1_
-#warning SCGICGIReadOnlyCollectionA1_ class name collision.
+#ifdef SCGIReadOnlyCollectionA1_
+#warning SCGIReadOnlyCollectionA1_ class name collision.
 #else
-#define SCGICGIReadOnlyCollectionA1_ System_Collections_Generic_IReadOnlyCollectionA1
+#define SCGIReadOnlyCollectionA1_ System_Collections_Generic_IReadOnlyCollectionA1
 #endif
 
 @class System_Collections_Generic_IReadOnlyDictionaryA2;
-#ifdef SCGICGICGIReadOnlyDictionaryA2_
-#warning SCGICGICGIReadOnlyDictionaryA2_ class name collision.
+#ifdef SCGIReadOnlyDictionaryA2_
+#warning SCGIReadOnlyDictionaryA2_ class name collision.
 #else
-#define SCGICGICGIReadOnlyDictionaryA2_ System_Collections_Generic_IReadOnlyDictionaryA2
+#define SCGIReadOnlyDictionaryA2_ System_Collections_Generic_IReadOnlyDictionaryA2
 #endif
 
 @class System_Collections_Generic_IReadOnlyListA1;
-#ifdef SCGICGIReadOnlyListA1_
-#warning SCGICGIReadOnlyListA1_ class name collision.
+#ifdef SCGIReadOnlyListA1_
+#warning SCGIReadOnlyListA1_ class name collision.
 #else
-#define SCGICGIReadOnlyListA1_ System_Collections_Generic_IReadOnlyListA1
+#define SCGIReadOnlyListA1_ System_Collections_Generic_IReadOnlyListA1
 #endif
 
 @class System_Collections_Generic_DictionaryA2__Enumerator;
-#ifdef SCGDCGDCGDictionaryA2_Enumerator_
-#warning SCGDCGDCGDictionaryA2_Enumerator_ class name collision.
+#ifdef SCGDictionaryA2_Enumerator_
+#warning SCGDictionaryA2_Enumerator_ class name collision.
 #else
-#define SCGDCGDCGDictionaryA2_Enumerator_ System_Collections_Generic_DictionaryA2__Enumerator
+#define SCGDictionaryA2_Enumerator_ System_Collections_Generic_DictionaryA2__Enumerator
 #endif
 
 @class System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator;
-#ifdef SCGDCGDCGDictionaryA2_KeyCollection_Enumerator_
-#warning SCGDCGDCGDictionaryA2_KeyCollection_Enumerator_ class name collision.
+#ifdef SCGDictionaryA2_KeyCollection_Enumerator_
+#warning SCGDictionaryA2_KeyCollection_Enumerator_ class name collision.
 #else
-#define SCGDCGDCGDictionaryA2_KeyCollection_Enumerator_ System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator
+#define SCGDictionaryA2_KeyCollection_Enumerator_ System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator
 #endif
 
 @class System_Collections_Generic_DictionaryA2__ValueCollection__Enumerator;
-#ifdef SCGDCGDCGDictionaryA2_ValueCollection_Enumerator_
-#warning SCGDCGDCGDictionaryA2_ValueCollection_Enumerator_ class name collision.
+#ifdef SCGDictionaryA2_ValueCollection_Enumerator_
+#warning SCGDictionaryA2_ValueCollection_Enumerator_ class name collision.
 #else
-#define SCGDCGDCGDictionaryA2_ValueCollection_Enumerator_ System_Collections_Generic_DictionaryA2__ValueCollection__Enumerator
+#define SCGDictionaryA2_ValueCollection_Enumerator_ System_Collections_Generic_DictionaryA2__ValueCollection__Enumerator
 #endif
 
 @class System_Collections_Generic_KeyValuePairA2;
-#ifdef SCGKCGKCGKeyValuePairA2_
-#warning SCGKCGKCGKeyValuePairA2_ class name collision.
+#ifdef SCGKeyValuePairA2_
+#warning SCGKeyValuePairA2_ class name collision.
 #else
-#define SCGKCGKCGKeyValuePairA2_ System_Collections_Generic_KeyValuePairA2
+#define SCGKeyValuePairA2_ System_Collections_Generic_KeyValuePairA2
 #endif
 
 @class System_Collections_Generic_ListA1__Enumerator;
-#ifdef SCGLCGListA1_Enumerator_
-#warning SCGLCGListA1_Enumerator_ class name collision.
+#ifdef SCGListA1_Enumerator_
+#warning SCGListA1_Enumerator_ class name collision.
 #else
-#define SCGLCGListA1_Enumerator_ System_Collections_Generic_ListA1__Enumerator
+#define SCGListA1_Enumerator_ System_Collections_Generic_ListA1__Enumerator
 #endif
 
 @class System_Collections_ObjectModel_CollectionA1;
-#ifdef SCOCCOCollectionA1_
-#warning SCOCCOCollectionA1_ class name collision.
+#ifdef SCOCollectionA1_
+#warning SCOCollectionA1_ class name collision.
 #else
-#define SCOCCOCollectionA1_ System_Collections_ObjectModel_CollectionA1
+#define SCOCollectionA1_ System_Collections_ObjectModel_CollectionA1
 #endif
 
 @class System_Collections_ObjectModel_KeyedCollectionA2;
-#ifdef SCOKCOKCOKeyedCollectionA2_
-#warning SCOKCOKCOKeyedCollectionA2_ class name collision.
+#ifdef SCOKeyedCollectionA2_
+#warning SCOKeyedCollectionA2_ class name collision.
 #else
-#define SCOKCOKCOKeyedCollectionA2_ System_Collections_ObjectModel_KeyedCollectionA2
+#define SCOKeyedCollectionA2_ System_Collections_ObjectModel_KeyedCollectionA2
 #endif
 
 @class System_Collections_ObjectModel_ReadOnlyCollectionA1;
-#ifdef SCORCOReadOnlyCollectionA1_
-#warning SCORCOReadOnlyCollectionA1_ class name collision.
+#ifdef SCOReadOnlyCollectionA1_
+#warning SCOReadOnlyCollectionA1_ class name collision.
 #else
-#define SCORCOReadOnlyCollectionA1_ System_Collections_ObjectModel_ReadOnlyCollectionA1
+#define SCOReadOnlyCollectionA1_ System_Collections_ObjectModel_ReadOnlyCollectionA1
 #endif
 
 @class System_Collections_ObjectModel_ReadOnlyDictionaryA2;
-#ifdef SCORCORCOReadOnlyDictionaryA2_
-#warning SCORCORCOReadOnlyDictionaryA2_ class name collision.
+#ifdef SCOReadOnlyDictionaryA2_
+#warning SCOReadOnlyDictionaryA2_ class name collision.
 #else
-#define SCORCORCOReadOnlyDictionaryA2_ System_Collections_ObjectModel_ReadOnlyDictionaryA2
+#define SCOReadOnlyDictionaryA2_ System_Collections_ObjectModel_ReadOnlyDictionaryA2
 #endif
 
 @class System_Collections_ObjectModel_ReadOnlyDictionaryA2__KeyCollection;
-#ifdef SCORCORCOReadOnlyDictionaryA2_KeyCollection_
-#warning SCORCORCOReadOnlyDictionaryA2_KeyCollection_ class name collision.
+#ifdef SCOReadOnlyDictionaryA2_KeyCollection_
+#warning SCOReadOnlyDictionaryA2_KeyCollection_ class name collision.
 #else
-#define SCORCORCOReadOnlyDictionaryA2_KeyCollection_ System_Collections_ObjectModel_ReadOnlyDictionaryA2__KeyCollection
+#define SCOReadOnlyDictionaryA2_KeyCollection_ System_Collections_ObjectModel_ReadOnlyDictionaryA2__KeyCollection
 #endif
 
 @class System_Collections_ObjectModel_ReadOnlyDictionaryA2__ValueCollection;
-#ifdef SCORCORCOReadOnlyDictionaryA2_ValueCollection_
-#warning SCORCORCOReadOnlyDictionaryA2_ValueCollection_ class name collision.
+#ifdef SCOReadOnlyDictionaryA2_ValueCollection_
+#warning SCOReadOnlyDictionaryA2_ValueCollection_ class name collision.
 #else
-#define SCORCORCOReadOnlyDictionaryA2_ValueCollection_ System_Collections_ObjectModel_ReadOnlyDictionaryA2__ValueCollection
+#define SCOReadOnlyDictionaryA2_ValueCollection_ System_Collections_ObjectModel_ReadOnlyDictionaryA2__ValueCollection
 #endif
 
 @class System_Configuration_Assemblies_AssemblyHash;
@@ -1900,6 +2117,20 @@
 #warning SCAAssemblyHash_ class name collision.
 #else
 #define SCAAssemblyHash_ System_Configuration_Assemblies_AssemblyHash
+#endif
+
+@class System_Configuration_Assemblies_AssemblyHashAlgorithm;
+#ifdef SCAAssemblyHashAlgorithm_
+#warning SCAAssemblyHashAlgorithm_ class name collision.
+#else
+#define SCAAssemblyHashAlgorithm_ System_Configuration_Assemblies_AssemblyHashAlgorithm
+#endif
+
+@class System_Configuration_Assemblies_AssemblyVersionCompatibility;
+#ifdef SCAAssemblyVersionCompatibility_
+#warning SCAAssemblyVersionCompatibility_ class name collision.
+#else
+#define SCAAssemblyVersionCompatibility_ System_Configuration_Assemblies_AssemblyVersionCompatibility
 #endif
 
 @class System_Deployment_Internal_InternalActivationContextHelper;
@@ -2007,6 +2238,20 @@
 #define SDStackTrace_ System_Diagnostics_StackTrace
 #endif
 
+@class System_Diagnostics_DebuggableAttribute__DebuggingModes;
+#ifdef SDDebuggableAttribute_DebuggingModes_
+#warning SDDebuggableAttribute_DebuggingModes_ class name collision.
+#else
+#define SDDebuggableAttribute_DebuggingModes_ System_Diagnostics_DebuggableAttribute__DebuggingModes
+#endif
+
+@class System_Diagnostics_DebuggerBrowsableState;
+#ifdef SDDebuggerBrowsableState_
+#warning SDDebuggerBrowsableState_ class name collision.
+#else
+#define SDDebuggerBrowsableState_ System_Diagnostics_DebuggerBrowsableState
+#endif
+
 @class System_Diagnostics_CodeAnalysis_SuppressMessageAttribute;
 #ifdef SDCSuppressMessageAttribute_
 #warning SDCSuppressMessageAttribute_ class name collision.
@@ -2103,6 +2348,13 @@
 #warning SDCPureAttribute_ class name collision.
 #else
 #define SDCPureAttribute_ System_Diagnostics_Contracts_PureAttribute
+#endif
+
+@class System_Diagnostics_Contracts_ContractFailureKind;
+#ifdef SDCContractFailureKind_
+#warning SDCContractFailureKind_ class name collision.
+#else
+#define SDCContractFailureKind_ System_Diagnostics_Contracts_ContractFailureKind
 #endif
 
 @class System_Diagnostics_Contracts_Internal_ContractHelper;
@@ -2210,6 +2462,13 @@
 #define SDSSymbolToken_ System_Diagnostics_SymbolStore_SymbolToken
 #endif
 
+@class System_Diagnostics_SymbolStore_SymAddressKind;
+#ifdef SDSSymAddressKind_
+#warning SDSSymAddressKind_ class name collision.
+#else
+#define SDSSymAddressKind_ System_Diagnostics_SymbolStore_SymAddressKind
+#endif
+
 @class System_Diagnostics_Tracing_EventAttribute;
 #ifdef SDTEventAttribute_
 #warning SDTEventAttribute_ class name collision.
@@ -2222,6 +2481,27 @@
 #warning SDTEventCommandEventArgs_ class name collision.
 #else
 #define SDTEventCommandEventArgs_ System_Diagnostics_Tracing_EventCommandEventArgs
+#endif
+
+@class System_Diagnostics_Tracing_EventDataAttribute;
+#ifdef SDTEventDataAttribute_
+#warning SDTEventDataAttribute_ class name collision.
+#else
+#define SDTEventDataAttribute_ System_Diagnostics_Tracing_EventDataAttribute
+#endif
+
+@class System_Diagnostics_Tracing_EventFieldAttribute;
+#ifdef SDTEventFieldAttribute_
+#warning SDTEventFieldAttribute_ class name collision.
+#else
+#define SDTEventFieldAttribute_ System_Diagnostics_Tracing_EventFieldAttribute
+#endif
+
+@class System_Diagnostics_Tracing_EventIgnoreAttribute;
+#ifdef SDTEventIgnoreAttribute_
+#warning SDTEventIgnoreAttribute_ class name collision.
+#else
+#define SDTEventIgnoreAttribute_ System_Diagnostics_Tracing_EventIgnoreAttribute
 #endif
 
 @class System_Diagnostics_Tracing_EventListener;
@@ -2264,6 +2544,97 @@
 #warning SDTNonEventAttribute_ class name collision.
 #else
 #define SDTNonEventAttribute_ System_Diagnostics_Tracing_NonEventAttribute
+#endif
+
+@class System_Diagnostics_Tracing_EventSourceOptions;
+#ifdef SDTEventSourceOptions_
+#warning SDTEventSourceOptions_ class name collision.
+#else
+#define SDTEventSourceOptions_ System_Diagnostics_Tracing_EventSourceOptions
+#endif
+
+@class System_Diagnostics_Tracing_EventActivityOptions;
+#ifdef SDTEventActivityOptions_
+#warning SDTEventActivityOptions_ class name collision.
+#else
+#define SDTEventActivityOptions_ System_Diagnostics_Tracing_EventActivityOptions
+#endif
+
+@class System_Diagnostics_Tracing_EventChannel;
+#ifdef SDTEventChannel_
+#warning SDTEventChannel_ class name collision.
+#else
+#define SDTEventChannel_ System_Diagnostics_Tracing_EventChannel
+#endif
+
+@class System_Diagnostics_Tracing_EventCommand;
+#ifdef SDTEventCommand_
+#warning SDTEventCommand_ class name collision.
+#else
+#define SDTEventCommand_ System_Diagnostics_Tracing_EventCommand
+#endif
+
+@class System_Diagnostics_Tracing_EventFieldFormat;
+#ifdef SDTEventFieldFormat_
+#warning SDTEventFieldFormat_ class name collision.
+#else
+#define SDTEventFieldFormat_ System_Diagnostics_Tracing_EventFieldFormat
+#endif
+
+@class System_Diagnostics_Tracing_EventFieldTags;
+#ifdef SDTEventFieldTags_
+#warning SDTEventFieldTags_ class name collision.
+#else
+#define SDTEventFieldTags_ System_Diagnostics_Tracing_EventFieldTags
+#endif
+
+@class System_Diagnostics_Tracing_EventKeywords;
+#ifdef SDTEventKeywords_
+#warning SDTEventKeywords_ class name collision.
+#else
+#define SDTEventKeywords_ System_Diagnostics_Tracing_EventKeywords
+#endif
+
+@class System_Diagnostics_Tracing_EventLevel;
+#ifdef SDTEventLevel_
+#warning SDTEventLevel_ class name collision.
+#else
+#define SDTEventLevel_ System_Diagnostics_Tracing_EventLevel
+#endif
+
+@class System_Diagnostics_Tracing_EventManifestOptions;
+#ifdef SDTEventManifestOptions_
+#warning SDTEventManifestOptions_ class name collision.
+#else
+#define SDTEventManifestOptions_ System_Diagnostics_Tracing_EventManifestOptions
+#endif
+
+@class System_Diagnostics_Tracing_EventOpcode;
+#ifdef SDTEventOpcode_
+#warning SDTEventOpcode_ class name collision.
+#else
+#define SDTEventOpcode_ System_Diagnostics_Tracing_EventOpcode
+#endif
+
+@class System_Diagnostics_Tracing_EventSourceSettings;
+#ifdef SDTEventSourceSettings_
+#warning SDTEventSourceSettings_ class name collision.
+#else
+#define SDTEventSourceSettings_ System_Diagnostics_Tracing_EventSourceSettings
+#endif
+
+@class System_Diagnostics_Tracing_EventTags;
+#ifdef SDTEventTags_
+#warning SDTEventTags_ class name collision.
+#else
+#define SDTEventTags_ System_Diagnostics_Tracing_EventTags
+#endif
+
+@class System_Diagnostics_Tracing_EventTask;
+#ifdef SDTEventTask_
+#warning SDTEventTask_ class name collision.
+#else
+#define SDTEventTask_ System_Diagnostics_Tracing_EventTask
 #endif
 
 @class System_Globalization_Calendar;
@@ -2476,6 +2847,76 @@
 #define SGUmAlQuraCalendar_ System_Globalization_UmAlQuraCalendar
 #endif
 
+@class System_Globalization_CalendarAlgorithmType;
+#ifdef SGCalendarAlgorithmType_
+#warning SGCalendarAlgorithmType_ class name collision.
+#else
+#define SGCalendarAlgorithmType_ System_Globalization_CalendarAlgorithmType
+#endif
+
+@class System_Globalization_CalendarWeekRule;
+#ifdef SGCalendarWeekRule_
+#warning SGCalendarWeekRule_ class name collision.
+#else
+#define SGCalendarWeekRule_ System_Globalization_CalendarWeekRule
+#endif
+
+@class System_Globalization_CompareOptions;
+#ifdef SGCompareOptions_
+#warning SGCompareOptions_ class name collision.
+#else
+#define SGCompareOptions_ System_Globalization_CompareOptions
+#endif
+
+@class System_Globalization_CultureTypes;
+#ifdef SGCultureTypes_
+#warning SGCultureTypes_ class name collision.
+#else
+#define SGCultureTypes_ System_Globalization_CultureTypes
+#endif
+
+@class System_Globalization_DateTimeStyles;
+#ifdef SGDateTimeStyles_
+#warning SGDateTimeStyles_ class name collision.
+#else
+#define SGDateTimeStyles_ System_Globalization_DateTimeStyles
+#endif
+
+@class System_Globalization_DigitShapes;
+#ifdef SGDigitShapes_
+#warning SGDigitShapes_ class name collision.
+#else
+#define SGDigitShapes_ System_Globalization_DigitShapes
+#endif
+
+@class System_Globalization_GregorianCalendarTypes;
+#ifdef SGGregorianCalendarTypes_
+#warning SGGregorianCalendarTypes_ class name collision.
+#else
+#define SGGregorianCalendarTypes_ System_Globalization_GregorianCalendarTypes
+#endif
+
+@class System_Globalization_NumberStyles;
+#ifdef SGNumberStyles_
+#warning SGNumberStyles_ class name collision.
+#else
+#define SGNumberStyles_ System_Globalization_NumberStyles
+#endif
+
+@class System_Globalization_TimeSpanStyles;
+#ifdef SGTimeSpanStyles_
+#warning SGTimeSpanStyles_ class name collision.
+#else
+#define SGTimeSpanStyles_ System_Globalization_TimeSpanStyles
+#endif
+
+@class System_Globalization_UnicodeCategory;
+#ifdef SGUnicodeCategory_
+#warning SGUnicodeCategory_ class name collision.
+#else
+#define SGUnicodeCategory_ System_Globalization_UnicodeCategory
+#endif
+
 @class System_IO_BinaryReader;
 #ifdef SIBinaryReader_
 #warning SIBinaryReader_ class name collision.
@@ -2672,6 +3113,62 @@
 #define SIUnmanagedMemoryStream_ System_IO_UnmanagedMemoryStream
 #endif
 
+@class System_IO_DriveType;
+#ifdef SIDriveType_
+#warning SIDriveType_ class name collision.
+#else
+#define SIDriveType_ System_IO_DriveType
+#endif
+
+@class System_IO_FileAccess;
+#ifdef SIFileAccess_
+#warning SIFileAccess_ class name collision.
+#else
+#define SIFileAccess_ System_IO_FileAccess
+#endif
+
+@class System_IO_FileAttributes;
+#ifdef SIFileAttributes_
+#warning SIFileAttributes_ class name collision.
+#else
+#define SIFileAttributes_ System_IO_FileAttributes
+#endif
+
+@class System_IO_FileMode;
+#ifdef SIFileMode_
+#warning SIFileMode_ class name collision.
+#else
+#define SIFileMode_ System_IO_FileMode
+#endif
+
+@class System_IO_FileOptions;
+#ifdef SIFileOptions_
+#warning SIFileOptions_ class name collision.
+#else
+#define SIFileOptions_ System_IO_FileOptions
+#endif
+
+@class System_IO_FileShare;
+#ifdef SIFileShare_
+#warning SIFileShare_ class name collision.
+#else
+#define SIFileShare_ System_IO_FileShare
+#endif
+
+@class System_IO_SearchOption;
+#ifdef SISearchOption_
+#warning SISearchOption_ class name collision.
+#else
+#define SISearchOption_ System_IO_SearchOption
+#endif
+
+@class System_IO_SeekOrigin;
+#ifdef SISeekOrigin_
+#warning SISeekOrigin_ class name collision.
+#else
+#define SISeekOrigin_ System_IO_SeekOrigin
+#endif
+
 @class System_IO_IsolatedStorage_IsolatedStorage;
 #ifdef SIIIsolatedStorage_
 #warning SIIIsolatedStorage_ class name collision.
@@ -2712,6 +3209,20 @@
 #warning SIIINormalizeForIsolatedStorage_ class name collision.
 #else
 #define SIIINormalizeForIsolatedStorage_ System_IO_IsolatedStorage_INormalizeForIsolatedStorage
+#endif
+
+@class System_IO_IsolatedStorage_IsolatedStorageScope;
+#ifdef SIIIsolatedStorageScope_
+#warning SIIIsolatedStorageScope_ class name collision.
+#else
+#define SIIIsolatedStorageScope_ System_IO_IsolatedStorage_IsolatedStorageScope
+#endif
+
+@class System_IO_IsolatedStorage_IsolatedStorageSecurityOptions;
+#ifdef SIIIsolatedStorageSecurityOptions_
+#warning SIIIsolatedStorageSecurityOptions_ class name collision.
+#else
+#define SIIIsolatedStorageSecurityOptions_ System_IO_IsolatedStorage_IsolatedStorageSecurityOptions
 #endif
 
 @class System_Reflection_AmbiguousMatchException;
@@ -3176,6 +3687,139 @@
 #define SRParameterModifier_ System_Reflection_ParameterModifier
 #endif
 
+@class System_Reflection_AssemblyContentType;
+#ifdef SRAssemblyContentType_
+#warning SRAssemblyContentType_ class name collision.
+#else
+#define SRAssemblyContentType_ System_Reflection_AssemblyContentType
+#endif
+
+@class System_Reflection_AssemblyNameFlags;
+#ifdef SRAssemblyNameFlags_
+#warning SRAssemblyNameFlags_ class name collision.
+#else
+#define SRAssemblyNameFlags_ System_Reflection_AssemblyNameFlags
+#endif
+
+@class System_Reflection_BindingFlags;
+#ifdef SRBindingFlags_
+#warning SRBindingFlags_ class name collision.
+#else
+#define SRBindingFlags_ System_Reflection_BindingFlags
+#endif
+
+@class System_Reflection_CallingConventions;
+#ifdef SRCallingConventions_
+#warning SRCallingConventions_ class name collision.
+#else
+#define SRCallingConventions_ System_Reflection_CallingConventions
+#endif
+
+@class System_Reflection_EventAttributes;
+#ifdef SREventAttributes_
+#warning SREventAttributes_ class name collision.
+#else
+#define SREventAttributes_ System_Reflection_EventAttributes
+#endif
+
+@class System_Reflection_ExceptionHandlingClauseOptions;
+#ifdef SRExceptionHandlingClauseOptions_
+#warning SRExceptionHandlingClauseOptions_ class name collision.
+#else
+#define SRExceptionHandlingClauseOptions_ System_Reflection_ExceptionHandlingClauseOptions
+#endif
+
+@class System_Reflection_FieldAttributes;
+#ifdef SRFieldAttributes_
+#warning SRFieldAttributes_ class name collision.
+#else
+#define SRFieldAttributes_ System_Reflection_FieldAttributes
+#endif
+
+@class System_Reflection_GenericParameterAttributes;
+#ifdef SRGenericParameterAttributes_
+#warning SRGenericParameterAttributes_ class name collision.
+#else
+#define SRGenericParameterAttributes_ System_Reflection_GenericParameterAttributes
+#endif
+
+@class System_Reflection_ImageFileMachine;
+#ifdef SRImageFileMachine_
+#warning SRImageFileMachine_ class name collision.
+#else
+#define SRImageFileMachine_ System_Reflection_ImageFileMachine
+#endif
+
+@class System_Reflection_MemberTypes;
+#ifdef SRMemberTypes_
+#warning SRMemberTypes_ class name collision.
+#else
+#define SRMemberTypes_ System_Reflection_MemberTypes
+#endif
+
+@class System_Reflection_MethodAttributes;
+#ifdef SRMethodAttributes_
+#warning SRMethodAttributes_ class name collision.
+#else
+#define SRMethodAttributes_ System_Reflection_MethodAttributes
+#endif
+
+@class System_Reflection_MethodImplAttributes;
+#ifdef SRMethodImplAttributes_
+#warning SRMethodImplAttributes_ class name collision.
+#else
+#define SRMethodImplAttributes_ System_Reflection_MethodImplAttributes
+#endif
+
+@class System_Reflection_ParameterAttributes;
+#ifdef SRParameterAttributes_
+#warning SRParameterAttributes_ class name collision.
+#else
+#define SRParameterAttributes_ System_Reflection_ParameterAttributes
+#endif
+
+@class System_Reflection_PortableExecutableKinds;
+#ifdef SRPortableExecutableKinds_
+#warning SRPortableExecutableKinds_ class name collision.
+#else
+#define SRPortableExecutableKinds_ System_Reflection_PortableExecutableKinds
+#endif
+
+@class System_Reflection_ProcessorArchitecture;
+#ifdef SRProcessorArchitecture_
+#warning SRProcessorArchitecture_ class name collision.
+#else
+#define SRProcessorArchitecture_ System_Reflection_ProcessorArchitecture
+#endif
+
+@class System_Reflection_PropertyAttributes;
+#ifdef SRPropertyAttributes_
+#warning SRPropertyAttributes_ class name collision.
+#else
+#define SRPropertyAttributes_ System_Reflection_PropertyAttributes
+#endif
+
+@class System_Reflection_ResourceAttributes;
+#ifdef SRResourceAttributes_
+#warning SRResourceAttributes_ class name collision.
+#else
+#define SRResourceAttributes_ System_Reflection_ResourceAttributes
+#endif
+
+@class System_Reflection_ResourceLocation;
+#ifdef SRResourceLocation_
+#warning SRResourceLocation_ class name collision.
+#else
+#define SRResourceLocation_ System_Reflection_ResourceLocation
+#endif
+
+@class System_Reflection_TypeAttributes;
+#ifdef SRTypeAttributes_
+#warning SRTypeAttributes_ class name collision.
+#else
+#define SRTypeAttributes_ System_Reflection_TypeAttributes
+#endif
+
 @class System_Reflection_Emit_AssemblyBuilder;
 #ifdef SREAssemblyBuilder_
 #warning SREAssemblyBuilder_ class name collision.
@@ -3393,6 +4037,55 @@
 #define SRETypeToken_ System_Reflection_Emit_TypeToken
 #endif
 
+@class System_Reflection_Emit_AssemblyBuilderAccess;
+#ifdef SREAssemblyBuilderAccess_
+#warning SREAssemblyBuilderAccess_ class name collision.
+#else
+#define SREAssemblyBuilderAccess_ System_Reflection_Emit_AssemblyBuilderAccess
+#endif
+
+@class System_Reflection_Emit_FlowControl;
+#ifdef SREFlowControl_
+#warning SREFlowControl_ class name collision.
+#else
+#define SREFlowControl_ System_Reflection_Emit_FlowControl
+#endif
+
+@class System_Reflection_Emit_OpCodeType;
+#ifdef SREOpCodeType_
+#warning SREOpCodeType_ class name collision.
+#else
+#define SREOpCodeType_ System_Reflection_Emit_OpCodeType
+#endif
+
+@class System_Reflection_Emit_OperandType;
+#ifdef SREOperandType_
+#warning SREOperandType_ class name collision.
+#else
+#define SREOperandType_ System_Reflection_Emit_OperandType
+#endif
+
+@class System_Reflection_Emit_PackingSize;
+#ifdef SREPackingSize_
+#warning SREPackingSize_ class name collision.
+#else
+#define SREPackingSize_ System_Reflection_Emit_PackingSize
+#endif
+
+@class System_Reflection_Emit_PEFileKinds;
+#ifdef SREPEFileKinds_
+#warning SREPEFileKinds_ class name collision.
+#else
+#define SREPEFileKinds_ System_Reflection_Emit_PEFileKinds
+#endif
+
+@class System_Reflection_Emit_StackBehaviour;
+#ifdef SREStackBehaviour_
+#warning SREStackBehaviour_ class name collision.
+#else
+#define SREStackBehaviour_ System_Reflection_Emit_StackBehaviour
+#endif
+
 @class System_Resources_MissingManifestResourceException;
 #ifdef SRMissingManifestResourceException_
 #warning SRMissingManifestResourceException_ class name collision.
@@ -3463,6 +4156,13 @@
 #define SRIResourceWriter_ System_Resources_IResourceWriter
 #endif
 
+@class System_Resources_UltimateResourceFallbackLocation;
+#ifdef SRUltimateResourceFallbackLocation_
+#warning SRUltimateResourceFallbackLocation_ class name collision.
+#else
+#define SRUltimateResourceFallbackLocation_ System_Resources_UltimateResourceFallbackLocation
+#endif
+
 @class System_Runtime_AssemblyTargetedPatchBandAttribute;
 #ifdef SRAssemblyTargetedPatchBandAttribute_
 #warning SRAssemblyTargetedPatchBandAttribute_ class name collision.
@@ -3496,6 +4196,20 @@
 #warning SRTargetedPatchingOptOutAttribute_ class name collision.
 #else
 #define SRTargetedPatchingOptOutAttribute_ System_Runtime_TargetedPatchingOptOutAttribute
+#endif
+
+@class System_Runtime_GCLargeObjectHeapCompactionMode;
+#ifdef SRGCLargeObjectHeapCompactionMode_
+#warning SRGCLargeObjectHeapCompactionMode_ class name collision.
+#else
+#define SRGCLargeObjectHeapCompactionMode_ System_Runtime_GCLargeObjectHeapCompactionMode
+#endif
+
+@class System_Runtime_GCLatencyMode;
+#ifdef SRGCLatencyMode_
+#warning SRGCLatencyMode_ class name collision.
+#else
+#define SRGCLatencyMode_ System_Runtime_GCLatencyMode
 #endif
 
 @class System_Runtime_CompilerServices_AccessedThroughPropertyAttribute;
@@ -3590,17 +4304,17 @@
 #endif
 
 @class System_Runtime_CompilerServices_ConditionalWeakTableA2;
-#ifdef SRCCRCCRCConditionalWeakTableA2_
-#warning SRCCRCCRCConditionalWeakTableA2_ class name collision.
+#ifdef SRCConditionalWeakTableA2_
+#warning SRCConditionalWeakTableA2_ class name collision.
 #else
-#define SRCCRCCRCConditionalWeakTableA2_ System_Runtime_CompilerServices_ConditionalWeakTableA2
+#define SRCConditionalWeakTableA2_ System_Runtime_CompilerServices_ConditionalWeakTableA2
 #endif
 
 @class System_Runtime_CompilerServices_ConditionalWeakTableA2__CreateValueCallback;
-#ifdef SRCCRCCRCConditionalWeakTableA2_CreateValueCallback_
-#warning SRCCRCCRCConditionalWeakTableA2_CreateValueCallback_ class name collision.
+#ifdef SRCConditionalWeakTableA2_CreateValueCallback_
+#warning SRCConditionalWeakTableA2_CreateValueCallback_ class name collision.
 #else
-#define SRCCRCCRCConditionalWeakTableA2_CreateValueCallback_ System_Runtime_CompilerServices_ConditionalWeakTableA2__CreateValueCallback
+#define SRCConditionalWeakTableA2_CreateValueCallback_ System_Runtime_CompilerServices_ConditionalWeakTableA2__CreateValueCallback
 #endif
 
 @class System_Runtime_CompilerServices_ContractHelper;
@@ -3645,6 +4359,13 @@
 #define SRCDependencyAttribute_ System_Runtime_CompilerServices_DependencyAttribute
 #endif
 
+@class System_Runtime_CompilerServices_DisablePrivateReflectionAttribute;
+#ifdef SRCDisablePrivateReflectionAttribute_
+#warning SRCDisablePrivateReflectionAttribute_ class name collision.
+#else
+#define SRCDisablePrivateReflectionAttribute_ System_Runtime_CompilerServices_DisablePrivateReflectionAttribute
+#endif
+
 @class System_Runtime_CompilerServices_DiscardableAttribute;
 #ifdef SRCDiscardableAttribute_
 #warning SRCDiscardableAttribute_ class name collision.
@@ -3671,6 +4392,13 @@
 #warning SRCFixedBufferAttribute_ class name collision.
 #else
 #define SRCFixedBufferAttribute_ System_Runtime_CompilerServices_FixedBufferAttribute
+#endif
+
+@class System_Runtime_CompilerServices_FormattableStringFactory;
+#ifdef SRCFormattableStringFactory_
+#warning SRCFormattableStringFactory_ class name collision.
+#else
+#define SRCFormattableStringFactory_ System_Runtime_CompilerServices_FormattableStringFactory
 #endif
 
 @class System_Runtime_CompilerServices_HasCopySemanticsAttribute;
@@ -3947,10 +4675,10 @@
 #endif
 
 @class System_Runtime_CompilerServices_AsyncTaskMethodBuilderA1;
-#ifdef SRCARCAsyncTaskMethodBuilderA1_
-#warning SRCARCAsyncTaskMethodBuilderA1_ class name collision.
+#ifdef SRCAsyncTaskMethodBuilderA1_
+#warning SRCAsyncTaskMethodBuilderA1_ class name collision.
 #else
-#define SRCARCAsyncTaskMethodBuilderA1_ System_Runtime_CompilerServices_AsyncTaskMethodBuilderA1
+#define SRCAsyncTaskMethodBuilderA1_ System_Runtime_CompilerServices_AsyncTaskMethodBuilderA1
 #endif
 
 @class System_Runtime_CompilerServices_AsyncVoidMethodBuilder;
@@ -3975,17 +4703,17 @@
 #endif
 
 @class System_Runtime_CompilerServices_ConfiguredTaskAwaitableA1;
-#ifdef SRCCRCConfiguredTaskAwaitableA1_
-#warning SRCCRCConfiguredTaskAwaitableA1_ class name collision.
+#ifdef SRCConfiguredTaskAwaitableA1_
+#warning SRCConfiguredTaskAwaitableA1_ class name collision.
 #else
-#define SRCCRCConfiguredTaskAwaitableA1_ System_Runtime_CompilerServices_ConfiguredTaskAwaitableA1
+#define SRCConfiguredTaskAwaitableA1_ System_Runtime_CompilerServices_ConfiguredTaskAwaitableA1
 #endif
 
 @class System_Runtime_CompilerServices_ConfiguredTaskAwaitableA1__ConfiguredTaskAwaiter;
-#ifdef SRCCRCConfiguredTaskAwaitableA1_ConfiguredTaskAwaiter_
-#warning SRCCRCConfiguredTaskAwaitableA1_ConfiguredTaskAwaiter_ class name collision.
+#ifdef SRCConfiguredTaskAwaitableA1_ConfiguredTaskAwaiter_
+#warning SRCConfiguredTaskAwaitableA1_ConfiguredTaskAwaiter_ class name collision.
 #else
-#define SRCCRCConfiguredTaskAwaitableA1_ConfiguredTaskAwaiter_ System_Runtime_CompilerServices_ConfiguredTaskAwaitableA1__ConfiguredTaskAwaiter
+#define SRCConfiguredTaskAwaitableA1_ConfiguredTaskAwaiter_ System_Runtime_CompilerServices_ConfiguredTaskAwaitableA1__ConfiguredTaskAwaiter
 #endif
 
 @class System_Runtime_CompilerServices_TaskAwaiter;
@@ -3996,10 +4724,10 @@
 #endif
 
 @class System_Runtime_CompilerServices_TaskAwaiterA1;
-#ifdef SRCTRCTaskAwaiterA1_
-#warning SRCTRCTaskAwaiterA1_ class name collision.
+#ifdef SRCTaskAwaiterA1_
+#warning SRCTaskAwaiterA1_ class name collision.
 #else
-#define SRCTRCTaskAwaiterA1_ System_Runtime_CompilerServices_TaskAwaiterA1
+#define SRCTaskAwaiterA1_ System_Runtime_CompilerServices_TaskAwaiterA1
 #endif
 
 @class System_Runtime_CompilerServices_YieldAwaitable;
@@ -4014,6 +4742,34 @@
 #warning SRCYieldAwaitable_YieldAwaiter_ class name collision.
 #else
 #define SRCYieldAwaitable_YieldAwaiter_ System_Runtime_CompilerServices_YieldAwaitable__YieldAwaiter
+#endif
+
+@class System_Runtime_CompilerServices_CompilationRelaxations;
+#ifdef SRCCompilationRelaxations_
+#warning SRCCompilationRelaxations_ class name collision.
+#else
+#define SRCCompilationRelaxations_ System_Runtime_CompilerServices_CompilationRelaxations
+#endif
+
+@class System_Runtime_CompilerServices_LoadHint;
+#ifdef SRCLoadHint_
+#warning SRCLoadHint_ class name collision.
+#else
+#define SRCLoadHint_ System_Runtime_CompilerServices_LoadHint
+#endif
+
+@class System_Runtime_CompilerServices_MethodCodeType;
+#ifdef SRCMethodCodeType_
+#warning SRCMethodCodeType_ class name collision.
+#else
+#define SRCMethodCodeType_ System_Runtime_CompilerServices_MethodCodeType
+#endif
+
+@class System_Runtime_CompilerServices_MethodImplOptions;
+#ifdef SRCMethodImplOptions_
+#warning SRCMethodImplOptions_ class name collision.
+#else
+#define SRCMethodImplOptions_ System_Runtime_CompilerServices_MethodImplOptions
 #endif
 
 @class System_Runtime_ConstrainedExecution_CriticalFinalizerObject;
@@ -4035,6 +4791,20 @@
 #warning SRCReliabilityContractAttribute_ class name collision.
 #else
 #define SRCReliabilityContractAttribute_ System_Runtime_ConstrainedExecution_ReliabilityContractAttribute
+#endif
+
+@class System_Runtime_ConstrainedExecution_Cer;
+#ifdef SRCCer_
+#warning SRCCer_ class name collision.
+#else
+#define SRCCer_ System_Runtime_ConstrainedExecution_Cer
+#endif
+
+@class System_Runtime_ConstrainedExecution_Consistency;
+#ifdef SRCConsistency_
+#warning SRCConsistency_ class name collision.
+#else
+#define SRCConsistency_ System_Runtime_ConstrainedExecution_Consistency
 #endif
 
 @class System_Runtime_DesignerServices_WindowsRuntimeDesignerContext;
@@ -5066,6 +5836,258 @@
 #define SRIVARDESC_DESCUNION_ System_Runtime_InteropServices_VARDESC__DESCUNION
 #endif
 
+@class System_Runtime_InteropServices_AssemblyRegistrationFlags;
+#ifdef SRIAssemblyRegistrationFlags_
+#warning SRIAssemblyRegistrationFlags_ class name collision.
+#else
+#define SRIAssemblyRegistrationFlags_ System_Runtime_InteropServices_AssemblyRegistrationFlags
+#endif
+
+@class System_Runtime_InteropServices_CALLCONV;
+#ifdef SRICALLCONV_
+#warning SRICALLCONV_ class name collision.
+#else
+#define SRICALLCONV_ System_Runtime_InteropServices_CALLCONV
+#endif
+
+@class System_Runtime_InteropServices_CallingConvention;
+#ifdef SRICallingConvention_
+#warning SRICallingConvention_ class name collision.
+#else
+#define SRICallingConvention_ System_Runtime_InteropServices_CallingConvention
+#endif
+
+@class System_Runtime_InteropServices_CharSet;
+#ifdef SRICharSet_
+#warning SRICharSet_ class name collision.
+#else
+#define SRICharSet_ System_Runtime_InteropServices_CharSet
+#endif
+
+@class System_Runtime_InteropServices_ClassInterfaceType;
+#ifdef SRIClassInterfaceType_
+#warning SRIClassInterfaceType_ class name collision.
+#else
+#define SRIClassInterfaceType_ System_Runtime_InteropServices_ClassInterfaceType
+#endif
+
+@class System_Runtime_InteropServices_ComInterfaceType;
+#ifdef SRIComInterfaceType_
+#warning SRIComInterfaceType_ class name collision.
+#else
+#define SRIComInterfaceType_ System_Runtime_InteropServices_ComInterfaceType
+#endif
+
+@class System_Runtime_InteropServices_ComMemberType;
+#ifdef SRIComMemberType_
+#warning SRIComMemberType_ class name collision.
+#else
+#define SRIComMemberType_ System_Runtime_InteropServices_ComMemberType
+#endif
+
+@class System_Runtime_InteropServices_CustomQueryInterfaceMode;
+#ifdef SRICustomQueryInterfaceMode_
+#warning SRICustomQueryInterfaceMode_ class name collision.
+#else
+#define SRICustomQueryInterfaceMode_ System_Runtime_InteropServices_CustomQueryInterfaceMode
+#endif
+
+@class System_Runtime_InteropServices_CustomQueryInterfaceResult;
+#ifdef SRICustomQueryInterfaceResult_
+#warning SRICustomQueryInterfaceResult_ class name collision.
+#else
+#define SRICustomQueryInterfaceResult_ System_Runtime_InteropServices_CustomQueryInterfaceResult
+#endif
+
+@class System_Runtime_InteropServices_DESCKIND;
+#ifdef SRIDESCKIND_
+#warning SRIDESCKIND_ class name collision.
+#else
+#define SRIDESCKIND_ System_Runtime_InteropServices_DESCKIND
+#endif
+
+@class System_Runtime_InteropServices_DllImportSearchPath;
+#ifdef SRIDllImportSearchPath_
+#warning SRIDllImportSearchPath_ class name collision.
+#else
+#define SRIDllImportSearchPath_ System_Runtime_InteropServices_DllImportSearchPath
+#endif
+
+@class System_Runtime_InteropServices_ExporterEventKind;
+#ifdef SRIExporterEventKind_
+#warning SRIExporterEventKind_ class name collision.
+#else
+#define SRIExporterEventKind_ System_Runtime_InteropServices_ExporterEventKind
+#endif
+
+@class System_Runtime_InteropServices_FUNCFLAGS;
+#ifdef SRIFUNCFLAGS_
+#warning SRIFUNCFLAGS_ class name collision.
+#else
+#define SRIFUNCFLAGS_ System_Runtime_InteropServices_FUNCFLAGS
+#endif
+
+@class System_Runtime_InteropServices_FUNCKIND;
+#ifdef SRIFUNCKIND_
+#warning SRIFUNCKIND_ class name collision.
+#else
+#define SRIFUNCKIND_ System_Runtime_InteropServices_FUNCKIND
+#endif
+
+@class System_Runtime_InteropServices_GCHandleType;
+#ifdef SRIGCHandleType_
+#warning SRIGCHandleType_ class name collision.
+#else
+#define SRIGCHandleType_ System_Runtime_InteropServices_GCHandleType
+#endif
+
+@class System_Runtime_InteropServices_IDispatchImplType;
+#ifdef SRIIDispatchImplType_
+#warning SRIIDispatchImplType_ class name collision.
+#else
+#define SRIIDispatchImplType_ System_Runtime_InteropServices_IDispatchImplType
+#endif
+
+@class System_Runtime_InteropServices_IDLFLAG;
+#ifdef SRIIDLFLAG_
+#warning SRIIDLFLAG_ class name collision.
+#else
+#define SRIIDLFLAG_ System_Runtime_InteropServices_IDLFLAG
+#endif
+
+@class System_Runtime_InteropServices_IMPLTYPEFLAGS;
+#ifdef SRIIMPLTYPEFLAGS_
+#warning SRIIMPLTYPEFLAGS_ class name collision.
+#else
+#define SRIIMPLTYPEFLAGS_ System_Runtime_InteropServices_IMPLTYPEFLAGS
+#endif
+
+@class System_Runtime_InteropServices_ImporterEventKind;
+#ifdef SRIImporterEventKind_
+#warning SRIImporterEventKind_ class name collision.
+#else
+#define SRIImporterEventKind_ System_Runtime_InteropServices_ImporterEventKind
+#endif
+
+@class System_Runtime_InteropServices_INVOKEKIND;
+#ifdef SRIINVOKEKIND_
+#warning SRIINVOKEKIND_ class name collision.
+#else
+#define SRIINVOKEKIND_ System_Runtime_InteropServices_INVOKEKIND
+#endif
+
+@class System_Runtime_InteropServices_LayoutKind;
+#ifdef SRILayoutKind_
+#warning SRILayoutKind_ class name collision.
+#else
+#define SRILayoutKind_ System_Runtime_InteropServices_LayoutKind
+#endif
+
+@class System_Runtime_InteropServices_LIBFLAGS;
+#ifdef SRILIBFLAGS_
+#warning SRILIBFLAGS_ class name collision.
+#else
+#define SRILIBFLAGS_ System_Runtime_InteropServices_LIBFLAGS
+#endif
+
+@class System_Runtime_InteropServices_PARAMFLAG;
+#ifdef SRIPARAMFLAG_
+#warning SRIPARAMFLAG_ class name collision.
+#else
+#define SRIPARAMFLAG_ System_Runtime_InteropServices_PARAMFLAG
+#endif
+
+@class System_Runtime_InteropServices_RegistrationClassContext;
+#ifdef SRIRegistrationClassContext_
+#warning SRIRegistrationClassContext_ class name collision.
+#else
+#define SRIRegistrationClassContext_ System_Runtime_InteropServices_RegistrationClassContext
+#endif
+
+@class System_Runtime_InteropServices_RegistrationConnectionType;
+#ifdef SRIRegistrationConnectionType_
+#warning SRIRegistrationConnectionType_ class name collision.
+#else
+#define SRIRegistrationConnectionType_ System_Runtime_InteropServices_RegistrationConnectionType
+#endif
+
+@class System_Runtime_InteropServices_SYSKIND;
+#ifdef SRISYSKIND_
+#warning SRISYSKIND_ class name collision.
+#else
+#define SRISYSKIND_ System_Runtime_InteropServices_SYSKIND
+#endif
+
+@class System_Runtime_InteropServices_TYPEFLAGS;
+#ifdef SRITYPEFLAGS_
+#warning SRITYPEFLAGS_ class name collision.
+#else
+#define SRITYPEFLAGS_ System_Runtime_InteropServices_TYPEFLAGS
+#endif
+
+@class System_Runtime_InteropServices_TYPEKIND;
+#ifdef SRITYPEKIND_
+#warning SRITYPEKIND_ class name collision.
+#else
+#define SRITYPEKIND_ System_Runtime_InteropServices_TYPEKIND
+#endif
+
+@class System_Runtime_InteropServices_TypeLibExporterFlags;
+#ifdef SRITypeLibExporterFlags_
+#warning SRITypeLibExporterFlags_ class name collision.
+#else
+#define SRITypeLibExporterFlags_ System_Runtime_InteropServices_TypeLibExporterFlags
+#endif
+
+@class System_Runtime_InteropServices_TypeLibFuncFlags;
+#ifdef SRITypeLibFuncFlags_
+#warning SRITypeLibFuncFlags_ class name collision.
+#else
+#define SRITypeLibFuncFlags_ System_Runtime_InteropServices_TypeLibFuncFlags
+#endif
+
+@class System_Runtime_InteropServices_TypeLibImporterFlags;
+#ifdef SRITypeLibImporterFlags_
+#warning SRITypeLibImporterFlags_ class name collision.
+#else
+#define SRITypeLibImporterFlags_ System_Runtime_InteropServices_TypeLibImporterFlags
+#endif
+
+@class System_Runtime_InteropServices_TypeLibTypeFlags;
+#ifdef SRITypeLibTypeFlags_
+#warning SRITypeLibTypeFlags_ class name collision.
+#else
+#define SRITypeLibTypeFlags_ System_Runtime_InteropServices_TypeLibTypeFlags
+#endif
+
+@class System_Runtime_InteropServices_TypeLibVarFlags;
+#ifdef SRITypeLibVarFlags_
+#warning SRITypeLibVarFlags_ class name collision.
+#else
+#define SRITypeLibVarFlags_ System_Runtime_InteropServices_TypeLibVarFlags
+#endif
+
+@class System_Runtime_InteropServices_UnmanagedType;
+#ifdef SRIUnmanagedType_
+#warning SRIUnmanagedType_ class name collision.
+#else
+#define SRIUnmanagedType_ System_Runtime_InteropServices_UnmanagedType
+#endif
+
+@class System_Runtime_InteropServices_VarEnum;
+#ifdef SRIVarEnum_
+#warning SRIVarEnum_ class name collision.
+#else
+#define SRIVarEnum_ System_Runtime_InteropServices_VarEnum
+#endif
+
+@class System_Runtime_InteropServices_VARFLAGS;
+#ifdef SRIVARFLAGS_
+#warning SRIVARFLAGS_ class name collision.
+#else
+#define SRIVARFLAGS_ System_Runtime_InteropServices_VARFLAGS
+#endif
+
 @class System_Runtime_InteropServices_ComTypes_IBindCtx;
 #ifdef SRICIBindCtx_
 #warning SRICIBindCtx_ class name collision.
@@ -5304,6 +6326,104 @@
 #define SRICVARDESC_DESCUNION_ System_Runtime_InteropServices_ComTypes_VARDESC__DESCUNION
 #endif
 
+@class System_Runtime_InteropServices_ComTypes_CALLCONV;
+#ifdef SRICCALLCONV_
+#warning SRICCALLCONV_ class name collision.
+#else
+#define SRICCALLCONV_ System_Runtime_InteropServices_ComTypes_CALLCONV
+#endif
+
+@class System_Runtime_InteropServices_ComTypes_DESCKIND;
+#ifdef SRICDESCKIND_
+#warning SRICDESCKIND_ class name collision.
+#else
+#define SRICDESCKIND_ System_Runtime_InteropServices_ComTypes_DESCKIND
+#endif
+
+@class System_Runtime_InteropServices_ComTypes_FUNCFLAGS;
+#ifdef SRICFUNCFLAGS_
+#warning SRICFUNCFLAGS_ class name collision.
+#else
+#define SRICFUNCFLAGS_ System_Runtime_InteropServices_ComTypes_FUNCFLAGS
+#endif
+
+@class System_Runtime_InteropServices_ComTypes_FUNCKIND;
+#ifdef SRICFUNCKIND_
+#warning SRICFUNCKIND_ class name collision.
+#else
+#define SRICFUNCKIND_ System_Runtime_InteropServices_ComTypes_FUNCKIND
+#endif
+
+@class System_Runtime_InteropServices_ComTypes_IDLFLAG;
+#ifdef SRICIDLFLAG_
+#warning SRICIDLFLAG_ class name collision.
+#else
+#define SRICIDLFLAG_ System_Runtime_InteropServices_ComTypes_IDLFLAG
+#endif
+
+@class System_Runtime_InteropServices_ComTypes_IMPLTYPEFLAGS;
+#ifdef SRICIMPLTYPEFLAGS_
+#warning SRICIMPLTYPEFLAGS_ class name collision.
+#else
+#define SRICIMPLTYPEFLAGS_ System_Runtime_InteropServices_ComTypes_IMPLTYPEFLAGS
+#endif
+
+@class System_Runtime_InteropServices_ComTypes_INVOKEKIND;
+#ifdef SRICINVOKEKIND_
+#warning SRICINVOKEKIND_ class name collision.
+#else
+#define SRICINVOKEKIND_ System_Runtime_InteropServices_ComTypes_INVOKEKIND
+#endif
+
+@class System_Runtime_InteropServices_ComTypes_LIBFLAGS;
+#ifdef SRICLIBFLAGS_
+#warning SRICLIBFLAGS_ class name collision.
+#else
+#define SRICLIBFLAGS_ System_Runtime_InteropServices_ComTypes_LIBFLAGS
+#endif
+
+@class System_Runtime_InteropServices_ComTypes_PARAMFLAG;
+#ifdef SRICPARAMFLAG_
+#warning SRICPARAMFLAG_ class name collision.
+#else
+#define SRICPARAMFLAG_ System_Runtime_InteropServices_ComTypes_PARAMFLAG
+#endif
+
+@class System_Runtime_InteropServices_ComTypes_SYSKIND;
+#ifdef SRICSYSKIND_
+#warning SRICSYSKIND_ class name collision.
+#else
+#define SRICSYSKIND_ System_Runtime_InteropServices_ComTypes_SYSKIND
+#endif
+
+@class System_Runtime_InteropServices_ComTypes_TYPEFLAGS;
+#ifdef SRICTYPEFLAGS_
+#warning SRICTYPEFLAGS_ class name collision.
+#else
+#define SRICTYPEFLAGS_ System_Runtime_InteropServices_ComTypes_TYPEFLAGS
+#endif
+
+@class System_Runtime_InteropServices_ComTypes_TYPEKIND;
+#ifdef SRICTYPEKIND_
+#warning SRICTYPEKIND_ class name collision.
+#else
+#define SRICTYPEKIND_ System_Runtime_InteropServices_ComTypes_TYPEKIND
+#endif
+
+@class System_Runtime_InteropServices_ComTypes_VARFLAGS;
+#ifdef SRICVARFLAGS_
+#warning SRICVARFLAGS_ class name collision.
+#else
+#define SRICVARFLAGS_ System_Runtime_InteropServices_ComTypes_VARFLAGS
+#endif
+
+@class System_Runtime_InteropServices_ComTypes_VARKIND;
+#ifdef SRICVARKIND_
+#warning SRICVARKIND_ class name collision.
+#else
+#define SRICVARKIND_ System_Runtime_InteropServices_ComTypes_VARKIND
+#endif
+
 @class System_Runtime_InteropServices_Expando_IExpando;
 #ifdef SRIEIExpando_
 #warning SRIEIExpando_ class name collision.
@@ -5326,10 +6446,10 @@
 #endif
 
 @class System_Runtime_InteropServices_WindowsRuntime_EventRegistrationTokenTableA1;
-#ifdef SRIWERIWEventRegistrationTokenTableA1_
-#warning SRIWERIWEventRegistrationTokenTableA1_ class name collision.
+#ifdef SRIWEventRegistrationTokenTableA1_
+#warning SRIWEventRegistrationTokenTableA1_ class name collision.
 #else
-#define SRIWERIWEventRegistrationTokenTableA1_ System_Runtime_InteropServices_WindowsRuntime_EventRegistrationTokenTableA1
+#define SRIWEventRegistrationTokenTableA1_ System_Runtime_InteropServices_WindowsRuntime_EventRegistrationTokenTableA1
 #endif
 
 @class System_Runtime_InteropServices_WindowsRuntime_InterfaceImplementedInVersionAttribute;
@@ -5521,6 +6641,20 @@
 #define SRRIRemotingTypeInfo_ System_Runtime_Remoting_IRemotingTypeInfo
 #endif
 
+@class System_Runtime_Remoting_CustomErrorsModes;
+#ifdef SRRCustomErrorsModes_
+#warning SRRCustomErrorsModes_ class name collision.
+#else
+#define SRRCustomErrorsModes_ System_Runtime_Remoting_CustomErrorsModes
+#endif
+
+@class System_Runtime_Remoting_WellKnownObjectMode;
+#ifdef SRRWellKnownObjectMode_
+#warning SRRWellKnownObjectMode_ class name collision.
+#else
+#define SRRWellKnownObjectMode_ System_Runtime_Remoting_WellKnownObjectMode
+#endif
+
 @class System_Runtime_Remoting_Activation_UrlAttribute;
 #ifdef SRRAUrlAttribute_
 #warning SRRAUrlAttribute_ class name collision.
@@ -5547,6 +6681,13 @@
 #warning SRRAIConstructionReturnMessage_ class name collision.
 #else
 #define SRRAIConstructionReturnMessage_ System_Runtime_Remoting_Activation_IConstructionReturnMessage
+#endif
+
+@class System_Runtime_Remoting_Activation_ActivatorLevel;
+#ifdef SRRAActivatorLevel_
+#warning SRRAActivatorLevel_ class name collision.
+#else
+#define SRRAActivatorLevel_ System_Runtime_Remoting_Activation_ActivatorLevel
 #endif
 
 @class System_Runtime_Remoting_Channels_BaseChannelObjectWithProperties;
@@ -5745,6 +6886,13 @@
 #define SRRCITransportHeaders_ System_Runtime_Remoting_Channels_ITransportHeaders
 #endif
 
+@class System_Runtime_Remoting_Channels_ServerProcessing;
+#ifdef SRRCServerProcessing_
+#warning SRRCServerProcessing_ class name collision.
+#else
+#define SRRCServerProcessing_ System_Runtime_Remoting_Channels_ServerProcessing
+#endif
+
 @class System_Runtime_Remoting_Contexts_Context;
 #ifdef SRRCContext_
 #warning SRRCContext_ class name collision.
@@ -5876,6 +7024,13 @@
 #warning SRRLISponsor_ class name collision.
 #else
 #define SRRLISponsor_ System_Runtime_Remoting_Lifetime_ISponsor
+#endif
+
+@class System_Runtime_Remoting_Lifetime_LeaseState;
+#ifdef SRRLLeaseState_
+#warning SRRLLeaseState_ class name collision.
+#else
+#define SRRLLeaseState_ System_Runtime_Remoting_Lifetime_LeaseState
 #endif
 
 @class System_Runtime_Remoting_Messaging_AsyncResult;
@@ -6079,6 +7234,20 @@
 #warning SRRMSoapTypeAttribute_ class name collision.
 #else
 #define SRRMSoapTypeAttribute_ System_Runtime_Remoting_Metadata_SoapTypeAttribute
+#endif
+
+@class System_Runtime_Remoting_Metadata_SoapOption;
+#ifdef SRRMSoapOption_
+#warning SRRMSoapOption_ class name collision.
+#else
+#define SRRMSoapOption_ System_Runtime_Remoting_Metadata_SoapOption
+#endif
+
+@class System_Runtime_Remoting_Metadata_XmlFieldOrderOption;
+#ifdef SRRMXmlFieldOrderOption_
+#warning SRRMXmlFieldOrderOption_ class name collision.
+#else
+#define SRRMXmlFieldOrderOption_ System_Runtime_Remoting_Metadata_XmlFieldOrderOption
 #endif
 
 @class System_Runtime_Remoting_Metadata_W3cXsd2001_SoapAnyUri;
@@ -6529,6 +7698,13 @@
 #define SRSStreamingContext_ System_Runtime_Serialization_StreamingContext
 #endif
 
+@class System_Runtime_Serialization_StreamingContextStates;
+#ifdef SRSStreamingContextStates_
+#warning SRSStreamingContextStates_ class name collision.
+#else
+#define SRSStreamingContextStates_ System_Runtime_Serialization_StreamingContextStates
+#endif
+
 @class System_Runtime_Serialization_Formatters_InternalRM;
 #ifdef SRSFInternalRM_
 #warning SRSFInternalRM_ class name collision.
@@ -6578,11 +7754,39 @@
 #define SRSFISoapMessage_ System_Runtime_Serialization_Formatters_ISoapMessage
 #endif
 
+@class System_Runtime_Serialization_Formatters_FormatterAssemblyStyle;
+#ifdef SRSFFormatterAssemblyStyle_
+#warning SRSFFormatterAssemblyStyle_ class name collision.
+#else
+#define SRSFFormatterAssemblyStyle_ System_Runtime_Serialization_Formatters_FormatterAssemblyStyle
+#endif
+
+@class System_Runtime_Serialization_Formatters_FormatterTypeStyle;
+#ifdef SRSFFormatterTypeStyle_
+#warning SRSFFormatterTypeStyle_ class name collision.
+#else
+#define SRSFFormatterTypeStyle_ System_Runtime_Serialization_Formatters_FormatterTypeStyle
+#endif
+
+@class System_Runtime_Serialization_Formatters_TypeFilterLevel;
+#ifdef SRSFTypeFilterLevel_
+#warning SRSFTypeFilterLevel_ class name collision.
+#else
+#define SRSFTypeFilterLevel_ System_Runtime_Serialization_Formatters_TypeFilterLevel
+#endif
+
 @class System_Runtime_Serialization_Formatters_Binary_BinaryFormatter;
 #ifdef SRSFBBinaryFormatter_
 #warning SRSFBBinaryFormatter_ class name collision.
 #else
 #define SRSFBBinaryFormatter_ System_Runtime_Serialization_Formatters_Binary_BinaryFormatter
+#endif
+
+@class System_Runtime_Versioning_CompatibilitySwitch;
+#ifdef SRVCompatibilitySwitch_
+#warning SRVCompatibilitySwitch_ class name collision.
+#else
+#define SRVCompatibilitySwitch_ System_Runtime_Versioning_CompatibilitySwitch
 #endif
 
 @class System_Runtime_Versioning_ComponentGuaranteesAttribute;
@@ -6618,6 +7822,20 @@
 #warning SRVVersioningHelper_ class name collision.
 #else
 #define SRVVersioningHelper_ System_Runtime_Versioning_VersioningHelper
+#endif
+
+@class System_Runtime_Versioning_ComponentGuaranteesOptions;
+#ifdef SRVComponentGuaranteesOptions_
+#warning SRVComponentGuaranteesOptions_ class name collision.
+#else
+#define SRVComponentGuaranteesOptions_ System_Runtime_Versioning_ComponentGuaranteesOptions
+#endif
+
+@class System_Runtime_Versioning_ResourceScope;
+#ifdef SRVResourceScope_
+#warning SRVResourceScope_ class name collision.
+#else
+#define SRVResourceScope_ System_Runtime_Versioning_ResourceScope
 #endif
 
 @class System_Security_AllowPartiallyTrustedCallersAttribute;
@@ -6809,6 +8027,55 @@
 #define SSIStackWalk_ System_Security_IStackWalk
 #endif
 
+@class System_Security_HostSecurityManagerOptions;
+#ifdef SSHostSecurityManagerOptions_
+#warning SSHostSecurityManagerOptions_ class name collision.
+#else
+#define SSHostSecurityManagerOptions_ System_Security_HostSecurityManagerOptions
+#endif
+
+@class System_Security_PartialTrustVisibilityLevel;
+#ifdef SSPartialTrustVisibilityLevel_
+#warning SSPartialTrustVisibilityLevel_ class name collision.
+#else
+#define SSPartialTrustVisibilityLevel_ System_Security_PartialTrustVisibilityLevel
+#endif
+
+@class System_Security_PolicyLevelType;
+#ifdef SSPolicyLevelType_
+#warning SSPolicyLevelType_ class name collision.
+#else
+#define SSPolicyLevelType_ System_Security_PolicyLevelType
+#endif
+
+@class System_Security_SecurityContextSource;
+#ifdef SSSecurityContextSource_
+#warning SSSecurityContextSource_ class name collision.
+#else
+#define SSSecurityContextSource_ System_Security_SecurityContextSource
+#endif
+
+@class System_Security_SecurityCriticalScope;
+#ifdef SSSecurityCriticalScope_
+#warning SSSecurityCriticalScope_ class name collision.
+#else
+#define SSSecurityCriticalScope_ System_Security_SecurityCriticalScope
+#endif
+
+@class System_Security_SecurityRuleSet;
+#ifdef SSSecurityRuleSet_
+#warning SSSecurityRuleSet_ class name collision.
+#else
+#define SSSecurityRuleSet_ System_Security_SecurityRuleSet
+#endif
+
+@class System_Security_SecurityZone;
+#ifdef SSSecurityZone_
+#warning SSSecurityZone_ class name collision.
+#else
+#define SSSecurityZone_ System_Security_SecurityZone
+#endif
+
 @class System_Security_AccessControl_AccessRule;
 #ifdef SSAAccessRule_
 #warning SSAAccessRule_ class name collision.
@@ -6817,10 +8084,10 @@
 #endif
 
 @class System_Security_AccessControl_AccessRuleA1;
-#ifdef SSAASAAccessRuleA1_
-#warning SSAASAAccessRuleA1_ class name collision.
+#ifdef SSAAccessRuleA1_
+#warning SSAAccessRuleA1_ class name collision.
 #else
-#define SSAASAAccessRuleA1_ System_Security_AccessControl_AccessRuleA1
+#define SSAAccessRuleA1_ System_Security_AccessControl_AccessRuleA1
 #endif
 
 @class System_Security_AccessControl_AceEnumerator;
@@ -6838,10 +8105,10 @@
 #endif
 
 @class System_Security_AccessControl_AuditRuleA1;
-#ifdef SSAASAAuditRuleA1_
-#warning SSAASAAuditRuleA1_ class name collision.
+#ifdef SSAAuditRuleA1_
+#warning SSAAuditRuleA1_ class name collision.
 #else
-#define SSAASAAuditRuleA1_ System_Security_AccessControl_AuditRuleA1
+#define SSAAuditRuleA1_ System_Security_AccessControl_AuditRuleA1
 #endif
 
 @class System_Security_AccessControl_AuthorizationRule;
@@ -7076,10 +8343,10 @@
 #endif
 
 @class System_Security_AccessControl_ObjectSecurityA1;
-#ifdef SSAOSAObjectSecurityA1_
-#warning SSAOSAObjectSecurityA1_ class name collision.
+#ifdef SSAObjectSecurityA1_
+#warning SSAObjectSecurityA1_ class name collision.
 #else
-#define SSAOSAObjectSecurityA1_ System_Security_AccessControl_ObjectSecurityA1
+#define SSAObjectSecurityA1_ System_Security_AccessControl_ObjectSecurityA1
 #endif
 
 @class System_Security_AccessControl_PrivilegeNotHeldException;
@@ -7136,6 +8403,146 @@
 #warning SSASystemAcl_ class name collision.
 #else
 #define SSASystemAcl_ System_Security_AccessControl_SystemAcl
+#endif
+
+@class System_Security_AccessControl_AccessControlActions;
+#ifdef SSAAccessControlActions_
+#warning SSAAccessControlActions_ class name collision.
+#else
+#define SSAAccessControlActions_ System_Security_AccessControl_AccessControlActions
+#endif
+
+@class System_Security_AccessControl_AccessControlModification;
+#ifdef SSAAccessControlModification_
+#warning SSAAccessControlModification_ class name collision.
+#else
+#define SSAAccessControlModification_ System_Security_AccessControl_AccessControlModification
+#endif
+
+@class System_Security_AccessControl_AccessControlSections;
+#ifdef SSAAccessControlSections_
+#warning SSAAccessControlSections_ class name collision.
+#else
+#define SSAAccessControlSections_ System_Security_AccessControl_AccessControlSections
+#endif
+
+@class System_Security_AccessControl_AccessControlType;
+#ifdef SSAAccessControlType_
+#warning SSAAccessControlType_ class name collision.
+#else
+#define SSAAccessControlType_ System_Security_AccessControl_AccessControlType
+#endif
+
+@class System_Security_AccessControl_AceFlags;
+#ifdef SSAAceFlags_
+#warning SSAAceFlags_ class name collision.
+#else
+#define SSAAceFlags_ System_Security_AccessControl_AceFlags
+#endif
+
+@class System_Security_AccessControl_AceQualifier;
+#ifdef SSAAceQualifier_
+#warning SSAAceQualifier_ class name collision.
+#else
+#define SSAAceQualifier_ System_Security_AccessControl_AceQualifier
+#endif
+
+@class System_Security_AccessControl_AceType;
+#ifdef SSAAceType_
+#warning SSAAceType_ class name collision.
+#else
+#define SSAAceType_ System_Security_AccessControl_AceType
+#endif
+
+@class System_Security_AccessControl_AuditFlags;
+#ifdef SSAAuditFlags_
+#warning SSAAuditFlags_ class name collision.
+#else
+#define SSAAuditFlags_ System_Security_AccessControl_AuditFlags
+#endif
+
+@class System_Security_AccessControl_CompoundAceType;
+#ifdef SSACompoundAceType_
+#warning SSACompoundAceType_ class name collision.
+#else
+#define SSACompoundAceType_ System_Security_AccessControl_CompoundAceType
+#endif
+
+@class System_Security_AccessControl_ControlFlags;
+#ifdef SSAControlFlags_
+#warning SSAControlFlags_ class name collision.
+#else
+#define SSAControlFlags_ System_Security_AccessControl_ControlFlags
+#endif
+
+@class System_Security_AccessControl_CryptoKeyRights;
+#ifdef SSACryptoKeyRights_
+#warning SSACryptoKeyRights_ class name collision.
+#else
+#define SSACryptoKeyRights_ System_Security_AccessControl_CryptoKeyRights
+#endif
+
+@class System_Security_AccessControl_EventWaitHandleRights;
+#ifdef SSAEventWaitHandleRights_
+#warning SSAEventWaitHandleRights_ class name collision.
+#else
+#define SSAEventWaitHandleRights_ System_Security_AccessControl_EventWaitHandleRights
+#endif
+
+@class System_Security_AccessControl_FileSystemRights;
+#ifdef SSAFileSystemRights_
+#warning SSAFileSystemRights_ class name collision.
+#else
+#define SSAFileSystemRights_ System_Security_AccessControl_FileSystemRights
+#endif
+
+@class System_Security_AccessControl_InheritanceFlags;
+#ifdef SSAInheritanceFlags_
+#warning SSAInheritanceFlags_ class name collision.
+#else
+#define SSAInheritanceFlags_ System_Security_AccessControl_InheritanceFlags
+#endif
+
+@class System_Security_AccessControl_MutexRights;
+#ifdef SSAMutexRights_
+#warning SSAMutexRights_ class name collision.
+#else
+#define SSAMutexRights_ System_Security_AccessControl_MutexRights
+#endif
+
+@class System_Security_AccessControl_ObjectAceFlags;
+#ifdef SSAObjectAceFlags_
+#warning SSAObjectAceFlags_ class name collision.
+#else
+#define SSAObjectAceFlags_ System_Security_AccessControl_ObjectAceFlags
+#endif
+
+@class System_Security_AccessControl_PropagationFlags;
+#ifdef SSAPropagationFlags_
+#warning SSAPropagationFlags_ class name collision.
+#else
+#define SSAPropagationFlags_ System_Security_AccessControl_PropagationFlags
+#endif
+
+@class System_Security_AccessControl_RegistryRights;
+#ifdef SSARegistryRights_
+#warning SSARegistryRights_ class name collision.
+#else
+#define SSARegistryRights_ System_Security_AccessControl_RegistryRights
+#endif
+
+@class System_Security_AccessControl_ResourceType;
+#ifdef SSAResourceType_
+#warning SSAResourceType_ class name collision.
+#else
+#define SSAResourceType_ System_Security_AccessControl_ResourceType
+#endif
+
+@class System_Security_AccessControl_SecurityInfos;
+#ifdef SSASecurityInfos_
+#warning SSASecurityInfos_ class name collision.
+#else
+#define SSASecurityInfos_ System_Security_AccessControl_SecurityInfos
 #endif
 
 @class System_Security_Claims_Claim;
@@ -7516,6 +8923,13 @@
 #define SSCRSACryptoServiceProvider_ System_Security_Cryptography_RSACryptoServiceProvider
 #endif
 
+@class System_Security_Cryptography_RSAEncryptionPadding;
+#ifdef SSCRSAEncryptionPadding_
+#warning SSCRSAEncryptionPadding_ class name collision.
+#else
+#define SSCRSAEncryptionPadding_ System_Security_Cryptography_RSAEncryptionPadding
+#endif
+
 @class System_Security_Cryptography_RSAOAEPKeyExchangeDeformatter;
 #ifdef SSCRSAOAEPKeyExchangeDeformatter_
 #warning SSCRSAOAEPKeyExchangeDeformatter_ class name collision.
@@ -7556,6 +8970,13 @@
 #warning SSCRSAPKCS1SignatureFormatter_ class name collision.
 #else
 #define SSCRSAPKCS1SignatureFormatter_ System_Security_Cryptography_RSAPKCS1SignatureFormatter
+#endif
+
+@class System_Security_Cryptography_RSASignaturePadding;
+#ifdef SSCRSASignaturePadding_
+#warning SSCRSASignaturePadding_ class name collision.
+#else
+#define SSCRSASignaturePadding_ System_Security_Cryptography_RSASignaturePadding
 #endif
 
 @class System_Security_Cryptography_SHA1;
@@ -7677,6 +9098,13 @@
 #define SSCDSAParameters_ System_Security_Cryptography_DSAParameters
 #endif
 
+@class System_Security_Cryptography_HashAlgorithmName;
+#ifdef SSCHashAlgorithmName_
+#warning SSCHashAlgorithmName_ class name collision.
+#else
+#define SSCHashAlgorithmName_ System_Security_Cryptography_HashAlgorithmName
+#endif
+
 @class System_Security_Cryptography_RSAParameters;
 #ifdef SSCRSAParameters_
 #warning SSCRSAParameters_ class name collision.
@@ -7684,11 +9112,81 @@
 #define SSCRSAParameters_ System_Security_Cryptography_RSAParameters
 #endif
 
+@class System_Security_Cryptography_CipherMode;
+#ifdef SSCCipherMode_
+#warning SSCCipherMode_ class name collision.
+#else
+#define SSCCipherMode_ System_Security_Cryptography_CipherMode
+#endif
+
+@class System_Security_Cryptography_CryptoStreamMode;
+#ifdef SSCCryptoStreamMode_
+#warning SSCCryptoStreamMode_ class name collision.
+#else
+#define SSCCryptoStreamMode_ System_Security_Cryptography_CryptoStreamMode
+#endif
+
+@class System_Security_Cryptography_CspProviderFlags;
+#ifdef SSCCspProviderFlags_
+#warning SSCCspProviderFlags_ class name collision.
+#else
+#define SSCCspProviderFlags_ System_Security_Cryptography_CspProviderFlags
+#endif
+
+@class System_Security_Cryptography_FromBase64TransformMode;
+#ifdef SSCFromBase64TransformMode_
+#warning SSCFromBase64TransformMode_ class name collision.
+#else
+#define SSCFromBase64TransformMode_ System_Security_Cryptography_FromBase64TransformMode
+#endif
+
+@class System_Security_Cryptography_KeyNumber;
+#ifdef SSCKeyNumber_
+#warning SSCKeyNumber_ class name collision.
+#else
+#define SSCKeyNumber_ System_Security_Cryptography_KeyNumber
+#endif
+
+@class System_Security_Cryptography_PaddingMode;
+#ifdef SSCPaddingMode_
+#warning SSCPaddingMode_ class name collision.
+#else
+#define SSCPaddingMode_ System_Security_Cryptography_PaddingMode
+#endif
+
+@class System_Security_Cryptography_RSAEncryptionPaddingMode;
+#ifdef SSCRSAEncryptionPaddingMode_
+#warning SSCRSAEncryptionPaddingMode_ class name collision.
+#else
+#define SSCRSAEncryptionPaddingMode_ System_Security_Cryptography_RSAEncryptionPaddingMode
+#endif
+
+@class System_Security_Cryptography_RSASignaturePaddingMode;
+#ifdef SSCRSASignaturePaddingMode_
+#warning SSCRSASignaturePaddingMode_ class name collision.
+#else
+#define SSCRSASignaturePaddingMode_ System_Security_Cryptography_RSASignaturePaddingMode
+#endif
+
 @class System_Security_Cryptography_X509Certificates_X509Certificate;
 #ifdef SSCXX509Certificate_
 #warning SSCXX509Certificate_ class name collision.
 #else
 #define SSCXX509Certificate_ System_Security_Cryptography_X509Certificates_X509Certificate
+#endif
+
+@class System_Security_Cryptography_X509Certificates_X509ContentType;
+#ifdef SSCXX509ContentType_
+#warning SSCXX509ContentType_ class name collision.
+#else
+#define SSCXX509ContentType_ System_Security_Cryptography_X509Certificates_X509ContentType
+#endif
+
+@class System_Security_Cryptography_X509Certificates_X509KeyStorageFlags;
+#ifdef SSCXX509KeyStorageFlags_
+#warning SSCXX509KeyStorageFlags_ class name collision.
+#else
+#define SSCXX509KeyStorageFlags_ System_Security_Cryptography_X509Certificates_X509KeyStorageFlags
 #endif
 
 @class System_Security_Permissions_CodeAccessSecurityAttribute;
@@ -7992,6 +9490,97 @@
 #define SSPIUnrestrictedPermission_ System_Security_Permissions_IUnrestrictedPermission
 #endif
 
+@class System_Security_Permissions_EnvironmentPermissionAccess;
+#ifdef SSPEnvironmentPermissionAccess_
+#warning SSPEnvironmentPermissionAccess_ class name collision.
+#else
+#define SSPEnvironmentPermissionAccess_ System_Security_Permissions_EnvironmentPermissionAccess
+#endif
+
+@class System_Security_Permissions_FileDialogPermissionAccess;
+#ifdef SSPFileDialogPermissionAccess_
+#warning SSPFileDialogPermissionAccess_ class name collision.
+#else
+#define SSPFileDialogPermissionAccess_ System_Security_Permissions_FileDialogPermissionAccess
+#endif
+
+@class System_Security_Permissions_FileIOPermissionAccess;
+#ifdef SSPFileIOPermissionAccess_
+#warning SSPFileIOPermissionAccess_ class name collision.
+#else
+#define SSPFileIOPermissionAccess_ System_Security_Permissions_FileIOPermissionAccess
+#endif
+
+@class System_Security_Permissions_HostProtectionResource;
+#ifdef SSPHostProtectionResource_
+#warning SSPHostProtectionResource_ class name collision.
+#else
+#define SSPHostProtectionResource_ System_Security_Permissions_HostProtectionResource
+#endif
+
+@class System_Security_Permissions_IsolatedStorageContainment;
+#ifdef SSPIsolatedStorageContainment_
+#warning SSPIsolatedStorageContainment_ class name collision.
+#else
+#define SSPIsolatedStorageContainment_ System_Security_Permissions_IsolatedStorageContainment
+#endif
+
+@class System_Security_Permissions_KeyContainerPermissionFlags;
+#ifdef SSPKeyContainerPermissionFlags_
+#warning SSPKeyContainerPermissionFlags_ class name collision.
+#else
+#define SSPKeyContainerPermissionFlags_ System_Security_Permissions_KeyContainerPermissionFlags
+#endif
+
+@class System_Security_Permissions_PermissionState;
+#ifdef SSPPermissionState_
+#warning SSPPermissionState_ class name collision.
+#else
+#define SSPPermissionState_ System_Security_Permissions_PermissionState
+#endif
+
+@class System_Security_Permissions_ReflectionPermissionFlag;
+#ifdef SSPReflectionPermissionFlag_
+#warning SSPReflectionPermissionFlag_ class name collision.
+#else
+#define SSPReflectionPermissionFlag_ System_Security_Permissions_ReflectionPermissionFlag
+#endif
+
+@class System_Security_Permissions_RegistryPermissionAccess;
+#ifdef SSPRegistryPermissionAccess_
+#warning SSPRegistryPermissionAccess_ class name collision.
+#else
+#define SSPRegistryPermissionAccess_ System_Security_Permissions_RegistryPermissionAccess
+#endif
+
+@class System_Security_Permissions_SecurityAction;
+#ifdef SSPSecurityAction_
+#warning SSPSecurityAction_ class name collision.
+#else
+#define SSPSecurityAction_ System_Security_Permissions_SecurityAction
+#endif
+
+@class System_Security_Permissions_SecurityPermissionFlag;
+#ifdef SSPSecurityPermissionFlag_
+#warning SSPSecurityPermissionFlag_ class name collision.
+#else
+#define SSPSecurityPermissionFlag_ System_Security_Permissions_SecurityPermissionFlag
+#endif
+
+@class System_Security_Permissions_UIPermissionClipboard;
+#ifdef SSPUIPermissionClipboard_
+#warning SSPUIPermissionClipboard_ class name collision.
+#else
+#define SSPUIPermissionClipboard_ System_Security_Permissions_UIPermissionClipboard
+#endif
+
+@class System_Security_Permissions_UIPermissionWindow;
+#ifdef SSPUIPermissionWindow_
+#warning SSPUIPermissionWindow_ class name collision.
+#else
+#define SSPUIPermissionWindow_ System_Security_Permissions_UIPermissionWindow
+#endif
+
 @class System_Security_Policy_AllMembershipCondition;
 #ifdef SSPAllMembershipCondition_
 #warning SSPAllMembershipCondition_ class name collision.
@@ -8258,6 +9847,27 @@
 #define SSPIMembershipCondition_ System_Security_Policy_IMembershipCondition
 #endif
 
+@class System_Security_Policy_ApplicationVersionMatch;
+#ifdef SSPApplicationVersionMatch_
+#warning SSPApplicationVersionMatch_ class name collision.
+#else
+#define SSPApplicationVersionMatch_ System_Security_Policy_ApplicationVersionMatch
+#endif
+
+@class System_Security_Policy_PolicyStatementAttribute;
+#ifdef SSPPolicyStatementAttribute_
+#warning SSPPolicyStatementAttribute_ class name collision.
+#else
+#define SSPPolicyStatementAttribute_ System_Security_Policy_PolicyStatementAttribute
+#endif
+
+@class System_Security_Policy_TrustManagerUIContext;
+#ifdef SSPTrustManagerUIContext_
+#warning SSPTrustManagerUIContext_ class name collision.
+#else
+#define SSPTrustManagerUIContext_ System_Security_Policy_TrustManagerUIContext
+#endif
+
 @class System_Security_Principal_GenericIdentity;
 #ifdef SSPGenericIdentity_
 #warning SSPGenericIdentity_ class name collision.
@@ -8340,6 +9950,48 @@
 #warning SSPIPrincipal_ class name collision.
 #else
 #define SSPIPrincipal_ System_Security_Principal_IPrincipal
+#endif
+
+@class System_Security_Principal_PrincipalPolicy;
+#ifdef SSPPrincipalPolicy_
+#warning SSPPrincipalPolicy_ class name collision.
+#else
+#define SSPPrincipalPolicy_ System_Security_Principal_PrincipalPolicy
+#endif
+
+@class System_Security_Principal_TokenAccessLevels;
+#ifdef SSPTokenAccessLevels_
+#warning SSPTokenAccessLevels_ class name collision.
+#else
+#define SSPTokenAccessLevels_ System_Security_Principal_TokenAccessLevels
+#endif
+
+@class System_Security_Principal_TokenImpersonationLevel;
+#ifdef SSPTokenImpersonationLevel_
+#warning SSPTokenImpersonationLevel_ class name collision.
+#else
+#define SSPTokenImpersonationLevel_ System_Security_Principal_TokenImpersonationLevel
+#endif
+
+@class System_Security_Principal_WellKnownSidType;
+#ifdef SSPWellKnownSidType_
+#warning SSPWellKnownSidType_ class name collision.
+#else
+#define SSPWellKnownSidType_ System_Security_Principal_WellKnownSidType
+#endif
+
+@class System_Security_Principal_WindowsAccountType;
+#ifdef SSPWindowsAccountType_
+#warning SSPWindowsAccountType_ class name collision.
+#else
+#define SSPWindowsAccountType_ System_Security_Principal_WindowsAccountType
+#endif
+
+@class System_Security_Principal_WindowsBuiltInRole;
+#ifdef SSPWindowsBuiltInRole_
+#warning SSPWindowsBuiltInRole_ class name collision.
+#else
+#define SSPWindowsBuiltInRole_ System_Security_Principal_WindowsBuiltInRole
 #endif
 
 @class System_Text_ASCIIEncoding;
@@ -8475,6 +10127,13 @@
 #define STEncodingInfo_ System_Text_EncodingInfo
 #endif
 
+@class System_Text_EncodingProvider;
+#ifdef STEncodingProvider_
+#warning STEncodingProvider_ class name collision.
+#else
+#define STEncodingProvider_ System_Text_EncodingProvider
+#endif
+
 @class System_Text_StringBuilder;
 #ifdef STStringBuilder_
 #warning STStringBuilder_ class name collision.
@@ -8510,11 +10169,25 @@
 #define STUTF8Encoding_ System_Text_UTF8Encoding
 #endif
 
+@class System_Text_NormalizationForm;
+#ifdef STNormalizationForm_
+#warning STNormalizationForm_ class name collision.
+#else
+#define STNormalizationForm_ System_Text_NormalizationForm
+#endif
+
 @class System_Threading_AbandonedMutexException;
 #ifdef STAbandonedMutexException_
 #warning STAbandonedMutexException_ class name collision.
 #else
 #define STAbandonedMutexException_ System_Threading_AbandonedMutexException
+#endif
+
+@class System_Threading_AsyncLocalA1;
+#ifdef STAsyncLocalA1_
+#warning STAsyncLocalA1_ class name collision.
+#else
+#define STAsyncLocalA1_ System_Threading_AsyncLocalA1
 #endif
 
 @class System_Threading_AutoResetEvent;
@@ -8721,10 +10394,10 @@
 #endif
 
 @class System_Threading_ThreadLocalA1;
-#ifdef STTTThreadLocalA1_
-#warning STTTThreadLocalA1_ class name collision.
+#ifdef STThreadLocalA1_
+#warning STThreadLocalA1_ class name collision.
 #else
-#define STTTThreadLocalA1_ System_Threading_ThreadLocalA1
+#define STThreadLocalA1_ System_Threading_ThreadLocalA1
 #endif
 
 @class System_Threading_ThreadPool;
@@ -8804,6 +10477,13 @@
 #define STWaitHandleCannotBeOpenedException_ System_Threading_WaitHandleCannotBeOpenedException
 #endif
 
+@class System_Threading_WaitHandleExtensions;
+#ifdef STWaitHandleExtensions_
+#warning STWaitHandleExtensions_ class name collision.
+#else
+#define STWaitHandleExtensions_ System_Threading_WaitHandleExtensions
+#endif
+
 @class System_Threading_WaitOrTimerCallback;
 #ifdef STWaitOrTimerCallback_
 #warning STWaitOrTimerCallback_ class name collision.
@@ -8816,6 +10496,13 @@
 #warning STAsyncFlowControl_ class name collision.
 #else
 #define STAsyncFlowControl_ System_Threading_AsyncFlowControl
+#endif
+
+@class System_Threading_AsyncLocalValueChangedArgsA1;
+#ifdef STAsyncLocalValueChangedArgsA1_
+#warning STAsyncLocalValueChangedArgsA1_ class name collision.
+#else
+#define STAsyncLocalValueChangedArgsA1_ System_Threading_AsyncLocalValueChangedArgsA1
 #endif
 
 @class System_Threading_CancellationToken;
@@ -8860,6 +10547,41 @@
 #define STSpinWait_ System_Threading_SpinWait
 #endif
 
+@class System_Threading_ApartmentState;
+#ifdef STApartmentState_
+#warning STApartmentState_ class name collision.
+#else
+#define STApartmentState_ System_Threading_ApartmentState
+#endif
+
+@class System_Threading_EventResetMode;
+#ifdef STEventResetMode_
+#warning STEventResetMode_ class name collision.
+#else
+#define STEventResetMode_ System_Threading_EventResetMode
+#endif
+
+@class System_Threading_LazyThreadSafetyMode;
+#ifdef STLazyThreadSafetyMode_
+#warning STLazyThreadSafetyMode_ class name collision.
+#else
+#define STLazyThreadSafetyMode_ System_Threading_LazyThreadSafetyMode
+#endif
+
+@class System_Threading_ThreadPriority;
+#ifdef STThreadPriority_
+#warning STThreadPriority_ class name collision.
+#else
+#define STThreadPriority_ System_Threading_ThreadPriority
+#endif
+
+@class System_Threading_ThreadState;
+#ifdef STThreadState_
+#warning STThreadState_ class name collision.
+#else
+#define STThreadState_ System_Threading_ThreadState
+#endif
+
 @class System_Threading_Tasks_ConcurrentExclusiveSchedulerPair;
 #ifdef STTConcurrentExclusiveSchedulerPair_
 #warning STTConcurrentExclusiveSchedulerPair_ class name collision.
@@ -8896,10 +10618,10 @@
 #endif
 
 @class System_Threading_Tasks_TaskA1;
-#ifdef STTTTTTaskA1_
-#warning STTTTTTaskA1_ class name collision.
+#ifdef STTTaskA1_
+#warning STTTaskA1_ class name collision.
 #else
-#define STTTTTTaskA1_ System_Threading_Tasks_TaskA1
+#define STTTaskA1_ System_Threading_Tasks_TaskA1
 #endif
 
 @class System_Threading_Tasks_TaskCanceledException;
@@ -8910,10 +10632,10 @@
 #endif
 
 @class System_Threading_Tasks_TaskCompletionSourceA1;
-#ifdef STTTTTTaskCompletionSourceA1_
-#warning STTTTTTaskCompletionSourceA1_ class name collision.
+#ifdef STTTaskCompletionSourceA1_
+#warning STTTaskCompletionSourceA1_ class name collision.
 #else
-#define STTTTTTaskCompletionSourceA1_ System_Threading_Tasks_TaskCompletionSourceA1
+#define STTTaskCompletionSourceA1_ System_Threading_Tasks_TaskCompletionSourceA1
 #endif
 
 @class System_Threading_Tasks_TaskFactory;
@@ -8924,10 +10646,10 @@
 #endif
 
 @class System_Threading_Tasks_TaskFactoryA1;
-#ifdef STTTTTTaskFactoryA1_
-#warning STTTTTTaskFactoryA1_ class name collision.
+#ifdef STTTaskFactoryA1_
+#warning STTTaskFactoryA1_ class name collision.
 #else
-#define STTTTTTaskFactoryA1_ System_Threading_Tasks_TaskFactoryA1
+#define STTTaskFactoryA1_ System_Threading_Tasks_TaskFactoryA1
 #endif
 
 @class System_Threading_Tasks_TaskScheduler;
@@ -8956,6 +10678,27 @@
 #warning STTParallelLoopResult_ class name collision.
 #else
 #define STTParallelLoopResult_ System_Threading_Tasks_ParallelLoopResult
+#endif
+
+@class System_Threading_Tasks_TaskContinuationOptions;
+#ifdef STTTaskContinuationOptions_
+#warning STTTaskContinuationOptions_ class name collision.
+#else
+#define STTTaskContinuationOptions_ System_Threading_Tasks_TaskContinuationOptions
+#endif
+
+@class System_Threading_Tasks_TaskCreationOptions;
+#ifdef STTTaskCreationOptions_
+#warning STTTaskCreationOptions_ class name collision.
+#else
+#define STTTaskCreationOptions_ System_Threading_Tasks_TaskCreationOptions
+#endif
+
+@class System_Threading_Tasks_TaskStatus;
+#ifdef STTTaskStatus_
+#warning STTTaskStatus_ class name collision.
+#else
+#define STTTaskStatus_ System_Threading_Tasks_TaskStatus
 #endif
 
 
@@ -8999,10 +10742,17 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "System_Diagnostics_DebuggerBrowsableState.h"
 #import "System_Diagnostics_Contracts_ContractFailureKind.h"
 #import "System_Diagnostics_SymbolStore_SymAddressKind.h"
+#import "System_Diagnostics_Tracing_EventActivityOptions.h"
+#import "System_Diagnostics_Tracing_EventChannel.h"
 #import "System_Diagnostics_Tracing_EventCommand.h"
+#import "System_Diagnostics_Tracing_EventFieldFormat.h"
+#import "System_Diagnostics_Tracing_EventFieldTags.h"
 #import "System_Diagnostics_Tracing_EventKeywords.h"
 #import "System_Diagnostics_Tracing_EventLevel.h"
+#import "System_Diagnostics_Tracing_EventManifestOptions.h"
 #import "System_Diagnostics_Tracing_EventOpcode.h"
+#import "System_Diagnostics_Tracing_EventSourceSettings.h"
+#import "System_Diagnostics_Tracing_EventTags.h"
 #import "System_Diagnostics_Tracing_EventTask.h"
 #import "System_Globalization_CalendarAlgorithmType.h"
 #import "System_Globalization_CalendarWeekRule.h"
@@ -9155,6 +10905,8 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "System_Security_Cryptography_FromBase64TransformMode.h"
 #import "System_Security_Cryptography_KeyNumber.h"
 #import "System_Security_Cryptography_PaddingMode.h"
+#import "System_Security_Cryptography_RSAEncryptionPaddingMode.h"
+#import "System_Security_Cryptography_RSASignaturePaddingMode.h"
 #import "System_Security_Cryptography_X509Certificates_X509ContentType.h"
 #import "System_Security_Cryptography_X509Certificates_X509KeyStorageFlags.h"
 #import "System_Security_Permissions_EnvironmentPermissionAccess.h"
@@ -9429,6 +11181,7 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "System_Collections_Generic_ListA1__Enumerator.h"
 #import "System_Configuration_Assemblies_AssemblyHash.h"
 #import "System_Diagnostics_SymbolStore_SymbolToken.h"
+#import "System_Diagnostics_Tracing_EventSourceOptions.h"
 #import "System_Reflection_CustomAttributeNamedArgument.h"
 #import "System_Reflection_CustomAttributeTypedArgument.h"
 #import "System_Reflection_InterfaceMapping.h"
@@ -9496,8 +11249,10 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "System_Runtime_Serialization_SerializationEntry.h"
 #import "System_Runtime_Serialization_StreamingContext.h"
 #import "System_Security_Cryptography_DSAParameters.h"
+#import "System_Security_Cryptography_HashAlgorithmName.h"
 #import "System_Security_Cryptography_RSAParameters.h"
 #import "System_Threading_AsyncFlowControl.h"
+#import "System_Threading_AsyncLocalValueChangedArgsA1.h"
 #import "System_Threading_CancellationToken.h"
 #import "System_Threading_CancellationTokenRegistration.h"
 #import "System_Threading_LockCookie.h"
@@ -9514,6 +11269,7 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "Microsoft_Win32_SafeHandles_CriticalHandleMinusOneIsInvalid.h"
 #import "Microsoft_Win32_SafeHandles_CriticalHandleZeroOrMinusOneIsInvalid.h"
 #import "System_Runtime_InteropServices_SafeHandle.h"
+#import "Microsoft_Win32_SafeHandles_SafeAccessTokenHandle.h"
 #import "Microsoft_Win32_SafeHandles_SafeHandleZeroOrMinusOneIsInvalid.h"
 #import "Microsoft_Win32_SafeHandles_SafeFileHandle.h"
 #import "Microsoft_Win32_SafeHandles_SafeHandleMinusOneIsInvalid.h"
@@ -9536,6 +11292,7 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "System_ActivationContext.h"
 #import "System_Activator.h"
 #import "System_AggregateException.h"
+#import "System_AppContext.h"
 #import "System_AppDomain.h"
 #import "System_AppDomainInitializer.h"
 #import "System_AppDomainManager.h"
@@ -9589,6 +11346,7 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "System_FieldAccessException.h"
 #import "System_FlagsAttribute.h"
 #import "System_FormatException.h"
+#import "System_FormattableString.h"
 #import "System_FuncA1.h"
 #import "System_FuncA2.h"
 #import "System_FuncA3.h"
@@ -9734,6 +11492,9 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "System_Diagnostics_SymbolStore_SymLanguageVendor.h"
 #import "System_Diagnostics_Tracing_EventAttribute.h"
 #import "System_Diagnostics_Tracing_EventCommandEventArgs.h"
+#import "System_Diagnostics_Tracing_EventDataAttribute.h"
+#import "System_Diagnostics_Tracing_EventFieldAttribute.h"
+#import "System_Diagnostics_Tracing_EventIgnoreAttribute.h"
 #import "System_Diagnostics_Tracing_EventListener.h"
 #import "System_Diagnostics_Tracing_EventSource.h"
 #import "System_Diagnostics_Tracing_EventSourceAttribute.h"
@@ -9917,10 +11678,12 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "System_Runtime_CompilerServices_DecimalConstantAttribute.h"
 #import "System_Runtime_CompilerServices_DefaultDependencyAttribute.h"
 #import "System_Runtime_CompilerServices_DependencyAttribute.h"
+#import "System_Runtime_CompilerServices_DisablePrivateReflectionAttribute.h"
 #import "System_Runtime_CompilerServices_DiscardableAttribute.h"
 #import "System_Runtime_CompilerServices_ExtensionAttribute.h"
 #import "System_Runtime_CompilerServices_FixedAddressValueTypeAttribute.h"
 #import "System_Runtime_CompilerServices_FixedBufferAttribute.h"
+#import "System_Runtime_CompilerServices_FormattableStringFactory.h"
 #import "System_Runtime_CompilerServices_HasCopySemanticsAttribute.h"
 #import "System_Runtime_CompilerServices_IDispatchConstantAttribute.h"
 #import "System_Runtime_CompilerServices_IndexerNameAttribute.h"
@@ -10148,6 +11911,7 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "System_Runtime_Serialization_Formatters_SoapFault.h"
 #import "System_Runtime_Serialization_Formatters_SoapMessage.h"
 #import "System_Runtime_Serialization_Formatters_Binary_BinaryFormatter.h"
+#import "System_Runtime_Versioning_CompatibilitySwitch.h"
 #import "System_Runtime_Versioning_ComponentGuaranteesAttribute.h"
 #import "System_Runtime_Versioning_ResourceConsumptionAttribute.h"
 #import "System_Runtime_Versioning_ResourceExposureAttribute.h"
@@ -10276,12 +12040,14 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "System_Security_Cryptography_RNGCryptoServiceProvider.h"
 #import "System_Security_Cryptography_RSA.h"
 #import "System_Security_Cryptography_RSACryptoServiceProvider.h"
+#import "System_Security_Cryptography_RSAEncryptionPadding.h"
 #import "System_Security_Cryptography_RSAOAEPKeyExchangeDeformatter.h"
 #import "System_Security_Cryptography_RSAOAEPKeyExchangeFormatter.h"
 #import "System_Security_Cryptography_RSAPKCS1KeyExchangeDeformatter.h"
 #import "System_Security_Cryptography_RSAPKCS1KeyExchangeFormatter.h"
 #import "System_Security_Cryptography_RSAPKCS1SignatureDeformatter.h"
 #import "System_Security_Cryptography_RSAPKCS1SignatureFormatter.h"
+#import "System_Security_Cryptography_RSASignaturePadding.h"
 #import "System_Security_Cryptography_SHA1.h"
 #import "System_Security_Cryptography_SHA1CryptoServiceProvider.h"
 #import "System_Security_Cryptography_SHA1Managed.h"
@@ -10401,12 +12167,14 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "System_Text_EncoderReplacementFallback.h"
 #import "System_Text_EncoderReplacementFallbackBuffer.h"
 #import "System_Text_EncodingInfo.h"
+#import "System_Text_EncodingProvider.h"
 #import "System_Text_StringBuilder.h"
 #import "System_Text_UnicodeEncoding.h"
 #import "System_Text_UTF32Encoding.h"
 #import "System_Text_UTF7Encoding.h"
 #import "System_Text_UTF8Encoding.h"
 #import "System_Threading_AbandonedMutexException.h"
+#import "System_Threading_AsyncLocalA1.h"
 #import "System_Threading_WaitHandle.h"
 #import "System_Threading_EventWaitHandle.h"
 #import "System_Threading_AutoResetEvent.h"
@@ -10448,6 +12216,7 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "System_Threading_Volatile.h"
 #import "System_Threading_WaitCallback.h"
 #import "System_Threading_WaitHandleCannotBeOpenedException.h"
+#import "System_Threading_WaitHandleExtensions.h"
 #import "System_Threading_WaitOrTimerCallback.h"
 #import "System_Threading_Tasks_ConcurrentExclusiveSchedulerPair.h"
 #import "System_Threading_Tasks_Parallel.h"

@@ -29,26 +29,35 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.KeyContainerPermission
-	// Managed param types : System.Security.Permissions.KeyContainerPermissionFlags
-    + (System_Security_Permissions_KeyContainerPermission *)new_withFlags:(System_Security_Permissions_KeyContainerPermissionFlags)p1
+	// Managed param types : System.Security.Permissions.PermissionState
+    + (System_Security_Permissions_KeyContainerPermission *)new_withState:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.KeyContainerPermissionFlags" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Security_Permissions_KeyContainerPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.KeyContainerPermission
-	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Security_Permissions_KeyContainerPermission *)new_withState:(System_Security_Permissions_PermissionState)p1
+	// Managed param types : System.Security.Permissions.KeyContainerPermissionFlags
+    + (System_Security_Permissions_KeyContainerPermission *)new_withFlags:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Security_Permissions_KeyContainerPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.KeyContainerPermissionFlags" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.KeyContainerPermission
 	// Managed param types : System.Security.Permissions.KeyContainerPermissionFlags, System.Security.Permissions.KeyContainerPermissionAccessEntry[]
-    + (System_Security_Permissions_KeyContainerPermission *)new_withFlags:(System_Security_Permissions_KeyContainerPermissionFlags)p1 accessList:(DBSystem_Array *)p2
+    + (System_Security_Permissions_KeyContainerPermission *)new_withFlags:(int32_t)p1 accessList:(DBSystem_Array *)p2
     {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.KeyContainerPermissionFlags,System.Array[]" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		System_Security_Permissions_KeyContainerPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.KeyContainerPermissionFlags,System.Security.Permissions.KeyContainerPermissionAccessEntry[]" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -59,9 +68,19 @@
     @synthesize accessEntries = _accessEntries;
     - (System_Security_Permissions_KeyContainerPermissionAccessEntryCollection *)accessEntries
     {
-		MonoObject *monoObject = [self getMonoProperty:"AccessEntries"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AccessEntries");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_accessEntries isEqualToMonoObject:monoObject]) return _accessEntries;					
-		_accessEntries = [System_Security_Permissions_KeyContainerPermissionAccessEntryCollection objectWithMonoObject:monoObject];
+		_accessEntries = [System_Security_Permissions_KeyContainerPermissionAccessEntryCollection bestObjectWithMonoObject:monoObject];
 
 		return _accessEntries;
 	}
@@ -69,10 +88,20 @@
 	// Managed property name : Flags
 	// Managed property type : System.Security.Permissions.KeyContainerPermissionFlags
     @synthesize flags = _flags;
-    - (System_Security_Permissions_KeyContainerPermissionFlags)flags
+    - (int32_t)flags
     {
-		MonoObject *monoObject = [self getMonoProperty:"Flags"];
-		_flags = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Flags");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_flags = monoObject;
 
 		return _flags;
 	}
@@ -83,12 +112,12 @@
 	// Managed method name : Copy
 	// Managed return type : System.Security.IPermission
 	// Managed param types : 
-    - (System_Security_IPermission *)copy
+    - (id <System_Security_IPermission>)copy
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromXml
@@ -96,24 +125,26 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)fromXml_withSecurityElement:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Intersect
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.IPermission
-    - (System_Security_IPermission *)intersect_withTarget:(System_Security_IPermission *)p1
+    - (id <System_Security_IPermission>)intersect_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsSubsetOf
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.IPermission
-    - (BOOL)isSubsetOf_withTarget:(System_Security_IPermission *)p1
+    - (BOOL)isSubsetOf_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -140,18 +171,18 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml()" withNumArgs:0];
 		
-		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
+		return [System_Security_SecurityElement bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Union
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.IPermission
-    - (System_Security_IPermission *)union_withTarget:(System_Security_IPermission *)p1
+    - (id <System_Security_IPermission>)union_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

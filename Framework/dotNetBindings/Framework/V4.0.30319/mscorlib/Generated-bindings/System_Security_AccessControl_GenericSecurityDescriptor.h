@@ -20,7 +20,7 @@
 
 	// Managed property name : ControlFlags
 	// Managed property type : System.Security.AccessControl.ControlFlags
-    @property (nonatomic, readonly) System_Security_AccessControl_ControlFlags controlFlags;
+    @property (nonatomic, readonly) int32_t controlFlags;
 
 	// Managed property name : Group
 	// Managed property type : System.Security.Principal.SecurityIdentifier
@@ -45,7 +45,7 @@
 	// Managed method name : GetSddlForm
 	// Managed return type : System.String
 	// Managed param types : System.Security.AccessControl.AccessControlSections
-    - (NSString *)getSddlForm_withIncludeSections:(System_Security_AccessControl_AccessControlSections)p1;
+    - (NSString *)getSddlForm_withIncludeSections:(int32_t)p1;
 
 	// Managed method name : IsSddlConversionSupported
 	// Managed return type : System.Boolean

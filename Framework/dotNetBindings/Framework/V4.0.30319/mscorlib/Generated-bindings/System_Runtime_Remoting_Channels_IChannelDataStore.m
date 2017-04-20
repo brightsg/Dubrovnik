@@ -32,7 +32,17 @@
     @synthesize channelUris = _channelUris;
     - (DBSystem_Array *)channelUris
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Channels.IChannelDataStore.ChannelUris"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Channels.IChannelDataStore.ChannelUris");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_channelUris isEqualToMonoObject:monoObject]) return _channelUris;					
 		_channelUris = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -44,7 +54,17 @@
     @synthesize item = _item;
     - (System_Object *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Channels.IChannelDataStore.Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Channels.IChannelDataStore.Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
 		_item = [System_Object objectWithMonoObject:monoObject];
 
@@ -53,8 +73,17 @@
     - (void)setItem:(System_Object *)value
 	{
 		_item = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"System.Runtime.Remoting.Channels.IChannelDataStore.Item" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.Runtime.Remoting.Channels.IChannelDataStore.Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

@@ -32,7 +32,17 @@
     @synthesize item = _item;
     - (System_Object *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Channels.ITransportHeaders.Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Channels.ITransportHeaders.Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
 		_item = [System_Object objectWithMonoObject:monoObject];
 
@@ -41,8 +51,17 @@
     - (void)setItem:(System_Object *)value
 	{
 		_item = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"System.Runtime.Remoting.Channels.ITransportHeaders.Item" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.Runtime.Remoting.Channels.ITransportHeaders.Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -51,12 +70,12 @@
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IEnumerator
 	// Managed param types : 
-    - (System_Collections_IEnumerator *)getEnumerator
+    - (id <System_Collections_IEnumerator>)getEnumerator
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.Remoting.Channels.ITransportHeaders.GetEnumerator()" withNumArgs:0];
 		
-		return [System_Collections_IEnumerator objectWithMonoObject:monoObject];
+		return [System_Collections_IEnumerator bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

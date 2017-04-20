@@ -2,7 +2,7 @@
 //
 // Managed class : KoreanLunisolarCalendar
 //
-@interface System_Globalization_KoreanLunisolarCalendar : System_Globalization_EastAsianLunisolarCalendar <System_ICloneable>
+@interface System_Globalization_KoreanLunisolarCalendar : System_Globalization_EastAsianLunisolarCalendar <System_ICloneable_>
 
 #pragma mark -
 #pragma mark Setup

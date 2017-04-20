@@ -2,7 +2,7 @@
 //
 // Managed class : SoapMethodAttribute
 //
-@interface System_Runtime_Remoting_Metadata_SoapMethodAttribute : System_Runtime_Remoting_Metadata_SoapAttribute <System_Runtime_InteropServices__Attribute>
+@interface System_Runtime_Remoting_Metadata_SoapMethodAttribute : System_Runtime_Remoting_Metadata_SoapAttribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup

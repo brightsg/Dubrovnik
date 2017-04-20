@@ -17,7 +17,7 @@
 	// Managed method name : ReportEvent
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.InteropServices.ExporterEventKind, System.Int32, System.String
-    - (void)reportEvent_withEventKind:(System_Runtime_InteropServices_ExporterEventKind)p1 eventCode:(int32_t)p2 eventMsg:(NSString *)p3;
+    - (void)reportEvent_withEventKind:(int32_t)p1 eventCode:(int32_t)p2 eventMsg:(NSString *)p3;
 
 	// Managed method name : ResolveRef
 	// Managed return type : System.Object

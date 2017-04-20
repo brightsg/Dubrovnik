@@ -32,8 +32,18 @@
     @synthesize isSingleByte = _isSingleByte;
     - (BOOL)isSingleByte
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsSingleByte"];
-		_isSingleByte = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsSingleByte");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isSingleByte = monoObject;
 
 		return _isSingleByte;
 	}
@@ -159,7 +169,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDecoder()" withNumArgs:0];
 		
-		return [System_Text_Decoder objectWithMonoObject:monoObject];
+		return [System_Text_Decoder bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEncoder
@@ -170,7 +180,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEncoder()" withNumArgs:0];
 		
-		return [System_Text_Encoder objectWithMonoObject:monoObject];
+		return [System_Text_Encoder bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetMaxByteCount

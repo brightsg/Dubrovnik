@@ -32,7 +32,17 @@
     @synthesize codeBase = _codeBase;
     - (NSString *)codeBase
     {
-		MonoObject *monoObject = [self getMonoProperty:"CodeBase"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CodeBase");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_codeBase isEqualToMonoObject:monoObject]) return _codeBase;					
 		_codeBase = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -44,9 +54,19 @@
     @synthesize customAttributes = _customAttributes;
     - (System_Collections_Generic_IEnumerableA1 *)customAttributes
     {
-		MonoObject *monoObject = [self getMonoProperty:"CustomAttributes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CustomAttributes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_customAttributes isEqualToMonoObject:monoObject]) return _customAttributes;					
-		_customAttributes = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		_customAttributes = [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
 
 		return _customAttributes;
 	}
@@ -56,9 +76,19 @@
     @synthesize definedTypes = _definedTypes;
     - (System_Collections_Generic_IEnumerableA1 *)definedTypes
     {
-		MonoObject *monoObject = [self getMonoProperty:"DefinedTypes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DefinedTypes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_definedTypes isEqualToMonoObject:monoObject]) return _definedTypes;					
-		_definedTypes = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		_definedTypes = [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
 
 		return _definedTypes;
 	}
@@ -68,9 +98,19 @@
     @synthesize entryPoint = _entryPoint;
     - (System_Reflection_MethodInfo *)entryPoint
     {
-		MonoObject *monoObject = [self getMonoProperty:"EntryPoint"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EntryPoint");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_entryPoint isEqualToMonoObject:monoObject]) return _entryPoint;					
-		_entryPoint = [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+		_entryPoint = [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
 
 		return _entryPoint;
 	}
@@ -80,7 +120,17 @@
     @synthesize escapedCodeBase = _escapedCodeBase;
     - (NSString *)escapedCodeBase
     {
-		MonoObject *monoObject = [self getMonoProperty:"EscapedCodeBase"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EscapedCodeBase");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_escapedCodeBase isEqualToMonoObject:monoObject]) return _escapedCodeBase;					
 		_escapedCodeBase = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -92,9 +142,19 @@
     @synthesize evidence = _evidence;
     - (System_Security_Policy_Evidence *)evidence
     {
-		MonoObject *monoObject = [self getMonoProperty:"Evidence"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Evidence");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_evidence isEqualToMonoObject:monoObject]) return _evidence;					
-		_evidence = [System_Security_Policy_Evidence objectWithMonoObject:monoObject];
+		_evidence = [System_Security_Policy_Evidence bestObjectWithMonoObject:monoObject];
 
 		return _evidence;
 	}
@@ -104,9 +164,19 @@
     @synthesize exportedTypes = _exportedTypes;
     - (System_Collections_Generic_IEnumerableA1 *)exportedTypes
     {
-		MonoObject *monoObject = [self getMonoProperty:"ExportedTypes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ExportedTypes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_exportedTypes isEqualToMonoObject:monoObject]) return _exportedTypes;					
-		_exportedTypes = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		_exportedTypes = [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
 
 		return _exportedTypes;
 	}
@@ -116,7 +186,17 @@
     @synthesize fullName = _fullName;
     - (NSString *)fullName
     {
-		MonoObject *monoObject = [self getMonoProperty:"FullName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FullName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_fullName isEqualToMonoObject:monoObject]) return _fullName;					
 		_fullName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -128,8 +208,18 @@
     @synthesize globalAssemblyCache = _globalAssemblyCache;
     - (BOOL)globalAssemblyCache
     {
-		MonoObject *monoObject = [self getMonoProperty:"GlobalAssemblyCache"];
-		_globalAssemblyCache = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "GlobalAssemblyCache");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_globalAssemblyCache = monoObject;
 
 		return _globalAssemblyCache;
 	}
@@ -139,8 +229,18 @@
     @synthesize hostContext = _hostContext;
     - (int64_t)hostContext
     {
-		MonoObject *monoObject = [self getMonoProperty:"HostContext"];
-		_hostContext = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HostContext");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_hostContext = monoObject;
 
 		return _hostContext;
 	}
@@ -150,7 +250,17 @@
     @synthesize imageRuntimeVersion = _imageRuntimeVersion;
     - (NSString *)imageRuntimeVersion
     {
-		MonoObject *monoObject = [self getMonoProperty:"ImageRuntimeVersion"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ImageRuntimeVersion");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_imageRuntimeVersion isEqualToMonoObject:monoObject]) return _imageRuntimeVersion;					
 		_imageRuntimeVersion = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -162,8 +272,18 @@
     @synthesize isDynamic = _isDynamic;
     - (BOOL)isDynamic
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsDynamic"];
-		_isDynamic = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsDynamic");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isDynamic = monoObject;
 
 		return _isDynamic;
 	}
@@ -173,8 +293,18 @@
     @synthesize isFullyTrusted = _isFullyTrusted;
     - (BOOL)isFullyTrusted
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsFullyTrusted"];
-		_isFullyTrusted = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsFullyTrusted");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isFullyTrusted = monoObject;
 
 		return _isFullyTrusted;
 	}
@@ -184,7 +314,17 @@
     @synthesize location = _location;
     - (NSString *)location
     {
-		MonoObject *monoObject = [self getMonoProperty:"Location"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Location");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_location isEqualToMonoObject:monoObject]) return _location;					
 		_location = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -196,9 +336,19 @@
     @synthesize manifestModule = _manifestModule;
     - (System_Reflection_Module *)manifestModule
     {
-		MonoObject *monoObject = [self getMonoProperty:"ManifestModule"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ManifestModule");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_manifestModule isEqualToMonoObject:monoObject]) return _manifestModule;					
-		_manifestModule = [System_Reflection_Module objectWithMonoObject:monoObject];
+		_manifestModule = [System_Reflection_Module bestObjectWithMonoObject:monoObject];
 
 		return _manifestModule;
 	}
@@ -208,9 +358,19 @@
     @synthesize modules = _modules;
     - (System_Collections_Generic_IEnumerableA1 *)modules
     {
-		MonoObject *monoObject = [self getMonoProperty:"Modules"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Modules");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_modules isEqualToMonoObject:monoObject]) return _modules;					
-		_modules = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		_modules = [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
 
 		return _modules;
 	}
@@ -220,9 +380,19 @@
     @synthesize permissionSet = _permissionSet;
     - (System_Security_PermissionSet *)permissionSet
     {
-		MonoObject *monoObject = [self getMonoProperty:"PermissionSet"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PermissionSet");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_permissionSet isEqualToMonoObject:monoObject]) return _permissionSet;					
-		_permissionSet = [System_Security_PermissionSet objectWithMonoObject:monoObject];
+		_permissionSet = [System_Security_PermissionSet bestObjectWithMonoObject:monoObject];
 
 		return _permissionSet;
 	}
@@ -232,8 +402,18 @@
     @synthesize reflectionOnly = _reflectionOnly;
     - (BOOL)reflectionOnly
     {
-		MonoObject *monoObject = [self getMonoProperty:"ReflectionOnly"];
-		_reflectionOnly = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ReflectionOnly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_reflectionOnly = monoObject;
 
 		return _reflectionOnly;
 	}
@@ -241,10 +421,20 @@
 	// Managed property name : SecurityRuleSet
 	// Managed property type : System.Security.SecurityRuleSet
     @synthesize securityRuleSet = _securityRuleSet;
-    - (System_Security_SecurityRuleSet)securityRuleSet
+    - (uint8_t)securityRuleSet
     {
-		MonoObject *monoObject = [self getMonoProperty:"SecurityRuleSet"];
-		_securityRuleSet = DB_UNBOX_UINT8(monoObject);
+		typedef uint8_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SecurityRuleSet");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		uint8_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_securityRuleSet = monoObject;
 
 		return _securityRuleSet;
 	}
@@ -277,7 +467,7 @@
 	// Managed method name : CreateInstance
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Boolean, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo, System.Object[]
-    - (System_Object *)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2 bindingAttr:(System_Reflection_BindingFlags)p3 binder:(System_Reflection_Binder *)p4 args:(DBSystem_Array *)p5 culture:(System_Globalization_CultureInfo *)p6 activationAttributes:(DBSystem_Array *)p7
+    - (System_Object *)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2 bindingAttr:(int32_t)p3 binder:(System_Reflection_Binder *)p4 args:(DBSystem_Array *)p5 culture:(System_Globalization_CultureInfo *)p6 activationAttributes:(DBSystem_Array *)p7
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(string,bool,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo,object[])" withNumArgs:7, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg], [p7 monoRTInvokeArg]];
@@ -315,7 +505,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetAssembly(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCallingAssembly
@@ -326,7 +516,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCallingAssembly()" withNumArgs:0];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttributes
@@ -354,12 +544,12 @@
 	// Managed method name : GetCustomAttributesData
 	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : 
-    - (System_Collections_Generic_IListA1 *)getCustomAttributesData
+    - (id <System_Collections_Generic_IListA1>)getCustomAttributesData
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributesData()" withNumArgs:0];
 		
-		return [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IListA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEntryAssembly
@@ -370,7 +560,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEntryAssembly()" withNumArgs:0];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetExecutingAssembly
@@ -381,7 +571,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetExecutingAssembly()" withNumArgs:0];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetExportedTypes
@@ -403,7 +593,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFile(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_IO_FileStream objectWithMonoObject:monoObject];
+		return [System_IO_FileStream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetFiles
@@ -469,7 +659,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetManifestResourceInfo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_ManifestResourceInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_ManifestResourceInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetManifestResourceNames
@@ -491,7 +681,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetManifestResourceStream(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_IO_Stream objectWithMonoObject:monoObject];
+		return [System_IO_Stream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetManifestResourceStream
@@ -502,7 +692,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetManifestResourceStream(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_IO_Stream objectWithMonoObject:monoObject];
+		return [System_IO_Stream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetModule
@@ -513,7 +703,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetModule(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_Module objectWithMonoObject:monoObject];
+		return [System_Reflection_Module bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetModules
@@ -546,7 +736,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetName()" withNumArgs:0];
 		
-		return [System_Reflection_AssemblyName objectWithMonoObject:monoObject];
+		return [System_Reflection_AssemblyName bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetName
@@ -557,7 +747,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetName(bool)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Reflection_AssemblyName objectWithMonoObject:monoObject];
+		return [System_Reflection_AssemblyName bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetObjectData
@@ -565,7 +755,9 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetReferencedAssemblies
@@ -587,7 +779,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetSatelliteAssembly(System.Globalization.CultureInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetSatelliteAssembly
@@ -598,7 +790,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetSatelliteAssembly(System.Globalization.CultureInfo,System.Version)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetType
@@ -609,7 +801,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetType(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetType
@@ -620,7 +812,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetType(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetType
@@ -631,7 +823,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetType(string,bool,bool)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypes
@@ -664,7 +856,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Load(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Load
@@ -675,7 +867,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Load(string,System.Security.Policy.Evidence)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Load
@@ -686,7 +878,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Load(System.Reflection.AssemblyName)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Load
@@ -697,7 +889,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Load(System.Reflection.AssemblyName,System.Security.Policy.Evidence)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Load
@@ -708,7 +900,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Load(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Load
@@ -719,18 +911,18 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Load(byte[],byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Load
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.Byte[], System.Byte[], System.Security.SecurityContextSource
-    + (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2 securityContextSource:(System_Security_SecurityContextSource)p3
+    + (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2 securityContextSource:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Load(byte[],byte[],System.Security.SecurityContextSource)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Load
@@ -741,7 +933,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Load(byte[],byte[],System.Security.Policy.Evidence)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : LoadFile
@@ -752,7 +944,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"LoadFile(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : LoadFile
@@ -763,7 +955,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"LoadFile(string,System.Security.Policy.Evidence)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : LoadFrom
@@ -774,7 +966,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"LoadFrom(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : LoadFrom
@@ -785,29 +977,29 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"LoadFrom(string,System.Security.Policy.Evidence)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : LoadFrom
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.String, System.Security.Policy.Evidence, System.Byte[], System.Configuration.Assemblies.AssemblyHashAlgorithm
-    + (System_Reflection_Assembly *)loadFrom_withAssemblyFile:(NSString *)p1 securityEvidence:(System_Security_Policy_Evidence *)p2 hashValue:(NSData *)p3 hashAlgorithm:(System_Configuration_Assemblies_AssemblyHashAlgorithm)p4
+    + (System_Reflection_Assembly *)loadFrom_withAssemblyFile:(NSString *)p1 securityEvidence:(System_Security_Policy_Evidence *)p2 hashValue:(NSData *)p3 hashAlgorithm:(int32_t)p4
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"LoadFrom(string,System.Security.Policy.Evidence,byte[],System.Configuration.Assemblies.AssemblyHashAlgorithm)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : LoadFrom
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.String, System.Byte[], System.Configuration.Assemblies.AssemblyHashAlgorithm
-    + (System_Reflection_Assembly *)loadFrom_withAssemblyFile:(NSString *)p1 hashValue:(NSData *)p2 hashAlgorithm:(System_Configuration_Assemblies_AssemblyHashAlgorithm)p3
+    + (System_Reflection_Assembly *)loadFrom_withAssemblyFile:(NSString *)p1 hashValue:(NSData *)p2 hashAlgorithm:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"LoadFrom(string,byte[],System.Configuration.Assemblies.AssemblyHashAlgorithm)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : LoadModule
@@ -818,7 +1010,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"LoadModule(string,byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Reflection_Module objectWithMonoObject:monoObject];
+		return [System_Reflection_Module bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : LoadModule
@@ -829,7 +1021,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"LoadModule(string,byte[],byte[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_Reflection_Module objectWithMonoObject:monoObject];
+		return [System_Reflection_Module bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : LoadWithPartialName
@@ -840,7 +1032,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"LoadWithPartialName(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : LoadWithPartialName
@@ -851,7 +1043,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"LoadWithPartialName(string,System.Security.Policy.Evidence)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : op_Equality
@@ -884,7 +1076,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ReflectionOnlyLoad(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReflectionOnlyLoad
@@ -895,7 +1087,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ReflectionOnlyLoad(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReflectionOnlyLoadFrom
@@ -906,7 +1098,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ReflectionOnlyLoadFrom(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToString
@@ -928,7 +1120,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"UnsafeLoadFrom(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

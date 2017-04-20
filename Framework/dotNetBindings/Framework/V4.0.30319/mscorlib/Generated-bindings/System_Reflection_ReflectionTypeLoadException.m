@@ -32,7 +32,10 @@
 	// Managed param types : System.Type[], System.Exception[]
     + (System_Reflection_ReflectionTypeLoadException *)new_withClasses:(DBSystem_Array *)p1 exceptions:(DBSystem_Array *)p2
     {
-		return [[self alloc] initWithSignature:"System.Array[],System.Array[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Reflection_ReflectionTypeLoadException * object = [[self alloc] initWithSignature:"System.Type[],System.Exception[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Type[], System.Exception[], System.String
     + (System_Reflection_ReflectionTypeLoadException *)new_withClasses:(DBSystem_Array *)p1 exceptions:(DBSystem_Array *)p2 message:(NSString *)p3
     {
-		return [[self alloc] initWithSignature:"System.Array[],System.Array[],string" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		System_Reflection_ReflectionTypeLoadException * object = [[self alloc] initWithSignature:"System.Type[],System.Exception[],string" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -51,7 +57,17 @@
     @synthesize loaderExceptions = _loaderExceptions;
     - (DBSystem_Array *)loaderExceptions
     {
-		MonoObject *monoObject = [self getMonoProperty:"LoaderExceptions"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LoaderExceptions");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_loaderExceptions isEqualToMonoObject:monoObject]) return _loaderExceptions;					
 		_loaderExceptions = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -63,7 +79,17 @@
     @synthesize types = _types;
     - (DBSystem_Array *)types
     {
-		MonoObject *monoObject = [self getMonoProperty:"Types"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Types");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_types isEqualToMonoObject:monoObject]) return _types;					
 		_types = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -78,7 +104,9 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

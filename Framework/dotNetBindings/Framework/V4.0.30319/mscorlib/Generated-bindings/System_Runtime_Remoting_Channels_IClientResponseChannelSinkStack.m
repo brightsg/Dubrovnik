@@ -30,9 +30,11 @@
 	// Managed method name : AsyncProcessResponse
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Channels.ITransportHeaders, System.IO.Stream
-    - (void)asyncProcessResponse_withHeaders:(System_Runtime_Remoting_Channels_ITransportHeaders *)p1 stream:(System_IO_Stream *)p2
+    - (void)asyncProcessResponse_withHeaders:(id <System_Runtime_Remoting_Channels_ITransportHeaders_>)p1 stream:(System_IO_Stream *)p2
     {
-		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IClientResponseChannelSinkStack.AsyncProcessResponse(System.Runtime.Remoting.Channels.ITransportHeaders,System.IO.Stream)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IClientResponseChannelSinkStack.AsyncProcessResponse(System.Runtime.Remoting.Channels.ITransportHeaders,System.IO.Stream)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : DispatchException
@@ -40,15 +42,19 @@
 	// Managed param types : System.Exception
     - (void)dispatchException_withE:(System_Exception *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IClientResponseChannelSinkStack.DispatchException(System.Exception)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IClientResponseChannelSinkStack.DispatchException(System.Exception)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : DispatchReplyMessage
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Messaging.IMessage
-    - (void)dispatchReplyMessage_withMsg:(System_Runtime_Remoting_Messaging_IMessage *)p1
+    - (void)dispatchReplyMessage_withMsg:(id <System_Runtime_Remoting_Messaging_IMessage_>)p1
     {
-		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IClientResponseChannelSinkStack.DispatchReplyMessage(System.Runtime.Remoting.Messaging.IMessage)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IClientResponseChannelSinkStack.DispatchReplyMessage(System.Runtime.Remoting.Messaging.IMessage)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

@@ -32,39 +32,54 @@
 	// Managed param types : System.Int32
     + (System_Collections_SortedList *)new_withInitialCapacity:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Collections_SortedList * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.SortedList
 	// Managed param types : System.Collections.IComparer
-    + (System_Collections_SortedList *)new_withComparer:(System_Collections_IComparer *)p1
+    + (System_Collections_SortedList *)new_withComparer:(id <System_Collections_IComparer_>)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.IComparer" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Collections_SortedList * object = [[self alloc] initWithSignature:"System.Collections.IComparer" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.SortedList
 	// Managed param types : System.Collections.IComparer, System.Int32
-    + (System_Collections_SortedList *)new_withComparer:(System_Collections_IComparer *)p1 capacity:(int32_t)p2
+    + (System_Collections_SortedList *)new_withComparer:(id <System_Collections_IComparer_>)p1 capacity:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"System.Collections.IComparer,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		System_Collections_SortedList * object = [[self alloc] initWithSignature:"System.Collections.IComparer,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.SortedList
 	// Managed param types : System.Collections.IDictionary
-    + (System_Collections_SortedList *)new_withD:(System_Collections_IDictionary *)p1
+    + (System_Collections_SortedList *)new_withD:(id <System_Collections_IDictionary_>)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.IDictionary" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Collections_SortedList * object = [[self alloc] initWithSignature:"System.Collections.IDictionary" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.SortedList
 	// Managed param types : System.Collections.IDictionary, System.Collections.IComparer
-    + (System_Collections_SortedList *)new_withD:(System_Collections_IDictionary *)p1 comparer:(System_Collections_IComparer *)p2
+    + (System_Collections_SortedList *)new_withD:(id <System_Collections_IDictionary_>)p1 comparer:(id <System_Collections_IComparer_>)p2
     {
-		return [[self alloc] initWithSignature:"System.Collections.IDictionary,System.Collections.IComparer" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Collections_SortedList * object = [[self alloc] initWithSignature:"System.Collections.IDictionary,System.Collections.IComparer" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -75,16 +90,35 @@
     @synthesize capacity = _capacity;
     - (int32_t)capacity
     {
-		MonoObject *monoObject = [self getMonoProperty:"Capacity"];
-		_capacity = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Capacity");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_capacity = monoObject;
 
 		return _capacity;
 	}
     - (void)setCapacity:(int32_t)value
 	{
 		_capacity = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Capacity" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Capacity");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Count
@@ -92,8 +126,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -103,8 +147,18 @@
     @synthesize isFixedSize = _isFixedSize;
     - (BOOL)isFixedSize
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsFixedSize"];
-		_isFixedSize = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsFixedSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isFixedSize = monoObject;
 
 		return _isFixedSize;
 	}
@@ -114,8 +168,18 @@
     @synthesize isReadOnly = _isReadOnly;
     - (BOOL)isReadOnly
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsReadOnly"];
-		_isReadOnly = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsReadOnly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isReadOnly = monoObject;
 
 		return _isReadOnly;
 	}
@@ -125,8 +189,18 @@
     @synthesize isSynchronized = _isSynchronized;
     - (BOOL)isSynchronized
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsSynchronized"];
-		_isSynchronized = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsSynchronized");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isSynchronized = monoObject;
 
 		return _isSynchronized;
 	}
@@ -136,7 +210,17 @@
     @synthesize item = _item;
     - (System_Object *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
 		_item = [System_Object objectWithMonoObject:monoObject];
 
@@ -145,8 +229,17 @@
     - (void)setItem:(System_Object *)value
 	{
 		_item = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"Item" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Keys
@@ -154,9 +247,19 @@
     @synthesize keys = _keys;
     - (System_Collections_ICollection *)keys
     {
-		MonoObject *monoObject = [self getMonoProperty:"Keys"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Keys");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_keys isEqualToMonoObject:monoObject]) return _keys;					
-		_keys = [System_Collections_ICollection objectWithMonoObject:monoObject];
+		_keys = [System_Collections_ICollection bestObjectWithMonoObject:monoObject];
 
 		return _keys;
 	}
@@ -166,7 +269,17 @@
     @synthesize syncRoot = _syncRoot;
     - (System_Object *)syncRoot
     {
-		MonoObject *monoObject = [self getMonoProperty:"SyncRoot"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SyncRoot");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_syncRoot isEqualToMonoObject:monoObject]) return _syncRoot;					
 		_syncRoot = [System_Object objectWithMonoObject:monoObject];
 
@@ -178,9 +291,19 @@
     @synthesize values = _values;
     - (System_Collections_ICollection *)values
     {
-		MonoObject *monoObject = [self getMonoProperty:"Values"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Values");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_values isEqualToMonoObject:monoObject]) return _values;					
-		_values = [System_Collections_ICollection objectWithMonoObject:monoObject];
+		_values = [System_Collections_ICollection bestObjectWithMonoObject:monoObject];
 
 		return _values;
 	}
@@ -193,7 +316,9 @@
 	// Managed param types : System.Object, System.Object
     - (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2
     {
-		[self invokeMonoMethod:"Add(object,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Add(object,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Clear
@@ -201,7 +326,9 @@
 	// Managed param types : 
     - (void)clear
     {
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Clone
@@ -253,7 +380,9 @@
 	// Managed param types : System.Array, System.Int32
     - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : GetByIndex
@@ -270,12 +399,12 @@
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IDictionaryEnumerator
 	// Managed param types : 
-    - (System_Collections_IDictionaryEnumerator *)getEnumerator
+    - (id <System_Collections_IDictionaryEnumerator>)getEnumerator
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
 		
-		return [System_Collections_IDictionaryEnumerator objectWithMonoObject:monoObject];
+		return [System_Collections_IDictionaryEnumerator bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetKey
@@ -292,23 +421,23 @@
 	// Managed method name : GetKeyList
 	// Managed return type : System.Collections.IList
 	// Managed param types : 
-    - (System_Collections_IList *)getKeyList
+    - (id <System_Collections_IList>)getKeyList
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetKeyList()" withNumArgs:0];
 		
-		return [System_Collections_IList objectWithMonoObject:monoObject];
+		return [System_Collections_IList bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetValueList
 	// Managed return type : System.Collections.IList
 	// Managed param types : 
-    - (System_Collections_IList *)getValueList
+    - (id <System_Collections_IList>)getValueList
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetValueList()" withNumArgs:0];
 		
-		return [System_Collections_IList objectWithMonoObject:monoObject];
+		return [System_Collections_IList bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IndexOfKey
@@ -338,7 +467,9 @@
 	// Managed param types : System.Object
     - (void)remove_withKey:(System_Object *)p1
     {
-		[self invokeMonoMethod:"Remove(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Remove(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : RemoveAt
@@ -346,7 +477,9 @@
 	// Managed param types : System.Int32
     - (void)removeAt_withIndex:(int32_t)p1
     {
-		[self invokeMonoMethod:"RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : SetByIndex
@@ -354,7 +487,9 @@
 	// Managed param types : System.Int32, System.Object
     - (void)setByIndex_withIndex:(int32_t)p1 value:(System_Object *)p2
     {
-		[self invokeMonoMethod:"SetByIndex(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetByIndex(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Synchronized
@@ -365,7 +500,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Synchronized(System.Collections.SortedList)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Collections_SortedList objectWithMonoObject:monoObject];
+		return [System_Collections_SortedList bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : TrimToSize
@@ -373,7 +508,9 @@
 	// Managed param types : 
     - (void)trimToSize
     {
-		[self invokeMonoMethod:"TrimToSize()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"TrimToSize()" withNumArgs:0];
+        
     }
 
 #pragma mark -

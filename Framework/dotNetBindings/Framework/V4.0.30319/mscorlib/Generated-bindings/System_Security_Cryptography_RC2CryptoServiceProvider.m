@@ -32,16 +32,35 @@
     @synthesize effectiveKeySize = _effectiveKeySize;
     - (int32_t)effectiveKeySize
     {
-		MonoObject *monoObject = [self getMonoProperty:"EffectiveKeySize"];
-		_effectiveKeySize = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EffectiveKeySize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_effectiveKeySize = monoObject;
 
 		return _effectiveKeySize;
 	}
     - (void)setEffectiveKeySize:(int32_t)value
 	{
 		_effectiveKeySize = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"EffectiveKeySize" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "EffectiveKeySize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : UseSalt
@@ -49,16 +68,35 @@
     @synthesize useSalt = _useSalt;
     - (BOOL)useSalt
     {
-		MonoObject *monoObject = [self getMonoProperty:"UseSalt"];
-		_useSalt = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UseSalt");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_useSalt = monoObject;
 
 		return _useSalt;
 	}
     - (void)setUseSalt:(BOOL)value
 	{
 		_useSalt = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"UseSalt" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "UseSalt");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -67,23 +105,23 @@
 	// Managed method name : CreateDecryptor
 	// Managed return type : System.Security.Cryptography.ICryptoTransform
 	// Managed param types : System.Byte[], System.Byte[]
-    - (System_Security_Cryptography_ICryptoTransform *)createDecryptor_withRgbKey:(NSData *)p1 rgbIV:(NSData *)p2
+    - (id <System_Security_Cryptography_ICryptoTransform>)createDecryptor_withRgbKey:(NSData *)p1 rgbIV:(NSData *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDecryptor(byte[],byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Security_Cryptography_ICryptoTransform objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_ICryptoTransform bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateEncryptor
 	// Managed return type : System.Security.Cryptography.ICryptoTransform
 	// Managed param types : System.Byte[], System.Byte[]
-    - (System_Security_Cryptography_ICryptoTransform *)createEncryptor_withRgbKey:(NSData *)p1 rgbIV:(NSData *)p2
+    - (id <System_Security_Cryptography_ICryptoTransform>)createEncryptor_withRgbKey:(NSData *)p1 rgbIV:(NSData *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateEncryptor(byte[],byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Security_Cryptography_ICryptoTransform objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_ICryptoTransform bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GenerateIV
@@ -91,7 +129,9 @@
 	// Managed param types : 
     - (void)generateIV
     {
-		[self invokeMonoMethod:"GenerateIV()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"GenerateIV()" withNumArgs:0];
+        
     }
 
 	// Managed method name : GenerateKey
@@ -99,7 +139,9 @@
 	// Managed param types : 
     - (void)generateKey
     {
-		[self invokeMonoMethod:"GenerateKey()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"GenerateKey()" withNumArgs:0];
+        
     }
 
 #pragma mark -

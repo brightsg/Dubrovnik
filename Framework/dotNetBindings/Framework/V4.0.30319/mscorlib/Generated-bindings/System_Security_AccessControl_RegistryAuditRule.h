@@ -17,18 +17,18 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.RegistryAuditRule
 	// Managed param types : System.Security.Principal.IdentityReference, System.Security.AccessControl.RegistryRights, System.Security.AccessControl.InheritanceFlags, System.Security.AccessControl.PropagationFlags, System.Security.AccessControl.AuditFlags
-    + (System_Security_AccessControl_RegistryAuditRule *)new_withIdentitySSPIdentityReference:(System_Security_Principal_IdentityReference *)p1 registryRightsSSARegistryRights:(System_Security_AccessControl_RegistryRights)p2 inheritanceFlagsSSAInheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p3 propagationFlagsSSAPropagationFlags:(System_Security_AccessControl_PropagationFlags)p4 flagsSSAAuditFlags:(System_Security_AccessControl_AuditFlags)p5;
+    + (System_Security_AccessControl_RegistryAuditRule *)new_withIdentitySSPIdentityReference:(System_Security_Principal_IdentityReference *)p1 registryRightsSSARegistryRights:(int32_t)p2 inheritanceFlagsSSAInheritanceFlags:(int32_t)p3 propagationFlagsSSAPropagationFlags:(int32_t)p4 flagsSSAAuditFlags:(int32_t)p5;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.RegistryAuditRule
 	// Managed param types : System.String, System.Security.AccessControl.RegistryRights, System.Security.AccessControl.InheritanceFlags, System.Security.AccessControl.PropagationFlags, System.Security.AccessControl.AuditFlags
-    + (System_Security_AccessControl_RegistryAuditRule *)new_withIdentityString:(NSString *)p1 registryRightsSSARegistryRights:(System_Security_AccessControl_RegistryRights)p2 inheritanceFlagsSSAInheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p3 propagationFlagsSSAPropagationFlags:(System_Security_AccessControl_PropagationFlags)p4 flagsSSAAuditFlags:(System_Security_AccessControl_AuditFlags)p5;
+    + (System_Security_AccessControl_RegistryAuditRule *)new_withIdentityString:(NSString *)p1 registryRightsSSARegistryRights:(int32_t)p2 inheritanceFlagsSSAInheritanceFlags:(int32_t)p3 propagationFlagsSSAPropagationFlags:(int32_t)p4 flagsSSAAuditFlags:(int32_t)p5;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : RegistryRights
 	// Managed property type : System.Security.AccessControl.RegistryRights
-    @property (nonatomic, readonly) System_Security_AccessControl_RegistryRights registryRights;
+    @property (nonatomic, readonly) int32_t registryRights;
 @end
 //--Dubrovnik.CodeGenerator

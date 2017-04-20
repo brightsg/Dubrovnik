@@ -34,7 +34,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"EmptyHandle"];
 		if ([self object:m_emptyHandle isEqualToMonoObject:monoObject]) return m_emptyHandle;					
-		m_emptyHandle = [System_ModuleHandle objectWithMonoObject:monoObject];
+		m_emptyHandle = [System_ModuleHandle bestObjectWithMonoObject:monoObject];
 
 		return m_emptyHandle;
 	}
@@ -47,8 +47,18 @@
     @synthesize mDStreamVersion = _mDStreamVersion;
     - (int32_t)mDStreamVersion
     {
-		MonoObject *monoObject = [self getMonoProperty:"MDStreamVersion"];
-		_mDStreamVersion = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MDStreamVersion");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_mDStreamVersion = monoObject;
 
 		return _mDStreamVersion;
 	}
@@ -97,7 +107,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRuntimeFieldHandleFromMetadataToken(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_RuntimeFieldHandle objectWithMonoObject:monoObject];
+		return [System_RuntimeFieldHandle bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRuntimeMethodHandleFromMetadataToken
@@ -108,7 +118,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRuntimeMethodHandleFromMetadataToken(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_RuntimeMethodHandle objectWithMonoObject:monoObject];
+		return [System_RuntimeMethodHandle bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRuntimeTypeHandleFromMetadataToken
@@ -119,7 +129,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRuntimeTypeHandleFromMetadataToken(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_RuntimeTypeHandle objectWithMonoObject:monoObject];
+		return [System_RuntimeTypeHandle bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : op_Equality
@@ -152,7 +162,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveFieldHandle(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_RuntimeFieldHandle objectWithMonoObject:monoObject];
+		return [System_RuntimeFieldHandle bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolveFieldHandle
@@ -161,9 +171,9 @@
     - (System_RuntimeFieldHandle *)resolveFieldHandle_withFieldToken:(int32_t)p1 typeInstantiationContext:(DBSystem_Array *)p2 methodInstantiationContext:(DBSystem_Array *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ResolveFieldHandle(int,System.Array[],System.Array[])" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ResolveFieldHandle(int,System.RuntimeTypeHandle[],System.RuntimeTypeHandle[])" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_RuntimeFieldHandle objectWithMonoObject:monoObject];
+		return [System_RuntimeFieldHandle bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolveMethodHandle
@@ -174,7 +184,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMethodHandle(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_RuntimeMethodHandle objectWithMonoObject:monoObject];
+		return [System_RuntimeMethodHandle bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolveMethodHandle
@@ -183,9 +193,9 @@
     - (System_RuntimeMethodHandle *)resolveMethodHandle_withMethodToken:(int32_t)p1 typeInstantiationContext:(DBSystem_Array *)p2 methodInstantiationContext:(DBSystem_Array *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMethodHandle(int,System.Array[],System.Array[])" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMethodHandle(int,System.RuntimeTypeHandle[],System.RuntimeTypeHandle[])" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_RuntimeMethodHandle objectWithMonoObject:monoObject];
+		return [System_RuntimeMethodHandle bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolveTypeHandle
@@ -196,7 +206,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveTypeHandle(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_RuntimeTypeHandle objectWithMonoObject:monoObject];
+		return [System_RuntimeTypeHandle bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolveTypeHandle
@@ -205,9 +215,9 @@
     - (System_RuntimeTypeHandle *)resolveTypeHandle_withTypeToken:(int32_t)p1 typeInstantiationContext:(DBSystem_Array *)p2 methodInstantiationContext:(DBSystem_Array *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ResolveTypeHandle(int,System.Array[],System.Array[])" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ResolveTypeHandle(int,System.RuntimeTypeHandle[],System.RuntimeTypeHandle[])" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_RuntimeTypeHandle objectWithMonoObject:monoObject];
+		return [System_RuntimeTypeHandle bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

@@ -52,7 +52,7 @@
     {
 		MonoObject *monoObject = [self getMonoField:"InterfaceType"];
 		if ([self object:_interfaceType isEqualToMonoObject:monoObject]) return _interfaceType;					
-		_interfaceType = [System_Type objectWithMonoObject:monoObject];
+		_interfaceType = [System_Type bestObjectWithMonoObject:monoObject];
 
 		return _interfaceType;
 	}
@@ -88,7 +88,7 @@
     {
 		MonoObject *monoObject = [self getMonoField:"TargetType"];
 		if ([self object:_targetType isEqualToMonoObject:monoObject]) return _targetType;					
-		_targetType = [System_Type objectWithMonoObject:monoObject];
+		_targetType = [System_Type bestObjectWithMonoObject:monoObject];
 
 		return _targetType;
 	}

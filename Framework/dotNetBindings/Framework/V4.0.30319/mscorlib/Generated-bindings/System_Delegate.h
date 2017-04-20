@@ -2,7 +2,7 @@
 //
 // Managed class : Delegate
 //
-@interface System_Delegate : System_Object <System_ICloneable, System_Runtime_Serialization_ISerializable>
+@interface System_Delegate : System_Object <System_ICloneable_, System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup

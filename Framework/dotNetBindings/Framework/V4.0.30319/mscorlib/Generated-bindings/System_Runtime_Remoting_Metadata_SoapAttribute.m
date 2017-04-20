@@ -32,16 +32,35 @@
     @synthesize embedded = _embedded;
     - (BOOL)embedded
     {
-		MonoObject *monoObject = [self getMonoProperty:"Embedded"];
-		_embedded = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Embedded");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_embedded = monoObject;
 
 		return _embedded;
 	}
     - (void)setEmbedded:(BOOL)value
 	{
 		_embedded = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Embedded" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Embedded");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : UseAttribute
@@ -49,16 +68,35 @@
     @synthesize useAttribute = _useAttribute;
     - (BOOL)useAttribute
     {
-		MonoObject *monoObject = [self getMonoProperty:"UseAttribute"];
-		_useAttribute = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UseAttribute");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_useAttribute = monoObject;
 
 		return _useAttribute;
 	}
     - (void)setUseAttribute:(BOOL)value
 	{
 		_useAttribute = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"UseAttribute" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "UseAttribute");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : XmlNamespace
@@ -66,7 +104,17 @@
     @synthesize xmlNamespace = _xmlNamespace;
     - (NSString *)xmlNamespace
     {
-		MonoObject *monoObject = [self getMonoProperty:"XmlNamespace"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "XmlNamespace");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_xmlNamespace isEqualToMonoObject:monoObject]) return _xmlNamespace;					
 		_xmlNamespace = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -75,8 +123,17 @@
     - (void)setXmlNamespace:(NSString *)value
 	{
 		_xmlNamespace = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"XmlNamespace" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "XmlNamespace");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

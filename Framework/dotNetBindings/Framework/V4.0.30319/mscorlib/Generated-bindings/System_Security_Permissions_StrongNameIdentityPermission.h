@@ -2,7 +2,7 @@
 //
 // Managed class : StrongNameIdentityPermission
 //
-@interface System_Security_Permissions_StrongNameIdentityPermission : System_Security_CodeAccessPermission <System_Security_IPermission, System_Security_ISecurityEncodable, System_Security_IStackWalk>
+@interface System_Security_Permissions_StrongNameIdentityPermission : System_Security_CodeAccessPermission <System_Security_IPermission_, System_Security_ISecurityEncodable_, System_Security_IStackWalk_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.StrongNameIdentityPermission
 	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Security_Permissions_StrongNameIdentityPermission *)new_withState:(System_Security_Permissions_PermissionState)p1;
+    + (System_Security_Permissions_StrongNameIdentityPermission *)new_withState:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.StrongNameIdentityPermission
@@ -45,7 +45,7 @@
 	// Managed method name : Copy
 	// Managed return type : System.Security.IPermission
 	// Managed param types : 
-    - (System_Security_IPermission *)copy;
+    - (id <System_Security_IPermission>)copy;
 
 	// Managed method name : FromXml
 	// Managed return type : System.Void
@@ -55,12 +55,12 @@
 	// Managed method name : Intersect
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.IPermission
-    - (System_Security_IPermission *)intersect_withTarget:(System_Security_IPermission *)p1;
+    - (id <System_Security_IPermission>)intersect_withTarget:(id <System_Security_IPermission_>)p1;
 
 	// Managed method name : IsSubsetOf
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.IPermission
-    - (BOOL)isSubsetOf_withTarget:(System_Security_IPermission *)p1;
+    - (BOOL)isSubsetOf_withTarget:(id <System_Security_IPermission_>)p1;
 
 	// Managed method name : ToXml
 	// Managed return type : System.Security.SecurityElement
@@ -70,6 +70,6 @@
 	// Managed method name : Union
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.IPermission
-    - (System_Security_IPermission *)union_withTarget:(System_Security_IPermission *)p1;
+    - (id <System_Security_IPermission>)union_withTarget:(id <System_Security_IPermission_>)p1;
 @end
 //--Dubrovnik.CodeGenerator

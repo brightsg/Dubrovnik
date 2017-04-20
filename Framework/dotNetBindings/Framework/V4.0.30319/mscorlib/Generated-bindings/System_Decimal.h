@@ -2,7 +2,7 @@
 //
 // Managed struct : Decimal
 //
-@interface System_Decimal : DBManagedObject <System_IFormattable, System_IComparable, System_IConvertible, System_Runtime_Serialization_IDeserializationCallback, System_IComparableA1, System_IEquatableA1>
+@interface System_Decimal : DBManagedObject <System_IFormattable_, System_IComparable_, System_IConvertible_, System_Runtime_Serialization_IDeserializationCallback_, System_IComparableA1_, System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -103,7 +103,7 @@
 	// Managed method name : CompareTo
 	// Managed return type : System.Int32
 	// Managed param types : System.Decimal
-    - (int32_t)compareTo_withValueDecimal:(NSDecimalNumber *)p1;
+    - (int32_t)compareTo_withValueSDecimal:(NSDecimalNumber *)p1;
 
 	// Managed method name : Divide
 	// Managed return type : System.Decimal
@@ -118,7 +118,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Decimal
-    - (BOOL)equals_withValueDecimal:(NSDecimalNumber *)p1;
+    - (BOOL)equals_withValueSDecimal:(NSDecimalNumber *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
@@ -148,7 +148,7 @@
 	// Managed method name : GetTypeCode
 	// Managed return type : System.TypeCode
 	// Managed param types : 
-    - (System_TypeCode)getTypeCode;
+    - (int32_t)getTypeCode;
 
 	// Managed method name : Multiply
 	// Managed return type : System.Decimal
@@ -298,17 +298,17 @@
 	// Managed method name : Parse
 	// Managed return type : System.Decimal
 	// Managed param types : System.String, System.Globalization.NumberStyles
-    + (NSDecimalNumber *)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2;
+    + (NSDecimalNumber *)parse_withS:(NSString *)p1 style:(int32_t)p2;
 
 	// Managed method name : Parse
 	// Managed return type : System.Decimal
 	// Managed param types : System.String, System.IFormatProvider
-    + (NSDecimalNumber *)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2;
+    + (NSDecimalNumber *)parse_withS:(NSString *)p1 provider:(id <System_IFormatProvider_>)p2;
 
 	// Managed method name : Parse
 	// Managed return type : System.Decimal
 	// Managed param types : System.String, System.Globalization.NumberStyles, System.IFormatProvider
-    + (NSDecimalNumber *)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3;
+    + (NSDecimalNumber *)parse_withS:(NSString *)p1 style:(int32_t)p2 provider:(id <System_IFormatProvider_>)p3;
 
 	// Managed method name : Remainder
 	// Managed return type : System.Decimal
@@ -328,12 +328,12 @@
 	// Managed method name : Round
 	// Managed return type : System.Decimal
 	// Managed param types : System.Decimal, System.MidpointRounding
-    + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1 mode:(System_MidpointRounding)p2;
+    + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1 mode:(int32_t)p2;
 
 	// Managed method name : Round
 	// Managed return type : System.Decimal
 	// Managed param types : System.Decimal, System.Int32, System.MidpointRounding
-    + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1 decimals:(int32_t)p2 mode:(System_MidpointRounding)p3;
+    + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1 decimals:(int32_t)p2 mode:(int32_t)p3;
 
 	// Managed method name : Subtract
 	// Managed return type : System.Decimal
@@ -393,12 +393,12 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.IFormatProvider
-    - (NSString *)toString_withProvider:(System_IFormatProvider *)p1;
+    - (NSString *)toString_withProvider:(id <System_IFormatProvider_>)p1;
 
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.String, System.IFormatProvider
-    - (NSString *)toString_withFormat:(NSString *)p1 provider:(System_IFormatProvider *)p2;
+    - (NSString *)toString_withFormat:(NSString *)p1 provider:(id <System_IFormatProvider_>)p2;
 
 	// Managed method name : ToUInt16
 	// Managed return type : System.UInt16
@@ -428,6 +428,6 @@
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.Globalization.NumberStyles, System.IFormatProvider, ref System.Decimal&
-    + (BOOL)tryParse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3 resultRef:(NSDecimalNumber **)p4;
+    + (BOOL)tryParse_withS:(NSString *)p1 style:(int32_t)p2 provider:(id <System_IFormatProvider_>)p3 resultRef:(NSDecimalNumber **)p4;
 @end
 //--Dubrovnik.CodeGenerator

@@ -32,7 +32,7 @@
 	// Managed method name : RegisterAssembly
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.Assembly, System.Runtime.InteropServices.AssemblyRegistrationFlags
-    - (BOOL)registerAssembly_withAssembly:(System_Reflection_Assembly *)p1 flags:(System_Runtime_InteropServices_AssemblyRegistrationFlags)p2;
+    - (BOOL)registerAssembly_withAssembly:(System_Reflection_Assembly *)p1 flags:(int32_t)p2;
 
 	// Managed method name : RegisterTypeForComClients
 	// Managed return type : System.Void

@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Policy.FileCodeGroup
 	// Managed param types : System.Security.Policy.IMembershipCondition, System.Security.Permissions.FileIOPermissionAccess
-    + (System_Security_Policy_FileCodeGroup *)new_withMembershipCondition:(System_Security_Policy_IMembershipCondition *)p1 access:(System_Security_Permissions_FileIOPermissionAccess)p2;
+    + (System_Security_Policy_FileCodeGroup *)new_withMembershipCondition:(id <System_Security_Policy_IMembershipCondition_>)p1 access:(int32_t)p2;
 
 #pragma mark -
 #pragma mark Properties

@@ -2,7 +2,7 @@
 //
 // Managed class : TextWriter
 //
-@interface System_IO_TextWriter : System_MarshalByRefObject <System_IDisposable>
+@interface System_IO_TextWriter : System_MarshalByRefObject <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -114,7 +114,7 @@
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.Decimal
-    - (void)write_withValueDecimal:(NSDecimalNumber *)p1;
+    - (void)write_withValueSDecimal:(NSDecimalNumber *)p1;
 
 	// Managed method name : Write
 	// Managed return type : System.Void
@@ -224,7 +224,7 @@
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
 	// Managed param types : System.Decimal
-    - (void)writeLine_withValueDecimal:(NSDecimalNumber *)p1;
+    - (void)writeLine_withValueSDecimal:(NSDecimalNumber *)p1;
 
 	// Managed method name : WriteLine
 	// Managed return type : System.Void

@@ -30,17 +30,23 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Remoting.Messaging.ReturnMessage
 	// Managed param types : System.Object, System.Object[], System.Int32, System.Runtime.Remoting.Messaging.LogicalCallContext, System.Runtime.Remoting.Messaging.IMethodCallMessage
-    + (System_Runtime_Remoting_Messaging_ReturnMessage *)new_withRet:(System_Object *)p1 outArgs:(DBSystem_Array *)p2 outArgsCount:(int32_t)p3 callCtx:(System_Runtime_Remoting_Messaging_LogicalCallContext *)p4 mcm:(System_Runtime_Remoting_Messaging_IMethodCallMessage *)p5
+    + (System_Runtime_Remoting_Messaging_ReturnMessage *)new_withRet:(System_Object *)p1 outArgs:(DBSystem_Array *)p2 outArgsCount:(int32_t)p3 callCtx:(System_Runtime_Remoting_Messaging_LogicalCallContext *)p4 mcm:(id <System_Runtime_Remoting_Messaging_IMethodCallMessage_>)p5
     {
-		return [[self alloc] initWithSignature:"object,object[],int,System.Runtime.Remoting.Messaging.LogicalCallContext,System.Runtime.Remoting.Messaging.IMethodCallMessage" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];;
+		
+		System_Runtime_Remoting_Messaging_ReturnMessage * object = [[self alloc] initWithSignature:"object,object[],int,System.Runtime.Remoting.Messaging.LogicalCallContext,System.Runtime.Remoting.Messaging.IMethodCallMessage" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Remoting.Messaging.ReturnMessage
 	// Managed param types : System.Exception, System.Runtime.Remoting.Messaging.IMethodCallMessage
-    + (System_Runtime_Remoting_Messaging_ReturnMessage *)new_withE:(System_Exception *)p1 mcm:(System_Runtime_Remoting_Messaging_IMethodCallMessage *)p2
+    + (System_Runtime_Remoting_Messaging_ReturnMessage *)new_withE:(System_Exception *)p1 mcm:(id <System_Runtime_Remoting_Messaging_IMethodCallMessage_>)p2
     {
-		return [[self alloc] initWithSignature:"System.Exception,System.Runtime.Remoting.Messaging.IMethodCallMessage" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Runtime_Remoting_Messaging_ReturnMessage * object = [[self alloc] initWithSignature:"System.Exception,System.Runtime.Remoting.Messaging.IMethodCallMessage" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -51,8 +57,18 @@
     @synthesize argCount = _argCount;
     - (int32_t)argCount
     {
-		MonoObject *monoObject = [self getMonoProperty:"ArgCount"];
-		_argCount = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ArgCount");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_argCount = monoObject;
 
 		return _argCount;
 	}
@@ -62,7 +78,17 @@
     @synthesize args = _args;
     - (DBSystem_Array *)args
     {
-		MonoObject *monoObject = [self getMonoProperty:"Args"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Args");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_args isEqualToMonoObject:monoObject]) return _args;					
 		_args = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -74,9 +100,19 @@
     @synthesize exception = _exception;
     - (System_Exception *)exception
     {
-		MonoObject *monoObject = [self getMonoProperty:"Exception"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Exception");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_exception isEqualToMonoObject:monoObject]) return _exception;					
-		_exception = [System_Exception objectWithMonoObject:monoObject];
+		_exception = [System_Exception bestObjectWithMonoObject:monoObject];
 
 		return _exception;
 	}
@@ -86,8 +122,18 @@
     @synthesize hasVarArgs = _hasVarArgs;
     - (BOOL)hasVarArgs
     {
-		MonoObject *monoObject = [self getMonoProperty:"HasVarArgs"];
-		_hasVarArgs = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HasVarArgs");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_hasVarArgs = monoObject;
 
 		return _hasVarArgs;
 	}
@@ -97,9 +143,19 @@
     @synthesize logicalCallContext = _logicalCallContext;
     - (System_Runtime_Remoting_Messaging_LogicalCallContext *)logicalCallContext
     {
-		MonoObject *monoObject = [self getMonoProperty:"LogicalCallContext"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LogicalCallContext");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_logicalCallContext isEqualToMonoObject:monoObject]) return _logicalCallContext;					
-		_logicalCallContext = [System_Runtime_Remoting_Messaging_LogicalCallContext objectWithMonoObject:monoObject];
+		_logicalCallContext = [System_Runtime_Remoting_Messaging_LogicalCallContext bestObjectWithMonoObject:monoObject];
 
 		return _logicalCallContext;
 	}
@@ -109,9 +165,19 @@
     @synthesize methodBase = _methodBase;
     - (System_Reflection_MethodBase *)methodBase
     {
-		MonoObject *monoObject = [self getMonoProperty:"MethodBase"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MethodBase");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_methodBase isEqualToMonoObject:monoObject]) return _methodBase;					
-		_methodBase = [System_Reflection_MethodBase objectWithMonoObject:monoObject];
+		_methodBase = [System_Reflection_MethodBase bestObjectWithMonoObject:monoObject];
 
 		return _methodBase;
 	}
@@ -121,7 +187,17 @@
     @synthesize methodName = _methodName;
     - (NSString *)methodName
     {
-		MonoObject *monoObject = [self getMonoProperty:"MethodName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MethodName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_methodName isEqualToMonoObject:monoObject]) return _methodName;					
 		_methodName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -133,7 +209,17 @@
     @synthesize methodSignature = _methodSignature;
     - (System_Object *)methodSignature
     {
-		MonoObject *monoObject = [self getMonoProperty:"MethodSignature"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MethodSignature");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_methodSignature isEqualToMonoObject:monoObject]) return _methodSignature;					
 		_methodSignature = [System_Object objectWithMonoObject:monoObject];
 
@@ -145,8 +231,18 @@
     @synthesize outArgCount = _outArgCount;
     - (int32_t)outArgCount
     {
-		MonoObject *monoObject = [self getMonoProperty:"OutArgCount"];
-		_outArgCount = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OutArgCount");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_outArgCount = monoObject;
 
 		return _outArgCount;
 	}
@@ -156,7 +252,17 @@
     @synthesize outArgs = _outArgs;
     - (DBSystem_Array *)outArgs
     {
-		MonoObject *monoObject = [self getMonoProperty:"OutArgs"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OutArgs");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_outArgs isEqualToMonoObject:monoObject]) return _outArgs;					
 		_outArgs = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -168,9 +274,19 @@
     @synthesize properties = _properties;
     - (System_Collections_IDictionary *)properties
     {
-		MonoObject *monoObject = [self getMonoProperty:"Properties"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Properties");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_properties isEqualToMonoObject:monoObject]) return _properties;					
-		_properties = [System_Collections_IDictionary objectWithMonoObject:monoObject];
+		_properties = [System_Collections_IDictionary bestObjectWithMonoObject:monoObject];
 
 		return _properties;
 	}
@@ -180,7 +296,17 @@
     @synthesize returnValue = _returnValue;
     - (System_Object *)returnValue
     {
-		MonoObject *monoObject = [self getMonoProperty:"ReturnValue"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ReturnValue");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_returnValue isEqualToMonoObject:monoObject]) return _returnValue;					
 		_returnValue = [System_Object objectWithMonoObject:monoObject];
 
@@ -192,7 +318,17 @@
     @synthesize typeName = _typeName;
     - (NSString *)typeName
     {
-		MonoObject *monoObject = [self getMonoProperty:"TypeName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TypeName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_typeName isEqualToMonoObject:monoObject]) return _typeName;					
 		_typeName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -204,7 +340,17 @@
     @synthesize uri = _uri;
     - (NSString *)uri
     {
-		MonoObject *monoObject = [self getMonoProperty:"Uri"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Uri");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_uri isEqualToMonoObject:monoObject]) return _uri;					
 		_uri = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -213,8 +359,17 @@
     - (void)setUri:(NSString *)value
 	{
 		_uri = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"Uri" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Uri");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

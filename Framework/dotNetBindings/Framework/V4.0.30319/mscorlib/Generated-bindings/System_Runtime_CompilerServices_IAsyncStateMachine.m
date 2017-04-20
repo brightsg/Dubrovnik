@@ -32,15 +32,19 @@
 	// Managed param types : 
     - (void)moveNext
     {
-		[self invokeMonoMethod:"System.Runtime.CompilerServices.IAsyncStateMachine.MoveNext()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"System.Runtime.CompilerServices.IAsyncStateMachine.MoveNext()" withNumArgs:0];
+        
     }
 
 	// Managed method name : SetStateMachine
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.CompilerServices.IAsyncStateMachine
-    - (void)setStateMachine_withStateMachine:(System_Runtime_CompilerServices_IAsyncStateMachine *)p1
+    - (void)setStateMachine_withStateMachine:(id <System_Runtime_CompilerServices_IAsyncStateMachine_>)p1
     {
-		[self invokeMonoMethod:"System.Runtime.CompilerServices.IAsyncStateMachine.SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.CompilerServices.IAsyncStateMachine.SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

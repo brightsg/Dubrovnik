@@ -2,7 +2,7 @@
 //
 // Managed class : AutoResetEvent
 //
-@interface System_Threading_AutoResetEvent : System_Threading_EventWaitHandle <System_IDisposable>
+@interface System_Threading_AutoResetEvent : System_Threading_EventWaitHandle <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

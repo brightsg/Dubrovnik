@@ -2,7 +2,7 @@
 //
 // Managed interface : IConstructionCallMessage
 //
-@interface System_Runtime_Remoting_Activation_IConstructionCallMessage : System_Object <System_Runtime_Remoting_Activation_IConstructionCallMessage, System_Runtime_Remoting_Messaging_IMethodCallMessage, System_Runtime_Remoting_Messaging_IMethodMessage, System_Runtime_Remoting_Messaging_IMessage>
+@interface System_Runtime_Remoting_Activation_IConstructionCallMessage : System_Object <System_Runtime_Remoting_Activation_IConstructionCallMessage_, System_Runtime_Remoting_Messaging_IMethodCallMessage_, System_Runtime_Remoting_Messaging_IMethodMessage_, System_Runtime_Remoting_Messaging_IMessage_>
 
 #pragma mark -
 #pragma mark Setup

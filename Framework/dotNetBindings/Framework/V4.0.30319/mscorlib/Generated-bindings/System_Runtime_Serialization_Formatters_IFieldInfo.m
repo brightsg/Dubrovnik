@@ -32,7 +32,17 @@
     @synthesize fieldNames = _fieldNames;
     - (DBSystem_Array *)fieldNames
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Serialization.Formatters.IFieldInfo.FieldNames"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Serialization.Formatters.IFieldInfo.FieldNames");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_fieldNames isEqualToMonoObject:monoObject]) return _fieldNames;					
 		_fieldNames = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -41,8 +51,17 @@
     - (void)setFieldNames:(DBSystem_Array *)value
 	{
 		_fieldNames = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"System.Runtime.Serialization.Formatters.IFieldInfo.FieldNames" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.Runtime.Serialization.Formatters.IFieldInfo.FieldNames");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : FieldTypes
@@ -50,7 +69,17 @@
     @synthesize fieldTypes = _fieldTypes;
     - (DBSystem_Array *)fieldTypes
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Serialization.Formatters.IFieldInfo.FieldTypes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Serialization.Formatters.IFieldInfo.FieldTypes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_fieldTypes isEqualToMonoObject:monoObject]) return _fieldTypes;					
 		_fieldTypes = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -59,8 +88,17 @@
     - (void)setFieldTypes:(DBSystem_Array *)value
 	{
 		_fieldTypes = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"System.Runtime.Serialization.Formatters.IFieldInfo.FieldTypes" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.Runtime.Serialization.Formatters.IFieldInfo.FieldTypes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

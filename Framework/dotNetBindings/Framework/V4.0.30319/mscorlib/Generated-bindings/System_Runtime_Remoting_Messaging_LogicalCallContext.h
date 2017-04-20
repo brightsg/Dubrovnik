@@ -2,7 +2,7 @@
 //
 // Managed class : LogicalCallContext
 //
-@interface System_Runtime_Remoting_Messaging_LogicalCallContext : System_Object <System_Runtime_Serialization_ISerializable, System_ICloneable>
+@interface System_Runtime_Remoting_Messaging_LogicalCallContext : System_Object <System_Runtime_Serialization_ISerializable_, System_ICloneable_>
 
 #pragma mark -
 #pragma mark Setup

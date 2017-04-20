@@ -16,7 +16,7 @@
 
 	// Managed property name : Attributes
 	// Managed property type : System.Reflection.FieldAttributes
-    @property (nonatomic, readonly) System_Reflection_FieldAttributes attributes;
+    @property (nonatomic, readonly) int32_t attributes;
 
 	// Managed property name : DeclaringType
 	// Managed property type : System.Type
@@ -80,7 +80,7 @@
 
 	// Managed property name : MemberType
 	// Managed property type : System.Reflection.MemberTypes
-    @property (nonatomic, readonly) System_Reflection_MemberTypes memberType;
+    @property (nonatomic, readonly) int32_t memberType;
 
 	// Managed property name : Name
 	// Managed property type : System.String
@@ -156,7 +156,7 @@
 	// Managed method name : SetValue
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Object, System.Reflection.BindingFlags, System.Reflection.Binder, System.Globalization.CultureInfo
-    - (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2 invokeAttr:(System_Reflection_BindingFlags)p3 binder:(System_Reflection_Binder *)p4 culture:(System_Globalization_CultureInfo *)p5;
+    - (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2 invokeAttr:(int32_t)p3 binder:(System_Reflection_Binder *)p4 culture:(System_Globalization_CultureInfo *)p5;
 
 	// Managed method name : SetValue
 	// Managed return type : System.Void

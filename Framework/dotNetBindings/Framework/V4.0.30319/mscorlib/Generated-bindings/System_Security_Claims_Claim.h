@@ -16,6 +16,16 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Claims.Claim
+	// Managed param types : System.IO.BinaryReader
+    + (System_Security_Claims_Claim *)new_withReader:(System_IO_BinaryReader *)p1;
+
+	// Managed method name : .ctor
+	// Managed return type : System.Security.Claims.Claim
+	// Managed param types : System.IO.BinaryReader, System.Security.Claims.ClaimsIdentity
+    + (System_Security_Claims_Claim *)new_withReader:(System_IO_BinaryReader *)p1 subject:(System_Security_Claims_ClaimsIdentity *)p2;
+
+	// Managed method name : .ctor
+	// Managed return type : System.Security.Claims.Claim
 	// Managed param types : System.String, System.String
     + (System_Security_Claims_Claim *)new_withType:(NSString *)p1 value:(NSString *)p2;
 
@@ -87,5 +97,10 @@
 	// Managed return type : System.String
 	// Managed param types : 
     - (NSString *)toString;
+
+	// Managed method name : WriteTo
+	// Managed return type : System.Void
+	// Managed param types : System.IO.BinaryWriter
+    - (void)writeTo_withWriter:(System_IO_BinaryWriter *)p1;
 @end
 //--Dubrovnik.CodeGenerator

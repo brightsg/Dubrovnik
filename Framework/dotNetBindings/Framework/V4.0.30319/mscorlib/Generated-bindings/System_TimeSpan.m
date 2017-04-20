@@ -32,7 +32,10 @@
 	// Managed param types : System.Int64
     + (System_TimeSpan *)new_withTicks:(int64_t)p1
     {
-		return [[self alloc] initWithSignature:"long" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_TimeSpan * object = [[self alloc] initWithSignature:"long" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Int32, System.Int32, System.Int32
     + (System_TimeSpan *)new_withHours:(int32_t)p1 minutes:(int32_t)p2 seconds:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"int,int,int" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		System_TimeSpan * object = [[self alloc] initWithSignature:"int,int,int" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +54,10 @@
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.Int32
     + (System_TimeSpan *)new_withDays:(int32_t)p1 hours:(int32_t)p2 minutes:(int32_t)p3 seconds:(int32_t)p4
     {
-		return [[self alloc] initWithSignature:"int,int,int,int" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];;
+		
+		System_TimeSpan * object = [[self alloc] initWithSignature:"int,int,int,int" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +65,10 @@
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32
     + (System_TimeSpan *)new_withDays:(int32_t)p1 hours:(int32_t)p2 minutes:(int32_t)p3 seconds:(int32_t)p4 milliseconds:(int32_t)p5
     {
-		return [[self alloc] initWithSignature:"int,int,int,int,int" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];;
+		
+		System_TimeSpan * object = [[self alloc] initWithSignature:"int,int,int,int,int" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -69,7 +81,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"MaxValue"];
 		if ([self object:m_maxValue isEqualToMonoObject:monoObject]) return m_maxValue;					
-		m_maxValue = [System_TimeSpan objectWithMonoObject:monoObject];
+		m_maxValue = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
 		return m_maxValue;
 	}
@@ -81,7 +93,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"MinValue"];
 		if ([self object:m_minValue isEqualToMonoObject:monoObject]) return m_minValue;					
-		m_minValue = [System_TimeSpan objectWithMonoObject:monoObject];
+		m_minValue = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
 		return m_minValue;
 	}
@@ -148,7 +160,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Zero"];
 		if ([self object:m_zero isEqualToMonoObject:monoObject]) return m_zero;					
-		m_zero = [System_TimeSpan objectWithMonoObject:monoObject];
+		m_zero = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
 		return m_zero;
 	}
@@ -161,8 +173,18 @@
     @synthesize days = _days;
     - (int32_t)days
     {
-		MonoObject *monoObject = [self getMonoProperty:"Days"];
-		_days = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Days");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_days = monoObject;
 
 		return _days;
 	}
@@ -172,8 +194,18 @@
     @synthesize hours = _hours;
     - (int32_t)hours
     {
-		MonoObject *monoObject = [self getMonoProperty:"Hours"];
-		_hours = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Hours");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_hours = monoObject;
 
 		return _hours;
 	}
@@ -183,8 +215,18 @@
     @synthesize milliseconds = _milliseconds;
     - (int32_t)milliseconds
     {
-		MonoObject *monoObject = [self getMonoProperty:"Milliseconds"];
-		_milliseconds = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Milliseconds");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_milliseconds = monoObject;
 
 		return _milliseconds;
 	}
@@ -194,8 +236,18 @@
     @synthesize minutes = _minutes;
     - (int32_t)minutes
     {
-		MonoObject *monoObject = [self getMonoProperty:"Minutes"];
-		_minutes = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Minutes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_minutes = monoObject;
 
 		return _minutes;
 	}
@@ -205,8 +257,18 @@
     @synthesize seconds = _seconds;
     - (int32_t)seconds
     {
-		MonoObject *monoObject = [self getMonoProperty:"Seconds"];
-		_seconds = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Seconds");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_seconds = monoObject;
 
 		return _seconds;
 	}
@@ -216,8 +278,18 @@
     @synthesize ticks = _ticks;
     - (int64_t)ticks
     {
-		MonoObject *monoObject = [self getMonoProperty:"Ticks"];
-		_ticks = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Ticks");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_ticks = monoObject;
 
 		return _ticks;
 	}
@@ -227,8 +299,18 @@
     @synthesize totalDays = _totalDays;
     - (double)totalDays
     {
-		MonoObject *monoObject = [self getMonoProperty:"TotalDays"];
-		_totalDays = DB_UNBOX_DOUBLE(monoObject);
+		typedef double (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TotalDays");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		double monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_totalDays = monoObject;
 
 		return _totalDays;
 	}
@@ -238,8 +320,18 @@
     @synthesize totalHours = _totalHours;
     - (double)totalHours
     {
-		MonoObject *monoObject = [self getMonoProperty:"TotalHours"];
-		_totalHours = DB_UNBOX_DOUBLE(monoObject);
+		typedef double (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TotalHours");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		double monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_totalHours = monoObject;
 
 		return _totalHours;
 	}
@@ -249,8 +341,18 @@
     @synthesize totalMilliseconds = _totalMilliseconds;
     - (double)totalMilliseconds
     {
-		MonoObject *monoObject = [self getMonoProperty:"TotalMilliseconds"];
-		_totalMilliseconds = DB_UNBOX_DOUBLE(monoObject);
+		typedef double (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TotalMilliseconds");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		double monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_totalMilliseconds = monoObject;
 
 		return _totalMilliseconds;
 	}
@@ -260,8 +362,18 @@
     @synthesize totalMinutes = _totalMinutes;
     - (double)totalMinutes
     {
-		MonoObject *monoObject = [self getMonoProperty:"TotalMinutes"];
-		_totalMinutes = DB_UNBOX_DOUBLE(monoObject);
+		typedef double (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TotalMinutes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		double monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_totalMinutes = monoObject;
 
 		return _totalMinutes;
 	}
@@ -271,8 +383,18 @@
     @synthesize totalSeconds = _totalSeconds;
     - (double)totalSeconds
     {
-		MonoObject *monoObject = [self getMonoProperty:"TotalSeconds"];
-		_totalSeconds = DB_UNBOX_DOUBLE(monoObject);
+		typedef double (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TotalSeconds");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		double monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_totalSeconds = monoObject;
 
 		return _totalSeconds;
 	}
@@ -288,7 +410,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Add(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Compare
@@ -332,7 +454,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Duration()" withNumArgs:0];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals
@@ -376,7 +498,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"FromDays(double)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromHours
@@ -387,7 +509,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"FromHours(double)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromMilliseconds
@@ -398,7 +520,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"FromMilliseconds(double)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromMinutes
@@ -409,7 +531,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"FromMinutes(double)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromSeconds
@@ -420,7 +542,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"FromSeconds(double)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromTicks
@@ -431,7 +553,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"FromTicks(long)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetHashCode
@@ -453,7 +575,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Negate()" withNumArgs:0];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : op_Addition
@@ -464,7 +586,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Addition(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : op_Equality
@@ -541,7 +663,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Subtraction(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : op_UnaryNegation
@@ -552,7 +674,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_UnaryNegation(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : op_UnaryPlus
@@ -563,7 +685,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_UnaryPlus(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Parse
@@ -574,62 +696,62 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Parse
 	// Managed return type : System.TimeSpan
 	// Managed param types : System.String, System.IFormatProvider
-    + (System_TimeSpan *)parse_withInput:(NSString *)p1 formatProvider:(System_IFormatProvider *)p2
+    + (System_TimeSpan *)parse_withInput:(NSString *)p1 formatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ParseExact
 	// Managed return type : System.TimeSpan
 	// Managed param types : System.String, System.String, System.IFormatProvider
-    + (System_TimeSpan *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(System_IFormatProvider *)p3
+    + (System_TimeSpan *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(id <System_IFormatProvider_>)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ParseExact(string,string,System.IFormatProvider)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ParseExact
 	// Managed return type : System.TimeSpan
 	// Managed param types : System.String, System.String[], System.IFormatProvider
-    + (System_TimeSpan *)parseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(System_IFormatProvider *)p3
+    + (System_TimeSpan *)parseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(id <System_IFormatProvider_>)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ParseExact(string,string[],System.IFormatProvider)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ParseExact
 	// Managed return type : System.TimeSpan
 	// Managed param types : System.String, System.String, System.IFormatProvider, System.Globalization.TimeSpanStyles
-    + (System_TimeSpan *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_TimeSpanStyles)p4
+    + (System_TimeSpan *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(id <System_IFormatProvider_>)p3 styles:(int32_t)p4
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ParseExact(string,string,System.IFormatProvider,System.Globalization.TimeSpanStyles)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ParseExact
 	// Managed return type : System.TimeSpan
 	// Managed param types : System.String, System.String[], System.IFormatProvider, System.Globalization.TimeSpanStyles
-    + (System_TimeSpan *)parseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_TimeSpanStyles)p4
+    + (System_TimeSpan *)parseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(id <System_IFormatProvider_>)p3 styles:(int32_t)p4
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ParseExact(string,string[],System.IFormatProvider,System.Globalization.TimeSpanStyles)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Subtract
@@ -640,7 +762,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Subtract(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToString
@@ -668,7 +790,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.String, System.IFormatProvider
-    - (NSString *)toString_withFormat:(NSString *)p1 formatProvider:(System_IFormatProvider *)p2
+    - (NSString *)toString_withFormat:(NSString *)p1 formatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -685,7 +807,7 @@
 
 		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.TimeSpan&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 
-		*p2 = [System_Object subclassObjectWithMonoObject:refPtr2];
+		*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -693,13 +815,13 @@
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.IFormatProvider, ref System.TimeSpan&
-    + (BOOL)tryParse_withInput:(NSString *)p1 formatProvider:(System_IFormatProvider *)p2 resultRef:(System_TimeSpan **)p3
+    + (BOOL)tryParse_withInput:(NSString *)p1 formatProvider:(id <System_IFormatProvider_>)p2 resultRef:(System_TimeSpan **)p3
     {
 		void *refPtr3 = [*p3 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.IFormatProvider,System.TimeSpan&)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], &refPtr3];
 
-		*p3 = [System_Object subclassObjectWithMonoObject:refPtr3];
+		*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -707,13 +829,13 @@
 	// Managed method name : TryParseExact
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.String, System.IFormatProvider, ref System.TimeSpan&
-    + (BOOL)tryParseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(System_IFormatProvider *)p3 resultRef:(System_TimeSpan **)p4
+    + (BOOL)tryParseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(id <System_IFormatProvider_>)p3 resultRef:(System_TimeSpan **)p4
     {
 		void *refPtr4 = [*p4 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParseExact(string,string,System.IFormatProvider,System.TimeSpan&)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], &refPtr4];
 
-		*p4 = [System_Object subclassObjectWithMonoObject:refPtr4];
+		*p4 = [System_Object bestObjectWithMonoObject:refPtr4];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -721,13 +843,13 @@
 	// Managed method name : TryParseExact
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.String[], System.IFormatProvider, ref System.TimeSpan&
-    + (BOOL)tryParseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(System_IFormatProvider *)p3 resultRef:(System_TimeSpan **)p4
+    + (BOOL)tryParseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(id <System_IFormatProvider_>)p3 resultRef:(System_TimeSpan **)p4
     {
 		void *refPtr4 = [*p4 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParseExact(string,string[],System.IFormatProvider,System.TimeSpan&)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], &refPtr4];
 
-		*p4 = [System_Object subclassObjectWithMonoObject:refPtr4];
+		*p4 = [System_Object bestObjectWithMonoObject:refPtr4];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -735,13 +857,13 @@
 	// Managed method name : TryParseExact
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.String, System.IFormatProvider, System.Globalization.TimeSpanStyles, ref System.TimeSpan&
-    + (BOOL)tryParseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_TimeSpanStyles)p4 resultRef:(System_TimeSpan **)p5
+    + (BOOL)tryParseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(id <System_IFormatProvider_>)p3 styles:(int32_t)p4 resultRef:(System_TimeSpan **)p5
     {
 		void *refPtr5 = [*p5 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParseExact(string,string,System.IFormatProvider,System.Globalization.TimeSpanStyles,System.TimeSpan&)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), &refPtr5];
 
-		*p5 = [System_Object subclassObjectWithMonoObject:refPtr5];
+		*p5 = [System_Object bestObjectWithMonoObject:refPtr5];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -749,13 +871,13 @@
 	// Managed method name : TryParseExact
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.String[], System.IFormatProvider, System.Globalization.TimeSpanStyles, ref System.TimeSpan&
-    + (BOOL)tryParseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(System_IFormatProvider *)p3 styles:(System_Globalization_TimeSpanStyles)p4 resultRef:(System_TimeSpan **)p5
+    + (BOOL)tryParseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(id <System_IFormatProvider_>)p3 styles:(int32_t)p4 resultRef:(System_TimeSpan **)p5
     {
 		void *refPtr5 = [*p5 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParseExact(string,string[],System.IFormatProvider,System.Globalization.TimeSpanStyles,System.TimeSpan&)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), &refPtr5];
 
-		*p5 = [System_Object subclassObjectWithMonoObject:refPtr5];
+		*p5 = [System_Object bestObjectWithMonoObject:refPtr5];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

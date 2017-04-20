@@ -20,6 +20,6 @@
 
 	// Managed property name : SpecialKey
 	// Managed property type : System.ConsoleSpecialKey
-    @property (nonatomic, readonly) System_ConsoleSpecialKey specialKey;
+    @property (nonatomic, readonly) int32_t specialKey;
 @end
 //--Dubrovnik.CodeGenerator

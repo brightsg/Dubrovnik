@@ -2,7 +2,7 @@
 //
 // Managed class : KeyedCollection`2<TKey, TItem>
 //
-@interface System_Collections_ObjectModel_KeyedCollectionA2 : System_Collections_ObjectModel_CollectionA1 <System_Collections_Generic_IListA1, System_Collections_Generic_ICollectionA1, System_Collections_Generic_IEnumerableA1, System_Collections_IEnumerable, System_Collections_IList, System_Collections_ICollection, System_Collections_Generic_IReadOnlyListA1, System_Collections_Generic_IReadOnlyCollectionA1>
+@interface System_Collections_ObjectModel_KeyedCollectionA2 : System_Collections_ObjectModel_CollectionA1 <System_Collections_Generic_IListA1_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_IList_, System_Collections_ICollection_, System_Collections_Generic_IReadOnlyListA1_, System_Collections_Generic_IReadOnlyCollectionA1_>
 
 #pragma mark -
 #pragma mark Setup

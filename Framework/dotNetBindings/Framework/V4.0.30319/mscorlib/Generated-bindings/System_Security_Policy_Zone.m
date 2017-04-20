@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Policy.Zone
 	// Managed param types : System.Security.SecurityZone
-    + (System_Security_Policy_Zone *)new_withZone:(System_Security_SecurityZone)p1
+    + (System_Security_Policy_Zone *)new_withZone:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.SecurityZone" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Security_Policy_Zone * object = [[self alloc] initWithSignature:"System.Security.SecurityZone" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -41,10 +44,20 @@
 	// Managed property name : SecurityZone
 	// Managed property type : System.Security.SecurityZone
     @synthesize securityZone = _securityZone;
-    - (System_Security_SecurityZone)securityZone
+    - (int32_t)securityZone
     {
-		MonoObject *monoObject = [self getMonoProperty:"SecurityZone"];
-		_securityZone = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SecurityZone");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_securityZone = monoObject;
 
 		return _securityZone;
 	}
@@ -60,7 +73,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
 		
-		return [System_Security_Policy_EvidenceBase objectWithMonoObject:monoObject];
+		return [System_Security_Policy_EvidenceBase bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Copy
@@ -82,18 +95,18 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFromUrl(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_Policy_Zone objectWithMonoObject:monoObject];
+		return [System_Security_Policy_Zone bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateIdentityPermission
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.Policy.Evidence
-    - (System_Security_IPermission *)createIdentityPermission_withEvidence:(System_Security_Policy_Evidence *)p1
+    - (id <System_Security_IPermission>)createIdentityPermission_withEvidence:(System_Security_Policy_Evidence *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateIdentityPermission(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals

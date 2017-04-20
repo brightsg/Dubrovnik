@@ -32,7 +32,9 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"System.IDisposable.Dispose()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"System.IDisposable.Dispose()" withNumArgs:0];
+        
     }
 
 #pragma mark -

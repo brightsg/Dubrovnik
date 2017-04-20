@@ -2,7 +2,7 @@
 //
 // Managed class : RemotingSurrogateSelector
 //
-@interface System_Runtime_Remoting_Messaging_RemotingSurrogateSelector : System_Object <System_Runtime_Serialization_ISurrogateSelector>
+@interface System_Runtime_Remoting_Messaging_RemotingSurrogateSelector : System_Object <System_Runtime_Serialization_ISurrogateSelector_>
 
 #pragma mark -
 #pragma mark Setup
@@ -24,12 +24,12 @@
 	// Managed method name : ChainSelector
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Serialization.ISurrogateSelector
-    - (void)chainSelector_withSelector:(System_Runtime_Serialization_ISurrogateSelector *)p1;
+    - (void)chainSelector_withSelector:(id <System_Runtime_Serialization_ISurrogateSelector_>)p1;
 
 	// Managed method name : GetNextSelector
 	// Managed return type : System.Runtime.Serialization.ISurrogateSelector
 	// Managed param types : 
-    - (System_Runtime_Serialization_ISurrogateSelector *)getNextSelector;
+    - (id <System_Runtime_Serialization_ISurrogateSelector>)getNextSelector;
 
 	// Managed method name : GetRootObject
 	// Managed return type : System.Object
@@ -39,7 +39,7 @@
 	// Managed method name : GetSurrogate
 	// Managed return type : System.Runtime.Serialization.ISerializationSurrogate
 	// Managed param types : System.Type, System.Runtime.Serialization.StreamingContext, ref System.Runtime.Serialization.ISurrogateSelector&
-    - (System_Runtime_Serialization_ISerializationSurrogate *)getSurrogate_withType:(System_Type *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2 ssoutRef:(System_Runtime_Serialization_ISurrogateSelector **)p3;
+    - (id <System_Runtime_Serialization_ISerializationSurrogate>)getSurrogate_withType:(System_Type *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2 ssoutRef:(System_Runtime_Serialization_ISurrogateSelector **)p3;
 
 	// Managed method name : SetRootObject
 	// Managed return type : System.Void

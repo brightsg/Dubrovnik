@@ -30,17 +30,23 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.ReflectionPermission
 	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Security_Permissions_ReflectionPermission *)new_withState:(System_Security_Permissions_PermissionState)p1
+    + (System_Security_Permissions_ReflectionPermission *)new_withState:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Security_Permissions_ReflectionPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.ReflectionPermission
 	// Managed param types : System.Security.Permissions.ReflectionPermissionFlag
-    + (System_Security_Permissions_ReflectionPermission *)new_withFlag:(System_Security_Permissions_ReflectionPermissionFlag)p1
+    + (System_Security_Permissions_ReflectionPermission *)new_withFlag:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.ReflectionPermissionFlag" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Security_Permissions_ReflectionPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.ReflectionPermissionFlag" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -49,18 +55,37 @@
 	// Managed property name : Flags
 	// Managed property type : System.Security.Permissions.ReflectionPermissionFlag
     @synthesize flags = _flags;
-    - (System_Security_Permissions_ReflectionPermissionFlag)flags
+    - (int32_t)flags
     {
-		MonoObject *monoObject = [self getMonoProperty:"Flags"];
-		_flags = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Flags");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_flags = monoObject;
 
 		return _flags;
 	}
-    - (void)setFlags:(System_Security_Permissions_ReflectionPermissionFlag)value
+    - (void)setFlags:(int32_t)value
 	{
 		_flags = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Flags" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Flags");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -69,12 +94,12 @@
 	// Managed method name : Copy
 	// Managed return type : System.Security.IPermission
 	// Managed param types : 
-    - (System_Security_IPermission *)copy
+    - (id <System_Security_IPermission>)copy
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromXml
@@ -82,24 +107,26 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)fromXml_withEsd:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Intersect
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.IPermission
-    - (System_Security_IPermission *)intersect_withTarget:(System_Security_IPermission *)p1
+    - (id <System_Security_IPermission>)intersect_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsSubsetOf
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.IPermission
-    - (BOOL)isSubsetOf_withTarget:(System_Security_IPermission *)p1
+    - (BOOL)isSubsetOf_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -126,18 +153,18 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml()" withNumArgs:0];
 		
-		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
+		return [System_Security_SecurityElement bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Union
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.IPermission
-    - (System_Security_IPermission *)union_withOther:(System_Security_IPermission *)p1
+    - (id <System_Security_IPermission>)union_withOther:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

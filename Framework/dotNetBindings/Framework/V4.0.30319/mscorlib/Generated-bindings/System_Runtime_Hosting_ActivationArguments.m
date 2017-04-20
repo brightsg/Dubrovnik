@@ -32,7 +32,10 @@
 	// Managed param types : System.ApplicationIdentity
     + (System_Runtime_Hosting_ActivationArguments *)new_withApplicationIdentity:(System_ApplicationIdentity *)p1
     {
-		return [[self alloc] initWithSignature:"System.ApplicationIdentity" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Runtime_Hosting_ActivationArguments * object = [[self alloc] initWithSignature:"System.ApplicationIdentity" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.ApplicationIdentity, System.String[]
     + (System_Runtime_Hosting_ActivationArguments *)new_withApplicationIdentity:(System_ApplicationIdentity *)p1 activationData:(DBSystem_Array *)p2
     {
-		return [[self alloc] initWithSignature:"System.ApplicationIdentity,string[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Runtime_Hosting_ActivationArguments * object = [[self alloc] initWithSignature:"System.ApplicationIdentity,string[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +54,10 @@
 	// Managed param types : System.ActivationContext
     + (System_Runtime_Hosting_ActivationArguments *)new_withActivationData:(System_ActivationContext *)p1
     {
-		return [[self alloc] initWithSignature:"System.ActivationContext" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Runtime_Hosting_ActivationArguments * object = [[self alloc] initWithSignature:"System.ActivationContext" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +65,10 @@
 	// Managed param types : System.ActivationContext, System.String[]
     + (System_Runtime_Hosting_ActivationArguments *)new_withActivationContext:(System_ActivationContext *)p1 activationData:(DBSystem_Array *)p2
     {
-		return [[self alloc] initWithSignature:"System.ActivationContext,string[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Runtime_Hosting_ActivationArguments * object = [[self alloc] initWithSignature:"System.ActivationContext,string[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -67,9 +79,19 @@
     @synthesize activationContext = _activationContext;
     - (System_ActivationContext *)activationContext
     {
-		MonoObject *monoObject = [self getMonoProperty:"ActivationContext"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ActivationContext");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_activationContext isEqualToMonoObject:monoObject]) return _activationContext;					
-		_activationContext = [System_ActivationContext objectWithMonoObject:monoObject];
+		_activationContext = [System_ActivationContext bestObjectWithMonoObject:monoObject];
 
 		return _activationContext;
 	}
@@ -79,7 +101,17 @@
     @synthesize activationData = _activationData;
     - (DBSystem_Array *)activationData
     {
-		MonoObject *monoObject = [self getMonoProperty:"ActivationData"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ActivationData");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_activationData isEqualToMonoObject:monoObject]) return _activationData;					
 		_activationData = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -91,9 +123,19 @@
     @synthesize applicationIdentity = _applicationIdentity;
     - (System_ApplicationIdentity *)applicationIdentity
     {
-		MonoObject *monoObject = [self getMonoProperty:"ApplicationIdentity"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ApplicationIdentity");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_applicationIdentity isEqualToMonoObject:monoObject]) return _applicationIdentity;					
-		_applicationIdentity = [System_ApplicationIdentity objectWithMonoObject:monoObject];
+		_applicationIdentity = [System_ApplicationIdentity bestObjectWithMonoObject:monoObject];
 
 		return _applicationIdentity;
 	}
@@ -109,7 +151,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
 		
-		return [System_Security_Policy_EvidenceBase objectWithMonoObject:monoObject];
+		return [System_Security_Policy_EvidenceBase bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

@@ -32,7 +32,10 @@
 	// Managed param types : System.Byte[]
     + (System_Guid *)new_withB:(NSData *)p1
     {
-		return [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Guid * object = [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.UInt32, System.UInt16, System.UInt16, System.Byte, System.Byte, System.Byte, System.Byte, System.Byte, System.Byte, System.Byte, System.Byte
     + (System_Guid *)new_withAUint:(uint32_t)p1 bUint16:(uint16_t)p2 cUint16:(uint16_t)p3 dByte:(uint8_t)p4 eByte:(uint8_t)p5 fByte:(uint8_t)p6 gByte:(uint8_t)p7 hByte:(uint8_t)p8 iByte:(uint8_t)p9 jByte:(uint8_t)p10 kByte:(uint8_t)p11
     {
-		return [[self alloc] initWithSignature:"uint,uint16,uint16,byte,byte,byte,byte,byte,byte,byte,byte" withNumArgs:11, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), DB_VALUE(p8), DB_VALUE(p9), DB_VALUE(p10), DB_VALUE(p11)];;
+		
+		System_Guid * object = [[self alloc] initWithSignature:"uint,uint16,uint16,byte,byte,byte,byte,byte,byte,byte,byte" withNumArgs:11, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), DB_VALUE(p8), DB_VALUE(p9), DB_VALUE(p10), DB_VALUE(p11)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +54,10 @@
 	// Managed param types : System.Int32, System.Int16, System.Int16, System.Byte[]
     + (System_Guid *)new_withA:(int32_t)p1 b:(int16_t)p2 c:(int16_t)p3 d:(NSData *)p4
     {
-		return [[self alloc] initWithSignature:"int,int16,int16,byte[]" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];;
+		
+		System_Guid * object = [[self alloc] initWithSignature:"int,int16,int16,byte[]" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +65,10 @@
 	// Managed param types : System.Int32, System.Int16, System.Int16, System.Byte, System.Byte, System.Byte, System.Byte, System.Byte, System.Byte, System.Byte, System.Byte
     + (System_Guid *)new_withAInt:(int32_t)p1 bInt16:(int16_t)p2 cInt16:(int16_t)p3 dByte:(uint8_t)p4 eByte:(uint8_t)p5 fByte:(uint8_t)p6 gByte:(uint8_t)p7 hByte:(uint8_t)p8 iByte:(uint8_t)p9 jByte:(uint8_t)p10 kByte:(uint8_t)p11
     {
-		return [[self alloc] initWithSignature:"int,int16,int16,byte,byte,byte,byte,byte,byte,byte,byte" withNumArgs:11, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), DB_VALUE(p8), DB_VALUE(p9), DB_VALUE(p10), DB_VALUE(p11)];;
+		
+		System_Guid * object = [[self alloc] initWithSignature:"int,int16,int16,byte,byte,byte,byte,byte,byte,byte,byte" withNumArgs:11, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), DB_VALUE(p8), DB_VALUE(p9), DB_VALUE(p10), DB_VALUE(p11)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +76,10 @@
 	// Managed param types : System.String
     + (System_Guid *)new_withG:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Guid * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -77,7 +92,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Empty"];
 		if ([self object:m_empty isEqualToMonoObject:monoObject]) return m_empty;					
-		m_empty = [System_Guid objectWithMonoObject:monoObject];
+		m_empty = [System_Guid bestObjectWithMonoObject:monoObject];
 
 		return m_empty;
 	}
@@ -148,7 +163,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"NewGuid()" withNumArgs:0];
 		
-		return [System_Guid objectWithMonoObject:monoObject];
+		return [System_Guid bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : op_Equality
@@ -181,7 +196,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Guid objectWithMonoObject:monoObject];
+		return [System_Guid bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ParseExact
@@ -192,7 +207,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ParseExact(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Guid objectWithMonoObject:monoObject];
+		return [System_Guid bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToByteArray
@@ -231,7 +246,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.String, System.IFormatProvider
-    - (NSString *)toString_withFormat:(NSString *)p1 provider:(System_IFormatProvider *)p2
+    - (NSString *)toString_withFormat:(NSString *)p1 provider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -248,7 +263,7 @@
 
 		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.Guid&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 
-		*p2 = [System_Object subclassObjectWithMonoObject:refPtr2];
+		*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -262,7 +277,7 @@
 
 		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParseExact(string,string,System.Guid&)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], &refPtr3];
 
-		*p3 = [System_Object subclassObjectWithMonoObject:refPtr3];
+		*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

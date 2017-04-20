@@ -2,7 +2,7 @@
 //
 // Managed class : AttributeUsageAttribute
 //
-@interface System_AttributeUsageAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_AttributeUsageAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.AttributeUsageAttribute
 	// Managed param types : System.AttributeTargets
-    + (System_AttributeUsageAttribute *)new_withValidOn:(System_AttributeTargets)p1;
+    + (System_AttributeUsageAttribute *)new_withValidOn:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -32,6 +32,6 @@
 
 	// Managed property name : ValidOn
 	// Managed property type : System.AttributeTargets
-    @property (nonatomic, readonly) System_AttributeTargets validOn;
+    @property (nonatomic, readonly) int32_t validOn;
 @end
 //--Dubrovnik.CodeGenerator

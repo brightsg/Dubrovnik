@@ -2,7 +2,7 @@
 //
 // Managed class : HMAC
 //
-@interface System_Security_Cryptography_HMAC : System_Security_Cryptography_KeyedHashAlgorithm <System_Security_Cryptography_ICryptoTransform, System_IDisposable>
+@interface System_Security_Cryptography_HMAC : System_Security_Cryptography_KeyedHashAlgorithm <System_IDisposable_, System_Security_Cryptography_ICryptoTransform_>
 
 #pragma mark -
 #pragma mark Setup

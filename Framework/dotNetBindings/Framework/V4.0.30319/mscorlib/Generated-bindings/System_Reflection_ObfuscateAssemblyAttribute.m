@@ -32,7 +32,10 @@
 	// Managed param types : System.Boolean
     + (System_Reflection_ObfuscateAssemblyAttribute *)new_withAssemblyIsPrivate:(BOOL)p1
     {
-		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Reflection_ObfuscateAssemblyAttribute * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,8 +46,18 @@
     @synthesize assemblyIsPrivate = _assemblyIsPrivate;
     - (BOOL)assemblyIsPrivate
     {
-		MonoObject *monoObject = [self getMonoProperty:"AssemblyIsPrivate"];
-		_assemblyIsPrivate = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AssemblyIsPrivate");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_assemblyIsPrivate = monoObject;
 
 		return _assemblyIsPrivate;
 	}
@@ -54,16 +67,35 @@
     @synthesize stripAfterObfuscation = _stripAfterObfuscation;
     - (BOOL)stripAfterObfuscation
     {
-		MonoObject *monoObject = [self getMonoProperty:"StripAfterObfuscation"];
-		_stripAfterObfuscation = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "StripAfterObfuscation");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_stripAfterObfuscation = monoObject;
 
 		return _stripAfterObfuscation;
 	}
     - (void)setStripAfterObfuscation:(BOOL)value
 	{
 		_stripAfterObfuscation = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"StripAfterObfuscation" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "StripAfterObfuscation");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

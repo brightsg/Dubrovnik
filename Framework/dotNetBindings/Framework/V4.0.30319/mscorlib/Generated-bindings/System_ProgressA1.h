@@ -2,7 +2,7 @@
 //
 // Managed class : Progress`1<T>
 //
-@interface System_ProgressA1 : System_Object <System_IProgressA1>
+@interface System_ProgressA1 : System_Object <System_IProgressA1_>
 
 #pragma mark -
 #pragma mark Setup

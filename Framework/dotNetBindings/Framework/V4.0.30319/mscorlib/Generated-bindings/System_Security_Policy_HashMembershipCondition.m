@@ -32,7 +32,10 @@
 	// Managed param types : System.Security.Cryptography.HashAlgorithm, System.Byte[]
     + (System_Security_Policy_HashMembershipCondition *)new_withHashAlg:(System_Security_Cryptography_HashAlgorithm *)p1 value:(NSData *)p2
     {
-		return [[self alloc] initWithSignature:"System.Security.Cryptography.HashAlgorithm,byte[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Security_Policy_HashMembershipCondition * object = [[self alloc] initWithSignature:"System.Security.Cryptography.HashAlgorithm,byte[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,17 +46,36 @@
     @synthesize hashAlgorithm = _hashAlgorithm;
     - (System_Security_Cryptography_HashAlgorithm *)hashAlgorithm
     {
-		MonoObject *monoObject = [self getMonoProperty:"HashAlgorithm"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HashAlgorithm");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_hashAlgorithm isEqualToMonoObject:monoObject]) return _hashAlgorithm;					
-		_hashAlgorithm = [System_Security_Cryptography_HashAlgorithm objectWithMonoObject:monoObject];
+		_hashAlgorithm = [System_Security_Cryptography_HashAlgorithm bestObjectWithMonoObject:monoObject];
 
 		return _hashAlgorithm;
 	}
     - (void)setHashAlgorithm:(System_Security_Cryptography_HashAlgorithm *)value
 	{
 		_hashAlgorithm = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"HashAlgorithm" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "HashAlgorithm");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : HashValue
@@ -61,7 +83,17 @@
     @synthesize hashValue = _hashValue;
     - (NSData *)hashValue
     {
-		MonoObject *monoObject = [self getMonoProperty:"HashValue"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HashValue");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_hashValue isEqualToMonoObject:monoObject]) return _hashValue;					
 		_hashValue = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -70,8 +102,17 @@
     - (void)setHashValue:(NSData *)value
 	{
 		_hashValue = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"HashValue" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "HashValue");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -91,12 +132,12 @@
 	// Managed method name : Copy
 	// Managed return type : System.Security.Policy.IMembershipCondition
 	// Managed param types : 
-    - (System_Security_Policy_IMembershipCondition *)copy
+    - (id <System_Security_Policy_IMembershipCondition>)copy
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
 		
-		return [System_Security_Policy_IMembershipCondition objectWithMonoObject:monoObject];
+		return [System_Security_Policy_IMembershipCondition bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals
@@ -115,7 +156,9 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)fromXml_withE:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : FromXml
@@ -123,7 +166,9 @@
 	// Managed param types : System.Security.SecurityElement, System.Security.Policy.PolicyLevel
     - (void)fromXml_withE:(System_Security_SecurityElement *)p1 level:(System_Security_Policy_PolicyLevel *)p2
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement,System.Security.Policy.PolicyLevel)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement,System.Security.Policy.PolicyLevel)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetHashCode
@@ -156,7 +201,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml()" withNumArgs:0];
 		
-		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
+		return [System_Security_SecurityElement bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToXml
@@ -167,7 +212,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml(System.Security.Policy.PolicyLevel)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
+		return [System_Security_SecurityElement bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

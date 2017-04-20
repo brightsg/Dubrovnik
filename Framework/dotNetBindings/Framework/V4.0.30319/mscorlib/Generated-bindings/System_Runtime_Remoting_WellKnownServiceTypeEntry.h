@@ -17,12 +17,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Remoting.WellKnownServiceTypeEntry
 	// Managed param types : System.String, System.String, System.String, System.Runtime.Remoting.WellKnownObjectMode
-    + (System_Runtime_Remoting_WellKnownServiceTypeEntry *)new_withTypeName:(NSString *)p1 assemblyName:(NSString *)p2 objectUri:(NSString *)p3 mode:(System_Runtime_Remoting_WellKnownObjectMode)p4;
+    + (System_Runtime_Remoting_WellKnownServiceTypeEntry *)new_withTypeName:(NSString *)p1 assemblyName:(NSString *)p2 objectUri:(NSString *)p3 mode:(int32_t)p4;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Remoting.WellKnownServiceTypeEntry
 	// Managed param types : System.Type, System.String, System.Runtime.Remoting.WellKnownObjectMode
-    + (System_Runtime_Remoting_WellKnownServiceTypeEntry *)new_withType:(System_Type *)p1 objectUri:(NSString *)p2 mode:(System_Runtime_Remoting_WellKnownObjectMode)p3;
+    + (System_Runtime_Remoting_WellKnownServiceTypeEntry *)new_withType:(System_Type *)p1 objectUri:(NSString *)p2 mode:(int32_t)p3;
 
 #pragma mark -
 #pragma mark Properties
@@ -33,7 +33,7 @@
 
 	// Managed property name : Mode
 	// Managed property type : System.Runtime.Remoting.WellKnownObjectMode
-    @property (nonatomic, readonly) System_Runtime_Remoting_WellKnownObjectMode mode;
+    @property (nonatomic, readonly) int32_t mode;
 
 	// Managed property name : ObjectType
 	// Managed property type : System.Type

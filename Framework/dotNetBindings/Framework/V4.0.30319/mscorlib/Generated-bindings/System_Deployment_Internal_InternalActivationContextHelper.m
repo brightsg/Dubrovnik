@@ -98,7 +98,9 @@
 	// Managed param types : System.ActivationContext
     + (void)prepareForExecution_withAppInfo:(System_ActivationContext *)p1
     {
-		[self invokeMonoClassMethod:"PrepareForExecution(System.ActivationContext)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"PrepareForExecution(System.ActivationContext)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

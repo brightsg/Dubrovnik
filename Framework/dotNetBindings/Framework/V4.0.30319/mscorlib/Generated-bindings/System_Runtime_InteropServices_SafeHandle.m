@@ -32,8 +32,18 @@
     @synthesize isClosed = _isClosed;
     - (BOOL)isClosed
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsClosed"];
-		_isClosed = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsClosed");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isClosed = monoObject;
 
 		return _isClosed;
 	}
@@ -43,8 +53,18 @@
     @synthesize isInvalid = _isInvalid;
     - (BOOL)isInvalid
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsInvalid"];
-		_isInvalid = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsInvalid");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isInvalid = monoObject;
 
 		return _isInvalid;
 	}
@@ -57,7 +77,9 @@
 	// Managed param types : 
     - (void)close
     {
-		[self invokeMonoMethod:"Close()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Close()" withNumArgs:0];
+        
     }
 
 	// Managed method name : DangerousAddRef
@@ -65,7 +87,9 @@
 	// Managed param types : ref System.Boolean&
     - (void)dangerousAddRef_withSuccessRef:(BOOL*)p1
     {
-		[self invokeMonoMethod:"DangerousAddRef(bool&)" withNumArgs:1, p1];;
+		
+		[self invokeMonoMethod:"DangerousAddRef(bool&)" withNumArgs:1, p1];
+        
     }
 
 	// Managed method name : DangerousGetHandle
@@ -84,7 +108,9 @@
 	// Managed param types : 
     - (void)dangerousRelease
     {
-		[self invokeMonoMethod:"DangerousRelease()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"DangerousRelease()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Dispose
@@ -92,7 +118,9 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+        
     }
 
 	// Managed method name : SetHandleAsInvalid
@@ -100,7 +128,9 @@
 	// Managed param types : 
     - (void)setHandleAsInvalid
     {
-		[self invokeMonoMethod:"SetHandleAsInvalid()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"SetHandleAsInvalid()" withNumArgs:0];
+        
     }
 
 #pragma mark -

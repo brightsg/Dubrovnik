@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.Contracts.ContractFailedEventArgs
 	// Managed param types : System.Diagnostics.Contracts.ContractFailureKind, System.String, System.String, System.Exception
-    + (System_Diagnostics_Contracts_ContractFailedEventArgs *)new_withFailureKind:(System_Diagnostics_Contracts_ContractFailureKind)p1 message:(NSString *)p2 condition:(NSString *)p3 originalException:(System_Exception *)p4;
+    + (System_Diagnostics_Contracts_ContractFailedEventArgs *)new_withFailureKind:(int32_t)p1 message:(NSString *)p2 condition:(NSString *)p3 originalException:(System_Exception *)p4;
 
 #pragma mark -
 #pragma mark Properties
@@ -28,7 +28,7 @@
 
 	// Managed property name : FailureKind
 	// Managed property type : System.Diagnostics.Contracts.ContractFailureKind
-    @property (nonatomic, readonly) System_Diagnostics_Contracts_ContractFailureKind failureKind;
+    @property (nonatomic, readonly) int32_t failureKind;
 
 	// Managed property name : Handled
 	// Managed property type : System.Boolean

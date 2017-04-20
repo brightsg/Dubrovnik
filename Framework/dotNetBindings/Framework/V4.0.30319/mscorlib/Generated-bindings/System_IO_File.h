@@ -17,12 +17,12 @@
 	// Managed method name : AppendAllLines
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Collections.Generic.IEnumerable`1<System.String>
-    + (void)appendAllLines_withPath:(NSString *)p1 contents:(System_Collections_Generic_IEnumerableA1 *)p2;
+    + (void)appendAllLines_withPath:(NSString *)p1 contents:(id <System_Collections_Generic_IEnumerableA1_>)p2;
 
 	// Managed method name : AppendAllLines
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Collections.Generic.IEnumerable`1<System.String>, System.Text.Encoding
-    + (void)appendAllLines_withPath:(NSString *)p1 contents:(System_Collections_Generic_IEnumerableA1 *)p2 encoding:(System_Text_Encoding *)p3;
+    + (void)appendAllLines_withPath:(NSString *)p1 contents:(id <System_Collections_Generic_IEnumerableA1_>)p2 encoding:(System_Text_Encoding *)p3;
 
 	// Managed method name : AppendAllText
 	// Managed return type : System.Void
@@ -62,12 +62,12 @@
 	// Managed method name : Create
 	// Managed return type : System.IO.FileStream
 	// Managed param types : System.String, System.Int32, System.IO.FileOptions
-    + (System_IO_FileStream *)create_withPath:(NSString *)p1 bufferSize:(int32_t)p2 options:(System_IO_FileOptions)p3;
+    + (System_IO_FileStream *)create_withPath:(NSString *)p1 bufferSize:(int32_t)p2 options:(int32_t)p3;
 
 	// Managed method name : Create
 	// Managed return type : System.IO.FileStream
 	// Managed param types : System.String, System.Int32, System.IO.FileOptions, System.Security.AccessControl.FileSecurity
-    + (System_IO_FileStream *)create_withPath:(NSString *)p1 bufferSize:(int32_t)p2 options:(System_IO_FileOptions)p3 fileSecurity:(System_Security_AccessControl_FileSecurity *)p4;
+    + (System_IO_FileStream *)create_withPath:(NSString *)p1 bufferSize:(int32_t)p2 options:(int32_t)p3 fileSecurity:(System_Security_AccessControl_FileSecurity *)p4;
 
 	// Managed method name : CreateText
 	// Managed return type : System.IO.StreamWriter
@@ -102,12 +102,12 @@
 	// Managed method name : GetAccessControl
 	// Managed return type : System.Security.AccessControl.FileSecurity
 	// Managed param types : System.String, System.Security.AccessControl.AccessControlSections
-    + (System_Security_AccessControl_FileSecurity *)getAccessControl_withPath:(NSString *)p1 includeSections:(System_Security_AccessControl_AccessControlSections)p2;
+    + (System_Security_AccessControl_FileSecurity *)getAccessControl_withPath:(NSString *)p1 includeSections:(int32_t)p2;
 
 	// Managed method name : GetAttributes
 	// Managed return type : System.IO.FileAttributes
 	// Managed param types : System.String
-    + (System_IO_FileAttributes)getAttributes_withPath:(NSString *)p1;
+    + (int32_t)getAttributes_withPath:(NSString *)p1;
 
 	// Managed method name : GetCreationTime
 	// Managed return type : System.DateTime
@@ -147,17 +147,17 @@
 	// Managed method name : Open
 	// Managed return type : System.IO.FileStream
 	// Managed param types : System.String, System.IO.FileMode
-    + (System_IO_FileStream *)open_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2;
+    + (System_IO_FileStream *)open_withPath:(NSString *)p1 mode:(int32_t)p2;
 
 	// Managed method name : Open
 	// Managed return type : System.IO.FileStream
 	// Managed param types : System.String, System.IO.FileMode, System.IO.FileAccess
-    + (System_IO_FileStream *)open_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2 access:(System_IO_FileAccess)p3;
+    + (System_IO_FileStream *)open_withPath:(NSString *)p1 mode:(int32_t)p2 access:(int32_t)p3;
 
 	// Managed method name : Open
 	// Managed return type : System.IO.FileStream
 	// Managed param types : System.String, System.IO.FileMode, System.IO.FileAccess, System.IO.FileShare
-    + (System_IO_FileStream *)open_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2 access:(System_IO_FileAccess)p3 share:(System_IO_FileShare)p4;
+    + (System_IO_FileStream *)open_withPath:(NSString *)p1 mode:(int32_t)p2 access:(int32_t)p3 share:(int32_t)p4;
 
 	// Managed method name : OpenRead
 	// Managed return type : System.IO.FileStream
@@ -202,12 +202,12 @@
 	// Managed method name : ReadLines
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.String>
 	// Managed param types : System.String
-    + (System_Collections_Generic_IEnumerableA1 *)readLines_withPath:(NSString *)p1;
+    + (id <System_Collections_Generic_IEnumerableA1>)readLines_withPath:(NSString *)p1;
 
 	// Managed method name : ReadLines
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.String>
 	// Managed param types : System.String, System.Text.Encoding
-    + (System_Collections_Generic_IEnumerableA1 *)readLines_withPath:(NSString *)p1 encoding:(System_Text_Encoding *)p2;
+    + (id <System_Collections_Generic_IEnumerableA1>)readLines_withPath:(NSString *)p1 encoding:(System_Text_Encoding *)p2;
 
 	// Managed method name : Replace
 	// Managed return type : System.Void
@@ -227,7 +227,7 @@
 	// Managed method name : SetAttributes
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.IO.FileAttributes
-    + (void)setAttributes_withPath:(NSString *)p1 fileAttributes:(System_IO_FileAttributes)p2;
+    + (void)setAttributes_withPath:(NSString *)p1 fileAttributes:(int32_t)p2;
 
 	// Managed method name : SetCreationTime
 	// Managed return type : System.Void
@@ -277,12 +277,12 @@
 	// Managed method name : WriteAllLines
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Collections.Generic.IEnumerable`1<System.String>
-    + (void)writeAllLines_withPathString:(NSString *)p1 contentsSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p2;
+    + (void)writeAllLines_withPathString:(NSString *)p1 contentsSCGIEnumerableA1string:(id <System_Collections_Generic_IEnumerableA1_>)p2;
 
 	// Managed method name : WriteAllLines
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Collections.Generic.IEnumerable`1<System.String>, System.Text.Encoding
-    + (void)writeAllLines_withPathString:(NSString *)p1 contentsSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p2 encodingSTEncoding:(System_Text_Encoding *)p3;
+    + (void)writeAllLines_withPathString:(NSString *)p1 contentsSCGIEnumerableA1string:(id <System_Collections_Generic_IEnumerableA1_>)p2 encodingSTEncoding:(System_Text_Encoding *)p3;
 
 	// Managed method name : WriteAllText
 	// Managed return type : System.Void

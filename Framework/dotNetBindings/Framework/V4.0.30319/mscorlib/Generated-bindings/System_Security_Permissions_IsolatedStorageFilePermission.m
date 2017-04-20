@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.IsolatedStorageFilePermission
 	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Security_Permissions_IsolatedStorageFilePermission *)new_withState:(System_Security_Permissions_PermissionState)p1
+    + (System_Security_Permissions_IsolatedStorageFilePermission *)new_withState:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Security_Permissions_IsolatedStorageFilePermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -41,29 +44,29 @@
 	// Managed method name : Copy
 	// Managed return type : System.Security.IPermission
 	// Managed param types : 
-    - (System_Security_IPermission *)copy
+    - (id <System_Security_IPermission>)copy
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Intersect
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.IPermission
-    - (System_Security_IPermission *)intersect_withTarget:(System_Security_IPermission *)p1
+    - (id <System_Security_IPermission>)intersect_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsSubsetOf
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.IPermission
-    - (BOOL)isSubsetOf_withTarget:(System_Security_IPermission *)p1
+    - (BOOL)isSubsetOf_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -79,18 +82,18 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml()" withNumArgs:0];
 		
-		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
+		return [System_Security_SecurityElement bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Union
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.IPermission
-    - (System_Security_IPermission *)union_withTarget:(System_Security_IPermission *)p1
+    - (id <System_Security_IPermission>)union_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

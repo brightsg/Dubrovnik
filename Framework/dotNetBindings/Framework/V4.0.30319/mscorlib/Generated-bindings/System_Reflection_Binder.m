@@ -30,28 +30,28 @@
 	// Managed method name : BindToField
 	// Managed return type : System.Reflection.FieldInfo
 	// Managed param types : System.Reflection.BindingFlags, System.Reflection.FieldInfo[], System.Object, System.Globalization.CultureInfo
-    - (System_Reflection_FieldInfo *)bindToField_withBindingAttr:(System_Reflection_BindingFlags)p1 match:(DBSystem_Array *)p2 value:(System_Object *)p3 culture:(System_Globalization_CultureInfo *)p4
+    - (System_Reflection_FieldInfo *)bindToField_withBindingAttr:(int32_t)p1 match:(DBSystem_Array *)p2 value:(System_Object *)p3 culture:(System_Globalization_CultureInfo *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BindToField(System.Reflection.BindingFlags,System.Array[],object,System.Globalization.CultureInfo)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BindToField(System.Reflection.BindingFlags,System.Reflection.FieldInfo[],object,System.Globalization.CultureInfo)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
-		return [System_Reflection_FieldInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_FieldInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : BindToMethod
 	// Managed return type : System.Reflection.MethodBase
 	// Managed param types : System.Reflection.BindingFlags, System.Reflection.MethodBase[], ref System.Object[]&, System.Reflection.ParameterModifier[], System.Globalization.CultureInfo, System.String[], ref System.Object&
-    - (System_Reflection_MethodBase *)bindToMethod_withBindingAttr:(System_Reflection_BindingFlags)p1 match:(DBSystem_Array *)p2 argsRef:(System_Object **)p3 modifiers:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5 names:(DBSystem_Array *)p6 stateRef:(System_Object **)p7
+    - (System_Reflection_MethodBase *)bindToMethod_withBindingAttr:(int32_t)p1 match:(DBSystem_Array *)p2 argsRef:(System_Object **)p3 modifiers:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5 names:(DBSystem_Array *)p6 stateRef:(System_Object **)p7
     {
 		void *refPtr3 = [*p3 monoRTInvokeArg];
 void *refPtr7 = [*p7 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoMethod:"BindToMethod(System.Reflection.BindingFlags,System.Array[],System.Object[]&,System.Array[],System.Globalization.CultureInfo,string[],object&)" withNumArgs:7, DB_VALUE(p1), [p2 monoRTInvokeArg], &refPtr3, [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg], &refPtr7];
+		MonoObject *monoObject = [self invokeMonoMethod:"BindToMethod(System.Reflection.BindingFlags,System.Reflection.MethodBase[],object[]&,System.Reflection.ParameterModifier[],System.Globalization.CultureInfo,string[],object&)" withNumArgs:7, DB_VALUE(p1), [p2 monoRTInvokeArg], &refPtr3, [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg], &refPtr7];
 
-		*p3 = [System_Object subclassObjectWithMonoObject:refPtr3];
-*p7 = [System_Object subclassObjectWithMonoObject:refPtr7];
+		*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
+*p7 = [System_Object bestObjectWithMonoObject:refPtr7];
 
-		return [System_Reflection_MethodBase objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodBase bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ChangeType
@@ -70,30 +70,34 @@ void *refPtr7 = [*p7 monoRTInvokeArg];
 	// Managed param types : ref System.Object[]&, System.Object
     - (void)reorderArgumentArray_withArgsRef:(System_Object **)p1 state:(System_Object *)p2
     {
-		[self invokeMonoMethod:"ReorderArgumentArray(System.Object[]&,object)" withNumArgs:2, &refPtr1, [p2 monoRTInvokeArg]];
-;
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+
+		[self invokeMonoMethod:"ReorderArgumentArray(object[]&,object)" withNumArgs:2, &refPtr1, [p2 monoRTInvokeArg]];
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+
     }
 
 	// Managed method name : SelectMethod
 	// Managed return type : System.Reflection.MethodBase
 	// Managed param types : System.Reflection.BindingFlags, System.Reflection.MethodBase[], System.Type[], System.Reflection.ParameterModifier[]
-    - (System_Reflection_MethodBase *)selectMethod_withBindingAttr:(System_Reflection_BindingFlags)p1 match:(DBSystem_Array *)p2 types:(DBSystem_Array *)p3 modifiers:(DBSystem_Array *)p4
+    - (System_Reflection_MethodBase *)selectMethod_withBindingAttr:(int32_t)p1 match:(DBSystem_Array *)p2 types:(DBSystem_Array *)p3 modifiers:(DBSystem_Array *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"SelectMethod(System.Reflection.BindingFlags,System.Array[],System.Array[],System.Array[])" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"SelectMethod(System.Reflection.BindingFlags,System.Reflection.MethodBase[],System.Type[],System.Reflection.ParameterModifier[])" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
-		return [System_Reflection_MethodBase objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodBase bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SelectProperty
 	// Managed return type : System.Reflection.PropertyInfo
 	// Managed param types : System.Reflection.BindingFlags, System.Reflection.PropertyInfo[], System.Type, System.Type[], System.Reflection.ParameterModifier[]
-    - (System_Reflection_PropertyInfo *)selectProperty_withBindingAttr:(System_Reflection_BindingFlags)p1 match:(DBSystem_Array *)p2 returnType:(System_Type *)p3 indexes:(DBSystem_Array *)p4 modifiers:(DBSystem_Array *)p5
+    - (System_Reflection_PropertyInfo *)selectProperty_withBindingAttr:(int32_t)p1 match:(DBSystem_Array *)p2 returnType:(System_Type *)p3 indexes:(DBSystem_Array *)p4 modifiers:(DBSystem_Array *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"SelectProperty(System.Reflection.BindingFlags,System.Array[],System.Type,System.Array[],System.Array[])" withNumArgs:5, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"SelectProperty(System.Reflection.BindingFlags,System.Reflection.PropertyInfo[],System.Type,System.Type[],System.Reflection.ParameterModifier[])" withNumArgs:5, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
-		return [System_Reflection_PropertyInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_PropertyInfo bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

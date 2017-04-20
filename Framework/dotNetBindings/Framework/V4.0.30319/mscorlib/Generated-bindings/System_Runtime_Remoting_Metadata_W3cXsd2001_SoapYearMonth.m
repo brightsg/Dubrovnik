@@ -32,7 +32,10 @@
 	// Managed param types : System.DateTime
     + (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapYearMonth *)new_withValue:(NSDate *)p1
     {
-		return [[self alloc] initWithSignature:"System.DateTime" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Runtime_Remoting_Metadata_W3cXsd2001_SoapYearMonth * object = [[self alloc] initWithSignature:"System.DateTime" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.DateTime, System.Int32
     + (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapYearMonth *)new_withValue:(NSDate *)p1 sign:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"System.DateTime,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		System_Runtime_Remoting_Metadata_W3cXsd2001_SoapYearMonth * object = [[self alloc] initWithSignature:"System.DateTime,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -51,16 +57,35 @@
     @synthesize sign = _sign;
     - (int32_t)sign
     {
-		MonoObject *monoObject = [self getMonoProperty:"Sign"];
-		_sign = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Sign");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_sign = monoObject;
 
 		return _sign;
 	}
     - (void)setSign:(int32_t)value
 	{
 		_sign = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Sign" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Sign");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Value
@@ -68,7 +93,17 @@
     @synthesize value = _value;
     - (NSDate *)value
     {
-		MonoObject *monoObject = [self getMonoProperty:"Value"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Value");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_value isEqualToMonoObject:monoObject]) return _value;					
 		_value = [NSDate dateWithMonoDateTime:monoObject];
 
@@ -77,8 +112,17 @@
     - (void)setValue:(NSDate *)value
 	{
 		_value = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"Value" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Value");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : XsdType
@@ -86,7 +130,17 @@
     static NSString * m_xsdType;
     + (NSString *)xsdType
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"XsdType"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "XsdType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_xsdType isEqualToMonoObject:monoObject]) return m_xsdType;					
 		m_xsdType = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -115,7 +169,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_Metadata_W3cXsd2001_SoapYearMonth objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Metadata_W3cXsd2001_SoapYearMonth bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToString

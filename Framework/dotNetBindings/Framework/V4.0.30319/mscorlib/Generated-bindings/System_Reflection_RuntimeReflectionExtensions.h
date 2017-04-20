@@ -32,7 +32,7 @@
 	// Managed method name : GetRuntimeEvents
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Reflection.EventInfo>
 	// Managed param types : System.Type
-    + (System_Collections_Generic_IEnumerableA1 *)getRuntimeEvents_withType:(System_Type *)p1;
+    + (id <System_Collections_Generic_IEnumerableA1>)getRuntimeEvents_withType:(System_Type *)p1;
 
 	// Managed method name : GetRuntimeField
 	// Managed return type : System.Reflection.FieldInfo
@@ -42,7 +42,7 @@
 	// Managed method name : GetRuntimeFields
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Reflection.FieldInfo>
 	// Managed param types : System.Type
-    + (System_Collections_Generic_IEnumerableA1 *)getRuntimeFields_withType:(System_Type *)p1;
+    + (id <System_Collections_Generic_IEnumerableA1>)getRuntimeFields_withType:(System_Type *)p1;
 
 	// Managed method name : GetRuntimeInterfaceMap
 	// Managed return type : System.Reflection.InterfaceMapping
@@ -57,12 +57,12 @@
 	// Managed method name : GetRuntimeMethods
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Reflection.MethodInfo>
 	// Managed param types : System.Type
-    + (System_Collections_Generic_IEnumerableA1 *)getRuntimeMethods_withType:(System_Type *)p1;
+    + (id <System_Collections_Generic_IEnumerableA1>)getRuntimeMethods_withType:(System_Type *)p1;
 
 	// Managed method name : GetRuntimeProperties
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Reflection.PropertyInfo>
 	// Managed param types : System.Type
-    + (System_Collections_Generic_IEnumerableA1 *)getRuntimeProperties_withType:(System_Type *)p1;
+    + (id <System_Collections_Generic_IEnumerableA1>)getRuntimeProperties_withType:(System_Type *)p1;
 
 	// Managed method name : GetRuntimeProperty
 	// Managed return type : System.Reflection.PropertyInfo

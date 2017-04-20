@@ -41,12 +41,12 @@
 	// Managed method name : Copy
 	// Managed return type : System.Security.Policy.IMembershipCondition
 	// Managed param types : 
-    - (System_Security_Policy_IMembershipCondition *)copy
+    - (id <System_Security_Policy_IMembershipCondition>)copy
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Security.Policy.IMembershipCondition.Copy()" withNumArgs:0];
 		
-		return [System_Security_Policy_IMembershipCondition objectWithMonoObject:monoObject];
+		return [System_Security_Policy_IMembershipCondition bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals

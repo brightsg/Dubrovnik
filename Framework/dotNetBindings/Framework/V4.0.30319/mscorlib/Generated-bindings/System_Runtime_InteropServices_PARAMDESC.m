@@ -47,14 +47,14 @@
 	// Managed field name : wParamFlags
 	// Managed field type : System.Runtime.InteropServices.PARAMFLAG
     @synthesize wParamFlags = _wParamFlags;
-    - (System_Runtime_InteropServices_PARAMFLAG)wParamFlags
+    - (int16_t)wParamFlags
     {
 		MonoObject *monoObject = [self getMonoField:"wParamFlags"];
 		_wParamFlags = DB_UNBOX_INT16(monoObject);
 
 		return _wParamFlags;
 	}
-    - (void)setWParamFlags:(System_Runtime_InteropServices_PARAMFLAG)value
+    - (void)setWParamFlags:(int16_t)value
 	{
 		_wParamFlags = value;
 		MonoObject *monoObject = DB_VALUE(value);

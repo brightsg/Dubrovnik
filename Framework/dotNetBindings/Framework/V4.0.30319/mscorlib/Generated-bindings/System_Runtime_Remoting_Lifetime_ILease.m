@@ -32,9 +32,19 @@
     @synthesize currentLeaseTime = _currentLeaseTime;
     - (System_TimeSpan *)currentLeaseTime
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Lifetime.ILease.CurrentLeaseTime"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Lifetime.ILease.CurrentLeaseTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_currentLeaseTime isEqualToMonoObject:monoObject]) return _currentLeaseTime;					
-		_currentLeaseTime = [System_TimeSpan objectWithMonoObject:monoObject];
+		_currentLeaseTime = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
 		return _currentLeaseTime;
 	}
@@ -42,10 +52,20 @@
 	// Managed property name : CurrentState
 	// Managed property type : System.Runtime.Remoting.Lifetime.LeaseState
     @synthesize currentState = _currentState;
-    - (System_Runtime_Remoting_Lifetime_LeaseState)currentState
+    - (int32_t)currentState
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Lifetime.ILease.CurrentState"];
-		_currentState = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Lifetime.ILease.CurrentState");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_currentState = monoObject;
 
 		return _currentState;
 	}
@@ -55,17 +75,36 @@
     @synthesize initialLeaseTime = _initialLeaseTime;
     - (System_TimeSpan *)initialLeaseTime
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Lifetime.ILease.InitialLeaseTime"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Lifetime.ILease.InitialLeaseTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_initialLeaseTime isEqualToMonoObject:monoObject]) return _initialLeaseTime;					
-		_initialLeaseTime = [System_TimeSpan objectWithMonoObject:monoObject];
+		_initialLeaseTime = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
 		return _initialLeaseTime;
 	}
     - (void)setInitialLeaseTime:(System_TimeSpan *)value
 	{
 		_initialLeaseTime = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"System.Runtime.Remoting.Lifetime.ILease.InitialLeaseTime" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.Runtime.Remoting.Lifetime.ILease.InitialLeaseTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : RenewOnCallTime
@@ -73,17 +112,36 @@
     @synthesize renewOnCallTime = _renewOnCallTime;
     - (System_TimeSpan *)renewOnCallTime
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Lifetime.ILease.RenewOnCallTime"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Lifetime.ILease.RenewOnCallTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_renewOnCallTime isEqualToMonoObject:monoObject]) return _renewOnCallTime;					
-		_renewOnCallTime = [System_TimeSpan objectWithMonoObject:monoObject];
+		_renewOnCallTime = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
 		return _renewOnCallTime;
 	}
     - (void)setRenewOnCallTime:(System_TimeSpan *)value
 	{
 		_renewOnCallTime = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"System.Runtime.Remoting.Lifetime.ILease.RenewOnCallTime" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.Runtime.Remoting.Lifetime.ILease.RenewOnCallTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : SponsorshipTimeout
@@ -91,17 +149,36 @@
     @synthesize sponsorshipTimeout = _sponsorshipTimeout;
     - (System_TimeSpan *)sponsorshipTimeout
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Lifetime.ILease.SponsorshipTimeout"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Lifetime.ILease.SponsorshipTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_sponsorshipTimeout isEqualToMonoObject:monoObject]) return _sponsorshipTimeout;					
-		_sponsorshipTimeout = [System_TimeSpan objectWithMonoObject:monoObject];
+		_sponsorshipTimeout = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
 		return _sponsorshipTimeout;
 	}
     - (void)setSponsorshipTimeout:(System_TimeSpan *)value
 	{
 		_sponsorshipTimeout = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"System.Runtime.Remoting.Lifetime.ILease.SponsorshipTimeout" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.Runtime.Remoting.Lifetime.ILease.SponsorshipTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -110,17 +187,21 @@
 	// Managed method name : Register
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Lifetime.ISponsor, System.TimeSpan
-    - (void)register_withObj:(System_Runtime_Remoting_Lifetime_ISponsor *)p1 renewalTime:(System_TimeSpan *)p2
+    - (void)register_withObj:(id <System_Runtime_Remoting_Lifetime_ISponsor_>)p1 renewalTime:(System_TimeSpan *)p2
     {
-		[self invokeMonoMethod:"System.Runtime.Remoting.Lifetime.ILease.Register(System.Runtime.Remoting.Lifetime.ISponsor,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.Remoting.Lifetime.ILease.Register(System.Runtime.Remoting.Lifetime.ISponsor,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Register
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Lifetime.ISponsor
-    - (void)register_withObj:(System_Runtime_Remoting_Lifetime_ISponsor *)p1
+    - (void)register_withObj:(id <System_Runtime_Remoting_Lifetime_ISponsor_>)p1
     {
-		[self invokeMonoMethod:"System.Runtime.Remoting.Lifetime.ILease.Register(System.Runtime.Remoting.Lifetime.ISponsor)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.Remoting.Lifetime.ILease.Register(System.Runtime.Remoting.Lifetime.ISponsor)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Renew
@@ -131,15 +212,17 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.Remoting.Lifetime.ILease.Renew(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Unregister
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Lifetime.ISponsor
-    - (void)unregister_withObj:(System_Runtime_Remoting_Lifetime_ISponsor *)p1
+    - (void)unregister_withObj:(id <System_Runtime_Remoting_Lifetime_ISponsor_>)p1
     {
-		[self invokeMonoMethod:"System.Runtime.Remoting.Lifetime.ILease.Unregister(System.Runtime.Remoting.Lifetime.ISponsor)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.Remoting.Lifetime.ILease.Unregister(System.Runtime.Remoting.Lifetime.ISponsor)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

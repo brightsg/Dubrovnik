@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Principal.GenericPrincipal
 	// Managed param types : System.Security.Principal.IIdentity, System.String[]
-    + (System_Security_Principal_GenericPrincipal *)new_withIdentity:(System_Security_Principal_IIdentity *)p1 roles:(DBSystem_Array *)p2
+    + (System_Security_Principal_GenericPrincipal *)new_withIdentity:(id <System_Security_Principal_IIdentity_>)p1 roles:(DBSystem_Array *)p2
     {
-		return [[self alloc] initWithSignature:"System.Security.Principal.IIdentity,string[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Security_Principal_GenericPrincipal * object = [[self alloc] initWithSignature:"System.Security.Principal.IIdentity,string[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,9 +46,19 @@
     @synthesize identity = _identity;
     - (System_Security_Principal_IIdentity *)identity
     {
-		MonoObject *monoObject = [self getMonoProperty:"Identity"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Identity");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_identity isEqualToMonoObject:monoObject]) return _identity;					
-		_identity = [System_Security_Principal_IIdentity objectWithMonoObject:monoObject];
+		_identity = [System_Security_Principal_IIdentity bestObjectWithMonoObject:monoObject];
 
 		return _identity;
 	}

@@ -32,7 +32,10 @@
 	// Managed param types : System.String
     + (System_Reflection_AssemblyKeyNameAttribute *)new_withKeyName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Reflection_AssemblyKeyNameAttribute * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,7 +46,17 @@
     @synthesize keyName = _keyName;
     - (NSString *)keyName
     {
-		MonoObject *monoObject = [self getMonoProperty:"KeyName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "KeyName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_keyName isEqualToMonoObject:monoObject]) return _keyName;					
 		_keyName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

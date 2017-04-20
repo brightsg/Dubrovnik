@@ -57,7 +57,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetUnderlyingType(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

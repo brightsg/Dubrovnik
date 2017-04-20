@@ -2,7 +2,7 @@
 //
 // Managed interface : IResourceWriter
 //
-@interface System_Resources_IResourceWriter : System_Object <System_Resources_IResourceWriter, System_IDisposable>
+@interface System_Resources_IResourceWriter : System_Object <System_Resources_IResourceWriter_, System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

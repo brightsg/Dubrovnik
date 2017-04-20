@@ -20,7 +20,7 @@
 
 	// Managed property name : ObjectFlags
 	// Managed property type : System.Security.AccessControl.ObjectAceFlags
-    @property (nonatomic, readonly) System_Security_AccessControl_ObjectAceFlags objectFlags;
+    @property (nonatomic, readonly) int32_t objectFlags;
 
 	// Managed property name : ObjectType
 	// Managed property type : System.Guid

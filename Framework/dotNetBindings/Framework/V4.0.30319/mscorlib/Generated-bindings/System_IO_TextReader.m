@@ -34,7 +34,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Null"];
 		if ([self object:m_null isEqualToMonoObject:monoObject]) return m_null;					
-		m_null = [System_IO_TextReader objectWithMonoObject:monoObject];
+		m_null = [System_IO_TextReader bestObjectWithMonoObject:monoObject];
 
 		return m_null;
 	}
@@ -47,7 +47,9 @@
 	// Managed param types : 
     - (void)close
     {
-		[self invokeMonoMethod:"Close()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Close()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Dispose
@@ -55,7 +57,9 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Peek
@@ -99,7 +103,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadAsync(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
-		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReadBlock
@@ -121,7 +125,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadBlockAsync(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
-		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReadLine
@@ -143,7 +147,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadLineAsync()" withNumArgs:0];
 		
-		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReadToEnd
@@ -165,7 +169,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadToEndAsync()" withNumArgs:0];
 		
-		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Synchronized
@@ -176,7 +180,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Synchronized(System.IO.TextReader)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_IO_TextReader objectWithMonoObject:monoObject];
+		return [System_IO_TextReader bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

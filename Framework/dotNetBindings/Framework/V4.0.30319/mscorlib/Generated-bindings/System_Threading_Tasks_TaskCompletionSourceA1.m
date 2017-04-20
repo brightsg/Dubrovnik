@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Threading.Tasks.TaskCompletionSource`1<System.Threading.Tasks.TaskCompletionSource`1+TResult>";
+		return "System.Threading.Tasks.TaskCompletionSource`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -29,18 +29,13 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.Tasks.TaskCompletionSource`1<System.Threading.Tasks.TaskCompletionSource`1+TResult>
-	// Managed param types : System.Object, System.Threading.Tasks.TaskCreationOptions
-    + (System_Threading_Tasks_TaskCompletionSourceA1 *)new_withState:(System_Object *)p1 creationOptions:(System_Threading_Tasks_TaskCreationOptions)p2
-    {
-		return [[self alloc] initWithSignature:"object,System.Threading.Tasks.TaskCreationOptions" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
-    }
-
-	// Managed method name : .ctor
-	// Managed return type : System.Threading.Tasks.TaskCompletionSource`1<System.Threading.Tasks.TaskCompletionSource`1+TResult>
 	// Managed param types : System.Threading.Tasks.TaskCreationOptions
-    + (System_Threading_Tasks_TaskCompletionSourceA1 *)new_withCreationOptions:(System_Threading_Tasks_TaskCreationOptions)p1
+    + (System_Threading_Tasks_TaskCompletionSourceA1 *)new_withCreationOptions:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Threading.Tasks.TaskCreationOptions" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Threading_Tasks_TaskCompletionSourceA1 * object = [[self alloc] initWithSignature:"System.Threading.Tasks.TaskCreationOptions" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +43,21 @@
 	// Managed param types : System.Object
     + (System_Threading_Tasks_TaskCompletionSourceA1 *)new_withState:(System_Object *)p1
     {
-		return [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Threading_Tasks_TaskCompletionSourceA1 * object = [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
+    }
+
+	// Managed method name : .ctor
+	// Managed return type : System.Threading.Tasks.TaskCompletionSource`1<System.Threading.Tasks.TaskCompletionSource`1+TResult>
+	// Managed param types : System.Object, System.Threading.Tasks.TaskCreationOptions
+    + (System_Threading_Tasks_TaskCompletionSourceA1 *)new_withState:(System_Object *)p1 creationOptions:(int32_t)p2
+    {
+		
+		System_Threading_Tasks_TaskCompletionSourceA1 * object = [[self alloc] initWithSignature:"object,System.Threading.Tasks.TaskCreationOptions" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -59,9 +68,19 @@
     @synthesize task = _task;
     - (System_Threading_Tasks_TaskA1 *)task
     {
-		MonoObject *monoObject = [self getMonoProperty:"Task"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Task");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_task isEqualToMonoObject:monoObject]) return _task;					
-		_task = [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
+		_task = [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
 
 		return _task;
 	}
@@ -74,7 +93,9 @@
 	// Managed param types : 
     - (void)setCanceled
     {
-		[self invokeMonoMethod:"SetCanceled()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"SetCanceled()" withNumArgs:0];
+        
     }
 
 	// Managed method name : SetException
@@ -82,15 +103,19 @@
 	// Managed param types : System.Exception
     - (void)setException_withException:(System_Exception *)p1
     {
-		[self invokeMonoMethod:"SetException(System.Exception)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetException(System.Exception)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetException
 	// Managed return type : System.Void
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Exception>
-    - (void)setException_withExceptions:(System_Collections_Generic_IEnumerableA1 *)p1
+    - (void)setException_withExceptions:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
-		[self invokeMonoMethod:"SetException(System.Collections.Generic.IEnumerable`1<System.Exception>)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetException(System.Collections.Generic.IEnumerable`1<System.Exception>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetResult
@@ -98,7 +123,9 @@
 	// Managed param types : <System.Threading.Tasks.TaskCompletionSource`1+TResult>
     - (void)setResult_withResult:(System_Object *)p1
     {
-		[self invokeMonoMethod:"SetResult(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetResult(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : TrySetCanceled
@@ -108,6 +135,17 @@
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"TrySetCanceled()" withNumArgs:0];
+		
+		return DB_UNBOX_BOOLEAN(monoObject);
+    }
+
+	// Managed method name : TrySetCanceled
+	// Managed return type : System.Boolean
+	// Managed param types : System.Threading.CancellationToken
+    - (BOOL)trySetCanceled_withCancellationToken:(System_Threading_CancellationToken *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"TrySetCanceled(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -126,7 +164,7 @@
 	// Managed method name : TrySetException
 	// Managed return type : System.Boolean
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Exception>
-    - (BOOL)trySetException_withExceptions:(System_Collections_Generic_IEnumerableA1 *)p1
+    - (BOOL)trySetException_withExceptions:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"TrySetException(System.Collections.Generic.IEnumerable`1<System.Exception>)" withNumArgs:1, [p1 monoRTInvokeArg]];

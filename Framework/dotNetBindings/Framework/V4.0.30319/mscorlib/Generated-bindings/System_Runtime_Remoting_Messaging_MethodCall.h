@@ -2,7 +2,7 @@
 //
 // Managed class : MethodCall
 //
-@interface System_Runtime_Remoting_Messaging_MethodCall : System_Object <System_Runtime_Remoting_Messaging_IMethodCallMessage, System_Runtime_Remoting_Messaging_IMethodMessage, System_Runtime_Remoting_Messaging_IMessage, System_Runtime_Serialization_ISerializable>
+@interface System_Runtime_Remoting_Messaging_MethodCall : System_Object <System_Runtime_Remoting_Messaging_IMethodCallMessage_, System_Runtime_Remoting_Messaging_IMethodMessage_, System_Runtime_Remoting_Messaging_IMessage_, System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -22,7 +22,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Remoting.Messaging.MethodCall
 	// Managed param types : System.Runtime.Remoting.Messaging.IMessage
-    + (System_Runtime_Remoting_Messaging_MethodCall *)new_withMsg:(System_Runtime_Remoting_Messaging_IMessage *)p1;
+    + (System_Runtime_Remoting_Messaging_MethodCall *)new_withMsg:(id <System_Runtime_Remoting_Messaging_IMessage_>)p1;
 
 #pragma mark -
 #pragma mark Properties

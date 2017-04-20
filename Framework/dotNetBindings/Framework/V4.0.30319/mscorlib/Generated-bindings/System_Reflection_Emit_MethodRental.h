@@ -2,7 +2,7 @@
 //
 // Managed class : MethodRental
 //
-@interface System_Reflection_Emit_MethodRental : System_Object <System_Runtime_InteropServices__MethodRental>
+@interface System_Reflection_Emit_MethodRental : System_Object <System_Runtime_InteropServices__MethodRental_>
 
 #pragma mark -
 #pragma mark Setup

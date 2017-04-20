@@ -32,7 +32,17 @@
     @synthesize channelName = _channelName;
     - (NSString *)channelName
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Channels.IChannel.ChannelName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Channels.IChannel.ChannelName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_channelName isEqualToMonoObject:monoObject]) return _channelName;					
 		_channelName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -44,8 +54,18 @@
     @synthesize channelPriority = _channelPriority;
     - (int32_t)channelPriority
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Channels.IChannel.ChannelPriority"];
-		_channelPriority = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Channels.IChannel.ChannelPriority");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_channelPriority = monoObject;
 
 		return _channelPriority;
 	}
@@ -62,7 +82,7 @@
 
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.Remoting.Channels.IChannel.Parse(string,string&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 
-		*p2 = [System_Object subclassObjectWithMonoObject:refPtr2];
+		*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }

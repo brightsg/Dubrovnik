@@ -2,7 +2,7 @@
 //
 // Managed class : IsolatedStorageFile
 //
-@interface System_IO_IsolatedStorage_IsolatedStorageFile : System_IO_IsolatedStorage_IsolatedStorage <System_IDisposable>
+@interface System_IO_IsolatedStorage_IsolatedStorageFile : System_IO_IsolatedStorage_IsolatedStorage <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -109,7 +109,7 @@
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IEnumerator
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope
-    + (System_Collections_IEnumerator *)getEnumerator_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1;
+    + (id <System_Collections_IEnumerator>)getEnumerator_withScope:(int32_t)p1;
 
 	// Managed method name : GetFileNames
 	// Managed return type : System.String[]
@@ -149,27 +149,27 @@
 	// Managed method name : GetStore
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope, System.Type, System.Type
-    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 domainEvidenceType:(System_Type *)p2 assemblyEvidenceType:(System_Type *)p3;
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(int32_t)p1 domainEvidenceType:(System_Type *)p2 assemblyEvidenceType:(System_Type *)p3;
 
 	// Managed method name : GetStore
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope, System.Object, System.Object
-    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 domainIdentity:(System_Object *)p2 assemblyIdentity:(System_Object *)p3;
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(int32_t)p1 domainIdentity:(System_Object *)p2 assemblyIdentity:(System_Object *)p3;
 
 	// Managed method name : GetStore
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope, System.Security.Policy.Evidence, System.Type, System.Security.Policy.Evidence, System.Type
-    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 domainEvidence:(System_Security_Policy_Evidence *)p2 domainEvidenceType:(System_Type *)p3 assemblyEvidence:(System_Security_Policy_Evidence *)p4 assemblyEvidenceType:(System_Type *)p5;
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(int32_t)p1 domainEvidence:(System_Security_Policy_Evidence *)p2 domainEvidenceType:(System_Type *)p3 assemblyEvidence:(System_Security_Policy_Evidence *)p4 assemblyEvidenceType:(System_Type *)p5;
 
 	// Managed method name : GetStore
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope, System.Type
-    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 applicationEvidenceType:(System_Type *)p2;
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(int32_t)p1 applicationEvidenceType:(System_Type *)p2;
 
 	// Managed method name : GetStore
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope, System.Object
-    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1 applicationIdentity:(System_Object *)p2;
+    + (System_IO_IsolatedStorage_IsolatedStorageFile *)getStore_withScope:(int32_t)p1 applicationIdentity:(System_Object *)p2;
 
 	// Managed method name : GetUserStoreForApplication
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFile
@@ -209,17 +209,17 @@
 	// Managed method name : OpenFile
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFileStream
 	// Managed param types : System.String, System.IO.FileMode
-    - (System_IO_IsolatedStorage_IsolatedStorageFileStream *)openFile_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2;
+    - (System_IO_IsolatedStorage_IsolatedStorageFileStream *)openFile_withPath:(NSString *)p1 mode:(int32_t)p2;
 
 	// Managed method name : OpenFile
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFileStream
 	// Managed param types : System.String, System.IO.FileMode, System.IO.FileAccess
-    - (System_IO_IsolatedStorage_IsolatedStorageFileStream *)openFile_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2 access:(System_IO_FileAccess)p3;
+    - (System_IO_IsolatedStorage_IsolatedStorageFileStream *)openFile_withPath:(NSString *)p1 mode:(int32_t)p2 access:(int32_t)p3;
 
 	// Managed method name : OpenFile
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFileStream
 	// Managed param types : System.String, System.IO.FileMode, System.IO.FileAccess, System.IO.FileShare
-    - (System_IO_IsolatedStorage_IsolatedStorageFileStream *)openFile_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2 access:(System_IO_FileAccess)p3 share:(System_IO_FileShare)p4;
+    - (System_IO_IsolatedStorage_IsolatedStorageFileStream *)openFile_withPath:(NSString *)p1 mode:(int32_t)p2 access:(int32_t)p3 share:(int32_t)p4;
 
 	// Managed method name : Remove
 	// Managed return type : System.Void
@@ -229,6 +229,6 @@
 	// Managed method name : Remove
 	// Managed return type : System.Void
 	// Managed param types : System.IO.IsolatedStorage.IsolatedStorageScope
-    + (void)remove_withScope:(System_IO_IsolatedStorage_IsolatedStorageScope)p1;
+    + (void)remove_withScope:(int32_t)p1;
 @end
 //--Dubrovnik.CodeGenerator

@@ -32,7 +32,10 @@
 	// Managed param types : System.String
     + (System_Runtime_CompilerServices_InternalsVisibleToAttribute *)new_withAssemblyName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Runtime_CompilerServices_InternalsVisibleToAttribute * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,16 +46,35 @@
     @synthesize allInternalsVisible = _allInternalsVisible;
     - (BOOL)allInternalsVisible
     {
-		MonoObject *monoObject = [self getMonoProperty:"AllInternalsVisible"];
-		_allInternalsVisible = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AllInternalsVisible");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_allInternalsVisible = monoObject;
 
 		return _allInternalsVisible;
 	}
     - (void)setAllInternalsVisible:(BOOL)value
 	{
 		_allInternalsVisible = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"AllInternalsVisible" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "AllInternalsVisible");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : AssemblyName
@@ -60,7 +82,17 @@
     @synthesize assemblyName = _assemblyName;
     - (NSString *)assemblyName
     {
-		MonoObject *monoObject = [self getMonoProperty:"AssemblyName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AssemblyName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_assemblyName isEqualToMonoObject:monoObject]) return _assemblyName;					
 		_assemblyName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

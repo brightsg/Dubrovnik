@@ -16,7 +16,7 @@
 
 	// Managed property name : AceQualifier
 	// Managed property type : System.Security.AccessControl.AceQualifier
-    @property (nonatomic, readonly) System_Security_AccessControl_AceQualifier aceQualifier;
+    @property (nonatomic, readonly) int32_t aceQualifier;
 
 	// Managed property name : IsCallback
 	// Managed property type : System.Boolean

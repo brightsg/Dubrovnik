@@ -2,7 +2,7 @@
 //
 // Managed class : IDispatchImplAttribute
 //
-@interface System_Runtime_InteropServices_IDispatchImplAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Runtime_InteropServices_IDispatchImplAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.IDispatchImplAttribute
 	// Managed param types : System.Runtime.InteropServices.IDispatchImplType
-    + (System_Runtime_InteropServices_IDispatchImplAttribute *)new_withImplTypeSRIIDispatchImplType:(System_Runtime_InteropServices_IDispatchImplType)p1;
+    + (System_Runtime_InteropServices_IDispatchImplAttribute *)new_withImplTypeSRIIDispatchImplType:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.IDispatchImplAttribute
@@ -29,6 +29,6 @@
 
 	// Managed property name : Value
 	// Managed property type : System.Runtime.InteropServices.IDispatchImplType
-    @property (nonatomic, readonly) System_Runtime_InteropServices_IDispatchImplType value;
+    @property (nonatomic, readonly) int32_t value;
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed class : AssemblyAlgorithmIdAttribute
 //
-@interface System_Reflection_AssemblyAlgorithmIdAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Reflection_AssemblyAlgorithmIdAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Reflection.AssemblyAlgorithmIdAttribute
 	// Managed param types : System.Configuration.Assemblies.AssemblyHashAlgorithm
-    + (System_Reflection_AssemblyAlgorithmIdAttribute *)new_withAlgorithmIdSCAAssemblyHashAlgorithm:(System_Configuration_Assemblies_AssemblyHashAlgorithm)p1;
+    + (System_Reflection_AssemblyAlgorithmIdAttribute *)new_withAlgorithmIdSCAAssemblyHashAlgorithm:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Reflection.AssemblyAlgorithmIdAttribute

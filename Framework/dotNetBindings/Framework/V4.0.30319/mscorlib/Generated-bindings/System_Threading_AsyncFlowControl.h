@@ -2,7 +2,7 @@
 //
 // Managed struct : AsyncFlowControl
 //
-@interface System_Threading_AsyncFlowControl : DBManagedObject <System_IDisposable>
+@interface System_Threading_AsyncFlowControl : DBManagedObject <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

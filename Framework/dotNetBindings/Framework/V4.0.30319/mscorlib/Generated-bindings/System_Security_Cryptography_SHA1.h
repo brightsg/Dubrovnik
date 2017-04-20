@@ -2,7 +2,7 @@
 //
 // Managed class : SHA1
 //
-@interface System_Security_Cryptography_SHA1 : System_Security_Cryptography_HashAlgorithm <System_Security_Cryptography_ICryptoTransform, System_IDisposable>
+@interface System_Security_Cryptography_SHA1 : System_Security_Cryptography_HashAlgorithm <System_IDisposable_, System_Security_Cryptography_ICryptoTransform_>
 
 #pragma mark -
 #pragma mark Setup

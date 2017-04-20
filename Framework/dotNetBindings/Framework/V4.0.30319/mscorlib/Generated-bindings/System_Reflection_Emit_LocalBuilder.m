@@ -32,8 +32,18 @@
     @synthesize isPinned = _isPinned;
     - (BOOL)isPinned
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsPinned"];
-		_isPinned = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsPinned");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isPinned = monoObject;
 
 		return _isPinned;
 	}
@@ -43,8 +53,18 @@
     @synthesize localIndex = _localIndex;
     - (int32_t)localIndex
     {
-		MonoObject *monoObject = [self getMonoProperty:"LocalIndex"];
-		_localIndex = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LocalIndex");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_localIndex = monoObject;
 
 		return _localIndex;
 	}
@@ -54,9 +74,19 @@
     @synthesize localType = _localType;
     - (System_Type *)localType
     {
-		MonoObject *monoObject = [self getMonoProperty:"LocalType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LocalType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_localType isEqualToMonoObject:monoObject]) return _localType;					
-		_localType = [System_Type objectWithMonoObject:monoObject];
+		_localType = [System_Type bestObjectWithMonoObject:monoObject];
 
 		return _localType;
 	}
@@ -69,7 +99,9 @@
 	// Managed param types : System.String
     - (void)setLocalSymInfo_withName:(NSString *)p1
     {
-		[self invokeMonoMethod:"SetLocalSymInfo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetLocalSymInfo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetLocalSymInfo
@@ -77,7 +109,9 @@
 	// Managed param types : System.String, System.Int32, System.Int32
     - (void)setLocalSymInfo_withName:(NSString *)p1 startOffset:(int32_t)p2 endOffset:(int32_t)p3
     {
-		[self invokeMonoMethod:"SetLocalSymInfo(string,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		[self invokeMonoMethod:"SetLocalSymInfo(string,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+        
     }
 
 #pragma mark -

@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Globalization.GregorianCalendar
 	// Managed param types : System.Globalization.GregorianCalendarTypes
-    + (System_Globalization_GregorianCalendar *)new_withType:(System_Globalization_GregorianCalendarTypes)p1
+    + (System_Globalization_GregorianCalendar *)new_withType:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Globalization.GregorianCalendarTypes" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Globalization_GregorianCalendar * object = [[self alloc] initWithSignature:"System.Globalization.GregorianCalendarTypes" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -55,10 +58,20 @@
 	// Managed property name : AlgorithmType
 	// Managed property type : System.Globalization.CalendarAlgorithmType
     @synthesize algorithmType = _algorithmType;
-    - (System_Globalization_CalendarAlgorithmType)algorithmType
+    - (int32_t)algorithmType
     {
-		MonoObject *monoObject = [self getMonoProperty:"AlgorithmType"];
-		_algorithmType = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AlgorithmType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_algorithmType = monoObject;
 
 		return _algorithmType;
 	}
@@ -66,18 +79,37 @@
 	// Managed property name : CalendarType
 	// Managed property type : System.Globalization.GregorianCalendarTypes
     @synthesize calendarType = _calendarType;
-    - (System_Globalization_GregorianCalendarTypes)calendarType
+    - (int32_t)calendarType
     {
-		MonoObject *monoObject = [self getMonoProperty:"CalendarType"];
-		_calendarType = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CalendarType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_calendarType = monoObject;
 
 		return _calendarType;
 	}
-    - (void)setCalendarType:(System_Globalization_GregorianCalendarTypes)value
+    - (void)setCalendarType:(int32_t)value
 	{
 		_calendarType = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"CalendarType" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CalendarType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Eras
@@ -85,7 +117,17 @@
     @synthesize eras = _eras;
     - (DBSystem_Array *)eras
     {
-		MonoObject *monoObject = [self getMonoProperty:"Eras"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Eras");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_eras isEqualToMonoObject:monoObject]) return _eras;					
 		_eras = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -97,7 +139,17 @@
     @synthesize maxSupportedDateTime = _maxSupportedDateTime;
     - (NSDate *)maxSupportedDateTime
     {
-		MonoObject *monoObject = [self getMonoProperty:"MaxSupportedDateTime"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MaxSupportedDateTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_maxSupportedDateTime isEqualToMonoObject:monoObject]) return _maxSupportedDateTime;					
 		_maxSupportedDateTime = [NSDate dateWithMonoDateTime:monoObject];
 
@@ -109,7 +161,17 @@
     @synthesize minSupportedDateTime = _minSupportedDateTime;
     - (NSDate *)minSupportedDateTime
     {
-		MonoObject *monoObject = [self getMonoProperty:"MinSupportedDateTime"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MinSupportedDateTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_minSupportedDateTime isEqualToMonoObject:monoObject]) return _minSupportedDateTime;					
 		_minSupportedDateTime = [NSDate dateWithMonoDateTime:monoObject];
 
@@ -121,16 +183,35 @@
     @synthesize twoDigitYearMax = _twoDigitYearMax;
     - (int32_t)twoDigitYearMax
     {
-		MonoObject *monoObject = [self getMonoProperty:"TwoDigitYearMax"];
-		_twoDigitYearMax = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TwoDigitYearMax");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_twoDigitYearMax = monoObject;
 
 		return _twoDigitYearMax;
 	}
     - (void)setTwoDigitYearMax:(int32_t)value
 	{
 		_twoDigitYearMax = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"TwoDigitYearMax" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "TwoDigitYearMax");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -172,7 +253,7 @@
 	// Managed method name : GetDayOfWeek
 	// Managed return type : System.DayOfWeek
 	// Managed param types : System.DateTime
-    - (System_DayOfWeek)getDayOfWeek_withTime:(NSDate *)p1
+    - (int32_t)getDayOfWeek_withTime:(NSDate *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDayOfWeek(System.DateTime)" withNumArgs:1, [p1 monoRTInvokeArg]];

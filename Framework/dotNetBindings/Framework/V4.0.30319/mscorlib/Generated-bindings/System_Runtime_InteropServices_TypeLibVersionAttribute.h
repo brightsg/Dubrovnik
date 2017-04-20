@@ -2,7 +2,7 @@
 //
 // Managed class : TypeLibVersionAttribute
 //
-@interface System_Runtime_InteropServices_TypeLibVersionAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Runtime_InteropServices_TypeLibVersionAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup

@@ -32,8 +32,18 @@
     static BOOL m_allowOnlyFipsAlgorithms;
     + (BOOL)allowOnlyFipsAlgorithms
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"AllowOnlyFipsAlgorithms"];
-		m_allowOnlyFipsAlgorithms = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AllowOnlyFipsAlgorithms");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_allowOnlyFipsAlgorithms = monoObject;
 
 		return m_allowOnlyFipsAlgorithms;
 	}
@@ -46,7 +56,9 @@
 	// Managed param types : System.Type, System.String[]
     + (void)addAlgorithm_withAlgorithm:(System_Type *)p1 names:(DBSystem_Array *)p2
     {
-		[self invokeMonoClassMethod:"AddAlgorithm(System.Type,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"AddAlgorithm(System.Type,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : AddOID
@@ -54,7 +66,9 @@
 	// Managed param types : System.String, System.String[]
     + (void)addOID_withOid:(NSString *)p1 names:(DBSystem_Array *)p2
     {
-		[self invokeMonoClassMethod:"AddOID(string,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"AddOID(string,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : CreateFromName

@@ -30,10 +30,20 @@
 	// Managed property name : MemberType
 	// Managed property type : System.Reflection.MemberTypes
     @synthesize memberType = _memberType;
-    - (System_Reflection_MemberTypes)memberType
+    - (int32_t)memberType
     {
-		MonoObject *monoObject = [self getMonoProperty:"MemberType"];
-		_memberType = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MemberType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_memberType = monoObject;
 
 		return _memberType;
 	}
@@ -43,9 +53,19 @@
     @synthesize returnParameter = _returnParameter;
     - (System_Reflection_ParameterInfo *)returnParameter
     {
-		MonoObject *monoObject = [self getMonoProperty:"ReturnParameter"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ReturnParameter");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_returnParameter isEqualToMonoObject:monoObject]) return _returnParameter;					
-		_returnParameter = [System_Reflection_ParameterInfo objectWithMonoObject:monoObject];
+		_returnParameter = [System_Reflection_ParameterInfo bestObjectWithMonoObject:monoObject];
 
 		return _returnParameter;
 	}
@@ -55,9 +75,19 @@
     @synthesize returnType = _returnType;
     - (System_Type *)returnType
     {
-		MonoObject *monoObject = [self getMonoProperty:"ReturnType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ReturnType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_returnType isEqualToMonoObject:monoObject]) return _returnType;					
-		_returnType = [System_Type objectWithMonoObject:monoObject];
+		_returnType = [System_Type bestObjectWithMonoObject:monoObject];
 
 		return _returnType;
 	}
@@ -67,9 +97,19 @@
     @synthesize returnTypeCustomAttributes = _returnTypeCustomAttributes;
     - (System_Reflection_ICustomAttributeProvider *)returnTypeCustomAttributes
     {
-		MonoObject *monoObject = [self getMonoProperty:"ReturnTypeCustomAttributes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ReturnTypeCustomAttributes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_returnTypeCustomAttributes isEqualToMonoObject:monoObject]) return _returnTypeCustomAttributes;					
-		_returnTypeCustomAttributes = [System_Reflection_ICustomAttributeProvider objectWithMonoObject:monoObject];
+		_returnTypeCustomAttributes = [System_Reflection_ICustomAttributeProvider bestObjectWithMonoObject:monoObject];
 
 		return _returnTypeCustomAttributes;
 	}
@@ -85,7 +125,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDelegate(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Delegate objectWithMonoObject:monoObject];
+		return [System_Delegate bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDelegate
@@ -96,7 +136,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDelegate(System.Type,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Delegate objectWithMonoObject:monoObject];
+		return [System_Delegate bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals
@@ -118,7 +158,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetBaseDefinition()" withNumArgs:0];
 		
-		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetGenericArguments
@@ -140,7 +180,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetGenericMethodDefinition()" withNumArgs:0];
 		
-		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetHashCode
@@ -160,9 +200,9 @@
     - (System_Reflection_MethodInfo *)makeGenericMethod_withTypeArguments:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"MakeGenericMethod(System.Array[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"MakeGenericMethod(System.Type[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : op_Equality

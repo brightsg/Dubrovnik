@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ConsoleKeyInfo
 	// Managed param types : System.Char, System.ConsoleKey, System.Boolean, System.Boolean, System.Boolean
-    + (System_ConsoleKeyInfo *)new_withKeyChar:(uint16_t)p1 key:(System_ConsoleKey)p2 shift:(BOOL)p3 alt:(BOOL)p4 control:(BOOL)p5
+    + (System_ConsoleKeyInfo *)new_withKeyChar:(uint16_t)p1 key:(int32_t)p2 shift:(BOOL)p3 alt:(BOOL)p4 control:(BOOL)p5
     {
-		return [[self alloc] initWithSignature:"char,System.ConsoleKey,bool,bool,bool" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];;
+		
+		System_ConsoleKeyInfo * object = [[self alloc] initWithSignature:"char,System.ConsoleKey,bool,bool,bool" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -41,10 +44,20 @@
 	// Managed property name : Key
 	// Managed property type : System.ConsoleKey
     @synthesize key = _key;
-    - (System_ConsoleKey)key
+    - (int32_t)key
     {
-		MonoObject *monoObject = [self getMonoProperty:"Key"];
-		_key = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Key");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_key = monoObject;
 
 		return _key;
 	}
@@ -54,8 +67,18 @@
     @synthesize keyChar = _keyChar;
     - (uint16_t)keyChar
     {
-		MonoObject *monoObject = [self getMonoProperty:"KeyChar"];
-		_keyChar = DB_UNBOX_UINT16(monoObject);
+		typedef uint16_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "KeyChar");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		uint16_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_keyChar = monoObject;
 
 		return _keyChar;
 	}
@@ -63,10 +86,20 @@
 	// Managed property name : Modifiers
 	// Managed property type : System.ConsoleModifiers
     @synthesize modifiers = _modifiers;
-    - (System_ConsoleModifiers)modifiers
+    - (int32_t)modifiers
     {
-		MonoObject *monoObject = [self getMonoProperty:"Modifiers"];
-		_modifiers = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Modifiers");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_modifiers = monoObject;
 
 		return _modifiers;
 	}

@@ -2,7 +2,7 @@
 //
 // Managed class : Mutex
 //
-@interface System_Threading_Mutex : System_Threading_WaitHandle <System_IDisposable>
+@interface System_Threading_Mutex : System_Threading_WaitHandle <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -50,7 +50,7 @@
 	// Managed method name : OpenExisting
 	// Managed return type : System.Threading.Mutex
 	// Managed param types : System.String, System.Security.AccessControl.MutexRights
-    + (System_Threading_Mutex *)openExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_MutexRights)p2;
+    + (System_Threading_Mutex *)openExisting_withName:(NSString *)p1 rights:(int32_t)p2;
 
 	// Managed method name : ReleaseMutex
 	// Managed return type : System.Void
@@ -70,6 +70,6 @@
 	// Managed method name : TryOpenExisting
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.Security.AccessControl.MutexRights, ref System.Threading.Mutex&
-    + (BOOL)tryOpenExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_MutexRights)p2 resultRef:(System_Threading_Mutex **)p3;
+    + (BOOL)tryOpenExisting_withName:(NSString *)p1 rights:(int32_t)p2 resultRef:(System_Threading_Mutex **)p3;
 @end
 //--Dubrovnik.CodeGenerator

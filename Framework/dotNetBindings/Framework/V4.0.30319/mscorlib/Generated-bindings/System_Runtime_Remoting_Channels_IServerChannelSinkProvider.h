@@ -24,11 +24,11 @@
 	// Managed method name : CreateSink
 	// Managed return type : System.Runtime.Remoting.Channels.IServerChannelSink
 	// Managed param types : System.Runtime.Remoting.Channels.IChannelReceiver
-    - (System_Runtime_Remoting_Channels_IServerChannelSink *)createSink_withChannel:(System_Runtime_Remoting_Channels_IChannelReceiver *)p1;
+    - (id <System_Runtime_Remoting_Channels_IServerChannelSink>)createSink_withChannel:(id <System_Runtime_Remoting_Channels_IChannelReceiver_>)p1;
 
 	// Managed method name : GetChannelData
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Channels.IChannelDataStore
-    - (void)getChannelData_withChannelData:(System_Runtime_Remoting_Channels_IChannelDataStore *)p1;
+    - (void)getChannelData_withChannelData:(id <System_Runtime_Remoting_Channels_IChannelDataStore_>)p1;
 @end
 //--Dubrovnik.CodeGenerator

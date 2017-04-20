@@ -24,7 +24,7 @@
 	// Managed method name : GetDocument
 	// Managed return type : System.Diagnostics.SymbolStore.ISymbolDocument
 	// Managed param types : System.String, System.Guid, System.Guid, System.Guid
-    - (System_Diagnostics_SymbolStore_ISymbolDocument *)getDocument_withUrl:(NSString *)p1 language:(System_Guid *)p2 languageVendor:(System_Guid *)p3 documentType:(System_Guid *)p4;
+    - (id <System_Diagnostics_SymbolStore_ISymbolDocument>)getDocument_withUrl:(NSString *)p1 language:(System_Guid *)p2 languageVendor:(System_Guid *)p3 documentType:(System_Guid *)p4;
 
 	// Managed method name : GetDocuments
 	// Managed return type : System.Diagnostics.SymbolStore.ISymbolDocument[]
@@ -39,17 +39,17 @@
 	// Managed method name : GetMethod
 	// Managed return type : System.Diagnostics.SymbolStore.ISymbolMethod
 	// Managed param types : System.Diagnostics.SymbolStore.SymbolToken
-    - (System_Diagnostics_SymbolStore_ISymbolMethod *)getMethod_withMethod:(System_Diagnostics_SymbolStore_SymbolToken *)p1;
+    - (id <System_Diagnostics_SymbolStore_ISymbolMethod>)getMethod_withMethod:(System_Diagnostics_SymbolStore_SymbolToken *)p1;
 
 	// Managed method name : GetMethod
 	// Managed return type : System.Diagnostics.SymbolStore.ISymbolMethod
 	// Managed param types : System.Diagnostics.SymbolStore.SymbolToken, System.Int32
-    - (System_Diagnostics_SymbolStore_ISymbolMethod *)getMethod_withMethod:(System_Diagnostics_SymbolStore_SymbolToken *)p1 version:(int32_t)p2;
+    - (id <System_Diagnostics_SymbolStore_ISymbolMethod>)getMethod_withMethod:(System_Diagnostics_SymbolStore_SymbolToken *)p1 version:(int32_t)p2;
 
 	// Managed method name : GetMethodFromDocumentPosition
 	// Managed return type : System.Diagnostics.SymbolStore.ISymbolMethod
 	// Managed param types : System.Diagnostics.SymbolStore.ISymbolDocument, System.Int32, System.Int32
-    - (System_Diagnostics_SymbolStore_ISymbolMethod *)getMethodFromDocumentPosition_withDocument:(System_Diagnostics_SymbolStore_ISymbolDocument *)p1 line:(int32_t)p2 column:(int32_t)p3;
+    - (id <System_Diagnostics_SymbolStore_ISymbolMethod>)getMethodFromDocumentPosition_withDocument:(id <System_Diagnostics_SymbolStore_ISymbolDocument_>)p1 line:(int32_t)p2 column:(int32_t)p3;
 
 	// Managed method name : GetNamespaces
 	// Managed return type : System.Diagnostics.SymbolStore.ISymbolNamespace[]

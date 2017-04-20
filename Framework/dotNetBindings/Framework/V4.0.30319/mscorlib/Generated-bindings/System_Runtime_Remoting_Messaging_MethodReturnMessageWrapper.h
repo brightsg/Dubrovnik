@@ -2,7 +2,7 @@
 //
 // Managed class : MethodReturnMessageWrapper
 //
-@interface System_Runtime_Remoting_Messaging_MethodReturnMessageWrapper : System_Runtime_Remoting_Messaging_InternalMessageWrapper <System_Runtime_Remoting_Messaging_IMethodReturnMessage, System_Runtime_Remoting_Messaging_IMethodMessage, System_Runtime_Remoting_Messaging_IMessage>
+@interface System_Runtime_Remoting_Messaging_MethodReturnMessageWrapper : System_Runtime_Remoting_Messaging_InternalMessageWrapper <System_Runtime_Remoting_Messaging_IMethodReturnMessage_, System_Runtime_Remoting_Messaging_IMethodMessage_, System_Runtime_Remoting_Messaging_IMessage_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Remoting.Messaging.MethodReturnMessageWrapper
 	// Managed param types : System.Runtime.Remoting.Messaging.IMethodReturnMessage
-    + (System_Runtime_Remoting_Messaging_MethodReturnMessageWrapper *)new_withMsg:(System_Runtime_Remoting_Messaging_IMethodReturnMessage *)p1;
+    + (System_Runtime_Remoting_Messaging_MethodReturnMessageWrapper *)new_withMsg:(id <System_Runtime_Remoting_Messaging_IMethodReturnMessage_>)p1;
 
 #pragma mark -
 #pragma mark Properties

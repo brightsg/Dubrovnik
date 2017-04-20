@@ -29,22 +29,22 @@
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
-	// Managed param types : System.Reflection.Emit.Label
-    - (BOOL)equals_withObjSRELabel:(System_Reflection_Emit_Label *)p1
+	// Managed param types : System.Object
+    - (BOOL)equals_withObjObject:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Reflection.Emit.Label)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
-	// Managed param types : System.Object
-    - (BOOL)equals_withObjObject:(System_Object *)p1
+	// Managed param types : System.Reflection.Emit.Label
+    - (BOOL)equals_withObjSRELabel:(System_Reflection_Emit_Label *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Reflection.Emit.Label)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

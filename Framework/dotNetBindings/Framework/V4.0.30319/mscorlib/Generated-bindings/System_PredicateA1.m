@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Predicate`1<System.Predicate`1+T>";
+		return "System.Predicate`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,7 +32,10 @@
 	// Managed param types : System.Object, System.IntPtr
     + (System_PredicateA1 *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
-		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		System_PredicateA1 * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -41,18 +44,18 @@
 	// Managed method name : BeginInvoke
 	// Managed return type : System.IAsyncResult
 	// Managed param types : <System.Predicate`1+T>, System.AsyncCallback, System.Object
-    - (System_IAsyncResult *)beginInvoke_withObj:(System_Object *)p1 callback:(System_AsyncCallback *)p2 object:(System_Object *)p3
+    - (id <System_IAsyncResult>)beginInvoke_withObj:(System_Object *)p1 callback:(System_AsyncCallback *)p2 object:(System_Object *)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(<_T_0>,System.AsyncCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_IAsyncResult objectWithMonoObject:monoObject];
+		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EndInvoke
 	// Managed return type : System.Boolean
 	// Managed param types : System.IAsyncResult
-    - (BOOL)endInvoke_withResult:(System_IAsyncResult *)p1
+    - (BOOL)endInvoke_withResult:(id <System_IAsyncResult_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];

@@ -32,7 +32,10 @@
 	// Managed param types : System.Boolean
     + (System_Diagnostics_StackTrace *)new_withFNeedFileInfo:(BOOL)p1
     {
-		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Diagnostics_StackTrace * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Int32
     + (System_Diagnostics_StackTrace *)new_withSkipFrames:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Diagnostics_StackTrace * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +54,10 @@
 	// Managed param types : System.Int32, System.Boolean
     + (System_Diagnostics_StackTrace *)new_withSkipFrames:(int32_t)p1 fNeedFileInfo:(BOOL)p2
     {
-		return [[self alloc] initWithSignature:"int,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		System_Diagnostics_StackTrace * object = [[self alloc] initWithSignature:"int,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +65,10 @@
 	// Managed param types : System.Exception
     + (System_Diagnostics_StackTrace *)new_withE:(System_Exception *)p1
     {
-		return [[self alloc] initWithSignature:"System.Exception" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Diagnostics_StackTrace * object = [[self alloc] initWithSignature:"System.Exception" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +76,10 @@
 	// Managed param types : System.Exception, System.Boolean
     + (System_Diagnostics_StackTrace *)new_withE:(System_Exception *)p1 fNeedFileInfo:(BOOL)p2
     {
-		return [[self alloc] initWithSignature:"System.Exception,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		System_Diagnostics_StackTrace * object = [[self alloc] initWithSignature:"System.Exception,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -72,7 +87,10 @@
 	// Managed param types : System.Exception, System.Int32
     + (System_Diagnostics_StackTrace *)new_withE:(System_Exception *)p1 skipFrames:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"System.Exception,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		System_Diagnostics_StackTrace * object = [[self alloc] initWithSignature:"System.Exception,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -80,7 +98,10 @@
 	// Managed param types : System.Exception, System.Int32, System.Boolean
     + (System_Diagnostics_StackTrace *)new_withE:(System_Exception *)p1 skipFrames:(int32_t)p2 fNeedFileInfo:(BOOL)p3
     {
-		return [[self alloc] initWithSignature:"System.Exception,int,bool" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		System_Diagnostics_StackTrace * object = [[self alloc] initWithSignature:"System.Exception,int,bool" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -88,7 +109,10 @@
 	// Managed param types : System.Diagnostics.StackFrame
     + (System_Diagnostics_StackTrace *)new_withFrame:(System_Diagnostics_StackFrame *)p1
     {
-		return [[self alloc] initWithSignature:"System.Diagnostics.StackFrame" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Diagnostics_StackTrace * object = [[self alloc] initWithSignature:"System.Diagnostics.StackFrame" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -96,7 +120,10 @@
 	// Managed param types : System.Threading.Thread, System.Boolean
     + (System_Diagnostics_StackTrace *)new_withTargetThread:(System_Threading_Thread *)p1 needFileInfo:(BOOL)p2
     {
-		return [[self alloc] initWithSignature:"System.Threading.Thread,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		System_Diagnostics_StackTrace * object = [[self alloc] initWithSignature:"System.Threading.Thread,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -121,8 +148,18 @@
     @synthesize frameCount = _frameCount;
     - (int32_t)frameCount
     {
-		MonoObject *monoObject = [self getMonoProperty:"FrameCount"];
-		_frameCount = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FrameCount");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_frameCount = monoObject;
 
 		return _frameCount;
 	}
@@ -138,7 +175,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFrame(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Diagnostics_StackFrame objectWithMonoObject:monoObject];
+		return [System_Diagnostics_StackFrame bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetFrames

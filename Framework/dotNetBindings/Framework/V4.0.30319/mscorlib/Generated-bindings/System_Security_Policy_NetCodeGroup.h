@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Policy.NetCodeGroup
 	// Managed param types : System.Security.Policy.IMembershipCondition
-    + (System_Security_Policy_NetCodeGroup *)new_withMembershipCondition:(System_Security_Policy_IMembershipCondition *)p1;
+    + (System_Security_Policy_NetCodeGroup *)new_withMembershipCondition:(id <System_Security_Policy_IMembershipCondition_>)p1;
 
 #pragma mark -
 #pragma mark Fields

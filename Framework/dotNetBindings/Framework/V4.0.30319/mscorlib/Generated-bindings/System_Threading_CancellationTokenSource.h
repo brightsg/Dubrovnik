@@ -2,7 +2,7 @@
 //
 // Managed class : CancellationTokenSource
 //
-@interface System_Threading_CancellationTokenSource : System_Object <System_IDisposable>
+@interface System_Threading_CancellationTokenSource : System_Object <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

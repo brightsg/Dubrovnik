@@ -45,7 +45,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"InfiniteTimeSpan"];
 		if ([self object:m_infiniteTimeSpan isEqualToMonoObject:monoObject]) return m_infiniteTimeSpan;					
-		m_infiniteTimeSpan = [System_TimeSpan objectWithMonoObject:monoObject];
+		m_infiniteTimeSpan = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
 		return m_infiniteTimeSpan;
 	}

@@ -32,7 +32,10 @@
 	// Managed param types : System.Int32, System.Int32
     + (System_Runtime_InteropServices_TypeLibVersionAttribute *)new_withMajor:(int32_t)p1 minor:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"int,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		System_Runtime_InteropServices_TypeLibVersionAttribute * object = [[self alloc] initWithSignature:"int,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,8 +46,18 @@
     @synthesize majorVersion = _majorVersion;
     - (int32_t)majorVersion
     {
-		MonoObject *monoObject = [self getMonoProperty:"MajorVersion"];
-		_majorVersion = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MajorVersion");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_majorVersion = monoObject;
 
 		return _majorVersion;
 	}
@@ -54,8 +67,18 @@
     @synthesize minorVersion = _minorVersion;
     - (int32_t)minorVersion
     {
-		MonoObject *monoObject = [self getMonoProperty:"MinorVersion"];
-		_minorVersion = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MinorVersion");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_minorVersion = monoObject;
 
 		return _minorVersion;
 	}

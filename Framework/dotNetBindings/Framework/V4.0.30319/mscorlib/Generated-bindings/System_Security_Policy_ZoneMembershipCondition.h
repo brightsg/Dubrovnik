@@ -2,7 +2,7 @@
 //
 // Managed class : ZoneMembershipCondition
 //
-@interface System_Security_Policy_ZoneMembershipCondition : System_Object <System_Security_Policy_IMembershipCondition, System_Security_ISecurityEncodable, System_Security_ISecurityPolicyEncodable>
+@interface System_Security_Policy_ZoneMembershipCondition : System_Object <System_Security_Policy_IMembershipCondition_, System_Security_ISecurityEncodable_, System_Security_ISecurityPolicyEncodable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,14 +17,14 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Policy.ZoneMembershipCondition
 	// Managed param types : System.Security.SecurityZone
-    + (System_Security_Policy_ZoneMembershipCondition *)new_withZone:(System_Security_SecurityZone)p1;
+    + (System_Security_Policy_ZoneMembershipCondition *)new_withZone:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : SecurityZone
 	// Managed property type : System.Security.SecurityZone
-    @property (nonatomic) System_Security_SecurityZone securityZone;
+    @property (nonatomic) int32_t securityZone;
 
 #pragma mark -
 #pragma mark Methods
@@ -37,7 +37,7 @@
 	// Managed method name : Copy
 	// Managed return type : System.Security.Policy.IMembershipCondition
 	// Managed param types : 
-    - (System_Security_Policy_IMembershipCondition *)copy;
+    - (id <System_Security_Policy_IMembershipCondition>)copy;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

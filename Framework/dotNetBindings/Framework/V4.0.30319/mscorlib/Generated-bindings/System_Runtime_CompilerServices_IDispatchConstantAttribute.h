@@ -2,7 +2,7 @@
 //
 // Managed class : IDispatchConstantAttribute
 //
-@interface System_Runtime_CompilerServices_IDispatchConstantAttribute : System_Runtime_CompilerServices_CustomConstantAttribute <System_Runtime_InteropServices__Attribute>
+@interface System_Runtime_CompilerServices_IDispatchConstantAttribute : System_Runtime_CompilerServices_CustomConstantAttribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup

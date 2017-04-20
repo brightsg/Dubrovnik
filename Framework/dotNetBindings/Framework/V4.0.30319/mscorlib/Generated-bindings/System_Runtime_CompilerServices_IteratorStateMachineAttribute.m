@@ -32,7 +32,10 @@
 	// Managed param types : System.Type
     + (System_Runtime_CompilerServices_IteratorStateMachineAttribute *)new_withStateMachineType:(System_Type *)p1
     {
-		return [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Runtime_CompilerServices_IteratorStateMachineAttribute * object = [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -

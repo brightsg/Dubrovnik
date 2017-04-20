@@ -32,7 +32,10 @@
 	// Managed param types : System.String
     + (System_Reflection_AssemblyKeyFileAttribute *)new_withKeyFile:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Reflection_AssemblyKeyFileAttribute * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,7 +46,17 @@
     @synthesize keyFile = _keyFile;
     - (NSString *)keyFile
     {
-		MonoObject *monoObject = [self getMonoProperty:"KeyFile"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "KeyFile");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_keyFile isEqualToMonoObject:monoObject]) return _keyFile;					
 		_keyFile = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

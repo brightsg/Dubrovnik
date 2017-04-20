@@ -2,7 +2,7 @@
 //
 // Managed interface : IRemotingFormatter
 //
-@interface System_Runtime_Remoting_Messaging_IRemotingFormatter : System_Object <System_Runtime_Remoting_Messaging_IRemotingFormatter, System_Runtime_Serialization_IFormatter>
+@interface System_Runtime_Remoting_Messaging_IRemotingFormatter : System_Object <System_Runtime_Remoting_Messaging_IRemotingFormatter_, System_Runtime_Serialization_IFormatter_>
 
 #pragma mark -
 #pragma mark Setup

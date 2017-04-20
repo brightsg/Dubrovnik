@@ -32,7 +32,10 @@
 	// Managed param types : System.Byte[]
     + (System_Security_Cryptography_HMACSHA512 *)new_withKey:(NSData *)p1
     {
-		return [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_HMACSHA512 * object = [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,16 +46,35 @@
     @synthesize produceLegacyHmacValues = _produceLegacyHmacValues;
     - (BOOL)produceLegacyHmacValues
     {
-		MonoObject *monoObject = [self getMonoProperty:"ProduceLegacyHmacValues"];
-		_produceLegacyHmacValues = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ProduceLegacyHmacValues");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_produceLegacyHmacValues = monoObject;
 
 		return _produceLegacyHmacValues;
 	}
     - (void)setProduceLegacyHmacValues:(BOOL)value
 	{
 		_produceLegacyHmacValues = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ProduceLegacyHmacValues" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ProduceLegacyHmacValues");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

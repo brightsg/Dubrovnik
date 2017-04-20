@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.IEqualityComparer`1+T>";
+		return "System.Collections.Generic.IEqualityComparer`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName

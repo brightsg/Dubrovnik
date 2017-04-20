@@ -32,7 +32,17 @@
     @synthesize hashName = _hashName;
     - (NSString *)hashName
     {
-		MonoObject *monoObject = [self getMonoProperty:"HashName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HashName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_hashName isEqualToMonoObject:monoObject]) return _hashName;					
 		_hashName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -41,8 +51,17 @@
     - (void)setHashName:(NSString *)value
 	{
 		_hashName = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"HashName" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "HashName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Key
@@ -50,7 +69,17 @@
     @synthesize key = _key;
     - (NSData *)key
     {
-		MonoObject *monoObject = [self getMonoProperty:"Key"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Key");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_key isEqualToMonoObject:monoObject]) return _key;					
 		_key = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -59,8 +88,17 @@
     - (void)setKey:(NSData *)value
 	{
 		_key = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"Key" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Key");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -74,7 +112,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create()" withNumArgs:0];
 		
-		return [System_Security_Cryptography_HMAC objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_HMAC bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
@@ -85,7 +123,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_Cryptography_HMAC objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_HMAC bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Initialize
@@ -93,7 +131,9 @@
 	// Managed param types : 
     - (void)initialize
     {
-		[self invokeMonoMethod:"Initialize()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Initialize()" withNumArgs:0];
+        
     }
 
 #pragma mark -

@@ -2,7 +2,7 @@
 //
 // Managed class : Hash
 //
-@interface System_Security_Policy_Hash : System_Security_Policy_EvidenceBase <System_Runtime_Serialization_ISerializable>
+@interface System_Security_Policy_Hash : System_Security_Policy_EvidenceBase <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup

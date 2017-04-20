@@ -30,33 +30,45 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.FileSystemAuditRule
 	// Managed param types : System.Security.Principal.IdentityReference, System.Security.AccessControl.FileSystemRights, System.Security.AccessControl.AuditFlags
-    + (System_Security_AccessControl_FileSystemAuditRule *)new_withIdentitySSPIdentityReference:(System_Security_Principal_IdentityReference *)p1 fileSystemRightsSSAFileSystemRights:(System_Security_AccessControl_FileSystemRights)p2 flagsSSAAuditFlags:(System_Security_AccessControl_AuditFlags)p3
+    + (System_Security_AccessControl_FileSystemAuditRule *)new_withIdentitySSPIdentityReference:(System_Security_Principal_IdentityReference *)p1 fileSystemRightsSSAFileSystemRights:(int32_t)p2 flagsSSAAuditFlags:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"System.Security.Principal.IdentityReference,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.AuditFlags" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		System_Security_AccessControl_FileSystemAuditRule * object = [[self alloc] initWithSignature:"System.Security.Principal.IdentityReference,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.AuditFlags" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.FileSystemAuditRule
 	// Managed param types : System.Security.Principal.IdentityReference, System.Security.AccessControl.FileSystemRights, System.Security.AccessControl.InheritanceFlags, System.Security.AccessControl.PropagationFlags, System.Security.AccessControl.AuditFlags
-    + (System_Security_AccessControl_FileSystemAuditRule *)new_withIdentitySSPIdentityReference:(System_Security_Principal_IdentityReference *)p1 fileSystemRightsSSAFileSystemRights:(System_Security_AccessControl_FileSystemRights)p2 inheritanceFlagsSSAInheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p3 propagationFlagsSSAPropagationFlags:(System_Security_AccessControl_PropagationFlags)p4 flagsSSAAuditFlags:(System_Security_AccessControl_AuditFlags)p5
+    + (System_Security_AccessControl_FileSystemAuditRule *)new_withIdentitySSPIdentityReference:(System_Security_Principal_IdentityReference *)p1 fileSystemRightsSSAFileSystemRights:(int32_t)p2 inheritanceFlagsSSAInheritanceFlags:(int32_t)p3 propagationFlagsSSAPropagationFlags:(int32_t)p4 flagsSSAAuditFlags:(int32_t)p5
     {
-		return [[self alloc] initWithSignature:"System.Security.Principal.IdentityReference,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AuditFlags" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];;
+		
+		System_Security_AccessControl_FileSystemAuditRule * object = [[self alloc] initWithSignature:"System.Security.Principal.IdentityReference,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AuditFlags" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.FileSystemAuditRule
 	// Managed param types : System.String, System.Security.AccessControl.FileSystemRights, System.Security.AccessControl.AuditFlags
-    + (System_Security_AccessControl_FileSystemAuditRule *)new_withIdentityString:(NSString *)p1 fileSystemRightsSSAFileSystemRights:(System_Security_AccessControl_FileSystemRights)p2 flagsSSAAuditFlags:(System_Security_AccessControl_AuditFlags)p3
+    + (System_Security_AccessControl_FileSystemAuditRule *)new_withIdentityString:(NSString *)p1 fileSystemRightsSSAFileSystemRights:(int32_t)p2 flagsSSAAuditFlags:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"string,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.AuditFlags" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		System_Security_AccessControl_FileSystemAuditRule * object = [[self alloc] initWithSignature:"string,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.AuditFlags" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.FileSystemAuditRule
 	// Managed param types : System.String, System.Security.AccessControl.FileSystemRights, System.Security.AccessControl.InheritanceFlags, System.Security.AccessControl.PropagationFlags, System.Security.AccessControl.AuditFlags
-    + (System_Security_AccessControl_FileSystemAuditRule *)new_withIdentityString:(NSString *)p1 fileSystemRightsSSAFileSystemRights:(System_Security_AccessControl_FileSystemRights)p2 inheritanceFlagsSSAInheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p3 propagationFlagsSSAPropagationFlags:(System_Security_AccessControl_PropagationFlags)p4 flagsSSAAuditFlags:(System_Security_AccessControl_AuditFlags)p5
+    + (System_Security_AccessControl_FileSystemAuditRule *)new_withIdentityString:(NSString *)p1 fileSystemRightsSSAFileSystemRights:(int32_t)p2 inheritanceFlagsSSAInheritanceFlags:(int32_t)p3 propagationFlagsSSAPropagationFlags:(int32_t)p4 flagsSSAAuditFlags:(int32_t)p5
     {
-		return [[self alloc] initWithSignature:"string,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AuditFlags" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];;
+		
+		System_Security_AccessControl_FileSystemAuditRule * object = [[self alloc] initWithSignature:"string,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AuditFlags" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -65,10 +77,20 @@
 	// Managed property name : FileSystemRights
 	// Managed property type : System.Security.AccessControl.FileSystemRights
     @synthesize fileSystemRights = _fileSystemRights;
-    - (System_Security_AccessControl_FileSystemRights)fileSystemRights
+    - (int32_t)fileSystemRights
     {
-		MonoObject *monoObject = [self getMonoProperty:"FileSystemRights"];
-		_fileSystemRights = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FileSystemRights");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_fileSystemRights = monoObject;
 
 		return _fileSystemRights;
 	}

@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.CommonAce
 	// Managed param types : System.Security.AccessControl.AceFlags, System.Security.AccessControl.AceQualifier, System.Int32, System.Security.Principal.SecurityIdentifier, System.Boolean, System.Byte[]
-    + (System_Security_AccessControl_CommonAce *)new_withFlags:(System_Security_AccessControl_AceFlags)p1 qualifier:(System_Security_AccessControl_AceQualifier)p2 accessMask:(int32_t)p3 sid:(System_Security_Principal_SecurityIdentifier *)p4 isCallback:(BOOL)p5 opaque:(NSData *)p6
+    + (System_Security_AccessControl_CommonAce *)new_withFlags:(uint8_t)p1 qualifier:(int32_t)p2 accessMask:(int32_t)p3 sid:(System_Security_Principal_SecurityIdentifier *)p4 isCallback:(BOOL)p5 opaque:(NSData *)p6
     {
-		return [[self alloc] initWithSignature:"System.Security.AccessControl.AceFlags,System.Security.AccessControl.AceQualifier,int,System.Security.Principal.SecurityIdentifier,bool,byte[]" withNumArgs:6, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], DB_VALUE(p5), [p6 monoRTInvokeArg]];;
+		
+		System_Security_AccessControl_CommonAce * object = [[self alloc] initWithSignature:"System.Security.AccessControl.AceFlags,System.Security.AccessControl.AceQualifier,int,System.Security.Principal.SecurityIdentifier,bool,byte[]" withNumArgs:6, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], DB_VALUE(p5), [p6 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,8 +46,18 @@
     @synthesize binaryLength = _binaryLength;
     - (int32_t)binaryLength
     {
-		MonoObject *monoObject = [self getMonoProperty:"BinaryLength"];
-		_binaryLength = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BinaryLength");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_binaryLength = monoObject;
 
 		return _binaryLength;
 	}
@@ -57,7 +70,9 @@
 	// Managed param types : System.Byte[], System.Int32
     - (void)getBinaryForm_withBinaryForm:(NSData *)p1 offset:(int32_t)p2
     {
-		[self invokeMonoMethod:"GetBinaryForm(byte[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"GetBinaryForm(byte[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : MaxOpaqueLength

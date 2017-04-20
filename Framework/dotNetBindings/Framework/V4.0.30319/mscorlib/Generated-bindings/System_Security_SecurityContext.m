@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Capture()" withNumArgs:0];
 		
-		return [System_Security_SecurityContext objectWithMonoObject:monoObject];
+		return [System_Security_SecurityContext bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateCopy
@@ -46,7 +46,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateCopy()" withNumArgs:0];
 		
-		return [System_Security_SecurityContext objectWithMonoObject:monoObject];
+		return [System_Security_SecurityContext bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Dispose
@@ -54,7 +54,9 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+        
     }
 
 	// Managed method name : IsFlowSuppressed
@@ -84,7 +86,9 @@
 	// Managed param types : 
     + (void)restoreFlow
     {
-		[self invokeMonoClassMethod:"RestoreFlow()" withNumArgs:0];;
+		
+		[self invokeMonoClassMethod:"RestoreFlow()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Run
@@ -92,7 +96,9 @@
 	// Managed param types : System.Security.SecurityContext, System.Threading.ContextCallback, System.Object
     + (void)run_withSecurityContext:(System_Security_SecurityContext *)p1 callback:(System_Threading_ContextCallback *)p2 state:(System_Object *)p3
     {
-		[self invokeMonoClassMethod:"Run(System.Security.SecurityContext,System.Threading.ContextCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Run(System.Security.SecurityContext,System.Threading.ContextCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SuppressFlow
@@ -103,7 +109,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"SuppressFlow()" withNumArgs:0];
 		
-		return [System_Threading_AsyncFlowControl objectWithMonoObject:monoObject];
+		return [System_Threading_AsyncFlowControl bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SuppressFlowWindowsIdentity
@@ -114,7 +120,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"SuppressFlowWindowsIdentity()" withNumArgs:0];
 		
-		return [System_Threading_AsyncFlowControl objectWithMonoObject:monoObject];
+		return [System_Threading_AsyncFlowControl bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

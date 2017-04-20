@@ -32,7 +32,10 @@
 	// Managed param types : System.Security.Cryptography.X509Certificates.X509Certificate
     + (System_Security_Policy_Publisher *)new_withCert:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Cryptography.X509Certificates.X509Certificate" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Security_Policy_Publisher * object = [[self alloc] initWithSignature:"System.Security.Cryptography.X509Certificates.X509Certificate" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,9 +46,19 @@
     @synthesize certificate = _certificate;
     - (System_Security_Cryptography_X509Certificates_X509Certificate *)certificate
     {
-		MonoObject *monoObject = [self getMonoProperty:"Certificate"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Certificate");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_certificate isEqualToMonoObject:monoObject]) return _certificate;					
-		_certificate = [System_Security_Cryptography_X509Certificates_X509Certificate objectWithMonoObject:monoObject];
+		_certificate = [System_Security_Cryptography_X509Certificates_X509Certificate bestObjectWithMonoObject:monoObject];
 
 		return _certificate;
 	}
@@ -61,7 +74,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
 		
-		return [System_Security_Policy_EvidenceBase objectWithMonoObject:monoObject];
+		return [System_Security_Policy_EvidenceBase bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Copy
@@ -78,12 +91,12 @@
 	// Managed method name : CreateIdentityPermission
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.Policy.Evidence
-    - (System_Security_IPermission *)createIdentityPermission_withEvidence:(System_Security_Policy_Evidence *)p1
+    - (id <System_Security_IPermission>)createIdentityPermission_withEvidence:(System_Security_Policy_Evidence *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateIdentityPermission(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals

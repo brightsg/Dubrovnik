@@ -34,7 +34,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Empty"];
 		if ([self object:m_empty isEqualToMonoObject:monoObject]) return m_empty;					
-		m_empty = [System_Reflection_Emit_TypeToken objectWithMonoObject:monoObject];
+		m_empty = [System_Reflection_Emit_TypeToken bestObjectWithMonoObject:monoObject];
 
 		return m_empty;
 	}
@@ -47,8 +47,18 @@
     @synthesize token = _token;
     - (int32_t)token
     {
-		MonoObject *monoObject = [self getMonoProperty:"Token"];
-		_token = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Token");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_token = monoObject;
 
 		return _token;
 	}

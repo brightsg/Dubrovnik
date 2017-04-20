@@ -16,6 +16,6 @@
 
 	// Managed property name : AccessControlType
 	// Managed property type : System.Security.AccessControl.AccessControlType
-    @property (nonatomic, readonly) System_Security_AccessControl_AccessControlType accessControlType;
+    @property (nonatomic, readonly) int32_t accessControlType;
 @end
 //--Dubrovnik.CodeGenerator

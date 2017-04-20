@@ -32,12 +32,12 @@
 	// Managed method name : GetNamespace
 	// Managed return type : System.Diagnostics.SymbolStore.ISymbolNamespace
 	// Managed param types : 
-    - (System_Diagnostics_SymbolStore_ISymbolNamespace *)getNamespace;
+    - (id <System_Diagnostics_SymbolStore_ISymbolNamespace>)getNamespace;
 
 	// Managed method name : GetOffset
 	// Managed return type : System.Int32
 	// Managed param types : System.Diagnostics.SymbolStore.ISymbolDocument, System.Int32, System.Int32
-    - (int32_t)getOffset_withDocument:(System_Diagnostics_SymbolStore_ISymbolDocument *)p1 line:(int32_t)p2 column:(int32_t)p3;
+    - (int32_t)getOffset_withDocument:(id <System_Diagnostics_SymbolStore_ISymbolDocument_>)p1 line:(int32_t)p2 column:(int32_t)p3;
 
 	// Managed method name : GetParameters
 	// Managed return type : System.Diagnostics.SymbolStore.ISymbolVariable[]
@@ -47,12 +47,12 @@
 	// Managed method name : GetRanges
 	// Managed return type : System.Int32[]
 	// Managed param types : System.Diagnostics.SymbolStore.ISymbolDocument, System.Int32, System.Int32
-    - (DBSystem_Array *)getRanges_withDocument:(System_Diagnostics_SymbolStore_ISymbolDocument *)p1 line:(int32_t)p2 column:(int32_t)p3;
+    - (DBSystem_Array *)getRanges_withDocument:(id <System_Diagnostics_SymbolStore_ISymbolDocument_>)p1 line:(int32_t)p2 column:(int32_t)p3;
 
 	// Managed method name : GetScope
 	// Managed return type : System.Diagnostics.SymbolStore.ISymbolScope
 	// Managed param types : System.Int32
-    - (System_Diagnostics_SymbolStore_ISymbolScope *)getScope_withOffset:(int32_t)p1;
+    - (id <System_Diagnostics_SymbolStore_ISymbolScope>)getScope_withOffset:(int32_t)p1;
 
 	// Managed method name : GetSequencePoints
 	// Managed return type : System.Void

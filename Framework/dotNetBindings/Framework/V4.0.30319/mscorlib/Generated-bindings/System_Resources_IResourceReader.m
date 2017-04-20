@@ -32,18 +32,20 @@
 	// Managed param types : 
     - (void)close
     {
-		[self invokeMonoMethod:"System.Resources.IResourceReader.Close()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"System.Resources.IResourceReader.Close()" withNumArgs:0];
+        
     }
 
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IDictionaryEnumerator
 	// Managed param types : 
-    - (System_Collections_IDictionaryEnumerator *)getEnumerator
+    - (id <System_Collections_IDictionaryEnumerator>)getEnumerator
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Resources.IResourceReader.GetEnumerator()" withNumArgs:0];
 		
-		return [System_Collections_IDictionaryEnumerator objectWithMonoObject:monoObject];
+		return [System_Collections_IDictionaryEnumerator bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

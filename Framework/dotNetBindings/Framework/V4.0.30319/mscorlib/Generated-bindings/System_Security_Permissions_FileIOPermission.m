@@ -30,41 +30,56 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.FileIOPermission
 	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Security_Permissions_FileIOPermission *)new_withState:(System_Security_Permissions_PermissionState)p1
+    + (System_Security_Permissions_FileIOPermission *)new_withState:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Security_Permissions_FileIOPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.FileIOPermission
 	// Managed param types : System.Security.Permissions.FileIOPermissionAccess, System.String
-    + (System_Security_Permissions_FileIOPermission *)new_withAccess:(System_Security_Permissions_FileIOPermissionAccess)p1 path:(NSString *)p2
+    + (System_Security_Permissions_FileIOPermission *)new_withAccess:(int32_t)p1 path:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.FileIOPermissionAccess,string" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		System_Security_Permissions_FileIOPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.FileIOPermissionAccess,string" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.FileIOPermission
 	// Managed param types : System.Security.Permissions.FileIOPermissionAccess, System.String[]
-    + (System_Security_Permissions_FileIOPermission *)new_withAccess:(System_Security_Permissions_FileIOPermissionAccess)p1 pathList:(DBSystem_Array *)p2
+    + (System_Security_Permissions_FileIOPermission *)new_withAccess:(int32_t)p1 pathList:(DBSystem_Array *)p2
     {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.FileIOPermissionAccess,string[]" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		System_Security_Permissions_FileIOPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.FileIOPermissionAccess,string[]" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.FileIOPermission
 	// Managed param types : System.Security.Permissions.FileIOPermissionAccess, System.Security.AccessControl.AccessControlActions, System.String
-    + (System_Security_Permissions_FileIOPermission *)new_withAccess:(System_Security_Permissions_FileIOPermissionAccess)p1 control:(System_Security_AccessControl_AccessControlActions)p2 path:(NSString *)p3
+    + (System_Security_Permissions_FileIOPermission *)new_withAccess:(int32_t)p1 control:(int32_t)p2 path:(NSString *)p3
     {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.FileIOPermissionAccess,System.Security.AccessControl.AccessControlActions,string" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];;
+		
+		System_Security_Permissions_FileIOPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.FileIOPermissionAccess,System.Security.AccessControl.AccessControlActions,string" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.FileIOPermission
 	// Managed param types : System.Security.Permissions.FileIOPermissionAccess, System.Security.AccessControl.AccessControlActions, System.String[]
-    + (System_Security_Permissions_FileIOPermission *)new_withAccess:(System_Security_Permissions_FileIOPermissionAccess)p1 control:(System_Security_AccessControl_AccessControlActions)p2 pathList:(DBSystem_Array *)p3
+    + (System_Security_Permissions_FileIOPermission *)new_withAccess:(int32_t)p1 control:(int32_t)p2 pathList:(DBSystem_Array *)p3
     {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.FileIOPermissionAccess,System.Security.AccessControl.AccessControlActions,string[]" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];;
+		
+		System_Security_Permissions_FileIOPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.FileIOPermissionAccess,System.Security.AccessControl.AccessControlActions,string[]" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -73,35 +88,73 @@
 	// Managed property name : AllFiles
 	// Managed property type : System.Security.Permissions.FileIOPermissionAccess
     @synthesize allFiles = _allFiles;
-    - (System_Security_Permissions_FileIOPermissionAccess)allFiles
+    - (int32_t)allFiles
     {
-		MonoObject *monoObject = [self getMonoProperty:"AllFiles"];
-		_allFiles = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AllFiles");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_allFiles = monoObject;
 
 		return _allFiles;
 	}
-    - (void)setAllFiles:(System_Security_Permissions_FileIOPermissionAccess)value
+    - (void)setAllFiles:(int32_t)value
 	{
 		_allFiles = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"AllFiles" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "AllFiles");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : AllLocalFiles
 	// Managed property type : System.Security.Permissions.FileIOPermissionAccess
     @synthesize allLocalFiles = _allLocalFiles;
-    - (System_Security_Permissions_FileIOPermissionAccess)allLocalFiles
+    - (int32_t)allLocalFiles
     {
-		MonoObject *monoObject = [self getMonoProperty:"AllLocalFiles"];
-		_allLocalFiles = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AllLocalFiles");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_allLocalFiles = monoObject;
 
 		return _allLocalFiles;
 	}
-    - (void)setAllLocalFiles:(System_Security_Permissions_FileIOPermissionAccess)value
+    - (void)setAllLocalFiles:(int32_t)value
 	{
 		_allLocalFiles = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"AllLocalFiles" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "AllLocalFiles");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -110,28 +163,32 @@
 	// Managed method name : AddPathList
 	// Managed return type : System.Void
 	// Managed param types : System.Security.Permissions.FileIOPermissionAccess, System.String
-    - (void)addPathList_withAccess:(System_Security_Permissions_FileIOPermissionAccess)p1 path:(NSString *)p2
+    - (void)addPathList_withAccess:(int32_t)p1 path:(NSString *)p2
     {
-		[self invokeMonoMethod:"AddPathList(System.Security.Permissions.FileIOPermissionAccess,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"AddPathList(System.Security.Permissions.FileIOPermissionAccess,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : AddPathList
 	// Managed return type : System.Void
 	// Managed param types : System.Security.Permissions.FileIOPermissionAccess, System.String[]
-    - (void)addPathList_withAccess:(System_Security_Permissions_FileIOPermissionAccess)p1 pathList:(DBSystem_Array *)p2
+    - (void)addPathList_withAccess:(int32_t)p1 pathList:(DBSystem_Array *)p2
     {
-		[self invokeMonoMethod:"AddPathList(System.Security.Permissions.FileIOPermissionAccess,string[])" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"AddPathList(System.Security.Permissions.FileIOPermissionAccess,string[])" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Copy
 	// Managed return type : System.Security.IPermission
 	// Managed param types : 
-    - (System_Security_IPermission *)copy
+    - (id <System_Security_IPermission>)copy
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals
@@ -150,7 +207,9 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)fromXml_withEsd:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetHashCode
@@ -167,7 +226,7 @@
 	// Managed method name : GetPathList
 	// Managed return type : System.String[]
 	// Managed param types : System.Security.Permissions.FileIOPermissionAccess
-    - (DBSystem_Array *)getPathList_withAccess:(System_Security_Permissions_FileIOPermissionAccess)p1
+    - (DBSystem_Array *)getPathList_withAccess:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetPathList(System.Security.Permissions.FileIOPermissionAccess)" withNumArgs:1, DB_VALUE(p1)];
@@ -178,18 +237,18 @@
 	// Managed method name : Intersect
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.IPermission
-    - (System_Security_IPermission *)intersect_withTarget:(System_Security_IPermission *)p1
+    - (id <System_Security_IPermission>)intersect_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsSubsetOf
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.IPermission
-    - (BOOL)isSubsetOf_withTarget:(System_Security_IPermission *)p1
+    - (BOOL)isSubsetOf_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -211,17 +270,21 @@
 	// Managed method name : SetPathList
 	// Managed return type : System.Void
 	// Managed param types : System.Security.Permissions.FileIOPermissionAccess, System.String
-    - (void)setPathList_withAccess:(System_Security_Permissions_FileIOPermissionAccess)p1 path:(NSString *)p2
+    - (void)setPathList_withAccess:(int32_t)p1 path:(NSString *)p2
     {
-		[self invokeMonoMethod:"SetPathList(System.Security.Permissions.FileIOPermissionAccess,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetPathList(System.Security.Permissions.FileIOPermissionAccess,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetPathList
 	// Managed return type : System.Void
 	// Managed param types : System.Security.Permissions.FileIOPermissionAccess, System.String[]
-    - (void)setPathList_withAccess:(System_Security_Permissions_FileIOPermissionAccess)p1 pathList:(DBSystem_Array *)p2
+    - (void)setPathList_withAccess:(int32_t)p1 pathList:(DBSystem_Array *)p2
     {
-		[self invokeMonoMethod:"SetPathList(System.Security.Permissions.FileIOPermissionAccess,string[])" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetPathList(System.Security.Permissions.FileIOPermissionAccess,string[])" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : ToXml
@@ -232,18 +295,18 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml()" withNumArgs:0];
 		
-		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
+		return [System_Security_SecurityElement bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Union
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.IPermission
-    - (System_Security_IPermission *)union_withOther:(System_Security_IPermission *)p1
+    - (id <System_Security_IPermission>)union_withOther:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

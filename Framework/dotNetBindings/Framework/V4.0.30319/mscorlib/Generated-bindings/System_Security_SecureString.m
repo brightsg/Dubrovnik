@@ -32,7 +32,10 @@
 	// Managed param types : System.Char*, System.Int32
     + (System_Security_SecureString *)new_withValue:(uint16_t*)p1 length:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"char*,int" withNumArgs:2, p1, DB_VALUE(p2)];;
+		
+		System_Security_SecureString * object = [[self alloc] initWithSignature:"char*,int" withNumArgs:2, p1, DB_VALUE(p2)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,8 +46,18 @@
     @synthesize length = _length;
     - (int32_t)length
     {
-		MonoObject *monoObject = [self getMonoProperty:"Length"];
-		_length = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Length");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_length = monoObject;
 
 		return _length;
 	}
@@ -57,7 +70,9 @@
 	// Managed param types : System.Char
     - (void)appendChar_withC:(uint16_t)p1
     {
-		[self invokeMonoMethod:"AppendChar(char)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"AppendChar(char)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : Clear
@@ -65,7 +80,9 @@
 	// Managed param types : 
     - (void)clear
     {
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Copy
@@ -76,7 +93,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
 		
-		return [System_Security_SecureString objectWithMonoObject:monoObject];
+		return [System_Security_SecureString bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Dispose
@@ -84,7 +101,9 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+        
     }
 
 	// Managed method name : InsertAt
@@ -92,7 +111,9 @@
 	// Managed param types : System.Int32, System.Char
     - (void)insertAt_withIndex:(int32_t)p1 c:(uint16_t)p2
     {
-		[self invokeMonoMethod:"InsertAt(int,char)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"InsertAt(int,char)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : IsReadOnly
@@ -111,7 +132,9 @@
 	// Managed param types : 
     - (void)makeReadOnly
     {
-		[self invokeMonoMethod:"MakeReadOnly()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"MakeReadOnly()" withNumArgs:0];
+        
     }
 
 	// Managed method name : RemoveAt
@@ -119,7 +142,9 @@
 	// Managed param types : System.Int32
     - (void)removeAt_withIndex:(int32_t)p1
     {
-		[self invokeMonoMethod:"RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : SetAt
@@ -127,7 +152,9 @@
 	// Managed param types : System.Int32, System.Char
     - (void)setAt_withIndex:(int32_t)p1 c:(uint16_t)p2
     {
-		[self invokeMonoMethod:"SetAt(int,char)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"SetAt(int,char)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
     }
 
 #pragma mark -

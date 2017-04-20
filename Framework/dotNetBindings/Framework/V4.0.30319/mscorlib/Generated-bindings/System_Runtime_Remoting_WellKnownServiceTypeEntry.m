@@ -30,17 +30,23 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Remoting.WellKnownServiceTypeEntry
 	// Managed param types : System.String, System.String, System.String, System.Runtime.Remoting.WellKnownObjectMode
-    + (System_Runtime_Remoting_WellKnownServiceTypeEntry *)new_withTypeName:(NSString *)p1 assemblyName:(NSString *)p2 objectUri:(NSString *)p3 mode:(System_Runtime_Remoting_WellKnownObjectMode)p4
+    + (System_Runtime_Remoting_WellKnownServiceTypeEntry *)new_withTypeName:(NSString *)p1 assemblyName:(NSString *)p2 objectUri:(NSString *)p3 mode:(int32_t)p4
     {
-		return [[self alloc] initWithSignature:"string,string,string,System.Runtime.Remoting.WellKnownObjectMode" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];;
+		
+		System_Runtime_Remoting_WellKnownServiceTypeEntry * object = [[self alloc] initWithSignature:"string,string,string,System.Runtime.Remoting.WellKnownObjectMode" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Remoting.WellKnownServiceTypeEntry
 	// Managed param types : System.Type, System.String, System.Runtime.Remoting.WellKnownObjectMode
-    + (System_Runtime_Remoting_WellKnownServiceTypeEntry *)new_withType:(System_Type *)p1 objectUri:(NSString *)p2 mode:(System_Runtime_Remoting_WellKnownObjectMode)p3
+    + (System_Runtime_Remoting_WellKnownServiceTypeEntry *)new_withType:(System_Type *)p1 objectUri:(NSString *)p2 mode:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"System.Type,string,System.Runtime.Remoting.WellKnownObjectMode" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
+		
+		System_Runtime_Remoting_WellKnownServiceTypeEntry * object = [[self alloc] initWithSignature:"System.Type,string,System.Runtime.Remoting.WellKnownObjectMode" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -51,7 +57,17 @@
     @synthesize contextAttributes = _contextAttributes;
     - (DBSystem_Array *)contextAttributes
     {
-		MonoObject *monoObject = [self getMonoProperty:"ContextAttributes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ContextAttributes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_contextAttributes isEqualToMonoObject:monoObject]) return _contextAttributes;					
 		_contextAttributes = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -60,17 +76,36 @@
     - (void)setContextAttributes:(DBSystem_Array *)value
 	{
 		_contextAttributes = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"ContextAttributes" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ContextAttributes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Mode
 	// Managed property type : System.Runtime.Remoting.WellKnownObjectMode
     @synthesize mode = _mode;
-    - (System_Runtime_Remoting_WellKnownObjectMode)mode
+    - (int32_t)mode
     {
-		MonoObject *monoObject = [self getMonoProperty:"Mode"];
-		_mode = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Mode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_mode = monoObject;
 
 		return _mode;
 	}
@@ -80,9 +115,19 @@
     @synthesize objectType = _objectType;
     - (System_Type *)objectType
     {
-		MonoObject *monoObject = [self getMonoProperty:"ObjectType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ObjectType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_objectType isEqualToMonoObject:monoObject]) return _objectType;					
-		_objectType = [System_Type objectWithMonoObject:monoObject];
+		_objectType = [System_Type bestObjectWithMonoObject:monoObject];
 
 		return _objectType;
 	}
@@ -92,7 +137,17 @@
     @synthesize objectUri = _objectUri;
     - (NSString *)objectUri
     {
-		MonoObject *monoObject = [self getMonoProperty:"ObjectUri"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ObjectUri");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_objectUri isEqualToMonoObject:monoObject]) return _objectUri;					
 		_objectUri = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

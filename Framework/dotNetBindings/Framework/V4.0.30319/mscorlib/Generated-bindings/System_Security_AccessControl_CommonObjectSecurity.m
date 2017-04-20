@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAccessRules(bool,bool,System.Type)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
-		return [System_Security_AccessControl_AuthorizationRuleCollection objectWithMonoObject:monoObject];
+		return [System_Security_AccessControl_AuthorizationRuleCollection bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetAuditRules
@@ -46,7 +46,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAuditRules(bool,bool,System.Type)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
-		return [System_Security_AccessControl_AuthorizationRuleCollection objectWithMonoObject:monoObject];
+		return [System_Security_AccessControl_AuthorizationRuleCollection bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

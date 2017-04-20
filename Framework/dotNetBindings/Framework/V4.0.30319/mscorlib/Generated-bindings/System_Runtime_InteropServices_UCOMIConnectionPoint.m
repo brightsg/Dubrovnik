@@ -32,7 +32,9 @@
 	// Managed param types : System.Object, ref System.Int32&
     - (void)advise_withPUnkSink:(System_Object *)p1 pdwCookieRef:(int32_t*)p2
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIConnectionPoint.Advise(object,int&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIConnectionPoint.Advise(object,int&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];
+        
     }
 
 	// Managed method name : EnumConnections
@@ -40,8 +42,12 @@
 	// Managed param types : ref System.Runtime.InteropServices.UCOMIEnumConnections&
     - (void)enumConnections_withPpEnumRef:(System_Runtime_InteropServices_UCOMIEnumConnections **)p1
     {
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIConnectionPoint.EnumConnections(System.Runtime.InteropServices.UCOMIEnumConnections&)" withNumArgs:1, &refPtr1];
-;
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+
     }
 
 	// Managed method name : GetConnectionInterface
@@ -49,8 +55,12 @@
 	// Managed param types : ref System.Guid&
     - (void)getConnectionInterface_withPIIDRef:(System_Guid **)p1
     {
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIConnectionPoint.GetConnectionInterface(System.Guid&)" withNumArgs:1, &refPtr1];
-;
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+
     }
 
 	// Managed method name : GetConnectionPointContainer
@@ -58,8 +68,12 @@
 	// Managed param types : ref System.Runtime.InteropServices.UCOMIConnectionPointContainer&
     - (void)getConnectionPointContainer_withPpCPCRef:(System_Runtime_InteropServices_UCOMIConnectionPointContainer **)p1
     {
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIConnectionPoint.GetConnectionPointContainer(System.Runtime.InteropServices.UCOMIConnectionPointContainer&)" withNumArgs:1, &refPtr1];
-;
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+
     }
 
 	// Managed method name : Unadvise
@@ -67,7 +81,9 @@
 	// Managed param types : System.Int32
     - (void)unadvise_withDwCookie:(int32_t)p1
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIConnectionPoint.Unadvise(int)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIConnectionPoint.Unadvise(int)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 #pragma mark -

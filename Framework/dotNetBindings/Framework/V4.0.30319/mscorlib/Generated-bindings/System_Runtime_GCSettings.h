@@ -20,12 +20,12 @@
 
 	// Managed property name : LargeObjectHeapCompactionMode
 	// Managed property type : System.Runtime.GCLargeObjectHeapCompactionMode
-    + (System_Runtime_GCLargeObjectHeapCompactionMode)largeObjectHeapCompactionMode;
-    + (void)setLargeObjectHeapCompactionMode:(System_Runtime_GCLargeObjectHeapCompactionMode)value;
+    + (int32_t)largeObjectHeapCompactionMode;
+    + (void)setLargeObjectHeapCompactionMode:(int32_t)value;
 
 	// Managed property name : LatencyMode
 	// Managed property type : System.Runtime.GCLatencyMode
-    + (System_Runtime_GCLatencyMode)latencyMode;
-    + (void)setLatencyMode:(System_Runtime_GCLatencyMode)value;
+    + (int32_t)latencyMode;
+    + (void)setLatencyMode:(int32_t)value;
 @end
 //--Dubrovnik.CodeGenerator

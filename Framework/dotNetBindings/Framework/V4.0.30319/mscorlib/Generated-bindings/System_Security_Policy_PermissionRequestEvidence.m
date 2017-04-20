@@ -32,7 +32,10 @@
 	// Managed param types : System.Security.PermissionSet, System.Security.PermissionSet, System.Security.PermissionSet
     + (System_Security_Policy_PermissionRequestEvidence *)new_withRequest:(System_Security_PermissionSet *)p1 optional:(System_Security_PermissionSet *)p2 denied:(System_Security_PermissionSet *)p3
     {
-		return [[self alloc] initWithSignature:"System.Security.PermissionSet,System.Security.PermissionSet,System.Security.PermissionSet" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		System_Security_Policy_PermissionRequestEvidence * object = [[self alloc] initWithSignature:"System.Security.PermissionSet,System.Security.PermissionSet,System.Security.PermissionSet" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,9 +46,19 @@
     @synthesize deniedPermissions = _deniedPermissions;
     - (System_Security_PermissionSet *)deniedPermissions
     {
-		MonoObject *monoObject = [self getMonoProperty:"DeniedPermissions"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DeniedPermissions");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_deniedPermissions isEqualToMonoObject:monoObject]) return _deniedPermissions;					
-		_deniedPermissions = [System_Security_PermissionSet objectWithMonoObject:monoObject];
+		_deniedPermissions = [System_Security_PermissionSet bestObjectWithMonoObject:monoObject];
 
 		return _deniedPermissions;
 	}
@@ -55,9 +68,19 @@
     @synthesize optionalPermissions = _optionalPermissions;
     - (System_Security_PermissionSet *)optionalPermissions
     {
-		MonoObject *monoObject = [self getMonoProperty:"OptionalPermissions"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OptionalPermissions");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_optionalPermissions isEqualToMonoObject:monoObject]) return _optionalPermissions;					
-		_optionalPermissions = [System_Security_PermissionSet objectWithMonoObject:monoObject];
+		_optionalPermissions = [System_Security_PermissionSet bestObjectWithMonoObject:monoObject];
 
 		return _optionalPermissions;
 	}
@@ -67,9 +90,19 @@
     @synthesize requestedPermissions = _requestedPermissions;
     - (System_Security_PermissionSet *)requestedPermissions
     {
-		MonoObject *monoObject = [self getMonoProperty:"RequestedPermissions"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RequestedPermissions");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_requestedPermissions isEqualToMonoObject:monoObject]) return _requestedPermissions;					
-		_requestedPermissions = [System_Security_PermissionSet objectWithMonoObject:monoObject];
+		_requestedPermissions = [System_Security_PermissionSet bestObjectWithMonoObject:monoObject];
 
 		return _requestedPermissions;
 	}
@@ -85,7 +118,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
 		
-		return [System_Security_Policy_EvidenceBase objectWithMonoObject:monoObject];
+		return [System_Security_Policy_EvidenceBase bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Copy
@@ -96,7 +129,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
 		
-		return [System_Security_Policy_PermissionRequestEvidence objectWithMonoObject:monoObject];
+		return [System_Security_Policy_PermissionRequestEvidence bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToString

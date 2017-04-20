@@ -16,6 +16,6 @@
 
 	// Managed property name : AuditFlags
 	// Managed property type : System.Security.AccessControl.AuditFlags
-    @property (nonatomic, readonly) System_Security_AccessControl_AuditFlags auditFlags;
+    @property (nonatomic, readonly) int32_t auditFlags;
 @end
 //--Dubrovnik.CodeGenerator

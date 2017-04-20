@@ -2,7 +2,7 @@
 //
 // Managed class : MemoryStream
 //
-@interface System_IO_MemoryStream : System_IO_Stream <System_IDisposable>
+@interface System_IO_MemoryStream : System_IO_Stream <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -112,7 +112,7 @@
 	// Managed method name : Seek
 	// Managed return type : System.Int64
 	// Managed param types : System.Int64, System.IO.SeekOrigin
-    - (int64_t)seek_withOffset:(int64_t)p1 loc:(System_IO_SeekOrigin)p2;
+    - (int64_t)seek_withOffset:(int64_t)p1 loc:(int32_t)p2;
 
 	// Managed method name : SetLength
 	// Managed return type : System.Void
@@ -123,6 +123,11 @@
 	// Managed return type : System.Byte[]
 	// Managed param types : 
     - (NSData *)toArray;
+
+	// Managed method name : TryGetBuffer
+	// Managed return type : System.Boolean
+	// Managed param types : ref System.ArraySegment`1
+    - (BOOL)tryGetBuffer_withBufferRef:(System_ArraySegmentA1 **)p1;
 
 	// Managed method name : Write
 	// Managed return type : System.Void

@@ -2,7 +2,7 @@
 //
 // Managed class : DllImportAttribute
 //
-@interface System_Runtime_InteropServices_DllImportAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Runtime_InteropServices_DllImportAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -28,11 +28,11 @@
 
 	// Managed field name : CallingConvention
 	// Managed field type : System.Runtime.InteropServices.CallingConvention
-    @property (nonatomic) System_Runtime_InteropServices_CallingConvention callingConvention;
+    @property (nonatomic) int32_t callingConvention;
 
 	// Managed field name : CharSet
 	// Managed field type : System.Runtime.InteropServices.CharSet
-    @property (nonatomic) System_Runtime_InteropServices_CharSet charSet;
+    @property (nonatomic) int32_t charSet;
 
 	// Managed field name : EntryPoint
 	// Managed field type : System.String

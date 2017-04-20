@@ -17,12 +17,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Serialization.SerializationInfo
 	// Managed param types : System.Type, System.Runtime.Serialization.IFormatterConverter
-    + (System_Runtime_Serialization_SerializationInfo *)new_withType:(System_Type *)p1 converter:(System_Runtime_Serialization_IFormatterConverter *)p2;
+    + (System_Runtime_Serialization_SerializationInfo *)new_withType:(System_Type *)p1 converter:(id <System_Runtime_Serialization_IFormatterConverter_>)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Serialization.SerializationInfo
 	// Managed param types : System.Type, System.Runtime.Serialization.IFormatterConverter, System.Boolean
-    + (System_Runtime_Serialization_SerializationInfo *)new_withType:(System_Type *)p1 converter:(System_Runtime_Serialization_IFormatterConverter *)p2 requireSameTokenInPartialTrust:(BOOL)p3;
+    + (System_Runtime_Serialization_SerializationInfo *)new_withType:(System_Type *)p1 converter:(id <System_Runtime_Serialization_IFormatterConverter_>)p2 requireSameTokenInPartialTrust:(BOOL)p3;
 
 #pragma mark -
 #pragma mark Properties
@@ -127,7 +127,7 @@
 	// Managed method name : AddValue
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Decimal
-    - (void)addValue_withNameString:(NSString *)p1 valueDecimal:(NSDecimalNumber *)p2;
+    - (void)addValue_withNameString:(NSString *)p1 valueSDecimal:(NSDecimalNumber *)p2;
 
 	// Managed method name : AddValue
 	// Managed return type : System.Void

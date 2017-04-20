@@ -2,7 +2,7 @@
 //
 // Managed class : ConstructionResponse
 //
-@interface System_Runtime_Remoting_Messaging_ConstructionResponse : System_Runtime_Remoting_Messaging_MethodResponse <System_Runtime_Remoting_Messaging_IMethodReturnMessage, System_Runtime_Remoting_Messaging_IMethodMessage, System_Runtime_Remoting_Messaging_IMessage, System_Runtime_Serialization_ISerializable, System_Runtime_Remoting_Activation_IConstructionReturnMessage>
+@interface System_Runtime_Remoting_Messaging_ConstructionResponse : System_Runtime_Remoting_Messaging_MethodResponse <System_Runtime_Remoting_Messaging_IMethodReturnMessage_, System_Runtime_Remoting_Messaging_IMethodMessage_, System_Runtime_Remoting_Messaging_IMessage_, System_Runtime_Serialization_ISerializable_, System_Runtime_Remoting_Activation_IConstructionReturnMessage_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Remoting.Messaging.ConstructionResponse
 	// Managed param types : System.Runtime.Remoting.Messaging.Header[], System.Runtime.Remoting.Messaging.IMethodCallMessage
-    + (System_Runtime_Remoting_Messaging_ConstructionResponse *)new_withH:(DBSystem_Array *)p1 mcm:(System_Runtime_Remoting_Messaging_IMethodCallMessage *)p2;
+    + (System_Runtime_Remoting_Messaging_ConstructionResponse *)new_withH:(DBSystem_Array *)p1 mcm:(id <System_Runtime_Remoting_Messaging_IMethodCallMessage_>)p2;
 
 #pragma mark -
 #pragma mark Properties

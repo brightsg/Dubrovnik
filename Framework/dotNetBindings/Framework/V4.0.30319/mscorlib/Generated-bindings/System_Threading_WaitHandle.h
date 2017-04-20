@@ -2,7 +2,7 @@
 //
 // Managed class : WaitHandle
 //
-@interface System_Threading_WaitHandle : System_MarshalByRefObject <System_IDisposable>
+@interface System_Threading_WaitHandle : System_MarshalByRefObject <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

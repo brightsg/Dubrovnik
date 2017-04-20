@@ -32,44 +32,92 @@
     static BOOL m_isServerGC;
     + (BOOL)isServerGC
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"IsServerGC"];
-		m_isServerGC = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsServerGC");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_isServerGC = monoObject;
 
 		return m_isServerGC;
 	}
 
 	// Managed property name : LargeObjectHeapCompactionMode
 	// Managed property type : System.Runtime.GCLargeObjectHeapCompactionMode
-    static System_Runtime_GCLargeObjectHeapCompactionMode m_largeObjectHeapCompactionMode;
-    + (System_Runtime_GCLargeObjectHeapCompactionMode)largeObjectHeapCompactionMode
+    static int32_t m_largeObjectHeapCompactionMode;
+    + (int32_t)largeObjectHeapCompactionMode
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"LargeObjectHeapCompactionMode"];
-		m_largeObjectHeapCompactionMode = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LargeObjectHeapCompactionMode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_largeObjectHeapCompactionMode = monoObject;
 
 		return m_largeObjectHeapCompactionMode;
 	}
-    + (void)setLargeObjectHeapCompactionMode:(System_Runtime_GCLargeObjectHeapCompactionMode)value
+    + (void)setLargeObjectHeapCompactionMode:(int32_t)value
 	{
 		m_largeObjectHeapCompactionMode = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[[self class] setMonoClassProperty:"LargeObjectHeapCompactionMode" valueObject:monoObject];          
+		typedef void (*Thunk)(int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "LargeObjectHeapCompactionMode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : LatencyMode
 	// Managed property type : System.Runtime.GCLatencyMode
-    static System_Runtime_GCLatencyMode m_latencyMode;
-    + (System_Runtime_GCLatencyMode)latencyMode
+    static int32_t m_latencyMode;
+    + (int32_t)latencyMode
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"LatencyMode"];
-		m_latencyMode = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LatencyMode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_latencyMode = monoObject;
 
 		return m_latencyMode;
 	}
-    + (void)setLatencyMode:(System_Runtime_GCLatencyMode)value
+    + (void)setLatencyMode:(int32_t)value
 	{
 		m_latencyMode = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[[self class] setMonoClassProperty:"LatencyMode" valueObject:monoObject];          
+		typedef void (*Thunk)(int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "LatencyMode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

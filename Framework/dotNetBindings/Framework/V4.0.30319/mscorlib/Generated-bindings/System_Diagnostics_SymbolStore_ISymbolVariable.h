@@ -28,7 +28,7 @@
 
 	// Managed property name : AddressKind
 	// Managed property type : System.Diagnostics.SymbolStore.SymAddressKind
-    @property (nonatomic, readonly) System_Diagnostics_SymbolStore_SymAddressKind addressKind;
+    @property (nonatomic, readonly) int32_t addressKind;
 
 	// Managed property name : Attributes
 	// Managed property type : System.Object

@@ -2,7 +2,7 @@
 //
 // Managed class : AssemblyName
 //
-@interface System_Reflection_AssemblyName : System_Object <System_Runtime_InteropServices__AssemblyName, System_ICloneable, System_Runtime_Serialization_ISerializable, System_Runtime_Serialization_IDeserializationCallback>
+@interface System_Reflection_AssemblyName : System_Object <System_Runtime_InteropServices__AssemblyName_, System_ICloneable_, System_Runtime_Serialization_ISerializable_, System_Runtime_Serialization_IDeserializationCallback_>
 
 #pragma mark -
 #pragma mark Setup
@@ -28,7 +28,7 @@
 
 	// Managed property name : ContentType
 	// Managed property type : System.Reflection.AssemblyContentType
-    @property (nonatomic) System_Reflection_AssemblyContentType contentType;
+    @property (nonatomic) int32_t contentType;
 
 	// Managed property name : CultureInfo
 	// Managed property type : System.Globalization.CultureInfo
@@ -36,7 +36,7 @@
 
 	// Managed property name : CultureName
 	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * cultureName;
+    @property (nonatomic, strong) NSString * cultureName;
 
 	// Managed property name : EscapedCodeBase
 	// Managed property type : System.String
@@ -44,7 +44,7 @@
 
 	// Managed property name : Flags
 	// Managed property type : System.Reflection.AssemblyNameFlags
-    @property (nonatomic) System_Reflection_AssemblyNameFlags flags;
+    @property (nonatomic) int32_t flags;
 
 	// Managed property name : FullName
 	// Managed property type : System.String
@@ -52,7 +52,7 @@
 
 	// Managed property name : HashAlgorithm
 	// Managed property type : System.Configuration.Assemblies.AssemblyHashAlgorithm
-    @property (nonatomic) System_Configuration_Assemblies_AssemblyHashAlgorithm hashAlgorithm;
+    @property (nonatomic) int32_t hashAlgorithm;
 
 	// Managed property name : KeyPair
 	// Managed property type : System.Reflection.StrongNameKeyPair
@@ -64,7 +64,7 @@
 
 	// Managed property name : ProcessorArchitecture
 	// Managed property type : System.Reflection.ProcessorArchitecture
-    @property (nonatomic) System_Reflection_ProcessorArchitecture processorArchitecture;
+    @property (nonatomic) int32_t processorArchitecture;
 
 	// Managed property name : Version
 	// Managed property type : System.Version
@@ -72,7 +72,7 @@
 
 	// Managed property name : VersionCompatibility
 	// Managed property type : System.Configuration.Assemblies.AssemblyVersionCompatibility
-    @property (nonatomic) System_Configuration_Assemblies_AssemblyVersionCompatibility versionCompatibility;
+    @property (nonatomic) int32_t versionCompatibility;
 
 #pragma mark -
 #pragma mark Methods

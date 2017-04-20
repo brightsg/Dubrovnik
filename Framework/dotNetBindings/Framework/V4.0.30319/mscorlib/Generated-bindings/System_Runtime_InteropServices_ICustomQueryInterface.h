@@ -17,6 +17,6 @@
 	// Managed method name : GetInterface
 	// Managed return type : System.Runtime.InteropServices.CustomQueryInterfaceResult
 	// Managed param types : ref System.Guid&, ref System.IntPtr&
-    - (System_Runtime_InteropServices_CustomQueryInterfaceResult)getInterface_withIidRef:(System_Guid **)p1 ppvRef:(void **)p2;
+    - (int32_t)getInterface_withIidRef:(System_Guid **)p1 ppvRef:(void **)p2;
 @end
 //--Dubrovnik.CodeGenerator

@@ -16,7 +16,7 @@
 
 	// Managed property name : Level
 	// Managed property type : System.Runtime.Remoting.Activation.ActivatorLevel
-    @property (nonatomic, readonly) System_Runtime_Remoting_Activation_ActivatorLevel level;
+    @property (nonatomic, readonly) int32_t level;
 
 	// Managed property name : NextActivator
 	// Managed property type : System.Runtime.Remoting.Activation.IActivator
@@ -28,6 +28,6 @@
 	// Managed method name : Activate
 	// Managed return type : System.Runtime.Remoting.Activation.IConstructionReturnMessage
 	// Managed param types : System.Runtime.Remoting.Activation.IConstructionCallMessage
-    - (System_Runtime_Remoting_Activation_IConstructionReturnMessage *)activate_withMsg:(System_Runtime_Remoting_Activation_IConstructionCallMessage *)p1;
+    - (id <System_Runtime_Remoting_Activation_IConstructionReturnMessage>)activate_withMsg:(id <System_Runtime_Remoting_Activation_IConstructionCallMessage_>)p1;
 @end
 //--Dubrovnik.CodeGenerator

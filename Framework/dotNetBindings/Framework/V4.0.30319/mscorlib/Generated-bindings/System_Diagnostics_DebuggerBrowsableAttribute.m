@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.DebuggerBrowsableAttribute
 	// Managed param types : System.Diagnostics.DebuggerBrowsableState
-    + (System_Diagnostics_DebuggerBrowsableAttribute *)new_withState:(System_Diagnostics_DebuggerBrowsableState)p1
+    + (System_Diagnostics_DebuggerBrowsableAttribute *)new_withState:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Diagnostics.DebuggerBrowsableState" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Diagnostics_DebuggerBrowsableAttribute * object = [[self alloc] initWithSignature:"System.Diagnostics.DebuggerBrowsableState" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -41,10 +44,20 @@
 	// Managed property name : State
 	// Managed property type : System.Diagnostics.DebuggerBrowsableState
     @synthesize state = _state;
-    - (System_Diagnostics_DebuggerBrowsableState)state
+    - (int32_t)state
     {
-		MonoObject *monoObject = [self getMonoProperty:"State"];
-		_state = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "State");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_state = monoObject;
 
 		return _state;
 	}

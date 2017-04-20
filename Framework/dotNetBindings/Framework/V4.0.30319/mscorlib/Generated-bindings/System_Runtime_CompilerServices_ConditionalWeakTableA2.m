@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Runtime.CompilerServices.ConditionalWeakTable`2<System.Runtime.CompilerServices.ConditionalWeakTable`2+TKey,System.Runtime.CompilerServices.ConditionalWeakTable`2+TValue>";
+		return "System.Runtime.CompilerServices.ConditionalWeakTable`2";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,7 +32,9 @@
 	// Managed param types : <System.Runtime.CompilerServices.ConditionalWeakTable`2+TKey>, <System.Runtime.CompilerServices.ConditionalWeakTable`2+TValue>
     - (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2
     {
-		[self invokeMonoMethod:"Add(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Add(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetOrCreateValue
@@ -43,7 +45,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetOrCreateValue(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetValue
@@ -52,9 +54,9 @@
     - (System_Object *)getValue_withKey:(System_Object *)p1 createValueCallback:(System_Runtime_CompilerServices_ConditionalWeakTableA2__CreateValueCallback *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetValue(<_T_0>,System.Runtime.CompilerServices.ConditionalWeakTable`2<System.Runtime.CompilerServices.ConditionalWeakTable`2+TKey, System.Runtime.CompilerServices.ConditionalWeakTable`2+TValue>+CreateValueCallback)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetValue(<_T_0>,System.Runtime.CompilerServices.ConditionalWeakTable`2<System.Runtime.CompilerServices.ConditionalWeakTable`2/TKey, System.Runtime.CompilerServices.ConditionalWeakTable`2/TValue>/CreateValueCallback)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Remove
@@ -70,14 +72,14 @@
 
 	// Managed method name : TryGetValue
 	// Managed return type : System.Boolean
-	// Managed param types : <System.Runtime.CompilerServices.ConditionalWeakTable`2+TKey>, ref <TValue&>
-    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2
+	// Managed param types : <System.Runtime.CompilerServices.ConditionalWeakTable`2+TKey>, ref TValue&
+    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Runtime_CompilerServices_ConditionalWeakTableA2__TValue **)p2
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoMethod:"TryGetValue(<_T_0>,<_T_1>&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+		MonoObject *monoObject = [self invokeMonoMethod:"TryGetValue(<_T_0>,System.Runtime.CompilerServices.ConditionalWeakTable`2+TValue&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 
-		*p2 = [System_Object subclassObjectWithMonoObject:refPtr2];
+		*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

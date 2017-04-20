@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Generic.IReadOnlyCollection`1<System.Collections.Generic.IReadOnlyCollection`1+T>";
+		return "System.Collections.Generic.IReadOnlyCollection`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,8 +32,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Collections.Generic.IReadOnlyCollection`1<System.Collections.Generic.IReadOnlyCollection`1+T>.Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Collections.Generic.IReadOnlyCollection`1<System.Collections.Generic.IReadOnlyCollection`1+T>.Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}

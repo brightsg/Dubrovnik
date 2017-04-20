@@ -32,9 +32,19 @@
     @synthesize method = _method;
     - (System_Reflection_MethodInfo *)method
     {
-		MonoObject *monoObject = [self getMonoProperty:"Method"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Method");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_method isEqualToMonoObject:monoObject]) return _method;					
-		_method = [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+		_method = [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
 
 		return _method;
 	}
@@ -44,7 +54,17 @@
     @synthesize target = _target;
     - (System_Object *)target
     {
-		MonoObject *monoObject = [self getMonoProperty:"Target"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Target");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_target isEqualToMonoObject:monoObject]) return _target;					
 		_target = [System_Object objectWithMonoObject:monoObject];
 
@@ -73,7 +93,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Combine(System.Delegate,System.Delegate)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Delegate objectWithMonoObject:monoObject];
+		return [System_Delegate bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Combine
@@ -82,9 +102,9 @@
     + (System_Delegate *)combine_withDelegates:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Combine(System.Array[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Combine(System.Delegate[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Delegate objectWithMonoObject:monoObject];
+		return [System_Delegate bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDelegate
@@ -95,7 +115,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,object,string)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_Delegate objectWithMonoObject:monoObject];
+		return [System_Delegate bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDelegate
@@ -106,7 +126,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,object,string,bool)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
 		
-		return [System_Delegate objectWithMonoObject:monoObject];
+		return [System_Delegate bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDelegate
@@ -117,7 +137,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,object,string,bool,bool)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
 		
-		return [System_Delegate objectWithMonoObject:monoObject];
+		return [System_Delegate bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDelegate
@@ -128,7 +148,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,System.Type,string)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_Delegate objectWithMonoObject:monoObject];
+		return [System_Delegate bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDelegate
@@ -139,7 +159,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,System.Type,string,bool)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
 		
-		return [System_Delegate objectWithMonoObject:monoObject];
+		return [System_Delegate bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDelegate
@@ -150,7 +170,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,System.Type,string,bool,bool)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
 		
-		return [System_Delegate objectWithMonoObject:monoObject];
+		return [System_Delegate bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDelegate
@@ -161,7 +181,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,System.Reflection.MethodInfo,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
 		
-		return [System_Delegate objectWithMonoObject:monoObject];
+		return [System_Delegate bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDelegate
@@ -172,7 +192,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,object,System.Reflection.MethodInfo)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_Delegate objectWithMonoObject:monoObject];
+		return [System_Delegate bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDelegate
@@ -183,7 +203,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,object,System.Reflection.MethodInfo,bool)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
 		
-		return [System_Delegate objectWithMonoObject:monoObject];
+		return [System_Delegate bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDelegate
@@ -194,7 +214,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,System.Reflection.MethodInfo)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Delegate objectWithMonoObject:monoObject];
+		return [System_Delegate bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : DynamicInvoke
@@ -246,7 +266,9 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : op_Equality
@@ -279,7 +301,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Remove(System.Delegate,System.Delegate)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Delegate objectWithMonoObject:monoObject];
+		return [System_Delegate bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : RemoveAll
@@ -290,7 +312,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"RemoveAll(System.Delegate,System.Delegate)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Delegate objectWithMonoObject:monoObject];
+		return [System_Delegate bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

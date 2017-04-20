@@ -30,7 +30,7 @@
 	// Managed method name : MakeVersionSafeName
 	// Managed return type : System.String
 	// Managed param types : System.String, System.Runtime.Versioning.ResourceScope, System.Runtime.Versioning.ResourceScope, System.Type
-    + (NSString *)makeVersionSafeName_withName:(NSString *)p1 from:(System_Runtime_Versioning_ResourceScope)p2 to:(System_Runtime_Versioning_ResourceScope)p3 type:(System_Type *)p4
+    + (NSString *)makeVersionSafeName_withName:(NSString *)p1 from:(int32_t)p2 to:(int32_t)p3 type:(System_Type *)p4
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"MakeVersionSafeName(string,System.Runtime.Versioning.ResourceScope,System.Runtime.Versioning.ResourceScope,System.Type)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
@@ -41,7 +41,7 @@
 	// Managed method name : MakeVersionSafeName
 	// Managed return type : System.String
 	// Managed param types : System.String, System.Runtime.Versioning.ResourceScope, System.Runtime.Versioning.ResourceScope
-    + (NSString *)makeVersionSafeName_withName:(NSString *)p1 from:(System_Runtime_Versioning_ResourceScope)p2 to:(System_Runtime_Versioning_ResourceScope)p3
+    + (NSString *)makeVersionSafeName_withName:(NSString *)p1 from:(int32_t)p2 to:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"MakeVersionSafeName(string,System.Runtime.Versioning.ResourceScope,System.Runtime.Versioning.ResourceScope)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];

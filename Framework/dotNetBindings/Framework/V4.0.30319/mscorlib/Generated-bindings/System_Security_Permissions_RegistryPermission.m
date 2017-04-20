@@ -30,25 +30,34 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.RegistryPermission
 	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Security_Permissions_RegistryPermission *)new_withState:(System_Security_Permissions_PermissionState)p1
+    + (System_Security_Permissions_RegistryPermission *)new_withState:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Security_Permissions_RegistryPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.RegistryPermission
 	// Managed param types : System.Security.Permissions.RegistryPermissionAccess, System.String
-    + (System_Security_Permissions_RegistryPermission *)new_withAccess:(System_Security_Permissions_RegistryPermissionAccess)p1 pathList:(NSString *)p2
+    + (System_Security_Permissions_RegistryPermission *)new_withAccess:(int32_t)p1 pathList:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.RegistryPermissionAccess,string" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		System_Security_Permissions_RegistryPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.RegistryPermissionAccess,string" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.RegistryPermission
 	// Managed param types : System.Security.Permissions.RegistryPermissionAccess, System.Security.AccessControl.AccessControlActions, System.String
-    + (System_Security_Permissions_RegistryPermission *)new_withAccess:(System_Security_Permissions_RegistryPermissionAccess)p1 control:(System_Security_AccessControl_AccessControlActions)p2 pathList:(NSString *)p3
+    + (System_Security_Permissions_RegistryPermission *)new_withAccess:(int32_t)p1 control:(int32_t)p2 pathList:(NSString *)p3
     {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.RegistryPermissionAccess,System.Security.AccessControl.AccessControlActions,string" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];;
+		
+		System_Security_Permissions_RegistryPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.RegistryPermissionAccess,System.Security.AccessControl.AccessControlActions,string" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -57,28 +66,32 @@
 	// Managed method name : AddPathList
 	// Managed return type : System.Void
 	// Managed param types : System.Security.Permissions.RegistryPermissionAccess, System.String
-    - (void)addPathList_withAccess:(System_Security_Permissions_RegistryPermissionAccess)p1 pathList:(NSString *)p2
+    - (void)addPathList_withAccess:(int32_t)p1 pathList:(NSString *)p2
     {
-		[self invokeMonoMethod:"AddPathList(System.Security.Permissions.RegistryPermissionAccess,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"AddPathList(System.Security.Permissions.RegistryPermissionAccess,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : AddPathList
 	// Managed return type : System.Void
 	// Managed param types : System.Security.Permissions.RegistryPermissionAccess, System.Security.AccessControl.AccessControlActions, System.String
-    - (void)addPathList_withAccess:(System_Security_Permissions_RegistryPermissionAccess)p1 control:(System_Security_AccessControl_AccessControlActions)p2 pathList:(NSString *)p3
+    - (void)addPathList_withAccess:(int32_t)p1 control:(int32_t)p2 pathList:(NSString *)p3
     {
-		[self invokeMonoMethod:"AddPathList(System.Security.Permissions.RegistryPermissionAccess,System.Security.AccessControl.AccessControlActions,string)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"AddPathList(System.Security.Permissions.RegistryPermissionAccess,System.Security.AccessControl.AccessControlActions,string)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Copy
 	// Managed return type : System.Security.IPermission
 	// Managed param types : 
-    - (System_Security_IPermission *)copy
+    - (id <System_Security_IPermission>)copy
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromXml
@@ -86,13 +99,15 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)fromXml_withEsd:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetPathList
 	// Managed return type : System.String
 	// Managed param types : System.Security.Permissions.RegistryPermissionAccess
-    - (NSString *)getPathList_withAccess:(System_Security_Permissions_RegistryPermissionAccess)p1
+    - (NSString *)getPathList_withAccess:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetPathList(System.Security.Permissions.RegistryPermissionAccess)" withNumArgs:1, DB_VALUE(p1)];
@@ -103,18 +118,18 @@
 	// Managed method name : Intersect
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.IPermission
-    - (System_Security_IPermission *)intersect_withTarget:(System_Security_IPermission *)p1
+    - (id <System_Security_IPermission>)intersect_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsSubsetOf
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.IPermission
-    - (BOOL)isSubsetOf_withTarget:(System_Security_IPermission *)p1
+    - (BOOL)isSubsetOf_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -136,9 +151,11 @@
 	// Managed method name : SetPathList
 	// Managed return type : System.Void
 	// Managed param types : System.Security.Permissions.RegistryPermissionAccess, System.String
-    - (void)setPathList_withAccess:(System_Security_Permissions_RegistryPermissionAccess)p1 pathList:(NSString *)p2
+    - (void)setPathList_withAccess:(int32_t)p1 pathList:(NSString *)p2
     {
-		[self invokeMonoMethod:"SetPathList(System.Security.Permissions.RegistryPermissionAccess,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetPathList(System.Security.Permissions.RegistryPermissionAccess,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : ToXml
@@ -149,18 +166,18 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml()" withNumArgs:0];
 		
-		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
+		return [System_Security_SecurityElement bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Union
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.IPermission
-    - (System_Security_IPermission *)union_withOther:(System_Security_IPermission *)p1
+    - (id <System_Security_IPermission>)union_withOther:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

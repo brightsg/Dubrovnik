@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Lazy`1<System.Lazy`1+T>";
+		return "System.Lazy`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,31 +32,10 @@
 	// Managed param types : System.Func`1<System.Lazy`1+T>
     + (System_LazyA1 *)new_withValueFactory:(System_FuncA1 *)p1
     {
-		return [[self alloc] initWithSignature:"System.Func`1<System.Lazy`1+T>" withNumArgs:1, [p1 monoRTInvokeArg]];;
-    }
-
-	// Managed method name : .ctor
-	// Managed return type : System.Lazy`1<System.Lazy`1+T>
-	// Managed param types : System.Threading.LazyThreadSafetyMode
-    + (System_LazyA1 *)new_withMode:(System_Threading_LazyThreadSafetyMode)p1
-    {
-		return [[self alloc] initWithSignature:"System.Threading.LazyThreadSafetyMode" withNumArgs:1, DB_VALUE(p1)];;
-    }
-
-	// Managed method name : .ctor
-	// Managed return type : System.Lazy`1<System.Lazy`1+T>
-	// Managed param types : System.Func`1<System.Lazy`1+T>, System.Boolean
-    + (System_LazyA1 *)new_withValueFactory:(System_FuncA1 *)p1 isThreadSafe:(BOOL)p2
-    {
-		return [[self alloc] initWithSignature:"System.Func`1<System.Lazy`1+T>,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
-    }
-
-	// Managed method name : .ctor
-	// Managed return type : System.Lazy`1<System.Lazy`1+T>
-	// Managed param types : System.Func`1<System.Lazy`1+T>, System.Threading.LazyThreadSafetyMode
-    + (System_LazyA1 *)new_withValueFactory:(System_FuncA1 *)p1 mode:(System_Threading_LazyThreadSafetyMode)p2
-    {
-		return [[self alloc] initWithSignature:"System.Func`1<System.Lazy`1+T>,System.Threading.LazyThreadSafetyMode" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		System_LazyA1 * object = [[self alloc] initWithSignature:"System.Func`1<System.Lazy`1+T>" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +43,43 @@
 	// Managed param types : System.Boolean
     + (System_LazyA1 *)new_withIsThreadSafe:(BOOL)p1
     {
-		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_LazyA1 * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
+    }
+
+	// Managed method name : .ctor
+	// Managed return type : System.Lazy`1<System.Lazy`1+T>
+	// Managed param types : System.Threading.LazyThreadSafetyMode
+    + (System_LazyA1 *)new_withMode:(int32_t)p1
+    {
+		
+		System_LazyA1 * object = [[self alloc] initWithSignature:"System.Threading.LazyThreadSafetyMode" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
+    }
+
+	// Managed method name : .ctor
+	// Managed return type : System.Lazy`1<System.Lazy`1+T>
+	// Managed param types : System.Func`1<System.Lazy`1+T>, System.Boolean
+    + (System_LazyA1 *)new_withValueFactory:(System_FuncA1 *)p1 isThreadSafe:(BOOL)p2
+    {
+		
+		System_LazyA1 * object = [[self alloc] initWithSignature:"System.Func`1<System.Lazy`1+T>,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+        return object;
+    }
+
+	// Managed method name : .ctor
+	// Managed return type : System.Lazy`1<System.Lazy`1+T>
+	// Managed param types : System.Func`1<System.Lazy`1+T>, System.Threading.LazyThreadSafetyMode
+    + (System_LazyA1 *)new_withValueFactory:(System_FuncA1 *)p1 mode:(int32_t)p2
+    {
+		
+		System_LazyA1 * object = [[self alloc] initWithSignature:"System.Func`1<System.Lazy`1+T>,System.Threading.LazyThreadSafetyMode" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -75,8 +90,18 @@
     @synthesize isValueCreated = _isValueCreated;
     - (BOOL)isValueCreated
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsValueCreated"];
-		_isValueCreated = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsValueCreated");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isValueCreated = monoObject;
 
 		return _isValueCreated;
 	}
@@ -86,9 +111,19 @@
     @synthesize value = _value;
     - (System_Object *)value
     {
-		MonoObject *monoObject = [self getMonoProperty:"Value"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Value");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_value isEqualToMonoObject:monoObject]) return _value;					
-		_value = [System_Object subclassObjectWithMonoObject:monoObject];
+		_value = [System_Object bestObjectWithMonoObject:monoObject];
 
 		return _value;
 	}

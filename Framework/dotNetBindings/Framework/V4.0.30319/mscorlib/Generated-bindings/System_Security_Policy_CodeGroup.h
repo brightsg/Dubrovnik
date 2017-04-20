@@ -24,7 +24,7 @@
 
 	// Managed property name : Description
 	// Managed property type : System.String
-    @property (nonatomic, strong) NSString * description;
+    // Avoid potential property attribute clash // @property (nonatomic, strong) NSString * description;
 
 	// Managed property name : MembershipCondition
 	// Managed property type : System.Security.Policy.IMembershipCondition

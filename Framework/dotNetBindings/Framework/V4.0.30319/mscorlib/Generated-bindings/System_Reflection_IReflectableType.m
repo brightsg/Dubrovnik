@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Reflection.IReflectableType.GetTypeInfo()" withNumArgs:0];
 		
-		return [System_Reflection_TypeInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_TypeInfo bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

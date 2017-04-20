@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAssemblyName(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_AssemblyName objectWithMonoObject:monoObject];
+		return [System_Reflection_AssemblyName bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

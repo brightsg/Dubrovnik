@@ -22,7 +22,7 @@
 	// Managed method name : Convert
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.TypeCode
-    - (System_Object *)convert_withValue:(System_Object *)p1 typeCode:(System_TypeCode)p2;
+    - (System_Object *)convert_withValue:(System_Object *)p1 typeCode:(int32_t)p2;
 
 	// Managed method name : ToBoolean
 	// Managed return type : System.Boolean

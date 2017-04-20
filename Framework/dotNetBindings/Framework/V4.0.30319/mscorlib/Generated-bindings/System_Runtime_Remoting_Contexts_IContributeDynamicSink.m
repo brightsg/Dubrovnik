@@ -30,12 +30,12 @@
 	// Managed method name : GetDynamicSink
 	// Managed return type : System.Runtime.Remoting.Contexts.IDynamicMessageSink
 	// Managed param types : 
-    - (System_Runtime_Remoting_Contexts_IDynamicMessageSink *)getDynamicSink
+    - (id <System_Runtime_Remoting_Contexts_IDynamicMessageSink>)getDynamicSink
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.Remoting.Contexts.IContributeDynamicSink.GetDynamicSink()" withNumArgs:0];
 		
-		return [System_Runtime_Remoting_Contexts_IDynamicMessageSink objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Contexts_IDynamicMessageSink bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

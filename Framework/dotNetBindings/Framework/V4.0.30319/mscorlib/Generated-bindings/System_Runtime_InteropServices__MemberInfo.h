@@ -20,7 +20,7 @@
 
 	// Managed property name : MemberType
 	// Managed property type : System.Reflection.MemberTypes
-    @property (nonatomic, readonly) System_Reflection_MemberTypes memberType;
+    @property (nonatomic, readonly) int32_t memberType;
 
 	// Managed property name : Name
 	// Managed property type : System.String

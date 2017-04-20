@@ -2,7 +2,7 @@
 //
 // Managed class : FileSystemInfo
 //
-@interface System_IO_FileSystemInfo : System_MarshalByRefObject <System_Runtime_Serialization_ISerializable>
+@interface System_IO_FileSystemInfo : System_MarshalByRefObject <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -16,7 +16,7 @@
 
 	// Managed property name : Attributes
 	// Managed property type : System.IO.FileAttributes
-    @property (nonatomic) System_IO_FileAttributes attributes;
+    @property (nonatomic) int32_t attributes;
 
 	// Managed property name : CreationTime
 	// Managed property type : System.DateTime

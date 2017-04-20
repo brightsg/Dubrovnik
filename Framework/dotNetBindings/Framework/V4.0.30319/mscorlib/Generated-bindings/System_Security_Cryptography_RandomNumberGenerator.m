@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create()" withNumArgs:0];
 		
-		return [System_Security_Cryptography_RandomNumberGenerator objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_RandomNumberGenerator bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
@@ -46,7 +46,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_Cryptography_RandomNumberGenerator objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_RandomNumberGenerator bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Dispose
@@ -54,7 +54,9 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+        
     }
 
 	// Managed method name : GetBytes
@@ -62,7 +64,19 @@
 	// Managed param types : System.Byte[]
     - (void)getBytes_withData:(NSData *)p1
     {
-		[self invokeMonoMethod:"GetBytes(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"GetBytes(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+    }
+
+	// Managed method name : GetBytes
+	// Managed return type : System.Void
+	// Managed param types : System.Byte[], System.Int32, System.Int32
+    - (void)getBytes_withData:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3
+    {
+		
+		[self invokeMonoMethod:"GetBytes(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+        
     }
 
 	// Managed method name : GetNonZeroBytes
@@ -70,7 +84,9 @@
 	// Managed param types : System.Byte[]
     - (void)getNonZeroBytes_withData:(NSData *)p1
     {
-		[self invokeMonoMethod:"GetNonZeroBytes(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"GetNonZeroBytes(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

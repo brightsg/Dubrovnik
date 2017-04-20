@@ -2,7 +2,7 @@
 //
 // Managed class : TimeZoneInfo
 //
-@interface System_TimeZoneInfo : System_Object <System_IEquatableA1, System_Runtime_Serialization_ISerializable, System_Runtime_Serialization_IDeserializationCallback>
+@interface System_TimeZoneInfo : System_Object <System_IEquatableA1_, System_Runtime_Serialization_ISerializable_, System_Runtime_Serialization_IDeserializationCallback_>
 
 #pragma mark -
 #pragma mark Setup

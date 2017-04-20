@@ -2,7 +2,7 @@
 //
 // Managed class : MethodBuilder
 //
-@interface System_Reflection_Emit_MethodBuilder : System_Reflection_MethodInfo <System_Reflection_ICustomAttributeProvider, System_Runtime_InteropServices__MemberInfo, System_Runtime_InteropServices__MethodBase, System_Runtime_InteropServices__MethodInfo, System_Runtime_InteropServices__MethodBuilder>
+@interface System_Reflection_Emit_MethodBuilder : System_Reflection_MethodInfo <System_Reflection_ICustomAttributeProvider_, System_Runtime_InteropServices__MemberInfo_, System_Runtime_InteropServices__MethodBase_, System_Runtime_InteropServices__MethodInfo_, System_Runtime_InteropServices__MethodBuilder_>
 
 #pragma mark -
 #pragma mark Setup
@@ -16,11 +16,11 @@
 
 	// Managed property name : Attributes
 	// Managed property type : System.Reflection.MethodAttributes
-    @property (nonatomic, readonly) System_Reflection_MethodAttributes attributes;
+    @property (nonatomic, readonly) int32_t attributes;
 
 	// Managed property name : CallingConvention
 	// Managed property type : System.Reflection.CallingConventions
-    @property (nonatomic, readonly) System_Reflection_CallingConventions callingConvention;
+    @property (nonatomic, readonly) int32_t callingConvention;
 
 	// Managed property name : ContainsGenericParameters
 	// Managed property type : System.Boolean
@@ -92,7 +92,7 @@
 	// Managed method name : AddDeclarativeSecurity
 	// Managed return type : System.Void
 	// Managed param types : System.Security.Permissions.SecurityAction, System.Security.PermissionSet
-    - (void)addDeclarativeSecurity_withAction:(System_Security_Permissions_SecurityAction)p1 pset:(System_Security_PermissionSet *)p2;
+    - (void)addDeclarativeSecurity_withAction:(int32_t)p1 pset:(System_Security_PermissionSet *)p2;
 
 	// Managed method name : CreateMethodBody
 	// Managed return type : System.Void
@@ -107,7 +107,7 @@
 	// Managed method name : DefineParameter
 	// Managed return type : System.Reflection.Emit.ParameterBuilder
 	// Managed param types : System.Int32, System.Reflection.ParameterAttributes, System.String
-    - (System_Reflection_Emit_ParameterBuilder *)defineParameter_withPosition:(int32_t)p1 attributes:(System_Reflection_ParameterAttributes)p2 strParamName:(NSString *)p3;
+    - (System_Reflection_Emit_ParameterBuilder *)defineParameter_withPosition:(int32_t)p1 attributes:(int32_t)p2 strParamName:(NSString *)p3;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
@@ -157,7 +157,7 @@
 	// Managed method name : GetMethodImplementationFlags
 	// Managed return type : System.Reflection.MethodImplAttributes
 	// Managed param types : 
-    - (System_Reflection_MethodImplAttributes)getMethodImplementationFlags;
+    - (int32_t)getMethodImplementationFlags;
 
 	// Managed method name : GetModule
 	// Managed return type : System.Reflection.Module
@@ -177,7 +177,7 @@
 	// Managed method name : Invoke
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo
-    - (System_Object *)invoke_withObj:(System_Object *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 parameters:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5;
+    - (System_Object *)invoke_withObj:(System_Object *)p1 invokeAttr:(int32_t)p2 binder:(System_Reflection_Binder *)p3 parameters:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5;
 
 	// Managed method name : IsDefined
 	// Managed return type : System.Boolean
@@ -191,18 +191,18 @@
 
 	// Managed method name : SetCustomAttribute
 	// Managed return type : System.Void
-	// Managed param types : System.Reflection.Emit.CustomAttributeBuilder
-    - (void)setCustomAttribute_withCustomBuilder:(System_Reflection_Emit_CustomAttributeBuilder *)p1;
+	// Managed param types : System.Reflection.ConstructorInfo, System.Byte[]
+    - (void)setCustomAttribute_withCon:(System_Reflection_ConstructorInfo *)p1 binaryAttribute:(NSData *)p2;
 
 	// Managed method name : SetCustomAttribute
 	// Managed return type : System.Void
-	// Managed param types : System.Reflection.ConstructorInfo, System.Byte[]
-    - (void)setCustomAttribute_withCon:(System_Reflection_ConstructorInfo *)p1 binaryAttribute:(NSData *)p2;
+	// Managed param types : System.Reflection.Emit.CustomAttributeBuilder
+    - (void)setCustomAttribute_withCustomBuilder:(System_Reflection_Emit_CustomAttributeBuilder *)p1;
 
 	// Managed method name : SetImplementationFlags
 	// Managed return type : System.Void
 	// Managed param types : System.Reflection.MethodImplAttributes
-    - (void)setImplementationFlags_withAttributes:(System_Reflection_MethodImplAttributes)p1;
+    - (void)setImplementationFlags_withAttributes:(int32_t)p1;
 
 	// Managed method name : SetMarshal
 	// Managed return type : System.Void
@@ -212,7 +212,7 @@
 	// Managed method name : SetMethodBody
 	// Managed return type : System.Void
 	// Managed param types : System.Byte[], System.Int32, System.Byte[], System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.ExceptionHandler>, System.Collections.Generic.IEnumerable`1<System.Int32>
-    - (void)setMethodBody_withIl:(NSData *)p1 maxStack:(int32_t)p2 localSignature:(NSData *)p3 exceptionHandlers:(System_Collections_Generic_IEnumerableA1 *)p4 tokenFixups:(System_Collections_Generic_IEnumerableA1 *)p5;
+    - (void)setMethodBody_withIl:(NSData *)p1 maxStack:(int32_t)p2 localSignature:(NSData *)p3 exceptionHandlers:(id <System_Collections_Generic_IEnumerableA1_>)p4 tokenFixups:(id <System_Collections_Generic_IEnumerableA1_>)p5;
 
 	// Managed method name : SetParameters
 	// Managed return type : System.Void

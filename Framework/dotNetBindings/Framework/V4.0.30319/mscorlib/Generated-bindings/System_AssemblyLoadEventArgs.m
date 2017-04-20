@@ -32,7 +32,10 @@
 	// Managed param types : System.Reflection.Assembly
     + (System_AssemblyLoadEventArgs *)new_withLoadedAssembly:(System_Reflection_Assembly *)p1
     {
-		return [[self alloc] initWithSignature:"System.Reflection.Assembly" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_AssemblyLoadEventArgs * object = [[self alloc] initWithSignature:"System.Reflection.Assembly" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,9 +46,19 @@
     @synthesize loadedAssembly = _loadedAssembly;
     - (System_Reflection_Assembly *)loadedAssembly
     {
-		MonoObject *monoObject = [self getMonoProperty:"LoadedAssembly"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LoadedAssembly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_loadedAssembly isEqualToMonoObject:monoObject]) return _loadedAssembly;					
-		_loadedAssembly = [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		_loadedAssembly = [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 
 		return _loadedAssembly;
 	}

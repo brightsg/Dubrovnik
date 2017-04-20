@@ -165,7 +165,7 @@
 	// Managed method name : GetTypeCode
 	// Managed return type : System.TypeCode
 	// Managed param types : 
-    - (System_TypeCode)getTypeCode
+    - (int32_t)getTypeCode
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeCode()" withNumArgs:0];
@@ -176,7 +176,7 @@
 	// Managed method name : GetUnicodeCategory
 	// Managed return type : System.Globalization.UnicodeCategory
 	// Managed param types : System.Char
-    + (System_Globalization_UnicodeCategory)getUnicodeCategory_withC:(uint16_t)p1
+    + (int32_t)getUnicodeCategory_withC:(uint16_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetUnicodeCategory(char)" withNumArgs:1, DB_VALUE(p1)];
@@ -187,7 +187,7 @@
 	// Managed method name : GetUnicodeCategory
 	// Managed return type : System.Globalization.UnicodeCategory
 	// Managed param types : System.String, System.Int32
-    + (System_Globalization_UnicodeCategory)getUnicodeCategory_withS:(NSString *)p1 index:(int32_t)p2
+    + (int32_t)getUnicodeCategory_withS:(NSString *)p1 index:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetUnicodeCategory(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
@@ -583,7 +583,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.IFormatProvider
-    - (NSString *)toString_withProvider:(System_IFormatProvider *)p1
+    - (NSString *)toString_withProvider:(id <System_IFormatProvider_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString(System.IFormatProvider)" withNumArgs:1, [p1 monoRTInvokeArg]];

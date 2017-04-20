@@ -2,7 +2,7 @@
 //
 // Managed class : EventListener
 //
-@interface System_Diagnostics_Tracing_EventListener : System_Object <System_IDisposable>
+@interface System_Diagnostics_Tracing_EventListener : System_Object <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -27,16 +27,16 @@
 	// Managed method name : EnableEvents
 	// Managed return type : System.Void
 	// Managed param types : System.Diagnostics.Tracing.EventSource, System.Diagnostics.Tracing.EventLevel
-    - (void)enableEvents_withEventSource:(System_Diagnostics_Tracing_EventSource *)p1 level:(System_Diagnostics_Tracing_EventLevel)p2;
+    - (void)enableEvents_withEventSource:(System_Diagnostics_Tracing_EventSource *)p1 level:(int32_t)p2;
 
 	// Managed method name : EnableEvents
 	// Managed return type : System.Void
 	// Managed param types : System.Diagnostics.Tracing.EventSource, System.Diagnostics.Tracing.EventLevel, System.Diagnostics.Tracing.EventKeywords
-    - (void)enableEvents_withEventSource:(System_Diagnostics_Tracing_EventSource *)p1 level:(System_Diagnostics_Tracing_EventLevel)p2 matchAnyKeyword:(System_Diagnostics_Tracing_EventKeywords)p3;
+    - (void)enableEvents_withEventSource:(System_Diagnostics_Tracing_EventSource *)p1 level:(int32_t)p2 matchAnyKeyword:(int64_t)p3;
 
 	// Managed method name : EnableEvents
 	// Managed return type : System.Void
 	// Managed param types : System.Diagnostics.Tracing.EventSource, System.Diagnostics.Tracing.EventLevel, System.Diagnostics.Tracing.EventKeywords, System.Collections.Generic.IDictionary`2<System.String, System.String>
-    - (void)enableEvents_withEventSource:(System_Diagnostics_Tracing_EventSource *)p1 level:(System_Diagnostics_Tracing_EventLevel)p2 matchAnyKeyword:(System_Diagnostics_Tracing_EventKeywords)p3 arguments:(System_Collections_Generic_IDictionaryA2 *)p4;
+    - (void)enableEvents_withEventSource:(System_Diagnostics_Tracing_EventSource *)p1 level:(int32_t)p2 matchAnyKeyword:(int64_t)p3 arguments:(id <System_Collections_Generic_IDictionaryA2_>)p4;
 @end
 //--Dubrovnik.CodeGenerator

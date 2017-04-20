@@ -67,17 +67,17 @@
 	// Managed method name : Exists
 	// Managed return type : System.Boolean
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Diagnostics.Contracts.Contract+T>, System.Predicate`1<System.Diagnostics.Contracts.Contract+T>
-    + (BOOL)exists_withCollection:(System_Collections_Generic_IEnumerableA1 *)p1 predicate:(System_PredicateA1 *)p2;
-
-	// Managed method name : ForAll
-	// Managed return type : System.Boolean
-	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Diagnostics.Contracts.Contract+T>, System.Predicate`1<System.Diagnostics.Contracts.Contract+T>
-    + (BOOL)forAll_withCollection:(System_Collections_Generic_IEnumerableA1 *)p1 predicate:(System_PredicateA1 *)p2;
+    + (BOOL)exists_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1 predicate:(System_PredicateA1 *)p2;
 
 	// Managed method name : ForAll
 	// Managed return type : System.Boolean
 	// Managed param types : System.Int32, System.Int32, System.Predicate`1<System.Int32>
     + (BOOL)forAll_withFromInclusive:(int32_t)p1 toExclusive:(int32_t)p2 predicate:(System_PredicateA1 *)p3;
+
+	// Managed method name : ForAll
+	// Managed return type : System.Boolean
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Diagnostics.Contracts.Contract+T>, System.Predicate`1<System.Diagnostics.Contracts.Contract+T>
+    + (BOOL)forAll_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1 predicate:(System_PredicateA1 *)p2;
 
 	// Managed method name : Invariant
 	// Managed return type : System.Void
@@ -101,7 +101,7 @@
 
 	// Managed method name : ValueAtReturn
 	// Managed return type : <System.Diagnostics.Contracts.Contract+T>
-	// Managed param types : ref <T&>
-    + (System_Object *)valueAtReturn_withValueRef:(System_Object **)p1;
+	// Managed param types : ref T&
+    + (System_Object *)valueAtReturn_withValueRef:(System_Diagnostics_Contracts_Contract__T **)p1;
 @end
 //--Dubrovnik.CodeGenerator

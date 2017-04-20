@@ -2,7 +2,7 @@
 //
 // Managed class : X509Certificate
 //
-@interface System_Security_Cryptography_X509Certificates_X509Certificate : System_Object <System_Runtime_Serialization_IDeserializationCallback, System_Runtime_Serialization_ISerializable>
+@interface System_Security_Cryptography_X509Certificates_X509Certificate : System_Object <System_IDisposable_, System_Runtime_Serialization_IDeserializationCallback_, System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -13,16 +13,6 @@
 
 #pragma mark -
 #pragma mark Constructors
-
-	// Managed method name : .ctor
-	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate
-	// Managed param types : System.IntPtr
-    + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withHandle:(void *)p1;
-
-	// Managed method name : .ctor
-	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate
-	// Managed param types : System.Security.Cryptography.X509Certificates.X509Certificate
-    + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withCert:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate
@@ -42,12 +32,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate
 	// Managed param types : System.Byte[], System.String, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withRawDataByte:(NSData *)p1 passwordString:(NSString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3;
+    + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withRawDataByte:(NSData *)p1 passwordString:(NSString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(int32_t)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate
 	// Managed param types : System.Byte[], System.Security.SecureString, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withRawDataByte:(NSData *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3;
+    + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withRawDataByte:(NSData *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(int32_t)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate
@@ -67,12 +57,22 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate
 	// Managed param types : System.String, System.String, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withFileNameString:(NSString *)p1 passwordString:(NSString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3;
+    + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withFileNameString:(NSString *)p1 passwordString:(NSString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(int32_t)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate
 	// Managed param types : System.String, System.Security.SecureString, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withFileNameString:(NSString *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3;
+    + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withFileNameString:(NSString *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(int32_t)p3;
+
+	// Managed method name : .ctor
+	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate
+	// Managed param types : System.IntPtr
+    + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withHandle:(void *)p1;
+
+	// Managed method name : .ctor
+	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate
+	// Managed param types : System.Security.Cryptography.X509Certificates.X509Certificate
+    + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withCert:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate
@@ -107,6 +107,11 @@
 	// Managed param types : System.String
     + (System_Security_Cryptography_X509Certificates_X509Certificate *)createFromSignedFile_withFilename:(NSString *)p1;
 
+	// Managed method name : Dispose
+	// Managed return type : System.Void
+	// Managed param types : 
+    - (void)dispose;
+
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object
@@ -120,17 +125,17 @@
 	// Managed method name : Export
 	// Managed return type : System.Byte[]
 	// Managed param types : System.Security.Cryptography.X509Certificates.X509ContentType
-    - (NSData *)export_withContentType:(System_Security_Cryptography_X509Certificates_X509ContentType)p1;
+    - (NSData *)export_withContentType:(int32_t)p1;
 
 	// Managed method name : Export
 	// Managed return type : System.Byte[]
 	// Managed param types : System.Security.Cryptography.X509Certificates.X509ContentType, System.String
-    - (NSData *)export_withContentTypeSSCXX509ContentType:(System_Security_Cryptography_X509Certificates_X509ContentType)p1 passwordString:(NSString *)p2;
+    - (NSData *)export_withContentTypeSSCXX509ContentType:(int32_t)p1 passwordString:(NSString *)p2;
 
 	// Managed method name : Export
 	// Managed return type : System.Byte[]
 	// Managed param types : System.Security.Cryptography.X509Certificates.X509ContentType, System.Security.SecureString
-    - (NSData *)export_withContentTypeSSCXX509ContentType:(System_Security_Cryptography_X509Certificates_X509ContentType)p1 passwordSSSecureString:(System_Security_SecureString *)p2;
+    - (NSData *)export_withContentTypeSSCXX509ContentType:(int32_t)p1 passwordSSSecureString:(System_Security_SecureString *)p2;
 
 	// Managed method name : GetCertHash
 	// Managed return type : System.Byte[]
@@ -225,12 +230,12 @@
 	// Managed method name : Import
 	// Managed return type : System.Void
 	// Managed param types : System.Byte[], System.String, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    - (void)import_withRawDataByte:(NSData *)p1 passwordString:(NSString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3;
+    - (void)import_withRawDataByte:(NSData *)p1 passwordString:(NSString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(int32_t)p3;
 
 	// Managed method name : Import
 	// Managed return type : System.Void
 	// Managed param types : System.Byte[], System.Security.SecureString, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    - (void)import_withRawDataByte:(NSData *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3;
+    - (void)import_withRawDataByte:(NSData *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(int32_t)p3;
 
 	// Managed method name : Import
 	// Managed return type : System.Void
@@ -240,12 +245,12 @@
 	// Managed method name : Import
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.String, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    - (void)import_withFileNameString:(NSString *)p1 passwordString:(NSString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3;
+    - (void)import_withFileNameString:(NSString *)p1 passwordString:(NSString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(int32_t)p3;
 
 	// Managed method name : Import
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Security.SecureString, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    - (void)import_withFileNameString:(NSString *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3;
+    - (void)import_withFileNameString:(NSString *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(int32_t)p3;
 
 	// Managed method name : Reset
 	// Managed return type : System.Void

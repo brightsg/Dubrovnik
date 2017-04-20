@@ -2,7 +2,7 @@
 //
 // Managed struct : RuntimeTypeHandle
 //
-@interface System_RuntimeTypeHandle : DBManagedObject <System_Runtime_Serialization_ISerializable>
+@interface System_RuntimeTypeHandle : DBManagedObject <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup

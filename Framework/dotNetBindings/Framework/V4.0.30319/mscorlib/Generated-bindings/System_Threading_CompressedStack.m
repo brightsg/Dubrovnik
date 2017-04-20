@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Capture()" withNumArgs:0];
 		
-		return [System_Threading_CompressedStack objectWithMonoObject:monoObject];
+		return [System_Threading_CompressedStack bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateCopy
@@ -46,7 +46,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateCopy()" withNumArgs:0];
 		
-		return [System_Threading_CompressedStack objectWithMonoObject:monoObject];
+		return [System_Threading_CompressedStack bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCompressedStack
@@ -57,7 +57,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCompressedStack()" withNumArgs:0];
 		
-		return [System_Threading_CompressedStack objectWithMonoObject:monoObject];
+		return [System_Threading_CompressedStack bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetObjectData
@@ -65,7 +65,9 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Run
@@ -73,7 +75,9 @@
 	// Managed param types : System.Threading.CompressedStack, System.Threading.ContextCallback, System.Object
     + (void)run_withCompressedStack:(System_Threading_CompressedStack *)p1 callback:(System_Threading_ContextCallback *)p2 state:(System_Object *)p3
     {
-		[self invokeMonoClassMethod:"Run(System.Threading.CompressedStack,System.Threading.ContextCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Run(System.Threading.CompressedStack,System.Threading.ContextCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

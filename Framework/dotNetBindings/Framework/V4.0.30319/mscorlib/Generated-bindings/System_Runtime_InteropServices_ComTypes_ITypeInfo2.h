@@ -2,7 +2,7 @@
 //
 // Managed interface : ITypeInfo2
 //
-@interface System_Runtime_InteropServices_ComTypes_ITypeInfo2 : System_Object <System_Runtime_InteropServices_ComTypes_ITypeInfo2, System_Runtime_InteropServices_ComTypes_ITypeInfo>
+@interface System_Runtime_InteropServices_ComTypes_ITypeInfo2 : System_Object <System_Runtime_InteropServices_ComTypes_ITypeInfo2_, System_Runtime_InteropServices_ComTypes_ITypeInfo_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : AddressOfMember
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, System.Runtime.InteropServices.ComTypes.INVOKEKIND, ref System.IntPtr&
-    - (void)addressOfMember_withMemid:(int32_t)p1 invKind:(System_Runtime_InteropServices_ComTypes_INVOKEKIND)p2 ppvRef:(void **)p3;
+    - (void)addressOfMember_withMemid:(int32_t)p1 invKind:(int32_t)p2 ppvRef:(void **)p3;
 
 	// Managed method name : CreateInstance
 	// Managed return type : System.Void
@@ -62,7 +62,7 @@
 	// Managed method name : GetDllEntry
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, System.Runtime.InteropServices.ComTypes.INVOKEKIND, System.IntPtr, System.IntPtr, System.IntPtr
-    - (void)getDllEntry_withMemid:(int32_t)p1 invKind:(System_Runtime_InteropServices_ComTypes_INVOKEKIND)p2 pBstrDllName:(void *)p3 pBstrName:(void *)p4 pwOrdinal:(void *)p5;
+    - (void)getDllEntry_withMemid:(int32_t)p1 invKind:(int32_t)p2 pBstrDllName:(void *)p3 pBstrName:(void *)p4 pwOrdinal:(void *)p5;
 
 	// Managed method name : GetDocumentation
 	// Managed return type : System.Void
@@ -87,7 +87,7 @@
 	// Managed method name : GetFuncIndexOfMemId
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, System.Runtime.InteropServices.ComTypes.INVOKEKIND, ref System.Int32&
-    - (void)getFuncIndexOfMemId_withMemid:(int32_t)p1 invKind:(System_Runtime_InteropServices_ComTypes_INVOKEKIND)p2 pFuncIndexRef:(int32_t*)p3;
+    - (void)getFuncIndexOfMemId_withMemid:(int32_t)p1 invKind:(int32_t)p2 pFuncIndexRef:(int32_t*)p3;
 
 	// Managed method name : GetIDsOfNames
 	// Managed return type : System.Void

@@ -32,7 +32,9 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Undo
@@ -40,7 +42,9 @@
 	// Managed param types : 
     - (void)undo
     {
-		[self invokeMonoMethod:"Undo()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Undo()" withNumArgs:0];
+        
     }
 
 #pragma mark -

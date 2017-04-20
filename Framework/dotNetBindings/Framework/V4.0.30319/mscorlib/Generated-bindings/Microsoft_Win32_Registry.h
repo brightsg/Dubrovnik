@@ -52,12 +52,12 @@
 
 	// Managed method name : SetValue
 	// Managed return type : System.Void
-	// Managed param types : System.String, System.String, System.Object, Microsoft.Win32.RegistryValueKind
-    + (void)setValue_withKeyName:(NSString *)p1 valueName:(NSString *)p2 value:(System_Object *)p3 valueKind:(Microsoft_Win32_RegistryValueKind)p4;
+	// Managed param types : System.String, System.String, System.Object
+    + (void)setValue_withKeyName:(NSString *)p1 valueName:(NSString *)p2 value:(System_Object *)p3;
 
 	// Managed method name : SetValue
 	// Managed return type : System.Void
-	// Managed param types : System.String, System.String, System.Object
-    + (void)setValue_withKeyName:(NSString *)p1 valueName:(NSString *)p2 value:(System_Object *)p3;
+	// Managed param types : System.String, System.String, System.Object, Microsoft.Win32.RegistryValueKind
+    + (void)setValue_withKeyName:(NSString *)p1 valueName:(NSString *)p2 value:(System_Object *)p3 valueKind:(int32_t)p4;
 @end
 //--Dubrovnik.CodeGenerator

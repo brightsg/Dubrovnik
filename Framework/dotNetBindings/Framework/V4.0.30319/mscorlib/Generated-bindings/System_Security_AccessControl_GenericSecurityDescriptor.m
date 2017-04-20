@@ -32,8 +32,18 @@
     @synthesize binaryLength = _binaryLength;
     - (int32_t)binaryLength
     {
-		MonoObject *monoObject = [self getMonoProperty:"BinaryLength"];
-		_binaryLength = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BinaryLength");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_binaryLength = monoObject;
 
 		return _binaryLength;
 	}
@@ -41,10 +51,20 @@
 	// Managed property name : ControlFlags
 	// Managed property type : System.Security.AccessControl.ControlFlags
     @synthesize controlFlags = _controlFlags;
-    - (System_Security_AccessControl_ControlFlags)controlFlags
+    - (int32_t)controlFlags
     {
-		MonoObject *monoObject = [self getMonoProperty:"ControlFlags"];
-		_controlFlags = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ControlFlags");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_controlFlags = monoObject;
 
 		return _controlFlags;
 	}
@@ -54,17 +74,36 @@
     @synthesize group = _group;
     - (System_Security_Principal_SecurityIdentifier *)group
     {
-		MonoObject *monoObject = [self getMonoProperty:"Group"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Group");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_group isEqualToMonoObject:monoObject]) return _group;					
-		_group = [System_Security_Principal_SecurityIdentifier objectWithMonoObject:monoObject];
+		_group = [System_Security_Principal_SecurityIdentifier bestObjectWithMonoObject:monoObject];
 
 		return _group;
 	}
     - (void)setGroup:(System_Security_Principal_SecurityIdentifier *)value
 	{
 		_group = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Group" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Group");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Owner
@@ -72,17 +111,36 @@
     @synthesize owner = _owner;
     - (System_Security_Principal_SecurityIdentifier *)owner
     {
-		MonoObject *monoObject = [self getMonoProperty:"Owner"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Owner");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_owner isEqualToMonoObject:monoObject]) return _owner;					
-		_owner = [System_Security_Principal_SecurityIdentifier objectWithMonoObject:monoObject];
+		_owner = [System_Security_Principal_SecurityIdentifier bestObjectWithMonoObject:monoObject];
 
 		return _owner;
 	}
     - (void)setOwner:(System_Security_Principal_SecurityIdentifier *)value
 	{
 		_owner = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Owner" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Owner");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Revision
@@ -90,8 +148,18 @@
     static uint8_t m_revision;
     + (uint8_t)revision
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Revision"];
-		m_revision = DB_UNBOX_UINT8(monoObject);
+		typedef uint8_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Revision");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		uint8_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_revision = monoObject;
 
 		return m_revision;
 	}
@@ -104,13 +172,15 @@
 	// Managed param types : System.Byte[], System.Int32
     - (void)getBinaryForm_withBinaryForm:(NSData *)p1 offset:(int32_t)p2
     {
-		[self invokeMonoMethod:"GetBinaryForm(byte[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"GetBinaryForm(byte[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : GetSddlForm
 	// Managed return type : System.String
 	// Managed param types : System.Security.AccessControl.AccessControlSections
-    - (NSString *)getSddlForm_withIncludeSections:(System_Security_AccessControl_AccessControlSections)p1
+    - (NSString *)getSddlForm_withIncludeSections:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetSddlForm(System.Security.AccessControl.AccessControlSections)" withNumArgs:1, DB_VALUE(p1)];

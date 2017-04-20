@@ -32,7 +32,17 @@
     static DBSystem_Array * m_registeredHandlers;
     + (DBSystem_Array *)registeredHandlers
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"RegisteredHandlers"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RegisteredHandlers");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_registeredHandlers isEqualToMonoObject:monoObject]) return m_registeredHandlers;					
 		m_registeredHandlers = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -45,17 +55,21 @@
 	// Managed method name : RegisterTrackingHandler
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Services.ITrackingHandler
-    + (void)registerTrackingHandler_withHandler:(System_Runtime_Remoting_Services_ITrackingHandler *)p1
+    + (void)registerTrackingHandler_withHandler:(id <System_Runtime_Remoting_Services_ITrackingHandler_>)p1
     {
-		[self invokeMonoClassMethod:"RegisterTrackingHandler(System.Runtime.Remoting.Services.ITrackingHandler)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"RegisterTrackingHandler(System.Runtime.Remoting.Services.ITrackingHandler)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : UnregisterTrackingHandler
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Services.ITrackingHandler
-    + (void)unregisterTrackingHandler_withHandler:(System_Runtime_Remoting_Services_ITrackingHandler *)p1
+    + (void)unregisterTrackingHandler_withHandler:(id <System_Runtime_Remoting_Services_ITrackingHandler_>)p1
     {
-		[self invokeMonoClassMethod:"UnregisterTrackingHandler(System.Runtime.Remoting.Services.ITrackingHandler)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"UnregisterTrackingHandler(System.Runtime.Remoting.Services.ITrackingHandler)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

@@ -32,7 +32,17 @@
     static System_Object * m_hostContext;
     + (System_Object *)hostContext
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"HostContext"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HostContext");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_hostContext isEqualToMonoObject:monoObject]) return m_hostContext;					
 		m_hostContext = [System_Object objectWithMonoObject:monoObject];
 
@@ -41,8 +51,17 @@
     + (void)setHostContext:(System_Object *)value
 	{
 		m_hostContext = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[[self class] setMonoClassProperty:"HostContext" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "HostContext");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk([value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -53,7 +72,9 @@
 	// Managed param types : System.String
     + (void)freeNamedDataSlot_withName:(NSString *)p1
     {
-		[self invokeMonoClassMethod:"FreeNamedDataSlot(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"FreeNamedDataSlot(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetData
@@ -94,7 +115,9 @@
 	// Managed param types : System.String, System.Object
     + (void)logicalSetData_withName:(NSString *)p1 data:(System_Object *)p2
     {
-		[self invokeMonoClassMethod:"LogicalSetData(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"LogicalSetData(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetData
@@ -102,7 +125,9 @@
 	// Managed param types : System.String, System.Object
     + (void)setData_withName:(NSString *)p1 data:(System_Object *)p2
     {
-		[self invokeMonoClassMethod:"SetData(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SetData(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetHeaders
@@ -110,7 +135,9 @@
 	// Managed param types : System.Runtime.Remoting.Messaging.Header[]
     + (void)setHeaders_withHeaders:(DBSystem_Array *)p1
     {
-		[self invokeMonoClassMethod:"SetHeaders(System.Array[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SetHeaders(System.Runtime.Remoting.Messaging.Header[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

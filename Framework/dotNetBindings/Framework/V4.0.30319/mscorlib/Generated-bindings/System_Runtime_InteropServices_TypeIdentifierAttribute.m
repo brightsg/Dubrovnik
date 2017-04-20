@@ -32,7 +32,10 @@
 	// Managed param types : System.String, System.String
     + (System_Runtime_InteropServices_TypeIdentifierAttribute *)new_withScope:(NSString *)p1 identifier:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Runtime_InteropServices_TypeIdentifierAttribute * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,7 +46,17 @@
     @synthesize identifier = _identifier;
     - (NSString *)identifier
     {
-		MonoObject *monoObject = [self getMonoProperty:"Identifier"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Identifier");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_identifier isEqualToMonoObject:monoObject]) return _identifier;					
 		_identifier = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -55,7 +68,17 @@
     @synthesize scope = _scope;
     - (NSString *)scope
     {
-		MonoObject *monoObject = [self getMonoProperty:"Scope"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Scope");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_scope isEqualToMonoObject:monoObject]) return _scope;					
 		_scope = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

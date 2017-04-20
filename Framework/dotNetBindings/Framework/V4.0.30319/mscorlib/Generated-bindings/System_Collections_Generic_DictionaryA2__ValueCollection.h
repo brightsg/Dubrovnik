@@ -2,7 +2,7 @@
 //
 // Managed class : Dictionary`2<TKey, TValue>.ValueCollection
 //
-@interface System_Collections_Generic_DictionaryA2__ValueCollection : System_Object <System_Collections_Generic_ICollectionA1, System_Collections_Generic_IEnumerableA1, System_Collections_IEnumerable, System_Collections_ICollection>
+@interface System_Collections_Generic_DictionaryA2__ValueCollection : System_Object <System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_ICollection_, System_Collections_Generic_IReadOnlyCollectionA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -31,8 +31,8 @@
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : <TValue[]>, System.Int32
-    - (void)copyTo_withArray:(System_Object *)p1 index:(int32_t)p2;
+	// Managed param types : TValue[], System.Int32
+    - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2;
 
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+ValueCollection+TKey, System.Collections.Generic.Dictionary`2+ValueCollection+TValue>+ValueCollection+Enumerator

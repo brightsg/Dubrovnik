@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create()" withNumArgs:0];
 		
-		return [System_Security_Cryptography_SHA512 objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_SHA512 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
@@ -46,7 +46,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_Cryptography_SHA512 objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_SHA512 bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

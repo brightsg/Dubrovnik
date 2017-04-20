@@ -34,7 +34,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Empty"];
 		if ([self object:m_empty isEqualToMonoObject:monoObject]) return m_empty;					
-		m_empty = [System_EventArgs objectWithMonoObject:monoObject];
+		m_empty = [System_EventArgs bestObjectWithMonoObject:monoObject];
 
 		return m_empty;
 	}

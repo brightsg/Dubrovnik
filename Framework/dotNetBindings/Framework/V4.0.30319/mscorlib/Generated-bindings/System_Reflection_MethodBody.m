@@ -32,9 +32,19 @@
     @synthesize exceptionHandlingClauses = _exceptionHandlingClauses;
     - (System_Collections_Generic_IListA1 *)exceptionHandlingClauses
     {
-		MonoObject *monoObject = [self getMonoProperty:"ExceptionHandlingClauses"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ExceptionHandlingClauses");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_exceptionHandlingClauses isEqualToMonoObject:monoObject]) return _exceptionHandlingClauses;					
-		_exceptionHandlingClauses = [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
+		_exceptionHandlingClauses = [System_Collections_Generic_IListA1 bestObjectWithMonoObject:monoObject];
 
 		return _exceptionHandlingClauses;
 	}
@@ -44,8 +54,18 @@
     @synthesize initLocals = _initLocals;
     - (BOOL)initLocals
     {
-		MonoObject *monoObject = [self getMonoProperty:"InitLocals"];
-		_initLocals = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InitLocals");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_initLocals = monoObject;
 
 		return _initLocals;
 	}
@@ -55,8 +75,18 @@
     @synthesize localSignatureMetadataToken = _localSignatureMetadataToken;
     - (int32_t)localSignatureMetadataToken
     {
-		MonoObject *monoObject = [self getMonoProperty:"LocalSignatureMetadataToken"];
-		_localSignatureMetadataToken = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LocalSignatureMetadataToken");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_localSignatureMetadataToken = monoObject;
 
 		return _localSignatureMetadataToken;
 	}
@@ -66,9 +96,19 @@
     @synthesize localVariables = _localVariables;
     - (System_Collections_Generic_IListA1 *)localVariables
     {
-		MonoObject *monoObject = [self getMonoProperty:"LocalVariables"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LocalVariables");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_localVariables isEqualToMonoObject:monoObject]) return _localVariables;					
-		_localVariables = [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
+		_localVariables = [System_Collections_Generic_IListA1 bestObjectWithMonoObject:monoObject];
 
 		return _localVariables;
 	}
@@ -78,8 +118,18 @@
     @synthesize maxStackSize = _maxStackSize;
     - (int32_t)maxStackSize
     {
-		MonoObject *monoObject = [self getMonoProperty:"MaxStackSize"];
-		_maxStackSize = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MaxStackSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_maxStackSize = monoObject;
 
 		return _maxStackSize;
 	}

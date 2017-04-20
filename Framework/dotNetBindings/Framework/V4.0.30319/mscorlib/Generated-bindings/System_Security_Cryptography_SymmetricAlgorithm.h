@@ -2,7 +2,7 @@
 //
 // Managed class : SymmetricAlgorithm
 //
-@interface System_Security_Cryptography_SymmetricAlgorithm : System_Object <System_IDisposable>
+@interface System_Security_Cryptography_SymmetricAlgorithm : System_Object <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -44,11 +44,11 @@
 
 	// Managed property name : Mode
 	// Managed property type : System.Security.Cryptography.CipherMode
-    @property (nonatomic) System_Security_Cryptography_CipherMode mode;
+    @property (nonatomic) int32_t mode;
 
 	// Managed property name : Padding
 	// Managed property type : System.Security.Cryptography.PaddingMode
-    @property (nonatomic) System_Security_Cryptography_PaddingMode padding;
+    @property (nonatomic) int32_t padding;
 
 #pragma mark -
 #pragma mark Methods
@@ -71,22 +71,22 @@
 	// Managed method name : CreateDecryptor
 	// Managed return type : System.Security.Cryptography.ICryptoTransform
 	// Managed param types : 
-    - (System_Security_Cryptography_ICryptoTransform *)createDecryptor;
+    - (id <System_Security_Cryptography_ICryptoTransform>)createDecryptor;
 
 	// Managed method name : CreateDecryptor
 	// Managed return type : System.Security.Cryptography.ICryptoTransform
 	// Managed param types : System.Byte[], System.Byte[]
-    - (System_Security_Cryptography_ICryptoTransform *)createDecryptor_withRgbKey:(NSData *)p1 rgbIV:(NSData *)p2;
+    - (id <System_Security_Cryptography_ICryptoTransform>)createDecryptor_withRgbKey:(NSData *)p1 rgbIV:(NSData *)p2;
 
 	// Managed method name : CreateEncryptor
 	// Managed return type : System.Security.Cryptography.ICryptoTransform
 	// Managed param types : 
-    - (System_Security_Cryptography_ICryptoTransform *)createEncryptor;
+    - (id <System_Security_Cryptography_ICryptoTransform>)createEncryptor;
 
 	// Managed method name : CreateEncryptor
 	// Managed return type : System.Security.Cryptography.ICryptoTransform
 	// Managed param types : System.Byte[], System.Byte[]
-    - (System_Security_Cryptography_ICryptoTransform *)createEncryptor_withRgbKey:(NSData *)p1 rgbIV:(NSData *)p2;
+    - (id <System_Security_Cryptography_ICryptoTransform>)createEncryptor_withRgbKey:(NSData *)p1 rgbIV:(NSData *)p2;
 
 	// Managed method name : Dispose
 	// Managed return type : System.Void

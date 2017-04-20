@@ -32,7 +32,10 @@
 	// Managed param types : System.AggregateException
     + (System_Threading_Tasks_UnobservedTaskExceptionEventArgs *)new_withException:(System_AggregateException *)p1
     {
-		return [[self alloc] initWithSignature:"System.AggregateException" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Threading_Tasks_UnobservedTaskExceptionEventArgs * object = [[self alloc] initWithSignature:"System.AggregateException" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,9 +46,19 @@
     @synthesize exception = _exception;
     - (System_AggregateException *)exception
     {
-		MonoObject *monoObject = [self getMonoProperty:"Exception"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Exception");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_exception isEqualToMonoObject:monoObject]) return _exception;					
-		_exception = [System_AggregateException objectWithMonoObject:monoObject];
+		_exception = [System_AggregateException bestObjectWithMonoObject:monoObject];
 
 		return _exception;
 	}
@@ -55,8 +68,18 @@
     @synthesize observed = _observed;
     - (BOOL)observed
     {
-		MonoObject *monoObject = [self getMonoProperty:"Observed"];
-		_observed = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Observed");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_observed = monoObject;
 
 		return _observed;
 	}
@@ -69,7 +92,9 @@
 	// Managed param types : 
     - (void)setObserved
     {
-		[self invokeMonoMethod:"SetObserved()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"SetObserved()" withNumArgs:0];
+        
     }
 
 #pragma mark -

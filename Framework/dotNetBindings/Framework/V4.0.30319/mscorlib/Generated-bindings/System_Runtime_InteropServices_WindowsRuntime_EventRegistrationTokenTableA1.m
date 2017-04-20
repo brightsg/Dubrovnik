@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1+T>";
+		return "System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,17 +32,36 @@
     @synthesize invocationList = _invocationList;
     - (System_Object *)invocationList
     {
-		MonoObject *monoObject = [self getMonoProperty:"InvocationList"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InvocationList");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_invocationList isEqualToMonoObject:monoObject]) return _invocationList;					
-		_invocationList = [System_Object subclassObjectWithMonoObject:monoObject];
+		_invocationList = [System_Object bestObjectWithMonoObject:monoObject];
 
 		return _invocationList;
 	}
     - (void)setInvocationList:(System_Object *)value
 	{
 		_invocationList = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"InvocationList" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "InvocationList");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -56,7 +75,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"AddEventHandler(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken objectWithMonoObject:monoObject];
+		return [System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetOrCreateEventRegistrationTokenTable
@@ -68,9 +87,9 @@
 
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetOrCreateEventRegistrationTokenTable(System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1+T>&)" withNumArgs:1, &refPtr1];
 
-		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+		*p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 
-		return [System_Runtime_InteropServices_WindowsRuntime_EventRegistrationTokenTableA1 objectWithMonoObject:monoObject];
+		return [System_Runtime_InteropServices_WindowsRuntime_EventRegistrationTokenTableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : RemoveEventHandler
@@ -78,7 +97,9 @@
 	// Managed param types : System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken
     - (void)removeEventHandler_withToken:(System_Runtime_InteropServices_WindowsRuntime_EventRegistrationToken *)p1
     {
-		[self invokeMonoMethod:"RemoveEventHandler(System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"RemoveEventHandler(System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : RemoveEventHandler
@@ -86,7 +107,9 @@
 	// Managed param types : <System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1+T>
     - (void)removeEventHandler_withHandler:(System_Object *)p1
     {
-		[self invokeMonoMethod:"RemoveEventHandler(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"RemoveEventHandler(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

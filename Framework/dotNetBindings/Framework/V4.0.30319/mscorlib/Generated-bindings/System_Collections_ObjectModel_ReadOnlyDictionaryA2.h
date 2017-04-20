@@ -2,7 +2,7 @@
 //
 // Managed class : ReadOnlyDictionary`2<TKey, TValue>
 //
-@interface System_Collections_ObjectModel_ReadOnlyDictionaryA2 : System_Object <System_Collections_Generic_IDictionaryA2, System_Collections_Generic_ICollectionA1, System_Collections_Generic_IEnumerableA1, System_Collections_IEnumerable, System_Collections_IDictionary, System_Collections_ICollection, System_Collections_Generic_IReadOnlyDictionaryA2, System_Collections_Generic_IReadOnlyCollectionA1>
+@interface System_Collections_ObjectModel_ReadOnlyDictionaryA2 : System_Object <System_Collections_Generic_IDictionaryA2_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_IDictionary_, System_Collections_ICollection_, System_Collections_Generic_IReadOnlyDictionaryA2_, System_Collections_Generic_IReadOnlyCollectionA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.ObjectModel.ReadOnlyDictionary`2<System.Collections.ObjectModel.ReadOnlyDictionary`2+TKey, System.Collections.ObjectModel.ReadOnlyDictionary`2+TValue>
 	// Managed param types : System.Collections.Generic.IDictionary`2<System.Collections.ObjectModel.ReadOnlyDictionary`2+TKey, System.Collections.ObjectModel.ReadOnlyDictionary`2+TValue>
-    + (System_Collections_ObjectModel_ReadOnlyDictionaryA2 *)new_withDictionary:(System_Collections_Generic_IDictionaryA2 *)p1;
+    + (System_Collections_ObjectModel_ReadOnlyDictionaryA2 *)new_withDictionary:(id <System_Collections_Generic_IDictionaryA2_>)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -49,11 +49,11 @@
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.Generic.IEnumerator`1<System.Collections.Generic.KeyValuePair`2<System.Collections.ObjectModel.ReadOnlyDictionary`2+TKey, System.Collections.ObjectModel.ReadOnlyDictionary`2+TValue>>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumeratorA1 *)getEnumerator;
+    - (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator;
 
 	// Managed method name : TryGetValue
 	// Managed return type : System.Boolean
-	// Managed param types : <System.Collections.ObjectModel.ReadOnlyDictionary`2+TKey>, ref <TValue&>
-    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
+	// Managed param types : <System.Collections.ObjectModel.ReadOnlyDictionary`2+TKey>, ref TValue&
+    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Collections_ObjectModel_ReadOnlyDictionaryA2__TValue **)p2;
 @end
 //--Dubrovnik.CodeGenerator

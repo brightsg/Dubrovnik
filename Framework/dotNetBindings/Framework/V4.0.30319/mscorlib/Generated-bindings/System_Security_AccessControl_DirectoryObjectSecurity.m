@@ -30,23 +30,23 @@
 	// Managed method name : AccessRuleFactory
 	// Managed return type : System.Security.AccessControl.AccessRule
 	// Managed param types : System.Security.Principal.IdentityReference, System.Int32, System.Boolean, System.Security.AccessControl.InheritanceFlags, System.Security.AccessControl.PropagationFlags, System.Security.AccessControl.AccessControlType, System.Guid, System.Guid
-    - (System_Security_AccessControl_AccessRule *)accessRuleFactory_withIdentityReference:(System_Security_Principal_IdentityReference *)p1 accessMask:(int32_t)p2 isInherited:(BOOL)p3 inheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p4 propagationFlags:(System_Security_AccessControl_PropagationFlags)p5 type:(System_Security_AccessControl_AccessControlType)p6 objectType:(System_Guid *)p7 inheritedObjectType:(System_Guid *)p8
+    - (System_Security_AccessControl_AccessRule *)accessRuleFactory_withIdentityReference:(System_Security_Principal_IdentityReference *)p1 accessMask:(int32_t)p2 isInherited:(BOOL)p3 inheritanceFlags:(int32_t)p4 propagationFlags:(int32_t)p5 type:(int32_t)p6 objectType:(System_Guid *)p7 inheritedObjectType:(System_Guid *)p8
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"AccessRuleFactory(System.Security.Principal.IdentityReference,int,bool,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AccessControlType,System.Guid,System.Guid)" withNumArgs:8, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), [p7 monoRTInvokeArg], [p8 monoRTInvokeArg]];
 		
-		return [System_Security_AccessControl_AccessRule objectWithMonoObject:monoObject];
+		return [System_Security_AccessControl_AccessRule bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : AuditRuleFactory
 	// Managed return type : System.Security.AccessControl.AuditRule
 	// Managed param types : System.Security.Principal.IdentityReference, System.Int32, System.Boolean, System.Security.AccessControl.InheritanceFlags, System.Security.AccessControl.PropagationFlags, System.Security.AccessControl.AuditFlags, System.Guid, System.Guid
-    - (System_Security_AccessControl_AuditRule *)auditRuleFactory_withIdentityReference:(System_Security_Principal_IdentityReference *)p1 accessMask:(int32_t)p2 isInherited:(BOOL)p3 inheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p4 propagationFlags:(System_Security_AccessControl_PropagationFlags)p5 flags:(System_Security_AccessControl_AuditFlags)p6 objectType:(System_Guid *)p7 inheritedObjectType:(System_Guid *)p8
+    - (System_Security_AccessControl_AuditRule *)auditRuleFactory_withIdentityReference:(System_Security_Principal_IdentityReference *)p1 accessMask:(int32_t)p2 isInherited:(BOOL)p3 inheritanceFlags:(int32_t)p4 propagationFlags:(int32_t)p5 flags:(int32_t)p6 objectType:(System_Guid *)p7 inheritedObjectType:(System_Guid *)p8
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"AuditRuleFactory(System.Security.Principal.IdentityReference,int,bool,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AuditFlags,System.Guid,System.Guid)" withNumArgs:8, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), [p7 monoRTInvokeArg], [p8 monoRTInvokeArg]];
 		
-		return [System_Security_AccessControl_AuditRule objectWithMonoObject:monoObject];
+		return [System_Security_AccessControl_AuditRule bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetAccessRules
@@ -57,7 +57,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAccessRules(bool,bool,System.Type)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
-		return [System_Security_AccessControl_AuthorizationRuleCollection objectWithMonoObject:monoObject];
+		return [System_Security_AccessControl_AuthorizationRuleCollection bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetAuditRules
@@ -68,7 +68,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAuditRules(bool,bool,System.Type)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
-		return [System_Security_AccessControl_AuthorizationRuleCollection objectWithMonoObject:monoObject];
+		return [System_Security_AccessControl_AuthorizationRuleCollection bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

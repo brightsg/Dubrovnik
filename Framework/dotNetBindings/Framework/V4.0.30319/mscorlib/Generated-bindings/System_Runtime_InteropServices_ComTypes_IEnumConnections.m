@@ -32,8 +32,12 @@
 	// Managed param types : ref System.Runtime.InteropServices.ComTypes.IEnumConnections&
     - (void)clone_withPpenumRef:(System_Runtime_InteropServices_ComTypes_IEnumConnections **)p1
     {
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IEnumConnections.Clone(System.Runtime.InteropServices.ComTypes.IEnumConnections&)" withNumArgs:1, &refPtr1];
-;
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+
     }
 
 	// Managed method name : Next
@@ -42,7 +46,7 @@
     - (int32_t)next_withCelt:(int32_t)p1 rgelt:(DBSystem_Array *)p2 pceltFetched:(void *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IEnumConnections.Next(int,System.Array[],intptr)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IEnumConnections.Next(int,System.Runtime.InteropServices.ComTypes.CONNECTDATA[],intptr)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -52,7 +56,9 @@
 	// Managed param types : 
     - (void)reset
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IEnumConnections.Reset()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IEnumConnections.Reset()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Skip

@@ -2,7 +2,7 @@
 //
 // Managed interface : IReadOnlyDictionary`2<TKey, TValue>
 //
-@interface System_Collections_Generic_IReadOnlyDictionaryA2 : System_Object <System_Collections_Generic_IReadOnlyDictionaryA2, System_Collections_Generic_IReadOnlyCollectionA1, System_Collections_Generic_IEnumerableA1, System_Collections_IEnumerable>
+@interface System_Collections_Generic_IReadOnlyDictionaryA2 : System_Object <System_Collections_Generic_IReadOnlyDictionaryA2_, System_Collections_Generic_IReadOnlyCollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -36,7 +36,7 @@
 
 	// Managed method name : TryGetValue
 	// Managed return type : System.Boolean
-	// Managed param types : <System.Collections.Generic.IReadOnlyDictionary`2+TKey>, ref <TValue&>
-    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
+	// Managed param types : <System.Collections.Generic.IReadOnlyDictionary`2+TKey>, ref TValue&
+    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Collections_Generic_IReadOnlyDictionaryA2__TValue **)p2;
 @end
 //--Dubrovnik.CodeGenerator

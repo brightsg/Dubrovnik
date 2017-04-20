@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.AttributeUsageAttribute
 	// Managed param types : System.AttributeTargets
-    + (System_AttributeUsageAttribute *)new_withValidOn:(System_AttributeTargets)p1
+    + (System_AttributeUsageAttribute *)new_withValidOn:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.AttributeTargets" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_AttributeUsageAttribute * object = [[self alloc] initWithSignature:"System.AttributeTargets" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,16 +46,35 @@
     @synthesize allowMultiple = _allowMultiple;
     - (BOOL)allowMultiple
     {
-		MonoObject *monoObject = [self getMonoProperty:"AllowMultiple"];
-		_allowMultiple = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AllowMultiple");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_allowMultiple = monoObject;
 
 		return _allowMultiple;
 	}
     - (void)setAllowMultiple:(BOOL)value
 	{
 		_allowMultiple = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"AllowMultiple" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "AllowMultiple");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Inherited
@@ -60,25 +82,54 @@
     @synthesize inherited = _inherited;
     - (BOOL)inherited
     {
-		MonoObject *monoObject = [self getMonoProperty:"Inherited"];
-		_inherited = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Inherited");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_inherited = monoObject;
 
 		return _inherited;
 	}
     - (void)setInherited:(BOOL)value
 	{
 		_inherited = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Inherited" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Inherited");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ValidOn
 	// Managed property type : System.AttributeTargets
     @synthesize validOn = _validOn;
-    - (System_AttributeTargets)validOn
+    - (int32_t)validOn
     {
-		MonoObject *monoObject = [self getMonoProperty:"ValidOn"];
-		_validOn = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ValidOn");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_validOn = monoObject;
 
 		return _validOn;
 	}

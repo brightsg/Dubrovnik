@@ -32,7 +32,10 @@
 	// Managed param types : System.Exception
     + (System_Reflection_TargetInvocationException *)new_withInner:(System_Exception *)p1
     {
-		return [[self alloc] initWithSignature:"System.Exception" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Reflection_TargetInvocationException * object = [[self alloc] initWithSignature:"System.Exception" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.String, System.Exception
     + (System_Reflection_TargetInvocationException *)new_withMessage:(NSString *)p1 inner:(System_Exception *)p2
     {
-		return [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Reflection_TargetInvocationException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -

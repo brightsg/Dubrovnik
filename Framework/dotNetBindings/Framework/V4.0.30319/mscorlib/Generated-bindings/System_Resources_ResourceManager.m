@@ -32,7 +32,10 @@
 	// Managed param types : System.String, System.Reflection.Assembly
     + (System_Resources_ResourceManager *)new_withBaseName:(NSString *)p1 assembly:(System_Reflection_Assembly *)p2
     {
-		return [[self alloc] initWithSignature:"string,System.Reflection.Assembly" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Resources_ResourceManager * object = [[self alloc] initWithSignature:"string,System.Reflection.Assembly" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.String, System.Reflection.Assembly, System.Type
     + (System_Resources_ResourceManager *)new_withBaseName:(NSString *)p1 assembly:(System_Reflection_Assembly *)p2 usingResourceSet:(System_Type *)p3
     {
-		return [[self alloc] initWithSignature:"string,System.Reflection.Assembly,System.Type" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		System_Resources_ResourceManager * object = [[self alloc] initWithSignature:"string,System.Reflection.Assembly,System.Type" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +54,10 @@
 	// Managed param types : System.Type
     + (System_Resources_ResourceManager *)new_withResourceSource:(System_Type *)p1
     {
-		return [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Resources_ResourceManager * object = [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -84,7 +93,17 @@
     @synthesize baseName = _baseName;
     - (NSString *)baseName
     {
-		MonoObject *monoObject = [self getMonoProperty:"BaseName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BaseName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_baseName isEqualToMonoObject:monoObject]) return _baseName;					
 		_baseName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -96,16 +115,35 @@
     @synthesize ignoreCase = _ignoreCase;
     - (BOOL)ignoreCase
     {
-		MonoObject *monoObject = [self getMonoProperty:"IgnoreCase"];
-		_ignoreCase = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IgnoreCase");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_ignoreCase = monoObject;
 
 		return _ignoreCase;
 	}
     - (void)setIgnoreCase:(BOOL)value
 	{
 		_ignoreCase = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"IgnoreCase" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "IgnoreCase");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ResourceSetType
@@ -113,9 +151,19 @@
     @synthesize resourceSetType = _resourceSetType;
     - (System_Type *)resourceSetType
     {
-		MonoObject *monoObject = [self getMonoProperty:"ResourceSetType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ResourceSetType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_resourceSetType isEqualToMonoObject:monoObject]) return _resourceSetType;					
-		_resourceSetType = [System_Type objectWithMonoObject:monoObject];
+		_resourceSetType = [System_Type bestObjectWithMonoObject:monoObject];
 
 		return _resourceSetType;
 	}
@@ -131,7 +179,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFileBasedResourceManager(string,string,System.Type)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_Resources_ResourceManager objectWithMonoObject:monoObject];
+		return [System_Resources_ResourceManager bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetObject
@@ -164,7 +212,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetResourceSet(System.Globalization.CultureInfo,bool,bool)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
-		return [System_Resources_ResourceSet objectWithMonoObject:monoObject];
+		return [System_Resources_ResourceSet bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetStream
@@ -175,7 +223,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetStream(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_IO_UnmanagedMemoryStream objectWithMonoObject:monoObject];
+		return [System_IO_UnmanagedMemoryStream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetStream
@@ -186,7 +234,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetStream(string,System.Globalization.CultureInfo)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_IO_UnmanagedMemoryStream objectWithMonoObject:monoObject];
+		return [System_IO_UnmanagedMemoryStream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetString
@@ -216,7 +264,9 @@
 	// Managed param types : 
     - (void)releaseAllResources
     {
-		[self invokeMonoMethod:"ReleaseAllResources()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"ReleaseAllResources()" withNumArgs:0];
+        
     }
 
 #pragma mark -

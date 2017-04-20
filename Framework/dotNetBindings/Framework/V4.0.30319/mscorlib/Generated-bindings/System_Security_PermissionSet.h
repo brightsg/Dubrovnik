@@ -2,7 +2,7 @@
 //
 // Managed class : PermissionSet
 //
-@interface System_Security_PermissionSet : System_Object <System_Security_ISecurityEncodable, System_Collections_ICollection, System_Collections_IEnumerable, System_Security_IStackWalk, System_Runtime_Serialization_IDeserializationCallback>
+@interface System_Security_PermissionSet : System_Object <System_Security_ISecurityEncodable_, System_Collections_ICollection_, System_Collections_IEnumerable_, System_Security_IStackWalk_, System_Runtime_Serialization_IDeserializationCallback_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.PermissionSet
 	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Security_PermissionSet *)new_withState:(System_Security_Permissions_PermissionState)p1;
+    + (System_Security_PermissionSet *)new_withState:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.PermissionSet
@@ -49,7 +49,7 @@
 	// Managed method name : AddPermission
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.IPermission
-    - (System_Security_IPermission *)addPermission_withPerm:(System_Security_IPermission *)p1;
+    - (id <System_Security_IPermission>)addPermission_withPerm:(id <System_Security_IPermission_>)p1;
 
 	// Managed method name : Assert
 	// Managed return type : System.Void
@@ -99,7 +99,7 @@
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IEnumerator
 	// Managed param types : 
-    - (System_Collections_IEnumerator *)getEnumerator;
+    - (id <System_Collections_IEnumerator>)getEnumerator;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
@@ -109,7 +109,7 @@
 	// Managed method name : GetPermission
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Type
-    - (System_Security_IPermission *)getPermission_withPermClass:(System_Type *)p1;
+    - (id <System_Security_IPermission>)getPermission_withPermClass:(System_Type *)p1;
 
 	// Managed method name : Intersect
 	// Managed return type : System.Security.PermissionSet
@@ -139,7 +139,7 @@
 	// Managed method name : RemovePermission
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Type
-    - (System_Security_IPermission *)removePermission_withPermClass:(System_Type *)p1;
+    - (id <System_Security_IPermission>)removePermission_withPermClass:(System_Type *)p1;
 
 	// Managed method name : RevertAssert
 	// Managed return type : System.Void
@@ -149,7 +149,7 @@
 	// Managed method name : SetPermission
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.IPermission
-    - (System_Security_IPermission *)setPermission_withPerm:(System_Security_IPermission *)p1;
+    - (id <System_Security_IPermission>)setPermission_withPerm:(id <System_Security_IPermission_>)p1;
 
 	// Managed method name : ToString
 	// Managed return type : System.String

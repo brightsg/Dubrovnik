@@ -30,17 +30,23 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.Overlapped
 	// Managed param types : System.Int32, System.Int32, System.IntPtr, System.IAsyncResult
-    + (System_Threading_Overlapped *)new_withOffsetLoInt:(int32_t)p1 offsetHiInt:(int32_t)p2 hEventIntptr:(void *)p3 arSIAsyncResult:(System_IAsyncResult *)p4
+    + (System_Threading_Overlapped *)new_withOffsetLoInt:(int32_t)p1 offsetHiInt:(int32_t)p2 hEventIntptr:(void *)p3 arSIAsyncResult:(id <System_IAsyncResult_>)p4
     {
-		return [[self alloc] initWithSignature:"int,int,intptr,System.IAsyncResult" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];;
+		
+		System_Threading_Overlapped * object = [[self alloc] initWithSignature:"int,int,intptr,System.IAsyncResult" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.Overlapped
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.IAsyncResult
-    + (System_Threading_Overlapped *)new_withOffsetLoInt:(int32_t)p1 offsetHiInt:(int32_t)p2 hEventInt:(int32_t)p3 arSIAsyncResult:(System_IAsyncResult *)p4
+    + (System_Threading_Overlapped *)new_withOffsetLoInt:(int32_t)p1 offsetHiInt:(int32_t)p2 hEventInt:(int32_t)p3 arSIAsyncResult:(id <System_IAsyncResult_>)p4
     {
-		return [[self alloc] initWithSignature:"int,int,int,System.IAsyncResult" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];;
+		
+		System_Threading_Overlapped * object = [[self alloc] initWithSignature:"int,int,int,System.IAsyncResult" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -51,17 +57,36 @@
     @synthesize asyncResult = _asyncResult;
     - (System_IAsyncResult *)asyncResult
     {
-		MonoObject *monoObject = [self getMonoProperty:"AsyncResult"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AsyncResult");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_asyncResult isEqualToMonoObject:monoObject]) return _asyncResult;					
-		_asyncResult = [System_IAsyncResult objectWithMonoObject:monoObject];
+		_asyncResult = [System_IAsyncResult bestObjectWithMonoObject:monoObject];
 
 		return _asyncResult;
 	}
     - (void)setAsyncResult:(System_IAsyncResult *)value
 	{
 		_asyncResult = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"AsyncResult" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "AsyncResult");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : EventHandle
@@ -69,16 +94,35 @@
     @synthesize eventHandle = _eventHandle;
     - (int32_t)eventHandle
     {
-		MonoObject *monoObject = [self getMonoProperty:"EventHandle"];
-		_eventHandle = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EventHandle");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_eventHandle = monoObject;
 
 		return _eventHandle;
 	}
     - (void)setEventHandle:(int32_t)value
 	{
 		_eventHandle = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"EventHandle" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "EventHandle");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : EventHandleIntPtr
@@ -86,16 +130,35 @@
     @synthesize eventHandleIntPtr = _eventHandleIntPtr;
     - (void *)eventHandleIntPtr
     {
-		MonoObject *monoObject = [self getMonoProperty:"EventHandleIntPtr"];
-		_eventHandleIntPtr = DB_UNBOX_PTR(monoObject);
+		typedef void * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EventHandleIntPtr");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		void * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_eventHandleIntPtr = monoObject;
 
 		return _eventHandleIntPtr;
 	}
     - (void)setEventHandleIntPtr:(void *)value
 	{
 		_eventHandleIntPtr = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"EventHandleIntPtr" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, void *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "EventHandleIntPtr");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : OffsetHigh
@@ -103,16 +166,35 @@
     @synthesize offsetHigh = _offsetHigh;
     - (int32_t)offsetHigh
     {
-		MonoObject *monoObject = [self getMonoProperty:"OffsetHigh"];
-		_offsetHigh = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OffsetHigh");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_offsetHigh = monoObject;
 
 		return _offsetHigh;
 	}
     - (void)setOffsetHigh:(int32_t)value
 	{
 		_offsetHigh = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"OffsetHigh" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "OffsetHigh");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : OffsetLow
@@ -120,16 +202,35 @@
     @synthesize offsetLow = _offsetLow;
     - (int32_t)offsetLow
     {
-		MonoObject *monoObject = [self getMonoProperty:"OffsetLow"];
-		_offsetLow = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OffsetLow");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_offsetLow = monoObject;
 
 		return _offsetLow;
 	}
     - (void)setOffsetLow:(int32_t)value
 	{
 		_offsetLow = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"OffsetLow" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "OffsetLow");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -140,18 +241,9 @@
 	// Managed param types : System.Threading.NativeOverlapped*
     + (void)free_withNativeOverlappedPtr:(System_Threading_NativeOverlapped **)p1
     {
-		[self invokeMonoClassMethod:"Free(System.Threading.NativeOverlapped*)" withNumArgs:1, p1];;
-    }
-
-	// Managed method name : Pack
-	// Managed return type : System.Threading.NativeOverlapped*
-	// Managed param types : System.Threading.IOCompletionCallback, System.Object
-    - (System_Threading_NativeOverlapped *)pack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(System_Object *)p2
-    {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Pack(System.Threading.IOCompletionCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return [System_Threading_NativeOverlapped objectWithMonoObject:monoObject];
+		[self invokeMonoClassMethod:"Free(System.Threading.NativeOverlapped*)" withNumArgs:1, p1];
+        
     }
 
 	// Managed method name : Pack
@@ -162,7 +254,18 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Pack(System.Threading.IOCompletionCallback)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Threading_NativeOverlapped objectWithMonoObject:monoObject];
+		return [System_Threading_NativeOverlapped bestObjectWithMonoObject:monoObject];
+    }
+
+	// Managed method name : Pack
+	// Managed return type : System.Threading.NativeOverlapped*
+	// Managed param types : System.Threading.IOCompletionCallback, System.Object
+    - (System_Threading_NativeOverlapped *)pack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(System_Object *)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"Pack(System.Threading.IOCompletionCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		
+		return [System_Threading_NativeOverlapped bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Unpack
@@ -173,18 +276,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Unpack(System.Threading.NativeOverlapped*)" withNumArgs:1, p1];
 		
-		return [System_Threading_Overlapped objectWithMonoObject:monoObject];
-    }
-
-	// Managed method name : UnsafePack
-	// Managed return type : System.Threading.NativeOverlapped*
-	// Managed param types : System.Threading.IOCompletionCallback, System.Object
-    - (System_Threading_NativeOverlapped *)unsafePack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(System_Object *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"UnsafePack(System.Threading.IOCompletionCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return [System_Threading_NativeOverlapped objectWithMonoObject:monoObject];
+		return [System_Threading_Overlapped bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : UnsafePack
@@ -195,7 +287,18 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"UnsafePack(System.Threading.IOCompletionCallback)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Threading_NativeOverlapped objectWithMonoObject:monoObject];
+		return [System_Threading_NativeOverlapped bestObjectWithMonoObject:monoObject];
+    }
+
+	// Managed method name : UnsafePack
+	// Managed return type : System.Threading.NativeOverlapped*
+	// Managed param types : System.Threading.IOCompletionCallback, System.Object
+    - (System_Threading_NativeOverlapped *)unsafePack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(System_Object *)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"UnsafePack(System.Threading.IOCompletionCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		
+		return [System_Threading_NativeOverlapped bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

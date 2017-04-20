@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Concurrent.OrderablePartitioner`1<System.Collections.Concurrent.OrderablePartitioner`1+TSource>";
+		return "System.Collections.Concurrent.OrderablePartitioner`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,16 +32,35 @@
     @synthesize keysNormalized = _keysNormalized;
     - (BOOL)keysNormalized
     {
-		MonoObject *monoObject = [self getMonoProperty:"KeysNormalized"];
-		_keysNormalized = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "KeysNormalized");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_keysNormalized = monoObject;
 
 		return _keysNormalized;
 	}
     - (void)setKeysNormalized:(BOOL)value
 	{
 		_keysNormalized = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"KeysNormalized" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "KeysNormalized");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : KeysOrderedAcrossPartitions
@@ -49,16 +68,35 @@
     @synthesize keysOrderedAcrossPartitions = _keysOrderedAcrossPartitions;
     - (BOOL)keysOrderedAcrossPartitions
     {
-		MonoObject *monoObject = [self getMonoProperty:"KeysOrderedAcrossPartitions"];
-		_keysOrderedAcrossPartitions = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "KeysOrderedAcrossPartitions");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_keysOrderedAcrossPartitions = monoObject;
 
 		return _keysOrderedAcrossPartitions;
 	}
     - (void)setKeysOrderedAcrossPartitions:(BOOL)value
 	{
 		_keysOrderedAcrossPartitions = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"KeysOrderedAcrossPartitions" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "KeysOrderedAcrossPartitions");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : KeysOrderedInEachPartition
@@ -66,16 +104,35 @@
     @synthesize keysOrderedInEachPartition = _keysOrderedInEachPartition;
     - (BOOL)keysOrderedInEachPartition
     {
-		MonoObject *monoObject = [self getMonoProperty:"KeysOrderedInEachPartition"];
-		_keysOrderedInEachPartition = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "KeysOrderedInEachPartition");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_keysOrderedInEachPartition = monoObject;
 
 		return _keysOrderedInEachPartition;
 	}
     - (void)setKeysOrderedInEachPartition:(BOOL)value
 	{
 		_keysOrderedInEachPartition = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"KeysOrderedInEachPartition" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "KeysOrderedInEachPartition");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -84,45 +141,45 @@
 	// Managed method name : GetDynamicPartitions
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.OrderablePartitioner`1+TSource>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumerableA1 *)getDynamicPartitions
+    - (id <System_Collections_Generic_IEnumerableA1>)getDynamicPartitions
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDynamicPartitions()" withNumArgs:0];
 		
-		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetOrderableDynamicPartitions
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.Int64, System.Collections.Concurrent.OrderablePartitioner`1+TSource>>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumerableA1 *)getOrderableDynamicPartitions
+    - (id <System_Collections_Generic_IEnumerableA1>)getOrderableDynamicPartitions
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetOrderableDynamicPartitions()" withNumArgs:0];
 		
-		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetOrderablePartitions
 	// Managed return type : System.Collections.Generic.IList`1<System.Collections.Generic.IEnumerator`1<System.Collections.Generic.KeyValuePair`2<System.Int64, System.Collections.Concurrent.OrderablePartitioner`1+TSource>>>
 	// Managed param types : System.Int32
-    - (System_Collections_Generic_IListA1 *)getOrderablePartitions_withPartitionCount:(int32_t)p1
+    - (id <System_Collections_Generic_IListA1>)getOrderablePartitions_withPartitionCount:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetOrderablePartitions(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IListA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetPartitions
 	// Managed return type : System.Collections.Generic.IList`1<System.Collections.Generic.IEnumerator`1<System.Collections.Concurrent.OrderablePartitioner`1+TSource>>
 	// Managed param types : System.Int32
-    - (System_Collections_Generic_IListA1 *)getPartitions_withPartitionCount:(int32_t)p1
+    - (id <System_Collections_Generic_IListA1>)getPartitions_withPartitionCount:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetPartitions(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IListA1 bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

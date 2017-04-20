@@ -32,9 +32,19 @@
     @synthesize inheritedObjectType = _inheritedObjectType;
     - (System_Guid *)inheritedObjectType
     {
-		MonoObject *monoObject = [self getMonoProperty:"InheritedObjectType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InheritedObjectType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_inheritedObjectType isEqualToMonoObject:monoObject]) return _inheritedObjectType;					
-		_inheritedObjectType = [System_Guid objectWithMonoObject:monoObject];
+		_inheritedObjectType = [System_Guid bestObjectWithMonoObject:monoObject];
 
 		return _inheritedObjectType;
 	}
@@ -42,10 +52,20 @@
 	// Managed property name : ObjectFlags
 	// Managed property type : System.Security.AccessControl.ObjectAceFlags
     @synthesize objectFlags = _objectFlags;
-    - (System_Security_AccessControl_ObjectAceFlags)objectFlags
+    - (int32_t)objectFlags
     {
-		MonoObject *monoObject = [self getMonoProperty:"ObjectFlags"];
-		_objectFlags = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ObjectFlags");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_objectFlags = monoObject;
 
 		return _objectFlags;
 	}
@@ -55,9 +75,19 @@
     @synthesize objectType = _objectType;
     - (System_Guid *)objectType
     {
-		MonoObject *monoObject = [self getMonoProperty:"ObjectType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ObjectType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_objectType isEqualToMonoObject:monoObject]) return _objectType;					
-		_objectType = [System_Guid objectWithMonoObject:monoObject];
+		_objectType = [System_Guid bestObjectWithMonoObject:monoObject];
 
 		return _objectType;
 	}

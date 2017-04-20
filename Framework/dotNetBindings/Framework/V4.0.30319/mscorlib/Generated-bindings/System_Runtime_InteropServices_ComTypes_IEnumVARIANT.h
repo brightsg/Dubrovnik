@@ -17,7 +17,7 @@
 	// Managed method name : Clone
 	// Managed return type : System.Runtime.InteropServices.ComTypes.IEnumVARIANT
 	// Managed param types : 
-    - (System_Runtime_InteropServices_ComTypes_IEnumVARIANT *)clone;
+    - (id <System_Runtime_InteropServices_ComTypes_IEnumVARIANT>)clone;
 
 	// Managed method name : Next
 	// Managed return type : System.Int32

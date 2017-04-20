@@ -32,7 +32,10 @@
 	// Managed param types : System.Object
     + (System_Runtime_InteropServices_VariantWrapper *)new_withObj:(System_Object *)p1
     {
-		return [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Runtime_InteropServices_VariantWrapper * object = [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,7 +46,17 @@
     @synthesize wrappedObject = _wrappedObject;
     - (System_Object *)wrappedObject
     {
-		MonoObject *monoObject = [self getMonoProperty:"WrappedObject"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WrappedObject");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_wrappedObject isEqualToMonoObject:monoObject]) return _wrappedObject;					
 		_wrappedObject = [System_Object objectWithMonoObject:monoObject];
 

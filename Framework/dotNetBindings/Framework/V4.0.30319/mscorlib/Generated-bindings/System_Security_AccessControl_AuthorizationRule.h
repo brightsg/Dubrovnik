@@ -20,7 +20,7 @@
 
 	// Managed property name : InheritanceFlags
 	// Managed property type : System.Security.AccessControl.InheritanceFlags
-    @property (nonatomic, readonly) System_Security_AccessControl_InheritanceFlags inheritanceFlags;
+    @property (nonatomic, readonly) int32_t inheritanceFlags;
 
 	// Managed property name : IsInherited
 	// Managed property type : System.Boolean
@@ -28,6 +28,6 @@
 
 	// Managed property name : PropagationFlags
 	// Managed property type : System.Security.AccessControl.PropagationFlags
-    @property (nonatomic, readonly) System_Security_AccessControl_PropagationFlags propagationFlags;
+    @property (nonatomic, readonly) int32_t propagationFlags;
 @end
 //--Dubrovnik.CodeGenerator

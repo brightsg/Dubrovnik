@@ -17,13 +17,13 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.MutexAuditRule
 	// Managed param types : System.Security.Principal.IdentityReference, System.Security.AccessControl.MutexRights, System.Security.AccessControl.AuditFlags
-    + (System_Security_AccessControl_MutexAuditRule *)new_withIdentity:(System_Security_Principal_IdentityReference *)p1 eventRights:(System_Security_AccessControl_MutexRights)p2 flags:(System_Security_AccessControl_AuditFlags)p3;
+    + (System_Security_AccessControl_MutexAuditRule *)new_withIdentity:(System_Security_Principal_IdentityReference *)p1 eventRights:(int32_t)p2 flags:(int32_t)p3;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : MutexRights
 	// Managed property type : System.Security.AccessControl.MutexRights
-    @property (nonatomic, readonly) System_Security_AccessControl_MutexRights mutexRights;
+    @property (nonatomic, readonly) int32_t mutexRights;
 @end
 //--Dubrovnik.CodeGenerator

@@ -32,7 +32,10 @@
 	// Managed param types : System.String
     + (System_Resources_ResourceWriter *)new_withFileName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Resources_ResourceWriter * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.IO.Stream
     + (System_Resources_ResourceWriter *)new_withStream:(System_IO_Stream *)p1
     {
-		return [[self alloc] initWithSignature:"System.IO.Stream" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Resources_ResourceWriter * object = [[self alloc] initWithSignature:"System.IO.Stream" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -51,17 +57,36 @@
     @synthesize typeNameConverter = _typeNameConverter;
     - (System_FuncA2 *)typeNameConverter
     {
-		MonoObject *monoObject = [self getMonoProperty:"TypeNameConverter"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TypeNameConverter");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_typeNameConverter isEqualToMonoObject:monoObject]) return _typeNameConverter;					
-		_typeNameConverter = [System_FuncA2 objectWithMonoObject:monoObject];
+		_typeNameConverter = [System_FuncA2 bestObjectWithMonoObject:monoObject];
 
 		return _typeNameConverter;
 	}
     - (void)setTypeNameConverter:(System_FuncA2 *)value
 	{
 		_typeNameConverter = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"TypeNameConverter" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "TypeNameConverter");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -72,7 +97,9 @@
 	// Managed param types : System.String, System.String
     - (void)addResource_withNameString:(NSString *)p1 valueString:(NSString *)p2
     {
-		[self invokeMonoMethod:"AddResource(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"AddResource(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : AddResource
@@ -80,7 +107,9 @@
 	// Managed param types : System.String, System.Object
     - (void)addResource_withNameString:(NSString *)p1 valueObject:(System_Object *)p2
     {
-		[self invokeMonoMethod:"AddResource(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"AddResource(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : AddResource
@@ -88,7 +117,9 @@
 	// Managed param types : System.String, System.IO.Stream
     - (void)addResource_withNameString:(NSString *)p1 valueSIStream:(System_IO_Stream *)p2
     {
-		[self invokeMonoMethod:"AddResource(string,System.IO.Stream)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"AddResource(string,System.IO.Stream)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : AddResource
@@ -96,7 +127,9 @@
 	// Managed param types : System.String, System.IO.Stream, System.Boolean
     - (void)addResource_withName:(NSString *)p1 value:(System_IO_Stream *)p2 closeAfterWrite:(BOOL)p3
     {
-		[self invokeMonoMethod:"AddResource(string,System.IO.Stream,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
+		
+		[self invokeMonoMethod:"AddResource(string,System.IO.Stream,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+        
     }
 
 	// Managed method name : AddResource
@@ -104,7 +137,9 @@
 	// Managed param types : System.String, System.Byte[]
     - (void)addResource_withNameString:(NSString *)p1 valueByte:(NSData *)p2
     {
-		[self invokeMonoMethod:"AddResource(string,byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"AddResource(string,byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : AddResourceData
@@ -112,7 +147,9 @@
 	// Managed param types : System.String, System.String, System.Byte[]
     - (void)addResourceData_withName:(NSString *)p1 typeName:(NSString *)p2 serializedData:(NSData *)p3
     {
-		[self invokeMonoMethod:"AddResourceData(string,string,byte[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"AddResourceData(string,string,byte[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Close
@@ -120,7 +157,9 @@
 	// Managed param types : 
     - (void)close
     {
-		[self invokeMonoMethod:"Close()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Close()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Dispose
@@ -128,7 +167,9 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Generate
@@ -136,7 +177,9 @@
 	// Managed param types : 
     - (void)generate
     {
-		[self invokeMonoMethod:"Generate()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Generate()" withNumArgs:0];
+        
     }
 
 #pragma mark -

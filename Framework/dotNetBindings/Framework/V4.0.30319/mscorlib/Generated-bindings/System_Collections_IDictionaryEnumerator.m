@@ -32,9 +32,19 @@
     @synthesize entry = _entry;
     - (System_Collections_DictionaryEntry *)entry
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Collections.IDictionaryEnumerator.Entry"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Collections.IDictionaryEnumerator.Entry");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_entry isEqualToMonoObject:monoObject]) return _entry;					
-		_entry = [System_Collections_DictionaryEntry objectWithMonoObject:monoObject];
+		_entry = [System_Collections_DictionaryEntry bestObjectWithMonoObject:monoObject];
 
 		return _entry;
 	}
@@ -44,7 +54,17 @@
     @synthesize key = _key;
     - (System_Object *)key
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Collections.IDictionaryEnumerator.Key"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Collections.IDictionaryEnumerator.Key");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_key isEqualToMonoObject:monoObject]) return _key;					
 		_key = [System_Object objectWithMonoObject:monoObject];
 
@@ -56,7 +76,17 @@
     @synthesize value = _value;
     - (System_Object *)value
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Collections.IDictionaryEnumerator.Value"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Collections.IDictionaryEnumerator.Value");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_value isEqualToMonoObject:monoObject]) return _value;					
 		_value = [System_Object objectWithMonoObject:monoObject];
 

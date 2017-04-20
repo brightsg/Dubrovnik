@@ -2,7 +2,7 @@
 //
 // Managed class : ParameterInfo
 //
-@interface System_Reflection_ParameterInfo : System_Object <System_Runtime_InteropServices__ParameterInfo, System_Reflection_ICustomAttributeProvider, System_Runtime_Serialization_IObjectReference>
+@interface System_Reflection_ParameterInfo : System_Object <System_Runtime_InteropServices__ParameterInfo_, System_Reflection_ICustomAttributeProvider_, System_Runtime_Serialization_IObjectReference_>
 
 #pragma mark -
 #pragma mark Setup
@@ -16,7 +16,7 @@
 
 	// Managed property name : Attributes
 	// Managed property type : System.Reflection.ParameterAttributes
-    @property (nonatomic, readonly) System_Reflection_ParameterAttributes attributes;
+    @property (nonatomic, readonly) int32_t attributes;
 
 	// Managed property name : CustomAttributes
 	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Reflection.CustomAttributeData>
@@ -90,7 +90,7 @@
 	// Managed method name : GetCustomAttributesData
 	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : 
-    - (System_Collections_Generic_IListA1 *)getCustomAttributesData;
+    - (id <System_Collections_Generic_IListA1>)getCustomAttributesData;
 
 	// Managed method name : GetOptionalCustomModifiers
 	// Managed return type : System.Type[]

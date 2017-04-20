@@ -2,7 +2,7 @@
 //
 // Managed class : CompilationRelaxationsAttribute
 //
-@interface System_Runtime_CompilerServices_CompilationRelaxationsAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Runtime_CompilerServices_CompilationRelaxationsAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -22,7 +22,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.CompilerServices.CompilationRelaxationsAttribute
 	// Managed param types : System.Runtime.CompilerServices.CompilationRelaxations
-    + (System_Runtime_CompilerServices_CompilationRelaxationsAttribute *)new_withRelaxationsSRCCompilationRelaxations:(System_Runtime_CompilerServices_CompilationRelaxations)p1;
+    + (System_Runtime_CompilerServices_CompilationRelaxationsAttribute *)new_withRelaxationsSRCCompilationRelaxations:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties

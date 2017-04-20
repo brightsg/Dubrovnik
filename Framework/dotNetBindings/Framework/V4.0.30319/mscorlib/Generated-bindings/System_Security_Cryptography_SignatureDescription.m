@@ -32,7 +32,10 @@
 	// Managed param types : System.Security.SecurityElement
     + (System_Security_Cryptography_SignatureDescription *)new_withEl:(System_Security_SecurityElement *)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.SecurityElement" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_SignatureDescription * object = [[self alloc] initWithSignature:"System.Security.SecurityElement" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,7 +46,17 @@
     @synthesize deformatterAlgorithm = _deformatterAlgorithm;
     - (NSString *)deformatterAlgorithm
     {
-		MonoObject *monoObject = [self getMonoProperty:"DeformatterAlgorithm"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DeformatterAlgorithm");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_deformatterAlgorithm isEqualToMonoObject:monoObject]) return _deformatterAlgorithm;					
 		_deformatterAlgorithm = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -52,8 +65,17 @@
     - (void)setDeformatterAlgorithm:(NSString *)value
 	{
 		_deformatterAlgorithm = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"DeformatterAlgorithm" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "DeformatterAlgorithm");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : DigestAlgorithm
@@ -61,7 +83,17 @@
     @synthesize digestAlgorithm = _digestAlgorithm;
     - (NSString *)digestAlgorithm
     {
-		MonoObject *monoObject = [self getMonoProperty:"DigestAlgorithm"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DigestAlgorithm");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_digestAlgorithm isEqualToMonoObject:monoObject]) return _digestAlgorithm;					
 		_digestAlgorithm = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -70,8 +102,17 @@
     - (void)setDigestAlgorithm:(NSString *)value
 	{
 		_digestAlgorithm = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"DigestAlgorithm" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "DigestAlgorithm");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : FormatterAlgorithm
@@ -79,7 +120,17 @@
     @synthesize formatterAlgorithm = _formatterAlgorithm;
     - (NSString *)formatterAlgorithm
     {
-		MonoObject *monoObject = [self getMonoProperty:"FormatterAlgorithm"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FormatterAlgorithm");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_formatterAlgorithm isEqualToMonoObject:monoObject]) return _formatterAlgorithm;					
 		_formatterAlgorithm = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -88,8 +139,17 @@
     - (void)setFormatterAlgorithm:(NSString *)value
 	{
 		_formatterAlgorithm = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"FormatterAlgorithm" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "FormatterAlgorithm");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : KeyAlgorithm
@@ -97,7 +157,17 @@
     @synthesize keyAlgorithm = _keyAlgorithm;
     - (NSString *)keyAlgorithm
     {
-		MonoObject *monoObject = [self getMonoProperty:"KeyAlgorithm"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "KeyAlgorithm");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_keyAlgorithm isEqualToMonoObject:monoObject]) return _keyAlgorithm;					
 		_keyAlgorithm = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -106,8 +176,17 @@
     - (void)setKeyAlgorithm:(NSString *)value
 	{
 		_keyAlgorithm = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"KeyAlgorithm" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "KeyAlgorithm");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -121,7 +200,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDeformatter(System.Security.Cryptography.AsymmetricAlgorithm)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_Cryptography_AsymmetricSignatureDeformatter objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_AsymmetricSignatureDeformatter bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDigest
@@ -132,7 +211,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDigest()" withNumArgs:0];
 		
-		return [System_Security_Cryptography_HashAlgorithm objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_HashAlgorithm bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateFormatter
@@ -143,7 +222,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateFormatter(System.Security.Cryptography.AsymmetricAlgorithm)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_Cryptography_AsymmetricSignatureFormatter objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_AsymmetricSignatureFormatter bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

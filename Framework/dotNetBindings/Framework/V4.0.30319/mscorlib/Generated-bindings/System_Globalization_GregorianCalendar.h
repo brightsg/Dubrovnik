@@ -2,7 +2,7 @@
 //
 // Managed class : GregorianCalendar
 //
-@interface System_Globalization_GregorianCalendar : System_Globalization_Calendar <System_ICloneable>
+@interface System_Globalization_GregorianCalendar : System_Globalization_Calendar <System_ICloneable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Globalization.GregorianCalendar
 	// Managed param types : System.Globalization.GregorianCalendarTypes
-    + (System_Globalization_GregorianCalendar *)new_withType:(System_Globalization_GregorianCalendarTypes)p1;
+    + (System_Globalization_GregorianCalendar *)new_withType:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Fields
@@ -31,11 +31,11 @@
 
 	// Managed property name : AlgorithmType
 	// Managed property type : System.Globalization.CalendarAlgorithmType
-    @property (nonatomic, readonly) System_Globalization_CalendarAlgorithmType algorithmType;
+    @property (nonatomic, readonly) int32_t algorithmType;
 
 	// Managed property name : CalendarType
 	// Managed property type : System.Globalization.GregorianCalendarTypes
-    @property (nonatomic) System_Globalization_GregorianCalendarTypes calendarType;
+    @property (nonatomic) int32_t calendarType;
 
 	// Managed property name : Eras
 	// Managed property type : System.Int32[]
@@ -74,7 +74,7 @@
 	// Managed method name : GetDayOfWeek
 	// Managed return type : System.DayOfWeek
 	// Managed param types : System.DateTime
-    - (System_DayOfWeek)getDayOfWeek_withTime:(NSDate *)p1;
+    - (int32_t)getDayOfWeek_withTime:(NSDate *)p1;
 
 	// Managed method name : GetDayOfYear
 	// Managed return type : System.Int32

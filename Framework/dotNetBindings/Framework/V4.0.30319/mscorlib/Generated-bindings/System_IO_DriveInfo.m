@@ -32,7 +32,10 @@
 	// Managed param types : System.String
     + (System_IO_DriveInfo *)new_withDriveName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_IO_DriveInfo * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,8 +46,18 @@
     @synthesize availableFreeSpace = _availableFreeSpace;
     - (int64_t)availableFreeSpace
     {
-		MonoObject *monoObject = [self getMonoProperty:"AvailableFreeSpace"];
-		_availableFreeSpace = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AvailableFreeSpace");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_availableFreeSpace = monoObject;
 
 		return _availableFreeSpace;
 	}
@@ -54,7 +67,17 @@
     @synthesize driveFormat = _driveFormat;
     - (NSString *)driveFormat
     {
-		MonoObject *monoObject = [self getMonoProperty:"DriveFormat"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DriveFormat");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_driveFormat isEqualToMonoObject:monoObject]) return _driveFormat;					
 		_driveFormat = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -64,10 +87,20 @@
 	// Managed property name : DriveType
 	// Managed property type : System.IO.DriveType
     @synthesize driveType = _driveType;
-    - (System_IO_DriveType)driveType
+    - (int32_t)driveType
     {
-		MonoObject *monoObject = [self getMonoProperty:"DriveType"];
-		_driveType = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DriveType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_driveType = monoObject;
 
 		return _driveType;
 	}
@@ -77,8 +110,18 @@
     @synthesize isReady = _isReady;
     - (BOOL)isReady
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsReady"];
-		_isReady = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsReady");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isReady = monoObject;
 
 		return _isReady;
 	}
@@ -88,7 +131,17 @@
     @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -100,9 +153,19 @@
     @synthesize rootDirectory = _rootDirectory;
     - (System_IO_DirectoryInfo *)rootDirectory
     {
-		MonoObject *monoObject = [self getMonoProperty:"RootDirectory"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RootDirectory");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_rootDirectory isEqualToMonoObject:monoObject]) return _rootDirectory;					
-		_rootDirectory = [System_IO_DirectoryInfo objectWithMonoObject:monoObject];
+		_rootDirectory = [System_IO_DirectoryInfo bestObjectWithMonoObject:monoObject];
 
 		return _rootDirectory;
 	}
@@ -112,8 +175,18 @@
     @synthesize totalFreeSpace = _totalFreeSpace;
     - (int64_t)totalFreeSpace
     {
-		MonoObject *monoObject = [self getMonoProperty:"TotalFreeSpace"];
-		_totalFreeSpace = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TotalFreeSpace");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_totalFreeSpace = monoObject;
 
 		return _totalFreeSpace;
 	}
@@ -123,8 +196,18 @@
     @synthesize totalSize = _totalSize;
     - (int64_t)totalSize
     {
-		MonoObject *monoObject = [self getMonoProperty:"TotalSize"];
-		_totalSize = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TotalSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_totalSize = monoObject;
 
 		return _totalSize;
 	}
@@ -134,7 +217,17 @@
     @synthesize volumeLabel = _volumeLabel;
     - (NSString *)volumeLabel
     {
-		MonoObject *monoObject = [self getMonoProperty:"VolumeLabel"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "VolumeLabel");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_volumeLabel isEqualToMonoObject:monoObject]) return _volumeLabel;					
 		_volumeLabel = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -143,8 +236,17 @@
     - (void)setVolumeLabel:(NSString *)value
 	{
 		_volumeLabel = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"VolumeLabel" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "VolumeLabel");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

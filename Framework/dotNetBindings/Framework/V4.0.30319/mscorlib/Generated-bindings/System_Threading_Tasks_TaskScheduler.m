@@ -32,9 +32,19 @@
     static System_Threading_Tasks_TaskScheduler * m_current;
     + (System_Threading_Tasks_TaskScheduler *)current
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Current"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Current");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_current isEqualToMonoObject:monoObject]) return m_current;					
-		m_current = [System_Threading_Tasks_TaskScheduler objectWithMonoObject:monoObject];
+		m_current = [System_Threading_Tasks_TaskScheduler bestObjectWithMonoObject:monoObject];
 
 		return m_current;
 	}
@@ -44,9 +54,19 @@
     static System_Threading_Tasks_TaskScheduler * m_default;
     + (System_Threading_Tasks_TaskScheduler *)default
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Default"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Default");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_default isEqualToMonoObject:monoObject]) return m_default;					
-		m_default = [System_Threading_Tasks_TaskScheduler objectWithMonoObject:monoObject];
+		m_default = [System_Threading_Tasks_TaskScheduler bestObjectWithMonoObject:monoObject];
 
 		return m_default;
 	}
@@ -56,8 +76,18 @@
     @synthesize id = _id;
     - (int32_t)id
     {
-		MonoObject *monoObject = [self getMonoProperty:"Id"];
-		_id = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Id");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_id = monoObject;
 
 		return _id;
 	}
@@ -67,8 +97,18 @@
     @synthesize maximumConcurrencyLevel = _maximumConcurrencyLevel;
     - (int32_t)maximumConcurrencyLevel
     {
-		MonoObject *monoObject = [self getMonoProperty:"MaximumConcurrencyLevel"];
-		_maximumConcurrencyLevel = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MaximumConcurrencyLevel");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_maximumConcurrencyLevel = monoObject;
 
 		return _maximumConcurrencyLevel;
 	}
@@ -84,7 +124,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"FromCurrentSynchronizationContext()" withNumArgs:0];
 		
-		return [System_Threading_Tasks_TaskScheduler objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_TaskScheduler bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

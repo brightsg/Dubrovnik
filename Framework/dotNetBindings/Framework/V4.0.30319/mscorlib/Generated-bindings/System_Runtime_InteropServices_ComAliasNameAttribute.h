@@ -2,7 +2,7 @@
 //
 // Managed class : ComAliasNameAttribute
 //
-@interface System_Runtime_InteropServices_ComAliasNameAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Runtime_InteropServices_ComAliasNameAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup

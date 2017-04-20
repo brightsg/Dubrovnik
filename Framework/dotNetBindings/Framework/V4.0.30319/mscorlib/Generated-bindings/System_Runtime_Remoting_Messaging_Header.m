@@ -32,7 +32,10 @@
 	// Managed param types : System.String, System.Object
     + (System_Runtime_Remoting_Messaging_Header *)new_with_Name:(NSString *)p1 _Value:(System_Object *)p2
     {
-		return [[self alloc] initWithSignature:"string,object" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Runtime_Remoting_Messaging_Header * object = [[self alloc] initWithSignature:"string,object" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.String, System.Object, System.Boolean
     + (System_Runtime_Remoting_Messaging_Header *)new_with_Name:(NSString *)p1 _Value:(System_Object *)p2 _MustUnderstand:(BOOL)p3
     {
-		return [[self alloc] initWithSignature:"string,object,bool" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
+		
+		System_Runtime_Remoting_Messaging_Header * object = [[self alloc] initWithSignature:"string,object,bool" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +54,10 @@
 	// Managed param types : System.String, System.Object, System.Boolean, System.String
     + (System_Runtime_Remoting_Messaging_Header *)new_with_Name:(NSString *)p1 _Value:(System_Object *)p2 _MustUnderstand:(BOOL)p3 _HeaderNamespace:(NSString *)p4
     {
-		return [[self alloc] initWithSignature:"string,object,bool,string" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), [p4 monoRTInvokeArg]];;
+		
+		System_Runtime_Remoting_Messaging_Header * object = [[self alloc] initWithSignature:"string,object,bool,string" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), [p4 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -

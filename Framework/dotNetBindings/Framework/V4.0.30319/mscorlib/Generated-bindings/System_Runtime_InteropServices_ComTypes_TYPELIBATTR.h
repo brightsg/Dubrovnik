@@ -24,11 +24,11 @@
 
 	// Managed field name : syskind
 	// Managed field type : System.Runtime.InteropServices.ComTypes.SYSKIND
-    @property (nonatomic) System_Runtime_InteropServices_ComTypes_SYSKIND syskind;
+    @property (nonatomic) int32_t syskind;
 
 	// Managed field name : wLibFlags
 	// Managed field type : System.Runtime.InteropServices.ComTypes.LIBFLAGS
-    @property (nonatomic) System_Runtime_InteropServices_ComTypes_LIBFLAGS wLibFlags;
+    @property (nonatomic) int16_t wLibFlags;
 
 	// Managed field name : wMajorVerNum
 	// Managed field type : System.Int16

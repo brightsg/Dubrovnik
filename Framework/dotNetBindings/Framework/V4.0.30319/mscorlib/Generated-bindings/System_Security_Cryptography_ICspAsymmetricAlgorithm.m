@@ -32,9 +32,19 @@
     @synthesize cspKeyContainerInfo = _cspKeyContainerInfo;
     - (System_Security_Cryptography_CspKeyContainerInfo *)cspKeyContainerInfo
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Security.Cryptography.ICspAsymmetricAlgorithm.CspKeyContainerInfo"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Security.Cryptography.ICspAsymmetricAlgorithm.CspKeyContainerInfo");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_cspKeyContainerInfo isEqualToMonoObject:monoObject]) return _cspKeyContainerInfo;					
-		_cspKeyContainerInfo = [System_Security_Cryptography_CspKeyContainerInfo objectWithMonoObject:monoObject];
+		_cspKeyContainerInfo = [System_Security_Cryptography_CspKeyContainerInfo bestObjectWithMonoObject:monoObject];
 
 		return _cspKeyContainerInfo;
 	}
@@ -58,7 +68,9 @@
 	// Managed param types : System.Byte[]
     - (void)importCspBlob_withRawData:(NSData *)p1
     {
-		[self invokeMonoMethod:"System.Security.Cryptography.ICspAsymmetricAlgorithm.ImportCspBlob(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Security.Cryptography.ICspAsymmetricAlgorithm.ImportCspBlob(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

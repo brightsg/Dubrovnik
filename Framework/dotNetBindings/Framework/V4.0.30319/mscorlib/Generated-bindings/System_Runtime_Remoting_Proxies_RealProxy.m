@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateObjRef(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_ObjRef objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_ObjRef bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCOMIUnknown
@@ -54,7 +54,9 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetProxiedType
@@ -65,7 +67,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetProxiedType()" withNumArgs:0];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetStubData
@@ -93,23 +95,23 @@
 	// Managed method name : InitializeServerObject
 	// Managed return type : System.Runtime.Remoting.Activation.IConstructionReturnMessage
 	// Managed param types : System.Runtime.Remoting.Activation.IConstructionCallMessage
-    - (System_Runtime_Remoting_Activation_IConstructionReturnMessage *)initializeServerObject_withCtorMsg:(System_Runtime_Remoting_Activation_IConstructionCallMessage *)p1
+    - (id <System_Runtime_Remoting_Activation_IConstructionReturnMessage>)initializeServerObject_withCtorMsg:(id <System_Runtime_Remoting_Activation_IConstructionCallMessage_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"InitializeServerObject(System.Runtime.Remoting.Activation.IConstructionCallMessage)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_Activation_IConstructionReturnMessage objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Activation_IConstructionReturnMessage bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Invoke
 	// Managed return type : System.Runtime.Remoting.Messaging.IMessage
 	// Managed param types : System.Runtime.Remoting.Messaging.IMessage
-    - (System_Runtime_Remoting_Messaging_IMessage *)invoke_withMsg:(System_Runtime_Remoting_Messaging_IMessage *)p1
+    - (id <System_Runtime_Remoting_Messaging_IMessage>)invoke_withMsg:(id <System_Runtime_Remoting_Messaging_IMessage_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(System.Runtime.Remoting.Messaging.IMessage)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_Messaging_IMessage objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Messaging_IMessage bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SetCOMIUnknown
@@ -117,7 +119,9 @@
 	// Managed param types : System.IntPtr
     - (void)setCOMIUnknown_withI:(void *)p1
     {
-		[self invokeMonoMethod:"SetCOMIUnknown(intptr)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"SetCOMIUnknown(intptr)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : SetStubData
@@ -125,7 +129,9 @@
 	// Managed param types : System.Runtime.Remoting.Proxies.RealProxy, System.Object
     + (void)setStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1 stubData:(System_Object *)p2
     {
-		[self invokeMonoClassMethod:"SetStubData(System.Runtime.Remoting.Proxies.RealProxy,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SetStubData(System.Runtime.Remoting.Proxies.RealProxy,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SupportsInterface
@@ -137,7 +143,7 @@
 
 		MonoObject *monoObject = [self invokeMonoMethod:"SupportsInterface(System.Guid&)" withNumArgs:1, &refPtr1];
 
-		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+		*p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 
 		return DB_UNBOX_PTR(monoObject);
     }

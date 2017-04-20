@@ -2,7 +2,7 @@
 //
 // Managed class : PathTooLongException
 //
-@interface System_IO_PathTooLongException : System_IO_IOException <System_Runtime_Serialization_ISerializable, System_Runtime_InteropServices__Exception>
+@interface System_IO_PathTooLongException : System_IO_IOException <System_Runtime_Serialization_ISerializable_, System_Runtime_InteropServices__Exception_>
 
 #pragma mark -
 #pragma mark Setup

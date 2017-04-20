@@ -32,9 +32,19 @@
     @synthesize activationType = _activationType;
     - (System_Type *)activationType
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Activation.IConstructionCallMessage.ActivationType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Activation.IConstructionCallMessage.ActivationType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_activationType isEqualToMonoObject:monoObject]) return _activationType;					
-		_activationType = [System_Type objectWithMonoObject:monoObject];
+		_activationType = [System_Type bestObjectWithMonoObject:monoObject];
 
 		return _activationType;
 	}
@@ -44,7 +54,17 @@
     @synthesize activationTypeName = _activationTypeName;
     - (NSString *)activationTypeName
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Activation.IConstructionCallMessage.ActivationTypeName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Activation.IConstructionCallMessage.ActivationTypeName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_activationTypeName isEqualToMonoObject:monoObject]) return _activationTypeName;					
 		_activationTypeName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -56,17 +76,36 @@
     @synthesize activator = _activator;
     - (System_Runtime_Remoting_Activation_IActivator *)activator
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Activation.IConstructionCallMessage.Activator"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Activation.IConstructionCallMessage.Activator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_activator isEqualToMonoObject:monoObject]) return _activator;					
-		_activator = [System_Runtime_Remoting_Activation_IActivator objectWithMonoObject:monoObject];
+		_activator = [System_Runtime_Remoting_Activation_IActivator bestObjectWithMonoObject:monoObject];
 
 		return _activator;
 	}
     - (void)setActivator:(System_Runtime_Remoting_Activation_IActivator *)value
 	{
 		_activator = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"System.Runtime.Remoting.Activation.IConstructionCallMessage.Activator" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.Runtime.Remoting.Activation.IConstructionCallMessage.Activator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CallSiteActivationAttributes
@@ -74,7 +113,17 @@
     @synthesize callSiteActivationAttributes = _callSiteActivationAttributes;
     - (DBSystem_Array *)callSiteActivationAttributes
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Activation.IConstructionCallMessage.CallSiteActivationAttributes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Activation.IConstructionCallMessage.CallSiteActivationAttributes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_callSiteActivationAttributes isEqualToMonoObject:monoObject]) return _callSiteActivationAttributes;					
 		_callSiteActivationAttributes = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -86,9 +135,19 @@
     @synthesize contextProperties = _contextProperties;
     - (System_Collections_IList *)contextProperties
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Activation.IConstructionCallMessage.ContextProperties"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Activation.IConstructionCallMessage.ContextProperties");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_contextProperties isEqualToMonoObject:monoObject]) return _contextProperties;					
-		_contextProperties = [System_Collections_IList objectWithMonoObject:monoObject];
+		_contextProperties = [System_Collections_IList bestObjectWithMonoObject:monoObject];
 
 		return _contextProperties;
 	}

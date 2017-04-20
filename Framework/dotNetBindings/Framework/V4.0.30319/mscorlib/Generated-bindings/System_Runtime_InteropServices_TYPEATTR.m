@@ -153,7 +153,7 @@
     {
 		MonoObject *monoObject = [self getMonoField:"guid"];
 		if ([self object:_guid isEqualToMonoObject:monoObject]) return _guid;					
-		_guid = [System_Guid objectWithMonoObject:monoObject];
+		_guid = [System_Guid bestObjectWithMonoObject:monoObject];
 
 		return _guid;
 	}
@@ -171,7 +171,7 @@
     {
 		MonoObject *monoObject = [self getMonoField:"idldescType"];
 		if ([self object:_idldescType isEqualToMonoObject:monoObject]) return _idldescType;					
-		_idldescType = [System_Runtime_InteropServices_IDLDESC objectWithMonoObject:monoObject];
+		_idldescType = [System_Runtime_InteropServices_IDLDESC bestObjectWithMonoObject:monoObject];
 
 		return _idldescType;
 	}
@@ -268,7 +268,7 @@
     {
 		MonoObject *monoObject = [self getMonoField:"tdescAlias"];
 		if ([self object:_tdescAlias isEqualToMonoObject:monoObject]) return _tdescAlias;					
-		_tdescAlias = [System_Runtime_InteropServices_TYPEDESC objectWithMonoObject:monoObject];
+		_tdescAlias = [System_Runtime_InteropServices_TYPEDESC bestObjectWithMonoObject:monoObject];
 
 		return _tdescAlias;
 	}
@@ -282,14 +282,14 @@
 	// Managed field name : typekind
 	// Managed field type : System.Runtime.InteropServices.TYPEKIND
     @synthesize typekind = _typekind;
-    - (System_Runtime_InteropServices_TYPEKIND)typekind
+    - (int32_t)typekind
     {
 		MonoObject *monoObject = [self getMonoField:"typekind"];
 		_typekind = DB_UNBOX_INT32(monoObject);
 
 		return _typekind;
 	}
-    - (void)setTypekind:(System_Runtime_InteropServices_TYPEKIND)value
+    - (void)setTypekind:(int32_t)value
 	{
 		_typekind = value;
 		MonoObject *monoObject = DB_VALUE(value);
@@ -333,14 +333,14 @@
 	// Managed field name : wTypeFlags
 	// Managed field type : System.Runtime.InteropServices.TYPEFLAGS
     @synthesize wTypeFlags = _wTypeFlags;
-    - (System_Runtime_InteropServices_TYPEFLAGS)wTypeFlags
+    - (int16_t)wTypeFlags
     {
 		MonoObject *monoObject = [self getMonoField:"wTypeFlags"];
 		_wTypeFlags = DB_UNBOX_INT16(monoObject);
 
 		return _wTypeFlags;
 	}
-    - (void)setWTypeFlags:(System_Runtime_InteropServices_TYPEFLAGS)value
+    - (void)setWTypeFlags:(int16_t)value
 	{
 		_wTypeFlags = value;
 		MonoObject *monoObject = DB_VALUE(value);

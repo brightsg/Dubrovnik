@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.Contracts.ContractFailedEventArgs
 	// Managed param types : System.Diagnostics.Contracts.ContractFailureKind, System.String, System.String, System.Exception
-    + (System_Diagnostics_Contracts_ContractFailedEventArgs *)new_withFailureKind:(System_Diagnostics_Contracts_ContractFailureKind)p1 message:(NSString *)p2 condition:(NSString *)p3 originalException:(System_Exception *)p4
+    + (System_Diagnostics_Contracts_ContractFailedEventArgs *)new_withFailureKind:(int32_t)p1 message:(NSString *)p2 condition:(NSString *)p3 originalException:(System_Exception *)p4
     {
-		return [[self alloc] initWithSignature:"System.Diagnostics.Contracts.ContractFailureKind,string,string,System.Exception" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];;
+		
+		System_Diagnostics_Contracts_ContractFailedEventArgs * object = [[self alloc] initWithSignature:"System.Diagnostics.Contracts.ContractFailureKind,string,string,System.Exception" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,7 +46,17 @@
     @synthesize condition = _condition;
     - (NSString *)condition
     {
-		MonoObject *monoObject = [self getMonoProperty:"Condition"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Condition");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_condition isEqualToMonoObject:monoObject]) return _condition;					
 		_condition = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -53,10 +66,20 @@
 	// Managed property name : FailureKind
 	// Managed property type : System.Diagnostics.Contracts.ContractFailureKind
     @synthesize failureKind = _failureKind;
-    - (System_Diagnostics_Contracts_ContractFailureKind)failureKind
+    - (int32_t)failureKind
     {
-		MonoObject *monoObject = [self getMonoProperty:"FailureKind"];
-		_failureKind = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FailureKind");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_failureKind = monoObject;
 
 		return _failureKind;
 	}
@@ -66,8 +89,18 @@
     @synthesize handled = _handled;
     - (BOOL)handled
     {
-		MonoObject *monoObject = [self getMonoProperty:"Handled"];
-		_handled = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Handled");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_handled = monoObject;
 
 		return _handled;
 	}
@@ -77,7 +110,17 @@
     @synthesize message = _message;
     - (NSString *)message
     {
-		MonoObject *monoObject = [self getMonoProperty:"Message"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Message");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_message isEqualToMonoObject:monoObject]) return _message;					
 		_message = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -89,9 +132,19 @@
     @synthesize originalException = _originalException;
     - (System_Exception *)originalException
     {
-		MonoObject *monoObject = [self getMonoProperty:"OriginalException"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OriginalException");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_originalException isEqualToMonoObject:monoObject]) return _originalException;					
-		_originalException = [System_Exception objectWithMonoObject:monoObject];
+		_originalException = [System_Exception bestObjectWithMonoObject:monoObject];
 
 		return _originalException;
 	}
@@ -101,8 +154,18 @@
     @synthesize unwind = _unwind;
     - (BOOL)unwind
     {
-		MonoObject *monoObject = [self getMonoProperty:"Unwind"];
-		_unwind = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Unwind");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_unwind = monoObject;
 
 		return _unwind;
 	}
@@ -115,7 +178,9 @@
 	// Managed param types : 
     - (void)setHandled
     {
-		[self invokeMonoMethod:"SetHandled()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"SetHandled()" withNumArgs:0];
+        
     }
 
 	// Managed method name : SetUnwind
@@ -123,7 +188,9 @@
 	// Managed param types : 
     - (void)setUnwind
     {
-		[self invokeMonoMethod:"SetUnwind()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"SetUnwind()" withNumArgs:0];
+        
     }
 
 #pragma mark -

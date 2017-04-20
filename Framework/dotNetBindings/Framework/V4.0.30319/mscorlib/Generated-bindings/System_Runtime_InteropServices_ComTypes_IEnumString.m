@@ -32,8 +32,12 @@
 	// Managed param types : ref System.Runtime.InteropServices.ComTypes.IEnumString&
     - (void)clone_withPpenumRef:(System_Runtime_InteropServices_ComTypes_IEnumString **)p1
     {
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IEnumString.Clone(System.Runtime.InteropServices.ComTypes.IEnumString&)" withNumArgs:1, &refPtr1];
-;
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+
     }
 
 	// Managed method name : Next
@@ -52,7 +56,9 @@
 	// Managed param types : 
     - (void)reset
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IEnumString.Reset()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IEnumString.Reset()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Skip

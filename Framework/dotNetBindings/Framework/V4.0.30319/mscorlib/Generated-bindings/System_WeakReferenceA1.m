@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.WeakReference`1<System.WeakReference`1+T>";
+		return "System.WeakReference`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -29,18 +29,24 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.WeakReference`1<System.WeakReference`1+T>
-	// Managed param types : <System.WeakReference`1+T>, System.Boolean
-    + (System_WeakReferenceA1 *)new_withTarget:(System_Object *)p1 trackResurrection:(BOOL)p2
+	// Managed param types : <System.WeakReference`1+T>
+    + (System_WeakReferenceA1 *)new_withTarget:(System_Object *)p1
     {
-		return [[self alloc] initWithSignature:"<_T_0>,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		System_WeakReferenceA1 * object = [[self alloc] initWithSignature:"<_T_0>" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.WeakReference`1<System.WeakReference`1+T>
-	// Managed param types : <System.WeakReference`1+T>
-    + (System_WeakReferenceA1 *)new_withTarget:(System_Object *)p1
+	// Managed param types : <System.WeakReference`1+T>, System.Boolean
+    + (System_WeakReferenceA1 *)new_withTarget:(System_Object *)p1 trackResurrection:(BOOL)p2
     {
-		return [[self alloc] initWithSignature:"<_T_0>" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_WeakReferenceA1 * object = [[self alloc] initWithSignature:"<_T_0>,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -51,7 +57,9 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetTarget
@@ -59,19 +67,21 @@
 	// Managed param types : <System.WeakReference`1+T>
     - (void)setTarget_withTarget:(System_Object *)p1
     {
-		[self invokeMonoMethod:"SetTarget(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetTarget(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : TryGetTarget
 	// Managed return type : System.Boolean
-	// Managed param types : ref <T&>
-    - (BOOL)tryGetTarget_withTargetRef:(System_Object **)p1
+	// Managed param types : ref T&
+    - (BOOL)tryGetTarget_withTargetRef:(System_WeakReferenceA1__T **)p1
     {
 		void *refPtr1 = [*p1 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoMethod:"TryGetTarget(<_T_0>&)" withNumArgs:1, &refPtr1];
+		MonoObject *monoObject = [self invokeMonoMethod:"TryGetTarget(System.WeakReference`1+T&)" withNumArgs:1, &refPtr1];
 
-		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+		*p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

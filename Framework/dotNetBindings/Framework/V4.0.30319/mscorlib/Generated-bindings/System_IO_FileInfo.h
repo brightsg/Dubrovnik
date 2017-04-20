@@ -2,7 +2,7 @@
 //
 // Managed class : FileInfo
 //
-@interface System_IO_FileInfo : System_IO_FileSystemInfo <System_Runtime_Serialization_ISerializable>
+@interface System_IO_FileInfo : System_IO_FileSystemInfo <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -97,7 +97,7 @@
 	// Managed method name : GetAccessControl
 	// Managed return type : System.Security.AccessControl.FileSecurity
 	// Managed param types : System.Security.AccessControl.AccessControlSections
-    - (System_Security_AccessControl_FileSecurity *)getAccessControl_withIncludeSections:(System_Security_AccessControl_AccessControlSections)p1;
+    - (System_Security_AccessControl_FileSecurity *)getAccessControl_withIncludeSections:(int32_t)p1;
 
 	// Managed method name : MoveTo
 	// Managed return type : System.Void
@@ -107,17 +107,17 @@
 	// Managed method name : Open
 	// Managed return type : System.IO.FileStream
 	// Managed param types : System.IO.FileMode
-    - (System_IO_FileStream *)open_withMode:(System_IO_FileMode)p1;
+    - (System_IO_FileStream *)open_withMode:(int32_t)p1;
 
 	// Managed method name : Open
 	// Managed return type : System.IO.FileStream
 	// Managed param types : System.IO.FileMode, System.IO.FileAccess
-    - (System_IO_FileStream *)open_withMode:(System_IO_FileMode)p1 access:(System_IO_FileAccess)p2;
+    - (System_IO_FileStream *)open_withMode:(int32_t)p1 access:(int32_t)p2;
 
 	// Managed method name : Open
 	// Managed return type : System.IO.FileStream
 	// Managed param types : System.IO.FileMode, System.IO.FileAccess, System.IO.FileShare
-    - (System_IO_FileStream *)open_withMode:(System_IO_FileMode)p1 access:(System_IO_FileAccess)p2 share:(System_IO_FileShare)p3;
+    - (System_IO_FileStream *)open_withMode:(int32_t)p1 access:(int32_t)p2 share:(int32_t)p3;
 
 	// Managed method name : OpenRead
 	// Managed return type : System.IO.FileStream

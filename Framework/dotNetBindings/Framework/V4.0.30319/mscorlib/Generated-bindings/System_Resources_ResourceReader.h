@@ -2,7 +2,7 @@
 //
 // Managed class : ResourceReader
 //
-@interface System_Resources_ResourceReader : System_Object <System_Resources_IResourceReader, System_Collections_IEnumerable, System_IDisposable>
+@interface System_Resources_ResourceReader : System_Object <System_Resources_IResourceReader_, System_Collections_IEnumerable_, System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -40,7 +40,7 @@
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IDictionaryEnumerator
 	// Managed param types : 
-    - (System_Collections_IDictionaryEnumerator *)getEnumerator;
+    - (id <System_Collections_IDictionaryEnumerator>)getEnumerator;
 
 	// Managed method name : GetResourceData
 	// Managed return type : System.Void

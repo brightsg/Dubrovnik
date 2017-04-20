@@ -30,33 +30,45 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.UIPermission
 	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Security_Permissions_UIPermission *)new_withState:(System_Security_Permissions_PermissionState)p1
+    + (System_Security_Permissions_UIPermission *)new_withState:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];;
-    }
-
-	// Managed method name : .ctor
-	// Managed return type : System.Security.Permissions.UIPermission
-	// Managed param types : System.Security.Permissions.UIPermissionWindow
-    + (System_Security_Permissions_UIPermission *)new_withWindowFlag:(System_Security_Permissions_UIPermissionWindow)p1
-    {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.UIPermissionWindow" withNumArgs:1, DB_VALUE(p1)];;
-    }
-
-	// Managed method name : .ctor
-	// Managed return type : System.Security.Permissions.UIPermission
-	// Managed param types : System.Security.Permissions.UIPermissionClipboard
-    + (System_Security_Permissions_UIPermission *)new_withClipboardFlag:(System_Security_Permissions_UIPermissionClipboard)p1
-    {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.UIPermissionClipboard" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Security_Permissions_UIPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.UIPermission
 	// Managed param types : System.Security.Permissions.UIPermissionWindow, System.Security.Permissions.UIPermissionClipboard
-    + (System_Security_Permissions_UIPermission *)new_withWindowFlag:(System_Security_Permissions_UIPermissionWindow)p1 clipboardFlag:(System_Security_Permissions_UIPermissionClipboard)p2
+    + (System_Security_Permissions_UIPermission *)new_withWindowFlag:(int32_t)p1 clipboardFlag:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.UIPermissionWindow,System.Security.Permissions.UIPermissionClipboard" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		System_Security_Permissions_UIPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.UIPermissionWindow,System.Security.Permissions.UIPermissionClipboard" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
+        return object;
+    }
+
+	// Managed method name : .ctor
+	// Managed return type : System.Security.Permissions.UIPermission
+	// Managed param types : System.Security.Permissions.UIPermissionWindow
+    + (System_Security_Permissions_UIPermission *)new_withWindowFlag:(int32_t)p1
+    {
+		
+		System_Security_Permissions_UIPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.UIPermissionWindow" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
+    }
+
+	// Managed method name : .ctor
+	// Managed return type : System.Security.Permissions.UIPermission
+	// Managed param types : System.Security.Permissions.UIPermissionClipboard
+    + (System_Security_Permissions_UIPermission *)new_withClipboardFlag:(int32_t)p1
+    {
+		
+		System_Security_Permissions_UIPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.UIPermissionClipboard" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -65,35 +77,73 @@
 	// Managed property name : Clipboard
 	// Managed property type : System.Security.Permissions.UIPermissionClipboard
     @synthesize clipboard = _clipboard;
-    - (System_Security_Permissions_UIPermissionClipboard)clipboard
+    - (int32_t)clipboard
     {
-		MonoObject *monoObject = [self getMonoProperty:"Clipboard"];
-		_clipboard = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Clipboard");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_clipboard = monoObject;
 
 		return _clipboard;
 	}
-    - (void)setClipboard:(System_Security_Permissions_UIPermissionClipboard)value
+    - (void)setClipboard:(int32_t)value
 	{
 		_clipboard = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Clipboard" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Clipboard");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Window
 	// Managed property type : System.Security.Permissions.UIPermissionWindow
     @synthesize window = _window;
-    - (System_Security_Permissions_UIPermissionWindow)window
+    - (int32_t)window
     {
-		MonoObject *monoObject = [self getMonoProperty:"Window"];
-		_window = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Window");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_window = monoObject;
 
 		return _window;
 	}
-    - (void)setWindow:(System_Security_Permissions_UIPermissionWindow)value
+    - (void)setWindow:(int32_t)value
 	{
 		_window = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Window" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Window");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -102,12 +152,12 @@
 	// Managed method name : Copy
 	// Managed return type : System.Security.IPermission
 	// Managed param types : 
-    - (System_Security_IPermission *)copy
+    - (id <System_Security_IPermission>)copy
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromXml
@@ -115,24 +165,26 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)fromXml_withEsd:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Intersect
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.IPermission
-    - (System_Security_IPermission *)intersect_withTarget:(System_Security_IPermission *)p1
+    - (id <System_Security_IPermission>)intersect_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsSubsetOf
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.IPermission
-    - (BOOL)isSubsetOf_withTarget:(System_Security_IPermission *)p1
+    - (BOOL)isSubsetOf_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -159,18 +211,18 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml()" withNumArgs:0];
 		
-		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
+		return [System_Security_SecurityElement bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Union
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.IPermission
-    - (System_Security_IPermission *)union_withTarget:(System_Security_IPermission *)p1
+    - (id <System_Security_IPermission>)union_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

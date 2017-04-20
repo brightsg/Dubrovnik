@@ -2,7 +2,7 @@
 //
 // Managed class : ParameterBuilder
 //
-@interface System_Reflection_Emit_ParameterBuilder : System_Object <System_Runtime_InteropServices__ParameterBuilder>
+@interface System_Reflection_Emit_ParameterBuilder : System_Object <System_Runtime_InteropServices__ParameterBuilder_>
 
 #pragma mark -
 #pragma mark Setup

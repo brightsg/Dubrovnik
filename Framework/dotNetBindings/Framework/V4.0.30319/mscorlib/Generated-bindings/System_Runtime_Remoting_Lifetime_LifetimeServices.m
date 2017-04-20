@@ -32,17 +32,36 @@
     static System_TimeSpan * m_leaseManagerPollTime;
     + (System_TimeSpan *)leaseManagerPollTime
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"LeaseManagerPollTime"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LeaseManagerPollTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_leaseManagerPollTime isEqualToMonoObject:monoObject]) return m_leaseManagerPollTime;					
-		m_leaseManagerPollTime = [System_TimeSpan objectWithMonoObject:monoObject];
+		m_leaseManagerPollTime = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
 		return m_leaseManagerPollTime;
 	}
     + (void)setLeaseManagerPollTime:(System_TimeSpan *)value
 	{
 		m_leaseManagerPollTime = value;
-		MonoObject *monoObject = [value monoObject];
-		[[self class] setMonoClassProperty:"LeaseManagerPollTime" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "LeaseManagerPollTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk([value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : LeaseTime
@@ -50,17 +69,36 @@
     static System_TimeSpan * m_leaseTime;
     + (System_TimeSpan *)leaseTime
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"LeaseTime"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LeaseTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_leaseTime isEqualToMonoObject:monoObject]) return m_leaseTime;					
-		m_leaseTime = [System_TimeSpan objectWithMonoObject:monoObject];
+		m_leaseTime = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
 		return m_leaseTime;
 	}
     + (void)setLeaseTime:(System_TimeSpan *)value
 	{
 		m_leaseTime = value;
-		MonoObject *monoObject = [value monoObject];
-		[[self class] setMonoClassProperty:"LeaseTime" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "LeaseTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk([value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : RenewOnCallTime
@@ -68,17 +106,36 @@
     static System_TimeSpan * m_renewOnCallTime;
     + (System_TimeSpan *)renewOnCallTime
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"RenewOnCallTime"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RenewOnCallTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_renewOnCallTime isEqualToMonoObject:monoObject]) return m_renewOnCallTime;					
-		m_renewOnCallTime = [System_TimeSpan objectWithMonoObject:monoObject];
+		m_renewOnCallTime = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
 		return m_renewOnCallTime;
 	}
     + (void)setRenewOnCallTime:(System_TimeSpan *)value
 	{
 		m_renewOnCallTime = value;
-		MonoObject *monoObject = [value monoObject];
-		[[self class] setMonoClassProperty:"RenewOnCallTime" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "RenewOnCallTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk([value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : SponsorshipTimeout
@@ -86,17 +143,36 @@
     static System_TimeSpan * m_sponsorshipTimeout;
     + (System_TimeSpan *)sponsorshipTimeout
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"SponsorshipTimeout"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SponsorshipTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_sponsorshipTimeout isEqualToMonoObject:monoObject]) return m_sponsorshipTimeout;					
-		m_sponsorshipTimeout = [System_TimeSpan objectWithMonoObject:monoObject];
+		m_sponsorshipTimeout = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
 		return m_sponsorshipTimeout;
 	}
     + (void)setSponsorshipTimeout:(System_TimeSpan *)value
 	{
 		m_sponsorshipTimeout = value;
-		MonoObject *monoObject = [value monoObject];
-		[[self class] setMonoClassProperty:"SponsorshipTimeout" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "SponsorshipTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk([value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

@@ -2,7 +2,7 @@
 //
 // Managed struct : Char
 //
-@interface System_Char : DBManagedObject <System_IComparable, System_IConvertible, System_IComparableA1, System_IEquatableA1>
+@interface System_Char : DBManagedObject <System_IComparable_, System_IConvertible_, System_IComparableA1_, System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -78,17 +78,17 @@
 	// Managed method name : GetTypeCode
 	// Managed return type : System.TypeCode
 	// Managed param types : 
-    - (System_TypeCode)getTypeCode;
+    - (int32_t)getTypeCode;
 
 	// Managed method name : GetUnicodeCategory
 	// Managed return type : System.Globalization.UnicodeCategory
 	// Managed param types : System.Char
-    + (System_Globalization_UnicodeCategory)getUnicodeCategory_withC:(uint16_t)p1;
+    + (int32_t)getUnicodeCategory_withC:(uint16_t)p1;
 
 	// Managed method name : GetUnicodeCategory
 	// Managed return type : System.Globalization.UnicodeCategory
 	// Managed param types : System.String, System.Int32
-    + (System_Globalization_UnicodeCategory)getUnicodeCategory_withS:(NSString *)p1 index:(int32_t)p2;
+    + (int32_t)getUnicodeCategory_withS:(NSString *)p1 index:(int32_t)p2;
 
 	// Managed method name : IsControl
 	// Managed return type : System.Boolean
@@ -268,7 +268,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.IFormatProvider
-    - (NSString *)toString_withProvider:(System_IFormatProvider *)p1;
+    - (NSString *)toString_withProvider:(id <System_IFormatProvider_>)p1;
 
 	// Managed method name : ToString
 	// Managed return type : System.String

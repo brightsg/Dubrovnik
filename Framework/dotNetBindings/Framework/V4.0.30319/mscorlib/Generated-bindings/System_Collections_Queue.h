@@ -2,7 +2,7 @@
 //
 // Managed class : Queue
 //
-@interface System_Collections_Queue : System_Object <System_Collections_ICollection, System_Collections_IEnumerable, System_ICloneable>
+@interface System_Collections_Queue : System_Object <System_Collections_ICollection_, System_Collections_IEnumerable_, System_ICloneable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -16,18 +16,18 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Queue
-	// Managed param types : System.Int32, System.Single
-    + (System_Collections_Queue *)new_withCapacity:(int32_t)p1 growFactor:(float)p2;
-
-	// Managed method name : .ctor
-	// Managed return type : System.Collections.Queue
 	// Managed param types : System.Int32
     + (System_Collections_Queue *)new_withCapacity:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Queue
+	// Managed param types : System.Int32, System.Single
+    + (System_Collections_Queue *)new_withCapacity:(int32_t)p1 growFactor:(float)p2;
+
+	// Managed method name : .ctor
+	// Managed return type : System.Collections.Queue
 	// Managed param types : System.Collections.ICollection
-    + (System_Collections_Queue *)new_withCol:(System_Collections_ICollection *)p1;
+    + (System_Collections_Queue *)new_withCol:(id <System_Collections_ICollection_>)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -80,7 +80,7 @@
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IEnumerator
 	// Managed param types : 
-    - (System_Collections_IEnumerator *)getEnumerator;
+    - (id <System_Collections_IEnumerator>)getEnumerator;
 
 	// Managed method name : Peek
 	// Managed return type : System.Object

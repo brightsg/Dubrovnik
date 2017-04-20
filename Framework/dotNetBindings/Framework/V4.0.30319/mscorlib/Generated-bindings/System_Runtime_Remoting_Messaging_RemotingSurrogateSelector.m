@@ -32,17 +32,36 @@
     @synthesize filter = _filter;
     - (System_Runtime_Remoting_Messaging_MessageSurrogateFilter *)filter
     {
-		MonoObject *monoObject = [self getMonoProperty:"Filter"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Filter");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_filter isEqualToMonoObject:monoObject]) return _filter;					
-		_filter = [System_Runtime_Remoting_Messaging_MessageSurrogateFilter objectWithMonoObject:monoObject];
+		_filter = [System_Runtime_Remoting_Messaging_MessageSurrogateFilter bestObjectWithMonoObject:monoObject];
 
 		return _filter;
 	}
     - (void)setFilter:(System_Runtime_Remoting_Messaging_MessageSurrogateFilter *)value
 	{
 		_filter = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Filter" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Filter");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -51,20 +70,22 @@
 	// Managed method name : ChainSelector
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Serialization.ISurrogateSelector
-    - (void)chainSelector_withSelector:(System_Runtime_Serialization_ISurrogateSelector *)p1
+    - (void)chainSelector_withSelector:(id <System_Runtime_Serialization_ISurrogateSelector_>)p1
     {
-		[self invokeMonoMethod:"ChainSelector(System.Runtime.Serialization.ISurrogateSelector)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"ChainSelector(System.Runtime.Serialization.ISurrogateSelector)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetNextSelector
 	// Managed return type : System.Runtime.Serialization.ISurrogateSelector
 	// Managed param types : 
-    - (System_Runtime_Serialization_ISurrogateSelector *)getNextSelector
+    - (id <System_Runtime_Serialization_ISurrogateSelector>)getNextSelector
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetNextSelector()" withNumArgs:0];
 		
-		return [System_Runtime_Serialization_ISurrogateSelector objectWithMonoObject:monoObject];
+		return [System_Runtime_Serialization_ISurrogateSelector bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRootObject
@@ -81,15 +102,15 @@
 	// Managed method name : GetSurrogate
 	// Managed return type : System.Runtime.Serialization.ISerializationSurrogate
 	// Managed param types : System.Type, System.Runtime.Serialization.StreamingContext, ref System.Runtime.Serialization.ISurrogateSelector&
-    - (System_Runtime_Serialization_ISerializationSurrogate *)getSurrogate_withType:(System_Type *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2 ssoutRef:(System_Runtime_Serialization_ISurrogateSelector **)p3
+    - (id <System_Runtime_Serialization_ISerializationSurrogate>)getSurrogate_withType:(System_Type *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2 ssoutRef:(System_Runtime_Serialization_ISurrogateSelector **)p3
     {
 		void *refPtr3 = [*p3 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoMethod:"GetSurrogate(System.Type,System.Runtime.Serialization.StreamingContext,System.Runtime.Serialization.ISurrogateSelector&)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], &refPtr3];
 
-		*p3 = [System_Object subclassObjectWithMonoObject:refPtr3];
+		*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
 
-		return [System_Runtime_Serialization_ISerializationSurrogate objectWithMonoObject:monoObject];
+		return [System_Runtime_Serialization_ISerializationSurrogate bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SetRootObject
@@ -97,7 +118,9 @@
 	// Managed param types : System.Object
     - (void)setRootObject_withObj:(System_Object *)p1
     {
-		[self invokeMonoMethod:"SetRootObject(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetRootObject(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : UseSoapFormat
@@ -105,7 +128,9 @@
 	// Managed param types : 
     - (void)useSoapFormat
     {
-		[self invokeMonoMethod:"UseSoapFormat()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"UseSoapFormat()" withNumArgs:0];
+        
     }
 
 #pragma mark -

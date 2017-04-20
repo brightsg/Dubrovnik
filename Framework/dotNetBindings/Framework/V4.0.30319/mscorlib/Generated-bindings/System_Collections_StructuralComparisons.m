@@ -32,9 +32,19 @@
     static System_Collections_IComparer * m_structuralComparer;
     + (System_Collections_IComparer *)structuralComparer
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"StructuralComparer"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "StructuralComparer");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_structuralComparer isEqualToMonoObject:monoObject]) return m_structuralComparer;					
-		m_structuralComparer = [System_Collections_IComparer objectWithMonoObject:monoObject];
+		m_structuralComparer = [System_Collections_IComparer bestObjectWithMonoObject:monoObject];
 
 		return m_structuralComparer;
 	}
@@ -44,9 +54,19 @@
     static System_Collections_IEqualityComparer * m_structuralEqualityComparer;
     + (System_Collections_IEqualityComparer *)structuralEqualityComparer
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"StructuralEqualityComparer"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "StructuralEqualityComparer");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_structuralEqualityComparer isEqualToMonoObject:monoObject]) return m_structuralEqualityComparer;					
-		m_structuralEqualityComparer = [System_Collections_IEqualityComparer objectWithMonoObject:monoObject];
+		m_structuralEqualityComparer = [System_Collections_IEqualityComparer bestObjectWithMonoObject:monoObject];
 
 		return m_structuralEqualityComparer;
 	}

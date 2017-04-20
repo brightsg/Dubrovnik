@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeForObject(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_TypeInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_TypeInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : MapAssembly
@@ -46,7 +46,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"MapAssembly(System.Reflection.Assembly)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : MapType
@@ -57,7 +57,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"MapType(System.Reflection.TypeInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_TypeInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_TypeInfo bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

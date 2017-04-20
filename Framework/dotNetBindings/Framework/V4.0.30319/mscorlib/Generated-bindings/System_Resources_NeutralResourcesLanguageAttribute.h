@@ -2,7 +2,7 @@
 //
 // Managed class : NeutralResourcesLanguageAttribute
 //
-@interface System_Resources_NeutralResourcesLanguageAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Resources_NeutralResourcesLanguageAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -22,7 +22,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Resources.NeutralResourcesLanguageAttribute
 	// Managed param types : System.String, System.Resources.UltimateResourceFallbackLocation
-    + (System_Resources_NeutralResourcesLanguageAttribute *)new_withCultureName:(NSString *)p1 location:(System_Resources_UltimateResourceFallbackLocation)p2;
+    + (System_Resources_NeutralResourcesLanguageAttribute *)new_withCultureName:(NSString *)p1 location:(int32_t)p2;
 
 #pragma mark -
 #pragma mark Properties
@@ -33,6 +33,6 @@
 
 	// Managed property name : Location
 	// Managed property type : System.Resources.UltimateResourceFallbackLocation
-    @property (nonatomic, readonly) System_Resources_UltimateResourceFallbackLocation location;
+    @property (nonatomic, readonly) int32_t location;
 @end
 //--Dubrovnik.CodeGenerator

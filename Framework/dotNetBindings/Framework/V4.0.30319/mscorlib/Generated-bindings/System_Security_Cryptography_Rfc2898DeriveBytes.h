@@ -2,7 +2,7 @@
 //
 // Managed class : Rfc2898DeriveBytes
 //
-@interface System_Security_Cryptography_Rfc2898DeriveBytes : System_Security_Cryptography_DeriveBytes <System_IDisposable>
+@interface System_Security_Cryptography_Rfc2898DeriveBytes : System_Security_Cryptography_DeriveBytes <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -52,6 +52,11 @@
 
 #pragma mark -
 #pragma mark Methods
+
+	// Managed method name : CryptDeriveKey
+	// Managed return type : System.Byte[]
+	// Managed param types : System.String, System.String, System.Int32, System.Byte[]
+    - (NSData *)cryptDeriveKey_withAlgname:(NSString *)p1 alghashname:(NSString *)p2 keySize:(int32_t)p3 rgbIV:(NSData *)p4;
 
 	// Managed method name : GetBytes
 	// Managed return type : System.Byte[]

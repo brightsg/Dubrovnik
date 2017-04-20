@@ -2,7 +2,7 @@
 //
 // Managed class : AssemblySignatureKeyAttribute
 //
-@interface System_Reflection_AssemblySignatureKeyAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Reflection_AssemblySignatureKeyAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup

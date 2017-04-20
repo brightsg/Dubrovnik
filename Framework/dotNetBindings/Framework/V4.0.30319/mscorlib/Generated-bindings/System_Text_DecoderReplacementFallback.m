@@ -32,7 +32,10 @@
 	// Managed param types : System.String
     + (System_Text_DecoderReplacementFallback *)new_withReplacement:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Text_DecoderReplacementFallback * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,7 +46,17 @@
     @synthesize defaultString = _defaultString;
     - (NSString *)defaultString
     {
-		MonoObject *monoObject = [self getMonoProperty:"DefaultString"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DefaultString");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_defaultString isEqualToMonoObject:monoObject]) return _defaultString;					
 		_defaultString = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -55,8 +68,18 @@
     @synthesize maxCharCount = _maxCharCount;
     - (int32_t)maxCharCount
     {
-		MonoObject *monoObject = [self getMonoProperty:"MaxCharCount"];
-		_maxCharCount = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MaxCharCount");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_maxCharCount = monoObject;
 
 		return _maxCharCount;
 	}
@@ -72,7 +95,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateFallbackBuffer()" withNumArgs:0];
 		
-		return [System_Text_DecoderFallbackBuffer objectWithMonoObject:monoObject];
+		return [System_Text_DecoderFallbackBuffer bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals

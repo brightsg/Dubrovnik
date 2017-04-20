@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Progress`1<System.Progress`1+T>";
+		return "System.Progress`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,7 +32,10 @@
 	// Managed param types : System.Action`1<System.Progress`1+T>
     + (System_ProgressA1 *)new_withHandler:(System_ActionA1 *)p1
     {
-		return [[self alloc] initWithSignature:"System.Action`1<System.Progress`1+T>" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_ProgressA1 * object = [[self alloc] initWithSignature:"System.Action`1<System.Progress`1+T>" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -

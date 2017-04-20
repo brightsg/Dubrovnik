@@ -32,8 +32,18 @@
     @synthesize canReuseTransform = _canReuseTransform;
     - (BOOL)canReuseTransform
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Security.Cryptography.ICryptoTransform.CanReuseTransform"];
-		_canReuseTransform = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Security.Cryptography.ICryptoTransform.CanReuseTransform");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_canReuseTransform = monoObject;
 
 		return _canReuseTransform;
 	}
@@ -43,8 +53,18 @@
     @synthesize canTransformMultipleBlocks = _canTransformMultipleBlocks;
     - (BOOL)canTransformMultipleBlocks
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Security.Cryptography.ICryptoTransform.CanTransformMultipleBlocks"];
-		_canTransformMultipleBlocks = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Security.Cryptography.ICryptoTransform.CanTransformMultipleBlocks");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_canTransformMultipleBlocks = monoObject;
 
 		return _canTransformMultipleBlocks;
 	}
@@ -54,8 +74,18 @@
     @synthesize inputBlockSize = _inputBlockSize;
     - (int32_t)inputBlockSize
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Security.Cryptography.ICryptoTransform.InputBlockSize"];
-		_inputBlockSize = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Security.Cryptography.ICryptoTransform.InputBlockSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_inputBlockSize = monoObject;
 
 		return _inputBlockSize;
 	}
@@ -65,8 +95,18 @@
     @synthesize outputBlockSize = _outputBlockSize;
     - (int32_t)outputBlockSize
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Security.Cryptography.ICryptoTransform.OutputBlockSize"];
-		_outputBlockSize = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Security.Cryptography.ICryptoTransform.OutputBlockSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_outputBlockSize = monoObject;
 
 		return _outputBlockSize;
 	}

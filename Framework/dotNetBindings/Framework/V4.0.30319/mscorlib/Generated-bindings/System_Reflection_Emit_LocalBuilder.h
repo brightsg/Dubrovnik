@@ -2,7 +2,7 @@
 //
 // Managed class : LocalBuilder
 //
-@interface System_Reflection_Emit_LocalBuilder : System_Reflection_LocalVariableInfo <System_Runtime_InteropServices__LocalBuilder>
+@interface System_Reflection_Emit_LocalBuilder : System_Reflection_LocalVariableInfo <System_Runtime_InteropServices__LocalBuilder_>
 
 #pragma mark -
 #pragma mark Setup

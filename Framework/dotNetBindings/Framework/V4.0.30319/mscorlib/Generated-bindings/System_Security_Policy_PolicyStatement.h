@@ -2,7 +2,7 @@
 //
 // Managed class : PolicyStatement
 //
-@interface System_Security_Policy_PolicyStatement : System_Object <System_Security_ISecurityPolicyEncodable, System_Security_ISecurityEncodable>
+@interface System_Security_Policy_PolicyStatement : System_Object <System_Security_ISecurityPolicyEncodable_, System_Security_ISecurityEncodable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -22,14 +22,14 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Policy.PolicyStatement
 	// Managed param types : System.Security.PermissionSet, System.Security.Policy.PolicyStatementAttribute
-    + (System_Security_Policy_PolicyStatement *)new_withPermSet:(System_Security_PermissionSet *)p1 attributes:(System_Security_Policy_PolicyStatementAttribute)p2;
+    + (System_Security_Policy_PolicyStatement *)new_withPermSet:(System_Security_PermissionSet *)p1 attributes:(int32_t)p2;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Attributes
 	// Managed property type : System.Security.Policy.PolicyStatementAttribute
-    @property (nonatomic) System_Security_Policy_PolicyStatementAttribute attributes;
+    @property (nonatomic) int32_t attributes;
 
 	// Managed property name : AttributeString
 	// Managed property type : System.String

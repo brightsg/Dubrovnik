@@ -22,6 +22,6 @@
 	// Managed method name : SetObjectData
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext, System.Runtime.Serialization.ISurrogateSelector
-    - (System_Object *)setObjectData_withObj:(System_Object *)p1 info:(System_Runtime_Serialization_SerializationInfo *)p2 context:(System_Runtime_Serialization_StreamingContext *)p3 selector:(System_Runtime_Serialization_ISurrogateSelector *)p4;
+    - (System_Object *)setObjectData_withObj:(System_Object *)p1 info:(System_Runtime_Serialization_SerializationInfo *)p2 context:(System_Runtime_Serialization_StreamingContext *)p3 selector:(id <System_Runtime_Serialization_ISurrogateSelector_>)p4;
 @end
 //--Dubrovnik.CodeGenerator

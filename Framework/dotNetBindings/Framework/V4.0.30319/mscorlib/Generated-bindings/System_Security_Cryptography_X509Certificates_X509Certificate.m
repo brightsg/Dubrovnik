@@ -29,26 +29,13 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate
-	// Managed param types : System.IntPtr
-    + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withHandle:(void *)p1
-    {
-		return [[self alloc] initWithSignature:"intptr" withNumArgs:1, DB_VALUE(p1)];;
-    }
-
-	// Managed method name : .ctor
-	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate
-	// Managed param types : System.Security.Cryptography.X509Certificates.X509Certificate
-    + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withCert:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1
-    {
-		return [[self alloc] initWithSignature:"System.Security.Cryptography.X509Certificates.X509Certificate" withNumArgs:1, [p1 monoRTInvokeArg]];;
-    }
-
-	// Managed method name : .ctor
-	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate
 	// Managed param types : System.Byte[]
     + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withData:(NSData *)p1
     {
-		return [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_X509Certificates_X509Certificate * object = [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +43,10 @@
 	// Managed param types : System.Byte[], System.String
     + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withRawDataByte:(NSData *)p1 passwordString:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"byte[],string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_X509Certificates_X509Certificate * object = [[self alloc] initWithSignature:"byte[],string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -64,23 +54,32 @@
 	// Managed param types : System.Byte[], System.Security.SecureString
     + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withRawDataByte:(NSData *)p1 passwordSSSecureString:(System_Security_SecureString *)p2
     {
-		return [[self alloc] initWithSignature:"byte[],System.Security.SecureString" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_X509Certificates_X509Certificate * object = [[self alloc] initWithSignature:"byte[],System.Security.SecureString" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate
 	// Managed param types : System.Byte[], System.String, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withRawDataByte:(NSData *)p1 passwordString:(NSString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3
+    + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withRawDataByte:(NSData *)p1 passwordString:(NSString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"byte[],string,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
+		
+		System_Security_Cryptography_X509Certificates_X509Certificate * object = [[self alloc] initWithSignature:"byte[],string,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate
 	// Managed param types : System.Byte[], System.Security.SecureString, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withRawDataByte:(NSData *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3
+    + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withRawDataByte:(NSData *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"byte[],System.Security.SecureString,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
+		
+		System_Security_Cryptography_X509Certificates_X509Certificate * object = [[self alloc] initWithSignature:"byte[],System.Security.SecureString,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -88,7 +87,10 @@
 	// Managed param types : System.String
     + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withFileName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_X509Certificates_X509Certificate * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -96,7 +98,10 @@
 	// Managed param types : System.String, System.String
     + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withFileNameString:(NSString *)p1 passwordString:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_X509Certificates_X509Certificate * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -104,23 +109,54 @@
 	// Managed param types : System.String, System.Security.SecureString
     + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withFileNameString:(NSString *)p1 passwordSSSecureString:(System_Security_SecureString *)p2
     {
-		return [[self alloc] initWithSignature:"string,System.Security.SecureString" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_X509Certificates_X509Certificate * object = [[self alloc] initWithSignature:"string,System.Security.SecureString" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate
 	// Managed param types : System.String, System.String, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withFileNameString:(NSString *)p1 passwordString:(NSString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3
+    + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withFileNameString:(NSString *)p1 passwordString:(NSString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"string,string,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
+		
+		System_Security_Cryptography_X509Certificates_X509Certificate * object = [[self alloc] initWithSignature:"string,string,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate
 	// Managed param types : System.String, System.Security.SecureString, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withFileNameString:(NSString *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3
+    + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withFileNameString:(NSString *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"string,System.Security.SecureString,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
+		
+		System_Security_Cryptography_X509Certificates_X509Certificate * object = [[self alloc] initWithSignature:"string,System.Security.SecureString,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+        
+        return object;
+    }
+
+	// Managed method name : .ctor
+	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate
+	// Managed param types : System.IntPtr
+    + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withHandle:(void *)p1
+    {
+		
+		System_Security_Cryptography_X509Certificates_X509Certificate * object = [[self alloc] initWithSignature:"intptr" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
+    }
+
+	// Managed method name : .ctor
+	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate
+	// Managed param types : System.Security.Cryptography.X509Certificates.X509Certificate
+    + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withCert:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1
+    {
+		
+		System_Security_Cryptography_X509Certificates_X509Certificate * object = [[self alloc] initWithSignature:"System.Security.Cryptography.X509Certificates.X509Certificate" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -128,7 +164,10 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     + (System_Security_Cryptography_X509Certificates_X509Certificate *)new_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		return [[self alloc] initWithSignature:"System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_X509Certificates_X509Certificate * object = [[self alloc] initWithSignature:"System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -139,8 +178,18 @@
     @synthesize handle = _handle;
     - (void *)handle
     {
-		MonoObject *monoObject = [self getMonoProperty:"Handle"];
-		_handle = DB_UNBOX_PTR(monoObject);
+		typedef void * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Handle");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		void * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_handle = monoObject;
 
 		return _handle;
 	}
@@ -150,7 +199,17 @@
     @synthesize issuer = _issuer;
     - (NSString *)issuer
     {
-		MonoObject *monoObject = [self getMonoProperty:"Issuer"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Issuer");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_issuer isEqualToMonoObject:monoObject]) return _issuer;					
 		_issuer = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -162,7 +221,17 @@
     @synthesize subject = _subject;
     - (NSString *)subject
     {
-		MonoObject *monoObject = [self getMonoProperty:"Subject"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Subject");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_subject isEqualToMonoObject:monoObject]) return _subject;					
 		_subject = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -180,7 +249,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFromCertFile(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_Cryptography_X509Certificates_X509Certificate objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_X509Certificates_X509Certificate bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateFromSignedFile
@@ -191,7 +260,17 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFromSignedFile(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_Cryptography_X509Certificates_X509Certificate objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_X509Certificates_X509Certificate bestObjectWithMonoObject:monoObject];
+    }
+
+	// Managed method name : Dispose
+	// Managed return type : System.Void
+	// Managed param types : 
+    - (void)dispose
+    {
+		
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Equals
@@ -219,7 +298,7 @@
 	// Managed method name : Export
 	// Managed return type : System.Byte[]
 	// Managed param types : System.Security.Cryptography.X509Certificates.X509ContentType
-    - (NSData *)export_withContentType:(System_Security_Cryptography_X509Certificates_X509ContentType)p1
+    - (NSData *)export_withContentType:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Export(System.Security.Cryptography.X509Certificates.X509ContentType)" withNumArgs:1, DB_VALUE(p1)];
@@ -230,7 +309,7 @@
 	// Managed method name : Export
 	// Managed return type : System.Byte[]
 	// Managed param types : System.Security.Cryptography.X509Certificates.X509ContentType, System.String
-    - (NSData *)export_withContentTypeSSCXX509ContentType:(System_Security_Cryptography_X509Certificates_X509ContentType)p1 passwordString:(NSString *)p2
+    - (NSData *)export_withContentTypeSSCXX509ContentType:(int32_t)p1 passwordString:(NSString *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Export(System.Security.Cryptography.X509Certificates.X509ContentType,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
@@ -241,7 +320,7 @@
 	// Managed method name : Export
 	// Managed return type : System.Byte[]
 	// Managed param types : System.Security.Cryptography.X509Certificates.X509ContentType, System.Security.SecureString
-    - (NSData *)export_withContentTypeSSCXX509ContentType:(System_Security_Cryptography_X509Certificates_X509ContentType)p1 passwordSSSecureString:(System_Security_SecureString *)p2
+    - (NSData *)export_withContentTypeSSCXX509ContentType:(int32_t)p1 passwordSSSecureString:(System_Security_SecureString *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Export(System.Security.Cryptography.X509Certificates.X509ContentType,System.Security.SecureString)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
@@ -441,23 +520,29 @@
 	// Managed param types : System.Byte[]
     - (void)import_withRawData:(NSData *)p1
     {
-		[self invokeMonoMethod:"Import(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Import(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Import
 	// Managed return type : System.Void
 	// Managed param types : System.Byte[], System.String, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    - (void)import_withRawDataByte:(NSData *)p1 passwordString:(NSString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3
+    - (void)import_withRawDataByte:(NSData *)p1 passwordString:(NSString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(int32_t)p3
     {
-		[self invokeMonoMethod:"Import(byte[],string,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
+		
+		[self invokeMonoMethod:"Import(byte[],string,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+        
     }
 
 	// Managed method name : Import
 	// Managed return type : System.Void
 	// Managed param types : System.Byte[], System.Security.SecureString, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    - (void)import_withRawDataByte:(NSData *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3
+    - (void)import_withRawDataByte:(NSData *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(int32_t)p3
     {
-		[self invokeMonoMethod:"Import(byte[],System.Security.SecureString,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
+		
+		[self invokeMonoMethod:"Import(byte[],System.Security.SecureString,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+        
     }
 
 	// Managed method name : Import
@@ -465,23 +550,29 @@
 	// Managed param types : System.String
     - (void)import_withFileName:(NSString *)p1
     {
-		[self invokeMonoMethod:"Import(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Import(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Import
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.String, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    - (void)import_withFileNameString:(NSString *)p1 passwordString:(NSString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3
+    - (void)import_withFileNameString:(NSString *)p1 passwordString:(NSString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(int32_t)p3
     {
-		[self invokeMonoMethod:"Import(string,string,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
+		
+		[self invokeMonoMethod:"Import(string,string,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+        
     }
 
 	// Managed method name : Import
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Security.SecureString, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    - (void)import_withFileNameString:(NSString *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3
+    - (void)import_withFileNameString:(NSString *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(int32_t)p3
     {
-		[self invokeMonoMethod:"Import(string,System.Security.SecureString,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
+		
+		[self invokeMonoMethod:"Import(string,System.Security.SecureString,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+        
     }
 
 	// Managed method name : Reset
@@ -489,7 +580,9 @@
 	// Managed param types : 
     - (void)reset
     {
-		[self invokeMonoMethod:"Reset()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Reset()" withNumArgs:0];
+        
     }
 
 	// Managed method name : ToString

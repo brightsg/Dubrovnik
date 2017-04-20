@@ -32,9 +32,19 @@
     @synthesize attributeType = _attributeType;
     - (System_Type *)attributeType
     {
-		MonoObject *monoObject = [self getMonoProperty:"AttributeType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AttributeType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_attributeType isEqualToMonoObject:monoObject]) return _attributeType;					
-		_attributeType = [System_Type objectWithMonoObject:monoObject];
+		_attributeType = [System_Type bestObjectWithMonoObject:monoObject];
 
 		return _attributeType;
 	}
@@ -44,9 +54,19 @@
     @synthesize constructor = _constructor;
     - (System_Reflection_ConstructorInfo *)constructor
     {
-		MonoObject *monoObject = [self getMonoProperty:"Constructor"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Constructor");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_constructor isEqualToMonoObject:monoObject]) return _constructor;					
-		_constructor = [System_Reflection_ConstructorInfo objectWithMonoObject:monoObject];
+		_constructor = [System_Reflection_ConstructorInfo bestObjectWithMonoObject:monoObject];
 
 		return _constructor;
 	}
@@ -56,9 +76,19 @@
     @synthesize constructorArguments = _constructorArguments;
     - (System_Collections_Generic_IListA1 *)constructorArguments
     {
-		MonoObject *monoObject = [self getMonoProperty:"ConstructorArguments"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ConstructorArguments");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_constructorArguments isEqualToMonoObject:monoObject]) return _constructorArguments;					
-		_constructorArguments = [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
+		_constructorArguments = [System_Collections_Generic_IListA1 bestObjectWithMonoObject:monoObject];
 
 		return _constructorArguments;
 	}
@@ -68,9 +98,19 @@
     @synthesize namedArguments = _namedArguments;
     - (System_Collections_Generic_IListA1 *)namedArguments
     {
-		MonoObject *monoObject = [self getMonoProperty:"NamedArguments"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NamedArguments");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_namedArguments isEqualToMonoObject:monoObject]) return _namedArguments;					
-		_namedArguments = [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
+		_namedArguments = [System_Collections_Generic_IListA1 bestObjectWithMonoObject:monoObject];
 
 		return _namedArguments;
 	}
@@ -92,45 +132,45 @@
 	// Managed method name : GetCustomAttributes
 	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : System.Reflection.MemberInfo
-    + (System_Collections_Generic_IListA1 *)getCustomAttributes_withTargetSRMemberInfo:(System_Reflection_MemberInfo *)p1
+    + (id <System_Collections_Generic_IListA1>)getCustomAttributes_withTargetSRMemberInfo:(System_Reflection_MemberInfo *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttributes(System.Reflection.MemberInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IListA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttributes
 	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : System.Reflection.Module
-    + (System_Collections_Generic_IListA1 *)getCustomAttributes_withTargetSRModule:(System_Reflection_Module *)p1
+    + (id <System_Collections_Generic_IListA1>)getCustomAttributes_withTargetSRModule:(System_Reflection_Module *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttributes(System.Reflection.Module)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IListA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttributes
 	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : System.Reflection.Assembly
-    + (System_Collections_Generic_IListA1 *)getCustomAttributes_withTargetSRAssembly:(System_Reflection_Assembly *)p1
+    + (id <System_Collections_Generic_IListA1>)getCustomAttributes_withTargetSRAssembly:(System_Reflection_Assembly *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttributes(System.Reflection.Assembly)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IListA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttributes
 	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : System.Reflection.ParameterInfo
-    + (System_Collections_Generic_IListA1 *)getCustomAttributes_withTargetSRParameterInfo:(System_Reflection_ParameterInfo *)p1
+    + (id <System_Collections_Generic_IListA1>)getCustomAttributes_withTargetSRParameterInfo:(System_Reflection_ParameterInfo *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttributes(System.Reflection.ParameterInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IListA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetHashCode

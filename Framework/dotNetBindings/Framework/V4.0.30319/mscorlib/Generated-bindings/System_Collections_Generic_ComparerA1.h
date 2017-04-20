@@ -2,7 +2,7 @@
 //
 // Managed class : Comparer`1<T>
 //
-@interface System_Collections_Generic_ComparerA1 : System_Object <System_Collections_IComparer, System_Collections_Generic_IComparerA1>
+@interface System_Collections_Generic_ComparerA1 : System_Object <System_Collections_IComparer_, System_Collections_Generic_IComparerA1_>
 
 #pragma mark -
 #pragma mark Setup

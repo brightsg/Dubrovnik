@@ -30,12 +30,12 @@
 	// Managed method name : Renewal
 	// Managed return type : System.TimeSpan
 	// Managed param types : System.Runtime.Remoting.Lifetime.ILease
-    - (System_TimeSpan *)renewal_withLease:(System_Runtime_Remoting_Lifetime_ILease *)p1
+    - (System_TimeSpan *)renewal_withLease:(id <System_Runtime_Remoting_Lifetime_ILease_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.Remoting.Lifetime.ISponsor.Renewal(System.Runtime.Remoting.Lifetime.ILease)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1+ConfiguredTaskAwaiter+TResult>+ConfiguredTaskAwaiter";
+		return "System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1+ConfiguredTaskAwaiter";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,8 +32,18 @@
     @synthesize isCompleted = _isCompleted;
     - (BOOL)isCompleted
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsCompleted"];
-		_isCompleted = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsCompleted");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isCompleted = monoObject;
 
 		return _isCompleted;
 	}
@@ -49,7 +59,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetResult()" withNumArgs:0];
 		
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OnCompleted
@@ -57,7 +67,9 @@
 	// Managed param types : System.Action
     - (void)onCompleted_withContinuation:(System_Action *)p1
     {
-		[self invokeMonoMethod:"OnCompleted(System.Action)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"OnCompleted(System.Action)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : UnsafeOnCompleted
@@ -65,7 +77,9 @@
 	// Managed param types : System.Action
     - (void)unsafeOnCompleted_withContinuation:(System_Action *)p1
     {
-		[self invokeMonoMethod:"UnsafeOnCompleted(System.Action)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"UnsafeOnCompleted(System.Action)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

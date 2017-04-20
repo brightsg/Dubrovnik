@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Policy.FirstMatchCodeGroup
 	// Managed param types : System.Security.Policy.IMembershipCondition, System.Security.Policy.PolicyStatement
-    + (System_Security_Policy_FirstMatchCodeGroup *)new_withMembershipCondition:(System_Security_Policy_IMembershipCondition *)p1 policy:(System_Security_Policy_PolicyStatement *)p2
+    + (System_Security_Policy_FirstMatchCodeGroup *)new_withMembershipCondition:(id <System_Security_Policy_IMembershipCondition_>)p1 policy:(System_Security_Policy_PolicyStatement *)p2
     {
-		return [[self alloc] initWithSignature:"System.Security.Policy.IMembershipCondition,System.Security.Policy.PolicyStatement" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Security_Policy_FirstMatchCodeGroup * object = [[self alloc] initWithSignature:"System.Security.Policy.IMembershipCondition,System.Security.Policy.PolicyStatement" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,7 +46,17 @@
     @synthesize mergeLogic = _mergeLogic;
     - (NSString *)mergeLogic
     {
-		MonoObject *monoObject = [self getMonoProperty:"MergeLogic"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MergeLogic");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_mergeLogic isEqualToMonoObject:monoObject]) return _mergeLogic;					
 		_mergeLogic = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -61,7 +74,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
 		
-		return [System_Security_Policy_CodeGroup objectWithMonoObject:monoObject];
+		return [System_Security_Policy_CodeGroup bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Resolve
@@ -72,7 +85,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Resolve(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_Policy_PolicyStatement objectWithMonoObject:monoObject];
+		return [System_Security_Policy_PolicyStatement bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolveMatchingCodeGroups
@@ -83,7 +96,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMatchingCodeGroups(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_Policy_CodeGroup objectWithMonoObject:monoObject];
+		return [System_Security_Policy_CodeGroup bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

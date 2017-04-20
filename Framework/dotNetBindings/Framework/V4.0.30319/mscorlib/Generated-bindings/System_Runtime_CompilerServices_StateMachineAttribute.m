@@ -32,7 +32,10 @@
 	// Managed param types : System.Type
     + (System_Runtime_CompilerServices_StateMachineAttribute *)new_withStateMachineType:(System_Type *)p1
     {
-		return [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Runtime_CompilerServices_StateMachineAttribute * object = [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,17 +46,36 @@
     @synthesize stateMachineType = _stateMachineType;
     - (System_Type *)stateMachineType
     {
-		MonoObject *monoObject = [self getMonoProperty:"StateMachineType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "StateMachineType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_stateMachineType isEqualToMonoObject:monoObject]) return _stateMachineType;					
-		_stateMachineType = [System_Type objectWithMonoObject:monoObject];
+		_stateMachineType = [System_Type bestObjectWithMonoObject:monoObject];
 
 		return _stateMachineType;
 	}
     - (void)setStateMachineType:(System_Type *)value
 	{
 		_stateMachineType = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"StateMachineType" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "StateMachineType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

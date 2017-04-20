@@ -2,7 +2,7 @@
 //
 // Managed class : CodeAccessSecurityAttribute
 //
-@interface System_Security_Permissions_CodeAccessSecurityAttribute : System_Security_Permissions_SecurityAttribute <System_Runtime_InteropServices__Attribute>
+@interface System_Security_Permissions_CodeAccessSecurityAttribute : System_Security_Permissions_SecurityAttribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup

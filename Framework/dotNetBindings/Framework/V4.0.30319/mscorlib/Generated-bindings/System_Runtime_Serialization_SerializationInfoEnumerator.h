@@ -2,7 +2,7 @@
 //
 // Managed class : SerializationInfoEnumerator
 //
-@interface System_Runtime_Serialization_SerializationInfoEnumerator : System_Object <System_Collections_IEnumerator>
+@interface System_Runtime_Serialization_SerializationInfoEnumerator : System_Object <System_Collections_IEnumerator_>
 
 #pragma mark -
 #pragma mark Setup

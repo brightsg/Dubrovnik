@@ -32,7 +32,9 @@
 	// Managed param types : System.Guid, System.Byte[]
     - (void)setCheckSum_withAlgorithmId:(System_Guid *)p1 checkSum:(NSData *)p2
     {
-		[self invokeMonoMethod:"System.Diagnostics.SymbolStore.ISymbolDocumentWriter.SetCheckSum(System.Guid,byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Diagnostics.SymbolStore.ISymbolDocumentWriter.SetCheckSum(System.Guid,byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetSource
@@ -40,7 +42,9 @@
 	// Managed param types : System.Byte[]
     - (void)setSource_withSource:(NSData *)p1
     {
-		[self invokeMonoMethod:"System.Diagnostics.SymbolStore.ISymbolDocumentWriter.SetSource(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Diagnostics.SymbolStore.ISymbolDocumentWriter.SetSource(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

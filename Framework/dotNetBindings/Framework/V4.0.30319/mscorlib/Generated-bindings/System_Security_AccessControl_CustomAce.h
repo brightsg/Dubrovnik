@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.CustomAce
 	// Managed param types : System.Security.AccessControl.AceType, System.Security.AccessControl.AceFlags, System.Byte[]
-    + (System_Security_AccessControl_CustomAce *)new_withType:(System_Security_AccessControl_AceType)p1 flags:(System_Security_AccessControl_AceFlags)p2 opaque:(NSData *)p3;
+    + (System_Security_AccessControl_CustomAce *)new_withType:(uint8_t)p1 flags:(uint8_t)p2 opaque:(NSData *)p3;
 
 #pragma mark -
 #pragma mark Fields

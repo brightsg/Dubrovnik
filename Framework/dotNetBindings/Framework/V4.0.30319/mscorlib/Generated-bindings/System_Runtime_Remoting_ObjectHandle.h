@@ -2,7 +2,7 @@
 //
 // Managed class : ObjectHandle
 //
-@interface System_Runtime_Remoting_ObjectHandle : System_MarshalByRefObject <System_Runtime_Remoting_IObjectHandle>
+@interface System_Runtime_Remoting_ObjectHandle : System_MarshalByRefObject <System_Runtime_Remoting_IObjectHandle_>
 
 #pragma mark -
 #pragma mark Setup

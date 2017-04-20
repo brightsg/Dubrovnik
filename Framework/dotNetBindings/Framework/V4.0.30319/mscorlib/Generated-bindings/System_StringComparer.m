@@ -32,9 +32,19 @@
     static System_StringComparer * m_currentCulture;
     + (System_StringComparer *)currentCulture
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"CurrentCulture"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrentCulture");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_currentCulture isEqualToMonoObject:monoObject]) return m_currentCulture;					
-		m_currentCulture = [System_StringComparer objectWithMonoObject:monoObject];
+		m_currentCulture = [System_StringComparer bestObjectWithMonoObject:monoObject];
 
 		return m_currentCulture;
 	}
@@ -44,9 +54,19 @@
     static System_StringComparer * m_currentCultureIgnoreCase;
     + (System_StringComparer *)currentCultureIgnoreCase
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"CurrentCultureIgnoreCase"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrentCultureIgnoreCase");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_currentCultureIgnoreCase isEqualToMonoObject:monoObject]) return m_currentCultureIgnoreCase;					
-		m_currentCultureIgnoreCase = [System_StringComparer objectWithMonoObject:monoObject];
+		m_currentCultureIgnoreCase = [System_StringComparer bestObjectWithMonoObject:monoObject];
 
 		return m_currentCultureIgnoreCase;
 	}
@@ -56,9 +76,19 @@
     static System_StringComparer * m_invariantCulture;
     + (System_StringComparer *)invariantCulture
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"InvariantCulture"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InvariantCulture");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_invariantCulture isEqualToMonoObject:monoObject]) return m_invariantCulture;					
-		m_invariantCulture = [System_StringComparer objectWithMonoObject:monoObject];
+		m_invariantCulture = [System_StringComparer bestObjectWithMonoObject:monoObject];
 
 		return m_invariantCulture;
 	}
@@ -68,9 +98,19 @@
     static System_StringComparer * m_invariantCultureIgnoreCase;
     + (System_StringComparer *)invariantCultureIgnoreCase
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"InvariantCultureIgnoreCase"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InvariantCultureIgnoreCase");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_invariantCultureIgnoreCase isEqualToMonoObject:monoObject]) return m_invariantCultureIgnoreCase;					
-		m_invariantCultureIgnoreCase = [System_StringComparer objectWithMonoObject:monoObject];
+		m_invariantCultureIgnoreCase = [System_StringComparer bestObjectWithMonoObject:monoObject];
 
 		return m_invariantCultureIgnoreCase;
 	}
@@ -80,9 +120,19 @@
     static System_StringComparer * m_ordinal;
     + (System_StringComparer *)ordinal
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Ordinal"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Ordinal");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_ordinal isEqualToMonoObject:monoObject]) return m_ordinal;					
-		m_ordinal = [System_StringComparer objectWithMonoObject:monoObject];
+		m_ordinal = [System_StringComparer bestObjectWithMonoObject:monoObject];
 
 		return m_ordinal;
 	}
@@ -92,9 +142,19 @@
     static System_StringComparer * m_ordinalIgnoreCase;
     + (System_StringComparer *)ordinalIgnoreCase
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"OrdinalIgnoreCase"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OrdinalIgnoreCase");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_ordinalIgnoreCase isEqualToMonoObject:monoObject]) return m_ordinalIgnoreCase;					
-		m_ordinalIgnoreCase = [System_StringComparer objectWithMonoObject:monoObject];
+		m_ordinalIgnoreCase = [System_StringComparer bestObjectWithMonoObject:monoObject];
 
 		return m_ordinalIgnoreCase;
 	}
@@ -132,7 +192,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Globalization.CultureInfo,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [System_StringComparer objectWithMonoObject:monoObject];
+		return [System_StringComparer bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals

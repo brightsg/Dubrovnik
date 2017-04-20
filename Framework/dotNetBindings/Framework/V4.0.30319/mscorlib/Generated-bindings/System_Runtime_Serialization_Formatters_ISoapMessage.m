@@ -32,7 +32,17 @@
     @synthesize headers = _headers;
     - (DBSystem_Array *)headers
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Serialization.Formatters.ISoapMessage.Headers"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Serialization.Formatters.ISoapMessage.Headers");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_headers isEqualToMonoObject:monoObject]) return _headers;					
 		_headers = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -41,8 +51,17 @@
     - (void)setHeaders:(DBSystem_Array *)value
 	{
 		_headers = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"System.Runtime.Serialization.Formatters.ISoapMessage.Headers" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.Runtime.Serialization.Formatters.ISoapMessage.Headers");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : MethodName
@@ -50,7 +69,17 @@
     @synthesize methodName = _methodName;
     - (NSString *)methodName
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Serialization.Formatters.ISoapMessage.MethodName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Serialization.Formatters.ISoapMessage.MethodName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_methodName isEqualToMonoObject:monoObject]) return _methodName;					
 		_methodName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -59,8 +88,17 @@
     - (void)setMethodName:(NSString *)value
 	{
 		_methodName = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"System.Runtime.Serialization.Formatters.ISoapMessage.MethodName" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.Runtime.Serialization.Formatters.ISoapMessage.MethodName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ParamNames
@@ -68,7 +106,17 @@
     @synthesize paramNames = _paramNames;
     - (DBSystem_Array *)paramNames
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Serialization.Formatters.ISoapMessage.ParamNames"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Serialization.Formatters.ISoapMessage.ParamNames");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_paramNames isEqualToMonoObject:monoObject]) return _paramNames;					
 		_paramNames = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -77,8 +125,17 @@
     - (void)setParamNames:(DBSystem_Array *)value
 	{
 		_paramNames = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"System.Runtime.Serialization.Formatters.ISoapMessage.ParamNames" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.Runtime.Serialization.Formatters.ISoapMessage.ParamNames");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ParamTypes
@@ -86,7 +143,17 @@
     @synthesize paramTypes = _paramTypes;
     - (DBSystem_Array *)paramTypes
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Serialization.Formatters.ISoapMessage.ParamTypes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Serialization.Formatters.ISoapMessage.ParamTypes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_paramTypes isEqualToMonoObject:monoObject]) return _paramTypes;					
 		_paramTypes = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -95,8 +162,17 @@
     - (void)setParamTypes:(DBSystem_Array *)value
 	{
 		_paramTypes = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"System.Runtime.Serialization.Formatters.ISoapMessage.ParamTypes" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.Runtime.Serialization.Formatters.ISoapMessage.ParamTypes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ParamValues
@@ -104,7 +180,17 @@
     @synthesize paramValues = _paramValues;
     - (DBSystem_Array *)paramValues
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Serialization.Formatters.ISoapMessage.ParamValues"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Serialization.Formatters.ISoapMessage.ParamValues");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_paramValues isEqualToMonoObject:monoObject]) return _paramValues;					
 		_paramValues = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -113,8 +199,17 @@
     - (void)setParamValues:(DBSystem_Array *)value
 	{
 		_paramValues = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"System.Runtime.Serialization.Formatters.ISoapMessage.ParamValues" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.Runtime.Serialization.Formatters.ISoapMessage.ParamValues");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : XmlNameSpace
@@ -122,7 +217,17 @@
     @synthesize xmlNameSpace = _xmlNameSpace;
     - (NSString *)xmlNameSpace
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Serialization.Formatters.ISoapMessage.XmlNameSpace"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Serialization.Formatters.ISoapMessage.XmlNameSpace");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_xmlNameSpace isEqualToMonoObject:monoObject]) return _xmlNameSpace;					
 		_xmlNameSpace = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -131,8 +236,17 @@
     - (void)setXmlNameSpace:(NSString *)value
 	{
 		_xmlNameSpace = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"System.Runtime.Serialization.Formatters.ISoapMessage.XmlNameSpace" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.Runtime.Serialization.Formatters.ISoapMessage.XmlNameSpace");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

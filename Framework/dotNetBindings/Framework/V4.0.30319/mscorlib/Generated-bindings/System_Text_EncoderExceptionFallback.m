@@ -32,8 +32,18 @@
     @synthesize maxCharCount = _maxCharCount;
     - (int32_t)maxCharCount
     {
-		MonoObject *monoObject = [self getMonoProperty:"MaxCharCount"];
-		_maxCharCount = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MaxCharCount");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_maxCharCount = monoObject;
 
 		return _maxCharCount;
 	}
@@ -49,7 +59,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateFallbackBuffer()" withNumArgs:0];
 		
-		return [System_Text_EncoderFallbackBuffer objectWithMonoObject:monoObject];
+		return [System_Text_EncoderFallbackBuffer bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals

@@ -32,7 +32,17 @@
     @synthesize keyData = _keyData;
     - (NSData *)keyData
     {
-		MonoObject *monoObject = [self getMonoProperty:"KeyData"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "KeyData");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_keyData isEqualToMonoObject:monoObject]) return _keyData;					
 		_keyData = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -44,7 +54,17 @@
     @synthesize originalString = _originalString;
     - (NSString *)originalString
     {
-		MonoObject *monoObject = [self getMonoProperty:"OriginalString"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OriginalString");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_originalString isEqualToMonoObject:monoObject]) return _originalString;					
 		_originalString = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

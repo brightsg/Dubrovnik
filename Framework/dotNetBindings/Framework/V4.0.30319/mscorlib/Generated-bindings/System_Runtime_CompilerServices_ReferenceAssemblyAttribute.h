@@ -2,7 +2,7 @@
 //
 // Managed class : ReferenceAssemblyAttribute
 //
-@interface System_Runtime_CompilerServices_ReferenceAssemblyAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Runtime_CompilerServices_ReferenceAssemblyAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -24,6 +24,6 @@
 
 	// Managed property name : Description
 	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * description;
+    // Avoid potential property attribute clash // @property (nonatomic, strong, readonly) NSString * description;
 @end
 //--Dubrovnik.CodeGenerator

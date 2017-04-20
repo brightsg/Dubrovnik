@@ -2,7 +2,7 @@
 //
 // Managed class : ResourceConsumptionAttribute
 //
-@interface System_Runtime_Versioning_ResourceConsumptionAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Runtime_Versioning_ResourceConsumptionAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,22 +17,22 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Versioning.ResourceConsumptionAttribute
 	// Managed param types : System.Runtime.Versioning.ResourceScope
-    + (System_Runtime_Versioning_ResourceConsumptionAttribute *)new_withResourceScope:(System_Runtime_Versioning_ResourceScope)p1;
+    + (System_Runtime_Versioning_ResourceConsumptionAttribute *)new_withResourceScope:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Versioning.ResourceConsumptionAttribute
 	// Managed param types : System.Runtime.Versioning.ResourceScope, System.Runtime.Versioning.ResourceScope
-    + (System_Runtime_Versioning_ResourceConsumptionAttribute *)new_withResourceScope:(System_Runtime_Versioning_ResourceScope)p1 consumptionScope:(System_Runtime_Versioning_ResourceScope)p2;
+    + (System_Runtime_Versioning_ResourceConsumptionAttribute *)new_withResourceScope:(int32_t)p1 consumptionScope:(int32_t)p2;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : ConsumptionScope
 	// Managed property type : System.Runtime.Versioning.ResourceScope
-    @property (nonatomic, readonly) System_Runtime_Versioning_ResourceScope consumptionScope;
+    @property (nonatomic, readonly) int32_t consumptionScope;
 
 	// Managed property name : ResourceScope
 	// Managed property type : System.Runtime.Versioning.ResourceScope
-    @property (nonatomic, readonly) System_Runtime_Versioning_ResourceScope resourceScope;
+    @property (nonatomic, readonly) int32_t resourceScope;
 @end
 //--Dubrovnik.CodeGenerator

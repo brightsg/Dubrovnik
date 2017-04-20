@@ -30,7 +30,7 @@
 	// Managed method name : Pop
 	// Managed return type : System.Object
 	// Managed param types : System.Runtime.Remoting.Channels.IServerChannelSink
-    - (System_Object *)pop_withSink:(System_Runtime_Remoting_Channels_IServerChannelSink *)p1
+    - (System_Object *)pop_withSink:(id <System_Runtime_Remoting_Channels_IServerChannelSink_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.Remoting.Channels.IServerChannelSinkStack.Pop(System.Runtime.Remoting.Channels.IServerChannelSink)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -41,33 +41,41 @@
 	// Managed method name : Push
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Channels.IServerChannelSink, System.Object
-    - (void)push_withSink:(System_Runtime_Remoting_Channels_IServerChannelSink *)p1 state:(System_Object *)p2
+    - (void)push_withSink:(id <System_Runtime_Remoting_Channels_IServerChannelSink_>)p1 state:(System_Object *)p2
     {
-		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IServerChannelSinkStack.Push(System.Runtime.Remoting.Channels.IServerChannelSink,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IServerChannelSinkStack.Push(System.Runtime.Remoting.Channels.IServerChannelSink,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : ServerCallback
 	// Managed return type : System.Void
 	// Managed param types : System.IAsyncResult
-    - (void)serverCallback_withAr:(System_IAsyncResult *)p1
+    - (void)serverCallback_withAr:(id <System_IAsyncResult_>)p1
     {
-		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IServerChannelSinkStack.ServerCallback(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IServerChannelSinkStack.ServerCallback(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Store
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Channels.IServerChannelSink, System.Object
-    - (void)store_withSink:(System_Runtime_Remoting_Channels_IServerChannelSink *)p1 state:(System_Object *)p2
+    - (void)store_withSink:(id <System_Runtime_Remoting_Channels_IServerChannelSink_>)p1 state:(System_Object *)p2
     {
-		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IServerChannelSinkStack.Store(System.Runtime.Remoting.Channels.IServerChannelSink,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IServerChannelSinkStack.Store(System.Runtime.Remoting.Channels.IServerChannelSink,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : StoreAndDispatch
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Channels.IServerChannelSink, System.Object
-    - (void)storeAndDispatch_withSink:(System_Runtime_Remoting_Channels_IServerChannelSink *)p1 state:(System_Object *)p2
+    - (void)storeAndDispatch_withSink:(id <System_Runtime_Remoting_Channels_IServerChannelSink_>)p1 state:(System_Object *)p2
     {
-		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IServerChannelSinkStack.StoreAndDispatch(System.Runtime.Remoting.Channels.IServerChannelSink,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IServerChannelSinkStack.StoreAndDispatch(System.Runtime.Remoting.Channels.IServerChannelSink,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

@@ -32,7 +32,10 @@
 	// Managed param types : System.Object, System.Int32
     + (System_Runtime_InteropServices_ArrayWithOffset *)new_withArray:(System_Object *)p1 offset:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"object,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		System_Runtime_InteropServices_ArrayWithOffset * object = [[self alloc] initWithSignature:"object,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+        return object;
     }
 
 #pragma mark -

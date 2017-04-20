@@ -2,7 +2,7 @@
 //
 // Managed class : Assembly
 //
-@interface System_Reflection_Assembly : System_Object <System_Runtime_InteropServices__Assembly, System_Security_IEvidenceFactory, System_Reflection_ICustomAttributeProvider, System_Runtime_Serialization_ISerializable>
+@interface System_Reflection_Assembly : System_Object <System_Runtime_InteropServices__Assembly_, System_Security_IEvidenceFactory_, System_Reflection_ICustomAttributeProvider_, System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -88,7 +88,7 @@
 
 	// Managed property name : SecurityRuleSet
 	// Managed property type : System.Security.SecurityRuleSet
-    @property (nonatomic, readonly) System_Security_SecurityRuleSet securityRuleSet;
+    @property (nonatomic, readonly) uint8_t securityRuleSet;
 
 #pragma mark -
 #pragma mark Methods
@@ -106,7 +106,7 @@
 	// Managed method name : CreateInstance
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Boolean, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo, System.Object[]
-    - (System_Object *)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2 bindingAttr:(System_Reflection_BindingFlags)p3 binder:(System_Reflection_Binder *)p4 args:(DBSystem_Array *)p5 culture:(System_Globalization_CultureInfo *)p6 activationAttributes:(DBSystem_Array *)p7;
+    - (System_Object *)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2 bindingAttr:(int32_t)p3 binder:(System_Reflection_Binder *)p4 args:(DBSystem_Array *)p5 culture:(System_Globalization_CultureInfo *)p6 activationAttributes:(DBSystem_Array *)p7;
 
 	// Managed method name : CreateQualifiedName
 	// Managed return type : System.String
@@ -141,7 +141,7 @@
 	// Managed method name : GetCustomAttributesData
 	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : 
-    - (System_Collections_Generic_IListA1 *)getCustomAttributesData;
+    - (id <System_Collections_Generic_IListA1>)getCustomAttributesData;
 
 	// Managed method name : GetEntryAssembly
 	// Managed return type : System.Reflection.Assembly
@@ -311,7 +311,7 @@
 	// Managed method name : Load
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.Byte[], System.Byte[], System.Security.SecurityContextSource
-    + (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2 securityContextSource:(System_Security_SecurityContextSource)p3;
+    + (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2 securityContextSource:(int32_t)p3;
 
 	// Managed method name : Load
 	// Managed return type : System.Reflection.Assembly
@@ -341,12 +341,12 @@
 	// Managed method name : LoadFrom
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.String, System.Security.Policy.Evidence, System.Byte[], System.Configuration.Assemblies.AssemblyHashAlgorithm
-    + (System_Reflection_Assembly *)loadFrom_withAssemblyFile:(NSString *)p1 securityEvidence:(System_Security_Policy_Evidence *)p2 hashValue:(NSData *)p3 hashAlgorithm:(System_Configuration_Assemblies_AssemblyHashAlgorithm)p4;
+    + (System_Reflection_Assembly *)loadFrom_withAssemblyFile:(NSString *)p1 securityEvidence:(System_Security_Policy_Evidence *)p2 hashValue:(NSData *)p3 hashAlgorithm:(int32_t)p4;
 
 	// Managed method name : LoadFrom
 	// Managed return type : System.Reflection.Assembly
 	// Managed param types : System.String, System.Byte[], System.Configuration.Assemblies.AssemblyHashAlgorithm
-    + (System_Reflection_Assembly *)loadFrom_withAssemblyFile:(NSString *)p1 hashValue:(NSData *)p2 hashAlgorithm:(System_Configuration_Assemblies_AssemblyHashAlgorithm)p3;
+    + (System_Reflection_Assembly *)loadFrom_withAssemblyFile:(NSString *)p1 hashValue:(NSData *)p2 hashAlgorithm:(int32_t)p3;
 
 	// Managed method name : LoadModule
 	// Managed return type : System.Reflection.Module

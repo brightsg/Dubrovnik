@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAwaiter()" withNumArgs:0];
 		
-		return [System_Runtime_CompilerServices_YieldAwaitable__YieldAwaiter objectWithMonoObject:monoObject];
+		return [System_Runtime_CompilerServices_YieldAwaitable__YieldAwaiter bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

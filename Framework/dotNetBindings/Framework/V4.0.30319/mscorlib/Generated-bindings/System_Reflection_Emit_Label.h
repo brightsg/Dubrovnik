@@ -16,13 +16,13 @@
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
-	// Managed param types : System.Reflection.Emit.Label
-    - (BOOL)equals_withObjSRELabel:(System_Reflection_Emit_Label *)p1;
+	// Managed param types : System.Object
+    - (BOOL)equals_withObjObject:(System_Object *)p1;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
-	// Managed param types : System.Object
-    - (BOOL)equals_withObjObject:(System_Object *)p1;
+	// Managed param types : System.Reflection.Emit.Label
+    - (BOOL)equals_withObjSRELabel:(System_Reflection_Emit_Label *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

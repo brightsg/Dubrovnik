@@ -2,7 +2,7 @@
 //
 // Managed class : ClientSponsor
 //
-@interface System_Runtime_Remoting_Lifetime_ClientSponsor : System_MarshalByRefObject <System_Runtime_Remoting_Lifetime_ISponsor>
+@interface System_Runtime_Remoting_Lifetime_ClientSponsor : System_MarshalByRefObject <System_Runtime_Remoting_Lifetime_ISponsor_>
 
 #pragma mark -
 #pragma mark Setup
@@ -47,7 +47,7 @@
 	// Managed method name : Renewal
 	// Managed return type : System.TimeSpan
 	// Managed param types : System.Runtime.Remoting.Lifetime.ILease
-    - (System_TimeSpan *)renewal_withLease:(System_Runtime_Remoting_Lifetime_ILease *)p1;
+    - (System_TimeSpan *)renewal_withLease:(id <System_Runtime_Remoting_Lifetime_ILease_>)p1;
 
 	// Managed method name : Unregister
 	// Managed return type : System.Void

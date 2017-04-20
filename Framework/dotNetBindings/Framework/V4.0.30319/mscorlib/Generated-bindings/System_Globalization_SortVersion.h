@@ -2,7 +2,7 @@
 //
 // Managed class : SortVersion
 //
-@interface System_Globalization_SortVersion : System_Object <System_IEquatableA1>
+@interface System_Globalization_SortVersion : System_Object <System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup

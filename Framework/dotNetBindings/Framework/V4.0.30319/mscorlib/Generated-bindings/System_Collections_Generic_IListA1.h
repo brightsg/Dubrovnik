@@ -2,7 +2,7 @@
 //
 // Managed interface : IList`1<T>
 //
-@interface System_Collections_Generic_IListA1 : System_Object <System_Collections_Generic_IListA1, System_Collections_Generic_ICollectionA1, System_Collections_Generic_IEnumerableA1, System_Collections_IEnumerable>
+@interface System_Collections_Generic_IListA1 : System_Object <System_Collections_Generic_IListA1_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_>
 
 #pragma mark -
 #pragma mark Setup

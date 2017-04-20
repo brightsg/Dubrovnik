@@ -32,9 +32,19 @@
     static System_Text_Encoding * m_aSCII;
     + (System_Text_Encoding *)aSCII
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"ASCII"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ASCII");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_aSCII isEqualToMonoObject:monoObject]) return m_aSCII;					
-		m_aSCII = [System_Text_Encoding objectWithMonoObject:monoObject];
+		m_aSCII = [System_Text_Encoding bestObjectWithMonoObject:monoObject];
 
 		return m_aSCII;
 	}
@@ -44,9 +54,19 @@
     static System_Text_Encoding * m_bigEndianUnicode;
     + (System_Text_Encoding *)bigEndianUnicode
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"BigEndianUnicode"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BigEndianUnicode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_bigEndianUnicode isEqualToMonoObject:monoObject]) return m_bigEndianUnicode;					
-		m_bigEndianUnicode = [System_Text_Encoding objectWithMonoObject:monoObject];
+		m_bigEndianUnicode = [System_Text_Encoding bestObjectWithMonoObject:monoObject];
 
 		return m_bigEndianUnicode;
 	}
@@ -56,7 +76,17 @@
     @synthesize bodyName = _bodyName;
     - (NSString *)bodyName
     {
-		MonoObject *monoObject = [self getMonoProperty:"BodyName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BodyName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_bodyName isEqualToMonoObject:monoObject]) return _bodyName;					
 		_bodyName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -68,8 +98,18 @@
     @synthesize codePage = _codePage;
     - (int32_t)codePage
     {
-		MonoObject *monoObject = [self getMonoProperty:"CodePage"];
-		_codePage = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CodePage");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_codePage = monoObject;
 
 		return _codePage;
 	}
@@ -79,17 +119,36 @@
     @synthesize decoderFallback = _decoderFallback;
     - (System_Text_DecoderFallback *)decoderFallback
     {
-		MonoObject *monoObject = [self getMonoProperty:"DecoderFallback"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DecoderFallback");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_decoderFallback isEqualToMonoObject:monoObject]) return _decoderFallback;					
-		_decoderFallback = [System_Text_DecoderFallback objectWithMonoObject:monoObject];
+		_decoderFallback = [System_Text_DecoderFallback bestObjectWithMonoObject:monoObject];
 
 		return _decoderFallback;
 	}
     - (void)setDecoderFallback:(System_Text_DecoderFallback *)value
 	{
 		_decoderFallback = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"DecoderFallback" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "DecoderFallback");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Default
@@ -97,9 +156,19 @@
     static System_Text_Encoding * m_default;
     + (System_Text_Encoding *)default
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Default"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Default");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_default isEqualToMonoObject:monoObject]) return m_default;					
-		m_default = [System_Text_Encoding objectWithMonoObject:monoObject];
+		m_default = [System_Text_Encoding bestObjectWithMonoObject:monoObject];
 
 		return m_default;
 	}
@@ -109,17 +178,36 @@
     @synthesize encoderFallback = _encoderFallback;
     - (System_Text_EncoderFallback *)encoderFallback
     {
-		MonoObject *monoObject = [self getMonoProperty:"EncoderFallback"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EncoderFallback");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_encoderFallback isEqualToMonoObject:monoObject]) return _encoderFallback;					
-		_encoderFallback = [System_Text_EncoderFallback objectWithMonoObject:monoObject];
+		_encoderFallback = [System_Text_EncoderFallback bestObjectWithMonoObject:monoObject];
 
 		return _encoderFallback;
 	}
     - (void)setEncoderFallback:(System_Text_EncoderFallback *)value
 	{
 		_encoderFallback = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"EncoderFallback" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "EncoderFallback");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : EncodingName
@@ -127,7 +215,17 @@
     @synthesize encodingName = _encodingName;
     - (NSString *)encodingName
     {
-		MonoObject *monoObject = [self getMonoProperty:"EncodingName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EncodingName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_encodingName isEqualToMonoObject:monoObject]) return _encodingName;					
 		_encodingName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -139,7 +237,17 @@
     @synthesize headerName = _headerName;
     - (NSString *)headerName
     {
-		MonoObject *monoObject = [self getMonoProperty:"HeaderName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HeaderName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_headerName isEqualToMonoObject:monoObject]) return _headerName;					
 		_headerName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -151,8 +259,18 @@
     @synthesize isBrowserDisplay = _isBrowserDisplay;
     - (BOOL)isBrowserDisplay
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsBrowserDisplay"];
-		_isBrowserDisplay = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsBrowserDisplay");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isBrowserDisplay = monoObject;
 
 		return _isBrowserDisplay;
 	}
@@ -162,8 +280,18 @@
     @synthesize isBrowserSave = _isBrowserSave;
     - (BOOL)isBrowserSave
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsBrowserSave"];
-		_isBrowserSave = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsBrowserSave");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isBrowserSave = monoObject;
 
 		return _isBrowserSave;
 	}
@@ -173,8 +301,18 @@
     @synthesize isMailNewsDisplay = _isMailNewsDisplay;
     - (BOOL)isMailNewsDisplay
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsMailNewsDisplay"];
-		_isMailNewsDisplay = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsMailNewsDisplay");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isMailNewsDisplay = monoObject;
 
 		return _isMailNewsDisplay;
 	}
@@ -184,8 +322,18 @@
     @synthesize isMailNewsSave = _isMailNewsSave;
     - (BOOL)isMailNewsSave
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsMailNewsSave"];
-		_isMailNewsSave = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsMailNewsSave");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isMailNewsSave = monoObject;
 
 		return _isMailNewsSave;
 	}
@@ -195,8 +343,18 @@
     @synthesize isReadOnly = _isReadOnly;
     - (BOOL)isReadOnly
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsReadOnly"];
-		_isReadOnly = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsReadOnly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isReadOnly = monoObject;
 
 		return _isReadOnly;
 	}
@@ -206,8 +364,18 @@
     @synthesize isSingleByte = _isSingleByte;
     - (BOOL)isSingleByte
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsSingleByte"];
-		_isSingleByte = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsSingleByte");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isSingleByte = monoObject;
 
 		return _isSingleByte;
 	}
@@ -217,9 +385,19 @@
     static System_Text_Encoding * m_unicode;
     + (System_Text_Encoding *)unicode
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Unicode"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Unicode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_unicode isEqualToMonoObject:monoObject]) return m_unicode;					
-		m_unicode = [System_Text_Encoding objectWithMonoObject:monoObject];
+		m_unicode = [System_Text_Encoding bestObjectWithMonoObject:monoObject];
 
 		return m_unicode;
 	}
@@ -229,9 +407,19 @@
     static System_Text_Encoding * m_uTF32;
     + (System_Text_Encoding *)uTF32
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"UTF32"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UTF32");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_uTF32 isEqualToMonoObject:monoObject]) return m_uTF32;					
-		m_uTF32 = [System_Text_Encoding objectWithMonoObject:monoObject];
+		m_uTF32 = [System_Text_Encoding bestObjectWithMonoObject:monoObject];
 
 		return m_uTF32;
 	}
@@ -241,9 +429,19 @@
     static System_Text_Encoding * m_uTF7;
     + (System_Text_Encoding *)uTF7
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"UTF7"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UTF7");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_uTF7 isEqualToMonoObject:monoObject]) return m_uTF7;					
-		m_uTF7 = [System_Text_Encoding objectWithMonoObject:monoObject];
+		m_uTF7 = [System_Text_Encoding bestObjectWithMonoObject:monoObject];
 
 		return m_uTF7;
 	}
@@ -253,9 +451,19 @@
     static System_Text_Encoding * m_uTF8;
     + (System_Text_Encoding *)uTF8
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"UTF8"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UTF8");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_uTF8 isEqualToMonoObject:monoObject]) return m_uTF8;					
-		m_uTF8 = [System_Text_Encoding objectWithMonoObject:monoObject];
+		m_uTF8 = [System_Text_Encoding bestObjectWithMonoObject:monoObject];
 
 		return m_uTF8;
 	}
@@ -265,7 +473,17 @@
     @synthesize webName = _webName;
     - (NSString *)webName
     {
-		MonoObject *monoObject = [self getMonoProperty:"WebName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WebName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_webName isEqualToMonoObject:monoObject]) return _webName;					
 		_webName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -277,8 +495,18 @@
     @synthesize windowsCodePage = _windowsCodePage;
     - (int32_t)windowsCodePage
     {
-		MonoObject *monoObject = [self getMonoProperty:"WindowsCodePage"];
-		_windowsCodePage = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WindowsCodePage");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_windowsCodePage = monoObject;
 
 		return _windowsCodePage;
 	}
@@ -525,7 +753,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDecoder()" withNumArgs:0];
 		
-		return [System_Text_Decoder objectWithMonoObject:monoObject];
+		return [System_Text_Decoder bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEncoder
@@ -536,7 +764,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEncoder()" withNumArgs:0];
 		
-		return [System_Text_Encoder objectWithMonoObject:monoObject];
+		return [System_Text_Encoder bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEncoding
@@ -547,7 +775,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEncoding(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Text_Encoding objectWithMonoObject:monoObject];
+		return [System_Text_Encoding bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEncoding
@@ -558,7 +786,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEncoding(int,System.Text.EncoderFallback,System.Text.DecoderFallback)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_Text_Encoding objectWithMonoObject:monoObject];
+		return [System_Text_Encoding bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEncoding
@@ -569,7 +797,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEncoding(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Text_Encoding objectWithMonoObject:monoObject];
+		return [System_Text_Encoding bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEncoding
@@ -580,7 +808,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEncoding(string,System.Text.EncoderFallback,System.Text.DecoderFallback)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_Text_Encoding objectWithMonoObject:monoObject];
+		return [System_Text_Encoding bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEncodings
@@ -640,6 +868,17 @@
 
 	// Managed method name : GetString
 	// Managed return type : System.String
+	// Managed param types : System.Byte*, System.Int32
+    - (NSString *)getString_withBytes:(uint8_t*)p1 byteCount:(int32_t)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"GetString(byte*,int)" withNumArgs:2, p1, DB_VALUE(p2)];
+		
+		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+    }
+
+	// Managed method name : GetString
+	// Managed return type : System.String
 	// Managed param types : System.Byte[]
     - (NSString *)getString_withBytes:(NSData *)p1
     {
@@ -674,12 +913,22 @@
 	// Managed method name : IsAlwaysNormalized
 	// Managed return type : System.Boolean
 	// Managed param types : System.Text.NormalizationForm
-    - (BOOL)isAlwaysNormalized_withForm:(System_Text_NormalizationForm)p1
+    - (BOOL)isAlwaysNormalized_withForm:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsAlwaysNormalized(System.Text.NormalizationForm)" withNumArgs:1, DB_VALUE(p1)];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
+    }
+
+	// Managed method name : RegisterProvider
+	// Managed return type : System.Void
+	// Managed param types : System.Text.EncodingProvider
+    + (void)registerProvider_withProvider:(System_Text_EncodingProvider *)p1
+    {
+		
+		[self invokeMonoClassMethod:"RegisterProvider(System.Text.EncodingProvider)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

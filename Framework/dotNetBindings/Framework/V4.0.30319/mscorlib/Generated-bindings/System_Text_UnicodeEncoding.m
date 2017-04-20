@@ -29,18 +29,24 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Text.UnicodeEncoding
-	// Managed param types : System.Boolean, System.Boolean, System.Boolean
-    + (System_Text_UnicodeEncoding *)new_withBigEndian:(BOOL)p1 byteOrderMark:(BOOL)p2 throwOnInvalidBytes:(BOOL)p3
+	// Managed param types : System.Boolean, System.Boolean
+    + (System_Text_UnicodeEncoding *)new_withBigEndian:(BOOL)p1 byteOrderMark:(BOOL)p2
     {
-		return [[self alloc] initWithSignature:"bool,bool,bool" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		System_Text_UnicodeEncoding * object = [[self alloc] initWithSignature:"bool,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Text.UnicodeEncoding
-	// Managed param types : System.Boolean, System.Boolean
-    + (System_Text_UnicodeEncoding *)new_withBigEndian:(BOOL)p1 byteOrderMark:(BOOL)p2
+	// Managed param types : System.Boolean, System.Boolean, System.Boolean
+    + (System_Text_UnicodeEncoding *)new_withBigEndian:(BOOL)p1 byteOrderMark:(BOOL)p2 throwOnInvalidBytes:(BOOL)p3
     {
-		return [[self alloc] initWithSignature:"bool,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		System_Text_UnicodeEncoding * object = [[self alloc] initWithSignature:"bool,bool,bool" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -189,7 +195,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDecoder()" withNumArgs:0];
 		
-		return [System_Text_Decoder objectWithMonoObject:monoObject];
+		return [System_Text_Decoder bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEncoder
@@ -200,7 +206,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEncoder()" withNumArgs:0];
 		
-		return [System_Text_Encoder objectWithMonoObject:monoObject];
+		return [System_Text_Encoder bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetHashCode

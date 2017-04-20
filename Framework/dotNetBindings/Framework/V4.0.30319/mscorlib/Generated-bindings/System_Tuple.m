@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_TupleA1 objectWithMonoObject:monoObject];
+		return [System_TupleA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
@@ -46,7 +46,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_TupleA2 objectWithMonoObject:monoObject];
+		return [System_TupleA2 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
@@ -57,7 +57,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>,<_T_1>,<_T_2>)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_TupleA3 objectWithMonoObject:monoObject];
+		return [System_TupleA3 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
@@ -68,7 +68,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>,<_T_1>,<_T_2>,<_T_3>)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
-		return [System_TupleA4 objectWithMonoObject:monoObject];
+		return [System_TupleA4 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
@@ -79,7 +79,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>,<_T_1>,<_T_2>,<_T_3>,<_T_4>)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
-		return [System_TupleA5 objectWithMonoObject:monoObject];
+		return [System_TupleA5 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
@@ -90,7 +90,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>,<_T_1>,<_T_2>,<_T_3>,<_T_4>,<_T_5>)" withNumArgs:6, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg]];
 		
-		return [System_TupleA6 objectWithMonoObject:monoObject];
+		return [System_TupleA6 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
@@ -101,7 +101,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>,<_T_1>,<_T_2>,<_T_3>,<_T_4>,<_T_5>,<_T_6>)" withNumArgs:7, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg], [p7 monoRTInvokeArg]];
 		
-		return [System_TupleA7 objectWithMonoObject:monoObject];
+		return [System_TupleA7 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
@@ -112,7 +112,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(<_T_0>,<_T_1>,<_T_2>,<_T_3>,<_T_4>,<_T_5>,<_T_6>,<_T_7>)" withNumArgs:8, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg], [p7 monoRTInvokeArg], [p8 monoRTInvokeArg]];
 		
-		return [System_TupleA8 objectWithMonoObject:monoObject];
+		return [System_TupleA8 bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

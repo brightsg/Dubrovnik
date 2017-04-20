@@ -17,7 +17,7 @@
 	// Managed method name : CreateConstructionReturnMessage
 	// Managed return type : System.Runtime.Remoting.Activation.IConstructionReturnMessage
 	// Managed param types : System.Runtime.Remoting.Activation.IConstructionCallMessage, System.MarshalByRefObject
-    + (System_Runtime_Remoting_Activation_IConstructionReturnMessage *)createConstructionReturnMessage_withCtorMsg:(System_Runtime_Remoting_Activation_IConstructionCallMessage *)p1 retObj:(System_MarshalByRefObject *)p2;
+    + (id <System_Runtime_Remoting_Activation_IConstructionReturnMessage>)createConstructionReturnMessage_withCtorMsg:(id <System_Runtime_Remoting_Activation_IConstructionCallMessage_>)p1 retObj:(System_MarshalByRefObject *)p2;
 
 	// Managed method name : SwitchWrappers
 	// Managed return type : System.Void

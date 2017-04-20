@@ -2,7 +2,7 @@
 //
 // Managed interface : IChannelReceiver
 //
-@interface System_Runtime_Remoting_Channels_IChannelReceiver : System_Object <System_Runtime_Remoting_Channels_IChannelReceiver, System_Runtime_Remoting_Channels_IChannel>
+@interface System_Runtime_Remoting_Channels_IChannelReceiver : System_Object <System_Runtime_Remoting_Channels_IChannelReceiver_, System_Runtime_Remoting_Channels_IChannel_>
 
 #pragma mark -
 #pragma mark Setup

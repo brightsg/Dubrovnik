@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.IEquatable`1<System.IEquatable`1+T>";
+		return "System.IEquatable`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName

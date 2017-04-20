@@ -32,9 +32,19 @@
     @synthesize userEntryPoint = _userEntryPoint;
     - (System_Diagnostics_SymbolStore_SymbolToken *)userEntryPoint
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Diagnostics.SymbolStore.ISymbolReader.UserEntryPoint"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Diagnostics.SymbolStore.ISymbolReader.UserEntryPoint");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_userEntryPoint isEqualToMonoObject:monoObject]) return _userEntryPoint;					
-		_userEntryPoint = [System_Diagnostics_SymbolStore_SymbolToken objectWithMonoObject:monoObject];
+		_userEntryPoint = [System_Diagnostics_SymbolStore_SymbolToken bestObjectWithMonoObject:monoObject];
 
 		return _userEntryPoint;
 	}
@@ -45,12 +55,12 @@
 	// Managed method name : GetDocument
 	// Managed return type : System.Diagnostics.SymbolStore.ISymbolDocument
 	// Managed param types : System.String, System.Guid, System.Guid, System.Guid
-    - (System_Diagnostics_SymbolStore_ISymbolDocument *)getDocument_withUrl:(NSString *)p1 language:(System_Guid *)p2 languageVendor:(System_Guid *)p3 documentType:(System_Guid *)p4
+    - (id <System_Diagnostics_SymbolStore_ISymbolDocument>)getDocument_withUrl:(NSString *)p1 language:(System_Guid *)p2 languageVendor:(System_Guid *)p3 documentType:(System_Guid *)p4
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Diagnostics.SymbolStore.ISymbolReader.GetDocument(string,System.Guid,System.Guid,System.Guid)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
-		return [System_Diagnostics_SymbolStore_ISymbolDocument objectWithMonoObject:monoObject];
+		return [System_Diagnostics_SymbolStore_ISymbolDocument bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetDocuments
@@ -78,34 +88,34 @@
 	// Managed method name : GetMethod
 	// Managed return type : System.Diagnostics.SymbolStore.ISymbolMethod
 	// Managed param types : System.Diagnostics.SymbolStore.SymbolToken
-    - (System_Diagnostics_SymbolStore_ISymbolMethod *)getMethod_withMethod:(System_Diagnostics_SymbolStore_SymbolToken *)p1
+    - (id <System_Diagnostics_SymbolStore_ISymbolMethod>)getMethod_withMethod:(System_Diagnostics_SymbolStore_SymbolToken *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Diagnostics.SymbolStore.ISymbolReader.GetMethod(System.Diagnostics.SymbolStore.SymbolToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Diagnostics_SymbolStore_ISymbolMethod objectWithMonoObject:monoObject];
+		return [System_Diagnostics_SymbolStore_ISymbolMethod bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetMethod
 	// Managed return type : System.Diagnostics.SymbolStore.ISymbolMethod
 	// Managed param types : System.Diagnostics.SymbolStore.SymbolToken, System.Int32
-    - (System_Diagnostics_SymbolStore_ISymbolMethod *)getMethod_withMethod:(System_Diagnostics_SymbolStore_SymbolToken *)p1 version:(int32_t)p2
+    - (id <System_Diagnostics_SymbolStore_ISymbolMethod>)getMethod_withMethod:(System_Diagnostics_SymbolStore_SymbolToken *)p1 version:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Diagnostics.SymbolStore.ISymbolReader.GetMethod(System.Diagnostics.SymbolStore.SymbolToken,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [System_Diagnostics_SymbolStore_ISymbolMethod objectWithMonoObject:monoObject];
+		return [System_Diagnostics_SymbolStore_ISymbolMethod bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetMethodFromDocumentPosition
 	// Managed return type : System.Diagnostics.SymbolStore.ISymbolMethod
 	// Managed param types : System.Diagnostics.SymbolStore.ISymbolDocument, System.Int32, System.Int32
-    - (System_Diagnostics_SymbolStore_ISymbolMethod *)getMethodFromDocumentPosition_withDocument:(System_Diagnostics_SymbolStore_ISymbolDocument *)p1 line:(int32_t)p2 column:(int32_t)p3
+    - (id <System_Diagnostics_SymbolStore_ISymbolMethod>)getMethodFromDocumentPosition_withDocument:(id <System_Diagnostics_SymbolStore_ISymbolDocument_>)p1 line:(int32_t)p2 column:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Diagnostics.SymbolStore.ISymbolReader.GetMethodFromDocumentPosition(System.Diagnostics.SymbolStore.ISymbolDocument,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
-		return [System_Diagnostics_SymbolStore_ISymbolMethod objectWithMonoObject:monoObject];
+		return [System_Diagnostics_SymbolStore_ISymbolMethod bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetNamespaces

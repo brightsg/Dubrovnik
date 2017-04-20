@@ -32,7 +32,10 @@
 	// Managed param types : System.Type
     + (System_Runtime_InteropServices_WindowsRuntime_DefaultInterfaceAttribute *)new_withDefaultInterface:(System_Type *)p1
     {
-		return [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Runtime_InteropServices_WindowsRuntime_DefaultInterfaceAttribute * object = [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,9 +46,19 @@
     @synthesize defaultInterface = _defaultInterface;
     - (System_Type *)defaultInterface
     {
-		MonoObject *monoObject = [self getMonoProperty:"DefaultInterface"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DefaultInterface");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_defaultInterface isEqualToMonoObject:monoObject]) return _defaultInterface;					
-		_defaultInterface = [System_Type objectWithMonoObject:monoObject];
+		_defaultInterface = [System_Type bestObjectWithMonoObject:monoObject];
 
 		return _defaultInterface;
 	}

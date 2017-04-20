@@ -30,7 +30,7 @@
 	// Managed method name : Format
 	// Managed return type : System.String
 	// Managed param types : System.String, System.Object, System.IFormatProvider
-    - (NSString *)format_withFormat:(NSString *)p1 arg:(System_Object *)p2 formatProvider:(System_IFormatProvider *)p3
+    - (NSString *)format_withFormat:(NSString *)p1 arg:(System_Object *)p2 formatProvider:(id <System_IFormatProvider_>)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.ICustomFormatter.Format(string,object,System.IFormatProvider)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];

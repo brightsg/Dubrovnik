@@ -2,7 +2,7 @@
 //
 // Managed class : StringWriter
 //
-@interface System_IO_StringWriter : System_IO_TextWriter <System_IDisposable>
+@interface System_IO_StringWriter : System_IO_TextWriter <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.IO.StringWriter
 	// Managed param types : System.IFormatProvider
-    + (System_IO_StringWriter *)new_withFormatProvider:(System_IFormatProvider *)p1;
+    + (System_IO_StringWriter *)new_withFormatProvider:(id <System_IFormatProvider_>)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.IO.StringWriter
@@ -27,7 +27,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.IO.StringWriter
 	// Managed param types : System.Text.StringBuilder, System.IFormatProvider
-    + (System_IO_StringWriter *)new_withSb:(System_Text_StringBuilder *)p1 formatProvider:(System_IFormatProvider *)p2;
+    + (System_IO_StringWriter *)new_withSb:(System_Text_StringBuilder *)p1 formatProvider:(id <System_IFormatProvider_>)p2;
 
 #pragma mark -
 #pragma mark Properties

@@ -2,7 +2,7 @@
 //
 // Managed struct : Dictionary`2<TKey, TValue>.Enumerator
 //
-@interface System_Collections_Generic_DictionaryA2__Enumerator : DBManagedObject <System_Collections_Generic_IEnumeratorA1, System_IDisposable, System_Collections_IEnumerator, System_Collections_IDictionaryEnumerator>
+@interface System_Collections_Generic_DictionaryA2__Enumerator : DBManagedObject <System_Collections_Generic_IEnumeratorA1_, System_IDisposable_, System_Collections_IEnumerator_, System_Collections_IDictionaryEnumerator_>
 
 #pragma mark -
 #pragma mark Setup

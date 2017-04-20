@@ -2,7 +2,7 @@
 //
 // Managed class : TypeInfo
 //
-@interface System_Reflection_TypeInfo : System_Type <System_Reflection_ICustomAttributeProvider, System_Runtime_InteropServices__MemberInfo, System_Runtime_InteropServices__Type, System_Reflection_IReflect, System_Reflection_IReflectableType>
+@interface System_Reflection_TypeInfo : System_Type <System_Reflection_ICustomAttributeProvider_, System_Runtime_InteropServices__MemberInfo_, System_Runtime_InteropServices__Type_, System_Reflection_IReflect_, System_Reflection_IReflectableType_>
 
 #pragma mark -
 #pragma mark Setup
@@ -76,7 +76,7 @@
 	// Managed method name : GetDeclaredMethods
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Reflection.MethodInfo>
 	// Managed param types : System.String
-    - (System_Collections_Generic_IEnumerableA1 *)getDeclaredMethods_withName:(NSString *)p1;
+    - (id <System_Collections_Generic_IEnumerableA1>)getDeclaredMethods_withName:(NSString *)p1;
 
 	// Managed method name : GetDeclaredNestedType
 	// Managed return type : System.Reflection.TypeInfo

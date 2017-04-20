@@ -45,7 +45,7 @@
 	// Managed method name : ChangeType
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.TypeCode
-    + (System_Object *)changeType_withValue:(System_Object *)p1 typeCode:(System_TypeCode)p2
+    + (System_Object *)changeType_withValue:(System_Object *)p1 typeCode:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ChangeType(object,System.TypeCode)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
@@ -56,7 +56,7 @@
 	// Managed method name : ChangeType
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.TypeCode, System.IFormatProvider
-    + (System_Object *)changeType_withValue:(System_Object *)p1 typeCode:(System_TypeCode)p2 provider:(System_IFormatProvider *)p3
+    + (System_Object *)changeType_withValue:(System_Object *)p1 typeCode:(int32_t)p2 provider:(id <System_IFormatProvider_>)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ChangeType(object,System.TypeCode,System.IFormatProvider)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
@@ -78,7 +78,7 @@
 	// Managed method name : ChangeType
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.Type, System.IFormatProvider
-    + (System_Object *)changeType_withValue:(System_Object *)p1 conversionType:(System_Type *)p2 provider:(System_IFormatProvider *)p3
+    + (System_Object *)changeType_withValue:(System_Object *)p1 conversionType:(System_Type *)p2 provider:(id <System_IFormatProvider_>)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ChangeType(object,System.Type,System.IFormatProvider)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
@@ -111,7 +111,7 @@
 	// Managed method name : GetTypeCode
 	// Managed return type : System.TypeCode
 	// Managed param types : System.Object
-    + (System_TypeCode)getTypeCode_withValue:(System_Object *)p1
+    + (int32_t)getTypeCode_withValue:(System_Object *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeCode(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -144,7 +144,7 @@
 	// Managed method name : ToBase64CharArray
 	// Managed return type : System.Int32
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.Char[], System.Int32, System.Base64FormattingOptions
-    + (int32_t)toBase64CharArray_withInArray:(NSData *)p1 offsetIn:(int32_t)p2 length:(int32_t)p3 outArray:(DBSystem_Array *)p4 offsetOut:(int32_t)p5 options:(System_Base64FormattingOptions)p6
+    + (int32_t)toBase64CharArray_withInArray:(NSData *)p1 offsetIn:(int32_t)p2 length:(int32_t)p3 outArray:(DBSystem_Array *)p4 offsetOut:(int32_t)p5 options:(int32_t)p6
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToBase64CharArray(byte[],int,int,char[],int,System.Base64FormattingOptions)" withNumArgs:6, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], DB_VALUE(p5), DB_VALUE(p6)];
@@ -166,7 +166,7 @@
 	// Managed method name : ToBase64String
 	// Managed return type : System.String
 	// Managed param types : System.Byte[], System.Base64FormattingOptions
-    + (NSString *)toBase64String_withInArray:(NSData *)p1 options:(System_Base64FormattingOptions)p2
+    + (NSString *)toBase64String_withInArray:(NSData *)p1 options:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToBase64String(byte[],System.Base64FormattingOptions)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
@@ -188,7 +188,7 @@
 	// Managed method name : ToBase64String
 	// Managed return type : System.String
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.Base64FormattingOptions
-    + (NSString *)toBase64String_withInArray:(NSData *)p1 offset:(int32_t)p2 length:(int32_t)p3 options:(System_Base64FormattingOptions)p4
+    + (NSString *)toBase64String_withInArray:(NSData *)p1 offset:(int32_t)p2 length:(int32_t)p3 options:(int32_t)p4
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToBase64String(byte[],int,int,System.Base64FormattingOptions)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
@@ -210,7 +210,7 @@
 	// Managed method name : ToBoolean
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object, System.IFormatProvider
-    + (BOOL)toBoolean_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (BOOL)toBoolean_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToBoolean(object,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -342,7 +342,7 @@
 	// Managed method name : ToBoolean
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.IFormatProvider
-    + (BOOL)toBoolean_withValueString:(NSString *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (BOOL)toBoolean_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToBoolean(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -375,10 +375,10 @@
 	// Managed method name : ToBoolean
 	// Managed return type : System.Boolean
 	// Managed param types : System.Decimal
-    + (BOOL)toBoolean_withValueDecimal:(NSDecimalNumber *)p1
+    + (BOOL)toBoolean_withValueSDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToBoolean(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToBoolean(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -408,7 +408,7 @@
 	// Managed method name : ToByte
 	// Managed return type : System.Byte
 	// Managed param types : System.Object, System.IFormatProvider
-    + (uint8_t)toByte_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (uint8_t)toByte_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToByte(object,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -551,10 +551,10 @@
 	// Managed method name : ToByte
 	// Managed return type : System.Byte
 	// Managed param types : System.Decimal
-    + (uint8_t)toByte_withValueDecimal:(NSDecimalNumber *)p1
+    + (uint8_t)toByte_withValueSDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToByte(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToByte(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_UINT8(monoObject);
     }
@@ -573,7 +573,7 @@
 	// Managed method name : ToByte
 	// Managed return type : System.Byte
 	// Managed param types : System.String, System.IFormatProvider
-    + (uint8_t)toByte_withValueString:(NSString *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (uint8_t)toByte_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToByte(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -617,7 +617,7 @@
 	// Managed method name : ToChar
 	// Managed return type : System.Char
 	// Managed param types : System.Object, System.IFormatProvider
-    + (uint16_t)toChar_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (uint16_t)toChar_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToChar(object,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -749,7 +749,7 @@
 	// Managed method name : ToChar
 	// Managed return type : System.Char
 	// Managed param types : System.String, System.IFormatProvider
-    + (uint16_t)toChar_withValueString:(NSString *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (uint16_t)toChar_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToChar(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -782,10 +782,10 @@
 	// Managed method name : ToChar
 	// Managed return type : System.Char
 	// Managed param types : System.Decimal
-    + (uint16_t)toChar_withValueDecimal:(NSDecimalNumber *)p1
+    + (uint16_t)toChar_withValueSDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToChar(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToChar(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_UINT16(monoObject);
     }
@@ -826,7 +826,7 @@
 	// Managed method name : ToDateTime
 	// Managed return type : System.DateTime
 	// Managed param types : System.Object, System.IFormatProvider
-    + (NSDate *)toDateTime_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (NSDate *)toDateTime_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToDateTime(object,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -848,7 +848,7 @@
 	// Managed method name : ToDateTime
 	// Managed return type : System.DateTime
 	// Managed param types : System.String, System.IFormatProvider
-    + (NSDate *)toDateTime_withValueString:(NSString *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (NSDate *)toDateTime_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToDateTime(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -991,10 +991,10 @@
 	// Managed method name : ToDateTime
 	// Managed return type : System.DateTime
 	// Managed param types : System.Decimal
-    + (NSDate *)toDateTime_withValueDecimal:(NSDecimalNumber *)p1
+    + (NSDate *)toDateTime_withValueSDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToDateTime(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToDateTime(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
@@ -1013,7 +1013,7 @@
 	// Managed method name : ToDecimal
 	// Managed return type : System.Decimal
 	// Managed param types : System.Object, System.IFormatProvider
-    + (NSDecimalNumber *)toDecimal_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (NSDecimalNumber *)toDecimal_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToDecimal(object,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -1156,7 +1156,7 @@
 	// Managed method name : ToDecimal
 	// Managed return type : System.Decimal
 	// Managed param types : System.String, System.IFormatProvider
-    + (NSDecimalNumber *)toDecimal_withValueString:(NSString *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (NSDecimalNumber *)toDecimal_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToDecimal(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -1167,10 +1167,10 @@
 	// Managed method name : ToDecimal
 	// Managed return type : System.Decimal
 	// Managed param types : System.Decimal
-    + (NSDecimalNumber *)toDecimal_withValueDecimal:(NSDecimalNumber *)p1
+    + (NSDecimalNumber *)toDecimal_withValueSDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToDecimal(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToDecimal(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -1211,7 +1211,7 @@
 	// Managed method name : ToDouble
 	// Managed return type : System.Double
 	// Managed param types : System.Object, System.IFormatProvider
-    + (double)toDouble_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (double)toDouble_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToDouble(object,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -1343,10 +1343,10 @@
 	// Managed method name : ToDouble
 	// Managed return type : System.Double
 	// Managed param types : System.Decimal
-    + (double)toDouble_withValueDecimal:(NSDecimalNumber *)p1
+    + (double)toDouble_withValueSDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToDouble(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToDouble(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_DOUBLE(monoObject);
     }
@@ -1365,7 +1365,7 @@
 	// Managed method name : ToDouble
 	// Managed return type : System.Double
 	// Managed param types : System.String, System.IFormatProvider
-    + (double)toDouble_withValueString:(NSString *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (double)toDouble_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToDouble(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -1409,7 +1409,7 @@
 	// Managed method name : ToInt16
 	// Managed return type : System.Int16
 	// Managed param types : System.Object, System.IFormatProvider
-    + (int16_t)toInt16_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (int16_t)toInt16_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToInt16(object,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -1552,10 +1552,10 @@
 	// Managed method name : ToInt16
 	// Managed return type : System.Int16
 	// Managed param types : System.Decimal
-    + (int16_t)toInt16_withValueDecimal:(NSDecimalNumber *)p1
+    + (int16_t)toInt16_withValueSDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToInt16(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToInt16(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT16(monoObject);
     }
@@ -1574,7 +1574,7 @@
 	// Managed method name : ToInt16
 	// Managed return type : System.Int16
 	// Managed param types : System.String, System.IFormatProvider
-    + (int16_t)toInt16_withValueString:(NSString *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (int16_t)toInt16_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToInt16(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -1618,7 +1618,7 @@
 	// Managed method name : ToInt32
 	// Managed return type : System.Int32
 	// Managed param types : System.Object, System.IFormatProvider
-    + (int32_t)toInt32_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (int32_t)toInt32_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToInt32(object,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -1761,10 +1761,10 @@
 	// Managed method name : ToInt32
 	// Managed return type : System.Int32
 	// Managed param types : System.Decimal
-    + (int32_t)toInt32_withValueDecimal:(NSDecimalNumber *)p1
+    + (int32_t)toInt32_withValueSDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToInt32(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToInt32(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -1783,7 +1783,7 @@
 	// Managed method name : ToInt32
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.IFormatProvider
-    + (int32_t)toInt32_withValueString:(NSString *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (int32_t)toInt32_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToInt32(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -1827,7 +1827,7 @@
 	// Managed method name : ToInt64
 	// Managed return type : System.Int64
 	// Managed param types : System.Object, System.IFormatProvider
-    + (int64_t)toInt64_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (int64_t)toInt64_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToInt64(object,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -1970,10 +1970,10 @@
 	// Managed method name : ToInt64
 	// Managed return type : System.Int64
 	// Managed param types : System.Decimal
-    + (int64_t)toInt64_withValueDecimal:(NSDecimalNumber *)p1
+    + (int64_t)toInt64_withValueSDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToInt64(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToInt64(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT64(monoObject);
     }
@@ -1992,7 +1992,7 @@
 	// Managed method name : ToInt64
 	// Managed return type : System.Int64
 	// Managed param types : System.String, System.IFormatProvider
-    + (int64_t)toInt64_withValueString:(NSString *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (int64_t)toInt64_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToInt64(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -2036,7 +2036,7 @@
 	// Managed method name : ToSByte
 	// Managed return type : System.SByte
 	// Managed param types : System.Object, System.IFormatProvider
-    + (int8_t)toSByte_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (int8_t)toSByte_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToSByte(object,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -2179,10 +2179,10 @@
 	// Managed method name : ToSByte
 	// Managed return type : System.SByte
 	// Managed param types : System.Decimal
-    + (int8_t)toSByte_withValueDecimal:(NSDecimalNumber *)p1
+    + (int8_t)toSByte_withValueSDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToSByte(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToSByte(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT8(monoObject);
     }
@@ -2201,7 +2201,7 @@
 	// Managed method name : ToSByte
 	// Managed return type : System.SByte
 	// Managed param types : System.String, System.IFormatProvider
-    + (int8_t)toSByte_withValueString:(NSString *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (int8_t)toSByte_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToSByte(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -2245,7 +2245,7 @@
 	// Managed method name : ToSingle
 	// Managed return type : System.Single
 	// Managed param types : System.Object, System.IFormatProvider
-    + (float)toSingle_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (float)toSingle_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToSingle(object,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -2377,10 +2377,10 @@
 	// Managed method name : ToSingle
 	// Managed return type : System.Single
 	// Managed param types : System.Decimal
-    + (float)toSingle_withValueDecimal:(NSDecimalNumber *)p1
+    + (float)toSingle_withValueSDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToSingle(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToSingle(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_FLOAT(monoObject);
     }
@@ -2399,7 +2399,7 @@
 	// Managed method name : ToSingle
 	// Managed return type : System.Single
 	// Managed param types : System.String, System.IFormatProvider
-    + (float)toSingle_withValueString:(NSString *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (float)toSingle_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToSingle(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -2443,7 +2443,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.Object, System.IFormatProvider
-    + (NSString *)toString_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (NSString *)toString_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(object,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -2465,7 +2465,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.Boolean, System.IFormatProvider
-    + (NSString *)toString_withValueBool:(BOOL)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (NSString *)toString_withValueBool:(BOOL)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(bool,System.IFormatProvider)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
@@ -2487,7 +2487,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.Char, System.IFormatProvider
-    + (NSString *)toString_withValueChar:(uint16_t)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (NSString *)toString_withValueChar:(uint16_t)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(char,System.IFormatProvider)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
@@ -2509,7 +2509,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.SByte, System.IFormatProvider
-    + (NSString *)toString_withValueSbyte:(int8_t)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (NSString *)toString_withValueSbyte:(int8_t)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(sbyte,System.IFormatProvider)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
@@ -2531,7 +2531,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.Byte, System.IFormatProvider
-    + (NSString *)toString_withValueByte:(uint8_t)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (NSString *)toString_withValueByte:(uint8_t)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(byte,System.IFormatProvider)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
@@ -2553,7 +2553,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.Int16, System.IFormatProvider
-    + (NSString *)toString_withValueInt16:(int16_t)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (NSString *)toString_withValueInt16:(int16_t)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(int16,System.IFormatProvider)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
@@ -2575,7 +2575,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.UInt16, System.IFormatProvider
-    + (NSString *)toString_withValueUint16:(uint16_t)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (NSString *)toString_withValueUint16:(uint16_t)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(uint16,System.IFormatProvider)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
@@ -2597,7 +2597,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.Int32, System.IFormatProvider
-    + (NSString *)toString_withValueInt:(int32_t)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (NSString *)toString_withValueInt:(int32_t)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(int,System.IFormatProvider)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
@@ -2619,7 +2619,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.UInt32, System.IFormatProvider
-    + (NSString *)toString_withValueUint:(uint32_t)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (NSString *)toString_withValueUint:(uint32_t)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(uint,System.IFormatProvider)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
@@ -2641,7 +2641,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.Int64, System.IFormatProvider
-    + (NSString *)toString_withValueLong:(int64_t)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (NSString *)toString_withValueLong:(int64_t)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(long,System.IFormatProvider)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
@@ -2663,7 +2663,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.UInt64, System.IFormatProvider
-    + (NSString *)toString_withValueUlong:(uint64_t)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (NSString *)toString_withValueUlong:(uint64_t)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(ulong,System.IFormatProvider)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
@@ -2685,7 +2685,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.Single, System.IFormatProvider
-    + (NSString *)toString_withValueSingle:(float)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (NSString *)toString_withValueSingle:(float)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(single,System.IFormatProvider)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
@@ -2707,7 +2707,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.Double, System.IFormatProvider
-    + (NSString *)toString_withValueDouble:(double)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (NSString *)toString_withValueDouble:(double)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(double,System.IFormatProvider)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
@@ -2718,10 +2718,10 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.Decimal
-    + (NSString *)toString_withValueDecimal:(NSDecimalNumber *)p1
+    + (NSString *)toString_withValueSDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -2729,10 +2729,10 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.Decimal, System.IFormatProvider
-    + (NSString *)toString_withValueDecimal:(NSDecimalNumber *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (NSString *)toString_withValueSDecimal:(NSDecimalNumber *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(decimal,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(System.Decimal,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -2751,7 +2751,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.DateTime, System.IFormatProvider
-    + (NSString *)toString_withValueSDateTime:(NSDate *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (NSString *)toString_withValueSDateTime:(NSDate *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(System.DateTime,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -2773,7 +2773,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.String, System.IFormatProvider
-    + (NSString *)toString_withValueString:(NSString *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (NSString *)toString_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -2839,7 +2839,7 @@
 	// Managed method name : ToUInt16
 	// Managed return type : System.UInt16
 	// Managed param types : System.Object, System.IFormatProvider
-    + (uint16_t)toUInt16_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (uint16_t)toUInt16_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToUInt16(object,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -2982,10 +2982,10 @@
 	// Managed method name : ToUInt16
 	// Managed return type : System.UInt16
 	// Managed param types : System.Decimal
-    + (uint16_t)toUInt16_withValueDecimal:(NSDecimalNumber *)p1
+    + (uint16_t)toUInt16_withValueSDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToUInt16(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToUInt16(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_UINT16(monoObject);
     }
@@ -3004,7 +3004,7 @@
 	// Managed method name : ToUInt16
 	// Managed return type : System.UInt16
 	// Managed param types : System.String, System.IFormatProvider
-    + (uint16_t)toUInt16_withValueString:(NSString *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (uint16_t)toUInt16_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToUInt16(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -3048,7 +3048,7 @@
 	// Managed method name : ToUInt32
 	// Managed return type : System.UInt32
 	// Managed param types : System.Object, System.IFormatProvider
-    + (uint32_t)toUInt32_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (uint32_t)toUInt32_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToUInt32(object,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -3191,10 +3191,10 @@
 	// Managed method name : ToUInt32
 	// Managed return type : System.UInt32
 	// Managed param types : System.Decimal
-    + (uint32_t)toUInt32_withValueDecimal:(NSDecimalNumber *)p1
+    + (uint32_t)toUInt32_withValueSDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToUInt32(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToUInt32(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_UINT32(monoObject);
     }
@@ -3213,7 +3213,7 @@
 	// Managed method name : ToUInt32
 	// Managed return type : System.UInt32
 	// Managed param types : System.String, System.IFormatProvider
-    + (uint32_t)toUInt32_withValueString:(NSString *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (uint32_t)toUInt32_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToUInt32(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -3257,7 +3257,7 @@
 	// Managed method name : ToUInt64
 	// Managed return type : System.UInt64
 	// Managed param types : System.Object, System.IFormatProvider
-    + (uint64_t)toUInt64_withValueObject:(System_Object *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (uint64_t)toUInt64_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToUInt64(object,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -3400,10 +3400,10 @@
 	// Managed method name : ToUInt64
 	// Managed return type : System.UInt64
 	// Managed param types : System.Decimal
-    + (uint64_t)toUInt64_withValueDecimal:(NSDecimalNumber *)p1
+    + (uint64_t)toUInt64_withValueSDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToUInt64(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToUInt64(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_UINT64(monoObject);
     }
@@ -3422,7 +3422,7 @@
 	// Managed method name : ToUInt64
 	// Managed return type : System.UInt64
 	// Managed param types : System.String, System.IFormatProvider
-    + (uint64_t)toUInt64_withValueString:(NSString *)p1 providerSIFormatProvider:(System_IFormatProvider *)p2
+    + (uint64_t)toUInt64_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToUInt64(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];

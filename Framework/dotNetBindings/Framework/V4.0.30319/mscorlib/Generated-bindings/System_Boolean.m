@@ -112,7 +112,7 @@
 	// Managed method name : GetTypeCode
 	// Managed return type : System.TypeCode
 	// Managed param types : 
-    - (System_TypeCode)getTypeCode
+    - (int32_t)getTypeCode
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeCode()" withNumArgs:0];
@@ -145,7 +145,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.IFormatProvider
-    - (NSString *)toString_withProvider:(System_IFormatProvider *)p1
+    - (NSString *)toString_withProvider:(id <System_IFormatProvider_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString(System.IFormatProvider)" withNumArgs:1, [p1 monoRTInvokeArg]];

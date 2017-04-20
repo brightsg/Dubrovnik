@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.SecurityCriticalAttribute
 	// Managed param types : System.Security.SecurityCriticalScope
-    + (System_Security_SecurityCriticalAttribute *)new_withScope:(System_Security_SecurityCriticalScope)p1
+    + (System_Security_SecurityCriticalAttribute *)new_withScope:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.SecurityCriticalScope" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Security_SecurityCriticalAttribute * object = [[self alloc] initWithSignature:"System.Security.SecurityCriticalScope" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -41,10 +44,20 @@
 	// Managed property name : Scope
 	// Managed property type : System.Security.SecurityCriticalScope
     @synthesize scope = _scope;
-    - (System_Security_SecurityCriticalScope)scope
+    - (int32_t)scope
     {
-		MonoObject *monoObject = [self getMonoProperty:"Scope"];
-		_scope = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Scope");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_scope = monoObject;
 
 		return _scope;
 	}

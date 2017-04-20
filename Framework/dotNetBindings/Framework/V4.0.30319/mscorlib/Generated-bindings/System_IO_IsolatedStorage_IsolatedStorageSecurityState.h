@@ -16,7 +16,7 @@
 
 	// Managed property name : Options
 	// Managed property type : System.IO.IsolatedStorage.IsolatedStorageSecurityOptions
-    @property (nonatomic, readonly) System_IO_IsolatedStorage_IsolatedStorageSecurityOptions options;
+    @property (nonatomic, readonly) int32_t options;
 
 	// Managed property name : Quota
 	// Managed property type : System.Int64

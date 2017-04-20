@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.ObjectModel.ReadOnlyDictionary`2<System.Collections.ObjectModel.ReadOnlyDictionary`2+ValueCollection+TKey,System.Collections.ObjectModel.ReadOnlyDictionary`2+ValueCollection+TValue>+ValueCollection";
+		return "System.Collections.ObjectModel.ReadOnlyDictionary`2+ValueCollection";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,8 +32,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -43,21 +53,23 @@
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : <TValue[]>, System.Int32
-    - (void)copyTo_withArray:(System_Object *)p1 arrayIndex:(int32_t)p2
+	// Managed param types : TValue[], System.Int32
+    - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(<_T_1>[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"CopyTo(TValue[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.Generic.IEnumerator`1<System.Collections.ObjectModel.ReadOnlyDictionary`2+ValueCollection+TValue>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumeratorA1 *)getEnumerator
+    - (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
 		
-		return [System_Collections_Generic_IEnumeratorA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumeratorA1 bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

@@ -32,9 +32,19 @@
     static System_Threading_SynchronizationContext * m_current;
     + (System_Threading_SynchronizationContext *)current
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Current"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Current");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_current isEqualToMonoObject:monoObject]) return m_current;					
-		m_current = [System_Threading_SynchronizationContext objectWithMonoObject:monoObject];
+		m_current = [System_Threading_SynchronizationContext bestObjectWithMonoObject:monoObject];
 
 		return m_current;
 	}
@@ -50,7 +60,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateCopy()" withNumArgs:0];
 		
-		return [System_Threading_SynchronizationContext objectWithMonoObject:monoObject];
+		return [System_Threading_SynchronizationContext bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsWaitNotificationRequired
@@ -69,7 +79,9 @@
 	// Managed param types : 
     - (void)operationCompleted
     {
-		[self invokeMonoMethod:"OperationCompleted()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"OperationCompleted()" withNumArgs:0];
+        
     }
 
 	// Managed method name : OperationStarted
@@ -77,7 +89,9 @@
 	// Managed param types : 
     - (void)operationStarted
     {
-		[self invokeMonoMethod:"OperationStarted()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"OperationStarted()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Post
@@ -85,7 +99,9 @@
 	// Managed param types : System.Threading.SendOrPostCallback, System.Object
     - (void)post_withD:(System_Threading_SendOrPostCallback *)p1 state:(System_Object *)p2
     {
-		[self invokeMonoMethod:"Post(System.Threading.SendOrPostCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Post(System.Threading.SendOrPostCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Send
@@ -93,7 +109,9 @@
 	// Managed param types : System.Threading.SendOrPostCallback, System.Object
     - (void)send_withD:(System_Threading_SendOrPostCallback *)p1 state:(System_Object *)p2
     {
-		[self invokeMonoMethod:"Send(System.Threading.SendOrPostCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Send(System.Threading.SendOrPostCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetSynchronizationContext
@@ -101,7 +119,9 @@
 	// Managed param types : System.Threading.SynchronizationContext
     + (void)setSynchronizationContext_withSyncContext:(System_Threading_SynchronizationContext *)p1
     {
-		[self invokeMonoClassMethod:"SetSynchronizationContext(System.Threading.SynchronizationContext)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SetSynchronizationContext(System.Threading.SynchronizationContext)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Wait

@@ -32,17 +32,36 @@
     @synthesize binder = _binder;
     - (System_Runtime_Serialization_SerializationBinder *)binder
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Serialization.IFormatter.Binder"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Serialization.IFormatter.Binder");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_binder isEqualToMonoObject:monoObject]) return _binder;					
-		_binder = [System_Runtime_Serialization_SerializationBinder objectWithMonoObject:monoObject];
+		_binder = [System_Runtime_Serialization_SerializationBinder bestObjectWithMonoObject:monoObject];
 
 		return _binder;
 	}
     - (void)setBinder:(System_Runtime_Serialization_SerializationBinder *)value
 	{
 		_binder = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"System.Runtime.Serialization.IFormatter.Binder" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.Runtime.Serialization.IFormatter.Binder");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Context
@@ -50,17 +69,36 @@
     @synthesize context = _context;
     - (System_Runtime_Serialization_StreamingContext *)context
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Serialization.IFormatter.Context"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Serialization.IFormatter.Context");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_context isEqualToMonoObject:monoObject]) return _context;					
-		_context = [System_Runtime_Serialization_StreamingContext objectWithMonoObject:monoObject];
+		_context = [System_Runtime_Serialization_StreamingContext bestObjectWithMonoObject:monoObject];
 
 		return _context;
 	}
     - (void)setContext:(System_Runtime_Serialization_StreamingContext *)value
 	{
 		_context = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"System.Runtime.Serialization.IFormatter.Context" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.Runtime.Serialization.IFormatter.Context");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : SurrogateSelector
@@ -68,17 +106,36 @@
     @synthesize surrogateSelector = _surrogateSelector;
     - (System_Runtime_Serialization_ISurrogateSelector *)surrogateSelector
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Serialization.IFormatter.SurrogateSelector"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Serialization.IFormatter.SurrogateSelector");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_surrogateSelector isEqualToMonoObject:monoObject]) return _surrogateSelector;					
-		_surrogateSelector = [System_Runtime_Serialization_ISurrogateSelector objectWithMonoObject:monoObject];
+		_surrogateSelector = [System_Runtime_Serialization_ISurrogateSelector bestObjectWithMonoObject:monoObject];
 
 		return _surrogateSelector;
 	}
     - (void)setSurrogateSelector:(System_Runtime_Serialization_ISurrogateSelector *)value
 	{
 		_surrogateSelector = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"System.Runtime.Serialization.IFormatter.SurrogateSelector" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.Runtime.Serialization.IFormatter.SurrogateSelector");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -100,7 +157,9 @@
 	// Managed param types : System.IO.Stream, System.Object
     - (void)serialize_withSerializationStream:(System_IO_Stream *)p1 graph:(System_Object *)p2
     {
-		[self invokeMonoMethod:"System.Runtime.Serialization.IFormatter.Serialize(System.IO.Stream,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.Serialization.IFormatter.Serialize(System.IO.Stream,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAwaiter()" withNumArgs:0];
 		
-		return [System_Runtime_CompilerServices_ConfiguredTaskAwaitable__ConfiguredTaskAwaiter objectWithMonoObject:monoObject];
+		return [System_Runtime_CompilerServices_ConfiguredTaskAwaitable__ConfiguredTaskAwaiter bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

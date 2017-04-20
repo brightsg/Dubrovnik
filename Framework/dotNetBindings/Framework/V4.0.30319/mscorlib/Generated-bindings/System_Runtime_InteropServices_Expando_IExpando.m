@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.Expando.IExpando.AddField(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_FieldInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_FieldInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : AddMethod
@@ -46,7 +46,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.Expando.IExpando.AddMethod(string,System.Delegate)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : AddProperty
@@ -57,7 +57,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.Expando.IExpando.AddProperty(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_PropertyInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_PropertyInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : RemoveMember
@@ -65,7 +65,9 @@
 	// Managed param types : System.Reflection.MemberInfo
     - (void)removeMember_withM:(System_Reflection_MemberInfo *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.Expando.IExpando.RemoveMember(System.Reflection.MemberInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.Expando.IExpando.RemoveMember(System.Reflection.MemberInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

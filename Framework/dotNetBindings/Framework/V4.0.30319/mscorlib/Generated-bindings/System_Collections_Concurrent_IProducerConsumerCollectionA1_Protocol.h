@@ -2,11 +2,23 @@
 //
 // Managed interface : IProducerConsumerCollection`1<T>
 //
-@protocol System_Collections_Concurrent_IProducerConsumerCollectionA1 <NSObject, System_Collections_Generic_IEnumerableA1, System_Collections_IEnumerable, System_Collections_ICollection>
-
-@optional
 
 /*
+ A managed interface is represented as follows:
+
+ 1. An adoption protocol that advertises that a class has adopted a given protocol. For the reasons 
+ given in the notes below this protocol by default declares no members. The code generator will
+ use this protocol when declaring classes and method parameters.
+
+ 2. An implementation protocol that declares the properties and methods defined by the interface.
+ The code generator will use this protocol when declaring variables.
+
+ 3. An interface header and implementation body. The explicit class implementation of the managed interface
+ can be used to create an instance that conforms to the given interface in order to access explicit properties.
+
+ The above seems to give the best approach for interacting with complex managed interfaces.
+
+ Notes:
 
  .Net support for explicit interfaces means that a class can inherit two or more different
  signatures for the same property or method from two or more interfaces. 
@@ -18,33 +30,35 @@
  A third point is that even when we receive a managed interface as a return value from a property 
  or method we still need to provide a full binding in order access those properties and methods.
 
- A fourth point is that in general we will not be defining Obj-C classes that conform to 
- managed protocols.
+ A class can test for protocol adoption using Class -conformsToProtocol: using the adoption protocol.
+ By casting to the implementation protocol an instance can check for method implementation using respondsToSelector:.
 
- These points make the inclusion of the actual content of the protocol somewhat debatable. 
-
- In general it therefore seems best to omit the accessor predeclarations from the protocol declaration.
- It should still be possible to test for protocol conformance using Class -conformsToProtocol:
-
- The protocol properties and methods can be conditionally included if required.
- An auxliary protocol definition is also provided.
+ Properties and method predeclarations can be conditionally included in the adoption protocol if required.
 
 */
 
-#ifdef  DEF_P_AND_M_System_Collections_Concurrent_IProducerConsumerCollectionA1
+
+//
+// Adoption protocol
+//
+@protocol System_Collections_Concurrent_IProducerConsumerCollectionA1_ <System_Object_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_ICollection_>
+
+@optional
+
+#ifdef  DEF_P_AND_M_SYSTEM_COLLECTIONS_CONCURRENT_IPRODUCERCONSUMERCOLLECTIONA1_
 
 #pragma mark -
 #pragma mark Methods
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : <T[]>, System.Int32
-    - (void)copyTo_withArray:(System_Object *)p1 index:(int32_t)p2;
+	// Managed param types : T[], System.Int32
+    - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2;
 
 	// Managed method name : ToArray
-	// Managed return type : <T[]>
+	// Managed return type : T[]
 	// Managed param types : 
-    - (System_Object *)toArray;
+    - (DBSystem_Array *)toArray;
 
 	// Managed method name : TryAdd
 	// Managed return type : System.Boolean
@@ -53,21 +67,18 @@
 
 	// Managed method name : TryTake
 	// Managed return type : System.Boolean
-	// Managed param types : ref <T&>
-    - (BOOL)tryTake_withItemRef:(System_Object **)p1;
+	// Managed param types : ref T&
+    - (BOOL)tryTake_withItemRef:(System_Collections_Concurrent_IProducerConsumerCollectionA1__T **)p1;
 #endif
 
 
 @end
 
 
-/*
- 
- Auxiliary protocol definition.
-
-*/
-
-@protocol db_aux_System_Collections_Concurrent_IProducerConsumerCollectionA1 <NSObject, System_Collections_Generic_IEnumerableA1, System_Collections_IEnumerable, System_Collections_ICollection>
+//
+// Implementation protocol
+//
+@protocol System_Collections_Concurrent_IProducerConsumerCollectionA1 <System_Collections_Concurrent_IProducerConsumerCollectionA1_, System_Object, System_Collections_Generic_IEnumerableA1, System_Collections_IEnumerable, System_Collections_ICollection>
 
 @optional
 
@@ -77,13 +88,13 @@
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : <T[]>, System.Int32
-    - (void)copyTo_withArray:(System_Object *)p1 index:(int32_t)p2;
+	// Managed param types : T[], System.Int32
+    - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2;
 
 	// Managed method name : ToArray
-	// Managed return type : <T[]>
+	// Managed return type : T[]
 	// Managed param types : 
-    - (System_Object *)toArray;
+    - (DBSystem_Array *)toArray;
 
 	// Managed method name : TryAdd
 	// Managed return type : System.Boolean
@@ -92,8 +103,8 @@
 
 	// Managed method name : TryTake
 	// Managed return type : System.Boolean
-	// Managed param types : ref <T&>
-    - (BOOL)tryTake_withItemRef:(System_Object **)p1;
+	// Managed param types : ref T&
+    - (BOOL)tryTake_withItemRef:(System_Collections_Concurrent_IProducerConsumerCollectionA1__T **)p1;
 
 @end
 

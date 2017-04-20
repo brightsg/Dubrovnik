@@ -32,7 +32,10 @@
 	// Managed param types : System.String
     + (System_Threading_AbandonedMutexException *)new_withMessage:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Threading_AbandonedMutexException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.String, System.Exception
     + (System_Threading_AbandonedMutexException *)new_withMessage:(NSString *)p1 inner:(System_Exception *)p2
     {
-		return [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Threading_AbandonedMutexException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +54,10 @@
 	// Managed param types : System.Int32, System.Threading.WaitHandle
     + (System_Threading_AbandonedMutexException *)new_withLocation:(int32_t)p1 handle:(System_Threading_WaitHandle *)p2
     {
-		return [[self alloc] initWithSignature:"int,System.Threading.WaitHandle" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		System_Threading_AbandonedMutexException * object = [[self alloc] initWithSignature:"int,System.Threading.WaitHandle" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +65,10 @@
 	// Managed param types : System.String, System.Int32, System.Threading.WaitHandle
     + (System_Threading_AbandonedMutexException *)new_withMessage:(NSString *)p1 location:(int32_t)p2 handle:(System_Threading_WaitHandle *)p3
     {
-		return [[self alloc] initWithSignature:"string,int,System.Threading.WaitHandle" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];;
+		
+		System_Threading_AbandonedMutexException * object = [[self alloc] initWithSignature:"string,int,System.Threading.WaitHandle" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +76,10 @@
 	// Managed param types : System.String, System.Exception, System.Int32, System.Threading.WaitHandle
     + (System_Threading_AbandonedMutexException *)new_withMessage:(NSString *)p1 inner:(System_Exception *)p2 location:(int32_t)p3 handle:(System_Threading_WaitHandle *)p4
     {
-		return [[self alloc] initWithSignature:"string,System.Exception,int,System.Threading.WaitHandle" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), [p4 monoRTInvokeArg]];;
+		
+		System_Threading_AbandonedMutexException * object = [[self alloc] initWithSignature:"string,System.Exception,int,System.Threading.WaitHandle" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), [p4 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -75,9 +90,19 @@
     @synthesize mutex = _mutex;
     - (System_Threading_Mutex *)mutex
     {
-		MonoObject *monoObject = [self getMonoProperty:"Mutex"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Mutex");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_mutex isEqualToMonoObject:monoObject]) return _mutex;					
-		_mutex = [System_Threading_Mutex objectWithMonoObject:monoObject];
+		_mutex = [System_Threading_Mutex bestObjectWithMonoObject:monoObject];
 
 		return _mutex;
 	}
@@ -87,8 +112,18 @@
     @synthesize mutexIndex = _mutexIndex;
     - (int32_t)mutexIndex
     {
-		MonoObject *monoObject = [self getMonoProperty:"MutexIndex"];
-		_mutexIndex = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MutexIndex");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_mutexIndex = monoObject;
 
 		return _mutexIndex;
 	}

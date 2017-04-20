@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.IProducerConsumerCollection`1+T>";
+		return "System.Collections.Concurrent.IProducerConsumerCollection`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -29,21 +29,23 @@
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : <T[]>, System.Int32
-    - (void)copyTo_withArray:(System_Object *)p1 index:(int32_t)p2
+	// Managed param types : T[], System.Int32
+    - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
-		[self invokeMonoMethod:"System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.IProducerConsumerCollection`1+T>.CopyTo(<_T_0>[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.IProducerConsumerCollection`1+T>.CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : ToArray
-	// Managed return type : <T[]>
+	// Managed return type : T[]
 	// Managed param types : 
-    - (System_Object *)toArray
+    - (DBSystem_Array *)toArray
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.IProducerConsumerCollection`1+T>.ToArray()" withNumArgs:0];
 		
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : TryAdd
@@ -59,14 +61,14 @@
 
 	// Managed method name : TryTake
 	// Managed return type : System.Boolean
-	// Managed param types : ref <T&>
-    - (BOOL)tryTake_withItemRef:(System_Object **)p1
+	// Managed param types : ref T&
+    - (BOOL)tryTake_withItemRef:(System_Collections_Concurrent_IProducerConsumerCollectionA1__T **)p1
     {
 		void *refPtr1 = [*p1 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.IProducerConsumerCollection`1+T>.TryTake(<_T_0>&)" withNumArgs:1, &refPtr1];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.IProducerConsumerCollection`1+T>.TryTake(System.Collections.Concurrent.IProducerConsumerCollection`1+T&)" withNumArgs:1, &refPtr1];
 
-		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+		*p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

@@ -46,7 +46,17 @@
     @synthesize eras = _eras;
     - (DBSystem_Array *)eras
     {
-		MonoObject *monoObject = [self getMonoProperty:"Eras"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Eras");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_eras isEqualToMonoObject:monoObject]) return _eras;					
 		_eras = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -58,7 +68,17 @@
     @synthesize maxSupportedDateTime = _maxSupportedDateTime;
     - (NSDate *)maxSupportedDateTime
     {
-		MonoObject *monoObject = [self getMonoProperty:"MaxSupportedDateTime"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MaxSupportedDateTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_maxSupportedDateTime isEqualToMonoObject:monoObject]) return _maxSupportedDateTime;					
 		_maxSupportedDateTime = [NSDate dateWithMonoDateTime:monoObject];
 
@@ -70,7 +90,17 @@
     @synthesize minSupportedDateTime = _minSupportedDateTime;
     - (NSDate *)minSupportedDateTime
     {
-		MonoObject *monoObject = [self getMonoProperty:"MinSupportedDateTime"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MinSupportedDateTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_minSupportedDateTime isEqualToMonoObject:monoObject]) return _minSupportedDateTime;					
 		_minSupportedDateTime = [NSDate dateWithMonoDateTime:monoObject];
 

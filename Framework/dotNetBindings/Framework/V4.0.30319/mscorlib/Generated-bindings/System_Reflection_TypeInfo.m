@@ -32,9 +32,19 @@
     @synthesize declaredConstructors = _declaredConstructors;
     - (System_Collections_Generic_IEnumerableA1 *)declaredConstructors
     {
-		MonoObject *monoObject = [self getMonoProperty:"DeclaredConstructors"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DeclaredConstructors");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_declaredConstructors isEqualToMonoObject:monoObject]) return _declaredConstructors;					
-		_declaredConstructors = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		_declaredConstructors = [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
 
 		return _declaredConstructors;
 	}
@@ -44,9 +54,19 @@
     @synthesize declaredEvents = _declaredEvents;
     - (System_Collections_Generic_IEnumerableA1 *)declaredEvents
     {
-		MonoObject *monoObject = [self getMonoProperty:"DeclaredEvents"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DeclaredEvents");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_declaredEvents isEqualToMonoObject:monoObject]) return _declaredEvents;					
-		_declaredEvents = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		_declaredEvents = [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
 
 		return _declaredEvents;
 	}
@@ -56,9 +76,19 @@
     @synthesize declaredFields = _declaredFields;
     - (System_Collections_Generic_IEnumerableA1 *)declaredFields
     {
-		MonoObject *monoObject = [self getMonoProperty:"DeclaredFields"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DeclaredFields");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_declaredFields isEqualToMonoObject:monoObject]) return _declaredFields;					
-		_declaredFields = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		_declaredFields = [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
 
 		return _declaredFields;
 	}
@@ -68,9 +98,19 @@
     @synthesize declaredMembers = _declaredMembers;
     - (System_Collections_Generic_IEnumerableA1 *)declaredMembers
     {
-		MonoObject *monoObject = [self getMonoProperty:"DeclaredMembers"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DeclaredMembers");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_declaredMembers isEqualToMonoObject:monoObject]) return _declaredMembers;					
-		_declaredMembers = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		_declaredMembers = [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
 
 		return _declaredMembers;
 	}
@@ -80,9 +120,19 @@
     @synthesize declaredMethods = _declaredMethods;
     - (System_Collections_Generic_IEnumerableA1 *)declaredMethods
     {
-		MonoObject *monoObject = [self getMonoProperty:"DeclaredMethods"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DeclaredMethods");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_declaredMethods isEqualToMonoObject:monoObject]) return _declaredMethods;					
-		_declaredMethods = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		_declaredMethods = [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
 
 		return _declaredMethods;
 	}
@@ -92,9 +142,19 @@
     @synthesize declaredNestedTypes = _declaredNestedTypes;
     - (System_Collections_Generic_IEnumerableA1 *)declaredNestedTypes
     {
-		MonoObject *monoObject = [self getMonoProperty:"DeclaredNestedTypes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DeclaredNestedTypes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_declaredNestedTypes isEqualToMonoObject:monoObject]) return _declaredNestedTypes;					
-		_declaredNestedTypes = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		_declaredNestedTypes = [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
 
 		return _declaredNestedTypes;
 	}
@@ -104,9 +164,19 @@
     @synthesize declaredProperties = _declaredProperties;
     - (System_Collections_Generic_IEnumerableA1 *)declaredProperties
     {
-		MonoObject *monoObject = [self getMonoProperty:"DeclaredProperties"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DeclaredProperties");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_declaredProperties isEqualToMonoObject:monoObject]) return _declaredProperties;					
-		_declaredProperties = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		_declaredProperties = [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
 
 		return _declaredProperties;
 	}
@@ -116,7 +186,17 @@
     @synthesize genericTypeParameters = _genericTypeParameters;
     - (DBSystem_Array *)genericTypeParameters
     {
-		MonoObject *monoObject = [self getMonoProperty:"GenericTypeParameters"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "GenericTypeParameters");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_genericTypeParameters isEqualToMonoObject:monoObject]) return _genericTypeParameters;					
 		_genericTypeParameters = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -128,9 +208,19 @@
     @synthesize implementedInterfaces = _implementedInterfaces;
     - (System_Collections_Generic_IEnumerableA1 *)implementedInterfaces
     {
-		MonoObject *monoObject = [self getMonoProperty:"ImplementedInterfaces"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ImplementedInterfaces");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_implementedInterfaces isEqualToMonoObject:monoObject]) return _implementedInterfaces;					
-		_implementedInterfaces = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		_implementedInterfaces = [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
 
 		return _implementedInterfaces;
 	}
@@ -146,7 +236,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"AsType()" withNumArgs:0];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetDeclaredEvent
@@ -157,7 +247,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredEvent(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_EventInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_EventInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetDeclaredField
@@ -168,7 +258,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredField(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_FieldInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_FieldInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetDeclaredMethod
@@ -179,18 +269,18 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredMethod(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetDeclaredMethods
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Reflection.MethodInfo>
 	// Managed param types : System.String
-    - (System_Collections_Generic_IEnumerableA1 *)getDeclaredMethods_withName:(NSString *)p1
+    - (id <System_Collections_Generic_IEnumerableA1>)getDeclaredMethods_withName:(NSString *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredMethods(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetDeclaredNestedType
@@ -201,7 +291,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredNestedType(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_TypeInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_TypeInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetDeclaredProperty
@@ -212,7 +302,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDeclaredProperty(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_PropertyInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_PropertyInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsAssignableFrom

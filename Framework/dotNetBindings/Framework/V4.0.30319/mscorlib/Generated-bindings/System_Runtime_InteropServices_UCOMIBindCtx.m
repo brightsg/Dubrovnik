@@ -32,8 +32,12 @@
 	// Managed param types : ref System.Runtime.InteropServices.UCOMIEnumString&
     - (void)enumObjectParam_withPpenumRef:(System_Runtime_InteropServices_UCOMIEnumString **)p1
     {
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIBindCtx.EnumObjectParam(System.Runtime.InteropServices.UCOMIEnumString&)" withNumArgs:1, &refPtr1];
-;
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+
     }
 
 	// Managed method name : GetBindOptions
@@ -41,8 +45,12 @@
 	// Managed param types : ref System.Runtime.InteropServices.BIND_OPTS&
     - (void)getBindOptions_withPbindoptsRef:(System_Runtime_InteropServices_BIND_OPTS **)p1
     {
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIBindCtx.GetBindOptions(System.Runtime.InteropServices.BIND_OPTS&)" withNumArgs:1, &refPtr1];
-;
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+
     }
 
 	// Managed method name : GetObjectParam
@@ -50,8 +58,12 @@
 	// Managed param types : System.String, ref System.Object&
     - (void)getObjectParam_withPszKey:(NSString *)p1 ppunkRef:(System_Object **)p2
     {
+		void *refPtr2 = [*p2 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIBindCtx.GetObjectParam(string,object&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
-;
+
+        *p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+
     }
 
 	// Managed method name : GetRunningObjectTable
@@ -59,8 +71,12 @@
 	// Managed param types : ref System.Runtime.InteropServices.UCOMIRunningObjectTable&
     - (void)getRunningObjectTable_withPprotRef:(System_Runtime_InteropServices_UCOMIRunningObjectTable **)p1
     {
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIBindCtx.GetRunningObjectTable(System.Runtime.InteropServices.UCOMIRunningObjectTable&)" withNumArgs:1, &refPtr1];
-;
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+
     }
 
 	// Managed method name : RegisterObjectBound
@@ -68,7 +84,9 @@
 	// Managed param types : System.Object
     - (void)registerObjectBound_withPunk:(System_Object *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIBindCtx.RegisterObjectBound(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIBindCtx.RegisterObjectBound(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : RegisterObjectParam
@@ -76,7 +94,9 @@
 	// Managed param types : System.String, System.Object
     - (void)registerObjectParam_withPszKey:(NSString *)p1 punk:(System_Object *)p2
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIBindCtx.RegisterObjectParam(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIBindCtx.RegisterObjectParam(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : ReleaseBoundObjects
@@ -84,7 +104,9 @@
 	// Managed param types : 
     - (void)releaseBoundObjects
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIBindCtx.ReleaseBoundObjects()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIBindCtx.ReleaseBoundObjects()" withNumArgs:0];
+        
     }
 
 	// Managed method name : RevokeObjectBound
@@ -92,7 +114,9 @@
 	// Managed param types : System.Object
     - (void)revokeObjectBound_withPunk:(System_Object *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIBindCtx.RevokeObjectBound(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIBindCtx.RevokeObjectBound(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : RevokeObjectParam
@@ -100,7 +124,9 @@
 	// Managed param types : System.String
     - (void)revokeObjectParam_withPszKey:(NSString *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIBindCtx.RevokeObjectParam(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIBindCtx.RevokeObjectParam(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetBindOptions
@@ -108,8 +134,12 @@
 	// Managed param types : ref System.Runtime.InteropServices.BIND_OPTS&
     - (void)setBindOptions_withPbindoptsRef:(System_Runtime_InteropServices_BIND_OPTS **)p1
     {
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIBindCtx.SetBindOptions(System.Runtime.InteropServices.BIND_OPTS&)" withNumArgs:1, &refPtr1];
-;
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+
     }
 
 #pragma mark -

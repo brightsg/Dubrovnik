@@ -2,7 +2,7 @@
 //
 // Managed class : String
 //
-@interface System_String : System_Object <System_IComparable, System_ICloneable, System_IConvertible, System_IComparableA1, System_Collections_Generic_IEnumerableA1, System_Collections_IEnumerable, System_IEquatableA1>
+@interface System_String : System_Object <System_IComparable_, System_ICloneable_, System_IConvertible_, System_Collections_IEnumerable_, System_IComparableA1_, System_Collections_Generic_IEnumerableA1_, System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -93,12 +93,12 @@
 	// Managed method name : Compare
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.String, System.StringComparison
-    + (int32_t)compare_withStrA:(NSString *)p1 strB:(NSString *)p2 comparisonType:(System_StringComparison)p3;
+    + (int32_t)compare_withStrA:(NSString *)p1 strB:(NSString *)p2 comparisonType:(int32_t)p3;
 
 	// Managed method name : Compare
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.String, System.Globalization.CultureInfo, System.Globalization.CompareOptions
-    + (int32_t)compare_withStrA:(NSString *)p1 strB:(NSString *)p2 culture:(System_Globalization_CultureInfo *)p3 options:(System_Globalization_CompareOptions)p4;
+    + (int32_t)compare_withStrA:(NSString *)p1 strB:(NSString *)p2 culture:(System_Globalization_CultureInfo *)p3 options:(int32_t)p4;
 
 	// Managed method name : Compare
 	// Managed return type : System.Int32
@@ -123,12 +123,12 @@
 	// Managed method name : Compare
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.Int32, System.String, System.Int32, System.Int32, System.Globalization.CultureInfo, System.Globalization.CompareOptions
-    + (int32_t)compare_withStrA:(NSString *)p1 indexA:(int32_t)p2 strB:(NSString *)p3 indexB:(int32_t)p4 length:(int32_t)p5 culture:(System_Globalization_CultureInfo *)p6 options:(System_Globalization_CompareOptions)p7;
+    + (int32_t)compare_withStrA:(NSString *)p1 indexA:(int32_t)p2 strB:(NSString *)p3 indexB:(int32_t)p4 length:(int32_t)p5 culture:(System_Globalization_CultureInfo *)p6 options:(int32_t)p7;
 
 	// Managed method name : Compare
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.Int32, System.String, System.Int32, System.Int32, System.StringComparison
-    + (int32_t)compare_withStrA:(NSString *)p1 indexA:(int32_t)p2 strB:(NSString *)p3 indexB:(int32_t)p4 length:(int32_t)p5 comparisonType:(System_StringComparison)p6;
+    + (int32_t)compare_withStrA:(NSString *)p1 indexA:(int32_t)p2 strB:(NSString *)p3 indexB:(int32_t)p4 length:(int32_t)p5 comparisonType:(int32_t)p6;
 
 	// Managed method name : CompareOrdinal
 	// Managed return type : System.Int32
@@ -178,12 +178,12 @@
 	// Managed method name : Concat
 	// Managed return type : System.String
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.String+T>
-    + (NSString *)concat_withValuesSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1;
+    + (NSString *)concat_withValuesSCGIEnumerableA1string__T:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
 	// Managed method name : Concat
 	// Managed return type : System.String
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.String>
-    + (NSString *)concat_withValuesSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1;
+    + (NSString *)concat_withValuesSCGIEnumerableA1string:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
 	// Managed method name : Concat
 	// Managed return type : System.String
@@ -228,7 +228,7 @@
 	// Managed method name : EndsWith
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.StringComparison
-    - (BOOL)endsWith_withValue:(NSString *)p1 comparisonType:(System_StringComparison)p2;
+    - (BOOL)endsWith_withValue:(NSString *)p1 comparisonType:(int32_t)p2;
 
 	// Managed method name : EndsWith
 	// Managed return type : System.Boolean
@@ -248,7 +248,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.StringComparison
-    - (BOOL)equals_withValue:(NSString *)p1 comparisonType:(System_StringComparison)p2;
+    - (BOOL)equals_withValue:(NSString *)p1 comparisonType:(int32_t)p2;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
@@ -258,7 +258,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.String, System.StringComparison
-    + (BOOL)equals_withA:(NSString *)p1 b:(NSString *)p2 comparisonType:(System_StringComparison)p3;
+    + (BOOL)equals_withA:(NSString *)p1 b:(NSString *)p2 comparisonType:(int32_t)p3;
 
 	// Managed method name : Format
 	// Managed return type : System.String
@@ -282,8 +282,23 @@
 
 	// Managed method name : Format
 	// Managed return type : System.String
+	// Managed param types : System.IFormatProvider, System.String, System.Object
+    + (NSString *)format_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 arg0:(System_Object *)p3;
+
+	// Managed method name : Format
+	// Managed return type : System.String
+	// Managed param types : System.IFormatProvider, System.String, System.Object, System.Object
+    + (NSString *)format_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 arg0:(System_Object *)p3 arg1:(System_Object *)p4;
+
+	// Managed method name : Format
+	// Managed return type : System.String
+	// Managed param types : System.IFormatProvider, System.String, System.Object, System.Object, System.Object
+    + (NSString *)format_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 arg0:(System_Object *)p3 arg1:(System_Object *)p4 arg2:(System_Object *)p5;
+
+	// Managed method name : Format
+	// Managed return type : System.String
 	// Managed param types : System.IFormatProvider, System.String, System.Object[]
-    + (NSString *)format_withProvider:(System_IFormatProvider *)p1 format:(NSString *)p2 args:(DBSystem_Array *)p3;
+    + (NSString *)format_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 args:(DBSystem_Array *)p3;
 
 	// Managed method name : GetEnumerator
 	// Managed return type : System.CharEnumerator
@@ -298,7 +313,7 @@
 	// Managed method name : GetTypeCode
 	// Managed return type : System.TypeCode
 	// Managed param types : 
-    - (System_TypeCode)getTypeCode;
+    - (int32_t)getTypeCode;
 
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
@@ -333,17 +348,17 @@
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.StringComparison
-    - (int32_t)indexOf_withValue:(NSString *)p1 comparisonType:(System_StringComparison)p2;
+    - (int32_t)indexOf_withValue:(NSString *)p1 comparisonType:(int32_t)p2;
 
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.Int32, System.StringComparison
-    - (int32_t)indexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 comparisonType:(System_StringComparison)p3;
+    - (int32_t)indexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 comparisonType:(int32_t)p3;
 
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.Int32, System.Int32, System.StringComparison
-    - (int32_t)indexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 comparisonType:(System_StringComparison)p4;
+    - (int32_t)indexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 comparisonType:(int32_t)p4;
 
 	// Managed method name : IndexOfAny
 	// Managed return type : System.Int32
@@ -383,7 +398,7 @@
 	// Managed method name : IsNormalized
 	// Managed return type : System.Boolean
 	// Managed param types : System.Text.NormalizationForm
-    - (BOOL)isNormalized_withNormalizationForm:(System_Text_NormalizationForm)p1;
+    - (BOOL)isNormalized_withNormalizationForm:(int32_t)p1;
 
 	// Managed method name : IsNullOrEmpty
 	// Managed return type : System.Boolean
@@ -408,12 +423,12 @@
 	// Managed method name : Join
 	// Managed return type : System.String
 	// Managed param types : System.String, System.Collections.Generic.IEnumerable`1<System.String+T>
-    + (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p2;
+    + (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1string__T:(id <System_Collections_Generic_IEnumerableA1_>)p2;
 
 	// Managed method name : Join
 	// Managed return type : System.String
 	// Managed param types : System.String, System.Collections.Generic.IEnumerable`1<System.String>
-    + (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p2;
+    + (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1string:(id <System_Collections_Generic_IEnumerableA1_>)p2;
 
 	// Managed method name : Join
 	// Managed return type : System.String
@@ -453,17 +468,17 @@
 	// Managed method name : LastIndexOf
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.StringComparison
-    - (int32_t)lastIndexOf_withValue:(NSString *)p1 comparisonType:(System_StringComparison)p2;
+    - (int32_t)lastIndexOf_withValue:(NSString *)p1 comparisonType:(int32_t)p2;
 
 	// Managed method name : LastIndexOf
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.Int32, System.StringComparison
-    - (int32_t)lastIndexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 comparisonType:(System_StringComparison)p3;
+    - (int32_t)lastIndexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 comparisonType:(int32_t)p3;
 
 	// Managed method name : LastIndexOf
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.Int32, System.Int32, System.StringComparison
-    - (int32_t)lastIndexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 comparisonType:(System_StringComparison)p4;
+    - (int32_t)lastIndexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 comparisonType:(int32_t)p4;
 
 	// Managed method name : LastIndexOfAny
 	// Managed return type : System.Int32
@@ -488,7 +503,7 @@
 	// Managed method name : Normalize
 	// Managed return type : System.String
 	// Managed param types : System.Text.NormalizationForm
-    - (NSString *)normalize_withNormalizationForm:(System_Text_NormalizationForm)p1;
+    - (NSString *)normalize_withNormalizationForm:(int32_t)p1;
 
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
@@ -553,22 +568,22 @@
 	// Managed method name : Split
 	// Managed return type : System.String[]
 	// Managed param types : System.Char[], System.StringSplitOptions
-    - (DBSystem_Array *)split_withSeparatorChar:(DBSystem_Array *)p1 optionsSStringSplitOptions:(System_StringSplitOptions)p2;
+    - (DBSystem_Array *)split_withSeparatorChar:(DBSystem_Array *)p1 optionsStringSplitOptions:(int32_t)p2;
 
 	// Managed method name : Split
 	// Managed return type : System.String[]
 	// Managed param types : System.Char[], System.Int32, System.StringSplitOptions
-    - (DBSystem_Array *)split_withSeparatorChar:(DBSystem_Array *)p1 countInt:(int32_t)p2 optionsSStringSplitOptions:(System_StringSplitOptions)p3;
+    - (DBSystem_Array *)split_withSeparatorChar:(DBSystem_Array *)p1 countInt:(int32_t)p2 optionsStringSplitOptions:(int32_t)p3;
 
 	// Managed method name : Split
 	// Managed return type : System.String[]
 	// Managed param types : System.String[], System.StringSplitOptions
-    - (DBSystem_Array *)split_withSeparatorString:(DBSystem_Array *)p1 optionsSStringSplitOptions:(System_StringSplitOptions)p2;
+    - (DBSystem_Array *)split_withSeparatorString:(DBSystem_Array *)p1 optionsStringSplitOptions:(int32_t)p2;
 
 	// Managed method name : Split
 	// Managed return type : System.String[]
 	// Managed param types : System.String[], System.Int32, System.StringSplitOptions
-    - (DBSystem_Array *)split_withSeparatorString:(DBSystem_Array *)p1 countInt:(int32_t)p2 optionsSStringSplitOptions:(System_StringSplitOptions)p3;
+    - (DBSystem_Array *)split_withSeparatorString:(DBSystem_Array *)p1 countInt:(int32_t)p2 optionsStringSplitOptions:(int32_t)p3;
 
 	// Managed method name : StartsWith
 	// Managed return type : System.Boolean
@@ -578,7 +593,7 @@
 	// Managed method name : StartsWith
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.StringComparison
-    - (BOOL)startsWith_withValue:(NSString *)p1 comparisonType:(System_StringComparison)p2;
+    - (BOOL)startsWith_withValue:(NSString *)p1 comparisonType:(int32_t)p2;
 
 	// Managed method name : StartsWith
 	// Managed return type : System.Boolean
@@ -628,7 +643,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.IFormatProvider
-    - (NSString *)toString_withProvider:(System_IFormatProvider *)p1;
+    - (NSString *)toString_withProvider:(id <System_IFormatProvider_>)p1;
 
 	// Managed method name : ToUpper
 	// Managed return type : System.String

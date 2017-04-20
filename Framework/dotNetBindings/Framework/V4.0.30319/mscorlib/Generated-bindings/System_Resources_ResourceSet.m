@@ -32,7 +32,10 @@
 	// Managed param types : System.String
     + (System_Resources_ResourceSet *)new_withFileName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Resources_ResourceSet * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,15 +43,21 @@
 	// Managed param types : System.IO.Stream
     + (System_Resources_ResourceSet *)new_withStream:(System_IO_Stream *)p1
     {
-		return [[self alloc] initWithSignature:"System.IO.Stream" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Resources_ResourceSet * object = [[self alloc] initWithSignature:"System.IO.Stream" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Resources.ResourceSet
 	// Managed param types : System.Resources.IResourceReader
-    + (System_Resources_ResourceSet *)new_withReader:(System_Resources_IResourceReader *)p1
+    + (System_Resources_ResourceSet *)new_withReader:(id <System_Resources_IResourceReader_>)p1
     {
-		return [[self alloc] initWithSignature:"System.Resources.IResourceReader" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Resources_ResourceSet * object = [[self alloc] initWithSignature:"System.Resources.IResourceReader" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -59,7 +68,9 @@
 	// Managed param types : 
     - (void)close
     {
-		[self invokeMonoMethod:"Close()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Close()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Dispose
@@ -67,7 +78,9 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+        
     }
 
 	// Managed method name : GetDefaultReader
@@ -78,7 +91,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDefaultReader()" withNumArgs:0];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetDefaultWriter
@@ -89,18 +102,18 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDefaultWriter()" withNumArgs:0];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IDictionaryEnumerator
 	// Managed param types : 
-    - (System_Collections_IDictionaryEnumerator *)getEnumerator
+    - (id <System_Collections_IDictionaryEnumerator>)getEnumerator
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
 		
-		return [System_Collections_IDictionaryEnumerator objectWithMonoObject:monoObject];
+		return [System_Collections_IDictionaryEnumerator bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetObject

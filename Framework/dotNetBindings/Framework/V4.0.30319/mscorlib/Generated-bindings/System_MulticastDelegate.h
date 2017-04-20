@@ -2,7 +2,7 @@
 //
 // Managed class : MulticastDelegate
 //
-@interface System_MulticastDelegate : System_Delegate <System_ICloneable, System_Runtime_Serialization_ISerializable>
+@interface System_MulticastDelegate : System_Delegate <System_ICloneable_, System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup

@@ -2,7 +2,7 @@
 //
 // Managed class : DriveInfo
 //
-@interface System_IO_DriveInfo : System_Object <System_Runtime_Serialization_ISerializable>
+@interface System_IO_DriveInfo : System_Object <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -32,7 +32,7 @@
 
 	// Managed property name : DriveType
 	// Managed property type : System.IO.DriveType
-    @property (nonatomic, readonly) System_IO_DriveType driveType;
+    @property (nonatomic, readonly) int32_t driveType;
 
 	// Managed property name : IsReady
 	// Managed property type : System.Boolean

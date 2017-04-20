@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.CompilerServices.MethodImplAttribute
 	// Managed param types : System.Runtime.CompilerServices.MethodImplOptions
-    + (System_Runtime_CompilerServices_MethodImplAttribute *)new_withMethodImplOptions:(System_Runtime_CompilerServices_MethodImplOptions)p1
+    + (System_Runtime_CompilerServices_MethodImplAttribute *)new_withMethodImplOptions:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.CompilerServices.MethodImplOptions" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Runtime_CompilerServices_MethodImplAttribute * object = [[self alloc] initWithSignature:"System.Runtime.CompilerServices.MethodImplOptions" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Int16
     + (System_Runtime_CompilerServices_MethodImplAttribute *)new_withValue:(int16_t)p1
     {
-		return [[self alloc] initWithSignature:"int16" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Runtime_CompilerServices_MethodImplAttribute * object = [[self alloc] initWithSignature:"int16" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -49,14 +55,14 @@
 	// Managed field name : MethodCodeType
 	// Managed field type : System.Runtime.CompilerServices.MethodCodeType
     @synthesize methodCodeType = _methodCodeType;
-    - (System_Runtime_CompilerServices_MethodCodeType)methodCodeType
+    - (int32_t)methodCodeType
     {
 		MonoObject *monoObject = [self getMonoField:"MethodCodeType"];
 		_methodCodeType = DB_UNBOX_INT32(monoObject);
 
 		return _methodCodeType;
 	}
-    - (void)setMethodCodeType:(System_Runtime_CompilerServices_MethodCodeType)value
+    - (void)setMethodCodeType:(int32_t)value
 	{
 		_methodCodeType = value;
 		MonoObject *monoObject = DB_VALUE(value);
@@ -69,10 +75,20 @@
 	// Managed property name : Value
 	// Managed property type : System.Runtime.CompilerServices.MethodImplOptions
     @synthesize value = _value;
-    - (System_Runtime_CompilerServices_MethodImplOptions)value
+    - (int32_t)value
     {
-		MonoObject *monoObject = [self getMonoProperty:"Value"];
-		_value = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Value");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_value = monoObject;
 
 		return _value;
 	}

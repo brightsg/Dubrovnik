@@ -2,7 +2,7 @@
 //
 // Managed class : IteratorStateMachineAttribute
 //
-@interface System_Runtime_CompilerServices_IteratorStateMachineAttribute : System_Runtime_CompilerServices_StateMachineAttribute <System_Runtime_InteropServices__Attribute>
+@interface System_Runtime_CompilerServices_IteratorStateMachineAttribute : System_Runtime_CompilerServices_StateMachineAttribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup

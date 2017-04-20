@@ -2,7 +2,7 @@
 //
 // Managed class : DSACryptoServiceProvider
 //
-@interface System_Security_Cryptography_DSACryptoServiceProvider : System_Security_Cryptography_DSA <System_IDisposable, System_Security_Cryptography_ICspAsymmetricAlgorithm>
+@interface System_Security_Cryptography_DSACryptoServiceProvider : System_Security_Cryptography_DSA <System_IDisposable_, System_Security_Cryptography_ICspAsymmetricAlgorithm_>
 
 #pragma mark -
 #pragma mark Setup

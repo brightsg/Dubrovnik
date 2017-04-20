@@ -2,7 +2,7 @@
 //
 // Managed class : Thread
 //
-@interface System_Threading_Thread : System_Runtime_ConstrainedExecution_CriticalFinalizerObject <System_Runtime_InteropServices__Thread>
+@interface System_Threading_Thread : System_Runtime_ConstrainedExecution_CriticalFinalizerObject <System_Runtime_InteropServices__Thread_>
 
 #pragma mark -
 #pragma mark Setup
@@ -39,7 +39,7 @@
 
 	// Managed property name : ApartmentState
 	// Managed property type : System.Threading.ApartmentState
-    @property (nonatomic) System_Threading_ApartmentState apartmentState;
+    @property (nonatomic) int32_t apartmentState;
 
 	// Managed property name : CurrentContext
 	// Managed property type : System.Runtime.Remoting.Contexts.Context
@@ -88,11 +88,11 @@
 
 	// Managed property name : Priority
 	// Managed property type : System.Threading.ThreadPriority
-    @property (nonatomic) System_Threading_ThreadPriority priority;
+    @property (nonatomic) int32_t priority;
 
 	// Managed property name : ThreadState
 	// Managed property type : System.Threading.ThreadState
-    @property (nonatomic, readonly) System_Threading_ThreadState threadState;
+    @property (nonatomic, readonly) int32_t threadState;
 
 #pragma mark -
 #pragma mark Methods
@@ -150,7 +150,7 @@
 	// Managed method name : GetApartmentState
 	// Managed return type : System.Threading.ApartmentState
 	// Managed param types : 
-    - (System_Threading_ApartmentState)getApartmentState;
+    - (int32_t)getApartmentState;
 
 	// Managed method name : GetCompressedStack
 	// Managed return type : System.Threading.CompressedStack
@@ -220,7 +220,7 @@
 	// Managed method name : SetApartmentState
 	// Managed return type : System.Void
 	// Managed param types : System.Threading.ApartmentState
-    - (void)setApartmentState_withState:(System_Threading_ApartmentState)p1;
+    - (void)setApartmentState_withState:(int32_t)p1;
 
 	// Managed method name : SetCompressedStack
 	// Managed return type : System.Void
@@ -265,7 +265,7 @@
 	// Managed method name : TrySetApartmentState
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.ApartmentState
-    - (BOOL)trySetApartmentState_withState:(System_Threading_ApartmentState)p1;
+    - (BOOL)trySetApartmentState_withState:(int32_t)p1;
 
 	// Managed method name : VolatileRead
 	// Managed return type : System.Byte

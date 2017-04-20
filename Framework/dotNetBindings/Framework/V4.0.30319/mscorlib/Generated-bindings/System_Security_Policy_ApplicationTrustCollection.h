@@ -2,7 +2,7 @@
 //
 // Managed class : ApplicationTrustCollection
 //
-@interface System_Security_Policy_ApplicationTrustCollection : System_Object <System_Collections_ICollection, System_Collections_IEnumerable>
+@interface System_Security_Policy_ApplicationTrustCollection : System_Object <System_Collections_ICollection_, System_Collections_IEnumerable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -45,7 +45,7 @@
 	// Managed method name : AddRange
 	// Managed return type : System.Void
 	// Managed param types : System.Security.Policy.ApplicationTrust[]
-    - (void)addRange_withTrustsSArray:(DBSystem_Array *)p1;
+    - (void)addRange_withTrustsSSPApplicationTrust:(DBSystem_Array *)p1;
 
 	// Managed method name : AddRange
 	// Managed return type : System.Void
@@ -65,7 +65,7 @@
 	// Managed method name : Find
 	// Managed return type : System.Security.Policy.ApplicationTrustCollection
 	// Managed param types : System.ApplicationIdentity, System.Security.Policy.ApplicationVersionMatch
-    - (System_Security_Policy_ApplicationTrustCollection *)find_withApplicationIdentity:(System_ApplicationIdentity *)p1 versionMatch:(System_Security_Policy_ApplicationVersionMatch)p2;
+    - (System_Security_Policy_ApplicationTrustCollection *)find_withApplicationIdentity:(System_ApplicationIdentity *)p1 versionMatch:(int32_t)p2;
 
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Security.Policy.ApplicationTrustEnumerator
@@ -75,7 +75,7 @@
 	// Managed method name : Remove
 	// Managed return type : System.Void
 	// Managed param types : System.ApplicationIdentity, System.Security.Policy.ApplicationVersionMatch
-    - (void)remove_withApplicationIdentity:(System_ApplicationIdentity *)p1 versionMatch:(System_Security_Policy_ApplicationVersionMatch)p2;
+    - (void)remove_withApplicationIdentity:(System_ApplicationIdentity *)p1 versionMatch:(int32_t)p2;
 
 	// Managed method name : Remove
 	// Managed return type : System.Void
@@ -85,7 +85,7 @@
 	// Managed method name : RemoveRange
 	// Managed return type : System.Void
 	// Managed param types : System.Security.Policy.ApplicationTrust[]
-    - (void)removeRange_withTrustsSArray:(DBSystem_Array *)p1;
+    - (void)removeRange_withTrustsSSPApplicationTrust:(DBSystem_Array *)p1;
 
 	// Managed method name : RemoveRange
 	// Managed return type : System.Void

@@ -32,7 +32,10 @@
 	// Managed param types : System.DateTime, System.DateTime, System.TimeSpan
     + (System_Globalization_DaylightTime *)new_withStart:(NSDate *)p1 end:(NSDate *)p2 delta:(System_TimeSpan *)p3
     {
-		return [[self alloc] initWithSignature:"System.DateTime,System.DateTime,System.TimeSpan" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		System_Globalization_DaylightTime * object = [[self alloc] initWithSignature:"System.DateTime,System.DateTime,System.TimeSpan" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,9 +46,19 @@
     @synthesize delta = _delta;
     - (System_TimeSpan *)delta
     {
-		MonoObject *monoObject = [self getMonoProperty:"Delta"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Delta");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_delta isEqualToMonoObject:monoObject]) return _delta;					
-		_delta = [System_TimeSpan objectWithMonoObject:monoObject];
+		_delta = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
 		return _delta;
 	}
@@ -55,7 +68,17 @@
     @synthesize end = _end;
     - (NSDate *)end
     {
-		MonoObject *monoObject = [self getMonoProperty:"End"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "End");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_end isEqualToMonoObject:monoObject]) return _end;					
 		_end = [NSDate dateWithMonoDateTime:monoObject];
 
@@ -67,7 +90,17 @@
     @synthesize start = _start;
     - (NSDate *)start
     {
-		MonoObject *monoObject = [self getMonoProperty:"Start"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Start");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_start isEqualToMonoObject:monoObject]) return _start;					
 		_start = [NSDate dateWithMonoDateTime:monoObject];
 

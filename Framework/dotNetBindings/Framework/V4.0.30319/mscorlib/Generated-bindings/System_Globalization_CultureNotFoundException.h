@@ -2,7 +2,7 @@
 //
 // Managed class : CultureNotFoundException
 //
-@interface System_Globalization_CultureNotFoundException : System_ArgumentException <System_Runtime_Serialization_ISerializable, System_Runtime_InteropServices__Exception>
+@interface System_Globalization_CultureNotFoundException : System_ArgumentException <System_Runtime_Serialization_ISerializable_, System_Runtime_InteropServices__Exception_>
 
 #pragma mark -
 #pragma mark Setup

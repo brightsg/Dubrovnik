@@ -32,7 +32,10 @@
 	// Managed param types : System.String
     + (System_Globalization_StringInfo *)new_withValue:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Globalization_StringInfo * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,8 +46,18 @@
     @synthesize lengthInTextElements = _lengthInTextElements;
     - (int32_t)lengthInTextElements
     {
-		MonoObject *monoObject = [self getMonoProperty:"LengthInTextElements"];
-		_lengthInTextElements = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LengthInTextElements");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_lengthInTextElements = monoObject;
 
 		return _lengthInTextElements;
 	}
@@ -54,7 +67,17 @@
     @synthesize string = _string;
     - (NSString *)string
     {
-		MonoObject *monoObject = [self getMonoProperty:"String"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "String");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_string isEqualToMonoObject:monoObject]) return _string;					
 		_string = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -63,8 +86,17 @@
     - (void)setString:(NSString *)value
 	{
 		_string = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"String" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "String");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -122,7 +154,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTextElementEnumerator(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Globalization_TextElementEnumerator objectWithMonoObject:monoObject];
+		return [System_Globalization_TextElementEnumerator bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTextElementEnumerator
@@ -133,7 +165,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTextElementEnumerator(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [System_Globalization_TextElementEnumerator objectWithMonoObject:monoObject];
+		return [System_Globalization_TextElementEnumerator bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ParseCombiningCharacters

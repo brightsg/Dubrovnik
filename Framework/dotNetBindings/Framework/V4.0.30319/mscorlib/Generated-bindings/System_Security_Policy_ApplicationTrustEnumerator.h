@@ -2,7 +2,7 @@
 //
 // Managed class : ApplicationTrustEnumerator
 //
-@interface System_Security_Policy_ApplicationTrustEnumerator : System_Object <System_Collections_IEnumerator>
+@interface System_Security_Policy_ApplicationTrustEnumerator : System_Object <System_Collections_IEnumerator_>
 
 #pragma mark -
 #pragma mark Setup

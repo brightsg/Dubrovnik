@@ -2,7 +2,7 @@
 //
 // Managed class : Tuple`3<T1, T2, T3>
 //
-@interface System_TupleA3 : System_Object <System_Collections_IStructuralEquatable, System_Collections_IStructuralComparable, System_IComparable>
+@interface System_TupleA3 : System_Object <System_Collections_IStructuralEquatable_, System_Collections_IStructuralComparable_, System_IComparable_>
 
 #pragma mark -
 #pragma mark Setup

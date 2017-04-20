@@ -2,11 +2,23 @@
 //
 // Managed interface : _PropertyInfo
 //
-@protocol System_Runtime_InteropServices__PropertyInfo <NSObject>
-
-@optional
 
 /*
+ A managed interface is represented as follows:
+
+ 1. An adoption protocol that advertises that a class has adopted a given protocol. For the reasons 
+ given in the notes below this protocol by default declares no members. The code generator will
+ use this protocol when declaring classes and method parameters.
+
+ 2. An implementation protocol that declares the properties and methods defined by the interface.
+ The code generator will use this protocol when declaring variables.
+
+ 3. An interface header and implementation body. The explicit class implementation of the managed interface
+ can be used to create an instance that conforms to the given interface in order to access explicit properties.
+
+ The above seems to give the best approach for interacting with complex managed interfaces.
+
+ Notes:
 
  .Net support for explicit interfaces means that a class can inherit two or more different
  signatures for the same property or method from two or more interfaces. 
@@ -18,27 +30,29 @@
  A third point is that even when we receive a managed interface as a return value from a property 
  or method we still need to provide a full binding in order access those properties and methods.
 
- A fourth point is that in general we will not be defining Obj-C classes that conform to 
- managed protocols.
+ A class can test for protocol adoption using Class -conformsToProtocol: using the adoption protocol.
+ By casting to the implementation protocol an instance can check for method implementation using respondsToSelector:.
 
- These points make the inclusion of the actual content of the protocol somewhat debatable. 
-
- In general it therefore seems best to omit the accessor predeclarations from the protocol declaration.
- It should still be possible to test for protocol conformance using Class -conformsToProtocol:
-
- The protocol properties and methods can be conditionally included if required.
- An auxliary protocol definition is also provided.
+ Properties and method predeclarations can be conditionally included in the adoption protocol if required.
 
 */
 
-#ifdef  DEF_P_AND_M_System_Runtime_InteropServices__PropertyInfo
+
+//
+// Adoption protocol
+//
+@protocol System_Runtime_InteropServices__PropertyInfo_ <System_Object_>
+
+@optional
+
+#ifdef  DEF_P_AND_M_SYSTEM_RUNTIME_INTEROPSERVICES__PROPERTYINFO_
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Attributes
 	// Managed property type : System.Reflection.PropertyAttributes
-    @property (nonatomic, readonly) System_Reflection_PropertyAttributes attributes;
+    @property (nonatomic, readonly) int32_t attributes;
 
 	// Managed property name : CanRead
 	// Managed property type : System.Boolean
@@ -58,7 +72,7 @@
 
 	// Managed property name : MemberType
 	// Managed property type : System.Reflection.MemberTypes
-    @property (nonatomic, readonly) System_Reflection_MemberTypes memberType;
+    @property (nonatomic, readonly) int32_t memberType;
 
 	// Managed property name : Name
 	// Managed property type : System.String
@@ -158,7 +172,7 @@
 	// Managed method name : GetValue
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo
-    - (System_Object *)getValue_withObj:(System_Object *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 index:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5;
+    - (System_Object *)getValue_withObj:(System_Object *)p1 invokeAttr:(int32_t)p2 binder:(System_Reflection_Binder *)p3 index:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5;
 
 	// Managed method name : Invoke
 	// Managed return type : System.Void
@@ -178,7 +192,7 @@
 	// Managed method name : SetValue
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Object, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo
-    - (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2 invokeAttr:(System_Reflection_BindingFlags)p3 binder:(System_Reflection_Binder *)p4 index:(DBSystem_Array *)p5 culture:(System_Globalization_CultureInfo *)p6;
+    - (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2 invokeAttr:(int32_t)p3 binder:(System_Reflection_Binder *)p4 index:(DBSystem_Array *)p5 culture:(System_Globalization_CultureInfo *)p6;
 
 	// Managed method name : ToString
 	// Managed return type : System.String
@@ -190,13 +204,10 @@
 @end
 
 
-/*
- 
- Auxiliary protocol definition.
-
-*/
-
-@protocol db_aux_System_Runtime_InteropServices__PropertyInfo <NSObject>
+//
+// Implementation protocol
+//
+@protocol System_Runtime_InteropServices__PropertyInfo <System_Runtime_InteropServices__PropertyInfo_, System_Object>
 
 @optional
 
@@ -206,7 +217,7 @@
 
 	// Managed property name : Attributes
 	// Managed property type : System.Reflection.PropertyAttributes
-    @property (nonatomic, readonly) System_Reflection_PropertyAttributes attributes;
+    @property (nonatomic, readonly) int32_t attributes;
 
 	// Managed property name : CanRead
 	// Managed property type : System.Boolean
@@ -226,7 +237,7 @@
 
 	// Managed property name : MemberType
 	// Managed property type : System.Reflection.MemberTypes
-    @property (nonatomic, readonly) System_Reflection_MemberTypes memberType;
+    @property (nonatomic, readonly) int32_t memberType;
 
 	// Managed property name : Name
 	// Managed property type : System.String
@@ -326,7 +337,7 @@
 	// Managed method name : GetValue
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo
-    - (System_Object *)getValue_withObj:(System_Object *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 index:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5;
+    - (System_Object *)getValue_withObj:(System_Object *)p1 invokeAttr:(int32_t)p2 binder:(System_Reflection_Binder *)p3 index:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5;
 
 	// Managed method name : Invoke
 	// Managed return type : System.Void
@@ -346,7 +357,7 @@
 	// Managed method name : SetValue
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Object, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo
-    - (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2 invokeAttr:(System_Reflection_BindingFlags)p3 binder:(System_Reflection_Binder *)p4 index:(DBSystem_Array *)p5 culture:(System_Globalization_CultureInfo *)p6;
+    - (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2 invokeAttr:(int32_t)p3 binder:(System_Reflection_Binder *)p4 index:(DBSystem_Array *)p5 culture:(System_Globalization_CultureInfo *)p6;
 
 	// Managed method name : ToString
 	// Managed return type : System.String

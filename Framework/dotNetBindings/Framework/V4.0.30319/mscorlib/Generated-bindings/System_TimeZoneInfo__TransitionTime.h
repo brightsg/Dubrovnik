@@ -2,7 +2,7 @@
 //
 // Managed struct : TimeZoneInfo.TransitionTime
 //
-@interface System_TimeZoneInfo__TransitionTime : DBManagedObject <System_IEquatableA1, System_Runtime_Serialization_ISerializable, System_Runtime_Serialization_IDeserializationCallback>
+@interface System_TimeZoneInfo__TransitionTime : DBManagedObject <System_IEquatableA1_, System_Runtime_Serialization_ISerializable_, System_Runtime_Serialization_IDeserializationCallback_>
 
 #pragma mark -
 #pragma mark Setup
@@ -20,7 +20,7 @@
 
 	// Managed property name : DayOfWeek
 	// Managed property type : System.DayOfWeek
-    @property (nonatomic, readonly) System_DayOfWeek dayOfWeek;
+    @property (nonatomic, readonly) int32_t dayOfWeek;
 
 	// Managed property name : IsFixedDateRule
 	// Managed property type : System.Boolean
@@ -49,7 +49,7 @@
 	// Managed method name : CreateFloatingDateRule
 	// Managed return type : System.TimeZoneInfo+TransitionTime
 	// Managed param types : System.DateTime, System.Int32, System.Int32, System.DayOfWeek
-    + (System_TimeZoneInfo__TransitionTime *)createFloatingDateRule_withTimeOfDay:(NSDate *)p1 month:(int32_t)p2 week:(int32_t)p3 dayOfWeek:(System_DayOfWeek)p4;
+    + (System_TimeZoneInfo__TransitionTime *)createFloatingDateRule_withTimeOfDay:(NSDate *)p1 month:(int32_t)p2 week:(int32_t)p3 dayOfWeek:(int32_t)p4;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

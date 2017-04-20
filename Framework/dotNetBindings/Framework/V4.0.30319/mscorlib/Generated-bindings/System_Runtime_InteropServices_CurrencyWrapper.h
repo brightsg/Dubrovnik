@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.CurrencyWrapper
 	// Managed param types : System.Decimal
-    + (System_Runtime_InteropServices_CurrencyWrapper *)new_withObjDecimal:(NSDecimalNumber *)p1;
+    + (System_Runtime_InteropServices_CurrencyWrapper *)new_withObjSDecimal:(NSDecimalNumber *)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.CurrencyWrapper

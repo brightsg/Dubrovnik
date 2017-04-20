@@ -32,7 +32,10 @@
 	// Managed param types : System.Type
     + (System_Diagnostics_Contracts_ContractClassAttribute *)new_withTypeContainingContracts:(System_Type *)p1
     {
-		return [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Diagnostics_Contracts_ContractClassAttribute * object = [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,9 +46,19 @@
     @synthesize typeContainingContracts = _typeContainingContracts;
     - (System_Type *)typeContainingContracts
     {
-		MonoObject *monoObject = [self getMonoProperty:"TypeContainingContracts"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TypeContainingContracts");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_typeContainingContracts isEqualToMonoObject:monoObject]) return _typeContainingContracts;					
-		_typeContainingContracts = [System_Type objectWithMonoObject:monoObject];
+		_typeContainingContracts = [System_Type bestObjectWithMonoObject:monoObject];
 
 		return _typeContainingContracts;
 	}

@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.CompoundAce
 	// Managed param types : System.Security.AccessControl.AceFlags, System.Int32, System.Security.AccessControl.CompoundAceType, System.Security.Principal.SecurityIdentifier
-    + (System_Security_AccessControl_CompoundAce *)new_withFlags:(System_Security_AccessControl_AceFlags)p1 accessMask:(int32_t)p2 compoundAceType:(System_Security_AccessControl_CompoundAceType)p3 sid:(System_Security_Principal_SecurityIdentifier *)p4
+    + (System_Security_AccessControl_CompoundAce *)new_withFlags:(uint8_t)p1 accessMask:(int32_t)p2 compoundAceType:(int32_t)p3 sid:(System_Security_Principal_SecurityIdentifier *)p4
     {
-		return [[self alloc] initWithSignature:"System.Security.AccessControl.AceFlags,int,System.Security.AccessControl.CompoundAceType,System.Security.Principal.SecurityIdentifier" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];;
+		
+		System_Security_AccessControl_CompoundAce * object = [[self alloc] initWithSignature:"System.Security.AccessControl.AceFlags,int,System.Security.AccessControl.CompoundAceType,System.Security.Principal.SecurityIdentifier" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,8 +46,18 @@
     @synthesize binaryLength = _binaryLength;
     - (int32_t)binaryLength
     {
-		MonoObject *monoObject = [self getMonoProperty:"BinaryLength"];
-		_binaryLength = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BinaryLength");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_binaryLength = monoObject;
 
 		return _binaryLength;
 	}
@@ -52,18 +65,37 @@
 	// Managed property name : CompoundAceType
 	// Managed property type : System.Security.AccessControl.CompoundAceType
     @synthesize compoundAceType = _compoundAceType;
-    - (System_Security_AccessControl_CompoundAceType)compoundAceType
+    - (int32_t)compoundAceType
     {
-		MonoObject *monoObject = [self getMonoProperty:"CompoundAceType"];
-		_compoundAceType = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CompoundAceType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_compoundAceType = monoObject;
 
 		return _compoundAceType;
 	}
-    - (void)setCompoundAceType:(System_Security_AccessControl_CompoundAceType)value
+    - (void)setCompoundAceType:(int32_t)value
 	{
 		_compoundAceType = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"CompoundAceType" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CompoundAceType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -74,7 +106,9 @@
 	// Managed param types : System.Byte[], System.Int32
     - (void)getBinaryForm_withBinaryForm:(NSData *)p1 offset:(int32_t)p2
     {
-		[self invokeMonoMethod:"GetBinaryForm(byte[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"GetBinaryForm(byte[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 #pragma mark -

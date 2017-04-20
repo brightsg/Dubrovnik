@@ -27,7 +27,7 @@
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.InteropServices.ComTypes.IStream, System.Int64, System.IntPtr, System.IntPtr
-    - (void)copyTo_withPstm:(System_Runtime_InteropServices_ComTypes_IStream *)p1 cb:(int64_t)p2 pcbRead:(void *)p3 pcbWritten:(void *)p4;
+    - (void)copyTo_withPstm:(id <System_Runtime_InteropServices_ComTypes_IStream_>)p1 cb:(int64_t)p2 pcbRead:(void *)p3 pcbWritten:(void *)p4;
 
 	// Managed method name : LockRegion
 	// Managed return type : System.Void

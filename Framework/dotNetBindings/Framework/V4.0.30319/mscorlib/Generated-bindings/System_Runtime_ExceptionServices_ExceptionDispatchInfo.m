@@ -32,9 +32,19 @@
     @synthesize sourceException = _sourceException;
     - (System_Exception *)sourceException
     {
-		MonoObject *monoObject = [self getMonoProperty:"SourceException"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SourceException");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_sourceException isEqualToMonoObject:monoObject]) return _sourceException;					
-		_sourceException = [System_Exception objectWithMonoObject:monoObject];
+		_sourceException = [System_Exception bestObjectWithMonoObject:monoObject];
 
 		return _sourceException;
 	}
@@ -50,7 +60,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Capture(System.Exception)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Runtime_ExceptionServices_ExceptionDispatchInfo objectWithMonoObject:monoObject];
+		return [System_Runtime_ExceptionServices_ExceptionDispatchInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Throw
@@ -58,7 +68,9 @@
 	// Managed param types : 
     - (void)throw
     {
-		[self invokeMonoMethod:"Throw()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Throw()" withNumArgs:0];
+        
     }
 
 #pragma mark -

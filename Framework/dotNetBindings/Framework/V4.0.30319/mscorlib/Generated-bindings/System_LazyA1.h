@@ -21,8 +21,13 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Lazy`1<System.Lazy`1+T>
+	// Managed param types : System.Boolean
+    + (System_LazyA1 *)new_withIsThreadSafe:(BOOL)p1;
+
+	// Managed method name : .ctor
+	// Managed return type : System.Lazy`1<System.Lazy`1+T>
 	// Managed param types : System.Threading.LazyThreadSafetyMode
-    + (System_LazyA1 *)new_withMode:(System_Threading_LazyThreadSafetyMode)p1;
+    + (System_LazyA1 *)new_withMode:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Lazy`1<System.Lazy`1+T>
@@ -32,12 +37,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Lazy`1<System.Lazy`1+T>
 	// Managed param types : System.Func`1<System.Lazy`1+T>, System.Threading.LazyThreadSafetyMode
-    + (System_LazyA1 *)new_withValueFactory:(System_FuncA1 *)p1 mode:(System_Threading_LazyThreadSafetyMode)p2;
-
-	// Managed method name : .ctor
-	// Managed return type : System.Lazy`1<System.Lazy`1+T>
-	// Managed param types : System.Boolean
-    + (System_LazyA1 *)new_withIsThreadSafe:(BOOL)p1;
+    + (System_LazyA1 *)new_withValueFactory:(System_FuncA1 *)p1 mode:(int32_t)p2;
 
 #pragma mark -
 #pragma mark Properties

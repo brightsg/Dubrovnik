@@ -32,7 +32,10 @@
 	// Managed param types : System.Byte[]
     + (System_Runtime_Remoting_Metadata_W3cXsd2001_SoapBase64Binary *)new_withValue:(NSData *)p1
     {
-		return [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Runtime_Remoting_Metadata_W3cXsd2001_SoapBase64Binary * object = [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,7 +46,17 @@
     @synthesize value = _value;
     - (NSData *)value
     {
-		MonoObject *monoObject = [self getMonoProperty:"Value"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Value");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_value isEqualToMonoObject:monoObject]) return _value;					
 		_value = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -52,8 +65,17 @@
     - (void)setValue:(NSData *)value
 	{
 		_value = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"Value" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Value");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : XsdType
@@ -61,7 +83,17 @@
     static NSString * m_xsdType;
     + (NSString *)xsdType
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"XsdType"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "XsdType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_xsdType isEqualToMonoObject:monoObject]) return m_xsdType;					
 		m_xsdType = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -90,7 +122,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_Metadata_W3cXsd2001_SoapBase64Binary objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Metadata_W3cXsd2001_SoapBase64Binary bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToString

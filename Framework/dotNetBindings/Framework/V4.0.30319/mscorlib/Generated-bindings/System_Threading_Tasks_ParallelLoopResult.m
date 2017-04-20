@@ -32,8 +32,18 @@
     @synthesize isCompleted = _isCompleted;
     - (BOOL)isCompleted
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsCompleted"];
-		_isCompleted = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsCompleted");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isCompleted = monoObject;
 
 		return _isCompleted;
 	}
@@ -43,9 +53,19 @@
     @synthesize lowestBreakIteration = _lowestBreakIteration;
     - (System_NullableA1 *)lowestBreakIteration
     {
-		MonoObject *monoObject = [self getMonoProperty:"LowestBreakIteration"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LowestBreakIteration");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_lowestBreakIteration isEqualToMonoObject:monoObject]) return _lowestBreakIteration;					
-		_lowestBreakIteration = [System_NullableA1 objectWithMonoObject:monoObject];
+		_lowestBreakIteration = [System_NullableA1 bestObjectWithMonoObject:monoObject];
 
 		return _lowestBreakIteration;
 	}

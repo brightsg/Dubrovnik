@@ -47,14 +47,14 @@
 	// Managed field name : wIDLFlags
 	// Managed field type : System.Runtime.InteropServices.ComTypes.IDLFLAG
     @synthesize wIDLFlags = _wIDLFlags;
-    - (System_Runtime_InteropServices_ComTypes_IDLFLAG)wIDLFlags
+    - (int16_t)wIDLFlags
     {
 		MonoObject *monoObject = [self getMonoField:"wIDLFlags"];
 		_wIDLFlags = DB_UNBOX_INT16(monoObject);
 
 		return _wIDLFlags;
 	}
-    - (void)setWIDLFlags:(System_Runtime_InteropServices_ComTypes_IDLFLAG)value
+    - (void)setWIDLFlags:(int16_t)value
 	{
 		_wIDLFlags = value;
 		MonoObject *monoObject = DB_VALUE(value);

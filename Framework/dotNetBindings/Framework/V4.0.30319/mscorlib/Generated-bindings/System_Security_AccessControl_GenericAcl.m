@@ -68,8 +68,18 @@
     @synthesize binaryLength = _binaryLength;
     - (int32_t)binaryLength
     {
-		MonoObject *monoObject = [self getMonoProperty:"BinaryLength"];
-		_binaryLength = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BinaryLength");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_binaryLength = monoObject;
 
 		return _binaryLength;
 	}
@@ -79,8 +89,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -90,8 +110,18 @@
     @synthesize isSynchronized = _isSynchronized;
     - (BOOL)isSynchronized
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsSynchronized"];
-		_isSynchronized = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsSynchronized");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isSynchronized = monoObject;
 
 		return _isSynchronized;
 	}
@@ -101,17 +131,36 @@
     @synthesize item = _item;
     - (System_Security_AccessControl_GenericAce *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
-		_item = [System_Security_AccessControl_GenericAce objectWithMonoObject:monoObject];
+		_item = [System_Security_AccessControl_GenericAce bestObjectWithMonoObject:monoObject];
 
 		return _item;
 	}
     - (void)setItem:(System_Security_AccessControl_GenericAce *)value
 	{
 		_item = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Item" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Revision
@@ -119,8 +168,18 @@
     @synthesize revision = _revision;
     - (uint8_t)revision
     {
-		MonoObject *monoObject = [self getMonoProperty:"Revision"];
-		_revision = DB_UNBOX_UINT8(monoObject);
+		typedef uint8_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Revision");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		uint8_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_revision = monoObject;
 
 		return _revision;
 	}
@@ -130,7 +189,17 @@
     @synthesize syncRoot = _syncRoot;
     - (System_Object *)syncRoot
     {
-		MonoObject *monoObject = [self getMonoProperty:"SyncRoot"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SyncRoot");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_syncRoot isEqualToMonoObject:monoObject]) return _syncRoot;					
 		_syncRoot = [System_Object objectWithMonoObject:monoObject];
 
@@ -145,7 +214,9 @@
 	// Managed param types : System.Security.AccessControl.GenericAce[], System.Int32
     - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(System.Array[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"CopyTo(System.Security.AccessControl.GenericAce[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : GetBinaryForm
@@ -153,7 +224,9 @@
 	// Managed param types : System.Byte[], System.Int32
     - (void)getBinaryForm_withBinaryForm:(NSData *)p1 offset:(int32_t)p2
     {
-		[self invokeMonoMethod:"GetBinaryForm(byte[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"GetBinaryForm(byte[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : GetEnumerator
@@ -164,7 +237,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
 		
-		return [System_Security_AccessControl_AceEnumerator objectWithMonoObject:monoObject];
+		return [System_Security_AccessControl_AceEnumerator bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

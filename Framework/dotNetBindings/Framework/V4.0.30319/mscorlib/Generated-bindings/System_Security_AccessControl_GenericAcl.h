@@ -2,7 +2,7 @@
 //
 // Managed class : GenericAcl
 //
-@interface System_Security_AccessControl_GenericAcl : System_Object <System_Collections_ICollection, System_Collections_IEnumerable>
+@interface System_Security_AccessControl_GenericAcl : System_Object <System_Collections_ICollection_, System_Collections_IEnumerable_>
 
 #pragma mark -
 #pragma mark Setup

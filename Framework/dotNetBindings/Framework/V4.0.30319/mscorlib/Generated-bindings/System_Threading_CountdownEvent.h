@@ -2,7 +2,7 @@
 //
 // Managed class : CountdownEvent
 //
-@interface System_Threading_CountdownEvent : System_Object <System_IDisposable>
+@interface System_Threading_CountdownEvent : System_Object <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

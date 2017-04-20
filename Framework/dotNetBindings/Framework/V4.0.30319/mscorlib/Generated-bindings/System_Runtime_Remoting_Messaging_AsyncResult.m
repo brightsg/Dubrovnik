@@ -32,7 +32,17 @@
     @synthesize asyncDelegate = _asyncDelegate;
     - (System_Object *)asyncDelegate
     {
-		MonoObject *monoObject = [self getMonoProperty:"AsyncDelegate"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AsyncDelegate");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_asyncDelegate isEqualToMonoObject:monoObject]) return _asyncDelegate;					
 		_asyncDelegate = [System_Object objectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize asyncState = _asyncState;
     - (System_Object *)asyncState
     {
-		MonoObject *monoObject = [self getMonoProperty:"AsyncState"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AsyncState");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_asyncState isEqualToMonoObject:monoObject]) return _asyncState;					
 		_asyncState = [System_Object objectWithMonoObject:monoObject];
 
@@ -56,9 +76,19 @@
     @synthesize asyncWaitHandle = _asyncWaitHandle;
     - (System_Threading_WaitHandle *)asyncWaitHandle
     {
-		MonoObject *monoObject = [self getMonoProperty:"AsyncWaitHandle"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AsyncWaitHandle");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_asyncWaitHandle isEqualToMonoObject:monoObject]) return _asyncWaitHandle;					
-		_asyncWaitHandle = [System_Threading_WaitHandle objectWithMonoObject:monoObject];
+		_asyncWaitHandle = [System_Threading_WaitHandle bestObjectWithMonoObject:monoObject];
 
 		return _asyncWaitHandle;
 	}
@@ -68,8 +98,18 @@
     @synthesize completedSynchronously = _completedSynchronously;
     - (BOOL)completedSynchronously
     {
-		MonoObject *monoObject = [self getMonoProperty:"CompletedSynchronously"];
-		_completedSynchronously = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CompletedSynchronously");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_completedSynchronously = monoObject;
 
 		return _completedSynchronously;
 	}
@@ -79,16 +119,35 @@
     @synthesize endInvokeCalled = _endInvokeCalled;
     - (BOOL)endInvokeCalled
     {
-		MonoObject *monoObject = [self getMonoProperty:"EndInvokeCalled"];
-		_endInvokeCalled = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EndInvokeCalled");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_endInvokeCalled = monoObject;
 
 		return _endInvokeCalled;
 	}
     - (void)setEndInvokeCalled:(BOOL)value
 	{
 		_endInvokeCalled = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"EndInvokeCalled" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "EndInvokeCalled");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : IsCompleted
@@ -96,8 +155,18 @@
     @synthesize isCompleted = _isCompleted;
     - (BOOL)isCompleted
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsCompleted"];
-		_isCompleted = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsCompleted");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isCompleted = monoObject;
 
 		return _isCompleted;
 	}
@@ -107,9 +176,19 @@
     @synthesize nextSink = _nextSink;
     - (System_Runtime_Remoting_Messaging_IMessageSink *)nextSink
     {
-		MonoObject *monoObject = [self getMonoProperty:"NextSink"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NextSink");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_nextSink isEqualToMonoObject:monoObject]) return _nextSink;					
-		_nextSink = [System_Runtime_Remoting_Messaging_IMessageSink objectWithMonoObject:monoObject];
+		_nextSink = [System_Runtime_Remoting_Messaging_IMessageSink bestObjectWithMonoObject:monoObject];
 
 		return _nextSink;
 	}
@@ -120,42 +199,44 @@
 	// Managed method name : AsyncProcessMessage
 	// Managed return type : System.Runtime.Remoting.Messaging.IMessageCtrl
 	// Managed param types : System.Runtime.Remoting.Messaging.IMessage, System.Runtime.Remoting.Messaging.IMessageSink
-    - (System_Runtime_Remoting_Messaging_IMessageCtrl *)asyncProcessMessage_withMsg:(System_Runtime_Remoting_Messaging_IMessage *)p1 replySink:(System_Runtime_Remoting_Messaging_IMessageSink *)p2
+    - (id <System_Runtime_Remoting_Messaging_IMessageCtrl>)asyncProcessMessage_withMsg:(id <System_Runtime_Remoting_Messaging_IMessage_>)p1 replySink:(id <System_Runtime_Remoting_Messaging_IMessageSink_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"AsyncProcessMessage(System.Runtime.Remoting.Messaging.IMessage,System.Runtime.Remoting.Messaging.IMessageSink)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_Messaging_IMessageCtrl objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Messaging_IMessageCtrl bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetReplyMessage
 	// Managed return type : System.Runtime.Remoting.Messaging.IMessage
 	// Managed param types : 
-    - (System_Runtime_Remoting_Messaging_IMessage *)getReplyMessage
+    - (id <System_Runtime_Remoting_Messaging_IMessage>)getReplyMessage
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetReplyMessage()" withNumArgs:0];
 		
-		return [System_Runtime_Remoting_Messaging_IMessage objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Messaging_IMessage bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SetMessageCtrl
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Messaging.IMessageCtrl
-    - (void)setMessageCtrl_withMc:(System_Runtime_Remoting_Messaging_IMessageCtrl *)p1
+    - (void)setMessageCtrl_withMc:(id <System_Runtime_Remoting_Messaging_IMessageCtrl_>)p1
     {
-		[self invokeMonoMethod:"SetMessageCtrl(System.Runtime.Remoting.Messaging.IMessageCtrl)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetMessageCtrl(System.Runtime.Remoting.Messaging.IMessageCtrl)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SyncProcessMessage
 	// Managed return type : System.Runtime.Remoting.Messaging.IMessage
 	// Managed param types : System.Runtime.Remoting.Messaging.IMessage
-    - (System_Runtime_Remoting_Messaging_IMessage *)syncProcessMessage_withMsg:(System_Runtime_Remoting_Messaging_IMessage *)p1
+    - (id <System_Runtime_Remoting_Messaging_IMessage>)syncProcessMessage_withMsg:(id <System_Runtime_Remoting_Messaging_IMessage_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"SyncProcessMessage(System.Runtime.Remoting.Messaging.IMessage)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_Messaging_IMessage objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Messaging_IMessage bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

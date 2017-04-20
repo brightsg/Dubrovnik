@@ -2,7 +2,7 @@
 //
 // Managed class : GenericIdentity
 //
-@interface System_Security_Principal_GenericIdentity : System_Security_Claims_ClaimsIdentity <System_Security_Principal_IIdentity>
+@interface System_Security_Principal_GenericIdentity : System_Security_Claims_ClaimsIdentity <System_Security_Principal_IIdentity_>
 
 #pragma mark -
 #pragma mark Setup
@@ -16,13 +16,13 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Principal.GenericIdentity
-	// Managed param types : System.String
-    + (System_Security_Principal_GenericIdentity *)new_withName:(NSString *)p1;
+	// Managed param types : System.String, System.String
+    + (System_Security_Principal_GenericIdentity *)new_withName:(NSString *)p1 type:(NSString *)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Principal.GenericIdentity
-	// Managed param types : System.String, System.String
-    + (System_Security_Principal_GenericIdentity *)new_withName:(NSString *)p1 type:(NSString *)p2;
+	// Managed param types : System.String
+    + (System_Security_Principal_GenericIdentity *)new_withName:(NSString *)p1;
 
 #pragma mark -
 #pragma mark Properties

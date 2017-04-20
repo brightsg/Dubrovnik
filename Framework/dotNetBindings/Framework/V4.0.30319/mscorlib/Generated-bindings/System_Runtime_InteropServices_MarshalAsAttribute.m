@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.MarshalAsAttribute
 	// Managed param types : System.Runtime.InteropServices.UnmanagedType
-    + (System_Runtime_InteropServices_MarshalAsAttribute *)new_withUnmanagedTypeSRIUnmanagedType:(System_Runtime_InteropServices_UnmanagedType)p1
+    + (System_Runtime_InteropServices_MarshalAsAttribute *)new_withUnmanagedTypeSRIUnmanagedType:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.InteropServices.UnmanagedType" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Runtime_InteropServices_MarshalAsAttribute * object = [[self alloc] initWithSignature:"System.Runtime.InteropServices.UnmanagedType" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Int16
     + (System_Runtime_InteropServices_MarshalAsAttribute *)new_withUnmanagedTypeInt16:(int16_t)p1
     {
-		return [[self alloc] initWithSignature:"int16" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Runtime_InteropServices_MarshalAsAttribute * object = [[self alloc] initWithSignature:"int16" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -49,14 +55,14 @@
 	// Managed field name : ArraySubType
 	// Managed field type : System.Runtime.InteropServices.UnmanagedType
     @synthesize arraySubType = _arraySubType;
-    - (System_Runtime_InteropServices_UnmanagedType)arraySubType
+    - (int32_t)arraySubType
     {
 		MonoObject *monoObject = [self getMonoField:"ArraySubType"];
 		_arraySubType = DB_UNBOX_INT32(monoObject);
 
 		return _arraySubType;
 	}
-    - (void)setArraySubType:(System_Runtime_InteropServices_UnmanagedType)value
+    - (void)setArraySubType:(int32_t)value
 	{
 		_arraySubType = value;
 		MonoObject *monoObject = DB_VALUE(value);
@@ -123,7 +129,7 @@
     {
 		MonoObject *monoObject = [self getMonoField:"MarshalTypeRef"];
 		if ([self object:_marshalTypeRef isEqualToMonoObject:monoObject]) return _marshalTypeRef;					
-		_marshalTypeRef = [System_Type objectWithMonoObject:monoObject];
+		_marshalTypeRef = [System_Type bestObjectWithMonoObject:monoObject];
 
 		return _marshalTypeRef;
 	}
@@ -137,14 +143,14 @@
 	// Managed field name : SafeArraySubType
 	// Managed field type : System.Runtime.InteropServices.VarEnum
     @synthesize safeArraySubType = _safeArraySubType;
-    - (System_Runtime_InteropServices_VarEnum)safeArraySubType
+    - (int32_t)safeArraySubType
     {
 		MonoObject *monoObject = [self getMonoField:"SafeArraySubType"];
 		_safeArraySubType = DB_UNBOX_INT32(monoObject);
 
 		return _safeArraySubType;
 	}
-    - (void)setSafeArraySubType:(System_Runtime_InteropServices_VarEnum)value
+    - (void)setSafeArraySubType:(int32_t)value
 	{
 		_safeArraySubType = value;
 		MonoObject *monoObject = DB_VALUE(value);
@@ -158,7 +164,7 @@
     {
 		MonoObject *monoObject = [self getMonoField:"SafeArrayUserDefinedSubType"];
 		if ([self object:_safeArrayUserDefinedSubType isEqualToMonoObject:monoObject]) return _safeArrayUserDefinedSubType;					
-		_safeArrayUserDefinedSubType = [System_Type objectWithMonoObject:monoObject];
+		_safeArrayUserDefinedSubType = [System_Type bestObjectWithMonoObject:monoObject];
 
 		return _safeArrayUserDefinedSubType;
 	}
@@ -209,10 +215,20 @@
 	// Managed property name : Value
 	// Managed property type : System.Runtime.InteropServices.UnmanagedType
     @synthesize value = _value;
-    - (System_Runtime_InteropServices_UnmanagedType)value
+    - (int32_t)value
     {
-		MonoObject *monoObject = [self getMonoProperty:"Value"];
-		_value = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Value");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_value = monoObject;
 
 		return _value;
 	}

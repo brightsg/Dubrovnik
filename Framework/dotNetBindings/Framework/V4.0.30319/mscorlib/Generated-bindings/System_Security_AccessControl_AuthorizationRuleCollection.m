@@ -32,9 +32,19 @@
     @synthesize item = _item;
     - (System_Security_AccessControl_AuthorizationRule *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
-		_item = [System_Security_AccessControl_AuthorizationRule objectWithMonoObject:monoObject];
+		_item = [System_Security_AccessControl_AuthorizationRule bestObjectWithMonoObject:monoObject];
 
 		return _item;
 	}
@@ -42,12 +52,24 @@
 #pragma mark -
 #pragma mark Methods
 
+	// Managed method name : AddRule
+	// Managed return type : System.Void
+	// Managed param types : System.Security.AccessControl.AuthorizationRule
+    - (void)addRule_withRule:(System_Security_AccessControl_AuthorizationRule *)p1
+    {
+		
+		[self invokeMonoMethod:"AddRule(System.Security.AccessControl.AuthorizationRule)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+    }
+
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
 	// Managed param types : System.Security.AccessControl.AuthorizationRule[], System.Int32
     - (void)copyTo_withRules:(DBSystem_Array *)p1 index:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(System.Array[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"CopyTo(System.Security.AccessControl.AuthorizationRule[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 #pragma mark -

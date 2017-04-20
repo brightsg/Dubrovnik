@@ -2,7 +2,7 @@
 //
 // Managed interface : IClientFormatterSinkProvider
 //
-@interface System_Runtime_Remoting_Channels_IClientFormatterSinkProvider : System_Object <System_Runtime_Remoting_Channels_IClientFormatterSinkProvider, System_Runtime_Remoting_Channels_IClientChannelSinkProvider>
+@interface System_Runtime_Remoting_Channels_IClientFormatterSinkProvider : System_Object <System_Runtime_Remoting_Channels_IClientFormatterSinkProvider_, System_Runtime_Remoting_Channels_IClientChannelSinkProvider_>
 
 #pragma mark -
 #pragma mark Setup

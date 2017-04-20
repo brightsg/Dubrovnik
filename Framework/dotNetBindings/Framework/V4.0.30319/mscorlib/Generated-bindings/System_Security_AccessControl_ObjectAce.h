@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.ObjectAce
 	// Managed param types : System.Security.AccessControl.AceFlags, System.Security.AccessControl.AceQualifier, System.Int32, System.Security.Principal.SecurityIdentifier, System.Security.AccessControl.ObjectAceFlags, System.Guid, System.Guid, System.Boolean, System.Byte[]
-    + (System_Security_AccessControl_ObjectAce *)new_withAceFlags:(System_Security_AccessControl_AceFlags)p1 qualifier:(System_Security_AccessControl_AceQualifier)p2 accessMask:(int32_t)p3 sid:(System_Security_Principal_SecurityIdentifier *)p4 flags:(System_Security_AccessControl_ObjectAceFlags)p5 type:(System_Guid *)p6 inheritedType:(System_Guid *)p7 isCallback:(BOOL)p8 opaque:(NSData *)p9;
+    + (System_Security_AccessControl_ObjectAce *)new_withAceFlags:(uint8_t)p1 qualifier:(int32_t)p2 accessMask:(int32_t)p3 sid:(System_Security_Principal_SecurityIdentifier *)p4 flags:(int32_t)p5 type:(System_Guid *)p6 inheritedType:(System_Guid *)p7 isCallback:(BOOL)p8 opaque:(NSData *)p9;
 
 #pragma mark -
 #pragma mark Properties
@@ -32,7 +32,7 @@
 
 	// Managed property name : ObjectAceFlags
 	// Managed property type : System.Security.AccessControl.ObjectAceFlags
-    @property (nonatomic) System_Security_AccessControl_ObjectAceFlags objectAceFlags;
+    @property (nonatomic) int32_t objectAceFlags;
 
 	// Managed property name : ObjectAceType
 	// Managed property type : System.Guid

@@ -32,7 +32,10 @@
 	// Managed param types : System.Globalization.CultureInfo
     + (System_Collections_CaseInsensitiveHashCodeProvider *)new_withCulture:(System_Globalization_CultureInfo *)p1
     {
-		return [[self alloc] initWithSignature:"System.Globalization.CultureInfo" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Collections_CaseInsensitiveHashCodeProvider * object = [[self alloc] initWithSignature:"System.Globalization.CultureInfo" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,9 +46,19 @@
     static System_Collections_CaseInsensitiveHashCodeProvider * m_default;
     + (System_Collections_CaseInsensitiveHashCodeProvider *)default
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Default"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Default");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_default isEqualToMonoObject:monoObject]) return m_default;					
-		m_default = [System_Collections_CaseInsensitiveHashCodeProvider objectWithMonoObject:monoObject];
+		m_default = [System_Collections_CaseInsensitiveHashCodeProvider bestObjectWithMonoObject:monoObject];
 
 		return m_default;
 	}
@@ -55,9 +68,19 @@
     static System_Collections_CaseInsensitiveHashCodeProvider * m_defaultInvariant;
     + (System_Collections_CaseInsensitiveHashCodeProvider *)defaultInvariant
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"DefaultInvariant"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DefaultInvariant");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_defaultInvariant isEqualToMonoObject:monoObject]) return m_defaultInvariant;					
-		m_defaultInvariant = [System_Collections_CaseInsensitiveHashCodeProvider objectWithMonoObject:monoObject];
+		m_defaultInvariant = [System_Collections_CaseInsensitiveHashCodeProvider bestObjectWithMonoObject:monoObject];
 
 		return m_defaultInvariant;
 	}

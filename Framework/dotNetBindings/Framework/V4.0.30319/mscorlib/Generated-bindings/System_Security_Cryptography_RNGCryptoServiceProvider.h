@@ -2,7 +2,7 @@
 //
 // Managed class : RNGCryptoServiceProvider
 //
-@interface System_Security_Cryptography_RNGCryptoServiceProvider : System_Security_Cryptography_RandomNumberGenerator <System_IDisposable>
+@interface System_Security_Cryptography_RNGCryptoServiceProvider : System_Security_Cryptography_RandomNumberGenerator <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -16,11 +16,6 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.RNGCryptoServiceProvider
-	// Managed param types : System.Security.Cryptography.CspParameters
-    + (System_Security_Cryptography_RNGCryptoServiceProvider *)new_withCspParams:(System_Security_Cryptography_CspParameters *)p1;
-
-	// Managed method name : .ctor
-	// Managed return type : System.Security.Cryptography.RNGCryptoServiceProvider
 	// Managed param types : System.String
     + (System_Security_Cryptography_RNGCryptoServiceProvider *)new_withStr:(NSString *)p1;
 
@@ -28,6 +23,11 @@
 	// Managed return type : System.Security.Cryptography.RNGCryptoServiceProvider
 	// Managed param types : System.Byte[]
     + (System_Security_Cryptography_RNGCryptoServiceProvider *)new_withRgb:(NSData *)p1;
+
+	// Managed method name : .ctor
+	// Managed return type : System.Security.Cryptography.RNGCryptoServiceProvider
+	// Managed param types : System.Security.Cryptography.CspParameters
+    + (System_Security_Cryptography_RNGCryptoServiceProvider *)new_withCspParams:(System_Security_Cryptography_CspParameters *)p1;
 
 #pragma mark -
 #pragma mark Methods

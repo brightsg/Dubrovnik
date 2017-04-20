@@ -2,7 +2,7 @@
 //
 // Managed class : DateTimeFormatInfo
 //
-@interface System_Globalization_DateTimeFormatInfo : System_Object <System_ICloneable, System_IFormatProvider>
+@interface System_Globalization_DateTimeFormatInfo : System_Object <System_ICloneable_, System_IFormatProvider_>
 
 #pragma mark -
 #pragma mark Setup
@@ -36,7 +36,7 @@
 
 	// Managed property name : CalendarWeekRule
 	// Managed property type : System.Globalization.CalendarWeekRule
-    @property (nonatomic) System_Globalization_CalendarWeekRule calendarWeekRule;
+    @property (nonatomic) int32_t calendarWeekRule;
 
 	// Managed property name : CurrentInfo
 	// Managed property type : System.Globalization.DateTimeFormatInfo
@@ -52,7 +52,7 @@
 
 	// Managed property name : FirstDayOfWeek
 	// Managed property type : System.DayOfWeek
-    @property (nonatomic) System_DayOfWeek firstDayOfWeek;
+    @property (nonatomic) int32_t firstDayOfWeek;
 
 	// Managed property name : FullDateTimePattern
 	// Managed property type : System.String
@@ -137,7 +137,7 @@
 	// Managed method name : GetAbbreviatedDayName
 	// Managed return type : System.String
 	// Managed param types : System.DayOfWeek
-    - (NSString *)getAbbreviatedDayName_withDayofweek:(System_DayOfWeek)p1;
+    - (NSString *)getAbbreviatedDayName_withDayofweek:(int32_t)p1;
 
 	// Managed method name : GetAbbreviatedEraName
 	// Managed return type : System.String
@@ -162,7 +162,7 @@
 	// Managed method name : GetDayName
 	// Managed return type : System.String
 	// Managed param types : System.DayOfWeek
-    - (NSString *)getDayName_withDayofweek:(System_DayOfWeek)p1;
+    - (NSString *)getDayName_withDayofweek:(int32_t)p1;
 
 	// Managed method name : GetEra
 	// Managed return type : System.Int32
@@ -182,7 +182,7 @@
 	// Managed method name : GetInstance
 	// Managed return type : System.Globalization.DateTimeFormatInfo
 	// Managed param types : System.IFormatProvider
-    + (System_Globalization_DateTimeFormatInfo *)getInstance_withProvider:(System_IFormatProvider *)p1;
+    + (System_Globalization_DateTimeFormatInfo *)getInstance_withProvider:(id <System_IFormatProvider_>)p1;
 
 	// Managed method name : GetMonthName
 	// Managed return type : System.String
@@ -192,7 +192,7 @@
 	// Managed method name : GetShortestDayName
 	// Managed return type : System.String
 	// Managed param types : System.DayOfWeek
-    - (NSString *)getShortestDayName_withDayOfWeek:(System_DayOfWeek)p1;
+    - (NSString *)getShortestDayName_withDayOfWeek:(int32_t)p1;
 
 	// Managed method name : ReadOnly
 	// Managed return type : System.Globalization.DateTimeFormatInfo

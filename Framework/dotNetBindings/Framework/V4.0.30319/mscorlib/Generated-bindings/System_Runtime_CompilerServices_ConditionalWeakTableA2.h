@@ -36,7 +36,7 @@
 
 	// Managed method name : TryGetValue
 	// Managed return type : System.Boolean
-	// Managed param types : <System.Runtime.CompilerServices.ConditionalWeakTable`2+TKey>, ref <TValue&>
-    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
+	// Managed param types : <System.Runtime.CompilerServices.ConditionalWeakTable`2+TKey>, ref TValue&
+    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Runtime_CompilerServices_ConditionalWeakTableA2__TValue **)p2;
 @end
 //--Dubrovnik.CodeGenerator

@@ -32,7 +32,9 @@
 	// Managed param types : 
     - (void)ensureState
     {
-		[self invokeMonoMethod:"EnsureState()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"EnsureState()" withNumArgs:0];
+        
     }
 
 	// Managed method name : IsStateAvailable

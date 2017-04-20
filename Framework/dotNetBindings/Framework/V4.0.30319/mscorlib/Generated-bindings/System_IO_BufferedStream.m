@@ -32,7 +32,10 @@
 	// Managed param types : System.IO.Stream
     + (System_IO_BufferedStream *)new_withStream:(System_IO_Stream *)p1
     {
-		return [[self alloc] initWithSignature:"System.IO.Stream" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_IO_BufferedStream * object = [[self alloc] initWithSignature:"System.IO.Stream" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.IO.Stream, System.Int32
     + (System_IO_BufferedStream *)new_withStream:(System_IO_Stream *)p1 bufferSize:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"System.IO.Stream,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		System_IO_BufferedStream * object = [[self alloc] initWithSignature:"System.IO.Stream,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -51,8 +57,18 @@
     @synthesize canRead = _canRead;
     - (BOOL)canRead
     {
-		MonoObject *monoObject = [self getMonoProperty:"CanRead"];
-		_canRead = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CanRead");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_canRead = monoObject;
 
 		return _canRead;
 	}
@@ -62,8 +78,18 @@
     @synthesize canSeek = _canSeek;
     - (BOOL)canSeek
     {
-		MonoObject *monoObject = [self getMonoProperty:"CanSeek"];
-		_canSeek = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CanSeek");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_canSeek = monoObject;
 
 		return _canSeek;
 	}
@@ -73,8 +99,18 @@
     @synthesize canWrite = _canWrite;
     - (BOOL)canWrite
     {
-		MonoObject *monoObject = [self getMonoProperty:"CanWrite"];
-		_canWrite = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CanWrite");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_canWrite = monoObject;
 
 		return _canWrite;
 	}
@@ -84,8 +120,18 @@
     @synthesize length = _length;
     - (int64_t)length
     {
-		MonoObject *monoObject = [self getMonoProperty:"Length"];
-		_length = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Length");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_length = monoObject;
 
 		return _length;
 	}
@@ -95,16 +141,35 @@
     @synthesize position = _position;
     - (int64_t)position
     {
-		MonoObject *monoObject = [self getMonoProperty:"Position"];
-		_position = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Position");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_position = monoObject;
 
 		return _position;
 	}
     - (void)setPosition:(int64_t)value
 	{
 		_position = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Position" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int64_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Position");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -113,29 +178,29 @@
 	// Managed method name : BeginRead
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.AsyncCallback, System.Object
-    - (System_IAsyncResult *)beginRead_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5
+    - (id <System_IAsyncResult>)beginRead_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"BeginRead(byte[],int,int,System.AsyncCallback,object)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
-		return [System_IAsyncResult objectWithMonoObject:monoObject];
+		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : BeginWrite
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.AsyncCallback, System.Object
-    - (System_IAsyncResult *)beginWrite_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5
+    - (id <System_IAsyncResult>)beginWrite_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"BeginWrite(byte[],int,int,System.AsyncCallback,object)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
-		return [System_IAsyncResult objectWithMonoObject:monoObject];
+		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EndRead
 	// Managed return type : System.Int32
 	// Managed param types : System.IAsyncResult
-    - (int32_t)endRead_withAsyncResult:(System_IAsyncResult *)p1
+    - (int32_t)endRead_withAsyncResult:(id <System_IAsyncResult_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"EndRead(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -146,9 +211,11 @@
 	// Managed method name : EndWrite
 	// Managed return type : System.Void
 	// Managed param types : System.IAsyncResult
-    - (void)endWrite_withAsyncResult:(System_IAsyncResult *)p1
+    - (void)endWrite_withAsyncResult:(id <System_IAsyncResult_>)p1
     {
-		[self invokeMonoMethod:"EndWrite(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"EndWrite(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Flush
@@ -156,7 +223,9 @@
 	// Managed param types : 
     - (void)flush
     {
-		[self invokeMonoMethod:"Flush()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Flush()" withNumArgs:0];
+        
     }
 
 	// Managed method name : FlushAsync
@@ -167,7 +236,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"FlushAsync(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Read
@@ -189,7 +258,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadAsync(byte[],int,int,System.Threading.CancellationToken)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
 		
-		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReadByte
@@ -206,7 +275,7 @@
 	// Managed method name : Seek
 	// Managed return type : System.Int64
 	// Managed param types : System.Int64, System.IO.SeekOrigin
-    - (int64_t)seek_withOffset:(int64_t)p1 origin:(System_IO_SeekOrigin)p2
+    - (int64_t)seek_withOffset:(int64_t)p1 origin:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Seek(long,System.IO.SeekOrigin)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
@@ -219,7 +288,9 @@
 	// Managed param types : System.Int64
     - (void)setLength_withValue:(int64_t)p1
     {
-		[self invokeMonoMethod:"SetLength(long)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"SetLength(long)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : Write
@@ -227,7 +298,9 @@
 	// Managed param types : System.Byte[], System.Int32, System.Int32
     - (void)write_withArray:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3
     {
-		[self invokeMonoMethod:"Write(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		[self invokeMonoMethod:"Write(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+        
     }
 
 	// Managed method name : WriteAsync
@@ -238,7 +311,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(byte[],int,int,System.Threading.CancellationToken)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
 		
-		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WriteByte
@@ -246,7 +319,9 @@
 	// Managed param types : System.Byte
     - (void)writeByte_withValue:(uint8_t)p1
     {
-		[self invokeMonoMethod:"WriteByte(byte)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"WriteByte(byte)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 #pragma mark -

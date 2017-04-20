@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.CurrencyWrapper
 	// Managed param types : System.Decimal
-    + (System_Runtime_InteropServices_CurrencyWrapper *)new_withObjDecimal:(NSDecimalNumber *)p1
+    + (System_Runtime_InteropServices_CurrencyWrapper *)new_withObjSDecimal:(NSDecimalNumber *)p1
     {
-		return [[self alloc] initWithSignature:"decimal" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Runtime_InteropServices_CurrencyWrapper * object = [[self alloc] initWithSignature:"System.Decimal" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Object
     + (System_Runtime_InteropServices_CurrencyWrapper *)new_withObjObject:(System_Object *)p1
     {
-		return [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Runtime_InteropServices_CurrencyWrapper * object = [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -51,7 +57,17 @@
     @synthesize wrappedObject = _wrappedObject;
     - (NSDecimalNumber *)wrappedObject
     {
-		MonoObject *monoObject = [self getMonoProperty:"WrappedObject"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WrappedObject");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_wrappedObject isEqualToMonoObject:monoObject]) return _wrappedObject;					
 		_wrappedObject = [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
 

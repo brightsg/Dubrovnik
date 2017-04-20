@@ -32,7 +32,10 @@
 	// Managed param types : System.Boolean
     + (System_Threading_ManualResetEventSlim *)new_withInitialState:(BOOL)p1
     {
-		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Threading_ManualResetEventSlim * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Boolean, System.Int32
     + (System_Threading_ManualResetEventSlim *)new_withInitialState:(BOOL)p1 spinCount:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"bool,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		System_Threading_ManualResetEventSlim * object = [[self alloc] initWithSignature:"bool,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -51,16 +57,35 @@
     @synthesize isSet = _isSet;
     - (BOOL)isSet
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsSet"];
-		_isSet = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsSet");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isSet = monoObject;
 
 		return _isSet;
 	}
     - (void)setIsSet:(BOOL)value
 	{
 		_isSet = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"IsSet" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "IsSet");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : SpinCount
@@ -68,16 +93,35 @@
     @synthesize spinCount = _spinCount;
     - (int32_t)spinCount
     {
-		MonoObject *monoObject = [self getMonoProperty:"SpinCount"];
-		_spinCount = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SpinCount");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_spinCount = monoObject;
 
 		return _spinCount;
 	}
     - (void)setSpinCount:(int32_t)value
 	{
 		_spinCount = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"SpinCount" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "SpinCount");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : WaitHandle
@@ -85,9 +129,19 @@
     @synthesize waitHandle = _waitHandle;
     - (System_Threading_WaitHandle *)waitHandle
     {
-		MonoObject *monoObject = [self getMonoProperty:"WaitHandle"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WaitHandle");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_waitHandle isEqualToMonoObject:monoObject]) return _waitHandle;					
-		_waitHandle = [System_Threading_WaitHandle objectWithMonoObject:monoObject];
+		_waitHandle = [System_Threading_WaitHandle bestObjectWithMonoObject:monoObject];
 
 		return _waitHandle;
 	}
@@ -100,7 +154,9 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Reset
@@ -108,7 +164,9 @@
 	// Managed param types : 
     - (void)reset
     {
-		[self invokeMonoMethod:"Reset()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Reset()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Set
@@ -116,7 +174,9 @@
 	// Managed param types : 
     - (void)set
     {
-		[self invokeMonoMethod:"Set()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Set()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Wait
@@ -124,7 +184,9 @@
 	// Managed param types : 
     - (void)wait
     {
-		[self invokeMonoMethod:"Wait()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Wait()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Wait
@@ -132,7 +194,9 @@
 	// Managed param types : System.Threading.CancellationToken
     - (void)wait_withCancellationToken:(System_Threading_CancellationToken *)p1
     {
-		[self invokeMonoMethod:"Wait(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Wait(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Wait

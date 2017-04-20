@@ -30,10 +30,20 @@
 	// Managed property name : AuditFlags
 	// Managed property type : System.Security.AccessControl.AuditFlags
     @synthesize auditFlags = _auditFlags;
-    - (System_Security_AccessControl_AuditFlags)auditFlags
+    - (int32_t)auditFlags
     {
-		MonoObject *monoObject = [self getMonoProperty:"AuditFlags"];
-		_auditFlags = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AuditFlags");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_auditFlags = monoObject;
 
 		return _auditFlags;
 	}

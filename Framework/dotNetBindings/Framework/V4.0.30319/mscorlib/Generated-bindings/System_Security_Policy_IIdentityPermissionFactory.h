@@ -17,6 +17,6 @@
 	// Managed method name : CreateIdentityPermission
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.Policy.Evidence
-    - (System_Security_IPermission *)createIdentityPermission_withEvidence:(System_Security_Policy_Evidence *)p1;
+    - (id <System_Security_IPermission>)createIdentityPermission_withEvidence:(System_Security_Policy_Evidence *)p1;
 @end
 //--Dubrovnik.CodeGenerator

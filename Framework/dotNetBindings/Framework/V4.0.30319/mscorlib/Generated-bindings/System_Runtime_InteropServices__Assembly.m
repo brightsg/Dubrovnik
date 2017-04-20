@@ -32,7 +32,17 @@
     @synthesize codeBase = _codeBase;
     - (NSString *)codeBase
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._Assembly.CodeBase"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._Assembly.CodeBase");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_codeBase isEqualToMonoObject:monoObject]) return _codeBase;					
 		_codeBase = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -44,9 +54,19 @@
     @synthesize entryPoint = _entryPoint;
     - (System_Reflection_MethodInfo *)entryPoint
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._Assembly.EntryPoint"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._Assembly.EntryPoint");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_entryPoint isEqualToMonoObject:monoObject]) return _entryPoint;					
-		_entryPoint = [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+		_entryPoint = [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
 
 		return _entryPoint;
 	}
@@ -56,7 +76,17 @@
     @synthesize escapedCodeBase = _escapedCodeBase;
     - (NSString *)escapedCodeBase
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._Assembly.EscapedCodeBase"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._Assembly.EscapedCodeBase");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_escapedCodeBase isEqualToMonoObject:monoObject]) return _escapedCodeBase;					
 		_escapedCodeBase = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -68,9 +98,19 @@
     @synthesize evidence = _evidence;
     - (System_Security_Policy_Evidence *)evidence
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._Assembly.Evidence"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._Assembly.Evidence");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_evidence isEqualToMonoObject:monoObject]) return _evidence;					
-		_evidence = [System_Security_Policy_Evidence objectWithMonoObject:monoObject];
+		_evidence = [System_Security_Policy_Evidence bestObjectWithMonoObject:monoObject];
 
 		return _evidence;
 	}
@@ -80,7 +120,17 @@
     @synthesize fullName = _fullName;
     - (NSString *)fullName
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._Assembly.FullName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._Assembly.FullName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_fullName isEqualToMonoObject:monoObject]) return _fullName;					
 		_fullName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -92,8 +142,18 @@
     @synthesize globalAssemblyCache = _globalAssemblyCache;
     - (BOOL)globalAssemblyCache
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._Assembly.GlobalAssemblyCache"];
-		_globalAssemblyCache = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._Assembly.GlobalAssemblyCache");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_globalAssemblyCache = monoObject;
 
 		return _globalAssemblyCache;
 	}
@@ -103,7 +163,17 @@
     @synthesize location = _location;
     - (NSString *)location
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._Assembly.Location"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._Assembly.Location");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_location isEqualToMonoObject:monoObject]) return _location;					
 		_location = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -138,7 +208,7 @@
 	// Managed method name : CreateInstance
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Boolean, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo, System.Object[]
-    - (System_Object *)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2 bindingAttr:(System_Reflection_BindingFlags)p3 binder:(System_Reflection_Binder *)p4 args:(DBSystem_Array *)p5 culture:(System_Globalization_CultureInfo *)p6 activationAttributes:(DBSystem_Array *)p7
+    - (System_Object *)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2 bindingAttr:(int32_t)p3 binder:(System_Reflection_Binder *)p4 args:(DBSystem_Array *)p5 culture:(System_Globalization_CultureInfo *)p6 activationAttributes:(DBSystem_Array *)p7
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Assembly.CreateInstance(string,bool,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo,object[])" withNumArgs:7, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg], [p7 monoRTInvokeArg]];
@@ -198,7 +268,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Assembly.GetFile(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_IO_FileStream objectWithMonoObject:monoObject];
+		return [System_IO_FileStream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetFiles
@@ -264,7 +334,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Assembly.GetManifestResourceInfo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_ManifestResourceInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_ManifestResourceInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetManifestResourceNames
@@ -286,7 +356,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Assembly.GetManifestResourceStream(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_IO_Stream objectWithMonoObject:monoObject];
+		return [System_IO_Stream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetManifestResourceStream
@@ -297,7 +367,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Assembly.GetManifestResourceStream(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_IO_Stream objectWithMonoObject:monoObject];
+		return [System_IO_Stream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetModule
@@ -308,7 +378,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Assembly.GetModule(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_Module objectWithMonoObject:monoObject];
+		return [System_Reflection_Module bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetModules
@@ -341,7 +411,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Assembly.GetName()" withNumArgs:0];
 		
-		return [System_Reflection_AssemblyName objectWithMonoObject:monoObject];
+		return [System_Reflection_AssemblyName bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetName
@@ -352,7 +422,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Assembly.GetName(bool)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Reflection_AssemblyName objectWithMonoObject:monoObject];
+		return [System_Reflection_AssemblyName bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetObjectData
@@ -360,7 +430,9 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices._Assembly.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices._Assembly.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetReferencedAssemblies
@@ -382,7 +454,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Assembly.GetSatelliteAssembly(System.Globalization.CultureInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetSatelliteAssembly
@@ -393,7 +465,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Assembly.GetSatelliteAssembly(System.Globalization.CultureInfo,System.Version)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetType
@@ -404,7 +476,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Assembly.GetType()" withNumArgs:0];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetType
@@ -415,7 +487,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Assembly.GetType(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetType
@@ -426,7 +498,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Assembly.GetType(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetType
@@ -437,7 +509,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Assembly.GetType(string,bool,bool)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypes
@@ -470,7 +542,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Assembly.LoadModule(string,byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Reflection_Module objectWithMonoObject:monoObject];
+		return [System_Reflection_Module bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : LoadModule
@@ -481,7 +553,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Assembly.LoadModule(string,byte[],byte[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_Reflection_Module objectWithMonoObject:monoObject];
+		return [System_Reflection_Module bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToString

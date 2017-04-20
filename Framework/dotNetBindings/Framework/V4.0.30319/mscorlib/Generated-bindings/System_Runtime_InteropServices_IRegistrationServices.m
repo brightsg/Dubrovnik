@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.IRegistrationServices.GetManagedCategoryGuid()" withNumArgs:0];
 		
-		return [System_Guid objectWithMonoObject:monoObject];
+		return [System_Guid bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetProgIdForType
@@ -63,7 +63,7 @@
 	// Managed method name : RegisterAssembly
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.Assembly, System.Runtime.InteropServices.AssemblyRegistrationFlags
-    - (BOOL)registerAssembly_withAssembly:(System_Reflection_Assembly *)p1 flags:(System_Runtime_InteropServices_AssemblyRegistrationFlags)p2
+    - (BOOL)registerAssembly_withAssembly:(System_Reflection_Assembly *)p1 flags:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.IRegistrationServices.RegisterAssembly(System.Reflection.Assembly,System.Runtime.InteropServices.AssemblyRegistrationFlags)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
@@ -76,8 +76,12 @@
 	// Managed param types : System.Type, ref System.Guid&
     - (void)registerTypeForComClients_withType:(System_Type *)p1 gRef:(System_Guid **)p2
     {
+		void *refPtr2 = [*p2 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.IRegistrationServices.RegisterTypeForComClients(System.Type,System.Guid&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
-;
+
+        *p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+
     }
 
 	// Managed method name : TypeRepresentsComType

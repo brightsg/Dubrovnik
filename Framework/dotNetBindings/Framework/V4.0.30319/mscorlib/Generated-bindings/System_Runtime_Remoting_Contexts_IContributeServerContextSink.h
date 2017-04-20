@@ -17,6 +17,6 @@
 	// Managed method name : GetServerContextSink
 	// Managed return type : System.Runtime.Remoting.Messaging.IMessageSink
 	// Managed param types : System.Runtime.Remoting.Messaging.IMessageSink
-    - (System_Runtime_Remoting_Messaging_IMessageSink *)getServerContextSink_withNextSink:(System_Runtime_Remoting_Messaging_IMessageSink *)p1;
+    - (id <System_Runtime_Remoting_Messaging_IMessageSink>)getServerContextSink_withNextSink:(id <System_Runtime_Remoting_Messaging_IMessageSink_>)p1;
 @end
 //--Dubrovnik.CodeGenerator

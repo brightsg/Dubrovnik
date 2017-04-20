@@ -32,7 +32,10 @@
 	// Managed param types : System.Security.Cryptography.AsymmetricAlgorithm
     + (System_Security_Cryptography_RSAPKCS1KeyExchangeFormatter *)new_withKey:(System_Security_Cryptography_AsymmetricAlgorithm *)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Cryptography.AsymmetricAlgorithm" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_RSAPKCS1KeyExchangeFormatter * object = [[self alloc] initWithSignature:"System.Security.Cryptography.AsymmetricAlgorithm" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,7 +46,17 @@
     @synthesize parameters = _parameters;
     - (NSString *)parameters
     {
-		MonoObject *monoObject = [self getMonoProperty:"Parameters"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Parameters");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_parameters isEqualToMonoObject:monoObject]) return _parameters;					
 		_parameters = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -55,17 +68,36 @@
     @synthesize rng = _rng;
     - (System_Security_Cryptography_RandomNumberGenerator *)rng
     {
-		MonoObject *monoObject = [self getMonoProperty:"Rng"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Rng");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_rng isEqualToMonoObject:monoObject]) return _rng;					
-		_rng = [System_Security_Cryptography_RandomNumberGenerator objectWithMonoObject:monoObject];
+		_rng = [System_Security_Cryptography_RandomNumberGenerator bestObjectWithMonoObject:monoObject];
 
 		return _rng;
 	}
     - (void)setRng:(System_Security_Cryptography_RandomNumberGenerator *)value
 	{
 		_rng = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Rng" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Rng");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -98,7 +130,9 @@
 	// Managed param types : System.Security.Cryptography.AsymmetricAlgorithm
     - (void)setKey_withKey:(System_Security_Cryptography_AsymmetricAlgorithm *)p1
     {
-		[self invokeMonoMethod:"SetKey(System.Security.Cryptography.AsymmetricAlgorithm)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetKey(System.Security.Cryptography.AsymmetricAlgorithm)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

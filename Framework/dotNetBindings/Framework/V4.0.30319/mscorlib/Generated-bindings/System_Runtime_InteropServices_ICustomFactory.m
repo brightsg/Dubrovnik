@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ICustomFactory.CreateInstance(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_MarshalByRefObject objectWithMonoObject:monoObject];
+		return [System_MarshalByRefObject bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

@@ -34,7 +34,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Text"];
 		if ([self object:m_text isEqualToMonoObject:monoObject]) return m_text;					
-		m_text = [System_Guid objectWithMonoObject:monoObject];
+		m_text = [System_Guid bestObjectWithMonoObject:monoObject];
 
 		return m_text;
 	}

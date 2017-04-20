@@ -32,12 +32,12 @@
 	// Managed method name : ExecuteMessage
 	// Managed return type : System.Runtime.Remoting.Messaging.IMethodReturnMessage
 	// Managed param types : System.MarshalByRefObject, System.Runtime.Remoting.Messaging.IMethodCallMessage
-    + (System_Runtime_Remoting_Messaging_IMethodReturnMessage *)executeMessage_withTarget:(System_MarshalByRefObject *)p1 reqMsg:(System_Runtime_Remoting_Messaging_IMethodCallMessage *)p2;
+    + (id <System_Runtime_Remoting_Messaging_IMethodReturnMessage>)executeMessage_withTarget:(System_MarshalByRefObject *)p1 reqMsg:(id <System_Runtime_Remoting_Messaging_IMethodCallMessage_>)p2;
 
 	// Managed method name : GetEnvoyChainForProxy
 	// Managed return type : System.Runtime.Remoting.Messaging.IMessageSink
 	// Managed param types : System.MarshalByRefObject
-    + (System_Runtime_Remoting_Messaging_IMessageSink *)getEnvoyChainForProxy_withObj:(System_MarshalByRefObject *)p1;
+    + (id <System_Runtime_Remoting_Messaging_IMessageSink>)getEnvoyChainForProxy_withObj:(System_MarshalByRefObject *)p1;
 
 	// Managed method name : GetLifetimeService
 	// Managed return type : System.Object
@@ -47,7 +47,7 @@
 	// Managed method name : GetMethodBaseFromMethodMessage
 	// Managed return type : System.Reflection.MethodBase
 	// Managed param types : System.Runtime.Remoting.Messaging.IMethodMessage
-    + (System_Reflection_MethodBase *)getMethodBaseFromMethodMessage_withMsg:(System_Runtime_Remoting_Messaging_IMethodMessage *)p1;
+    + (System_Reflection_MethodBase *)getMethodBaseFromMethodMessage_withMsg:(id <System_Runtime_Remoting_Messaging_IMethodMessage_>)p1;
 
 	// Managed method name : GetObjectData
 	// Managed return type : System.Void
@@ -77,12 +77,12 @@
 	// Managed method name : GetSessionIdForMethodMessage
 	// Managed return type : System.String
 	// Managed param types : System.Runtime.Remoting.Messaging.IMethodMessage
-    + (NSString *)getSessionIdForMethodMessage_withMsg:(System_Runtime_Remoting_Messaging_IMethodMessage *)p1;
+    + (NSString *)getSessionIdForMethodMessage_withMsg:(id <System_Runtime_Remoting_Messaging_IMethodMessage_>)p1;
 
 	// Managed method name : IsMethodOverloaded
 	// Managed return type : System.Boolean
 	// Managed param types : System.Runtime.Remoting.Messaging.IMethodMessage
-    + (BOOL)isMethodOverloaded_withMsg:(System_Runtime_Remoting_Messaging_IMethodMessage *)p1;
+    + (BOOL)isMethodOverloaded_withMsg:(id <System_Runtime_Remoting_Messaging_IMethodMessage_>)p1;
 
 	// Managed method name : IsObjectOutOfAppDomain
 	// Managed return type : System.Boolean

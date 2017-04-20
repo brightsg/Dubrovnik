@@ -2,7 +2,7 @@
 //
 // Managed class : CriticalHandle
 //
-@interface System_Runtime_InteropServices_CriticalHandle : System_Runtime_ConstrainedExecution_CriticalFinalizerObject <System_IDisposable>
+@interface System_Runtime_InteropServices_CriticalHandle : System_Runtime_ConstrainedExecution_CriticalFinalizerObject <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

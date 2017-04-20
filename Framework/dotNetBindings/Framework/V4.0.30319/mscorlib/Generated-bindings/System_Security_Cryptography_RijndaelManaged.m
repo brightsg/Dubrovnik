@@ -30,23 +30,23 @@
 	// Managed method name : CreateDecryptor
 	// Managed return type : System.Security.Cryptography.ICryptoTransform
 	// Managed param types : System.Byte[], System.Byte[]
-    - (System_Security_Cryptography_ICryptoTransform *)createDecryptor_withRgbKey:(NSData *)p1 rgbIV:(NSData *)p2
+    - (id <System_Security_Cryptography_ICryptoTransform>)createDecryptor_withRgbKey:(NSData *)p1 rgbIV:(NSData *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDecryptor(byte[],byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Security_Cryptography_ICryptoTransform objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_ICryptoTransform bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateEncryptor
 	// Managed return type : System.Security.Cryptography.ICryptoTransform
 	// Managed param types : System.Byte[], System.Byte[]
-    - (System_Security_Cryptography_ICryptoTransform *)createEncryptor_withRgbKey:(NSData *)p1 rgbIV:(NSData *)p2
+    - (id <System_Security_Cryptography_ICryptoTransform>)createEncryptor_withRgbKey:(NSData *)p1 rgbIV:(NSData *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateEncryptor(byte[],byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Security_Cryptography_ICryptoTransform objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_ICryptoTransform bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GenerateIV
@@ -54,7 +54,9 @@
 	// Managed param types : 
     - (void)generateIV
     {
-		[self invokeMonoMethod:"GenerateIV()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"GenerateIV()" withNumArgs:0];
+        
     }
 
 	// Managed method name : GenerateKey
@@ -62,7 +64,9 @@
 	// Managed param types : 
     - (void)generateKey
     {
-		[self invokeMonoMethod:"GenerateKey()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"GenerateKey()" withNumArgs:0];
+        
     }
 
 #pragma mark -

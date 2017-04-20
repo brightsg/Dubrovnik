@@ -2,7 +2,7 @@
 //
 // Managed class : CaseInsensitiveComparer
 //
-@interface System_Collections_CaseInsensitiveComparer : System_Object <System_Collections_IComparer>
+@interface System_Collections_CaseInsensitiveComparer : System_Object <System_Collections_IComparer_>
 
 #pragma mark -
 #pragma mark Setup

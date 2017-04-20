@@ -2,7 +2,7 @@
 //
 // Managed struct : AssemblyHash
 //
-@interface System_Configuration_Assemblies_AssemblyHash : DBManagedObject <System_ICloneable>
+@interface System_Configuration_Assemblies_AssemblyHash : DBManagedObject <System_ICloneable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -22,7 +22,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Configuration.Assemblies.AssemblyHash
 	// Managed param types : System.Configuration.Assemblies.AssemblyHashAlgorithm, System.Byte[]
-    + (System_Configuration_Assemblies_AssemblyHash *)new_withAlgorithm:(System_Configuration_Assemblies_AssemblyHashAlgorithm)p1 value:(NSData *)p2;
+    + (System_Configuration_Assemblies_AssemblyHash *)new_withAlgorithm:(int32_t)p1 value:(NSData *)p2;
 
 #pragma mark -
 #pragma mark Fields
@@ -36,7 +36,7 @@
 
 	// Managed property name : Algorithm
 	// Managed property type : System.Configuration.Assemblies.AssemblyHashAlgorithm
-    @property (nonatomic) System_Configuration_Assemblies_AssemblyHashAlgorithm algorithm;
+    @property (nonatomic) int32_t algorithm;
 
 #pragma mark -
 #pragma mark Methods

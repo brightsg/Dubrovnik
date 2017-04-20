@@ -2,7 +2,7 @@
 //
 // Managed class : BinaryWriter
 //
-@interface System_IO_BinaryWriter : System_Object <System_IDisposable>
+@interface System_IO_BinaryWriter : System_Object <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -16,11 +16,6 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.IO.BinaryWriter
-	// Managed param types : System.IO.Stream, System.Text.Encoding, System.Boolean
-    + (System_IO_BinaryWriter *)new_withOutput:(System_IO_Stream *)p1 encoding:(System_Text_Encoding *)p2 leaveOpen:(BOOL)p3;
-
-	// Managed method name : .ctor
-	// Managed return type : System.IO.BinaryWriter
 	// Managed param types : System.IO.Stream
     + (System_IO_BinaryWriter *)new_withOutput:(System_IO_Stream *)p1;
 
@@ -28,6 +23,11 @@
 	// Managed return type : System.IO.BinaryWriter
 	// Managed param types : System.IO.Stream, System.Text.Encoding
     + (System_IO_BinaryWriter *)new_withOutput:(System_IO_Stream *)p1 encoding:(System_Text_Encoding *)p2;
+
+	// Managed method name : .ctor
+	// Managed return type : System.IO.BinaryWriter
+	// Managed param types : System.IO.Stream, System.Text.Encoding, System.Boolean
+    + (System_IO_BinaryWriter *)new_withOutput:(System_IO_Stream *)p1 encoding:(System_Text_Encoding *)p2 leaveOpen:(BOOL)p3;
 
 #pragma mark -
 #pragma mark Fields
@@ -64,7 +64,7 @@
 	// Managed method name : Seek
 	// Managed return type : System.Int64
 	// Managed param types : System.Int32, System.IO.SeekOrigin
-    - (int64_t)seek_withOffset:(int32_t)p1 origin:(System_IO_SeekOrigin)p2;
+    - (int64_t)seek_withOffset:(int32_t)p1 origin:(int32_t)p2;
 
 	// Managed method name : Write
 	// Managed return type : System.Void
@@ -78,23 +78,13 @@
 
 	// Managed method name : Write
 	// Managed return type : System.Void
-	// Managed param types : System.Byte[]
-    - (void)write_withBuffer:(NSData *)p1;
-
-	// Managed method name : Write
-	// Managed return type : System.Void
-	// Managed param types : System.Int64
-    - (void)write_withValueLong:(int64_t)p1;
-
-	// Managed method name : Write
-	// Managed return type : System.Void
-	// Managed param types : System.String
-    - (void)write_withValueString:(NSString *)p1;
-
-	// Managed method name : Write
-	// Managed return type : System.Void
 	// Managed param types : System.SByte
     - (void)write_withValueSbyte:(int8_t)p1;
+
+	// Managed method name : Write
+	// Managed return type : System.Void
+	// Managed param types : System.Byte[]
+    - (void)write_withBuffer:(NSData *)p1;
 
 	// Managed method name : Write
 	// Managed return type : System.Void
@@ -124,7 +114,7 @@
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.Decimal
-    - (void)write_withValueDecimal:(NSDecimalNumber *)p1;
+    - (void)write_withValueSDecimal:(NSDecimalNumber *)p1;
 
 	// Managed method name : Write
 	// Managed return type : System.Void
@@ -148,6 +138,11 @@
 
 	// Managed method name : Write
 	// Managed return type : System.Void
+	// Managed param types : System.Int64
+    - (void)write_withValueLong:(int64_t)p1;
+
+	// Managed method name : Write
+	// Managed return type : System.Void
 	// Managed param types : System.UInt64
     - (void)write_withValueUlong:(uint64_t)p1;
 
@@ -155,5 +150,10 @@
 	// Managed return type : System.Void
 	// Managed param types : System.Single
     - (void)write_withValueSingle:(float)p1;
+
+	// Managed method name : Write
+	// Managed return type : System.Void
+	// Managed param types : System.String
+    - (void)write_withValueString:(NSString *)p1;
 @end
 //--Dubrovnik.CodeGenerator

@@ -30,10 +30,20 @@
 	// Managed property name : AceQualifier
 	// Managed property type : System.Security.AccessControl.AceQualifier
     @synthesize aceQualifier = _aceQualifier;
-    - (System_Security_AccessControl_AceQualifier)aceQualifier
+    - (int32_t)aceQualifier
     {
-		MonoObject *monoObject = [self getMonoProperty:"AceQualifier"];
-		_aceQualifier = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AceQualifier");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_aceQualifier = monoObject;
 
 		return _aceQualifier;
 	}
@@ -43,8 +53,18 @@
     @synthesize isCallback = _isCallback;
     - (BOOL)isCallback
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsCallback"];
-		_isCallback = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsCallback");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isCallback = monoObject;
 
 		return _isCallback;
 	}
@@ -54,8 +74,18 @@
     @synthesize opaqueLength = _opaqueLength;
     - (int32_t)opaqueLength
     {
-		MonoObject *monoObject = [self getMonoProperty:"OpaqueLength"];
-		_opaqueLength = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OpaqueLength");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_opaqueLength = monoObject;
 
 		return _opaqueLength;
 	}
@@ -79,7 +109,9 @@
 	// Managed param types : System.Byte[]
     - (void)setOpaque_withOpaque:(NSData *)p1
     {
-		[self invokeMonoMethod:"SetOpaque(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetOpaque(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

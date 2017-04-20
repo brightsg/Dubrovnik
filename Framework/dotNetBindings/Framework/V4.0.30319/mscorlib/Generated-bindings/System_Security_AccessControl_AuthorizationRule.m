@@ -32,9 +32,19 @@
     @synthesize identityReference = _identityReference;
     - (System_Security_Principal_IdentityReference *)identityReference
     {
-		MonoObject *monoObject = [self getMonoProperty:"IdentityReference"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IdentityReference");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_identityReference isEqualToMonoObject:monoObject]) return _identityReference;					
-		_identityReference = [System_Security_Principal_IdentityReference objectWithMonoObject:monoObject];
+		_identityReference = [System_Security_Principal_IdentityReference bestObjectWithMonoObject:monoObject];
 
 		return _identityReference;
 	}
@@ -42,10 +52,20 @@
 	// Managed property name : InheritanceFlags
 	// Managed property type : System.Security.AccessControl.InheritanceFlags
     @synthesize inheritanceFlags = _inheritanceFlags;
-    - (System_Security_AccessControl_InheritanceFlags)inheritanceFlags
+    - (int32_t)inheritanceFlags
     {
-		MonoObject *monoObject = [self getMonoProperty:"InheritanceFlags"];
-		_inheritanceFlags = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InheritanceFlags");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_inheritanceFlags = monoObject;
 
 		return _inheritanceFlags;
 	}
@@ -55,8 +75,18 @@
     @synthesize isInherited = _isInherited;
     - (BOOL)isInherited
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsInherited"];
-		_isInherited = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsInherited");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isInherited = monoObject;
 
 		return _isInherited;
 	}
@@ -64,10 +94,20 @@
 	// Managed property name : PropagationFlags
 	// Managed property type : System.Security.AccessControl.PropagationFlags
     @synthesize propagationFlags = _propagationFlags;
-    - (System_Security_AccessControl_PropagationFlags)propagationFlags
+    - (int32_t)propagationFlags
     {
-		MonoObject *monoObject = [self getMonoProperty:"PropagationFlags"];
-		_propagationFlags = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PropagationFlags");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_propagationFlags = monoObject;
 
 		return _propagationFlags;
 	}

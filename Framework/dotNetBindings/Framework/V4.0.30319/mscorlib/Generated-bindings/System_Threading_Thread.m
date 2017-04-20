@@ -32,7 +32,10 @@
 	// Managed param types : System.Threading.ThreadStart
     + (System_Threading_Thread *)new_withStartSTThreadStart:(System_Threading_ThreadStart *)p1
     {
-		return [[self alloc] initWithSignature:"System.Threading.ThreadStart" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Threading_Thread * object = [[self alloc] initWithSignature:"System.Threading.ThreadStart" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Threading.ThreadStart, System.Int32
     + (System_Threading_Thread *)new_withStartSTThreadStart:(System_Threading_ThreadStart *)p1 maxStackSizeInt:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"System.Threading.ThreadStart,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		System_Threading_Thread * object = [[self alloc] initWithSignature:"System.Threading.ThreadStart,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +54,10 @@
 	// Managed param types : System.Threading.ParameterizedThreadStart
     + (System_Threading_Thread *)new_withStartSTParameterizedThreadStart:(System_Threading_ParameterizedThreadStart *)p1
     {
-		return [[self alloc] initWithSignature:"System.Threading.ParameterizedThreadStart" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Threading_Thread * object = [[self alloc] initWithSignature:"System.Threading.ParameterizedThreadStart" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +65,10 @@
 	// Managed param types : System.Threading.ParameterizedThreadStart, System.Int32
     + (System_Threading_Thread *)new_withStartSTParameterizedThreadStart:(System_Threading_ParameterizedThreadStart *)p1 maxStackSizeInt:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"System.Threading.ParameterizedThreadStart,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		System_Threading_Thread * object = [[self alloc] initWithSignature:"System.Threading.ParameterizedThreadStart,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -65,18 +77,37 @@
 	// Managed property name : ApartmentState
 	// Managed property type : System.Threading.ApartmentState
     @synthesize apartmentState = _apartmentState;
-    - (System_Threading_ApartmentState)apartmentState
+    - (int32_t)apartmentState
     {
-		MonoObject *monoObject = [self getMonoProperty:"ApartmentState"];
-		_apartmentState = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ApartmentState");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_apartmentState = monoObject;
 
 		return _apartmentState;
 	}
-    - (void)setApartmentState:(System_Threading_ApartmentState)value
+    - (void)setApartmentState:(int32_t)value
 	{
 		_apartmentState = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ApartmentState" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ApartmentState");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CurrentContext
@@ -84,9 +115,19 @@
     static System_Runtime_Remoting_Contexts_Context * m_currentContext;
     + (System_Runtime_Remoting_Contexts_Context *)currentContext
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"CurrentContext"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrentContext");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_currentContext isEqualToMonoObject:monoObject]) return m_currentContext;					
-		m_currentContext = [System_Runtime_Remoting_Contexts_Context objectWithMonoObject:monoObject];
+		m_currentContext = [System_Runtime_Remoting_Contexts_Context bestObjectWithMonoObject:monoObject];
 
 		return m_currentContext;
 	}
@@ -96,17 +137,36 @@
     @synthesize currentCulture = _currentCulture;
     - (System_Globalization_CultureInfo *)currentCulture
     {
-		MonoObject *monoObject = [self getMonoProperty:"CurrentCulture"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrentCulture");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_currentCulture isEqualToMonoObject:monoObject]) return _currentCulture;					
-		_currentCulture = [System_Globalization_CultureInfo objectWithMonoObject:monoObject];
+		_currentCulture = [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
 
 		return _currentCulture;
 	}
     - (void)setCurrentCulture:(System_Globalization_CultureInfo *)value
 	{
 		_currentCulture = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"CurrentCulture" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CurrentCulture");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CurrentPrincipal
@@ -114,17 +174,36 @@
     static System_Security_Principal_IPrincipal * m_currentPrincipal;
     + (System_Security_Principal_IPrincipal *)currentPrincipal
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"CurrentPrincipal"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrentPrincipal");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_currentPrincipal isEqualToMonoObject:monoObject]) return m_currentPrincipal;					
-		m_currentPrincipal = [System_Security_Principal_IPrincipal objectWithMonoObject:monoObject];
+		m_currentPrincipal = [System_Security_Principal_IPrincipal bestObjectWithMonoObject:monoObject];
 
 		return m_currentPrincipal;
 	}
     + (void)setCurrentPrincipal:(System_Security_Principal_IPrincipal *)value
 	{
 		m_currentPrincipal = value;
-		MonoObject *monoObject = [value monoObject];
-		[[self class] setMonoClassProperty:"CurrentPrincipal" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CurrentPrincipal");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk([value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CurrentThread
@@ -132,9 +211,19 @@
     static System_Threading_Thread * m_currentThread;
     + (System_Threading_Thread *)currentThread
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"CurrentThread"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrentThread");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_currentThread isEqualToMonoObject:monoObject]) return m_currentThread;					
-		m_currentThread = [System_Threading_Thread objectWithMonoObject:monoObject];
+		m_currentThread = [System_Threading_Thread bestObjectWithMonoObject:monoObject];
 
 		return m_currentThread;
 	}
@@ -144,17 +233,36 @@
     @synthesize currentUICulture = _currentUICulture;
     - (System_Globalization_CultureInfo *)currentUICulture
     {
-		MonoObject *monoObject = [self getMonoProperty:"CurrentUICulture"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrentUICulture");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_currentUICulture isEqualToMonoObject:monoObject]) return _currentUICulture;					
-		_currentUICulture = [System_Globalization_CultureInfo objectWithMonoObject:monoObject];
+		_currentUICulture = [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
 
 		return _currentUICulture;
 	}
     - (void)setCurrentUICulture:(System_Globalization_CultureInfo *)value
 	{
 		_currentUICulture = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"CurrentUICulture" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CurrentUICulture");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ExecutionContext
@@ -162,9 +270,19 @@
     @synthesize executionContext = _executionContext;
     - (System_Threading_ExecutionContext *)executionContext
     {
-		MonoObject *monoObject = [self getMonoProperty:"ExecutionContext"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ExecutionContext");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_executionContext isEqualToMonoObject:monoObject]) return _executionContext;					
-		_executionContext = [System_Threading_ExecutionContext objectWithMonoObject:monoObject];
+		_executionContext = [System_Threading_ExecutionContext bestObjectWithMonoObject:monoObject];
 
 		return _executionContext;
 	}
@@ -174,8 +292,18 @@
     @synthesize isAlive = _isAlive;
     - (BOOL)isAlive
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsAlive"];
-		_isAlive = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsAlive");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isAlive = monoObject;
 
 		return _isAlive;
 	}
@@ -185,16 +313,35 @@
     @synthesize isBackground = _isBackground;
     - (BOOL)isBackground
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsBackground"];
-		_isBackground = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsBackground");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isBackground = monoObject;
 
 		return _isBackground;
 	}
     - (void)setIsBackground:(BOOL)value
 	{
 		_isBackground = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"IsBackground" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "IsBackground");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : IsThreadPoolThread
@@ -202,8 +349,18 @@
     @synthesize isThreadPoolThread = _isThreadPoolThread;
     - (BOOL)isThreadPoolThread
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsThreadPoolThread"];
-		_isThreadPoolThread = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsThreadPoolThread");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isThreadPoolThread = monoObject;
 
 		return _isThreadPoolThread;
 	}
@@ -213,8 +370,18 @@
     @synthesize managedThreadId = _managedThreadId;
     - (int32_t)managedThreadId
     {
-		MonoObject *monoObject = [self getMonoProperty:"ManagedThreadId"];
-		_managedThreadId = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ManagedThreadId");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_managedThreadId = monoObject;
 
 		return _managedThreadId;
 	}
@@ -224,7 +391,17 @@
     @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -233,34 +410,72 @@
     - (void)setName:(NSString *)value
 	{
 		_name = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"Name" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Priority
 	// Managed property type : System.Threading.ThreadPriority
     @synthesize priority = _priority;
-    - (System_Threading_ThreadPriority)priority
+    - (int32_t)priority
     {
-		MonoObject *monoObject = [self getMonoProperty:"Priority"];
-		_priority = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Priority");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_priority = monoObject;
 
 		return _priority;
 	}
-    - (void)setPriority:(System_Threading_ThreadPriority)value
+    - (void)setPriority:(int32_t)value
 	{
 		_priority = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Priority" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Priority");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ThreadState
 	// Managed property type : System.Threading.ThreadState
     @synthesize threadState = _threadState;
-    - (System_Threading_ThreadState)threadState
+    - (int32_t)threadState
     {
-		MonoObject *monoObject = [self getMonoProperty:"ThreadState"];
-		_threadState = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ThreadState");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_threadState = monoObject;
 
 		return _threadState;
 	}
@@ -273,7 +488,9 @@
 	// Managed param types : System.Object
     - (void)abort_withStateInfo:(System_Object *)p1
     {
-		[self invokeMonoMethod:"Abort(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Abort(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Abort
@@ -281,7 +498,9 @@
 	// Managed param types : 
     - (void)abort
     {
-		[self invokeMonoMethod:"Abort()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Abort()" withNumArgs:0];
+        
     }
 
 	// Managed method name : AllocateDataSlot
@@ -292,7 +511,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"AllocateDataSlot()" withNumArgs:0];
 		
-		return [System_LocalDataStoreSlot objectWithMonoObject:monoObject];
+		return [System_LocalDataStoreSlot bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : AllocateNamedDataSlot
@@ -303,7 +522,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"AllocateNamedDataSlot(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_LocalDataStoreSlot objectWithMonoObject:monoObject];
+		return [System_LocalDataStoreSlot bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : BeginCriticalRegion
@@ -311,7 +530,9 @@
 	// Managed param types : 
     + (void)beginCriticalRegion
     {
-		[self invokeMonoClassMethod:"BeginCriticalRegion()" withNumArgs:0];;
+		
+		[self invokeMonoClassMethod:"BeginCriticalRegion()" withNumArgs:0];
+        
     }
 
 	// Managed method name : BeginThreadAffinity
@@ -319,7 +540,9 @@
 	// Managed param types : 
     + (void)beginThreadAffinity
     {
-		[self invokeMonoClassMethod:"BeginThreadAffinity()" withNumArgs:0];;
+		
+		[self invokeMonoClassMethod:"BeginThreadAffinity()" withNumArgs:0];
+        
     }
 
 	// Managed method name : DisableComObjectEagerCleanup
@@ -327,7 +550,9 @@
 	// Managed param types : 
     - (void)disableComObjectEagerCleanup
     {
-		[self invokeMonoMethod:"DisableComObjectEagerCleanup()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"DisableComObjectEagerCleanup()" withNumArgs:0];
+        
     }
 
 	// Managed method name : EndCriticalRegion
@@ -335,7 +560,9 @@
 	// Managed param types : 
     + (void)endCriticalRegion
     {
-		[self invokeMonoClassMethod:"EndCriticalRegion()" withNumArgs:0];;
+		
+		[self invokeMonoClassMethod:"EndCriticalRegion()" withNumArgs:0];
+        
     }
 
 	// Managed method name : EndThreadAffinity
@@ -343,7 +570,9 @@
 	// Managed param types : 
     + (void)endThreadAffinity
     {
-		[self invokeMonoClassMethod:"EndThreadAffinity()" withNumArgs:0];;
+		
+		[self invokeMonoClassMethod:"EndThreadAffinity()" withNumArgs:0];
+        
     }
 
 	// Managed method name : FreeNamedDataSlot
@@ -351,13 +580,15 @@
 	// Managed param types : System.String
     + (void)freeNamedDataSlot_withName:(NSString *)p1
     {
-		[self invokeMonoClassMethod:"FreeNamedDataSlot(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"FreeNamedDataSlot(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetApartmentState
 	// Managed return type : System.Threading.ApartmentState
 	// Managed param types : 
-    - (System_Threading_ApartmentState)getApartmentState
+    - (int32_t)getApartmentState
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetApartmentState()" withNumArgs:0];
@@ -373,7 +604,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCompressedStack()" withNumArgs:0];
 		
-		return [System_Threading_CompressedStack objectWithMonoObject:monoObject];
+		return [System_Threading_CompressedStack bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetData
@@ -395,7 +626,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDomain()" withNumArgs:0];
 		
-		return [System_AppDomain objectWithMonoObject:monoObject];
+		return [System_AppDomain bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetDomainID
@@ -428,7 +659,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetNamedDataSlot(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_LocalDataStoreSlot objectWithMonoObject:monoObject];
+		return [System_LocalDataStoreSlot bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Interrupt
@@ -436,7 +667,9 @@
 	// Managed param types : 
     - (void)interrupt
     {
-		[self invokeMonoMethod:"Interrupt()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Interrupt()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Join
@@ -444,7 +677,9 @@
 	// Managed param types : 
     - (void)join
     {
-		[self invokeMonoMethod:"Join()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Join()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Join
@@ -474,7 +709,9 @@
 	// Managed param types : 
     + (void)memoryBarrier
     {
-		[self invokeMonoClassMethod:"MemoryBarrier()" withNumArgs:0];;
+		
+		[self invokeMonoClassMethod:"MemoryBarrier()" withNumArgs:0];
+        
     }
 
 	// Managed method name : ResetAbort
@@ -482,7 +719,9 @@
 	// Managed param types : 
     + (void)resetAbort
     {
-		[self invokeMonoClassMethod:"ResetAbort()" withNumArgs:0];;
+		
+		[self invokeMonoClassMethod:"ResetAbort()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Resume
@@ -490,15 +729,19 @@
 	// Managed param types : 
     - (void)resume
     {
-		[self invokeMonoMethod:"Resume()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Resume()" withNumArgs:0];
+        
     }
 
 	// Managed method name : SetApartmentState
 	// Managed return type : System.Void
 	// Managed param types : System.Threading.ApartmentState
-    - (void)setApartmentState_withState:(System_Threading_ApartmentState)p1
+    - (void)setApartmentState_withState:(int32_t)p1
     {
-		[self invokeMonoMethod:"SetApartmentState(System.Threading.ApartmentState)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"SetApartmentState(System.Threading.ApartmentState)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : SetCompressedStack
@@ -506,7 +749,9 @@
 	// Managed param types : System.Threading.CompressedStack
     - (void)setCompressedStack_withStack:(System_Threading_CompressedStack *)p1
     {
-		[self invokeMonoMethod:"SetCompressedStack(System.Threading.CompressedStack)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetCompressedStack(System.Threading.CompressedStack)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetData
@@ -514,7 +759,9 @@
 	// Managed param types : System.LocalDataStoreSlot, System.Object
     + (void)setData_withSlot:(System_LocalDataStoreSlot *)p1 data:(System_Object *)p2
     {
-		[self invokeMonoClassMethod:"SetData(System.LocalDataStoreSlot,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SetData(System.LocalDataStoreSlot,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Sleep
@@ -522,7 +769,9 @@
 	// Managed param types : System.Int32
     + (void)sleep_withMillisecondsTimeout:(int32_t)p1
     {
-		[self invokeMonoClassMethod:"Sleep(int)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoClassMethod:"Sleep(int)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : Sleep
@@ -530,7 +779,9 @@
 	// Managed param types : System.TimeSpan
     + (void)sleep_withTimeout:(System_TimeSpan *)p1
     {
-		[self invokeMonoClassMethod:"Sleep(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Sleep(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SpinWait
@@ -538,7 +789,9 @@
 	// Managed param types : System.Int32
     + (void)spinWait_withIterations:(int32_t)p1
     {
-		[self invokeMonoClassMethod:"SpinWait(int)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoClassMethod:"SpinWait(int)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : Start
@@ -546,7 +799,9 @@
 	// Managed param types : 
     - (void)start
     {
-		[self invokeMonoMethod:"Start()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Start()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Start
@@ -554,7 +809,9 @@
 	// Managed param types : System.Object
     - (void)start_withParameter:(System_Object *)p1
     {
-		[self invokeMonoMethod:"Start(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Start(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Suspend
@@ -562,13 +819,15 @@
 	// Managed param types : 
     - (void)suspend
     {
-		[self invokeMonoMethod:"Suspend()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Suspend()" withNumArgs:0];
+        
     }
 
 	// Managed method name : TrySetApartmentState
 	// Managed return type : System.Boolean
 	// Managed param types : System.Threading.ApartmentState
-    - (BOOL)trySetApartmentState_withState:(System_Threading_ApartmentState)p1
+    - (BOOL)trySetApartmentState_withState:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"TrySetApartmentState(System.Threading.ApartmentState)" withNumArgs:1, DB_VALUE(p1)];
@@ -717,7 +976,7 @@
 
 		MonoObject *monoObject = [self invokeMonoClassMethod:"VolatileRead(object&)" withNumArgs:1, &refPtr1];
 
-		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+		*p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -727,7 +986,9 @@
 	// Managed param types : ref System.Byte&, System.Byte
     + (void)volatileWrite_withAddressByteRef:(uint8_t*)p1 valueByte:(uint8_t)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(byte&,byte)" withNumArgs:2, p1, DB_VALUE(p2)];;
+		
+		[self invokeMonoClassMethod:"VolatileWrite(byte&,byte)" withNumArgs:2, p1, DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : VolatileWrite
@@ -735,7 +996,9 @@
 	// Managed param types : ref System.Int16&, System.Int16
     + (void)volatileWrite_withAddressInt16Ref:(int16_t*)p1 valueInt16:(int16_t)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(int16&,int16)" withNumArgs:2, p1, DB_VALUE(p2)];;
+		
+		[self invokeMonoClassMethod:"VolatileWrite(int16&,int16)" withNumArgs:2, p1, DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : VolatileWrite
@@ -743,7 +1006,9 @@
 	// Managed param types : ref System.Int32&, System.Int32
     + (void)volatileWrite_withAddressIntRef:(int32_t*)p1 valueInt:(int32_t)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(int&,int)" withNumArgs:2, p1, DB_VALUE(p2)];;
+		
+		[self invokeMonoClassMethod:"VolatileWrite(int&,int)" withNumArgs:2, p1, DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : VolatileWrite
@@ -751,7 +1016,9 @@
 	// Managed param types : ref System.Int64&, System.Int64
     + (void)volatileWrite_withAddressLongRef:(int64_t*)p1 valueLong:(int64_t)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(long&,long)" withNumArgs:2, p1, DB_VALUE(p2)];;
+		
+		[self invokeMonoClassMethod:"VolatileWrite(long&,long)" withNumArgs:2, p1, DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : VolatileWrite
@@ -759,7 +1026,9 @@
 	// Managed param types : ref System.SByte&, System.SByte
     + (void)volatileWrite_withAddressSbyteRef:(int8_t*)p1 valueSbyte:(int8_t)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(sbyte&,sbyte)" withNumArgs:2, p1, DB_VALUE(p2)];;
+		
+		[self invokeMonoClassMethod:"VolatileWrite(sbyte&,sbyte)" withNumArgs:2, p1, DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : VolatileWrite
@@ -767,7 +1036,9 @@
 	// Managed param types : ref System.UInt16&, System.UInt16
     + (void)volatileWrite_withAddressUint16Ref:(uint16_t*)p1 valueUint16:(uint16_t)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(uint16&,uint16)" withNumArgs:2, p1, DB_VALUE(p2)];;
+		
+		[self invokeMonoClassMethod:"VolatileWrite(uint16&,uint16)" withNumArgs:2, p1, DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : VolatileWrite
@@ -775,7 +1046,9 @@
 	// Managed param types : ref System.UInt32&, System.UInt32
     + (void)volatileWrite_withAddressUintRef:(uint32_t*)p1 valueUint:(uint32_t)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(uint&,uint)" withNumArgs:2, p1, DB_VALUE(p2)];;
+		
+		[self invokeMonoClassMethod:"VolatileWrite(uint&,uint)" withNumArgs:2, p1, DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : VolatileWrite
@@ -783,7 +1056,9 @@
 	// Managed param types : ref System.IntPtr&, System.IntPtr
     + (void)volatileWrite_withAddressIntptrRef:(void **)p1 valueIntptr:(void *)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(intptr&,intptr)" withNumArgs:2, p1, DB_VALUE(p2)];;
+		
+		[self invokeMonoClassMethod:"VolatileWrite(intptr&,intptr)" withNumArgs:2, p1, DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : VolatileWrite
@@ -791,7 +1066,9 @@
 	// Managed param types : ref System.UIntPtr&, System.UIntPtr
     + (void)volatileWrite_withAddressUintptrRef:(void **)p1 valueUintptr:(void *)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(uintptr&,uintptr)" withNumArgs:2, p1, DB_VALUE(p2)];;
+		
+		[self invokeMonoClassMethod:"VolatileWrite(uintptr&,uintptr)" withNumArgs:2, p1, DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : VolatileWrite
@@ -799,7 +1076,9 @@
 	// Managed param types : ref System.UInt64&, System.UInt64
     + (void)volatileWrite_withAddressUlongRef:(uint64_t*)p1 valueUlong:(uint64_t)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(ulong&,ulong)" withNumArgs:2, p1, DB_VALUE(p2)];;
+		
+		[self invokeMonoClassMethod:"VolatileWrite(ulong&,ulong)" withNumArgs:2, p1, DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : VolatileWrite
@@ -807,7 +1086,9 @@
 	// Managed param types : ref System.Single&, System.Single
     + (void)volatileWrite_withAddressSingleRef:(float*)p1 valueSingle:(float)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(single&,single)" withNumArgs:2, p1, DB_VALUE(p2)];;
+		
+		[self invokeMonoClassMethod:"VolatileWrite(single&,single)" withNumArgs:2, p1, DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : VolatileWrite
@@ -815,7 +1096,9 @@
 	// Managed param types : ref System.Double&, System.Double
     + (void)volatileWrite_withAddressDoubleRef:(double*)p1 valueDouble:(double)p2
     {
-		[self invokeMonoClassMethod:"VolatileWrite(double&,double)" withNumArgs:2, p1, DB_VALUE(p2)];;
+		
+		[self invokeMonoClassMethod:"VolatileWrite(double&,double)" withNumArgs:2, p1, DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : VolatileWrite
@@ -823,8 +1106,12 @@
 	// Managed param types : ref System.Object&, System.Object
     + (void)volatileWrite_withAddressObjectRef:(System_Object **)p1 valueObject:(System_Object *)p2
     {
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+
 		[self invokeMonoClassMethod:"VolatileWrite(object&,object)" withNumArgs:2, &refPtr1, [p2 monoRTInvokeArg]];
-;
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+
     }
 
 	// Managed method name : Yield

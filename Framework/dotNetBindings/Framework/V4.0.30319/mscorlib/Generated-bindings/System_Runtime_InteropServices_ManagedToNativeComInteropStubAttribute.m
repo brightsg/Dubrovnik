@@ -32,7 +32,10 @@
 	// Managed param types : System.Type, System.String
     + (System_Runtime_InteropServices_ManagedToNativeComInteropStubAttribute *)new_withClassType:(System_Type *)p1 methodName:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"System.Type,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Runtime_InteropServices_ManagedToNativeComInteropStubAttribute * object = [[self alloc] initWithSignature:"System.Type,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,9 +46,19 @@
     @synthesize classType = _classType;
     - (System_Type *)classType
     {
-		MonoObject *monoObject = [self getMonoProperty:"ClassType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ClassType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_classType isEqualToMonoObject:monoObject]) return _classType;					
-		_classType = [System_Type objectWithMonoObject:monoObject];
+		_classType = [System_Type bestObjectWithMonoObject:monoObject];
 
 		return _classType;
 	}
@@ -55,7 +68,17 @@
     @synthesize methodName = _methodName;
     - (NSString *)methodName
     {
-		MonoObject *monoObject = [self getMonoProperty:"MethodName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MethodName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_methodName isEqualToMonoObject:monoObject]) return _methodName;					
 		_methodName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

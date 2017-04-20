@@ -20,7 +20,7 @@
 
 	// Managed property name : Command
 	// Managed property type : System.Diagnostics.Tracing.EventCommand
-    @property (nonatomic) System_Diagnostics_Tracing_EventCommand command;
+    @property (nonatomic) int32_t command;
 
 #pragma mark -
 #pragma mark Methods

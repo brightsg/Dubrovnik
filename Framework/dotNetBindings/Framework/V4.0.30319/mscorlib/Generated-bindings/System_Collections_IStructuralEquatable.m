@@ -30,7 +30,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object, System.Collections.IEqualityComparer
-    - (BOOL)equals_withOther:(System_Object *)p1 comparer:(System_Collections_IEqualityComparer *)p2
+    - (BOOL)equals_withOther:(System_Object *)p1 comparer:(id <System_Collections_IEqualityComparer_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IStructuralEquatable.Equals(object,System.Collections.IEqualityComparer)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -41,7 +41,7 @@
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
 	// Managed param types : System.Collections.IEqualityComparer
-    - (int32_t)getHashCode_withComparer:(System_Collections_IEqualityComparer *)p1
+    - (int32_t)getHashCode_withComparer:(id <System_Collections_IEqualityComparer_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IStructuralEquatable.GetHashCode(System.Collections.IEqualityComparer)" withNumArgs:1, [p1 monoRTInvokeArg]];

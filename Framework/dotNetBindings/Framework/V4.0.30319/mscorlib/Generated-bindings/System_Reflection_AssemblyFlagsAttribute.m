@@ -32,7 +32,10 @@
 	// Managed param types : System.UInt32
     + (System_Reflection_AssemblyFlagsAttribute *)new_withFlags:(uint32_t)p1
     {
-		return [[self alloc] initWithSignature:"uint" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Reflection_AssemblyFlagsAttribute * object = [[self alloc] initWithSignature:"uint" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,15 +43,21 @@
 	// Managed param types : System.Int32
     + (System_Reflection_AssemblyFlagsAttribute *)new_withAssemblyFlagsInt:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Reflection_AssemblyFlagsAttribute * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Reflection.AssemblyFlagsAttribute
 	// Managed param types : System.Reflection.AssemblyNameFlags
-    + (System_Reflection_AssemblyFlagsAttribute *)new_withAssemblyFlagsSRAssemblyNameFlags:(System_Reflection_AssemblyNameFlags)p1
+    + (System_Reflection_AssemblyFlagsAttribute *)new_withAssemblyFlagsSRAssemblyNameFlags:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Reflection.AssemblyNameFlags" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Reflection_AssemblyFlagsAttribute * object = [[self alloc] initWithSignature:"System.Reflection.AssemblyNameFlags" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -59,8 +68,18 @@
     @synthesize assemblyFlags = _assemblyFlags;
     - (int32_t)assemblyFlags
     {
-		MonoObject *monoObject = [self getMonoProperty:"AssemblyFlags"];
-		_assemblyFlags = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AssemblyFlags");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_assemblyFlags = monoObject;
 
 		return _assemblyFlags;
 	}
@@ -70,8 +89,18 @@
     @synthesize flags = _flags;
     - (uint32_t)flags
     {
-		MonoObject *monoObject = [self getMonoProperty:"Flags"];
-		_flags = DB_UNBOX_UINT32(monoObject);
+		typedef uint32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Flags");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		uint32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_flags = monoObject;
 
 		return _flags;
 	}

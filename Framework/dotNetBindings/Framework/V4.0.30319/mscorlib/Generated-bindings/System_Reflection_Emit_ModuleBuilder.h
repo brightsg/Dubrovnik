@@ -2,7 +2,7 @@
 //
 // Managed class : ModuleBuilder
 //
-@interface System_Reflection_Emit_ModuleBuilder : System_Reflection_Module <System_Runtime_InteropServices__Module, System_Runtime_Serialization_ISerializable, System_Reflection_ICustomAttributeProvider, System_Runtime_InteropServices__ModuleBuilder>
+@interface System_Reflection_Emit_ModuleBuilder : System_Reflection_Module <System_Runtime_InteropServices__Module_, System_Runtime_Serialization_ISerializable_, System_Reflection_ICustomAttributeProvider_, System_Runtime_InteropServices__ModuleBuilder_>
 
 #pragma mark -
 #pragma mark Setup
@@ -53,62 +53,57 @@
 	// Managed method name : DefineDocument
 	// Managed return type : System.Diagnostics.SymbolStore.ISymbolDocumentWriter
 	// Managed param types : System.String, System.Guid, System.Guid, System.Guid
-    - (System_Diagnostics_SymbolStore_ISymbolDocumentWriter *)defineDocument_withUrl:(NSString *)p1 language:(System_Guid *)p2 languageVendor:(System_Guid *)p3 documentType:(System_Guid *)p4;
+    - (id <System_Diagnostics_SymbolStore_ISymbolDocumentWriter>)defineDocument_withUrl:(NSString *)p1 language:(System_Guid *)p2 languageVendor:(System_Guid *)p3 documentType:(System_Guid *)p4;
 
 	// Managed method name : DefineEnum
 	// Managed return type : System.Reflection.Emit.EnumBuilder
 	// Managed param types : System.String, System.Reflection.TypeAttributes, System.Type
-    - (System_Reflection_Emit_EnumBuilder *)defineEnum_withName:(NSString *)p1 visibility:(System_Reflection_TypeAttributes)p2 underlyingType:(System_Type *)p3;
+    - (System_Reflection_Emit_EnumBuilder *)defineEnum_withName:(NSString *)p1 visibility:(int32_t)p2 underlyingType:(System_Type *)p3;
 
 	// Managed method name : DefineGlobalMethod
 	// Managed return type : System.Reflection.Emit.MethodBuilder
 	// Managed param types : System.String, System.Reflection.MethodAttributes, System.Type, System.Type[]
-    - (System_Reflection_Emit_MethodBuilder *)defineGlobalMethod_withName:(NSString *)p1 attributes:(System_Reflection_MethodAttributes)p2 returnType:(System_Type *)p3 parameterTypes:(DBSystem_Array *)p4;
+    - (System_Reflection_Emit_MethodBuilder *)defineGlobalMethod_withName:(NSString *)p1 attributes:(int32_t)p2 returnType:(System_Type *)p3 parameterTypes:(DBSystem_Array *)p4;
 
 	// Managed method name : DefineGlobalMethod
 	// Managed return type : System.Reflection.Emit.MethodBuilder
 	// Managed param types : System.String, System.Reflection.MethodAttributes, System.Reflection.CallingConventions, System.Type, System.Type[]
-    - (System_Reflection_Emit_MethodBuilder *)defineGlobalMethod_withName:(NSString *)p1 attributes:(System_Reflection_MethodAttributes)p2 callingConvention:(System_Reflection_CallingConventions)p3 returnType:(System_Type *)p4 parameterTypes:(DBSystem_Array *)p5;
+    - (System_Reflection_Emit_MethodBuilder *)defineGlobalMethod_withName:(NSString *)p1 attributes:(int32_t)p2 callingConvention:(int32_t)p3 returnType:(System_Type *)p4 parameterTypes:(DBSystem_Array *)p5;
 
 	// Managed method name : DefineGlobalMethod
 	// Managed return type : System.Reflection.Emit.MethodBuilder
 	// Managed param types : System.String, System.Reflection.MethodAttributes, System.Reflection.CallingConventions, System.Type, System.Type[], System.Type[], System.Type[], System.Type[][], System.Type[][]
-    - (System_Reflection_Emit_MethodBuilder *)defineGlobalMethod_withName:(NSString *)p1 attributes:(System_Reflection_MethodAttributes)p2 callingConvention:(System_Reflection_CallingConventions)p3 returnType:(System_Type *)p4 requiredReturnTypeCustomModifiers:(DBSystem_Array *)p5 optionalReturnTypeCustomModifiers:(DBSystem_Array *)p6 parameterTypes:(DBSystem_Array *)p7 requiredParameterTypeCustomModifiers:(DBSystem_Array *)p8 optionalParameterTypeCustomModifiers:(DBSystem_Array *)p9;
+    - (System_Reflection_Emit_MethodBuilder *)defineGlobalMethod_withName:(NSString *)p1 attributes:(int32_t)p2 callingConvention:(int32_t)p3 returnType:(System_Type *)p4 requiredReturnTypeCustomModifiers:(DBSystem_Array *)p5 optionalReturnTypeCustomModifiers:(DBSystem_Array *)p6 parameterTypes:(DBSystem_Array *)p7 requiredParameterTypeCustomModifiers:(DBSystem_Array *)p8 optionalParameterTypeCustomModifiers:(DBSystem_Array *)p9;
 
 	// Managed method name : DefineInitializedData
 	// Managed return type : System.Reflection.Emit.FieldBuilder
 	// Managed param types : System.String, System.Byte[], System.Reflection.FieldAttributes
-    - (System_Reflection_Emit_FieldBuilder *)defineInitializedData_withName:(NSString *)p1 data:(NSData *)p2 attributes:(System_Reflection_FieldAttributes)p3;
+    - (System_Reflection_Emit_FieldBuilder *)defineInitializedData_withName:(NSString *)p1 data:(NSData *)p2 attributes:(int32_t)p3;
 
 	// Managed method name : DefineManifestResource
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.IO.Stream, System.Reflection.ResourceAttributes
-    - (void)defineManifestResource_withName:(NSString *)p1 stream:(System_IO_Stream *)p2 attribute:(System_Reflection_ResourceAttributes)p3;
+    - (void)defineManifestResource_withName:(NSString *)p1 stream:(System_IO_Stream *)p2 attribute:(int32_t)p3;
 
 	// Managed method name : DefinePInvokeMethod
 	// Managed return type : System.Reflection.Emit.MethodBuilder
 	// Managed param types : System.String, System.String, System.Reflection.MethodAttributes, System.Reflection.CallingConventions, System.Type, System.Type[], System.Runtime.InteropServices.CallingConvention, System.Runtime.InteropServices.CharSet
-    - (System_Reflection_Emit_MethodBuilder *)definePInvokeMethod_withName:(NSString *)p1 dllName:(NSString *)p2 attributes:(System_Reflection_MethodAttributes)p3 callingConvention:(System_Reflection_CallingConventions)p4 returnType:(System_Type *)p5 parameterTypes:(DBSystem_Array *)p6 nativeCallConv:(System_Runtime_InteropServices_CallingConvention)p7 nativeCharSet:(System_Runtime_InteropServices_CharSet)p8;
+    - (System_Reflection_Emit_MethodBuilder *)definePInvokeMethod_withName:(NSString *)p1 dllName:(NSString *)p2 attributes:(int32_t)p3 callingConvention:(int32_t)p4 returnType:(System_Type *)p5 parameterTypes:(DBSystem_Array *)p6 nativeCallConv:(int32_t)p7 nativeCharSet:(int32_t)p8;
 
 	// Managed method name : DefinePInvokeMethod
 	// Managed return type : System.Reflection.Emit.MethodBuilder
 	// Managed param types : System.String, System.String, System.String, System.Reflection.MethodAttributes, System.Reflection.CallingConventions, System.Type, System.Type[], System.Runtime.InteropServices.CallingConvention, System.Runtime.InteropServices.CharSet
-    - (System_Reflection_Emit_MethodBuilder *)definePInvokeMethod_withName:(NSString *)p1 dllName:(NSString *)p2 entryName:(NSString *)p3 attributes:(System_Reflection_MethodAttributes)p4 callingConvention:(System_Reflection_CallingConventions)p5 returnType:(System_Type *)p6 parameterTypes:(DBSystem_Array *)p7 nativeCallConv:(System_Runtime_InteropServices_CallingConvention)p8 nativeCharSet:(System_Runtime_InteropServices_CharSet)p9;
+    - (System_Reflection_Emit_MethodBuilder *)definePInvokeMethod_withName:(NSString *)p1 dllName:(NSString *)p2 entryName:(NSString *)p3 attributes:(int32_t)p4 callingConvention:(int32_t)p5 returnType:(System_Type *)p6 parameterTypes:(DBSystem_Array *)p7 nativeCallConv:(int32_t)p8 nativeCharSet:(int32_t)p9;
 
 	// Managed method name : DefineResource
 	// Managed return type : System.Resources.IResourceWriter
 	// Managed param types : System.String, System.String
-    - (System_Resources_IResourceWriter *)defineResource_withName:(NSString *)p1 description:(NSString *)p2;
+    - (id <System_Resources_IResourceWriter>)defineResource_withName:(NSString *)p1 description:(NSString *)p2;
 
 	// Managed method name : DefineResource
 	// Managed return type : System.Resources.IResourceWriter
 	// Managed param types : System.String, System.String, System.Reflection.ResourceAttributes
-    - (System_Resources_IResourceWriter *)defineResource_withName:(NSString *)p1 description:(NSString *)p2 attribute:(System_Reflection_ResourceAttributes)p3;
-
-	// Managed method name : DefineType
-	// Managed return type : System.Reflection.Emit.TypeBuilder
-	// Managed param types : System.String, System.Reflection.TypeAttributes, System.Type, System.Type[]
-    - (System_Reflection_Emit_TypeBuilder *)defineType_withName:(NSString *)p1 attr:(System_Reflection_TypeAttributes)p2 parent:(System_Type *)p3 interfaces:(DBSystem_Array *)p4;
+    - (id <System_Resources_IResourceWriter>)defineResource_withName:(NSString *)p1 description:(NSString *)p2 attribute:(int32_t)p3;
 
 	// Managed method name : DefineType
 	// Managed return type : System.Reflection.Emit.TypeBuilder
@@ -118,32 +113,37 @@
 	// Managed method name : DefineType
 	// Managed return type : System.Reflection.Emit.TypeBuilder
 	// Managed param types : System.String, System.Reflection.TypeAttributes
-    - (System_Reflection_Emit_TypeBuilder *)defineType_withName:(NSString *)p1 attr:(System_Reflection_TypeAttributes)p2;
+    - (System_Reflection_Emit_TypeBuilder *)defineType_withName:(NSString *)p1 attr:(int32_t)p2;
 
 	// Managed method name : DefineType
 	// Managed return type : System.Reflection.Emit.TypeBuilder
 	// Managed param types : System.String, System.Reflection.TypeAttributes, System.Type
-    - (System_Reflection_Emit_TypeBuilder *)defineType_withName:(NSString *)p1 attr:(System_Reflection_TypeAttributes)p2 parent:(System_Type *)p3;
+    - (System_Reflection_Emit_TypeBuilder *)defineType_withName:(NSString *)p1 attr:(int32_t)p2 parent:(System_Type *)p3;
 
 	// Managed method name : DefineType
 	// Managed return type : System.Reflection.Emit.TypeBuilder
 	// Managed param types : System.String, System.Reflection.TypeAttributes, System.Type, System.Int32
-    - (System_Reflection_Emit_TypeBuilder *)defineType_withName:(NSString *)p1 attr:(System_Reflection_TypeAttributes)p2 parent:(System_Type *)p3 typesize:(int32_t)p4;
+    - (System_Reflection_Emit_TypeBuilder *)defineType_withName:(NSString *)p1 attr:(int32_t)p2 parent:(System_Type *)p3 typesize:(int32_t)p4;
 
 	// Managed method name : DefineType
 	// Managed return type : System.Reflection.Emit.TypeBuilder
 	// Managed param types : System.String, System.Reflection.TypeAttributes, System.Type, System.Reflection.Emit.PackingSize, System.Int32
-    - (System_Reflection_Emit_TypeBuilder *)defineType_withName:(NSString *)p1 attr:(System_Reflection_TypeAttributes)p2 parent:(System_Type *)p3 packingSize:(System_Reflection_Emit_PackingSize)p4 typesize:(int32_t)p5;
+    - (System_Reflection_Emit_TypeBuilder *)defineType_withName:(NSString *)p1 attr:(int32_t)p2 parent:(System_Type *)p3 packingSize:(int32_t)p4 typesize:(int32_t)p5;
+
+	// Managed method name : DefineType
+	// Managed return type : System.Reflection.Emit.TypeBuilder
+	// Managed param types : System.String, System.Reflection.TypeAttributes, System.Type, System.Type[]
+    - (System_Reflection_Emit_TypeBuilder *)defineType_withName:(NSString *)p1 attr:(int32_t)p2 parent:(System_Type *)p3 interfaces:(DBSystem_Array *)p4;
 
 	// Managed method name : DefineType
 	// Managed return type : System.Reflection.Emit.TypeBuilder
 	// Managed param types : System.String, System.Reflection.TypeAttributes, System.Type, System.Reflection.Emit.PackingSize
-    - (System_Reflection_Emit_TypeBuilder *)defineType_withName:(NSString *)p1 attr:(System_Reflection_TypeAttributes)p2 parent:(System_Type *)p3 packsize:(System_Reflection_Emit_PackingSize)p4;
+    - (System_Reflection_Emit_TypeBuilder *)defineType_withName:(NSString *)p1 attr:(int32_t)p2 parent:(System_Type *)p3 packsize:(int32_t)p4;
 
 	// Managed method name : DefineUninitializedData
 	// Managed return type : System.Reflection.Emit.FieldBuilder
 	// Managed param types : System.String, System.Int32, System.Reflection.FieldAttributes
-    - (System_Reflection_Emit_FieldBuilder *)defineUninitializedData_withName:(NSString *)p1 size:(int32_t)p2 attributes:(System_Reflection_FieldAttributes)p3;
+    - (System_Reflection_Emit_FieldBuilder *)defineUninitializedData_withName:(NSString *)p1 size:(int32_t)p2 attributes:(int32_t)p3;
 
 	// Managed method name : DefineUnmanagedResource
 	// Managed return type : System.Void
@@ -163,17 +163,17 @@
 	// Managed method name : GetArrayMethod
 	// Managed return type : System.Reflection.MethodInfo
 	// Managed param types : System.Type, System.String, System.Reflection.CallingConventions, System.Type, System.Type[]
-    - (System_Reflection_MethodInfo *)getArrayMethod_withArrayClass:(System_Type *)p1 methodName:(NSString *)p2 callingConvention:(System_Reflection_CallingConventions)p3 returnType:(System_Type *)p4 parameterTypes:(DBSystem_Array *)p5;
+    - (System_Reflection_MethodInfo *)getArrayMethod_withArrayClass:(System_Type *)p1 methodName:(NSString *)p2 callingConvention:(int32_t)p3 returnType:(System_Type *)p4 parameterTypes:(DBSystem_Array *)p5;
 
 	// Managed method name : GetArrayMethodToken
 	// Managed return type : System.Reflection.Emit.MethodToken
 	// Managed param types : System.Type, System.String, System.Reflection.CallingConventions, System.Type, System.Type[]
-    - (System_Reflection_Emit_MethodToken *)getArrayMethodToken_withArrayClass:(System_Type *)p1 methodName:(NSString *)p2 callingConvention:(System_Reflection_CallingConventions)p3 returnType:(System_Type *)p4 parameterTypes:(DBSystem_Array *)p5;
+    - (System_Reflection_Emit_MethodToken *)getArrayMethodToken_withArrayClass:(System_Type *)p1 methodName:(NSString *)p2 callingConvention:(int32_t)p3 returnType:(System_Type *)p4 parameterTypes:(DBSystem_Array *)p5;
 
 	// Managed method name : GetConstructorToken
 	// Managed return type : System.Reflection.Emit.MethodToken
 	// Managed param types : System.Reflection.ConstructorInfo, System.Collections.Generic.IEnumerable`1<System.Type>
-    - (System_Reflection_Emit_MethodToken *)getConstructorToken_withConstructor:(System_Reflection_ConstructorInfo *)p1 optionalParameterTypes:(System_Collections_Generic_IEnumerableA1 *)p2;
+    - (System_Reflection_Emit_MethodToken *)getConstructorToken_withConstructor:(System_Reflection_ConstructorInfo *)p1 optionalParameterTypes:(id <System_Collections_Generic_IEnumerableA1_>)p2;
 
 	// Managed method name : GetConstructorToken
 	// Managed return type : System.Reflection.Emit.MethodToken
@@ -193,17 +193,17 @@
 	// Managed method name : GetCustomAttributesData
 	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : 
-    - (System_Collections_Generic_IListA1 *)getCustomAttributesData;
+    - (id <System_Collections_Generic_IListA1>)getCustomAttributesData;
 
 	// Managed method name : GetField
 	// Managed return type : System.Reflection.FieldInfo
 	// Managed param types : System.String, System.Reflection.BindingFlags
-    - (System_Reflection_FieldInfo *)getField_withName:(NSString *)p1 bindingAttr:(System_Reflection_BindingFlags)p2;
+    - (System_Reflection_FieldInfo *)getField_withName:(NSString *)p1 bindingAttr:(int32_t)p2;
 
 	// Managed method name : GetFields
 	// Managed return type : System.Reflection.FieldInfo[]
 	// Managed param types : System.Reflection.BindingFlags
-    - (DBSystem_Array *)getFields_withBindingFlags:(System_Reflection_BindingFlags)p1;
+    - (DBSystem_Array *)getFields_withBindingFlags:(int32_t)p1;
 
 	// Managed method name : GetFieldToken
 	// Managed return type : System.Reflection.Emit.FieldToken
@@ -218,7 +218,7 @@
 	// Managed method name : GetMethods
 	// Managed return type : System.Reflection.MethodInfo[]
 	// Managed param types : System.Reflection.BindingFlags
-    - (DBSystem_Array *)getMethods_withBindingFlags:(System_Reflection_BindingFlags)p1;
+    - (DBSystem_Array *)getMethods_withBindingFlags:(int32_t)p1;
 
 	// Managed method name : GetMethodToken
 	// Managed return type : System.Reflection.Emit.MethodToken
@@ -228,7 +228,7 @@
 	// Managed method name : GetMethodToken
 	// Managed return type : System.Reflection.Emit.MethodToken
 	// Managed param types : System.Reflection.MethodInfo, System.Collections.Generic.IEnumerable`1<System.Type>
-    - (System_Reflection_Emit_MethodToken *)getMethodToken_withMethod:(System_Reflection_MethodInfo *)p1 optionalParameterTypes:(System_Collections_Generic_IEnumerableA1 *)p2;
+    - (System_Reflection_Emit_MethodToken *)getMethodToken_withMethod:(System_Reflection_MethodInfo *)p1 optionalParameterTypes:(id <System_Collections_Generic_IEnumerableA1_>)p2;
 
 	// Managed method name : GetPEKind
 	// Managed return type : System.Void
@@ -258,7 +258,7 @@
 	// Managed method name : GetSymWriter
 	// Managed return type : System.Diagnostics.SymbolStore.ISymbolWriter
 	// Managed param types : 
-    - (System_Diagnostics_SymbolStore_ISymbolWriter *)getSymWriter;
+    - (id <System_Diagnostics_SymbolStore_ISymbolWriter>)getSymWriter;
 
 	// Managed method name : GetType
 	// Managed return type : System.Type

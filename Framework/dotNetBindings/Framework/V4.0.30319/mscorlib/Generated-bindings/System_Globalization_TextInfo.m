@@ -32,8 +32,18 @@
     @synthesize aNSICodePage = _aNSICodePage;
     - (int32_t)aNSICodePage
     {
-		MonoObject *monoObject = [self getMonoProperty:"ANSICodePage"];
-		_aNSICodePage = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ANSICodePage");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_aNSICodePage = monoObject;
 
 		return _aNSICodePage;
 	}
@@ -43,7 +53,17 @@
     @synthesize cultureName = _cultureName;
     - (NSString *)cultureName
     {
-		MonoObject *monoObject = [self getMonoProperty:"CultureName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CultureName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_cultureName isEqualToMonoObject:monoObject]) return _cultureName;					
 		_cultureName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -55,8 +75,18 @@
     @synthesize eBCDICCodePage = _eBCDICCodePage;
     - (int32_t)eBCDICCodePage
     {
-		MonoObject *monoObject = [self getMonoProperty:"EBCDICCodePage"];
-		_eBCDICCodePage = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EBCDICCodePage");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_eBCDICCodePage = monoObject;
 
 		return _eBCDICCodePage;
 	}
@@ -66,8 +96,18 @@
     @synthesize isReadOnly = _isReadOnly;
     - (BOOL)isReadOnly
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsReadOnly"];
-		_isReadOnly = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsReadOnly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isReadOnly = monoObject;
 
 		return _isReadOnly;
 	}
@@ -77,8 +117,18 @@
     @synthesize isRightToLeft = _isRightToLeft;
     - (BOOL)isRightToLeft
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsRightToLeft"];
-		_isRightToLeft = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsRightToLeft");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isRightToLeft = monoObject;
 
 		return _isRightToLeft;
 	}
@@ -88,8 +138,18 @@
     @synthesize lCID = _lCID;
     - (int32_t)lCID
     {
-		MonoObject *monoObject = [self getMonoProperty:"LCID"];
-		_lCID = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LCID");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_lCID = monoObject;
 
 		return _lCID;
 	}
@@ -99,7 +159,17 @@
     @synthesize listSeparator = _listSeparator;
     - (NSString *)listSeparator
     {
-		MonoObject *monoObject = [self getMonoProperty:"ListSeparator"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ListSeparator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_listSeparator isEqualToMonoObject:monoObject]) return _listSeparator;					
 		_listSeparator = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -108,8 +178,17 @@
     - (void)setListSeparator:(NSString *)value
 	{
 		_listSeparator = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"ListSeparator" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ListSeparator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : MacCodePage
@@ -117,8 +196,18 @@
     @synthesize macCodePage = _macCodePage;
     - (int32_t)macCodePage
     {
-		MonoObject *monoObject = [self getMonoProperty:"MacCodePage"];
-		_macCodePage = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MacCodePage");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_macCodePage = monoObject;
 
 		return _macCodePage;
 	}
@@ -128,8 +217,18 @@
     @synthesize oEMCodePage = _oEMCodePage;
     - (int32_t)oEMCodePage
     {
-		MonoObject *monoObject = [self getMonoProperty:"OEMCodePage"];
-		_oEMCodePage = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OEMCodePage");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_oEMCodePage = monoObject;
 
 		return _oEMCodePage;
 	}
@@ -178,7 +277,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Globalization.TextInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Globalization_TextInfo objectWithMonoObject:monoObject];
+		return [System_Globalization_TextInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToLower

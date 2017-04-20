@@ -2,7 +2,7 @@
 //
 // Managed class : TextElementEnumerator
 //
-@interface System_Globalization_TextElementEnumerator : System_Object <System_Collections_IEnumerator>
+@interface System_Globalization_TextElementEnumerator : System_Object <System_Collections_IEnumerator_>
 
 #pragma mark -
 #pragma mark Setup

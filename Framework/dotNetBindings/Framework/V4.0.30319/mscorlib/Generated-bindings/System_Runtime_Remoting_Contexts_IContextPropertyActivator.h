@@ -17,26 +17,26 @@
 	// Managed method name : CollectFromClientContext
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Activation.IConstructionCallMessage
-    - (void)collectFromClientContext_withMsg:(System_Runtime_Remoting_Activation_IConstructionCallMessage *)p1;
+    - (void)collectFromClientContext_withMsg:(id <System_Runtime_Remoting_Activation_IConstructionCallMessage_>)p1;
 
 	// Managed method name : CollectFromServerContext
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Activation.IConstructionReturnMessage
-    - (void)collectFromServerContext_withMsg:(System_Runtime_Remoting_Activation_IConstructionReturnMessage *)p1;
+    - (void)collectFromServerContext_withMsg:(id <System_Runtime_Remoting_Activation_IConstructionReturnMessage_>)p1;
 
 	// Managed method name : DeliverClientContextToServerContext
 	// Managed return type : System.Boolean
 	// Managed param types : System.Runtime.Remoting.Activation.IConstructionCallMessage
-    - (BOOL)deliverClientContextToServerContext_withMsg:(System_Runtime_Remoting_Activation_IConstructionCallMessage *)p1;
+    - (BOOL)deliverClientContextToServerContext_withMsg:(id <System_Runtime_Remoting_Activation_IConstructionCallMessage_>)p1;
 
 	// Managed method name : DeliverServerContextToClientContext
 	// Managed return type : System.Boolean
 	// Managed param types : System.Runtime.Remoting.Activation.IConstructionReturnMessage
-    - (BOOL)deliverServerContextToClientContext_withMsg:(System_Runtime_Remoting_Activation_IConstructionReturnMessage *)p1;
+    - (BOOL)deliverServerContextToClientContext_withMsg:(id <System_Runtime_Remoting_Activation_IConstructionReturnMessage_>)p1;
 
 	// Managed method name : IsOKToActivate
 	// Managed return type : System.Boolean
 	// Managed param types : System.Runtime.Remoting.Activation.IConstructionCallMessage
-    - (BOOL)isOKToActivate_withMsg:(System_Runtime_Remoting_Activation_IConstructionCallMessage *)p1;
+    - (BOOL)isOKToActivate_withMsg:(id <System_Runtime_Remoting_Activation_IConstructionCallMessage_>)p1;
 @end
 //--Dubrovnik.CodeGenerator

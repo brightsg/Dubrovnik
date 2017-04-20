@@ -2,7 +2,7 @@
 //
 // Managed class : ConstructionCall
 //
-@interface System_Runtime_Remoting_Messaging_ConstructionCall : System_Runtime_Remoting_Messaging_MethodCall <System_Runtime_Remoting_Messaging_IMethodCallMessage, System_Runtime_Remoting_Messaging_IMethodMessage, System_Runtime_Remoting_Messaging_IMessage, System_Runtime_Serialization_ISerializable, System_Runtime_Remoting_Activation_IConstructionCallMessage>
+@interface System_Runtime_Remoting_Messaging_ConstructionCall : System_Runtime_Remoting_Messaging_MethodCall <System_Runtime_Remoting_Messaging_IMethodCallMessage_, System_Runtime_Remoting_Messaging_IMethodMessage_, System_Runtime_Remoting_Messaging_IMessage_, System_Runtime_Serialization_ISerializable_, System_Runtime_Remoting_Activation_IConstructionCallMessage_>
 
 #pragma mark -
 #pragma mark Setup
@@ -22,7 +22,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Remoting.Messaging.ConstructionCall
 	// Managed param types : System.Runtime.Remoting.Messaging.IMessage
-    + (System_Runtime_Remoting_Messaging_ConstructionCall *)new_withM:(System_Runtime_Remoting_Messaging_IMessage *)p1;
+    + (System_Runtime_Remoting_Messaging_ConstructionCall *)new_withM:(id <System_Runtime_Remoting_Messaging_IMessage_>)p1;
 
 #pragma mark -
 #pragma mark Properties

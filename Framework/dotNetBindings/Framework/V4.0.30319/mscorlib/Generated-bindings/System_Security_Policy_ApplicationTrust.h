@@ -2,7 +2,7 @@
 //
 // Managed class : ApplicationTrust
 //
-@interface System_Security_Policy_ApplicationTrust : System_Security_Policy_EvidenceBase <System_Security_ISecurityEncodable>
+@interface System_Security_Policy_ApplicationTrust : System_Security_Policy_EvidenceBase <System_Security_ISecurityEncodable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -22,7 +22,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Policy.ApplicationTrust
 	// Managed param types : System.Security.PermissionSet, System.Collections.Generic.IEnumerable`1<System.Security.Policy.StrongName>
-    + (System_Security_Policy_ApplicationTrust *)new_withDefaultGrantSet:(System_Security_PermissionSet *)p1 fullTrustAssemblies:(System_Collections_Generic_IEnumerableA1 *)p2;
+    + (System_Security_Policy_ApplicationTrust *)new_withDefaultGrantSet:(System_Security_PermissionSet *)p1 fullTrustAssemblies:(id <System_Collections_Generic_IEnumerableA1_>)p2;
 
 #pragma mark -
 #pragma mark Properties

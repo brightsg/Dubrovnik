@@ -30,10 +30,20 @@
 	// Managed property name : Attributes
 	// Managed property type : System.Reflection.MethodAttributes
     @synthesize attributes = _attributes;
-    - (System_Reflection_MethodAttributes)attributes
+    - (int32_t)attributes
     {
-		MonoObject *monoObject = [self getMonoProperty:"Attributes"];
-		_attributes = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Attributes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_attributes = monoObject;
 
 		return _attributes;
 	}
@@ -41,10 +51,20 @@
 	// Managed property name : CallingConvention
 	// Managed property type : System.Reflection.CallingConventions
     @synthesize callingConvention = _callingConvention;
-    - (System_Reflection_CallingConventions)callingConvention
+    - (int32_t)callingConvention
     {
-		MonoObject *monoObject = [self getMonoProperty:"CallingConvention"];
-		_callingConvention = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CallingConvention");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_callingConvention = monoObject;
 
 		return _callingConvention;
 	}
@@ -54,8 +74,18 @@
     @synthesize containsGenericParameters = _containsGenericParameters;
     - (BOOL)containsGenericParameters
     {
-		MonoObject *monoObject = [self getMonoProperty:"ContainsGenericParameters"];
-		_containsGenericParameters = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ContainsGenericParameters");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_containsGenericParameters = monoObject;
 
 		return _containsGenericParameters;
 	}
@@ -65,8 +95,18 @@
     @synthesize isAbstract = _isAbstract;
     - (BOOL)isAbstract
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsAbstract"];
-		_isAbstract = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsAbstract");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isAbstract = monoObject;
 
 		return _isAbstract;
 	}
@@ -76,8 +116,18 @@
     @synthesize isAssembly = _isAssembly;
     - (BOOL)isAssembly
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsAssembly"];
-		_isAssembly = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsAssembly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isAssembly = monoObject;
 
 		return _isAssembly;
 	}
@@ -87,8 +137,18 @@
     @synthesize isConstructor = _isConstructor;
     - (BOOL)isConstructor
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsConstructor"];
-		_isConstructor = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsConstructor");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isConstructor = monoObject;
 
 		return _isConstructor;
 	}
@@ -98,8 +158,18 @@
     @synthesize isFamily = _isFamily;
     - (BOOL)isFamily
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsFamily"];
-		_isFamily = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsFamily");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isFamily = monoObject;
 
 		return _isFamily;
 	}
@@ -109,8 +179,18 @@
     @synthesize isFamilyAndAssembly = _isFamilyAndAssembly;
     - (BOOL)isFamilyAndAssembly
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsFamilyAndAssembly"];
-		_isFamilyAndAssembly = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsFamilyAndAssembly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isFamilyAndAssembly = monoObject;
 
 		return _isFamilyAndAssembly;
 	}
@@ -120,8 +200,18 @@
     @synthesize isFamilyOrAssembly = _isFamilyOrAssembly;
     - (BOOL)isFamilyOrAssembly
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsFamilyOrAssembly"];
-		_isFamilyOrAssembly = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsFamilyOrAssembly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isFamilyOrAssembly = monoObject;
 
 		return _isFamilyOrAssembly;
 	}
@@ -131,8 +221,18 @@
     @synthesize isFinal = _isFinal;
     - (BOOL)isFinal
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsFinal"];
-		_isFinal = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsFinal");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isFinal = monoObject;
 
 		return _isFinal;
 	}
@@ -142,8 +242,18 @@
     @synthesize isGenericMethod = _isGenericMethod;
     - (BOOL)isGenericMethod
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsGenericMethod"];
-		_isGenericMethod = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsGenericMethod");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isGenericMethod = monoObject;
 
 		return _isGenericMethod;
 	}
@@ -153,8 +263,18 @@
     @synthesize isGenericMethodDefinition = _isGenericMethodDefinition;
     - (BOOL)isGenericMethodDefinition
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsGenericMethodDefinition"];
-		_isGenericMethodDefinition = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsGenericMethodDefinition");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isGenericMethodDefinition = monoObject;
 
 		return _isGenericMethodDefinition;
 	}
@@ -164,8 +284,18 @@
     @synthesize isHideBySig = _isHideBySig;
     - (BOOL)isHideBySig
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsHideBySig"];
-		_isHideBySig = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsHideBySig");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isHideBySig = monoObject;
 
 		return _isHideBySig;
 	}
@@ -175,8 +305,18 @@
     @synthesize isPrivate = _isPrivate;
     - (BOOL)isPrivate
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsPrivate"];
-		_isPrivate = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsPrivate");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isPrivate = monoObject;
 
 		return _isPrivate;
 	}
@@ -186,8 +326,18 @@
     @synthesize isPublic = _isPublic;
     - (BOOL)isPublic
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsPublic"];
-		_isPublic = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsPublic");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isPublic = monoObject;
 
 		return _isPublic;
 	}
@@ -197,8 +347,18 @@
     @synthesize isSecurityCritical = _isSecurityCritical;
     - (BOOL)isSecurityCritical
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsSecurityCritical"];
-		_isSecurityCritical = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsSecurityCritical");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isSecurityCritical = monoObject;
 
 		return _isSecurityCritical;
 	}
@@ -208,8 +368,18 @@
     @synthesize isSecuritySafeCritical = _isSecuritySafeCritical;
     - (BOOL)isSecuritySafeCritical
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsSecuritySafeCritical"];
-		_isSecuritySafeCritical = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsSecuritySafeCritical");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isSecuritySafeCritical = monoObject;
 
 		return _isSecuritySafeCritical;
 	}
@@ -219,8 +389,18 @@
     @synthesize isSecurityTransparent = _isSecurityTransparent;
     - (BOOL)isSecurityTransparent
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsSecurityTransparent"];
-		_isSecurityTransparent = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsSecurityTransparent");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isSecurityTransparent = monoObject;
 
 		return _isSecurityTransparent;
 	}
@@ -230,8 +410,18 @@
     @synthesize isSpecialName = _isSpecialName;
     - (BOOL)isSpecialName
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsSpecialName"];
-		_isSpecialName = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsSpecialName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isSpecialName = monoObject;
 
 		return _isSpecialName;
 	}
@@ -241,8 +431,18 @@
     @synthesize isStatic = _isStatic;
     - (BOOL)isStatic
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsStatic"];
-		_isStatic = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsStatic");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isStatic = monoObject;
 
 		return _isStatic;
 	}
@@ -252,8 +452,18 @@
     @synthesize isVirtual = _isVirtual;
     - (BOOL)isVirtual
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsVirtual"];
-		_isVirtual = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsVirtual");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isVirtual = monoObject;
 
 		return _isVirtual;
 	}
@@ -263,9 +473,19 @@
     @synthesize methodHandle = _methodHandle;
     - (System_RuntimeMethodHandle *)methodHandle
     {
-		MonoObject *monoObject = [self getMonoProperty:"MethodHandle"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MethodHandle");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_methodHandle isEqualToMonoObject:monoObject]) return _methodHandle;					
-		_methodHandle = [System_RuntimeMethodHandle objectWithMonoObject:monoObject];
+		_methodHandle = [System_RuntimeMethodHandle bestObjectWithMonoObject:monoObject];
 
 		return _methodHandle;
 	}
@@ -273,10 +493,20 @@
 	// Managed property name : MethodImplementationFlags
 	// Managed property type : System.Reflection.MethodImplAttributes
     @synthesize methodImplementationFlags = _methodImplementationFlags;
-    - (System_Reflection_MethodImplAttributes)methodImplementationFlags
+    - (int32_t)methodImplementationFlags
     {
-		MonoObject *monoObject = [self getMonoProperty:"MethodImplementationFlags"];
-		_methodImplementationFlags = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MethodImplementationFlags");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_methodImplementationFlags = monoObject;
 
 		return _methodImplementationFlags;
 	}
@@ -303,7 +533,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCurrentMethod()" withNumArgs:0];
 		
-		return [System_Reflection_MethodBase objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodBase bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetGenericArguments
@@ -336,7 +566,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMethodBody()" withNumArgs:0];
 		
-		return [System_Reflection_MethodBody objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodBody bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetMethodFromHandle
@@ -347,7 +577,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetMethodFromHandle(System.RuntimeMethodHandle)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_MethodBase objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodBase bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetMethodFromHandle
@@ -358,13 +588,13 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetMethodFromHandle(System.RuntimeMethodHandle,System.RuntimeTypeHandle)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Reflection_MethodBase objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodBase bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetMethodImplementationFlags
 	// Managed return type : System.Reflection.MethodImplAttributes
 	// Managed param types : 
-    - (System_Reflection_MethodImplAttributes)getMethodImplementationFlags
+    - (int32_t)getMethodImplementationFlags
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMethodImplementationFlags()" withNumArgs:0];
@@ -386,7 +616,7 @@
 	// Managed method name : Invoke
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo
-    - (System_Object *)invoke_withObj:(System_Object *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 parameters:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5
+    - (System_Object *)invoke_withObj:(System_Object *)p1 invokeAttr:(int32_t)p2 binder:(System_Reflection_Binder *)p3 parameters:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];

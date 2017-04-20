@@ -2,7 +2,7 @@
 //
 // Managed class : AssemblyConfigurationAttribute
 //
-@interface System_Reflection_AssemblyConfigurationAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Reflection_AssemblyConfigurationAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup

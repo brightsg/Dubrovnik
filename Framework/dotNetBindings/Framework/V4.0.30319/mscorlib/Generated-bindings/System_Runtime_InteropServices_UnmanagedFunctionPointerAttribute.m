@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.UnmanagedFunctionPointerAttribute
 	// Managed param types : System.Runtime.InteropServices.CallingConvention
-    + (System_Runtime_InteropServices_UnmanagedFunctionPointerAttribute *)new_withCallingConvention:(System_Runtime_InteropServices_CallingConvention)p1
+    + (System_Runtime_InteropServices_UnmanagedFunctionPointerAttribute *)new_withCallingConvention:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.InteropServices.CallingConvention" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Runtime_InteropServices_UnmanagedFunctionPointerAttribute * object = [[self alloc] initWithSignature:"System.Runtime.InteropServices.CallingConvention" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -58,14 +61,14 @@
 	// Managed field name : CharSet
 	// Managed field type : System.Runtime.InteropServices.CharSet
     @synthesize charSet = _charSet;
-    - (System_Runtime_InteropServices_CharSet)charSet
+    - (int32_t)charSet
     {
 		MonoObject *monoObject = [self getMonoField:"CharSet"];
 		_charSet = DB_UNBOX_INT32(monoObject);
 
 		return _charSet;
 	}
-    - (void)setCharSet:(System_Runtime_InteropServices_CharSet)value
+    - (void)setCharSet:(int32_t)value
 	{
 		_charSet = value;
 		MonoObject *monoObject = DB_VALUE(value);
@@ -112,10 +115,20 @@
 	// Managed property name : CallingConvention
 	// Managed property type : System.Runtime.InteropServices.CallingConvention
     @synthesize callingConvention = _callingConvention;
-    - (System_Runtime_InteropServices_CallingConvention)callingConvention
+    - (int32_t)callingConvention
     {
-		MonoObject *monoObject = [self getMonoProperty:"CallingConvention"];
-		_callingConvention = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CallingConvention");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_callingConvention = monoObject;
 
 		return _callingConvention;
 	}

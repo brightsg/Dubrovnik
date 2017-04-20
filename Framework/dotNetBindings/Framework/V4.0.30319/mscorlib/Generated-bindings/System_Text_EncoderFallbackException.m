@@ -32,7 +32,10 @@
 	// Managed param types : System.String
     + (System_Text_EncoderFallbackException *)new_withMessage:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Text_EncoderFallbackException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.String, System.Exception
     + (System_Text_EncoderFallbackException *)new_withMessage:(NSString *)p1 innerException:(System_Exception *)p2
     {
-		return [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Text_EncoderFallbackException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -51,8 +57,18 @@
     @synthesize charUnknown = _charUnknown;
     - (uint16_t)charUnknown
     {
-		MonoObject *monoObject = [self getMonoProperty:"CharUnknown"];
-		_charUnknown = DB_UNBOX_UINT16(monoObject);
+		typedef uint16_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CharUnknown");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		uint16_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_charUnknown = monoObject;
 
 		return _charUnknown;
 	}
@@ -62,8 +78,18 @@
     @synthesize charUnknownHigh = _charUnknownHigh;
     - (uint16_t)charUnknownHigh
     {
-		MonoObject *monoObject = [self getMonoProperty:"CharUnknownHigh"];
-		_charUnknownHigh = DB_UNBOX_UINT16(monoObject);
+		typedef uint16_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CharUnknownHigh");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		uint16_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_charUnknownHigh = monoObject;
 
 		return _charUnknownHigh;
 	}
@@ -73,8 +99,18 @@
     @synthesize charUnknownLow = _charUnknownLow;
     - (uint16_t)charUnknownLow
     {
-		MonoObject *monoObject = [self getMonoProperty:"CharUnknownLow"];
-		_charUnknownLow = DB_UNBOX_UINT16(monoObject);
+		typedef uint16_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CharUnknownLow");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		uint16_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_charUnknownLow = monoObject;
 
 		return _charUnknownLow;
 	}
@@ -84,8 +120,18 @@
     @synthesize index = _index;
     - (int32_t)index
     {
-		MonoObject *monoObject = [self getMonoProperty:"Index"];
-		_index = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Index");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_index = monoObject;
 
 		return _index;
 	}

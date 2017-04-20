@@ -2,7 +2,7 @@
 //
 // Managed class : Pointer
 //
-@interface System_Reflection_Pointer : System_Object <System_Runtime_Serialization_ISerializable>
+@interface System_Reflection_Pointer : System_Object <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup

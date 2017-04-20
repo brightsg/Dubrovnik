@@ -27,7 +27,7 @@
 	// Managed method name : GetActivationFactory
 	// Managed return type : System.Runtime.InteropServices.WindowsRuntime.IActivationFactory
 	// Managed param types : System.Type
-    + (System_Runtime_InteropServices_WindowsRuntime_IActivationFactory *)getActivationFactory_withType:(System_Type *)p1;
+    + (id <System_Runtime_InteropServices_WindowsRuntime_IActivationFactory>)getActivationFactory_withType:(System_Type *)p1;
 
 	// Managed method name : PtrToStringHString
 	// Managed return type : System.String

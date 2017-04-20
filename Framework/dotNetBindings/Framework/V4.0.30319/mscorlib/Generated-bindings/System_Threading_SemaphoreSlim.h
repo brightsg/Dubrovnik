@@ -2,7 +2,7 @@
 //
 // Managed class : SemaphoreSlim
 //
-@interface System_Threading_SemaphoreSlim : System_Object <System_IDisposable>
+@interface System_Threading_SemaphoreSlim : System_Object <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

@@ -67,12 +67,12 @@
 	// Managed method name : GetProperty
 	// Managed return type : System.Runtime.Remoting.Contexts.IContextProperty
 	// Managed param types : System.String
-    - (System_Runtime_Remoting_Contexts_IContextProperty *)getProperty_withName:(NSString *)p1;
+    - (id <System_Runtime_Remoting_Contexts_IContextProperty>)getProperty_withName:(NSString *)p1;
 
 	// Managed method name : RegisterDynamicProperty
 	// Managed return type : System.Boolean
 	// Managed param types : System.Runtime.Remoting.Contexts.IDynamicProperty, System.ContextBoundObject, System.Runtime.Remoting.Contexts.Context
-    + (BOOL)registerDynamicProperty_withProp:(System_Runtime_Remoting_Contexts_IDynamicProperty *)p1 obj:(System_ContextBoundObject *)p2 ctx:(System_Runtime_Remoting_Contexts_Context *)p3;
+    + (BOOL)registerDynamicProperty_withProp:(id <System_Runtime_Remoting_Contexts_IDynamicProperty_>)p1 obj:(System_ContextBoundObject *)p2 ctx:(System_Runtime_Remoting_Contexts_Context *)p3;
 
 	// Managed method name : SetData
 	// Managed return type : System.Void
@@ -82,7 +82,7 @@
 	// Managed method name : SetProperty
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Contexts.IContextProperty
-    - (void)setProperty_withProp:(System_Runtime_Remoting_Contexts_IContextProperty *)p1;
+    - (void)setProperty_withProp:(id <System_Runtime_Remoting_Contexts_IContextProperty_>)p1;
 
 	// Managed method name : ToString
 	// Managed return type : System.String

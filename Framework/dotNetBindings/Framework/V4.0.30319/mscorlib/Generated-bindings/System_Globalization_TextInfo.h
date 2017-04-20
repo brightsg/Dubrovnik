@@ -2,7 +2,7 @@
 //
 // Managed class : TextInfo
 //
-@interface System_Globalization_TextInfo : System_Object <System_ICloneable, System_Runtime_Serialization_IDeserializationCallback>
+@interface System_Globalization_TextInfo : System_Object <System_ICloneable_, System_Runtime_Serialization_IDeserializationCallback_>
 
 #pragma mark -
 #pragma mark Setup

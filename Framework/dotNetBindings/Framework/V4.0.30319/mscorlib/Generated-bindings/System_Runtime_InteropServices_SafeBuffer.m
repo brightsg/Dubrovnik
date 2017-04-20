@@ -32,8 +32,18 @@
     @synthesize byteLength = _byteLength;
     - (uint64_t)byteLength
     {
-		MonoObject *monoObject = [self getMonoProperty:"ByteLength"];
-		_byteLength = DB_UNBOX_UINT64(monoObject);
+		typedef uint64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ByteLength");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		uint64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_byteLength = monoObject;
 
 		return _byteLength;
 	}
@@ -46,8 +56,12 @@
 	// Managed param types : ref System.Byte*&
     - (void)acquirePointer_withPointerRef:(System_Byte **)p1
     {
-		[self invokeMonoMethod:"AcquirePointer(System.Byte*&)" withNumArgs:1, &refPtr1];
-;
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+
+		[self invokeMonoMethod:"AcquirePointer(byte*&)" withNumArgs:1, &refPtr1];
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+
     }
 
 	// Managed method name : Initialize
@@ -55,7 +69,9 @@
 	// Managed param types : System.UInt64
     - (void)initialize_withNumBytes:(uint64_t)p1
     {
-		[self invokeMonoMethod:"Initialize(ulong)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"Initialize(ulong)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : Initialize
@@ -63,7 +79,9 @@
 	// Managed param types : System.UInt32, System.UInt32
     - (void)initialize_withNumElements:(uint32_t)p1 sizeOfEachElement:(uint32_t)p2
     {
-		[self invokeMonoMethod:"Initialize(uint,uint)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"Initialize(uint,uint)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : Initialize
@@ -71,7 +89,9 @@
 	// Managed param types : System.UInt32
     - (void)initialize_withNumElements:(uint32_t)p1
     {
-		[self invokeMonoMethod:"Initialize(uint)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"Initialize(uint)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : Read
@@ -82,15 +102,17 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Read(ulong)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReadArray
 	// Managed return type : System.Void
-	// Managed param types : System.UInt64, <T[]>, System.Int32, System.Int32
-    - (void)readArray_withByteOffset:(uint64_t)p1 array:(System_Object *)p2 index:(int32_t)p3 count:(int32_t)p4
+	// Managed param types : System.UInt64, T[], System.Int32, System.Int32
+    - (void)readArray_withByteOffset:(uint64_t)p1 array:(DBSystem_Array *)p2 index:(int32_t)p3 count:(int32_t)p4
     {
-		[self invokeMonoMethod:"ReadArray(ulong,<_T_0>[],int,int)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];;
+		
+		[self invokeMonoMethod:"ReadArray(ulong,T[],int,int)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
+        
     }
 
 	// Managed method name : ReleasePointer
@@ -98,7 +120,9 @@
 	// Managed param types : 
     - (void)releasePointer
     {
-		[self invokeMonoMethod:"ReleasePointer()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"ReleasePointer()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Write
@@ -106,15 +130,19 @@
 	// Managed param types : System.UInt64, <System.Runtime.InteropServices.SafeBuffer+T>
     - (void)write_withByteOffset:(uint64_t)p1 value:(System_Object *)p2
     {
-		[self invokeMonoMethod:"Write(ulong,<_T_0>)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Write(ulong,<_T_0>)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : WriteArray
 	// Managed return type : System.Void
-	// Managed param types : System.UInt64, <T[]>, System.Int32, System.Int32
-    - (void)writeArray_withByteOffset:(uint64_t)p1 array:(System_Object *)p2 index:(int32_t)p3 count:(int32_t)p4
+	// Managed param types : System.UInt64, T[], System.Int32, System.Int32
+    - (void)writeArray_withByteOffset:(uint64_t)p1 array:(DBSystem_Array *)p2 index:(int32_t)p3 count:(int32_t)p4
     {
-		[self invokeMonoMethod:"WriteArray(ulong,<_T_0>[],int,int)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];;
+		
+		[self invokeMonoMethod:"WriteArray(ulong,T[],int,int)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
+        
     }
 
 #pragma mark -

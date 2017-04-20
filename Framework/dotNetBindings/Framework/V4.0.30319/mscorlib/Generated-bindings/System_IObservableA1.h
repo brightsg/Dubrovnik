@@ -17,6 +17,6 @@
 	// Managed method name : Subscribe
 	// Managed return type : System.IDisposable
 	// Managed param types : System.IObserver`1<System.IObservable`1+T>
-    - (System_IDisposable *)subscribe_withObserver:(System_IObserverA1 *)p1;
+    - (id <System_IDisposable>)subscribe_withObserver:(id <System_IObserverA1_>)p1;
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed class : ClassInterfaceAttribute
 //
-@interface System_Runtime_InteropServices_ClassInterfaceAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Runtime_InteropServices_ClassInterfaceAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.ClassInterfaceAttribute
 	// Managed param types : System.Runtime.InteropServices.ClassInterfaceType
-    + (System_Runtime_InteropServices_ClassInterfaceAttribute *)new_withClassInterfaceTypeSRIClassInterfaceType:(System_Runtime_InteropServices_ClassInterfaceType)p1;
+    + (System_Runtime_InteropServices_ClassInterfaceAttribute *)new_withClassInterfaceTypeSRIClassInterfaceType:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.ClassInterfaceAttribute
@@ -29,6 +29,6 @@
 
 	// Managed property name : Value
 	// Managed property type : System.Runtime.InteropServices.ClassInterfaceType
-    @property (nonatomic, readonly) System_Runtime_InteropServices_ClassInterfaceType value;
+    @property (nonatomic, readonly) int32_t value;
 @end
 //--Dubrovnik.CodeGenerator

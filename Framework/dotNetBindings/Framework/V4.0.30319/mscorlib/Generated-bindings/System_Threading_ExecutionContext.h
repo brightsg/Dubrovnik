@@ -2,7 +2,7 @@
 //
 // Managed class : ExecutionContext
 //
-@interface System_Threading_ExecutionContext : System_Object <System_IDisposable, System_Runtime_Serialization_ISerializable>
+@interface System_Threading_ExecutionContext : System_Object <System_IDisposable_, System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup

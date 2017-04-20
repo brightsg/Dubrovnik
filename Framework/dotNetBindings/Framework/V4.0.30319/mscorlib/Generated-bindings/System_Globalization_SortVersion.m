@@ -32,7 +32,10 @@
 	// Managed param types : System.Int32, System.Guid
     + (System_Globalization_SortVersion *)new_withFullVersion:(int32_t)p1 sortId:(System_Guid *)p2
     {
-		return [[self alloc] initWithSignature:"int,System.Guid" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		System_Globalization_SortVersion * object = [[self alloc] initWithSignature:"int,System.Guid" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,8 +46,18 @@
     @synthesize fullVersion = _fullVersion;
     - (int32_t)fullVersion
     {
-		MonoObject *monoObject = [self getMonoProperty:"FullVersion"];
-		_fullVersion = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FullVersion");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_fullVersion = monoObject;
 
 		return _fullVersion;
 	}
@@ -54,9 +67,19 @@
     @synthesize sortId = _sortId;
     - (System_Guid *)sortId
     {
-		MonoObject *monoObject = [self getMonoProperty:"SortId"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SortId");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_sortId isEqualToMonoObject:monoObject]) return _sortId;					
-		_sortId = [System_Guid objectWithMonoObject:monoObject];
+		_sortId = [System_Guid bestObjectWithMonoObject:monoObject];
 
 		return _sortId;
 	}

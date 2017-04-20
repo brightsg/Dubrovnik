@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Tuple`3<System.Tuple`3+T1,System.Tuple`3+T2,System.Tuple`3+T3>";
+		return "System.Tuple`3";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,7 +32,10 @@
 	// Managed param types : <System.Tuple`3+T1>, <System.Tuple`3+T2>, <System.Tuple`3+T3>
     + (System_TupleA3 *)new_withItem1:(System_Object *)p1 item2:(System_Object *)p2 item3:(System_Object *)p3
     {
-		return [[self alloc] initWithSignature:"<_T_0>,<_T_1>,<_T_2>" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		System_TupleA3 * object = [[self alloc] initWithSignature:"<_T_0>,<_T_1>,<_T_2>" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,9 +46,19 @@
     @synthesize item1 = _item1;
     - (System_Object *)item1
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item1"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item1");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item1 isEqualToMonoObject:monoObject]) return _item1;					
-		_item1 = [System_Object subclassObjectWithMonoObject:monoObject];
+		_item1 = [System_Object bestObjectWithMonoObject:monoObject];
 
 		return _item1;
 	}
@@ -55,9 +68,19 @@
     @synthesize item2 = _item2;
     - (System_Object *)item2
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item2"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item2");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item2 isEqualToMonoObject:monoObject]) return _item2;					
-		_item2 = [System_Object subclassObjectWithMonoObject:monoObject];
+		_item2 = [System_Object bestObjectWithMonoObject:monoObject];
 
 		return _item2;
 	}
@@ -67,9 +90,19 @@
     @synthesize item3 = _item3;
     - (System_Object *)item3
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item3"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item3");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item3 isEqualToMonoObject:monoObject]) return _item3;					
-		_item3 = [System_Object subclassObjectWithMonoObject:monoObject];
+		_item3 = [System_Object bestObjectWithMonoObject:monoObject];
 
 		return _item3;
 	}

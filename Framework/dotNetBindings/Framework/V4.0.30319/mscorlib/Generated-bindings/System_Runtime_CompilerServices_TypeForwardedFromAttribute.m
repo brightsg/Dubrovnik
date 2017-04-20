@@ -32,7 +32,10 @@
 	// Managed param types : System.String
     + (System_Runtime_CompilerServices_TypeForwardedFromAttribute *)new_withAssemblyFullName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Runtime_CompilerServices_TypeForwardedFromAttribute * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,7 +46,17 @@
     @synthesize assemblyFullName = _assemblyFullName;
     - (NSString *)assemblyFullName
     {
-		MonoObject *monoObject = [self getMonoProperty:"AssemblyFullName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AssemblyFullName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_assemblyFullName isEqualToMonoObject:monoObject]) return _assemblyFullName;					
 		_assemblyFullName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

@@ -68,7 +68,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetType()" withNumArgs:0];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReferenceEquals

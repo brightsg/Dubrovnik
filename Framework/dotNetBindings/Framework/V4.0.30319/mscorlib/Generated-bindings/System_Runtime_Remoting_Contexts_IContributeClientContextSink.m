@@ -30,12 +30,12 @@
 	// Managed method name : GetClientContextSink
 	// Managed return type : System.Runtime.Remoting.Messaging.IMessageSink
 	// Managed param types : System.Runtime.Remoting.Messaging.IMessageSink
-    - (System_Runtime_Remoting_Messaging_IMessageSink *)getClientContextSink_withNextSink:(System_Runtime_Remoting_Messaging_IMessageSink *)p1
+    - (id <System_Runtime_Remoting_Messaging_IMessageSink>)getClientContextSink_withNextSink:(id <System_Runtime_Remoting_Messaging_IMessageSink_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.Remoting.Contexts.IContributeClientContextSink.GetClientContextSink(System.Runtime.Remoting.Messaging.IMessageSink)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_Messaging_IMessageSink objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Messaging_IMessageSink bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

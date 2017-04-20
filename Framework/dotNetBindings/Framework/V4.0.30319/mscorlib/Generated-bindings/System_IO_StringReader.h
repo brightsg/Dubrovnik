@@ -2,7 +2,7 @@
 //
 // Managed class : StringReader
 //
-@interface System_IO_StringReader : System_IO_TextReader <System_IDisposable>
+@interface System_IO_StringReader : System_IO_TextReader <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

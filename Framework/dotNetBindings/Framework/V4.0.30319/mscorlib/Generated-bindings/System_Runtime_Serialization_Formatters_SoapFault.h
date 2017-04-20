@@ -2,7 +2,7 @@
 //
 // Managed class : SoapFault
 //
-@interface System_Runtime_Serialization_Formatters_SoapFault : System_Object <System_Runtime_Serialization_ISerializable>
+@interface System_Runtime_Serialization_Formatters_SoapFault : System_Object <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup

@@ -2,7 +2,7 @@
 //
 // Managed class : FileIOPermissionAttribute
 //
-@interface System_Security_Permissions_FileIOPermissionAttribute : System_Security_Permissions_CodeAccessSecurityAttribute <System_Runtime_InteropServices__Attribute>
+@interface System_Security_Permissions_FileIOPermissionAttribute : System_Security_Permissions_CodeAccessSecurityAttribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.FileIOPermissionAttribute
 	// Managed param types : System.Security.Permissions.SecurityAction
-    + (System_Security_Permissions_FileIOPermissionAttribute *)new_withAction:(System_Security_Permissions_SecurityAction)p1;
+    + (System_Security_Permissions_FileIOPermissionAttribute *)new_withAction:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -28,11 +28,11 @@
 
 	// Managed property name : AllFiles
 	// Managed property type : System.Security.Permissions.FileIOPermissionAccess
-    @property (nonatomic) System_Security_Permissions_FileIOPermissionAccess allFiles;
+    @property (nonatomic) int32_t allFiles;
 
 	// Managed property name : AllLocalFiles
 	// Managed property type : System.Security.Permissions.FileIOPermissionAccess
-    @property (nonatomic) System_Security_Permissions_FileIOPermissionAccess allLocalFiles;
+    @property (nonatomic) int32_t allLocalFiles;
 
 	// Managed property name : Append
 	// Managed property type : System.String
@@ -68,6 +68,6 @@
 	// Managed method name : CreatePermission
 	// Managed return type : System.Security.IPermission
 	// Managed param types : 
-    - (System_Security_IPermission *)createPermission;
+    - (id <System_Security_IPermission>)createPermission;
 @end
 //--Dubrovnik.CodeGenerator

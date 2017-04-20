@@ -34,7 +34,7 @@
     {
 		MonoObject *monoObject = [self getMonoField:"atime"];
 		if ([self object:_atime isEqualToMonoObject:monoObject]) return _atime;					
-		_atime = [System_Runtime_InteropServices_ComTypes_FILETIME objectWithMonoObject:monoObject];
+		_atime = [System_Runtime_InteropServices_ComTypes_FILETIME bestObjectWithMonoObject:monoObject];
 
 		return _atime;
 	}
@@ -69,7 +69,7 @@
     {
 		MonoObject *monoObject = [self getMonoField:"clsid"];
 		if ([self object:_clsid isEqualToMonoObject:monoObject]) return _clsid;					
-		_clsid = [System_Guid objectWithMonoObject:monoObject];
+		_clsid = [System_Guid bestObjectWithMonoObject:monoObject];
 
 		return _clsid;
 	}
@@ -87,7 +87,7 @@
     {
 		MonoObject *monoObject = [self getMonoField:"ctime"];
 		if ([self object:_ctime isEqualToMonoObject:monoObject]) return _ctime;					
-		_ctime = [System_Runtime_InteropServices_ComTypes_FILETIME objectWithMonoObject:monoObject];
+		_ctime = [System_Runtime_InteropServices_ComTypes_FILETIME bestObjectWithMonoObject:monoObject];
 
 		return _ctime;
 	}
@@ -156,7 +156,7 @@
     {
 		MonoObject *monoObject = [self getMonoField:"mtime"];
 		if ([self object:_mtime isEqualToMonoObject:monoObject]) return _mtime;					
-		_mtime = [System_Runtime_InteropServices_ComTypes_FILETIME objectWithMonoObject:monoObject];
+		_mtime = [System_Runtime_InteropServices_ComTypes_FILETIME bestObjectWithMonoObject:monoObject];
 
 		return _mtime;
 	}

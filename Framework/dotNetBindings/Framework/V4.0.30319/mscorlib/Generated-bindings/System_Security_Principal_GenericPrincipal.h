@@ -2,7 +2,7 @@
 //
 // Managed class : GenericPrincipal
 //
-@interface System_Security_Principal_GenericPrincipal : System_Security_Claims_ClaimsPrincipal <System_Security_Principal_IPrincipal>
+@interface System_Security_Principal_GenericPrincipal : System_Security_Claims_ClaimsPrincipal <System_Security_Principal_IPrincipal_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Principal.GenericPrincipal
 	// Managed param types : System.Security.Principal.IIdentity, System.String[]
-    + (System_Security_Principal_GenericPrincipal *)new_withIdentity:(System_Security_Principal_IIdentity *)p1 roles:(DBSystem_Array *)p2;
+    + (System_Security_Principal_GenericPrincipal *)new_withIdentity:(id <System_Security_Principal_IIdentity_>)p1 roles:(DBSystem_Array *)p2;
 
 #pragma mark -
 #pragma mark Properties

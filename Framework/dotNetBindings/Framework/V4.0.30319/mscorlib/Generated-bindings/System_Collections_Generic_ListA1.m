@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Generic.List`1<System.Collections.Generic.List`1+T>";
+		return "System.Collections.Generic.List`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,15 +32,21 @@
 	// Managed param types : System.Int32
     + (System_Collections_Generic_ListA1 *)new_withCapacity:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Collections_Generic_ListA1 * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Generic.List`1<System.Collections.Generic.List`1+T>
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Collections.Generic.List`1+T>
-    + (System_Collections_Generic_ListA1 *)new_withCollection:(System_Collections_Generic_IEnumerableA1 *)p1
+    + (System_Collections_Generic_ListA1 *)new_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Generic.List`1+T>" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Collections_Generic_ListA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Generic.List`1+T>" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -51,16 +57,35 @@
     @synthesize capacity = _capacity;
     - (int32_t)capacity
     {
-		MonoObject *monoObject = [self getMonoProperty:"Capacity"];
-		_capacity = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Capacity");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_capacity = monoObject;
 
 		return _capacity;
 	}
     - (void)setCapacity:(int32_t)value
 	{
 		_capacity = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Capacity" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Capacity");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Count
@@ -68,8 +93,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -79,17 +114,36 @@
     @synthesize item = _item;
     - (System_Object *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
-		_item = [System_Object subclassObjectWithMonoObject:monoObject];
+		_item = [System_Object bestObjectWithMonoObject:monoObject];
 
 		return _item;
 	}
     - (void)setItem:(System_Object *)value
 	{
 		_item = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"Item" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -100,15 +154,19 @@
 	// Managed param types : <System.Collections.Generic.List`1+T>
     - (void)add_withItem:(System_Object *)p1
     {
-		[self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : AddRange
 	// Managed return type : System.Void
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Collections.Generic.List`1+T>
-    - (void)addRange_withCollection:(System_Collections_Generic_IEnumerableA1 *)p1
+    - (void)addRange_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
-		[self invokeMonoMethod:"AddRange(System.Collections.Generic.IEnumerable`1<System.Collections.Generic.List`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"AddRange(System.Collections.Generic.IEnumerable`1<System.Collections.Generic.List`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : AsReadOnly
@@ -119,27 +177,16 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"AsReadOnly()" withNumArgs:0];
 		
-		return [System_Collections_ObjectModel_ReadOnlyCollectionA1 objectWithMonoObject:monoObject];
+		return [System_Collections_ObjectModel_ReadOnlyCollectionA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
 	// Managed param types : System.Int32, System.Int32, <System.Collections.Generic.List`1+T>, System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>
-    - (int32_t)binarySearch_withIndex:(int32_t)p1 count:(int32_t)p2 item:(System_Object *)p3 comparer:(System_Collections_Generic_IComparerA1 *)p4
+    - (int32_t)binarySearch_withIndex:(int32_t)p1 count:(int32_t)p2 item:(System_Object *)p3 comparer:(id <System_Collections_Generic_IComparerA1_>)p4
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"BinarySearch(int,int,<_T_0>,System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>)" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
-
-	// Managed method name : BinarySearch
-	// Managed return type : System.Int32
-	// Managed param types : <System.Collections.Generic.List`1+T>, System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>
-    - (int32_t)binarySearch_withItem:(System_Object *)p1 comparer:(System_Collections_Generic_IComparerA1 *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"BinarySearch(<_T_0>,System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -155,12 +202,25 @@
 		return DB_UNBOX_INT32(monoObject);
     }
 
+	// Managed method name : BinarySearch
+	// Managed return type : System.Int32
+	// Managed param types : <System.Collections.Generic.List`1+T>, System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>
+    - (int32_t)binarySearch_withItem:(System_Object *)p1 comparer:(id <System_Collections_Generic_IComparerA1_>)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"BinarySearch(<_T_0>,System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		
+		return DB_UNBOX_INT32(monoObject);
+    }
+
 	// Managed method name : Clear
 	// Managed return type : System.Void
 	// Managed param types : 
     - (void)clear
     {
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Contains
@@ -182,31 +242,37 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ConvertAll(System.Converter`2<System.Collections.Generic.List`1+T, System.Collections.Generic.List`1+TOutput>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Collections_Generic_ListA1 objectWithMonoObject:monoObject];
+		return [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : System.Int32, <T[]>, System.Int32, System.Int32
-    - (void)copyTo_withIndex:(int32_t)p1 array:(System_Object *)p2 arrayIndex:(int32_t)p3 count:(int32_t)p4
+	// Managed param types : T[]
+    - (void)copyTo_withArray:(DBSystem_Array *)p1
     {
-		[self invokeMonoMethod:"CopyTo(int,<_T_0>[],int,int)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];;
+		
+		[self invokeMonoMethod:"CopyTo(T[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : <T[]>, System.Int32
-    - (void)copyTo_withArray:(System_Object *)p1 arrayIndex:(int32_t)p2
+	// Managed param types : System.Int32, T[], System.Int32, System.Int32
+    - (void)copyTo_withIndex:(int32_t)p1 array:(DBSystem_Array *)p2 arrayIndex:(int32_t)p3 count:(int32_t)p4
     {
-		[self invokeMonoMethod:"CopyTo(<_T_0>[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"CopyTo(int,T[],int,int)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
+        
     }
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : <T[]>
-    - (void)copyTo_withArray:(System_Object *)p1
+	// Managed param types : T[], System.Int32
+    - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(<_T_0>[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : Exists
@@ -228,7 +294,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Find(System.Predicate`1<System.Collections.Generic.List`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FindAll
@@ -239,18 +305,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"FindAll(System.Predicate`1<System.Collections.Generic.List`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Collections_Generic_ListA1 objectWithMonoObject:monoObject];
-    }
-
-	// Managed method name : FindIndex
-	// Managed return type : System.Int32
-	// Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
-    - (int32_t)findIndex_withMatch:(System_PredicateA1 *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"FindIndex(System.Predicate`1<System.Collections.Generic.List`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_INT32(monoObject);
+		return [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FindIndex
@@ -260,6 +315,17 @@
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"FindIndex(int,int,System.Predicate`1<System.Collections.Generic.List`1+T>)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
+		
+		return DB_UNBOX_INT32(monoObject);
+    }
+
+	// Managed method name : FindIndex
+	// Managed return type : System.Int32
+	// Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
+    - (int32_t)findIndex_withMatch:(System_PredicateA1 *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"FindIndex(System.Predicate`1<System.Collections.Generic.List`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -283,7 +349,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"FindLast(System.Predicate`1<System.Collections.Generic.List`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FindLastIndex
@@ -324,7 +390,9 @@
 	// Managed param types : System.Action`1<System.Collections.Generic.List`1+T>
     - (void)forEach_withAction:(System_ActionA1 *)p1
     {
-		[self invokeMonoMethod:"ForEach(System.Action`1<System.Collections.Generic.List`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"ForEach(System.Action`1<System.Collections.Generic.List`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetEnumerator
@@ -335,7 +403,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
 		
-		return [System_Collections_Generic_ListA1__Enumerator objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_ListA1__Enumerator bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRange
@@ -346,7 +414,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRange(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 		
-		return [DBSystem_Collections_Generic_ListA1 objectWithMonoObject:monoObject];
+		return [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IndexOf
@@ -387,15 +455,30 @@
 	// Managed param types : System.Int32, <System.Collections.Generic.List`1+T>
     - (void)insert_withIndex:(int32_t)p1 item:(System_Object *)p2
     {
-		[self invokeMonoMethod:"Insert(int,<_T_0>)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Insert(int,<_T_0>)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : InsertRange
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, System.Collections.Generic.IEnumerable`1<System.Collections.Generic.List`1+T>
-    - (void)insertRange_withIndex:(int32_t)p1 collection:(System_Collections_Generic_IEnumerableA1 *)p2
+    - (void)insertRange_withIndex:(int32_t)p1 collection:(id <System_Collections_Generic_IEnumerableA1_>)p2
     {
-		[self invokeMonoMethod:"InsertRange(int,System.Collections.Generic.IEnumerable`1<System.Collections.Generic.List`1+T>)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"InsertRange(int,System.Collections.Generic.IEnumerable`1<System.Collections.Generic.List`1+T>)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
+    }
+
+	// Managed method name : LastIndexOf
+	// Managed return type : System.Int32
+	// Managed param types : <System.Collections.Generic.List`1+T>, System.Int32, System.Int32
+    - (int32_t)lastIndexOf_withItem:(System_Object *)p1 index:(int32_t)p2 count:(int32_t)p3
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(<_T_0>,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+		
+		return DB_UNBOX_INT32(monoObject);
     }
 
 	// Managed method name : LastIndexOf
@@ -416,17 +499,6 @@
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(<_T_0>,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
-
-	// Managed method name : LastIndexOf
-	// Managed return type : System.Int32
-	// Managed param types : <System.Collections.Generic.List`1+T>, System.Int32, System.Int32
-    - (int32_t)lastIndexOf_withItem:(System_Object *)p1 index:(int32_t)p2 count:(int32_t)p3
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(<_T_0>,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -458,7 +530,9 @@
 	// Managed param types : System.Int32
     - (void)removeAt_withIndex:(int32_t)p1
     {
-		[self invokeMonoMethod:"RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : RemoveRange
@@ -466,7 +540,9 @@
 	// Managed param types : System.Int32, System.Int32
     - (void)removeRange_withIndex:(int32_t)p1 count:(int32_t)p2
     {
-		[self invokeMonoMethod:"RemoveRange(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"RemoveRange(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : Reverse
@@ -474,7 +550,9 @@
 	// Managed param types : 
     - (void)reverse
     {
-		[self invokeMonoMethod:"Reverse()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Reverse()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Reverse
@@ -482,7 +560,9 @@
 	// Managed param types : System.Int32, System.Int32
     - (void)reverse_withIndex:(int32_t)p1 count:(int32_t)p2
     {
-		[self invokeMonoMethod:"Reverse(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"Reverse(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : Sort
@@ -490,23 +570,29 @@
 	// Managed param types : 
     - (void)sort
     {
-		[self invokeMonoMethod:"Sort()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Sort()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Sort
 	// Managed return type : System.Void
 	// Managed param types : System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>
-    - (void)sort_withComparer:(System_Collections_Generic_IComparerA1 *)p1
+    - (void)sort_withComparer:(id <System_Collections_Generic_IComparerA1_>)p1
     {
-		[self invokeMonoMethod:"Sort(System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Sort(System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Sort
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, System.Int32, System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>
-    - (void)sort_withIndex:(int32_t)p1 count:(int32_t)p2 comparer:(System_Collections_Generic_IComparerA1 *)p3
+    - (void)sort_withIndex:(int32_t)p1 count:(int32_t)p2 comparer:(id <System_Collections_Generic_IComparerA1_>)p3
     {
-		[self invokeMonoMethod:"Sort(int,int,System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Sort(int,int,System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Sort
@@ -514,18 +600,20 @@
 	// Managed param types : System.Comparison`1<System.Collections.Generic.List`1+T>
     - (void)sort_withComparison:(System_ComparisonA1 *)p1
     {
-		[self invokeMonoMethod:"Sort(System.Comparison`1<System.Collections.Generic.List`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Sort(System.Comparison`1<System.Collections.Generic.List`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : ToArray
-	// Managed return type : <T[]>
+	// Managed return type : T[]
 	// Managed param types : 
-    - (System_Object *)toArray
+    - (DBSystem_Array *)toArray
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToArray()" withNumArgs:0];
 		
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : TrimExcess
@@ -533,7 +621,9 @@
 	// Managed param types : 
     - (void)trimExcess
     {
-		[self invokeMonoMethod:"TrimExcess()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"TrimExcess()" withNumArgs:0];
+        
     }
 
 	// Managed method name : TrueForAll

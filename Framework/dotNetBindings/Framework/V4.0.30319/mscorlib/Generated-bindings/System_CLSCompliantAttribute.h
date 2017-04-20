@@ -2,7 +2,7 @@
 //
 // Managed class : CLSCompliantAttribute
 //
-@interface System_CLSCompliantAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_CLSCompliantAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup

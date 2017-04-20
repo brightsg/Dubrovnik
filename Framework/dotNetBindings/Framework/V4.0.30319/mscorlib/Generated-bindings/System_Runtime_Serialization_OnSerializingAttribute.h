@@ -2,7 +2,7 @@
 //
 // Managed class : OnSerializingAttribute
 //
-@interface System_Runtime_Serialization_OnSerializingAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Runtime_Serialization_OnSerializingAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup

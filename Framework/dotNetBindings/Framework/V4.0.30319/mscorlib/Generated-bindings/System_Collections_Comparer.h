@@ -2,7 +2,7 @@
 //
 // Managed class : Comparer
 //
-@interface System_Collections_Comparer : System_Object <System_Collections_IComparer, System_Runtime_Serialization_ISerializable>
+@interface System_Collections_Comparer : System_Object <System_Collections_IComparer_, System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup

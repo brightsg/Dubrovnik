@@ -2,7 +2,7 @@
 //
 // Managed class : MemoryFailPoint
 //
-@interface System_Runtime_MemoryFailPoint : System_Runtime_ConstrainedExecution_CriticalFinalizerObject <System_IDisposable>
+@interface System_Runtime_MemoryFailPoint : System_Runtime_ConstrainedExecution_CriticalFinalizerObject <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

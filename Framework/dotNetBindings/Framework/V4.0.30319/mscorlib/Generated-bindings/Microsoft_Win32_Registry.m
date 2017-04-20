@@ -34,7 +34,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"ClassesRoot"];
 		if ([self object:m_classesRoot isEqualToMonoObject:monoObject]) return m_classesRoot;					
-		m_classesRoot = [Microsoft_Win32_RegistryKey objectWithMonoObject:monoObject];
+		m_classesRoot = [Microsoft_Win32_RegistryKey bestObjectWithMonoObject:monoObject];
 
 		return m_classesRoot;
 	}
@@ -46,7 +46,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"CurrentConfig"];
 		if ([self object:m_currentConfig isEqualToMonoObject:monoObject]) return m_currentConfig;					
-		m_currentConfig = [Microsoft_Win32_RegistryKey objectWithMonoObject:monoObject];
+		m_currentConfig = [Microsoft_Win32_RegistryKey bestObjectWithMonoObject:monoObject];
 
 		return m_currentConfig;
 	}
@@ -58,7 +58,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"CurrentUser"];
 		if ([self object:m_currentUser isEqualToMonoObject:monoObject]) return m_currentUser;					
-		m_currentUser = [Microsoft_Win32_RegistryKey objectWithMonoObject:monoObject];
+		m_currentUser = [Microsoft_Win32_RegistryKey bestObjectWithMonoObject:monoObject];
 
 		return m_currentUser;
 	}
@@ -70,7 +70,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"DynData"];
 		if ([self object:m_dynData isEqualToMonoObject:monoObject]) return m_dynData;					
-		m_dynData = [Microsoft_Win32_RegistryKey objectWithMonoObject:monoObject];
+		m_dynData = [Microsoft_Win32_RegistryKey bestObjectWithMonoObject:monoObject];
 
 		return m_dynData;
 	}
@@ -82,7 +82,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"LocalMachine"];
 		if ([self object:m_localMachine isEqualToMonoObject:monoObject]) return m_localMachine;					
-		m_localMachine = [Microsoft_Win32_RegistryKey objectWithMonoObject:monoObject];
+		m_localMachine = [Microsoft_Win32_RegistryKey bestObjectWithMonoObject:monoObject];
 
 		return m_localMachine;
 	}
@@ -94,7 +94,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"PerformanceData"];
 		if ([self object:m_performanceData isEqualToMonoObject:monoObject]) return m_performanceData;					
-		m_performanceData = [Microsoft_Win32_RegistryKey objectWithMonoObject:monoObject];
+		m_performanceData = [Microsoft_Win32_RegistryKey bestObjectWithMonoObject:monoObject];
 
 		return m_performanceData;
 	}
@@ -106,7 +106,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Users"];
 		if ([self object:m_users isEqualToMonoObject:monoObject]) return m_users;					
-		m_users = [Microsoft_Win32_RegistryKey objectWithMonoObject:monoObject];
+		m_users = [Microsoft_Win32_RegistryKey bestObjectWithMonoObject:monoObject];
 
 		return m_users;
 	}
@@ -127,18 +127,22 @@
 
 	// Managed method name : SetValue
 	// Managed return type : System.Void
-	// Managed param types : System.String, System.String, System.Object, Microsoft.Win32.RegistryValueKind
-    + (void)setValue_withKeyName:(NSString *)p1 valueName:(NSString *)p2 value:(System_Object *)p3 valueKind:(Microsoft_Win32_RegistryValueKind)p4
+	// Managed param types : System.String, System.String, System.Object
+    + (void)setValue_withKeyName:(NSString *)p1 valueName:(NSString *)p2 value:(System_Object *)p3
     {
-		[self invokeMonoClassMethod:"SetValue(string,string,object,Microsoft.Win32.RegistryValueKind)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];;
+		
+		[self invokeMonoClassMethod:"SetValue(string,string,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetValue
 	// Managed return type : System.Void
-	// Managed param types : System.String, System.String, System.Object
-    + (void)setValue_withKeyName:(NSString *)p1 valueName:(NSString *)p2 value:(System_Object *)p3
+	// Managed param types : System.String, System.String, System.Object, Microsoft.Win32.RegistryValueKind
+    + (void)setValue_withKeyName:(NSString *)p1 valueName:(NSString *)p2 value:(System_Object *)p3 valueKind:(int32_t)p4
     {
-		[self invokeMonoClassMethod:"SetValue(string,string,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SetValue(string,string,object,Microsoft.Win32.RegistryValueKind)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
+        
     }
 
 #pragma mark -

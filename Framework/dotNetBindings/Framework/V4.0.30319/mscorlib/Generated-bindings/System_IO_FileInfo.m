@@ -32,7 +32,10 @@
 	// Managed param types : System.String
     + (System_IO_FileInfo *)new_withFileName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_IO_FileInfo * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,9 +46,19 @@
     @synthesize directory = _directory;
     - (System_IO_DirectoryInfo *)directory
     {
-		MonoObject *monoObject = [self getMonoProperty:"Directory"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Directory");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_directory isEqualToMonoObject:monoObject]) return _directory;					
-		_directory = [System_IO_DirectoryInfo objectWithMonoObject:monoObject];
+		_directory = [System_IO_DirectoryInfo bestObjectWithMonoObject:monoObject];
 
 		return _directory;
 	}
@@ -55,7 +68,17 @@
     @synthesize directoryName = _directoryName;
     - (NSString *)directoryName
     {
-		MonoObject *monoObject = [self getMonoProperty:"DirectoryName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DirectoryName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_directoryName isEqualToMonoObject:monoObject]) return _directoryName;					
 		_directoryName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -67,8 +90,18 @@
     @synthesize exists = _exists;
     - (BOOL)exists
     {
-		MonoObject *monoObject = [self getMonoProperty:"Exists"];
-		_exists = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Exists");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_exists = monoObject;
 
 		return _exists;
 	}
@@ -78,16 +111,35 @@
     @synthesize isReadOnly = _isReadOnly;
     - (BOOL)isReadOnly
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsReadOnly"];
-		_isReadOnly = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsReadOnly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isReadOnly = monoObject;
 
 		return _isReadOnly;
 	}
     - (void)setIsReadOnly:(BOOL)value
 	{
 		_isReadOnly = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"IsReadOnly" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "IsReadOnly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Length
@@ -95,8 +147,18 @@
     @synthesize length = _length;
     - (int64_t)length
     {
-		MonoObject *monoObject = [self getMonoProperty:"Length"];
-		_length = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Length");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_length = monoObject;
 
 		return _length;
 	}
@@ -106,7 +168,17 @@
     @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -124,7 +196,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"AppendText()" withNumArgs:0];
 		
-		return [System_IO_StreamWriter objectWithMonoObject:monoObject];
+		return [System_IO_StreamWriter bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CopyTo
@@ -135,7 +207,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CopyTo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_IO_FileInfo objectWithMonoObject:monoObject];
+		return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CopyTo
@@ -146,7 +218,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CopyTo(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [System_IO_FileInfo objectWithMonoObject:monoObject];
+		return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
@@ -157,7 +229,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Create()" withNumArgs:0];
 		
-		return [System_IO_FileStream objectWithMonoObject:monoObject];
+		return [System_IO_FileStream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateText
@@ -168,7 +240,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateText()" withNumArgs:0];
 		
-		return [System_IO_StreamWriter objectWithMonoObject:monoObject];
+		return [System_IO_StreamWriter bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Decrypt
@@ -176,7 +248,9 @@
 	// Managed param types : 
     - (void)decrypt
     {
-		[self invokeMonoMethod:"Decrypt()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Decrypt()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Delete
@@ -184,7 +258,9 @@
 	// Managed param types : 
     - (void)delete
     {
-		[self invokeMonoMethod:"Delete()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Delete()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Encrypt
@@ -192,7 +268,9 @@
 	// Managed param types : 
     - (void)encrypt
     {
-		[self invokeMonoMethod:"Encrypt()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Encrypt()" withNumArgs:0];
+        
     }
 
 	// Managed method name : GetAccessControl
@@ -203,18 +281,18 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAccessControl()" withNumArgs:0];
 		
-		return [System_Security_AccessControl_FileSecurity objectWithMonoObject:monoObject];
+		return [System_Security_AccessControl_FileSecurity bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetAccessControl
 	// Managed return type : System.Security.AccessControl.FileSecurity
 	// Managed param types : System.Security.AccessControl.AccessControlSections
-    - (System_Security_AccessControl_FileSecurity *)getAccessControl_withIncludeSections:(System_Security_AccessControl_AccessControlSections)p1
+    - (System_Security_AccessControl_FileSecurity *)getAccessControl_withIncludeSections:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAccessControl(System.Security.AccessControl.AccessControlSections)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Security_AccessControl_FileSecurity objectWithMonoObject:monoObject];
+		return [System_Security_AccessControl_FileSecurity bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : MoveTo
@@ -222,40 +300,42 @@
 	// Managed param types : System.String
     - (void)moveTo_withDestFileName:(NSString *)p1
     {
-		[self invokeMonoMethod:"MoveTo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"MoveTo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Open
 	// Managed return type : System.IO.FileStream
 	// Managed param types : System.IO.FileMode
-    - (System_IO_FileStream *)open_withMode:(System_IO_FileMode)p1
+    - (System_IO_FileStream *)open_withMode:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Open(System.IO.FileMode)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_IO_FileStream objectWithMonoObject:monoObject];
+		return [System_IO_FileStream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Open
 	// Managed return type : System.IO.FileStream
 	// Managed param types : System.IO.FileMode, System.IO.FileAccess
-    - (System_IO_FileStream *)open_withMode:(System_IO_FileMode)p1 access:(System_IO_FileAccess)p2
+    - (System_IO_FileStream *)open_withMode:(int32_t)p1 access:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Open(System.IO.FileMode,System.IO.FileAccess)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 		
-		return [System_IO_FileStream objectWithMonoObject:monoObject];
+		return [System_IO_FileStream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Open
 	// Managed return type : System.IO.FileStream
 	// Managed param types : System.IO.FileMode, System.IO.FileAccess, System.IO.FileShare
-    - (System_IO_FileStream *)open_withMode:(System_IO_FileMode)p1 access:(System_IO_FileAccess)p2 share:(System_IO_FileShare)p3
+    - (System_IO_FileStream *)open_withMode:(int32_t)p1 access:(int32_t)p2 share:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Open(System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
 		
-		return [System_IO_FileStream objectWithMonoObject:monoObject];
+		return [System_IO_FileStream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenRead
@@ -266,7 +346,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"OpenRead()" withNumArgs:0];
 		
-		return [System_IO_FileStream objectWithMonoObject:monoObject];
+		return [System_IO_FileStream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenText
@@ -277,7 +357,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"OpenText()" withNumArgs:0];
 		
-		return [System_IO_StreamReader objectWithMonoObject:monoObject];
+		return [System_IO_StreamReader bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenWrite
@@ -288,7 +368,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"OpenWrite()" withNumArgs:0];
 		
-		return [System_IO_FileStream objectWithMonoObject:monoObject];
+		return [System_IO_FileStream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Replace
@@ -299,7 +379,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_IO_FileInfo objectWithMonoObject:monoObject];
+		return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Replace
@@ -310,7 +390,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
 		
-		return [System_IO_FileInfo objectWithMonoObject:monoObject];
+		return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SetAccessControl
@@ -318,7 +398,9 @@
 	// Managed param types : System.Security.AccessControl.FileSecurity
     - (void)setAccessControl_withFileSecurity:(System_Security_AccessControl_FileSecurity *)p1
     {
-		[self invokeMonoMethod:"SetAccessControl(System.Security.AccessControl.FileSecurity)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetAccessControl(System.Security.AccessControl.FileSecurity)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : ToString

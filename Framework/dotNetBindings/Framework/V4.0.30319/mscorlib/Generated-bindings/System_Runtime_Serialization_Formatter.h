@@ -2,7 +2,7 @@
 //
 // Managed class : Formatter
 //
-@interface System_Runtime_Serialization_Formatter : System_Object <System_Runtime_Serialization_IFormatter>
+@interface System_Runtime_Serialization_Formatter : System_Object <System_Runtime_Serialization_IFormatter_>
 
 #pragma mark -
 #pragma mark Setup

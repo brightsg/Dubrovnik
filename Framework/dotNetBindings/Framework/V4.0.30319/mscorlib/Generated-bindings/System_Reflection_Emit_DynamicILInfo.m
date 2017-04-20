@@ -32,9 +32,19 @@
     @synthesize dynamicMethod = _dynamicMethod;
     - (System_Reflection_Emit_DynamicMethod *)dynamicMethod
     {
-		MonoObject *monoObject = [self getMonoProperty:"DynamicMethod"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DynamicMethod");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_dynamicMethod isEqualToMonoObject:monoObject]) return _dynamicMethod;					
-		_dynamicMethod = [System_Reflection_Emit_DynamicMethod objectWithMonoObject:monoObject];
+		_dynamicMethod = [System_Reflection_Emit_DynamicMethod bestObjectWithMonoObject:monoObject];
 
 		return _dynamicMethod;
 	}
@@ -135,7 +145,9 @@
 	// Managed param types : System.Byte[], System.Int32
     - (void)setCode_withCode:(NSData *)p1 maxStackSize:(int32_t)p2
     {
-		[self invokeMonoMethod:"SetCode(byte[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"SetCode(byte[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : SetCode
@@ -143,7 +155,9 @@
 	// Managed param types : System.Byte*, System.Int32, System.Int32
     - (void)setCode_withCode:(uint8_t*)p1 codeSize:(int32_t)p2 maxStackSize:(int32_t)p3
     {
-		[self invokeMonoMethod:"SetCode(byte*,int,int)" withNumArgs:3, p1, DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		[self invokeMonoMethod:"SetCode(byte*,int,int)" withNumArgs:3, p1, DB_VALUE(p2), DB_VALUE(p3)];
+        
     }
 
 	// Managed method name : SetExceptions
@@ -151,7 +165,9 @@
 	// Managed param types : System.Byte[]
     - (void)setExceptions_withExceptions:(NSData *)p1
     {
-		[self invokeMonoMethod:"SetExceptions(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetExceptions(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetExceptions
@@ -159,7 +175,9 @@
 	// Managed param types : System.Byte*, System.Int32
     - (void)setExceptions_withExceptions:(uint8_t*)p1 exceptionsSize:(int32_t)p2
     {
-		[self invokeMonoMethod:"SetExceptions(byte*,int)" withNumArgs:2, p1, DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"SetExceptions(byte*,int)" withNumArgs:2, p1, DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : SetLocalSignature
@@ -167,7 +185,9 @@
 	// Managed param types : System.Byte[]
     - (void)setLocalSignature_withLocalSignature:(NSData *)p1
     {
-		[self invokeMonoMethod:"SetLocalSignature(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetLocalSignature(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetLocalSignature
@@ -175,7 +195,9 @@
 	// Managed param types : System.Byte*, System.Int32
     - (void)setLocalSignature_withLocalSignature:(uint8_t*)p1 signatureSize:(int32_t)p2
     {
-		[self invokeMonoMethod:"SetLocalSignature(byte*,int)" withNumArgs:2, p1, DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"SetLocalSignature(byte*,int)" withNumArgs:2, p1, DB_VALUE(p2)];
+        
     }
 
 #pragma mark -

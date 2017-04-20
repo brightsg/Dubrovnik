@@ -32,9 +32,19 @@
     @synthesize addMethod = _addMethod;
     - (System_Reflection_MethodInfo *)addMethod
     {
-		MonoObject *monoObject = [self getMonoProperty:"AddMethod"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AddMethod");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_addMethod isEqualToMonoObject:monoObject]) return _addMethod;					
-		_addMethod = [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+		_addMethod = [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
 
 		return _addMethod;
 	}
@@ -42,10 +52,20 @@
 	// Managed property name : Attributes
 	// Managed property type : System.Reflection.EventAttributes
     @synthesize attributes = _attributes;
-    - (System_Reflection_EventAttributes)attributes
+    - (int32_t)attributes
     {
-		MonoObject *monoObject = [self getMonoProperty:"Attributes"];
-		_attributes = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Attributes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_attributes = monoObject;
 
 		return _attributes;
 	}
@@ -55,9 +75,19 @@
     @synthesize eventHandlerType = _eventHandlerType;
     - (System_Type *)eventHandlerType
     {
-		MonoObject *monoObject = [self getMonoProperty:"EventHandlerType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EventHandlerType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_eventHandlerType isEqualToMonoObject:monoObject]) return _eventHandlerType;					
-		_eventHandlerType = [System_Type objectWithMonoObject:monoObject];
+		_eventHandlerType = [System_Type bestObjectWithMonoObject:monoObject];
 
 		return _eventHandlerType;
 	}
@@ -67,8 +97,18 @@
     @synthesize isMulticast = _isMulticast;
     - (BOOL)isMulticast
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsMulticast"];
-		_isMulticast = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsMulticast");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isMulticast = monoObject;
 
 		return _isMulticast;
 	}
@@ -78,8 +118,18 @@
     @synthesize isSpecialName = _isSpecialName;
     - (BOOL)isSpecialName
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsSpecialName"];
-		_isSpecialName = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsSpecialName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isSpecialName = monoObject;
 
 		return _isSpecialName;
 	}
@@ -87,10 +137,20 @@
 	// Managed property name : MemberType
 	// Managed property type : System.Reflection.MemberTypes
     @synthesize memberType = _memberType;
-    - (System_Reflection_MemberTypes)memberType
+    - (int32_t)memberType
     {
-		MonoObject *monoObject = [self getMonoProperty:"MemberType"];
-		_memberType = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MemberType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_memberType = monoObject;
 
 		return _memberType;
 	}
@@ -100,9 +160,19 @@
     @synthesize raiseMethod = _raiseMethod;
     - (System_Reflection_MethodInfo *)raiseMethod
     {
-		MonoObject *monoObject = [self getMonoProperty:"RaiseMethod"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RaiseMethod");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_raiseMethod isEqualToMonoObject:monoObject]) return _raiseMethod;					
-		_raiseMethod = [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+		_raiseMethod = [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
 
 		return _raiseMethod;
 	}
@@ -112,9 +182,19 @@
     @synthesize removeMethod = _removeMethod;
     - (System_Reflection_MethodInfo *)removeMethod
     {
-		MonoObject *monoObject = [self getMonoProperty:"RemoveMethod"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RemoveMethod");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_removeMethod isEqualToMonoObject:monoObject]) return _removeMethod;					
-		_removeMethod = [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+		_removeMethod = [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
 
 		return _removeMethod;
 	}
@@ -127,7 +207,9 @@
 	// Managed param types : System.Object, System.Delegate
     - (void)addEventHandler_withTarget:(System_Object *)p1 handler:(System_Delegate *)p2
     {
-		[self invokeMonoMethod:"AddEventHandler(object,System.Delegate)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"AddEventHandler(object,System.Delegate)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Equals
@@ -149,7 +231,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAddMethod(bool)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetAddMethod
@@ -160,7 +242,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAddMethod()" withNumArgs:0];
 		
-		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetHashCode
@@ -204,7 +286,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRaiseMethod(bool)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRaiseMethod
@@ -215,7 +297,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRaiseMethod()" withNumArgs:0];
 		
-		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRemoveMethod
@@ -226,7 +308,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRemoveMethod(bool)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRemoveMethod
@@ -237,7 +319,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRemoveMethod()" withNumArgs:0];
 		
-		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : op_Equality
@@ -267,7 +349,9 @@
 	// Managed param types : System.Object, System.Delegate
     - (void)removeEventHandler_withTarget:(System_Object *)p1 handler:(System_Delegate *)p2
     {
-		[self invokeMonoMethod:"RemoveEventHandler(object,System.Delegate)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"RemoveEventHandler(object,System.Delegate)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

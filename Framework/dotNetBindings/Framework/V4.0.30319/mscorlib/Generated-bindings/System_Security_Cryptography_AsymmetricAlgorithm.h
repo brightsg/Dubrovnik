@@ -2,7 +2,7 @@
 //
 // Managed class : AsymmetricAlgorithm
 //
-@interface System_Security_Cryptography_AsymmetricAlgorithm : System_Object <System_IDisposable>
+@interface System_Security_Cryptography_AsymmetricAlgorithm : System_Object <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

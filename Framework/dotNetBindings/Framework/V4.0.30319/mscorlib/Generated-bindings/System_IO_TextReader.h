@@ -2,7 +2,7 @@
 //
 // Managed class : TextReader
 //
-@interface System_IO_TextReader : System_MarshalByRefObject <System_IDisposable>
+@interface System_IO_TextReader : System_MarshalByRefObject <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

@@ -2,7 +2,7 @@
 //
 // Managed class : UnmanagedFunctionPointerAttribute
 //
-@interface System_Runtime_InteropServices_UnmanagedFunctionPointerAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Runtime_InteropServices_UnmanagedFunctionPointerAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.UnmanagedFunctionPointerAttribute
 	// Managed param types : System.Runtime.InteropServices.CallingConvention
-    + (System_Runtime_InteropServices_UnmanagedFunctionPointerAttribute *)new_withCallingConvention:(System_Runtime_InteropServices_CallingConvention)p1;
+    + (System_Runtime_InteropServices_UnmanagedFunctionPointerAttribute *)new_withCallingConvention:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Fields
@@ -28,7 +28,7 @@
 
 	// Managed field name : CharSet
 	// Managed field type : System.Runtime.InteropServices.CharSet
-    @property (nonatomic) System_Runtime_InteropServices_CharSet charSet;
+    @property (nonatomic) int32_t charSet;
 
 	// Managed field name : SetLastError
 	// Managed field type : System.Boolean
@@ -43,6 +43,6 @@
 
 	// Managed property name : CallingConvention
 	// Managed property type : System.Runtime.InteropServices.CallingConvention
-    @property (nonatomic, readonly) System_Runtime_InteropServices_CallingConvention callingConvention;
+    @property (nonatomic, readonly) int32_t callingConvention;
 @end
 //--Dubrovnik.CodeGenerator

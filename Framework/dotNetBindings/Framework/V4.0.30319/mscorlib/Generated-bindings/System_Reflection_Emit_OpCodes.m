@@ -34,7 +34,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Add"];
 		if ([self object:m_add isEqualToMonoObject:monoObject]) return m_add;					
-		m_add = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_add = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_add;
 	}
@@ -46,7 +46,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Add_Ovf"];
 		if ([self object:m_add_Ovf isEqualToMonoObject:monoObject]) return m_add_Ovf;					
-		m_add_Ovf = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_add_Ovf = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_add_Ovf;
 	}
@@ -58,7 +58,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Add_Ovf_Un"];
 		if ([self object:m_add_Ovf_Un isEqualToMonoObject:monoObject]) return m_add_Ovf_Un;					
-		m_add_Ovf_Un = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_add_Ovf_Un = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_add_Ovf_Un;
 	}
@@ -70,7 +70,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"And"];
 		if ([self object:m_and isEqualToMonoObject:monoObject]) return m_and;					
-		m_and = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_and = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_and;
 	}
@@ -82,7 +82,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Arglist"];
 		if ([self object:m_arglist isEqualToMonoObject:monoObject]) return m_arglist;					
-		m_arglist = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_arglist = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_arglist;
 	}
@@ -94,7 +94,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Beq"];
 		if ([self object:m_beq isEqualToMonoObject:monoObject]) return m_beq;					
-		m_beq = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_beq = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_beq;
 	}
@@ -106,7 +106,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Beq_S"];
 		if ([self object:m_beq_S isEqualToMonoObject:monoObject]) return m_beq_S;					
-		m_beq_S = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_beq_S = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_beq_S;
 	}
@@ -118,7 +118,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Bge"];
 		if ([self object:m_bge isEqualToMonoObject:monoObject]) return m_bge;					
-		m_bge = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_bge = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_bge;
 	}
@@ -130,7 +130,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Bge_S"];
 		if ([self object:m_bge_S isEqualToMonoObject:monoObject]) return m_bge_S;					
-		m_bge_S = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_bge_S = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_bge_S;
 	}
@@ -142,7 +142,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Bge_Un"];
 		if ([self object:m_bge_Un isEqualToMonoObject:monoObject]) return m_bge_Un;					
-		m_bge_Un = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_bge_Un = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_bge_Un;
 	}
@@ -154,7 +154,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Bge_Un_S"];
 		if ([self object:m_bge_Un_S isEqualToMonoObject:monoObject]) return m_bge_Un_S;					
-		m_bge_Un_S = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_bge_Un_S = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_bge_Un_S;
 	}
@@ -166,7 +166,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Bgt"];
 		if ([self object:m_bgt isEqualToMonoObject:monoObject]) return m_bgt;					
-		m_bgt = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_bgt = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_bgt;
 	}
@@ -178,7 +178,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Bgt_S"];
 		if ([self object:m_bgt_S isEqualToMonoObject:monoObject]) return m_bgt_S;					
-		m_bgt_S = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_bgt_S = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_bgt_S;
 	}
@@ -190,7 +190,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Bgt_Un"];
 		if ([self object:m_bgt_Un isEqualToMonoObject:monoObject]) return m_bgt_Un;					
-		m_bgt_Un = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_bgt_Un = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_bgt_Un;
 	}
@@ -202,7 +202,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Bgt_Un_S"];
 		if ([self object:m_bgt_Un_S isEqualToMonoObject:monoObject]) return m_bgt_Un_S;					
-		m_bgt_Un_S = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_bgt_Un_S = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_bgt_Un_S;
 	}
@@ -214,7 +214,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ble"];
 		if ([self object:m_ble isEqualToMonoObject:monoObject]) return m_ble;					
-		m_ble = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ble = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ble;
 	}
@@ -226,7 +226,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ble_S"];
 		if ([self object:m_ble_S isEqualToMonoObject:monoObject]) return m_ble_S;					
-		m_ble_S = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ble_S = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ble_S;
 	}
@@ -238,7 +238,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ble_Un"];
 		if ([self object:m_ble_Un isEqualToMonoObject:monoObject]) return m_ble_Un;					
-		m_ble_Un = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ble_Un = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ble_Un;
 	}
@@ -250,7 +250,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ble_Un_S"];
 		if ([self object:m_ble_Un_S isEqualToMonoObject:monoObject]) return m_ble_Un_S;					
-		m_ble_Un_S = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ble_Un_S = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ble_Un_S;
 	}
@@ -262,7 +262,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Blt"];
 		if ([self object:m_blt isEqualToMonoObject:monoObject]) return m_blt;					
-		m_blt = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_blt = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_blt;
 	}
@@ -274,7 +274,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Blt_S"];
 		if ([self object:m_blt_S isEqualToMonoObject:monoObject]) return m_blt_S;					
-		m_blt_S = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_blt_S = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_blt_S;
 	}
@@ -286,7 +286,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Blt_Un"];
 		if ([self object:m_blt_Un isEqualToMonoObject:monoObject]) return m_blt_Un;					
-		m_blt_Un = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_blt_Un = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_blt_Un;
 	}
@@ -298,7 +298,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Blt_Un_S"];
 		if ([self object:m_blt_Un_S isEqualToMonoObject:monoObject]) return m_blt_Un_S;					
-		m_blt_Un_S = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_blt_Un_S = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_blt_Un_S;
 	}
@@ -310,7 +310,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Bne_Un"];
 		if ([self object:m_bne_Un isEqualToMonoObject:monoObject]) return m_bne_Un;					
-		m_bne_Un = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_bne_Un = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_bne_Un;
 	}
@@ -322,7 +322,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Bne_Un_S"];
 		if ([self object:m_bne_Un_S isEqualToMonoObject:monoObject]) return m_bne_Un_S;					
-		m_bne_Un_S = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_bne_Un_S = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_bne_Un_S;
 	}
@@ -334,7 +334,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Box"];
 		if ([self object:m_box isEqualToMonoObject:monoObject]) return m_box;					
-		m_box = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_box = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_box;
 	}
@@ -346,7 +346,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Br"];
 		if ([self object:m_br isEqualToMonoObject:monoObject]) return m_br;					
-		m_br = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_br = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_br;
 	}
@@ -358,7 +358,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Br_S"];
 		if ([self object:m_br_S isEqualToMonoObject:monoObject]) return m_br_S;					
-		m_br_S = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_br_S = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_br_S;
 	}
@@ -370,7 +370,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Break"];
 		if ([self object:m_break isEqualToMonoObject:monoObject]) return m_break;					
-		m_break = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_break = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_break;
 	}
@@ -382,7 +382,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Brfalse"];
 		if ([self object:m_brfalse isEqualToMonoObject:monoObject]) return m_brfalse;					
-		m_brfalse = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_brfalse = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_brfalse;
 	}
@@ -394,7 +394,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Brfalse_S"];
 		if ([self object:m_brfalse_S isEqualToMonoObject:monoObject]) return m_brfalse_S;					
-		m_brfalse_S = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_brfalse_S = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_brfalse_S;
 	}
@@ -406,7 +406,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Brtrue"];
 		if ([self object:m_brtrue isEqualToMonoObject:monoObject]) return m_brtrue;					
-		m_brtrue = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_brtrue = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_brtrue;
 	}
@@ -418,7 +418,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Brtrue_S"];
 		if ([self object:m_brtrue_S isEqualToMonoObject:monoObject]) return m_brtrue_S;					
-		m_brtrue_S = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_brtrue_S = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_brtrue_S;
 	}
@@ -430,7 +430,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Call"];
 		if ([self object:m_call isEqualToMonoObject:monoObject]) return m_call;					
-		m_call = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_call = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_call;
 	}
@@ -442,7 +442,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Calli"];
 		if ([self object:m_calli isEqualToMonoObject:monoObject]) return m_calli;					
-		m_calli = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_calli = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_calli;
 	}
@@ -454,7 +454,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Callvirt"];
 		if ([self object:m_callvirt isEqualToMonoObject:monoObject]) return m_callvirt;					
-		m_callvirt = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_callvirt = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_callvirt;
 	}
@@ -466,7 +466,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Castclass"];
 		if ([self object:m_castclass isEqualToMonoObject:monoObject]) return m_castclass;					
-		m_castclass = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_castclass = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_castclass;
 	}
@@ -478,7 +478,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ceq"];
 		if ([self object:m_ceq isEqualToMonoObject:monoObject]) return m_ceq;					
-		m_ceq = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ceq = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ceq;
 	}
@@ -490,7 +490,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Cgt"];
 		if ([self object:m_cgt isEqualToMonoObject:monoObject]) return m_cgt;					
-		m_cgt = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_cgt = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_cgt;
 	}
@@ -502,7 +502,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Cgt_Un"];
 		if ([self object:m_cgt_Un isEqualToMonoObject:monoObject]) return m_cgt_Un;					
-		m_cgt_Un = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_cgt_Un = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_cgt_Un;
 	}
@@ -514,7 +514,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ckfinite"];
 		if ([self object:m_ckfinite isEqualToMonoObject:monoObject]) return m_ckfinite;					
-		m_ckfinite = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ckfinite = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ckfinite;
 	}
@@ -526,7 +526,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Clt"];
 		if ([self object:m_clt isEqualToMonoObject:monoObject]) return m_clt;					
-		m_clt = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_clt = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_clt;
 	}
@@ -538,7 +538,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Clt_Un"];
 		if ([self object:m_clt_Un isEqualToMonoObject:monoObject]) return m_clt_Un;					
-		m_clt_Un = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_clt_Un = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_clt_Un;
 	}
@@ -550,7 +550,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Constrained"];
 		if ([self object:m_constrained isEqualToMonoObject:monoObject]) return m_constrained;					
-		m_constrained = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_constrained = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_constrained;
 	}
@@ -562,7 +562,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_I"];
 		if ([self object:m_conv_I isEqualToMonoObject:monoObject]) return m_conv_I;					
-		m_conv_I = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_I = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_I;
 	}
@@ -574,7 +574,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_I1"];
 		if ([self object:m_conv_I1 isEqualToMonoObject:monoObject]) return m_conv_I1;					
-		m_conv_I1 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_I1 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_I1;
 	}
@@ -586,7 +586,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_I2"];
 		if ([self object:m_conv_I2 isEqualToMonoObject:monoObject]) return m_conv_I2;					
-		m_conv_I2 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_I2 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_I2;
 	}
@@ -598,7 +598,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_I4"];
 		if ([self object:m_conv_I4 isEqualToMonoObject:monoObject]) return m_conv_I4;					
-		m_conv_I4 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_I4 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_I4;
 	}
@@ -610,7 +610,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_I8"];
 		if ([self object:m_conv_I8 isEqualToMonoObject:monoObject]) return m_conv_I8;					
-		m_conv_I8 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_I8 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_I8;
 	}
@@ -622,7 +622,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_Ovf_I"];
 		if ([self object:m_conv_Ovf_I isEqualToMonoObject:monoObject]) return m_conv_Ovf_I;					
-		m_conv_Ovf_I = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_Ovf_I = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_Ovf_I;
 	}
@@ -634,7 +634,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_Ovf_I_Un"];
 		if ([self object:m_conv_Ovf_I_Un isEqualToMonoObject:monoObject]) return m_conv_Ovf_I_Un;					
-		m_conv_Ovf_I_Un = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_Ovf_I_Un = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_Ovf_I_Un;
 	}
@@ -646,7 +646,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_Ovf_I1"];
 		if ([self object:m_conv_Ovf_I1 isEqualToMonoObject:monoObject]) return m_conv_Ovf_I1;					
-		m_conv_Ovf_I1 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_Ovf_I1 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_Ovf_I1;
 	}
@@ -658,7 +658,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_Ovf_I1_Un"];
 		if ([self object:m_conv_Ovf_I1_Un isEqualToMonoObject:monoObject]) return m_conv_Ovf_I1_Un;					
-		m_conv_Ovf_I1_Un = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_Ovf_I1_Un = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_Ovf_I1_Un;
 	}
@@ -670,7 +670,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_Ovf_I2"];
 		if ([self object:m_conv_Ovf_I2 isEqualToMonoObject:monoObject]) return m_conv_Ovf_I2;					
-		m_conv_Ovf_I2 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_Ovf_I2 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_Ovf_I2;
 	}
@@ -682,7 +682,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_Ovf_I2_Un"];
 		if ([self object:m_conv_Ovf_I2_Un isEqualToMonoObject:monoObject]) return m_conv_Ovf_I2_Un;					
-		m_conv_Ovf_I2_Un = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_Ovf_I2_Un = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_Ovf_I2_Un;
 	}
@@ -694,7 +694,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_Ovf_I4"];
 		if ([self object:m_conv_Ovf_I4 isEqualToMonoObject:monoObject]) return m_conv_Ovf_I4;					
-		m_conv_Ovf_I4 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_Ovf_I4 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_Ovf_I4;
 	}
@@ -706,7 +706,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_Ovf_I4_Un"];
 		if ([self object:m_conv_Ovf_I4_Un isEqualToMonoObject:monoObject]) return m_conv_Ovf_I4_Un;					
-		m_conv_Ovf_I4_Un = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_Ovf_I4_Un = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_Ovf_I4_Un;
 	}
@@ -718,7 +718,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_Ovf_I8"];
 		if ([self object:m_conv_Ovf_I8 isEqualToMonoObject:monoObject]) return m_conv_Ovf_I8;					
-		m_conv_Ovf_I8 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_Ovf_I8 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_Ovf_I8;
 	}
@@ -730,7 +730,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_Ovf_I8_Un"];
 		if ([self object:m_conv_Ovf_I8_Un isEqualToMonoObject:monoObject]) return m_conv_Ovf_I8_Un;					
-		m_conv_Ovf_I8_Un = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_Ovf_I8_Un = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_Ovf_I8_Un;
 	}
@@ -742,7 +742,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_Ovf_U"];
 		if ([self object:m_conv_Ovf_U isEqualToMonoObject:monoObject]) return m_conv_Ovf_U;					
-		m_conv_Ovf_U = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_Ovf_U = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_Ovf_U;
 	}
@@ -754,7 +754,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_Ovf_U_Un"];
 		if ([self object:m_conv_Ovf_U_Un isEqualToMonoObject:monoObject]) return m_conv_Ovf_U_Un;					
-		m_conv_Ovf_U_Un = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_Ovf_U_Un = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_Ovf_U_Un;
 	}
@@ -766,7 +766,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_Ovf_U1"];
 		if ([self object:m_conv_Ovf_U1 isEqualToMonoObject:monoObject]) return m_conv_Ovf_U1;					
-		m_conv_Ovf_U1 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_Ovf_U1 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_Ovf_U1;
 	}
@@ -778,7 +778,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_Ovf_U1_Un"];
 		if ([self object:m_conv_Ovf_U1_Un isEqualToMonoObject:monoObject]) return m_conv_Ovf_U1_Un;					
-		m_conv_Ovf_U1_Un = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_Ovf_U1_Un = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_Ovf_U1_Un;
 	}
@@ -790,7 +790,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_Ovf_U2"];
 		if ([self object:m_conv_Ovf_U2 isEqualToMonoObject:monoObject]) return m_conv_Ovf_U2;					
-		m_conv_Ovf_U2 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_Ovf_U2 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_Ovf_U2;
 	}
@@ -802,7 +802,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_Ovf_U2_Un"];
 		if ([self object:m_conv_Ovf_U2_Un isEqualToMonoObject:monoObject]) return m_conv_Ovf_U2_Un;					
-		m_conv_Ovf_U2_Un = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_Ovf_U2_Un = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_Ovf_U2_Un;
 	}
@@ -814,7 +814,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_Ovf_U4"];
 		if ([self object:m_conv_Ovf_U4 isEqualToMonoObject:monoObject]) return m_conv_Ovf_U4;					
-		m_conv_Ovf_U4 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_Ovf_U4 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_Ovf_U4;
 	}
@@ -826,7 +826,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_Ovf_U4_Un"];
 		if ([self object:m_conv_Ovf_U4_Un isEqualToMonoObject:monoObject]) return m_conv_Ovf_U4_Un;					
-		m_conv_Ovf_U4_Un = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_Ovf_U4_Un = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_Ovf_U4_Un;
 	}
@@ -838,7 +838,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_Ovf_U8"];
 		if ([self object:m_conv_Ovf_U8 isEqualToMonoObject:monoObject]) return m_conv_Ovf_U8;					
-		m_conv_Ovf_U8 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_Ovf_U8 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_Ovf_U8;
 	}
@@ -850,7 +850,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_Ovf_U8_Un"];
 		if ([self object:m_conv_Ovf_U8_Un isEqualToMonoObject:monoObject]) return m_conv_Ovf_U8_Un;					
-		m_conv_Ovf_U8_Un = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_Ovf_U8_Un = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_Ovf_U8_Un;
 	}
@@ -862,7 +862,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_R_Un"];
 		if ([self object:m_conv_R_Un isEqualToMonoObject:monoObject]) return m_conv_R_Un;					
-		m_conv_R_Un = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_R_Un = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_R_Un;
 	}
@@ -874,7 +874,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_R4"];
 		if ([self object:m_conv_R4 isEqualToMonoObject:monoObject]) return m_conv_R4;					
-		m_conv_R4 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_R4 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_R4;
 	}
@@ -886,7 +886,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_R8"];
 		if ([self object:m_conv_R8 isEqualToMonoObject:monoObject]) return m_conv_R8;					
-		m_conv_R8 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_R8 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_R8;
 	}
@@ -898,7 +898,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_U"];
 		if ([self object:m_conv_U isEqualToMonoObject:monoObject]) return m_conv_U;					
-		m_conv_U = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_U = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_U;
 	}
@@ -910,7 +910,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_U1"];
 		if ([self object:m_conv_U1 isEqualToMonoObject:monoObject]) return m_conv_U1;					
-		m_conv_U1 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_U1 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_U1;
 	}
@@ -922,7 +922,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_U2"];
 		if ([self object:m_conv_U2 isEqualToMonoObject:monoObject]) return m_conv_U2;					
-		m_conv_U2 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_U2 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_U2;
 	}
@@ -934,7 +934,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_U4"];
 		if ([self object:m_conv_U4 isEqualToMonoObject:monoObject]) return m_conv_U4;					
-		m_conv_U4 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_U4 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_U4;
 	}
@@ -946,7 +946,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Conv_U8"];
 		if ([self object:m_conv_U8 isEqualToMonoObject:monoObject]) return m_conv_U8;					
-		m_conv_U8 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_conv_U8 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_conv_U8;
 	}
@@ -958,7 +958,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Cpblk"];
 		if ([self object:m_cpblk isEqualToMonoObject:monoObject]) return m_cpblk;					
-		m_cpblk = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_cpblk = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_cpblk;
 	}
@@ -970,7 +970,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Cpobj"];
 		if ([self object:m_cpobj isEqualToMonoObject:monoObject]) return m_cpobj;					
-		m_cpobj = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_cpobj = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_cpobj;
 	}
@@ -982,7 +982,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Div"];
 		if ([self object:m_div isEqualToMonoObject:monoObject]) return m_div;					
-		m_div = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_div = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_div;
 	}
@@ -994,7 +994,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Div_Un"];
 		if ([self object:m_div_Un isEqualToMonoObject:monoObject]) return m_div_Un;					
-		m_div_Un = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_div_Un = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_div_Un;
 	}
@@ -1006,7 +1006,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Dup"];
 		if ([self object:m_dup isEqualToMonoObject:monoObject]) return m_dup;					
-		m_dup = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_dup = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_dup;
 	}
@@ -1018,7 +1018,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Endfilter"];
 		if ([self object:m_endfilter isEqualToMonoObject:monoObject]) return m_endfilter;					
-		m_endfilter = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_endfilter = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_endfilter;
 	}
@@ -1030,7 +1030,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Endfinally"];
 		if ([self object:m_endfinally isEqualToMonoObject:monoObject]) return m_endfinally;					
-		m_endfinally = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_endfinally = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_endfinally;
 	}
@@ -1042,7 +1042,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Initblk"];
 		if ([self object:m_initblk isEqualToMonoObject:monoObject]) return m_initblk;					
-		m_initblk = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_initblk = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_initblk;
 	}
@@ -1054,7 +1054,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Initobj"];
 		if ([self object:m_initobj isEqualToMonoObject:monoObject]) return m_initobj;					
-		m_initobj = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_initobj = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_initobj;
 	}
@@ -1066,7 +1066,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Isinst"];
 		if ([self object:m_isinst isEqualToMonoObject:monoObject]) return m_isinst;					
-		m_isinst = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_isinst = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_isinst;
 	}
@@ -1078,7 +1078,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Jmp"];
 		if ([self object:m_jmp isEqualToMonoObject:monoObject]) return m_jmp;					
-		m_jmp = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_jmp = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_jmp;
 	}
@@ -1090,7 +1090,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldarg"];
 		if ([self object:m_ldarg isEqualToMonoObject:monoObject]) return m_ldarg;					
-		m_ldarg = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldarg = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldarg;
 	}
@@ -1102,7 +1102,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldarg_0"];
 		if ([self object:m_ldarg_0 isEqualToMonoObject:monoObject]) return m_ldarg_0;					
-		m_ldarg_0 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldarg_0 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldarg_0;
 	}
@@ -1114,7 +1114,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldarg_1"];
 		if ([self object:m_ldarg_1 isEqualToMonoObject:monoObject]) return m_ldarg_1;					
-		m_ldarg_1 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldarg_1 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldarg_1;
 	}
@@ -1126,7 +1126,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldarg_2"];
 		if ([self object:m_ldarg_2 isEqualToMonoObject:monoObject]) return m_ldarg_2;					
-		m_ldarg_2 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldarg_2 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldarg_2;
 	}
@@ -1138,7 +1138,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldarg_3"];
 		if ([self object:m_ldarg_3 isEqualToMonoObject:monoObject]) return m_ldarg_3;					
-		m_ldarg_3 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldarg_3 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldarg_3;
 	}
@@ -1150,7 +1150,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldarg_S"];
 		if ([self object:m_ldarg_S isEqualToMonoObject:monoObject]) return m_ldarg_S;					
-		m_ldarg_S = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldarg_S = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldarg_S;
 	}
@@ -1162,7 +1162,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldarga"];
 		if ([self object:m_ldarga isEqualToMonoObject:monoObject]) return m_ldarga;					
-		m_ldarga = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldarga = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldarga;
 	}
@@ -1174,7 +1174,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldarga_S"];
 		if ([self object:m_ldarga_S isEqualToMonoObject:monoObject]) return m_ldarga_S;					
-		m_ldarga_S = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldarga_S = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldarga_S;
 	}
@@ -1186,7 +1186,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldc_I4"];
 		if ([self object:m_ldc_I4 isEqualToMonoObject:monoObject]) return m_ldc_I4;					
-		m_ldc_I4 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldc_I4 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldc_I4;
 	}
@@ -1198,7 +1198,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldc_I4_0"];
 		if ([self object:m_ldc_I4_0 isEqualToMonoObject:monoObject]) return m_ldc_I4_0;					
-		m_ldc_I4_0 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldc_I4_0 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldc_I4_0;
 	}
@@ -1210,7 +1210,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldc_I4_1"];
 		if ([self object:m_ldc_I4_1 isEqualToMonoObject:monoObject]) return m_ldc_I4_1;					
-		m_ldc_I4_1 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldc_I4_1 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldc_I4_1;
 	}
@@ -1222,7 +1222,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldc_I4_2"];
 		if ([self object:m_ldc_I4_2 isEqualToMonoObject:monoObject]) return m_ldc_I4_2;					
-		m_ldc_I4_2 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldc_I4_2 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldc_I4_2;
 	}
@@ -1234,7 +1234,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldc_I4_3"];
 		if ([self object:m_ldc_I4_3 isEqualToMonoObject:monoObject]) return m_ldc_I4_3;					
-		m_ldc_I4_3 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldc_I4_3 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldc_I4_3;
 	}
@@ -1246,7 +1246,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldc_I4_4"];
 		if ([self object:m_ldc_I4_4 isEqualToMonoObject:monoObject]) return m_ldc_I4_4;					
-		m_ldc_I4_4 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldc_I4_4 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldc_I4_4;
 	}
@@ -1258,7 +1258,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldc_I4_5"];
 		if ([self object:m_ldc_I4_5 isEqualToMonoObject:monoObject]) return m_ldc_I4_5;					
-		m_ldc_I4_5 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldc_I4_5 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldc_I4_5;
 	}
@@ -1270,7 +1270,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldc_I4_6"];
 		if ([self object:m_ldc_I4_6 isEqualToMonoObject:monoObject]) return m_ldc_I4_6;					
-		m_ldc_I4_6 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldc_I4_6 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldc_I4_6;
 	}
@@ -1282,7 +1282,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldc_I4_7"];
 		if ([self object:m_ldc_I4_7 isEqualToMonoObject:monoObject]) return m_ldc_I4_7;					
-		m_ldc_I4_7 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldc_I4_7 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldc_I4_7;
 	}
@@ -1294,7 +1294,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldc_I4_8"];
 		if ([self object:m_ldc_I4_8 isEqualToMonoObject:monoObject]) return m_ldc_I4_8;					
-		m_ldc_I4_8 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldc_I4_8 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldc_I4_8;
 	}
@@ -1306,7 +1306,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldc_I4_M1"];
 		if ([self object:m_ldc_I4_M1 isEqualToMonoObject:monoObject]) return m_ldc_I4_M1;					
-		m_ldc_I4_M1 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldc_I4_M1 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldc_I4_M1;
 	}
@@ -1318,7 +1318,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldc_I4_S"];
 		if ([self object:m_ldc_I4_S isEqualToMonoObject:monoObject]) return m_ldc_I4_S;					
-		m_ldc_I4_S = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldc_I4_S = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldc_I4_S;
 	}
@@ -1330,7 +1330,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldc_I8"];
 		if ([self object:m_ldc_I8 isEqualToMonoObject:monoObject]) return m_ldc_I8;					
-		m_ldc_I8 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldc_I8 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldc_I8;
 	}
@@ -1342,7 +1342,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldc_R4"];
 		if ([self object:m_ldc_R4 isEqualToMonoObject:monoObject]) return m_ldc_R4;					
-		m_ldc_R4 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldc_R4 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldc_R4;
 	}
@@ -1354,7 +1354,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldc_R8"];
 		if ([self object:m_ldc_R8 isEqualToMonoObject:monoObject]) return m_ldc_R8;					
-		m_ldc_R8 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldc_R8 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldc_R8;
 	}
@@ -1366,7 +1366,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldelem"];
 		if ([self object:m_ldelem isEqualToMonoObject:monoObject]) return m_ldelem;					
-		m_ldelem = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldelem = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldelem;
 	}
@@ -1378,7 +1378,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldelem_I"];
 		if ([self object:m_ldelem_I isEqualToMonoObject:monoObject]) return m_ldelem_I;					
-		m_ldelem_I = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldelem_I = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldelem_I;
 	}
@@ -1390,7 +1390,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldelem_I1"];
 		if ([self object:m_ldelem_I1 isEqualToMonoObject:monoObject]) return m_ldelem_I1;					
-		m_ldelem_I1 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldelem_I1 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldelem_I1;
 	}
@@ -1402,7 +1402,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldelem_I2"];
 		if ([self object:m_ldelem_I2 isEqualToMonoObject:monoObject]) return m_ldelem_I2;					
-		m_ldelem_I2 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldelem_I2 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldelem_I2;
 	}
@@ -1414,7 +1414,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldelem_I4"];
 		if ([self object:m_ldelem_I4 isEqualToMonoObject:monoObject]) return m_ldelem_I4;					
-		m_ldelem_I4 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldelem_I4 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldelem_I4;
 	}
@@ -1426,7 +1426,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldelem_I8"];
 		if ([self object:m_ldelem_I8 isEqualToMonoObject:monoObject]) return m_ldelem_I8;					
-		m_ldelem_I8 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldelem_I8 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldelem_I8;
 	}
@@ -1438,7 +1438,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldelem_R4"];
 		if ([self object:m_ldelem_R4 isEqualToMonoObject:monoObject]) return m_ldelem_R4;					
-		m_ldelem_R4 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldelem_R4 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldelem_R4;
 	}
@@ -1450,7 +1450,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldelem_R8"];
 		if ([self object:m_ldelem_R8 isEqualToMonoObject:monoObject]) return m_ldelem_R8;					
-		m_ldelem_R8 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldelem_R8 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldelem_R8;
 	}
@@ -1462,7 +1462,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldelem_Ref"];
 		if ([self object:m_ldelem_Ref isEqualToMonoObject:monoObject]) return m_ldelem_Ref;					
-		m_ldelem_Ref = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldelem_Ref = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldelem_Ref;
 	}
@@ -1474,7 +1474,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldelem_U1"];
 		if ([self object:m_ldelem_U1 isEqualToMonoObject:monoObject]) return m_ldelem_U1;					
-		m_ldelem_U1 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldelem_U1 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldelem_U1;
 	}
@@ -1486,7 +1486,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldelem_U2"];
 		if ([self object:m_ldelem_U2 isEqualToMonoObject:monoObject]) return m_ldelem_U2;					
-		m_ldelem_U2 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldelem_U2 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldelem_U2;
 	}
@@ -1498,7 +1498,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldelem_U4"];
 		if ([self object:m_ldelem_U4 isEqualToMonoObject:monoObject]) return m_ldelem_U4;					
-		m_ldelem_U4 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldelem_U4 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldelem_U4;
 	}
@@ -1510,7 +1510,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldelema"];
 		if ([self object:m_ldelema isEqualToMonoObject:monoObject]) return m_ldelema;					
-		m_ldelema = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldelema = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldelema;
 	}
@@ -1522,7 +1522,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldfld"];
 		if ([self object:m_ldfld isEqualToMonoObject:monoObject]) return m_ldfld;					
-		m_ldfld = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldfld = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldfld;
 	}
@@ -1534,7 +1534,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldflda"];
 		if ([self object:m_ldflda isEqualToMonoObject:monoObject]) return m_ldflda;					
-		m_ldflda = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldflda = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldflda;
 	}
@@ -1546,7 +1546,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldftn"];
 		if ([self object:m_ldftn isEqualToMonoObject:monoObject]) return m_ldftn;					
-		m_ldftn = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldftn = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldftn;
 	}
@@ -1558,7 +1558,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldind_I"];
 		if ([self object:m_ldind_I isEqualToMonoObject:monoObject]) return m_ldind_I;					
-		m_ldind_I = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldind_I = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldind_I;
 	}
@@ -1570,7 +1570,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldind_I1"];
 		if ([self object:m_ldind_I1 isEqualToMonoObject:monoObject]) return m_ldind_I1;					
-		m_ldind_I1 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldind_I1 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldind_I1;
 	}
@@ -1582,7 +1582,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldind_I2"];
 		if ([self object:m_ldind_I2 isEqualToMonoObject:monoObject]) return m_ldind_I2;					
-		m_ldind_I2 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldind_I2 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldind_I2;
 	}
@@ -1594,7 +1594,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldind_I4"];
 		if ([self object:m_ldind_I4 isEqualToMonoObject:monoObject]) return m_ldind_I4;					
-		m_ldind_I4 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldind_I4 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldind_I4;
 	}
@@ -1606,7 +1606,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldind_I8"];
 		if ([self object:m_ldind_I8 isEqualToMonoObject:monoObject]) return m_ldind_I8;					
-		m_ldind_I8 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldind_I8 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldind_I8;
 	}
@@ -1618,7 +1618,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldind_R4"];
 		if ([self object:m_ldind_R4 isEqualToMonoObject:monoObject]) return m_ldind_R4;					
-		m_ldind_R4 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldind_R4 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldind_R4;
 	}
@@ -1630,7 +1630,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldind_R8"];
 		if ([self object:m_ldind_R8 isEqualToMonoObject:monoObject]) return m_ldind_R8;					
-		m_ldind_R8 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldind_R8 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldind_R8;
 	}
@@ -1642,7 +1642,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldind_Ref"];
 		if ([self object:m_ldind_Ref isEqualToMonoObject:monoObject]) return m_ldind_Ref;					
-		m_ldind_Ref = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldind_Ref = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldind_Ref;
 	}
@@ -1654,7 +1654,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldind_U1"];
 		if ([self object:m_ldind_U1 isEqualToMonoObject:monoObject]) return m_ldind_U1;					
-		m_ldind_U1 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldind_U1 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldind_U1;
 	}
@@ -1666,7 +1666,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldind_U2"];
 		if ([self object:m_ldind_U2 isEqualToMonoObject:monoObject]) return m_ldind_U2;					
-		m_ldind_U2 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldind_U2 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldind_U2;
 	}
@@ -1678,7 +1678,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldind_U4"];
 		if ([self object:m_ldind_U4 isEqualToMonoObject:monoObject]) return m_ldind_U4;					
-		m_ldind_U4 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldind_U4 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldind_U4;
 	}
@@ -1690,7 +1690,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldlen"];
 		if ([self object:m_ldlen isEqualToMonoObject:monoObject]) return m_ldlen;					
-		m_ldlen = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldlen = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldlen;
 	}
@@ -1702,7 +1702,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldloc"];
 		if ([self object:m_ldloc isEqualToMonoObject:monoObject]) return m_ldloc;					
-		m_ldloc = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldloc = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldloc;
 	}
@@ -1714,7 +1714,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldloc_0"];
 		if ([self object:m_ldloc_0 isEqualToMonoObject:monoObject]) return m_ldloc_0;					
-		m_ldloc_0 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldloc_0 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldloc_0;
 	}
@@ -1726,7 +1726,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldloc_1"];
 		if ([self object:m_ldloc_1 isEqualToMonoObject:monoObject]) return m_ldloc_1;					
-		m_ldloc_1 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldloc_1 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldloc_1;
 	}
@@ -1738,7 +1738,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldloc_2"];
 		if ([self object:m_ldloc_2 isEqualToMonoObject:monoObject]) return m_ldloc_2;					
-		m_ldloc_2 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldloc_2 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldloc_2;
 	}
@@ -1750,7 +1750,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldloc_3"];
 		if ([self object:m_ldloc_3 isEqualToMonoObject:monoObject]) return m_ldloc_3;					
-		m_ldloc_3 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldloc_3 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldloc_3;
 	}
@@ -1762,7 +1762,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldloc_S"];
 		if ([self object:m_ldloc_S isEqualToMonoObject:monoObject]) return m_ldloc_S;					
-		m_ldloc_S = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldloc_S = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldloc_S;
 	}
@@ -1774,7 +1774,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldloca"];
 		if ([self object:m_ldloca isEqualToMonoObject:monoObject]) return m_ldloca;					
-		m_ldloca = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldloca = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldloca;
 	}
@@ -1786,7 +1786,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldloca_S"];
 		if ([self object:m_ldloca_S isEqualToMonoObject:monoObject]) return m_ldloca_S;					
-		m_ldloca_S = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldloca_S = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldloca_S;
 	}
@@ -1798,7 +1798,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldnull"];
 		if ([self object:m_ldnull isEqualToMonoObject:monoObject]) return m_ldnull;					
-		m_ldnull = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldnull = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldnull;
 	}
@@ -1810,7 +1810,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldobj"];
 		if ([self object:m_ldobj isEqualToMonoObject:monoObject]) return m_ldobj;					
-		m_ldobj = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldobj = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldobj;
 	}
@@ -1822,7 +1822,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldsfld"];
 		if ([self object:m_ldsfld isEqualToMonoObject:monoObject]) return m_ldsfld;					
-		m_ldsfld = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldsfld = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldsfld;
 	}
@@ -1834,7 +1834,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldsflda"];
 		if ([self object:m_ldsflda isEqualToMonoObject:monoObject]) return m_ldsflda;					
-		m_ldsflda = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldsflda = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldsflda;
 	}
@@ -1846,7 +1846,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldstr"];
 		if ([self object:m_ldstr isEqualToMonoObject:monoObject]) return m_ldstr;					
-		m_ldstr = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldstr = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldstr;
 	}
@@ -1858,7 +1858,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldtoken"];
 		if ([self object:m_ldtoken isEqualToMonoObject:monoObject]) return m_ldtoken;					
-		m_ldtoken = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldtoken = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldtoken;
 	}
@@ -1870,7 +1870,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ldvirtftn"];
 		if ([self object:m_ldvirtftn isEqualToMonoObject:monoObject]) return m_ldvirtftn;					
-		m_ldvirtftn = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ldvirtftn = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ldvirtftn;
 	}
@@ -1882,7 +1882,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Leave"];
 		if ([self object:m_leave isEqualToMonoObject:monoObject]) return m_leave;					
-		m_leave = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_leave = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_leave;
 	}
@@ -1894,7 +1894,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Leave_S"];
 		if ([self object:m_leave_S isEqualToMonoObject:monoObject]) return m_leave_S;					
-		m_leave_S = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_leave_S = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_leave_S;
 	}
@@ -1906,7 +1906,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Localloc"];
 		if ([self object:m_localloc isEqualToMonoObject:monoObject]) return m_localloc;					
-		m_localloc = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_localloc = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_localloc;
 	}
@@ -1918,7 +1918,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Mkrefany"];
 		if ([self object:m_mkrefany isEqualToMonoObject:monoObject]) return m_mkrefany;					
-		m_mkrefany = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_mkrefany = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_mkrefany;
 	}
@@ -1930,7 +1930,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Mul"];
 		if ([self object:m_mul isEqualToMonoObject:monoObject]) return m_mul;					
-		m_mul = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_mul = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_mul;
 	}
@@ -1942,7 +1942,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Mul_Ovf"];
 		if ([self object:m_mul_Ovf isEqualToMonoObject:monoObject]) return m_mul_Ovf;					
-		m_mul_Ovf = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_mul_Ovf = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_mul_Ovf;
 	}
@@ -1954,7 +1954,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Mul_Ovf_Un"];
 		if ([self object:m_mul_Ovf_Un isEqualToMonoObject:monoObject]) return m_mul_Ovf_Un;					
-		m_mul_Ovf_Un = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_mul_Ovf_Un = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_mul_Ovf_Un;
 	}
@@ -1966,7 +1966,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Neg"];
 		if ([self object:m_neg isEqualToMonoObject:monoObject]) return m_neg;					
-		m_neg = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_neg = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_neg;
 	}
@@ -1978,7 +1978,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Newarr"];
 		if ([self object:m_newarr isEqualToMonoObject:monoObject]) return m_newarr;					
-		m_newarr = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_newarr = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_newarr;
 	}
@@ -1990,7 +1990,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Newobj"];
 		if ([self object:m_newobj isEqualToMonoObject:monoObject]) return m_newobj;					
-		m_newobj = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_newobj = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_newobj;
 	}
@@ -2002,7 +2002,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Nop"];
 		if ([self object:m_nop isEqualToMonoObject:monoObject]) return m_nop;					
-		m_nop = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_nop = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_nop;
 	}
@@ -2014,7 +2014,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Not"];
 		if ([self object:m_not isEqualToMonoObject:monoObject]) return m_not;					
-		m_not = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_not = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_not;
 	}
@@ -2026,7 +2026,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Or"];
 		if ([self object:m_or isEqualToMonoObject:monoObject]) return m_or;					
-		m_or = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_or = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_or;
 	}
@@ -2038,7 +2038,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Pop"];
 		if ([self object:m_pop isEqualToMonoObject:monoObject]) return m_pop;					
-		m_pop = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_pop = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_pop;
 	}
@@ -2050,7 +2050,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Prefix1"];
 		if ([self object:m_prefix1 isEqualToMonoObject:monoObject]) return m_prefix1;					
-		m_prefix1 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_prefix1 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_prefix1;
 	}
@@ -2062,7 +2062,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Prefix2"];
 		if ([self object:m_prefix2 isEqualToMonoObject:monoObject]) return m_prefix2;					
-		m_prefix2 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_prefix2 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_prefix2;
 	}
@@ -2074,7 +2074,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Prefix3"];
 		if ([self object:m_prefix3 isEqualToMonoObject:monoObject]) return m_prefix3;					
-		m_prefix3 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_prefix3 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_prefix3;
 	}
@@ -2086,7 +2086,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Prefix4"];
 		if ([self object:m_prefix4 isEqualToMonoObject:monoObject]) return m_prefix4;					
-		m_prefix4 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_prefix4 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_prefix4;
 	}
@@ -2098,7 +2098,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Prefix5"];
 		if ([self object:m_prefix5 isEqualToMonoObject:monoObject]) return m_prefix5;					
-		m_prefix5 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_prefix5 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_prefix5;
 	}
@@ -2110,7 +2110,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Prefix6"];
 		if ([self object:m_prefix6 isEqualToMonoObject:monoObject]) return m_prefix6;					
-		m_prefix6 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_prefix6 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_prefix6;
 	}
@@ -2122,7 +2122,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Prefix7"];
 		if ([self object:m_prefix7 isEqualToMonoObject:monoObject]) return m_prefix7;					
-		m_prefix7 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_prefix7 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_prefix7;
 	}
@@ -2134,7 +2134,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Prefixref"];
 		if ([self object:m_prefixref isEqualToMonoObject:monoObject]) return m_prefixref;					
-		m_prefixref = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_prefixref = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_prefixref;
 	}
@@ -2146,7 +2146,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Readonly"];
 		if ([self object:m_readonly isEqualToMonoObject:monoObject]) return m_readonly;					
-		m_readonly = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_readonly = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_readonly;
 	}
@@ -2158,7 +2158,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Refanytype"];
 		if ([self object:m_refanytype isEqualToMonoObject:monoObject]) return m_refanytype;					
-		m_refanytype = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_refanytype = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_refanytype;
 	}
@@ -2170,7 +2170,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Refanyval"];
 		if ([self object:m_refanyval isEqualToMonoObject:monoObject]) return m_refanyval;					
-		m_refanyval = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_refanyval = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_refanyval;
 	}
@@ -2182,7 +2182,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Rem"];
 		if ([self object:m_rem isEqualToMonoObject:monoObject]) return m_rem;					
-		m_rem = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_rem = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_rem;
 	}
@@ -2194,7 +2194,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Rem_Un"];
 		if ([self object:m_rem_Un isEqualToMonoObject:monoObject]) return m_rem_Un;					
-		m_rem_Un = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_rem_Un = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_rem_Un;
 	}
@@ -2206,7 +2206,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Ret"];
 		if ([self object:m_ret isEqualToMonoObject:monoObject]) return m_ret;					
-		m_ret = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_ret = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_ret;
 	}
@@ -2218,7 +2218,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Rethrow"];
 		if ([self object:m_rethrow isEqualToMonoObject:monoObject]) return m_rethrow;					
-		m_rethrow = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_rethrow = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_rethrow;
 	}
@@ -2230,7 +2230,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Shl"];
 		if ([self object:m_shl isEqualToMonoObject:monoObject]) return m_shl;					
-		m_shl = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_shl = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_shl;
 	}
@@ -2242,7 +2242,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Shr"];
 		if ([self object:m_shr isEqualToMonoObject:monoObject]) return m_shr;					
-		m_shr = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_shr = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_shr;
 	}
@@ -2254,7 +2254,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Shr_Un"];
 		if ([self object:m_shr_Un isEqualToMonoObject:monoObject]) return m_shr_Un;					
-		m_shr_Un = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_shr_Un = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_shr_Un;
 	}
@@ -2266,7 +2266,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Sizeof"];
 		if ([self object:m_sizeof isEqualToMonoObject:monoObject]) return m_sizeof;					
-		m_sizeof = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_sizeof = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_sizeof;
 	}
@@ -2278,7 +2278,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Starg"];
 		if ([self object:m_starg isEqualToMonoObject:monoObject]) return m_starg;					
-		m_starg = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_starg = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_starg;
 	}
@@ -2290,7 +2290,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Starg_S"];
 		if ([self object:m_starg_S isEqualToMonoObject:monoObject]) return m_starg_S;					
-		m_starg_S = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_starg_S = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_starg_S;
 	}
@@ -2302,7 +2302,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stelem"];
 		if ([self object:m_stelem isEqualToMonoObject:monoObject]) return m_stelem;					
-		m_stelem = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stelem = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stelem;
 	}
@@ -2314,7 +2314,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stelem_I"];
 		if ([self object:m_stelem_I isEqualToMonoObject:monoObject]) return m_stelem_I;					
-		m_stelem_I = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stelem_I = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stelem_I;
 	}
@@ -2326,7 +2326,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stelem_I1"];
 		if ([self object:m_stelem_I1 isEqualToMonoObject:monoObject]) return m_stelem_I1;					
-		m_stelem_I1 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stelem_I1 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stelem_I1;
 	}
@@ -2338,7 +2338,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stelem_I2"];
 		if ([self object:m_stelem_I2 isEqualToMonoObject:monoObject]) return m_stelem_I2;					
-		m_stelem_I2 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stelem_I2 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stelem_I2;
 	}
@@ -2350,7 +2350,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stelem_I4"];
 		if ([self object:m_stelem_I4 isEqualToMonoObject:monoObject]) return m_stelem_I4;					
-		m_stelem_I4 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stelem_I4 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stelem_I4;
 	}
@@ -2362,7 +2362,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stelem_I8"];
 		if ([self object:m_stelem_I8 isEqualToMonoObject:monoObject]) return m_stelem_I8;					
-		m_stelem_I8 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stelem_I8 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stelem_I8;
 	}
@@ -2374,7 +2374,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stelem_R4"];
 		if ([self object:m_stelem_R4 isEqualToMonoObject:monoObject]) return m_stelem_R4;					
-		m_stelem_R4 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stelem_R4 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stelem_R4;
 	}
@@ -2386,7 +2386,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stelem_R8"];
 		if ([self object:m_stelem_R8 isEqualToMonoObject:monoObject]) return m_stelem_R8;					
-		m_stelem_R8 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stelem_R8 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stelem_R8;
 	}
@@ -2398,7 +2398,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stelem_Ref"];
 		if ([self object:m_stelem_Ref isEqualToMonoObject:monoObject]) return m_stelem_Ref;					
-		m_stelem_Ref = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stelem_Ref = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stelem_Ref;
 	}
@@ -2410,7 +2410,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stfld"];
 		if ([self object:m_stfld isEqualToMonoObject:monoObject]) return m_stfld;					
-		m_stfld = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stfld = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stfld;
 	}
@@ -2422,7 +2422,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stind_I"];
 		if ([self object:m_stind_I isEqualToMonoObject:monoObject]) return m_stind_I;					
-		m_stind_I = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stind_I = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stind_I;
 	}
@@ -2434,7 +2434,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stind_I1"];
 		if ([self object:m_stind_I1 isEqualToMonoObject:monoObject]) return m_stind_I1;					
-		m_stind_I1 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stind_I1 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stind_I1;
 	}
@@ -2446,7 +2446,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stind_I2"];
 		if ([self object:m_stind_I2 isEqualToMonoObject:monoObject]) return m_stind_I2;					
-		m_stind_I2 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stind_I2 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stind_I2;
 	}
@@ -2458,7 +2458,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stind_I4"];
 		if ([self object:m_stind_I4 isEqualToMonoObject:monoObject]) return m_stind_I4;					
-		m_stind_I4 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stind_I4 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stind_I4;
 	}
@@ -2470,7 +2470,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stind_I8"];
 		if ([self object:m_stind_I8 isEqualToMonoObject:monoObject]) return m_stind_I8;					
-		m_stind_I8 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stind_I8 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stind_I8;
 	}
@@ -2482,7 +2482,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stind_R4"];
 		if ([self object:m_stind_R4 isEqualToMonoObject:monoObject]) return m_stind_R4;					
-		m_stind_R4 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stind_R4 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stind_R4;
 	}
@@ -2494,7 +2494,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stind_R8"];
 		if ([self object:m_stind_R8 isEqualToMonoObject:monoObject]) return m_stind_R8;					
-		m_stind_R8 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stind_R8 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stind_R8;
 	}
@@ -2506,7 +2506,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stind_Ref"];
 		if ([self object:m_stind_Ref isEqualToMonoObject:monoObject]) return m_stind_Ref;					
-		m_stind_Ref = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stind_Ref = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stind_Ref;
 	}
@@ -2518,7 +2518,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stloc"];
 		if ([self object:m_stloc isEqualToMonoObject:monoObject]) return m_stloc;					
-		m_stloc = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stloc = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stloc;
 	}
@@ -2530,7 +2530,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stloc_0"];
 		if ([self object:m_stloc_0 isEqualToMonoObject:monoObject]) return m_stloc_0;					
-		m_stloc_0 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stloc_0 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stloc_0;
 	}
@@ -2542,7 +2542,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stloc_1"];
 		if ([self object:m_stloc_1 isEqualToMonoObject:monoObject]) return m_stloc_1;					
-		m_stloc_1 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stloc_1 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stloc_1;
 	}
@@ -2554,7 +2554,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stloc_2"];
 		if ([self object:m_stloc_2 isEqualToMonoObject:monoObject]) return m_stloc_2;					
-		m_stloc_2 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stloc_2 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stloc_2;
 	}
@@ -2566,7 +2566,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stloc_3"];
 		if ([self object:m_stloc_3 isEqualToMonoObject:monoObject]) return m_stloc_3;					
-		m_stloc_3 = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stloc_3 = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stloc_3;
 	}
@@ -2578,7 +2578,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stloc_S"];
 		if ([self object:m_stloc_S isEqualToMonoObject:monoObject]) return m_stloc_S;					
-		m_stloc_S = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stloc_S = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stloc_S;
 	}
@@ -2590,7 +2590,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stobj"];
 		if ([self object:m_stobj isEqualToMonoObject:monoObject]) return m_stobj;					
-		m_stobj = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stobj = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stobj;
 	}
@@ -2602,7 +2602,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Stsfld"];
 		if ([self object:m_stsfld isEqualToMonoObject:monoObject]) return m_stsfld;					
-		m_stsfld = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_stsfld = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_stsfld;
 	}
@@ -2614,7 +2614,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Sub"];
 		if ([self object:m_sub isEqualToMonoObject:monoObject]) return m_sub;					
-		m_sub = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_sub = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_sub;
 	}
@@ -2626,7 +2626,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Sub_Ovf"];
 		if ([self object:m_sub_Ovf isEqualToMonoObject:monoObject]) return m_sub_Ovf;					
-		m_sub_Ovf = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_sub_Ovf = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_sub_Ovf;
 	}
@@ -2638,7 +2638,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Sub_Ovf_Un"];
 		if ([self object:m_sub_Ovf_Un isEqualToMonoObject:monoObject]) return m_sub_Ovf_Un;					
-		m_sub_Ovf_Un = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_sub_Ovf_Un = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_sub_Ovf_Un;
 	}
@@ -2650,7 +2650,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Switch"];
 		if ([self object:m_switch isEqualToMonoObject:monoObject]) return m_switch;					
-		m_switch = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_switch = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_switch;
 	}
@@ -2662,7 +2662,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Tailcall"];
 		if ([self object:m_tailcall isEqualToMonoObject:monoObject]) return m_tailcall;					
-		m_tailcall = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_tailcall = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_tailcall;
 	}
@@ -2674,7 +2674,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Throw"];
 		if ([self object:m_throw isEqualToMonoObject:monoObject]) return m_throw;					
-		m_throw = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_throw = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_throw;
 	}
@@ -2686,7 +2686,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Unaligned"];
 		if ([self object:m_unaligned isEqualToMonoObject:monoObject]) return m_unaligned;					
-		m_unaligned = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_unaligned = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_unaligned;
 	}
@@ -2698,7 +2698,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Unbox"];
 		if ([self object:m_unbox isEqualToMonoObject:monoObject]) return m_unbox;					
-		m_unbox = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_unbox = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_unbox;
 	}
@@ -2710,7 +2710,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Unbox_Any"];
 		if ([self object:m_unbox_Any isEqualToMonoObject:monoObject]) return m_unbox_Any;					
-		m_unbox_Any = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_unbox_Any = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_unbox_Any;
 	}
@@ -2722,7 +2722,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Volatile"];
 		if ([self object:m_volatile isEqualToMonoObject:monoObject]) return m_volatile;					
-		m_volatile = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_volatile = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_volatile;
 	}
@@ -2734,7 +2734,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Xor"];
 		if ([self object:m_xor isEqualToMonoObject:monoObject]) return m_xor;					
-		m_xor = [System_Reflection_Emit_OpCode objectWithMonoObject:monoObject];
+		m_xor = [System_Reflection_Emit_OpCode bestObjectWithMonoObject:monoObject];
 
 		return m_xor;
 	}

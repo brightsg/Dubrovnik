@@ -2,7 +2,7 @@
 //
 // Managed interface : IProducerConsumerCollection`1<T>
 //
-@interface System_Collections_Concurrent_IProducerConsumerCollectionA1 : System_Object <System_Collections_Concurrent_IProducerConsumerCollectionA1, System_Collections_Generic_IEnumerableA1, System_Collections_IEnumerable, System_Collections_ICollection>
+@interface System_Collections_Concurrent_IProducerConsumerCollectionA1 : System_Object <System_Collections_Concurrent_IProducerConsumerCollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_ICollection_>
 
 #pragma mark -
 #pragma mark Setup
@@ -16,13 +16,13 @@
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : <T[]>, System.Int32
-    - (void)copyTo_withArray:(System_Object *)p1 index:(int32_t)p2;
+	// Managed param types : T[], System.Int32
+    - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2;
 
 	// Managed method name : ToArray
-	// Managed return type : <T[]>
+	// Managed return type : T[]
 	// Managed param types : 
-    - (System_Object *)toArray;
+    - (DBSystem_Array *)toArray;
 
 	// Managed method name : TryAdd
 	// Managed return type : System.Boolean
@@ -31,7 +31,7 @@
 
 	// Managed method name : TryTake
 	// Managed return type : System.Boolean
-	// Managed param types : ref <T&>
-    - (BOOL)tryTake_withItemRef:(System_Object **)p1;
+	// Managed param types : ref T&
+    - (BOOL)tryTake_withItemRef:(System_Collections_Concurrent_IProducerConsumerCollectionA1__T **)p1;
 @end
 //--Dubrovnik.CodeGenerator

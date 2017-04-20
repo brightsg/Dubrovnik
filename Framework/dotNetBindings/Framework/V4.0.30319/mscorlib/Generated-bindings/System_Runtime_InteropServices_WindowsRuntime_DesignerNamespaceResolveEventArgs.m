@@ -32,7 +32,10 @@
 	// Managed param types : System.String
     + (System_Runtime_InteropServices_WindowsRuntime_DesignerNamespaceResolveEventArgs *)new_withNamespaceName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Runtime_InteropServices_WindowsRuntime_DesignerNamespaceResolveEventArgs * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,7 +46,17 @@
     @synthesize namespaceName = _namespaceName;
     - (NSString *)namespaceName
     {
-		MonoObject *monoObject = [self getMonoProperty:"NamespaceName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NamespaceName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_namespaceName isEqualToMonoObject:monoObject]) return _namespaceName;					
 		_namespaceName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -55,9 +68,19 @@
     @synthesize resolvedAssemblyFiles = _resolvedAssemblyFiles;
     - (System_Collections_ObjectModel_CollectionA1 *)resolvedAssemblyFiles
     {
-		MonoObject *monoObject = [self getMonoProperty:"ResolvedAssemblyFiles"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ResolvedAssemblyFiles");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_resolvedAssemblyFiles isEqualToMonoObject:monoObject]) return _resolvedAssemblyFiles;					
-		_resolvedAssemblyFiles = [System_Collections_ObjectModel_CollectionA1 objectWithMonoObject:monoObject];
+		_resolvedAssemblyFiles = [System_Collections_ObjectModel_CollectionA1 bestObjectWithMonoObject:monoObject];
 
 		return _resolvedAssemblyFiles;
 	}

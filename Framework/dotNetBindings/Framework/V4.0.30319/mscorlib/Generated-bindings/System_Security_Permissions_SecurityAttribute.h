@@ -2,7 +2,7 @@
 //
 // Managed class : SecurityAttribute
 //
-@interface System_Security_Permissions_SecurityAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Security_Permissions_SecurityAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -16,7 +16,7 @@
 
 	// Managed property name : Action
 	// Managed property type : System.Security.Permissions.SecurityAction
-    @property (nonatomic) System_Security_Permissions_SecurityAction action;
+    @property (nonatomic) int32_t action;
 
 	// Managed property name : Unrestricted
 	// Managed property type : System.Boolean
@@ -28,6 +28,6 @@
 	// Managed method name : CreatePermission
 	// Managed return type : System.Security.IPermission
 	// Managed param types : 
-    - (System_Security_IPermission *)createPermission;
+    - (id <System_Security_IPermission>)createPermission;
 @end
 //--Dubrovnik.CodeGenerator

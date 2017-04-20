@@ -2,7 +2,7 @@
 //
 // Managed class : Dictionary`2<TKey, TValue>
 //
-@interface System_Collections_Generic_DictionaryA2 : System_Object <System_Collections_Generic_IDictionaryA2, System_Collections_Generic_ICollectionA1, System_Collections_Generic_IEnumerableA1, System_Collections_IEnumerable, System_Collections_IDictionary, System_Collections_ICollection, System_Collections_Generic_IReadOnlyDictionaryA2, System_Collections_Generic_IReadOnlyCollectionA1, System_Runtime_Serialization_ISerializable, System_Runtime_Serialization_IDeserializationCallback>
+@interface System_Collections_Generic_DictionaryA2 : System_Object <System_Collections_Generic_IDictionaryA2_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_IDictionary_, System_Collections_ICollection_, System_Collections_Generic_IReadOnlyDictionaryA2_, System_Collections_Generic_IReadOnlyCollectionA1_, System_Runtime_Serialization_ISerializable_, System_Runtime_Serialization_IDeserializationCallback_>
 
 #pragma mark -
 #pragma mark Setup
@@ -22,22 +22,22 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
 	// Managed param types : System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey>
-    + (System_Collections_Generic_DictionaryA2 *)new_withComparer:(System_Collections_Generic_IEqualityComparerA1 *)p1;
+    + (System_Collections_Generic_DictionaryA2 *)new_withComparer:(id <System_Collections_Generic_IEqualityComparerA1_>)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
 	// Managed param types : System.Int32, System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey>
-    + (System_Collections_Generic_DictionaryA2 *)new_withCapacity:(int32_t)p1 comparer:(System_Collections_Generic_IEqualityComparerA1 *)p2;
+    + (System_Collections_Generic_DictionaryA2 *)new_withCapacity:(int32_t)p1 comparer:(id <System_Collections_Generic_IEqualityComparerA1_>)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
 	// Managed param types : System.Collections.Generic.IDictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
-    + (System_Collections_Generic_DictionaryA2 *)new_withDictionary:(System_Collections_Generic_IDictionaryA2 *)p1;
+    + (System_Collections_Generic_DictionaryA2 *)new_withDictionary:(id <System_Collections_Generic_IDictionaryA2_>)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
 	// Managed param types : System.Collections.Generic.IDictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>, System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey>
-    + (System_Collections_Generic_DictionaryA2 *)new_withDictionary:(System_Collections_Generic_IDictionaryA2 *)p1 comparer:(System_Collections_Generic_IEqualityComparerA1 *)p2;
+    + (System_Collections_Generic_DictionaryA2 *)new_withDictionary:(id <System_Collections_Generic_IDictionaryA2_>)p1 comparer:(id <System_Collections_Generic_IEqualityComparerA1_>)p2;
 
 #pragma mark -
 #pragma mark Properties
@@ -107,7 +107,7 @@
 
 	// Managed method name : TryGetValue
 	// Managed return type : System.Boolean
-	// Managed param types : <System.Collections.Generic.Dictionary`2+TKey>, ref <TValue&>
-    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
+	// Managed param types : <System.Collections.Generic.Dictionary`2+TKey>, ref TValue&
+    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Collections_Generic_DictionaryA2__TValue **)p2;
 @end
 //--Dubrovnik.CodeGenerator

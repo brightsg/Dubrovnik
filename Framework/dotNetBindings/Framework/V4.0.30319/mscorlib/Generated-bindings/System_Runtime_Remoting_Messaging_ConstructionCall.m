@@ -32,15 +32,21 @@
 	// Managed param types : System.Runtime.Remoting.Messaging.Header[]
     + (System_Runtime_Remoting_Messaging_ConstructionCall *)new_withHeaders:(DBSystem_Array *)p1
     {
-		return [[self alloc] initWithSignature:"System.Array[]" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Runtime_Remoting_Messaging_ConstructionCall * object = [[self alloc] initWithSignature:"System.Runtime.Remoting.Messaging.Header[]" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Remoting.Messaging.ConstructionCall
 	// Managed param types : System.Runtime.Remoting.Messaging.IMessage
-    + (System_Runtime_Remoting_Messaging_ConstructionCall *)new_withM:(System_Runtime_Remoting_Messaging_IMessage *)p1
+    + (System_Runtime_Remoting_Messaging_ConstructionCall *)new_withM:(id <System_Runtime_Remoting_Messaging_IMessage_>)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.Remoting.Messaging.IMessage" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Runtime_Remoting_Messaging_ConstructionCall * object = [[self alloc] initWithSignature:"System.Runtime.Remoting.Messaging.IMessage" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -51,9 +57,19 @@
     @synthesize activationType = _activationType;
     - (System_Type *)activationType
     {
-		MonoObject *monoObject = [self getMonoProperty:"ActivationType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ActivationType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_activationType isEqualToMonoObject:monoObject]) return _activationType;					
-		_activationType = [System_Type objectWithMonoObject:monoObject];
+		_activationType = [System_Type bestObjectWithMonoObject:monoObject];
 
 		return _activationType;
 	}
@@ -63,7 +79,17 @@
     @synthesize activationTypeName = _activationTypeName;
     - (NSString *)activationTypeName
     {
-		MonoObject *monoObject = [self getMonoProperty:"ActivationTypeName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ActivationTypeName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_activationTypeName isEqualToMonoObject:monoObject]) return _activationTypeName;					
 		_activationTypeName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -75,17 +101,36 @@
     @synthesize activator = _activator;
     - (System_Runtime_Remoting_Activation_IActivator *)activator
     {
-		MonoObject *monoObject = [self getMonoProperty:"Activator"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Activator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_activator isEqualToMonoObject:monoObject]) return _activator;					
-		_activator = [System_Runtime_Remoting_Activation_IActivator objectWithMonoObject:monoObject];
+		_activator = [System_Runtime_Remoting_Activation_IActivator bestObjectWithMonoObject:monoObject];
 
 		return _activator;
 	}
     - (void)setActivator:(System_Runtime_Remoting_Activation_IActivator *)value
 	{
 		_activator = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Activator" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Activator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CallSiteActivationAttributes
@@ -93,7 +138,17 @@
     @synthesize callSiteActivationAttributes = _callSiteActivationAttributes;
     - (DBSystem_Array *)callSiteActivationAttributes
     {
-		MonoObject *monoObject = [self getMonoProperty:"CallSiteActivationAttributes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CallSiteActivationAttributes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_callSiteActivationAttributes isEqualToMonoObject:monoObject]) return _callSiteActivationAttributes;					
 		_callSiteActivationAttributes = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -105,9 +160,19 @@
     @synthesize contextProperties = _contextProperties;
     - (System_Collections_IList *)contextProperties
     {
-		MonoObject *monoObject = [self getMonoProperty:"ContextProperties"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ContextProperties");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_contextProperties isEqualToMonoObject:monoObject]) return _contextProperties;					
-		_contextProperties = [System_Collections_IList objectWithMonoObject:monoObject];
+		_contextProperties = [System_Collections_IList bestObjectWithMonoObject:monoObject];
 
 		return _contextProperties;
 	}
@@ -117,9 +182,19 @@
     @synthesize properties = _properties;
     - (System_Collections_IDictionary *)properties
     {
-		MonoObject *monoObject = [self getMonoProperty:"Properties"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Properties");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_properties isEqualToMonoObject:monoObject]) return _properties;					
-		_properties = [System_Collections_IDictionary objectWithMonoObject:monoObject];
+		_properties = [System_Collections_IDictionary bestObjectWithMonoObject:monoObject];
 
 		return _properties;
 	}

@@ -16,7 +16,7 @@
 
 	// Managed field name : callconv
 	// Managed field type : System.Runtime.InteropServices.ComTypes.CALLCONV
-    @property (nonatomic) System_Runtime_InteropServices_ComTypes_CALLCONV callconv;
+    @property (nonatomic) int32_t callconv;
 
 	// Managed field name : cParams
 	// Managed field type : System.Int16
@@ -36,11 +36,11 @@
 
 	// Managed field name : funckind
 	// Managed field type : System.Runtime.InteropServices.ComTypes.FUNCKIND
-    @property (nonatomic) System_Runtime_InteropServices_ComTypes_FUNCKIND funckind;
+    @property (nonatomic) int32_t funckind;
 
 	// Managed field name : invkind
 	// Managed field type : System.Runtime.InteropServices.ComTypes.INVOKEKIND
-    @property (nonatomic) System_Runtime_InteropServices_ComTypes_INVOKEKIND invkind;
+    @property (nonatomic) int32_t invkind;
 
 	// Managed field name : lprgelemdescParam
 	// Managed field type : System.IntPtr

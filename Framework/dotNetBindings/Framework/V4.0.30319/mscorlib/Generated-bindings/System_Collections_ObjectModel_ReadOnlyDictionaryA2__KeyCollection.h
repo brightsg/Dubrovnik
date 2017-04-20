@@ -2,7 +2,7 @@
 //
 // Managed class : ReadOnlyDictionary`2<TKey, TValue>.KeyCollection
 //
-@interface System_Collections_ObjectModel_ReadOnlyDictionaryA2__KeyCollection : System_Object <System_Collections_Generic_ICollectionA1, System_Collections_Generic_IEnumerableA1, System_Collections_IEnumerable, System_Collections_ICollection>
+@interface System_Collections_ObjectModel_ReadOnlyDictionaryA2__KeyCollection : System_Object <System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_ICollection_, System_Collections_Generic_IReadOnlyCollectionA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -23,12 +23,12 @@
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : <TKey[]>, System.Int32
-    - (void)copyTo_withArray:(System_Object *)p1 arrayIndex:(int32_t)p2;
+	// Managed param types : TKey[], System.Int32
+    - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2;
 
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.Generic.IEnumerator`1<System.Collections.ObjectModel.ReadOnlyDictionary`2+KeyCollection+TKey>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumeratorA1 *)getEnumerator;
+    - (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator;
 @end
 //--Dubrovnik.CodeGenerator

@@ -32,7 +32,10 @@
 	// Managed param types : System.Char*
     + (NSString *)new_withValueChar:(uint16_t*)p1
     {
-		return [[self alloc] initWithSignature:"char*" withNumArgs:1, p1];;
+		
+		NSString * object = [[self alloc] initWithSignature:"char*" withNumArgs:1, p1];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Char*, System.Int32, System.Int32
     + (NSString *)new_withValueChar:(uint16_t*)p1 startIndexInt:(int32_t)p2 lengthInt:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"char*,int,int" withNumArgs:3, p1, DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		NSString * object = [[self alloc] initWithSignature:"char*,int,int" withNumArgs:3, p1, DB_VALUE(p2), DB_VALUE(p3)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +54,10 @@
 	// Managed param types : System.SByte*
     + (NSString *)new_withValueSbyte:(int8_t*)p1
     {
-		return [[self alloc] initWithSignature:"sbyte*" withNumArgs:1, p1];;
+		
+		NSString * object = [[self alloc] initWithSignature:"sbyte*" withNumArgs:1, p1];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +65,10 @@
 	// Managed param types : System.SByte*, System.Int32, System.Int32
     + (NSString *)new_withValueSbyte:(int8_t*)p1 startIndexInt:(int32_t)p2 lengthInt:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"sbyte*,int,int" withNumArgs:3, p1, DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		NSString * object = [[self alloc] initWithSignature:"sbyte*,int,int" withNumArgs:3, p1, DB_VALUE(p2), DB_VALUE(p3)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +76,10 @@
 	// Managed param types : System.SByte*, System.Int32, System.Int32, System.Text.Encoding
     + (NSString *)new_withValue:(int8_t*)p1 startIndex:(int32_t)p2 length:(int32_t)p3 enc:(System_Text_Encoding *)p4
     {
-		return [[self alloc] initWithSignature:"sbyte*,int,int,System.Text.Encoding" withNumArgs:4, p1, DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];;
+		
+		NSString * object = [[self alloc] initWithSignature:"sbyte*,int,int,System.Text.Encoding" withNumArgs:4, p1, DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -72,7 +87,10 @@
 	// Managed param types : System.Char[], System.Int32, System.Int32
     + (NSString *)new_withValueChar:(DBSystem_Array *)p1 startIndexInt:(int32_t)p2 lengthInt:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"char[],int,int" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		NSString * object = [[self alloc] initWithSignature:"char[],int,int" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -80,7 +98,10 @@
 	// Managed param types : System.Char[]
     + (NSString *)new_withValueChar:(DBSystem_Array *)p1
     {
-		return [[self alloc] initWithSignature:"char[]" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		NSString * object = [[self alloc] initWithSignature:"char[]" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -88,7 +109,10 @@
 	// Managed param types : System.Char, System.Int32
     + (NSString *)new_withC:(uint16_t)p1 count:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"char,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		NSString * object = [[self alloc] initWithSignature:"char,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -114,8 +138,18 @@
     @synthesize chars = _chars;
     - (uint16_t)chars
     {
-		MonoObject *monoObject = [self getMonoProperty:"Chars"];
-		_chars = DB_UNBOX_UINT16(monoObject);
+		typedef uint16_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Chars");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		uint16_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_chars = monoObject;
 
 		return _chars;
 	}
@@ -125,8 +159,18 @@
     @synthesize length = _length;
     - (int32_t)length
     {
-		MonoObject *monoObject = [self getMonoProperty:"Length"];
-		_length = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Length");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_length = monoObject;
 
 		return _length;
 	}
@@ -170,10 +214,10 @@
 	// Managed method name : Compare
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.String, System.StringComparison
-    + (int32_t)compare_withStrA:(NSString *)p1 strB:(NSString *)p2 comparisonType:(System_StringComparison)p3
+    + (int32_t)compare_withStrA:(NSString *)p1 strB:(NSString *)p2 comparisonType:(int32_t)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Compare(string,string,System.StringComparison)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Compare(string,string,stringComparison)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -181,7 +225,7 @@
 	// Managed method name : Compare
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.String, System.Globalization.CultureInfo, System.Globalization.CompareOptions
-    + (int32_t)compare_withStrA:(NSString *)p1 strB:(NSString *)p2 culture:(System_Globalization_CultureInfo *)p3 options:(System_Globalization_CompareOptions)p4
+    + (int32_t)compare_withStrA:(NSString *)p1 strB:(NSString *)p2 culture:(System_Globalization_CultureInfo *)p3 options:(int32_t)p4
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Compare(string,string,System.Globalization.CultureInfo,System.Globalization.CompareOptions)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
@@ -236,7 +280,7 @@
 	// Managed method name : Compare
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.Int32, System.String, System.Int32, System.Int32, System.Globalization.CultureInfo, System.Globalization.CompareOptions
-    + (int32_t)compare_withStrA:(NSString *)p1 indexA:(int32_t)p2 strB:(NSString *)p3 indexB:(int32_t)p4 length:(int32_t)p5 culture:(System_Globalization_CultureInfo *)p6 options:(System_Globalization_CompareOptions)p7
+    + (int32_t)compare_withStrA:(NSString *)p1 indexA:(int32_t)p2 strB:(NSString *)p3 indexB:(int32_t)p4 length:(int32_t)p5 culture:(System_Globalization_CultureInfo *)p6 options:(int32_t)p7
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Compare(string,int,string,int,int,System.Globalization.CultureInfo,System.Globalization.CompareOptions)" withNumArgs:7, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5), [p6 monoRTInvokeArg], DB_VALUE(p7)];
@@ -247,10 +291,10 @@
 	// Managed method name : Compare
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.Int32, System.String, System.Int32, System.Int32, System.StringComparison
-    + (int32_t)compare_withStrA:(NSString *)p1 indexA:(int32_t)p2 strB:(NSString *)p3 indexB:(int32_t)p4 length:(int32_t)p5 comparisonType:(System_StringComparison)p6
+    + (int32_t)compare_withStrA:(NSString *)p1 indexA:(int32_t)p2 strB:(NSString *)p3 indexB:(int32_t)p4 length:(int32_t)p5 comparisonType:(int32_t)p6
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Compare(string,int,string,int,int,System.StringComparison)" withNumArgs:6, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Compare(string,int,string,int,int,stringComparison)" withNumArgs:6, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -357,10 +401,10 @@
 	// Managed method name : Concat
 	// Managed return type : System.String
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.String+T>
-    + (NSString *)concat_withValuesSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1
+    + (NSString *)concat_withValuesSCGIEnumerableA1string__T:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Concat(System.Collections.Generic.IEnumerable`1<System.String+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Concat(System.Collections.Generic.IEnumerable`1<string+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -368,10 +412,10 @@
 	// Managed method name : Concat
 	// Managed return type : System.String
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.String>
-    + (NSString *)concat_withValuesSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1
+    + (NSString *)concat_withValuesSCGIEnumerableA1string:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Concat(System.Collections.Generic.IEnumerable`1<System.String>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Concat(System.Collections.Generic.IEnumerable`1<string>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -447,7 +491,9 @@
 	// Managed param types : System.Int32, System.Char[], System.Int32, System.Int32
     - (void)copyTo_withSourceIndex:(int32_t)p1 destination:(DBSystem_Array *)p2 destinationIndex:(int32_t)p3 count:(int32_t)p4
     {
-		[self invokeMonoMethod:"CopyTo(int,char[],int,int)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];;
+		
+		[self invokeMonoMethod:"CopyTo(int,char[],int,int)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
+        
     }
 
 	// Managed method name : EndsWith
@@ -464,10 +510,10 @@
 	// Managed method name : EndsWith
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.StringComparison
-    - (BOOL)endsWith_withValue:(NSString *)p1 comparisonType:(System_StringComparison)p2
+    - (BOOL)endsWith_withValue:(NSString *)p1 comparisonType:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"EndsWith(string,System.StringComparison)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"EndsWith(string,stringComparison)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -508,10 +554,10 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.StringComparison
-    - (BOOL)equals_withValue:(NSString *)p1 comparisonType:(System_StringComparison)p2
+    - (BOOL)equals_withValue:(NSString *)p1 comparisonType:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(string,System.StringComparison)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(string,stringComparison)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -530,10 +576,10 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.String, System.StringComparison
-    + (BOOL)equals_withA:(NSString *)p1 b:(NSString *)p2 comparisonType:(System_StringComparison)p3
+    + (BOOL)equals_withA:(NSString *)p1 b:(NSString *)p2 comparisonType:(int32_t)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Equals(string,string,System.StringComparison)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Equals(string,string,stringComparison)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -584,8 +630,41 @@
 
 	// Managed method name : Format
 	// Managed return type : System.String
+	// Managed param types : System.IFormatProvider, System.String, System.Object
+    + (NSString *)format_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 arg0:(System_Object *)p3
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Format(System.IFormatProvider,string,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+		
+		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+    }
+
+	// Managed method name : Format
+	// Managed return type : System.String
+	// Managed param types : System.IFormatProvider, System.String, System.Object, System.Object
+    + (NSString *)format_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 arg0:(System_Object *)p3 arg1:(System_Object *)p4
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Format(System.IFormatProvider,string,object,object)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
+		
+		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+    }
+
+	// Managed method name : Format
+	// Managed return type : System.String
+	// Managed param types : System.IFormatProvider, System.String, System.Object, System.Object, System.Object
+    + (NSString *)format_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 arg0:(System_Object *)p3 arg1:(System_Object *)p4 arg2:(System_Object *)p5
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Format(System.IFormatProvider,string,object,object,object)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
+		
+		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+    }
+
+	// Managed method name : Format
+	// Managed return type : System.String
 	// Managed param types : System.IFormatProvider, System.String, System.Object[]
-    + (NSString *)format_withProvider:(System_IFormatProvider *)p1 format:(NSString *)p2 args:(DBSystem_Array *)p3
+    + (NSString *)format_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 args:(DBSystem_Array *)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Format(System.IFormatProvider,string,object[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
@@ -601,7 +680,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
 		
-		return [System_CharEnumerator objectWithMonoObject:monoObject];
+		return [System_CharEnumerator bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetHashCode
@@ -618,7 +697,7 @@
 	// Managed method name : GetTypeCode
 	// Managed return type : System.TypeCode
 	// Managed param types : 
-    - (System_TypeCode)getTypeCode
+    - (int32_t)getTypeCode
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeCode()" withNumArgs:0];
@@ -695,10 +774,10 @@
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.StringComparison
-    - (int32_t)indexOf_withValue:(NSString *)p1 comparisonType:(System_StringComparison)p2
+    - (int32_t)indexOf_withValue:(NSString *)p1 comparisonType:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(string,System.StringComparison)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(string,stringComparison)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -706,10 +785,10 @@
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.Int32, System.StringComparison
-    - (int32_t)indexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 comparisonType:(System_StringComparison)p3
+    - (int32_t)indexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 comparisonType:(int32_t)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(string,int,System.StringComparison)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(string,int,stringComparison)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -717,10 +796,10 @@
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.Int32, System.Int32, System.StringComparison
-    - (int32_t)indexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 comparisonType:(System_StringComparison)p4
+    - (int32_t)indexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 comparisonType:(int32_t)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(string,int,int,System.StringComparison)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
+		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(string,int,int,stringComparison)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -805,7 +884,7 @@
 	// Managed method name : IsNormalized
 	// Managed return type : System.Boolean
 	// Managed param types : System.Text.NormalizationForm
-    - (BOOL)isNormalized_withNormalizationForm:(System_Text_NormalizationForm)p1
+    - (BOOL)isNormalized_withNormalizationForm:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsNormalized(System.Text.NormalizationForm)" withNumArgs:1, DB_VALUE(p1)];
@@ -860,10 +939,10 @@
 	// Managed method name : Join
 	// Managed return type : System.String
 	// Managed param types : System.String, System.Collections.Generic.IEnumerable`1<System.String+T>
-    + (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p2
+    + (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1string__T:(id <System_Collections_Generic_IEnumerableA1_>)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Join(string,System.Collections.Generic.IEnumerable`1<System.String+T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Join(string,System.Collections.Generic.IEnumerable`1<string+T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -871,10 +950,10 @@
 	// Managed method name : Join
 	// Managed return type : System.String
 	// Managed param types : System.String, System.Collections.Generic.IEnumerable`1<System.String>
-    + (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p2
+    + (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1string:(id <System_Collections_Generic_IEnumerableA1_>)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Join(string,System.Collections.Generic.IEnumerable`1<System.String>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Join(string,System.Collections.Generic.IEnumerable`1<string>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -959,10 +1038,10 @@
 	// Managed method name : LastIndexOf
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.StringComparison
-    - (int32_t)lastIndexOf_withValue:(NSString *)p1 comparisonType:(System_StringComparison)p2
+    - (int32_t)lastIndexOf_withValue:(NSString *)p1 comparisonType:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(string,System.StringComparison)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(string,stringComparison)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -970,10 +1049,10 @@
 	// Managed method name : LastIndexOf
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.Int32, System.StringComparison
-    - (int32_t)lastIndexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 comparisonType:(System_StringComparison)p3
+    - (int32_t)lastIndexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 comparisonType:(int32_t)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(string,int,System.StringComparison)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(string,int,stringComparison)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -981,10 +1060,10 @@
 	// Managed method name : LastIndexOf
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.Int32, System.Int32, System.StringComparison
-    - (int32_t)lastIndexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 comparisonType:(System_StringComparison)p4
+    - (int32_t)lastIndexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 comparisonType:(int32_t)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(string,int,int,System.StringComparison)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
+		MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(string,int,int,stringComparison)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -1036,7 +1115,7 @@
 	// Managed method name : Normalize
 	// Managed return type : System.String
 	// Managed param types : System.Text.NormalizationForm
-    - (NSString *)normalize_withNormalizationForm:(System_Text_NormalizationForm)p1
+    - (NSString *)normalize_withNormalizationForm:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Normalize(System.Text.NormalizationForm)" withNumArgs:1, DB_VALUE(p1)];
@@ -1179,10 +1258,10 @@
 	// Managed method name : Split
 	// Managed return type : System.String[]
 	// Managed param types : System.Char[], System.StringSplitOptions
-    - (DBSystem_Array *)split_withSeparatorChar:(DBSystem_Array *)p1 optionsSStringSplitOptions:(System_StringSplitOptions)p2
+    - (DBSystem_Array *)split_withSeparatorChar:(DBSystem_Array *)p1 optionsStringSplitOptions:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Split(char[],System.StringSplitOptions)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Split(char[],stringSplitOptions)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -1190,10 +1269,10 @@
 	// Managed method name : Split
 	// Managed return type : System.String[]
 	// Managed param types : System.Char[], System.Int32, System.StringSplitOptions
-    - (DBSystem_Array *)split_withSeparatorChar:(DBSystem_Array *)p1 countInt:(int32_t)p2 optionsSStringSplitOptions:(System_StringSplitOptions)p3
+    - (DBSystem_Array *)split_withSeparatorChar:(DBSystem_Array *)p1 countInt:(int32_t)p2 optionsStringSplitOptions:(int32_t)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Split(char[],int,System.StringSplitOptions)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Split(char[],int,stringSplitOptions)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -1201,10 +1280,10 @@
 	// Managed method name : Split
 	// Managed return type : System.String[]
 	// Managed param types : System.String[], System.StringSplitOptions
-    - (DBSystem_Array *)split_withSeparatorString:(DBSystem_Array *)p1 optionsSStringSplitOptions:(System_StringSplitOptions)p2
+    - (DBSystem_Array *)split_withSeparatorString:(DBSystem_Array *)p1 optionsStringSplitOptions:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Split(string[],System.StringSplitOptions)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Split(string[],stringSplitOptions)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -1212,10 +1291,10 @@
 	// Managed method name : Split
 	// Managed return type : System.String[]
 	// Managed param types : System.String[], System.Int32, System.StringSplitOptions
-    - (DBSystem_Array *)split_withSeparatorString:(DBSystem_Array *)p1 countInt:(int32_t)p2 optionsSStringSplitOptions:(System_StringSplitOptions)p3
+    - (DBSystem_Array *)split_withSeparatorString:(DBSystem_Array *)p1 countInt:(int32_t)p2 optionsStringSplitOptions:(int32_t)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Split(string[],int,System.StringSplitOptions)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Split(string[],int,stringSplitOptions)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -1234,10 +1313,10 @@
 	// Managed method name : StartsWith
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.StringComparison
-    - (BOOL)startsWith_withValue:(NSString *)p1 comparisonType:(System_StringComparison)p2
+    - (BOOL)startsWith_withValue:(NSString *)p1 comparisonType:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"StartsWith(string,System.StringComparison)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"StartsWith(string,stringComparison)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -1344,7 +1423,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.IFormatProvider
-    - (NSString *)toString_withProvider:(System_IFormatProvider *)p1
+    - (NSString *)toString_withProvider:(id <System_IFormatProvider_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString(System.IFormatProvider)" withNumArgs:1, [p1 monoRTInvokeArg]];

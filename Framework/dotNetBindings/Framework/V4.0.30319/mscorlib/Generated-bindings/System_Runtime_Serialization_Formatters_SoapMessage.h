@@ -2,7 +2,7 @@
 //
 // Managed class : SoapMessage
 //
-@interface System_Runtime_Serialization_Formatters_SoapMessage : System_Object <System_Runtime_Serialization_Formatters_ISoapMessage>
+@interface System_Runtime_Serialization_Formatters_SoapMessage : System_Object <System_Runtime_Serialization_Formatters_ISoapMessage_>
 
 #pragma mark -
 #pragma mark Setup

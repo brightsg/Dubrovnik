@@ -2,7 +2,7 @@
 //
 // Managed class : CaseInsensitiveHashCodeProvider
 //
-@interface System_Collections_CaseInsensitiveHashCodeProvider : System_Object <System_Collections_IHashCodeProvider>
+@interface System_Collections_CaseInsensitiveHashCodeProvider : System_Object <System_Collections_IHashCodeProvider_>
 
 #pragma mark -
 #pragma mark Setup

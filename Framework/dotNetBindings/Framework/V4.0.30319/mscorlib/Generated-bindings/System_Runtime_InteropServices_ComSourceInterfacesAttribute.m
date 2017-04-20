@@ -32,7 +32,10 @@
 	// Managed param types : System.String
     + (System_Runtime_InteropServices_ComSourceInterfacesAttribute *)new_withSourceInterfaces:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Runtime_InteropServices_ComSourceInterfacesAttribute * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Type
     + (System_Runtime_InteropServices_ComSourceInterfacesAttribute *)new_withSourceInterface:(System_Type *)p1
     {
-		return [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Runtime_InteropServices_ComSourceInterfacesAttribute * object = [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +54,10 @@
 	// Managed param types : System.Type, System.Type
     + (System_Runtime_InteropServices_ComSourceInterfacesAttribute *)new_withSourceInterface1:(System_Type *)p1 sourceInterface2:(System_Type *)p2
     {
-		return [[self alloc] initWithSignature:"System.Type,System.Type" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Runtime_InteropServices_ComSourceInterfacesAttribute * object = [[self alloc] initWithSignature:"System.Type,System.Type" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +65,10 @@
 	// Managed param types : System.Type, System.Type, System.Type
     + (System_Runtime_InteropServices_ComSourceInterfacesAttribute *)new_withSourceInterface1:(System_Type *)p1 sourceInterface2:(System_Type *)p2 sourceInterface3:(System_Type *)p3
     {
-		return [[self alloc] initWithSignature:"System.Type,System.Type,System.Type" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		System_Runtime_InteropServices_ComSourceInterfacesAttribute * object = [[self alloc] initWithSignature:"System.Type,System.Type,System.Type" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +76,10 @@
 	// Managed param types : System.Type, System.Type, System.Type, System.Type
     + (System_Runtime_InteropServices_ComSourceInterfacesAttribute *)new_withSourceInterface1:(System_Type *)p1 sourceInterface2:(System_Type *)p2 sourceInterface3:(System_Type *)p3 sourceInterface4:(System_Type *)p4
     {
-		return [[self alloc] initWithSignature:"System.Type,System.Type,System.Type,System.Type" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];;
+		
+		System_Runtime_InteropServices_ComSourceInterfacesAttribute * object = [[self alloc] initWithSignature:"System.Type,System.Type,System.Type,System.Type" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -75,7 +90,17 @@
     @synthesize value = _value;
     - (NSString *)value
     {
-		MonoObject *monoObject = [self getMonoProperty:"Value"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Value");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_value isEqualToMonoObject:monoObject]) return _value;					
 		_value = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

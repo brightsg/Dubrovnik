@@ -32,7 +32,10 @@
 	// Managed param types : System.Int32
     + (System_Collections_Hashtable *)new_withCapacity:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Collections_Hashtable * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,103 +43,142 @@
 	// Managed param types : System.Int32, System.Single
     + (System_Collections_Hashtable *)new_withCapacity:(int32_t)p1 loadFactor:(float)p2
     {
-		return [[self alloc] initWithSignature:"int,single" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		System_Collections_Hashtable * object = [[self alloc] initWithSignature:"int,single" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Int32, System.Single, System.Collections.IHashCodeProvider, System.Collections.IComparer
-    + (System_Collections_Hashtable *)new_withCapacity:(int32_t)p1 loadFactor:(float)p2 hcp:(System_Collections_IHashCodeProvider *)p3 comparer:(System_Collections_IComparer *)p4
+    + (System_Collections_Hashtable *)new_withCapacity:(int32_t)p1 loadFactor:(float)p2 hcp:(id <System_Collections_IHashCodeProvider_>)p3 comparer:(id <System_Collections_IComparer_>)p4
     {
-		return [[self alloc] initWithSignature:"int,single,System.Collections.IHashCodeProvider,System.Collections.IComparer" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];;
+		
+		System_Collections_Hashtable * object = [[self alloc] initWithSignature:"int,single,System.Collections.IHashCodeProvider,System.Collections.IComparer" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Int32, System.Single, System.Collections.IEqualityComparer
-    + (System_Collections_Hashtable *)new_withCapacity:(int32_t)p1 loadFactor:(float)p2 equalityComparer:(System_Collections_IEqualityComparer *)p3
+    + (System_Collections_Hashtable *)new_withCapacity:(int32_t)p1 loadFactor:(float)p2 equalityComparer:(id <System_Collections_IEqualityComparer_>)p3
     {
-		return [[self alloc] initWithSignature:"int,single,System.Collections.IEqualityComparer" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];;
+		
+		System_Collections_Hashtable * object = [[self alloc] initWithSignature:"int,single,System.Collections.IEqualityComparer" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Collections.IHashCodeProvider, System.Collections.IComparer
-    + (System_Collections_Hashtable *)new_withHcp:(System_Collections_IHashCodeProvider *)p1 comparer:(System_Collections_IComparer *)p2
+    + (System_Collections_Hashtable *)new_withHcp:(id <System_Collections_IHashCodeProvider_>)p1 comparer:(id <System_Collections_IComparer_>)p2
     {
-		return [[self alloc] initWithSignature:"System.Collections.IHashCodeProvider,System.Collections.IComparer" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Collections_Hashtable * object = [[self alloc] initWithSignature:"System.Collections.IHashCodeProvider,System.Collections.IComparer" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Collections.IEqualityComparer
-    + (System_Collections_Hashtable *)new_withEqualityComparer:(System_Collections_IEqualityComparer *)p1
+    + (System_Collections_Hashtable *)new_withEqualityComparer:(id <System_Collections_IEqualityComparer_>)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.IEqualityComparer" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Collections_Hashtable * object = [[self alloc] initWithSignature:"System.Collections.IEqualityComparer" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Int32, System.Collections.IHashCodeProvider, System.Collections.IComparer
-    + (System_Collections_Hashtable *)new_withCapacity:(int32_t)p1 hcp:(System_Collections_IHashCodeProvider *)p2 comparer:(System_Collections_IComparer *)p3
+    + (System_Collections_Hashtable *)new_withCapacity:(int32_t)p1 hcp:(id <System_Collections_IHashCodeProvider_>)p2 comparer:(id <System_Collections_IComparer_>)p3
     {
-		return [[self alloc] initWithSignature:"int,System.Collections.IHashCodeProvider,System.Collections.IComparer" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		System_Collections_Hashtable * object = [[self alloc] initWithSignature:"int,System.Collections.IHashCodeProvider,System.Collections.IComparer" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Int32, System.Collections.IEqualityComparer
-    + (System_Collections_Hashtable *)new_withCapacity:(int32_t)p1 equalityComparer:(System_Collections_IEqualityComparer *)p2
+    + (System_Collections_Hashtable *)new_withCapacity:(int32_t)p1 equalityComparer:(id <System_Collections_IEqualityComparer_>)p2
     {
-		return [[self alloc] initWithSignature:"int,System.Collections.IEqualityComparer" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		System_Collections_Hashtable * object = [[self alloc] initWithSignature:"int,System.Collections.IEqualityComparer" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Collections.IDictionary
-    + (System_Collections_Hashtable *)new_withD:(System_Collections_IDictionary *)p1
+    + (System_Collections_Hashtable *)new_withD:(id <System_Collections_IDictionary_>)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.IDictionary" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Collections_Hashtable * object = [[self alloc] initWithSignature:"System.Collections.IDictionary" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Collections.IDictionary, System.Single
-    + (System_Collections_Hashtable *)new_withD:(System_Collections_IDictionary *)p1 loadFactor:(float)p2
+    + (System_Collections_Hashtable *)new_withD:(id <System_Collections_IDictionary_>)p1 loadFactor:(float)p2
     {
-		return [[self alloc] initWithSignature:"System.Collections.IDictionary,single" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		System_Collections_Hashtable * object = [[self alloc] initWithSignature:"System.Collections.IDictionary,single" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Collections.IDictionary, System.Collections.IHashCodeProvider, System.Collections.IComparer
-    + (System_Collections_Hashtable *)new_withD:(System_Collections_IDictionary *)p1 hcp:(System_Collections_IHashCodeProvider *)p2 comparer:(System_Collections_IComparer *)p3
+    + (System_Collections_Hashtable *)new_withD:(id <System_Collections_IDictionary_>)p1 hcp:(id <System_Collections_IHashCodeProvider_>)p2 comparer:(id <System_Collections_IComparer_>)p3
     {
-		return [[self alloc] initWithSignature:"System.Collections.IDictionary,System.Collections.IHashCodeProvider,System.Collections.IComparer" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		System_Collections_Hashtable * object = [[self alloc] initWithSignature:"System.Collections.IDictionary,System.Collections.IHashCodeProvider,System.Collections.IComparer" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Collections.IDictionary, System.Collections.IEqualityComparer
-    + (System_Collections_Hashtable *)new_withD:(System_Collections_IDictionary *)p1 equalityComparer:(System_Collections_IEqualityComparer *)p2
+    + (System_Collections_Hashtable *)new_withD:(id <System_Collections_IDictionary_>)p1 equalityComparer:(id <System_Collections_IEqualityComparer_>)p2
     {
-		return [[self alloc] initWithSignature:"System.Collections.IDictionary,System.Collections.IEqualityComparer" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Collections_Hashtable * object = [[self alloc] initWithSignature:"System.Collections.IDictionary,System.Collections.IEqualityComparer" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Collections.IDictionary, System.Single, System.Collections.IHashCodeProvider, System.Collections.IComparer
-    + (System_Collections_Hashtable *)new_withD:(System_Collections_IDictionary *)p1 loadFactor:(float)p2 hcp:(System_Collections_IHashCodeProvider *)p3 comparer:(System_Collections_IComparer *)p4
+    + (System_Collections_Hashtable *)new_withD:(id <System_Collections_IDictionary_>)p1 loadFactor:(float)p2 hcp:(id <System_Collections_IHashCodeProvider_>)p3 comparer:(id <System_Collections_IComparer_>)p4
     {
-		return [[self alloc] initWithSignature:"System.Collections.IDictionary,single,System.Collections.IHashCodeProvider,System.Collections.IComparer" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];;
+		
+		System_Collections_Hashtable * object = [[self alloc] initWithSignature:"System.Collections.IDictionary,single,System.Collections.IHashCodeProvider,System.Collections.IComparer" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Collections.IDictionary, System.Single, System.Collections.IEqualityComparer
-    + (System_Collections_Hashtable *)new_withD:(System_Collections_IDictionary *)p1 loadFactor:(float)p2 equalityComparer:(System_Collections_IEqualityComparer *)p3
+    + (System_Collections_Hashtable *)new_withD:(id <System_Collections_IDictionary_>)p1 loadFactor:(float)p2 equalityComparer:(id <System_Collections_IEqualityComparer_>)p3
     {
-		return [[self alloc] initWithSignature:"System.Collections.IDictionary,single,System.Collections.IEqualityComparer" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];;
+		
+		System_Collections_Hashtable * object = [[self alloc] initWithSignature:"System.Collections.IDictionary,single,System.Collections.IEqualityComparer" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -147,8 +189,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -158,8 +210,18 @@
     @synthesize isFixedSize = _isFixedSize;
     - (BOOL)isFixedSize
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsFixedSize"];
-		_isFixedSize = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsFixedSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isFixedSize = monoObject;
 
 		return _isFixedSize;
 	}
@@ -169,8 +231,18 @@
     @synthesize isReadOnly = _isReadOnly;
     - (BOOL)isReadOnly
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsReadOnly"];
-		_isReadOnly = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsReadOnly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isReadOnly = monoObject;
 
 		return _isReadOnly;
 	}
@@ -180,8 +252,18 @@
     @synthesize isSynchronized = _isSynchronized;
     - (BOOL)isSynchronized
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsSynchronized"];
-		_isSynchronized = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsSynchronized");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isSynchronized = monoObject;
 
 		return _isSynchronized;
 	}
@@ -191,7 +273,17 @@
     @synthesize item = _item;
     - (System_Object *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
 		_item = [System_Object objectWithMonoObject:monoObject];
 
@@ -200,8 +292,17 @@
     - (void)setItem:(System_Object *)value
 	{
 		_item = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"Item" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Keys
@@ -209,9 +310,19 @@
     @synthesize keys = _keys;
     - (System_Collections_ICollection *)keys
     {
-		MonoObject *monoObject = [self getMonoProperty:"Keys"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Keys");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_keys isEqualToMonoObject:monoObject]) return _keys;					
-		_keys = [System_Collections_ICollection objectWithMonoObject:monoObject];
+		_keys = [System_Collections_ICollection bestObjectWithMonoObject:monoObject];
 
 		return _keys;
 	}
@@ -221,7 +332,17 @@
     @synthesize syncRoot = _syncRoot;
     - (System_Object *)syncRoot
     {
-		MonoObject *monoObject = [self getMonoProperty:"SyncRoot"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SyncRoot");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_syncRoot isEqualToMonoObject:monoObject]) return _syncRoot;					
 		_syncRoot = [System_Object objectWithMonoObject:monoObject];
 
@@ -233,9 +354,19 @@
     @synthesize values = _values;
     - (System_Collections_ICollection *)values
     {
-		MonoObject *monoObject = [self getMonoProperty:"Values"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Values");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_values isEqualToMonoObject:monoObject]) return _values;					
-		_values = [System_Collections_ICollection objectWithMonoObject:monoObject];
+		_values = [System_Collections_ICollection bestObjectWithMonoObject:monoObject];
 
 		return _values;
 	}
@@ -248,7 +379,9 @@
 	// Managed param types : System.Object, System.Object
     - (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2
     {
-		[self invokeMonoMethod:"Add(object,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Add(object,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Clear
@@ -256,7 +389,9 @@
 	// Managed param types : 
     - (void)clear
     {
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Clone
@@ -308,18 +443,20 @@
 	// Managed param types : System.Array, System.Int32
     - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IDictionaryEnumerator
 	// Managed param types : 
-    - (System_Collections_IDictionaryEnumerator *)getEnumerator
+    - (id <System_Collections_IDictionaryEnumerator>)getEnumerator
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
 		
-		return [System_Collections_IDictionaryEnumerator objectWithMonoObject:monoObject];
+		return [System_Collections_IDictionaryEnumerator bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetObjectData
@@ -327,7 +464,9 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : OnDeserialization
@@ -335,7 +474,9 @@
 	// Managed param types : System.Object
     - (void)onDeserialization_withSender:(System_Object *)p1
     {
-		[self invokeMonoMethod:"OnDeserialization(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"OnDeserialization(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Remove
@@ -343,7 +484,9 @@
 	// Managed param types : System.Object
     - (void)remove_withKey:(System_Object *)p1
     {
-		[self invokeMonoMethod:"Remove(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Remove(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Synchronized
@@ -354,7 +497,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Synchronized(System.Collections.Hashtable)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Collections_Hashtable objectWithMonoObject:monoObject];
+		return [System_Collections_Hashtable bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

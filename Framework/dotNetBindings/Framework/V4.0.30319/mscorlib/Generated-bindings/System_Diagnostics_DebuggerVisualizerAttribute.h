@@ -2,7 +2,7 @@
 //
 // Managed class : DebuggerVisualizerAttribute
 //
-@interface System_Diagnostics_DebuggerVisualizerAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Diagnostics_DebuggerVisualizerAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -49,7 +49,7 @@
 
 	// Managed property name : Description
 	// Managed property type : System.String
-    @property (nonatomic, strong) NSString * description;
+    // Avoid potential property attribute clash // @property (nonatomic, strong) NSString * description;
 
 	// Managed property name : Target
 	// Managed property type : System.Type

@@ -2,7 +2,7 @@
 //
 // Managed class : CriticalHandleZeroOrMinusOneIsInvalid
 //
-@interface Microsoft_Win32_SafeHandles_CriticalHandleZeroOrMinusOneIsInvalid : System_Runtime_InteropServices_CriticalHandle <System_IDisposable>
+@interface Microsoft_Win32_SafeHandles_CriticalHandleZeroOrMinusOneIsInvalid : System_Runtime_InteropServices_CriticalHandle <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

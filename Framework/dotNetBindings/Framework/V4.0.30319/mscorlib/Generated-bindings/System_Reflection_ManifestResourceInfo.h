@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Reflection.ManifestResourceInfo
 	// Managed param types : System.Reflection.Assembly, System.String, System.Reflection.ResourceLocation
-    + (System_Reflection_ManifestResourceInfo *)new_withContainingAssembly:(System_Reflection_Assembly *)p1 containingFileName:(NSString *)p2 resourceLocation:(System_Reflection_ResourceLocation)p3;
+    + (System_Reflection_ManifestResourceInfo *)new_withContainingAssembly:(System_Reflection_Assembly *)p1 containingFileName:(NSString *)p2 resourceLocation:(int32_t)p3;
 
 #pragma mark -
 #pragma mark Properties
@@ -32,6 +32,6 @@
 
 	// Managed property name : ResourceLocation
 	// Managed property type : System.Reflection.ResourceLocation
-    @property (nonatomic, readonly) System_Reflection_ResourceLocation resourceLocation;
+    @property (nonatomic, readonly) int32_t resourceLocation;
 @end
 //--Dubrovnik.CodeGenerator

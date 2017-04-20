@@ -2,7 +2,7 @@
 //
 // Managed class : ReadOnlyCollectionBase
 //
-@interface System_Collections_ReadOnlyCollectionBase : System_Object <System_Collections_ICollection, System_Collections_IEnumerable>
+@interface System_Collections_ReadOnlyCollectionBase : System_Object <System_Collections_ICollection_, System_Collections_IEnumerable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -24,6 +24,6 @@
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IEnumerator
 	// Managed param types : 
-    - (System_Collections_IEnumerator *)getEnumerator;
+    - (id <System_Collections_IEnumerator>)getEnumerator;
 @end
 //--Dubrovnik.CodeGenerator

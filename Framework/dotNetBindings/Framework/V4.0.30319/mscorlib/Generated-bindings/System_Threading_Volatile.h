@@ -81,8 +81,8 @@
 
 	// Managed method name : Read
 	// Managed return type : <System.Threading.Volatile+T>
-	// Managed param types : ref <T&>
-    + (System_Object *)read_withLocationRef:(System_Object **)p1;
+	// Managed param types : ref T&
+    + (System_Object *)read_withLocationSTVolatile__TRef:(System_Threading_Volatile__T **)p1;
 
 	// Managed method name : Write
 	// Managed return type : System.Void
@@ -151,7 +151,7 @@
 
 	// Managed method name : Write
 	// Managed return type : System.Void
-	// Managed param types : ref <T&>, <System.Threading.Volatile+T>
-    + (void)write_withLocationRef:(System_Object **)p1 value:(System_Object *)p2;
+	// Managed param types : ref T&, <System.Threading.Volatile+T>
+    + (void)write_withLocationSTVolatile__TRef:(System_Threading_Volatile__T **)p1 value_T_0:(System_Object *)p2;
 @end
 //--Dubrovnik.CodeGenerator

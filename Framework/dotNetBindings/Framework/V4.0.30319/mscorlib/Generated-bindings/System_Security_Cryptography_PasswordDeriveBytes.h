@@ -2,7 +2,7 @@
 //
 // Managed class : PasswordDeriveBytes
 //
-@interface System_Security_Cryptography_PasswordDeriveBytes : System_Security_Cryptography_DeriveBytes <System_IDisposable>
+@interface System_Security_Cryptography_PasswordDeriveBytes : System_Security_Cryptography_DeriveBytes <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

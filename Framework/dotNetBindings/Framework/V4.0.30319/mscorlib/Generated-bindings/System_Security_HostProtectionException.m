@@ -32,7 +32,10 @@
 	// Managed param types : System.String
     + (System_Security_HostProtectionException *)new_withMessage:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Security_HostProtectionException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,15 +43,21 @@
 	// Managed param types : System.String, System.Exception
     + (System_Security_HostProtectionException *)new_withMessage:(NSString *)p1 e:(System_Exception *)p2
     {
-		return [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Security_HostProtectionException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.HostProtectionException
 	// Managed param types : System.String, System.Security.Permissions.HostProtectionResource, System.Security.Permissions.HostProtectionResource
-    + (System_Security_HostProtectionException *)new_withMessage:(NSString *)p1 protectedResources:(System_Security_Permissions_HostProtectionResource)p2 demandedResources:(System_Security_Permissions_HostProtectionResource)p3
+    + (System_Security_HostProtectionException *)new_withMessage:(NSString *)p1 protectedResources:(int32_t)p2 demandedResources:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"string,System.Security.Permissions.HostProtectionResource,System.Security.Permissions.HostProtectionResource" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		System_Security_HostProtectionException * object = [[self alloc] initWithSignature:"string,System.Security.Permissions.HostProtectionResource,System.Security.Permissions.HostProtectionResource" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -57,10 +66,20 @@
 	// Managed property name : DemandedResources
 	// Managed property type : System.Security.Permissions.HostProtectionResource
     @synthesize demandedResources = _demandedResources;
-    - (System_Security_Permissions_HostProtectionResource)demandedResources
+    - (int32_t)demandedResources
     {
-		MonoObject *monoObject = [self getMonoProperty:"DemandedResources"];
-		_demandedResources = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DemandedResources");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_demandedResources = monoObject;
 
 		return _demandedResources;
 	}
@@ -68,10 +87,20 @@
 	// Managed property name : ProtectedResources
 	// Managed property type : System.Security.Permissions.HostProtectionResource
     @synthesize protectedResources = _protectedResources;
-    - (System_Security_Permissions_HostProtectionResource)protectedResources
+    - (int32_t)protectedResources
     {
-		MonoObject *monoObject = [self getMonoProperty:"ProtectedResources"];
-		_protectedResources = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ProtectedResources");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_protectedResources = monoObject;
 
 		return _protectedResources;
 	}
@@ -84,7 +113,9 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : ToString

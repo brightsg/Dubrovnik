@@ -20,6 +20,6 @@
 
 	// Managed field name : wParamFlags
 	// Managed field type : System.Runtime.InteropServices.PARAMFLAG
-    @property (nonatomic) System_Runtime_InteropServices_PARAMFLAG wParamFlags;
+    @property (nonatomic) int16_t wParamFlags;
 @end
 //--Dubrovnik.CodeGenerator

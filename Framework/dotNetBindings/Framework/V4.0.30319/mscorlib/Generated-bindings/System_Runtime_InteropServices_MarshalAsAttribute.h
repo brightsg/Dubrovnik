@@ -2,7 +2,7 @@
 //
 // Managed class : MarshalAsAttribute
 //
-@interface System_Runtime_InteropServices_MarshalAsAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Runtime_InteropServices_MarshalAsAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.MarshalAsAttribute
 	// Managed param types : System.Runtime.InteropServices.UnmanagedType
-    + (System_Runtime_InteropServices_MarshalAsAttribute *)new_withUnmanagedTypeSRIUnmanagedType:(System_Runtime_InteropServices_UnmanagedType)p1;
+    + (System_Runtime_InteropServices_MarshalAsAttribute *)new_withUnmanagedTypeSRIUnmanagedType:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.MarshalAsAttribute
@@ -29,7 +29,7 @@
 
 	// Managed field name : ArraySubType
 	// Managed field type : System.Runtime.InteropServices.UnmanagedType
-    @property (nonatomic) System_Runtime_InteropServices_UnmanagedType arraySubType;
+    @property (nonatomic) int32_t arraySubType;
 
 	// Managed field name : IidParameterIndex
 	// Managed field type : System.Int32
@@ -49,7 +49,7 @@
 
 	// Managed field name : SafeArraySubType
 	// Managed field type : System.Runtime.InteropServices.VarEnum
-    @property (nonatomic) System_Runtime_InteropServices_VarEnum safeArraySubType;
+    @property (nonatomic) int32_t safeArraySubType;
 
 	// Managed field name : SafeArrayUserDefinedSubType
 	// Managed field type : System.Type
@@ -68,6 +68,6 @@
 
 	// Managed property name : Value
 	// Managed property type : System.Runtime.InteropServices.UnmanagedType
-    @property (nonatomic, readonly) System_Runtime_InteropServices_UnmanagedType value;
+    @property (nonatomic, readonly) int32_t value;
 @end
 //--Dubrovnik.CodeGenerator

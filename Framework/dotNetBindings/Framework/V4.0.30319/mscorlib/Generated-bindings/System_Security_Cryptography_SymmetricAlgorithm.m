@@ -32,16 +32,35 @@
     @synthesize blockSize = _blockSize;
     - (int32_t)blockSize
     {
-		MonoObject *monoObject = [self getMonoProperty:"BlockSize"];
-		_blockSize = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BlockSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_blockSize = monoObject;
 
 		return _blockSize;
 	}
     - (void)setBlockSize:(int32_t)value
 	{
 		_blockSize = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"BlockSize" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "BlockSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : FeedbackSize
@@ -49,16 +68,35 @@
     @synthesize feedbackSize = _feedbackSize;
     - (int32_t)feedbackSize
     {
-		MonoObject *monoObject = [self getMonoProperty:"FeedbackSize"];
-		_feedbackSize = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FeedbackSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_feedbackSize = monoObject;
 
 		return _feedbackSize;
 	}
     - (void)setFeedbackSize:(int32_t)value
 	{
 		_feedbackSize = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"FeedbackSize" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "FeedbackSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : IV
@@ -66,7 +104,17 @@
     @synthesize iV = _iV;
     - (NSData *)iV
     {
-		MonoObject *monoObject = [self getMonoProperty:"IV"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IV");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_iV isEqualToMonoObject:monoObject]) return _iV;					
 		_iV = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -75,8 +123,17 @@
     - (void)setIV:(NSData *)value
 	{
 		_iV = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"IV" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "IV");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Key
@@ -84,7 +141,17 @@
     @synthesize key = _key;
     - (NSData *)key
     {
-		MonoObject *monoObject = [self getMonoProperty:"Key"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Key");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_key isEqualToMonoObject:monoObject]) return _key;					
 		_key = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -93,8 +160,17 @@
     - (void)setKey:(NSData *)value
 	{
 		_key = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"Key" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Key");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : KeySize
@@ -102,16 +178,35 @@
     @synthesize keySize = _keySize;
     - (int32_t)keySize
     {
-		MonoObject *monoObject = [self getMonoProperty:"KeySize"];
-		_keySize = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "KeySize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_keySize = monoObject;
 
 		return _keySize;
 	}
     - (void)setKeySize:(int32_t)value
 	{
 		_keySize = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"KeySize" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "KeySize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : LegalBlockSizes
@@ -119,7 +214,17 @@
     @synthesize legalBlockSizes = _legalBlockSizes;
     - (DBSystem_Array *)legalBlockSizes
     {
-		MonoObject *monoObject = [self getMonoProperty:"LegalBlockSizes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LegalBlockSizes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_legalBlockSizes isEqualToMonoObject:monoObject]) return _legalBlockSizes;					
 		_legalBlockSizes = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -131,7 +236,17 @@
     @synthesize legalKeySizes = _legalKeySizes;
     - (DBSystem_Array *)legalKeySizes
     {
-		MonoObject *monoObject = [self getMonoProperty:"LegalKeySizes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LegalKeySizes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_legalKeySizes isEqualToMonoObject:monoObject]) return _legalKeySizes;					
 		_legalKeySizes = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -141,35 +256,73 @@
 	// Managed property name : Mode
 	// Managed property type : System.Security.Cryptography.CipherMode
     @synthesize mode = _mode;
-    - (System_Security_Cryptography_CipherMode)mode
+    - (int32_t)mode
     {
-		MonoObject *monoObject = [self getMonoProperty:"Mode"];
-		_mode = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Mode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_mode = monoObject;
 
 		return _mode;
 	}
-    - (void)setMode:(System_Security_Cryptography_CipherMode)value
+    - (void)setMode:(int32_t)value
 	{
 		_mode = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Mode" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Mode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Padding
 	// Managed property type : System.Security.Cryptography.PaddingMode
     @synthesize padding = _padding;
-    - (System_Security_Cryptography_PaddingMode)padding
+    - (int32_t)padding
     {
-		MonoObject *monoObject = [self getMonoProperty:"Padding"];
-		_padding = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Padding");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_padding = monoObject;
 
 		return _padding;
 	}
-    - (void)setPadding:(System_Security_Cryptography_PaddingMode)value
+    - (void)setPadding:(int32_t)value
 	{
 		_padding = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Padding" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Padding");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -180,7 +333,9 @@
 	// Managed param types : 
     - (void)clear
     {
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Create
@@ -191,7 +346,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create()" withNumArgs:0];
 		
-		return [System_Security_Cryptography_SymmetricAlgorithm objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_SymmetricAlgorithm bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
@@ -202,51 +357,51 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_Cryptography_SymmetricAlgorithm objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_SymmetricAlgorithm bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDecryptor
 	// Managed return type : System.Security.Cryptography.ICryptoTransform
 	// Managed param types : 
-    - (System_Security_Cryptography_ICryptoTransform *)createDecryptor
+    - (id <System_Security_Cryptography_ICryptoTransform>)createDecryptor
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDecryptor()" withNumArgs:0];
 		
-		return [System_Security_Cryptography_ICryptoTransform objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_ICryptoTransform bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateDecryptor
 	// Managed return type : System.Security.Cryptography.ICryptoTransform
 	// Managed param types : System.Byte[], System.Byte[]
-    - (System_Security_Cryptography_ICryptoTransform *)createDecryptor_withRgbKey:(NSData *)p1 rgbIV:(NSData *)p2
+    - (id <System_Security_Cryptography_ICryptoTransform>)createDecryptor_withRgbKey:(NSData *)p1 rgbIV:(NSData *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDecryptor(byte[],byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Security_Cryptography_ICryptoTransform objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_ICryptoTransform bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateEncryptor
 	// Managed return type : System.Security.Cryptography.ICryptoTransform
 	// Managed param types : 
-    - (System_Security_Cryptography_ICryptoTransform *)createEncryptor
+    - (id <System_Security_Cryptography_ICryptoTransform>)createEncryptor
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateEncryptor()" withNumArgs:0];
 		
-		return [System_Security_Cryptography_ICryptoTransform objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_ICryptoTransform bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateEncryptor
 	// Managed return type : System.Security.Cryptography.ICryptoTransform
 	// Managed param types : System.Byte[], System.Byte[]
-    - (System_Security_Cryptography_ICryptoTransform *)createEncryptor_withRgbKey:(NSData *)p1 rgbIV:(NSData *)p2
+    - (id <System_Security_Cryptography_ICryptoTransform>)createEncryptor_withRgbKey:(NSData *)p1 rgbIV:(NSData *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateEncryptor(byte[],byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Security_Cryptography_ICryptoTransform objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_ICryptoTransform bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Dispose
@@ -254,7 +409,9 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+        
     }
 
 	// Managed method name : GenerateIV
@@ -262,7 +419,9 @@
 	// Managed param types : 
     - (void)generateIV
     {
-		[self invokeMonoMethod:"GenerateIV()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"GenerateIV()" withNumArgs:0];
+        
     }
 
 	// Managed method name : GenerateKey
@@ -270,7 +429,9 @@
 	// Managed param types : 
     - (void)generateKey
     {
-		[self invokeMonoMethod:"GenerateKey()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"GenerateKey()" withNumArgs:0];
+        
     }
 
 	// Managed method name : ValidKeySize

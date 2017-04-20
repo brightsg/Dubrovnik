@@ -34,7 +34,7 @@
     {
 		MonoObject *monoObject = [self getMonoField:"desc"];
 		if ([self object:_desc isEqualToMonoObject:monoObject]) return _desc;					
-		_desc = [System_Runtime_InteropServices_ELEMDESC__DESCUNION objectWithMonoObject:monoObject];
+		_desc = [System_Runtime_InteropServices_ELEMDESC__DESCUNION bestObjectWithMonoObject:monoObject];
 
 		return _desc;
 	}
@@ -52,7 +52,7 @@
     {
 		MonoObject *monoObject = [self getMonoField:"tdesc"];
 		if ([self object:_tdesc isEqualToMonoObject:monoObject]) return _tdesc;					
-		_tdesc = [System_Runtime_InteropServices_TYPEDESC objectWithMonoObject:monoObject];
+		_tdesc = [System_Runtime_InteropServices_TYPEDESC bestObjectWithMonoObject:monoObject];
 
 		return _tdesc;
 	}

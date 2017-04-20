@@ -2,7 +2,7 @@
 //
 // Managed struct : ConfiguredTaskAwaitable.ConfiguredTaskAwaiter
 //
-@interface System_Runtime_CompilerServices_ConfiguredTaskAwaitable__ConfiguredTaskAwaiter : DBManagedObject <System_Runtime_CompilerServices_ICriticalNotifyCompletion, System_Runtime_CompilerServices_INotifyCompletion>
+@interface System_Runtime_CompilerServices_ConfiguredTaskAwaitable__ConfiguredTaskAwaiter : DBManagedObject <System_Runtime_CompilerServices_ICriticalNotifyCompletion_, System_Runtime_CompilerServices_INotifyCompletion_>
 
 #pragma mark -
 #pragma mark Setup

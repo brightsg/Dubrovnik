@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetMethodInfo(System.Delegate)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRuntimeBaseDefinition
@@ -46,7 +46,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeBaseDefinition(System.Reflection.MethodInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRuntimeEvent
@@ -57,18 +57,18 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeEvent(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Reflection_EventInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_EventInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRuntimeEvents
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Reflection.EventInfo>
 	// Managed param types : System.Type
-    + (System_Collections_Generic_IEnumerableA1 *)getRuntimeEvents_withType:(System_Type *)p1
+    + (id <System_Collections_Generic_IEnumerableA1>)getRuntimeEvents_withType:(System_Type *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeEvents(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRuntimeField
@@ -79,18 +79,18 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeField(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Reflection_FieldInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_FieldInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRuntimeFields
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Reflection.FieldInfo>
 	// Managed param types : System.Type
-    + (System_Collections_Generic_IEnumerableA1 *)getRuntimeFields_withType:(System_Type *)p1
+    + (id <System_Collections_Generic_IEnumerableA1>)getRuntimeFields_withType:(System_Type *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeFields(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRuntimeInterfaceMap
@@ -101,7 +101,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeInterfaceMap(System.Reflection.TypeInfo,System.Type)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Reflection_InterfaceMapping objectWithMonoObject:monoObject];
+		return [System_Reflection_InterfaceMapping bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRuntimeMethod
@@ -110,31 +110,31 @@
     + (System_Reflection_MethodInfo *)getRuntimeMethod_withType:(System_Type *)p1 name:(NSString *)p2 parameters:(DBSystem_Array *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeMethod(System.Type,string,System.Array[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeMethod(System.Type,string,System.Type[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRuntimeMethods
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Reflection.MethodInfo>
 	// Managed param types : System.Type
-    + (System_Collections_Generic_IEnumerableA1 *)getRuntimeMethods_withType:(System_Type *)p1
+    + (id <System_Collections_Generic_IEnumerableA1>)getRuntimeMethods_withType:(System_Type *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeMethods(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRuntimeProperties
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Reflection.PropertyInfo>
 	// Managed param types : System.Type
-    + (System_Collections_Generic_IEnumerableA1 *)getRuntimeProperties_withType:(System_Type *)p1
+    + (id <System_Collections_Generic_IEnumerableA1>)getRuntimeProperties_withType:(System_Type *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeProperties(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRuntimeProperty
@@ -145,7 +145,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRuntimeProperty(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Reflection_PropertyInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_PropertyInfo bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

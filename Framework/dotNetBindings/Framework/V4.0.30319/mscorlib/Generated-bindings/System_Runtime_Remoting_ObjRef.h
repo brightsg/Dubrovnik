@@ -2,7 +2,7 @@
 //
 // Managed class : ObjRef
 //
-@interface System_Runtime_Remoting_ObjRef : System_Object <System_Runtime_Serialization_IObjectReference, System_Runtime_Serialization_ISerializable>
+@interface System_Runtime_Remoting_ObjRef : System_Object <System_Runtime_Serialization_IObjectReference_, System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup

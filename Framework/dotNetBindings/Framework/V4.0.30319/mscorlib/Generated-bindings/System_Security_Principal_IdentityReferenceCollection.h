@@ -2,7 +2,7 @@
 //
 // Managed class : IdentityReferenceCollection
 //
-@interface System_Security_Principal_IdentityReferenceCollection : System_Object <System_Collections_Generic_ICollectionA1, System_Collections_Generic_IEnumerableA1, System_Collections_IEnumerable>
+@interface System_Security_Principal_IdentityReferenceCollection : System_Object <System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -60,7 +60,7 @@
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.Generic.IEnumerator`1<System.Security.Principal.IdentityReference>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumeratorA1 *)getEnumerator;
+    - (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator;
 
 	// Managed method name : Remove
 	// Managed return type : System.Boolean

@@ -30,14 +30,14 @@
 	// Managed field name : callconv
 	// Managed field type : System.Runtime.InteropServices.CALLCONV
     @synthesize callconv = _callconv;
-    - (System_Runtime_InteropServices_CALLCONV)callconv
+    - (int32_t)callconv
     {
 		MonoObject *monoObject = [self getMonoField:"callconv"];
 		_callconv = DB_UNBOX_INT32(monoObject);
 
 		return _callconv;
 	}
-    - (void)setCallconv:(System_Runtime_InteropServices_CALLCONV)value
+    - (void)setCallconv:(int32_t)value
 	{
 		_callconv = value;
 		MonoObject *monoObject = DB_VALUE(value);
@@ -102,7 +102,7 @@
     {
 		MonoObject *monoObject = [self getMonoField:"elemdescFunc"];
 		if ([self object:_elemdescFunc isEqualToMonoObject:monoObject]) return _elemdescFunc;					
-		_elemdescFunc = [System_Runtime_InteropServices_ELEMDESC objectWithMonoObject:monoObject];
+		_elemdescFunc = [System_Runtime_InteropServices_ELEMDESC bestObjectWithMonoObject:monoObject];
 
 		return _elemdescFunc;
 	}
@@ -116,14 +116,14 @@
 	// Managed field name : funckind
 	// Managed field type : System.Runtime.InteropServices.FUNCKIND
     @synthesize funckind = _funckind;
-    - (System_Runtime_InteropServices_FUNCKIND)funckind
+    - (int32_t)funckind
     {
 		MonoObject *monoObject = [self getMonoField:"funckind"];
 		_funckind = DB_UNBOX_INT32(monoObject);
 
 		return _funckind;
 	}
-    - (void)setFunckind:(System_Runtime_InteropServices_FUNCKIND)value
+    - (void)setFunckind:(int32_t)value
 	{
 		_funckind = value;
 		MonoObject *monoObject = DB_VALUE(value);
@@ -133,14 +133,14 @@
 	// Managed field name : invkind
 	// Managed field type : System.Runtime.InteropServices.INVOKEKIND
     @synthesize invkind = _invkind;
-    - (System_Runtime_InteropServices_INVOKEKIND)invkind
+    - (int32_t)invkind
     {
 		MonoObject *monoObject = [self getMonoField:"invkind"];
 		_invkind = DB_UNBOX_INT32(monoObject);
 
 		return _invkind;
 	}
-    - (void)setInvkind:(System_Runtime_InteropServices_INVOKEKIND)value
+    - (void)setInvkind:(int32_t)value
 	{
 		_invkind = value;
 		MonoObject *monoObject = DB_VALUE(value);

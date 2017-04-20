@@ -2,7 +2,7 @@
 //
 // Managed class : ImportedFromTypeLibAttribute
 //
-@interface System_Runtime_InteropServices_ImportedFromTypeLibAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Runtime_InteropServices_ImportedFromTypeLibAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup

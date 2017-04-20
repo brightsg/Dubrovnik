@@ -34,7 +34,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"FilterTypeName"];
 		if ([self object:m_filterTypeName isEqualToMonoObject:monoObject]) return m_filterTypeName;					
-		m_filterTypeName = [System_Reflection_TypeFilter objectWithMonoObject:monoObject];
+		m_filterTypeName = [System_Reflection_TypeFilter bestObjectWithMonoObject:monoObject];
 
 		return m_filterTypeName;
 	}
@@ -46,7 +46,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"FilterTypeNameIgnoreCase"];
 		if ([self object:m_filterTypeNameIgnoreCase isEqualToMonoObject:monoObject]) return m_filterTypeNameIgnoreCase;					
-		m_filterTypeNameIgnoreCase = [System_Reflection_TypeFilter objectWithMonoObject:monoObject];
+		m_filterTypeNameIgnoreCase = [System_Reflection_TypeFilter bestObjectWithMonoObject:monoObject];
 
 		return m_filterTypeNameIgnoreCase;
 	}
@@ -59,9 +59,19 @@
     @synthesize assembly = _assembly;
     - (System_Reflection_Assembly *)assembly
     {
-		MonoObject *monoObject = [self getMonoProperty:"Assembly"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Assembly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_assembly isEqualToMonoObject:monoObject]) return _assembly;					
-		_assembly = [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		_assembly = [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 
 		return _assembly;
 	}
@@ -71,9 +81,19 @@
     @synthesize customAttributes = _customAttributes;
     - (System_Collections_Generic_IEnumerableA1 *)customAttributes
     {
-		MonoObject *monoObject = [self getMonoProperty:"CustomAttributes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CustomAttributes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_customAttributes isEqualToMonoObject:monoObject]) return _customAttributes;					
-		_customAttributes = [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		_customAttributes = [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
 
 		return _customAttributes;
 	}
@@ -83,7 +103,17 @@
     @synthesize fullyQualifiedName = _fullyQualifiedName;
     - (NSString *)fullyQualifiedName
     {
-		MonoObject *monoObject = [self getMonoProperty:"FullyQualifiedName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FullyQualifiedName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_fullyQualifiedName isEqualToMonoObject:monoObject]) return _fullyQualifiedName;					
 		_fullyQualifiedName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -95,8 +125,18 @@
     @synthesize mDStreamVersion = _mDStreamVersion;
     - (int32_t)mDStreamVersion
     {
-		MonoObject *monoObject = [self getMonoProperty:"MDStreamVersion"];
-		_mDStreamVersion = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MDStreamVersion");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_mDStreamVersion = monoObject;
 
 		return _mDStreamVersion;
 	}
@@ -106,8 +146,18 @@
     @synthesize metadataToken = _metadataToken;
     - (int32_t)metadataToken
     {
-		MonoObject *monoObject = [self getMonoProperty:"MetadataToken"];
-		_metadataToken = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MetadataToken");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_metadataToken = monoObject;
 
 		return _metadataToken;
 	}
@@ -117,9 +167,19 @@
     @synthesize moduleHandle = _moduleHandle;
     - (System_ModuleHandle *)moduleHandle
     {
-		MonoObject *monoObject = [self getMonoProperty:"ModuleHandle"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ModuleHandle");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_moduleHandle isEqualToMonoObject:monoObject]) return _moduleHandle;					
-		_moduleHandle = [System_ModuleHandle objectWithMonoObject:monoObject];
+		_moduleHandle = [System_ModuleHandle bestObjectWithMonoObject:monoObject];
 
 		return _moduleHandle;
 	}
@@ -129,9 +189,19 @@
     @synthesize moduleVersionId = _moduleVersionId;
     - (System_Guid *)moduleVersionId
     {
-		MonoObject *monoObject = [self getMonoProperty:"ModuleVersionId"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ModuleVersionId");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_moduleVersionId isEqualToMonoObject:monoObject]) return _moduleVersionId;					
-		_moduleVersionId = [System_Guid objectWithMonoObject:monoObject];
+		_moduleVersionId = [System_Guid bestObjectWithMonoObject:monoObject];
 
 		return _moduleVersionId;
 	}
@@ -141,7 +211,17 @@
     @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -153,7 +233,17 @@
     @synthesize scopeName = _scopeName;
     - (NSString *)scopeName
     {
-		MonoObject *monoObject = [self getMonoProperty:"ScopeName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ScopeName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_scopeName isEqualToMonoObject:monoObject]) return _scopeName;					
 		_scopeName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -210,12 +300,12 @@
 	// Managed method name : GetCustomAttributesData
 	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : 
-    - (System_Collections_Generic_IListA1 *)getCustomAttributesData
+    - (id <System_Collections_Generic_IListA1>)getCustomAttributesData
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributesData()" withNumArgs:0];
 		
-		return [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IListA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetField
@@ -226,18 +316,18 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetField(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_FieldInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_FieldInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetField
 	// Managed return type : System.Reflection.FieldInfo
 	// Managed param types : System.String, System.Reflection.BindingFlags
-    - (System_Reflection_FieldInfo *)getField_withName:(NSString *)p1 bindingAttr:(System_Reflection_BindingFlags)p2
+    - (System_Reflection_FieldInfo *)getField_withName:(NSString *)p1 bindingAttr:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetField(string,System.Reflection.BindingFlags)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [System_Reflection_FieldInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_FieldInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetFields
@@ -254,7 +344,7 @@
 	// Managed method name : GetFields
 	// Managed return type : System.Reflection.FieldInfo[]
 	// Managed param types : System.Reflection.BindingFlags
-    - (DBSystem_Array *)getFields_withBindingFlags:(System_Reflection_BindingFlags)p1
+    - (DBSystem_Array *)getFields_withBindingFlags:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFields(System.Reflection.BindingFlags)" withNumArgs:1, DB_VALUE(p1)];
@@ -276,12 +366,12 @@
 	// Managed method name : GetMethod
 	// Managed return type : System.Reflection.MethodInfo
 	// Managed param types : System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Reflection.CallingConventions, System.Type[], System.Reflection.ParameterModifier[]
-    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 bindingAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 callConvention:(System_Reflection_CallingConventions)p4 types:(DBSystem_Array *)p5 modifiers:(DBSystem_Array *)p6
+    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 bindingAttr:(int32_t)p2 binder:(System_Reflection_Binder *)p3 callConvention:(int32_t)p4 types:(DBSystem_Array *)p5 modifiers:(DBSystem_Array *)p6
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetMethod(string,System.Reflection.BindingFlags,System.Reflection.Binder,System.Reflection.CallingConventions,System.Array[],System.Array[])" withNumArgs:6, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], DB_VALUE(p4), [p5 monoRTInvokeArg], [p6 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetMethod(string,System.Reflection.BindingFlags,System.Reflection.Binder,System.Reflection.CallingConventions,System.Type[],System.Reflection.ParameterModifier[])" withNumArgs:6, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], DB_VALUE(p4), [p5 monoRTInvokeArg], [p6 monoRTInvokeArg]];
 		
-		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetMethod
@@ -290,9 +380,9 @@
     - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 types:(DBSystem_Array *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetMethod(string,System.Array[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetMethod(string,System.Type[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetMethod
@@ -303,7 +393,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMethod(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetMethods
@@ -320,7 +410,7 @@
 	// Managed method name : GetMethods
 	// Managed return type : System.Reflection.MethodInfo[]
 	// Managed param types : System.Reflection.BindingFlags
-    - (DBSystem_Array *)getMethods_withBindingFlags:(System_Reflection_BindingFlags)p1
+    - (DBSystem_Array *)getMethods_withBindingFlags:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMethods(System.Reflection.BindingFlags)" withNumArgs:1, DB_VALUE(p1)];
@@ -333,7 +423,9 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetPEKind
@@ -341,8 +433,14 @@
 	// Managed param types : ref System.Reflection.PortableExecutableKinds&, ref System.Reflection.ImageFileMachine&
     - (void)getPEKind_withPeKindRef:(System_Reflection_PortableExecutableKinds **)p1 machineRef:(System_Reflection_ImageFileMachine **)p2
     {
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+void *refPtr2 = [*p2 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"GetPEKind(System.Reflection.PortableExecutableKinds&,System.Reflection.ImageFileMachine&)" withNumArgs:2, &refPtr1, &refPtr2];
-;
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+
     }
 
 	// Managed method name : GetSignerCertificate
@@ -353,7 +451,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetSignerCertificate()" withNumArgs:0];
 		
-		return [System_Security_Cryptography_X509Certificates_X509Certificate objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_X509Certificates_X509Certificate bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetType
@@ -364,7 +462,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetType(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetType
@@ -375,7 +473,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetType(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetType
@@ -386,7 +484,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetType(string,bool,bool)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypes
@@ -452,7 +550,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveField(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Reflection_FieldInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_FieldInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolveField
@@ -461,9 +559,9 @@
     - (System_Reflection_FieldInfo *)resolveField_withMetadataToken:(int32_t)p1 genericTypeArguments:(DBSystem_Array *)p2 genericMethodArguments:(DBSystem_Array *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ResolveField(int,System.Array[],System.Array[])" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ResolveField(int,System.Type[],System.Type[])" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_Reflection_FieldInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_FieldInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolveMember
@@ -474,7 +572,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMember(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Reflection_MemberInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_MemberInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolveMember
@@ -483,9 +581,9 @@
     - (System_Reflection_MemberInfo *)resolveMember_withMetadataToken:(int32_t)p1 genericTypeArguments:(DBSystem_Array *)p2 genericMethodArguments:(DBSystem_Array *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMember(int,System.Array[],System.Array[])" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMember(int,System.Type[],System.Type[])" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_Reflection_MemberInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_MemberInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolveMethod
@@ -496,7 +594,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMethod(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Reflection_MethodBase objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodBase bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolveMethod
@@ -505,9 +603,9 @@
     - (System_Reflection_MethodBase *)resolveMethod_withMetadataToken:(int32_t)p1 genericTypeArguments:(DBSystem_Array *)p2 genericMethodArguments:(DBSystem_Array *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMethod(int,System.Array[],System.Array[])" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMethod(int,System.Type[],System.Type[])" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_Reflection_MethodBase objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodBase bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolveSignature
@@ -540,7 +638,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveType(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolveType
@@ -549,9 +647,9 @@
     - (System_Type *)resolveType_withMetadataToken:(int32_t)p1 genericTypeArguments:(DBSystem_Array *)p2 genericMethodArguments:(DBSystem_Array *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ResolveType(int,System.Array[],System.Array[])" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ResolveType(int,System.Type[],System.Type[])" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToString

@@ -30,17 +30,23 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.MutexAccessRule
 	// Managed param types : System.Security.Principal.IdentityReference, System.Security.AccessControl.MutexRights, System.Security.AccessControl.AccessControlType
-    + (System_Security_AccessControl_MutexAccessRule *)new_withIdentitySSPIdentityReference:(System_Security_Principal_IdentityReference *)p1 eventRightsSSAMutexRights:(System_Security_AccessControl_MutexRights)p2 typeSSAAccessControlType:(System_Security_AccessControl_AccessControlType)p3
+    + (System_Security_AccessControl_MutexAccessRule *)new_withIdentitySSPIdentityReference:(System_Security_Principal_IdentityReference *)p1 eventRightsSSAMutexRights:(int32_t)p2 typeSSAAccessControlType:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"System.Security.Principal.IdentityReference,System.Security.AccessControl.MutexRights,System.Security.AccessControl.AccessControlType" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		System_Security_AccessControl_MutexAccessRule * object = [[self alloc] initWithSignature:"System.Security.Principal.IdentityReference,System.Security.AccessControl.MutexRights,System.Security.AccessControl.AccessControlType" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.MutexAccessRule
 	// Managed param types : System.String, System.Security.AccessControl.MutexRights, System.Security.AccessControl.AccessControlType
-    + (System_Security_AccessControl_MutexAccessRule *)new_withIdentityString:(NSString *)p1 eventRightsSSAMutexRights:(System_Security_AccessControl_MutexRights)p2 typeSSAAccessControlType:(System_Security_AccessControl_AccessControlType)p3
+    + (System_Security_AccessControl_MutexAccessRule *)new_withIdentityString:(NSString *)p1 eventRightsSSAMutexRights:(int32_t)p2 typeSSAAccessControlType:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"string,System.Security.AccessControl.MutexRights,System.Security.AccessControl.AccessControlType" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		System_Security_AccessControl_MutexAccessRule * object = [[self alloc] initWithSignature:"string,System.Security.AccessControl.MutexRights,System.Security.AccessControl.AccessControlType" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -49,10 +55,20 @@
 	// Managed property name : MutexRights
 	// Managed property type : System.Security.AccessControl.MutexRights
     @synthesize mutexRights = _mutexRights;
-    - (System_Security_AccessControl_MutexRights)mutexRights
+    - (int32_t)mutexRights
     {
-		MonoObject *monoObject = [self getMonoProperty:"MutexRights"];
-		_mutexRights = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MutexRights");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_mutexRights = monoObject;
 
 		return _mutexRights;
 	}

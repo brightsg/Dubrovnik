@@ -2,11 +2,23 @@
 //
 // Managed interface : IRunningObjectTable
 //
-@protocol System_Runtime_InteropServices_ComTypes_IRunningObjectTable <NSObject>
-
-@optional
 
 /*
+ A managed interface is represented as follows:
+
+ 1. An adoption protocol that advertises that a class has adopted a given protocol. For the reasons 
+ given in the notes below this protocol by default declares no members. The code generator will
+ use this protocol when declaring classes and method parameters.
+
+ 2. An implementation protocol that declares the properties and methods defined by the interface.
+ The code generator will use this protocol when declaring variables.
+
+ 3. An interface header and implementation body. The explicit class implementation of the managed interface
+ can be used to create an instance that conforms to the given interface in order to access explicit properties.
+
+ The above seems to give the best approach for interacting with complex managed interfaces.
+
+ Notes:
 
  .Net support for explicit interfaces means that a class can inherit two or more different
  signatures for the same property or method from two or more interfaces. 
@@ -18,20 +30,22 @@
  A third point is that even when we receive a managed interface as a return value from a property 
  or method we still need to provide a full binding in order access those properties and methods.
 
- A fourth point is that in general we will not be defining Obj-C classes that conform to 
- managed protocols.
+ A class can test for protocol adoption using Class -conformsToProtocol: using the adoption protocol.
+ By casting to the implementation protocol an instance can check for method implementation using respondsToSelector:.
 
- These points make the inclusion of the actual content of the protocol somewhat debatable. 
-
- In general it therefore seems best to omit the accessor predeclarations from the protocol declaration.
- It should still be possible to test for protocol conformance using Class -conformsToProtocol:
-
- The protocol properties and methods can be conditionally included if required.
- An auxliary protocol definition is also provided.
+ Properties and method predeclarations can be conditionally included in the adoption protocol if required.
 
 */
 
-#ifdef  DEF_P_AND_M_System_Runtime_InteropServices_ComTypes_IRunningObjectTable
+
+//
+// Adoption protocol
+//
+@protocol System_Runtime_InteropServices_ComTypes_IRunningObjectTable_ <System_Object_>
+
+@optional
+
+#ifdef  DEF_P_AND_M_SYSTEM_RUNTIME_INTEROPSERVICES_COMTYPES_IRUNNINGOBJECTTABLE_
 
 #pragma mark -
 #pragma mark Methods
@@ -44,17 +58,17 @@
 	// Managed method name : GetObject
 	// Managed return type : System.Int32
 	// Managed param types : System.Runtime.InteropServices.ComTypes.IMoniker, ref System.Object&
-    - (int32_t)getObject_withPmkObjectName:(System_Runtime_InteropServices_ComTypes_IMoniker *)p1 ppunkObjectRef:(System_Object **)p2;
+    - (int32_t)getObject_withPmkObjectName:(id <System_Runtime_InteropServices_ComTypes_IMoniker_>)p1 ppunkObjectRef:(System_Object **)p2;
 
 	// Managed method name : GetTimeOfLastChange
 	// Managed return type : System.Int32
 	// Managed param types : System.Runtime.InteropServices.ComTypes.IMoniker, ref System.Runtime.InteropServices.ComTypes.FILETIME&
-    - (int32_t)getTimeOfLastChange_withPmkObjectName:(System_Runtime_InteropServices_ComTypes_IMoniker *)p1 pfiletimeRef:(System_Runtime_InteropServices_ComTypes_FILETIME **)p2;
+    - (int32_t)getTimeOfLastChange_withPmkObjectName:(id <System_Runtime_InteropServices_ComTypes_IMoniker_>)p1 pfiletimeRef:(System_Runtime_InteropServices_ComTypes_FILETIME **)p2;
 
 	// Managed method name : IsRunning
 	// Managed return type : System.Int32
 	// Managed param types : System.Runtime.InteropServices.ComTypes.IMoniker
-    - (int32_t)isRunning_withPmkObjectName:(System_Runtime_InteropServices_ComTypes_IMoniker *)p1;
+    - (int32_t)isRunning_withPmkObjectName:(id <System_Runtime_InteropServices_ComTypes_IMoniker_>)p1;
 
 	// Managed method name : NoteChangeTime
 	// Managed return type : System.Void
@@ -64,7 +78,7 @@
 	// Managed method name : Register
 	// Managed return type : System.Int32
 	// Managed param types : System.Int32, System.Object, System.Runtime.InteropServices.ComTypes.IMoniker
-    - (int32_t)register_withGrfFlags:(int32_t)p1 punkObject:(System_Object *)p2 pmkObjectName:(System_Runtime_InteropServices_ComTypes_IMoniker *)p3;
+    - (int32_t)register_withGrfFlags:(int32_t)p1 punkObject:(System_Object *)p2 pmkObjectName:(id <System_Runtime_InteropServices_ComTypes_IMoniker_>)p3;
 
 	// Managed method name : Revoke
 	// Managed return type : System.Void
@@ -76,13 +90,10 @@
 @end
 
 
-/*
- 
- Auxiliary protocol definition.
-
-*/
-
-@protocol db_aux_System_Runtime_InteropServices_ComTypes_IRunningObjectTable <NSObject>
+//
+// Implementation protocol
+//
+@protocol System_Runtime_InteropServices_ComTypes_IRunningObjectTable <System_Runtime_InteropServices_ComTypes_IRunningObjectTable_, System_Object>
 
 @optional
 
@@ -98,17 +109,17 @@
 	// Managed method name : GetObject
 	// Managed return type : System.Int32
 	// Managed param types : System.Runtime.InteropServices.ComTypes.IMoniker, ref System.Object&
-    - (int32_t)getObject_withPmkObjectName:(System_Runtime_InteropServices_ComTypes_IMoniker *)p1 ppunkObjectRef:(System_Object **)p2;
+    - (int32_t)getObject_withPmkObjectName:(id <System_Runtime_InteropServices_ComTypes_IMoniker_>)p1 ppunkObjectRef:(System_Object **)p2;
 
 	// Managed method name : GetTimeOfLastChange
 	// Managed return type : System.Int32
 	// Managed param types : System.Runtime.InteropServices.ComTypes.IMoniker, ref System.Runtime.InteropServices.ComTypes.FILETIME&
-    - (int32_t)getTimeOfLastChange_withPmkObjectName:(System_Runtime_InteropServices_ComTypes_IMoniker *)p1 pfiletimeRef:(System_Runtime_InteropServices_ComTypes_FILETIME **)p2;
+    - (int32_t)getTimeOfLastChange_withPmkObjectName:(id <System_Runtime_InteropServices_ComTypes_IMoniker_>)p1 pfiletimeRef:(System_Runtime_InteropServices_ComTypes_FILETIME **)p2;
 
 	// Managed method name : IsRunning
 	// Managed return type : System.Int32
 	// Managed param types : System.Runtime.InteropServices.ComTypes.IMoniker
-    - (int32_t)isRunning_withPmkObjectName:(System_Runtime_InteropServices_ComTypes_IMoniker *)p1;
+    - (int32_t)isRunning_withPmkObjectName:(id <System_Runtime_InteropServices_ComTypes_IMoniker_>)p1;
 
 	// Managed method name : NoteChangeTime
 	// Managed return type : System.Void
@@ -118,7 +129,7 @@
 	// Managed method name : Register
 	// Managed return type : System.Int32
 	// Managed param types : System.Int32, System.Object, System.Runtime.InteropServices.ComTypes.IMoniker
-    - (int32_t)register_withGrfFlags:(int32_t)p1 punkObject:(System_Object *)p2 pmkObjectName:(System_Runtime_InteropServices_ComTypes_IMoniker *)p3;
+    - (int32_t)register_withGrfFlags:(int32_t)p1 punkObject:(System_Object *)p2 pmkObjectName:(id <System_Runtime_InteropServices_ComTypes_IMoniker_>)p3;
 
 	// Managed method name : Revoke
 	// Managed return type : System.Void

@@ -32,9 +32,19 @@
     @synthesize applicationActivator = _applicationActivator;
     - (System_Runtime_Hosting_ApplicationActivator *)applicationActivator
     {
-		MonoObject *monoObject = [self getMonoProperty:"ApplicationActivator"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ApplicationActivator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_applicationActivator isEqualToMonoObject:monoObject]) return _applicationActivator;					
-		_applicationActivator = [System_Runtime_Hosting_ApplicationActivator objectWithMonoObject:monoObject];
+		_applicationActivator = [System_Runtime_Hosting_ApplicationActivator bestObjectWithMonoObject:monoObject];
 
 		return _applicationActivator;
 	}
@@ -44,9 +54,19 @@
     @synthesize entryAssembly = _entryAssembly;
     - (System_Reflection_Assembly *)entryAssembly
     {
-		MonoObject *monoObject = [self getMonoProperty:"EntryAssembly"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EntryAssembly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_entryAssembly isEqualToMonoObject:monoObject]) return _entryAssembly;					
-		_entryAssembly = [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		_entryAssembly = [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 
 		return _entryAssembly;
 	}
@@ -56,9 +76,19 @@
     @synthesize hostExecutionContextManager = _hostExecutionContextManager;
     - (System_Threading_HostExecutionContextManager *)hostExecutionContextManager
     {
-		MonoObject *monoObject = [self getMonoProperty:"HostExecutionContextManager"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HostExecutionContextManager");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_hostExecutionContextManager isEqualToMonoObject:monoObject]) return _hostExecutionContextManager;					
-		_hostExecutionContextManager = [System_Threading_HostExecutionContextManager objectWithMonoObject:monoObject];
+		_hostExecutionContextManager = [System_Threading_HostExecutionContextManager bestObjectWithMonoObject:monoObject];
 
 		return _hostExecutionContextManager;
 	}
@@ -68,9 +98,19 @@
     @synthesize hostSecurityManager = _hostSecurityManager;
     - (System_Security_HostSecurityManager *)hostSecurityManager
     {
-		MonoObject *monoObject = [self getMonoProperty:"HostSecurityManager"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HostSecurityManager");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_hostSecurityManager isEqualToMonoObject:monoObject]) return _hostSecurityManager;					
-		_hostSecurityManager = [System_Security_HostSecurityManager objectWithMonoObject:monoObject];
+		_hostSecurityManager = [System_Security_HostSecurityManager bestObjectWithMonoObject:monoObject];
 
 		return _hostSecurityManager;
 	}
@@ -78,18 +118,37 @@
 	// Managed property name : InitializationFlags
 	// Managed property type : System.AppDomainManagerInitializationOptions
     @synthesize initializationFlags = _initializationFlags;
-    - (System_AppDomainManagerInitializationOptions)initializationFlags
+    - (int32_t)initializationFlags
     {
-		MonoObject *monoObject = [self getMonoProperty:"InitializationFlags"];
-		_initializationFlags = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InitializationFlags");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_initializationFlags = monoObject;
 
 		return _initializationFlags;
 	}
-    - (void)setInitializationFlags:(System_AppDomainManagerInitializationOptions)value
+    - (void)setInitializationFlags:(int32_t)value
 	{
 		_initializationFlags = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"InitializationFlags" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "InitializationFlags");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -114,7 +173,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateDomain(string,System.Security.Policy.Evidence,System.AppDomainSetup)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_AppDomain objectWithMonoObject:monoObject];
+		return [System_AppDomain bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : InitializeNewDomain
@@ -122,7 +181,9 @@
 	// Managed param types : System.AppDomainSetup
     - (void)initializeNewDomain_withAppDomainInfo:(System_AppDomainSetup *)p1
     {
-		[self invokeMonoMethod:"InitializeNewDomain(System.AppDomainSetup)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"InitializeNewDomain(System.AppDomainSetup)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

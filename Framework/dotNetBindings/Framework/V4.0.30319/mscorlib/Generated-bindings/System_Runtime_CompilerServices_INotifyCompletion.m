@@ -32,7 +32,9 @@
 	// Managed param types : System.Action
     - (void)onCompleted_withContinuation:(System_Action *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.CompilerServices.INotifyCompletion.OnCompleted(System.Action)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.CompilerServices.INotifyCompletion.OnCompleted(System.Action)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

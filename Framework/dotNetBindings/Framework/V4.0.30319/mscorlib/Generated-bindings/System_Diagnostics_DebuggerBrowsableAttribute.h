@@ -2,7 +2,7 @@
 //
 // Managed class : DebuggerBrowsableAttribute
 //
-@interface System_Diagnostics_DebuggerBrowsableAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Diagnostics_DebuggerBrowsableAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,13 +17,13 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.DebuggerBrowsableAttribute
 	// Managed param types : System.Diagnostics.DebuggerBrowsableState
-    + (System_Diagnostics_DebuggerBrowsableAttribute *)new_withState:(System_Diagnostics_DebuggerBrowsableState)p1;
+    + (System_Diagnostics_DebuggerBrowsableAttribute *)new_withState:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : State
 	// Managed property type : System.Diagnostics.DebuggerBrowsableState
-    @property (nonatomic, readonly) System_Diagnostics_DebuggerBrowsableState state;
+    @property (nonatomic, readonly) int32_t state;
 @end
 //--Dubrovnik.CodeGenerator

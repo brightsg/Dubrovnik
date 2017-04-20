@@ -30,27 +30,56 @@
 	// Managed property name : AceFlags
 	// Managed property type : System.Security.AccessControl.AceFlags
     @synthesize aceFlags = _aceFlags;
-    - (System_Security_AccessControl_AceFlags)aceFlags
+    - (uint8_t)aceFlags
     {
-		MonoObject *monoObject = [self getMonoProperty:"AceFlags"];
-		_aceFlags = DB_UNBOX_UINT8(monoObject);
+		typedef uint8_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AceFlags");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		uint8_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_aceFlags = monoObject;
 
 		return _aceFlags;
 	}
-    - (void)setAceFlags:(System_Security_AccessControl_AceFlags)value
+    - (void)setAceFlags:(uint8_t)value
 	{
 		_aceFlags = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"AceFlags" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, uint8_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "AceFlags");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : AceType
 	// Managed property type : System.Security.AccessControl.AceType
     @synthesize aceType = _aceType;
-    - (System_Security_AccessControl_AceType)aceType
+    - (uint8_t)aceType
     {
-		MonoObject *monoObject = [self getMonoProperty:"AceType"];
-		_aceType = DB_UNBOX_UINT8(monoObject);
+		typedef uint8_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AceType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		uint8_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_aceType = monoObject;
 
 		return _aceType;
 	}
@@ -58,10 +87,20 @@
 	// Managed property name : AuditFlags
 	// Managed property type : System.Security.AccessControl.AuditFlags
     @synthesize auditFlags = _auditFlags;
-    - (System_Security_AccessControl_AuditFlags)auditFlags
+    - (int32_t)auditFlags
     {
-		MonoObject *monoObject = [self getMonoProperty:"AuditFlags"];
-		_auditFlags = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AuditFlags");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_auditFlags = monoObject;
 
 		return _auditFlags;
 	}
@@ -71,8 +110,18 @@
     @synthesize binaryLength = _binaryLength;
     - (int32_t)binaryLength
     {
-		MonoObject *monoObject = [self getMonoProperty:"BinaryLength"];
-		_binaryLength = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BinaryLength");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_binaryLength = monoObject;
 
 		return _binaryLength;
 	}
@@ -80,10 +129,20 @@
 	// Managed property name : InheritanceFlags
 	// Managed property type : System.Security.AccessControl.InheritanceFlags
     @synthesize inheritanceFlags = _inheritanceFlags;
-    - (System_Security_AccessControl_InheritanceFlags)inheritanceFlags
+    - (int32_t)inheritanceFlags
     {
-		MonoObject *monoObject = [self getMonoProperty:"InheritanceFlags"];
-		_inheritanceFlags = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InheritanceFlags");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_inheritanceFlags = monoObject;
 
 		return _inheritanceFlags;
 	}
@@ -93,8 +152,18 @@
     @synthesize isInherited = _isInherited;
     - (BOOL)isInherited
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsInherited"];
-		_isInherited = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsInherited");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isInherited = monoObject;
 
 		return _isInherited;
 	}
@@ -102,10 +171,20 @@
 	// Managed property name : PropagationFlags
 	// Managed property type : System.Security.AccessControl.PropagationFlags
     @synthesize propagationFlags = _propagationFlags;
-    - (System_Security_AccessControl_PropagationFlags)propagationFlags
+    - (int32_t)propagationFlags
     {
-		MonoObject *monoObject = [self getMonoProperty:"PropagationFlags"];
-		_propagationFlags = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PropagationFlags");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_propagationFlags = monoObject;
 
 		return _propagationFlags;
 	}
@@ -121,7 +200,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
 		
-		return [System_Security_AccessControl_GenericAce objectWithMonoObject:monoObject];
+		return [System_Security_AccessControl_GenericAce bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateFromBinaryForm
@@ -132,7 +211,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFromBinaryForm(byte[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [System_Security_AccessControl_GenericAce objectWithMonoObject:monoObject];
+		return [System_Security_AccessControl_GenericAce bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals
@@ -151,7 +230,9 @@
 	// Managed param types : System.Byte[], System.Int32
     - (void)getBinaryForm_withBinaryForm:(NSData *)p1 offset:(int32_t)p2
     {
-		[self invokeMonoMethod:"GetBinaryForm(byte[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"GetBinaryForm(byte[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : GetHashCode

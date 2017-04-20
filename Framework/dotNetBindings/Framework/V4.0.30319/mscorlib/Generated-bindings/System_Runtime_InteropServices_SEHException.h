@@ -2,7 +2,7 @@
 //
 // Managed class : SEHException
 //
-@interface System_Runtime_InteropServices_SEHException : System_Runtime_InteropServices_ExternalException <System_Runtime_Serialization_ISerializable, System_Runtime_InteropServices__Exception>
+@interface System_Runtime_InteropServices_SEHException : System_Runtime_InteropServices_ExternalException <System_Runtime_Serialization_ISerializable_, System_Runtime_InteropServices__Exception_>
 
 #pragma mark -
 #pragma mark Setup

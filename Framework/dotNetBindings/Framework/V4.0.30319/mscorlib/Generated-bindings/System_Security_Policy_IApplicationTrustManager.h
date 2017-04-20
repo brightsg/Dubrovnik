@@ -2,7 +2,7 @@
 //
 // Managed interface : IApplicationTrustManager
 //
-@interface System_Security_Policy_IApplicationTrustManager : System_Object <System_Security_Policy_IApplicationTrustManager, System_Security_ISecurityEncodable>
+@interface System_Security_Policy_IApplicationTrustManager : System_Object <System_Security_Policy_IApplicationTrustManager_, System_Security_ISecurityEncodable_>
 
 #pragma mark -
 #pragma mark Setup

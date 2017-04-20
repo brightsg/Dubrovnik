@@ -2,7 +2,7 @@
 //
 // Managed class : ConcurrentStack`1<T>
 //
-@interface System_Collections_Concurrent_ConcurrentStackA1 : System_Object <System_Collections_Concurrent_IProducerConsumerCollectionA1, System_Collections_Generic_IEnumerableA1, System_Collections_IEnumerable, System_Collections_ICollection>
+@interface System_Collections_Concurrent_ConcurrentStackA1 : System_Object <System_Collections_Concurrent_IProducerConsumerCollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_ICollection_, System_Collections_Generic_IReadOnlyCollectionA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Concurrent.ConcurrentStack`1<System.Collections.Concurrent.ConcurrentStack`1+T>
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.ConcurrentStack`1+T>
-    + (System_Collections_Concurrent_ConcurrentStackA1 *)new_withCollection:(System_Collections_Generic_IEnumerableA1 *)p1;
+    + (System_Collections_Concurrent_ConcurrentStackA1 *)new_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -40,13 +40,13 @@
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : <T[]>, System.Int32
-    - (void)copyTo_withArray:(System_Object *)p1 index:(int32_t)p2;
+	// Managed param types : T[], System.Int32
+    - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2;
 
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.Generic.IEnumerator`1<System.Collections.Concurrent.ConcurrentStack`1+T>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumeratorA1 *)getEnumerator;
+    - (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator;
 
 	// Managed method name : Push
 	// Managed return type : System.Void
@@ -55,37 +55,37 @@
 
 	// Managed method name : PushRange
 	// Managed return type : System.Void
-	// Managed param types : <T[]>
-    - (void)pushRange_withItems:(System_Object *)p1;
+	// Managed param types : T[]
+    - (void)pushRange_withItems:(DBSystem_Array *)p1;
 
 	// Managed method name : PushRange
 	// Managed return type : System.Void
-	// Managed param types : <T[]>, System.Int32, System.Int32
-    - (void)pushRange_withItems:(System_Object *)p1 startIndex:(int32_t)p2 count:(int32_t)p3;
+	// Managed param types : T[], System.Int32, System.Int32
+    - (void)pushRange_withItems:(DBSystem_Array *)p1 startIndex:(int32_t)p2 count:(int32_t)p3;
 
 	// Managed method name : ToArray
-	// Managed return type : <T[]>
+	// Managed return type : T[]
 	// Managed param types : 
-    - (System_Object *)toArray;
+    - (DBSystem_Array *)toArray;
 
 	// Managed method name : TryPeek
 	// Managed return type : System.Boolean
-	// Managed param types : ref <T&>
-    - (BOOL)tryPeek_withResultRef:(System_Object **)p1;
+	// Managed param types : ref T&
+    - (BOOL)tryPeek_withResultRef:(System_Collections_Concurrent_ConcurrentStackA1__T **)p1;
 
 	// Managed method name : TryPop
 	// Managed return type : System.Boolean
-	// Managed param types : ref <T&>
-    - (BOOL)tryPop_withResultRef:(System_Object **)p1;
+	// Managed param types : ref T&
+    - (BOOL)tryPop_withResultRef:(System_Collections_Concurrent_ConcurrentStackA1__T **)p1;
 
 	// Managed method name : TryPopRange
 	// Managed return type : System.Int32
-	// Managed param types : <T[]>
-    - (int32_t)tryPopRange_withItems:(System_Object *)p1;
+	// Managed param types : T[]
+    - (int32_t)tryPopRange_withItems:(DBSystem_Array *)p1;
 
 	// Managed method name : TryPopRange
 	// Managed return type : System.Int32
-	// Managed param types : <T[]>, System.Int32, System.Int32
-    - (int32_t)tryPopRange_withItems:(System_Object *)p1 startIndex:(int32_t)p2 count:(int32_t)p3;
+	// Managed param types : T[], System.Int32, System.Int32
+    - (int32_t)tryPopRange_withItems:(DBSystem_Array *)p1 startIndex:(int32_t)p2 count:(int32_t)p3;
 @end
 //--Dubrovnik.CodeGenerator

@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Capture()" withNumArgs:0];
 		
-		return [System_Threading_ExecutionContext objectWithMonoObject:monoObject];
+		return [System_Threading_ExecutionContext bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateCopy
@@ -46,7 +46,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateCopy()" withNumArgs:0];
 		
-		return [System_Threading_ExecutionContext objectWithMonoObject:monoObject];
+		return [System_Threading_ExecutionContext bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Dispose
@@ -54,7 +54,9 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+        
     }
 
 	// Managed method name : GetObjectData
@@ -62,7 +64,9 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : IsFlowSuppressed
@@ -81,7 +85,9 @@
 	// Managed param types : 
     + (void)restoreFlow
     {
-		[self invokeMonoClassMethod:"RestoreFlow()" withNumArgs:0];;
+		
+		[self invokeMonoClassMethod:"RestoreFlow()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Run
@@ -89,7 +95,9 @@
 	// Managed param types : System.Threading.ExecutionContext, System.Threading.ContextCallback, System.Object
     + (void)run_withExecutionContext:(System_Threading_ExecutionContext *)p1 callback:(System_Threading_ContextCallback *)p2 state:(System_Object *)p3
     {
-		[self invokeMonoClassMethod:"Run(System.Threading.ExecutionContext,System.Threading.ContextCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Run(System.Threading.ExecutionContext,System.Threading.ContextCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SuppressFlow
@@ -100,7 +108,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"SuppressFlow()" withNumArgs:0];
 		
-		return [System_Threading_AsyncFlowControl objectWithMonoObject:monoObject];
+		return [System_Threading_AsyncFlowControl bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

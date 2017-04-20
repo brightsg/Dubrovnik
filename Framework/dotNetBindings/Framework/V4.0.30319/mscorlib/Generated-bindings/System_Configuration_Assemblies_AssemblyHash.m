@@ -32,15 +32,21 @@
 	// Managed param types : System.Byte[]
     + (System_Configuration_Assemblies_AssemblyHash *)new_withValue:(NSData *)p1
     {
-		return [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Configuration_Assemblies_AssemblyHash * object = [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Configuration.Assemblies.AssemblyHash
 	// Managed param types : System.Configuration.Assemblies.AssemblyHashAlgorithm, System.Byte[]
-    + (System_Configuration_Assemblies_AssemblyHash *)new_withAlgorithm:(System_Configuration_Assemblies_AssemblyHashAlgorithm)p1 value:(NSData *)p2
+    + (System_Configuration_Assemblies_AssemblyHash *)new_withAlgorithm:(int32_t)p1 value:(NSData *)p2
     {
-		return [[self alloc] initWithSignature:"System.Configuration.Assemblies.AssemblyHashAlgorithm,byte[]" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		System_Configuration_Assemblies_AssemblyHash * object = [[self alloc] initWithSignature:"System.Configuration.Assemblies.AssemblyHashAlgorithm,byte[]" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -53,7 +59,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Empty"];
 		if ([self object:m_empty isEqualToMonoObject:monoObject]) return m_empty;					
-		m_empty = [System_Configuration_Assemblies_AssemblyHash objectWithMonoObject:monoObject];
+		m_empty = [System_Configuration_Assemblies_AssemblyHash bestObjectWithMonoObject:monoObject];
 
 		return m_empty;
 	}
@@ -64,18 +70,37 @@
 	// Managed property name : Algorithm
 	// Managed property type : System.Configuration.Assemblies.AssemblyHashAlgorithm
     @synthesize algorithm = _algorithm;
-    - (System_Configuration_Assemblies_AssemblyHashAlgorithm)algorithm
+    - (int32_t)algorithm
     {
-		MonoObject *monoObject = [self getMonoProperty:"Algorithm"];
-		_algorithm = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Algorithm");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_algorithm = monoObject;
 
 		return _algorithm;
 	}
-    - (void)setAlgorithm:(System_Configuration_Assemblies_AssemblyHashAlgorithm)value
+    - (void)setAlgorithm:(int32_t)value
 	{
 		_algorithm = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Algorithm" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Algorithm");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -108,7 +133,9 @@
 	// Managed param types : System.Byte[]
     - (void)setValue_withValue:(NSData *)p1
     {
-		[self invokeMonoMethod:"SetValue(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetValue(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

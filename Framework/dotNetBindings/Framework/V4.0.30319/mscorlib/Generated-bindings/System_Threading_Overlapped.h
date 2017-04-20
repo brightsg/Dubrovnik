@@ -17,12 +17,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.Overlapped
 	// Managed param types : System.Int32, System.Int32, System.IntPtr, System.IAsyncResult
-    + (System_Threading_Overlapped *)new_withOffsetLoInt:(int32_t)p1 offsetHiInt:(int32_t)p2 hEventIntptr:(void *)p3 arSIAsyncResult:(System_IAsyncResult *)p4;
+    + (System_Threading_Overlapped *)new_withOffsetLoInt:(int32_t)p1 offsetHiInt:(int32_t)p2 hEventIntptr:(void *)p3 arSIAsyncResult:(id <System_IAsyncResult_>)p4;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.Overlapped
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.IAsyncResult
-    + (System_Threading_Overlapped *)new_withOffsetLoInt:(int32_t)p1 offsetHiInt:(int32_t)p2 hEventInt:(int32_t)p3 arSIAsyncResult:(System_IAsyncResult *)p4;
+    + (System_Threading_Overlapped *)new_withOffsetLoInt:(int32_t)p1 offsetHiInt:(int32_t)p2 hEventInt:(int32_t)p3 arSIAsyncResult:(id <System_IAsyncResult_>)p4;
 
 #pragma mark -
 #pragma mark Properties
@@ -57,13 +57,13 @@
 
 	// Managed method name : Pack
 	// Managed return type : System.Threading.NativeOverlapped*
-	// Managed param types : System.Threading.IOCompletionCallback, System.Object
-    - (System_Threading_NativeOverlapped *)pack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(System_Object *)p2;
+	// Managed param types : System.Threading.IOCompletionCallback
+    - (System_Threading_NativeOverlapped *)pack_withIocb:(System_Threading_IOCompletionCallback *)p1;
 
 	// Managed method name : Pack
 	// Managed return type : System.Threading.NativeOverlapped*
-	// Managed param types : System.Threading.IOCompletionCallback
-    - (System_Threading_NativeOverlapped *)pack_withIocb:(System_Threading_IOCompletionCallback *)p1;
+	// Managed param types : System.Threading.IOCompletionCallback, System.Object
+    - (System_Threading_NativeOverlapped *)pack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(System_Object *)p2;
 
 	// Managed method name : Unpack
 	// Managed return type : System.Threading.Overlapped
@@ -72,12 +72,12 @@
 
 	// Managed method name : UnsafePack
 	// Managed return type : System.Threading.NativeOverlapped*
-	// Managed param types : System.Threading.IOCompletionCallback, System.Object
-    - (System_Threading_NativeOverlapped *)unsafePack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(System_Object *)p2;
+	// Managed param types : System.Threading.IOCompletionCallback
+    - (System_Threading_NativeOverlapped *)unsafePack_withIocb:(System_Threading_IOCompletionCallback *)p1;
 
 	// Managed method name : UnsafePack
 	// Managed return type : System.Threading.NativeOverlapped*
-	// Managed param types : System.Threading.IOCompletionCallback
-    - (System_Threading_NativeOverlapped *)unsafePack_withIocb:(System_Threading_IOCompletionCallback *)p1;
+	// Managed param types : System.Threading.IOCompletionCallback, System.Object
+    - (System_Threading_NativeOverlapped *)unsafePack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(System_Object *)p2;
 @end
 //--Dubrovnik.CodeGenerator

@@ -32,7 +32,10 @@
 	// Managed param types : System.String
     + (System_IO_DirectoryInfo *)new_withPath:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_IO_DirectoryInfo * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,8 +46,18 @@
     @synthesize exists = _exists;
     - (BOOL)exists
     {
-		MonoObject *monoObject = [self getMonoProperty:"Exists"];
-		_exists = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Exists");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_exists = monoObject;
 
 		return _exists;
 	}
@@ -54,7 +67,17 @@
     @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -66,9 +89,19 @@
     @synthesize parent = _parent;
     - (System_IO_DirectoryInfo *)parent
     {
-		MonoObject *monoObject = [self getMonoProperty:"Parent"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Parent");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_parent isEqualToMonoObject:monoObject]) return _parent;					
-		_parent = [System_IO_DirectoryInfo objectWithMonoObject:monoObject];
+		_parent = [System_IO_DirectoryInfo bestObjectWithMonoObject:monoObject];
 
 		return _parent;
 	}
@@ -78,9 +111,19 @@
     @synthesize root = _root;
     - (System_IO_DirectoryInfo *)root
     {
-		MonoObject *monoObject = [self getMonoProperty:"Root"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Root");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_root isEqualToMonoObject:monoObject]) return _root;					
-		_root = [System_IO_DirectoryInfo objectWithMonoObject:monoObject];
+		_root = [System_IO_DirectoryInfo bestObjectWithMonoObject:monoObject];
 
 		return _root;
 	}
@@ -93,7 +136,9 @@
 	// Managed param types : 
     - (void)create
     {
-		[self invokeMonoMethod:"Create()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Create()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Create
@@ -101,7 +146,9 @@
 	// Managed param types : System.Security.AccessControl.DirectorySecurity
     - (void)create_withDirectorySecurity:(System_Security_AccessControl_DirectorySecurity *)p1
     {
-		[self invokeMonoMethod:"Create(System.Security.AccessControl.DirectorySecurity)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Create(System.Security.AccessControl.DirectorySecurity)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : CreateSubdirectory
@@ -112,7 +159,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateSubdirectory(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_IO_DirectoryInfo objectWithMonoObject:monoObject];
+		return [System_IO_DirectoryInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateSubdirectory
@@ -123,7 +170,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateSubdirectory(string,System.Security.AccessControl.DirectorySecurity)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_IO_DirectoryInfo objectWithMonoObject:monoObject];
+		return [System_IO_DirectoryInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Delete
@@ -131,7 +178,9 @@
 	// Managed param types : 
     - (void)delete
     {
-		[self invokeMonoMethod:"Delete()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Delete()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Delete
@@ -139,106 +188,108 @@
 	// Managed param types : System.Boolean
     - (void)delete_withRecursive:(BOOL)p1
     {
-		[self invokeMonoMethod:"Delete(bool)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"Delete(bool)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : EnumerateDirectories
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.DirectoryInfo>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumerableA1 *)enumerateDirectories
+    - (id <System_Collections_Generic_IEnumerableA1>)enumerateDirectories
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"EnumerateDirectories()" withNumArgs:0];
 		
-		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnumerateDirectories
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.DirectoryInfo>
 	// Managed param types : System.String
-    - (System_Collections_Generic_IEnumerableA1 *)enumerateDirectories_withSearchPattern:(NSString *)p1
+    - (id <System_Collections_Generic_IEnumerableA1>)enumerateDirectories_withSearchPattern:(NSString *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"EnumerateDirectories(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnumerateDirectories
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.DirectoryInfo>
 	// Managed param types : System.String, System.IO.SearchOption
-    - (System_Collections_Generic_IEnumerableA1 *)enumerateDirectories_withSearchPattern:(NSString *)p1 searchOption:(System_IO_SearchOption)p2
+    - (id <System_Collections_Generic_IEnumerableA1>)enumerateDirectories_withSearchPattern:(NSString *)p1 searchOption:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"EnumerateDirectories(string,System.IO.SearchOption)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnumerateFiles
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.FileInfo>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumerableA1 *)enumerateFiles
+    - (id <System_Collections_Generic_IEnumerableA1>)enumerateFiles
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"EnumerateFiles()" withNumArgs:0];
 		
-		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnumerateFiles
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.FileInfo>
 	// Managed param types : System.String
-    - (System_Collections_Generic_IEnumerableA1 *)enumerateFiles_withSearchPattern:(NSString *)p1
+    - (id <System_Collections_Generic_IEnumerableA1>)enumerateFiles_withSearchPattern:(NSString *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"EnumerateFiles(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnumerateFiles
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.FileInfo>
 	// Managed param types : System.String, System.IO.SearchOption
-    - (System_Collections_Generic_IEnumerableA1 *)enumerateFiles_withSearchPattern:(NSString *)p1 searchOption:(System_IO_SearchOption)p2
+    - (id <System_Collections_Generic_IEnumerableA1>)enumerateFiles_withSearchPattern:(NSString *)p1 searchOption:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"EnumerateFiles(string,System.IO.SearchOption)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnumerateFileSystemInfos
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.FileSystemInfo>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumerableA1 *)enumerateFileSystemInfos
+    - (id <System_Collections_Generic_IEnumerableA1>)enumerateFileSystemInfos
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"EnumerateFileSystemInfos()" withNumArgs:0];
 		
-		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnumerateFileSystemInfos
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.FileSystemInfo>
 	// Managed param types : System.String
-    - (System_Collections_Generic_IEnumerableA1 *)enumerateFileSystemInfos_withSearchPattern:(NSString *)p1
+    - (id <System_Collections_Generic_IEnumerableA1>)enumerateFileSystemInfos_withSearchPattern:(NSString *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"EnumerateFileSystemInfos(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EnumerateFileSystemInfos
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.IO.FileSystemInfo>
 	// Managed param types : System.String, System.IO.SearchOption
-    - (System_Collections_Generic_IEnumerableA1 *)enumerateFileSystemInfos_withSearchPattern:(NSString *)p1 searchOption:(System_IO_SearchOption)p2
+    - (id <System_Collections_Generic_IEnumerableA1>)enumerateFileSystemInfos_withSearchPattern:(NSString *)p1 searchOption:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"EnumerateFileSystemInfos(string,System.IO.SearchOption)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetAccessControl
@@ -249,18 +300,18 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAccessControl()" withNumArgs:0];
 		
-		return [System_Security_AccessControl_DirectorySecurity objectWithMonoObject:monoObject];
+		return [System_Security_AccessControl_DirectorySecurity bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetAccessControl
 	// Managed return type : System.Security.AccessControl.DirectorySecurity
 	// Managed param types : System.Security.AccessControl.AccessControlSections
-    - (System_Security_AccessControl_DirectorySecurity *)getAccessControl_withIncludeSections:(System_Security_AccessControl_AccessControlSections)p1
+    - (System_Security_AccessControl_DirectorySecurity *)getAccessControl_withIncludeSections:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAccessControl(System.Security.AccessControl.AccessControlSections)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Security_AccessControl_DirectorySecurity objectWithMonoObject:monoObject];
+		return [System_Security_AccessControl_DirectorySecurity bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetDirectories
@@ -288,7 +339,7 @@
 	// Managed method name : GetDirectories
 	// Managed return type : System.IO.DirectoryInfo[]
 	// Managed param types : System.String, System.IO.SearchOption
-    - (DBSystem_Array *)getDirectories_withSearchPattern:(NSString *)p1 searchOption:(System_IO_SearchOption)p2
+    - (DBSystem_Array *)getDirectories_withSearchPattern:(NSString *)p1 searchOption:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDirectories(string,System.IO.SearchOption)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
@@ -310,7 +361,7 @@
 	// Managed method name : GetFiles
 	// Managed return type : System.IO.FileInfo[]
 	// Managed param types : System.String, System.IO.SearchOption
-    - (DBSystem_Array *)getFiles_withSearchPattern:(NSString *)p1 searchOption:(System_IO_SearchOption)p2
+    - (DBSystem_Array *)getFiles_withSearchPattern:(NSString *)p1 searchOption:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFiles(string,System.IO.SearchOption)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
@@ -343,7 +394,7 @@
 	// Managed method name : GetFileSystemInfos
 	// Managed return type : System.IO.FileSystemInfo[]
 	// Managed param types : System.String, System.IO.SearchOption
-    - (DBSystem_Array *)getFileSystemInfos_withSearchPattern:(NSString *)p1 searchOption:(System_IO_SearchOption)p2
+    - (DBSystem_Array *)getFileSystemInfos_withSearchPattern:(NSString *)p1 searchOption:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFileSystemInfos(string,System.IO.SearchOption)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
@@ -367,7 +418,9 @@
 	// Managed param types : System.String
     - (void)moveTo_withDestDirName:(NSString *)p1
     {
-		[self invokeMonoMethod:"MoveTo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"MoveTo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetAccessControl
@@ -375,7 +428,9 @@
 	// Managed param types : System.Security.AccessControl.DirectorySecurity
     - (void)setAccessControl_withDirectorySecurity:(System_Security_AccessControl_DirectorySecurity *)p1
     {
-		[self invokeMonoMethod:"SetAccessControl(System.Security.AccessControl.DirectorySecurity)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetAccessControl(System.Security.AccessControl.DirectorySecurity)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : ToString

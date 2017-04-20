@@ -2,7 +2,7 @@
 //
 // Managed class : JapaneseCalendar
 //
-@interface System_Globalization_JapaneseCalendar : System_Globalization_Calendar <System_ICloneable>
+@interface System_Globalization_JapaneseCalendar : System_Globalization_Calendar <System_ICloneable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -16,7 +16,7 @@
 
 	// Managed property name : AlgorithmType
 	// Managed property type : System.Globalization.CalendarAlgorithmType
-    @property (nonatomic, readonly) System_Globalization_CalendarAlgorithmType algorithmType;
+    @property (nonatomic, readonly) int32_t algorithmType;
 
 	// Managed property name : Eras
 	// Managed property type : System.Int32[]
@@ -55,7 +55,7 @@
 	// Managed method name : GetDayOfWeek
 	// Managed return type : System.DayOfWeek
 	// Managed param types : System.DateTime
-    - (System_DayOfWeek)getDayOfWeek_withTime:(NSDate *)p1;
+    - (int32_t)getDayOfWeek_withTime:(NSDate *)p1;
 
 	// Managed method name : GetDayOfYear
 	// Managed return type : System.Int32
@@ -95,7 +95,7 @@
 	// Managed method name : GetWeekOfYear
 	// Managed return type : System.Int32
 	// Managed param types : System.DateTime, System.Globalization.CalendarWeekRule, System.DayOfWeek
-    - (int32_t)getWeekOfYear_withTime:(NSDate *)p1 rule:(System_Globalization_CalendarWeekRule)p2 firstDayOfWeek:(System_DayOfWeek)p3;
+    - (int32_t)getWeekOfYear_withTime:(NSDate *)p1 rule:(int32_t)p2 firstDayOfWeek:(int32_t)p3;
 
 	// Managed method name : GetYear
 	// Managed return type : System.Int32

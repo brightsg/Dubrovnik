@@ -2,7 +2,7 @@
 //
 // Managed class : DSA
 //
-@interface System_Security_Cryptography_DSA : System_Security_Cryptography_AsymmetricAlgorithm <System_IDisposable>
+@interface System_Security_Cryptography_DSA : System_Security_Cryptography_AsymmetricAlgorithm <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

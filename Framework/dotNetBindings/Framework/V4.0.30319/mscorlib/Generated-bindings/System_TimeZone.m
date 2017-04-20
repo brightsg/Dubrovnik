@@ -32,9 +32,19 @@
     static System_TimeZone * m_currentTimeZone;
     + (System_TimeZone *)currentTimeZone
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"CurrentTimeZone"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrentTimeZone");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_currentTimeZone isEqualToMonoObject:monoObject]) return m_currentTimeZone;					
-		m_currentTimeZone = [System_TimeZone objectWithMonoObject:monoObject];
+		m_currentTimeZone = [System_TimeZone bestObjectWithMonoObject:monoObject];
 
 		return m_currentTimeZone;
 	}
@@ -44,7 +54,17 @@
     @synthesize daylightName = _daylightName;
     - (NSString *)daylightName
     {
-		MonoObject *monoObject = [self getMonoProperty:"DaylightName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DaylightName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_daylightName isEqualToMonoObject:monoObject]) return _daylightName;					
 		_daylightName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -56,7 +76,17 @@
     @synthesize standardName = _standardName;
     - (NSString *)standardName
     {
-		MonoObject *monoObject = [self getMonoProperty:"StandardName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "StandardName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_standardName isEqualToMonoObject:monoObject]) return _standardName;					
 		_standardName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -74,7 +104,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDaylightChanges(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Globalization_DaylightTime objectWithMonoObject:monoObject];
+		return [System_Globalization_DaylightTime bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetUtcOffset
@@ -85,7 +115,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetUtcOffset(System.DateTime)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsDaylightSavingTime

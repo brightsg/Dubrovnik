@@ -30,9 +30,11 @@
 	// Managed method name : AddressOfMember
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, System.Runtime.InteropServices.INVOKEKIND, ref System.IntPtr&
-    - (void)addressOfMember_withMemid:(int32_t)p1 invKind:(System_Runtime_InteropServices_INVOKEKIND)p2 ppvRef:(void **)p3
+    - (void)addressOfMember_withMemid:(int32_t)p1 invKind:(int32_t)p2 ppvRef:(void **)p3
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.AddressOfMember(int,System.Runtime.InteropServices.INVOKEKIND,intptr&)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), p3];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.AddressOfMember(int,System.Runtime.InteropServices.INVOKEKIND,intptr&)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), p3];
+        
     }
 
 	// Managed method name : CreateInstance
@@ -40,8 +42,14 @@
 	// Managed param types : System.Object, ref System.Guid&, ref System.Object&
     - (void)createInstance_withPUnkOuter:(System_Object *)p1 riidRef:(System_Guid **)p2 ppvObjRef:(System_Object **)p3
     {
+		void *refPtr2 = [*p2 monoRTInvokeArg];
+void *refPtr3 = [*p3 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.CreateInstance(object,System.Guid&,object&)" withNumArgs:3, [p1 monoRTInvokeArg], &refPtr2, &refPtr3];
-;
+
+        *p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
+
     }
 
 	// Managed method name : GetContainingTypeLib
@@ -49,17 +57,27 @@
 	// Managed param types : ref System.Runtime.InteropServices.UCOMITypeLib&, ref System.Int32&
     - (void)getContainingTypeLib_withPpTLBRef:(System_Runtime_InteropServices_UCOMITypeLib **)p1 pIndexRef:(int32_t*)p2
     {
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.GetContainingTypeLib(System.Runtime.InteropServices.UCOMITypeLib&,int&)" withNumArgs:2, &refPtr1, p2];
-;
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+
     }
 
 	// Managed method name : GetDllEntry
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, System.Runtime.InteropServices.INVOKEKIND, ref System.String&, ref System.String&, ref System.Int16&
-    - (void)getDllEntry_withMemid:(int32_t)p1 invKind:(System_Runtime_InteropServices_INVOKEKIND)p2 pBstrDllNameRef:(NSString **)p3 pBstrNameRef:(NSString **)p4 pwOrdinalRef:(int16_t*)p5
+    - (void)getDllEntry_withMemid:(int32_t)p1 invKind:(int32_t)p2 pBstrDllNameRef:(NSString **)p3 pBstrNameRef:(NSString **)p4 pwOrdinalRef:(int16_t*)p5
     {
+		void *refPtr3 = [*p3 monoRTInvokeArg];
+void *refPtr4 = [*p4 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.GetDllEntry(int,System.Runtime.InteropServices.INVOKEKIND,string&,string&,int16&)" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), &refPtr3, &refPtr4, p5];
-;
+
+        *p3 = [System_Object bestObjectWithMonoObject:refPtr3];
+*p4 = [System_Object bestObjectWithMonoObject:refPtr4];
+
     }
 
 	// Managed method name : GetDocumentation
@@ -67,8 +85,16 @@
 	// Managed param types : System.Int32, ref System.String&, ref System.String&, ref System.Int32&, ref System.String&
     - (void)getDocumentation_withIndex:(int32_t)p1 strNameRef:(NSString **)p2 strDocStringRef:(NSString **)p3 dwHelpContextRef:(int32_t*)p4 strHelpFileRef:(NSString **)p5
     {
+		void *refPtr2 = [*p2 monoRTInvokeArg];
+void *refPtr3 = [*p3 monoRTInvokeArg];
+void *refPtr5 = [*p5 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.GetDocumentation(int,string&,string&,int&,string&)" withNumArgs:5, DB_VALUE(p1), &refPtr2, &refPtr3, p4, &refPtr5];
-;
+
+        *p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
+*p5 = [System_Object bestObjectWithMonoObject:refPtr5];
+
     }
 
 	// Managed method name : GetFuncDesc
@@ -76,7 +102,9 @@
 	// Managed param types : System.Int32, ref System.IntPtr&
     - (void)getFuncDesc_withIndex:(int32_t)p1 ppFuncDescRef:(void **)p2
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.GetFuncDesc(int,intptr&)" withNumArgs:2, DB_VALUE(p1), p2];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.GetFuncDesc(int,intptr&)" withNumArgs:2, DB_VALUE(p1), p2];
+        
     }
 
 	// Managed method name : GetIDsOfNames
@@ -84,7 +112,9 @@
 	// Managed param types : System.String[], System.Int32, System.Int32[]
     - (void)getIDsOfNames_withRgszNames:(DBSystem_Array *)p1 cNames:(int32_t)p2 pMemId:(DBSystem_Array *)p3
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.GetIDsOfNames(string[],int,int[])" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.GetIDsOfNames(string[],int,int[])" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetImplTypeFlags
@@ -92,7 +122,9 @@
 	// Managed param types : System.Int32, ref System.Int32&
     - (void)getImplTypeFlags_withIndex:(int32_t)p1 pImplTypeFlagsRef:(int32_t*)p2
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.GetImplTypeFlags(int,int&)" withNumArgs:2, DB_VALUE(p1), p2];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.GetImplTypeFlags(int,int&)" withNumArgs:2, DB_VALUE(p1), p2];
+        
     }
 
 	// Managed method name : GetMops
@@ -100,8 +132,12 @@
 	// Managed param types : System.Int32, ref System.String&
     - (void)getMops_withMemid:(int32_t)p1 pBstrMopsRef:(NSString **)p2
     {
+		void *refPtr2 = [*p2 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.GetMops(int,string&)" withNumArgs:2, DB_VALUE(p1), &refPtr2];
-;
+
+        *p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+
     }
 
 	// Managed method name : GetNames
@@ -109,7 +145,9 @@
 	// Managed param types : System.Int32, System.String[], System.Int32, ref System.Int32&
     - (void)getNames_withMemid:(int32_t)p1 rgBstrNames:(DBSystem_Array *)p2 cMaxNames:(int32_t)p3 pcNamesRef:(int32_t*)p4
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.GetNames(int,string[],int,int&)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3), p4];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.GetNames(int,string[],int,int&)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3), p4];
+        
     }
 
 	// Managed method name : GetRefTypeInfo
@@ -117,8 +155,12 @@
 	// Managed param types : System.Int32, ref System.Runtime.InteropServices.UCOMITypeInfo&
     - (void)getRefTypeInfo_withHRef:(int32_t)p1 ppTIRef:(System_Runtime_InteropServices_UCOMITypeInfo **)p2
     {
+		void *refPtr2 = [*p2 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.GetRefTypeInfo(int,System.Runtime.InteropServices.UCOMITypeInfo&)" withNumArgs:2, DB_VALUE(p1), &refPtr2];
-;
+
+        *p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+
     }
 
 	// Managed method name : GetRefTypeOfImplType
@@ -126,7 +168,9 @@
 	// Managed param types : System.Int32, ref System.Int32&
     - (void)getRefTypeOfImplType_withIndex:(int32_t)p1 hrefRef:(int32_t*)p2
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.GetRefTypeOfImplType(int,int&)" withNumArgs:2, DB_VALUE(p1), p2];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.GetRefTypeOfImplType(int,int&)" withNumArgs:2, DB_VALUE(p1), p2];
+        
     }
 
 	// Managed method name : GetTypeAttr
@@ -134,7 +178,9 @@
 	// Managed param types : ref System.IntPtr&
     - (void)getTypeAttr_withPpTypeAttrRef:(void **)p1
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.GetTypeAttr(intptr&)" withNumArgs:1, p1];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.GetTypeAttr(intptr&)" withNumArgs:1, p1];
+        
     }
 
 	// Managed method name : GetTypeComp
@@ -142,8 +188,12 @@
 	// Managed param types : ref System.Runtime.InteropServices.UCOMITypeComp&
     - (void)getTypeComp_withPpTCompRef:(System_Runtime_InteropServices_UCOMITypeComp **)p1
     {
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.GetTypeComp(System.Runtime.InteropServices.UCOMITypeComp&)" withNumArgs:1, &refPtr1];
-;
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+
     }
 
 	// Managed method name : GetVarDesc
@@ -151,7 +201,9 @@
 	// Managed param types : System.Int32, ref System.IntPtr&
     - (void)getVarDesc_withIndex:(int32_t)p1 ppVarDescRef:(void **)p2
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.GetVarDesc(int,intptr&)" withNumArgs:2, DB_VALUE(p1), p2];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.GetVarDesc(int,intptr&)" withNumArgs:2, DB_VALUE(p1), p2];
+        
     }
 
 	// Managed method name : Invoke
@@ -159,8 +211,16 @@
 	// Managed param types : System.Object, System.Int32, System.Int16, ref System.Runtime.InteropServices.DISPPARAMS&, ref System.Object&, ref System.Runtime.InteropServices.EXCEPINFO&, ref System.Int32&
     - (void)invoke_withPvInstance:(System_Object *)p1 memid:(int32_t)p2 wFlags:(int16_t)p3 pDispParamsRef:(System_Runtime_InteropServices_DISPPARAMS **)p4 pVarResultRef:(System_Object **)p5 pExcepInfoRef:(System_Runtime_InteropServices_EXCEPINFO **)p6 puArgErrRef:(int32_t*)p7
     {
+		void *refPtr4 = [*p4 monoRTInvokeArg];
+void *refPtr5 = [*p5 monoRTInvokeArg];
+void *refPtr6 = [*p6 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.Invoke(object,int,int16,System.Runtime.InteropServices.DISPPARAMS&,object&,System.Runtime.InteropServices.EXCEPINFO&,int&)" withNumArgs:7, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), &refPtr4, &refPtr5, &refPtr6, p7];
-;
+
+        *p4 = [System_Object bestObjectWithMonoObject:refPtr4];
+*p5 = [System_Object bestObjectWithMonoObject:refPtr5];
+*p6 = [System_Object bestObjectWithMonoObject:refPtr6];
+
     }
 
 	// Managed method name : ReleaseFuncDesc
@@ -168,7 +228,9 @@
 	// Managed param types : System.IntPtr
     - (void)releaseFuncDesc_withPFuncDesc:(void *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.ReleaseFuncDesc(intptr)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.ReleaseFuncDesc(intptr)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : ReleaseTypeAttr
@@ -176,7 +238,9 @@
 	// Managed param types : System.IntPtr
     - (void)releaseTypeAttr_withPTypeAttr:(void *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.ReleaseTypeAttr(intptr)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.ReleaseTypeAttr(intptr)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : ReleaseVarDesc
@@ -184,7 +248,9 @@
 	// Managed param types : System.IntPtr
     - (void)releaseVarDesc_withPVarDesc:(void *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.ReleaseVarDesc(intptr)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMITypeInfo.ReleaseVarDesc(intptr)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 #pragma mark -

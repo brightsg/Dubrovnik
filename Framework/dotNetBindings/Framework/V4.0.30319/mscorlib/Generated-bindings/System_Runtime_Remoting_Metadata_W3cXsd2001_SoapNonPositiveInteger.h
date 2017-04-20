@@ -2,7 +2,7 @@
 //
 // Managed class : SoapNonPositiveInteger
 //
-@interface System_Runtime_Remoting_Metadata_W3cXsd2001_SoapNonPositiveInteger : System_Object <System_Runtime_Remoting_Metadata_W3cXsd2001_ISoapXsd>
+@interface System_Runtime_Remoting_Metadata_W3cXsd2001_SoapNonPositiveInteger : System_Object <System_Runtime_Remoting_Metadata_W3cXsd2001_ISoapXsd_>
 
 #pragma mark -
 #pragma mark Setup

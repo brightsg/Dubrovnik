@@ -2,7 +2,7 @@
 //
 // Managed class : Hashtable
 //
-@interface System_Collections_Hashtable : System_Object <System_Collections_IDictionary, System_Collections_ICollection, System_Collections_IEnumerable, System_Runtime_Serialization_ISerializable, System_Runtime_Serialization_IDeserializationCallback, System_ICloneable>
+@interface System_Collections_Hashtable : System_Object <System_Collections_IDictionary_, System_Collections_ICollection_, System_Collections_IEnumerable_, System_Runtime_Serialization_ISerializable_, System_Runtime_Serialization_IDeserializationCallback_, System_ICloneable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -27,62 +27,62 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Int32, System.Single, System.Collections.IHashCodeProvider, System.Collections.IComparer
-    + (System_Collections_Hashtable *)new_withCapacity:(int32_t)p1 loadFactor:(float)p2 hcp:(System_Collections_IHashCodeProvider *)p3 comparer:(System_Collections_IComparer *)p4;
+    + (System_Collections_Hashtable *)new_withCapacity:(int32_t)p1 loadFactor:(float)p2 hcp:(id <System_Collections_IHashCodeProvider_>)p3 comparer:(id <System_Collections_IComparer_>)p4;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Int32, System.Single, System.Collections.IEqualityComparer
-    + (System_Collections_Hashtable *)new_withCapacity:(int32_t)p1 loadFactor:(float)p2 equalityComparer:(System_Collections_IEqualityComparer *)p3;
+    + (System_Collections_Hashtable *)new_withCapacity:(int32_t)p1 loadFactor:(float)p2 equalityComparer:(id <System_Collections_IEqualityComparer_>)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Collections.IHashCodeProvider, System.Collections.IComparer
-    + (System_Collections_Hashtable *)new_withHcp:(System_Collections_IHashCodeProvider *)p1 comparer:(System_Collections_IComparer *)p2;
+    + (System_Collections_Hashtable *)new_withHcp:(id <System_Collections_IHashCodeProvider_>)p1 comparer:(id <System_Collections_IComparer_>)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Collections.IEqualityComparer
-    + (System_Collections_Hashtable *)new_withEqualityComparer:(System_Collections_IEqualityComparer *)p1;
+    + (System_Collections_Hashtable *)new_withEqualityComparer:(id <System_Collections_IEqualityComparer_>)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Int32, System.Collections.IHashCodeProvider, System.Collections.IComparer
-    + (System_Collections_Hashtable *)new_withCapacity:(int32_t)p1 hcp:(System_Collections_IHashCodeProvider *)p2 comparer:(System_Collections_IComparer *)p3;
+    + (System_Collections_Hashtable *)new_withCapacity:(int32_t)p1 hcp:(id <System_Collections_IHashCodeProvider_>)p2 comparer:(id <System_Collections_IComparer_>)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Int32, System.Collections.IEqualityComparer
-    + (System_Collections_Hashtable *)new_withCapacity:(int32_t)p1 equalityComparer:(System_Collections_IEqualityComparer *)p2;
+    + (System_Collections_Hashtable *)new_withCapacity:(int32_t)p1 equalityComparer:(id <System_Collections_IEqualityComparer_>)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Collections.IDictionary
-    + (System_Collections_Hashtable *)new_withD:(System_Collections_IDictionary *)p1;
+    + (System_Collections_Hashtable *)new_withD:(id <System_Collections_IDictionary_>)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Collections.IDictionary, System.Single
-    + (System_Collections_Hashtable *)new_withD:(System_Collections_IDictionary *)p1 loadFactor:(float)p2;
+    + (System_Collections_Hashtable *)new_withD:(id <System_Collections_IDictionary_>)p1 loadFactor:(float)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Collections.IDictionary, System.Collections.IHashCodeProvider, System.Collections.IComparer
-    + (System_Collections_Hashtable *)new_withD:(System_Collections_IDictionary *)p1 hcp:(System_Collections_IHashCodeProvider *)p2 comparer:(System_Collections_IComparer *)p3;
+    + (System_Collections_Hashtable *)new_withD:(id <System_Collections_IDictionary_>)p1 hcp:(id <System_Collections_IHashCodeProvider_>)p2 comparer:(id <System_Collections_IComparer_>)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Collections.IDictionary, System.Collections.IEqualityComparer
-    + (System_Collections_Hashtable *)new_withD:(System_Collections_IDictionary *)p1 equalityComparer:(System_Collections_IEqualityComparer *)p2;
+    + (System_Collections_Hashtable *)new_withD:(id <System_Collections_IDictionary_>)p1 equalityComparer:(id <System_Collections_IEqualityComparer_>)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Collections.IDictionary, System.Single, System.Collections.IHashCodeProvider, System.Collections.IComparer
-    + (System_Collections_Hashtable *)new_withD:(System_Collections_IDictionary *)p1 loadFactor:(float)p2 hcp:(System_Collections_IHashCodeProvider *)p3 comparer:(System_Collections_IComparer *)p4;
+    + (System_Collections_Hashtable *)new_withD:(id <System_Collections_IDictionary_>)p1 loadFactor:(float)p2 hcp:(id <System_Collections_IHashCodeProvider_>)p3 comparer:(id <System_Collections_IComparer_>)p4;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Hashtable
 	// Managed param types : System.Collections.IDictionary, System.Single, System.Collections.IEqualityComparer
-    + (System_Collections_Hashtable *)new_withD:(System_Collections_IDictionary *)p1 loadFactor:(float)p2 equalityComparer:(System_Collections_IEqualityComparer *)p3;
+    + (System_Collections_Hashtable *)new_withD:(id <System_Collections_IDictionary_>)p1 loadFactor:(float)p2 equalityComparer:(id <System_Collections_IEqualityComparer_>)p3;
 
 #pragma mark -
 #pragma mark Properties
@@ -160,7 +160,7 @@
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IDictionaryEnumerator
 	// Managed param types : 
-    - (System_Collections_IDictionaryEnumerator *)getEnumerator;
+    - (id <System_Collections_IDictionaryEnumerator>)getEnumerator;
 
 	// Managed method name : GetObjectData
 	// Managed return type : System.Void

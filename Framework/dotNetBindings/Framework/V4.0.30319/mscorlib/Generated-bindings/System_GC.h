@@ -44,17 +44,27 @@
 	// Managed method name : Collect
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, System.GCCollectionMode
-    + (void)collect_withGeneration:(int32_t)p1 mode:(System_GCCollectionMode)p2;
+    + (void)collect_withGeneration:(int32_t)p1 mode:(int32_t)p2;
 
 	// Managed method name : Collect
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, System.GCCollectionMode, System.Boolean
-    + (void)collect_withGeneration:(int32_t)p1 mode:(System_GCCollectionMode)p2 blocking:(BOOL)p3;
+    + (void)collect_withGeneration:(int32_t)p1 mode:(int32_t)p2 blocking:(BOOL)p3;
+
+	// Managed method name : Collect
+	// Managed return type : System.Void
+	// Managed param types : System.Int32, System.GCCollectionMode, System.Boolean, System.Boolean
+    + (void)collect_withGeneration:(int32_t)p1 mode:(int32_t)p2 blocking:(BOOL)p3 compacting:(BOOL)p4;
 
 	// Managed method name : CollectionCount
 	// Managed return type : System.Int32
 	// Managed param types : System.Int32
     + (int32_t)collectionCount_withGeneration:(int32_t)p1;
+
+	// Managed method name : EndNoGCRegion
+	// Managed return type : System.Void
+	// Managed param types : 
+    + (void)endNoGCRegion;
 
 	// Managed method name : GetGeneration
 	// Managed return type : System.Int32
@@ -96,25 +106,45 @@
 	// Managed param types : System.Object
     + (void)suppressFinalize_withObj:(System_Object *)p1;
 
+	// Managed method name : TryStartNoGCRegion
+	// Managed return type : System.Boolean
+	// Managed param types : System.Int64
+    + (BOOL)tryStartNoGCRegion_withTotalSize:(int64_t)p1;
+
+	// Managed method name : TryStartNoGCRegion
+	// Managed return type : System.Boolean
+	// Managed param types : System.Int64, System.Int64
+    + (BOOL)tryStartNoGCRegion_withTotalSize:(int64_t)p1 lohSize:(int64_t)p2;
+
+	// Managed method name : TryStartNoGCRegion
+	// Managed return type : System.Boolean
+	// Managed param types : System.Int64, System.Boolean
+    + (BOOL)tryStartNoGCRegion_withTotalSize:(int64_t)p1 disallowFullBlockingGC:(BOOL)p2;
+
+	// Managed method name : TryStartNoGCRegion
+	// Managed return type : System.Boolean
+	// Managed param types : System.Int64, System.Int64, System.Boolean
+    + (BOOL)tryStartNoGCRegion_withTotalSize:(int64_t)p1 lohSize:(int64_t)p2 disallowFullBlockingGC:(BOOL)p3;
+
 	// Managed method name : WaitForFullGCApproach
 	// Managed return type : System.GCNotificationStatus
 	// Managed param types : 
-    + (System_GCNotificationStatus)waitForFullGCApproach;
+    + (int32_t)waitForFullGCApproach;
 
 	// Managed method name : WaitForFullGCApproach
 	// Managed return type : System.GCNotificationStatus
 	// Managed param types : System.Int32
-    + (System_GCNotificationStatus)waitForFullGCApproach_withMillisecondsTimeout:(int32_t)p1;
+    + (int32_t)waitForFullGCApproach_withMillisecondsTimeout:(int32_t)p1;
 
 	// Managed method name : WaitForFullGCComplete
 	// Managed return type : System.GCNotificationStatus
 	// Managed param types : 
-    + (System_GCNotificationStatus)waitForFullGCComplete;
+    + (int32_t)waitForFullGCComplete;
 
 	// Managed method name : WaitForFullGCComplete
 	// Managed return type : System.GCNotificationStatus
 	// Managed param types : System.Int32
-    + (System_GCNotificationStatus)waitForFullGCComplete_withMillisecondsTimeout:(int32_t)p1;
+    + (int32_t)waitForFullGCComplete_withMillisecondsTimeout:(int32_t)p1;
 
 	// Managed method name : WaitForPendingFinalizers
 	// Managed return type : System.Void

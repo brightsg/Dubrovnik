@@ -2,7 +2,7 @@
 //
 // Managed class : UTF32Encoding
 //
-@interface System_Text_UTF32Encoding : System_Text_Encoding <System_ICloneable>
+@interface System_Text_UTF32Encoding : System_Text_Encoding <System_ICloneable_>
 
 #pragma mark -
 #pragma mark Setup

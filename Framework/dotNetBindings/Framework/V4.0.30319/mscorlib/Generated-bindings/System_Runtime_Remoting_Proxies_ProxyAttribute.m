@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_MarshalByRefObject objectWithMonoObject:monoObject];
+		return [System_MarshalByRefObject bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateProxy
@@ -46,21 +46,23 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateProxy(System.Runtime.Remoting.ObjRef,System.Type,object,System.Runtime.Remoting.Contexts.Context)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_Proxies_RealProxy objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Proxies_RealProxy bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetPropertiesForNewContext
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Activation.IConstructionCallMessage
-    - (void)getPropertiesForNewContext_withMsg:(System_Runtime_Remoting_Activation_IConstructionCallMessage *)p1
+    - (void)getPropertiesForNewContext_withMsg:(id <System_Runtime_Remoting_Activation_IConstructionCallMessage_>)p1
     {
-		[self invokeMonoMethod:"GetPropertiesForNewContext(System.Runtime.Remoting.Activation.IConstructionCallMessage)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"GetPropertiesForNewContext(System.Runtime.Remoting.Activation.IConstructionCallMessage)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : IsContextOK
 	// Managed return type : System.Boolean
 	// Managed param types : System.Runtime.Remoting.Contexts.Context, System.Runtime.Remoting.Activation.IConstructionCallMessage
-    - (BOOL)isContextOK_withCtx:(System_Runtime_Remoting_Contexts_Context *)p1 msg:(System_Runtime_Remoting_Activation_IConstructionCallMessage *)p2
+    - (BOOL)isContextOK_withCtx:(System_Runtime_Remoting_Contexts_Context *)p1 msg:(id <System_Runtime_Remoting_Activation_IConstructionCallMessage_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsContextOK(System.Runtime.Remoting.Contexts.Context,System.Runtime.Remoting.Activation.IConstructionCallMessage)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];

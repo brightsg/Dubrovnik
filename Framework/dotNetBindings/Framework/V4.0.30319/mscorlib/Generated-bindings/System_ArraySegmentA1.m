@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.ArraySegment`1<System.ArraySegment`1+T>";
+		return "System.ArraySegment`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -29,31 +29,47 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.ArraySegment`1<System.ArraySegment`1+T>
-	// Managed param types : <T[]>
-    + (System_ArraySegmentA1 *)new_withArray:(System_Object *)p1
+	// Managed param types : T[]
+    + (System_ArraySegmentA1 *)new_withArray:(DBSystem_Array *)p1
     {
-		return [[self alloc] initWithSignature:"<_T_0>[]" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_ArraySegmentA1 * object = [[self alloc] initWithSignature:"T[]" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.ArraySegment`1<System.ArraySegment`1+T>
-	// Managed param types : <T[]>, System.Int32, System.Int32
-    + (System_ArraySegmentA1 *)new_withArray:(System_Object *)p1 offset:(int32_t)p2 count:(int32_t)p3
+	// Managed param types : T[], System.Int32, System.Int32
+    + (System_ArraySegmentA1 *)new_withArray:(DBSystem_Array *)p1 offset:(int32_t)p2 count:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"<_T_0>[],int,int" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		System_ArraySegmentA1 * object = [[self alloc] initWithSignature:"T[],int,int" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+        
+        return object;
     }
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Array
-	// Managed property type : <T[]>
+	// Managed property type : T[]
     @synthesize array = _array;
-    - (System_Object *)array
+    - (DBSystem_Array *)array
     {
-		MonoObject *monoObject = [self getMonoProperty:"Array"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Array");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_array isEqualToMonoObject:monoObject]) return _array;					
-		_array = [System_Object subclassObjectWithMonoObject:monoObject];
+		_array = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
 		return _array;
 	}
@@ -63,8 +79,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -74,8 +100,18 @@
     @synthesize offset = _offset;
     - (int32_t)offset
     {
-		MonoObject *monoObject = [self getMonoProperty:"Offset"];
-		_offset = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Offset");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_offset = monoObject;
 
 		return _offset;
 	}
@@ -97,7 +133,7 @@
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
 	// Managed param types : System.ArraySegment`1<System.ArraySegment`1+T>
-    - (BOOL)equals_withObjSArraySegmentA1:(System_ArraySegmentA1 *)p1
+    - (BOOL)equals_withObjSAArraySegmentA1__T:(System_ArraySegmentA1 *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.ArraySegment`1<System.ArraySegment`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];

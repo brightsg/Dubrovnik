@@ -2,7 +2,7 @@
 //
 // Managed interface : IMembershipCondition
 //
-@interface System_Security_Policy_IMembershipCondition : System_Object <System_Security_Policy_IMembershipCondition, System_Security_ISecurityEncodable, System_Security_ISecurityPolicyEncodable>
+@interface System_Security_Policy_IMembershipCondition : System_Object <System_Security_Policy_IMembershipCondition_, System_Security_ISecurityEncodable_, System_Security_ISecurityPolicyEncodable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -22,7 +22,7 @@
 	// Managed method name : Copy
 	// Managed return type : System.Security.Policy.IMembershipCondition
 	// Managed param types : 
-    - (System_Security_Policy_IMembershipCondition *)copy;
+    - (id <System_Security_Policy_IMembershipCondition>)copy;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

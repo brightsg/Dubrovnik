@@ -32,7 +32,17 @@
     @synthesize asyncState = _asyncState;
     - (System_Object *)asyncState
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.IAsyncResult.AsyncState"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.IAsyncResult.AsyncState");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_asyncState isEqualToMonoObject:monoObject]) return _asyncState;					
 		_asyncState = [System_Object objectWithMonoObject:monoObject];
 
@@ -44,9 +54,19 @@
     @synthesize asyncWaitHandle = _asyncWaitHandle;
     - (System_Threading_WaitHandle *)asyncWaitHandle
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.IAsyncResult.AsyncWaitHandle"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.IAsyncResult.AsyncWaitHandle");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_asyncWaitHandle isEqualToMonoObject:monoObject]) return _asyncWaitHandle;					
-		_asyncWaitHandle = [System_Threading_WaitHandle objectWithMonoObject:monoObject];
+		_asyncWaitHandle = [System_Threading_WaitHandle bestObjectWithMonoObject:monoObject];
 
 		return _asyncWaitHandle;
 	}
@@ -56,8 +76,18 @@
     @synthesize completedSynchronously = _completedSynchronously;
     - (BOOL)completedSynchronously
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.IAsyncResult.CompletedSynchronously"];
-		_completedSynchronously = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.IAsyncResult.CompletedSynchronously");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_completedSynchronously = monoObject;
 
 		return _completedSynchronously;
 	}
@@ -67,8 +97,18 @@
     @synthesize isCompleted = _isCompleted;
     - (BOOL)isCompleted
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.IAsyncResult.IsCompleted"];
-		_isCompleted = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.IAsyncResult.IsCompleted");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isCompleted = monoObject;
 
 		return _isCompleted;
 	}

@@ -45,22 +45,22 @@
 	// Managed method name : IsGranted
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.IPermission
-    + (BOOL)isGranted_withPerm:(System_Security_IPermission *)p1;
+    + (BOOL)isGranted_withPerm:(id <System_Security_IPermission_>)p1;
 
 	// Managed method name : LoadPolicyLevelFromFile
 	// Managed return type : System.Security.Policy.PolicyLevel
 	// Managed param types : System.String, System.Security.PolicyLevelType
-    + (System_Security_Policy_PolicyLevel *)loadPolicyLevelFromFile_withPath:(NSString *)p1 type:(System_Security_PolicyLevelType)p2;
+    + (System_Security_Policy_PolicyLevel *)loadPolicyLevelFromFile_withPath:(NSString *)p1 type:(int32_t)p2;
 
 	// Managed method name : LoadPolicyLevelFromString
 	// Managed return type : System.Security.Policy.PolicyLevel
 	// Managed param types : System.String, System.Security.PolicyLevelType
-    + (System_Security_Policy_PolicyLevel *)loadPolicyLevelFromString_withStr:(NSString *)p1 type:(System_Security_PolicyLevelType)p2;
+    + (System_Security_Policy_PolicyLevel *)loadPolicyLevelFromString_withStr:(NSString *)p1 type:(int32_t)p2;
 
 	// Managed method name : PolicyHierarchy
 	// Managed return type : System.Collections.IEnumerator
 	// Managed param types : 
-    + (System_Collections_IEnumerator *)policyHierarchy;
+    + (id <System_Collections_IEnumerator>)policyHierarchy;
 
 	// Managed method name : ResolvePolicy
 	// Managed return type : System.Security.PermissionSet
@@ -80,7 +80,7 @@
 	// Managed method name : ResolvePolicyGroups
 	// Managed return type : System.Collections.IEnumerator
 	// Managed param types : System.Security.Policy.Evidence
-    + (System_Collections_IEnumerator *)resolvePolicyGroups_withEvidence:(System_Security_Policy_Evidence *)p1;
+    + (id <System_Collections_IEnumerator>)resolvePolicyGroups_withEvidence:(System_Security_Policy_Evidence *)p1;
 
 	// Managed method name : ResolveSystemPolicy
 	// Managed return type : System.Security.PermissionSet

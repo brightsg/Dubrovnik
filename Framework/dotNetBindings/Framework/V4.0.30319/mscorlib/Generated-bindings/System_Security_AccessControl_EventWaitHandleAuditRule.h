@@ -17,13 +17,13 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.EventWaitHandleAuditRule
 	// Managed param types : System.Security.Principal.IdentityReference, System.Security.AccessControl.EventWaitHandleRights, System.Security.AccessControl.AuditFlags
-    + (System_Security_AccessControl_EventWaitHandleAuditRule *)new_withIdentity:(System_Security_Principal_IdentityReference *)p1 eventRights:(System_Security_AccessControl_EventWaitHandleRights)p2 flags:(System_Security_AccessControl_AuditFlags)p3;
+    + (System_Security_AccessControl_EventWaitHandleAuditRule *)new_withIdentity:(System_Security_Principal_IdentityReference *)p1 eventRights:(int32_t)p2 flags:(int32_t)p3;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : EventWaitHandleRights
 	// Managed property type : System.Security.AccessControl.EventWaitHandleRights
-    @property (nonatomic, readonly) System_Security_AccessControl_EventWaitHandleRights eventWaitHandleRights;
+    @property (nonatomic, readonly) int32_t eventWaitHandleRights;
 @end
 //--Dubrovnik.CodeGenerator

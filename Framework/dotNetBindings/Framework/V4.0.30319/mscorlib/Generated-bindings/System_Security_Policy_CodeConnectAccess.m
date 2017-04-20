@@ -32,7 +32,10 @@
 	// Managed param types : System.String, System.Int32
     + (System_Security_Policy_CodeConnectAccess *)new_withAllowScheme:(NSString *)p1 allowPort:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"string,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		System_Security_Policy_CodeConnectAccess * object = [[self alloc] initWithSignature:"string,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -92,8 +95,18 @@
     @synthesize port = _port;
     - (int32_t)port
     {
-		MonoObject *monoObject = [self getMonoProperty:"Port"];
-		_port = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Port");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_port = monoObject;
 
 		return _port;
 	}
@@ -103,7 +116,17 @@
     @synthesize scheme = _scheme;
     - (NSString *)scheme
     {
-		MonoObject *monoObject = [self getMonoProperty:"Scheme"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Scheme");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_scheme isEqualToMonoObject:monoObject]) return _scheme;					
 		_scheme = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -121,7 +144,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateAnySchemeAccess(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Security_Policy_CodeConnectAccess objectWithMonoObject:monoObject];
+		return [System_Security_Policy_CodeConnectAccess bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateOriginSchemeAccess
@@ -132,7 +155,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateOriginSchemeAccess(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Security_Policy_CodeConnectAccess objectWithMonoObject:monoObject];
+		return [System_Security_Policy_CodeConnectAccess bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals

@@ -30,9 +30,11 @@
 	// Managed method name : ReportEvent
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.InteropServices.ImporterEventKind, System.Int32, System.String
-    - (void)reportEvent_withEventKind:(System_Runtime_InteropServices_ImporterEventKind)p1 eventCode:(int32_t)p2 eventMsg:(NSString *)p3
+    - (void)reportEvent_withEventKind:(int32_t)p1 eventCode:(int32_t)p2 eventMsg:(NSString *)p3
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ITypeLibImporterNotifySink.ReportEvent(System.Runtime.InteropServices.ImporterEventKind,int,string)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ITypeLibImporterNotifySink.ReportEvent(System.Runtime.InteropServices.ImporterEventKind,int,string)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : ResolveRef
@@ -43,7 +45,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ITypeLibImporterNotifySink.ResolveRef(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

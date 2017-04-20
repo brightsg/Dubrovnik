@@ -32,9 +32,19 @@
     @synthesize rootScope = _rootScope;
     - (System_Diagnostics_SymbolStore_ISymbolScope *)rootScope
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Diagnostics.SymbolStore.ISymbolMethod.RootScope"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Diagnostics.SymbolStore.ISymbolMethod.RootScope");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_rootScope isEqualToMonoObject:monoObject]) return _rootScope;					
-		_rootScope = [System_Diagnostics_SymbolStore_ISymbolScope objectWithMonoObject:monoObject];
+		_rootScope = [System_Diagnostics_SymbolStore_ISymbolScope bestObjectWithMonoObject:monoObject];
 
 		return _rootScope;
 	}
@@ -44,8 +54,18 @@
     @synthesize sequencePointCount = _sequencePointCount;
     - (int32_t)sequencePointCount
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Diagnostics.SymbolStore.ISymbolMethod.SequencePointCount"];
-		_sequencePointCount = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Diagnostics.SymbolStore.ISymbolMethod.SequencePointCount");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_sequencePointCount = monoObject;
 
 		return _sequencePointCount;
 	}
@@ -55,9 +75,19 @@
     @synthesize token = _token;
     - (System_Diagnostics_SymbolStore_SymbolToken *)token
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Diagnostics.SymbolStore.ISymbolMethod.Token"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Diagnostics.SymbolStore.ISymbolMethod.Token");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_token isEqualToMonoObject:monoObject]) return _token;					
-		_token = [System_Diagnostics_SymbolStore_SymbolToken objectWithMonoObject:monoObject];
+		_token = [System_Diagnostics_SymbolStore_SymbolToken bestObjectWithMonoObject:monoObject];
 
 		return _token;
 	}
@@ -68,18 +98,18 @@
 	// Managed method name : GetNamespace
 	// Managed return type : System.Diagnostics.SymbolStore.ISymbolNamespace
 	// Managed param types : 
-    - (System_Diagnostics_SymbolStore_ISymbolNamespace *)getNamespace
+    - (id <System_Diagnostics_SymbolStore_ISymbolNamespace>)getNamespace
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Diagnostics.SymbolStore.ISymbolMethod.GetNamespace()" withNumArgs:0];
 		
-		return [System_Diagnostics_SymbolStore_ISymbolNamespace objectWithMonoObject:monoObject];
+		return [System_Diagnostics_SymbolStore_ISymbolNamespace bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetOffset
 	// Managed return type : System.Int32
 	// Managed param types : System.Diagnostics.SymbolStore.ISymbolDocument, System.Int32, System.Int32
-    - (int32_t)getOffset_withDocument:(System_Diagnostics_SymbolStore_ISymbolDocument *)p1 line:(int32_t)p2 column:(int32_t)p3
+    - (int32_t)getOffset_withDocument:(id <System_Diagnostics_SymbolStore_ISymbolDocument_>)p1 line:(int32_t)p2 column:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Diagnostics.SymbolStore.ISymbolMethod.GetOffset(System.Diagnostics.SymbolStore.ISymbolDocument,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
@@ -101,7 +131,7 @@
 	// Managed method name : GetRanges
 	// Managed return type : System.Int32[]
 	// Managed param types : System.Diagnostics.SymbolStore.ISymbolDocument, System.Int32, System.Int32
-    - (DBSystem_Array *)getRanges_withDocument:(System_Diagnostics_SymbolStore_ISymbolDocument *)p1 line:(int32_t)p2 column:(int32_t)p3
+    - (DBSystem_Array *)getRanges_withDocument:(id <System_Diagnostics_SymbolStore_ISymbolDocument_>)p1 line:(int32_t)p2 column:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Diagnostics.SymbolStore.ISymbolMethod.GetRanges(System.Diagnostics.SymbolStore.ISymbolDocument,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
@@ -112,12 +142,12 @@
 	// Managed method name : GetScope
 	// Managed return type : System.Diagnostics.SymbolStore.ISymbolScope
 	// Managed param types : System.Int32
-    - (System_Diagnostics_SymbolStore_ISymbolScope *)getScope_withOffset:(int32_t)p1
+    - (id <System_Diagnostics_SymbolStore_ISymbolScope>)getScope_withOffset:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Diagnostics.SymbolStore.ISymbolMethod.GetScope(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Diagnostics_SymbolStore_ISymbolScope objectWithMonoObject:monoObject];
+		return [System_Diagnostics_SymbolStore_ISymbolScope bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetSequencePoints
@@ -125,7 +155,9 @@
 	// Managed param types : System.Int32[], System.Diagnostics.SymbolStore.ISymbolDocument[], System.Int32[], System.Int32[], System.Int32[], System.Int32[]
     - (void)getSequencePoints_withOffsets:(DBSystem_Array *)p1 documents:(DBSystem_Array *)p2 lines:(DBSystem_Array *)p3 columns:(DBSystem_Array *)p4 endLines:(DBSystem_Array *)p5 endColumns:(DBSystem_Array *)p6
     {
-		[self invokeMonoMethod:"System.Diagnostics.SymbolStore.ISymbolMethod.GetSequencePoints(int[],System.Array[],int[],int[],int[],int[])" withNumArgs:6, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Diagnostics.SymbolStore.ISymbolMethod.GetSequencePoints(int[],System.Diagnostics.SymbolStore.ISymbolDocument[],int[],int[],int[],int[])" withNumArgs:6, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetSourceStartEnd
@@ -134,7 +166,7 @@
     - (BOOL)getSourceStartEnd_withDocs:(DBSystem_Array *)p1 lines:(DBSystem_Array *)p2 columns:(DBSystem_Array *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Diagnostics.SymbolStore.ISymbolMethod.GetSourceStartEnd(System.Array[],int[],int[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Diagnostics.SymbolStore.ISymbolMethod.GetSourceStartEnd(System.Diagnostics.SymbolStore.ISymbolDocument[],int[],int[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

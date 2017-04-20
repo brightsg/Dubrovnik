@@ -2,7 +2,7 @@
 //
 // Managed class : Version
 //
-@interface System_Version : System_Object <System_ICloneable, System_IComparable, System_IComparableA1, System_IEquatableA1>
+@interface System_Version : System_Object <System_ICloneable_, System_IComparable_, System_IComparableA1_, System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup

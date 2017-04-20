@@ -2,7 +2,7 @@
 //
 // Managed class : FlagsAttribute
 //
-@interface System_FlagsAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_FlagsAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup

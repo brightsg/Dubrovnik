@@ -2,7 +2,7 @@
 //
 // Managed class : AssemblyFlagsAttribute
 //
-@interface System_Reflection_AssemblyFlagsAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Reflection_AssemblyFlagsAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -27,7 +27,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Reflection.AssemblyFlagsAttribute
 	// Managed param types : System.Reflection.AssemblyNameFlags
-    + (System_Reflection_AssemblyFlagsAttribute *)new_withAssemblyFlagsSRAssemblyNameFlags:(System_Reflection_AssemblyNameFlags)p1;
+    + (System_Reflection_AssemblyFlagsAttribute *)new_withAssemblyFlagsSRAssemblyNameFlags:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties

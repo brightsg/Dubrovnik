@@ -41,7 +41,7 @@
 	// Managed method name : Convert
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.TypeCode
-    - (System_Object *)convert_withValue:(System_Object *)p1 typeCode:(System_TypeCode)p2
+    - (System_Object *)convert_withValue:(System_Object *)p1 typeCode:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Convert(object,System.TypeCode)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];

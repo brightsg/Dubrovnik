@@ -32,7 +32,10 @@
 	// Managed param types : System.Byte[], System.String, System.Version, System.String, System.String
     + (System_ApplicationId *)new_withPublicKeyToken:(NSData *)p1 name:(NSString *)p2 version:(System_Version *)p3 processorArchitecture:(NSString *)p4 culture:(NSString *)p5
     {
-		return [[self alloc] initWithSignature:"byte[],string,System.Version,string,string" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];;
+		
+		System_ApplicationId * object = [[self alloc] initWithSignature:"byte[],string,System.Version,string,string" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,7 +46,17 @@
     @synthesize culture = _culture;
     - (NSString *)culture
     {
-		MonoObject *monoObject = [self getMonoProperty:"Culture"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Culture");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_culture isEqualToMonoObject:monoObject]) return _culture;					
 		_culture = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -55,7 +68,17 @@
     @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -67,7 +90,17 @@
     @synthesize processorArchitecture = _processorArchitecture;
     - (NSString *)processorArchitecture
     {
-		MonoObject *monoObject = [self getMonoProperty:"ProcessorArchitecture"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ProcessorArchitecture");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_processorArchitecture isEqualToMonoObject:monoObject]) return _processorArchitecture;					
 		_processorArchitecture = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -79,7 +112,17 @@
     @synthesize publicKeyToken = _publicKeyToken;
     - (NSData *)publicKeyToken
     {
-		MonoObject *monoObject = [self getMonoProperty:"PublicKeyToken"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PublicKeyToken");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_publicKeyToken isEqualToMonoObject:monoObject]) return _publicKeyToken;					
 		_publicKeyToken = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -91,9 +134,19 @@
     @synthesize version = _version;
     - (System_Version *)version
     {
-		MonoObject *monoObject = [self getMonoProperty:"Version"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Version");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_version isEqualToMonoObject:monoObject]) return _version;					
-		_version = [System_Version objectWithMonoObject:monoObject];
+		_version = [System_Version bestObjectWithMonoObject:monoObject];
 
 		return _version;
 	}
@@ -109,7 +162,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
 		
-		return [System_ApplicationId objectWithMonoObject:monoObject];
+		return [System_ApplicationId bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals

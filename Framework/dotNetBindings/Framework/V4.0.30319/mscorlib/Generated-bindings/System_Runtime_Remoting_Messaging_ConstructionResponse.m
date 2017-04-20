@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Remoting.Messaging.ConstructionResponse
 	// Managed param types : System.Runtime.Remoting.Messaging.Header[], System.Runtime.Remoting.Messaging.IMethodCallMessage
-    + (System_Runtime_Remoting_Messaging_ConstructionResponse *)new_withH:(DBSystem_Array *)p1 mcm:(System_Runtime_Remoting_Messaging_IMethodCallMessage *)p2
+    + (System_Runtime_Remoting_Messaging_ConstructionResponse *)new_withH:(DBSystem_Array *)p1 mcm:(id <System_Runtime_Remoting_Messaging_IMethodCallMessage_>)p2
     {
-		return [[self alloc] initWithSignature:"System.Array[],System.Runtime.Remoting.Messaging.IMethodCallMessage" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Runtime_Remoting_Messaging_ConstructionResponse * object = [[self alloc] initWithSignature:"System.Runtime.Remoting.Messaging.Header[],System.Runtime.Remoting.Messaging.IMethodCallMessage" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,9 +46,19 @@
     @synthesize properties = _properties;
     - (System_Collections_IDictionary *)properties
     {
-		MonoObject *monoObject = [self getMonoProperty:"Properties"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Properties");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_properties isEqualToMonoObject:monoObject]) return _properties;					
-		_properties = [System_Collections_IDictionary objectWithMonoObject:monoObject];
+		_properties = [System_Collections_IDictionary bestObjectWithMonoObject:monoObject];
 
 		return _properties;
 	}

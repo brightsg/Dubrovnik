@@ -2,7 +2,7 @@
 //
 // Managed class : RegistrationServices
 //
-@interface System_Runtime_InteropServices_RegistrationServices : System_Object <System_Runtime_InteropServices_IRegistrationServices>
+@interface System_Runtime_InteropServices_RegistrationServices : System_Object <System_Runtime_InteropServices_IRegistrationServices_>
 
 #pragma mark -
 #pragma mark Setup
@@ -32,7 +32,7 @@
 	// Managed method name : RegisterAssembly
 	// Managed return type : System.Boolean
 	// Managed param types : System.Reflection.Assembly, System.Runtime.InteropServices.AssemblyRegistrationFlags
-    - (BOOL)registerAssembly_withAssembly:(System_Reflection_Assembly *)p1 flags:(System_Runtime_InteropServices_AssemblyRegistrationFlags)p2;
+    - (BOOL)registerAssembly_withAssembly:(System_Reflection_Assembly *)p1 flags:(int32_t)p2;
 
 	// Managed method name : RegisterTypeForComClients
 	// Managed return type : System.Void
@@ -42,7 +42,7 @@
 	// Managed method name : RegisterTypeForComClients
 	// Managed return type : System.Int32
 	// Managed param types : System.Type, System.Runtime.InteropServices.RegistrationClassContext, System.Runtime.InteropServices.RegistrationConnectionType
-    - (int32_t)registerTypeForComClients_withType:(System_Type *)p1 classContext:(System_Runtime_InteropServices_RegistrationClassContext)p2 flags:(System_Runtime_InteropServices_RegistrationConnectionType)p3;
+    - (int32_t)registerTypeForComClients_withType:(System_Type *)p1 classContext:(int32_t)p2 flags:(int32_t)p3;
 
 	// Managed method name : TypeRepresentsComType
 	// Managed return type : System.Boolean

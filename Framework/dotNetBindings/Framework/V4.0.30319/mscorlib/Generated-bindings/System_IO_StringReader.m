@@ -32,7 +32,10 @@
 	// Managed param types : System.String
     + (System_IO_StringReader *)new_withS:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_IO_StringReader * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,7 +46,9 @@
 	// Managed param types : 
     - (void)close
     {
-		[self invokeMonoMethod:"Close()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Close()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Peek
@@ -87,7 +92,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadAsync(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
-		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReadBlockAsync
@@ -98,7 +103,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadBlockAsync(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
-		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReadLine
@@ -120,7 +125,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadLineAsync()" withNumArgs:0];
 		
-		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReadToEnd
@@ -142,7 +147,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadToEndAsync()" withNumArgs:0];
 		
-		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

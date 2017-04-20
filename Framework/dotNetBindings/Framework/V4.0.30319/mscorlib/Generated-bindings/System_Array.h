@@ -2,7 +2,7 @@
 //
 // Managed class : Array
 //
-@interface System_Array : System_Object <System_ICloneable, System_Collections_IList, System_Collections_ICollection, System_Collections_IEnumerable, System_Collections_IStructuralComparable, System_Collections_IStructuralEquatable>
+@interface System_Array : System_Object <System_ICloneable_, System_Collections_IList_, System_Collections_ICollection_, System_Collections_IEnumerable_, System_Collections_IStructuralComparable_, System_Collections_IStructuralEquatable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -47,8 +47,8 @@
 
 	// Managed method name : AsReadOnly
 	// Managed return type : System.Collections.ObjectModel.ReadOnlyCollection`1<System.Array+T>
-	// Managed param types : <T[]>
-    + (System_Collections_ObjectModel_ReadOnlyCollectionA1 *)asReadOnly_withArray:(System_Object *)p1;
+	// Managed param types : T[]
+    + (System_Collections_ObjectModel_ReadOnlyCollectionA1 *)asReadOnly_withArray:(DBSystem_Array *)p1;
 
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
@@ -63,32 +63,32 @@
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
 	// Managed param types : System.Array, System.Object, System.Collections.IComparer
-    + (int32_t)binarySearch_withArraySArray:(DBSystem_Array *)p1 valueObject:(System_Object *)p2 comparerSCIComparer:(System_Collections_IComparer *)p3;
+    + (int32_t)binarySearch_withArraySArray:(DBSystem_Array *)p1 valueObject:(System_Object *)p2 comparerSCIComparer:(id <System_Collections_IComparer_>)p3;
 
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
 	// Managed param types : System.Array, System.Int32, System.Int32, System.Object, System.Collections.IComparer
-    + (int32_t)binarySearch_withArraySArray:(DBSystem_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueObject:(System_Object *)p4 comparerSCIComparer:(System_Collections_IComparer *)p5;
+    + (int32_t)binarySearch_withArraySArray:(DBSystem_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueObject:(System_Object *)p4 comparerSCIComparer:(id <System_Collections_IComparer_>)p5;
 
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
-	// Managed param types : <T[]>, <System.Array+T>
-    + (int32_t)binarySearch_withArray:(System_Object *)p1 value:(System_Object *)p2;
+	// Managed param types : T[], <System.Array+T>
+    + (int32_t)binarySearch_withArrayT:(DBSystem_Array *)p1 value_T_0:(System_Object *)p2;
 
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
-	// Managed param types : <T[]>, <System.Array+T>, System.Collections.Generic.IComparer`1<System.Array+T>
-    + (int32_t)binarySearch_withArray:(System_Object *)p1 value:(System_Object *)p2 comparerSCGIComparerA1:(System_Collections_Generic_IComparerA1 *)p3;
+	// Managed param types : T[], <System.Array+T>, System.Collections.Generic.IComparer`1<System.Array+T>
+    + (int32_t)binarySearch_withArrayT:(DBSystem_Array *)p1 value_T_0:(System_Object *)p2 comparerSCGIArray__T:(id <System_Collections_Generic_IComparerA1_>)p3;
 
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
-	// Managed param types : <T[]>, System.Int32, System.Int32, <System.Array+T>
-    + (int32_t)binarySearch_withArray:(System_Object *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 value:(System_Object *)p4;
+	// Managed param types : T[], System.Int32, System.Int32, <System.Array+T>
+    + (int32_t)binarySearch_withArrayT:(DBSystem_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 value_T_0:(System_Object *)p4;
 
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
-	// Managed param types : <T[]>, System.Int32, System.Int32, <System.Array+T>, System.Collections.Generic.IComparer`1<System.Array+T>
-    + (int32_t)binarySearch_withArray:(System_Object *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 value:(System_Object *)p4 comparerSCGIComparerA1:(System_Collections_Generic_IComparerA1 *)p5;
+	// Managed param types : T[], System.Int32, System.Int32, <System.Array+T>, System.Collections.Generic.IComparer`1<System.Array+T>
+    + (int32_t)binarySearch_withArrayT:(DBSystem_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 value_T_0:(System_Object *)p4 comparerSCGIArray__T:(id <System_Collections_Generic_IComparerA1_>)p5;
 
 	// Managed method name : Clear
 	// Managed return type : System.Void
@@ -106,9 +106,9 @@
     + (void)constrainedCopy_withSourceArray:(DBSystem_Array *)p1 sourceIndex:(int32_t)p2 destinationArray:(DBSystem_Array *)p3 destinationIndex:(int32_t)p4 length:(int32_t)p5;
 
 	// Managed method name : ConvertAll
-	// Managed return type : <TOutput[]>
-	// Managed param types : <TInput[]>, System.Converter`2<System.Array+TInput, System.Array+TOutput>
-    + (System_Object *)convertAll_withArray:(System_Object *)p1 converter:(System_ConverterA2 *)p2;
+	// Managed return type : TOutput[]
+	// Managed param types : TInput[], System.Converter`2<System.Array+TInput, System.Array+TOutput>
+    + (DBSystem_Array *)convertAll_withArray:(DBSystem_Array *)p1 converter:(System_ConverterA2 *)p2;
 
 	// Managed method name : Copy
 	// Managed return type : System.Void
@@ -170,65 +170,70 @@
 	// Managed param types : System.Type, System.Int32[], System.Int32[]
     + (DBSystem_Array *)createInstance_withElementType:(System_Type *)p1 lengths:(DBSystem_Array *)p2 lowerBounds:(DBSystem_Array *)p3;
 
+	// Managed method name : Empty
+	// Managed return type : T[]
+	// Managed param types : 
+    + (DBSystem_Array *)empty;
+
 	// Managed method name : Exists
 	// Managed return type : System.Boolean
-	// Managed param types : <T[]>, System.Predicate`1<System.Array+T>
-    + (BOOL)exists_withArray:(System_Object *)p1 match:(System_PredicateA1 *)p2;
+	// Managed param types : T[], System.Predicate`1<System.Array+T>
+    + (BOOL)exists_withArray:(DBSystem_Array *)p1 match:(System_PredicateA1 *)p2;
 
 	// Managed method name : Find
 	// Managed return type : <System.Array+T>
-	// Managed param types : <T[]>, System.Predicate`1<System.Array+T>
-    + (System_Object *)find_withArray:(System_Object *)p1 match:(System_PredicateA1 *)p2;
+	// Managed param types : T[], System.Predicate`1<System.Array+T>
+    + (System_Object *)find_withArray:(DBSystem_Array *)p1 match:(System_PredicateA1 *)p2;
 
 	// Managed method name : FindAll
-	// Managed return type : <T[]>
-	// Managed param types : <T[]>, System.Predicate`1<System.Array+T>
-    + (System_Object *)findAll_withArray:(System_Object *)p1 match:(System_PredicateA1 *)p2;
+	// Managed return type : T[]
+	// Managed param types : T[], System.Predicate`1<System.Array+T>
+    + (DBSystem_Array *)findAll_withArray:(DBSystem_Array *)p1 match:(System_PredicateA1 *)p2;
 
 	// Managed method name : FindIndex
 	// Managed return type : System.Int32
-	// Managed param types : <T[]>, System.Predicate`1<System.Array+T>
-    + (int32_t)findIndex_withArray:(System_Object *)p1 match:(System_PredicateA1 *)p2;
+	// Managed param types : T[], System.Predicate`1<System.Array+T>
+    + (int32_t)findIndex_withArray:(DBSystem_Array *)p1 match:(System_PredicateA1 *)p2;
 
 	// Managed method name : FindIndex
 	// Managed return type : System.Int32
-	// Managed param types : <T[]>, System.Int32, System.Predicate`1<System.Array+T>
-    + (int32_t)findIndex_withArray:(System_Object *)p1 startIndex:(int32_t)p2 match:(System_PredicateA1 *)p3;
+	// Managed param types : T[], System.Int32, System.Predicate`1<System.Array+T>
+    + (int32_t)findIndex_withArray:(DBSystem_Array *)p1 startIndex:(int32_t)p2 match:(System_PredicateA1 *)p3;
 
 	// Managed method name : FindIndex
 	// Managed return type : System.Int32
-	// Managed param types : <T[]>, System.Int32, System.Int32, System.Predicate`1<System.Array+T>
-    + (int32_t)findIndex_withArray:(System_Object *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 match:(System_PredicateA1 *)p4;
+	// Managed param types : T[], System.Int32, System.Int32, System.Predicate`1<System.Array+T>
+    + (int32_t)findIndex_withArray:(DBSystem_Array *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 match:(System_PredicateA1 *)p4;
 
 	// Managed method name : FindLast
 	// Managed return type : <System.Array+T>
-	// Managed param types : <T[]>, System.Predicate`1<System.Array+T>
-    + (System_Object *)findLast_withArray:(System_Object *)p1 match:(System_PredicateA1 *)p2;
+	// Managed param types : T[], System.Predicate`1<System.Array+T>
+    + (System_Object *)findLast_withArray:(DBSystem_Array *)p1 match:(System_PredicateA1 *)p2;
 
 	// Managed method name : FindLastIndex
 	// Managed return type : System.Int32
-	// Managed param types : <T[]>, System.Predicate`1<System.Array+T>
-    + (int32_t)findLastIndex_withArray:(System_Object *)p1 match:(System_PredicateA1 *)p2;
+	// Managed param types : T[], System.Predicate`1<System.Array+T>
+    + (int32_t)findLastIndex_withArray:(DBSystem_Array *)p1 match:(System_PredicateA1 *)p2;
 
 	// Managed method name : FindLastIndex
 	// Managed return type : System.Int32
-	// Managed param types : <T[]>, System.Int32, System.Predicate`1<System.Array+T>
-    + (int32_t)findLastIndex_withArray:(System_Object *)p1 startIndex:(int32_t)p2 match:(System_PredicateA1 *)p3;
+	// Managed param types : T[], System.Int32, System.Predicate`1<System.Array+T>
+    + (int32_t)findLastIndex_withArray:(DBSystem_Array *)p1 startIndex:(int32_t)p2 match:(System_PredicateA1 *)p3;
 
 	// Managed method name : FindLastIndex
 	// Managed return type : System.Int32
-	// Managed param types : <T[]>, System.Int32, System.Int32, System.Predicate`1<System.Array+T>
-    + (int32_t)findLastIndex_withArray:(System_Object *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 match:(System_PredicateA1 *)p4;
+	// Managed param types : T[], System.Int32, System.Int32, System.Predicate`1<System.Array+T>
+    + (int32_t)findLastIndex_withArray:(DBSystem_Array *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 match:(System_PredicateA1 *)p4;
 
 	// Managed method name : ForEach
 	// Managed return type : System.Void
-	// Managed param types : <T[]>, System.Action`1<System.Array+T>
-    + (void)forEach_withArray:(System_Object *)p1 action:(System_ActionA1 *)p2;
+	// Managed param types : T[], System.Action`1<System.Array+T>
+    + (void)forEach_withArray:(DBSystem_Array *)p1 action:(System_ActionA1 *)p2;
 
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IEnumerator
 	// Managed param types : 
-    - (System_Collections_IEnumerator *)getEnumerator;
+    - (id <System_Collections_IEnumerator>)getEnumerator;
 
 	// Managed method name : GetLength
 	// Managed return type : System.Int32
@@ -307,18 +312,18 @@
 
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
-	// Managed param types : <T[]>, <System.Array+T>
-    + (int32_t)indexOf_withArray:(System_Object *)p1 value:(System_Object *)p2;
+	// Managed param types : T[], <System.Array+T>
+    + (int32_t)indexOf_withArrayT:(DBSystem_Array *)p1 value_T_0:(System_Object *)p2;
 
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
-	// Managed param types : <T[]>, <System.Array+T>, System.Int32
-    + (int32_t)indexOf_withArray:(System_Object *)p1 value:(System_Object *)p2 startIndexInt:(int32_t)p3;
+	// Managed param types : T[], <System.Array+T>, System.Int32
+    + (int32_t)indexOf_withArrayT:(DBSystem_Array *)p1 value_T_0:(System_Object *)p2 startIndexInt:(int32_t)p3;
 
 	// Managed method name : IndexOf
 	// Managed return type : System.Int32
-	// Managed param types : <T[]>, <System.Array+T>, System.Int32, System.Int32
-    + (int32_t)indexOf_withArray:(System_Object *)p1 value:(System_Object *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4;
+	// Managed param types : T[], <System.Array+T>, System.Int32, System.Int32
+    + (int32_t)indexOf_withArrayT:(DBSystem_Array *)p1 value_T_0:(System_Object *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4;
 
 	// Managed method name : Initialize
 	// Managed return type : System.Void
@@ -342,18 +347,18 @@
 
 	// Managed method name : LastIndexOf
 	// Managed return type : System.Int32
-	// Managed param types : <T[]>, <System.Array+T>
-    + (int32_t)lastIndexOf_withArray:(System_Object *)p1 value:(System_Object *)p2;
+	// Managed param types : T[], <System.Array+T>
+    + (int32_t)lastIndexOf_withArrayT:(DBSystem_Array *)p1 value_T_0:(System_Object *)p2;
 
 	// Managed method name : LastIndexOf
 	// Managed return type : System.Int32
-	// Managed param types : <T[]>, <System.Array+T>, System.Int32
-    + (int32_t)lastIndexOf_withArray:(System_Object *)p1 value:(System_Object *)p2 startIndexInt:(int32_t)p3;
+	// Managed param types : T[], <System.Array+T>, System.Int32
+    + (int32_t)lastIndexOf_withArrayT:(DBSystem_Array *)p1 value_T_0:(System_Object *)p2 startIndexInt:(int32_t)p3;
 
 	// Managed method name : LastIndexOf
 	// Managed return type : System.Int32
-	// Managed param types : <T[]>, <System.Array+T>, System.Int32, System.Int32
-    + (int32_t)lastIndexOf_withArray:(System_Object *)p1 value:(System_Object *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4;
+	// Managed param types : T[], <System.Array+T>, System.Int32, System.Int32
+    + (int32_t)lastIndexOf_withArrayT:(DBSystem_Array *)p1 value_T_0:(System_Object *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4;
 
 	// Managed method name : Resize
 	// Managed return type : System.Void
@@ -433,71 +438,71 @@
 	// Managed method name : Sort
 	// Managed return type : System.Void
 	// Managed param types : System.Array, System.Collections.IComparer
-    + (void)sort_withArraySArray:(DBSystem_Array *)p1 comparerSCIComparer:(System_Collections_IComparer *)p2;
+    + (void)sort_withArraySArray:(DBSystem_Array *)p1 comparerSCIComparer:(id <System_Collections_IComparer_>)p2;
 
 	// Managed method name : Sort
 	// Managed return type : System.Void
 	// Managed param types : System.Array, System.Array, System.Collections.IComparer
-    + (void)sort_withKeysSArray:(DBSystem_Array *)p1 itemsSArray:(DBSystem_Array *)p2 comparerSCIComparer:(System_Collections_IComparer *)p3;
+    + (void)sort_withKeysSArray:(DBSystem_Array *)p1 itemsSArray:(DBSystem_Array *)p2 comparerSCIComparer:(id <System_Collections_IComparer_>)p3;
 
 	// Managed method name : Sort
 	// Managed return type : System.Void
 	// Managed param types : System.Array, System.Int32, System.Int32, System.Collections.IComparer
-    + (void)sort_withArraySArray:(DBSystem_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 comparerSCIComparer:(System_Collections_IComparer *)p4;
+    + (void)sort_withArraySArray:(DBSystem_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 comparerSCIComparer:(id <System_Collections_IComparer_>)p4;
 
 	// Managed method name : Sort
 	// Managed return type : System.Void
 	// Managed param types : System.Array, System.Array, System.Int32, System.Int32, System.Collections.IComparer
-    + (void)sort_withKeysSArray:(DBSystem_Array *)p1 itemsSArray:(DBSystem_Array *)p2 indexInt:(int32_t)p3 lengthInt:(int32_t)p4 comparerSCIComparer:(System_Collections_IComparer *)p5;
+    + (void)sort_withKeysSArray:(DBSystem_Array *)p1 itemsSArray:(DBSystem_Array *)p2 indexInt:(int32_t)p3 lengthInt:(int32_t)p4 comparerSCIComparer:(id <System_Collections_IComparer_>)p5;
 
 	// Managed method name : Sort
 	// Managed return type : System.Void
-	// Managed param types : <T[]>
-    + (void)sort_withArray:(System_Object *)p1;
+	// Managed param types : T[]
+    + (void)sort_withArrayT:(DBSystem_Array *)p1;
 
 	// Managed method name : Sort
 	// Managed return type : System.Void
-	// Managed param types : <TKey[]>, <TValue[]>
-    + (void)sort_withKeys:(System_Object *)p1 items:(System_Object *)p2;
+	// Managed param types : TKey[], TValue[]
+    + (void)sort_withKeysTKey:(DBSystem_Array *)p1 itemsTValue:(DBSystem_Array *)p2;
 
 	// Managed method name : Sort
 	// Managed return type : System.Void
-	// Managed param types : <T[]>, System.Int32, System.Int32
-    + (void)sort_withArray:(System_Object *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3;
+	// Managed param types : T[], System.Int32, System.Int32
+    + (void)sort_withArrayT:(DBSystem_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3;
 
 	// Managed method name : Sort
 	// Managed return type : System.Void
-	// Managed param types : <TKey[]>, <TValue[]>, System.Int32, System.Int32
-    + (void)sort_withKeys:(System_Object *)p1 items:(System_Object *)p2 indexInt:(int32_t)p3 lengthInt:(int32_t)p4;
+	// Managed param types : TKey[], TValue[], System.Int32, System.Int32
+    + (void)sort_withKeysTKey:(DBSystem_Array *)p1 itemsTValue:(DBSystem_Array *)p2 indexInt:(int32_t)p3 lengthInt:(int32_t)p4;
 
 	// Managed method name : Sort
 	// Managed return type : System.Void
-	// Managed param types : <T[]>, System.Collections.Generic.IComparer`1<System.Array+T>
-    + (void)sort_withArray:(System_Object *)p1 comparerSCGIComparerA1:(System_Collections_Generic_IComparerA1 *)p2;
+	// Managed param types : T[], System.Collections.Generic.IComparer`1<System.Array+T>
+    + (void)sort_withArrayT:(DBSystem_Array *)p1 comparerSCGIArray__T:(id <System_Collections_Generic_IComparerA1_>)p2;
 
 	// Managed method name : Sort
 	// Managed return type : System.Void
-	// Managed param types : <TKey[]>, <TValue[]>, System.Collections.Generic.IComparer`1<System.Array+TKey>
-    + (void)sort_withKeys:(System_Object *)p1 items:(System_Object *)p2 comparerSCGIComparerA1:(System_Collections_Generic_IComparerA1 *)p3;
+	// Managed param types : TKey[], TValue[], System.Collections.Generic.IComparer`1<System.Array+TKey>
+    + (void)sort_withKeysTKey:(DBSystem_Array *)p1 itemsTValue:(DBSystem_Array *)p2 comparerSCGIArray__TKey:(id <System_Collections_Generic_IComparerA1_>)p3;
 
 	// Managed method name : Sort
 	// Managed return type : System.Void
-	// Managed param types : <T[]>, System.Int32, System.Int32, System.Collections.Generic.IComparer`1<System.Array+T>
-    + (void)sort_withArray:(System_Object *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 comparerSCGIComparerA1:(System_Collections_Generic_IComparerA1 *)p4;
+	// Managed param types : T[], System.Int32, System.Int32, System.Collections.Generic.IComparer`1<System.Array+T>
+    + (void)sort_withArrayT:(DBSystem_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 comparerSCGIArray__T:(id <System_Collections_Generic_IComparerA1_>)p4;
 
 	// Managed method name : Sort
 	// Managed return type : System.Void
-	// Managed param types : <TKey[]>, <TValue[]>, System.Int32, System.Int32, System.Collections.Generic.IComparer`1<System.Array+TKey>
-    + (void)sort_withKeys:(System_Object *)p1 items:(System_Object *)p2 indexInt:(int32_t)p3 lengthInt:(int32_t)p4 comparerSCGIComparerA1:(System_Collections_Generic_IComparerA1 *)p5;
+	// Managed param types : TKey[], TValue[], System.Int32, System.Int32, System.Collections.Generic.IComparer`1<System.Array+TKey>
+    + (void)sort_withKeysTKey:(DBSystem_Array *)p1 itemsTValue:(DBSystem_Array *)p2 indexInt:(int32_t)p3 lengthInt:(int32_t)p4 comparerSCGIArray__TKey:(id <System_Collections_Generic_IComparerA1_>)p5;
 
 	// Managed method name : Sort
 	// Managed return type : System.Void
-	// Managed param types : <T[]>, System.Comparison`1<System.Array+T>
-    + (void)sort_withArray:(System_Object *)p1 comparison:(System_ComparisonA1 *)p2;
+	// Managed param types : T[], System.Comparison`1<System.Array+T>
+    + (void)sort_withArray:(DBSystem_Array *)p1 comparison:(System_ComparisonA1 *)p2;
 
 	// Managed method name : TrueForAll
 	// Managed return type : System.Boolean
-	// Managed param types : <T[]>, System.Predicate`1<System.Array+T>
-    + (BOOL)trueForAll_withArray:(System_Object *)p1 match:(System_PredicateA1 *)p2;
+	// Managed param types : T[], System.Predicate`1<System.Array+T>
+    + (BOOL)trueForAll_withArray:(DBSystem_Array *)p1 match:(System_PredicateA1 *)p2;
 @end
 //--Dubrovnik.CodeGenerator

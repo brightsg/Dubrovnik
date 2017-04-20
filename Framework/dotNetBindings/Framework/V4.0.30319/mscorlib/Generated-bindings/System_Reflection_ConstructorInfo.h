@@ -2,7 +2,7 @@
 //
 // Managed class : ConstructorInfo
 //
-@interface System_Reflection_ConstructorInfo : System_Reflection_MethodBase <System_Reflection_ICustomAttributeProvider, System_Runtime_InteropServices__MemberInfo, System_Runtime_InteropServices__MethodBase, System_Runtime_InteropServices__ConstructorInfo>
+@interface System_Reflection_ConstructorInfo : System_Reflection_MethodBase <System_Reflection_ICustomAttributeProvider_, System_Runtime_InteropServices__MemberInfo_, System_Runtime_InteropServices__MethodBase_, System_Runtime_InteropServices__ConstructorInfo_>
 
 #pragma mark -
 #pragma mark Setup
@@ -27,7 +27,7 @@
 
 	// Managed property name : MemberType
 	// Managed property type : System.Reflection.MemberTypes
-    @property (nonatomic, readonly) System_Reflection_MemberTypes memberType;
+    @property (nonatomic, readonly) int32_t memberType;
 
 #pragma mark -
 #pragma mark Methods
@@ -45,7 +45,7 @@
 	// Managed method name : Invoke
 	// Managed return type : System.Object
 	// Managed param types : System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo
-    - (System_Object *)invoke_withInvokeAttr:(System_Reflection_BindingFlags)p1 binder:(System_Reflection_Binder *)p2 parameters:(DBSystem_Array *)p3 culture:(System_Globalization_CultureInfo *)p4;
+    - (System_Object *)invoke_withInvokeAttr:(int32_t)p1 binder:(System_Reflection_Binder *)p2 parameters:(DBSystem_Array *)p3 culture:(System_Globalization_CultureInfo *)p4;
 
 	// Managed method name : Invoke
 	// Managed return type : System.Object

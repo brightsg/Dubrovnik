@@ -2,7 +2,7 @@
 //
 // Managed class : StringBuilder
 //
-@interface System_Text_StringBuilder : System_Object <System_Runtime_Serialization_ISerializable>
+@interface System_Text_StringBuilder : System_Object <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -129,7 +129,7 @@
 	// Managed method name : Append
 	// Managed return type : System.Text.StringBuilder
 	// Managed param types : System.Decimal
-    - (System_Text_StringBuilder *)append_withValueDecimal:(NSDecimalNumber *)p1;
+    - (System_Text_StringBuilder *)append_withValueSDecimal:(NSDecimalNumber *)p1;
 
 	// Managed method name : Append
 	// Managed return type : System.Text.StringBuilder
@@ -156,6 +156,11 @@
 	// Managed param types : System.Char[]
     - (System_Text_StringBuilder *)append_withValueChar:(DBSystem_Array *)p1;
 
+	// Managed method name : Append
+	// Managed return type : System.Text.StringBuilder
+	// Managed param types : System.Char*, System.Int32
+    - (System_Text_StringBuilder *)append_withValue:(uint16_t*)p1 valueCount:(int32_t)p2;
+
 	// Managed method name : AppendFormat
 	// Managed return type : System.Text.StringBuilder
 	// Managed param types : System.String, System.Object
@@ -178,8 +183,23 @@
 
 	// Managed method name : AppendFormat
 	// Managed return type : System.Text.StringBuilder
+	// Managed param types : System.IFormatProvider, System.String, System.Object
+    - (System_Text_StringBuilder *)appendFormat_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 arg0:(System_Object *)p3;
+
+	// Managed method name : AppendFormat
+	// Managed return type : System.Text.StringBuilder
+	// Managed param types : System.IFormatProvider, System.String, System.Object, System.Object
+    - (System_Text_StringBuilder *)appendFormat_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 arg0:(System_Object *)p3 arg1:(System_Object *)p4;
+
+	// Managed method name : AppendFormat
+	// Managed return type : System.Text.StringBuilder
+	// Managed param types : System.IFormatProvider, System.String, System.Object, System.Object, System.Object
+    - (System_Text_StringBuilder *)appendFormat_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 arg0:(System_Object *)p3 arg1:(System_Object *)p4 arg2:(System_Object *)p5;
+
+	// Managed method name : AppendFormat
+	// Managed return type : System.Text.StringBuilder
 	// Managed param types : System.IFormatProvider, System.String, System.Object[]
-    - (System_Text_StringBuilder *)appendFormat_withProvider:(System_IFormatProvider *)p1 format:(NSString *)p2 args:(DBSystem_Array *)p3;
+    - (System_Text_StringBuilder *)appendFormat_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 args:(DBSystem_Array *)p3;
 
 	// Managed method name : AppendLine
 	// Managed return type : System.Text.StringBuilder
@@ -279,7 +299,7 @@
 	// Managed method name : Insert
 	// Managed return type : System.Text.StringBuilder
 	// Managed param types : System.Int32, System.Decimal
-    - (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueDecimal:(NSDecimalNumber *)p2;
+    - (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueSDecimal:(NSDecimalNumber *)p2;
 
 	// Managed method name : Insert
 	// Managed return type : System.Text.StringBuilder

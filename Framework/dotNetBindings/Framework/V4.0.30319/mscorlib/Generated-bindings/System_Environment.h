@@ -132,27 +132,27 @@
 	// Managed method name : GetEnvironmentVariable
 	// Managed return type : System.String
 	// Managed param types : System.String, System.EnvironmentVariableTarget
-    + (NSString *)getEnvironmentVariable_withVariable:(NSString *)p1 target:(System_EnvironmentVariableTarget)p2;
+    + (NSString *)getEnvironmentVariable_withVariable:(NSString *)p1 target:(int32_t)p2;
 
 	// Managed method name : GetEnvironmentVariables
 	// Managed return type : System.Collections.IDictionary
 	// Managed param types : 
-    + (System_Collections_IDictionary *)getEnvironmentVariables;
+    + (id <System_Collections_IDictionary>)getEnvironmentVariables;
 
 	// Managed method name : GetEnvironmentVariables
 	// Managed return type : System.Collections.IDictionary
 	// Managed param types : System.EnvironmentVariableTarget
-    + (System_Collections_IDictionary *)getEnvironmentVariables_withTarget:(System_EnvironmentVariableTarget)p1;
+    + (id <System_Collections_IDictionary>)getEnvironmentVariables_withTarget:(int32_t)p1;
 
 	// Managed method name : GetFolderPath
 	// Managed return type : System.String
 	// Managed param types : System.Environment+SpecialFolder
-    + (NSString *)getFolderPath_withFolder:(System_Environment__SpecialFolder)p1;
+    + (NSString *)getFolderPath_withFolder:(int32_t)p1;
 
 	// Managed method name : GetFolderPath
 	// Managed return type : System.String
 	// Managed param types : System.Environment+SpecialFolder, System.Environment+SpecialFolderOption
-    + (NSString *)getFolderPath_withFolder:(System_Environment__SpecialFolder)p1 option:(System_Environment__SpecialFolderOption)p2;
+    + (NSString *)getFolderPath_withFolder:(int32_t)p1 option:(int32_t)p2;
 
 	// Managed method name : GetLogicalDrives
 	// Managed return type : System.String[]
@@ -167,6 +167,6 @@
 	// Managed method name : SetEnvironmentVariable
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.String, System.EnvironmentVariableTarget
-    + (void)setEnvironmentVariable_withVariable:(NSString *)p1 value:(NSString *)p2 target:(System_EnvironmentVariableTarget)p3;
+    + (void)setEnvironmentVariable_withVariable:(NSString *)p1 value:(NSString *)p2 target:(int32_t)p3;
 @end
 //--Dubrovnik.CodeGenerator

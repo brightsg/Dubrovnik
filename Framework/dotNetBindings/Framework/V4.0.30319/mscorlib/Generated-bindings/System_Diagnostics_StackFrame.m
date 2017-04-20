@@ -32,7 +32,10 @@
 	// Managed param types : System.Boolean
     + (System_Diagnostics_StackFrame *)new_withFNeedFileInfo:(BOOL)p1
     {
-		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Diagnostics_StackFrame * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Int32
     + (System_Diagnostics_StackFrame *)new_withSkipFrames:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Diagnostics_StackFrame * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +54,10 @@
 	// Managed param types : System.Int32, System.Boolean
     + (System_Diagnostics_StackFrame *)new_withSkipFrames:(int32_t)p1 fNeedFileInfo:(BOOL)p2
     {
-		return [[self alloc] initWithSignature:"int,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		System_Diagnostics_StackFrame * object = [[self alloc] initWithSignature:"int,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +65,10 @@
 	// Managed param types : System.String, System.Int32
     + (System_Diagnostics_StackFrame *)new_withFileName:(NSString *)p1 lineNumber:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"string,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		System_Diagnostics_StackFrame * object = [[self alloc] initWithSignature:"string,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +76,10 @@
 	// Managed param types : System.String, System.Int32, System.Int32
     + (System_Diagnostics_StackFrame *)new_withFileName:(NSString *)p1 lineNumber:(int32_t)p2 colNumber:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"string,int,int" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		System_Diagnostics_StackFrame * object = [[self alloc] initWithSignature:"string,int,int" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -136,7 +151,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMethod()" withNumArgs:0];
 		
-		return [System_Reflection_MethodBase objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodBase bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetNativeOffset

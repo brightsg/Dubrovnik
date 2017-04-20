@@ -2,7 +2,7 @@
 //
 // Managed class : OperatingSystem
 //
-@interface System_OperatingSystem : System_Object <System_ICloneable, System_Runtime_Serialization_ISerializable>
+@interface System_OperatingSystem : System_Object <System_ICloneable_, System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,14 +17,14 @@
 	// Managed method name : .ctor
 	// Managed return type : System.OperatingSystem
 	// Managed param types : System.PlatformID, System.Version
-    + (System_OperatingSystem *)new_withPlatform:(System_PlatformID)p1 version:(System_Version *)p2;
+    + (System_OperatingSystem *)new_withPlatform:(int32_t)p1 version:(System_Version *)p2;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Platform
 	// Managed property type : System.PlatformID
-    @property (nonatomic, readonly) System_PlatformID platform;
+    @property (nonatomic, readonly) int32_t platform;
 
 	// Managed property name : ServicePack
 	// Managed property type : System.String

@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.IComparable`1<System.IComparable`1+T>";
+		return "System.IComparable`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName

@@ -2,7 +2,7 @@
 //
 // Managed class : List`1<T>
 //
-@interface System_Collections_Generic_ListA1 : System_Object <System_Collections_Generic_IListA1, System_Collections_Generic_ICollectionA1, System_Collections_Generic_IEnumerableA1, System_Collections_IEnumerable, System_Collections_IList, System_Collections_ICollection, System_Collections_Generic_IReadOnlyListA1, System_Collections_Generic_IReadOnlyCollectionA1>
+@interface System_Collections_Generic_ListA1 : System_Object <System_Collections_Generic_IListA1_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_IList_, System_Collections_ICollection_, System_Collections_Generic_IReadOnlyListA1_, System_Collections_Generic_IReadOnlyCollectionA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -22,7 +22,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Generic.List`1<System.Collections.Generic.List`1+T>
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Collections.Generic.List`1+T>
-    + (System_Collections_Generic_ListA1 *)new_withCollection:(System_Collections_Generic_IEnumerableA1 *)p1;
+    + (System_Collections_Generic_ListA1 *)new_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -50,7 +50,7 @@
 	// Managed method name : AddRange
 	// Managed return type : System.Void
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Collections.Generic.List`1+T>
-    - (void)addRange_withCollection:(System_Collections_Generic_IEnumerableA1 *)p1;
+    - (void)addRange_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
 	// Managed method name : AsReadOnly
 	// Managed return type : System.Collections.ObjectModel.ReadOnlyCollection`1<System.Collections.Generic.List`1+T>
@@ -60,17 +60,17 @@
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
 	// Managed param types : System.Int32, System.Int32, <System.Collections.Generic.List`1+T>, System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>
-    - (int32_t)binarySearch_withIndex:(int32_t)p1 count:(int32_t)p2 item:(System_Object *)p3 comparer:(System_Collections_Generic_IComparerA1 *)p4;
-
-	// Managed method name : BinarySearch
-	// Managed return type : System.Int32
-	// Managed param types : <System.Collections.Generic.List`1+T>, System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>
-    - (int32_t)binarySearch_withItem:(System_Object *)p1 comparer:(System_Collections_Generic_IComparerA1 *)p2;
+    - (int32_t)binarySearch_withIndex:(int32_t)p1 count:(int32_t)p2 item:(System_Object *)p3 comparer:(id <System_Collections_Generic_IComparerA1_>)p4;
 
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
 	// Managed param types : <System.Collections.Generic.List`1+T>
     - (int32_t)binarySearch_withItem:(System_Object *)p1;
+
+	// Managed method name : BinarySearch
+	// Managed return type : System.Int32
+	// Managed param types : <System.Collections.Generic.List`1+T>, System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>
+    - (int32_t)binarySearch_withItem:(System_Object *)p1 comparer:(id <System_Collections_Generic_IComparerA1_>)p2;
 
 	// Managed method name : Clear
 	// Managed return type : System.Void
@@ -89,18 +89,18 @@
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : System.Int32, <T[]>, System.Int32, System.Int32
-    - (void)copyTo_withIndex:(int32_t)p1 array:(System_Object *)p2 arrayIndex:(int32_t)p3 count:(int32_t)p4;
+	// Managed param types : T[]
+    - (void)copyTo_withArray:(DBSystem_Array *)p1;
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : <T[]>, System.Int32
-    - (void)copyTo_withArray:(System_Object *)p1 arrayIndex:(int32_t)p2;
+	// Managed param types : System.Int32, T[], System.Int32, System.Int32
+    - (void)copyTo_withIndex:(int32_t)p1 array:(DBSystem_Array *)p2 arrayIndex:(int32_t)p3 count:(int32_t)p4;
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : <T[]>
-    - (void)copyTo_withArray:(System_Object *)p1;
+	// Managed param types : T[], System.Int32
+    - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2;
 
 	// Managed method name : Exists
 	// Managed return type : System.Boolean
@@ -119,13 +119,13 @@
 
 	// Managed method name : FindIndex
 	// Managed return type : System.Int32
-	// Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
-    - (int32_t)findIndex_withMatch:(System_PredicateA1 *)p1;
+	// Managed param types : System.Int32, System.Int32, System.Predicate`1<System.Collections.Generic.List`1+T>
+    - (int32_t)findIndex_withStartIndex:(int32_t)p1 count:(int32_t)p2 match:(System_PredicateA1 *)p3;
 
 	// Managed method name : FindIndex
 	// Managed return type : System.Int32
-	// Managed param types : System.Int32, System.Int32, System.Predicate`1<System.Collections.Generic.List`1+T>
-    - (int32_t)findIndex_withStartIndex:(int32_t)p1 count:(int32_t)p2 match:(System_PredicateA1 *)p3;
+	// Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
+    - (int32_t)findIndex_withMatch:(System_PredicateA1 *)p1;
 
 	// Managed method name : FindIndex
 	// Managed return type : System.Int32
@@ -190,7 +190,12 @@
 	// Managed method name : InsertRange
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, System.Collections.Generic.IEnumerable`1<System.Collections.Generic.List`1+T>
-    - (void)insertRange_withIndex:(int32_t)p1 collection:(System_Collections_Generic_IEnumerableA1 *)p2;
+    - (void)insertRange_withIndex:(int32_t)p1 collection:(id <System_Collections_Generic_IEnumerableA1_>)p2;
+
+	// Managed method name : LastIndexOf
+	// Managed return type : System.Int32
+	// Managed param types : <System.Collections.Generic.List`1+T>, System.Int32, System.Int32
+    - (int32_t)lastIndexOf_withItem:(System_Object *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 	// Managed method name : LastIndexOf
 	// Managed return type : System.Int32
@@ -201,11 +206,6 @@
 	// Managed return type : System.Int32
 	// Managed param types : <System.Collections.Generic.List`1+T>, System.Int32
     - (int32_t)lastIndexOf_withItem:(System_Object *)p1 index:(int32_t)p2;
-
-	// Managed method name : LastIndexOf
-	// Managed return type : System.Int32
-	// Managed param types : <System.Collections.Generic.List`1+T>, System.Int32, System.Int32
-    - (int32_t)lastIndexOf_withItem:(System_Object *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 	// Managed method name : Remove
 	// Managed return type : System.Boolean
@@ -245,12 +245,12 @@
 	// Managed method name : Sort
 	// Managed return type : System.Void
 	// Managed param types : System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>
-    - (void)sort_withComparer:(System_Collections_Generic_IComparerA1 *)p1;
+    - (void)sort_withComparer:(id <System_Collections_Generic_IComparerA1_>)p1;
 
 	// Managed method name : Sort
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, System.Int32, System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>
-    - (void)sort_withIndex:(int32_t)p1 count:(int32_t)p2 comparer:(System_Collections_Generic_IComparerA1 *)p3;
+    - (void)sort_withIndex:(int32_t)p1 count:(int32_t)p2 comparer:(id <System_Collections_Generic_IComparerA1_>)p3;
 
 	// Managed method name : Sort
 	// Managed return type : System.Void
@@ -258,9 +258,9 @@
     - (void)sort_withComparison:(System_ComparisonA1 *)p1;
 
 	// Managed method name : ToArray
-	// Managed return type : <T[]>
+	// Managed return type : T[]
 	// Managed param types : 
-    - (System_Object *)toArray;
+    - (DBSystem_Array *)toArray;
 
 	// Managed method name : TrimExcess
 	// Managed return type : System.Void

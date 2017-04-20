@@ -32,7 +32,17 @@
     @synthesize current = _current;
     - (System_Object *)current
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Collections.IEnumerator.Current"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Collections.IEnumerator.Current");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_current isEqualToMonoObject:monoObject]) return _current;					
 		_current = [System_Object objectWithMonoObject:monoObject];
 
@@ -58,7 +68,9 @@
 	// Managed param types : 
     - (void)reset
     {
-		[self invokeMonoMethod:"System.Collections.IEnumerator.Reset()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"System.Collections.IEnumerator.Reset()" withNumArgs:0];
+        
     }
 
 #pragma mark -

@@ -2,7 +2,7 @@
 //
 // Managed interface : IClientChannelSinkStack
 //
-@interface System_Runtime_Remoting_Channels_IClientChannelSinkStack : System_Object <System_Runtime_Remoting_Channels_IClientChannelSinkStack, System_Runtime_Remoting_Channels_IClientResponseChannelSinkStack>
+@interface System_Runtime_Remoting_Channels_IClientChannelSinkStack : System_Object <System_Runtime_Remoting_Channels_IClientChannelSinkStack_, System_Runtime_Remoting_Channels_IClientResponseChannelSinkStack_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,11 +17,11 @@
 	// Managed method name : Pop
 	// Managed return type : System.Object
 	// Managed param types : System.Runtime.Remoting.Channels.IClientChannelSink
-    - (System_Object *)pop_withSink:(System_Runtime_Remoting_Channels_IClientChannelSink *)p1;
+    - (System_Object *)pop_withSink:(id <System_Runtime_Remoting_Channels_IClientChannelSink_>)p1;
 
 	// Managed method name : Push
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Channels.IClientChannelSink, System.Object
-    - (void)push_withSink:(System_Runtime_Remoting_Channels_IClientChannelSink *)p1 state:(System_Object *)p2;
+    - (void)push_withSink:(id <System_Runtime_Remoting_Channels_IClientChannelSink_>)p1 state:(System_Object *)p2;
 @end
 //--Dubrovnik.CodeGenerator

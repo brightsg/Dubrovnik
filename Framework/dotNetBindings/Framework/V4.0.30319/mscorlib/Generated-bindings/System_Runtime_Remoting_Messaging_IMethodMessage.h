@@ -2,7 +2,7 @@
 //
 // Managed interface : IMethodMessage
 //
-@interface System_Runtime_Remoting_Messaging_IMethodMessage : System_Object <System_Runtime_Remoting_Messaging_IMethodMessage, System_Runtime_Remoting_Messaging_IMessage>
+@interface System_Runtime_Remoting_Messaging_IMethodMessage : System_Object <System_Runtime_Remoting_Messaging_IMethodMessage_, System_Runtime_Remoting_Messaging_IMessage_>
 
 #pragma mark -
 #pragma mark Setup

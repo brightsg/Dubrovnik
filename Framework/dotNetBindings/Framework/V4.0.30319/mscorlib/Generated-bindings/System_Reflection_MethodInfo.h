@@ -2,7 +2,7 @@
 //
 // Managed class : MethodInfo
 //
-@interface System_Reflection_MethodInfo : System_Reflection_MethodBase <System_Reflection_ICustomAttributeProvider, System_Runtime_InteropServices__MemberInfo, System_Runtime_InteropServices__MethodBase, System_Runtime_InteropServices__MethodInfo>
+@interface System_Reflection_MethodInfo : System_Reflection_MethodBase <System_Reflection_ICustomAttributeProvider_, System_Runtime_InteropServices__MemberInfo_, System_Runtime_InteropServices__MethodBase_, System_Runtime_InteropServices__MethodInfo_>
 
 #pragma mark -
 #pragma mark Setup
@@ -16,7 +16,7 @@
 
 	// Managed property name : MemberType
 	// Managed property type : System.Reflection.MemberTypes
-    @property (nonatomic, readonly) System_Reflection_MemberTypes memberType;
+    @property (nonatomic, readonly) int32_t memberType;
 
 	// Managed property name : ReturnParameter
 	// Managed property type : System.Reflection.ParameterInfo

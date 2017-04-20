@@ -32,7 +32,10 @@
 	// Managed param types : System.String
     + (System_Runtime_CompilerServices_IndexerNameAttribute *)new_withIndexerName:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Runtime_CompilerServices_IndexerNameAttribute * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -

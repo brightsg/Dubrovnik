@@ -2,7 +2,7 @@
 //
 // Managed class : EventInfo
 //
-@interface System_Reflection_EventInfo : System_Reflection_MemberInfo <System_Reflection_ICustomAttributeProvider, System_Runtime_InteropServices__MemberInfo, System_Runtime_InteropServices__EventInfo>
+@interface System_Reflection_EventInfo : System_Reflection_MemberInfo <System_Reflection_ICustomAttributeProvider_, System_Runtime_InteropServices__MemberInfo_, System_Runtime_InteropServices__EventInfo_>
 
 #pragma mark -
 #pragma mark Setup
@@ -20,7 +20,7 @@
 
 	// Managed property name : Attributes
 	// Managed property type : System.Reflection.EventAttributes
-    @property (nonatomic, readonly) System_Reflection_EventAttributes attributes;
+    @property (nonatomic, readonly) int32_t attributes;
 
 	// Managed property name : EventHandlerType
 	// Managed property type : System.Type
@@ -36,7 +36,7 @@
 
 	// Managed property name : MemberType
 	// Managed property type : System.Reflection.MemberTypes
-    @property (nonatomic, readonly) System_Reflection_MemberTypes memberType;
+    @property (nonatomic, readonly) int32_t memberType;
 
 	// Managed property name : RaiseMethod
 	// Managed property type : System.Reflection.MethodInfo

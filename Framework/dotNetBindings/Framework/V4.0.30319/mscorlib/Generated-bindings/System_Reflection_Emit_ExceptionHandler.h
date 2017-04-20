@@ -2,7 +2,7 @@
 //
 // Managed struct : ExceptionHandler
 //
-@interface System_Reflection_Emit_ExceptionHandler : DBManagedObject <System_IEquatableA1>
+@interface System_Reflection_Emit_ExceptionHandler : DBManagedObject <System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Reflection.Emit.ExceptionHandler
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Reflection.ExceptionHandlingClauseOptions, System.Int32
-    + (System_Reflection_Emit_ExceptionHandler *)new_withTryOffset:(int32_t)p1 tryLength:(int32_t)p2 filterOffset:(int32_t)p3 handlerOffset:(int32_t)p4 handlerLength:(int32_t)p5 kind:(System_Reflection_ExceptionHandlingClauseOptions)p6 exceptionTypeToken:(int32_t)p7;
+    + (System_Reflection_Emit_ExceptionHandler *)new_withTryOffset:(int32_t)p1 tryLength:(int32_t)p2 filterOffset:(int32_t)p3 handlerOffset:(int32_t)p4 handlerLength:(int32_t)p5 kind:(int32_t)p6 exceptionTypeToken:(int32_t)p7;
 
 #pragma mark -
 #pragma mark Properties
@@ -40,7 +40,7 @@
 
 	// Managed property name : Kind
 	// Managed property type : System.Reflection.ExceptionHandlingClauseOptions
-    @property (nonatomic, readonly) System_Reflection_ExceptionHandlingClauseOptions kind;
+    @property (nonatomic, readonly) int32_t kind;
 
 	// Managed property name : TryLength
 	// Managed property type : System.Int32

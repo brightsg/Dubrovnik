@@ -30,65 +30,89 @@
 	// Managed method name : .ctor
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFileStream
 	// Managed param types : System.String, System.IO.FileMode
-    + (System_IO_IsolatedStorage_IsolatedStorageFileStream *)new_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2
+    + (System_IO_IsolatedStorage_IsolatedStorageFileStream *)new_withPath:(NSString *)p1 mode:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"string,System.IO.FileMode" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		System_IO_IsolatedStorage_IsolatedStorageFileStream * object = [[self alloc] initWithSignature:"string,System.IO.FileMode" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFileStream
 	// Managed param types : System.String, System.IO.FileMode, System.IO.IsolatedStorage.IsolatedStorageFile
-    + (System_IO_IsolatedStorage_IsolatedStorageFileStream *)new_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2 isf:(System_IO_IsolatedStorage_IsolatedStorageFile *)p3
+    + (System_IO_IsolatedStorage_IsolatedStorageFileStream *)new_withPath:(NSString *)p1 mode:(int32_t)p2 isf:(System_IO_IsolatedStorage_IsolatedStorageFile *)p3
     {
-		return [[self alloc] initWithSignature:"string,System.IO.FileMode,System.IO.IsolatedStorage.IsolatedStorageFile" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];;
+		
+		System_IO_IsolatedStorage_IsolatedStorageFileStream * object = [[self alloc] initWithSignature:"string,System.IO.FileMode,System.IO.IsolatedStorage.IsolatedStorageFile" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFileStream
 	// Managed param types : System.String, System.IO.FileMode, System.IO.FileAccess
-    + (System_IO_IsolatedStorage_IsolatedStorageFileStream *)new_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2 access:(System_IO_FileAccess)p3
+    + (System_IO_IsolatedStorage_IsolatedStorageFileStream *)new_withPath:(NSString *)p1 mode:(int32_t)p2 access:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"string,System.IO.FileMode,System.IO.FileAccess" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		System_IO_IsolatedStorage_IsolatedStorageFileStream * object = [[self alloc] initWithSignature:"string,System.IO.FileMode,System.IO.FileAccess" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFileStream
 	// Managed param types : System.String, System.IO.FileMode, System.IO.FileAccess, System.IO.IsolatedStorage.IsolatedStorageFile
-    + (System_IO_IsolatedStorage_IsolatedStorageFileStream *)new_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2 access:(System_IO_FileAccess)p3 isf:(System_IO_IsolatedStorage_IsolatedStorageFile *)p4
+    + (System_IO_IsolatedStorage_IsolatedStorageFileStream *)new_withPath:(NSString *)p1 mode:(int32_t)p2 access:(int32_t)p3 isf:(System_IO_IsolatedStorage_IsolatedStorageFile *)p4
     {
-		return [[self alloc] initWithSignature:"string,System.IO.FileMode,System.IO.FileAccess,System.IO.IsolatedStorage.IsolatedStorageFile" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];;
+		
+		System_IO_IsolatedStorage_IsolatedStorageFileStream * object = [[self alloc] initWithSignature:"string,System.IO.FileMode,System.IO.FileAccess,System.IO.IsolatedStorage.IsolatedStorageFile" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFileStream
 	// Managed param types : System.String, System.IO.FileMode, System.IO.FileAccess, System.IO.FileShare
-    + (System_IO_IsolatedStorage_IsolatedStorageFileStream *)new_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2 access:(System_IO_FileAccess)p3 share:(System_IO_FileShare)p4
+    + (System_IO_IsolatedStorage_IsolatedStorageFileStream *)new_withPath:(NSString *)p1 mode:(int32_t)p2 access:(int32_t)p3 share:(int32_t)p4
     {
-		return [[self alloc] initWithSignature:"string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];;
+		
+		System_IO_IsolatedStorage_IsolatedStorageFileStream * object = [[self alloc] initWithSignature:"string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFileStream
 	// Managed param types : System.String, System.IO.FileMode, System.IO.FileAccess, System.IO.FileShare, System.IO.IsolatedStorage.IsolatedStorageFile
-    + (System_IO_IsolatedStorage_IsolatedStorageFileStream *)new_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2 access:(System_IO_FileAccess)p3 share:(System_IO_FileShare)p4 isf:(System_IO_IsolatedStorage_IsolatedStorageFile *)p5
+    + (System_IO_IsolatedStorage_IsolatedStorageFileStream *)new_withPath:(NSString *)p1 mode:(int32_t)p2 access:(int32_t)p3 share:(int32_t)p4 isf:(System_IO_IsolatedStorage_IsolatedStorageFile *)p5
     {
-		return [[self alloc] initWithSignature:"string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare,System.IO.IsolatedStorage.IsolatedStorageFile" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), [p5 monoRTInvokeArg]];;
+		
+		System_IO_IsolatedStorage_IsolatedStorageFileStream * object = [[self alloc] initWithSignature:"string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare,System.IO.IsolatedStorage.IsolatedStorageFile" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), [p5 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFileStream
 	// Managed param types : System.String, System.IO.FileMode, System.IO.FileAccess, System.IO.FileShare, System.Int32
-    + (System_IO_IsolatedStorage_IsolatedStorageFileStream *)new_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2 access:(System_IO_FileAccess)p3 share:(System_IO_FileShare)p4 bufferSize:(int32_t)p5
+    + (System_IO_IsolatedStorage_IsolatedStorageFileStream *)new_withPath:(NSString *)p1 mode:(int32_t)p2 access:(int32_t)p3 share:(int32_t)p4 bufferSize:(int32_t)p5
     {
-		return [[self alloc] initWithSignature:"string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare,int" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];;
+		
+		System_IO_IsolatedStorage_IsolatedStorageFileStream * object = [[self alloc] initWithSignature:"string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare,int" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.IO.IsolatedStorage.IsolatedStorageFileStream
 	// Managed param types : System.String, System.IO.FileMode, System.IO.FileAccess, System.IO.FileShare, System.Int32, System.IO.IsolatedStorage.IsolatedStorageFile
-    + (System_IO_IsolatedStorage_IsolatedStorageFileStream *)new_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2 access:(System_IO_FileAccess)p3 share:(System_IO_FileShare)p4 bufferSize:(int32_t)p5 isf:(System_IO_IsolatedStorage_IsolatedStorageFile *)p6
+    + (System_IO_IsolatedStorage_IsolatedStorageFileStream *)new_withPath:(NSString *)p1 mode:(int32_t)p2 access:(int32_t)p3 share:(int32_t)p4 bufferSize:(int32_t)p5 isf:(System_IO_IsolatedStorage_IsolatedStorageFile *)p6
     {
-		return [[self alloc] initWithSignature:"string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare,int,System.IO.IsolatedStorage.IsolatedStorageFile" withNumArgs:6, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), [p6 monoRTInvokeArg]];;
+		
+		System_IO_IsolatedStorage_IsolatedStorageFileStream * object = [[self alloc] initWithSignature:"string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare,int,System.IO.IsolatedStorage.IsolatedStorageFile" withNumArgs:6, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), [p6 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -99,8 +123,18 @@
     @synthesize canRead = _canRead;
     - (BOOL)canRead
     {
-		MonoObject *monoObject = [self getMonoProperty:"CanRead"];
-		_canRead = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CanRead");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_canRead = monoObject;
 
 		return _canRead;
 	}
@@ -110,8 +144,18 @@
     @synthesize canSeek = _canSeek;
     - (BOOL)canSeek
     {
-		MonoObject *monoObject = [self getMonoProperty:"CanSeek"];
-		_canSeek = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CanSeek");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_canSeek = monoObject;
 
 		return _canSeek;
 	}
@@ -121,8 +165,18 @@
     @synthesize canWrite = _canWrite;
     - (BOOL)canWrite
     {
-		MonoObject *monoObject = [self getMonoProperty:"CanWrite"];
-		_canWrite = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CanWrite");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_canWrite = monoObject;
 
 		return _canWrite;
 	}
@@ -132,8 +186,18 @@
     @synthesize handle = _handle;
     - (void *)handle
     {
-		MonoObject *monoObject = [self getMonoProperty:"Handle"];
-		_handle = DB_UNBOX_PTR(monoObject);
+		typedef void * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Handle");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		void * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_handle = monoObject;
 
 		return _handle;
 	}
@@ -143,8 +207,18 @@
     @synthesize isAsync = _isAsync;
     - (BOOL)isAsync
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsAsync"];
-		_isAsync = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsAsync");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isAsync = monoObject;
 
 		return _isAsync;
 	}
@@ -154,8 +228,18 @@
     @synthesize length = _length;
     - (int64_t)length
     {
-		MonoObject *monoObject = [self getMonoProperty:"Length"];
-		_length = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Length");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_length = monoObject;
 
 		return _length;
 	}
@@ -165,16 +249,35 @@
     @synthesize position = _position;
     - (int64_t)position
     {
-		MonoObject *monoObject = [self getMonoProperty:"Position"];
-		_position = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Position");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_position = monoObject;
 
 		return _position;
 	}
     - (void)setPosition:(int64_t)value
 	{
 		_position = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Position" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int64_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Position");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : SafeFileHandle
@@ -182,9 +285,19 @@
     @synthesize safeFileHandle = _safeFileHandle;
     - (Microsoft_Win32_SafeHandles_SafeFileHandle *)safeFileHandle
     {
-		MonoObject *monoObject = [self getMonoProperty:"SafeFileHandle"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SafeFileHandle");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_safeFileHandle isEqualToMonoObject:monoObject]) return _safeFileHandle;					
-		_safeFileHandle = [Microsoft_Win32_SafeHandles_SafeFileHandle objectWithMonoObject:monoObject];
+		_safeFileHandle = [Microsoft_Win32_SafeHandles_SafeFileHandle bestObjectWithMonoObject:monoObject];
 
 		return _safeFileHandle;
 	}
@@ -195,29 +308,29 @@
 	// Managed method name : BeginRead
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.AsyncCallback, System.Object
-    - (System_IAsyncResult *)beginRead_withBuffer:(NSData *)p1 offset:(int32_t)p2 numBytes:(int32_t)p3 userCallback:(System_AsyncCallback *)p4 stateObject:(System_Object *)p5
+    - (id <System_IAsyncResult>)beginRead_withBuffer:(NSData *)p1 offset:(int32_t)p2 numBytes:(int32_t)p3 userCallback:(System_AsyncCallback *)p4 stateObject:(System_Object *)p5
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"BeginRead(byte[],int,int,System.AsyncCallback,object)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
-		return [System_IAsyncResult objectWithMonoObject:monoObject];
+		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : BeginWrite
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.AsyncCallback, System.Object
-    - (System_IAsyncResult *)beginWrite_withBuffer:(NSData *)p1 offset:(int32_t)p2 numBytes:(int32_t)p3 userCallback:(System_AsyncCallback *)p4 stateObject:(System_Object *)p5
+    - (id <System_IAsyncResult>)beginWrite_withBuffer:(NSData *)p1 offset:(int32_t)p2 numBytes:(int32_t)p3 userCallback:(System_AsyncCallback *)p4 stateObject:(System_Object *)p5
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"BeginWrite(byte[],int,int,System.AsyncCallback,object)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
-		return [System_IAsyncResult objectWithMonoObject:monoObject];
+		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EndRead
 	// Managed return type : System.Int32
 	// Managed param types : System.IAsyncResult
-    - (int32_t)endRead_withAsyncResult:(System_IAsyncResult *)p1
+    - (int32_t)endRead_withAsyncResult:(id <System_IAsyncResult_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"EndRead(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -228,9 +341,11 @@
 	// Managed method name : EndWrite
 	// Managed return type : System.Void
 	// Managed param types : System.IAsyncResult
-    - (void)endWrite_withAsyncResult:(System_IAsyncResult *)p1
+    - (void)endWrite_withAsyncResult:(id <System_IAsyncResult_>)p1
     {
-		[self invokeMonoMethod:"EndWrite(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"EndWrite(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Flush
@@ -238,7 +353,9 @@
 	// Managed param types : 
     - (void)flush
     {
-		[self invokeMonoMethod:"Flush()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Flush()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Flush
@@ -246,7 +363,9 @@
 	// Managed param types : System.Boolean
     - (void)flush_withFlushToDisk:(BOOL)p1
     {
-		[self invokeMonoMethod:"Flush(bool)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"Flush(bool)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : Lock
@@ -254,7 +373,9 @@
 	// Managed param types : System.Int64, System.Int64
     - (void)lock_withPosition:(int64_t)p1 length:(int64_t)p2
     {
-		[self invokeMonoMethod:"Lock(long,long)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"Lock(long,long)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : Read
@@ -282,7 +403,7 @@
 	// Managed method name : Seek
 	// Managed return type : System.Int64
 	// Managed param types : System.Int64, System.IO.SeekOrigin
-    - (int64_t)seek_withOffset:(int64_t)p1 origin:(System_IO_SeekOrigin)p2
+    - (int64_t)seek_withOffset:(int64_t)p1 origin:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Seek(long,System.IO.SeekOrigin)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
@@ -295,7 +416,9 @@
 	// Managed param types : System.Int64
     - (void)setLength_withValue:(int64_t)p1
     {
-		[self invokeMonoMethod:"SetLength(long)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"SetLength(long)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : Unlock
@@ -303,7 +426,9 @@
 	// Managed param types : System.Int64, System.Int64
     - (void)unlock_withPosition:(int64_t)p1 length:(int64_t)p2
     {
-		[self invokeMonoMethod:"Unlock(long,long)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"Unlock(long,long)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : Write
@@ -311,7 +436,9 @@
 	// Managed param types : System.Byte[], System.Int32, System.Int32
     - (void)write_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3
     {
-		[self invokeMonoMethod:"Write(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		[self invokeMonoMethod:"Write(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+        
     }
 
 	// Managed method name : WriteByte
@@ -319,7 +446,9 @@
 	// Managed param types : System.Byte
     - (void)writeByte_withValue:(uint8_t)p1
     {
-		[self invokeMonoMethod:"WriteByte(byte)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"WriteByte(byte)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 #pragma mark -

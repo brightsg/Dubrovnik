@@ -16,15 +16,15 @@
 
 	// Managed property name : AceFlags
 	// Managed property type : System.Security.AccessControl.AceFlags
-    @property (nonatomic) System_Security_AccessControl_AceFlags aceFlags;
+    @property (nonatomic) uint8_t aceFlags;
 
 	// Managed property name : AceType
 	// Managed property type : System.Security.AccessControl.AceType
-    @property (nonatomic, readonly) System_Security_AccessControl_AceType aceType;
+    @property (nonatomic, readonly) uint8_t aceType;
 
 	// Managed property name : AuditFlags
 	// Managed property type : System.Security.AccessControl.AuditFlags
-    @property (nonatomic, readonly) System_Security_AccessControl_AuditFlags auditFlags;
+    @property (nonatomic, readonly) int32_t auditFlags;
 
 	// Managed property name : BinaryLength
 	// Managed property type : System.Int32
@@ -32,7 +32,7 @@
 
 	// Managed property name : InheritanceFlags
 	// Managed property type : System.Security.AccessControl.InheritanceFlags
-    @property (nonatomic, readonly) System_Security_AccessControl_InheritanceFlags inheritanceFlags;
+    @property (nonatomic, readonly) int32_t inheritanceFlags;
 
 	// Managed property name : IsInherited
 	// Managed property type : System.Boolean
@@ -40,7 +40,7 @@
 
 	// Managed property name : PropagationFlags
 	// Managed property type : System.Security.AccessControl.PropagationFlags
-    @property (nonatomic, readonly) System_Security_AccessControl_PropagationFlags propagationFlags;
+    @property (nonatomic, readonly) int32_t propagationFlags;
 
 #pragma mark -
 #pragma mark Methods

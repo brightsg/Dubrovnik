@@ -2,7 +2,7 @@
 //
 // Managed class : HostProtectionException
 //
-@interface System_Security_HostProtectionException : System_SystemException <System_Runtime_Serialization_ISerializable, System_Runtime_InteropServices__Exception>
+@interface System_Security_HostProtectionException : System_SystemException <System_Runtime_Serialization_ISerializable_, System_Runtime_InteropServices__Exception_>
 
 #pragma mark -
 #pragma mark Setup
@@ -27,18 +27,18 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.HostProtectionException
 	// Managed param types : System.String, System.Security.Permissions.HostProtectionResource, System.Security.Permissions.HostProtectionResource
-    + (System_Security_HostProtectionException *)new_withMessage:(NSString *)p1 protectedResources:(System_Security_Permissions_HostProtectionResource)p2 demandedResources:(System_Security_Permissions_HostProtectionResource)p3;
+    + (System_Security_HostProtectionException *)new_withMessage:(NSString *)p1 protectedResources:(int32_t)p2 demandedResources:(int32_t)p3;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : DemandedResources
 	// Managed property type : System.Security.Permissions.HostProtectionResource
-    @property (nonatomic, readonly) System_Security_Permissions_HostProtectionResource demandedResources;
+    @property (nonatomic, readonly) int32_t demandedResources;
 
 	// Managed property name : ProtectedResources
 	// Managed property type : System.Security.Permissions.HostProtectionResource
-    @property (nonatomic, readonly) System_Security_Permissions_HostProtectionResource protectedResources;
+    @property (nonatomic, readonly) int32_t protectedResources;
 
 #pragma mark -
 #pragma mark Methods

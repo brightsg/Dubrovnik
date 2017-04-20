@@ -32,7 +32,10 @@
 	// Managed param types : System.MarshalByRefObject, System.Type
     + (System_Runtime_Remoting_ObjRef *)new_withO:(System_MarshalByRefObject *)p1 requestedType:(System_Type *)p2
     {
-		return [[self alloc] initWithSignature:"System.MarshalByRefObject,System.Type" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Runtime_Remoting_ObjRef * object = [[self alloc] initWithSignature:"System.MarshalByRefObject,System.Type" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,17 +46,36 @@
     @synthesize channelInfo = _channelInfo;
     - (System_Runtime_Remoting_IChannelInfo *)channelInfo
     {
-		MonoObject *monoObject = [self getMonoProperty:"ChannelInfo"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ChannelInfo");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_channelInfo isEqualToMonoObject:monoObject]) return _channelInfo;					
-		_channelInfo = [System_Runtime_Remoting_IChannelInfo objectWithMonoObject:monoObject];
+		_channelInfo = [System_Runtime_Remoting_IChannelInfo bestObjectWithMonoObject:monoObject];
 
 		return _channelInfo;
 	}
     - (void)setChannelInfo:(System_Runtime_Remoting_IChannelInfo *)value
 	{
 		_channelInfo = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"ChannelInfo" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ChannelInfo");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : EnvoyInfo
@@ -61,17 +83,36 @@
     @synthesize envoyInfo = _envoyInfo;
     - (System_Runtime_Remoting_IEnvoyInfo *)envoyInfo
     {
-		MonoObject *monoObject = [self getMonoProperty:"EnvoyInfo"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EnvoyInfo");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_envoyInfo isEqualToMonoObject:monoObject]) return _envoyInfo;					
-		_envoyInfo = [System_Runtime_Remoting_IEnvoyInfo objectWithMonoObject:monoObject];
+		_envoyInfo = [System_Runtime_Remoting_IEnvoyInfo bestObjectWithMonoObject:monoObject];
 
 		return _envoyInfo;
 	}
     - (void)setEnvoyInfo:(System_Runtime_Remoting_IEnvoyInfo *)value
 	{
 		_envoyInfo = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"EnvoyInfo" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "EnvoyInfo");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : TypeInfo
@@ -79,17 +120,36 @@
     @synthesize typeInfo = _typeInfo;
     - (System_Runtime_Remoting_IRemotingTypeInfo *)typeInfo
     {
-		MonoObject *monoObject = [self getMonoProperty:"TypeInfo"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TypeInfo");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_typeInfo isEqualToMonoObject:monoObject]) return _typeInfo;					
-		_typeInfo = [System_Runtime_Remoting_IRemotingTypeInfo objectWithMonoObject:monoObject];
+		_typeInfo = [System_Runtime_Remoting_IRemotingTypeInfo bestObjectWithMonoObject:monoObject];
 
 		return _typeInfo;
 	}
     - (void)setTypeInfo:(System_Runtime_Remoting_IRemotingTypeInfo *)value
 	{
 		_typeInfo = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"TypeInfo" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "TypeInfo");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : URI
@@ -97,7 +157,17 @@
     @synthesize uRI = _uRI;
     - (NSString *)uRI
     {
-		MonoObject *monoObject = [self getMonoProperty:"URI"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "URI");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_uRI isEqualToMonoObject:monoObject]) return _uRI;					
 		_uRI = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -106,8 +176,17 @@
     - (void)setURI:(NSString *)value
 	{
 		_uRI = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"URI" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "URI");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -118,7 +197,9 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetRealObject

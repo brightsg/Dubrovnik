@@ -47,8 +47,18 @@
     static BOOL m_isAttached;
     + (BOOL)isAttached
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"IsAttached"];
-		m_isAttached = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsAttached");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_isAttached = monoObject;
 
 		return m_isAttached;
 	}
@@ -61,7 +71,9 @@
 	// Managed param types : 
     + (void)break
     {
-		[self invokeMonoClassMethod:"Break()" withNumArgs:0];;
+		
+		[self invokeMonoClassMethod:"Break()" withNumArgs:0];
+        
     }
 
 	// Managed method name : IsLogging
@@ -91,7 +103,9 @@
 	// Managed param types : System.Int32, System.String, System.String
     + (void)log_withLevel:(int32_t)p1 category:(NSString *)p2 message:(NSString *)p3
     {
-		[self invokeMonoClassMethod:"Log(int,string,string)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Log(int,string,string)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : NotifyOfCrossThreadDependency
@@ -99,7 +113,9 @@
 	// Managed param types : 
     + (void)notifyOfCrossThreadDependency
     {
-		[self invokeMonoClassMethod:"NotifyOfCrossThreadDependency()" withNumArgs:0];;
+		
+		[self invokeMonoClassMethod:"NotifyOfCrossThreadDependency()" withNumArgs:0];
+        
     }
 
 #pragma mark -

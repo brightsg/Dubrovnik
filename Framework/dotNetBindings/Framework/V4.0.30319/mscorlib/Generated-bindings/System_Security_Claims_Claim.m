@@ -29,10 +29,35 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Claims.Claim
+	// Managed param types : System.IO.BinaryReader
+    + (System_Security_Claims_Claim *)new_withReader:(System_IO_BinaryReader *)p1
+    {
+		
+		System_Security_Claims_Claim * object = [[self alloc] initWithSignature:"System.IO.BinaryReader" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
+    }
+
+	// Managed method name : .ctor
+	// Managed return type : System.Security.Claims.Claim
+	// Managed param types : System.IO.BinaryReader, System.Security.Claims.ClaimsIdentity
+    + (System_Security_Claims_Claim *)new_withReader:(System_IO_BinaryReader *)p1 subject:(System_Security_Claims_ClaimsIdentity *)p2
+    {
+		
+		System_Security_Claims_Claim * object = [[self alloc] initWithSignature:"System.IO.BinaryReader,System.Security.Claims.ClaimsIdentity" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
+    }
+
+	// Managed method name : .ctor
+	// Managed return type : System.Security.Claims.Claim
 	// Managed param types : System.String, System.String
     + (System_Security_Claims_Claim *)new_withType:(NSString *)p1 value:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Security_Claims_Claim * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +65,10 @@
 	// Managed param types : System.String, System.String, System.String
     + (System_Security_Claims_Claim *)new_withType:(NSString *)p1 value:(NSString *)p2 valueType:(NSString *)p3
     {
-		return [[self alloc] initWithSignature:"string,string,string" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		System_Security_Claims_Claim * object = [[self alloc] initWithSignature:"string,string,string" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +76,10 @@
 	// Managed param types : System.String, System.String, System.String, System.String
     + (System_Security_Claims_Claim *)new_withType:(NSString *)p1 value:(NSString *)p2 valueType:(NSString *)p3 issuer:(NSString *)p4
     {
-		return [[self alloc] initWithSignature:"string,string,string,string" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];;
+		
+		System_Security_Claims_Claim * object = [[self alloc] initWithSignature:"string,string,string,string" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +87,10 @@
 	// Managed param types : System.String, System.String, System.String, System.String, System.String
     + (System_Security_Claims_Claim *)new_withType:(NSString *)p1 value:(NSString *)p2 valueType:(NSString *)p3 issuer:(NSString *)p4 originalIssuer:(NSString *)p5
     {
-		return [[self alloc] initWithSignature:"string,string,string,string,string" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];;
+		
+		System_Security_Claims_Claim * object = [[self alloc] initWithSignature:"string,string,string,string,string" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +98,10 @@
 	// Managed param types : System.String, System.String, System.String, System.String, System.String, System.Security.Claims.ClaimsIdentity
     + (System_Security_Claims_Claim *)new_withType:(NSString *)p1 value:(NSString *)p2 valueType:(NSString *)p3 issuer:(NSString *)p4 originalIssuer:(NSString *)p5 subject:(System_Security_Claims_ClaimsIdentity *)p6
     {
-		return [[self alloc] initWithSignature:"string,string,string,string,string,System.Security.Claims.ClaimsIdentity" withNumArgs:6, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg]];;
+		
+		System_Security_Claims_Claim * object = [[self alloc] initWithSignature:"string,string,string,string,string,System.Security.Claims.ClaimsIdentity" withNumArgs:6, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -75,7 +112,17 @@
     @synthesize issuer = _issuer;
     - (NSString *)issuer
     {
-		MonoObject *monoObject = [self getMonoProperty:"Issuer"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Issuer");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_issuer isEqualToMonoObject:monoObject]) return _issuer;					
 		_issuer = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -87,7 +134,17 @@
     @synthesize originalIssuer = _originalIssuer;
     - (NSString *)originalIssuer
     {
-		MonoObject *monoObject = [self getMonoProperty:"OriginalIssuer"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OriginalIssuer");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_originalIssuer isEqualToMonoObject:monoObject]) return _originalIssuer;					
 		_originalIssuer = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -99,9 +156,19 @@
     @synthesize properties = _properties;
     - (System_Collections_Generic_IDictionaryA2 *)properties
     {
-		MonoObject *monoObject = [self getMonoProperty:"Properties"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Properties");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_properties isEqualToMonoObject:monoObject]) return _properties;					
-		_properties = [System_Collections_Generic_IDictionaryA2 objectWithMonoObject:monoObject];
+		_properties = [System_Collections_Generic_IDictionaryA2 bestObjectWithMonoObject:monoObject];
 
 		return _properties;
 	}
@@ -111,17 +178,36 @@
     @synthesize subject = _subject;
     - (System_Security_Claims_ClaimsIdentity *)subject
     {
-		MonoObject *monoObject = [self getMonoProperty:"Subject"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Subject");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_subject isEqualToMonoObject:monoObject]) return _subject;					
-		_subject = [System_Security_Claims_ClaimsIdentity objectWithMonoObject:monoObject];
+		_subject = [System_Security_Claims_ClaimsIdentity bestObjectWithMonoObject:monoObject];
 
 		return _subject;
 	}
     - (void)setSubject:(System_Security_Claims_ClaimsIdentity *)value
 	{
 		_subject = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Subject" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Subject");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Type
@@ -129,7 +215,17 @@
     @synthesize type = _type;
     - (NSString *)type
     {
-		MonoObject *monoObject = [self getMonoProperty:"Type"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Type");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_type isEqualToMonoObject:monoObject]) return _type;					
 		_type = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -141,7 +237,17 @@
     @synthesize value = _value;
     - (NSString *)value
     {
-		MonoObject *monoObject = [self getMonoProperty:"Value"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Value");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_value isEqualToMonoObject:monoObject]) return _value;					
 		_value = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -153,7 +259,17 @@
     @synthesize valueType = _valueType;
     - (NSString *)valueType
     {
-		MonoObject *monoObject = [self getMonoProperty:"ValueType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ValueType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_valueType isEqualToMonoObject:monoObject]) return _valueType;					
 		_valueType = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -171,7 +287,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
 		
-		return [System_Security_Claims_Claim objectWithMonoObject:monoObject];
+		return [System_Security_Claims_Claim bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Clone
@@ -182,7 +298,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone(System.Security.Claims.ClaimsIdentity)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_Claims_Claim objectWithMonoObject:monoObject];
+		return [System_Security_Claims_Claim bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToString
@@ -194,6 +310,16 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+    }
+
+	// Managed method name : WriteTo
+	// Managed return type : System.Void
+	// Managed param types : System.IO.BinaryWriter
+    - (void)writeTo_withWriter:(System_IO_BinaryWriter *)p1
+    {
+		
+		[self invokeMonoMethod:"WriteTo(System.IO.BinaryWriter)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

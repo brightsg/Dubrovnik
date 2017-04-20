@@ -2,7 +2,7 @@
 //
 // Managed class : SHA512Managed
 //
-@interface System_Security_Cryptography_SHA512Managed : System_Security_Cryptography_SHA512 <System_Security_Cryptography_ICryptoTransform, System_IDisposable>
+@interface System_Security_Cryptography_SHA512Managed : System_Security_Cryptography_SHA512 <System_IDisposable_, System_Security_Cryptography_ICryptoTransform_>
 
 #pragma mark -
 #pragma mark Setup

@@ -2,7 +2,7 @@
 //
 // Managed class : ChannelDataStore
 //
-@interface System_Runtime_Remoting_Channels_ChannelDataStore : System_Object <System_Runtime_Remoting_Channels_IChannelDataStore>
+@interface System_Runtime_Remoting_Channels_ChannelDataStore : System_Object <System_Runtime_Remoting_Channels_IChannelDataStore_>
 
 #pragma mark -
 #pragma mark Setup

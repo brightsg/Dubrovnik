@@ -2,7 +2,7 @@
 //
 // Managed class : RSACryptoServiceProvider
 //
-@interface System_Security_Cryptography_RSACryptoServiceProvider : System_Security_Cryptography_RSA <System_IDisposable, System_Security_Cryptography_ICspAsymmetricAlgorithm>
+@interface System_Security_Cryptography_RSACryptoServiceProvider : System_Security_Cryptography_RSA <System_IDisposable_, System_Security_Cryptography_ICspAsymmetricAlgorithm_>
 
 #pragma mark -
 #pragma mark Setup
@@ -69,6 +69,11 @@
 	// Managed param types : System.Byte[], System.Boolean
     - (NSData *)decrypt_withRgb:(NSData *)p1 fOAEP:(BOOL)p2;
 
+	// Managed method name : Decrypt
+	// Managed return type : System.Byte[]
+	// Managed param types : System.Byte[], System.Security.Cryptography.RSAEncryptionPadding
+    - (NSData *)decrypt_withData:(NSData *)p1 padding:(System_Security_Cryptography_RSAEncryptionPadding *)p2;
+
 	// Managed method name : DecryptValue
 	// Managed return type : System.Byte[]
 	// Managed param types : System.Byte[]
@@ -78,6 +83,11 @@
 	// Managed return type : System.Byte[]
 	// Managed param types : System.Byte[], System.Boolean
     - (NSData *)encrypt_withRgb:(NSData *)p1 fOAEP:(BOOL)p2;
+
+	// Managed method name : Encrypt
+	// Managed return type : System.Byte[]
+	// Managed param types : System.Byte[], System.Security.Cryptography.RSAEncryptionPadding
+    - (NSData *)encrypt_withData:(NSData *)p1 padding:(System_Security_Cryptography_RSAEncryptionPadding *)p2;
 
 	// Managed method name : EncryptValue
 	// Managed return type : System.Byte[]
@@ -124,6 +134,11 @@
 	// Managed param types : System.Byte[], System.String
     - (NSData *)signHash_withRgbHash:(NSData *)p1 str:(NSString *)p2;
 
+	// Managed method name : SignHash
+	// Managed return type : System.Byte[]
+	// Managed param types : System.Byte[], System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography.RSASignaturePadding
+    - (NSData *)signHash_withHash:(NSData *)p1 hashAlgorithm:(System_Security_Cryptography_HashAlgorithmName *)p2 padding:(System_Security_Cryptography_RSASignaturePadding *)p3;
+
 	// Managed method name : VerifyData
 	// Managed return type : System.Boolean
 	// Managed param types : System.Byte[], System.Object, System.Byte[]
@@ -133,5 +148,10 @@
 	// Managed return type : System.Boolean
 	// Managed param types : System.Byte[], System.String, System.Byte[]
     - (BOOL)verifyHash_withRgbHash:(NSData *)p1 str:(NSString *)p2 rgbSignature:(NSData *)p3;
+
+	// Managed method name : VerifyHash
+	// Managed return type : System.Boolean
+	// Managed param types : System.Byte[], System.Byte[], System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography.RSASignaturePadding
+    - (BOOL)verifyHash_withHash:(NSData *)p1 signature:(NSData *)p2 hashAlgorithm:(System_Security_Cryptography_HashAlgorithmName *)p3 padding:(System_Security_Cryptography_RSASignaturePadding *)p4;
 @end
 //--Dubrovnik.CodeGenerator

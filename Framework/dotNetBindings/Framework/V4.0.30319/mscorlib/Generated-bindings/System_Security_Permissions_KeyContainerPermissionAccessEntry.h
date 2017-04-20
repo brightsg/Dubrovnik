@@ -16,25 +16,25 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.KeyContainerPermissionAccessEntry
+	// Managed param types : System.String, System.Security.Permissions.KeyContainerPermissionFlags
+    + (System_Security_Permissions_KeyContainerPermissionAccessEntry *)new_withKeyContainerName:(NSString *)p1 flags:(int32_t)p2;
+
+	// Managed method name : .ctor
+	// Managed return type : System.Security.Permissions.KeyContainerPermissionAccessEntry
 	// Managed param types : System.Security.Cryptography.CspParameters, System.Security.Permissions.KeyContainerPermissionFlags
-    + (System_Security_Permissions_KeyContainerPermissionAccessEntry *)new_withParameters:(System_Security_Cryptography_CspParameters *)p1 flags:(System_Security_Permissions_KeyContainerPermissionFlags)p2;
+    + (System_Security_Permissions_KeyContainerPermissionAccessEntry *)new_withParameters:(System_Security_Cryptography_CspParameters *)p1 flags:(int32_t)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.KeyContainerPermissionAccessEntry
 	// Managed param types : System.String, System.String, System.Int32, System.String, System.Int32, System.Security.Permissions.KeyContainerPermissionFlags
-    + (System_Security_Permissions_KeyContainerPermissionAccessEntry *)new_withKeyStore:(NSString *)p1 providerName:(NSString *)p2 providerType:(int32_t)p3 keyContainerName:(NSString *)p4 keySpec:(int32_t)p5 flags:(System_Security_Permissions_KeyContainerPermissionFlags)p6;
-
-	// Managed method name : .ctor
-	// Managed return type : System.Security.Permissions.KeyContainerPermissionAccessEntry
-	// Managed param types : System.String, System.Security.Permissions.KeyContainerPermissionFlags
-    + (System_Security_Permissions_KeyContainerPermissionAccessEntry *)new_withKeyContainerName:(NSString *)p1 flags:(System_Security_Permissions_KeyContainerPermissionFlags)p2;
+    + (System_Security_Permissions_KeyContainerPermissionAccessEntry *)new_withKeyStore:(NSString *)p1 providerName:(NSString *)p2 providerType:(int32_t)p3 keyContainerName:(NSString *)p4 keySpec:(int32_t)p5 flags:(int32_t)p6;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Flags
 	// Managed property type : System.Security.Permissions.KeyContainerPermissionFlags
-    @property (nonatomic) System_Security_Permissions_KeyContainerPermissionFlags flags;
+    @property (nonatomic) int32_t flags;
 
 	// Managed property name : KeyContainerName
 	// Managed property type : System.String

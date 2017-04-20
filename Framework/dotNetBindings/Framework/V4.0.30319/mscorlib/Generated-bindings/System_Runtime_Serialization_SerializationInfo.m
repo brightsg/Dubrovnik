@@ -30,17 +30,23 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Serialization.SerializationInfo
 	// Managed param types : System.Type, System.Runtime.Serialization.IFormatterConverter
-    + (System_Runtime_Serialization_SerializationInfo *)new_withType:(System_Type *)p1 converter:(System_Runtime_Serialization_IFormatterConverter *)p2
+    + (System_Runtime_Serialization_SerializationInfo *)new_withType:(System_Type *)p1 converter:(id <System_Runtime_Serialization_IFormatterConverter_>)p2
     {
-		return [[self alloc] initWithSignature:"System.Type,System.Runtime.Serialization.IFormatterConverter" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Runtime_Serialization_SerializationInfo * object = [[self alloc] initWithSignature:"System.Type,System.Runtime.Serialization.IFormatterConverter" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Serialization.SerializationInfo
 	// Managed param types : System.Type, System.Runtime.Serialization.IFormatterConverter, System.Boolean
-    + (System_Runtime_Serialization_SerializationInfo *)new_withType:(System_Type *)p1 converter:(System_Runtime_Serialization_IFormatterConverter *)p2 requireSameTokenInPartialTrust:(BOOL)p3
+    + (System_Runtime_Serialization_SerializationInfo *)new_withType:(System_Type *)p1 converter:(id <System_Runtime_Serialization_IFormatterConverter_>)p2 requireSameTokenInPartialTrust:(BOOL)p3
     {
-		return [[self alloc] initWithSignature:"System.Type,System.Runtime.Serialization.IFormatterConverter,bool" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
+		
+		System_Runtime_Serialization_SerializationInfo * object = [[self alloc] initWithSignature:"System.Type,System.Runtime.Serialization.IFormatterConverter,bool" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -51,7 +57,17 @@
     @synthesize assemblyName = _assemblyName;
     - (NSString *)assemblyName
     {
-		MonoObject *monoObject = [self getMonoProperty:"AssemblyName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AssemblyName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_assemblyName isEqualToMonoObject:monoObject]) return _assemblyName;					
 		_assemblyName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -60,8 +76,17 @@
     - (void)setAssemblyName:(NSString *)value
 	{
 		_assemblyName = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"AssemblyName" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "AssemblyName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : FullTypeName
@@ -69,7 +94,17 @@
     @synthesize fullTypeName = _fullTypeName;
     - (NSString *)fullTypeName
     {
-		MonoObject *monoObject = [self getMonoProperty:"FullTypeName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FullTypeName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_fullTypeName isEqualToMonoObject:monoObject]) return _fullTypeName;					
 		_fullTypeName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -78,8 +113,17 @@
     - (void)setFullTypeName:(NSString *)value
 	{
 		_fullTypeName = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"FullTypeName" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "FullTypeName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : IsAssemblyNameSetExplicit
@@ -87,8 +131,18 @@
     @synthesize isAssemblyNameSetExplicit = _isAssemblyNameSetExplicit;
     - (BOOL)isAssemblyNameSetExplicit
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsAssemblyNameSetExplicit"];
-		_isAssemblyNameSetExplicit = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsAssemblyNameSetExplicit");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isAssemblyNameSetExplicit = monoObject;
 
 		return _isAssemblyNameSetExplicit;
 	}
@@ -98,8 +152,18 @@
     @synthesize isFullTypeNameSetExplicit = _isFullTypeNameSetExplicit;
     - (BOOL)isFullTypeNameSetExplicit
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsFullTypeNameSetExplicit"];
-		_isFullTypeNameSetExplicit = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsFullTypeNameSetExplicit");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isFullTypeNameSetExplicit = monoObject;
 
 		return _isFullTypeNameSetExplicit;
 	}
@@ -109,8 +173,18 @@
     @synthesize memberCount = _memberCount;
     - (int32_t)memberCount
     {
-		MonoObject *monoObject = [self getMonoProperty:"MemberCount"];
-		_memberCount = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MemberCount");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_memberCount = monoObject;
 
 		return _memberCount;
 	}
@@ -120,9 +194,19 @@
     @synthesize objectType = _objectType;
     - (System_Type *)objectType
     {
-		MonoObject *monoObject = [self getMonoProperty:"ObjectType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ObjectType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_objectType isEqualToMonoObject:monoObject]) return _objectType;					
-		_objectType = [System_Type objectWithMonoObject:monoObject];
+		_objectType = [System_Type bestObjectWithMonoObject:monoObject];
 
 		return _objectType;
 	}
@@ -135,7 +219,9 @@
 	// Managed param types : System.String, System.Object, System.Type
     - (void)addValue_withName:(NSString *)p1 value:(System_Object *)p2 type:(System_Type *)p3
     {
-		[self invokeMonoMethod:"AddValue(string,object,System.Type)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"AddValue(string,object,System.Type)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : AddValue
@@ -143,7 +229,9 @@
 	// Managed param types : System.String, System.Object
     - (void)addValue_withNameString:(NSString *)p1 valueObject:(System_Object *)p2
     {
-		[self invokeMonoMethod:"AddValue(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"AddValue(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : AddValue
@@ -151,7 +239,9 @@
 	// Managed param types : System.String, System.Boolean
     - (void)addValue_withNameString:(NSString *)p1 valueBool:(BOOL)p2
     {
-		[self invokeMonoMethod:"AddValue(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"AddValue(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : AddValue
@@ -159,7 +249,9 @@
 	// Managed param types : System.String, System.Char
     - (void)addValue_withNameString:(NSString *)p1 valueChar:(uint16_t)p2
     {
-		[self invokeMonoMethod:"AddValue(string,char)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"AddValue(string,char)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : AddValue
@@ -167,7 +259,9 @@
 	// Managed param types : System.String, System.SByte
     - (void)addValue_withNameString:(NSString *)p1 valueSbyte:(int8_t)p2
     {
-		[self invokeMonoMethod:"AddValue(string,sbyte)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"AddValue(string,sbyte)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : AddValue
@@ -175,7 +269,9 @@
 	// Managed param types : System.String, System.Byte
     - (void)addValue_withNameString:(NSString *)p1 valueByte:(uint8_t)p2
     {
-		[self invokeMonoMethod:"AddValue(string,byte)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"AddValue(string,byte)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : AddValue
@@ -183,7 +279,9 @@
 	// Managed param types : System.String, System.Int16
     - (void)addValue_withNameString:(NSString *)p1 valueInt16:(int16_t)p2
     {
-		[self invokeMonoMethod:"AddValue(string,int16)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"AddValue(string,int16)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : AddValue
@@ -191,7 +289,9 @@
 	// Managed param types : System.String, System.UInt16
     - (void)addValue_withNameString:(NSString *)p1 valueUint16:(uint16_t)p2
     {
-		[self invokeMonoMethod:"AddValue(string,uint16)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"AddValue(string,uint16)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : AddValue
@@ -199,7 +299,9 @@
 	// Managed param types : System.String, System.Int32
     - (void)addValue_withNameString:(NSString *)p1 valueInt:(int32_t)p2
     {
-		[self invokeMonoMethod:"AddValue(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"AddValue(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : AddValue
@@ -207,7 +309,9 @@
 	// Managed param types : System.String, System.UInt32
     - (void)addValue_withNameString:(NSString *)p1 valueUint:(uint32_t)p2
     {
-		[self invokeMonoMethod:"AddValue(string,uint)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"AddValue(string,uint)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : AddValue
@@ -215,7 +319,9 @@
 	// Managed param types : System.String, System.Int64
     - (void)addValue_withNameString:(NSString *)p1 valueLong:(int64_t)p2
     {
-		[self invokeMonoMethod:"AddValue(string,long)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"AddValue(string,long)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : AddValue
@@ -223,7 +329,9 @@
 	// Managed param types : System.String, System.UInt64
     - (void)addValue_withNameString:(NSString *)p1 valueUlong:(uint64_t)p2
     {
-		[self invokeMonoMethod:"AddValue(string,ulong)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"AddValue(string,ulong)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : AddValue
@@ -231,7 +339,9 @@
 	// Managed param types : System.String, System.Single
     - (void)addValue_withNameString:(NSString *)p1 valueSingle:(float)p2
     {
-		[self invokeMonoMethod:"AddValue(string,single)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"AddValue(string,single)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : AddValue
@@ -239,15 +349,19 @@
 	// Managed param types : System.String, System.Double
     - (void)addValue_withNameString:(NSString *)p1 valueDouble:(double)p2
     {
-		[self invokeMonoMethod:"AddValue(string,double)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"AddValue(string,double)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : AddValue
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Decimal
-    - (void)addValue_withNameString:(NSString *)p1 valueDecimal:(NSDecimalNumber *)p2
+    - (void)addValue_withNameString:(NSString *)p1 valueSDecimal:(NSDecimalNumber *)p2
     {
-		[self invokeMonoMethod:"AddValue(string,decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"AddValue(string,System.Decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : AddValue
@@ -255,7 +369,9 @@
 	// Managed param types : System.String, System.DateTime
     - (void)addValue_withNameString:(NSString *)p1 valueSDateTime:(NSDate *)p2
     {
-		[self invokeMonoMethod:"AddValue(string,System.DateTime)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"AddValue(string,System.DateTime)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetBoolean
@@ -332,7 +448,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
 		
-		return [System_Runtime_Serialization_SerializationInfoEnumerator objectWithMonoObject:monoObject];
+		return [System_Runtime_Serialization_SerializationInfoEnumerator bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetInt16
@@ -450,7 +566,9 @@
 	// Managed param types : System.Type
     - (void)setType_withType:(System_Type *)p1
     {
-		[self invokeMonoMethod:"SetType(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetType(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

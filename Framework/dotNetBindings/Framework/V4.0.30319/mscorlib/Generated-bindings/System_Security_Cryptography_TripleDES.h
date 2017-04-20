@@ -2,7 +2,7 @@
 //
 // Managed class : TripleDES
 //
-@interface System_Security_Cryptography_TripleDES : System_Security_Cryptography_SymmetricAlgorithm <System_IDisposable>
+@interface System_Security_Cryptography_TripleDES : System_Security_Cryptography_SymmetricAlgorithm <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

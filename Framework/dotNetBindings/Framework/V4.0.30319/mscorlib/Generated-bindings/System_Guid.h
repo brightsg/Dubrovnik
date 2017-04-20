@@ -2,7 +2,7 @@
 //
 // Managed struct : Guid
 //
-@interface System_Guid : DBManagedObject <System_IFormattable, System_IComparable, System_IComparableA1, System_IEquatableA1>
+@interface System_Guid : DBManagedObject <System_IFormattable_, System_IComparable_, System_IComparableA1_, System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -117,7 +117,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.String, System.IFormatProvider
-    - (NSString *)toString_withFormat:(NSString *)p1 provider:(System_IFormatProvider *)p2;
+    - (NSString *)toString_withFormat:(NSString *)p1 provider:(id <System_IFormatProvider_>)p2;
 
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean

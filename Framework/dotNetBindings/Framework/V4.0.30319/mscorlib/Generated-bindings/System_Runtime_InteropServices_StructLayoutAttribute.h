@@ -2,7 +2,7 @@
 //
 // Managed class : StructLayoutAttribute
 //
-@interface System_Runtime_InteropServices_StructLayoutAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Runtime_InteropServices_StructLayoutAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.StructLayoutAttribute
 	// Managed param types : System.Runtime.InteropServices.LayoutKind
-    + (System_Runtime_InteropServices_StructLayoutAttribute *)new_withLayoutKindSRILayoutKind:(System_Runtime_InteropServices_LayoutKind)p1;
+    + (System_Runtime_InteropServices_StructLayoutAttribute *)new_withLayoutKindSRILayoutKind:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.StructLayoutAttribute
@@ -29,7 +29,7 @@
 
 	// Managed field name : CharSet
 	// Managed field type : System.Runtime.InteropServices.CharSet
-    @property (nonatomic) System_Runtime_InteropServices_CharSet charSet;
+    @property (nonatomic) int32_t charSet;
 
 	// Managed field name : Pack
 	// Managed field type : System.Int32
@@ -44,6 +44,6 @@
 
 	// Managed property name : Value
 	// Managed property type : System.Runtime.InteropServices.LayoutKind
-    @property (nonatomic, readonly) System_Runtime_InteropServices_LayoutKind value;
+    @property (nonatomic, readonly) int32_t value;
 @end
 //--Dubrovnik.CodeGenerator

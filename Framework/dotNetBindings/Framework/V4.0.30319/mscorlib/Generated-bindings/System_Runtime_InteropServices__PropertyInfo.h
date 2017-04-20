@@ -16,7 +16,7 @@
 
 	// Managed property name : Attributes
 	// Managed property type : System.Reflection.PropertyAttributes
-    @property (nonatomic, readonly) System_Reflection_PropertyAttributes attributes;
+    @property (nonatomic, readonly) int32_t attributes;
 
 	// Managed property name : CanRead
 	// Managed property type : System.Boolean
@@ -36,7 +36,7 @@
 
 	// Managed property name : MemberType
 	// Managed property type : System.Reflection.MemberTypes
-    @property (nonatomic, readonly) System_Reflection_MemberTypes memberType;
+    @property (nonatomic, readonly) int32_t memberType;
 
 	// Managed property name : Name
 	// Managed property type : System.String
@@ -136,7 +136,7 @@
 	// Managed method name : GetValue
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo
-    - (System_Object *)getValue_withObj:(System_Object *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 index:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5;
+    - (System_Object *)getValue_withObj:(System_Object *)p1 invokeAttr:(int32_t)p2 binder:(System_Reflection_Binder *)p3 index:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5;
 
 	// Managed method name : Invoke
 	// Managed return type : System.Void
@@ -156,7 +156,7 @@
 	// Managed method name : SetValue
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Object, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo
-    - (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2 invokeAttr:(System_Reflection_BindingFlags)p3 binder:(System_Reflection_Binder *)p4 index:(DBSystem_Array *)p5 culture:(System_Globalization_CultureInfo *)p6;
+    - (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2 invokeAttr:(int32_t)p3 binder:(System_Reflection_Binder *)p4 index:(DBSystem_Array *)p5 culture:(System_Globalization_CultureInfo *)p6;
 
 	// Managed method name : ToString
 	// Managed return type : System.String

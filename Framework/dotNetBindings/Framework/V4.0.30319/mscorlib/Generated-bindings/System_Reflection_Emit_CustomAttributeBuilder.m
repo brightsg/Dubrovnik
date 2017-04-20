@@ -32,7 +32,10 @@
 	// Managed param types : System.Reflection.ConstructorInfo, System.Object[]
     + (System_Reflection_Emit_CustomAttributeBuilder *)new_withCon:(System_Reflection_ConstructorInfo *)p1 constructorArgs:(DBSystem_Array *)p2
     {
-		return [[self alloc] initWithSignature:"System.Reflection.ConstructorInfo,object[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Reflection_Emit_CustomAttributeBuilder * object = [[self alloc] initWithSignature:"System.Reflection.ConstructorInfo,object[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Reflection.ConstructorInfo, System.Object[], System.Reflection.PropertyInfo[], System.Object[]
     + (System_Reflection_Emit_CustomAttributeBuilder *)new_withCon:(System_Reflection_ConstructorInfo *)p1 constructorArgs:(DBSystem_Array *)p2 namedProperties:(DBSystem_Array *)p3 propertyValues:(DBSystem_Array *)p4
     {
-		return [[self alloc] initWithSignature:"System.Reflection.ConstructorInfo,object[],System.Array[],object[]" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];;
+		
+		System_Reflection_Emit_CustomAttributeBuilder * object = [[self alloc] initWithSignature:"System.Reflection.ConstructorInfo,object[],System.Reflection.PropertyInfo[],object[]" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +54,10 @@
 	// Managed param types : System.Reflection.ConstructorInfo, System.Object[], System.Reflection.FieldInfo[], System.Object[]
     + (System_Reflection_Emit_CustomAttributeBuilder *)new_withCon:(System_Reflection_ConstructorInfo *)p1 constructorArgs:(DBSystem_Array *)p2 namedFields:(DBSystem_Array *)p3 fieldValues:(DBSystem_Array *)p4
     {
-		return [[self alloc] initWithSignature:"System.Reflection.ConstructorInfo,object[],System.Array[],object[]" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];;
+		
+		System_Reflection_Emit_CustomAttributeBuilder * object = [[self alloc] initWithSignature:"System.Reflection.ConstructorInfo,object[],System.Reflection.FieldInfo[],object[]" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +65,10 @@
 	// Managed param types : System.Reflection.ConstructorInfo, System.Object[], System.Reflection.PropertyInfo[], System.Object[], System.Reflection.FieldInfo[], System.Object[]
     + (System_Reflection_Emit_CustomAttributeBuilder *)new_withCon:(System_Reflection_ConstructorInfo *)p1 constructorArgs:(DBSystem_Array *)p2 namedProperties:(DBSystem_Array *)p3 propertyValues:(DBSystem_Array *)p4 namedFields:(DBSystem_Array *)p5 fieldValues:(DBSystem_Array *)p6
     {
-		return [[self alloc] initWithSignature:"System.Reflection.ConstructorInfo,object[],System.Array[],object[],System.Array[],object[]" withNumArgs:6, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg]];;
+		
+		System_Reflection_Emit_CustomAttributeBuilder * object = [[self alloc] initWithSignature:"System.Reflection.ConstructorInfo,object[],System.Reflection.PropertyInfo[],object[],System.Reflection.FieldInfo[],object[]" withNumArgs:6, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -

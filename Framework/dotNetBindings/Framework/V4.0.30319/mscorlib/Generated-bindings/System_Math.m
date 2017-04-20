@@ -121,10 +121,10 @@
 	// Managed method name : Abs
 	// Managed return type : System.Decimal
 	// Managed param types : System.Decimal
-    + (NSDecimalNumber *)abs_withValueDecimal:(NSDecimalNumber *)p1
+    + (NSDecimalNumber *)abs_withValueSDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Abs(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Abs(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -190,7 +190,7 @@
     + (NSDecimalNumber *)ceiling_withD:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Ceiling(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Ceiling(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -264,10 +264,10 @@
 	// Managed method name : Floor
 	// Managed return type : System.Decimal
 	// Managed param types : System.Decimal
-    + (NSDecimalNumber *)floor_withDDecimal:(NSDecimalNumber *)p1
+    + (NSDecimalNumber *)floor_withDSDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Floor(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Floor(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -440,10 +440,10 @@
 	// Managed method name : Max
 	// Managed return type : System.Decimal
 	// Managed param types : System.Decimal, System.Decimal
-    + (NSDecimalNumber *)max_withVal1Decimal:(NSDecimalNumber *)p1 val2Decimal:(NSDecimalNumber *)p2
+    + (NSDecimalNumber *)max_withVal1SDecimal:(NSDecimalNumber *)p1 val2SDecimal:(NSDecimalNumber *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Max(decimal,decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Max(System.Decimal,System.Decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -561,10 +561,10 @@
 	// Managed method name : Min
 	// Managed return type : System.Decimal
 	// Managed param types : System.Decimal, System.Decimal
-    + (NSDecimalNumber *)min_withVal1Decimal:(NSDecimalNumber *)p1 val2Decimal:(NSDecimalNumber *)p2
+    + (NSDecimalNumber *)min_withVal1SDecimal:(NSDecimalNumber *)p1 val2SDecimal:(NSDecimalNumber *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Min(decimal,decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Min(System.Decimal,System.Decimal)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -605,7 +605,7 @@
 	// Managed method name : Round
 	// Managed return type : System.Double
 	// Managed param types : System.Double, System.MidpointRounding
-    + (double)round_withValue:(double)p1 mode:(System_MidpointRounding)p2
+    + (double)round_withValue:(double)p1 mode:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(double,System.MidpointRounding)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
@@ -616,7 +616,7 @@
 	// Managed method name : Round
 	// Managed return type : System.Double
 	// Managed param types : System.Double, System.Int32, System.MidpointRounding
-    + (double)round_withValue:(double)p1 digits:(int32_t)p2 mode:(System_MidpointRounding)p3
+    + (double)round_withValue:(double)p1 digits:(int32_t)p2 mode:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(double,int,System.MidpointRounding)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
@@ -630,7 +630,7 @@
     + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -641,7 +641,7 @@
     + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1 decimals:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(decimal,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(System.Decimal,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -649,10 +649,10 @@
 	// Managed method name : Round
 	// Managed return type : System.Decimal
 	// Managed param types : System.Decimal, System.MidpointRounding
-    + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1 mode:(System_MidpointRounding)p2
+    + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1 mode:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(decimal,System.MidpointRounding)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(System.Decimal,System.MidpointRounding)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -660,10 +660,10 @@
 	// Managed method name : Round
 	// Managed return type : System.Decimal
 	// Managed param types : System.Decimal, System.Int32, System.MidpointRounding
-    + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1 decimals:(int32_t)p2 mode:(System_MidpointRounding)p3
+    + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1 decimals:(int32_t)p2 mode:(int32_t)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(decimal,int,System.MidpointRounding)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(System.Decimal,int,System.MidpointRounding)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
@@ -737,10 +737,10 @@
 	// Managed method name : Sign
 	// Managed return type : System.Int32
 	// Managed param types : System.Decimal
-    + (int32_t)sign_withValueDecimal:(NSDecimalNumber *)p1
+    + (int32_t)sign_withValueSDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Sign(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Sign(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -803,10 +803,10 @@
 	// Managed method name : Truncate
 	// Managed return type : System.Decimal
 	// Managed param types : System.Decimal
-    + (NSDecimalNumber *)truncate_withDDecimal:(NSDecimalNumber *)p1
+    + (NSDecimalNumber *)truncate_withDSDecimal:(NSDecimalNumber *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Truncate(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Truncate(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }

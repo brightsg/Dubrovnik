@@ -2,7 +2,7 @@
 //
 // Managed class : ConcurrentDictionary`2<TKey, TValue>
 //
-@interface System_Collections_Concurrent_ConcurrentDictionaryA2 : System_Object <System_Collections_Generic_IDictionaryA2, System_Collections_Generic_ICollectionA1, System_Collections_Generic_IEnumerableA1, System_Collections_IEnumerable, System_Collections_IDictionary, System_Collections_ICollection>
+@interface System_Collections_Concurrent_ConcurrentDictionaryA2 : System_Object <System_Collections_Generic_IDictionaryA2_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_IDictionary_, System_Collections_ICollection_, System_Collections_Generic_IReadOnlyDictionaryA2_, System_Collections_Generic_IReadOnlyCollectionA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -16,33 +16,33 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Concurrent.ConcurrentDictionary`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
+	// Managed param types : System.Collections.Generic.IEqualityComparer`1<System.Collections.Concurrent.ConcurrentDictionary`2+TKey>
+    + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withComparer:(id <System_Collections_Generic_IEqualityComparerA1_>)p1;
+
+	// Managed method name : .ctor
+	// Managed return type : System.Collections.Concurrent.ConcurrentDictionary`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
 	// Managed param types : System.Int32, System.Int32
     + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withConcurrencyLevel:(int32_t)p1 capacity:(int32_t)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Concurrent.ConcurrentDictionary`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
-	// Managed param types : System.Collections.Generic.IEqualityComparer`1<System.Collections.Concurrent.ConcurrentDictionary`2+TKey>
-    + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withComparer:(System_Collections_Generic_IEqualityComparerA1 *)p1;
-
-	// Managed method name : .ctor
-	// Managed return type : System.Collections.Concurrent.ConcurrentDictionary`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>>
-    + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withCollection:(System_Collections_Generic_IEnumerableA1 *)p1;
+    + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Concurrent.ConcurrentDictionary`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>>, System.Collections.Generic.IEqualityComparer`1<System.Collections.Concurrent.ConcurrentDictionary`2+TKey>
-    + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withCollection:(System_Collections_Generic_IEnumerableA1 *)p1 comparer:(System_Collections_Generic_IEqualityComparerA1 *)p2;
+    + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1 comparer:(id <System_Collections_Generic_IEqualityComparerA1_>)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Concurrent.ConcurrentDictionary`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
 	// Managed param types : System.Int32, System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>>, System.Collections.Generic.IEqualityComparer`1<System.Collections.Concurrent.ConcurrentDictionary`2+TKey>
-    + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withConcurrencyLevel:(int32_t)p1 collection:(System_Collections_Generic_IEnumerableA1 *)p2 comparer:(System_Collections_Generic_IEqualityComparerA1 *)p3;
+    + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withConcurrencyLevel:(int32_t)p1 collection:(id <System_Collections_Generic_IEnumerableA1_>)p2 comparer:(id <System_Collections_Generic_IEqualityComparerA1_>)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Concurrent.ConcurrentDictionary`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
 	// Managed param types : System.Int32, System.Int32, System.Collections.Generic.IEqualityComparer`1<System.Collections.Concurrent.ConcurrentDictionary`2+TKey>
-    + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withConcurrencyLevel:(int32_t)p1 capacity:(int32_t)p2 comparer:(System_Collections_Generic_IEqualityComparerA1 *)p3;
+    + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withConcurrencyLevel:(int32_t)p1 capacity:(int32_t)p2 comparer:(id <System_Collections_Generic_IEqualityComparerA1_>)p3;
 
 #pragma mark -
 #pragma mark Properties
@@ -93,7 +93,7 @@
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.Generic.IEnumerator`1<System.Collections.Generic.KeyValuePair`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumeratorA1 *)getEnumerator;
+    - (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator;
 
 	// Managed method name : GetOrAdd
 	// Managed return type : <System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
@@ -117,13 +117,13 @@
 
 	// Managed method name : TryGetValue
 	// Managed return type : System.Boolean
-	// Managed param types : <System.Collections.Concurrent.ConcurrentDictionary`2+TKey>, ref <TValue&>
-    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
+	// Managed param types : <System.Collections.Concurrent.ConcurrentDictionary`2+TKey>, ref TValue&
+    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Collections_Concurrent_ConcurrentDictionaryA2__TValue **)p2;
 
 	// Managed method name : TryRemove
 	// Managed return type : System.Boolean
-	// Managed param types : <System.Collections.Concurrent.ConcurrentDictionary`2+TKey>, ref <TValue&>
-    - (BOOL)tryRemove_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
+	// Managed param types : <System.Collections.Concurrent.ConcurrentDictionary`2+TKey>, ref TValue&
+    - (BOOL)tryRemove_withKey:(System_Object *)p1 valueRef:(System_Collections_Concurrent_ConcurrentDictionaryA2__TValue **)p2;
 
 	// Managed method name : TryUpdate
 	// Managed return type : System.Boolean

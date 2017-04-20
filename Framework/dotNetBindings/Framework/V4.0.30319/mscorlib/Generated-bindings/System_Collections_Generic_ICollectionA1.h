@@ -2,7 +2,7 @@
 //
 // Managed interface : ICollection`1<T>
 //
-@interface System_Collections_Generic_ICollectionA1 : System_Object <System_Collections_Generic_ICollectionA1, System_Collections_Generic_IEnumerableA1, System_Collections_IEnumerable>
+@interface System_Collections_Generic_ICollectionA1 : System_Object <System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -42,8 +42,8 @@
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : <T[]>, System.Int32
-    - (void)copyTo_withArray:(System_Object *)p1 arrayIndex:(int32_t)p2;
+	// Managed param types : T[], System.Int32
+    - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2;
 
 	// Managed method name : Remove
 	// Managed return type : System.Boolean

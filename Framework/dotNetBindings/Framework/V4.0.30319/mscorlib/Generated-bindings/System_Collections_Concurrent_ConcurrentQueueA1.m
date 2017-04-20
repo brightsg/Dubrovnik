@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Concurrent.ConcurrentQueue`1<System.Collections.Concurrent.ConcurrentQueue`1+T>";
+		return "System.Collections.Concurrent.ConcurrentQueue`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Concurrent.ConcurrentQueue`1<System.Collections.Concurrent.ConcurrentQueue`1+T>
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.ConcurrentQueue`1+T>
-    + (System_Collections_Concurrent_ConcurrentQueueA1 *)new_withCollection:(System_Collections_Generic_IEnumerableA1 *)p1
+    + (System_Collections_Concurrent_ConcurrentQueueA1 *)new_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.ConcurrentQueue`1+T>" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Collections_Concurrent_ConcurrentQueueA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.ConcurrentQueue`1+T>" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,8 +46,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -54,8 +67,18 @@
     @synthesize isEmpty = _isEmpty;
     - (BOOL)isEmpty
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsEmpty"];
-		_isEmpty = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsEmpty");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isEmpty = monoObject;
 
 		return _isEmpty;
 	}
@@ -65,10 +88,12 @@
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : <T[]>, System.Int32
-    - (void)copyTo_withArray:(System_Object *)p1 index:(int32_t)p2
+	// Managed param types : T[], System.Int32
+    - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(<_T_0>[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : Enqueue
@@ -76,55 +101,57 @@
 	// Managed param types : <System.Collections.Concurrent.ConcurrentQueue`1+T>
     - (void)enqueue_withItem:(System_Object *)p1
     {
-		[self invokeMonoMethod:"Enqueue(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Enqueue(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.Generic.IEnumerator`1<System.Collections.Concurrent.ConcurrentQueue`1+T>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumeratorA1 *)getEnumerator
+    - (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
 		
-		return [System_Collections_Generic_IEnumeratorA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumeratorA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToArray
-	// Managed return type : <T[]>
+	// Managed return type : T[]
 	// Managed param types : 
-    - (System_Object *)toArray
+    - (DBSystem_Array *)toArray
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToArray()" withNumArgs:0];
 		
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : TryDequeue
 	// Managed return type : System.Boolean
-	// Managed param types : ref <T&>
-    - (BOOL)tryDequeue_withResultRef:(System_Object **)p1
+	// Managed param types : ref T&
+    - (BOOL)tryDequeue_withResultRef:(System_Collections_Concurrent_ConcurrentQueueA1__T **)p1
     {
 		void *refPtr1 = [*p1 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoMethod:"TryDequeue(<_T_0>&)" withNumArgs:1, &refPtr1];
+		MonoObject *monoObject = [self invokeMonoMethod:"TryDequeue(System.Collections.Concurrent.ConcurrentQueue`1+T&)" withNumArgs:1, &refPtr1];
 
-		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+		*p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : TryPeek
 	// Managed return type : System.Boolean
-	// Managed param types : ref <T&>
-    - (BOOL)tryPeek_withResultRef:(System_Object **)p1
+	// Managed param types : ref T&
+    - (BOOL)tryPeek_withResultRef:(System_Collections_Concurrent_ConcurrentQueueA1__T **)p1
     {
 		void *refPtr1 = [*p1 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoMethod:"TryPeek(<_T_0>&)" withNumArgs:1, &refPtr1];
+		MonoObject *monoObject = [self invokeMonoMethod:"TryPeek(System.Collections.Concurrent.ConcurrentQueue`1+T&)" withNumArgs:1, &refPtr1];
 
-		*p1 = [System_Object subclassObjectWithMonoObject:refPtr1];
+		*p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

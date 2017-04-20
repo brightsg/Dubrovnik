@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Func`1<System.Func`1+TResult>";
+		return "System.Func`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,7 +32,10 @@
 	// Managed param types : System.Object, System.IntPtr
     + (System_FuncA1 *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
-		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		System_FuncA1 * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -41,23 +44,23 @@
 	// Managed method name : BeginInvoke
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.AsyncCallback, System.Object
-    - (System_IAsyncResult *)beginInvoke_withCallback:(System_AsyncCallback *)p1 object:(System_Object *)p2
+    - (id <System_IAsyncResult>)beginInvoke_withCallback:(System_AsyncCallback *)p1 object:(System_Object *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_IAsyncResult objectWithMonoObject:monoObject];
+		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EndInvoke
 	// Managed return type : <System.Func`1+TResult>
 	// Managed param types : System.IAsyncResult
-    - (System_Object *)endInvoke_withResult:(System_IAsyncResult *)p1
+    - (System_Object *)endInvoke_withResult:(id <System_IAsyncResult_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Invoke
@@ -68,7 +71,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Invoke()" withNumArgs:0];
 		
-		return [System_Object subclassObjectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

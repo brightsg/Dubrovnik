@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Policy.NetCodeGroup
 	// Managed param types : System.Security.Policy.IMembershipCondition
-    + (System_Security_Policy_NetCodeGroup *)new_withMembershipCondition:(System_Security_Policy_IMembershipCondition *)p1
+    + (System_Security_Policy_NetCodeGroup *)new_withMembershipCondition:(id <System_Security_Policy_IMembershipCondition_>)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Policy.IMembershipCondition" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Security_Policy_NetCodeGroup * object = [[self alloc] initWithSignature:"System.Security.Policy.IMembershipCondition" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -70,7 +73,17 @@
     @synthesize attributeString = _attributeString;
     - (NSString *)attributeString
     {
-		MonoObject *monoObject = [self getMonoProperty:"AttributeString"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AttributeString");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_attributeString isEqualToMonoObject:monoObject]) return _attributeString;					
 		_attributeString = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -82,7 +95,17 @@
     @synthesize mergeLogic = _mergeLogic;
     - (NSString *)mergeLogic
     {
-		MonoObject *monoObject = [self getMonoProperty:"MergeLogic"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MergeLogic");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_mergeLogic isEqualToMonoObject:monoObject]) return _mergeLogic;					
 		_mergeLogic = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -94,7 +117,17 @@
     @synthesize permissionSetName = _permissionSetName;
     - (NSString *)permissionSetName
     {
-		MonoObject *monoObject = [self getMonoProperty:"PermissionSetName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PermissionSetName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_permissionSetName isEqualToMonoObject:monoObject]) return _permissionSetName;					
 		_permissionSetName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -109,7 +142,9 @@
 	// Managed param types : System.String, System.Security.Policy.CodeConnectAccess
     - (void)addConnectAccess_withOriginScheme:(NSString *)p1 connectAccess:(System_Security_Policy_CodeConnectAccess *)p2
     {
-		[self invokeMonoMethod:"AddConnectAccess(string,System.Security.Policy.CodeConnectAccess)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"AddConnectAccess(string,System.Security.Policy.CodeConnectAccess)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Copy
@@ -120,7 +155,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
 		
-		return [System_Security_Policy_CodeGroup objectWithMonoObject:monoObject];
+		return [System_Security_Policy_CodeGroup bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals
@@ -161,7 +196,9 @@
 	// Managed param types : 
     - (void)resetConnectAccess
     {
-		[self invokeMonoMethod:"ResetConnectAccess()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"ResetConnectAccess()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Resolve
@@ -172,7 +209,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Resolve(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_Policy_PolicyStatement objectWithMonoObject:monoObject];
+		return [System_Security_Policy_PolicyStatement bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolveMatchingCodeGroups
@@ -183,7 +220,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMatchingCodeGroups(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_Policy_CodeGroup objectWithMonoObject:monoObject];
+		return [System_Security_Policy_CodeGroup bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

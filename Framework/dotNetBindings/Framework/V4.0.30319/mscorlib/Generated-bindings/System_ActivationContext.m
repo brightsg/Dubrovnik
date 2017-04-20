@@ -32,7 +32,17 @@
     @synthesize applicationManifestBytes = _applicationManifestBytes;
     - (NSData *)applicationManifestBytes
     {
-		MonoObject *monoObject = [self getMonoProperty:"ApplicationManifestBytes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ApplicationManifestBytes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_applicationManifestBytes isEqualToMonoObject:monoObject]) return _applicationManifestBytes;					
 		_applicationManifestBytes = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -44,7 +54,17 @@
     @synthesize deploymentManifestBytes = _deploymentManifestBytes;
     - (NSData *)deploymentManifestBytes
     {
-		MonoObject *monoObject = [self getMonoProperty:"DeploymentManifestBytes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DeploymentManifestBytes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_deploymentManifestBytes isEqualToMonoObject:monoObject]) return _deploymentManifestBytes;					
 		_deploymentManifestBytes = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -54,10 +74,20 @@
 	// Managed property name : Form
 	// Managed property type : System.ActivationContext+ContextForm
     @synthesize form = _form;
-    - (System_ActivationContext__ContextForm)form
+    - (int32_t)form
     {
-		MonoObject *monoObject = [self getMonoProperty:"Form"];
-		_form = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Form");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_form = monoObject;
 
 		return _form;
 	}
@@ -67,9 +97,19 @@
     @synthesize identity = _identity;
     - (System_ApplicationIdentity *)identity
     {
-		MonoObject *monoObject = [self getMonoProperty:"Identity"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Identity");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_identity isEqualToMonoObject:monoObject]) return _identity;					
-		_identity = [System_ApplicationIdentity objectWithMonoObject:monoObject];
+		_identity = [System_ApplicationIdentity bestObjectWithMonoObject:monoObject];
 
 		return _identity;
 	}
@@ -85,7 +125,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreatePartialActivationContext(System.ApplicationIdentity)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_ActivationContext objectWithMonoObject:monoObject];
+		return [System_ActivationContext bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreatePartialActivationContext
@@ -96,7 +136,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreatePartialActivationContext(System.ApplicationIdentity,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_ActivationContext objectWithMonoObject:monoObject];
+		return [System_ActivationContext bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Dispose
@@ -104,7 +144,9 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+        
     }
 
 #pragma mark -

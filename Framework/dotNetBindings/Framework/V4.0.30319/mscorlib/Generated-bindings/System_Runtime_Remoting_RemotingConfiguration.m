@@ -32,7 +32,17 @@
     static NSString * m_applicationId;
     + (NSString *)applicationId
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"ApplicationId"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ApplicationId");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_applicationId isEqualToMonoObject:monoObject]) return m_applicationId;					
 		m_applicationId = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -44,7 +54,17 @@
     static NSString * m_applicationName;
     + (NSString *)applicationName
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"ApplicationName"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ApplicationName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_applicationName isEqualToMonoObject:monoObject]) return m_applicationName;					
 		m_applicationName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -53,25 +73,53 @@
     + (void)setApplicationName:(NSString *)value
 	{
 		m_applicationName = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[[self class] setMonoClassProperty:"ApplicationName" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ApplicationName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk([value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CustomErrorsMode
 	// Managed property type : System.Runtime.Remoting.CustomErrorsModes
-    static System_Runtime_Remoting_CustomErrorsModes m_customErrorsMode;
-    + (System_Runtime_Remoting_CustomErrorsModes)customErrorsMode
+    static int32_t m_customErrorsMode;
+    + (int32_t)customErrorsMode
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"CustomErrorsMode"];
-		m_customErrorsMode = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CustomErrorsMode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_customErrorsMode = monoObject;
 
 		return m_customErrorsMode;
 	}
-    + (void)setCustomErrorsMode:(System_Runtime_Remoting_CustomErrorsModes)value
+    + (void)setCustomErrorsMode:(int32_t)value
 	{
 		m_customErrorsMode = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[[self class] setMonoClassProperty:"CustomErrorsMode" valueObject:monoObject];          
+		typedef void (*Thunk)(int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CustomErrorsMode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ProcessId
@@ -79,7 +127,17 @@
     static NSString * m_processId;
     + (NSString *)processId
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"ProcessId"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ProcessId");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_processId isEqualToMonoObject:monoObject]) return m_processId;					
 		m_processId = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -94,7 +152,9 @@
 	// Managed param types : System.String
     + (void)configure_withFilename:(NSString *)p1
     {
-		[self invokeMonoClassMethod:"Configure(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Configure(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Configure
@@ -102,7 +162,9 @@
 	// Managed param types : System.String, System.Boolean
     + (void)configure_withFilename:(NSString *)p1 ensureSecurity:(BOOL)p2
     {
-		[self invokeMonoClassMethod:"Configure(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoClassMethod:"Configure(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : CustomErrorsEnabled
@@ -179,7 +241,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"IsRemotelyActivatedClientType(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_ActivatedClientTypeEntry objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_ActivatedClientTypeEntry bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsRemotelyActivatedClientType
@@ -190,7 +252,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"IsRemotelyActivatedClientType(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_ActivatedClientTypeEntry objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_ActivatedClientTypeEntry bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsWellKnownClientType
@@ -201,7 +263,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"IsWellKnownClientType(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_WellKnownClientTypeEntry objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_WellKnownClientTypeEntry bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsWellKnownClientType
@@ -212,7 +274,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"IsWellKnownClientType(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_WellKnownClientTypeEntry objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_WellKnownClientTypeEntry bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : RegisterActivatedClientType
@@ -220,7 +282,9 @@
 	// Managed param types : System.Type, System.String
     + (void)registerActivatedClientType_withType:(System_Type *)p1 appUrl:(NSString *)p2
     {
-		[self invokeMonoClassMethod:"RegisterActivatedClientType(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"RegisterActivatedClientType(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : RegisterActivatedClientType
@@ -228,7 +292,9 @@
 	// Managed param types : System.Runtime.Remoting.ActivatedClientTypeEntry
     + (void)registerActivatedClientType_withEntry:(System_Runtime_Remoting_ActivatedClientTypeEntry *)p1
     {
-		[self invokeMonoClassMethod:"RegisterActivatedClientType(System.Runtime.Remoting.ActivatedClientTypeEntry)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"RegisterActivatedClientType(System.Runtime.Remoting.ActivatedClientTypeEntry)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : RegisterActivatedServiceType
@@ -236,7 +302,9 @@
 	// Managed param types : System.Type
     + (void)registerActivatedServiceType_withType:(System_Type *)p1
     {
-		[self invokeMonoClassMethod:"RegisterActivatedServiceType(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"RegisterActivatedServiceType(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : RegisterActivatedServiceType
@@ -244,7 +312,9 @@
 	// Managed param types : System.Runtime.Remoting.ActivatedServiceTypeEntry
     + (void)registerActivatedServiceType_withEntry:(System_Runtime_Remoting_ActivatedServiceTypeEntry *)p1
     {
-		[self invokeMonoClassMethod:"RegisterActivatedServiceType(System.Runtime.Remoting.ActivatedServiceTypeEntry)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"RegisterActivatedServiceType(System.Runtime.Remoting.ActivatedServiceTypeEntry)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : RegisterWellKnownClientType
@@ -252,7 +322,9 @@
 	// Managed param types : System.Type, System.String
     + (void)registerWellKnownClientType_withType:(System_Type *)p1 objectUrl:(NSString *)p2
     {
-		[self invokeMonoClassMethod:"RegisterWellKnownClientType(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"RegisterWellKnownClientType(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : RegisterWellKnownClientType
@@ -260,15 +332,19 @@
 	// Managed param types : System.Runtime.Remoting.WellKnownClientTypeEntry
     + (void)registerWellKnownClientType_withEntry:(System_Runtime_Remoting_WellKnownClientTypeEntry *)p1
     {
-		[self invokeMonoClassMethod:"RegisterWellKnownClientType(System.Runtime.Remoting.WellKnownClientTypeEntry)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"RegisterWellKnownClientType(System.Runtime.Remoting.WellKnownClientTypeEntry)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : RegisterWellKnownServiceType
 	// Managed return type : System.Void
 	// Managed param types : System.Type, System.String, System.Runtime.Remoting.WellKnownObjectMode
-    + (void)registerWellKnownServiceType_withType:(System_Type *)p1 objectUri:(NSString *)p2 mode:(System_Runtime_Remoting_WellKnownObjectMode)p3
+    + (void)registerWellKnownServiceType_withType:(System_Type *)p1 objectUri:(NSString *)p2 mode:(int32_t)p3
     {
-		[self invokeMonoClassMethod:"RegisterWellKnownServiceType(System.Type,string,System.Runtime.Remoting.WellKnownObjectMode)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
+		
+		[self invokeMonoClassMethod:"RegisterWellKnownServiceType(System.Type,string,System.Runtime.Remoting.WellKnownObjectMode)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+        
     }
 
 	// Managed method name : RegisterWellKnownServiceType
@@ -276,7 +352,9 @@
 	// Managed param types : System.Runtime.Remoting.WellKnownServiceTypeEntry
     + (void)registerWellKnownServiceType_withEntry:(System_Runtime_Remoting_WellKnownServiceTypeEntry *)p1
     {
-		[self invokeMonoClassMethod:"RegisterWellKnownServiceType(System.Runtime.Remoting.WellKnownServiceTypeEntry)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"RegisterWellKnownServiceType(System.Runtime.Remoting.WellKnownServiceTypeEntry)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

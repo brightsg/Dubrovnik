@@ -2,7 +2,7 @@
 //
 // Managed class : DeriveBytes
 //
-@interface System_Security_Cryptography_DeriveBytes : System_Object <System_IDisposable>
+@interface System_Security_Cryptography_DeriveBytes : System_Object <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

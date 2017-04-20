@@ -2,7 +2,7 @@
 //
 // Managed class : SortedList
 //
-@interface System_Collections_SortedList : System_Object <System_Collections_IDictionary, System_Collections_ICollection, System_Collections_IEnumerable, System_ICloneable>
+@interface System_Collections_SortedList : System_Object <System_Collections_IDictionary_, System_Collections_ICollection_, System_Collections_IEnumerable_, System_ICloneable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -22,22 +22,22 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.SortedList
 	// Managed param types : System.Collections.IComparer
-    + (System_Collections_SortedList *)new_withComparer:(System_Collections_IComparer *)p1;
+    + (System_Collections_SortedList *)new_withComparer:(id <System_Collections_IComparer_>)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.SortedList
 	// Managed param types : System.Collections.IComparer, System.Int32
-    + (System_Collections_SortedList *)new_withComparer:(System_Collections_IComparer *)p1 capacity:(int32_t)p2;
+    + (System_Collections_SortedList *)new_withComparer:(id <System_Collections_IComparer_>)p1 capacity:(int32_t)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.SortedList
 	// Managed param types : System.Collections.IDictionary
-    + (System_Collections_SortedList *)new_withD:(System_Collections_IDictionary *)p1;
+    + (System_Collections_SortedList *)new_withD:(id <System_Collections_IDictionary_>)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.SortedList
 	// Managed param types : System.Collections.IDictionary, System.Collections.IComparer
-    + (System_Collections_SortedList *)new_withD:(System_Collections_IDictionary *)p1 comparer:(System_Collections_IComparer *)p2;
+    + (System_Collections_SortedList *)new_withD:(id <System_Collections_IDictionary_>)p1 comparer:(id <System_Collections_IComparer_>)p2;
 
 #pragma mark -
 #pragma mark Properties
@@ -124,7 +124,7 @@
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IDictionaryEnumerator
 	// Managed param types : 
-    - (System_Collections_IDictionaryEnumerator *)getEnumerator;
+    - (id <System_Collections_IDictionaryEnumerator>)getEnumerator;
 
 	// Managed method name : GetKey
 	// Managed return type : System.Object
@@ -134,12 +134,12 @@
 	// Managed method name : GetKeyList
 	// Managed return type : System.Collections.IList
 	// Managed param types : 
-    - (System_Collections_IList *)getKeyList;
+    - (id <System_Collections_IList>)getKeyList;
 
 	// Managed method name : GetValueList
 	// Managed return type : System.Collections.IList
 	// Managed param types : 
-    - (System_Collections_IList *)getValueList;
+    - (id <System_Collections_IList>)getValueList;
 
 	// Managed method name : IndexOfKey
 	// Managed return type : System.Int32

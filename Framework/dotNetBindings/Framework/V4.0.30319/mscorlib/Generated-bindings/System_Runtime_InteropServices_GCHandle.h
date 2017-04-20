@@ -38,7 +38,7 @@
 	// Managed method name : Alloc
 	// Managed return type : System.Runtime.InteropServices.GCHandle
 	// Managed param types : System.Object, System.Runtime.InteropServices.GCHandleType
-    + (System_Runtime_InteropServices_GCHandle *)alloc_withValue:(System_Object *)p1 type:(System_Runtime_InteropServices_GCHandleType)p2;
+    + (System_Runtime_InteropServices_GCHandle *)alloc_withValue:(System_Object *)p1 type:(int32_t)p2;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean

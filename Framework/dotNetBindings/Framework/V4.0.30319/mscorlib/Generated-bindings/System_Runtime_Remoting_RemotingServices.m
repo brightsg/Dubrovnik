@@ -63,23 +63,23 @@
 	// Managed method name : ExecuteMessage
 	// Managed return type : System.Runtime.Remoting.Messaging.IMethodReturnMessage
 	// Managed param types : System.MarshalByRefObject, System.Runtime.Remoting.Messaging.IMethodCallMessage
-    + (System_Runtime_Remoting_Messaging_IMethodReturnMessage *)executeMessage_withTarget:(System_MarshalByRefObject *)p1 reqMsg:(System_Runtime_Remoting_Messaging_IMethodCallMessage *)p2
+    + (id <System_Runtime_Remoting_Messaging_IMethodReturnMessage>)executeMessage_withTarget:(System_MarshalByRefObject *)p1 reqMsg:(id <System_Runtime_Remoting_Messaging_IMethodCallMessage_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ExecuteMessage(System.MarshalByRefObject,System.Runtime.Remoting.Messaging.IMethodCallMessage)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_Messaging_IMethodReturnMessage objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Messaging_IMethodReturnMessage bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEnvoyChainForProxy
 	// Managed return type : System.Runtime.Remoting.Messaging.IMessageSink
 	// Managed param types : System.MarshalByRefObject
-    + (System_Runtime_Remoting_Messaging_IMessageSink *)getEnvoyChainForProxy_withObj:(System_MarshalByRefObject *)p1
+    + (id <System_Runtime_Remoting_Messaging_IMessageSink>)getEnvoyChainForProxy_withObj:(System_MarshalByRefObject *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEnvoyChainForProxy(System.MarshalByRefObject)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_Messaging_IMessageSink objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Messaging_IMessageSink bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetLifetimeService
@@ -96,12 +96,12 @@
 	// Managed method name : GetMethodBaseFromMethodMessage
 	// Managed return type : System.Reflection.MethodBase
 	// Managed param types : System.Runtime.Remoting.Messaging.IMethodMessage
-    + (System_Reflection_MethodBase *)getMethodBaseFromMethodMessage_withMsg:(System_Runtime_Remoting_Messaging_IMethodMessage *)p1
+    + (System_Reflection_MethodBase *)getMethodBaseFromMethodMessage_withMsg:(id <System_Runtime_Remoting_Messaging_IMethodMessage_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetMethodBaseFromMethodMessage(System.Runtime.Remoting.Messaging.IMethodMessage)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_MethodBase objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodBase bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetObjectData
@@ -109,7 +109,9 @@
 	// Managed param types : System.Object, System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     + (void)getObjectData_withObj:(System_Object *)p1 info:(System_Runtime_Serialization_SerializationInfo *)p2 context:(System_Runtime_Serialization_StreamingContext *)p3
     {
-		[self invokeMonoClassMethod:"GetObjectData(object,System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"GetObjectData(object,System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetObjectUri
@@ -131,7 +133,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetObjRefForProxy(System.MarshalByRefObject)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_ObjRef objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_ObjRef bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRealProxy
@@ -142,7 +144,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetRealProxy(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_Proxies_RealProxy objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Proxies_RealProxy bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetServerTypeForUri
@@ -153,13 +155,13 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetServerTypeForUri(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetSessionIdForMethodMessage
 	// Managed return type : System.String
 	// Managed param types : System.Runtime.Remoting.Messaging.IMethodMessage
-    + (NSString *)getSessionIdForMethodMessage_withMsg:(System_Runtime_Remoting_Messaging_IMethodMessage *)p1
+    + (NSString *)getSessionIdForMethodMessage_withMsg:(id <System_Runtime_Remoting_Messaging_IMethodMessage_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetSessionIdForMethodMessage(System.Runtime.Remoting.Messaging.IMethodMessage)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -170,7 +172,7 @@
 	// Managed method name : IsMethodOverloaded
 	// Managed return type : System.Boolean
 	// Managed param types : System.Runtime.Remoting.Messaging.IMethodMessage
-    + (BOOL)isMethodOverloaded_withMsg:(System_Runtime_Remoting_Messaging_IMethodMessage *)p1
+    + (BOOL)isMethodOverloaded_withMsg:(id <System_Runtime_Remoting_Messaging_IMethodMessage_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"IsMethodOverloaded(System.Runtime.Remoting.Messaging.IMethodMessage)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -227,7 +229,9 @@
 	// Managed param types : System.Int32
     + (void)logRemotingStage_withStage:(int32_t)p1
     {
-		[self invokeMonoClassMethod:"LogRemotingStage(int)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoClassMethod:"LogRemotingStage(int)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : Marshal
@@ -238,7 +242,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Marshal(System.MarshalByRefObject)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_ObjRef objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_ObjRef bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Marshal
@@ -249,7 +253,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Marshal(System.MarshalByRefObject,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_ObjRef objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_ObjRef bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Marshal
@@ -260,7 +264,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Marshal(System.MarshalByRefObject,string,System.Type)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_ObjRef objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_ObjRef bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SetObjectUriForMarshal
@@ -268,7 +272,9 @@
 	// Managed param types : System.MarshalByRefObject, System.String
     + (void)setObjectUriForMarshal_withObj:(System_MarshalByRefObject *)p1 uri:(NSString *)p2
     {
-		[self invokeMonoClassMethod:"SetObjectUriForMarshal(System.MarshalByRefObject,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SetObjectUriForMarshal(System.MarshalByRefObject,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Unmarshal

@@ -32,7 +32,9 @@
 	// Managed param types : System.Int32
     - (void)clone_withPpenum:(int32_t)p1
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIEnumVARIANT.Clone(int)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIEnumVARIANT.Clone(int)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : Next

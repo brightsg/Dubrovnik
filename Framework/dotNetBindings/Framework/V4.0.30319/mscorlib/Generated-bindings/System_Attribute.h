@@ -2,7 +2,7 @@
 //
 // Managed class : Attribute
 //
-@interface System_Attribute : System_Object <System_Runtime_InteropServices__Attribute>
+@interface System_Attribute : System_Object <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup

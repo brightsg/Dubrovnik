@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.DirectorySecurity
 	// Managed param types : System.String, System.Security.AccessControl.AccessControlSections
-    + (System_Security_AccessControl_DirectorySecurity *)new_withName:(NSString *)p1 includeSections:(System_Security_AccessControl_AccessControlSections)p2
+    + (System_Security_AccessControl_DirectorySecurity *)new_withName:(NSString *)p1 includeSections:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"string,System.Security.AccessControl.AccessControlSections" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		System_Security_AccessControl_DirectorySecurity * object = [[self alloc] initWithSignature:"string,System.Security.AccessControl.AccessControlSections" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+        return object;
     }
 
 #pragma mark -

@@ -2,7 +2,7 @@
 //
 // Managed class : Timer
 //
-@interface System_Threading_Timer : System_MarshalByRefObject <System_IDisposable>
+@interface System_Threading_Timer : System_MarshalByRefObject <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

@@ -32,8 +32,12 @@
 	// Managed param types : ref System.Guid&
     - (void)getClassID_withPClassIDRef:(System_Guid **)p1
     {
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIPersistFile.GetClassID(System.Guid&)" withNumArgs:1, &refPtr1];
-;
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+
     }
 
 	// Managed method name : GetCurFile
@@ -41,8 +45,12 @@
 	// Managed param types : ref System.String&
     - (void)getCurFile_withPpszFileNameRef:(NSString **)p1
     {
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIPersistFile.GetCurFile(string&)" withNumArgs:1, &refPtr1];
-;
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+
     }
 
 	// Managed method name : IsDirty
@@ -61,7 +69,9 @@
 	// Managed param types : System.String, System.Int32
     - (void)load_withPszFileName:(NSString *)p1 dwMode:(int32_t)p2
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIPersistFile.Load(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIPersistFile.Load(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : Save
@@ -69,7 +79,9 @@
 	// Managed param types : System.String, System.Boolean
     - (void)save_withPszFileName:(NSString *)p1 fRemember:(BOOL)p2
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIPersistFile.Save(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIPersistFile.Save(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : SaveCompleted
@@ -77,7 +89,9 @@
 	// Managed param types : System.String
     - (void)saveCompleted_withPszFileName:(NSString *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIPersistFile.SaveCompleted(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIPersistFile.SaveCompleted(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

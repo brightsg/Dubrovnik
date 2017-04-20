@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.ConstrainedExecution.ReliabilityContractAttribute
 	// Managed param types : System.Runtime.ConstrainedExecution.Consistency, System.Runtime.ConstrainedExecution.Cer
-    + (System_Runtime_ConstrainedExecution_ReliabilityContractAttribute *)new_withConsistencyGuarantee:(System_Runtime_ConstrainedExecution_Consistency)p1 cer:(System_Runtime_ConstrainedExecution_Cer)p2
+    + (System_Runtime_ConstrainedExecution_ReliabilityContractAttribute *)new_withConsistencyGuarantee:(int32_t)p1 cer:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"System.Runtime.ConstrainedExecution.Consistency,System.Runtime.ConstrainedExecution.Cer" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		System_Runtime_ConstrainedExecution_ReliabilityContractAttribute * object = [[self alloc] initWithSignature:"System.Runtime.ConstrainedExecution.Consistency,System.Runtime.ConstrainedExecution.Cer" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -41,10 +44,20 @@
 	// Managed property name : Cer
 	// Managed property type : System.Runtime.ConstrainedExecution.Cer
     @synthesize cer = _cer;
-    - (System_Runtime_ConstrainedExecution_Cer)cer
+    - (int32_t)cer
     {
-		MonoObject *monoObject = [self getMonoProperty:"Cer"];
-		_cer = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Cer");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_cer = monoObject;
 
 		return _cer;
 	}
@@ -52,10 +65,20 @@
 	// Managed property name : ConsistencyGuarantee
 	// Managed property type : System.Runtime.ConstrainedExecution.Consistency
     @synthesize consistencyGuarantee = _consistencyGuarantee;
-    - (System_Runtime_ConstrainedExecution_Consistency)consistencyGuarantee
+    - (int32_t)consistencyGuarantee
     {
-		MonoObject *monoObject = [self getMonoProperty:"ConsistencyGuarantee"];
-		_consistencyGuarantee = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ConsistencyGuarantee");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_consistencyGuarantee = monoObject;
 
 		return _consistencyGuarantee;
 	}

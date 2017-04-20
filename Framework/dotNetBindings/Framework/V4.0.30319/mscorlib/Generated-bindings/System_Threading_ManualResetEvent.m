@@ -32,7 +32,10 @@
 	// Managed param types : System.Boolean
     + (System_Threading_ManualResetEvent *)new_withInitialState:(BOOL)p1
     {
-		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Threading_ManualResetEvent * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -

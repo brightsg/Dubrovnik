@@ -32,8 +32,18 @@
     @synthesize endOffset = _endOffset;
     - (int32_t)endOffset
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Diagnostics.SymbolStore.ISymbolScope.EndOffset"];
-		_endOffset = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Diagnostics.SymbolStore.ISymbolScope.EndOffset");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_endOffset = monoObject;
 
 		return _endOffset;
 	}
@@ -43,9 +53,19 @@
     @synthesize method = _method;
     - (System_Diagnostics_SymbolStore_ISymbolMethod *)method
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Diagnostics.SymbolStore.ISymbolScope.Method"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Diagnostics.SymbolStore.ISymbolScope.Method");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_method isEqualToMonoObject:monoObject]) return _method;					
-		_method = [System_Diagnostics_SymbolStore_ISymbolMethod objectWithMonoObject:monoObject];
+		_method = [System_Diagnostics_SymbolStore_ISymbolMethod bestObjectWithMonoObject:monoObject];
 
 		return _method;
 	}
@@ -55,9 +75,19 @@
     @synthesize parent = _parent;
     - (System_Diagnostics_SymbolStore_ISymbolScope *)parent
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Diagnostics.SymbolStore.ISymbolScope.Parent"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Diagnostics.SymbolStore.ISymbolScope.Parent");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_parent isEqualToMonoObject:monoObject]) return _parent;					
-		_parent = [System_Diagnostics_SymbolStore_ISymbolScope objectWithMonoObject:monoObject];
+		_parent = [System_Diagnostics_SymbolStore_ISymbolScope bestObjectWithMonoObject:monoObject];
 
 		return _parent;
 	}
@@ -67,8 +97,18 @@
     @synthesize startOffset = _startOffset;
     - (int32_t)startOffset
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Diagnostics.SymbolStore.ISymbolScope.StartOffset"];
-		_startOffset = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Diagnostics.SymbolStore.ISymbolScope.StartOffset");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_startOffset = monoObject;
 
 		return _startOffset;
 	}

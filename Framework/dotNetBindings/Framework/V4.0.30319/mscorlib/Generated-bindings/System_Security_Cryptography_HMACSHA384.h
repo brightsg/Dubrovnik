@@ -2,7 +2,7 @@
 //
 // Managed class : HMACSHA384
 //
-@interface System_Security_Cryptography_HMACSHA384 : System_Security_Cryptography_HMAC <System_Security_Cryptography_ICryptoTransform, System_IDisposable>
+@interface System_Security_Cryptography_HMACSHA384 : System_Security_Cryptography_HMAC <System_IDisposable_, System_Security_Cryptography_ICryptoTransform_>
 
 #pragma mark -
 #pragma mark Setup

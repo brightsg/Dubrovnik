@@ -2,7 +2,7 @@
 //
 // Managed class : TypeLibVarAttribute
 //
-@interface System_Runtime_InteropServices_TypeLibVarAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Runtime_InteropServices_TypeLibVarAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.TypeLibVarAttribute
 	// Managed param types : System.Runtime.InteropServices.TypeLibVarFlags
-    + (System_Runtime_InteropServices_TypeLibVarAttribute *)new_withFlagsSRITypeLibVarFlags:(System_Runtime_InteropServices_TypeLibVarFlags)p1;
+    + (System_Runtime_InteropServices_TypeLibVarAttribute *)new_withFlagsSRITypeLibVarFlags:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.TypeLibVarAttribute
@@ -29,6 +29,6 @@
 
 	// Managed property name : Value
 	// Managed property type : System.Runtime.InteropServices.TypeLibVarFlags
-    @property (nonatomic, readonly) System_Runtime_InteropServices_TypeLibVarFlags value;
+    @property (nonatomic, readonly) int32_t value;
 @end
 //--Dubrovnik.CodeGenerator

@@ -32,9 +32,19 @@
     @synthesize nextSink = _nextSink;
     - (System_Runtime_Remoting_Messaging_IMessageSink *)nextSink
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Messaging.IMessageSink.NextSink"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Messaging.IMessageSink.NextSink");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_nextSink isEqualToMonoObject:monoObject]) return _nextSink;					
-		_nextSink = [System_Runtime_Remoting_Messaging_IMessageSink objectWithMonoObject:monoObject];
+		_nextSink = [System_Runtime_Remoting_Messaging_IMessageSink bestObjectWithMonoObject:monoObject];
 
 		return _nextSink;
 	}
@@ -45,23 +55,23 @@
 	// Managed method name : AsyncProcessMessage
 	// Managed return type : System.Runtime.Remoting.Messaging.IMessageCtrl
 	// Managed param types : System.Runtime.Remoting.Messaging.IMessage, System.Runtime.Remoting.Messaging.IMessageSink
-    - (System_Runtime_Remoting_Messaging_IMessageCtrl *)asyncProcessMessage_withMsg:(System_Runtime_Remoting_Messaging_IMessage *)p1 replySink:(System_Runtime_Remoting_Messaging_IMessageSink *)p2
+    - (id <System_Runtime_Remoting_Messaging_IMessageCtrl>)asyncProcessMessage_withMsg:(id <System_Runtime_Remoting_Messaging_IMessage_>)p1 replySink:(id <System_Runtime_Remoting_Messaging_IMessageSink_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.Remoting.Messaging.IMessageSink.AsyncProcessMessage(System.Runtime.Remoting.Messaging.IMessage,System.Runtime.Remoting.Messaging.IMessageSink)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_Messaging_IMessageCtrl objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Messaging_IMessageCtrl bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SyncProcessMessage
 	// Managed return type : System.Runtime.Remoting.Messaging.IMessage
 	// Managed param types : System.Runtime.Remoting.Messaging.IMessage
-    - (System_Runtime_Remoting_Messaging_IMessage *)syncProcessMessage_withMsg:(System_Runtime_Remoting_Messaging_IMessage *)p1
+    - (id <System_Runtime_Remoting_Messaging_IMessage>)syncProcessMessage_withMsg:(id <System_Runtime_Remoting_Messaging_IMessage_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.Remoting.Messaging.IMessageSink.SyncProcessMessage(System.Runtime.Remoting.Messaging.IMessage)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_Messaging_IMessage objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Messaging_IMessage bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

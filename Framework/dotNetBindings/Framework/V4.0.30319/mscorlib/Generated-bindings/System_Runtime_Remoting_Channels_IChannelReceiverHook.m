@@ -32,7 +32,17 @@
     @synthesize channelScheme = _channelScheme;
     - (NSString *)channelScheme
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Channels.IChannelReceiverHook.ChannelScheme"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Channels.IChannelReceiverHook.ChannelScheme");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_channelScheme isEqualToMonoObject:monoObject]) return _channelScheme;					
 		_channelScheme = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -44,9 +54,19 @@
     @synthesize channelSinkChain = _channelSinkChain;
     - (System_Runtime_Remoting_Channels_IServerChannelSink *)channelSinkChain
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Channels.IChannelReceiverHook.ChannelSinkChain"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Channels.IChannelReceiverHook.ChannelSinkChain");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_channelSinkChain isEqualToMonoObject:monoObject]) return _channelSinkChain;					
-		_channelSinkChain = [System_Runtime_Remoting_Channels_IServerChannelSink objectWithMonoObject:monoObject];
+		_channelSinkChain = [System_Runtime_Remoting_Channels_IServerChannelSink bestObjectWithMonoObject:monoObject];
 
 		return _channelSinkChain;
 	}
@@ -56,8 +76,18 @@
     @synthesize wantsToListen = _wantsToListen;
     - (BOOL)wantsToListen
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Channels.IChannelReceiverHook.WantsToListen"];
-		_wantsToListen = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Channels.IChannelReceiverHook.WantsToListen");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_wantsToListen = monoObject;
 
 		return _wantsToListen;
 	}
@@ -70,7 +100,9 @@
 	// Managed param types : System.String
     - (void)addHookChannelUri_withChannelUri:(NSString *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IChannelReceiverHook.AddHookChannelUri(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IChannelReceiverHook.AddHookChannelUri(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

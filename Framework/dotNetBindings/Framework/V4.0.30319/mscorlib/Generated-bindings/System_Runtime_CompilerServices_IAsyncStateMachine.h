@@ -22,6 +22,6 @@
 	// Managed method name : SetStateMachine
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.CompilerServices.IAsyncStateMachine
-    - (void)setStateMachine_withStateMachine:(System_Runtime_CompilerServices_IAsyncStateMachine *)p1;
+    - (void)setStateMachine_withStateMachine:(id <System_Runtime_CompilerServices_IAsyncStateMachine_>)p1;
 @end
 //--Dubrovnik.CodeGenerator

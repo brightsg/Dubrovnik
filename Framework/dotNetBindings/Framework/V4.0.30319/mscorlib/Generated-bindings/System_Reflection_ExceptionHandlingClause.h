@@ -24,7 +24,7 @@
 
 	// Managed property name : Flags
 	// Managed property type : System.Reflection.ExceptionHandlingClauseOptions
-    @property (nonatomic, readonly) System_Reflection_ExceptionHandlingClauseOptions flags;
+    @property (nonatomic, readonly) int32_t flags;
 
 	// Managed property name : HandlerLength
 	// Managed property type : System.Int32

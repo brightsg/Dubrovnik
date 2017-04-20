@@ -32,7 +32,10 @@
 	// Managed param types : System.TimeSpan
     + (System_Threading_CancellationTokenSource *)new_withDelay:(System_TimeSpan *)p1
     {
-		return [[self alloc] initWithSignature:"System.TimeSpan" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Threading_CancellationTokenSource * object = [[self alloc] initWithSignature:"System.TimeSpan" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Int32
     + (System_Threading_CancellationTokenSource *)new_withMillisecondsDelay:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Threading_CancellationTokenSource * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -51,8 +57,18 @@
     @synthesize isCancellationRequested = _isCancellationRequested;
     - (BOOL)isCancellationRequested
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsCancellationRequested"];
-		_isCancellationRequested = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsCancellationRequested");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isCancellationRequested = monoObject;
 
 		return _isCancellationRequested;
 	}
@@ -62,9 +78,19 @@
     @synthesize token = _token;
     - (System_Threading_CancellationToken *)token
     {
-		MonoObject *monoObject = [self getMonoProperty:"Token"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Token");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_token isEqualToMonoObject:monoObject]) return _token;					
-		_token = [System_Threading_CancellationToken objectWithMonoObject:monoObject];
+		_token = [System_Threading_CancellationToken bestObjectWithMonoObject:monoObject];
 
 		return _token;
 	}
@@ -77,7 +103,9 @@
 	// Managed param types : 
     - (void)cancel
     {
-		[self invokeMonoMethod:"Cancel()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Cancel()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Cancel
@@ -85,7 +113,9 @@
 	// Managed param types : System.Boolean
     - (void)cancel_withThrowOnFirstException:(BOOL)p1
     {
-		[self invokeMonoMethod:"Cancel(bool)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"Cancel(bool)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : CancelAfter
@@ -93,7 +123,9 @@
 	// Managed param types : System.TimeSpan
     - (void)cancelAfter_withDelay:(System_TimeSpan *)p1
     {
-		[self invokeMonoMethod:"CancelAfter(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"CancelAfter(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : CancelAfter
@@ -101,7 +133,9 @@
 	// Managed param types : System.Int32
     - (void)cancelAfter_withMillisecondsDelay:(int32_t)p1
     {
-		[self invokeMonoMethod:"CancelAfter(int)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"CancelAfter(int)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : CreateLinkedTokenSource
@@ -112,7 +146,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateLinkedTokenSource(System.Threading.CancellationToken,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Threading_CancellationTokenSource objectWithMonoObject:monoObject];
+		return [System_Threading_CancellationTokenSource bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateLinkedTokenSource
@@ -121,9 +155,9 @@
     + (System_Threading_CancellationTokenSource *)createLinkedTokenSource_withTokens:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateLinkedTokenSource(System.Array[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateLinkedTokenSource(System.Threading.CancellationToken[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Threading_CancellationTokenSource objectWithMonoObject:monoObject];
+		return [System_Threading_CancellationTokenSource bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Dispose
@@ -131,7 +165,9 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+        
     }
 
 #pragma mark -

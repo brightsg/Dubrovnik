@@ -2,7 +2,7 @@
 //
 // Managed class : AssemblyBuilder
 //
-@interface System_Reflection_Emit_AssemblyBuilder : System_Reflection_Assembly <System_Runtime_InteropServices__Assembly, System_Security_IEvidenceFactory, System_Reflection_ICustomAttributeProvider, System_Runtime_Serialization_ISerializable, System_Runtime_InteropServices__AssemblyBuilder>
+@interface System_Reflection_Emit_AssemblyBuilder : System_Reflection_Assembly <System_Runtime_InteropServices__Assembly_, System_Security_IEvidenceFactory_, System_Reflection_ICustomAttributeProvider_, System_Runtime_Serialization_ISerializable_, System_Runtime_InteropServices__AssemblyBuilder_>
 
 #pragma mark -
 #pragma mark Setup
@@ -64,7 +64,7 @@
 
 	// Managed property name : SecurityRuleSet
 	// Managed property type : System.Security.SecurityRuleSet
-    @property (nonatomic, readonly) System_Security_SecurityRuleSet securityRuleSet;
+    @property (nonatomic, readonly) uint8_t securityRuleSet;
 
 #pragma mark -
 #pragma mark Methods
@@ -77,17 +77,17 @@
 	// Managed method name : AddResourceFile
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.String, System.Reflection.ResourceAttributes
-    - (void)addResourceFile_withName:(NSString *)p1 fileName:(NSString *)p2 attribute:(System_Reflection_ResourceAttributes)p3;
+    - (void)addResourceFile_withName:(NSString *)p1 fileName:(NSString *)p2 attribute:(int32_t)p3;
 
 	// Managed method name : DefineDynamicAssembly
 	// Managed return type : System.Reflection.Emit.AssemblyBuilder
 	// Managed param types : System.Reflection.AssemblyName, System.Reflection.Emit.AssemblyBuilderAccess
-    + (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2;
+    + (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(int32_t)p2;
 
 	// Managed method name : DefineDynamicAssembly
 	// Managed return type : System.Reflection.Emit.AssemblyBuilder
 	// Managed param types : System.Reflection.AssemblyName, System.Reflection.Emit.AssemblyBuilderAccess, System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder>
-    + (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(System_Reflection_Emit_AssemblyBuilderAccess)p2 assemblyAttributes:(System_Collections_Generic_IEnumerableA1 *)p3;
+    + (System_Reflection_Emit_AssemblyBuilder *)defineDynamicAssembly_withName:(System_Reflection_AssemblyName *)p1 access:(int32_t)p2 assemblyAttributes:(id <System_Collections_Generic_IEnumerableA1_>)p3;
 
 	// Managed method name : DefineDynamicModule
 	// Managed return type : System.Reflection.Emit.ModuleBuilder
@@ -112,12 +112,12 @@
 	// Managed method name : DefineResource
 	// Managed return type : System.Resources.IResourceWriter
 	// Managed param types : System.String, System.String, System.String
-    - (System_Resources_IResourceWriter *)defineResource_withName:(NSString *)p1 description:(NSString *)p2 fileName:(NSString *)p3;
+    - (id <System_Resources_IResourceWriter>)defineResource_withName:(NSString *)p1 description:(NSString *)p2 fileName:(NSString *)p3;
 
 	// Managed method name : DefineResource
 	// Managed return type : System.Resources.IResourceWriter
 	// Managed param types : System.String, System.String, System.String, System.Reflection.ResourceAttributes
-    - (System_Resources_IResourceWriter *)defineResource_withName:(NSString *)p1 description:(NSString *)p2 fileName:(NSString *)p3 attribute:(System_Reflection_ResourceAttributes)p4;
+    - (id <System_Resources_IResourceWriter>)defineResource_withName:(NSString *)p1 description:(NSString *)p2 fileName:(NSString *)p3 attribute:(int32_t)p4;
 
 	// Managed method name : DefineUnmanagedResource
 	// Managed return type : System.Void
@@ -157,7 +157,7 @@
 	// Managed method name : GetCustomAttributesData
 	// Managed return type : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
 	// Managed param types : 
-    - (System_Collections_Generic_IListA1 *)getCustomAttributesData;
+    - (id <System_Collections_Generic_IListA1>)getCustomAttributesData;
 
 	// Managed method name : GetDynamicModule
 	// Managed return type : System.Reflection.Emit.ModuleBuilder
@@ -257,17 +257,17 @@
 	// Managed method name : Save
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Reflection.PortableExecutableKinds, System.Reflection.ImageFileMachine
-    - (void)save_withAssemblyFileName:(NSString *)p1 portableExecutableKind:(System_Reflection_PortableExecutableKinds)p2 imageFileMachine:(System_Reflection_ImageFileMachine)p3;
-
-	// Managed method name : SetCustomAttribute
-	// Managed return type : System.Void
-	// Managed param types : System.Reflection.Emit.CustomAttributeBuilder
-    - (void)setCustomAttribute_withCustomBuilder:(System_Reflection_Emit_CustomAttributeBuilder *)p1;
+    - (void)save_withAssemblyFileName:(NSString *)p1 portableExecutableKind:(int32_t)p2 imageFileMachine:(int32_t)p3;
 
 	// Managed method name : SetCustomAttribute
 	// Managed return type : System.Void
 	// Managed param types : System.Reflection.ConstructorInfo, System.Byte[]
     - (void)setCustomAttribute_withCon:(System_Reflection_ConstructorInfo *)p1 binaryAttribute:(NSData *)p2;
+
+	// Managed method name : SetCustomAttribute
+	// Managed return type : System.Void
+	// Managed param types : System.Reflection.Emit.CustomAttributeBuilder
+    - (void)setCustomAttribute_withCustomBuilder:(System_Reflection_Emit_CustomAttributeBuilder *)p1;
 
 	// Managed method name : SetEntryPoint
 	// Managed return type : System.Void
@@ -277,6 +277,6 @@
 	// Managed method name : SetEntryPoint
 	// Managed return type : System.Void
 	// Managed param types : System.Reflection.MethodInfo, System.Reflection.Emit.PEFileKinds
-    - (void)setEntryPoint_withEntryMethod:(System_Reflection_MethodInfo *)p1 fileKind:(System_Reflection_Emit_PEFileKinds)p2;
+    - (void)setEntryPoint_withEntryMethod:(System_Reflection_MethodInfo *)p1 fileKind:(int32_t)p2;
 @end
 //--Dubrovnik.CodeGenerator

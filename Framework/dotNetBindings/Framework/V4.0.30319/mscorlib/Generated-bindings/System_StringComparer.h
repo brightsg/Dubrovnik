@@ -2,7 +2,7 @@
 //
 // Managed class : StringComparer
 //
-@interface System_StringComparer : System_Object <System_Collections_IComparer, System_Collections_IEqualityComparer, System_Collections_Generic_IComparerA1, System_Collections_Generic_IEqualityComparerA1>
+@interface System_StringComparer : System_Object <System_Collections_IComparer_, System_Collections_IEqualityComparer_, System_Collections_Generic_IComparerA1_, System_Collections_Generic_IEqualityComparerA1_>
 
 #pragma mark -
 #pragma mark Setup

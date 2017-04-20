@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.EventHandler`1<System.EventHandler`1+TEventArgs>";
+		return "System.EventHandler`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,7 +32,10 @@
 	// Managed param types : System.Object, System.IntPtr
     + (System_EventHandlerA1 *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
-		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		System_EventHandlerA1 * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -41,20 +44,22 @@
 	// Managed method name : BeginInvoke
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Object, <System.EventHandler`1+TEventArgs>, System.AsyncCallback, System.Object
-    - (System_IAsyncResult *)beginInvoke_withSender:(System_Object *)p1 e:(System_Object *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4
+    - (id <System_IAsyncResult>)beginInvoke_withSender:(System_Object *)p1 e:(System_Object *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(object,<_T_0>,System.AsyncCallback,object)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
-		return [System_IAsyncResult objectWithMonoObject:monoObject];
+		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : EndInvoke
 	// Managed return type : System.Void
 	// Managed param types : System.IAsyncResult
-    - (void)endInvoke_withResult:(System_IAsyncResult *)p1
+    - (void)endInvoke_withResult:(id <System_IAsyncResult_>)p1
     {
-		[self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Invoke
@@ -62,7 +67,9 @@
 	// Managed param types : System.Object, <System.EventHandler`1+TEventArgs>
     - (void)invoke_withSender:(System_Object *)p1 e:(System_Object *)p2
     {
-		[self invokeMonoMethod:"Invoke(object,<_T_0>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Invoke(object,<_T_0>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

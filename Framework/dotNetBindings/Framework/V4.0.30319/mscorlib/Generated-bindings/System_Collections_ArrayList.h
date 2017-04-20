@@ -2,7 +2,7 @@
 //
 // Managed class : ArrayList
 //
-@interface System_Collections_ArrayList : System_Object <System_Collections_IList, System_Collections_ICollection, System_Collections_IEnumerable, System_ICloneable>
+@interface System_Collections_ArrayList : System_Object <System_Collections_IList_, System_Collections_ICollection_, System_Collections_IEnumerable_, System_ICloneable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -22,7 +22,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.ArrayList
 	// Managed param types : System.Collections.ICollection
-    + (DBSystem_Collections_ArrayList *)new_withC:(System_Collections_ICollection *)p1;
+    + (DBSystem_Collections_ArrayList *)new_withC:(id <System_Collections_ICollection_>)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -61,7 +61,7 @@
 	// Managed method name : Adapter
 	// Managed return type : System.Collections.ArrayList
 	// Managed param types : System.Collections.IList
-    + (DBSystem_Collections_ArrayList *)adapter_withList:(System_Collections_IList *)p1;
+    + (DBSystem_Collections_ArrayList *)adapter_withList:(id <System_Collections_IList_>)p1;
 
 	// Managed method name : Add
 	// Managed return type : System.Int32
@@ -71,12 +71,12 @@
 	// Managed method name : AddRange
 	// Managed return type : System.Void
 	// Managed param types : System.Collections.ICollection
-    - (void)addRange_withC:(System_Collections_ICollection *)p1;
+    - (void)addRange_withC:(id <System_Collections_ICollection_>)p1;
 
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
 	// Managed param types : System.Int32, System.Int32, System.Object, System.Collections.IComparer
-    - (int32_t)binarySearch_withIndex:(int32_t)p1 count:(int32_t)p2 value:(System_Object *)p3 comparer:(System_Collections_IComparer *)p4;
+    - (int32_t)binarySearch_withIndex:(int32_t)p1 count:(int32_t)p2 value:(System_Object *)p3 comparer:(id <System_Collections_IComparer_>)p4;
 
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
@@ -86,7 +86,7 @@
 	// Managed method name : BinarySearch
 	// Managed return type : System.Int32
 	// Managed param types : System.Object, System.Collections.IComparer
-    - (int32_t)binarySearch_withValue:(System_Object *)p1 comparer:(System_Collections_IComparer *)p2;
+    - (int32_t)binarySearch_withValue:(System_Object *)p1 comparer:(id <System_Collections_IComparer_>)p2;
 
 	// Managed method name : Clear
 	// Managed return type : System.Void
@@ -121,7 +121,7 @@
 	// Managed method name : FixedSize
 	// Managed return type : System.Collections.IList
 	// Managed param types : System.Collections.IList
-    + (System_Collections_IList *)fixedSize_withListSCIList:(System_Collections_IList *)p1;
+    + (id <System_Collections_IList>)fixedSize_withListSCIList:(id <System_Collections_IList_>)p1;
 
 	// Managed method name : FixedSize
 	// Managed return type : System.Collections.ArrayList
@@ -131,12 +131,12 @@
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IEnumerator
 	// Managed param types : 
-    - (System_Collections_IEnumerator *)getEnumerator;
+    - (id <System_Collections_IEnumerator>)getEnumerator;
 
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IEnumerator
 	// Managed param types : System.Int32, System.Int32
-    - (System_Collections_IEnumerator *)getEnumerator_withIndex:(int32_t)p1 count:(int32_t)p2;
+    - (id <System_Collections_IEnumerator>)getEnumerator_withIndex:(int32_t)p1 count:(int32_t)p2;
 
 	// Managed method name : GetRange
 	// Managed return type : System.Collections.ArrayList
@@ -166,7 +166,7 @@
 	// Managed method name : InsertRange
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, System.Collections.ICollection
-    - (void)insertRange_withIndex:(int32_t)p1 c:(System_Collections_ICollection *)p2;
+    - (void)insertRange_withIndex:(int32_t)p1 c:(id <System_Collections_ICollection_>)p2;
 
 	// Managed method name : LastIndexOf
 	// Managed return type : System.Int32
@@ -186,7 +186,7 @@
 	// Managed method name : ReadOnly
 	// Managed return type : System.Collections.IList
 	// Managed param types : System.Collections.IList
-    + (System_Collections_IList *)readOnly_withListSCIList:(System_Collections_IList *)p1;
+    + (id <System_Collections_IList>)readOnly_withListSCIList:(id <System_Collections_IList_>)p1;
 
 	// Managed method name : ReadOnly
 	// Managed return type : System.Collections.ArrayList
@@ -226,7 +226,7 @@
 	// Managed method name : SetRange
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, System.Collections.ICollection
-    - (void)setRange_withIndex:(int32_t)p1 c:(System_Collections_ICollection *)p2;
+    - (void)setRange_withIndex:(int32_t)p1 c:(id <System_Collections_ICollection_>)p2;
 
 	// Managed method name : Sort
 	// Managed return type : System.Void
@@ -236,17 +236,17 @@
 	// Managed method name : Sort
 	// Managed return type : System.Void
 	// Managed param types : System.Collections.IComparer
-    - (void)sort_withComparer:(System_Collections_IComparer *)p1;
+    - (void)sort_withComparer:(id <System_Collections_IComparer_>)p1;
 
 	// Managed method name : Sort
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, System.Int32, System.Collections.IComparer
-    - (void)sort_withIndex:(int32_t)p1 count:(int32_t)p2 comparer:(System_Collections_IComparer *)p3;
+    - (void)sort_withIndex:(int32_t)p1 count:(int32_t)p2 comparer:(id <System_Collections_IComparer_>)p3;
 
 	// Managed method name : Synchronized
 	// Managed return type : System.Collections.IList
 	// Managed param types : System.Collections.IList
-    + (System_Collections_IList *)synchronized_withListSCIList:(System_Collections_IList *)p1;
+    + (id <System_Collections_IList>)synchronized_withListSCIList:(id <System_Collections_IList_>)p1;
 
 	// Managed method name : Synchronized
 	// Managed return type : System.Collections.ArrayList

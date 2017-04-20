@@ -30,12 +30,12 @@
 	// Managed method name : GetObjectSink
 	// Managed return type : System.Runtime.Remoting.Messaging.IMessageSink
 	// Managed param types : System.MarshalByRefObject, System.Runtime.Remoting.Messaging.IMessageSink
-    - (System_Runtime_Remoting_Messaging_IMessageSink *)getObjectSink_withObj:(System_MarshalByRefObject *)p1 nextSink:(System_Runtime_Remoting_Messaging_IMessageSink *)p2
+    - (id <System_Runtime_Remoting_Messaging_IMessageSink>)getObjectSink_withObj:(System_MarshalByRefObject *)p1 nextSink:(id <System_Runtime_Remoting_Messaging_IMessageSink_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.Remoting.Contexts.IContributeObjectSink.GetObjectSink(System.MarshalByRefObject,System.Runtime.Remoting.Messaging.IMessageSink)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Runtime_Remoting_Messaging_IMessageSink objectWithMonoObject:monoObject];
+		return [System_Runtime_Remoting_Messaging_IMessageSink bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

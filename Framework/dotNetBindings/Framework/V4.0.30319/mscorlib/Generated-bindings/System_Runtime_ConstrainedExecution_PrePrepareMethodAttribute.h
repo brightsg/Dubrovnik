@@ -2,7 +2,7 @@
 //
 // Managed class : PrePrepareMethodAttribute
 //
-@interface System_Runtime_ConstrainedExecution_PrePrepareMethodAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Runtime_ConstrainedExecution_PrePrepareMethodAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup

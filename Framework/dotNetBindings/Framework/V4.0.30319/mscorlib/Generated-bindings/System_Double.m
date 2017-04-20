@@ -154,7 +154,7 @@
 	// Managed method name : GetTypeCode
 	// Managed return type : System.TypeCode
 	// Managed param types : 
-    - (System_TypeCode)getTypeCode
+    - (int32_t)getTypeCode
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeCode()" withNumArgs:0];
@@ -286,7 +286,7 @@
 	// Managed method name : Parse
 	// Managed return type : System.Double
 	// Managed param types : System.String, System.Globalization.NumberStyles
-    + (double)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2
+    + (double)parse_withS:(NSString *)p1 style:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string,System.Globalization.NumberStyles)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
@@ -297,7 +297,7 @@
 	// Managed method name : Parse
 	// Managed return type : System.Double
 	// Managed param types : System.String, System.IFormatProvider
-    + (double)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2
+    + (double)parse_withS:(NSString *)p1 provider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -308,7 +308,7 @@
 	// Managed method name : Parse
 	// Managed return type : System.Double
 	// Managed param types : System.String, System.Globalization.NumberStyles, System.IFormatProvider
-    + (double)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3
+    + (double)parse_withS:(NSString *)p1 style:(int32_t)p2 provider:(id <System_IFormatProvider_>)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string,System.Globalization.NumberStyles,System.IFormatProvider)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
@@ -341,7 +341,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.IFormatProvider
-    - (NSString *)toString_withProvider:(System_IFormatProvider *)p1
+    - (NSString *)toString_withProvider:(id <System_IFormatProvider_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString(System.IFormatProvider)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -352,7 +352,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.String, System.IFormatProvider
-    - (NSString *)toString_withFormat:(NSString *)p1 provider:(System_IFormatProvider *)p2
+    - (NSString *)toString_withFormat:(NSString *)p1 provider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -374,7 +374,7 @@
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.Globalization.NumberStyles, System.IFormatProvider, ref System.Double&
-    + (BOOL)tryParse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3 resultRef:(double*)p4
+    + (BOOL)tryParse_withS:(NSString *)p1 style:(int32_t)p2 provider:(id <System_IFormatProvider_>)p3 resultRef:(double*)p4
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.Globalization.NumberStyles,System.IFormatProvider,double&)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], p4];

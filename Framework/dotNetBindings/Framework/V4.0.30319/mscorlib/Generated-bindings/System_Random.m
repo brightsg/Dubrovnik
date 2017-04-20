@@ -32,7 +32,10 @@
 	// Managed param types : System.Int32
     + (System_Random *)new_withSeed:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Random * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -76,7 +79,9 @@
 	// Managed param types : System.Byte[]
     - (void)nextBytes_withBuffer:(NSData *)p1
     {
-		[self invokeMonoMethod:"NextBytes(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"NextBytes(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : NextDouble

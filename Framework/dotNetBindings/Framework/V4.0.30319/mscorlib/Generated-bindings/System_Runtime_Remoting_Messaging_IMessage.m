@@ -32,9 +32,19 @@
     @synthesize properties = _properties;
     - (System_Collections_IDictionary *)properties
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Messaging.IMessage.Properties"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Messaging.IMessage.Properties");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_properties isEqualToMonoObject:monoObject]) return _properties;					
-		_properties = [System_Collections_IDictionary objectWithMonoObject:monoObject];
+		_properties = [System_Collections_IDictionary bestObjectWithMonoObject:monoObject];
 
 		return _properties;
 	}

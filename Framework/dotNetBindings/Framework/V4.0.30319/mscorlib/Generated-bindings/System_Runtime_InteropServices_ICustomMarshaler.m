@@ -32,7 +32,9 @@
 	// Managed param types : System.Object
     - (void)cleanUpManagedData_withManagedObj:(System_Object *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ICustomMarshaler.CleanUpManagedData(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ICustomMarshaler.CleanUpManagedData(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : CleanUpNativeData
@@ -40,7 +42,9 @@
 	// Managed param types : System.IntPtr
     - (void)cleanUpNativeData_withPNativeData:(void *)p1
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ICustomMarshaler.CleanUpNativeData(intptr)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ICustomMarshaler.CleanUpNativeData(intptr)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : GetNativeDataSize

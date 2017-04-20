@@ -30,17 +30,23 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.CryptoKeyAuditRule
 	// Managed param types : System.Security.Principal.IdentityReference, System.Security.AccessControl.CryptoKeyRights, System.Security.AccessControl.AuditFlags
-    + (System_Security_AccessControl_CryptoKeyAuditRule *)new_withIdentitySSPIdentityReference:(System_Security_Principal_IdentityReference *)p1 cryptoKeyRightsSSACryptoKeyRights:(System_Security_AccessControl_CryptoKeyRights)p2 flagsSSAAuditFlags:(System_Security_AccessControl_AuditFlags)p3
+    + (System_Security_AccessControl_CryptoKeyAuditRule *)new_withIdentitySSPIdentityReference:(System_Security_Principal_IdentityReference *)p1 cryptoKeyRightsSSACryptoKeyRights:(int32_t)p2 flagsSSAAuditFlags:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"System.Security.Principal.IdentityReference,System.Security.AccessControl.CryptoKeyRights,System.Security.AccessControl.AuditFlags" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		System_Security_AccessControl_CryptoKeyAuditRule * object = [[self alloc] initWithSignature:"System.Security.Principal.IdentityReference,System.Security.AccessControl.CryptoKeyRights,System.Security.AccessControl.AuditFlags" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.CryptoKeyAuditRule
 	// Managed param types : System.String, System.Security.AccessControl.CryptoKeyRights, System.Security.AccessControl.AuditFlags
-    + (System_Security_AccessControl_CryptoKeyAuditRule *)new_withIdentityString:(NSString *)p1 cryptoKeyRightsSSACryptoKeyRights:(System_Security_AccessControl_CryptoKeyRights)p2 flagsSSAAuditFlags:(System_Security_AccessControl_AuditFlags)p3
+    + (System_Security_AccessControl_CryptoKeyAuditRule *)new_withIdentityString:(NSString *)p1 cryptoKeyRightsSSACryptoKeyRights:(int32_t)p2 flagsSSAAuditFlags:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"string,System.Security.AccessControl.CryptoKeyRights,System.Security.AccessControl.AuditFlags" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		System_Security_AccessControl_CryptoKeyAuditRule * object = [[self alloc] initWithSignature:"string,System.Security.AccessControl.CryptoKeyRights,System.Security.AccessControl.AuditFlags" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -49,10 +55,20 @@
 	// Managed property name : CryptoKeyRights
 	// Managed property type : System.Security.AccessControl.CryptoKeyRights
     @synthesize cryptoKeyRights = _cryptoKeyRights;
-    - (System_Security_AccessControl_CryptoKeyRights)cryptoKeyRights
+    - (int32_t)cryptoKeyRights
     {
-		MonoObject *monoObject = [self getMonoProperty:"CryptoKeyRights"];
-		_cryptoKeyRights = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CryptoKeyRights");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_cryptoKeyRights = monoObject;
 
 		return _cryptoKeyRights;
 	}

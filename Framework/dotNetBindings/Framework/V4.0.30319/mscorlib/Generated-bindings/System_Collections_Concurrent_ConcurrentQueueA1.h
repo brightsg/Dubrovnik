@@ -2,7 +2,7 @@
 //
 // Managed class : ConcurrentQueue`1<T>
 //
-@interface System_Collections_Concurrent_ConcurrentQueueA1 : System_Object <System_Collections_Concurrent_IProducerConsumerCollectionA1, System_Collections_Generic_IEnumerableA1, System_Collections_IEnumerable, System_Collections_ICollection>
+@interface System_Collections_Concurrent_ConcurrentQueueA1 : System_Object <System_Collections_Concurrent_IProducerConsumerCollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_ICollection_, System_Collections_Generic_IReadOnlyCollectionA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.Concurrent.ConcurrentQueue`1<System.Collections.Concurrent.ConcurrentQueue`1+T>
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.ConcurrentQueue`1+T>
-    + (System_Collections_Concurrent_ConcurrentQueueA1 *)new_withCollection:(System_Collections_Generic_IEnumerableA1 *)p1;
+    + (System_Collections_Concurrent_ConcurrentQueueA1 *)new_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -35,8 +35,8 @@
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : <T[]>, System.Int32
-    - (void)copyTo_withArray:(System_Object *)p1 index:(int32_t)p2;
+	// Managed param types : T[], System.Int32
+    - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2;
 
 	// Managed method name : Enqueue
 	// Managed return type : System.Void
@@ -46,21 +46,21 @@
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.Generic.IEnumerator`1<System.Collections.Concurrent.ConcurrentQueue`1+T>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumeratorA1 *)getEnumerator;
+    - (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator;
 
 	// Managed method name : ToArray
-	// Managed return type : <T[]>
+	// Managed return type : T[]
 	// Managed param types : 
-    - (System_Object *)toArray;
+    - (DBSystem_Array *)toArray;
 
 	// Managed method name : TryDequeue
 	// Managed return type : System.Boolean
-	// Managed param types : ref <T&>
-    - (BOOL)tryDequeue_withResultRef:(System_Object **)p1;
+	// Managed param types : ref T&
+    - (BOOL)tryDequeue_withResultRef:(System_Collections_Concurrent_ConcurrentQueueA1__T **)p1;
 
 	// Managed method name : TryPeek
 	// Managed return type : System.Boolean
-	// Managed param types : ref <T&>
-    - (BOOL)tryPeek_withResultRef:(System_Object **)p1;
+	// Managed param types : ref T&
+    - (BOOL)tryPeek_withResultRef:(System_Collections_Concurrent_ConcurrentQueueA1__T **)p1;
 @end
 //--Dubrovnik.CodeGenerator

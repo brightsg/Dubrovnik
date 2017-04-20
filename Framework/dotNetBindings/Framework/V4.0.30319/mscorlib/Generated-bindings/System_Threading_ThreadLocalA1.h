@@ -2,7 +2,7 @@
 //
 // Managed class : ThreadLocal`1<T>
 //
-@interface System_Threading_ThreadLocalA1 : System_Object <System_IDisposable>
+@interface System_Threading_ThreadLocalA1 : System_Object <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

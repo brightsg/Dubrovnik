@@ -32,8 +32,18 @@
     @synthesize isInvalid = _isInvalid;
     - (BOOL)isInvalid
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsInvalid"];
-		_isInvalid = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsInvalid");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isInvalid = monoObject;
 
 		return _isInvalid;
 	}

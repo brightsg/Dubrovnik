@@ -32,16 +32,35 @@
     @synthesize isSecured = _isSecured;
     - (BOOL)isSecured
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Channels.ISecurableChannel.IsSecured"];
-		_isSecured = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Channels.ISecurableChannel.IsSecured");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isSecured = monoObject;
 
 		return _isSecured;
 	}
     - (void)setIsSecured:(BOOL)value
 	{
 		_isSecured = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"System.Runtime.Remoting.Channels.ISecurableChannel.IsSecured" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.Runtime.Remoting.Channels.ISecurableChannel.IsSecured");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

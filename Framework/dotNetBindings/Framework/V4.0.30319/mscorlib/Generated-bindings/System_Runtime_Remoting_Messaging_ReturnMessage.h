@@ -2,7 +2,7 @@
 //
 // Managed class : ReturnMessage
 //
-@interface System_Runtime_Remoting_Messaging_ReturnMessage : System_Object <System_Runtime_Remoting_Messaging_IMethodReturnMessage, System_Runtime_Remoting_Messaging_IMethodMessage, System_Runtime_Remoting_Messaging_IMessage>
+@interface System_Runtime_Remoting_Messaging_ReturnMessage : System_Object <System_Runtime_Remoting_Messaging_IMethodReturnMessage_, System_Runtime_Remoting_Messaging_IMethodMessage_, System_Runtime_Remoting_Messaging_IMessage_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,12 +17,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Remoting.Messaging.ReturnMessage
 	// Managed param types : System.Object, System.Object[], System.Int32, System.Runtime.Remoting.Messaging.LogicalCallContext, System.Runtime.Remoting.Messaging.IMethodCallMessage
-    + (System_Runtime_Remoting_Messaging_ReturnMessage *)new_withRet:(System_Object *)p1 outArgs:(DBSystem_Array *)p2 outArgsCount:(int32_t)p3 callCtx:(System_Runtime_Remoting_Messaging_LogicalCallContext *)p4 mcm:(System_Runtime_Remoting_Messaging_IMethodCallMessage *)p5;
+    + (System_Runtime_Remoting_Messaging_ReturnMessage *)new_withRet:(System_Object *)p1 outArgs:(DBSystem_Array *)p2 outArgsCount:(int32_t)p3 callCtx:(System_Runtime_Remoting_Messaging_LogicalCallContext *)p4 mcm:(id <System_Runtime_Remoting_Messaging_IMethodCallMessage_>)p5;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Remoting.Messaging.ReturnMessage
 	// Managed param types : System.Exception, System.Runtime.Remoting.Messaging.IMethodCallMessage
-    + (System_Runtime_Remoting_Messaging_ReturnMessage *)new_withE:(System_Exception *)p1 mcm:(System_Runtime_Remoting_Messaging_IMethodCallMessage *)p2;
+    + (System_Runtime_Remoting_Messaging_ReturnMessage *)new_withE:(System_Exception *)p1 mcm:(id <System_Runtime_Remoting_Messaging_IMethodCallMessage_>)p2;
 
 #pragma mark -
 #pragma mark Properties

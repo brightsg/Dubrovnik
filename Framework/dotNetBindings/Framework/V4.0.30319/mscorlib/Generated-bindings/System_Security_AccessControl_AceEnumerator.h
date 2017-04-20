@@ -2,7 +2,7 @@
 //
 // Managed class : AceEnumerator
 //
-@interface System_Security_AccessControl_AceEnumerator : System_Object <System_Collections_IEnumerator>
+@interface System_Security_AccessControl_AceEnumerator : System_Object <System_Collections_IEnumerator_>
 
 #pragma mark -
 #pragma mark Setup

@@ -2,7 +2,7 @@
 //
 // Managed class : AggregateException
 //
-@interface System_AggregateException : System_Exception <System_Runtime_Serialization_ISerializable, System_Runtime_InteropServices__Exception>
+@interface System_AggregateException : System_Exception <System_Runtime_Serialization_ISerializable_, System_Runtime_InteropServices__Exception_>
 
 #pragma mark -
 #pragma mark Setup
@@ -27,22 +27,22 @@
 	// Managed method name : .ctor
 	// Managed return type : System.AggregateException
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Exception>
-    + (System_AggregateException *)new_withInnerExceptionsSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p1;
+    + (System_AggregateException *)new_withInnerExceptionsSCGIException:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.AggregateException
 	// Managed param types : System.Exception[]
-    + (System_AggregateException *)new_withInnerExceptionsSArray:(DBSystem_Array *)p1;
+    + (System_AggregateException *)new_withInnerExceptionsSException:(DBSystem_Array *)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.AggregateException
 	// Managed param types : System.String, System.Collections.Generic.IEnumerable`1<System.Exception>
-    + (System_AggregateException *)new_withMessageString:(NSString *)p1 innerExceptionsSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p2;
+    + (System_AggregateException *)new_withMessageString:(NSString *)p1 innerExceptionsSCGIException:(id <System_Collections_Generic_IEnumerableA1_>)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.AggregateException
 	// Managed param types : System.String, System.Exception[]
-    + (System_AggregateException *)new_withMessageString:(NSString *)p1 innerExceptionsSArray:(DBSystem_Array *)p2;
+    + (System_AggregateException *)new_withMessageString:(NSString *)p1 innerExceptionsSException:(DBSystem_Array *)p2;
 
 #pragma mark -
 #pragma mark Properties

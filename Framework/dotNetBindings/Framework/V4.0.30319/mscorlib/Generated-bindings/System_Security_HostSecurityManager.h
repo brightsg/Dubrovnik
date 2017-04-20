@@ -20,7 +20,7 @@
 
 	// Managed property name : Flags
 	// Managed property type : System.Security.HostSecurityManagerOptions
-    @property (nonatomic, readonly) System_Security_HostSecurityManagerOptions flags;
+    @property (nonatomic, readonly) int32_t flags;
 
 #pragma mark -
 #pragma mark Methods

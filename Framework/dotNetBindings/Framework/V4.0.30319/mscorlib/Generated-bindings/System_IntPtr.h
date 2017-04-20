@@ -2,7 +2,7 @@
 //
 // Managed struct : IntPtr
 //
-@interface System_IntPtr : DBManagedObject <System_Runtime_Serialization_ISerializable>
+@interface System_IntPtr : DBManagedObject <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup

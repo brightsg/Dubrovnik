@@ -2,7 +2,9 @@
 //
 // Managed enumeration : UnicodeCategory
 //
-typedef NS_ENUM(int32_t, System_Globalization_UnicodeCategory) {
+
+// C enumeration
+typedef NS_ENUM(int32_t, enumSystem_Globalization_UnicodeCategory) {
 	System_Globalization_UnicodeCategory_ClosePunctuation = 21,
 	System_Globalization_UnicodeCategory_ConnectorPunctuation = 18,
 	System_Globalization_UnicodeCategory_Control = 14,
@@ -34,4 +36,136 @@ typedef NS_ENUM(int32_t, System_Globalization_UnicodeCategory) {
 	System_Globalization_UnicodeCategory_TitlecaseLetter = 2,
 	System_Globalization_UnicodeCategory_UppercaseLetter = 0,
 };
+@interface System_Globalization_UnicodeCategory : DBSystem_Enum
+
+#pragma mark -
+#pragma mark Setup
+	// obligatory override
+	+ (const char *)monoClassName;
+	// obligatory override
+	+ (const char *)monoAssemblyName;
+
+#pragma mark -
+#pragma mark Fields
+
+	// Managed field name : ClosePunctuation
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)closePunctuation;
+
+	// Managed field name : ConnectorPunctuation
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)connectorPunctuation;
+
+	// Managed field name : Control
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)control;
+
+	// Managed field name : CurrencySymbol
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)currencySymbol;
+
+	// Managed field name : DashPunctuation
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)dashPunctuation;
+
+	// Managed field name : DecimalDigitNumber
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)decimalDigitNumber;
+
+	// Managed field name : EnclosingMark
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)enclosingMark;
+
+	// Managed field name : FinalQuotePunctuation
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)finalQuotePunctuation;
+
+	// Managed field name : Format
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)format;
+
+	// Managed field name : InitialQuotePunctuation
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)initialQuotePunctuation;
+
+	// Managed field name : LetterNumber
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)letterNumber;
+
+	// Managed field name : LineSeparator
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)lineSeparator;
+
+	// Managed field name : LowercaseLetter
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)lowercaseLetter;
+
+	// Managed field name : MathSymbol
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)mathSymbol;
+
+	// Managed field name : ModifierLetter
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)modifierLetter;
+
+	// Managed field name : ModifierSymbol
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)modifierSymbol;
+
+	// Managed field name : NonSpacingMark
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)nonSpacingMark;
+
+	// Managed field name : OpenPunctuation
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)openPunctuation;
+
+	// Managed field name : OtherLetter
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)otherLetter;
+
+	// Managed field name : OtherNotAssigned
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)otherNotAssigned;
+
+	// Managed field name : OtherNumber
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)otherNumber;
+
+	// Managed field name : OtherPunctuation
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)otherPunctuation;
+
+	// Managed field name : OtherSymbol
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)otherSymbol;
+
+	// Managed field name : ParagraphSeparator
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)paragraphSeparator;
+
+	// Managed field name : PrivateUse
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)privateUse;
+
+	// Managed field name : SpaceSeparator
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)spaceSeparator;
+
+	// Managed field name : SpacingCombiningMark
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)spacingCombiningMark;
+
+	// Managed field name : Surrogate
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)surrogate;
+
+	// Managed field name : TitlecaseLetter
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)titlecaseLetter;
+
+	// Managed field name : UppercaseLetter
+	// Managed field type : System.Globalization.UnicodeCategory
+    + (int32_t)uppercaseLetter;
+@end
 //--Dubrovnik.CodeGenerator

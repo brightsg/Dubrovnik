@@ -54,7 +54,9 @@
 	// Managed param types : ref System.Int32&, ref System.Int32&
     + (void)getAvailableThreads_withWorkerThreadsRef:(int32_t*)p1 completionPortThreadsRef:(int32_t*)p2
     {
-		[self invokeMonoClassMethod:"GetAvailableThreads(int&,int&)" withNumArgs:2, p1, p2];;
+		
+		[self invokeMonoClassMethod:"GetAvailableThreads(int&,int&)" withNumArgs:2, p1, p2];
+        
     }
 
 	// Managed method name : GetMaxThreads
@@ -62,7 +64,9 @@
 	// Managed param types : ref System.Int32&, ref System.Int32&
     + (void)getMaxThreads_withWorkerThreadsRef:(int32_t*)p1 completionPortThreadsRef:(int32_t*)p2
     {
-		[self invokeMonoClassMethod:"GetMaxThreads(int&,int&)" withNumArgs:2, p1, p2];;
+		
+		[self invokeMonoClassMethod:"GetMaxThreads(int&,int&)" withNumArgs:2, p1, p2];
+        
     }
 
 	// Managed method name : GetMinThreads
@@ -70,7 +74,9 @@
 	// Managed param types : ref System.Int32&, ref System.Int32&
     + (void)getMinThreads_withWorkerThreadsRef:(int32_t*)p1 completionPortThreadsRef:(int32_t*)p2
     {
-		[self invokeMonoClassMethod:"GetMinThreads(int&,int&)" withNumArgs:2, p1, p2];;
+		
+		[self invokeMonoClassMethod:"GetMinThreads(int&,int&)" withNumArgs:2, p1, p2];
+        
     }
 
 	// Managed method name : QueueUserWorkItem
@@ -103,7 +109,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"RegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,uint,bool)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
 		
-		return [System_Threading_RegisteredWaitHandle objectWithMonoObject:monoObject];
+		return [System_Threading_RegisteredWaitHandle bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : RegisterWaitForSingleObject
@@ -114,7 +120,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"RegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,int,bool)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
 		
-		return [System_Threading_RegisteredWaitHandle objectWithMonoObject:monoObject];
+		return [System_Threading_RegisteredWaitHandle bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : RegisterWaitForSingleObject
@@ -125,7 +131,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"RegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,long,bool)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
 		
-		return [System_Threading_RegisteredWaitHandle objectWithMonoObject:monoObject];
+		return [System_Threading_RegisteredWaitHandle bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : RegisterWaitForSingleObject
@@ -136,7 +142,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"RegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,System.TimeSpan,bool)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], DB_VALUE(p5)];
 		
-		return [System_Threading_RegisteredWaitHandle objectWithMonoObject:monoObject];
+		return [System_Threading_RegisteredWaitHandle bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SetMaxThreads
@@ -191,7 +197,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"UnsafeRegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,uint,bool)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
 		
-		return [System_Threading_RegisteredWaitHandle objectWithMonoObject:monoObject];
+		return [System_Threading_RegisteredWaitHandle bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : UnsafeRegisterWaitForSingleObject
@@ -202,7 +208,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"UnsafeRegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,int,bool)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
 		
-		return [System_Threading_RegisteredWaitHandle objectWithMonoObject:monoObject];
+		return [System_Threading_RegisteredWaitHandle bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : UnsafeRegisterWaitForSingleObject
@@ -213,7 +219,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"UnsafeRegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,long,bool)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
 		
-		return [System_Threading_RegisteredWaitHandle objectWithMonoObject:monoObject];
+		return [System_Threading_RegisteredWaitHandle bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : UnsafeRegisterWaitForSingleObject
@@ -224,7 +230,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"UnsafeRegisterWaitForSingleObject(System.Threading.WaitHandle,System.Threading.WaitOrTimerCallback,object,System.TimeSpan,bool)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], DB_VALUE(p5)];
 		
-		return [System_Threading_RegisteredWaitHandle objectWithMonoObject:monoObject];
+		return [System_Threading_RegisteredWaitHandle bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

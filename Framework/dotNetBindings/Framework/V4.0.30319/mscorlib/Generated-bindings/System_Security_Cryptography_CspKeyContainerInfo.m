@@ -32,7 +32,10 @@
 	// Managed param types : System.Security.Cryptography.CspParameters
     + (System_Security_Cryptography_CspKeyContainerInfo *)new_withParameters:(System_Security_Cryptography_CspParameters *)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Cryptography.CspParameters" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_CspKeyContainerInfo * object = [[self alloc] initWithSignature:"System.Security.Cryptography.CspParameters" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,8 +46,18 @@
     @synthesize accessible = _accessible;
     - (BOOL)accessible
     {
-		MonoObject *monoObject = [self getMonoProperty:"Accessible"];
-		_accessible = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Accessible");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_accessible = monoObject;
 
 		return _accessible;
 	}
@@ -54,9 +67,19 @@
     @synthesize cryptoKeySecurity = _cryptoKeySecurity;
     - (System_Security_AccessControl_CryptoKeySecurity *)cryptoKeySecurity
     {
-		MonoObject *monoObject = [self getMonoProperty:"CryptoKeySecurity"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CryptoKeySecurity");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_cryptoKeySecurity isEqualToMonoObject:monoObject]) return _cryptoKeySecurity;					
-		_cryptoKeySecurity = [System_Security_AccessControl_CryptoKeySecurity objectWithMonoObject:monoObject];
+		_cryptoKeySecurity = [System_Security_AccessControl_CryptoKeySecurity bestObjectWithMonoObject:monoObject];
 
 		return _cryptoKeySecurity;
 	}
@@ -66,8 +89,18 @@
     @synthesize exportable = _exportable;
     - (BOOL)exportable
     {
-		MonoObject *monoObject = [self getMonoProperty:"Exportable"];
-		_exportable = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Exportable");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_exportable = monoObject;
 
 		return _exportable;
 	}
@@ -77,8 +110,18 @@
     @synthesize hardwareDevice = _hardwareDevice;
     - (BOOL)hardwareDevice
     {
-		MonoObject *monoObject = [self getMonoProperty:"HardwareDevice"];
-		_hardwareDevice = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HardwareDevice");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_hardwareDevice = monoObject;
 
 		return _hardwareDevice;
 	}
@@ -88,7 +131,17 @@
     @synthesize keyContainerName = _keyContainerName;
     - (NSString *)keyContainerName
     {
-		MonoObject *monoObject = [self getMonoProperty:"KeyContainerName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "KeyContainerName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_keyContainerName isEqualToMonoObject:monoObject]) return _keyContainerName;					
 		_keyContainerName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -98,10 +151,20 @@
 	// Managed property name : KeyNumber
 	// Managed property type : System.Security.Cryptography.KeyNumber
     @synthesize keyNumber = _keyNumber;
-    - (System_Security_Cryptography_KeyNumber)keyNumber
+    - (int32_t)keyNumber
     {
-		MonoObject *monoObject = [self getMonoProperty:"KeyNumber"];
-		_keyNumber = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "KeyNumber");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_keyNumber = monoObject;
 
 		return _keyNumber;
 	}
@@ -111,8 +174,18 @@
     @synthesize machineKeyStore = _machineKeyStore;
     - (BOOL)machineKeyStore
     {
-		MonoObject *monoObject = [self getMonoProperty:"MachineKeyStore"];
-		_machineKeyStore = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MachineKeyStore");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_machineKeyStore = monoObject;
 
 		return _machineKeyStore;
 	}
@@ -122,8 +195,18 @@
     @synthesize protected = _protected;
     - (BOOL)protected
     {
-		MonoObject *monoObject = [self getMonoProperty:"Protected"];
-		_protected = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Protected");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_protected = monoObject;
 
 		return _protected;
 	}
@@ -133,7 +216,17 @@
     @synthesize providerName = _providerName;
     - (NSString *)providerName
     {
-		MonoObject *monoObject = [self getMonoProperty:"ProviderName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ProviderName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_providerName isEqualToMonoObject:monoObject]) return _providerName;					
 		_providerName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -145,8 +238,18 @@
     @synthesize providerType = _providerType;
     - (int32_t)providerType
     {
-		MonoObject *monoObject = [self getMonoProperty:"ProviderType"];
-		_providerType = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ProviderType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_providerType = monoObject;
 
 		return _providerType;
 	}
@@ -156,8 +259,18 @@
     @synthesize randomlyGenerated = _randomlyGenerated;
     - (BOOL)randomlyGenerated
     {
-		MonoObject *monoObject = [self getMonoProperty:"RandomlyGenerated"];
-		_randomlyGenerated = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RandomlyGenerated");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_randomlyGenerated = monoObject;
 
 		return _randomlyGenerated;
 	}
@@ -167,8 +280,18 @@
     @synthesize removable = _removable;
     - (BOOL)removable
     {
-		MonoObject *monoObject = [self getMonoProperty:"Removable"];
-		_removable = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Removable");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_removable = monoObject;
 
 		return _removable;
 	}
@@ -178,7 +301,17 @@
     @synthesize uniqueKeyContainerName = _uniqueKeyContainerName;
     - (NSString *)uniqueKeyContainerName
     {
-		MonoObject *monoObject = [self getMonoProperty:"UniqueKeyContainerName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UniqueKeyContainerName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_uniqueKeyContainerName isEqualToMonoObject:monoObject]) return _uniqueKeyContainerName;					
 		_uniqueKeyContainerName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

@@ -32,18 +32,20 @@
 	// Managed param types : 
     - (void)assert
     {
-		[self invokeMonoMethod:"Assert()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Assert()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Copy
 	// Managed return type : System.Security.IPermission
 	// Managed param types : 
-    - (System_Security_IPermission *)copy
+    - (id <System_Security_IPermission>)copy
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Demand
@@ -51,7 +53,9 @@
 	// Managed param types : 
     - (void)demand
     {
-		[self invokeMonoMethod:"Demand()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Demand()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Deny
@@ -59,7 +63,9 @@
 	// Managed param types : 
     - (void)deny
     {
-		[self invokeMonoMethod:"Deny()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Deny()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Equals
@@ -78,7 +84,9 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)fromXml_withElem:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetHashCode
@@ -95,18 +103,18 @@
 	// Managed method name : Intersect
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.IPermission
-    - (System_Security_IPermission *)intersect_withTarget:(System_Security_IPermission *)p1
+    - (id <System_Security_IPermission>)intersect_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsSubsetOf
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.IPermission
-    - (BOOL)isSubsetOf_withTarget:(System_Security_IPermission *)p1
+    - (BOOL)isSubsetOf_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -119,7 +127,9 @@
 	// Managed param types : 
     - (void)permitOnly
     {
-		[self invokeMonoMethod:"PermitOnly()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"PermitOnly()" withNumArgs:0];
+        
     }
 
 	// Managed method name : RevertAll
@@ -127,7 +137,9 @@
 	// Managed param types : 
     + (void)revertAll
     {
-		[self invokeMonoClassMethod:"RevertAll()" withNumArgs:0];;
+		
+		[self invokeMonoClassMethod:"RevertAll()" withNumArgs:0];
+        
     }
 
 	// Managed method name : RevertAssert
@@ -135,7 +147,9 @@
 	// Managed param types : 
     + (void)revertAssert
     {
-		[self invokeMonoClassMethod:"RevertAssert()" withNumArgs:0];;
+		
+		[self invokeMonoClassMethod:"RevertAssert()" withNumArgs:0];
+        
     }
 
 	// Managed method name : RevertDeny
@@ -143,7 +157,9 @@
 	// Managed param types : 
     + (void)revertDeny
     {
-		[self invokeMonoClassMethod:"RevertDeny()" withNumArgs:0];;
+		
+		[self invokeMonoClassMethod:"RevertDeny()" withNumArgs:0];
+        
     }
 
 	// Managed method name : RevertPermitOnly
@@ -151,7 +167,9 @@
 	// Managed param types : 
     + (void)revertPermitOnly
     {
-		[self invokeMonoClassMethod:"RevertPermitOnly()" withNumArgs:0];;
+		
+		[self invokeMonoClassMethod:"RevertPermitOnly()" withNumArgs:0];
+        
     }
 
 	// Managed method name : ToString
@@ -173,18 +191,18 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml()" withNumArgs:0];
 		
-		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
+		return [System_Security_SecurityElement bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Union
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.IPermission
-    - (System_Security_IPermission *)union_withOther:(System_Security_IPermission *)p1
+    - (id <System_Security_IPermission>)union_withOther:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

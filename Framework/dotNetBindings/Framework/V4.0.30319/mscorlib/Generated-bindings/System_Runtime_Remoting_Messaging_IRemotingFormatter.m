@@ -43,7 +43,9 @@
 	// Managed param types : System.IO.Stream, System.Object, System.Runtime.Remoting.Messaging.Header[]
     - (void)serialize_withSerializationStream:(System_IO_Stream *)p1 graph:(System_Object *)p2 headers:(DBSystem_Array *)p3
     {
-		[self invokeMonoMethod:"System.Runtime.Remoting.Messaging.IRemotingFormatter.Serialize(System.IO.Stream,object,System.Array[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.Remoting.Messaging.IRemotingFormatter.Serialize(System.IO.Stream,object,System.Runtime.Remoting.Messaging.Header[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

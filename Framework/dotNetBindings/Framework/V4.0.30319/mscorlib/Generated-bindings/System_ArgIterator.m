@@ -32,7 +32,10 @@
 	// Managed param types : System.RuntimeArgumentHandle
     + (System_ArgIterator *)new_withArglist:(System_RuntimeArgumentHandle *)p1
     {
-		return [[self alloc] initWithSignature:"System.RuntimeArgumentHandle" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_ArgIterator * object = [[self alloc] initWithSignature:"System.RuntimeArgumentHandle" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.RuntimeArgumentHandle, System.Void*
     + (System_ArgIterator *)new_withArglist:(System_RuntimeArgumentHandle *)p1 ptr:(void*)p2
     {
-		return [[self alloc] initWithSignature:"System.RuntimeArgumentHandle,void*" withNumArgs:2, [p1 monoRTInvokeArg], p2];;
+		
+		System_ArgIterator * object = [[self alloc] initWithSignature:"System.RuntimeArgumentHandle,void*" withNumArgs:2, [p1 monoRTInvokeArg], p2];
+        
+        return object;
     }
 
 #pragma mark -
@@ -51,7 +57,9 @@
 	// Managed param types : 
     - (void)end
     {
-		[self invokeMonoMethod:"End()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"End()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Equals
@@ -84,7 +92,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetNextArg()" withNumArgs:0];
 		
-		return [System_TypedReference objectWithMonoObject:monoObject];
+		return [System_TypedReference bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetNextArg
@@ -95,7 +103,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetNextArg(System.RuntimeTypeHandle)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_TypedReference objectWithMonoObject:monoObject];
+		return [System_TypedReference bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetNextArgType
@@ -106,7 +114,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetNextArgType()" withNumArgs:0];
 		
-		return [System_RuntimeTypeHandle objectWithMonoObject:monoObject];
+		return [System_RuntimeTypeHandle bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetRemainingCount

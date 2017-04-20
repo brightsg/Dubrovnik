@@ -30,10 +30,20 @@
 	// Managed property name : Attributes
 	// Managed property type : System.Reflection.MethodAttributes
     @synthesize attributes = _attributes;
-    - (System_Reflection_MethodAttributes)attributes
+    - (int32_t)attributes
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._MethodInfo.Attributes"];
-		_attributes = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._MethodInfo.Attributes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_attributes = monoObject;
 
 		return _attributes;
 	}
@@ -41,10 +51,20 @@
 	// Managed property name : CallingConvention
 	// Managed property type : System.Reflection.CallingConventions
     @synthesize callingConvention = _callingConvention;
-    - (System_Reflection_CallingConventions)callingConvention
+    - (int32_t)callingConvention
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._MethodInfo.CallingConvention"];
-		_callingConvention = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._MethodInfo.CallingConvention");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_callingConvention = monoObject;
 
 		return _callingConvention;
 	}
@@ -54,9 +74,19 @@
     @synthesize declaringType = _declaringType;
     - (System_Type *)declaringType
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._MethodInfo.DeclaringType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._MethodInfo.DeclaringType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_declaringType isEqualToMonoObject:monoObject]) return _declaringType;					
-		_declaringType = [System_Type objectWithMonoObject:monoObject];
+		_declaringType = [System_Type bestObjectWithMonoObject:monoObject];
 
 		return _declaringType;
 	}
@@ -66,8 +96,18 @@
     @synthesize isAbstract = _isAbstract;
     - (BOOL)isAbstract
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._MethodInfo.IsAbstract"];
-		_isAbstract = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._MethodInfo.IsAbstract");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isAbstract = monoObject;
 
 		return _isAbstract;
 	}
@@ -77,8 +117,18 @@
     @synthesize isAssembly = _isAssembly;
     - (BOOL)isAssembly
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._MethodInfo.IsAssembly"];
-		_isAssembly = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._MethodInfo.IsAssembly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isAssembly = monoObject;
 
 		return _isAssembly;
 	}
@@ -88,8 +138,18 @@
     @synthesize isConstructor = _isConstructor;
     - (BOOL)isConstructor
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._MethodInfo.IsConstructor"];
-		_isConstructor = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._MethodInfo.IsConstructor");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isConstructor = monoObject;
 
 		return _isConstructor;
 	}
@@ -99,8 +159,18 @@
     @synthesize isFamily = _isFamily;
     - (BOOL)isFamily
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._MethodInfo.IsFamily"];
-		_isFamily = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._MethodInfo.IsFamily");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isFamily = monoObject;
 
 		return _isFamily;
 	}
@@ -110,8 +180,18 @@
     @synthesize isFamilyAndAssembly = _isFamilyAndAssembly;
     - (BOOL)isFamilyAndAssembly
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._MethodInfo.IsFamilyAndAssembly"];
-		_isFamilyAndAssembly = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._MethodInfo.IsFamilyAndAssembly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isFamilyAndAssembly = monoObject;
 
 		return _isFamilyAndAssembly;
 	}
@@ -121,8 +201,18 @@
     @synthesize isFamilyOrAssembly = _isFamilyOrAssembly;
     - (BOOL)isFamilyOrAssembly
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._MethodInfo.IsFamilyOrAssembly"];
-		_isFamilyOrAssembly = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._MethodInfo.IsFamilyOrAssembly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isFamilyOrAssembly = monoObject;
 
 		return _isFamilyOrAssembly;
 	}
@@ -132,8 +222,18 @@
     @synthesize isFinal = _isFinal;
     - (BOOL)isFinal
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._MethodInfo.IsFinal"];
-		_isFinal = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._MethodInfo.IsFinal");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isFinal = monoObject;
 
 		return _isFinal;
 	}
@@ -143,8 +243,18 @@
     @synthesize isHideBySig = _isHideBySig;
     - (BOOL)isHideBySig
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._MethodInfo.IsHideBySig"];
-		_isHideBySig = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._MethodInfo.IsHideBySig");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isHideBySig = monoObject;
 
 		return _isHideBySig;
 	}
@@ -154,8 +264,18 @@
     @synthesize isPrivate = _isPrivate;
     - (BOOL)isPrivate
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._MethodInfo.IsPrivate"];
-		_isPrivate = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._MethodInfo.IsPrivate");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isPrivate = monoObject;
 
 		return _isPrivate;
 	}
@@ -165,8 +285,18 @@
     @synthesize isPublic = _isPublic;
     - (BOOL)isPublic
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._MethodInfo.IsPublic"];
-		_isPublic = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._MethodInfo.IsPublic");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isPublic = monoObject;
 
 		return _isPublic;
 	}
@@ -176,8 +306,18 @@
     @synthesize isSpecialName = _isSpecialName;
     - (BOOL)isSpecialName
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._MethodInfo.IsSpecialName"];
-		_isSpecialName = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._MethodInfo.IsSpecialName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isSpecialName = monoObject;
 
 		return _isSpecialName;
 	}
@@ -187,8 +327,18 @@
     @synthesize isStatic = _isStatic;
     - (BOOL)isStatic
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._MethodInfo.IsStatic"];
-		_isStatic = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._MethodInfo.IsStatic");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isStatic = monoObject;
 
 		return _isStatic;
 	}
@@ -198,8 +348,18 @@
     @synthesize isVirtual = _isVirtual;
     - (BOOL)isVirtual
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._MethodInfo.IsVirtual"];
-		_isVirtual = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._MethodInfo.IsVirtual");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isVirtual = monoObject;
 
 		return _isVirtual;
 	}
@@ -207,10 +367,20 @@
 	// Managed property name : MemberType
 	// Managed property type : System.Reflection.MemberTypes
     @synthesize memberType = _memberType;
-    - (System_Reflection_MemberTypes)memberType
+    - (int32_t)memberType
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._MethodInfo.MemberType"];
-		_memberType = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._MethodInfo.MemberType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_memberType = monoObject;
 
 		return _memberType;
 	}
@@ -220,9 +390,19 @@
     @synthesize methodHandle = _methodHandle;
     - (System_RuntimeMethodHandle *)methodHandle
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._MethodInfo.MethodHandle"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._MethodInfo.MethodHandle");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_methodHandle isEqualToMonoObject:monoObject]) return _methodHandle;					
-		_methodHandle = [System_RuntimeMethodHandle objectWithMonoObject:monoObject];
+		_methodHandle = [System_RuntimeMethodHandle bestObjectWithMonoObject:monoObject];
 
 		return _methodHandle;
 	}
@@ -232,7 +412,17 @@
     @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._MethodInfo.Name"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._MethodInfo.Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -244,9 +434,19 @@
     @synthesize reflectedType = _reflectedType;
     - (System_Type *)reflectedType
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._MethodInfo.ReflectedType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._MethodInfo.ReflectedType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_reflectedType isEqualToMonoObject:monoObject]) return _reflectedType;					
-		_reflectedType = [System_Type objectWithMonoObject:monoObject];
+		_reflectedType = [System_Type bestObjectWithMonoObject:monoObject];
 
 		return _reflectedType;
 	}
@@ -256,9 +456,19 @@
     @synthesize returnType = _returnType;
     - (System_Type *)returnType
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._MethodInfo.ReturnType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._MethodInfo.ReturnType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_returnType isEqualToMonoObject:monoObject]) return _returnType;					
-		_returnType = [System_Type objectWithMonoObject:monoObject];
+		_returnType = [System_Type bestObjectWithMonoObject:monoObject];
 
 		return _returnType;
 	}
@@ -268,9 +478,19 @@
     @synthesize returnTypeCustomAttributes = _returnTypeCustomAttributes;
     - (System_Reflection_ICustomAttributeProvider *)returnTypeCustomAttributes
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.InteropServices._MethodInfo.ReturnTypeCustomAttributes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.InteropServices._MethodInfo.ReturnTypeCustomAttributes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_returnTypeCustomAttributes isEqualToMonoObject:monoObject]) return _returnTypeCustomAttributes;					
-		_returnTypeCustomAttributes = [System_Reflection_ICustomAttributeProvider objectWithMonoObject:monoObject];
+		_returnTypeCustomAttributes = [System_Reflection_ICustomAttributeProvider bestObjectWithMonoObject:monoObject];
 
 		return _returnTypeCustomAttributes;
 	}
@@ -297,7 +517,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._MethodInfo.GetBaseDefinition()" withNumArgs:0];
 		
-		return [System_Reflection_MethodInfo objectWithMonoObject:monoObject];
+		return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetCustomAttributes
@@ -338,14 +558,18 @@
 	// Managed param types : ref System.Guid&, System.IntPtr, System.UInt32, System.UInt32, System.IntPtr
     - (void)getIDsOfNames_withRiidRef:(System_Guid **)p1 rgszNames:(void *)p2 cNames:(uint32_t)p3 lcid:(uint32_t)p4 rgDispId:(void *)p5
     {
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices._MethodInfo.GetIDsOfNames(System.Guid&,intptr,uint,uint,intptr)" withNumArgs:5, &refPtr1, DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];
-;
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+
     }
 
 	// Managed method name : GetMethodImplementationFlags
 	// Managed return type : System.Reflection.MethodImplAttributes
 	// Managed param types : 
-    - (System_Reflection_MethodImplAttributes)getMethodImplementationFlags
+    - (int32_t)getMethodImplementationFlags
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._MethodInfo.GetMethodImplementationFlags()" withNumArgs:0];
@@ -372,7 +596,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._MethodInfo.GetType()" withNumArgs:0];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypeInfo
@@ -380,7 +604,9 @@
 	// Managed param types : System.UInt32, System.UInt32, System.IntPtr
     - (void)getTypeInfo_withITInfo:(uint32_t)p1 lcid:(uint32_t)p2 ppTInfo:(void *)p3
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices._MethodInfo.GetTypeInfo(uint,uint,intptr)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices._MethodInfo.GetTypeInfo(uint,uint,intptr)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
+        
     }
 
 	// Managed method name : GetTypeInfoCount
@@ -388,7 +614,9 @@
 	// Managed param types : ref System.UInt32&
     - (void)getTypeInfoCount_withPcTInfoRef:(uint32_t*)p1
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices._MethodInfo.GetTypeInfoCount(uint&)" withNumArgs:1, p1];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices._MethodInfo.GetTypeInfoCount(uint&)" withNumArgs:1, p1];
+        
     }
 
 	// Managed method name : Invoke
@@ -396,14 +624,18 @@
 	// Managed param types : System.UInt32, ref System.Guid&, System.UInt32, System.Int16, System.IntPtr, System.IntPtr, System.IntPtr, System.IntPtr
     - (void)invoke_withDispIdMember:(uint32_t)p1 riidRef:(System_Guid **)p2 lcid:(uint32_t)p3 wFlags:(int16_t)p4 pDispParams:(void *)p5 pVarResult:(void *)p6 pExcepInfo:(void *)p7 puArgErr:(void *)p8
     {
+		void *refPtr2 = [*p2 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices._MethodInfo.Invoke(uint,System.Guid&,uint,int16,intptr,intptr,intptr,intptr)" withNumArgs:8, DB_VALUE(p1), &refPtr2, DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), DB_VALUE(p8)];
-;
+
+        *p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+
     }
 
 	// Managed method name : Invoke
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo
-    - (System_Object *)invoke_withObj:(System_Object *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 parameters:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5
+    - (System_Object *)invoke_withObj:(System_Object *)p1 invokeAttr:(int32_t)p2 binder:(System_Reflection_Binder *)p3 parameters:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._MethodInfo.Invoke(object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];

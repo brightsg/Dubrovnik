@@ -2,7 +2,7 @@
 //
 // Managed interface : IExpando
 //
-@interface System_Runtime_InteropServices_Expando_IExpando : System_Object <System_Runtime_InteropServices_Expando_IExpando, System_Reflection_IReflect>
+@interface System_Runtime_InteropServices_Expando_IExpando : System_Object <System_Runtime_InteropServices_Expando_IExpando_, System_Reflection_IReflect_>
 
 #pragma mark -
 #pragma mark Setup

@@ -2,7 +2,7 @@
 //
 // Managed class : PrincipalPermissionAttribute
 //
-@interface System_Security_Permissions_PrincipalPermissionAttribute : System_Security_Permissions_CodeAccessSecurityAttribute <System_Runtime_InteropServices__Attribute>
+@interface System_Security_Permissions_PrincipalPermissionAttribute : System_Security_Permissions_CodeAccessSecurityAttribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.PrincipalPermissionAttribute
 	// Managed param types : System.Security.Permissions.SecurityAction
-    + (System_Security_Permissions_PrincipalPermissionAttribute *)new_withAction:(System_Security_Permissions_SecurityAction)p1;
+    + (System_Security_Permissions_PrincipalPermissionAttribute *)new_withAction:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -40,6 +40,6 @@
 	// Managed method name : CreatePermission
 	// Managed return type : System.Security.IPermission
 	// Managed param types : 
-    - (System_Security_IPermission *)createPermission;
+    - (id <System_Security_IPermission>)createPermission;
 @end
 //--Dubrovnik.CodeGenerator

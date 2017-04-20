@@ -32,7 +32,9 @@
 	// Managed param types : System.Object
     + (void)enter_withObj:(System_Object *)p1
     {
-		[self invokeMonoClassMethod:"Enter(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Enter(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Enter
@@ -40,7 +42,9 @@
 	// Managed param types : System.Object, ref System.Boolean&
     + (void)enter_withObj:(System_Object *)p1 lockTakenRef:(BOOL*)p2
     {
-		[self invokeMonoClassMethod:"Enter(object,bool&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];;
+		
+		[self invokeMonoClassMethod:"Enter(object,bool&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];
+        
     }
 
 	// Managed method name : Exit
@@ -48,7 +52,9 @@
 	// Managed param types : System.Object
     + (void)exit_withObj:(System_Object *)p1
     {
-		[self invokeMonoClassMethod:"Exit(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Exit(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : IsEntered
@@ -67,7 +73,9 @@
 	// Managed param types : System.Object
     + (void)pulse_withObj:(System_Object *)p1
     {
-		[self invokeMonoClassMethod:"Pulse(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Pulse(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : PulseAll
@@ -75,7 +83,9 @@
 	// Managed param types : System.Object
     + (void)pulseAll_withObj:(System_Object *)p1
     {
-		[self invokeMonoClassMethod:"PulseAll(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"PulseAll(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : TryEnter
@@ -94,7 +104,9 @@
 	// Managed param types : System.Object, ref System.Boolean&
     + (void)tryEnter_withObj:(System_Object *)p1 lockTakenRef:(BOOL*)p2
     {
-		[self invokeMonoClassMethod:"TryEnter(object,bool&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];;
+		
+		[self invokeMonoClassMethod:"TryEnter(object,bool&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];
+        
     }
 
 	// Managed method name : TryEnter
@@ -124,7 +136,9 @@
 	// Managed param types : System.Object, System.Int32, ref System.Boolean&
     + (void)tryEnter_withObj:(System_Object *)p1 millisecondsTimeout:(int32_t)p2 lockTakenRef:(BOOL*)p3
     {
-		[self invokeMonoClassMethod:"TryEnter(object,int,bool&)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), p3];;
+		
+		[self invokeMonoClassMethod:"TryEnter(object,int,bool&)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), p3];
+        
     }
 
 	// Managed method name : TryEnter
@@ -132,7 +146,9 @@
 	// Managed param types : System.Object, System.TimeSpan, ref System.Boolean&
     + (void)tryEnter_withObj:(System_Object *)p1 timeout:(System_TimeSpan *)p2 lockTakenRef:(BOOL*)p3
     {
-		[self invokeMonoClassMethod:"TryEnter(object,System.TimeSpan,bool&)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], p3];;
+		
+		[self invokeMonoClassMethod:"TryEnter(object,System.TimeSpan,bool&)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], p3];
+        
     }
 
 	// Managed method name : Wait

@@ -2,7 +2,7 @@
 //
 // Managed struct : Boolean
 //
-@interface System_Boolean : DBManagedObject <System_IComparable, System_IConvertible, System_IComparableA1, System_IEquatableA1>
+@interface System_Boolean : DBManagedObject <System_IComparable_, System_IConvertible_, System_IComparableA1_, System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -53,7 +53,7 @@
 	// Managed method name : GetTypeCode
 	// Managed return type : System.TypeCode
 	// Managed param types : 
-    - (System_TypeCode)getTypeCode;
+    - (int32_t)getTypeCode;
 
 	// Managed method name : Parse
 	// Managed return type : System.Boolean
@@ -68,7 +68,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.IFormatProvider
-    - (NSString *)toString_withProvider:(System_IFormatProvider *)p1;
+    - (NSString *)toString_withProvider:(id <System_IFormatProvider_>)p1;
 
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean

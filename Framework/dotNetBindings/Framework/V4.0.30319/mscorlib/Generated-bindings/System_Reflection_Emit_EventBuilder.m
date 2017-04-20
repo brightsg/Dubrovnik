@@ -32,7 +32,9 @@
 	// Managed param types : System.Reflection.Emit.MethodBuilder
     - (void)addOtherMethod_withMdBuilder:(System_Reflection_Emit_MethodBuilder *)p1
     {
-		[self invokeMonoMethod:"AddOtherMethod(System.Reflection.Emit.MethodBuilder)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"AddOtherMethod(System.Reflection.Emit.MethodBuilder)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetEventToken
@@ -43,7 +45,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEventToken()" withNumArgs:0];
 		
-		return [System_Reflection_Emit_EventToken objectWithMonoObject:monoObject];
+		return [System_Reflection_Emit_EventToken bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SetAddOnMethod
@@ -51,7 +53,9 @@
 	// Managed param types : System.Reflection.Emit.MethodBuilder
     - (void)setAddOnMethod_withMdBuilder:(System_Reflection_Emit_MethodBuilder *)p1
     {
-		[self invokeMonoMethod:"SetAddOnMethod(System.Reflection.Emit.MethodBuilder)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetAddOnMethod(System.Reflection.Emit.MethodBuilder)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetCustomAttribute
@@ -59,7 +63,9 @@
 	// Managed param types : System.Reflection.ConstructorInfo, System.Byte[]
     - (void)setCustomAttribute_withCon:(System_Reflection_ConstructorInfo *)p1 binaryAttribute:(NSData *)p2
     {
-		[self invokeMonoMethod:"SetCustomAttribute(System.Reflection.ConstructorInfo,byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetCustomAttribute(System.Reflection.ConstructorInfo,byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetCustomAttribute
@@ -67,7 +73,9 @@
 	// Managed param types : System.Reflection.Emit.CustomAttributeBuilder
     - (void)setCustomAttribute_withCustomBuilder:(System_Reflection_Emit_CustomAttributeBuilder *)p1
     {
-		[self invokeMonoMethod:"SetCustomAttribute(System.Reflection.Emit.CustomAttributeBuilder)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetCustomAttribute(System.Reflection.Emit.CustomAttributeBuilder)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetRaiseMethod
@@ -75,7 +83,9 @@
 	// Managed param types : System.Reflection.Emit.MethodBuilder
     - (void)setRaiseMethod_withMdBuilder:(System_Reflection_Emit_MethodBuilder *)p1
     {
-		[self invokeMonoMethod:"SetRaiseMethod(System.Reflection.Emit.MethodBuilder)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetRaiseMethod(System.Reflection.Emit.MethodBuilder)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetRemoveOnMethod
@@ -83,7 +93,9 @@
 	// Managed param types : System.Reflection.Emit.MethodBuilder
     - (void)setRemoveOnMethod_withMdBuilder:(System_Reflection_Emit_MethodBuilder *)p1
     {
-		[self invokeMonoMethod:"SetRemoveOnMethod(System.Reflection.Emit.MethodBuilder)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetRemoveOnMethod(System.Reflection.Emit.MethodBuilder)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

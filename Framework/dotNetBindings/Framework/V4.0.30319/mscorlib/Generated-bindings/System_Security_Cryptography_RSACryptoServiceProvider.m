@@ -32,7 +32,10 @@
 	// Managed param types : System.Int32
     + (System_Security_Cryptography_RSACryptoServiceProvider *)new_withDwKeySize:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Security_Cryptography_RSACryptoServiceProvider * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Security.Cryptography.CspParameters
     + (System_Security_Cryptography_RSACryptoServiceProvider *)new_withParameters:(System_Security_Cryptography_CspParameters *)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Cryptography.CspParameters" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_RSACryptoServiceProvider * object = [[self alloc] initWithSignature:"System.Security.Cryptography.CspParameters" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +54,10 @@
 	// Managed param types : System.Int32, System.Security.Cryptography.CspParameters
     + (System_Security_Cryptography_RSACryptoServiceProvider *)new_withDwKeySize:(int32_t)p1 parameters:(System_Security_Cryptography_CspParameters *)p2
     {
-		return [[self alloc] initWithSignature:"int,System.Security.Cryptography.CspParameters" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_RSACryptoServiceProvider * object = [[self alloc] initWithSignature:"int,System.Security.Cryptography.CspParameters" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -59,9 +68,19 @@
     @synthesize cspKeyContainerInfo = _cspKeyContainerInfo;
     - (System_Security_Cryptography_CspKeyContainerInfo *)cspKeyContainerInfo
     {
-		MonoObject *monoObject = [self getMonoProperty:"CspKeyContainerInfo"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CspKeyContainerInfo");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_cspKeyContainerInfo isEqualToMonoObject:monoObject]) return _cspKeyContainerInfo;					
-		_cspKeyContainerInfo = [System_Security_Cryptography_CspKeyContainerInfo objectWithMonoObject:monoObject];
+		_cspKeyContainerInfo = [System_Security_Cryptography_CspKeyContainerInfo bestObjectWithMonoObject:monoObject];
 
 		return _cspKeyContainerInfo;
 	}
@@ -71,7 +90,17 @@
     @synthesize keyExchangeAlgorithm = _keyExchangeAlgorithm;
     - (NSString *)keyExchangeAlgorithm
     {
-		MonoObject *monoObject = [self getMonoProperty:"KeyExchangeAlgorithm"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "KeyExchangeAlgorithm");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_keyExchangeAlgorithm isEqualToMonoObject:monoObject]) return _keyExchangeAlgorithm;					
 		_keyExchangeAlgorithm = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -83,8 +112,18 @@
     @synthesize keySize = _keySize;
     - (int32_t)keySize
     {
-		MonoObject *monoObject = [self getMonoProperty:"KeySize"];
-		_keySize = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "KeySize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_keySize = monoObject;
 
 		return _keySize;
 	}
@@ -94,16 +133,35 @@
     @synthesize persistKeyInCsp = _persistKeyInCsp;
     - (BOOL)persistKeyInCsp
     {
-		MonoObject *monoObject = [self getMonoProperty:"PersistKeyInCsp"];
-		_persistKeyInCsp = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PersistKeyInCsp");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_persistKeyInCsp = monoObject;
 
 		return _persistKeyInCsp;
 	}
     - (void)setPersistKeyInCsp:(BOOL)value
 	{
 		_persistKeyInCsp = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"PersistKeyInCsp" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "PersistKeyInCsp");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : PublicOnly
@@ -111,8 +169,18 @@
     @synthesize publicOnly = _publicOnly;
     - (BOOL)publicOnly
     {
-		MonoObject *monoObject = [self getMonoProperty:"PublicOnly"];
-		_publicOnly = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PublicOnly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_publicOnly = monoObject;
 
 		return _publicOnly;
 	}
@@ -122,7 +190,17 @@
     @synthesize signatureAlgorithm = _signatureAlgorithm;
     - (NSString *)signatureAlgorithm
     {
-		MonoObject *monoObject = [self getMonoProperty:"SignatureAlgorithm"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SignatureAlgorithm");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_signatureAlgorithm isEqualToMonoObject:monoObject]) return _signatureAlgorithm;					
 		_signatureAlgorithm = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -134,16 +212,35 @@
     static BOOL m_useMachineKeyStore;
     + (BOOL)useMachineKeyStore
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"UseMachineKeyStore"];
-		m_useMachineKeyStore = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UseMachineKeyStore");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_useMachineKeyStore = monoObject;
 
 		return m_useMachineKeyStore;
 	}
     + (void)setUseMachineKeyStore:(BOOL)value
 	{
 		m_useMachineKeyStore = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[[self class] setMonoClassProperty:"UseMachineKeyStore" valueObject:monoObject];          
+		typedef void (*Thunk)(BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "UseMachineKeyStore");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -156,6 +253,17 @@
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Decrypt(byte[],bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+		
+		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+    }
+
+	// Managed method name : Decrypt
+	// Managed return type : System.Byte[]
+	// Managed param types : System.Byte[], System.Security.Cryptography.RSAEncryptionPadding
+    - (NSData *)decrypt_withData:(NSData *)p1 padding:(System_Security_Cryptography_RSAEncryptionPadding *)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"Decrypt(byte[],System.Security.Cryptography.RSAEncryptionPadding)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -178,6 +286,17 @@
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Encrypt(byte[],bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+		
+		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+    }
+
+	// Managed method name : Encrypt
+	// Managed return type : System.Byte[]
+	// Managed param types : System.Byte[], System.Security.Cryptography.RSAEncryptionPadding
+    - (NSData *)encrypt_withData:(NSData *)p1 padding:(System_Security_Cryptography_RSAEncryptionPadding *)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"Encrypt(byte[],System.Security.Cryptography.RSAEncryptionPadding)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -212,7 +331,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ExportParameters(bool)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Security_Cryptography_RSAParameters objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_RSAParameters bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ImportCspBlob
@@ -220,7 +339,9 @@
 	// Managed param types : System.Byte[]
     - (void)importCspBlob_withKeyBlob:(NSData *)p1
     {
-		[self invokeMonoMethod:"ImportCspBlob(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"ImportCspBlob(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : ImportParameters
@@ -228,7 +349,9 @@
 	// Managed param types : System.Security.Cryptography.RSAParameters
     - (void)importParameters_withParameters:(System_Security_Cryptography_RSAParameters *)p1
     {
-		[self invokeMonoMethod:"ImportParameters(System.Security.Cryptography.RSAParameters)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"ImportParameters(System.Security.Cryptography.RSAParameters)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SignData
@@ -275,6 +398,17 @@
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
 
+	// Managed method name : SignHash
+	// Managed return type : System.Byte[]
+	// Managed param types : System.Byte[], System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography.RSASignaturePadding
+    - (NSData *)signHash_withHash:(NSData *)p1 hashAlgorithm:(System_Security_Cryptography_HashAlgorithmName *)p2 padding:(System_Security_Cryptography_RSASignaturePadding *)p3
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"SignHash(byte[],System.Security.Cryptography.HashAlgorithmName,System.Security.Cryptography.RSASignaturePadding)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+		
+		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+    }
+
 	// Managed method name : VerifyData
 	// Managed return type : System.Boolean
 	// Managed param types : System.Byte[], System.Object, System.Byte[]
@@ -293,6 +427,17 @@
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"VerifyHash(byte[],string,byte[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+		
+		return DB_UNBOX_BOOLEAN(monoObject);
+    }
+
+	// Managed method name : VerifyHash
+	// Managed return type : System.Boolean
+	// Managed param types : System.Byte[], System.Byte[], System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography.RSASignaturePadding
+    - (BOOL)verifyHash_withHash:(NSData *)p1 signature:(NSData *)p2 hashAlgorithm:(System_Security_Cryptography_HashAlgorithmName *)p3 padding:(System_Security_Cryptography_RSASignaturePadding *)p4
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"VerifyHash(byte[],byte[],System.Security.Cryptography.HashAlgorithmName,System.Security.Cryptography.RSASignaturePadding)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

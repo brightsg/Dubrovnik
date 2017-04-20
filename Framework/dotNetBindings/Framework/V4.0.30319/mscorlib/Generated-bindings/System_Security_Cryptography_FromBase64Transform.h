@@ -2,7 +2,7 @@
 //
 // Managed class : FromBase64Transform
 //
-@interface System_Security_Cryptography_FromBase64Transform : System_Object <System_Security_Cryptography_ICryptoTransform, System_IDisposable>
+@interface System_Security_Cryptography_FromBase64Transform : System_Object <System_Security_Cryptography_ICryptoTransform_, System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.FromBase64Transform
 	// Managed param types : System.Security.Cryptography.FromBase64TransformMode
-    + (System_Security_Cryptography_FromBase64Transform *)new_withWhitespaces:(System_Security_Cryptography_FromBase64TransformMode)p1;
+    + (System_Security_Cryptography_FromBase64Transform *)new_withWhitespaces:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties

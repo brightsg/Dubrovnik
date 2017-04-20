@@ -2,7 +2,7 @@
 //
 // Managed class : NumberFormatInfo
 //
-@interface System_Globalization_NumberFormatInfo : System_Object <System_ICloneable, System_IFormatProvider>
+@interface System_Globalization_NumberFormatInfo : System_Object <System_ICloneable_, System_IFormatProvider_>
 
 #pragma mark -
 #pragma mark Setup
@@ -48,7 +48,7 @@
 
 	// Managed property name : DigitSubstitution
 	// Managed property type : System.Globalization.DigitShapes
-    @property (nonatomic) System_Globalization_DigitShapes digitSubstitution;
+    @property (nonatomic) int32_t digitSubstitution;
 
 	// Managed property name : InvariantInfo
 	// Managed property type : System.Globalization.NumberFormatInfo
@@ -150,7 +150,7 @@
 	// Managed method name : GetInstance
 	// Managed return type : System.Globalization.NumberFormatInfo
 	// Managed param types : System.IFormatProvider
-    + (System_Globalization_NumberFormatInfo *)getInstance_withFormatProvider:(System_IFormatProvider *)p1;
+    + (System_Globalization_NumberFormatInfo *)getInstance_withFormatProvider:(id <System_IFormatProvider_>)p1;
 
 	// Managed method name : ReadOnly
 	// Managed return type : System.Globalization.NumberFormatInfo

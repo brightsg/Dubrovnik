@@ -2,7 +2,7 @@
 //
 // Managed class : EqualityComparer`1<T>
 //
-@interface System_Collections_Generic_EqualityComparerA1 : System_Object <System_Collections_IEqualityComparer, System_Collections_Generic_IEqualityComparerA1>
+@interface System_Collections_Generic_EqualityComparerA1 : System_Object <System_Collections_IEqualityComparer_, System_Collections_Generic_IEqualityComparerA1_>
 
 #pragma mark -
 #pragma mark Setup

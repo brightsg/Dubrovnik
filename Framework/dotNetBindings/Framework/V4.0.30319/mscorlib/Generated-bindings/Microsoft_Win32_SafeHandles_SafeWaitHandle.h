@@ -2,7 +2,7 @@
 //
 // Managed class : SafeWaitHandle
 //
-@interface Microsoft_Win32_SafeHandles_SafeWaitHandle : Microsoft_Win32_SafeHandles_SafeHandleZeroOrMinusOneIsInvalid <System_IDisposable>
+@interface Microsoft_Win32_SafeHandles_SafeWaitHandle : Microsoft_Win32_SafeHandles_SafeHandleZeroOrMinusOneIsInvalid <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

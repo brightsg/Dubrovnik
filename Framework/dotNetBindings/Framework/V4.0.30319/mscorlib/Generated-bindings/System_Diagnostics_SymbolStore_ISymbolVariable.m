@@ -32,8 +32,18 @@
     @synthesize addressField1 = _addressField1;
     - (int32_t)addressField1
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Diagnostics.SymbolStore.ISymbolVariable.AddressField1"];
-		_addressField1 = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Diagnostics.SymbolStore.ISymbolVariable.AddressField1");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_addressField1 = monoObject;
 
 		return _addressField1;
 	}
@@ -43,8 +53,18 @@
     @synthesize addressField2 = _addressField2;
     - (int32_t)addressField2
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Diagnostics.SymbolStore.ISymbolVariable.AddressField2"];
-		_addressField2 = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Diagnostics.SymbolStore.ISymbolVariable.AddressField2");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_addressField2 = monoObject;
 
 		return _addressField2;
 	}
@@ -54,8 +74,18 @@
     @synthesize addressField3 = _addressField3;
     - (int32_t)addressField3
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Diagnostics.SymbolStore.ISymbolVariable.AddressField3"];
-		_addressField3 = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Diagnostics.SymbolStore.ISymbolVariable.AddressField3");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_addressField3 = monoObject;
 
 		return _addressField3;
 	}
@@ -63,10 +93,20 @@
 	// Managed property name : AddressKind
 	// Managed property type : System.Diagnostics.SymbolStore.SymAddressKind
     @synthesize addressKind = _addressKind;
-    - (System_Diagnostics_SymbolStore_SymAddressKind)addressKind
+    - (int32_t)addressKind
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Diagnostics.SymbolStore.ISymbolVariable.AddressKind"];
-		_addressKind = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Diagnostics.SymbolStore.ISymbolVariable.AddressKind");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_addressKind = monoObject;
 
 		return _addressKind;
 	}
@@ -76,7 +116,17 @@
     @synthesize attributes = _attributes;
     - (System_Object *)attributes
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Diagnostics.SymbolStore.ISymbolVariable.Attributes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Diagnostics.SymbolStore.ISymbolVariable.Attributes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_attributes isEqualToMonoObject:monoObject]) return _attributes;					
 		_attributes = [System_Object objectWithMonoObject:monoObject];
 
@@ -88,8 +138,18 @@
     @synthesize endOffset = _endOffset;
     - (int32_t)endOffset
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Diagnostics.SymbolStore.ISymbolVariable.EndOffset"];
-		_endOffset = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Diagnostics.SymbolStore.ISymbolVariable.EndOffset");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_endOffset = monoObject;
 
 		return _endOffset;
 	}
@@ -99,7 +159,17 @@
     @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Diagnostics.SymbolStore.ISymbolVariable.Name"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Diagnostics.SymbolStore.ISymbolVariable.Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -111,8 +181,18 @@
     @synthesize startOffset = _startOffset;
     - (int32_t)startOffset
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Diagnostics.SymbolStore.ISymbolVariable.StartOffset"];
-		_startOffset = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Diagnostics.SymbolStore.ISymbolVariable.StartOffset");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_startOffset = monoObject;
 
 		return _startOffset;
 	}

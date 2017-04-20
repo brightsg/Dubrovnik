@@ -30,10 +30,20 @@
 	// Managed property name : AlgorithmType
 	// Managed property type : System.Globalization.CalendarAlgorithmType
     @synthesize algorithmType = _algorithmType;
-    - (System_Globalization_CalendarAlgorithmType)algorithmType
+    - (int32_t)algorithmType
     {
-		MonoObject *monoObject = [self getMonoProperty:"AlgorithmType"];
-		_algorithmType = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AlgorithmType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_algorithmType = monoObject;
 
 		return _algorithmType;
 	}
@@ -43,7 +53,17 @@
     @synthesize eras = _eras;
     - (DBSystem_Array *)eras
     {
-		MonoObject *monoObject = [self getMonoProperty:"Eras"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Eras");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_eras isEqualToMonoObject:monoObject]) return _eras;					
 		_eras = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -55,7 +75,17 @@
     @synthesize maxSupportedDateTime = _maxSupportedDateTime;
     - (NSDate *)maxSupportedDateTime
     {
-		MonoObject *monoObject = [self getMonoProperty:"MaxSupportedDateTime"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MaxSupportedDateTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_maxSupportedDateTime isEqualToMonoObject:monoObject]) return _maxSupportedDateTime;					
 		_maxSupportedDateTime = [NSDate dateWithMonoDateTime:monoObject];
 
@@ -67,7 +97,17 @@
     @synthesize minSupportedDateTime = _minSupportedDateTime;
     - (NSDate *)minSupportedDateTime
     {
-		MonoObject *monoObject = [self getMonoProperty:"MinSupportedDateTime"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MinSupportedDateTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_minSupportedDateTime isEqualToMonoObject:monoObject]) return _minSupportedDateTime;					
 		_minSupportedDateTime = [NSDate dateWithMonoDateTime:monoObject];
 
@@ -79,16 +119,35 @@
     @synthesize twoDigitYearMax = _twoDigitYearMax;
     - (int32_t)twoDigitYearMax
     {
-		MonoObject *monoObject = [self getMonoProperty:"TwoDigitYearMax"];
-		_twoDigitYearMax = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TwoDigitYearMax");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_twoDigitYearMax = monoObject;
 
 		return _twoDigitYearMax;
 	}
     - (void)setTwoDigitYearMax:(int32_t)value
 	{
 		_twoDigitYearMax = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"TwoDigitYearMax" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "TwoDigitYearMax");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -130,7 +189,7 @@
 	// Managed method name : GetDayOfWeek
 	// Managed return type : System.DayOfWeek
 	// Managed param types : System.DateTime
-    - (System_DayOfWeek)getDayOfWeek_withTime:(NSDate *)p1
+    - (int32_t)getDayOfWeek_withTime:(NSDate *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDayOfWeek(System.DateTime)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -218,7 +277,7 @@
 	// Managed method name : GetWeekOfYear
 	// Managed return type : System.Int32
 	// Managed param types : System.DateTime, System.Globalization.CalendarWeekRule, System.DayOfWeek
-    - (int32_t)getWeekOfYear_withTime:(NSDate *)p1 rule:(System_Globalization_CalendarWeekRule)p2 firstDayOfWeek:(System_DayOfWeek)p3
+    - (int32_t)getWeekOfYear_withTime:(NSDate *)p1 rule:(int32_t)p2 firstDayOfWeek:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetWeekOfYear(System.DateTime,System.Globalization.CalendarWeekRule,System.DayOfWeek)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];

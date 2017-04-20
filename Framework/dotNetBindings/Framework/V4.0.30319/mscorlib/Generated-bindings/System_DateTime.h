@@ -2,7 +2,7 @@
 //
 // Managed struct : DateTime
 //
-@interface System_DateTime : DBManagedObject <System_IComparable, System_IFormattable, System_IConvertible, System_Runtime_Serialization_ISerializable, System_IComparableA1, System_IEquatableA1>
+@interface System_DateTime : DBManagedObject <System_IComparable_, System_IFormattable_, System_IConvertible_, System_Runtime_Serialization_ISerializable_, System_IComparableA1_, System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -22,7 +22,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.DateTime
 	// Managed param types : System.Int64, System.DateTimeKind
-    + (NSDate *)new_withTicks:(int64_t)p1 kind:(System_DateTimeKind)p2;
+    + (NSDate *)new_withTicks:(int64_t)p1 kind:(int32_t)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.DateTime
@@ -42,7 +42,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.DateTime
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.DateTimeKind
-    + (NSDate *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 kind:(System_DateTimeKind)p7;
+    + (NSDate *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 kind:(int32_t)p7;
 
 	// Managed method name : .ctor
 	// Managed return type : System.DateTime
@@ -57,7 +57,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.DateTime
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.DateTimeKind
-    + (NSDate *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7 kind:(System_DateTimeKind)p8;
+    + (NSDate *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7 kind:(int32_t)p8;
 
 	// Managed method name : .ctor
 	// Managed return type : System.DateTime
@@ -67,7 +67,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.DateTime
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Globalization.Calendar, System.DateTimeKind
-    + (NSDate *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7 calendar:(System_Globalization_Calendar *)p8 kind:(System_DateTimeKind)p9;
+    + (NSDate *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7 calendar:(System_Globalization_Calendar *)p8 kind:(int32_t)p9;
 
 #pragma mark -
 #pragma mark Fields
@@ -93,7 +93,7 @@
 
 	// Managed property name : DayOfWeek
 	// Managed property type : System.DayOfWeek
-    @property (nonatomic, readonly) System_DayOfWeek dayOfWeek;
+    @property (nonatomic, readonly) int32_t dayOfWeek;
 
 	// Managed property name : DayOfYear
 	// Managed property type : System.Int32
@@ -105,7 +105,7 @@
 
 	// Managed property name : Kind
 	// Managed property type : System.DateTimeKind
-    @property (nonatomic, readonly) System_DateTimeKind kind;
+    @property (nonatomic, readonly) int32_t kind;
 
 	// Managed property name : Millisecond
 	// Managed property type : System.Int32
@@ -258,7 +258,7 @@
 	// Managed method name : GetDateTimeFormats
 	// Managed return type : System.String[]
 	// Managed param types : System.IFormatProvider
-    - (DBSystem_Array *)getDateTimeFormats_withProvider:(System_IFormatProvider *)p1;
+    - (DBSystem_Array *)getDateTimeFormats_withProvider:(id <System_IFormatProvider_>)p1;
 
 	// Managed method name : GetDateTimeFormats
 	// Managed return type : System.String[]
@@ -268,7 +268,7 @@
 	// Managed method name : GetDateTimeFormats
 	// Managed return type : System.String[]
 	// Managed param types : System.Char, System.IFormatProvider
-    - (DBSystem_Array *)getDateTimeFormats_withFormat:(uint16_t)p1 provider:(System_IFormatProvider *)p2;
+    - (DBSystem_Array *)getDateTimeFormats_withFormat:(uint16_t)p1 provider:(id <System_IFormatProvider_>)p2;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
@@ -278,7 +278,7 @@
 	// Managed method name : GetTypeCode
 	// Managed return type : System.TypeCode
 	// Managed param types : 
-    - (System_TypeCode)getTypeCode;
+    - (int32_t)getTypeCode;
 
 	// Managed method name : IsDaylightSavingTime
 	// Managed return type : System.Boolean
@@ -343,32 +343,32 @@
 	// Managed method name : Parse
 	// Managed return type : System.DateTime
 	// Managed param types : System.String, System.IFormatProvider
-    + (NSDate *)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2;
+    + (NSDate *)parse_withS:(NSString *)p1 provider:(id <System_IFormatProvider_>)p2;
 
 	// Managed method name : Parse
 	// Managed return type : System.DateTime
 	// Managed param types : System.String, System.IFormatProvider, System.Globalization.DateTimeStyles
-    + (NSDate *)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2 styles:(System_Globalization_DateTimeStyles)p3;
+    + (NSDate *)parse_withS:(NSString *)p1 provider:(id <System_IFormatProvider_>)p2 styles:(int32_t)p3;
 
 	// Managed method name : ParseExact
 	// Managed return type : System.DateTime
 	// Managed param types : System.String, System.String, System.IFormatProvider
-    + (NSDate *)parseExact_withS:(NSString *)p1 format:(NSString *)p2 provider:(System_IFormatProvider *)p3;
+    + (NSDate *)parseExact_withS:(NSString *)p1 format:(NSString *)p2 provider:(id <System_IFormatProvider_>)p3;
 
 	// Managed method name : ParseExact
 	// Managed return type : System.DateTime
 	// Managed param types : System.String, System.String, System.IFormatProvider, System.Globalization.DateTimeStyles
-    + (NSDate *)parseExact_withS:(NSString *)p1 format:(NSString *)p2 provider:(System_IFormatProvider *)p3 style:(System_Globalization_DateTimeStyles)p4;
+    + (NSDate *)parseExact_withS:(NSString *)p1 format:(NSString *)p2 provider:(id <System_IFormatProvider_>)p3 style:(int32_t)p4;
 
 	// Managed method name : ParseExact
 	// Managed return type : System.DateTime
 	// Managed param types : System.String, System.String[], System.IFormatProvider, System.Globalization.DateTimeStyles
-    + (NSDate *)parseExact_withS:(NSString *)p1 formats:(DBSystem_Array *)p2 provider:(System_IFormatProvider *)p3 style:(System_Globalization_DateTimeStyles)p4;
+    + (NSDate *)parseExact_withS:(NSString *)p1 formats:(DBSystem_Array *)p2 provider:(id <System_IFormatProvider_>)p3 style:(int32_t)p4;
 
 	// Managed method name : SpecifyKind
 	// Managed return type : System.DateTime
 	// Managed param types : System.DateTime, System.DateTimeKind
-    + (NSDate *)specifyKind_withValue:(NSDate *)p1 kind:(System_DateTimeKind)p2;
+    + (NSDate *)specifyKind_withValue:(NSDate *)p1 kind:(int32_t)p2;
 
 	// Managed method name : Subtract
 	// Managed return type : System.TimeSpan
@@ -438,12 +438,12 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.IFormatProvider
-    - (NSString *)toString_withProvider:(System_IFormatProvider *)p1;
+    - (NSString *)toString_withProvider:(id <System_IFormatProvider_>)p1;
 
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.String, System.IFormatProvider
-    - (NSString *)toString_withFormat:(NSString *)p1 provider:(System_IFormatProvider *)p2;
+    - (NSString *)toString_withFormat:(NSString *)p1 provider:(id <System_IFormatProvider_>)p2;
 
 	// Managed method name : ToUniversalTime
 	// Managed return type : System.DateTime
@@ -458,16 +458,16 @@
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.IFormatProvider, System.Globalization.DateTimeStyles, ref System.DateTime&
-    + (BOOL)tryParse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2 styles:(System_Globalization_DateTimeStyles)p3 resultRef:(NSDate **)p4;
+    + (BOOL)tryParse_withS:(NSString *)p1 provider:(id <System_IFormatProvider_>)p2 styles:(int32_t)p3 resultRef:(NSDate **)p4;
 
 	// Managed method name : TryParseExact
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.String, System.IFormatProvider, System.Globalization.DateTimeStyles, ref System.DateTime&
-    + (BOOL)tryParseExact_withS:(NSString *)p1 format:(NSString *)p2 provider:(System_IFormatProvider *)p3 style:(System_Globalization_DateTimeStyles)p4 resultRef:(NSDate **)p5;
+    + (BOOL)tryParseExact_withS:(NSString *)p1 format:(NSString *)p2 provider:(id <System_IFormatProvider_>)p3 style:(int32_t)p4 resultRef:(NSDate **)p5;
 
 	// Managed method name : TryParseExact
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.String[], System.IFormatProvider, System.Globalization.DateTimeStyles, ref System.DateTime&
-    + (BOOL)tryParseExact_withS:(NSString *)p1 formats:(DBSystem_Array *)p2 provider:(System_IFormatProvider *)p3 style:(System_Globalization_DateTimeStyles)p4 resultRef:(NSDate **)p5;
+    + (BOOL)tryParseExact_withS:(NSString *)p1 formats:(DBSystem_Array *)p2 provider:(id <System_IFormatProvider_>)p3 style:(int32_t)p4 resultRef:(NSDate **)p5;
 @end
 //--Dubrovnik.CodeGenerator

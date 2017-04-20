@@ -32,7 +32,17 @@
     @synthesize abbreviatedDayNames = _abbreviatedDayNames;
     - (DBSystem_Array *)abbreviatedDayNames
     {
-		MonoObject *monoObject = [self getMonoProperty:"AbbreviatedDayNames"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AbbreviatedDayNames");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_abbreviatedDayNames isEqualToMonoObject:monoObject]) return _abbreviatedDayNames;					
 		_abbreviatedDayNames = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -41,8 +51,17 @@
     - (void)setAbbreviatedDayNames:(DBSystem_Array *)value
 	{
 		_abbreviatedDayNames = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"AbbreviatedDayNames" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "AbbreviatedDayNames");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : AbbreviatedMonthGenitiveNames
@@ -50,7 +69,17 @@
     @synthesize abbreviatedMonthGenitiveNames = _abbreviatedMonthGenitiveNames;
     - (DBSystem_Array *)abbreviatedMonthGenitiveNames
     {
-		MonoObject *monoObject = [self getMonoProperty:"AbbreviatedMonthGenitiveNames"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AbbreviatedMonthGenitiveNames");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_abbreviatedMonthGenitiveNames isEqualToMonoObject:monoObject]) return _abbreviatedMonthGenitiveNames;					
 		_abbreviatedMonthGenitiveNames = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -59,8 +88,17 @@
     - (void)setAbbreviatedMonthGenitiveNames:(DBSystem_Array *)value
 	{
 		_abbreviatedMonthGenitiveNames = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"AbbreviatedMonthGenitiveNames" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "AbbreviatedMonthGenitiveNames");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : AbbreviatedMonthNames
@@ -68,7 +106,17 @@
     @synthesize abbreviatedMonthNames = _abbreviatedMonthNames;
     - (DBSystem_Array *)abbreviatedMonthNames
     {
-		MonoObject *monoObject = [self getMonoProperty:"AbbreviatedMonthNames"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AbbreviatedMonthNames");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_abbreviatedMonthNames isEqualToMonoObject:monoObject]) return _abbreviatedMonthNames;					
 		_abbreviatedMonthNames = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -77,8 +125,17 @@
     - (void)setAbbreviatedMonthNames:(DBSystem_Array *)value
 	{
 		_abbreviatedMonthNames = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"AbbreviatedMonthNames" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "AbbreviatedMonthNames");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : AMDesignator
@@ -86,7 +143,17 @@
     @synthesize aMDesignator = _aMDesignator;
     - (NSString *)aMDesignator
     {
-		MonoObject *monoObject = [self getMonoProperty:"AMDesignator"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AMDesignator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_aMDesignator isEqualToMonoObject:monoObject]) return _aMDesignator;					
 		_aMDesignator = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -95,8 +162,17 @@
     - (void)setAMDesignator:(NSString *)value
 	{
 		_aMDesignator = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"AMDesignator" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "AMDesignator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Calendar
@@ -104,34 +180,72 @@
     @synthesize calendar = _calendar;
     - (System_Globalization_Calendar *)calendar
     {
-		MonoObject *monoObject = [self getMonoProperty:"Calendar"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Calendar");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_calendar isEqualToMonoObject:monoObject]) return _calendar;					
-		_calendar = [System_Globalization_Calendar objectWithMonoObject:monoObject];
+		_calendar = [System_Globalization_Calendar bestObjectWithMonoObject:monoObject];
 
 		return _calendar;
 	}
     - (void)setCalendar:(System_Globalization_Calendar *)value
 	{
 		_calendar = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Calendar" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Calendar");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CalendarWeekRule
 	// Managed property type : System.Globalization.CalendarWeekRule
     @synthesize calendarWeekRule = _calendarWeekRule;
-    - (System_Globalization_CalendarWeekRule)calendarWeekRule
+    - (int32_t)calendarWeekRule
     {
-		MonoObject *monoObject = [self getMonoProperty:"CalendarWeekRule"];
-		_calendarWeekRule = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CalendarWeekRule");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_calendarWeekRule = monoObject;
 
 		return _calendarWeekRule;
 	}
-    - (void)setCalendarWeekRule:(System_Globalization_CalendarWeekRule)value
+    - (void)setCalendarWeekRule:(int32_t)value
 	{
 		_calendarWeekRule = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"CalendarWeekRule" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CalendarWeekRule");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CurrentInfo
@@ -139,9 +253,19 @@
     static System_Globalization_DateTimeFormatInfo * m_currentInfo;
     + (System_Globalization_DateTimeFormatInfo *)currentInfo
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"CurrentInfo"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrentInfo");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_currentInfo isEqualToMonoObject:monoObject]) return m_currentInfo;					
-		m_currentInfo = [System_Globalization_DateTimeFormatInfo objectWithMonoObject:monoObject];
+		m_currentInfo = [System_Globalization_DateTimeFormatInfo bestObjectWithMonoObject:monoObject];
 
 		return m_currentInfo;
 	}
@@ -151,7 +275,17 @@
     @synthesize dateSeparator = _dateSeparator;
     - (NSString *)dateSeparator
     {
-		MonoObject *monoObject = [self getMonoProperty:"DateSeparator"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DateSeparator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_dateSeparator isEqualToMonoObject:monoObject]) return _dateSeparator;					
 		_dateSeparator = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -160,8 +294,17 @@
     - (void)setDateSeparator:(NSString *)value
 	{
 		_dateSeparator = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"DateSeparator" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "DateSeparator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : DayNames
@@ -169,7 +312,17 @@
     @synthesize dayNames = _dayNames;
     - (DBSystem_Array *)dayNames
     {
-		MonoObject *monoObject = [self getMonoProperty:"DayNames"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DayNames");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_dayNames isEqualToMonoObject:monoObject]) return _dayNames;					
 		_dayNames = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -178,25 +331,53 @@
     - (void)setDayNames:(DBSystem_Array *)value
 	{
 		_dayNames = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"DayNames" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "DayNames");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : FirstDayOfWeek
 	// Managed property type : System.DayOfWeek
     @synthesize firstDayOfWeek = _firstDayOfWeek;
-    - (System_DayOfWeek)firstDayOfWeek
+    - (int32_t)firstDayOfWeek
     {
-		MonoObject *monoObject = [self getMonoProperty:"FirstDayOfWeek"];
-		_firstDayOfWeek = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FirstDayOfWeek");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_firstDayOfWeek = monoObject;
 
 		return _firstDayOfWeek;
 	}
-    - (void)setFirstDayOfWeek:(System_DayOfWeek)value
+    - (void)setFirstDayOfWeek:(int32_t)value
 	{
 		_firstDayOfWeek = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"FirstDayOfWeek" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "FirstDayOfWeek");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : FullDateTimePattern
@@ -204,7 +385,17 @@
     @synthesize fullDateTimePattern = _fullDateTimePattern;
     - (NSString *)fullDateTimePattern
     {
-		MonoObject *monoObject = [self getMonoProperty:"FullDateTimePattern"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FullDateTimePattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_fullDateTimePattern isEqualToMonoObject:monoObject]) return _fullDateTimePattern;					
 		_fullDateTimePattern = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -213,8 +404,17 @@
     - (void)setFullDateTimePattern:(NSString *)value
 	{
 		_fullDateTimePattern = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"FullDateTimePattern" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "FullDateTimePattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : InvariantInfo
@@ -222,9 +422,19 @@
     static System_Globalization_DateTimeFormatInfo * m_invariantInfo;
     + (System_Globalization_DateTimeFormatInfo *)invariantInfo
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"InvariantInfo"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InvariantInfo");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_invariantInfo isEqualToMonoObject:monoObject]) return m_invariantInfo;					
-		m_invariantInfo = [System_Globalization_DateTimeFormatInfo objectWithMonoObject:monoObject];
+		m_invariantInfo = [System_Globalization_DateTimeFormatInfo bestObjectWithMonoObject:monoObject];
 
 		return m_invariantInfo;
 	}
@@ -234,8 +444,18 @@
     @synthesize isReadOnly = _isReadOnly;
     - (BOOL)isReadOnly
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsReadOnly"];
-		_isReadOnly = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsReadOnly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isReadOnly = monoObject;
 
 		return _isReadOnly;
 	}
@@ -245,7 +465,17 @@
     @synthesize longDatePattern = _longDatePattern;
     - (NSString *)longDatePattern
     {
-		MonoObject *monoObject = [self getMonoProperty:"LongDatePattern"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LongDatePattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_longDatePattern isEqualToMonoObject:monoObject]) return _longDatePattern;					
 		_longDatePattern = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -254,8 +484,17 @@
     - (void)setLongDatePattern:(NSString *)value
 	{
 		_longDatePattern = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"LongDatePattern" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "LongDatePattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : LongTimePattern
@@ -263,7 +502,17 @@
     @synthesize longTimePattern = _longTimePattern;
     - (NSString *)longTimePattern
     {
-		MonoObject *monoObject = [self getMonoProperty:"LongTimePattern"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LongTimePattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_longTimePattern isEqualToMonoObject:monoObject]) return _longTimePattern;					
 		_longTimePattern = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -272,8 +521,17 @@
     - (void)setLongTimePattern:(NSString *)value
 	{
 		_longTimePattern = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"LongTimePattern" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "LongTimePattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : MonthDayPattern
@@ -281,7 +539,17 @@
     @synthesize monthDayPattern = _monthDayPattern;
     - (NSString *)monthDayPattern
     {
-		MonoObject *monoObject = [self getMonoProperty:"MonthDayPattern"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MonthDayPattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_monthDayPattern isEqualToMonoObject:monoObject]) return _monthDayPattern;					
 		_monthDayPattern = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -290,8 +558,17 @@
     - (void)setMonthDayPattern:(NSString *)value
 	{
 		_monthDayPattern = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"MonthDayPattern" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "MonthDayPattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : MonthGenitiveNames
@@ -299,7 +576,17 @@
     @synthesize monthGenitiveNames = _monthGenitiveNames;
     - (DBSystem_Array *)monthGenitiveNames
     {
-		MonoObject *monoObject = [self getMonoProperty:"MonthGenitiveNames"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MonthGenitiveNames");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_monthGenitiveNames isEqualToMonoObject:monoObject]) return _monthGenitiveNames;					
 		_monthGenitiveNames = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -308,8 +595,17 @@
     - (void)setMonthGenitiveNames:(DBSystem_Array *)value
 	{
 		_monthGenitiveNames = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"MonthGenitiveNames" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "MonthGenitiveNames");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : MonthNames
@@ -317,7 +613,17 @@
     @synthesize monthNames = _monthNames;
     - (DBSystem_Array *)monthNames
     {
-		MonoObject *monoObject = [self getMonoProperty:"MonthNames"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MonthNames");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_monthNames isEqualToMonoObject:monoObject]) return _monthNames;					
 		_monthNames = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -326,8 +632,17 @@
     - (void)setMonthNames:(DBSystem_Array *)value
 	{
 		_monthNames = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"MonthNames" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "MonthNames");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : NativeCalendarName
@@ -335,7 +650,17 @@
     @synthesize nativeCalendarName = _nativeCalendarName;
     - (NSString *)nativeCalendarName
     {
-		MonoObject *monoObject = [self getMonoProperty:"NativeCalendarName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NativeCalendarName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_nativeCalendarName isEqualToMonoObject:monoObject]) return _nativeCalendarName;					
 		_nativeCalendarName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -347,7 +672,17 @@
     @synthesize pMDesignator = _pMDesignator;
     - (NSString *)pMDesignator
     {
-		MonoObject *monoObject = [self getMonoProperty:"PMDesignator"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PMDesignator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_pMDesignator isEqualToMonoObject:monoObject]) return _pMDesignator;					
 		_pMDesignator = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -356,8 +691,17 @@
     - (void)setPMDesignator:(NSString *)value
 	{
 		_pMDesignator = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"PMDesignator" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "PMDesignator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : RFC1123Pattern
@@ -365,7 +709,17 @@
     @synthesize rFC1123Pattern = _rFC1123Pattern;
     - (NSString *)rFC1123Pattern
     {
-		MonoObject *monoObject = [self getMonoProperty:"RFC1123Pattern"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RFC1123Pattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_rFC1123Pattern isEqualToMonoObject:monoObject]) return _rFC1123Pattern;					
 		_rFC1123Pattern = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -377,7 +731,17 @@
     @synthesize shortDatePattern = _shortDatePattern;
     - (NSString *)shortDatePattern
     {
-		MonoObject *monoObject = [self getMonoProperty:"ShortDatePattern"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ShortDatePattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_shortDatePattern isEqualToMonoObject:monoObject]) return _shortDatePattern;					
 		_shortDatePattern = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -386,8 +750,17 @@
     - (void)setShortDatePattern:(NSString *)value
 	{
 		_shortDatePattern = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"ShortDatePattern" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ShortDatePattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ShortestDayNames
@@ -395,7 +768,17 @@
     @synthesize shortestDayNames = _shortestDayNames;
     - (DBSystem_Array *)shortestDayNames
     {
-		MonoObject *monoObject = [self getMonoProperty:"ShortestDayNames"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ShortestDayNames");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_shortestDayNames isEqualToMonoObject:monoObject]) return _shortestDayNames;					
 		_shortestDayNames = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -404,8 +787,17 @@
     - (void)setShortestDayNames:(DBSystem_Array *)value
 	{
 		_shortestDayNames = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"ShortestDayNames" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ShortestDayNames");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ShortTimePattern
@@ -413,7 +805,17 @@
     @synthesize shortTimePattern = _shortTimePattern;
     - (NSString *)shortTimePattern
     {
-		MonoObject *monoObject = [self getMonoProperty:"ShortTimePattern"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ShortTimePattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_shortTimePattern isEqualToMonoObject:monoObject]) return _shortTimePattern;					
 		_shortTimePattern = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -422,8 +824,17 @@
     - (void)setShortTimePattern:(NSString *)value
 	{
 		_shortTimePattern = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"ShortTimePattern" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ShortTimePattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : SortableDateTimePattern
@@ -431,7 +842,17 @@
     @synthesize sortableDateTimePattern = _sortableDateTimePattern;
     - (NSString *)sortableDateTimePattern
     {
-		MonoObject *monoObject = [self getMonoProperty:"SortableDateTimePattern"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SortableDateTimePattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_sortableDateTimePattern isEqualToMonoObject:monoObject]) return _sortableDateTimePattern;					
 		_sortableDateTimePattern = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -443,7 +864,17 @@
     @synthesize timeSeparator = _timeSeparator;
     - (NSString *)timeSeparator
     {
-		MonoObject *monoObject = [self getMonoProperty:"TimeSeparator"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TimeSeparator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_timeSeparator isEqualToMonoObject:monoObject]) return _timeSeparator;					
 		_timeSeparator = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -452,8 +883,17 @@
     - (void)setTimeSeparator:(NSString *)value
 	{
 		_timeSeparator = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"TimeSeparator" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "TimeSeparator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : UniversalSortableDateTimePattern
@@ -461,7 +901,17 @@
     @synthesize universalSortableDateTimePattern = _universalSortableDateTimePattern;
     - (NSString *)universalSortableDateTimePattern
     {
-		MonoObject *monoObject = [self getMonoProperty:"UniversalSortableDateTimePattern"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UniversalSortableDateTimePattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_universalSortableDateTimePattern isEqualToMonoObject:monoObject]) return _universalSortableDateTimePattern;					
 		_universalSortableDateTimePattern = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -473,7 +923,17 @@
     @synthesize yearMonthPattern = _yearMonthPattern;
     - (NSString *)yearMonthPattern
     {
-		MonoObject *monoObject = [self getMonoProperty:"YearMonthPattern"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "YearMonthPattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_yearMonthPattern isEqualToMonoObject:monoObject]) return _yearMonthPattern;					
 		_yearMonthPattern = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -482,8 +942,17 @@
     - (void)setYearMonthPattern:(NSString *)value
 	{
 		_yearMonthPattern = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"YearMonthPattern" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "YearMonthPattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -503,7 +972,7 @@
 	// Managed method name : GetAbbreviatedDayName
 	// Managed return type : System.String
 	// Managed param types : System.DayOfWeek
-    - (NSString *)getAbbreviatedDayName_withDayofweek:(System_DayOfWeek)p1
+    - (NSString *)getAbbreviatedDayName_withDayofweek:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAbbreviatedDayName(System.DayOfWeek)" withNumArgs:1, DB_VALUE(p1)];
@@ -558,7 +1027,7 @@
 	// Managed method name : GetDayName
 	// Managed return type : System.String
 	// Managed param types : System.DayOfWeek
-    - (NSString *)getDayName_withDayofweek:(System_DayOfWeek)p1
+    - (NSString *)getDayName_withDayofweek:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDayName(System.DayOfWeek)" withNumArgs:1, DB_VALUE(p1)];
@@ -602,12 +1071,12 @@
 	// Managed method name : GetInstance
 	// Managed return type : System.Globalization.DateTimeFormatInfo
 	// Managed param types : System.IFormatProvider
-    + (System_Globalization_DateTimeFormatInfo *)getInstance_withProvider:(System_IFormatProvider *)p1
+    + (System_Globalization_DateTimeFormatInfo *)getInstance_withProvider:(id <System_IFormatProvider_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetInstance(System.IFormatProvider)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Globalization_DateTimeFormatInfo objectWithMonoObject:monoObject];
+		return [System_Globalization_DateTimeFormatInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetMonthName
@@ -624,7 +1093,7 @@
 	// Managed method name : GetShortestDayName
 	// Managed return type : System.String
 	// Managed param types : System.DayOfWeek
-    - (NSString *)getShortestDayName_withDayOfWeek:(System_DayOfWeek)p1
+    - (NSString *)getShortestDayName_withDayOfWeek:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetShortestDayName(System.DayOfWeek)" withNumArgs:1, DB_VALUE(p1)];
@@ -640,7 +1109,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Globalization.DateTimeFormatInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Globalization_DateTimeFormatInfo objectWithMonoObject:monoObject];
+		return [System_Globalization_DateTimeFormatInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SetAllDateTimePatterns
@@ -648,7 +1117,9 @@
 	// Managed param types : System.String[], System.Char
     - (void)setAllDateTimePatterns_withPatterns:(DBSystem_Array *)p1 format:(uint16_t)p2
     {
-		[self invokeMonoMethod:"SetAllDateTimePatterns(string[],char)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"SetAllDateTimePatterns(string[],char)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 #pragma mark -

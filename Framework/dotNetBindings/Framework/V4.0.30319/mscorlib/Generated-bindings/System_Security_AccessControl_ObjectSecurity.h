@@ -48,12 +48,12 @@
 	// Managed method name : AccessRuleFactory
 	// Managed return type : System.Security.AccessControl.AccessRule
 	// Managed param types : System.Security.Principal.IdentityReference, System.Int32, System.Boolean, System.Security.AccessControl.InheritanceFlags, System.Security.AccessControl.PropagationFlags, System.Security.AccessControl.AccessControlType
-    - (System_Security_AccessControl_AccessRule *)accessRuleFactory_withIdentityReference:(System_Security_Principal_IdentityReference *)p1 accessMask:(int32_t)p2 isInherited:(BOOL)p3 inheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p4 propagationFlags:(System_Security_AccessControl_PropagationFlags)p5 type:(System_Security_AccessControl_AccessControlType)p6;
+    - (System_Security_AccessControl_AccessRule *)accessRuleFactory_withIdentityReference:(System_Security_Principal_IdentityReference *)p1 accessMask:(int32_t)p2 isInherited:(BOOL)p3 inheritanceFlags:(int32_t)p4 propagationFlags:(int32_t)p5 type:(int32_t)p6;
 
 	// Managed method name : AuditRuleFactory
 	// Managed return type : System.Security.AccessControl.AuditRule
 	// Managed param types : System.Security.Principal.IdentityReference, System.Int32, System.Boolean, System.Security.AccessControl.InheritanceFlags, System.Security.AccessControl.PropagationFlags, System.Security.AccessControl.AuditFlags
-    - (System_Security_AccessControl_AuditRule *)auditRuleFactory_withIdentityReference:(System_Security_Principal_IdentityReference *)p1 accessMask:(int32_t)p2 isInherited:(BOOL)p3 inheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p4 propagationFlags:(System_Security_AccessControl_PropagationFlags)p5 flags:(System_Security_AccessControl_AuditFlags)p6;
+    - (System_Security_AccessControl_AuditRule *)auditRuleFactory_withIdentityReference:(System_Security_Principal_IdentityReference *)p1 accessMask:(int32_t)p2 isInherited:(BOOL)p3 inheritanceFlags:(int32_t)p4 propagationFlags:(int32_t)p5 flags:(int32_t)p6;
 
 	// Managed method name : GetGroup
 	// Managed return type : System.Security.Principal.IdentityReference
@@ -73,7 +73,7 @@
 	// Managed method name : GetSecurityDescriptorSddlForm
 	// Managed return type : System.String
 	// Managed param types : System.Security.AccessControl.AccessControlSections
-    - (NSString *)getSecurityDescriptorSddlForm_withIncludeSections:(System_Security_AccessControl_AccessControlSections)p1;
+    - (NSString *)getSecurityDescriptorSddlForm_withIncludeSections:(int32_t)p1;
 
 	// Managed method name : IsSddlConversionSupported
 	// Managed return type : System.Boolean
@@ -83,12 +83,12 @@
 	// Managed method name : ModifyAccessRule
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.AccessControl.AccessControlModification, System.Security.AccessControl.AccessRule, ref System.Boolean&
-    - (BOOL)modifyAccessRule_withModification:(System_Security_AccessControl_AccessControlModification)p1 rule:(System_Security_AccessControl_AccessRule *)p2 modifiedRef:(BOOL*)p3;
+    - (BOOL)modifyAccessRule_withModification:(int32_t)p1 rule:(System_Security_AccessControl_AccessRule *)p2 modifiedRef:(BOOL*)p3;
 
 	// Managed method name : ModifyAuditRule
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.AccessControl.AccessControlModification, System.Security.AccessControl.AuditRule, ref System.Boolean&
-    - (BOOL)modifyAuditRule_withModification:(System_Security_AccessControl_AccessControlModification)p1 rule:(System_Security_AccessControl_AuditRule *)p2 modifiedRef:(BOOL*)p3;
+    - (BOOL)modifyAuditRule_withModification:(int32_t)p1 rule:(System_Security_AccessControl_AuditRule *)p2 modifiedRef:(BOOL*)p3;
 
 	// Managed method name : PurgeAccessRules
 	// Managed return type : System.Void
@@ -128,7 +128,7 @@
 	// Managed method name : SetSecurityDescriptorBinaryForm
 	// Managed return type : System.Void
 	// Managed param types : System.Byte[], System.Security.AccessControl.AccessControlSections
-    - (void)setSecurityDescriptorBinaryForm_withBinaryForm:(NSData *)p1 includeSections:(System_Security_AccessControl_AccessControlSections)p2;
+    - (void)setSecurityDescriptorBinaryForm_withBinaryForm:(NSData *)p1 includeSections:(int32_t)p2;
 
 	// Managed method name : SetSecurityDescriptorSddlForm
 	// Managed return type : System.Void
@@ -138,6 +138,6 @@
 	// Managed method name : SetSecurityDescriptorSddlForm
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Security.AccessControl.AccessControlSections
-    - (void)setSecurityDescriptorSddlForm_withSddlForm:(NSString *)p1 includeSections:(System_Security_AccessControl_AccessControlSections)p2;
+    - (void)setSecurityDescriptorSddlForm_withSddlForm:(NSString *)p1 includeSections:(int32_t)p2;
 @end
 //--Dubrovnik.CodeGenerator

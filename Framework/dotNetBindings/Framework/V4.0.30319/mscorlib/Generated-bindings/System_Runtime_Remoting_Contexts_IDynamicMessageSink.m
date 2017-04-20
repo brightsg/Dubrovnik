@@ -30,17 +30,21 @@
 	// Managed method name : ProcessMessageFinish
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Messaging.IMessage, System.Boolean, System.Boolean
-    - (void)processMessageFinish_withReplyMsg:(System_Runtime_Remoting_Messaging_IMessage *)p1 bCliSide:(BOOL)p2 bAsync:(BOOL)p3
+    - (void)processMessageFinish_withReplyMsg:(id <System_Runtime_Remoting_Messaging_IMessage_>)p1 bCliSide:(BOOL)p2 bAsync:(BOOL)p3
     {
-		[self invokeMonoMethod:"System.Runtime.Remoting.Contexts.IDynamicMessageSink.ProcessMessageFinish(System.Runtime.Remoting.Messaging.IMessage,bool,bool)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		[self invokeMonoMethod:"System.Runtime.Remoting.Contexts.IDynamicMessageSink.ProcessMessageFinish(System.Runtime.Remoting.Messaging.IMessage,bool,bool)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+        
     }
 
 	// Managed method name : ProcessMessageStart
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Messaging.IMessage, System.Boolean, System.Boolean
-    - (void)processMessageStart_withReqMsg:(System_Runtime_Remoting_Messaging_IMessage *)p1 bCliSide:(BOOL)p2 bAsync:(BOOL)p3
+    - (void)processMessageStart_withReqMsg:(id <System_Runtime_Remoting_Messaging_IMessage_>)p1 bCliSide:(BOOL)p2 bAsync:(BOOL)p3
     {
-		[self invokeMonoMethod:"System.Runtime.Remoting.Contexts.IDynamicMessageSink.ProcessMessageStart(System.Runtime.Remoting.Messaging.IMessage,bool,bool)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		[self invokeMonoMethod:"System.Runtime.Remoting.Contexts.IDynamicMessageSink.ProcessMessageStart(System.Runtime.Remoting.Messaging.IMessage,bool,bool)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+        
     }
 
 #pragma mark -

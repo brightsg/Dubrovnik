@@ -32,16 +32,35 @@
     @synthesize allowUnassigned = _allowUnassigned;
     - (BOOL)allowUnassigned
     {
-		MonoObject *monoObject = [self getMonoProperty:"AllowUnassigned"];
-		_allowUnassigned = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AllowUnassigned");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_allowUnassigned = monoObject;
 
 		return _allowUnassigned;
 	}
     - (void)setAllowUnassigned:(BOOL)value
 	{
 		_allowUnassigned = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"AllowUnassigned" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "AllowUnassigned");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : UseStd3AsciiRules
@@ -49,16 +68,35 @@
     @synthesize useStd3AsciiRules = _useStd3AsciiRules;
     - (BOOL)useStd3AsciiRules
     {
-		MonoObject *monoObject = [self getMonoProperty:"UseStd3AsciiRules"];
-		_useStd3AsciiRules = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UseStd3AsciiRules");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_useStd3AsciiRules = monoObject;
 
 		return _useStd3AsciiRules;
 	}
     - (void)setUseStd3AsciiRules:(BOOL)value
 	{
 		_useStd3AsciiRules = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"UseStd3AsciiRules" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "UseStd3AsciiRules");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

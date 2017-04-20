@@ -2,7 +2,7 @@
 //
 // Managed class : RC2CryptoServiceProvider
 //
-@interface System_Security_Cryptography_RC2CryptoServiceProvider : System_Security_Cryptography_RC2 <System_IDisposable>
+@interface System_Security_Cryptography_RC2CryptoServiceProvider : System_Security_Cryptography_RC2 <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -28,12 +28,12 @@
 	// Managed method name : CreateDecryptor
 	// Managed return type : System.Security.Cryptography.ICryptoTransform
 	// Managed param types : System.Byte[], System.Byte[]
-    - (System_Security_Cryptography_ICryptoTransform *)createDecryptor_withRgbKey:(NSData *)p1 rgbIV:(NSData *)p2;
+    - (id <System_Security_Cryptography_ICryptoTransform>)createDecryptor_withRgbKey:(NSData *)p1 rgbIV:(NSData *)p2;
 
 	// Managed method name : CreateEncryptor
 	// Managed return type : System.Security.Cryptography.ICryptoTransform
 	// Managed param types : System.Byte[], System.Byte[]
-    - (System_Security_Cryptography_ICryptoTransform *)createEncryptor_withRgbKey:(NSData *)p1 rgbIV:(NSData *)p2;
+    - (id <System_Security_Cryptography_ICryptoTransform>)createEncryptor_withRgbKey:(NSData *)p1 rgbIV:(NSData *)p2;
 
 	// Managed method name : GenerateIV
 	// Managed return type : System.Void

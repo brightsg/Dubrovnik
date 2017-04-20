@@ -2,7 +2,7 @@
 //
 // Managed class : AuthorizationRuleCollection
 //
-@interface System_Security_AccessControl_AuthorizationRuleCollection : System_Collections_ReadOnlyCollectionBase <System_Collections_ICollection, System_Collections_IEnumerable>
+@interface System_Security_AccessControl_AuthorizationRuleCollection : System_Collections_ReadOnlyCollectionBase <System_Collections_ICollection_, System_Collections_IEnumerable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -20,6 +20,11 @@
 
 #pragma mark -
 #pragma mark Methods
+
+	// Managed method name : AddRule
+	// Managed return type : System.Void
+	// Managed param types : System.Security.AccessControl.AuthorizationRule
+    - (void)addRule_withRule:(System_Security_AccessControl_AuthorizationRule *)p1;
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void

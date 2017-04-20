@@ -2,7 +2,7 @@
 //
 // Managed class : SecurityIdentifier
 //
-@interface System_Security_Principal_SecurityIdentifier : System_Security_Principal_IdentityReference <System_IComparableA1>
+@interface System_Security_Principal_SecurityIdentifier : System_Security_Principal_IdentityReference <System_IComparableA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -21,18 +21,18 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Principal.SecurityIdentifier
+	// Managed param types : System.Byte[], System.Int32
+    + (System_Security_Principal_SecurityIdentifier *)new_withBinaryForm:(NSData *)p1 offset:(int32_t)p2;
+
+	// Managed method name : .ctor
+	// Managed return type : System.Security.Principal.SecurityIdentifier
 	// Managed param types : System.IntPtr
     + (System_Security_Principal_SecurityIdentifier *)new_withBinaryForm:(void *)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Principal.SecurityIdentifier
 	// Managed param types : System.Security.Principal.WellKnownSidType, System.Security.Principal.SecurityIdentifier
-    + (System_Security_Principal_SecurityIdentifier *)new_withSidType:(System_Security_Principal_WellKnownSidType)p1 domainSid:(System_Security_Principal_SecurityIdentifier *)p2;
-
-	// Managed method name : .ctor
-	// Managed return type : System.Security.Principal.SecurityIdentifier
-	// Managed param types : System.Byte[], System.Int32
-    + (System_Security_Principal_SecurityIdentifier *)new_withBinaryForm:(NSData *)p1 offset:(int32_t)p2;
+    + (System_Security_Principal_SecurityIdentifier *)new_withSidType:(int32_t)p1 domainSid:(System_Security_Principal_SecurityIdentifier *)p2;
 
 #pragma mark -
 #pragma mark Fields
@@ -106,7 +106,7 @@
 	// Managed method name : IsWellKnown
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.Principal.WellKnownSidType
-    - (BOOL)isWellKnown_withType:(System_Security_Principal_WellKnownSidType)p1;
+    - (BOOL)isWellKnown_withType:(int32_t)p1;
 
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean

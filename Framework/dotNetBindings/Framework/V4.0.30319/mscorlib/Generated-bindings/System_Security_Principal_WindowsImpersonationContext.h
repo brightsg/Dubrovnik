@@ -2,7 +2,7 @@
 //
 // Managed class : WindowsImpersonationContext
 //
-@interface System_Security_Principal_WindowsImpersonationContext : System_Object <System_IDisposable>
+@interface System_Security_Principal_WindowsImpersonationContext : System_Object <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

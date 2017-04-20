@@ -32,7 +32,10 @@
 	// Managed param types : System.Int32
     + (System_Diagnostics_SymbolStore_SymbolToken *)new_withVal:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Diagnostics_SymbolStore_SymbolToken * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -

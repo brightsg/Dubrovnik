@@ -2,7 +2,7 @@
 //
 // Managed class : AllowPartiallyTrustedCallersAttribute
 //
-@interface System_Security_AllowPartiallyTrustedCallersAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Security_AllowPartiallyTrustedCallersAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -16,6 +16,6 @@
 
 	// Managed property name : PartialTrustVisibilityLevel
 	// Managed property type : System.Security.PartialTrustVisibilityLevel
-    @property (nonatomic) System_Security_PartialTrustVisibilityLevel partialTrustVisibilityLevel;
+    @property (nonatomic) int32_t partialTrustVisibilityLevel;
 @end
 //--Dubrovnik.CodeGenerator

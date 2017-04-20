@@ -153,7 +153,7 @@
 	// Managed method name : CreateAggregatedObject
 	// Managed return type : System.IntPtr
 	// Managed param types : System.IntPtr, <System.Runtime.InteropServices.Marshal+T>
-    + (void *)createAggregatedObject_withPOuterIntptr:(void *)p1 o:(System_Object *)p2;
+    + (void *)createAggregatedObject_withPOuterIntptr:(void *)p1 o_T_0:(System_Object *)p2;
 
 	// Managed method name : CreateWrapperOfType
 	// Managed return type : System.Object
@@ -223,7 +223,7 @@
 	// Managed method name : GetComInterfaceForObject
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Object, System.Type, System.Runtime.InteropServices.CustomQueryInterfaceMode
-    + (void *)getComInterfaceForObject_withO:(System_Object *)p1 t:(System_Type *)p2 mode:(System_Runtime_InteropServices_CustomQueryInterfaceMode)p3;
+    + (void *)getComInterfaceForObject_withO:(System_Object *)p1 t:(System_Type *)p2 mode:(int32_t)p3;
 
 	// Managed method name : GetComInterfaceForObjectInContext
 	// Managed return type : System.IntPtr
@@ -283,7 +283,7 @@
 	// Managed method name : GetFunctionPointerForDelegate
 	// Managed return type : System.IntPtr
 	// Managed param types : <System.Runtime.InteropServices.Marshal+TDelegate>
-    + (void *)getFunctionPointerForDelegate_withD:(System_Object *)p1;
+    + (void *)getFunctionPointerForDelegate_withD_T_0:(System_Object *)p1;
 
 	// Managed method name : GetHINSTANCE
 	// Managed return type : System.IntPtr
@@ -348,7 +348,7 @@
 	// Managed method name : GetNativeVariantForObject
 	// Managed return type : System.Void
 	// Managed param types : <System.Runtime.InteropServices.Marshal+T>, System.IntPtr
-    + (void)getNativeVariantForObject_withObj:(System_Object *)p1 pDstNativeVariantIntptr:(void *)p2;
+    + (void)getNativeVariantForObject_withObj_T_0:(System_Object *)p1 pDstNativeVariantIntptr:(void *)p2;
 
 	// Managed method name : GetObjectForIUnknown
 	// Managed return type : System.Object
@@ -383,22 +383,22 @@
 	// Managed method name : GetTypeInfoName
 	// Managed return type : System.String
 	// Managed param types : System.Runtime.InteropServices.UCOMITypeInfo
-    + (NSString *)getTypeInfoName_withPTI:(System_Runtime_InteropServices_UCOMITypeInfo *)p1;
+    + (NSString *)getTypeInfoName_withPTI:(id <System_Runtime_InteropServices_UCOMITypeInfo_>)p1;
 
 	// Managed method name : GetTypeInfoName
 	// Managed return type : System.String
 	// Managed param types : System.Runtime.InteropServices.ComTypes.ITypeInfo
-    + (NSString *)getTypeInfoName_withTypeInfo:(System_Runtime_InteropServices_ComTypes_ITypeInfo *)p1;
+    + (NSString *)getTypeInfoName_withTypeInfo:(id <System_Runtime_InteropServices_ComTypes_ITypeInfo_>)p1;
 
 	// Managed method name : GetTypeLibGuid
 	// Managed return type : System.Guid
 	// Managed param types : System.Runtime.InteropServices.UCOMITypeLib
-    + (System_Guid *)getTypeLibGuid_withPTLB:(System_Runtime_InteropServices_UCOMITypeLib *)p1;
+    + (System_Guid *)getTypeLibGuid_withPTLB:(id <System_Runtime_InteropServices_UCOMITypeLib_>)p1;
 
 	// Managed method name : GetTypeLibGuid
 	// Managed return type : System.Guid
 	// Managed param types : System.Runtime.InteropServices.ComTypes.ITypeLib
-    + (System_Guid *)getTypeLibGuid_withTypelib:(System_Runtime_InteropServices_ComTypes_ITypeLib *)p1;
+    + (System_Guid *)getTypeLibGuid_withTypelib:(id <System_Runtime_InteropServices_ComTypes_ITypeLib_>)p1;
 
 	// Managed method name : GetTypeLibGuidForAssembly
 	// Managed return type : System.Guid
@@ -408,22 +408,22 @@
 	// Managed method name : GetTypeLibLcid
 	// Managed return type : System.Int32
 	// Managed param types : System.Runtime.InteropServices.UCOMITypeLib
-    + (int32_t)getTypeLibLcid_withPTLB:(System_Runtime_InteropServices_UCOMITypeLib *)p1;
+    + (int32_t)getTypeLibLcid_withPTLB:(id <System_Runtime_InteropServices_UCOMITypeLib_>)p1;
 
 	// Managed method name : GetTypeLibLcid
 	// Managed return type : System.Int32
 	// Managed param types : System.Runtime.InteropServices.ComTypes.ITypeLib
-    + (int32_t)getTypeLibLcid_withTypelib:(System_Runtime_InteropServices_ComTypes_ITypeLib *)p1;
+    + (int32_t)getTypeLibLcid_withTypelib:(id <System_Runtime_InteropServices_ComTypes_ITypeLib_>)p1;
 
 	// Managed method name : GetTypeLibName
 	// Managed return type : System.String
 	// Managed param types : System.Runtime.InteropServices.UCOMITypeLib
-    + (NSString *)getTypeLibName_withPTLB:(System_Runtime_InteropServices_UCOMITypeLib *)p1;
+    + (NSString *)getTypeLibName_withPTLB:(id <System_Runtime_InteropServices_UCOMITypeLib_>)p1;
 
 	// Managed method name : GetTypeLibName
 	// Managed return type : System.String
 	// Managed param types : System.Runtime.InteropServices.ComTypes.ITypeLib
-    + (NSString *)getTypeLibName_withTypelib:(System_Runtime_InteropServices_ComTypes_ITypeLib *)p1;
+    + (NSString *)getTypeLibName_withTypelib:(id <System_Runtime_InteropServices_ComTypes_ITypeLib_>)p1;
 
 	// Managed method name : GetTypeLibVersionForAssembly
 	// Managed return type : System.Void
@@ -518,7 +518,7 @@
 	// Managed method name : PtrToStructure
 	// Managed return type : System.Void
 	// Managed param types : System.IntPtr, <System.Runtime.InteropServices.Marshal+T>
-    + (void)ptrToStructure_withPtrIntptr:(void *)p1 structure:(System_Object *)p2;
+    + (void)ptrToStructure_withPtrIntptr:(void *)p1 structure_T_0:(System_Object *)p2;
 
 	// Managed method name : PtrToStructure
 	// Managed return type : System.Object
@@ -673,7 +673,7 @@
 	// Managed method name : SizeOf
 	// Managed return type : System.Int32
 	// Managed param types : <System.Runtime.InteropServices.Marshal+T>
-    + (int32_t)sizeOf_withStructure:(System_Object *)p1;
+    + (int32_t)sizeOf_withStructure_T_0:(System_Object *)p1;
 
 	// Managed method name : SizeOf
 	// Managed return type : System.Int32
@@ -728,7 +728,7 @@
 	// Managed method name : StructureToPtr
 	// Managed return type : System.Void
 	// Managed param types : <System.Runtime.InteropServices.Marshal+T>, System.IntPtr, System.Boolean
-    + (void)structureToPtr_withStructure:(System_Object *)p1 ptrIntptr:(void *)p2 fDeleteOldBool:(BOOL)p3;
+    + (void)structureToPtr_withStructure_T_0:(System_Object *)p1 ptrIntptr:(void *)p2 fDeleteOldBool:(BOOL)p3;
 
 	// Managed method name : ThrowExceptionForHR
 	// Managed return type : System.Void
@@ -747,8 +747,8 @@
 
 	// Managed method name : UnsafeAddrOfPinnedArrayElement
 	// Managed return type : System.IntPtr
-	// Managed param types : <T[]>, System.Int32
-    + (void *)unsafeAddrOfPinnedArrayElement_withArr:(System_Object *)p1 indexInt:(int32_t)p2;
+	// Managed param types : T[], System.Int32
+    + (void *)unsafeAddrOfPinnedArrayElement_withArrT:(DBSystem_Array *)p1 indexInt:(int32_t)p2;
 
 	// Managed method name : WriteByte
 	// Managed return type : System.Void

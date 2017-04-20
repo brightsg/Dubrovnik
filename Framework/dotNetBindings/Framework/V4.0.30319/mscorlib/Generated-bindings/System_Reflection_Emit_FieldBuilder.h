@@ -2,7 +2,7 @@
 //
 // Managed class : FieldBuilder
 //
-@interface System_Reflection_Emit_FieldBuilder : System_Reflection_FieldInfo <System_Reflection_ICustomAttributeProvider, System_Runtime_InteropServices__MemberInfo, System_Runtime_InteropServices__FieldInfo, System_Runtime_InteropServices__FieldBuilder>
+@interface System_Reflection_Emit_FieldBuilder : System_Reflection_FieldInfo <System_Reflection_ICustomAttributeProvider_, System_Runtime_InteropServices__MemberInfo_, System_Runtime_InteropServices__FieldInfo_, System_Runtime_InteropServices__FieldBuilder_>
 
 #pragma mark -
 #pragma mark Setup
@@ -16,7 +16,7 @@
 
 	// Managed property name : Attributes
 	// Managed property type : System.Reflection.FieldAttributes
-    @property (nonatomic, readonly) System_Reflection_FieldAttributes attributes;
+    @property (nonatomic, readonly) int32_t attributes;
 
 	// Managed property name : DeclaringType
 	// Managed property type : System.Type
@@ -98,6 +98,6 @@
 	// Managed method name : SetValue
 	// Managed return type : System.Void
 	// Managed param types : System.Object, System.Object, System.Reflection.BindingFlags, System.Reflection.Binder, System.Globalization.CultureInfo
-    - (void)setValue_withObj:(System_Object *)p1 val:(System_Object *)p2 invokeAttr:(System_Reflection_BindingFlags)p3 binder:(System_Reflection_Binder *)p4 culture:(System_Globalization_CultureInfo *)p5;
+    - (void)setValue_withObj:(System_Object *)p1 val:(System_Object *)p2 invokeAttr:(int32_t)p3 binder:(System_Reflection_Binder *)p4 culture:(System_Globalization_CultureInfo *)p5;
 @end
 //--Dubrovnik.CodeGenerator

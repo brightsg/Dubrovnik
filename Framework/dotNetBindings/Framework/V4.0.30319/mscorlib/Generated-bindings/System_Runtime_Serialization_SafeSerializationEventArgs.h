@@ -24,6 +24,6 @@
 	// Managed method name : AddSerializedState
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Serialization.ISafeSerializationData
-    - (void)addSerializedState_withSerializedState:(System_Runtime_Serialization_ISafeSerializationData *)p1;
+    - (void)addSerializedState_withSerializedState:(id <System_Runtime_Serialization_ISafeSerializationData_>)p1;
 @end
 //--Dubrovnik.CodeGenerator

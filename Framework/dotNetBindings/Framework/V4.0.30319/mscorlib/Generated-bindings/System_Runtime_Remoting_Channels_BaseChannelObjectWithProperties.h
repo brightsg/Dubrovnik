@@ -2,7 +2,7 @@
 //
 // Managed class : BaseChannelObjectWithProperties
 //
-@interface System_Runtime_Remoting_Channels_BaseChannelObjectWithProperties : System_Object <System_Collections_IDictionary, System_Collections_ICollection, System_Collections_IEnumerable>
+@interface System_Runtime_Remoting_Channels_BaseChannelObjectWithProperties : System_Object <System_Collections_IDictionary_, System_Collections_ICollection_, System_Collections_IEnumerable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -76,7 +76,7 @@
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IDictionaryEnumerator
 	// Managed param types : 
-    - (System_Collections_IDictionaryEnumerator *)getEnumerator;
+    - (id <System_Collections_IDictionaryEnumerator>)getEnumerator;
 
 	// Managed method name : Remove
 	// Managed return type : System.Void

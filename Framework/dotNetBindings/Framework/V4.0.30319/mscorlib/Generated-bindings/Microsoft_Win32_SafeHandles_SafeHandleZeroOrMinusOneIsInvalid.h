@@ -2,7 +2,7 @@
 //
 // Managed class : SafeHandleZeroOrMinusOneIsInvalid
 //
-@interface Microsoft_Win32_SafeHandles_SafeHandleZeroOrMinusOneIsInvalid : System_Runtime_InteropServices_SafeHandle <System_IDisposable>
+@interface Microsoft_Win32_SafeHandles_SafeHandleZeroOrMinusOneIsInvalid : System_Runtime_InteropServices_SafeHandle <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

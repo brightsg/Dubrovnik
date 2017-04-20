@@ -2,7 +2,7 @@
 //
 // Managed class : CompressedStack
 //
-@interface System_Threading_CompressedStack : System_Object <System_Runtime_Serialization_ISerializable>
+@interface System_Threading_CompressedStack : System_Object <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup

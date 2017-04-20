@@ -32,7 +32,9 @@
 	// Managed param types : 
     - (void)assert
     {
-		[self invokeMonoMethod:"System.Security.IStackWalk.Assert()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"System.Security.IStackWalk.Assert()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Demand
@@ -40,7 +42,9 @@
 	// Managed param types : 
     - (void)demand
     {
-		[self invokeMonoMethod:"System.Security.IStackWalk.Demand()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"System.Security.IStackWalk.Demand()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Deny
@@ -48,7 +52,9 @@
 	// Managed param types : 
     - (void)deny
     {
-		[self invokeMonoMethod:"System.Security.IStackWalk.Deny()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"System.Security.IStackWalk.Deny()" withNumArgs:0];
+        
     }
 
 	// Managed method name : PermitOnly
@@ -56,7 +62,9 @@
 	// Managed param types : 
     - (void)permitOnly
     {
-		[self invokeMonoMethod:"System.Security.IStackWalk.PermitOnly()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"System.Security.IStackWalk.PermitOnly()" withNumArgs:0];
+        
     }
 
 #pragma mark -

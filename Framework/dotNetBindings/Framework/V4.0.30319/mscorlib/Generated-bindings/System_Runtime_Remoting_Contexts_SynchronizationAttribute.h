@@ -2,7 +2,7 @@
 //
 // Managed class : SynchronizationAttribute
 //
-@interface System_Runtime_Remoting_Contexts_SynchronizationAttribute : System_Runtime_Remoting_Contexts_ContextAttribute <System_Runtime_InteropServices__Attribute, System_Runtime_Remoting_Contexts_IContextAttribute, System_Runtime_Remoting_Contexts_IContextProperty, System_Runtime_Remoting_Contexts_IContributeServerContextSink, System_Runtime_Remoting_Contexts_IContributeClientContextSink>
+@interface System_Runtime_Remoting_Contexts_SynchronizationAttribute : System_Runtime_Remoting_Contexts_ContextAttribute <System_Runtime_InteropServices__Attribute_, System_Runtime_Remoting_Contexts_IContextAttribute_, System_Runtime_Remoting_Contexts_IContextProperty_, System_Runtime_Remoting_Contexts_IContributeServerContextSink_, System_Runtime_Remoting_Contexts_IContributeClientContextSink_>
 
 #pragma mark -
 #pragma mark Setup
@@ -65,21 +65,21 @@
 	// Managed method name : GetClientContextSink
 	// Managed return type : System.Runtime.Remoting.Messaging.IMessageSink
 	// Managed param types : System.Runtime.Remoting.Messaging.IMessageSink
-    - (System_Runtime_Remoting_Messaging_IMessageSink *)getClientContextSink_withNextSink:(System_Runtime_Remoting_Messaging_IMessageSink *)p1;
+    - (id <System_Runtime_Remoting_Messaging_IMessageSink>)getClientContextSink_withNextSink:(id <System_Runtime_Remoting_Messaging_IMessageSink_>)p1;
 
 	// Managed method name : GetPropertiesForNewContext
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Activation.IConstructionCallMessage
-    - (void)getPropertiesForNewContext_withCtorMsg:(System_Runtime_Remoting_Activation_IConstructionCallMessage *)p1;
+    - (void)getPropertiesForNewContext_withCtorMsg:(id <System_Runtime_Remoting_Activation_IConstructionCallMessage_>)p1;
 
 	// Managed method name : GetServerContextSink
 	// Managed return type : System.Runtime.Remoting.Messaging.IMessageSink
 	// Managed param types : System.Runtime.Remoting.Messaging.IMessageSink
-    - (System_Runtime_Remoting_Messaging_IMessageSink *)getServerContextSink_withNextSink:(System_Runtime_Remoting_Messaging_IMessageSink *)p1;
+    - (id <System_Runtime_Remoting_Messaging_IMessageSink>)getServerContextSink_withNextSink:(id <System_Runtime_Remoting_Messaging_IMessageSink_>)p1;
 
 	// Managed method name : IsContextOK
 	// Managed return type : System.Boolean
 	// Managed param types : System.Runtime.Remoting.Contexts.Context, System.Runtime.Remoting.Activation.IConstructionCallMessage
-    - (BOOL)isContextOK_withCtx:(System_Runtime_Remoting_Contexts_Context *)p1 msg:(System_Runtime_Remoting_Activation_IConstructionCallMessage *)p2;
+    - (BOOL)isContextOK_withCtx:(System_Runtime_Remoting_Contexts_Context *)p1 msg:(id <System_Runtime_Remoting_Activation_IConstructionCallMessage_>)p2;
 @end
 //--Dubrovnik.CodeGenerator

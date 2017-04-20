@@ -32,7 +32,9 @@
 	// Managed param types : 
     - (void)initialize
     {
-		[self invokeMonoMethod:"Initialize()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Initialize()" withNumArgs:0];
+        
     }
 
 #pragma mark -

@@ -2,7 +2,9 @@
 //
 // Managed enumeration : MethodAttributes
 //
-typedef NS_ENUM(int32_t, System_Reflection_MethodAttributes) {
+
+// C enumeration
+typedef NS_ENUM(int32_t, enumSystem_Reflection_MethodAttributes) {
 	System_Reflection_MethodAttributes_Abstract = 1024,
 	System_Reflection_MethodAttributes_Assembly = 3,
 	System_Reflection_MethodAttributes_CheckAccessOnOverride = 512,
@@ -28,4 +30,112 @@ typedef NS_ENUM(int32_t, System_Reflection_MethodAttributes) {
 	System_Reflection_MethodAttributes_Virtual = 64,
 	System_Reflection_MethodAttributes_VtableLayoutMask = 256,
 };
+@interface System_Reflection_MethodAttributes : DBSystem_Enum
+
+#pragma mark -
+#pragma mark Setup
+	// obligatory override
+	+ (const char *)monoClassName;
+	// obligatory override
+	+ (const char *)monoAssemblyName;
+
+#pragma mark -
+#pragma mark Fields
+
+	// Managed field name : Abstract
+	// Managed field type : System.Reflection.MethodAttributes
+    + (int32_t)abstract;
+
+	// Managed field name : Assembly
+	// Managed field type : System.Reflection.MethodAttributes
+    + (int32_t)assembly;
+
+	// Managed field name : CheckAccessOnOverride
+	// Managed field type : System.Reflection.MethodAttributes
+    + (int32_t)checkAccessOnOverride;
+
+	// Managed field name : FamANDAssem
+	// Managed field type : System.Reflection.MethodAttributes
+    + (int32_t)famANDAssem;
+
+	// Managed field name : Family
+	// Managed field type : System.Reflection.MethodAttributes
+    + (int32_t)family;
+
+	// Managed field name : FamORAssem
+	// Managed field type : System.Reflection.MethodAttributes
+    + (int32_t)famORAssem;
+
+	// Managed field name : Final
+	// Managed field type : System.Reflection.MethodAttributes
+    + (int32_t)final;
+
+	// Managed field name : HasSecurity
+	// Managed field type : System.Reflection.MethodAttributes
+    + (int32_t)hasSecurity;
+
+	// Managed field name : HideBySig
+	// Managed field type : System.Reflection.MethodAttributes
+    + (int32_t)hideBySig;
+
+	// Managed field name : MemberAccessMask
+	// Managed field type : System.Reflection.MethodAttributes
+    + (int32_t)memberAccessMask;
+
+	// Managed field name : NewSlot
+	// Managed field type : System.Reflection.MethodAttributes
+    + (int32_t)newSlot;
+
+	// Managed field name : PinvokeImpl
+	// Managed field type : System.Reflection.MethodAttributes
+    + (int32_t)pinvokeImpl;
+
+	// Managed field name : Private
+	// Managed field type : System.Reflection.MethodAttributes
+    + (int32_t)private;
+
+	// Managed field name : PrivateScope
+	// Managed field type : System.Reflection.MethodAttributes
+    + (int32_t)privateScope;
+
+	// Managed field name : Public
+	// Managed field type : System.Reflection.MethodAttributes
+    + (int32_t)public;
+
+	// Managed field name : RequireSecObject
+	// Managed field type : System.Reflection.MethodAttributes
+    + (int32_t)requireSecObject;
+
+	// Managed field name : ReservedMask
+	// Managed field type : System.Reflection.MethodAttributes
+    + (int32_t)reservedMask;
+
+	// Managed field name : ReuseSlot
+	// Managed field type : System.Reflection.MethodAttributes
+    + (int32_t)reuseSlot;
+
+	// Managed field name : RTSpecialName
+	// Managed field type : System.Reflection.MethodAttributes
+    + (int32_t)rTSpecialName;
+
+	// Managed field name : SpecialName
+	// Managed field type : System.Reflection.MethodAttributes
+    + (int32_t)specialName;
+
+	// Managed field name : Static
+	// Managed field type : System.Reflection.MethodAttributes
+    + (int32_t)static;
+
+	// Managed field name : UnmanagedExport
+	// Managed field type : System.Reflection.MethodAttributes
+    + (int32_t)unmanagedExport;
+
+	// Managed field name : Virtual
+	// Managed field type : System.Reflection.MethodAttributes
+    + (int32_t)virtual;
+
+	// Managed field name : VtableLayoutMask
+	// Managed field type : System.Reflection.MethodAttributes
+    + (int32_t)vtableLayoutMask;
+@end
 //--Dubrovnik.CodeGenerator

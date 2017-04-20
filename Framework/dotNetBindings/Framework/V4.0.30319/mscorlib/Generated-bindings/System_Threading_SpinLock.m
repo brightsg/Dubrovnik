@@ -32,7 +32,10 @@
 	// Managed param types : System.Boolean
     + (System_Threading_SpinLock *)new_withEnableThreadOwnerTracking:(BOOL)p1
     {
-		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Threading_SpinLock * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,8 +46,18 @@
     @synthesize isHeld = _isHeld;
     - (BOOL)isHeld
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsHeld"];
-		_isHeld = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsHeld");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isHeld = monoObject;
 
 		return _isHeld;
 	}
@@ -54,8 +67,18 @@
     @synthesize isHeldByCurrentThread = _isHeldByCurrentThread;
     - (BOOL)isHeldByCurrentThread
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsHeldByCurrentThread"];
-		_isHeldByCurrentThread = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsHeldByCurrentThread");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isHeldByCurrentThread = monoObject;
 
 		return _isHeldByCurrentThread;
 	}
@@ -65,8 +88,18 @@
     @synthesize isThreadOwnerTrackingEnabled = _isThreadOwnerTrackingEnabled;
     - (BOOL)isThreadOwnerTrackingEnabled
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsThreadOwnerTrackingEnabled"];
-		_isThreadOwnerTrackingEnabled = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsThreadOwnerTrackingEnabled");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isThreadOwnerTrackingEnabled = monoObject;
 
 		return _isThreadOwnerTrackingEnabled;
 	}
@@ -79,7 +112,9 @@
 	// Managed param types : ref System.Boolean&
     - (void)enter_withLockTakenRef:(BOOL*)p1
     {
-		[self invokeMonoMethod:"Enter(bool&)" withNumArgs:1, p1];;
+		
+		[self invokeMonoMethod:"Enter(bool&)" withNumArgs:1, p1];
+        
     }
 
 	// Managed method name : Exit
@@ -87,7 +122,9 @@
 	// Managed param types : 
     - (void)exit
     {
-		[self invokeMonoMethod:"Exit()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Exit()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Exit
@@ -95,7 +132,9 @@
 	// Managed param types : System.Boolean
     - (void)exit_withUseMemoryBarrier:(BOOL)p1
     {
-		[self invokeMonoMethod:"Exit(bool)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"Exit(bool)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : TryEnter
@@ -103,7 +142,9 @@
 	// Managed param types : ref System.Boolean&
     - (void)tryEnter_withLockTakenRef:(BOOL*)p1
     {
-		[self invokeMonoMethod:"TryEnter(bool&)" withNumArgs:1, p1];;
+		
+		[self invokeMonoMethod:"TryEnter(bool&)" withNumArgs:1, p1];
+        
     }
 
 	// Managed method name : TryEnter
@@ -111,7 +152,9 @@
 	// Managed param types : System.TimeSpan, ref System.Boolean&
     - (void)tryEnter_withTimeout:(System_TimeSpan *)p1 lockTakenRef:(BOOL*)p2
     {
-		[self invokeMonoMethod:"TryEnter(System.TimeSpan,bool&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];;
+		
+		[self invokeMonoMethod:"TryEnter(System.TimeSpan,bool&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];
+        
     }
 
 	// Managed method name : TryEnter
@@ -119,7 +162,9 @@
 	// Managed param types : System.Int32, ref System.Boolean&
     - (void)tryEnter_withMillisecondsTimeout:(int32_t)p1 lockTakenRef:(BOOL*)p2
     {
-		[self invokeMonoMethod:"TryEnter(int,bool&)" withNumArgs:2, DB_VALUE(p1), p2];;
+		
+		[self invokeMonoMethod:"TryEnter(int,bool&)" withNumArgs:2, DB_VALUE(p1), p2];
+        
     }
 
 #pragma mark -

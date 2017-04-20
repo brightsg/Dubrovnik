@@ -30,17 +30,21 @@
 	// Managed method name : AppendAllLines
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Collections.Generic.IEnumerable`1<System.String>
-    + (void)appendAllLines_withPath:(NSString *)p1 contents:(System_Collections_Generic_IEnumerableA1 *)p2
+    + (void)appendAllLines_withPath:(NSString *)p1 contents:(id <System_Collections_Generic_IEnumerableA1_>)p2
     {
-		[self invokeMonoClassMethod:"AppendAllLines(string,System.Collections.Generic.IEnumerable`1<System.String>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"AppendAllLines(string,System.Collections.Generic.IEnumerable`1<string>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : AppendAllLines
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Collections.Generic.IEnumerable`1<System.String>, System.Text.Encoding
-    + (void)appendAllLines_withPath:(NSString *)p1 contents:(System_Collections_Generic_IEnumerableA1 *)p2 encoding:(System_Text_Encoding *)p3
+    + (void)appendAllLines_withPath:(NSString *)p1 contents:(id <System_Collections_Generic_IEnumerableA1_>)p2 encoding:(System_Text_Encoding *)p3
     {
-		[self invokeMonoClassMethod:"AppendAllLines(string,System.Collections.Generic.IEnumerable`1<System.String>,System.Text.Encoding)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"AppendAllLines(string,System.Collections.Generic.IEnumerable`1<string>,System.Text.Encoding)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : AppendAllText
@@ -48,7 +52,9 @@
 	// Managed param types : System.String, System.String
     + (void)appendAllText_withPath:(NSString *)p1 contents:(NSString *)p2
     {
-		[self invokeMonoClassMethod:"AppendAllText(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"AppendAllText(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : AppendAllText
@@ -56,7 +62,9 @@
 	// Managed param types : System.String, System.String, System.Text.Encoding
     + (void)appendAllText_withPath:(NSString *)p1 contents:(NSString *)p2 encoding:(System_Text_Encoding *)p3
     {
-		[self invokeMonoClassMethod:"AppendAllText(string,string,System.Text.Encoding)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"AppendAllText(string,string,System.Text.Encoding)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : AppendText
@@ -67,7 +75,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"AppendText(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_IO_StreamWriter objectWithMonoObject:monoObject];
+		return [System_IO_StreamWriter bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Copy
@@ -75,7 +83,9 @@
 	// Managed param types : System.String, System.String
     + (void)copy_withSourceFileName:(NSString *)p1 destFileName:(NSString *)p2
     {
-		[self invokeMonoClassMethod:"Copy(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Copy(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Copy
@@ -83,7 +93,9 @@
 	// Managed param types : System.String, System.String, System.Boolean
     + (void)copy_withSourceFileName:(NSString *)p1 destFileName:(NSString *)p2 overwrite:(BOOL)p3
     {
-		[self invokeMonoClassMethod:"Copy(string,string,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];;
+		
+		[self invokeMonoClassMethod:"Copy(string,string,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+        
     }
 
 	// Managed method name : Create
@@ -94,7 +106,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_IO_FileStream objectWithMonoObject:monoObject];
+		return [System_IO_FileStream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
@@ -105,29 +117,29 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [System_IO_FileStream objectWithMonoObject:monoObject];
+		return [System_IO_FileStream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
 	// Managed return type : System.IO.FileStream
 	// Managed param types : System.String, System.Int32, System.IO.FileOptions
-    + (System_IO_FileStream *)create_withPath:(NSString *)p1 bufferSize:(int32_t)p2 options:(System_IO_FileOptions)p3
+    + (System_IO_FileStream *)create_withPath:(NSString *)p1 bufferSize:(int32_t)p2 options:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string,int,System.IO.FileOptions)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
-		return [System_IO_FileStream objectWithMonoObject:monoObject];
+		return [System_IO_FileStream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
 	// Managed return type : System.IO.FileStream
 	// Managed param types : System.String, System.Int32, System.IO.FileOptions, System.Security.AccessControl.FileSecurity
-    + (System_IO_FileStream *)create_withPath:(NSString *)p1 bufferSize:(int32_t)p2 options:(System_IO_FileOptions)p3 fileSecurity:(System_Security_AccessControl_FileSecurity *)p4
+    + (System_IO_FileStream *)create_withPath:(NSString *)p1 bufferSize:(int32_t)p2 options:(int32_t)p3 fileSecurity:(System_Security_AccessControl_FileSecurity *)p4
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string,int,System.IO.FileOptions,System.Security.AccessControl.FileSecurity)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
 		
-		return [System_IO_FileStream objectWithMonoObject:monoObject];
+		return [System_IO_FileStream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateText
@@ -138,7 +150,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateText(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_IO_StreamWriter objectWithMonoObject:monoObject];
+		return [System_IO_StreamWriter bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Decrypt
@@ -146,7 +158,9 @@
 	// Managed param types : System.String
     + (void)decrypt_withPath:(NSString *)p1
     {
-		[self invokeMonoClassMethod:"Decrypt(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Decrypt(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Delete
@@ -154,7 +168,9 @@
 	// Managed param types : System.String
     + (void)delete_withPath:(NSString *)p1
     {
-		[self invokeMonoClassMethod:"Delete(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Delete(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Encrypt
@@ -162,7 +178,9 @@
 	// Managed param types : System.String
     + (void)encrypt_withPath:(NSString *)p1
     {
-		[self invokeMonoClassMethod:"Encrypt(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Encrypt(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Exists
@@ -184,24 +202,24 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetAccessControl(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_AccessControl_FileSecurity objectWithMonoObject:monoObject];
+		return [System_Security_AccessControl_FileSecurity bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetAccessControl
 	// Managed return type : System.Security.AccessControl.FileSecurity
 	// Managed param types : System.String, System.Security.AccessControl.AccessControlSections
-    + (System_Security_AccessControl_FileSecurity *)getAccessControl_withPath:(NSString *)p1 includeSections:(System_Security_AccessControl_AccessControlSections)p2
+    + (System_Security_AccessControl_FileSecurity *)getAccessControl_withPath:(NSString *)p1 includeSections:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetAccessControl(string,System.Security.AccessControl.AccessControlSections)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [System_Security_AccessControl_FileSecurity objectWithMonoObject:monoObject];
+		return [System_Security_AccessControl_FileSecurity bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetAttributes
 	// Managed return type : System.IO.FileAttributes
 	// Managed param types : System.String
-    + (System_IO_FileAttributes)getAttributes_withPath:(NSString *)p1
+    + (int32_t)getAttributes_withPath:(NSString *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetAttributes(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -280,40 +298,42 @@
 	// Managed param types : System.String, System.String
     + (void)move_withSourceFileName:(NSString *)p1 destFileName:(NSString *)p2
     {
-		[self invokeMonoClassMethod:"Move(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Move(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Open
 	// Managed return type : System.IO.FileStream
 	// Managed param types : System.String, System.IO.FileMode
-    + (System_IO_FileStream *)open_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2
+    + (System_IO_FileStream *)open_withPath:(NSString *)p1 mode:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Open(string,System.IO.FileMode)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [System_IO_FileStream objectWithMonoObject:monoObject];
+		return [System_IO_FileStream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Open
 	// Managed return type : System.IO.FileStream
 	// Managed param types : System.String, System.IO.FileMode, System.IO.FileAccess
-    + (System_IO_FileStream *)open_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2 access:(System_IO_FileAccess)p3
+    + (System_IO_FileStream *)open_withPath:(NSString *)p1 mode:(int32_t)p2 access:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Open(string,System.IO.FileMode,System.IO.FileAccess)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
-		return [System_IO_FileStream objectWithMonoObject:monoObject];
+		return [System_IO_FileStream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Open
 	// Managed return type : System.IO.FileStream
 	// Managed param types : System.String, System.IO.FileMode, System.IO.FileAccess, System.IO.FileShare
-    + (System_IO_FileStream *)open_withPath:(NSString *)p1 mode:(System_IO_FileMode)p2 access:(System_IO_FileAccess)p3 share:(System_IO_FileShare)p4
+    + (System_IO_FileStream *)open_withPath:(NSString *)p1 mode:(int32_t)p2 access:(int32_t)p3 share:(int32_t)p4
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Open(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
 		
-		return [System_IO_FileStream objectWithMonoObject:monoObject];
+		return [System_IO_FileStream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenRead
@@ -324,7 +344,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenRead(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_IO_FileStream objectWithMonoObject:monoObject];
+		return [System_IO_FileStream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenText
@@ -335,7 +355,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenText(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_IO_StreamReader objectWithMonoObject:monoObject];
+		return [System_IO_StreamReader bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenWrite
@@ -346,7 +366,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenWrite(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_IO_FileStream objectWithMonoObject:monoObject];
+		return [System_IO_FileStream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReadAllBytes
@@ -407,23 +427,23 @@
 	// Managed method name : ReadLines
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.String>
 	// Managed param types : System.String
-    + (System_Collections_Generic_IEnumerableA1 *)readLines_withPath:(NSString *)p1
+    + (id <System_Collections_Generic_IEnumerableA1>)readLines_withPath:(NSString *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadLines(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReadLines
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.String>
 	// Managed param types : System.String, System.Text.Encoding
-    + (System_Collections_Generic_IEnumerableA1 *)readLines_withPath:(NSString *)p1 encoding:(System_Text_Encoding *)p2
+    + (id <System_Collections_Generic_IEnumerableA1>)readLines_withPath:(NSString *)p1 encoding:(System_Text_Encoding *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadLines(string,System.Text.Encoding)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Replace
@@ -431,7 +451,9 @@
 	// Managed param types : System.String, System.String, System.String
     + (void)replace_withSourceFileName:(NSString *)p1 destinationFileName:(NSString *)p2 destinationBackupFileName:(NSString *)p3
     {
-		[self invokeMonoClassMethod:"Replace(string,string,string)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Replace(string,string,string)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Replace
@@ -439,7 +461,9 @@
 	// Managed param types : System.String, System.String, System.String, System.Boolean
     + (void)replace_withSourceFileName:(NSString *)p1 destinationFileName:(NSString *)p2 destinationBackupFileName:(NSString *)p3 ignoreMetadataErrors:(BOOL)p4
     {
-		[self invokeMonoClassMethod:"Replace(string,string,string,bool)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];;
+		
+		[self invokeMonoClassMethod:"Replace(string,string,string,bool)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
+        
     }
 
 	// Managed method name : SetAccessControl
@@ -447,15 +471,19 @@
 	// Managed param types : System.String, System.Security.AccessControl.FileSecurity
     + (void)setAccessControl_withPath:(NSString *)p1 fileSecurity:(System_Security_AccessControl_FileSecurity *)p2
     {
-		[self invokeMonoClassMethod:"SetAccessControl(string,System.Security.AccessControl.FileSecurity)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SetAccessControl(string,System.Security.AccessControl.FileSecurity)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetAttributes
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.IO.FileAttributes
-    + (void)setAttributes_withPath:(NSString *)p1 fileAttributes:(System_IO_FileAttributes)p2
+    + (void)setAttributes_withPath:(NSString *)p1 fileAttributes:(int32_t)p2
     {
-		[self invokeMonoClassMethod:"SetAttributes(string,System.IO.FileAttributes)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoClassMethod:"SetAttributes(string,System.IO.FileAttributes)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : SetCreationTime
@@ -463,7 +491,9 @@
 	// Managed param types : System.String, System.DateTime
     + (void)setCreationTime_withPath:(NSString *)p1 creationTime:(NSDate *)p2
     {
-		[self invokeMonoClassMethod:"SetCreationTime(string,System.DateTime)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SetCreationTime(string,System.DateTime)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetCreationTimeUtc
@@ -471,7 +501,9 @@
 	// Managed param types : System.String, System.DateTime
     + (void)setCreationTimeUtc_withPath:(NSString *)p1 creationTimeUtc:(NSDate *)p2
     {
-		[self invokeMonoClassMethod:"SetCreationTimeUtc(string,System.DateTime)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SetCreationTimeUtc(string,System.DateTime)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetLastAccessTime
@@ -479,7 +511,9 @@
 	// Managed param types : System.String, System.DateTime
     + (void)setLastAccessTime_withPath:(NSString *)p1 lastAccessTime:(NSDate *)p2
     {
-		[self invokeMonoClassMethod:"SetLastAccessTime(string,System.DateTime)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SetLastAccessTime(string,System.DateTime)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetLastAccessTimeUtc
@@ -487,7 +521,9 @@
 	// Managed param types : System.String, System.DateTime
     + (void)setLastAccessTimeUtc_withPath:(NSString *)p1 lastAccessTimeUtc:(NSDate *)p2
     {
-		[self invokeMonoClassMethod:"SetLastAccessTimeUtc(string,System.DateTime)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SetLastAccessTimeUtc(string,System.DateTime)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetLastWriteTime
@@ -495,7 +531,9 @@
 	// Managed param types : System.String, System.DateTime
     + (void)setLastWriteTime_withPath:(NSString *)p1 lastWriteTime:(NSDate *)p2
     {
-		[self invokeMonoClassMethod:"SetLastWriteTime(string,System.DateTime)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SetLastWriteTime(string,System.DateTime)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetLastWriteTimeUtc
@@ -503,7 +541,9 @@
 	// Managed param types : System.String, System.DateTime
     + (void)setLastWriteTimeUtc_withPath:(NSString *)p1 lastWriteTimeUtc:(NSDate *)p2
     {
-		[self invokeMonoClassMethod:"SetLastWriteTimeUtc(string,System.DateTime)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SetLastWriteTimeUtc(string,System.DateTime)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : WriteAllBytes
@@ -511,7 +551,9 @@
 	// Managed param types : System.String, System.Byte[]
     + (void)writeAllBytes_withPath:(NSString *)p1 bytes:(NSData *)p2
     {
-		[self invokeMonoClassMethod:"WriteAllBytes(string,byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"WriteAllBytes(string,byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : WriteAllLines
@@ -519,7 +561,9 @@
 	// Managed param types : System.String, System.String[]
     + (void)writeAllLines_withPathString:(NSString *)p1 contentsString:(DBSystem_Array *)p2
     {
-		[self invokeMonoClassMethod:"WriteAllLines(string,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"WriteAllLines(string,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : WriteAllLines
@@ -527,23 +571,29 @@
 	// Managed param types : System.String, System.String[], System.Text.Encoding
     + (void)writeAllLines_withPathString:(NSString *)p1 contentsString:(DBSystem_Array *)p2 encodingSTEncoding:(System_Text_Encoding *)p3
     {
-		[self invokeMonoClassMethod:"WriteAllLines(string,string[],System.Text.Encoding)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"WriteAllLines(string,string[],System.Text.Encoding)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : WriteAllLines
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Collections.Generic.IEnumerable`1<System.String>
-    + (void)writeAllLines_withPathString:(NSString *)p1 contentsSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p2
+    + (void)writeAllLines_withPathString:(NSString *)p1 contentsSCGIEnumerableA1string:(id <System_Collections_Generic_IEnumerableA1_>)p2
     {
-		[self invokeMonoClassMethod:"WriteAllLines(string,System.Collections.Generic.IEnumerable`1<System.String>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"WriteAllLines(string,System.Collections.Generic.IEnumerable`1<string>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : WriteAllLines
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Collections.Generic.IEnumerable`1<System.String>, System.Text.Encoding
-    + (void)writeAllLines_withPathString:(NSString *)p1 contentsSCGIEnumerableA1:(System_Collections_Generic_IEnumerableA1 *)p2 encodingSTEncoding:(System_Text_Encoding *)p3
+    + (void)writeAllLines_withPathString:(NSString *)p1 contentsSCGIEnumerableA1string:(id <System_Collections_Generic_IEnumerableA1_>)p2 encodingSTEncoding:(System_Text_Encoding *)p3
     {
-		[self invokeMonoClassMethod:"WriteAllLines(string,System.Collections.Generic.IEnumerable`1<System.String>,System.Text.Encoding)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"WriteAllLines(string,System.Collections.Generic.IEnumerable`1<string>,System.Text.Encoding)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : WriteAllText
@@ -551,7 +601,9 @@
 	// Managed param types : System.String, System.String
     + (void)writeAllText_withPath:(NSString *)p1 contents:(NSString *)p2
     {
-		[self invokeMonoClassMethod:"WriteAllText(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"WriteAllText(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : WriteAllText
@@ -559,7 +611,9 @@
 	// Managed param types : System.String, System.String, System.Text.Encoding
     + (void)writeAllText_withPath:(NSString *)p1 contents:(NSString *)p2 encoding:(System_Text_Encoding *)p3
     {
-		[self invokeMonoClassMethod:"WriteAllText(string,string,System.Text.Encoding)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"WriteAllText(string,string,System.Text.Encoding)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

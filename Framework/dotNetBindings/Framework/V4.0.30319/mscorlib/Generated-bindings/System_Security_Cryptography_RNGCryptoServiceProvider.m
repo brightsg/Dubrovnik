@@ -29,18 +29,13 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.RNGCryptoServiceProvider
-	// Managed param types : System.Security.Cryptography.CspParameters
-    + (System_Security_Cryptography_RNGCryptoServiceProvider *)new_withCspParams:(System_Security_Cryptography_CspParameters *)p1
-    {
-		return [[self alloc] initWithSignature:"System.Security.Cryptography.CspParameters" withNumArgs:1, [p1 monoRTInvokeArg]];;
-    }
-
-	// Managed method name : .ctor
-	// Managed return type : System.Security.Cryptography.RNGCryptoServiceProvider
 	// Managed param types : System.String
     + (System_Security_Cryptography_RNGCryptoServiceProvider *)new_withStr:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_RNGCryptoServiceProvider * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +43,21 @@
 	// Managed param types : System.Byte[]
     + (System_Security_Cryptography_RNGCryptoServiceProvider *)new_withRgb:(NSData *)p1
     {
-		return [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_RNGCryptoServiceProvider * object = [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
+    }
+
+	// Managed method name : .ctor
+	// Managed return type : System.Security.Cryptography.RNGCryptoServiceProvider
+	// Managed param types : System.Security.Cryptography.CspParameters
+    + (System_Security_Cryptography_RNGCryptoServiceProvider *)new_withCspParams:(System_Security_Cryptography_CspParameters *)p1
+    {
+		
+		System_Security_Cryptography_RNGCryptoServiceProvider * object = [[self alloc] initWithSignature:"System.Security.Cryptography.CspParameters" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -59,7 +68,9 @@
 	// Managed param types : System.Byte[]
     - (void)getBytes_withData:(NSData *)p1
     {
-		[self invokeMonoMethod:"GetBytes(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"GetBytes(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetNonZeroBytes
@@ -67,7 +78,9 @@
 	// Managed param types : System.Byte[]
     - (void)getNonZeroBytes_withData:(NSData *)p1
     {
-		[self invokeMonoMethod:"GetNonZeroBytes(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"GetNonZeroBytes(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

@@ -32,8 +32,12 @@
 	// Managed param types : ref System.Guid&, System.IntPtr, System.UInt32, System.UInt32, System.IntPtr
     - (void)getIDsOfNames_withRiidRef:(System_Guid **)p1 rgszNames:(void *)p2 cNames:(uint32_t)p3 lcid:(uint32_t)p4 rgDispId:(void *)p5
     {
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices._Thread.GetIDsOfNames(System.Guid&,intptr,uint,uint,intptr)" withNumArgs:5, &refPtr1, DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];
-;
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+
     }
 
 	// Managed method name : GetTypeInfo
@@ -41,7 +45,9 @@
 	// Managed param types : System.UInt32, System.UInt32, System.IntPtr
     - (void)getTypeInfo_withITInfo:(uint32_t)p1 lcid:(uint32_t)p2 ppTInfo:(void *)p3
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices._Thread.GetTypeInfo(uint,uint,intptr)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices._Thread.GetTypeInfo(uint,uint,intptr)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
+        
     }
 
 	// Managed method name : GetTypeInfoCount
@@ -49,7 +55,9 @@
 	// Managed param types : ref System.UInt32&
     - (void)getTypeInfoCount_withPcTInfoRef:(uint32_t*)p1
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices._Thread.GetTypeInfoCount(uint&)" withNumArgs:1, p1];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices._Thread.GetTypeInfoCount(uint&)" withNumArgs:1, p1];
+        
     }
 
 	// Managed method name : Invoke
@@ -57,8 +65,12 @@
 	// Managed param types : System.UInt32, ref System.Guid&, System.UInt32, System.Int16, System.IntPtr, System.IntPtr, System.IntPtr, System.IntPtr
     - (void)invoke_withDispIdMember:(uint32_t)p1 riidRef:(System_Guid **)p2 lcid:(uint32_t)p3 wFlags:(int16_t)p4 pDispParams:(void *)p5 pVarResult:(void *)p6 pExcepInfo:(void *)p7 puArgErr:(void *)p8
     {
+		void *refPtr2 = [*p2 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices._Thread.Invoke(uint,System.Guid&,uint,int16,intptr,intptr,intptr,intptr)" withNumArgs:8, DB_VALUE(p1), &refPtr2, DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), DB_VALUE(p8)];
-;
+
+        *p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+
     }
 
 #pragma mark -

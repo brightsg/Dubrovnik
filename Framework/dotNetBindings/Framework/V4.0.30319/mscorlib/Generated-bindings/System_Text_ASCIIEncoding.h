@@ -2,7 +2,7 @@
 //
 // Managed class : ASCIIEncoding
 //
-@interface System_Text_ASCIIEncoding : System_Text_Encoding <System_ICloneable>
+@interface System_Text_ASCIIEncoding : System_Text_Encoding <System_ICloneable_>
 
 #pragma mark -
 #pragma mark Setup

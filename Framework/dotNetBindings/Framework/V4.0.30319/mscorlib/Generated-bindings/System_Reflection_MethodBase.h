@@ -2,7 +2,7 @@
 //
 // Managed class : MethodBase
 //
-@interface System_Reflection_MethodBase : System_Reflection_MemberInfo <System_Reflection_ICustomAttributeProvider, System_Runtime_InteropServices__MemberInfo, System_Runtime_InteropServices__MethodBase>
+@interface System_Reflection_MethodBase : System_Reflection_MemberInfo <System_Reflection_ICustomAttributeProvider_, System_Runtime_InteropServices__MemberInfo_, System_Runtime_InteropServices__MethodBase_>
 
 #pragma mark -
 #pragma mark Setup
@@ -16,11 +16,11 @@
 
 	// Managed property name : Attributes
 	// Managed property type : System.Reflection.MethodAttributes
-    @property (nonatomic, readonly) System_Reflection_MethodAttributes attributes;
+    @property (nonatomic, readonly) int32_t attributes;
 
 	// Managed property name : CallingConvention
 	// Managed property type : System.Reflection.CallingConventions
-    @property (nonatomic, readonly) System_Reflection_CallingConventions callingConvention;
+    @property (nonatomic, readonly) int32_t callingConvention;
 
 	// Managed property name : ContainsGenericParameters
 	// Managed property type : System.Boolean
@@ -104,7 +104,7 @@
 
 	// Managed property name : MethodImplementationFlags
 	// Managed property type : System.Reflection.MethodImplAttributes
-    @property (nonatomic, readonly) System_Reflection_MethodImplAttributes methodImplementationFlags;
+    @property (nonatomic, readonly) int32_t methodImplementationFlags;
 
 #pragma mark -
 #pragma mark Methods
@@ -147,7 +147,7 @@
 	// Managed method name : GetMethodImplementationFlags
 	// Managed return type : System.Reflection.MethodImplAttributes
 	// Managed param types : 
-    - (System_Reflection_MethodImplAttributes)getMethodImplementationFlags;
+    - (int32_t)getMethodImplementationFlags;
 
 	// Managed method name : GetParameters
 	// Managed return type : System.Reflection.ParameterInfo[]
@@ -157,7 +157,7 @@
 	// Managed method name : Invoke
 	// Managed return type : System.Object
 	// Managed param types : System.Object, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo
-    - (System_Object *)invoke_withObj:(System_Object *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 parameters:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5;
+    - (System_Object *)invoke_withObj:(System_Object *)p1 invokeAttr:(int32_t)p2 binder:(System_Reflection_Binder *)p3 parameters:(DBSystem_Array *)p4 culture:(System_Globalization_CultureInfo *)p5;
 
 	// Managed method name : Invoke
 	// Managed return type : System.Object

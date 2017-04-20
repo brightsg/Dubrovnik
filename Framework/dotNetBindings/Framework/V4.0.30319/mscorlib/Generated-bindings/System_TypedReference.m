@@ -57,7 +57,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTargetType(System.TypedReference)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : MakeTypedReference
@@ -66,9 +66,9 @@
     + (System_TypedReference *)makeTypedReference_withTarget:(System_Object *)p1 flds:(DBSystem_Array *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"MakeTypedReference(object,System.Array[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"MakeTypedReference(object,System.Reflection.FieldInfo[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_TypedReference objectWithMonoObject:monoObject];
+		return [System_TypedReference bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SetTypedReference
@@ -76,7 +76,9 @@
 	// Managed param types : System.TypedReference, System.Object
     + (void)setTypedReference_withTarget:(System_TypedReference *)p1 value:(System_Object *)p2
     {
-		[self invokeMonoClassMethod:"SetTypedReference(System.TypedReference,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SetTypedReference(System.TypedReference,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : TargetTypeToken
@@ -87,7 +89,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"TargetTypeToken(System.TypedReference)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_RuntimeTypeHandle objectWithMonoObject:monoObject];
+		return [System_RuntimeTypeHandle bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToObject

@@ -32,7 +32,17 @@
     @synthesize attributeString = _attributeString;
     - (NSString *)attributeString
     {
-		MonoObject *monoObject = [self getMonoProperty:"AttributeString"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AttributeString");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_attributeString isEqualToMonoObject:monoObject]) return _attributeString;					
 		_attributeString = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -44,17 +54,36 @@
     @synthesize children = _children;
     - (System_Collections_IList *)children
     {
-		MonoObject *monoObject = [self getMonoProperty:"Children"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Children");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_children isEqualToMonoObject:monoObject]) return _children;					
-		_children = [System_Collections_IList objectWithMonoObject:monoObject];
+		_children = [System_Collections_IList bestObjectWithMonoObject:monoObject];
 
 		return _children;
 	}
     - (void)setChildren:(System_Collections_IList *)value
 	{
 		_children = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Children" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Children");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Description
@@ -62,7 +91,17 @@
     @synthesize description = _description;
     - (NSString *)description
     {
-		MonoObject *monoObject = [self getMonoProperty:"Description"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Description");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_description isEqualToMonoObject:monoObject]) return _description;					
 		_description = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -71,8 +110,17 @@
     - (void)setDescription:(NSString *)value
 	{
 		_description = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"Description" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Description");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : MembershipCondition
@@ -80,17 +128,36 @@
     @synthesize membershipCondition = _membershipCondition;
     - (System_Security_Policy_IMembershipCondition *)membershipCondition
     {
-		MonoObject *monoObject = [self getMonoProperty:"MembershipCondition"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MembershipCondition");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_membershipCondition isEqualToMonoObject:monoObject]) return _membershipCondition;					
-		_membershipCondition = [System_Security_Policy_IMembershipCondition objectWithMonoObject:monoObject];
+		_membershipCondition = [System_Security_Policy_IMembershipCondition bestObjectWithMonoObject:monoObject];
 
 		return _membershipCondition;
 	}
     - (void)setMembershipCondition:(System_Security_Policy_IMembershipCondition *)value
 	{
 		_membershipCondition = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"MembershipCondition" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "MembershipCondition");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : MergeLogic
@@ -98,7 +165,17 @@
     @synthesize mergeLogic = _mergeLogic;
     - (NSString *)mergeLogic
     {
-		MonoObject *monoObject = [self getMonoProperty:"MergeLogic"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MergeLogic");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_mergeLogic isEqualToMonoObject:monoObject]) return _mergeLogic;					
 		_mergeLogic = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -110,7 +187,17 @@
     @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -119,8 +206,17 @@
     - (void)setName:(NSString *)value
 	{
 		_name = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"Name" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : PermissionSetName
@@ -128,7 +224,17 @@
     @synthesize permissionSetName = _permissionSetName;
     - (NSString *)permissionSetName
     {
-		MonoObject *monoObject = [self getMonoProperty:"PermissionSetName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PermissionSetName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_permissionSetName isEqualToMonoObject:monoObject]) return _permissionSetName;					
 		_permissionSetName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -140,17 +246,36 @@
     @synthesize policyStatement = _policyStatement;
     - (System_Security_Policy_PolicyStatement *)policyStatement
     {
-		MonoObject *monoObject = [self getMonoProperty:"PolicyStatement"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PolicyStatement");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_policyStatement isEqualToMonoObject:monoObject]) return _policyStatement;					
-		_policyStatement = [System_Security_Policy_PolicyStatement objectWithMonoObject:monoObject];
+		_policyStatement = [System_Security_Policy_PolicyStatement bestObjectWithMonoObject:monoObject];
 
 		return _policyStatement;
 	}
     - (void)setPolicyStatement:(System_Security_Policy_PolicyStatement *)value
 	{
 		_policyStatement = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"PolicyStatement" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "PolicyStatement");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -161,7 +286,9 @@
 	// Managed param types : System.Security.Policy.CodeGroup
     - (void)addChild_withGroup:(System_Security_Policy_CodeGroup *)p1
     {
-		[self invokeMonoMethod:"AddChild(System.Security.Policy.CodeGroup)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"AddChild(System.Security.Policy.CodeGroup)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Copy
@@ -172,7 +299,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
 		
-		return [System_Security_Policy_CodeGroup objectWithMonoObject:monoObject];
+		return [System_Security_Policy_CodeGroup bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals
@@ -202,7 +329,9 @@
 	// Managed param types : System.Security.SecurityElement, System.Security.Policy.PolicyLevel
     - (void)fromXml_withE:(System_Security_SecurityElement *)p1 level:(System_Security_Policy_PolicyLevel *)p2
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement,System.Security.Policy.PolicyLevel)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement,System.Security.Policy.PolicyLevel)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : FromXml
@@ -210,7 +339,9 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)fromXml_withE:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetHashCode
@@ -229,7 +360,9 @@
 	// Managed param types : System.Security.Policy.CodeGroup
     - (void)removeChild_withGroup:(System_Security_Policy_CodeGroup *)p1
     {
-		[self invokeMonoMethod:"RemoveChild(System.Security.Policy.CodeGroup)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"RemoveChild(System.Security.Policy.CodeGroup)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Resolve
@@ -240,7 +373,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Resolve(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_Policy_PolicyStatement objectWithMonoObject:monoObject];
+		return [System_Security_Policy_PolicyStatement bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolveMatchingCodeGroups
@@ -251,7 +384,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMatchingCodeGroups(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_Policy_CodeGroup objectWithMonoObject:monoObject];
+		return [System_Security_Policy_CodeGroup bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToXml
@@ -262,7 +395,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml()" withNumArgs:0];
 		
-		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
+		return [System_Security_SecurityElement bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToXml
@@ -273,7 +406,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml(System.Security.Policy.PolicyLevel)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
+		return [System_Security_SecurityElement bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

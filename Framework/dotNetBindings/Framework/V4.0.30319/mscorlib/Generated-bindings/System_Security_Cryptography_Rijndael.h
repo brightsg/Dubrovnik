@@ -2,7 +2,7 @@
 //
 // Managed class : Rijndael
 //
-@interface System_Security_Cryptography_Rijndael : System_Security_Cryptography_SymmetricAlgorithm <System_IDisposable>
+@interface System_Security_Cryptography_Rijndael : System_Security_Cryptography_SymmetricAlgorithm <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

@@ -32,7 +32,9 @@
 	// Managed param types : System.Object[]
     + (void)infoSoap_withMessages:(DBSystem_Array *)p1
     {
-		[self invokeMonoClassMethod:"InfoSoap(object[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"InfoSoap(object[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : LoadAssemblyFromString
@@ -43,7 +45,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"LoadAssemblyFromString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : SerializationSetValue
@@ -51,7 +53,9 @@
 	// Managed param types : System.Reflection.FieldInfo, System.Object, System.Object
     + (void)serializationSetValue_withFi:(System_Reflection_FieldInfo *)p1 target:(System_Object *)p2 value:(System_Object *)p3
     {
-		[self invokeMonoClassMethod:"SerializationSetValue(System.Reflection.FieldInfo,object,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SerializationSetValue(System.Reflection.FieldInfo,object,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Soap
@@ -59,7 +63,9 @@
 	// Managed param types : System.Object[]
     + (void)soap_withMessages:(DBSystem_Array *)p1
     {
-		[self invokeMonoClassMethod:"Soap(object[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Soap(object[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SoapAssert
@@ -67,7 +73,9 @@
 	// Managed param types : System.Boolean, System.String
     + (void)soapAssert_withCondition:(BOOL)p1 message:(NSString *)p2
     {
-		[self invokeMonoClassMethod:"SoapAssert(bool,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SoapAssert(bool,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SoapCheckEnabled

@@ -17,6 +17,6 @@
 	// Managed method name : Renewal
 	// Managed return type : System.TimeSpan
 	// Managed param types : System.Runtime.Remoting.Lifetime.ILease
-    - (System_TimeSpan *)renewal_withLease:(System_Runtime_Remoting_Lifetime_ILease *)p1;
+    - (System_TimeSpan *)renewal_withLease:(id <System_Runtime_Remoting_Lifetime_ILease_>)p1;
 @end
 //--Dubrovnik.CodeGenerator

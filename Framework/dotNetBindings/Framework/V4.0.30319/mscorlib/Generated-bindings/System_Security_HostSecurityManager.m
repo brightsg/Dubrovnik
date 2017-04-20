@@ -32,9 +32,19 @@
     @synthesize domainPolicy = _domainPolicy;
     - (System_Security_Policy_PolicyLevel *)domainPolicy
     {
-		MonoObject *monoObject = [self getMonoProperty:"DomainPolicy"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DomainPolicy");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_domainPolicy isEqualToMonoObject:monoObject]) return _domainPolicy;					
-		_domainPolicy = [System_Security_Policy_PolicyLevel objectWithMonoObject:monoObject];
+		_domainPolicy = [System_Security_Policy_PolicyLevel bestObjectWithMonoObject:monoObject];
 
 		return _domainPolicy;
 	}
@@ -42,10 +52,20 @@
 	// Managed property name : Flags
 	// Managed property type : System.Security.HostSecurityManagerOptions
     @synthesize flags = _flags;
-    - (System_Security_HostSecurityManagerOptions)flags
+    - (int32_t)flags
     {
-		MonoObject *monoObject = [self getMonoProperty:"Flags"];
-		_flags = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Flags");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_flags = monoObject;
 
 		return _flags;
 	}
@@ -61,7 +81,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"DetermineApplicationTrust(System.Security.Policy.Evidence,System.Security.Policy.Evidence,System.Security.Policy.TrustManagerContext)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_Security_Policy_ApplicationTrust objectWithMonoObject:monoObject];
+		return [System_Security_Policy_ApplicationTrust bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GenerateAppDomainEvidence
@@ -72,7 +92,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GenerateAppDomainEvidence(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_Policy_EvidenceBase objectWithMonoObject:monoObject];
+		return [System_Security_Policy_EvidenceBase bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GenerateAssemblyEvidence
@@ -83,7 +103,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GenerateAssemblyEvidence(System.Type,System.Reflection.Assembly)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Security_Policy_EvidenceBase objectWithMonoObject:monoObject];
+		return [System_Security_Policy_EvidenceBase bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetHostSuppliedAppDomainEvidenceTypes
@@ -116,7 +136,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ProvideAppDomainEvidence(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_Policy_Evidence objectWithMonoObject:monoObject];
+		return [System_Security_Policy_Evidence bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ProvideAssemblyEvidence
@@ -127,7 +147,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ProvideAssemblyEvidence(System.Reflection.Assembly,System.Security.Policy.Evidence)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Security_Policy_Evidence objectWithMonoObject:monoObject];
+		return [System_Security_Policy_Evidence bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ResolvePolicy
@@ -138,7 +158,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolvePolicy(System.Security.Policy.Evidence)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_PermissionSet objectWithMonoObject:monoObject];
+		return [System_Security_PermissionSet bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

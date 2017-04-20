@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Policy.UnionCodeGroup
 	// Managed param types : System.Security.Policy.IMembershipCondition, System.Security.Policy.PolicyStatement
-    + (System_Security_Policy_UnionCodeGroup *)new_withMembershipCondition:(System_Security_Policy_IMembershipCondition *)p1 policy:(System_Security_Policy_PolicyStatement *)p2;
+    + (System_Security_Policy_UnionCodeGroup *)new_withMembershipCondition:(id <System_Security_Policy_IMembershipCondition_>)p1 policy:(System_Security_Policy_PolicyStatement *)p2;
 
 #pragma mark -
 #pragma mark Properties

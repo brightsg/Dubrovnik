@@ -16,8 +16,8 @@
 
 	// Managed property name : BackgroundColor
 	// Managed property type : System.ConsoleColor
-    + (System_ConsoleColor)backgroundColor;
-    + (void)setBackgroundColor:(System_ConsoleColor)value;
+    + (int32_t)backgroundColor;
+    + (void)setBackgroundColor:(int32_t)value;
 
 	// Managed property name : BufferHeight
 	// Managed property type : System.Int32
@@ -59,8 +59,8 @@
 
 	// Managed property name : ForegroundColor
 	// Managed property type : System.ConsoleColor
-    + (System_ConsoleColor)foregroundColor;
-    + (void)setForegroundColor:(System_ConsoleColor)value;
+    + (int32_t)foregroundColor;
+    + (void)setForegroundColor:(int32_t)value;
 
 	// Managed property name : In
 	// Managed property type : System.IO.TextReader
@@ -164,7 +164,7 @@
 	// Managed method name : MoveBufferArea
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Char, System.ConsoleColor, System.ConsoleColor
-    + (void)moveBufferArea_withSourceLeft:(int32_t)p1 sourceTop:(int32_t)p2 sourceWidth:(int32_t)p3 sourceHeight:(int32_t)p4 targetLeft:(int32_t)p5 targetTop:(int32_t)p6 sourceChar:(uint16_t)p7 sourceForeColor:(System_ConsoleColor)p8 sourceBackColor:(System_ConsoleColor)p9;
+    + (void)moveBufferArea_withSourceLeft:(int32_t)p1 sourceTop:(int32_t)p2 sourceWidth:(int32_t)p3 sourceHeight:(int32_t)p4 targetLeft:(int32_t)p5 targetTop:(int32_t)p6 sourceChar:(uint16_t)p7 sourceForeColor:(int32_t)p8 sourceBackColor:(int32_t)p9;
 
 	// Managed method name : OpenStandardError
 	// Managed return type : System.IO.Stream
@@ -309,7 +309,7 @@
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.Decimal
-    + (void)write_withValueDecimal:(NSDecimalNumber *)p1;
+    + (void)write_withValueSDecimal:(NSDecimalNumber *)p1;
 
 	// Managed method name : Write
 	// Managed return type : System.Void
@@ -374,7 +374,7 @@
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
 	// Managed param types : System.Decimal
-    + (void)writeLine_withValueDecimal:(NSDecimalNumber *)p1;
+    + (void)writeLine_withValueSDecimal:(NSDecimalNumber *)p1;
 
 	// Managed method name : WriteLine
 	// Managed return type : System.Void

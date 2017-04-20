@@ -32,7 +32,10 @@
 	// Managed param types : System.String, System.Byte[]
     + (System_Security_Cryptography_PasswordDeriveBytes *)new_withStrPassword:(NSString *)p1 rgbSalt:(NSData *)p2
     {
-		return [[self alloc] initWithSignature:"string,byte[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_PasswordDeriveBytes * object = [[self alloc] initWithSignature:"string,byte[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Byte[], System.Byte[]
     + (System_Security_Cryptography_PasswordDeriveBytes *)new_withPassword:(NSData *)p1 salt:(NSData *)p2
     {
-		return [[self alloc] initWithSignature:"byte[],byte[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_PasswordDeriveBytes * object = [[self alloc] initWithSignature:"byte[],byte[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +54,10 @@
 	// Managed param types : System.String, System.Byte[], System.String, System.Int32
     + (System_Security_Cryptography_PasswordDeriveBytes *)new_withStrPassword:(NSString *)p1 rgbSalt:(NSData *)p2 strHashName:(NSString *)p3 iterations:(int32_t)p4
     {
-		return [[self alloc] initWithSignature:"string,byte[],string,int" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];;
+		
+		System_Security_Cryptography_PasswordDeriveBytes * object = [[self alloc] initWithSignature:"string,byte[],string,int" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +65,10 @@
 	// Managed param types : System.Byte[], System.Byte[], System.String, System.Int32
     + (System_Security_Cryptography_PasswordDeriveBytes *)new_withPassword:(NSData *)p1 salt:(NSData *)p2 hashName:(NSString *)p3 iterations:(int32_t)p4
     {
-		return [[self alloc] initWithSignature:"byte[],byte[],string,int" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];;
+		
+		System_Security_Cryptography_PasswordDeriveBytes * object = [[self alloc] initWithSignature:"byte[],byte[],string,int" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +76,10 @@
 	// Managed param types : System.String, System.Byte[], System.Security.Cryptography.CspParameters
     + (System_Security_Cryptography_PasswordDeriveBytes *)new_withStrPassword:(NSString *)p1 rgbSalt:(NSData *)p2 cspParams:(System_Security_Cryptography_CspParameters *)p3
     {
-		return [[self alloc] initWithSignature:"string,byte[],System.Security.Cryptography.CspParameters" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_PasswordDeriveBytes * object = [[self alloc] initWithSignature:"string,byte[],System.Security.Cryptography.CspParameters" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -72,7 +87,10 @@
 	// Managed param types : System.Byte[], System.Byte[], System.Security.Cryptography.CspParameters
     + (System_Security_Cryptography_PasswordDeriveBytes *)new_withPassword:(NSData *)p1 salt:(NSData *)p2 cspParams:(System_Security_Cryptography_CspParameters *)p3
     {
-		return [[self alloc] initWithSignature:"byte[],byte[],System.Security.Cryptography.CspParameters" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_PasswordDeriveBytes * object = [[self alloc] initWithSignature:"byte[],byte[],System.Security.Cryptography.CspParameters" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -80,7 +98,10 @@
 	// Managed param types : System.String, System.Byte[], System.String, System.Int32, System.Security.Cryptography.CspParameters
     + (System_Security_Cryptography_PasswordDeriveBytes *)new_withStrPassword:(NSString *)p1 rgbSalt:(NSData *)p2 strHashName:(NSString *)p3 iterations:(int32_t)p4 cspParams:(System_Security_Cryptography_CspParameters *)p5
     {
-		return [[self alloc] initWithSignature:"string,byte[],string,int,System.Security.Cryptography.CspParameters" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), [p5 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_PasswordDeriveBytes * object = [[self alloc] initWithSignature:"string,byte[],string,int,System.Security.Cryptography.CspParameters" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), [p5 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -88,7 +109,10 @@
 	// Managed param types : System.Byte[], System.Byte[], System.String, System.Int32, System.Security.Cryptography.CspParameters
     + (System_Security_Cryptography_PasswordDeriveBytes *)new_withPassword:(NSData *)p1 salt:(NSData *)p2 hashName:(NSString *)p3 iterations:(int32_t)p4 cspParams:(System_Security_Cryptography_CspParameters *)p5
     {
-		return [[self alloc] initWithSignature:"byte[],byte[],string,int,System.Security.Cryptography.CspParameters" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), [p5 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_PasswordDeriveBytes * object = [[self alloc] initWithSignature:"byte[],byte[],string,int,System.Security.Cryptography.CspParameters" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), [p5 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -99,7 +123,17 @@
     @synthesize hashName = _hashName;
     - (NSString *)hashName
     {
-		MonoObject *monoObject = [self getMonoProperty:"HashName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HashName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_hashName isEqualToMonoObject:monoObject]) return _hashName;					
 		_hashName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -108,8 +142,17 @@
     - (void)setHashName:(NSString *)value
 	{
 		_hashName = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"HashName" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "HashName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : IterationCount
@@ -117,16 +160,35 @@
     @synthesize iterationCount = _iterationCount;
     - (int32_t)iterationCount
     {
-		MonoObject *monoObject = [self getMonoProperty:"IterationCount"];
-		_iterationCount = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IterationCount");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_iterationCount = monoObject;
 
 		return _iterationCount;
 	}
     - (void)setIterationCount:(int32_t)value
 	{
 		_iterationCount = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"IterationCount" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "IterationCount");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Salt
@@ -134,7 +196,17 @@
     @synthesize salt = _salt;
     - (NSData *)salt
     {
-		MonoObject *monoObject = [self getMonoProperty:"Salt"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Salt");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_salt isEqualToMonoObject:monoObject]) return _salt;					
 		_salt = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -143,8 +215,17 @@
     - (void)setSalt:(NSData *)value
 	{
 		_salt = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"Salt" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Salt");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -177,7 +258,9 @@
 	// Managed param types : 
     - (void)reset
     {
-		[self invokeMonoMethod:"Reset()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Reset()" withNumArgs:0];
+        
     }
 
 #pragma mark -

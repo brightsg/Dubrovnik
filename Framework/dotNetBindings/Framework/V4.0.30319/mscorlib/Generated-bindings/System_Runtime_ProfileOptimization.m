@@ -32,7 +32,9 @@
 	// Managed param types : System.String
     + (void)setProfileRoot_withDirectoryPath:(NSString *)p1
     {
-		[self invokeMonoClassMethod:"SetProfileRoot(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SetProfileRoot(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : StartProfile
@@ -40,7 +42,9 @@
 	// Managed param types : System.String
     + (void)startProfile_withProfile:(NSString *)p1
     {
-		[self invokeMonoClassMethod:"StartProfile(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"StartProfile(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

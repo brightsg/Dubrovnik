@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Capture()" withNumArgs:0];
 		
-		return [System_Threading_HostExecutionContext objectWithMonoObject:monoObject];
+		return [System_Threading_HostExecutionContext bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Revert
@@ -43,7 +43,9 @@
 	// Managed param types : System.Object
     - (void)revert_withPreviousState:(System_Object *)p1
     {
-		[self invokeMonoMethod:"Revert(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Revert(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetHostExecutionContext

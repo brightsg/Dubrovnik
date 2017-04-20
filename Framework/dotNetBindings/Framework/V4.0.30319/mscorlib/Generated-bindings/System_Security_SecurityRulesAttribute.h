@@ -2,7 +2,7 @@
 //
 // Managed class : SecurityRulesAttribute
 //
-@interface System_Security_SecurityRulesAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Security_SecurityRulesAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,14 +17,14 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.SecurityRulesAttribute
 	// Managed param types : System.Security.SecurityRuleSet
-    + (System_Security_SecurityRulesAttribute *)new_withRuleSet:(System_Security_SecurityRuleSet)p1;
+    + (System_Security_SecurityRulesAttribute *)new_withRuleSet:(uint8_t)p1;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : RuleSet
 	// Managed property type : System.Security.SecurityRuleSet
-    @property (nonatomic, readonly) System_Security_SecurityRuleSet ruleSet;
+    @property (nonatomic, readonly) uint8_t ruleSet;
 
 	// Managed property name : SkipVerificationInFullTrust
 	// Managed property type : System.Boolean

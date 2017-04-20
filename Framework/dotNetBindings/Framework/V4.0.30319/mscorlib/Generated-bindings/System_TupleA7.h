@@ -2,7 +2,7 @@
 //
 // Managed class : Tuple`7
 //
-@interface System_TupleA7 : System_Object <System_Collections_IStructuralEquatable, System_Collections_IStructuralComparable, System_IComparable>
+@interface System_TupleA7 : System_Object <System_Collections_IStructuralEquatable_, System_Collections_IStructuralComparable_, System_IComparable_>
 
 #pragma mark -
 #pragma mark Setup

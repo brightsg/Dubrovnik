@@ -2,7 +2,7 @@
 //
 // Managed class : MethodImplAttribute
 //
-@interface System_Runtime_CompilerServices_MethodImplAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Runtime_CompilerServices_MethodImplAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.CompilerServices.MethodImplAttribute
 	// Managed param types : System.Runtime.CompilerServices.MethodImplOptions
-    + (System_Runtime_CompilerServices_MethodImplAttribute *)new_withMethodImplOptions:(System_Runtime_CompilerServices_MethodImplOptions)p1;
+    + (System_Runtime_CompilerServices_MethodImplAttribute *)new_withMethodImplOptions:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.CompilerServices.MethodImplAttribute
@@ -29,13 +29,13 @@
 
 	// Managed field name : MethodCodeType
 	// Managed field type : System.Runtime.CompilerServices.MethodCodeType
-    @property (nonatomic) System_Runtime_CompilerServices_MethodCodeType methodCodeType;
+    @property (nonatomic) int32_t methodCodeType;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Value
 	// Managed property type : System.Runtime.CompilerServices.MethodImplOptions
-    @property (nonatomic, readonly) System_Runtime_CompilerServices_MethodImplOptions value;
+    @property (nonatomic, readonly) int32_t value;
 @end
 //--Dubrovnik.CodeGenerator

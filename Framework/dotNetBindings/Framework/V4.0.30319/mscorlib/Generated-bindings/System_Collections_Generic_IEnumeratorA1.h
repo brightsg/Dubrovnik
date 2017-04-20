@@ -2,7 +2,7 @@
 //
 // Managed interface : IEnumerator`1<T>
 //
-@interface System_Collections_Generic_IEnumeratorA1 : System_Object <System_Collections_Generic_IEnumeratorA1, System_IDisposable, System_Collections_IEnumerator>
+@interface System_Collections_Generic_IEnumeratorA1 : System_Object <System_Collections_Generic_IEnumeratorA1_, System_IDisposable_, System_Collections_IEnumerator_>
 
 #pragma mark -
 #pragma mark Setup

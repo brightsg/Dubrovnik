@@ -96,7 +96,7 @@
 	// Managed method name : GetTypeCode
 	// Managed return type : System.TypeCode
 	// Managed param types : 
-    - (System_TypeCode)getTypeCode
+    - (int32_t)getTypeCode
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeCode()" withNumArgs:0];
@@ -112,7 +112,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetUnderlyingType(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetValues
@@ -283,7 +283,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.String, System.IFormatProvider
-    - (NSString *)toString_withFormat:(NSString *)p1 provider:(System_IFormatProvider *)p2
+    - (NSString *)toString_withFormat:(NSString *)p1 provider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -305,7 +305,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.IFormatProvider
-    - (NSString *)toString_withProvider:(System_IFormatProvider *)p1
+    - (NSString *)toString_withProvider:(id <System_IFormatProvider_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString(System.IFormatProvider)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -315,28 +315,28 @@
 
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
-	// Managed param types : System.String, ref <TEnum&>
-    + (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(System_Object **)p2
+	// Managed param types : System.String, ref TEnum&
+    + (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(System_Enum__TEnum **)p2
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,<_T_0>&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.Enum+TEnum&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 
-		*p2 = [System_Object subclassObjectWithMonoObject:refPtr2];
+		*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
-	// Managed param types : System.String, System.Boolean, ref <TEnum&>
-    + (BOOL)tryParse_withValue:(NSString *)p1 ignoreCase:(BOOL)p2 resultRef:(System_Object **)p3
+	// Managed param types : System.String, System.Boolean, ref TEnum&
+    + (BOOL)tryParse_withValue:(NSString *)p1 ignoreCase:(BOOL)p2 resultRef:(System_Enum__TEnum **)p3
     {
 		void *refPtr3 = [*p3 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,bool,<_T_0>&)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), &refPtr3];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,bool,System.Enum+TEnum&)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), &refPtr3];
 
-		*p3 = [System_Object subclassObjectWithMonoObject:refPtr3];
+		*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

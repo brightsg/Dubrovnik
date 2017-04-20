@@ -32,8 +32,12 @@
 	// Managed param types : ref System.Runtime.InteropServices.UCOMIEnumConnectionPoints&
     - (void)enumConnectionPoints_withPpEnumRef:(System_Runtime_InteropServices_UCOMIEnumConnectionPoints **)p1
     {
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIConnectionPointContainer.EnumConnectionPoints(System.Runtime.InteropServices.UCOMIEnumConnectionPoints&)" withNumArgs:1, &refPtr1];
-;
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+
     }
 
 	// Managed method name : FindConnectionPoint
@@ -41,8 +45,14 @@
 	// Managed param types : ref System.Guid&, ref System.Runtime.InteropServices.UCOMIConnectionPoint&
     - (void)findConnectionPoint_withRiidRef:(System_Guid **)p1 ppCPRef:(System_Runtime_InteropServices_UCOMIConnectionPoint **)p2
     {
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+void *refPtr2 = [*p2 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIConnectionPointContainer.FindConnectionPoint(System.Guid&,System.Runtime.InteropServices.UCOMIConnectionPoint&)" withNumArgs:2, &refPtr1, &refPtr2];
-;
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+
     }
 
 #pragma mark -

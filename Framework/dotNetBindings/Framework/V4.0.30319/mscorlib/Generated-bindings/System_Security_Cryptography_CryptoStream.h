@@ -2,7 +2,7 @@
 //
 // Managed class : CryptoStream
 //
-@interface System_Security_Cryptography_CryptoStream : System_IO_Stream <System_IDisposable>
+@interface System_Security_Cryptography_CryptoStream : System_IO_Stream <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.CryptoStream
 	// Managed param types : System.IO.Stream, System.Security.Cryptography.ICryptoTransform, System.Security.Cryptography.CryptoStreamMode
-    + (System_Security_Cryptography_CryptoStream *)new_withStream:(System_IO_Stream *)p1 transform:(System_Security_Cryptography_ICryptoTransform *)p2 mode:(System_Security_Cryptography_CryptoStreamMode)p3;
+    + (System_Security_Cryptography_CryptoStream *)new_withStream:(System_IO_Stream *)p1 transform:(id <System_Security_Cryptography_ICryptoTransform_>)p2 mode:(int32_t)p3;
 
 #pragma mark -
 #pragma mark Properties
@@ -82,7 +82,7 @@
 	// Managed method name : Seek
 	// Managed return type : System.Int64
 	// Managed param types : System.Int64, System.IO.SeekOrigin
-    - (int64_t)seek_withOffset:(int64_t)p1 origin:(System_IO_SeekOrigin)p2;
+    - (int64_t)seek_withOffset:(int64_t)p1 origin:(int32_t)p2;
 
 	// Managed method name : SetLength
 	// Managed return type : System.Void

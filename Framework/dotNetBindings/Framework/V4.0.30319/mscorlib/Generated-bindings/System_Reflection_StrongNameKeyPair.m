@@ -32,7 +32,10 @@
 	// Managed param types : System.IO.FileStream
     + (System_Reflection_StrongNameKeyPair *)new_withKeyPairFile:(System_IO_FileStream *)p1
     {
-		return [[self alloc] initWithSignature:"System.IO.FileStream" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Reflection_StrongNameKeyPair * object = [[self alloc] initWithSignature:"System.IO.FileStream" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Byte[]
     + (System_Reflection_StrongNameKeyPair *)new_withKeyPairArray:(NSData *)p1
     {
-		return [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Reflection_StrongNameKeyPair * object = [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +54,10 @@
 	// Managed param types : System.String
     + (System_Reflection_StrongNameKeyPair *)new_withKeyPairContainer:(NSString *)p1
     {
-		return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Reflection_StrongNameKeyPair * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -59,7 +68,17 @@
     @synthesize publicKey = _publicKey;
     - (NSData *)publicKey
     {
-		MonoObject *monoObject = [self getMonoProperty:"PublicKey"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PublicKey");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_publicKey isEqualToMonoObject:monoObject]) return _publicKey;					
 		_publicKey = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 

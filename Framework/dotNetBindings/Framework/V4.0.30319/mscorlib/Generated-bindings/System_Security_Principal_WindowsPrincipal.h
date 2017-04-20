@@ -2,7 +2,7 @@
 //
 // Managed class : WindowsPrincipal
 //
-@interface System_Security_Principal_WindowsPrincipal : System_Security_Claims_ClaimsPrincipal <System_Security_Principal_IPrincipal>
+@interface System_Security_Principal_WindowsPrincipal : System_Security_Claims_ClaimsPrincipal <System_Security_Principal_IPrincipal_>
 
 #pragma mark -
 #pragma mark Setup
@@ -45,7 +45,7 @@
 	// Managed method name : IsInRole
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.Principal.WindowsBuiltInRole
-    - (BOOL)isInRole_withRoleSSPWindowsBuiltInRole:(System_Security_Principal_WindowsBuiltInRole)p1;
+    - (BOOL)isInRole_withRoleSSPWindowsBuiltInRole:(int32_t)p1;
 
 	// Managed method name : IsInRole
 	// Managed return type : System.Boolean

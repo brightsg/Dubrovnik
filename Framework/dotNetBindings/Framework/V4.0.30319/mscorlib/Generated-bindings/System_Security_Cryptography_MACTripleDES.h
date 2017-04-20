@@ -2,7 +2,7 @@
 //
 // Managed class : MACTripleDES
 //
-@interface System_Security_Cryptography_MACTripleDES : System_Security_Cryptography_KeyedHashAlgorithm <System_Security_Cryptography_ICryptoTransform, System_IDisposable>
+@interface System_Security_Cryptography_MACTripleDES : System_Security_Cryptography_KeyedHashAlgorithm <System_IDisposable_, System_Security_Cryptography_ICryptoTransform_>
 
 #pragma mark -
 #pragma mark Setup
@@ -29,7 +29,7 @@
 
 	// Managed property name : Padding
 	// Managed property type : System.Security.Cryptography.PaddingMode
-    @property (nonatomic) System_Security_Cryptography_PaddingMode padding;
+    @property (nonatomic) int32_t padding;
 
 #pragma mark -
 #pragma mark Methods

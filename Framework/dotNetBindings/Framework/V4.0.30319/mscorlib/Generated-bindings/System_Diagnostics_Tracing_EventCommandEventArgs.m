@@ -32,34 +32,72 @@
     @synthesize arguments = _arguments;
     - (System_Collections_Generic_IDictionaryA2 *)arguments
     {
-		MonoObject *monoObject = [self getMonoProperty:"Arguments"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Arguments");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_arguments isEqualToMonoObject:monoObject]) return _arguments;					
-		_arguments = [System_Collections_Generic_IDictionaryA2 objectWithMonoObject:monoObject];
+		_arguments = [System_Collections_Generic_IDictionaryA2 bestObjectWithMonoObject:monoObject];
 
 		return _arguments;
 	}
     - (void)setArguments:(System_Collections_Generic_IDictionaryA2 *)value
 	{
 		_arguments = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Arguments" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Arguments");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Command
 	// Managed property type : System.Diagnostics.Tracing.EventCommand
     @synthesize command = _command;
-    - (System_Diagnostics_Tracing_EventCommand)command
+    - (int32_t)command
     {
-		MonoObject *monoObject = [self getMonoProperty:"Command"];
-		_command = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Command");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_command = monoObject;
 
 		return _command;
 	}
-    - (void)setCommand:(System_Diagnostics_Tracing_EventCommand)value
+    - (void)setCommand:(int32_t)value
 	{
 		_command = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Command" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Command");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

@@ -17,6 +17,6 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.FileSecurity
 	// Managed param types : System.String, System.Security.AccessControl.AccessControlSections
-    + (System_Security_AccessControl_FileSecurity *)new_withFileName:(NSString *)p1 includeSections:(System_Security_AccessControl_AccessControlSections)p2;
+    + (System_Security_AccessControl_FileSecurity *)new_withFileName:(NSString *)p1 includeSections:(int32_t)p2;
 @end
 //--Dubrovnik.CodeGenerator

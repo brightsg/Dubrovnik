@@ -32,16 +32,35 @@
     @synthesize effectiveKeySize = _effectiveKeySize;
     - (int32_t)effectiveKeySize
     {
-		MonoObject *monoObject = [self getMonoProperty:"EffectiveKeySize"];
-		_effectiveKeySize = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EffectiveKeySize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_effectiveKeySize = monoObject;
 
 		return _effectiveKeySize;
 	}
     - (void)setEffectiveKeySize:(int32_t)value
 	{
 		_effectiveKeySize = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"EffectiveKeySize" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "EffectiveKeySize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : KeySize
@@ -49,16 +68,35 @@
     @synthesize keySize = _keySize;
     - (int32_t)keySize
     {
-		MonoObject *monoObject = [self getMonoProperty:"KeySize"];
-		_keySize = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "KeySize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_keySize = monoObject;
 
 		return _keySize;
 	}
     - (void)setKeySize:(int32_t)value
 	{
 		_keySize = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"KeySize" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "KeySize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -72,7 +110,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create()" withNumArgs:0];
 		
-		return [System_Security_Cryptography_RC2 objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_RC2 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
@@ -83,7 +121,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_Cryptography_RC2 objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_RC2 bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

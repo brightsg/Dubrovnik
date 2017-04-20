@@ -32,7 +32,10 @@
 	// Managed param types : System.Object, System.IntPtr
     + (System_Runtime_InteropServices_HandleRef *)new_withWrapper:(System_Object *)p1 handle:(void *)p2
     {
-		return [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		System_Runtime_InteropServices_HandleRef * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,8 +46,18 @@
     @synthesize handle = _handle;
     - (void *)handle
     {
-		MonoObject *monoObject = [self getMonoProperty:"Handle"];
-		_handle = DB_UNBOX_PTR(monoObject);
+		typedef void * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Handle");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		void * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_handle = monoObject;
 
 		return _handle;
 	}
@@ -54,7 +67,17 @@
     @synthesize wrapper = _wrapper;
     - (System_Object *)wrapper
     {
-		MonoObject *monoObject = [self getMonoProperty:"Wrapper"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Wrapper");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_wrapper isEqualToMonoObject:monoObject]) return _wrapper;					
 		_wrapper = [System_Object objectWithMonoObject:monoObject];
 

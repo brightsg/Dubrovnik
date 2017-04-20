@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.DefaultDllImportSearchPathsAttribute
 	// Managed param types : System.Runtime.InteropServices.DllImportSearchPath
-    + (System_Runtime_InteropServices_DefaultDllImportSearchPathsAttribute *)new_withPaths:(System_Runtime_InteropServices_DllImportSearchPath)p1
+    + (System_Runtime_InteropServices_DefaultDllImportSearchPathsAttribute *)new_withPaths:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.InteropServices.DllImportSearchPath" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Runtime_InteropServices_DefaultDllImportSearchPathsAttribute * object = [[self alloc] initWithSignature:"System.Runtime.InteropServices.DllImportSearchPath" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -41,10 +44,20 @@
 	// Managed property name : Paths
 	// Managed property type : System.Runtime.InteropServices.DllImportSearchPath
     @synthesize paths = _paths;
-    - (System_Runtime_InteropServices_DllImportSearchPath)paths
+    - (int32_t)paths
     {
-		MonoObject *monoObject = [self getMonoProperty:"Paths"];
-		_paths = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Paths");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_paths = monoObject;
 
 		return _paths;
 	}

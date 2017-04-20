@@ -32,7 +32,10 @@
 	// Managed param types : System.Type
     + (System_Runtime_InteropServices_CoClassAttribute *)new_withCoClass:(System_Type *)p1
     {
-		return [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Runtime_InteropServices_CoClassAttribute * object = [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,9 +46,19 @@
     @synthesize coClass = _coClass;
     - (System_Type *)coClass
     {
-		MonoObject *monoObject = [self getMonoProperty:"CoClass"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CoClass");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_coClass isEqualToMonoObject:monoObject]) return _coClass;					
-		_coClass = [System_Type objectWithMonoObject:monoObject];
+		_coClass = [System_Type bestObjectWithMonoObject:monoObject];
 
 		return _coClass;
 	}

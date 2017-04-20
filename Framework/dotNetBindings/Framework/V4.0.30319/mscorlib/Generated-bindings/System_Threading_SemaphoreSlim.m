@@ -32,7 +32,10 @@
 	// Managed param types : System.Int32
     + (System_Threading_SemaphoreSlim *)new_withInitialCount:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Threading_SemaphoreSlim * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Int32, System.Int32
     + (System_Threading_SemaphoreSlim *)new_withInitialCount:(int32_t)p1 maxCount:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"int,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		System_Threading_SemaphoreSlim * object = [[self alloc] initWithSignature:"int,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -51,9 +57,19 @@
     @synthesize availableWaitHandle = _availableWaitHandle;
     - (System_Threading_WaitHandle *)availableWaitHandle
     {
-		MonoObject *monoObject = [self getMonoProperty:"AvailableWaitHandle"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AvailableWaitHandle");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_availableWaitHandle isEqualToMonoObject:monoObject]) return _availableWaitHandle;					
-		_availableWaitHandle = [System_Threading_WaitHandle objectWithMonoObject:monoObject];
+		_availableWaitHandle = [System_Threading_WaitHandle bestObjectWithMonoObject:monoObject];
 
 		return _availableWaitHandle;
 	}
@@ -63,8 +79,18 @@
     @synthesize currentCount = _currentCount;
     - (int32_t)currentCount
     {
-		MonoObject *monoObject = [self getMonoProperty:"CurrentCount"];
-		_currentCount = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrentCount");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_currentCount = monoObject;
 
 		return _currentCount;
 	}
@@ -77,7 +103,9 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Release
@@ -107,7 +135,9 @@
 	// Managed param types : 
     - (void)wait
     {
-		[self invokeMonoMethod:"Wait()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Wait()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Wait
@@ -115,7 +145,9 @@
 	// Managed param types : System.Threading.CancellationToken
     - (void)wait_withCancellationToken:(System_Threading_CancellationToken *)p1
     {
-		[self invokeMonoMethod:"Wait(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Wait(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Wait
@@ -170,7 +202,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"WaitAsync()" withNumArgs:0];
 		
-		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WaitAsync
@@ -181,7 +213,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"WaitAsync(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Threading_Tasks_Task objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WaitAsync
@@ -192,7 +224,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"WaitAsync(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WaitAsync
@@ -203,7 +235,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"WaitAsync(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WaitAsync
@@ -214,7 +246,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"WaitAsync(System.TimeSpan,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : WaitAsync
@@ -225,7 +257,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"WaitAsync(int,System.Threading.CancellationToken)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
 		
-		return [System_Threading_Tasks_TaskA1 objectWithMonoObject:monoObject];
+		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

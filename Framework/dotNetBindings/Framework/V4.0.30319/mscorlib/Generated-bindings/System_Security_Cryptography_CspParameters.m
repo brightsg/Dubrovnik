@@ -32,7 +32,10 @@
 	// Managed param types : System.Int32
     + (System_Security_Cryptography_CspParameters *)new_withDwTypeIn:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Security_Cryptography_CspParameters * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Int32, System.String
     + (System_Security_Cryptography_CspParameters *)new_withDwTypeIn:(int32_t)p1 strProviderNameIn:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"int,string" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_CspParameters * object = [[self alloc] initWithSignature:"int,string" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +54,10 @@
 	// Managed param types : System.Int32, System.String, System.String
     + (System_Security_Cryptography_CspParameters *)new_withDwTypeIn:(int32_t)p1 strProviderNameIn:(NSString *)p2 strContainerNameIn:(NSString *)p3
     {
-		return [[self alloc] initWithSignature:"int,string,string" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_CspParameters * object = [[self alloc] initWithSignature:"int,string,string" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +65,10 @@
 	// Managed param types : System.Int32, System.String, System.String, System.Security.AccessControl.CryptoKeySecurity, System.Security.SecureString
     + (System_Security_Cryptography_CspParameters *)new_withProviderType:(int32_t)p1 providerName:(NSString *)p2 keyContainerName:(NSString *)p3 cryptoKeySecurity:(System_Security_AccessControl_CryptoKeySecurity *)p4 keyPassword:(System_Security_SecureString *)p5
     {
-		return [[self alloc] initWithSignature:"int,string,string,System.Security.AccessControl.CryptoKeySecurity,System.Security.SecureString" withNumArgs:5, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_CspParameters * object = [[self alloc] initWithSignature:"int,string,string,System.Security.AccessControl.CryptoKeySecurity,System.Security.SecureString" withNumArgs:5, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +76,10 @@
 	// Managed param types : System.Int32, System.String, System.String, System.Security.AccessControl.CryptoKeySecurity, System.IntPtr
     + (System_Security_Cryptography_CspParameters *)new_withProviderType:(int32_t)p1 providerName:(NSString *)p2 keyContainerName:(NSString *)p3 cryptoKeySecurity:(System_Security_AccessControl_CryptoKeySecurity *)p4 parentWindowHandle:(void *)p5
     {
-		return [[self alloc] initWithSignature:"int,string,string,System.Security.AccessControl.CryptoKeySecurity,intptr" withNumArgs:5, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], DB_VALUE(p5)];;
+		
+		System_Security_Cryptography_CspParameters * object = [[self alloc] initWithSignature:"int,string,string,System.Security.AccessControl.CryptoKeySecurity,intptr" withNumArgs:5, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], DB_VALUE(p5)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -148,34 +163,72 @@
     @synthesize cryptoKeySecurity = _cryptoKeySecurity;
     - (System_Security_AccessControl_CryptoKeySecurity *)cryptoKeySecurity
     {
-		MonoObject *monoObject = [self getMonoProperty:"CryptoKeySecurity"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CryptoKeySecurity");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_cryptoKeySecurity isEqualToMonoObject:monoObject]) return _cryptoKeySecurity;					
-		_cryptoKeySecurity = [System_Security_AccessControl_CryptoKeySecurity objectWithMonoObject:monoObject];
+		_cryptoKeySecurity = [System_Security_AccessControl_CryptoKeySecurity bestObjectWithMonoObject:monoObject];
 
 		return _cryptoKeySecurity;
 	}
     - (void)setCryptoKeySecurity:(System_Security_AccessControl_CryptoKeySecurity *)value
 	{
 		_cryptoKeySecurity = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"CryptoKeySecurity" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CryptoKeySecurity");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Flags
 	// Managed property type : System.Security.Cryptography.CspProviderFlags
     @synthesize flags = _flags;
-    - (System_Security_Cryptography_CspProviderFlags)flags
+    - (int32_t)flags
     {
-		MonoObject *monoObject = [self getMonoProperty:"Flags"];
-		_flags = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Flags");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_flags = monoObject;
 
 		return _flags;
 	}
-    - (void)setFlags:(System_Security_Cryptography_CspProviderFlags)value
+    - (void)setFlags:(int32_t)value
 	{
 		_flags = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Flags" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Flags");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : KeyPassword
@@ -183,17 +236,36 @@
     @synthesize keyPassword = _keyPassword;
     - (System_Security_SecureString *)keyPassword
     {
-		MonoObject *monoObject = [self getMonoProperty:"KeyPassword"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "KeyPassword");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_keyPassword isEqualToMonoObject:monoObject]) return _keyPassword;					
-		_keyPassword = [System_Security_SecureString objectWithMonoObject:monoObject];
+		_keyPassword = [System_Security_SecureString bestObjectWithMonoObject:monoObject];
 
 		return _keyPassword;
 	}
     - (void)setKeyPassword:(System_Security_SecureString *)value
 	{
 		_keyPassword = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"KeyPassword" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "KeyPassword");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ParentWindowHandle
@@ -201,16 +273,35 @@
     @synthesize parentWindowHandle = _parentWindowHandle;
     - (void *)parentWindowHandle
     {
-		MonoObject *monoObject = [self getMonoProperty:"ParentWindowHandle"];
-		_parentWindowHandle = DB_UNBOX_PTR(monoObject);
+		typedef void * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ParentWindowHandle");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		void * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_parentWindowHandle = monoObject;
 
 		return _parentWindowHandle;
 	}
     - (void)setParentWindowHandle:(void *)value
 	{
 		_parentWindowHandle = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ParentWindowHandle" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, void *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ParentWindowHandle");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

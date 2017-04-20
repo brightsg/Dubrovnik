@@ -2,7 +2,7 @@
 //
 // Managed class : AppDomainSetup
 //
-@interface System_AppDomainSetup : System_Object <System_IAppDomainSetup>
+@interface System_AppDomainSetup : System_Object <System_IAppDomainSetup_>
 
 #pragma mark -
 #pragma mark Setup
@@ -93,7 +93,7 @@
 
 	// Managed property name : LoaderOptimization
 	// Managed property type : System.LoaderOptimization
-    @property (nonatomic) System_LoaderOptimization loaderOptimization;
+    @property (nonatomic) int32_t loaderOptimization;
 
 	// Managed property name : PartialTrustVisibleAssemblies
 	// Managed property type : System.String[]
@@ -134,7 +134,7 @@
 	// Managed method name : SetCompatibilitySwitches
 	// Managed return type : System.Void
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.String>
-    - (void)setCompatibilitySwitches_withSwitches:(System_Collections_Generic_IEnumerableA1 *)p1;
+    - (void)setCompatibilitySwitches_withSwitches:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
 	// Managed method name : SetConfigurationBytes
 	// Managed return type : System.Void

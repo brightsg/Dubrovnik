@@ -2,7 +2,7 @@
 //
 // Managed class : UnicodeEncoding
 //
-@interface System_Text_UnicodeEncoding : System_Text_Encoding <System_ICloneable>
+@interface System_Text_UnicodeEncoding : System_Text_Encoding <System_ICloneable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -16,13 +16,13 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Text.UnicodeEncoding
-	// Managed param types : System.Boolean, System.Boolean, System.Boolean
-    + (System_Text_UnicodeEncoding *)new_withBigEndian:(BOOL)p1 byteOrderMark:(BOOL)p2 throwOnInvalidBytes:(BOOL)p3;
+	// Managed param types : System.Boolean, System.Boolean
+    + (System_Text_UnicodeEncoding *)new_withBigEndian:(BOOL)p1 byteOrderMark:(BOOL)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Text.UnicodeEncoding
-	// Managed param types : System.Boolean, System.Boolean
-    + (System_Text_UnicodeEncoding *)new_withBigEndian:(BOOL)p1 byteOrderMark:(BOOL)p2;
+	// Managed param types : System.Boolean, System.Boolean, System.Boolean
+    + (System_Text_UnicodeEncoding *)new_withBigEndian:(BOOL)p1 byteOrderMark:(BOOL)p2 throwOnInvalidBytes:(BOOL)p3;
 
 #pragma mark -
 #pragma mark Fields

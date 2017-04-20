@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.InteropServices.DefaultCharSetAttribute
 	// Managed param types : System.Runtime.InteropServices.CharSet
-    + (System_Runtime_InteropServices_DefaultCharSetAttribute *)new_withCharSet:(System_Runtime_InteropServices_CharSet)p1
+    + (System_Runtime_InteropServices_DefaultCharSetAttribute *)new_withCharSet:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.InteropServices.CharSet" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Runtime_InteropServices_DefaultCharSetAttribute * object = [[self alloc] initWithSignature:"System.Runtime.InteropServices.CharSet" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -41,10 +44,20 @@
 	// Managed property name : CharSet
 	// Managed property type : System.Runtime.InteropServices.CharSet
     @synthesize charSet = _charSet;
-    - (System_Runtime_InteropServices_CharSet)charSet
+    - (int32_t)charSet
     {
-		MonoObject *monoObject = [self getMonoProperty:"CharSet"];
-		_charSet = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CharSet");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_charSet = monoObject;
 
 		return _charSet;
 	}

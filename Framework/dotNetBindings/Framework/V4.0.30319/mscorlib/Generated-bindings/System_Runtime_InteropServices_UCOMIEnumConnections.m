@@ -32,8 +32,12 @@
 	// Managed param types : ref System.Runtime.InteropServices.UCOMIEnumConnections&
     - (void)clone_withPpenumRef:(System_Runtime_InteropServices_UCOMIEnumConnections **)p1
     {
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIEnumConnections.Clone(System.Runtime.InteropServices.UCOMIEnumConnections&)" withNumArgs:1, &refPtr1];
-;
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+
     }
 
 	// Managed method name : Next
@@ -42,7 +46,7 @@
     - (int32_t)next_withCelt:(int32_t)p1 rgelt:(DBSystem_Array *)p2 pceltFetchedRef:(int32_t*)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIEnumConnections.Next(int,System.Array[],int&)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], p3];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIEnumConnections.Next(int,System.Runtime.InteropServices.CONNECTDATA[],int&)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], p3];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -52,7 +56,9 @@
 	// Managed param types : 
     - (void)reset
     {
-		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIEnumConnections.Reset()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"System.Runtime.InteropServices.UCOMIEnumConnections.Reset()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Skip

@@ -25,8 +25,8 @@
 
 	// Managed property name : CustomErrorsMode
 	// Managed property type : System.Runtime.Remoting.CustomErrorsModes
-    + (System_Runtime_Remoting_CustomErrorsModes)customErrorsMode;
-    + (void)setCustomErrorsMode:(System_Runtime_Remoting_CustomErrorsModes)value;
+    + (int32_t)customErrorsMode;
+    + (void)setCustomErrorsMode:(int32_t)value;
 
 	// Managed property name : ProcessId
 	// Managed property type : System.String
@@ -128,7 +128,7 @@
 	// Managed method name : RegisterWellKnownServiceType
 	// Managed return type : System.Void
 	// Managed param types : System.Type, System.String, System.Runtime.Remoting.WellKnownObjectMode
-    + (void)registerWellKnownServiceType_withType:(System_Type *)p1 objectUri:(NSString *)p2 mode:(System_Runtime_Remoting_WellKnownObjectMode)p3;
+    + (void)registerWellKnownServiceType_withType:(System_Type *)p1 objectUri:(NSString *)p2 mode:(int32_t)p3;
 
 	// Managed method name : RegisterWellKnownServiceType
 	// Managed return type : System.Void

@@ -2,7 +2,7 @@
 //
 // Managed class : DBNull
 //
-@interface System_DBNull : System_Object <System_Runtime_Serialization_ISerializable, System_IConvertible>
+@interface System_DBNull : System_Object <System_Runtime_Serialization_ISerializable_, System_IConvertible_>
 
 #pragma mark -
 #pragma mark Setup
@@ -29,7 +29,7 @@
 	// Managed method name : GetTypeCode
 	// Managed return type : System.TypeCode
 	// Managed param types : 
-    - (System_TypeCode)getTypeCode;
+    - (int32_t)getTypeCode;
 
 	// Managed method name : ToString
 	// Managed return type : System.String
@@ -39,6 +39,6 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.IFormatProvider
-    - (NSString *)toString_withProvider:(System_IFormatProvider *)p1;
+    - (NSString *)toString_withProvider:(id <System_IFormatProvider_>)p1;
 @end
 //--Dubrovnik.CodeGenerator

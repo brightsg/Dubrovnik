@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create()" withNumArgs:0];
 		
-		return [System_Security_Cryptography_DSA objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_DSA bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Create
@@ -46,7 +46,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_Cryptography_DSA objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_DSA bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateSignature
@@ -68,7 +68,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ExportParameters(bool)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Security_Cryptography_DSAParameters objectWithMonoObject:monoObject];
+		return [System_Security_Cryptography_DSAParameters bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : FromXmlString
@@ -76,7 +76,9 @@
 	// Managed param types : System.String
     - (void)fromXmlString_withXmlString:(NSString *)p1
     {
-		[self invokeMonoMethod:"FromXmlString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"FromXmlString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : ImportParameters
@@ -84,7 +86,9 @@
 	// Managed param types : System.Security.Cryptography.DSAParameters
     - (void)importParameters_withParameters:(System_Security_Cryptography_DSAParameters *)p1
     {
-		[self invokeMonoMethod:"ImportParameters(System.Security.Cryptography.DSAParameters)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"ImportParameters(System.Security.Cryptography.DSAParameters)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : ToXmlString

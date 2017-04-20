@@ -2,7 +2,7 @@
 //
 // Managed interface : ITypeLib2
 //
-@interface System_Runtime_InteropServices_ComTypes_ITypeLib2 : System_Object <System_Runtime_InteropServices_ComTypes_ITypeLib2, System_Runtime_InteropServices_ComTypes_ITypeLib>
+@interface System_Runtime_InteropServices_ComTypes_ITypeLib2 : System_Object <System_Runtime_InteropServices_ComTypes_ITypeLib2_, System_Runtime_InteropServices_ComTypes_ITypeLib_>
 
 #pragma mark -
 #pragma mark Setup

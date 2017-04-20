@@ -44,7 +44,7 @@
 
 	// Managed property name : KeyNumber
 	// Managed property type : System.Security.Cryptography.KeyNumber
-    @property (nonatomic, readonly) System_Security_Cryptography_KeyNumber keyNumber;
+    @property (nonatomic, readonly) int32_t keyNumber;
 
 	// Managed property name : MachineKeyStore
 	// Managed property type : System.Boolean

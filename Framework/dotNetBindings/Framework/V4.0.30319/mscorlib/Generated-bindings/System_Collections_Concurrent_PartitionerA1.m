@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Concurrent.Partitioner`1<System.Collections.Concurrent.Partitioner`1+TSource>";
+		return "System.Collections.Concurrent.Partitioner`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -32,8 +32,18 @@
     @synthesize supportsDynamicPartitions = _supportsDynamicPartitions;
     - (BOOL)supportsDynamicPartitions
     {
-		MonoObject *monoObject = [self getMonoProperty:"SupportsDynamicPartitions"];
-		_supportsDynamicPartitions = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SupportsDynamicPartitions");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_supportsDynamicPartitions = monoObject;
 
 		return _supportsDynamicPartitions;
 	}
@@ -44,23 +54,23 @@
 	// Managed method name : GetDynamicPartitions
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.Partitioner`1+TSource>
 	// Managed param types : 
-    - (System_Collections_Generic_IEnumerableA1 *)getDynamicPartitions
+    - (id <System_Collections_Generic_IEnumerableA1>)getDynamicPartitions
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDynamicPartitions()" withNumArgs:0];
 		
-		return [System_Collections_Generic_IEnumerableA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetPartitions
 	// Managed return type : System.Collections.Generic.IList`1<System.Collections.Generic.IEnumerator`1<System.Collections.Concurrent.Partitioner`1+TSource>>
 	// Managed param types : System.Int32
-    - (System_Collections_Generic_IListA1 *)getPartitions_withPartitionCount:(int32_t)p1
+    - (id <System_Collections_Generic_IListA1>)getPartitions_withPartitionCount:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetPartitions(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Collections_Generic_IListA1 objectWithMonoObject:monoObject];
+		return [System_Collections_Generic_IListA1 bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

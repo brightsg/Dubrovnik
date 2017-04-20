@@ -2,7 +2,7 @@
 //
 // Managed class : ToBase64Transform
 //
-@interface System_Security_Cryptography_ToBase64Transform : System_Object <System_Security_Cryptography_ICryptoTransform, System_IDisposable>
+@interface System_Security_Cryptography_ToBase64Transform : System_Object <System_Security_Cryptography_ICryptoTransform_, System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

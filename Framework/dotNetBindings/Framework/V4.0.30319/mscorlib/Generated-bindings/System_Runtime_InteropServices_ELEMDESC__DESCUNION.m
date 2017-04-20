@@ -34,7 +34,7 @@
     {
 		MonoObject *monoObject = [self getMonoField:"idldesc"];
 		if ([self object:_idldesc isEqualToMonoObject:monoObject]) return _idldesc;					
-		_idldesc = [System_Runtime_InteropServices_IDLDESC objectWithMonoObject:monoObject];
+		_idldesc = [System_Runtime_InteropServices_IDLDESC bestObjectWithMonoObject:monoObject];
 
 		return _idldesc;
 	}
@@ -52,7 +52,7 @@
     {
 		MonoObject *monoObject = [self getMonoField:"paramdesc"];
 		if ([self object:_paramdesc isEqualToMonoObject:monoObject]) return _paramdesc;					
-		_paramdesc = [System_Runtime_InteropServices_PARAMDESC objectWithMonoObject:monoObject];
+		_paramdesc = [System_Runtime_InteropServices_PARAMDESC bestObjectWithMonoObject:monoObject];
 
 		return _paramdesc;
 	}

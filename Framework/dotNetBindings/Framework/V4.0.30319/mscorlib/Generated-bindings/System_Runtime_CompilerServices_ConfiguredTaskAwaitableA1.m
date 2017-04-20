@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1+TResult>";
+		return "System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAwaiter()" withNumArgs:0];
 		
-		return [System_Runtime_CompilerServices_ConfiguredTaskAwaitableA1__ConfiguredTaskAwaiter objectWithMonoObject:monoObject];
+		return [System_Runtime_CompilerServices_ConfiguredTaskAwaitableA1__ConfiguredTaskAwaiter bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

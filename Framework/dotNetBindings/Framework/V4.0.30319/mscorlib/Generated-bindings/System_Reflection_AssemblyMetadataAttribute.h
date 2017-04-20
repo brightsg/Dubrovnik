@@ -2,7 +2,7 @@
 //
 // Managed class : AssemblyMetadataAttribute
 //
-@interface System_Reflection_AssemblyMetadataAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Reflection_AssemblyMetadataAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup

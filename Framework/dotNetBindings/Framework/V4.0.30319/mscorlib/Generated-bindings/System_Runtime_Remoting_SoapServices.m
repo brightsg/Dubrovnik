@@ -32,7 +32,17 @@
     static NSString * m_xmlNsForClrType;
     + (NSString *)xmlNsForClrType
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"XmlNsForClrType"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "XmlNsForClrType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_xmlNsForClrType isEqualToMonoObject:monoObject]) return m_xmlNsForClrType;					
 		m_xmlNsForClrType = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -44,7 +54,17 @@
     static NSString * m_xmlNsForClrTypeWithAssembly;
     + (NSString *)xmlNsForClrTypeWithAssembly
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"XmlNsForClrTypeWithAssembly"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "XmlNsForClrTypeWithAssembly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_xmlNsForClrTypeWithAssembly isEqualToMonoObject:monoObject]) return m_xmlNsForClrTypeWithAssembly;					
 		m_xmlNsForClrTypeWithAssembly = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -56,7 +76,17 @@
     static NSString * m_xmlNsForClrTypeWithNs;
     + (NSString *)xmlNsForClrTypeWithNs
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"XmlNsForClrTypeWithNs"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "XmlNsForClrTypeWithNs");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_xmlNsForClrTypeWithNs isEqualToMonoObject:monoObject]) return m_xmlNsForClrTypeWithNs;					
 		m_xmlNsForClrTypeWithNs = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -68,7 +98,17 @@
     static NSString * m_xmlNsForClrTypeWithNsAndAssembly;
     + (NSString *)xmlNsForClrTypeWithNsAndAssembly
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"XmlNsForClrTypeWithNsAndAssembly"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "XmlNsForClrTypeWithNsAndAssembly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_xmlNsForClrTypeWithNsAndAssembly isEqualToMonoObject:monoObject]) return m_xmlNsForClrTypeWithNsAndAssembly;					
 		m_xmlNsForClrTypeWithNsAndAssembly = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -99,8 +139,8 @@ void *refPtr3 = [*p3 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoClassMethod:"DecodeXmlNamespaceForClrTypeNamespace(string,string&,string&)" withNumArgs:3, [p1 monoRTInvokeArg], &refPtr2, &refPtr3];
 
-		*p2 = [System_Object subclassObjectWithMonoObject:refPtr2];
-*p3 = [System_Object subclassObjectWithMonoObject:refPtr3];
+		*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -110,8 +150,14 @@ void *refPtr3 = [*p3 monoRTInvokeArg];
 	// Managed param types : System.Type, System.String, System.String, ref System.Type&, ref System.String&
     + (void)getInteropFieldTypeAndNameFromXmlAttribute_withContainingType:(System_Type *)p1 xmlAttribute:(NSString *)p2 xmlNamespace:(NSString *)p3 typeRef:(System_Type **)p4 nameRef:(NSString **)p5
     {
+		void *refPtr4 = [*p4 monoRTInvokeArg];
+void *refPtr5 = [*p5 monoRTInvokeArg];
+
 		[self invokeMonoClassMethod:"GetInteropFieldTypeAndNameFromXmlAttribute(System.Type,string,string,System.Type&,string&)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], &refPtr4, &refPtr5];
-;
+
+        *p4 = [System_Object bestObjectWithMonoObject:refPtr4];
+*p5 = [System_Object bestObjectWithMonoObject:refPtr5];
+
     }
 
 	// Managed method name : GetInteropFieldTypeAndNameFromXmlElement
@@ -119,8 +165,14 @@ void *refPtr3 = [*p3 monoRTInvokeArg];
 	// Managed param types : System.Type, System.String, System.String, ref System.Type&, ref System.String&
     + (void)getInteropFieldTypeAndNameFromXmlElement_withContainingType:(System_Type *)p1 xmlElement:(NSString *)p2 xmlNamespace:(NSString *)p3 typeRef:(System_Type **)p4 nameRef:(NSString **)p5
     {
+		void *refPtr4 = [*p4 monoRTInvokeArg];
+void *refPtr5 = [*p5 monoRTInvokeArg];
+
 		[self invokeMonoClassMethod:"GetInteropFieldTypeAndNameFromXmlElement(System.Type,string,string,System.Type&,string&)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], &refPtr4, &refPtr5];
-;
+
+        *p4 = [System_Object bestObjectWithMonoObject:refPtr4];
+*p5 = [System_Object bestObjectWithMonoObject:refPtr5];
+
     }
 
 	// Managed method name : GetInteropTypeFromXmlElement
@@ -131,7 +183,7 @@ void *refPtr3 = [*p3 monoRTInvokeArg];
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetInteropTypeFromXmlElement(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetInteropTypeFromXmlType
@@ -142,7 +194,7 @@ void *refPtr3 = [*p3 monoRTInvokeArg];
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetInteropTypeFromXmlType(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetSoapActionFromMethodBase
@@ -166,8 +218,8 @@ void *refPtr3 = [*p3 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeAndMethodNameFromSoapAction(string,string&,string&)" withNumArgs:3, [p1 monoRTInvokeArg], &refPtr2, &refPtr3];
 
-		*p2 = [System_Object subclassObjectWithMonoObject:refPtr2];
-*p3 = [System_Object subclassObjectWithMonoObject:refPtr3];
+		*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -182,8 +234,8 @@ void *refPtr3 = [*p3 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetXmlElementForInteropType(System.Type,string&,string&)" withNumArgs:3, [p1 monoRTInvokeArg], &refPtr2, &refPtr3];
 
-		*p2 = [System_Object subclassObjectWithMonoObject:refPtr2];
-*p3 = [System_Object subclassObjectWithMonoObject:refPtr3];
+		*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -220,8 +272,8 @@ void *refPtr3 = [*p3 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetXmlTypeForInteropType(System.Type,string&,string&)" withNumArgs:3, [p1 monoRTInvokeArg], &refPtr2, &refPtr3];
 
-		*p2 = [System_Object subclassObjectWithMonoObject:refPtr2];
-*p3 = [System_Object subclassObjectWithMonoObject:refPtr3];
+		*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -253,7 +305,9 @@ void *refPtr3 = [*p3 monoRTInvokeArg];
 	// Managed param types : System.Type
     + (void)preLoad_withType:(System_Type *)p1
     {
-		[self invokeMonoClassMethod:"PreLoad(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"PreLoad(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : PreLoad
@@ -261,7 +315,9 @@ void *refPtr3 = [*p3 monoRTInvokeArg];
 	// Managed param types : System.Reflection.Assembly
     + (void)preLoad_withAssembly:(System_Reflection_Assembly *)p1
     {
-		[self invokeMonoClassMethod:"PreLoad(System.Reflection.Assembly)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"PreLoad(System.Reflection.Assembly)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : RegisterInteropXmlElement
@@ -269,7 +325,9 @@ void *refPtr3 = [*p3 monoRTInvokeArg];
 	// Managed param types : System.String, System.String, System.Type
     + (void)registerInteropXmlElement_withXmlElement:(NSString *)p1 xmlNamespace:(NSString *)p2 type:(System_Type *)p3
     {
-		[self invokeMonoClassMethod:"RegisterInteropXmlElement(string,string,System.Type)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"RegisterInteropXmlElement(string,string,System.Type)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : RegisterInteropXmlType
@@ -277,7 +335,9 @@ void *refPtr3 = [*p3 monoRTInvokeArg];
 	// Managed param types : System.String, System.String, System.Type
     + (void)registerInteropXmlType_withXmlType:(NSString *)p1 xmlTypeNamespace:(NSString *)p2 type:(System_Type *)p3
     {
-		[self invokeMonoClassMethod:"RegisterInteropXmlType(string,string,System.Type)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"RegisterInteropXmlType(string,string,System.Type)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : RegisterSoapActionForMethodBase
@@ -285,7 +345,9 @@ void *refPtr3 = [*p3 monoRTInvokeArg];
 	// Managed param types : System.Reflection.MethodBase
     + (void)registerSoapActionForMethodBase_withMb:(System_Reflection_MethodBase *)p1
     {
-		[self invokeMonoClassMethod:"RegisterSoapActionForMethodBase(System.Reflection.MethodBase)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"RegisterSoapActionForMethodBase(System.Reflection.MethodBase)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : RegisterSoapActionForMethodBase
@@ -293,7 +355,9 @@ void *refPtr3 = [*p3 monoRTInvokeArg];
 	// Managed param types : System.Reflection.MethodBase, System.String
     + (void)registerSoapActionForMethodBase_withMb:(System_Reflection_MethodBase *)p1 soapAction:(NSString *)p2
     {
-		[self invokeMonoClassMethod:"RegisterSoapActionForMethodBase(System.Reflection.MethodBase,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"RegisterSoapActionForMethodBase(System.Reflection.MethodBase,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

@@ -2,7 +2,7 @@
 //
 // Managed class : ReadOnlyPermissionSet
 //
-@interface System_Security_ReadOnlyPermissionSet : System_Security_PermissionSet <System_Security_ISecurityEncodable, System_Collections_ICollection, System_Collections_IEnumerable, System_Security_IStackWalk, System_Runtime_Serialization_IDeserializationCallback>
+@interface System_Security_ReadOnlyPermissionSet : System_Security_PermissionSet <System_Security_ISecurityEncodable_, System_Collections_ICollection_, System_Collections_IEnumerable_, System_Security_IStackWalk_, System_Runtime_Serialization_IDeserializationCallback_>
 
 #pragma mark -
 #pragma mark Setup

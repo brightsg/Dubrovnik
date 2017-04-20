@@ -2,7 +2,7 @@
 //
 // Managed class : OneWayAttribute
 //
-@interface System_Runtime_Remoting_Messaging_OneWayAttribute : System_Attribute <System_Runtime_InteropServices__Attribute>
+@interface System_Runtime_Remoting_Messaging_OneWayAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup

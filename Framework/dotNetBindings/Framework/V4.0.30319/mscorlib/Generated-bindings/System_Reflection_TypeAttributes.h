@@ -2,7 +2,9 @@
 //
 // Managed enumeration : TypeAttributes
 //
-typedef NS_ENUM(int32_t, System_Reflection_TypeAttributes) {
+
+// C enumeration
+typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
 	System_Reflection_TypeAttributes_Abstract = 128,
 	System_Reflection_TypeAttributes_AnsiClass = 0,
 	System_Reflection_TypeAttributes_AutoClass = 131072,
@@ -36,4 +38,144 @@ typedef NS_ENUM(int32_t, System_Reflection_TypeAttributes) {
 	System_Reflection_TypeAttributes_VisibilityMask = 7,
 	System_Reflection_TypeAttributes_WindowsRuntime = 16384,
 };
+@interface System_Reflection_TypeAttributes : DBSystem_Enum
+
+#pragma mark -
+#pragma mark Setup
+	// obligatory override
+	+ (const char *)monoClassName;
+	// obligatory override
+	+ (const char *)monoAssemblyName;
+
+#pragma mark -
+#pragma mark Fields
+
+	// Managed field name : Abstract
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)abstract;
+
+	// Managed field name : AnsiClass
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)ansiClass;
+
+	// Managed field name : AutoClass
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)autoClass;
+
+	// Managed field name : AutoLayout
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)autoLayout;
+
+	// Managed field name : BeforeFieldInit
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)beforeFieldInit;
+
+	// Managed field name : Class
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)class;
+
+	// Managed field name : ClassSemanticsMask
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)classSemanticsMask;
+
+	// Managed field name : CustomFormatClass
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)customFormatClass;
+
+	// Managed field name : CustomFormatMask
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)customFormatMask;
+
+	// Managed field name : ExplicitLayout
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)explicitLayout;
+
+	// Managed field name : HasSecurity
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)hasSecurity;
+
+	// Managed field name : Import
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)import;
+
+	// Managed field name : Interface
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)interface;
+
+	// Managed field name : LayoutMask
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)layoutMask;
+
+	// Managed field name : NestedAssembly
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)nestedAssembly;
+
+	// Managed field name : NestedFamANDAssem
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)nestedFamANDAssem;
+
+	// Managed field name : NestedFamily
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)nestedFamily;
+
+	// Managed field name : NestedFamORAssem
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)nestedFamORAssem;
+
+	// Managed field name : NestedPrivate
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)nestedPrivate;
+
+	// Managed field name : NestedPublic
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)nestedPublic;
+
+	// Managed field name : NotPublic
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)notPublic;
+
+	// Managed field name : Public
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)public;
+
+	// Managed field name : ReservedMask
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)reservedMask;
+
+	// Managed field name : RTSpecialName
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)rTSpecialName;
+
+	// Managed field name : Sealed
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)sealed;
+
+	// Managed field name : SequentialLayout
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)sequentialLayout;
+
+	// Managed field name : Serializable
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)serializable;
+
+	// Managed field name : SpecialName
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)specialName;
+
+	// Managed field name : StringFormatMask
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)stringFormatMask;
+
+	// Managed field name : UnicodeClass
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)unicodeClass;
+
+	// Managed field name : VisibilityMask
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)visibilityMask;
+
+	// Managed field name : WindowsRuntime
+	// Managed field type : System.Reflection.TypeAttributes
+    + (int32_t)windowsRuntime;
+@end
 //--Dubrovnik.CodeGenerator

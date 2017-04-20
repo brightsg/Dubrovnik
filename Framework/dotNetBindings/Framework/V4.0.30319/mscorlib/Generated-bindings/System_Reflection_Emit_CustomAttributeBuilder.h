@@ -2,7 +2,7 @@
 //
 // Managed class : CustomAttributeBuilder
 //
-@interface System_Reflection_Emit_CustomAttributeBuilder : System_Object <System_Runtime_InteropServices__CustomAttributeBuilder>
+@interface System_Reflection_Emit_CustomAttributeBuilder : System_Object <System_Runtime_InteropServices__CustomAttributeBuilder_>
 
 #pragma mark -
 #pragma mark Setup

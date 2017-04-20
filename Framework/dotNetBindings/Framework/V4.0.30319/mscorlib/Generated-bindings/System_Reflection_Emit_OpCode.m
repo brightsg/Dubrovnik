@@ -30,10 +30,20 @@
 	// Managed property name : FlowControl
 	// Managed property type : System.Reflection.Emit.FlowControl
     @synthesize flowControl = _flowControl;
-    - (System_Reflection_Emit_FlowControl)flowControl
+    - (int32_t)flowControl
     {
-		MonoObject *monoObject = [self getMonoProperty:"FlowControl"];
-		_flowControl = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FlowControl");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_flowControl = monoObject;
 
 		return _flowControl;
 	}
@@ -43,7 +53,17 @@
     @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -53,10 +73,20 @@
 	// Managed property name : OpCodeType
 	// Managed property type : System.Reflection.Emit.OpCodeType
     @synthesize opCodeType = _opCodeType;
-    - (System_Reflection_Emit_OpCodeType)opCodeType
+    - (int32_t)opCodeType
     {
-		MonoObject *monoObject = [self getMonoProperty:"OpCodeType"];
-		_opCodeType = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OpCodeType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_opCodeType = monoObject;
 
 		return _opCodeType;
 	}
@@ -64,10 +94,20 @@
 	// Managed property name : OperandType
 	// Managed property type : System.Reflection.Emit.OperandType
     @synthesize operandType = _operandType;
-    - (System_Reflection_Emit_OperandType)operandType
+    - (int32_t)operandType
     {
-		MonoObject *monoObject = [self getMonoProperty:"OperandType"];
-		_operandType = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OperandType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_operandType = monoObject;
 
 		return _operandType;
 	}
@@ -77,8 +117,18 @@
     @synthesize size = _size;
     - (int32_t)size
     {
-		MonoObject *monoObject = [self getMonoProperty:"Size"];
-		_size = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Size");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_size = monoObject;
 
 		return _size;
 	}
@@ -86,10 +136,20 @@
 	// Managed property name : StackBehaviourPop
 	// Managed property type : System.Reflection.Emit.StackBehaviour
     @synthesize stackBehaviourPop = _stackBehaviourPop;
-    - (System_Reflection_Emit_StackBehaviour)stackBehaviourPop
+    - (int32_t)stackBehaviourPop
     {
-		MonoObject *monoObject = [self getMonoProperty:"StackBehaviourPop"];
-		_stackBehaviourPop = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "StackBehaviourPop");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_stackBehaviourPop = monoObject;
 
 		return _stackBehaviourPop;
 	}
@@ -97,10 +157,20 @@
 	// Managed property name : StackBehaviourPush
 	// Managed property type : System.Reflection.Emit.StackBehaviour
     @synthesize stackBehaviourPush = _stackBehaviourPush;
-    - (System_Reflection_Emit_StackBehaviour)stackBehaviourPush
+    - (int32_t)stackBehaviourPush
     {
-		MonoObject *monoObject = [self getMonoProperty:"StackBehaviourPush"];
-		_stackBehaviourPush = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "StackBehaviourPush");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_stackBehaviourPush = monoObject;
 
 		return _stackBehaviourPush;
 	}
@@ -110,8 +180,18 @@
     @synthesize value = _value;
     - (int16_t)value
     {
-		MonoObject *monoObject = [self getMonoProperty:"Value"];
-		_value = DB_UNBOX_INT16(monoObject);
+		typedef int16_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Value");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int16_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_value = monoObject;
 
 		return _value;
 	}
@@ -121,22 +201,22 @@
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
-	// Managed param types : System.Reflection.Emit.OpCode
-    - (BOOL)equals_withObjSREOpCode:(System_Reflection_Emit_OpCode *)p1
+	// Managed param types : System.Object
+    - (BOOL)equals_withObjObject:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Reflection.Emit.OpCode)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
-	// Managed param types : System.Object
-    - (BOOL)equals_withObjObject:(System_Object *)p1
+	// Managed param types : System.Reflection.Emit.OpCode
+    - (BOOL)equals_withObjSREOpCode:(System_Reflection_Emit_OpCode *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Reflection.Emit.OpCode)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

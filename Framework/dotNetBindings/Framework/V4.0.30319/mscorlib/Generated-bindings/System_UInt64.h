@@ -2,7 +2,7 @@
 //
 // Managed struct : UInt64
 //
-@interface System_UInt64 : DBManagedObject <System_IComparable, System_IFormattable, System_IConvertible, System_IComparableA1, System_IEquatableA1>
+@interface System_UInt64 : DBManagedObject <System_IComparable_, System_IFormattable_, System_IConvertible_, System_IComparableA1_, System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -53,7 +53,7 @@
 	// Managed method name : GetTypeCode
 	// Managed return type : System.TypeCode
 	// Managed param types : 
-    - (System_TypeCode)getTypeCode;
+    - (int32_t)getTypeCode;
 
 	// Managed method name : Parse
 	// Managed return type : System.UInt64
@@ -63,17 +63,17 @@
 	// Managed method name : Parse
 	// Managed return type : System.UInt64
 	// Managed param types : System.String, System.Globalization.NumberStyles
-    + (uint64_t)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2;
+    + (uint64_t)parse_withS:(NSString *)p1 style:(int32_t)p2;
 
 	// Managed method name : Parse
 	// Managed return type : System.UInt64
 	// Managed param types : System.String, System.IFormatProvider
-    + (uint64_t)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2;
+    + (uint64_t)parse_withS:(NSString *)p1 provider:(id <System_IFormatProvider_>)p2;
 
 	// Managed method name : Parse
 	// Managed return type : System.UInt64
 	// Managed param types : System.String, System.Globalization.NumberStyles, System.IFormatProvider
-    + (uint64_t)parse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3;
+    + (uint64_t)parse_withS:(NSString *)p1 style:(int32_t)p2 provider:(id <System_IFormatProvider_>)p3;
 
 	// Managed method name : ToString
 	// Managed return type : System.String
@@ -83,7 +83,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.IFormatProvider
-    - (NSString *)toString_withProvider:(System_IFormatProvider *)p1;
+    - (NSString *)toString_withProvider:(id <System_IFormatProvider_>)p1;
 
 	// Managed method name : ToString
 	// Managed return type : System.String
@@ -93,7 +93,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.String, System.IFormatProvider
-    - (NSString *)toString_withFormat:(NSString *)p1 provider:(System_IFormatProvider *)p2;
+    - (NSString *)toString_withFormat:(NSString *)p1 provider:(id <System_IFormatProvider_>)p2;
 
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
@@ -103,6 +103,6 @@
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.Globalization.NumberStyles, System.IFormatProvider, ref System.UInt64&
-    + (BOOL)tryParse_withS:(NSString *)p1 style:(System_Globalization_NumberStyles)p2 provider:(System_IFormatProvider *)p3 resultRef:(uint64_t*)p4;
+    + (BOOL)tryParse_withS:(NSString *)p1 style:(int32_t)p2 provider:(id <System_IFormatProvider_>)p3 resultRef:(uint64_t*)p4;
 @end
 //--Dubrovnik.CodeGenerator

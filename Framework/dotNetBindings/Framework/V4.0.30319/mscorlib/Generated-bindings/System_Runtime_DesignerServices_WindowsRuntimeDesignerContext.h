@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.DesignerServices.WindowsRuntimeDesignerContext
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.String>, System.String
-    + (System_Runtime_DesignerServices_WindowsRuntimeDesignerContext *)new_withPaths:(System_Collections_Generic_IEnumerableA1 *)p1 name:(NSString *)p2;
+    + (System_Runtime_DesignerServices_WindowsRuntimeDesignerContext *)new_withPaths:(id <System_Collections_Generic_IEnumerableA1_>)p1 name:(NSString *)p2;
 
 #pragma mark -
 #pragma mark Properties
@@ -42,7 +42,7 @@
 	// Managed method name : InitializeSharedContext
 	// Managed return type : System.Void
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.String>
-    + (void)initializeSharedContext_withPaths:(System_Collections_Generic_IEnumerableA1 *)p1;
+    + (void)initializeSharedContext_withPaths:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
 	// Managed method name : SetIterationContext
 	// Managed return type : System.Void

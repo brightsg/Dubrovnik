@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.CommonSecurityDescriptor
 	// Managed param types : System.Boolean, System.Boolean, System.Security.AccessControl.ControlFlags, System.Security.Principal.SecurityIdentifier, System.Security.Principal.SecurityIdentifier, System.Security.AccessControl.SystemAcl, System.Security.AccessControl.DiscretionaryAcl
-    + (System_Security_AccessControl_CommonSecurityDescriptor *)new_withIsContainer:(BOOL)p1 isDS:(BOOL)p2 flags:(System_Security_AccessControl_ControlFlags)p3 owner:(System_Security_Principal_SecurityIdentifier *)p4 group:(System_Security_Principal_SecurityIdentifier *)p5 systemAcl:(System_Security_AccessControl_SystemAcl *)p6 discretionaryAcl:(System_Security_AccessControl_DiscretionaryAcl *)p7;
+    + (System_Security_AccessControl_CommonSecurityDescriptor *)new_withIsContainer:(BOOL)p1 isDS:(BOOL)p2 flags:(int32_t)p3 owner:(System_Security_Principal_SecurityIdentifier *)p4 group:(System_Security_Principal_SecurityIdentifier *)p5 systemAcl:(System_Security_AccessControl_SystemAcl *)p6 discretionaryAcl:(System_Security_AccessControl_DiscretionaryAcl *)p7;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.CommonSecurityDescriptor
@@ -39,7 +39,7 @@
 
 	// Managed property name : ControlFlags
 	// Managed property type : System.Security.AccessControl.ControlFlags
-    @property (nonatomic, readonly) System_Security_AccessControl_ControlFlags controlFlags;
+    @property (nonatomic, readonly) int32_t controlFlags;
 
 	// Managed property name : DiscretionaryAcl
 	// Managed property type : System.Security.AccessControl.DiscretionaryAcl
@@ -75,6 +75,16 @@
 
 #pragma mark -
 #pragma mark Methods
+
+	// Managed method name : AddDiscretionaryAcl
+	// Managed return type : System.Void
+	// Managed param types : System.Byte, System.Int32
+    - (void)addDiscretionaryAcl_withRevision:(uint8_t)p1 trusted:(int32_t)p2;
+
+	// Managed method name : AddSystemAcl
+	// Managed return type : System.Void
+	// Managed param types : System.Byte, System.Int32
+    - (void)addSystemAcl_withRevision:(uint8_t)p1 trusted:(int32_t)p2;
 
 	// Managed method name : PurgeAccessControl
 	// Managed return type : System.Void

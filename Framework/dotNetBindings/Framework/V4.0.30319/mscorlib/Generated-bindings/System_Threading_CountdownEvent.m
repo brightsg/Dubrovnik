@@ -32,7 +32,10 @@
 	// Managed param types : System.Int32
     + (System_Threading_CountdownEvent *)new_withInitialCount:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Threading_CountdownEvent * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,8 +46,18 @@
     @synthesize currentCount = _currentCount;
     - (int32_t)currentCount
     {
-		MonoObject *monoObject = [self getMonoProperty:"CurrentCount"];
-		_currentCount = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrentCount");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_currentCount = monoObject;
 
 		return _currentCount;
 	}
@@ -54,8 +67,18 @@
     @synthesize initialCount = _initialCount;
     - (int32_t)initialCount
     {
-		MonoObject *monoObject = [self getMonoProperty:"InitialCount"];
-		_initialCount = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InitialCount");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_initialCount = monoObject;
 
 		return _initialCount;
 	}
@@ -65,8 +88,18 @@
     @synthesize isSet = _isSet;
     - (BOOL)isSet
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsSet"];
-		_isSet = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsSet");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isSet = monoObject;
 
 		return _isSet;
 	}
@@ -76,9 +109,19 @@
     @synthesize waitHandle = _waitHandle;
     - (System_Threading_WaitHandle *)waitHandle
     {
-		MonoObject *monoObject = [self getMonoProperty:"WaitHandle"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WaitHandle");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_waitHandle isEqualToMonoObject:monoObject]) return _waitHandle;					
-		_waitHandle = [System_Threading_WaitHandle objectWithMonoObject:monoObject];
+		_waitHandle = [System_Threading_WaitHandle bestObjectWithMonoObject:monoObject];
 
 		return _waitHandle;
 	}
@@ -91,7 +134,9 @@
 	// Managed param types : 
     - (void)addCount
     {
-		[self invokeMonoMethod:"AddCount()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"AddCount()" withNumArgs:0];
+        
     }
 
 	// Managed method name : AddCount
@@ -99,7 +144,9 @@
 	// Managed param types : System.Int32
     - (void)addCount_withSignalCount:(int32_t)p1
     {
-		[self invokeMonoMethod:"AddCount(int)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"AddCount(int)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : Dispose
@@ -107,7 +154,9 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Reset
@@ -115,7 +164,9 @@
 	// Managed param types : 
     - (void)reset
     {
-		[self invokeMonoMethod:"Reset()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Reset()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Reset
@@ -123,7 +174,9 @@
 	// Managed param types : System.Int32
     - (void)reset_withCount:(int32_t)p1
     {
-		[self invokeMonoMethod:"Reset(int)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"Reset(int)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : Signal
@@ -175,7 +228,9 @@
 	// Managed param types : 
     - (void)wait
     {
-		[self invokeMonoMethod:"Wait()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Wait()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Wait
@@ -183,7 +238,9 @@
 	// Managed param types : System.Threading.CancellationToken
     - (void)wait_withCancellationToken:(System_Threading_CancellationToken *)p1
     {
-		[self invokeMonoMethod:"Wait(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"Wait(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Wait

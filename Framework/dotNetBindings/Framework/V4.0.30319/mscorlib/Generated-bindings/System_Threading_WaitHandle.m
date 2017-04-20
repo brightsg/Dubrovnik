@@ -46,16 +46,35 @@
     @synthesize handle = _handle;
     - (void *)handle
     {
-		MonoObject *monoObject = [self getMonoProperty:"Handle"];
-		_handle = DB_UNBOX_PTR(monoObject);
+		typedef void * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Handle");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		void * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_handle = monoObject;
 
 		return _handle;
 	}
     - (void)setHandle:(void *)value
 	{
 		_handle = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Handle" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, void *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Handle");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : SafeWaitHandle
@@ -63,17 +82,36 @@
     @synthesize safeWaitHandle = _safeWaitHandle;
     - (Microsoft_Win32_SafeHandles_SafeWaitHandle *)safeWaitHandle
     {
-		MonoObject *monoObject = [self getMonoProperty:"SafeWaitHandle"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SafeWaitHandle");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_safeWaitHandle isEqualToMonoObject:monoObject]) return _safeWaitHandle;					
-		_safeWaitHandle = [Microsoft_Win32_SafeHandles_SafeWaitHandle objectWithMonoObject:monoObject];
+		_safeWaitHandle = [Microsoft_Win32_SafeHandles_SafeWaitHandle bestObjectWithMonoObject:monoObject];
 
 		return _safeWaitHandle;
 	}
     - (void)setSafeWaitHandle:(Microsoft_Win32_SafeHandles_SafeWaitHandle *)value
 	{
 		_safeWaitHandle = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"SafeWaitHandle" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "SafeWaitHandle");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -84,7 +122,9 @@
 	// Managed param types : 
     - (void)close
     {
-		[self invokeMonoMethod:"Close()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Close()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Dispose
@@ -92,7 +132,9 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+        
     }
 
 	// Managed method name : SignalAndWait
@@ -134,7 +176,7 @@
     + (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2 exitContext:(BOOL)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAll(System.Array[],int,bool)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAll(System.Threading.WaitHandle[],int,bool)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -145,7 +187,7 @@
     + (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1 timeout:(System_TimeSpan *)p2 exitContext:(BOOL)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAll(System.Array[],System.TimeSpan,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAll(System.Threading.WaitHandle[],System.TimeSpan,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -156,7 +198,7 @@
     + (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAll(System.Array[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAll(System.Threading.WaitHandle[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -167,7 +209,7 @@
     + (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAll(System.Array[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAll(System.Threading.WaitHandle[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -178,7 +220,7 @@
     + (BOOL)waitAll_withWaitHandles:(DBSystem_Array *)p1 timeout:(System_TimeSpan *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAll(System.Array[],System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAll(System.Threading.WaitHandle[],System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -189,7 +231,7 @@
     + (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2 exitContext:(BOOL)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAny(System.Array[],int,bool)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAny(System.Threading.WaitHandle[],int,bool)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -200,7 +242,7 @@
     + (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1 timeout:(System_TimeSpan *)p2 exitContext:(BOOL)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAny(System.Array[],System.TimeSpan,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAny(System.Threading.WaitHandle[],System.TimeSpan,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -211,7 +253,7 @@
     + (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1 timeout:(System_TimeSpan *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAny(System.Array[],System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAny(System.Threading.WaitHandle[],System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -222,7 +264,7 @@
     + (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAny(System.Array[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAny(System.Threading.WaitHandle[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -233,7 +275,7 @@
     + (int32_t)waitAny_withWaitHandles:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAny(System.Array[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAny(System.Threading.WaitHandle[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }

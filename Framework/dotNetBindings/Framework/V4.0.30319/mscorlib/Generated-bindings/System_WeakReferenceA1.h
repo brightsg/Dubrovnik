@@ -2,7 +2,7 @@
 //
 // Managed class : WeakReference`1<T>
 //
-@interface System_WeakReferenceA1 : System_Object <System_Runtime_Serialization_ISerializable>
+@interface System_WeakReferenceA1 : System_Object <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -16,13 +16,13 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.WeakReference`1<System.WeakReference`1+T>
-	// Managed param types : <System.WeakReference`1+T>, System.Boolean
-    + (System_WeakReferenceA1 *)new_withTarget:(System_Object *)p1 trackResurrection:(BOOL)p2;
+	// Managed param types : <System.WeakReference`1+T>
+    + (System_WeakReferenceA1 *)new_withTarget:(System_Object *)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.WeakReference`1<System.WeakReference`1+T>
-	// Managed param types : <System.WeakReference`1+T>
-    + (System_WeakReferenceA1 *)new_withTarget:(System_Object *)p1;
+	// Managed param types : <System.WeakReference`1+T>, System.Boolean
+    + (System_WeakReferenceA1 *)new_withTarget:(System_Object *)p1 trackResurrection:(BOOL)p2;
 
 #pragma mark -
 #pragma mark Methods
@@ -39,7 +39,7 @@
 
 	// Managed method name : TryGetTarget
 	// Managed return type : System.Boolean
-	// Managed param types : ref <T&>
-    - (BOOL)tryGetTarget_withTargetRef:(System_Object **)p1;
+	// Managed param types : ref T&
+    - (BOOL)tryGetTarget_withTargetRef:(System_WeakReferenceA1__T **)p1;
 @end
 //--Dubrovnik.CodeGenerator

@@ -2,7 +2,7 @@
 //
 // Managed class : ManualResetEventSlim
 //
-@interface System_Threading_ManualResetEventSlim : System_Object <System_IDisposable>
+@interface System_Threading_ManualResetEventSlim : System_Object <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

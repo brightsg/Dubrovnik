@@ -29,19 +29,38 @@
 
 	// Managed property name : BackgroundColor
 	// Managed property type : System.ConsoleColor
-    static System_ConsoleColor m_backgroundColor;
-    + (System_ConsoleColor)backgroundColor
+    static int32_t m_backgroundColor;
+    + (int32_t)backgroundColor
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"BackgroundColor"];
-		m_backgroundColor = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BackgroundColor");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_backgroundColor = monoObject;
 
 		return m_backgroundColor;
 	}
-    + (void)setBackgroundColor:(System_ConsoleColor)value
+    + (void)setBackgroundColor:(int32_t)value
 	{
 		m_backgroundColor = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[[self class] setMonoClassProperty:"BackgroundColor" valueObject:monoObject];          
+		typedef void (*Thunk)(int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "BackgroundColor");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : BufferHeight
@@ -49,16 +68,35 @@
     static int32_t m_bufferHeight;
     + (int32_t)bufferHeight
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"BufferHeight"];
-		m_bufferHeight = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BufferHeight");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_bufferHeight = monoObject;
 
 		return m_bufferHeight;
 	}
     + (void)setBufferHeight:(int32_t)value
 	{
 		m_bufferHeight = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[[self class] setMonoClassProperty:"BufferHeight" valueObject:monoObject];          
+		typedef void (*Thunk)(int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "BufferHeight");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : BufferWidth
@@ -66,16 +104,35 @@
     static int32_t m_bufferWidth;
     + (int32_t)bufferWidth
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"BufferWidth"];
-		m_bufferWidth = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BufferWidth");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_bufferWidth = monoObject;
 
 		return m_bufferWidth;
 	}
     + (void)setBufferWidth:(int32_t)value
 	{
 		m_bufferWidth = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[[self class] setMonoClassProperty:"BufferWidth" valueObject:monoObject];          
+		typedef void (*Thunk)(int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "BufferWidth");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CapsLock
@@ -83,8 +140,18 @@
     static BOOL m_capsLock;
     + (BOOL)capsLock
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"CapsLock"];
-		m_capsLock = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CapsLock");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_capsLock = monoObject;
 
 		return m_capsLock;
 	}
@@ -94,16 +161,35 @@
     static int32_t m_cursorLeft;
     + (int32_t)cursorLeft
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"CursorLeft"];
-		m_cursorLeft = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CursorLeft");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_cursorLeft = monoObject;
 
 		return m_cursorLeft;
 	}
     + (void)setCursorLeft:(int32_t)value
 	{
 		m_cursorLeft = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[[self class] setMonoClassProperty:"CursorLeft" valueObject:monoObject];          
+		typedef void (*Thunk)(int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CursorLeft");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CursorSize
@@ -111,16 +197,35 @@
     static int32_t m_cursorSize;
     + (int32_t)cursorSize
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"CursorSize"];
-		m_cursorSize = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CursorSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_cursorSize = monoObject;
 
 		return m_cursorSize;
 	}
     + (void)setCursorSize:(int32_t)value
 	{
 		m_cursorSize = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[[self class] setMonoClassProperty:"CursorSize" valueObject:monoObject];          
+		typedef void (*Thunk)(int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CursorSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CursorTop
@@ -128,16 +233,35 @@
     static int32_t m_cursorTop;
     + (int32_t)cursorTop
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"CursorTop"];
-		m_cursorTop = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CursorTop");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_cursorTop = monoObject;
 
 		return m_cursorTop;
 	}
     + (void)setCursorTop:(int32_t)value
 	{
 		m_cursorTop = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[[self class] setMonoClassProperty:"CursorTop" valueObject:monoObject];          
+		typedef void (*Thunk)(int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CursorTop");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CursorVisible
@@ -145,16 +269,35 @@
     static BOOL m_cursorVisible;
     + (BOOL)cursorVisible
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"CursorVisible"];
-		m_cursorVisible = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CursorVisible");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_cursorVisible = monoObject;
 
 		return m_cursorVisible;
 	}
     + (void)setCursorVisible:(BOOL)value
 	{
 		m_cursorVisible = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[[self class] setMonoClassProperty:"CursorVisible" valueObject:monoObject];          
+		typedef void (*Thunk)(BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CursorVisible");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Error
@@ -162,28 +305,57 @@
     static System_IO_TextWriter * m_error;
     + (System_IO_TextWriter *)error
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Error"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Error");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_error isEqualToMonoObject:monoObject]) return m_error;					
-		m_error = [System_IO_TextWriter objectWithMonoObject:monoObject];
+		m_error = [System_IO_TextWriter bestObjectWithMonoObject:monoObject];
 
 		return m_error;
 	}
 
 	// Managed property name : ForegroundColor
 	// Managed property type : System.ConsoleColor
-    static System_ConsoleColor m_foregroundColor;
-    + (System_ConsoleColor)foregroundColor
+    static int32_t m_foregroundColor;
+    + (int32_t)foregroundColor
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"ForegroundColor"];
-		m_foregroundColor = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ForegroundColor");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_foregroundColor = monoObject;
 
 		return m_foregroundColor;
 	}
-    + (void)setForegroundColor:(System_ConsoleColor)value
+    + (void)setForegroundColor:(int32_t)value
 	{
 		m_foregroundColor = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[[self class] setMonoClassProperty:"ForegroundColor" valueObject:monoObject];          
+		typedef void (*Thunk)(int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ForegroundColor");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : In
@@ -191,9 +363,19 @@
     static System_IO_TextReader * m_in;
     + (System_IO_TextReader *)in
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"In"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "In");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_in isEqualToMonoObject:monoObject]) return m_in;					
-		m_in = [System_IO_TextReader objectWithMonoObject:monoObject];
+		m_in = [System_IO_TextReader bestObjectWithMonoObject:monoObject];
 
 		return m_in;
 	}
@@ -203,17 +385,36 @@
     static System_Text_Encoding * m_inputEncoding;
     + (System_Text_Encoding *)inputEncoding
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"InputEncoding"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InputEncoding");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_inputEncoding isEqualToMonoObject:monoObject]) return m_inputEncoding;					
-		m_inputEncoding = [System_Text_Encoding objectWithMonoObject:monoObject];
+		m_inputEncoding = [System_Text_Encoding bestObjectWithMonoObject:monoObject];
 
 		return m_inputEncoding;
 	}
     + (void)setInputEncoding:(System_Text_Encoding *)value
 	{
 		m_inputEncoding = value;
-		MonoObject *monoObject = [value monoObject];
-		[[self class] setMonoClassProperty:"InputEncoding" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "InputEncoding");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk([value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : IsErrorRedirected
@@ -221,8 +422,18 @@
     static BOOL m_isErrorRedirected;
     + (BOOL)isErrorRedirected
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"IsErrorRedirected"];
-		m_isErrorRedirected = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsErrorRedirected");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_isErrorRedirected = monoObject;
 
 		return m_isErrorRedirected;
 	}
@@ -232,8 +443,18 @@
     static BOOL m_isInputRedirected;
     + (BOOL)isInputRedirected
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"IsInputRedirected"];
-		m_isInputRedirected = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsInputRedirected");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_isInputRedirected = monoObject;
 
 		return m_isInputRedirected;
 	}
@@ -243,8 +464,18 @@
     static BOOL m_isOutputRedirected;
     + (BOOL)isOutputRedirected
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"IsOutputRedirected"];
-		m_isOutputRedirected = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsOutputRedirected");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_isOutputRedirected = monoObject;
 
 		return m_isOutputRedirected;
 	}
@@ -254,8 +485,18 @@
     static BOOL m_keyAvailable;
     + (BOOL)keyAvailable
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"KeyAvailable"];
-		m_keyAvailable = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "KeyAvailable");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_keyAvailable = monoObject;
 
 		return m_keyAvailable;
 	}
@@ -265,8 +506,18 @@
     static int32_t m_largestWindowHeight;
     + (int32_t)largestWindowHeight
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"LargestWindowHeight"];
-		m_largestWindowHeight = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LargestWindowHeight");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_largestWindowHeight = monoObject;
 
 		return m_largestWindowHeight;
 	}
@@ -276,8 +527,18 @@
     static int32_t m_largestWindowWidth;
     + (int32_t)largestWindowWidth
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"LargestWindowWidth"];
-		m_largestWindowWidth = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LargestWindowWidth");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_largestWindowWidth = monoObject;
 
 		return m_largestWindowWidth;
 	}
@@ -287,8 +548,18 @@
     static BOOL m_numberLock;
     + (BOOL)numberLock
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"NumberLock"];
-		m_numberLock = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NumberLock");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_numberLock = monoObject;
 
 		return m_numberLock;
 	}
@@ -298,9 +569,19 @@
     static System_IO_TextWriter * m_out;
     + (System_IO_TextWriter *)out
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Out"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Out");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_out isEqualToMonoObject:monoObject]) return m_out;					
-		m_out = [System_IO_TextWriter objectWithMonoObject:monoObject];
+		m_out = [System_IO_TextWriter bestObjectWithMonoObject:monoObject];
 
 		return m_out;
 	}
@@ -310,17 +591,36 @@
     static System_Text_Encoding * m_outputEncoding;
     + (System_Text_Encoding *)outputEncoding
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"OutputEncoding"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OutputEncoding");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_outputEncoding isEqualToMonoObject:monoObject]) return m_outputEncoding;					
-		m_outputEncoding = [System_Text_Encoding objectWithMonoObject:monoObject];
+		m_outputEncoding = [System_Text_Encoding bestObjectWithMonoObject:monoObject];
 
 		return m_outputEncoding;
 	}
     + (void)setOutputEncoding:(System_Text_Encoding *)value
 	{
 		m_outputEncoding = value;
-		MonoObject *monoObject = [value monoObject];
-		[[self class] setMonoClassProperty:"OutputEncoding" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "OutputEncoding");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk([value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Title
@@ -328,7 +628,17 @@
     static NSString * m_title;
     + (NSString *)title
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Title"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Title");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_title isEqualToMonoObject:monoObject]) return m_title;					
 		m_title = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -337,8 +647,17 @@
     + (void)setTitle:(NSString *)value
 	{
 		m_title = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[[self class] setMonoClassProperty:"Title" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Title");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk([value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : TreatControlCAsInput
@@ -346,16 +665,35 @@
     static BOOL m_treatControlCAsInput;
     + (BOOL)treatControlCAsInput
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"TreatControlCAsInput"];
-		m_treatControlCAsInput = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TreatControlCAsInput");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_treatControlCAsInput = monoObject;
 
 		return m_treatControlCAsInput;
 	}
     + (void)setTreatControlCAsInput:(BOOL)value
 	{
 		m_treatControlCAsInput = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[[self class] setMonoClassProperty:"TreatControlCAsInput" valueObject:monoObject];          
+		typedef void (*Thunk)(BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "TreatControlCAsInput");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : WindowHeight
@@ -363,16 +701,35 @@
     static int32_t m_windowHeight;
     + (int32_t)windowHeight
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"WindowHeight"];
-		m_windowHeight = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WindowHeight");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_windowHeight = monoObject;
 
 		return m_windowHeight;
 	}
     + (void)setWindowHeight:(int32_t)value
 	{
 		m_windowHeight = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[[self class] setMonoClassProperty:"WindowHeight" valueObject:monoObject];          
+		typedef void (*Thunk)(int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "WindowHeight");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : WindowLeft
@@ -380,16 +737,35 @@
     static int32_t m_windowLeft;
     + (int32_t)windowLeft
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"WindowLeft"];
-		m_windowLeft = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WindowLeft");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_windowLeft = monoObject;
 
 		return m_windowLeft;
 	}
     + (void)setWindowLeft:(int32_t)value
 	{
 		m_windowLeft = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[[self class] setMonoClassProperty:"WindowLeft" valueObject:monoObject];          
+		typedef void (*Thunk)(int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "WindowLeft");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : WindowTop
@@ -397,16 +773,35 @@
     static int32_t m_windowTop;
     + (int32_t)windowTop
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"WindowTop"];
-		m_windowTop = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WindowTop");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_windowTop = monoObject;
 
 		return m_windowTop;
 	}
     + (void)setWindowTop:(int32_t)value
 	{
 		m_windowTop = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[[self class] setMonoClassProperty:"WindowTop" valueObject:monoObject];          
+		typedef void (*Thunk)(int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "WindowTop");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : WindowWidth
@@ -414,16 +809,35 @@
     static int32_t m_windowWidth;
     + (int32_t)windowWidth
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"WindowWidth"];
-		m_windowWidth = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WindowWidth");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_windowWidth = monoObject;
 
 		return m_windowWidth;
 	}
     + (void)setWindowWidth:(int32_t)value
 	{
 		m_windowWidth = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[[self class] setMonoClassProperty:"WindowWidth" valueObject:monoObject];          
+		typedef void (*Thunk)(int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "WindowWidth");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -434,7 +848,9 @@
 	// Managed param types : 
     + (void)beep
     {
-		[self invokeMonoClassMethod:"Beep()" withNumArgs:0];;
+		
+		[self invokeMonoClassMethod:"Beep()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Beep
@@ -442,7 +858,9 @@
 	// Managed param types : System.Int32, System.Int32
     + (void)beep_withFrequency:(int32_t)p1 duration:(int32_t)p2
     {
-		[self invokeMonoClassMethod:"Beep(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		[self invokeMonoClassMethod:"Beep(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : Clear
@@ -450,7 +868,9 @@
 	// Managed param types : 
     + (void)clear
     {
-		[self invokeMonoClassMethod:"Clear()" withNumArgs:0];;
+		
+		[self invokeMonoClassMethod:"Clear()" withNumArgs:0];
+        
     }
 
 	// Managed method name : MoveBufferArea
@@ -458,15 +878,19 @@
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32
     + (void)moveBufferArea_withSourceLeft:(int32_t)p1 sourceTop:(int32_t)p2 sourceWidth:(int32_t)p3 sourceHeight:(int32_t)p4 targetLeft:(int32_t)p5 targetTop:(int32_t)p6
     {
-		[self invokeMonoClassMethod:"MoveBufferArea(int,int,int,int,int,int)" withNumArgs:6, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6)];;
+		
+		[self invokeMonoClassMethod:"MoveBufferArea(int,int,int,int,int,int)" withNumArgs:6, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6)];
+        
     }
 
 	// Managed method name : MoveBufferArea
 	// Managed return type : System.Void
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Char, System.ConsoleColor, System.ConsoleColor
-    + (void)moveBufferArea_withSourceLeft:(int32_t)p1 sourceTop:(int32_t)p2 sourceWidth:(int32_t)p3 sourceHeight:(int32_t)p4 targetLeft:(int32_t)p5 targetTop:(int32_t)p6 sourceChar:(uint16_t)p7 sourceForeColor:(System_ConsoleColor)p8 sourceBackColor:(System_ConsoleColor)p9
+    + (void)moveBufferArea_withSourceLeft:(int32_t)p1 sourceTop:(int32_t)p2 sourceWidth:(int32_t)p3 sourceHeight:(int32_t)p4 targetLeft:(int32_t)p5 targetTop:(int32_t)p6 sourceChar:(uint16_t)p7 sourceForeColor:(int32_t)p8 sourceBackColor:(int32_t)p9
     {
-		[self invokeMonoClassMethod:"MoveBufferArea(int,int,int,int,int,int,char,System.ConsoleColor,System.ConsoleColor)" withNumArgs:9, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), DB_VALUE(p8), DB_VALUE(p9)];;
+		
+		[self invokeMonoClassMethod:"MoveBufferArea(int,int,int,int,int,int,char,System.ConsoleColor,System.ConsoleColor)" withNumArgs:9, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), DB_VALUE(p8), DB_VALUE(p9)];
+        
     }
 
 	// Managed method name : OpenStandardError
@@ -477,7 +901,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenStandardError()" withNumArgs:0];
 		
-		return [System_IO_Stream objectWithMonoObject:monoObject];
+		return [System_IO_Stream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenStandardError
@@ -488,7 +912,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenStandardError(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_IO_Stream objectWithMonoObject:monoObject];
+		return [System_IO_Stream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenStandardInput
@@ -499,7 +923,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenStandardInput()" withNumArgs:0];
 		
-		return [System_IO_Stream objectWithMonoObject:monoObject];
+		return [System_IO_Stream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenStandardInput
@@ -510,7 +934,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenStandardInput(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_IO_Stream objectWithMonoObject:monoObject];
+		return [System_IO_Stream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenStandardOutput
@@ -521,7 +945,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenStandardOutput()" withNumArgs:0];
 		
-		return [System_IO_Stream objectWithMonoObject:monoObject];
+		return [System_IO_Stream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : OpenStandardOutput
@@ -532,7 +956,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenStandardOutput(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_IO_Stream objectWithMonoObject:monoObject];
+		return [System_IO_Stream bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Read
@@ -554,7 +978,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadKey()" withNumArgs:0];
 		
-		return [System_ConsoleKeyInfo objectWithMonoObject:monoObject];
+		return [System_ConsoleKeyInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReadKey
@@ -565,7 +989,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadKey(bool)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_ConsoleKeyInfo objectWithMonoObject:monoObject];
+		return [System_ConsoleKeyInfo bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReadLine
@@ -584,7 +1008,9 @@
 	// Managed param types : 
     + (void)resetColor
     {
-		[self invokeMonoClassMethod:"ResetColor()" withNumArgs:0];;
+		
+		[self invokeMonoClassMethod:"ResetColor()" withNumArgs:0];
+        
     }
 
 	// Managed method name : SetBufferSize
@@ -592,7 +1018,9 @@
 	// Managed param types : System.Int32, System.Int32
     + (void)setBufferSize_withWidth:(int32_t)p1 height:(int32_t)p2
     {
-		[self invokeMonoClassMethod:"SetBufferSize(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		[self invokeMonoClassMethod:"SetBufferSize(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : SetCursorPosition
@@ -600,7 +1028,9 @@
 	// Managed param types : System.Int32, System.Int32
     + (void)setCursorPosition_withLeft:(int32_t)p1 top:(int32_t)p2
     {
-		[self invokeMonoClassMethod:"SetCursorPosition(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		[self invokeMonoClassMethod:"SetCursorPosition(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : SetError
@@ -608,7 +1038,9 @@
 	// Managed param types : System.IO.TextWriter
     + (void)setError_withNewError:(System_IO_TextWriter *)p1
     {
-		[self invokeMonoClassMethod:"SetError(System.IO.TextWriter)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SetError(System.IO.TextWriter)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetIn
@@ -616,7 +1048,9 @@
 	// Managed param types : System.IO.TextReader
     + (void)setIn_withNewIn:(System_IO_TextReader *)p1
     {
-		[self invokeMonoClassMethod:"SetIn(System.IO.TextReader)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SetIn(System.IO.TextReader)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetOut
@@ -624,7 +1058,9 @@
 	// Managed param types : System.IO.TextWriter
     + (void)setOut_withNewOut:(System_IO_TextWriter *)p1
     {
-		[self invokeMonoClassMethod:"SetOut(System.IO.TextWriter)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SetOut(System.IO.TextWriter)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetWindowPosition
@@ -632,7 +1068,9 @@
 	// Managed param types : System.Int32, System.Int32
     + (void)setWindowPosition_withLeft:(int32_t)p1 top:(int32_t)p2
     {
-		[self invokeMonoClassMethod:"SetWindowPosition(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		[self invokeMonoClassMethod:"SetWindowPosition(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : SetWindowSize
@@ -640,7 +1078,9 @@
 	// Managed param types : System.Int32, System.Int32
     + (void)setWindowSize_withWidth:(int32_t)p1 height:(int32_t)p2
     {
-		[self invokeMonoClassMethod:"SetWindowSize(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		[self invokeMonoClassMethod:"SetWindowSize(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : Write
@@ -648,7 +1088,9 @@
 	// Managed param types : System.String, System.Object
     + (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2
     {
-		[self invokeMonoClassMethod:"Write(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Write(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Write
@@ -656,7 +1098,9 @@
 	// Managed param types : System.String, System.Object, System.Object
     + (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3
     {
-		[self invokeMonoClassMethod:"Write(string,object,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Write(string,object,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Write
@@ -664,7 +1108,9 @@
 	// Managed param types : System.String, System.Object, System.Object, System.Object
     + (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4
     {
-		[self invokeMonoClassMethod:"Write(string,object,object,object)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Write(string,object,object,object)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Write
@@ -672,7 +1118,9 @@
 	// Managed param types : System.String, System.Object, System.Object, System.Object, System.Object
     + (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4 arg3:(System_Object *)p5
     {
-		[self invokeMonoClassMethod:"Write(string,object,object,object,object)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Write(string,object,object,object,object)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Write
@@ -680,7 +1128,9 @@
 	// Managed param types : System.String, System.Object[]
     + (void)write_withFormat:(NSString *)p1 arg:(DBSystem_Array *)p2
     {
-		[self invokeMonoClassMethod:"Write(string,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Write(string,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Write
@@ -688,7 +1138,9 @@
 	// Managed param types : System.Boolean
     + (void)write_withValueBool:(BOOL)p1
     {
-		[self invokeMonoClassMethod:"Write(bool)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoClassMethod:"Write(bool)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : Write
@@ -696,7 +1148,9 @@
 	// Managed param types : System.Char
     + (void)write_withValueChar:(uint16_t)p1
     {
-		[self invokeMonoClassMethod:"Write(char)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoClassMethod:"Write(char)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : Write
@@ -704,7 +1158,9 @@
 	// Managed param types : System.Char[]
     + (void)write_withBuffer:(DBSystem_Array *)p1
     {
-		[self invokeMonoClassMethod:"Write(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Write(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Write
@@ -712,7 +1168,9 @@
 	// Managed param types : System.Char[], System.Int32, System.Int32
     + (void)write_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
-		[self invokeMonoClassMethod:"Write(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		[self invokeMonoClassMethod:"Write(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+        
     }
 
 	// Managed method name : Write
@@ -720,15 +1178,19 @@
 	// Managed param types : System.Double
     + (void)write_withValueDouble:(double)p1
     {
-		[self invokeMonoClassMethod:"Write(double)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoClassMethod:"Write(double)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.Decimal
-    + (void)write_withValueDecimal:(NSDecimalNumber *)p1
+    + (void)write_withValueSDecimal:(NSDecimalNumber *)p1
     {
-		[self invokeMonoClassMethod:"Write(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Write(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Write
@@ -736,7 +1198,9 @@
 	// Managed param types : System.Single
     + (void)write_withValueSingle:(float)p1
     {
-		[self invokeMonoClassMethod:"Write(single)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoClassMethod:"Write(single)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : Write
@@ -744,7 +1208,9 @@
 	// Managed param types : System.Int32
     + (void)write_withValueInt:(int32_t)p1
     {
-		[self invokeMonoClassMethod:"Write(int)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoClassMethod:"Write(int)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : Write
@@ -752,7 +1218,9 @@
 	// Managed param types : System.UInt32
     + (void)write_withValueUint:(uint32_t)p1
     {
-		[self invokeMonoClassMethod:"Write(uint)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoClassMethod:"Write(uint)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : Write
@@ -760,7 +1228,9 @@
 	// Managed param types : System.Int64
     + (void)write_withValueLong:(int64_t)p1
     {
-		[self invokeMonoClassMethod:"Write(long)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoClassMethod:"Write(long)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : Write
@@ -768,7 +1238,9 @@
 	// Managed param types : System.UInt64
     + (void)write_withValueUlong:(uint64_t)p1
     {
-		[self invokeMonoClassMethod:"Write(ulong)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoClassMethod:"Write(ulong)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : Write
@@ -776,7 +1248,9 @@
 	// Managed param types : System.Object
     + (void)write_withValueObject:(System_Object *)p1
     {
-		[self invokeMonoClassMethod:"Write(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Write(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : Write
@@ -784,7 +1258,9 @@
 	// Managed param types : System.String
     + (void)write_withValueString:(NSString *)p1
     {
-		[self invokeMonoClassMethod:"Write(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"Write(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : WriteLine
@@ -792,7 +1268,9 @@
 	// Managed param types : 
     + (void)writeLine
     {
-		[self invokeMonoClassMethod:"WriteLine()" withNumArgs:0];;
+		
+		[self invokeMonoClassMethod:"WriteLine()" withNumArgs:0];
+        
     }
 
 	// Managed method name : WriteLine
@@ -800,7 +1278,9 @@
 	// Managed param types : System.Boolean
     + (void)writeLine_withValueBool:(BOOL)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(bool)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoClassMethod:"WriteLine(bool)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : WriteLine
@@ -808,7 +1288,9 @@
 	// Managed param types : System.Char
     + (void)writeLine_withValueChar:(uint16_t)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(char)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoClassMethod:"WriteLine(char)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : WriteLine
@@ -816,7 +1298,9 @@
 	// Managed param types : System.Char[]
     + (void)writeLine_withBuffer:(DBSystem_Array *)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"WriteLine(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : WriteLine
@@ -824,15 +1308,19 @@
 	// Managed param types : System.Char[], System.Int32, System.Int32
     + (void)writeLine_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
-		[self invokeMonoClassMethod:"WriteLine(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		[self invokeMonoClassMethod:"WriteLine(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+        
     }
 
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
 	// Managed param types : System.Decimal
-    + (void)writeLine_withValueDecimal:(NSDecimalNumber *)p1
+    + (void)writeLine_withValueSDecimal:(NSDecimalNumber *)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"WriteLine(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : WriteLine
@@ -840,7 +1328,9 @@
 	// Managed param types : System.Double
     + (void)writeLine_withValueDouble:(double)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(double)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoClassMethod:"WriteLine(double)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : WriteLine
@@ -848,7 +1338,9 @@
 	// Managed param types : System.Single
     + (void)writeLine_withValueSingle:(float)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(single)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoClassMethod:"WriteLine(single)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : WriteLine
@@ -856,7 +1348,9 @@
 	// Managed param types : System.Int32
     + (void)writeLine_withValueInt:(int32_t)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(int)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoClassMethod:"WriteLine(int)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : WriteLine
@@ -864,7 +1358,9 @@
 	// Managed param types : System.UInt32
     + (void)writeLine_withValueUint:(uint32_t)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(uint)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoClassMethod:"WriteLine(uint)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : WriteLine
@@ -872,7 +1368,9 @@
 	// Managed param types : System.Int64
     + (void)writeLine_withValueLong:(int64_t)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(long)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoClassMethod:"WriteLine(long)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : WriteLine
@@ -880,7 +1378,9 @@
 	// Managed param types : System.UInt64
     + (void)writeLine_withValueUlong:(uint64_t)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(ulong)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoClassMethod:"WriteLine(ulong)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : WriteLine
@@ -888,7 +1388,9 @@
 	// Managed param types : System.Object
     + (void)writeLine_withValueObject:(System_Object *)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(object)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"WriteLine(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : WriteLine
@@ -896,7 +1398,9 @@
 	// Managed param types : System.String
     + (void)writeLine_withValueString:(NSString *)p1
     {
-		[self invokeMonoClassMethod:"WriteLine(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"WriteLine(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : WriteLine
@@ -904,7 +1408,9 @@
 	// Managed param types : System.String, System.Object
     + (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2
     {
-		[self invokeMonoClassMethod:"WriteLine(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"WriteLine(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : WriteLine
@@ -912,7 +1418,9 @@
 	// Managed param types : System.String, System.Object, System.Object
     + (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3
     {
-		[self invokeMonoClassMethod:"WriteLine(string,object,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"WriteLine(string,object,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : WriteLine
@@ -920,7 +1428,9 @@
 	// Managed param types : System.String, System.Object, System.Object, System.Object
     + (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4
     {
-		[self invokeMonoClassMethod:"WriteLine(string,object,object,object)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"WriteLine(string,object,object,object)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : WriteLine
@@ -928,7 +1438,9 @@
 	// Managed param types : System.String, System.Object, System.Object, System.Object, System.Object
     + (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4 arg3:(System_Object *)p5
     {
-		[self invokeMonoClassMethod:"WriteLine(string,object,object,object,object)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"WriteLine(string,object,object,object,object)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : WriteLine
@@ -936,7 +1448,9 @@
 	// Managed param types : System.String, System.Object[]
     + (void)writeLine_withFormat:(NSString *)p1 arg:(DBSystem_Array *)p2
     {
-		[self invokeMonoClassMethod:"WriteLine(string,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"WriteLine(string,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

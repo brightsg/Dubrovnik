@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.DesignerServices.WindowsRuntimeDesignerContext
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.String>, System.String
-    + (System_Runtime_DesignerServices_WindowsRuntimeDesignerContext *)new_withPaths:(System_Collections_Generic_IEnumerableA1 *)p1 name:(NSString *)p2
+    + (System_Runtime_DesignerServices_WindowsRuntimeDesignerContext *)new_withPaths:(id <System_Collections_Generic_IEnumerableA1_>)p1 name:(NSString *)p2
     {
-		return [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.String>,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		System_Runtime_DesignerServices_WindowsRuntimeDesignerContext * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<string>,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,7 +46,17 @@
     @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -61,7 +74,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAssembly(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Reflection_Assembly objectWithMonoObject:monoObject];
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetType
@@ -72,15 +85,17 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetType(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Type objectWithMonoObject:monoObject];
+		return [System_Type bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : InitializeSharedContext
 	// Managed return type : System.Void
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.String>
-    + (void)initializeSharedContext_withPaths:(System_Collections_Generic_IEnumerableA1 *)p1
+    + (void)initializeSharedContext_withPaths:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
-		[self invokeMonoClassMethod:"InitializeSharedContext(System.Collections.Generic.IEnumerable`1<System.String>)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"InitializeSharedContext(System.Collections.Generic.IEnumerable`1<string>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetIterationContext
@@ -88,7 +103,9 @@
 	// Managed param types : System.Runtime.DesignerServices.WindowsRuntimeDesignerContext
     + (void)setIterationContext_withContext:(System_Runtime_DesignerServices_WindowsRuntimeDesignerContext *)p1
     {
-		[self invokeMonoClassMethod:"SetIterationContext(System.Runtime.DesignerServices.WindowsRuntimeDesignerContext)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoClassMethod:"SetIterationContext(System.Runtime.DesignerServices.WindowsRuntimeDesignerContext)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

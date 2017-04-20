@@ -2,7 +2,7 @@
 //
 // Managed class : StreamWriter
 //
-@interface System_IO_StreamWriter : System_IO_TextWriter <System_IDisposable>
+@interface System_IO_StreamWriter : System_IO_TextWriter <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

@@ -2,7 +2,7 @@
 //
 // Managed class : ProxyAttribute
 //
-@interface System_Runtime_Remoting_Proxies_ProxyAttribute : System_Attribute <System_Runtime_InteropServices__Attribute, System_Runtime_Remoting_Contexts_IContextAttribute>
+@interface System_Runtime_Remoting_Proxies_ProxyAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_, System_Runtime_Remoting_Contexts_IContextAttribute_>
 
 #pragma mark -
 #pragma mark Setup
@@ -27,11 +27,11 @@
 	// Managed method name : GetPropertiesForNewContext
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Activation.IConstructionCallMessage
-    - (void)getPropertiesForNewContext_withMsg:(System_Runtime_Remoting_Activation_IConstructionCallMessage *)p1;
+    - (void)getPropertiesForNewContext_withMsg:(id <System_Runtime_Remoting_Activation_IConstructionCallMessage_>)p1;
 
 	// Managed method name : IsContextOK
 	// Managed return type : System.Boolean
 	// Managed param types : System.Runtime.Remoting.Contexts.Context, System.Runtime.Remoting.Activation.IConstructionCallMessage
-    - (BOOL)isContextOK_withCtx:(System_Runtime_Remoting_Contexts_Context *)p1 msg:(System_Runtime_Remoting_Activation_IConstructionCallMessage *)p2;
+    - (BOOL)isContextOK_withCtx:(System_Runtime_Remoting_Contexts_Context *)p1 msg:(id <System_Runtime_Remoting_Activation_IConstructionCallMessage_>)p2;
 @end
 //--Dubrovnik.CodeGenerator

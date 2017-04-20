@@ -30,12 +30,12 @@
 	// Managed method name : GetReader
 	// Managed return type : System.Diagnostics.SymbolStore.ISymbolReader
 	// Managed param types : System.IntPtr, System.String, System.String
-    - (System_Diagnostics_SymbolStore_ISymbolReader *)getReader_withImporter:(void *)p1 filename:(NSString *)p2 searchPath:(NSString *)p3
+    - (id <System_Diagnostics_SymbolStore_ISymbolReader>)getReader_withImporter:(void *)p1 filename:(NSString *)p2 searchPath:(NSString *)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Diagnostics.SymbolStore.ISymbolBinder1.GetReader(intptr,string,string)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_Diagnostics_SymbolStore_ISymbolReader objectWithMonoObject:monoObject];
+		return [System_Diagnostics_SymbolStore_ISymbolReader bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

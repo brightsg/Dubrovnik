@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.PermissionSet
 	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Security_PermissionSet *)new_withState:(System_Security_Permissions_PermissionState)p1
+    + (System_Security_PermissionSet *)new_withState:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Security_PermissionSet * object = [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Security.PermissionSet
     + (System_Security_PermissionSet *)new_withPermSet:(System_Security_PermissionSet *)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.PermissionSet" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Security_PermissionSet * object = [[self alloc] initWithSignature:"System.Security.PermissionSet" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -51,8 +57,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -62,8 +78,18 @@
     @synthesize isReadOnly = _isReadOnly;
     - (BOOL)isReadOnly
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsReadOnly"];
-		_isReadOnly = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsReadOnly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isReadOnly = monoObject;
 
 		return _isReadOnly;
 	}
@@ -73,8 +99,18 @@
     @synthesize isSynchronized = _isSynchronized;
     - (BOOL)isSynchronized
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsSynchronized"];
-		_isSynchronized = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsSynchronized");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isSynchronized = monoObject;
 
 		return _isSynchronized;
 	}
@@ -84,7 +120,17 @@
     @synthesize syncRoot = _syncRoot;
     - (System_Object *)syncRoot
     {
-		MonoObject *monoObject = [self getMonoProperty:"SyncRoot"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SyncRoot");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_syncRoot isEqualToMonoObject:monoObject]) return _syncRoot;					
 		_syncRoot = [System_Object objectWithMonoObject:monoObject];
 
@@ -97,12 +143,12 @@
 	// Managed method name : AddPermission
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.IPermission
-    - (System_Security_IPermission *)addPermission_withPerm:(System_Security_IPermission *)p1
+    - (id <System_Security_IPermission>)addPermission_withPerm:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"AddPermission(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Assert
@@ -110,7 +156,9 @@
 	// Managed param types : 
     - (void)assert
     {
-		[self invokeMonoMethod:"Assert()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Assert()" withNumArgs:0];
+        
     }
 
 	// Managed method name : ContainsNonCodeAccessPermissions
@@ -143,7 +191,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Copy()" withNumArgs:0];
 		
-		return [System_Security_PermissionSet objectWithMonoObject:monoObject];
+		return [System_Security_PermissionSet bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CopyTo
@@ -151,7 +199,9 @@
 	// Managed param types : System.Array, System.Int32
     - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
-		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];;
+		
+		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
     }
 
 	// Managed method name : Demand
@@ -159,7 +209,9 @@
 	// Managed param types : 
     - (void)demand
     {
-		[self invokeMonoMethod:"Demand()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Demand()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Deny
@@ -167,7 +219,9 @@
 	// Managed param types : 
     - (void)deny
     {
-		[self invokeMonoMethod:"Deny()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Deny()" withNumArgs:0];
+        
     }
 
 	// Managed method name : Equals
@@ -186,18 +240,20 @@
 	// Managed param types : System.Security.SecurityElement
     - (void)fromXml_withEt:(System_Security_SecurityElement *)p1
     {
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IEnumerator
 	// Managed param types : 
-    - (System_Collections_IEnumerator *)getEnumerator
+    - (id <System_Collections_IEnumerator>)getEnumerator
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
 		
-		return [System_Collections_IEnumerator objectWithMonoObject:monoObject];
+		return [System_Collections_IEnumerator bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetHashCode
@@ -214,12 +270,12 @@
 	// Managed method name : GetPermission
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Type
-    - (System_Security_IPermission *)getPermission_withPermClass:(System_Type *)p1
+    - (id <System_Security_IPermission>)getPermission_withPermClass:(System_Type *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetPermission(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Intersect
@@ -230,7 +286,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.PermissionSet)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_PermissionSet objectWithMonoObject:monoObject];
+		return [System_Security_PermissionSet bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : IsEmpty
@@ -271,18 +327,20 @@
 	// Managed param types : 
     - (void)permitOnly
     {
-		[self invokeMonoMethod:"PermitOnly()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"PermitOnly()" withNumArgs:0];
+        
     }
 
 	// Managed method name : RemovePermission
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Type
-    - (System_Security_IPermission *)removePermission_withPermClass:(System_Type *)p1
+    - (id <System_Security_IPermission>)removePermission_withPermClass:(System_Type *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"RemovePermission(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : RevertAssert
@@ -290,18 +348,20 @@
 	// Managed param types : 
     + (void)revertAssert
     {
-		[self invokeMonoClassMethod:"RevertAssert()" withNumArgs:0];;
+		
+		[self invokeMonoClassMethod:"RevertAssert()" withNumArgs:0];
+        
     }
 
 	// Managed method name : SetPermission
 	// Managed return type : System.Security.IPermission
 	// Managed param types : System.Security.IPermission
-    - (System_Security_IPermission *)setPermission_withPerm:(System_Security_IPermission *)p1
+    - (id <System_Security_IPermission>)setPermission_withPerm:(id <System_Security_IPermission_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"SetPermission(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_IPermission objectWithMonoObject:monoObject];
+		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ToString
@@ -323,7 +383,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXml()" withNumArgs:0];
 		
-		return [System_Security_SecurityElement objectWithMonoObject:monoObject];
+		return [System_Security_SecurityElement bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Union
@@ -334,7 +394,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.PermissionSet)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_PermissionSet objectWithMonoObject:monoObject];
+		return [System_Security_PermissionSet bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

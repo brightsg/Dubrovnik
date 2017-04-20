@@ -2,7 +2,7 @@
 //
 // Managed struct : YieldAwaitable.YieldAwaiter
 //
-@interface System_Runtime_CompilerServices_YieldAwaitable__YieldAwaiter : DBManagedObject <System_Runtime_CompilerServices_ICriticalNotifyCompletion, System_Runtime_CompilerServices_INotifyCompletion>
+@interface System_Runtime_CompilerServices_YieldAwaitable__YieldAwaiter : DBManagedObject <System_Runtime_CompilerServices_ICriticalNotifyCompletion_, System_Runtime_CompilerServices_INotifyCompletion_>
 
 #pragma mark -
 #pragma mark Setup

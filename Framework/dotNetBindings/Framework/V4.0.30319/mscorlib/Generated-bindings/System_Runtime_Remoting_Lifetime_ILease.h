@@ -20,7 +20,7 @@
 
 	// Managed property name : CurrentState
 	// Managed property type : System.Runtime.Remoting.Lifetime.LeaseState
-    @property (nonatomic, readonly) System_Runtime_Remoting_Lifetime_LeaseState currentState;
+    @property (nonatomic, readonly) int32_t currentState;
 
 	// Managed property name : InitialLeaseTime
 	// Managed property type : System.TimeSpan
@@ -40,12 +40,12 @@
 	// Managed method name : Register
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Lifetime.ISponsor, System.TimeSpan
-    - (void)register_withObj:(System_Runtime_Remoting_Lifetime_ISponsor *)p1 renewalTime:(System_TimeSpan *)p2;
+    - (void)register_withObj:(id <System_Runtime_Remoting_Lifetime_ISponsor_>)p1 renewalTime:(System_TimeSpan *)p2;
 
 	// Managed method name : Register
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Lifetime.ISponsor
-    - (void)register_withObj:(System_Runtime_Remoting_Lifetime_ISponsor *)p1;
+    - (void)register_withObj:(id <System_Runtime_Remoting_Lifetime_ISponsor_>)p1;
 
 	// Managed method name : Renew
 	// Managed return type : System.TimeSpan
@@ -55,6 +55,6 @@
 	// Managed method name : Unregister
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Lifetime.ISponsor
-    - (void)unregister_withObj:(System_Runtime_Remoting_Lifetime_ISponsor *)p1;
+    - (void)unregister_withObj:(id <System_Runtime_Remoting_Lifetime_ISponsor_>)p1;
 @end
 //--Dubrovnik.CodeGenerator

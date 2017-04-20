@@ -2,7 +2,7 @@
 //
 // Managed class : KeyContainerPermissionAccessEntryEnumerator
 //
-@interface System_Security_Permissions_KeyContainerPermissionAccessEntryEnumerator : System_Object <System_Collections_IEnumerator>
+@interface System_Security_Permissions_KeyContainerPermissionAccessEntryEnumerator : System_Object <System_Collections_IEnumerator_>
 
 #pragma mark -
 #pragma mark Setup

@@ -2,7 +2,7 @@
 //
 // Managed class : ClaimsIdentity
 //
-@interface System_Security_Claims_ClaimsIdentity : System_Object <System_Security_Principal_IIdentity>
+@interface System_Security_Claims_ClaimsIdentity : System_Object <System_Security_Principal_IIdentity_>
 
 #pragma mark -
 #pragma mark Setup
@@ -17,12 +17,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Claims.ClaimsIdentity
 	// Managed param types : System.Security.Principal.IIdentity
-    + (System_Security_Claims_ClaimsIdentity *)new_withIdentity:(System_Security_Principal_IIdentity *)p1;
+    + (System_Security_Claims_ClaimsIdentity *)new_withIdentity:(id <System_Security_Principal_IIdentity_>)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Claims.ClaimsIdentity
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
-    + (System_Security_Claims_ClaimsIdentity *)new_withClaims:(System_Collections_Generic_IEnumerableA1 *)p1;
+    + (System_Security_Claims_ClaimsIdentity *)new_withClaims:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Claims.ClaimsIdentity
@@ -32,12 +32,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Claims.ClaimsIdentity
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>, System.String
-    + (System_Security_Claims_ClaimsIdentity *)new_withClaims:(System_Collections_Generic_IEnumerableA1 *)p1 authenticationType:(NSString *)p2;
+    + (System_Security_Claims_ClaimsIdentity *)new_withClaims:(id <System_Collections_Generic_IEnumerableA1_>)p1 authenticationType:(NSString *)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Claims.ClaimsIdentity
 	// Managed param types : System.Security.Principal.IIdentity, System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
-    + (System_Security_Claims_ClaimsIdentity *)new_withIdentity:(System_Security_Principal_IIdentity *)p1 claims:(System_Collections_Generic_IEnumerableA1 *)p2;
+    + (System_Security_Claims_ClaimsIdentity *)new_withIdentity:(id <System_Security_Principal_IIdentity_>)p1 claims:(id <System_Collections_Generic_IEnumerableA1_>)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Claims.ClaimsIdentity
@@ -47,12 +47,17 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Claims.ClaimsIdentity
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>, System.String, System.String, System.String
-    + (System_Security_Claims_ClaimsIdentity *)new_withClaims:(System_Collections_Generic_IEnumerableA1 *)p1 authenticationType:(NSString *)p2 nameType:(NSString *)p3 roleType:(NSString *)p4;
+    + (System_Security_Claims_ClaimsIdentity *)new_withClaims:(id <System_Collections_Generic_IEnumerableA1_>)p1 authenticationType:(NSString *)p2 nameType:(NSString *)p3 roleType:(NSString *)p4;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Claims.ClaimsIdentity
 	// Managed param types : System.Security.Principal.IIdentity, System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>, System.String, System.String, System.String
-    + (System_Security_Claims_ClaimsIdentity *)new_withIdentity:(System_Security_Principal_IIdentity *)p1 claims:(System_Collections_Generic_IEnumerableA1 *)p2 authenticationType:(NSString *)p3 nameType:(NSString *)p4 roleType:(NSString *)p5;
+    + (System_Security_Claims_ClaimsIdentity *)new_withIdentity:(id <System_Security_Principal_IIdentity_>)p1 claims:(id <System_Collections_Generic_IEnumerableA1_>)p2 authenticationType:(NSString *)p3 nameType:(NSString *)p4 roleType:(NSString *)p5;
+
+	// Managed method name : .ctor
+	// Managed return type : System.Security.Claims.ClaimsIdentity
+	// Managed param types : System.IO.BinaryReader
+    + (System_Security_Claims_ClaimsIdentity *)new_withReader:(System_IO_BinaryReader *)p1;
 
 #pragma mark -
 #pragma mark Fields
@@ -119,7 +124,7 @@
 	// Managed method name : AddClaims
 	// Managed return type : System.Void
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
-    - (void)addClaims_withClaims:(System_Collections_Generic_IEnumerableA1 *)p1;
+    - (void)addClaims_withClaims:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
 	// Managed method name : Clone
 	// Managed return type : System.Security.Claims.ClaimsIdentity
@@ -129,12 +134,12 @@
 	// Managed method name : FindAll
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
 	// Managed param types : System.Predicate`1<System.Security.Claims.Claim>
-    - (System_Collections_Generic_IEnumerableA1 *)findAll_withMatch:(System_PredicateA1 *)p1;
+    - (id <System_Collections_Generic_IEnumerableA1>)findAll_withMatch:(System_PredicateA1 *)p1;
 
 	// Managed method name : FindAll
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>
 	// Managed param types : System.String
-    - (System_Collections_Generic_IEnumerableA1 *)findAll_withType:(NSString *)p1;
+    - (id <System_Collections_Generic_IEnumerableA1>)findAll_withType:(NSString *)p1;
 
 	// Managed method name : FindFirst
 	// Managed return type : System.Security.Claims.Claim
@@ -165,5 +170,10 @@
 	// Managed return type : System.Boolean
 	// Managed param types : System.Security.Claims.Claim
     - (BOOL)tryRemoveClaim_withClaim:(System_Security_Claims_Claim *)p1;
+
+	// Managed method name : WriteTo
+	// Managed return type : System.Void
+	// Managed param types : System.IO.BinaryWriter
+    - (void)writeTo_withWriter:(System_IO_BinaryWriter *)p1;
 @end
 //--Dubrovnik.CodeGenerator

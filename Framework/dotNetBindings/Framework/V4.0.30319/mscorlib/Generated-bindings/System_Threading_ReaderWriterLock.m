@@ -32,8 +32,18 @@
     @synthesize isReaderLockHeld = _isReaderLockHeld;
     - (BOOL)isReaderLockHeld
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsReaderLockHeld"];
-		_isReaderLockHeld = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsReaderLockHeld");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isReaderLockHeld = monoObject;
 
 		return _isReaderLockHeld;
 	}
@@ -43,8 +53,18 @@
     @synthesize isWriterLockHeld = _isWriterLockHeld;
     - (BOOL)isWriterLockHeld
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsWriterLockHeld"];
-		_isWriterLockHeld = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsWriterLockHeld");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isWriterLockHeld = monoObject;
 
 		return _isWriterLockHeld;
 	}
@@ -54,8 +74,18 @@
     @synthesize writerSeqNum = _writerSeqNum;
     - (int32_t)writerSeqNum
     {
-		MonoObject *monoObject = [self getMonoProperty:"WriterSeqNum"];
-		_writerSeqNum = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WriterSeqNum");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_writerSeqNum = monoObject;
 
 		return _writerSeqNum;
 	}
@@ -68,7 +98,9 @@
 	// Managed param types : System.Int32
     - (void)acquireReaderLock_withMillisecondsTimeout:(int32_t)p1
     {
-		[self invokeMonoMethod:"AcquireReaderLock(int)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"AcquireReaderLock(int)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : AcquireReaderLock
@@ -76,7 +108,9 @@
 	// Managed param types : System.TimeSpan
     - (void)acquireReaderLock_withTimeout:(System_TimeSpan *)p1
     {
-		[self invokeMonoMethod:"AcquireReaderLock(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"AcquireReaderLock(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : AcquireWriterLock
@@ -84,7 +118,9 @@
 	// Managed param types : System.Int32
     - (void)acquireWriterLock_withMillisecondsTimeout:(int32_t)p1
     {
-		[self invokeMonoMethod:"AcquireWriterLock(int)" withNumArgs:1, DB_VALUE(p1)];;
+		
+		[self invokeMonoMethod:"AcquireWriterLock(int)" withNumArgs:1, DB_VALUE(p1)];
+        
     }
 
 	// Managed method name : AcquireWriterLock
@@ -92,7 +128,9 @@
 	// Managed param types : System.TimeSpan
     - (void)acquireWriterLock_withTimeout:(System_TimeSpan *)p1
     {
-		[self invokeMonoMethod:"AcquireWriterLock(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"AcquireWriterLock(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : AnyWritersSince
@@ -111,8 +149,12 @@
 	// Managed param types : ref System.Threading.LockCookie&
     - (void)downgradeFromWriterLock_withLockCookieRef:(System_Threading_LockCookie **)p1
     {
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"DowngradeFromWriterLock(System.Threading.LockCookie&)" withNumArgs:1, &refPtr1];
-;
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+
     }
 
 	// Managed method name : ReleaseLock
@@ -123,7 +165,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ReleaseLock()" withNumArgs:0];
 		
-		return [System_Threading_LockCookie objectWithMonoObject:monoObject];
+		return [System_Threading_LockCookie bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : ReleaseReaderLock
@@ -131,7 +173,9 @@
 	// Managed param types : 
     - (void)releaseReaderLock
     {
-		[self invokeMonoMethod:"ReleaseReaderLock()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"ReleaseReaderLock()" withNumArgs:0];
+        
     }
 
 	// Managed method name : ReleaseWriterLock
@@ -139,7 +183,9 @@
 	// Managed param types : 
     - (void)releaseWriterLock
     {
-		[self invokeMonoMethod:"ReleaseWriterLock()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"ReleaseWriterLock()" withNumArgs:0];
+        
     }
 
 	// Managed method name : RestoreLock
@@ -147,8 +193,12 @@
 	// Managed param types : ref System.Threading.LockCookie&
     - (void)restoreLock_withLockCookieRef:(System_Threading_LockCookie **)p1
     {
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+
 		[self invokeMonoMethod:"RestoreLock(System.Threading.LockCookie&)" withNumArgs:1, &refPtr1];
-;
+
+        *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
+
     }
 
 	// Managed method name : UpgradeToWriterLock
@@ -159,7 +209,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"UpgradeToWriterLock(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Threading_LockCookie objectWithMonoObject:monoObject];
+		return [System_Threading_LockCookie bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : UpgradeToWriterLock
@@ -170,7 +220,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"UpgradeToWriterLock(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Threading_LockCookie objectWithMonoObject:monoObject];
+		return [System_Threading_LockCookie bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

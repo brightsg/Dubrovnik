@@ -32,7 +32,10 @@
 	// Managed param types : System.Boolean
     + (System_Text_UTF7Encoding *)new_withAllowOptionals:(BOOL)p1
     {
-		return [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Text_UTF7Encoding * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -167,7 +170,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDecoder()" withNumArgs:0];
 		
-		return [System_Text_Decoder objectWithMonoObject:monoObject];
+		return [System_Text_Decoder bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetEncoder
@@ -178,7 +181,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEncoder()" withNumArgs:0];
 		
-		return [System_Text_Encoder objectWithMonoObject:monoObject];
+		return [System_Text_Encoder bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetHashCode

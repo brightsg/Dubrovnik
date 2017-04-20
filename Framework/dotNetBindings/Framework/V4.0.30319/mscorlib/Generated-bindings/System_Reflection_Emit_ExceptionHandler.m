@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Reflection.Emit.ExceptionHandler
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Reflection.ExceptionHandlingClauseOptions, System.Int32
-    + (System_Reflection_Emit_ExceptionHandler *)new_withTryOffset:(int32_t)p1 tryLength:(int32_t)p2 filterOffset:(int32_t)p3 handlerOffset:(int32_t)p4 handlerLength:(int32_t)p5 kind:(System_Reflection_ExceptionHandlingClauseOptions)p6 exceptionTypeToken:(int32_t)p7
+    + (System_Reflection_Emit_ExceptionHandler *)new_withTryOffset:(int32_t)p1 tryLength:(int32_t)p2 filterOffset:(int32_t)p3 handlerOffset:(int32_t)p4 handlerLength:(int32_t)p5 kind:(int32_t)p6 exceptionTypeToken:(int32_t)p7
     {
-		return [[self alloc] initWithSignature:"int,int,int,int,int,System.Reflection.ExceptionHandlingClauseOptions,int" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7)];;
+		
+		System_Reflection_Emit_ExceptionHandler * object = [[self alloc] initWithSignature:"int,int,int,int,int,System.Reflection.ExceptionHandlingClauseOptions,int" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,8 +46,18 @@
     @synthesize exceptionTypeToken = _exceptionTypeToken;
     - (int32_t)exceptionTypeToken
     {
-		MonoObject *monoObject = [self getMonoProperty:"ExceptionTypeToken"];
-		_exceptionTypeToken = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ExceptionTypeToken");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_exceptionTypeToken = monoObject;
 
 		return _exceptionTypeToken;
 	}
@@ -54,8 +67,18 @@
     @synthesize filterOffset = _filterOffset;
     - (int32_t)filterOffset
     {
-		MonoObject *monoObject = [self getMonoProperty:"FilterOffset"];
-		_filterOffset = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FilterOffset");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_filterOffset = monoObject;
 
 		return _filterOffset;
 	}
@@ -65,8 +88,18 @@
     @synthesize handlerLength = _handlerLength;
     - (int32_t)handlerLength
     {
-		MonoObject *monoObject = [self getMonoProperty:"HandlerLength"];
-		_handlerLength = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HandlerLength");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_handlerLength = monoObject;
 
 		return _handlerLength;
 	}
@@ -76,8 +109,18 @@
     @synthesize handlerOffset = _handlerOffset;
     - (int32_t)handlerOffset
     {
-		MonoObject *monoObject = [self getMonoProperty:"HandlerOffset"];
-		_handlerOffset = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HandlerOffset");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_handlerOffset = monoObject;
 
 		return _handlerOffset;
 	}
@@ -85,10 +128,20 @@
 	// Managed property name : Kind
 	// Managed property type : System.Reflection.ExceptionHandlingClauseOptions
     @synthesize kind = _kind;
-    - (System_Reflection_ExceptionHandlingClauseOptions)kind
+    - (int32_t)kind
     {
-		MonoObject *monoObject = [self getMonoProperty:"Kind"];
-		_kind = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Kind");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_kind = monoObject;
 
 		return _kind;
 	}
@@ -98,8 +151,18 @@
     @synthesize tryLength = _tryLength;
     - (int32_t)tryLength
     {
-		MonoObject *monoObject = [self getMonoProperty:"TryLength"];
-		_tryLength = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TryLength");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_tryLength = monoObject;
 
 		return _tryLength;
 	}
@@ -109,8 +172,18 @@
     @synthesize tryOffset = _tryOffset;
     - (int32_t)tryOffset
     {
-		MonoObject *monoObject = [self getMonoProperty:"TryOffset"];
-		_tryOffset = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TryOffset");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_tryOffset = monoObject;
 
 		return _tryOffset;
 	}

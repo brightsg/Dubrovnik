@@ -30,7 +30,7 @@
 	// Managed method name : Pop
 	// Managed return type : System.Object
 	// Managed param types : System.Runtime.Remoting.Channels.IClientChannelSink
-    - (System_Object *)pop_withSink:(System_Runtime_Remoting_Channels_IClientChannelSink *)p1
+    - (System_Object *)pop_withSink:(id <System_Runtime_Remoting_Channels_IClientChannelSink_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.Remoting.Channels.IClientChannelSinkStack.Pop(System.Runtime.Remoting.Channels.IClientChannelSink)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -41,9 +41,11 @@
 	// Managed method name : Push
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Channels.IClientChannelSink, System.Object
-    - (void)push_withSink:(System_Runtime_Remoting_Channels_IClientChannelSink *)p1 state:(System_Object *)p2
+    - (void)push_withSink:(id <System_Runtime_Remoting_Channels_IClientChannelSink_>)p1 state:(System_Object *)p2
     {
-		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IClientChannelSinkStack.Push(System.Runtime.Remoting.Channels.IClientChannelSink,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"System.Runtime.Remoting.Channels.IClientChannelSinkStack.Push(System.Runtime.Remoting.Channels.IClientChannelSink,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

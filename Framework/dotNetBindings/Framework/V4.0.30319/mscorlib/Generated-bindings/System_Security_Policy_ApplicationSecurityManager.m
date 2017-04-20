@@ -32,9 +32,19 @@
     static System_Security_Policy_IApplicationTrustManager * m_applicationTrustManager;
     + (System_Security_Policy_IApplicationTrustManager *)applicationTrustManager
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"ApplicationTrustManager"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ApplicationTrustManager");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_applicationTrustManager isEqualToMonoObject:monoObject]) return m_applicationTrustManager;					
-		m_applicationTrustManager = [System_Security_Policy_IApplicationTrustManager objectWithMonoObject:monoObject];
+		m_applicationTrustManager = [System_Security_Policy_IApplicationTrustManager bestObjectWithMonoObject:monoObject];
 
 		return m_applicationTrustManager;
 	}
@@ -44,9 +54,19 @@
     static System_Security_Policy_ApplicationTrustCollection * m_userApplicationTrusts;
     + (System_Security_Policy_ApplicationTrustCollection *)userApplicationTrusts
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"UserApplicationTrusts"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UserApplicationTrusts");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_userApplicationTrusts isEqualToMonoObject:monoObject]) return m_userApplicationTrusts;					
-		m_userApplicationTrusts = [System_Security_Policy_ApplicationTrustCollection objectWithMonoObject:monoObject];
+		m_userApplicationTrusts = [System_Security_Policy_ApplicationTrustCollection bestObjectWithMonoObject:monoObject];
 
 		return m_userApplicationTrusts;
 	}

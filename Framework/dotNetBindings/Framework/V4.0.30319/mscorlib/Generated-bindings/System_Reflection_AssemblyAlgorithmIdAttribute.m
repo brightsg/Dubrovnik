@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Reflection.AssemblyAlgorithmIdAttribute
 	// Managed param types : System.Configuration.Assemblies.AssemblyHashAlgorithm
-    + (System_Reflection_AssemblyAlgorithmIdAttribute *)new_withAlgorithmIdSCAAssemblyHashAlgorithm:(System_Configuration_Assemblies_AssemblyHashAlgorithm)p1
+    + (System_Reflection_AssemblyAlgorithmIdAttribute *)new_withAlgorithmIdSCAAssemblyHashAlgorithm:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Configuration.Assemblies.AssemblyHashAlgorithm" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Reflection_AssemblyAlgorithmIdAttribute * object = [[self alloc] initWithSignature:"System.Configuration.Assemblies.AssemblyHashAlgorithm" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.UInt32
     + (System_Reflection_AssemblyAlgorithmIdAttribute *)new_withAlgorithmIdUint:(uint32_t)p1
     {
-		return [[self alloc] initWithSignature:"uint" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Reflection_AssemblyAlgorithmIdAttribute * object = [[self alloc] initWithSignature:"uint" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -51,8 +57,18 @@
     @synthesize algorithmId = _algorithmId;
     - (uint32_t)algorithmId
     {
-		MonoObject *monoObject = [self getMonoProperty:"AlgorithmId"];
-		_algorithmId = DB_UNBOX_UINT32(monoObject);
+		typedef uint32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AlgorithmId");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		uint32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_algorithmId = monoObject;
 
 		return _algorithmId;
 	}

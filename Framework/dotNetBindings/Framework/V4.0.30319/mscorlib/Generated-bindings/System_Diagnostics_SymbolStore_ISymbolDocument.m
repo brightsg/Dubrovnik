@@ -32,9 +32,19 @@
     @synthesize checkSumAlgorithmId = _checkSumAlgorithmId;
     - (System_Guid *)checkSumAlgorithmId
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Diagnostics.SymbolStore.ISymbolDocument.CheckSumAlgorithmId"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Diagnostics.SymbolStore.ISymbolDocument.CheckSumAlgorithmId");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_checkSumAlgorithmId isEqualToMonoObject:monoObject]) return _checkSumAlgorithmId;					
-		_checkSumAlgorithmId = [System_Guid objectWithMonoObject:monoObject];
+		_checkSumAlgorithmId = [System_Guid bestObjectWithMonoObject:monoObject];
 
 		return _checkSumAlgorithmId;
 	}
@@ -44,9 +54,19 @@
     @synthesize documentType = _documentType;
     - (System_Guid *)documentType
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Diagnostics.SymbolStore.ISymbolDocument.DocumentType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Diagnostics.SymbolStore.ISymbolDocument.DocumentType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_documentType isEqualToMonoObject:monoObject]) return _documentType;					
-		_documentType = [System_Guid objectWithMonoObject:monoObject];
+		_documentType = [System_Guid bestObjectWithMonoObject:monoObject];
 
 		return _documentType;
 	}
@@ -56,8 +76,18 @@
     @synthesize hasEmbeddedSource = _hasEmbeddedSource;
     - (BOOL)hasEmbeddedSource
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Diagnostics.SymbolStore.ISymbolDocument.HasEmbeddedSource"];
-		_hasEmbeddedSource = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Diagnostics.SymbolStore.ISymbolDocument.HasEmbeddedSource");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_hasEmbeddedSource = monoObject;
 
 		return _hasEmbeddedSource;
 	}
@@ -67,9 +97,19 @@
     @synthesize language = _language;
     - (System_Guid *)language
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Diagnostics.SymbolStore.ISymbolDocument.Language"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Diagnostics.SymbolStore.ISymbolDocument.Language");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_language isEqualToMonoObject:monoObject]) return _language;					
-		_language = [System_Guid objectWithMonoObject:monoObject];
+		_language = [System_Guid bestObjectWithMonoObject:monoObject];
 
 		return _language;
 	}
@@ -79,9 +119,19 @@
     @synthesize languageVendor = _languageVendor;
     - (System_Guid *)languageVendor
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Diagnostics.SymbolStore.ISymbolDocument.LanguageVendor"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Diagnostics.SymbolStore.ISymbolDocument.LanguageVendor");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_languageVendor isEqualToMonoObject:monoObject]) return _languageVendor;					
-		_languageVendor = [System_Guid objectWithMonoObject:monoObject];
+		_languageVendor = [System_Guid bestObjectWithMonoObject:monoObject];
 
 		return _languageVendor;
 	}
@@ -91,8 +141,18 @@
     @synthesize sourceLength = _sourceLength;
     - (int32_t)sourceLength
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Diagnostics.SymbolStore.ISymbolDocument.SourceLength"];
-		_sourceLength = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Diagnostics.SymbolStore.ISymbolDocument.SourceLength");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_sourceLength = monoObject;
 
 		return _sourceLength;
 	}
@@ -102,7 +162,17 @@
     @synthesize uRL = _uRL;
     - (NSString *)uRL
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Diagnostics.SymbolStore.ISymbolDocument.URL"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Diagnostics.SymbolStore.ISymbolDocument.URL");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_uRL isEqualToMonoObject:monoObject]) return _uRL;					
 		_uRL = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

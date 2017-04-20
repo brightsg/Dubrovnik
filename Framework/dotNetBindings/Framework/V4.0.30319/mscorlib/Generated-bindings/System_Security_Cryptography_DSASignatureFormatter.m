@@ -32,7 +32,10 @@
 	// Managed param types : System.Security.Cryptography.AsymmetricAlgorithm
     + (System_Security_Cryptography_DSASignatureFormatter *)new_withKey:(System_Security_Cryptography_AsymmetricAlgorithm *)p1
     {
-		return [[self alloc] initWithSignature:"System.Security.Cryptography.AsymmetricAlgorithm" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Security_Cryptography_DSASignatureFormatter * object = [[self alloc] initWithSignature:"System.Security.Cryptography.AsymmetricAlgorithm" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -54,7 +57,9 @@
 	// Managed param types : System.String
     - (void)setHashAlgorithm_withStrName:(NSString *)p1
     {
-		[self invokeMonoMethod:"SetHashAlgorithm(string)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetHashAlgorithm(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : SetKey
@@ -62,7 +67,9 @@
 	// Managed param types : System.Security.Cryptography.AsymmetricAlgorithm
     - (void)setKey_withKey:(System_Security_Cryptography_AsymmetricAlgorithm *)p1
     {
-		[self invokeMonoMethod:"SetKey(System.Security.Cryptography.AsymmetricAlgorithm)" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"SetKey(System.Security.Cryptography.AsymmetricAlgorithm)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
     }
 
 #pragma mark -

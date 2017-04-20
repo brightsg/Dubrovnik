@@ -2,7 +2,7 @@
 //
 // Managed class : EventBuilder
 //
-@interface System_Reflection_Emit_EventBuilder : System_Object <System_Runtime_InteropServices__EventBuilder>
+@interface System_Reflection_Emit_EventBuilder : System_Object <System_Runtime_InteropServices__EventBuilder_>
 
 #pragma mark -
 #pragma mark Setup

@@ -36,7 +36,7 @@
 
 	// Managed property name : Type
 	// Managed property type : System.Security.PolicyLevelType
-    @property (nonatomic, readonly) System_Security_PolicyLevelType type;
+    @property (nonatomic, readonly) int32_t type;
 
 #pragma mark -
 #pragma mark Methods

@@ -2,7 +2,7 @@
 //
 // Managed class : ContextAttribute
 //
-@interface System_Runtime_Remoting_Contexts_ContextAttribute : System_Attribute <System_Runtime_InteropServices__Attribute, System_Runtime_Remoting_Contexts_IContextAttribute, System_Runtime_Remoting_Contexts_IContextProperty>
+@interface System_Runtime_Remoting_Contexts_ContextAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_, System_Runtime_Remoting_Contexts_IContextAttribute_, System_Runtime_Remoting_Contexts_IContextProperty_>
 
 #pragma mark -
 #pragma mark Setup
@@ -47,12 +47,12 @@
 	// Managed method name : GetPropertiesForNewContext
 	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Activation.IConstructionCallMessage
-    - (void)getPropertiesForNewContext_withCtorMsg:(System_Runtime_Remoting_Activation_IConstructionCallMessage *)p1;
+    - (void)getPropertiesForNewContext_withCtorMsg:(id <System_Runtime_Remoting_Activation_IConstructionCallMessage_>)p1;
 
 	// Managed method name : IsContextOK
 	// Managed return type : System.Boolean
 	// Managed param types : System.Runtime.Remoting.Contexts.Context, System.Runtime.Remoting.Activation.IConstructionCallMessage
-    - (BOOL)isContextOK_withCtx:(System_Runtime_Remoting_Contexts_Context *)p1 ctorMsg:(System_Runtime_Remoting_Activation_IConstructionCallMessage *)p2;
+    - (BOOL)isContextOK_withCtx:(System_Runtime_Remoting_Contexts_Context *)p1 ctorMsg:(id <System_Runtime_Remoting_Activation_IConstructionCallMessage_>)p2;
 
 	// Managed method name : IsNewContextOK
 	// Managed return type : System.Boolean

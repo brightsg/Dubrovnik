@@ -32,9 +32,19 @@
     @synthesize exception = _exception;
     - (System_Exception *)exception
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Messaging.IMethodReturnMessage.Exception"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Messaging.IMethodReturnMessage.Exception");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_exception isEqualToMonoObject:monoObject]) return _exception;					
-		_exception = [System_Exception objectWithMonoObject:monoObject];
+		_exception = [System_Exception bestObjectWithMonoObject:monoObject];
 
 		return _exception;
 	}
@@ -44,8 +54,18 @@
     @synthesize outArgCount = _outArgCount;
     - (int32_t)outArgCount
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Messaging.IMethodReturnMessage.OutArgCount"];
-		_outArgCount = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Messaging.IMethodReturnMessage.OutArgCount");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_outArgCount = monoObject;
 
 		return _outArgCount;
 	}
@@ -55,7 +75,17 @@
     @synthesize outArgs = _outArgs;
     - (DBSystem_Array *)outArgs
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Messaging.IMethodReturnMessage.OutArgs"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Messaging.IMethodReturnMessage.OutArgs");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_outArgs isEqualToMonoObject:monoObject]) return _outArgs;					
 		_outArgs = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -67,7 +97,17 @@
     @synthesize returnValue = _returnValue;
     - (System_Object *)returnValue
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Runtime.Remoting.Messaging.IMethodReturnMessage.ReturnValue"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Runtime.Remoting.Messaging.IMethodReturnMessage.ReturnValue");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_returnValue isEqualToMonoObject:monoObject]) return _returnValue;					
 		_returnValue = [System_Object objectWithMonoObject:monoObject];
 

@@ -32,7 +32,10 @@
 	// Managed param types : System.Threading.TimerCallback, System.Object, System.Int32, System.Int32
     + (System_Threading_Timer *)new_withCallbackSTTimerCallback:(System_Threading_TimerCallback *)p1 stateObject:(System_Object *)p2 dueTimeInt:(int32_t)p3 periodInt:(int32_t)p4
     {
-		return [[self alloc] initWithSignature:"System.Threading.TimerCallback,object,int,int" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];;
+		
+		System_Threading_Timer * object = [[self alloc] initWithSignature:"System.Threading.TimerCallback,object,int,int" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -40,7 +43,10 @@
 	// Managed param types : System.Threading.TimerCallback, System.Object, System.TimeSpan, System.TimeSpan
     + (System_Threading_Timer *)new_withCallbackSTTimerCallback:(System_Threading_TimerCallback *)p1 stateObject:(System_Object *)p2 dueTimeSTimeSpan:(System_TimeSpan *)p3 periodSTimeSpan:(System_TimeSpan *)p4
     {
-		return [[self alloc] initWithSignature:"System.Threading.TimerCallback,object,System.TimeSpan,System.TimeSpan" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];;
+		
+		System_Threading_Timer * object = [[self alloc] initWithSignature:"System.Threading.TimerCallback,object,System.TimeSpan,System.TimeSpan" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +54,10 @@
 	// Managed param types : System.Threading.TimerCallback, System.Object, System.UInt32, System.UInt32
     + (System_Threading_Timer *)new_withCallbackSTTimerCallback:(System_Threading_TimerCallback *)p1 stateObject:(System_Object *)p2 dueTimeUint:(uint32_t)p3 periodUint:(uint32_t)p4
     {
-		return [[self alloc] initWithSignature:"System.Threading.TimerCallback,object,uint,uint" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];;
+		
+		System_Threading_Timer * object = [[self alloc] initWithSignature:"System.Threading.TimerCallback,object,uint,uint" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +65,10 @@
 	// Managed param types : System.Threading.TimerCallback, System.Object, System.Int64, System.Int64
     + (System_Threading_Timer *)new_withCallbackSTTimerCallback:(System_Threading_TimerCallback *)p1 stateObject:(System_Object *)p2 dueTimeLong:(int64_t)p3 periodLong:(int64_t)p4
     {
-		return [[self alloc] initWithSignature:"System.Threading.TimerCallback,object,long,long" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];;
+		
+		System_Threading_Timer * object = [[self alloc] initWithSignature:"System.Threading.TimerCallback,object,long,long" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -64,7 +76,10 @@
 	// Managed param types : System.Threading.TimerCallback
     + (System_Threading_Timer *)new_withCallback:(System_Threading_TimerCallback *)p1
     {
-		return [[self alloc] initWithSignature:"System.Threading.TimerCallback" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Threading_Timer * object = [[self alloc] initWithSignature:"System.Threading.TimerCallback" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -130,7 +145,9 @@
 	// Managed param types : 
     - (void)dispose
     {
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
+        
     }
 
 #pragma mark -

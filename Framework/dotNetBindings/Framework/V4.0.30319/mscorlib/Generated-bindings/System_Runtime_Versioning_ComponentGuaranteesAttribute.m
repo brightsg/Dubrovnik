@@ -30,9 +30,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Runtime.Versioning.ComponentGuaranteesAttribute
 	// Managed param types : System.Runtime.Versioning.ComponentGuaranteesOptions
-    + (System_Runtime_Versioning_ComponentGuaranteesAttribute *)new_withGuarantees:(System_Runtime_Versioning_ComponentGuaranteesOptions)p1
+    + (System_Runtime_Versioning_ComponentGuaranteesAttribute *)new_withGuarantees:(int32_t)p1
     {
-		return [[self alloc] initWithSignature:"System.Runtime.Versioning.ComponentGuaranteesOptions" withNumArgs:1, DB_VALUE(p1)];;
+		
+		System_Runtime_Versioning_ComponentGuaranteesAttribute * object = [[self alloc] initWithSignature:"System.Runtime.Versioning.ComponentGuaranteesOptions" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -41,10 +44,20 @@
 	// Managed property name : Guarantees
 	// Managed property type : System.Runtime.Versioning.ComponentGuaranteesOptions
     @synthesize guarantees = _guarantees;
-    - (System_Runtime_Versioning_ComponentGuaranteesOptions)guarantees
+    - (int32_t)guarantees
     {
-		MonoObject *monoObject = [self getMonoProperty:"Guarantees"];
-		_guarantees = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Guarantees");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_guarantees = monoObject;
 
 		return _guarantees;
 	}

@@ -2,7 +2,7 @@
 //
 // Managed class : ActivationContext
 //
-@interface System_ActivationContext : System_Object <System_IDisposable, System_Runtime_Serialization_ISerializable>
+@interface System_ActivationContext : System_Object <System_IDisposable_, System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -24,7 +24,7 @@
 
 	// Managed property name : Form
 	// Managed property type : System.ActivationContext+ContextForm
-    @property (nonatomic, readonly) System_ActivationContext__ContextForm form;
+    @property (nonatomic, readonly) int32_t form;
 
 	// Managed property name : Identity
 	// Managed property type : System.ApplicationIdentity

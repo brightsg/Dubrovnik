@@ -35,7 +35,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Security.Policy.IApplicationTrustManager.DetermineApplicationTrust(System.ActivationContext,System.Security.Policy.TrustManagerContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Security_Policy_ApplicationTrust objectWithMonoObject:monoObject];
+		return [System_Security_Policy_ApplicationTrust bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

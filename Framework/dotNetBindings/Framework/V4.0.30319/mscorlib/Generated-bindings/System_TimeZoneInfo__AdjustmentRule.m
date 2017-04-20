@@ -32,7 +32,17 @@
     @synthesize dateEnd = _dateEnd;
     - (NSDate *)dateEnd
     {
-		MonoObject *monoObject = [self getMonoProperty:"DateEnd"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DateEnd");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_dateEnd isEqualToMonoObject:monoObject]) return _dateEnd;					
 		_dateEnd = [NSDate dateWithMonoDateTime:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize dateStart = _dateStart;
     - (NSDate *)dateStart
     {
-		MonoObject *monoObject = [self getMonoProperty:"DateStart"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DateStart");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_dateStart isEqualToMonoObject:monoObject]) return _dateStart;					
 		_dateStart = [NSDate dateWithMonoDateTime:monoObject];
 
@@ -56,9 +76,19 @@
     @synthesize daylightDelta = _daylightDelta;
     - (System_TimeSpan *)daylightDelta
     {
-		MonoObject *monoObject = [self getMonoProperty:"DaylightDelta"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DaylightDelta");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_daylightDelta isEqualToMonoObject:monoObject]) return _daylightDelta;					
-		_daylightDelta = [System_TimeSpan objectWithMonoObject:monoObject];
+		_daylightDelta = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
 		return _daylightDelta;
 	}
@@ -68,9 +98,19 @@
     @synthesize daylightTransitionEnd = _daylightTransitionEnd;
     - (System_TimeZoneInfo__TransitionTime *)daylightTransitionEnd
     {
-		MonoObject *monoObject = [self getMonoProperty:"DaylightTransitionEnd"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DaylightTransitionEnd");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_daylightTransitionEnd isEqualToMonoObject:monoObject]) return _daylightTransitionEnd;					
-		_daylightTransitionEnd = [System_TimeZoneInfo__TransitionTime objectWithMonoObject:monoObject];
+		_daylightTransitionEnd = [System_TimeZoneInfo__TransitionTime bestObjectWithMonoObject:monoObject];
 
 		return _daylightTransitionEnd;
 	}
@@ -80,9 +120,19 @@
     @synthesize daylightTransitionStart = _daylightTransitionStart;
     - (System_TimeZoneInfo__TransitionTime *)daylightTransitionStart
     {
-		MonoObject *monoObject = [self getMonoProperty:"DaylightTransitionStart"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DaylightTransitionStart");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_daylightTransitionStart isEqualToMonoObject:monoObject]) return _daylightTransitionStart;					
-		_daylightTransitionStart = [System_TimeZoneInfo__TransitionTime objectWithMonoObject:monoObject];
+		_daylightTransitionStart = [System_TimeZoneInfo__TransitionTime bestObjectWithMonoObject:monoObject];
 
 		return _daylightTransitionStart;
 	}
@@ -96,9 +146,9 @@
     + (System_TimeZoneInfo__AdjustmentRule *)createAdjustmentRule_withDateStart:(NSDate *)p1 dateEnd:(NSDate *)p2 daylightDelta:(System_TimeSpan *)p3 daylightTransitionStart:(System_TimeZoneInfo__TransitionTime *)p4 daylightTransitionEnd:(System_TimeZoneInfo__TransitionTime *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateAdjustmentRule(System.DateTime,System.DateTime,System.TimeSpan,System.TimeZoneInfo+TransitionTime,System.TimeZoneInfo+TransitionTime)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateAdjustmentRule(System.DateTime,System.DateTime,System.TimeSpan,System.TimeZoneInfo/TransitionTime,System.TimeZoneInfo/TransitionTime)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
-		return [System_TimeZoneInfo__AdjustmentRule objectWithMonoObject:monoObject];
+		return [System_TimeZoneInfo__AdjustmentRule bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Equals
@@ -107,7 +157,7 @@
     - (BOOL)equals_withOther:(System_TimeZoneInfo__AdjustmentRule *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.TimeZoneInfo+AdjustmentRule)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.TimeZoneInfo/AdjustmentRule)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

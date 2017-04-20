@@ -32,15 +32,21 @@
 	// Managed param types : System.Int64
     + (NSDate *)new_withTicks:(int64_t)p1
     {
-		return [[self alloc] initWithSignature:"long" withNumArgs:1, DB_VALUE(p1)];;
+		
+		NSDate * object = [[self alloc] initWithSignature:"long" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.DateTime
 	// Managed param types : System.Int64, System.DateTimeKind
-    + (NSDate *)new_withTicks:(int64_t)p1 kind:(System_DateTimeKind)p2
+    + (NSDate *)new_withTicks:(int64_t)p1 kind:(int32_t)p2
     {
-		return [[self alloc] initWithSignature:"long,System.DateTimeKind" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		
+		NSDate * object = [[self alloc] initWithSignature:"long,System.DateTimeKind" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -48,7 +54,10 @@
 	// Managed param types : System.Int32, System.Int32, System.Int32
     + (NSDate *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3
     {
-		return [[self alloc] initWithSignature:"int,int,int" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];;
+		
+		NSDate * object = [[self alloc] initWithSignature:"int,int,int" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -56,7 +65,10 @@
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.Globalization.Calendar
     + (NSDate *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 calendar:(System_Globalization_Calendar *)p4
     {
-		return [[self alloc] initWithSignature:"int,int,int,System.Globalization.Calendar" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];;
+		
+		NSDate * object = [[self alloc] initWithSignature:"int,int,int,System.Globalization.Calendar" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -64,15 +76,21 @@
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32
     + (NSDate *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6
     {
-		return [[self alloc] initWithSignature:"int,int,int,int,int,int" withNumArgs:6, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6)];;
+		
+		NSDate * object = [[self alloc] initWithSignature:"int,int,int,int,int,int" withNumArgs:6, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.DateTime
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.DateTimeKind
-    + (NSDate *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 kind:(System_DateTimeKind)p7
+    + (NSDate *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 kind:(int32_t)p7
     {
-		return [[self alloc] initWithSignature:"int,int,int,int,int,int,System.DateTimeKind" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7)];;
+		
+		NSDate * object = [[self alloc] initWithSignature:"int,int,int,int,int,int,System.DateTimeKind" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -80,7 +98,10 @@
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Globalization.Calendar
     + (NSDate *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 calendar:(System_Globalization_Calendar *)p7
     {
-		return [[self alloc] initWithSignature:"int,int,int,int,int,int,System.Globalization.Calendar" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), [p7 monoRTInvokeArg]];;
+		
+		NSDate * object = [[self alloc] initWithSignature:"int,int,int,int,int,int,System.Globalization.Calendar" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), [p7 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -88,15 +109,21 @@
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32
     + (NSDate *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7
     {
-		return [[self alloc] initWithSignature:"int,int,int,int,int,int,int" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7)];;
+		
+		NSDate * object = [[self alloc] initWithSignature:"int,int,int,int,int,int,int" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.DateTime
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.DateTimeKind
-    + (NSDate *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7 kind:(System_DateTimeKind)p8
+    + (NSDate *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7 kind:(int32_t)p8
     {
-		return [[self alloc] initWithSignature:"int,int,int,int,int,int,int,System.DateTimeKind" withNumArgs:8, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), DB_VALUE(p8)];;
+		
+		NSDate * object = [[self alloc] initWithSignature:"int,int,int,int,int,int,int,System.DateTimeKind" withNumArgs:8, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), DB_VALUE(p8)];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
@@ -104,15 +131,21 @@
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Globalization.Calendar
     + (NSDate *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7 calendar:(System_Globalization_Calendar *)p8
     {
-		return [[self alloc] initWithSignature:"int,int,int,int,int,int,int,System.Globalization.Calendar" withNumArgs:8, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), [p8 monoRTInvokeArg]];;
+		
+		NSDate * object = [[self alloc] initWithSignature:"int,int,int,int,int,int,int,System.Globalization.Calendar" withNumArgs:8, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), [p8 monoRTInvokeArg]];
+        
+        return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.DateTime
 	// Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Globalization.Calendar, System.DateTimeKind
-    + (NSDate *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7 calendar:(System_Globalization_Calendar *)p8 kind:(System_DateTimeKind)p9
+    + (NSDate *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7 calendar:(System_Globalization_Calendar *)p8 kind:(int32_t)p9
     {
-		return [[self alloc] initWithSignature:"int,int,int,int,int,int,int,System.Globalization.Calendar,System.DateTimeKind" withNumArgs:9, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), [p8 monoRTInvokeArg], DB_VALUE(p9)];;
+		
+		NSDate * object = [[self alloc] initWithSignature:"int,int,int,int,int,int,int,System.Globalization.Calendar,System.DateTimeKind" withNumArgs:9, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), [p8 monoRTInvokeArg], DB_VALUE(p9)];
+        
+        return object;
     }
 
 #pragma mark -
@@ -150,7 +183,17 @@
     @synthesize date = _date;
     - (NSDate *)date
     {
-		MonoObject *monoObject = [self getMonoProperty:"Date"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Date");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_date isEqualToMonoObject:monoObject]) return _date;					
 		_date = [NSDate dateWithMonoDateTime:monoObject];
 
@@ -162,8 +205,18 @@
     @synthesize day = _day;
     - (int32_t)day
     {
-		MonoObject *monoObject = [self getMonoProperty:"Day"];
-		_day = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Day");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_day = monoObject;
 
 		return _day;
 	}
@@ -171,10 +224,20 @@
 	// Managed property name : DayOfWeek
 	// Managed property type : System.DayOfWeek
     @synthesize dayOfWeek = _dayOfWeek;
-    - (System_DayOfWeek)dayOfWeek
+    - (int32_t)dayOfWeek
     {
-		MonoObject *monoObject = [self getMonoProperty:"DayOfWeek"];
-		_dayOfWeek = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DayOfWeek");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_dayOfWeek = monoObject;
 
 		return _dayOfWeek;
 	}
@@ -184,8 +247,18 @@
     @synthesize dayOfYear = _dayOfYear;
     - (int32_t)dayOfYear
     {
-		MonoObject *monoObject = [self getMonoProperty:"DayOfYear"];
-		_dayOfYear = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DayOfYear");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_dayOfYear = monoObject;
 
 		return _dayOfYear;
 	}
@@ -195,8 +268,18 @@
     @synthesize hour = _hour;
     - (int32_t)hour
     {
-		MonoObject *monoObject = [self getMonoProperty:"Hour"];
-		_hour = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Hour");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_hour = monoObject;
 
 		return _hour;
 	}
@@ -204,10 +287,20 @@
 	// Managed property name : Kind
 	// Managed property type : System.DateTimeKind
     @synthesize kind = _kind;
-    - (System_DateTimeKind)kind
+    - (int32_t)kind
     {
-		MonoObject *monoObject = [self getMonoProperty:"Kind"];
-		_kind = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Kind");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_kind = monoObject;
 
 		return _kind;
 	}
@@ -217,8 +310,18 @@
     @synthesize millisecond = _millisecond;
     - (int32_t)millisecond
     {
-		MonoObject *monoObject = [self getMonoProperty:"Millisecond"];
-		_millisecond = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Millisecond");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_millisecond = monoObject;
 
 		return _millisecond;
 	}
@@ -228,8 +331,18 @@
     @synthesize minute = _minute;
     - (int32_t)minute
     {
-		MonoObject *monoObject = [self getMonoProperty:"Minute"];
-		_minute = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Minute");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_minute = monoObject;
 
 		return _minute;
 	}
@@ -239,8 +352,18 @@
     @synthesize month = _month;
     - (int32_t)month
     {
-		MonoObject *monoObject = [self getMonoProperty:"Month"];
-		_month = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Month");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_month = monoObject;
 
 		return _month;
 	}
@@ -250,7 +373,17 @@
     static NSDate * m_now;
     + (NSDate *)now
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Now"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Now");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_now isEqualToMonoObject:monoObject]) return m_now;					
 		m_now = [NSDate dateWithMonoDateTime:monoObject];
 
@@ -262,8 +395,18 @@
     @synthesize second = _second;
     - (int32_t)second
     {
-		MonoObject *monoObject = [self getMonoProperty:"Second"];
-		_second = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Second");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_second = monoObject;
 
 		return _second;
 	}
@@ -273,8 +416,18 @@
     @synthesize ticks = _ticks;
     - (int64_t)ticks
     {
-		MonoObject *monoObject = [self getMonoProperty:"Ticks"];
-		_ticks = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Ticks");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_ticks = monoObject;
 
 		return _ticks;
 	}
@@ -284,9 +437,19 @@
     @synthesize timeOfDay = _timeOfDay;
     - (System_TimeSpan *)timeOfDay
     {
-		MonoObject *monoObject = [self getMonoProperty:"TimeOfDay"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TimeOfDay");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_timeOfDay isEqualToMonoObject:monoObject]) return _timeOfDay;					
-		_timeOfDay = [System_TimeSpan objectWithMonoObject:monoObject];
+		_timeOfDay = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
 		return _timeOfDay;
 	}
@@ -296,7 +459,17 @@
     static NSDate * m_today;
     + (NSDate *)today
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Today"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Today");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_today isEqualToMonoObject:monoObject]) return m_today;					
 		m_today = [NSDate dateWithMonoDateTime:monoObject];
 
@@ -308,7 +481,17 @@
     static NSDate * m_utcNow;
     + (NSDate *)utcNow
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"UtcNow"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UtcNow");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_utcNow isEqualToMonoObject:monoObject]) return m_utcNow;					
 		m_utcNow = [NSDate dateWithMonoDateTime:monoObject];
 
@@ -320,8 +503,18 @@
     @synthesize year = _year;
     - (int32_t)year
     {
-		MonoObject *monoObject = [self getMonoProperty:"Year"];
-		_year = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Year");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_year = monoObject;
 
 		return _year;
 	}
@@ -563,7 +756,7 @@
 	// Managed method name : GetDateTimeFormats
 	// Managed return type : System.String[]
 	// Managed param types : System.IFormatProvider
-    - (DBSystem_Array *)getDateTimeFormats_withProvider:(System_IFormatProvider *)p1
+    - (DBSystem_Array *)getDateTimeFormats_withProvider:(id <System_IFormatProvider_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDateTimeFormats(System.IFormatProvider)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -585,7 +778,7 @@
 	// Managed method name : GetDateTimeFormats
 	// Managed return type : System.String[]
 	// Managed param types : System.Char, System.IFormatProvider
-    - (DBSystem_Array *)getDateTimeFormats_withFormat:(uint16_t)p1 provider:(System_IFormatProvider *)p2
+    - (DBSystem_Array *)getDateTimeFormats_withFormat:(uint16_t)p1 provider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDateTimeFormats(char,System.IFormatProvider)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
@@ -607,7 +800,7 @@
 	// Managed method name : GetTypeCode
 	// Managed return type : System.TypeCode
 	// Managed param types : 
-    - (System_TypeCode)getTypeCode
+    - (int32_t)getTypeCode
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeCode()" withNumArgs:0];
@@ -733,7 +926,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Subtraction(System.DateTime,System.DateTime)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Parse
@@ -750,7 +943,7 @@
 	// Managed method name : Parse
 	// Managed return type : System.DateTime
 	// Managed param types : System.String, System.IFormatProvider
-    + (NSDate *)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2
+    + (NSDate *)parse_withS:(NSString *)p1 provider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -761,7 +954,7 @@
 	// Managed method name : Parse
 	// Managed return type : System.DateTime
 	// Managed param types : System.String, System.IFormatProvider, System.Globalization.DateTimeStyles
-    + (NSDate *)parse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2 styles:(System_Globalization_DateTimeStyles)p3
+    + (NSDate *)parse_withS:(NSString *)p1 provider:(id <System_IFormatProvider_>)p2 styles:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string,System.IFormatProvider,System.Globalization.DateTimeStyles)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
@@ -772,7 +965,7 @@
 	// Managed method name : ParseExact
 	// Managed return type : System.DateTime
 	// Managed param types : System.String, System.String, System.IFormatProvider
-    + (NSDate *)parseExact_withS:(NSString *)p1 format:(NSString *)p2 provider:(System_IFormatProvider *)p3
+    + (NSDate *)parseExact_withS:(NSString *)p1 format:(NSString *)p2 provider:(id <System_IFormatProvider_>)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ParseExact(string,string,System.IFormatProvider)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
@@ -783,7 +976,7 @@
 	// Managed method name : ParseExact
 	// Managed return type : System.DateTime
 	// Managed param types : System.String, System.String, System.IFormatProvider, System.Globalization.DateTimeStyles
-    + (NSDate *)parseExact_withS:(NSString *)p1 format:(NSString *)p2 provider:(System_IFormatProvider *)p3 style:(System_Globalization_DateTimeStyles)p4
+    + (NSDate *)parseExact_withS:(NSString *)p1 format:(NSString *)p2 provider:(id <System_IFormatProvider_>)p3 style:(int32_t)p4
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ParseExact(string,string,System.IFormatProvider,System.Globalization.DateTimeStyles)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
@@ -794,7 +987,7 @@
 	// Managed method name : ParseExact
 	// Managed return type : System.DateTime
 	// Managed param types : System.String, System.String[], System.IFormatProvider, System.Globalization.DateTimeStyles
-    + (NSDate *)parseExact_withS:(NSString *)p1 formats:(DBSystem_Array *)p2 provider:(System_IFormatProvider *)p3 style:(System_Globalization_DateTimeStyles)p4
+    + (NSDate *)parseExact_withS:(NSString *)p1 formats:(DBSystem_Array *)p2 provider:(id <System_IFormatProvider_>)p3 style:(int32_t)p4
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ParseExact(string,string[],System.IFormatProvider,System.Globalization.DateTimeStyles)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
@@ -805,7 +998,7 @@
 	// Managed method name : SpecifyKind
 	// Managed return type : System.DateTime
 	// Managed param types : System.DateTime, System.DateTimeKind
-    + (NSDate *)specifyKind_withValue:(NSDate *)p1 kind:(System_DateTimeKind)p2
+    + (NSDate *)specifyKind_withValue:(NSDate *)p1 kind:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"SpecifyKind(System.DateTime,System.DateTimeKind)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
@@ -821,7 +1014,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Subtract(System.DateTime)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_TimeSpan objectWithMonoObject:monoObject];
+		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Subtract
@@ -959,7 +1152,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.IFormatProvider
-    - (NSString *)toString_withProvider:(System_IFormatProvider *)p1
+    - (NSString *)toString_withProvider:(id <System_IFormatProvider_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString(System.IFormatProvider)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -970,7 +1163,7 @@
 	// Managed method name : ToString
 	// Managed return type : System.String
 	// Managed param types : System.String, System.IFormatProvider
-    - (NSString *)toString_withFormat:(NSString *)p1 provider:(System_IFormatProvider *)p2
+    - (NSString *)toString_withFormat:(NSString *)p1 provider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToString(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -998,7 +1191,7 @@
 
 		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.DateTime&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 
-		*p2 = [System_Object subclassObjectWithMonoObject:refPtr2];
+		*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -1006,13 +1199,13 @@
 	// Managed method name : TryParse
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.IFormatProvider, System.Globalization.DateTimeStyles, ref System.DateTime&
-    + (BOOL)tryParse_withS:(NSString *)p1 provider:(System_IFormatProvider *)p2 styles:(System_Globalization_DateTimeStyles)p3 resultRef:(NSDate **)p4
+    + (BOOL)tryParse_withS:(NSString *)p1 provider:(id <System_IFormatProvider_>)p2 styles:(int32_t)p3 resultRef:(NSDate **)p4
     {
 		void *refPtr4 = [*p4 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.IFormatProvider,System.Globalization.DateTimeStyles,System.DateTime&)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), &refPtr4];
 
-		*p4 = [System_Object subclassObjectWithMonoObject:refPtr4];
+		*p4 = [System_Object bestObjectWithMonoObject:refPtr4];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -1020,13 +1213,13 @@
 	// Managed method name : TryParseExact
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.String, System.IFormatProvider, System.Globalization.DateTimeStyles, ref System.DateTime&
-    + (BOOL)tryParseExact_withS:(NSString *)p1 format:(NSString *)p2 provider:(System_IFormatProvider *)p3 style:(System_Globalization_DateTimeStyles)p4 resultRef:(NSDate **)p5
+    + (BOOL)tryParseExact_withS:(NSString *)p1 format:(NSString *)p2 provider:(id <System_IFormatProvider_>)p3 style:(int32_t)p4 resultRef:(NSDate **)p5
     {
 		void *refPtr5 = [*p5 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParseExact(string,string,System.IFormatProvider,System.Globalization.DateTimeStyles,System.DateTime&)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), &refPtr5];
 
-		*p5 = [System_Object subclassObjectWithMonoObject:refPtr5];
+		*p5 = [System_Object bestObjectWithMonoObject:refPtr5];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -1034,13 +1227,13 @@
 	// Managed method name : TryParseExact
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.String[], System.IFormatProvider, System.Globalization.DateTimeStyles, ref System.DateTime&
-    + (BOOL)tryParseExact_withS:(NSString *)p1 formats:(DBSystem_Array *)p2 provider:(System_IFormatProvider *)p3 style:(System_Globalization_DateTimeStyles)p4 resultRef:(NSDate **)p5
+    + (BOOL)tryParseExact_withS:(NSString *)p1 formats:(DBSystem_Array *)p2 provider:(id <System_IFormatProvider_>)p3 style:(int32_t)p4 resultRef:(NSDate **)p5
     {
 		void *refPtr5 = [*p5 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParseExact(string,string[],System.IFormatProvider,System.Globalization.DateTimeStyles,System.DateTime&)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), &refPtr5];
 
-		*p5 = [System_Object subclassObjectWithMonoObject:refPtr5];
+		*p5 = [System_Object bestObjectWithMonoObject:refPtr5];
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

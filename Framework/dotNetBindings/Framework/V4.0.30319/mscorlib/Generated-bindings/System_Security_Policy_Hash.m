@@ -32,7 +32,10 @@
 	// Managed param types : System.Reflection.Assembly
     + (System_Security_Policy_Hash *)new_withAssembly:(System_Reflection_Assembly *)p1
     {
-		return [[self alloc] initWithSignature:"System.Reflection.Assembly" withNumArgs:1, [p1 monoRTInvokeArg]];;
+		
+		System_Security_Policy_Hash * object = [[self alloc] initWithSignature:"System.Reflection.Assembly" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
     }
 
 #pragma mark -
@@ -43,7 +46,17 @@
     @synthesize mD5 = _mD5;
     - (NSData *)mD5
     {
-		MonoObject *monoObject = [self getMonoProperty:"MD5"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MD5");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_mD5 isEqualToMonoObject:monoObject]) return _mD5;					
 		_mD5 = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -55,7 +68,17 @@
     @synthesize sHA1 = _sHA1;
     - (NSData *)sHA1
     {
-		MonoObject *monoObject = [self getMonoProperty:"SHA1"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SHA1");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_sHA1 isEqualToMonoObject:monoObject]) return _sHA1;					
 		_sHA1 = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -67,7 +90,17 @@
     @synthesize sHA256 = _sHA256;
     - (NSData *)sHA256
     {
-		MonoObject *monoObject = [self getMonoProperty:"SHA256"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SHA256");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_sHA256 isEqualToMonoObject:monoObject]) return _sHA256;					
 		_sHA256 = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -85,7 +118,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
 		
-		return [System_Security_Policy_EvidenceBase objectWithMonoObject:monoObject];
+		return [System_Security_Policy_EvidenceBase bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateMD5
@@ -96,7 +129,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateMD5(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_Policy_Hash objectWithMonoObject:monoObject];
+		return [System_Security_Policy_Hash bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateSHA1
@@ -107,7 +140,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateSHA1(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_Policy_Hash objectWithMonoObject:monoObject];
+		return [System_Security_Policy_Hash bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : CreateSHA256
@@ -118,7 +151,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateSHA256(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Security_Policy_Hash objectWithMonoObject:monoObject];
+		return [System_Security_Policy_Hash bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GenerateHash
@@ -137,7 +170,9 @@
 	// Managed param types : System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];;
+		
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+        
     }
 
 	// Managed method name : ToString

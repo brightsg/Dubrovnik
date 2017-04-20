@@ -34,7 +34,7 @@
     {
 		MonoObject *monoObject = [self getMonoField:"elemdescVar"];
 		if ([self object:_elemdescVar isEqualToMonoObject:monoObject]) return _elemdescVar;					
-		_elemdescVar = [System_Runtime_InteropServices_ELEMDESC objectWithMonoObject:monoObject];
+		_elemdescVar = [System_Runtime_InteropServices_ELEMDESC bestObjectWithMonoObject:monoObject];
 
 		return _elemdescVar;
 	}
@@ -83,14 +83,14 @@
 	// Managed field name : varkind
 	// Managed field type : System.Runtime.InteropServices.VarEnum
     @synthesize varkind = _varkind;
-    - (System_Runtime_InteropServices_VarEnum)varkind
+    - (int32_t)varkind
     {
 		MonoObject *monoObject = [self getMonoField:"varkind"];
 		_varkind = DB_UNBOX_INT32(monoObject);
 
 		return _varkind;
 	}
-    - (void)setVarkind:(System_Runtime_InteropServices_VarEnum)value
+    - (void)setVarkind:(int32_t)value
 	{
 		_varkind = value;
 		MonoObject *monoObject = DB_VALUE(value);
