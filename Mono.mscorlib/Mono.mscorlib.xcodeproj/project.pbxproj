@@ -101,6 +101,8 @@
 		AB9722931E6AD7D100DE0773 /* System_Threading_CancellationToken.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9722911E6AD7D100DE0773 /* System_Threading_CancellationToken.m */; };
 		ABB5CC2A1A9678E20089891A /* System_Collections_IList.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB5CC281A9678E20089891A /* System_Collections_IList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB5CC2B1A9678E20089891A /* System_Collections_IList.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5CC291A9678E20089891A /* System_Collections_IList.m */; };
+		ABB7B6C01EA8D75E0032A7D4 /* System_Collections_Generic_KeyValuePairA2+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB7B6BE1EA8D75E0032A7D4 /* System_Collections_Generic_KeyValuePairA2+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB7B6C11EA8D75E0032A7D4 /* System_Collections_Generic_KeyValuePairA2+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB7B6BF1EA8D75E0032A7D4 /* System_Collections_Generic_KeyValuePairA2+mscorlib.m */; };
 		ABB8A28818FEFB0700213B80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A28718FEFB0700213B80 /* Cocoa.framework */; };
 		ABB8A29218FEFB0700213B80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABB8A29018FEFB0700213B80 /* InfoPlist.strings */; };
 		ABB8A29E18FEFB0700213B80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A28718FEFB0700213B80 /* Cocoa.framework */; };
@@ -310,6 +312,8 @@
 		AB9722911E6AD7D100DE0773 /* System_Threading_CancellationToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Threading_CancellationToken.m; sourceTree = "<group>"; };
 		ABB5CC281A9678E20089891A /* System_Collections_IList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_IList.h; sourceTree = "<group>"; };
 		ABB5CC291A9678E20089891A /* System_Collections_IList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Collections_IList.m; sourceTree = "<group>"; };
+		ABB7B6BE1EA8D75E0032A7D4 /* System_Collections_Generic_KeyValuePairA2+mscorlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Collections_Generic_KeyValuePairA2+mscorlib.h"; sourceTree = "<group>"; };
+		ABB7B6BF1EA8D75E0032A7D4 /* System_Collections_Generic_KeyValuePairA2+mscorlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Collections_Generic_KeyValuePairA2+mscorlib.m"; sourceTree = "<group>"; };
 		ABB8A28418FEFB0700213B80 /* Mono.mscorlib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB8A28718FEFB0700213B80 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		ABB8A28A18FEFB0700213B80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -728,6 +732,8 @@
 				ABF9707D1D7369D400B836A0 /* System_Delegate+mscorlib.m */,
 				ABD682C31E69E9DF00D11963 /* System_NullableA1+mscorlib.h */,
 				ABD682C41E69E9DF00D11963 /* System_NullableA1+mscorlib.m */,
+				ABB7B6BE1EA8D75E0032A7D4 /* System_Collections_Generic_KeyValuePairA2+mscorlib.h */,
+				ABB7B6BF1EA8D75E0032A7D4 /* System_Collections_Generic_KeyValuePairA2+mscorlib.m */,
 			);
 			name = "Categories - Managed";
 			path = Categories;
@@ -791,6 +797,7 @@
 				AB223CE61C9DFF2F0017DA8A /* System_TimeZoneInfo.h in Headers */,
 				AB57FDE91C96DC94003D00E8 /* DBNullableInt32Transformer.h in Headers */,
 				ABFDABA01C763DB2005230C0 /* System_Runtime_InteropServices__Exception.h in Headers */,
+				ABB7B6C01EA8D75E0032A7D4 /* System_Collections_Generic_KeyValuePairA2+mscorlib.h in Headers */,
 				ABFDAB9C1C763CA3005230C0 /* System_AsyncCallback.h in Headers */,
 				ABFDAB981C763BEF005230C0 /* System_Runtime_Serialization_ISerializable.h in Headers */,
 				AB3FD4F61C76098B0037899F /* System_IDisposable.h in Headers */,
@@ -1059,6 +1066,7 @@
 				AB2E746018FFCD8F0061C63E /* System_Exception.m in Sources */,
 				ABCAE5641AA90E180006453A /* System_Guid.m in Sources */,
 				AB8306B4191CFD5B009FF174 /* System_Type.m in Sources */,
+				ABB7B6C11EA8D75E0032A7D4 /* System_Collections_Generic_KeyValuePairA2+mscorlib.m in Sources */,
 				AB2036331DC7E71800D419DB /* System_IO_StringReader.m in Sources */,
 				AB57FDEA1C96DC94003D00E8 /* DBNullableInt32Transformer.m in Sources */,
 				ABB8A39718FF09F900213B80 /* DBSystem_Array.m in Sources */,
