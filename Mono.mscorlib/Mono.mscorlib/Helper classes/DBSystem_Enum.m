@@ -96,7 +96,7 @@ static DBManagedClass *_classRep = nil;
         monoObject = [klass monoEnumFromUInt8:(uint8_t)value];
     }
     else {
-        NSAssert(YES, @"Cannot get enum for % value : %lu", type.monoClassName, value);
+        NSAssert(YES, @"Cannot get enum for %s value : %lu", type.monoClassName, value);
     }
         
     self = [self initWithMonoObject:monoObject];

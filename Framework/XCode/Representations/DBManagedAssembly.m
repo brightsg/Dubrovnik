@@ -32,6 +32,7 @@
 
 + (void)onManagedEnvironmentInitialised:(NSNotification *)note
 {
+#pragma unused(note)
     // subclasses should override and then call this method
     [[NSNotificationCenter defaultCenter] removeObserver:self name:DBNoteManagedEnvironmentInitialised object:nil];
 }
