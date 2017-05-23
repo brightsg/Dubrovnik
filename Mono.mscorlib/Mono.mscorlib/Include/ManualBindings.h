@@ -27,6 +27,7 @@
 
 #import "System_IntPtr.h"
 #import "System_Int32.h"
+#import "System_Decimal.h"
 
 #import "System_Convert.h"
 #import "System_Enum.h"

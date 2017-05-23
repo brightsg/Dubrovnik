@@ -82,6 +82,8 @@
 		AB57FDE91C96DC94003D00E8 /* DBNullableInt32Transformer.h in Headers */ = {isa = PBXBuildFile; fileRef = AB57FDE71C96DC94003D00E8 /* DBNullableInt32Transformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB57FDEA1C96DC94003D00E8 /* DBNullableInt32Transformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB57FDE81C96DC94003D00E8 /* DBNullableInt32Transformer.m */; };
 		AB5D13E21B71059D0028B42B /* System_DateTimeKind.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5D13E11B71059D0028B42B /* System_DateTimeKind.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB5EBCAE1ED3019D00A14D47 /* System_Decimal.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5EBCAC1ED3019D00A14D47 /* System_Decimal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB5EBCAF1ED3019D00A14D47 /* System_Decimal.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5EBCAD1ED3019D00A14D47 /* System_Decimal.m */; };
 		AB5F417D1CE280FB00026E36 /* DBGenericTypeHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5F417B1CE280FB00026E36 /* DBGenericTypeHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB5F417E1CE280FB00026E36 /* DBGenericTypeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5F417C1CE280FB00026E36 /* DBGenericTypeHelper.m */; };
 		AB80230C1DE46D000094294A /* System_AppDomain.h in Headers */ = {isa = PBXBuildFile; fileRef = AB80230A1DE46D000094294A /* System_AppDomain.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -293,6 +295,8 @@
 		AB57FDE71C96DC94003D00E8 /* DBNullableInt32Transformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableInt32Transformer.h; sourceTree = "<group>"; };
 		AB57FDE81C96DC94003D00E8 /* DBNullableInt32Transformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableInt32Transformer.m; sourceTree = "<group>"; };
 		AB5D13E11B71059D0028B42B /* System_DateTimeKind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_DateTimeKind.h; sourceTree = "<group>"; };
+		AB5EBCAC1ED3019D00A14D47 /* System_Decimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Decimal.h; sourceTree = "<group>"; };
+		AB5EBCAD1ED3019D00A14D47 /* System_Decimal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Decimal.m; sourceTree = "<group>"; };
 		AB5F417B1CE280FB00026E36 /* DBGenericTypeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBGenericTypeHelper.h; path = "Helper classes/DBGenericTypeHelper.h"; sourceTree = "<group>"; };
 		AB5F417C1CE280FB00026E36 /* DBGenericTypeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBGenericTypeHelper.m; path = "Helper classes/DBGenericTypeHelper.m"; sourceTree = "<group>"; };
 		AB80230A1DE46D000094294A /* System_AppDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_AppDomain.h; sourceTree = "<group>"; };
@@ -581,6 +585,8 @@
 		ABB8A36A18FF04B700213B80 /* Manual bindings */ = {
 			isa = PBXGroup;
 			children = (
+				AB5EBCAC1ED3019D00A14D47 /* System_Decimal.h */,
+				AB5EBCAD1ED3019D00A14D47 /* System_Decimal.m */,
 				AB2D42A21E6F26DB00C82E1A /* System_Attribute.h */,
 				AB2D42A31E6F26DB00C82E1A /* System_Attribute.m */,
 				AB9722901E6AD7D100DE0773 /* System_Threading_CancellationToken.h */,
@@ -840,6 +846,7 @@
 				AB2E746F18FFCF980061C63E /* System_Collections_IEnumerable.h in Headers */,
 				AB2E745318FFCD420061C63E /* System_IO_StringWriter.h in Headers */,
 				ABB9F2421DC8D4D300A95896 /* NSDate+mscorlib.h in Headers */,
+				AB5EBCAE1ED3019D00A14D47 /* System_Decimal.h in Headers */,
 				AB2E744518FFCD0A0061C63E /* System_Text_Encoding.h in Headers */,
 				AB2E746318FFCD8F0061C63E /* System_Globalization_CultureInfo.h in Headers */,
 				53FDBD731E64846E00DD8BEB /* System_Collections_IEnumerator.h in Headers */,
@@ -1004,6 +1011,7 @@
 				AB2E744418FFCD0A0061C63E /* System_Reflection_PropertyInfo.m in Sources */,
 				AB9722931E6AD7D100DE0773 /* System_Threading_CancellationToken.m in Sources */,
 				ABB8A40518FF110000213B80 /* System_Collections_Generic_ListA1.m in Sources */,
+				AB5EBCAF1ED3019D00A14D47 /* System_Decimal.m in Sources */,
 				AB2E747018FFCF980061C63E /* System_Collections_IEnumerable.m in Sources */,
 				ABFDABA11C763DB2005230C0 /* System_Runtime_InteropServices__Exception.m in Sources */,
 				AB8023111DE46ED40094294A /* System_UnhandledExceptionEventArgs.m in Sources */,
