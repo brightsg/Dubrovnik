@@ -343,6 +343,8 @@ static BOOL m_crashChaining = NO;
 
         _loadedAssemblies = [NSMutableDictionary dictionaryWithCapacity:10];
         
+        self.tracer = [DBEnvironmentTracer new];
+        
         // In general we don't want to pin objects as this affects performance.
         // The GC will not able to manage memory efficiently.
         self.pinObjects = NO;

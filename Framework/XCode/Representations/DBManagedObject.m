@@ -94,11 +94,11 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 @property (assign, nonatomic, readwrite) MonoClass *monoClass;
 @property (assign, nonatomic, readwrite) MonoType *monoType;
 
-
 // primitives
 @property (assign, readwrite) NSUInteger monoHash;
 @property (assign) uint32_t mono_gchandle;
 @property (assign, readwrite) BOOL isPrimaryInstance;
+@property (nonatomic, assign) void *kvoInfo;
 
 #ifdef DB_TRACE_MONO_OBJECT_ADDRESS
 @property (assign) NSUInteger monoObjectTrace;
@@ -350,6 +350,11 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
         }
     }
     
+    // trace
+    if (self.monoEnvironment.tracer.active && self.monoEnvironment.tracer.onAlloc) {
+        self.monoEnvironment.tracer.onAlloc(self);
+    }
+    
 	return self;
 }
 
@@ -379,6 +384,11 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 - (void)disposeOfInstance
 {
+    // trace
+    if (self.monoEnvironment.tracer.active && self.monoEnvironment.tracer.onDealloc) {
+        self.monoEnvironment.tracer.onDealloc(self);
+    }
+    
     // cleanup primary instance.
      if (self.isPrimaryInstance) {
         
@@ -1032,7 +1042,13 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
         self.automaticallyNotifiesObserversOfManagedPropertyChanges = YES;
     }
     
-    [super setObservationInfo:observationInfo];
+    // caching the observation info in an ivar is a documented optimisation
+    _kvoInfo = observationInfo;
+}
+
+- (void *)observationInfo
+{
+    return _kvoInfo;
 }
 
 - (BOOL)trackWillChangeValueForKey:(NSString *)key

@@ -21,6 +21,8 @@
 //
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
+#import "DBEnvironmentTracer.h"
+
 
 // global
 extern NSString * const DBNoteManagedEnvironmentInitialised;
@@ -49,6 +51,7 @@ extern NSString * const DBNoteManagedEnvironmentLoaded;
 @property (assign, readonly, nonatomic) MonoAssembly *monoSystemCoreAssembly;
 @property (assign, readonly) MonoDomain *monoDomain;
 @property (assign) BOOL pinObjects;
+@property (strong) DBEnvironmentTracer *tracer;
 
 /*!
  

@@ -38,5 +38,6 @@
 #import <mono/metadata/mono-config.h>
 #import <mono/metadata/environment.h>
 #import <mono/metadata/image.h>
+#import <mono/metadata/profiler.h>
 
 #import <mono/utils/mono-logger.h>
