@@ -98,7 +98,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 @property (assign, readwrite) NSUInteger monoHash;
 @property (assign) uint32_t mono_gchandle;
 @property (assign, readwrite) BOOL isPrimaryInstance;
-@property (nonatomic, assign) void *kvoInfo;
+//@property (nonatomic, assign) void *kvoInfo;
 
 #ifdef DB_TRACE_MONO_OBJECT_ADDRESS
 @property (assign) NSUInteger monoObjectTrace;
@@ -1032,6 +1032,11 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
         [NSException raise:@"DBObservationException" format:@"%@ (%p): Only primary instances support the raising of managed events. Observing the properties of a managed object requires the use of managed events, which this object cannot support. Use the primary instance for the represented managed object instead.\nThe primary instance is %@ %p obsInfo : %@", self, self, primaryInstance, primaryInstance, [primaryInstance observationInfo]];
     }
     
+    // trace
+    if (self.monoEnvironment.tracer.active && self.monoEnvironment.tracer.onSetObservationInfo) {
+        self.monoEnvironment.tracer.onSetObservationInfo(self, self.observationInfo, observationInfo);
+    }
+    
     /*
      
      This method will be called whenever an observer or binding changes.
@@ -1043,12 +1048,14 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     }
     
     // caching the observation info in an ivar is a documented optimisation
-    _kvoInfo = observationInfo;
+    //_kvoInfo = observationInfo;
+    [super setObservationInfo:observationInfo];
 }
 
 - (void *)observationInfo
 {
-    return _kvoInfo;
+    return [super observationInfo];
+    //return _kvoInfo;
 }
 
 - (BOOL)trackWillChangeValueForKey:(NSString *)key
@@ -1129,20 +1136,28 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     if ([self.class.keysToIgnoreInChangeValueForKeyMethods containsObject:key]) {
         NSLog(@"%@ -%@ is being observed by %@ but +keysToIgnoreInChangeValueForKeyMethods indicates that KVO notifications for that path will be ignored", self, keyPath, observer);
     }
-    
-#ifdef DB_TRACE_KVO
-    NSLog(@"%@ %@ is observed by %@", self, keyPath, observer);
-#endif
+
+    if (self.monoEnvironment.tracer.active && self.monoEnvironment.tracer.onAddObserver) {
+        self.monoEnvironment.tracer.onAddObserver(self, observer, keyPath, options, context);
+    }
     
     [super addObserver:observer forKeyPath:keyPath options:options context:context];
 }
 
+- (void)removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath
+{
+    if (self.monoEnvironment.tracer.active && self.monoEnvironment.tracer.onAddObserver) {
+        self.monoEnvironment.tracer.onRemoveObserver(self, observer, keyPath, NULL);
+    }
+    
+    [super removeObserver:observer forKeyPath:keyPath];
+}
+
 - (void)removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath context:(void *)context
 {
-    
-#ifdef DB_TRACE_KVO
-    NSLog(@"%@ %@ is no longer observed by %@", self, keyPath, observer);
-#endif
+    if (self.monoEnvironment.tracer.active && self.monoEnvironment.tracer.onAddObserver) {
+        self.monoEnvironment.tracer.onRemoveObserver(self, observer, keyPath, NULL);
+    }
     
     [super removeObserver:observer forKeyPath:keyPath context:context];
 }
