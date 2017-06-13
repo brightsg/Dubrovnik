@@ -9,6 +9,7 @@
 #import "DBManagedEvent.h"
 #import "DBManagedObject.h"
 #import "DBTypeManager.h"
+#import "DBManagedEnvironment.h"
 
 // categories
 #import "NSObject+DBManagedEvent.h"
@@ -116,6 +117,12 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
                     options:(NSDictionary *)options
 {
 #pragma unused(options)
+    if (!sender) {
+        [[DBManagedEnvironment currentEnvironment].tracer callTrace:[NSString stringWithFormat:@"Cannot add handler for event %@. Sender is nil.", eventName]
+                                                              level:DBTraceLavelWarn
+                                                           function:__FUNCTION__];
+        return;
+    }
     
     // contract
     NSAssert(sender.isPrimaryInstance, @"non primary instance : %@ : %@", sender, eventName);
@@ -136,6 +143,13 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
 + (NSPointerArray *)eventTargetsForSender:(DBManagedObject *)sender
                            eventName:(NSString *)eventName
 {
+    if (!sender) {
+        [[DBManagedEnvironment currentEnvironment].tracer callTrace:[NSString stringWithFormat:@"Cannot get target for event %@. Sender is nil.", eventName]
+                                                              level:DBTraceLavelWarn
+                                                           function:__FUNCTION__];
+        return nil;
+    }
+    
     // contract
     NSAssert(sender.isPrimaryInstance, @"non primary instance");
 
@@ -162,7 +176,9 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
 #pragma unused(options)
     
     if (!sender) {
-        NSLog(@"%@ cannot remove handler for event %@ because the managed object is nil", self, eventName);
+        [[DBManagedEnvironment currentEnvironment].tracer callTrace:[NSString stringWithFormat:@"Cannot remove handler for event %@. Sender is nil.", eventName]
+                                                              level:DBTraceLavelWarn
+                                                           function:__FUNCTION__];
         return;
     }
     
