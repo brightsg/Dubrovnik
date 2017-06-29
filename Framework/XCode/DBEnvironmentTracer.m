@@ -28,7 +28,7 @@
 
 - (void)setActive:(BOOL)active
 {
-    _active =active;
+    _active = active;
 
     // there are low level profile functions available but actually configuring the profiler looks fairly clunky : mono-profiler-log.c
     //mono_profiler_install_gc_finalize (finalize_begin, finalize_object_begin, finalize_object_end, finalize_end);
@@ -54,4 +54,48 @@
         self.trace(info, level, function);
     }
 }
+
+#pragma mark -
+#pragma mark Block Accessors
+
+- (void(^)(DBManagedObject *obj)) onAlloc {
+    if (!self.active) return NULL;
+    return _onAlloc;
+}
+
+- (void(^)(DBManagedObject *obj)) onDealloc {
+    if (!self.active) return NULL;
+    return _onDealloc;
+}
+
+- (void(^)(DBManagedObject *obj, void *oldObservationInfo, void *newObservationInfo))onSetObservationInfo
+{
+    if (!self.active) return NULL;
+    return _onSetObservationInfo;
+}
+
+- (void(^)(DBManagedObject *obj, NSObject *observer, NSString *keyPath, NSKeyValueObservingOptions options, void *context))onAddObserver
+{
+    if (!self.active) return NULL;
+    return _onAddObserver;
+}
+
+- (void(^)(DBManagedObject *obj, NSObject *observer, NSString *keyPath, void *context))onRemoveObserver
+{
+    if (!self.active) return NULL;
+    return _onRemoveObserver;
+}
+
+- (void(^)(NSException *e))onException
+{
+    if (!self.active) return NULL;
+    return _onException;
+}
+
+- (void(^)(NSString *info, DBTraceLavel level, const char *function))trace
+{
+    if (!self.active) return NULL;
+    return _trace;
+}
+
 @end

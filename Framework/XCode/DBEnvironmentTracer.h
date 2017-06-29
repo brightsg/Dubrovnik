@@ -20,12 +20,13 @@ typedef NS_ENUM(NSInteger, DBTraceLavel) {
 @interface DBEnvironmentTracer : NSObject
 
 // blocks
-@property (copy) void(^onAlloc)(DBManagedObject *obj);
-@property (copy) void(^onDealloc)(DBManagedObject *obj);
-@property (copy) void(^onSetObservationInfo)(DBManagedObject *obj, void *oldObservationInfo, void *newObservationInfo);
-@property (copy) void(^onAddObserver)(DBManagedObject *obj, NSObject *observer, NSString *keyPath, NSKeyValueObservingOptions options, void *context);
-@property (copy) void(^onRemoveObserver)(DBManagedObject *obj, NSObject *observer, NSString *keyPath, void *context);
-@property (copy) void(^trace)(NSString *info, DBTraceLavel level, const char *function);
+@property (copy, nonatomic) void(^onAlloc)(DBManagedObject *obj);
+@property (copy, nonatomic) void(^onDealloc)(DBManagedObject *obj);
+@property (copy, nonatomic) void(^onSetObservationInfo)(DBManagedObject *obj, void *oldObservationInfo, void *newObservationInfo);
+@property (copy, nonatomic) void(^onAddObserver)(DBManagedObject *obj, NSObject *observer, NSString *keyPath, NSKeyValueObservingOptions options, void *context);
+@property (copy, nonatomic) void(^onRemoveObserver)(DBManagedObject *obj, NSObject *observer, NSString *keyPath, void *context);
+@property (copy, nonatomic) void(^onException)(NSException *e);
+@property (copy, nonatomic) void(^trace)(NSString *info, DBTraceLavel level, const char *function);
 
 // primitives
 @property (assign, nonatomic) BOOL active;

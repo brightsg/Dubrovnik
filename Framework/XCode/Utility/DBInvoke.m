@@ -27,6 +27,7 @@
 #import "DBBoxing.h"
 #import "DBType.h"
 #import "DBTypeManager.h"
+#import "DBManagedEnvironment.h"
 
 // The 32 and 64 bit libs differ as the more modern 64 bit source
 // won't build in 64 bit
@@ -168,19 +169,14 @@ NSException *NSExceptionFromMonoException(MonoObject *monoException, NSDictionar
     // reason.
     NSMutableString *reason = [NSMutableString stringWithFormat:@"%@", message];
     
-    // embedding the userinfo ensures that all info gets propagated into the crash report.
-    // the line below generates repeated excletion info that makes the log
-    // very hard to decipher. may be better with out it.
-    // [reason appendFormat:@"%@\n userInfo : %@", stringRep, [userInfo description]];
-    
     // make it so
     NSException *e = [NSException exceptionWithName:@"DBManagedCodeException" reason:reason userInfo:userInfo];
     
-    BOOL logException = YES;
-    if (logException) {
-        NSLog(@"%@\n\nException reason: %@\n\nException info: %@\n\n", e.name, e.reason, e.userInfo);
+    // call tracer
+    DBManagedEnvironment *env = [DBManagedEnvironment currentEnvironment];
+    if (env.tracer.onException) {
+        env.tracer.onException(e);
     }
-    
 	return(e);
 }
 
