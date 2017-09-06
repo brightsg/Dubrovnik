@@ -14,6 +14,12 @@
 // http://blogs.msdn.com/b/somasegar/archive/2005/08/11/450640.aspx
 //
 // A boxed Nullable<T> is represented by a boxed instance of the underlying type NOT a boxed instance of System.Nullable<T>.
+//
+// This means that :
+// 1. -monoObject will be a boxed instance of the nullable's underlying type NOT an instance of System.Nullable.
+// 2. trying to call any System.Nullable methods (such as hasValue) on -monoObject's class will fail.
+//
+// This class is an oddball and needs treated with kid gloves.
 
 @implementation System_NullableA1
 
@@ -44,6 +50,7 @@
 // Managed type : System.Boolean
 - (BOOL)hasValue
 {
+    // keep us sane
     [NSException raise:@"Not supported" format:@"A boxed System.Nullable is just an instance of the underlying type so calling -hasValue is not possible."];
     return NO;
 }
@@ -51,6 +58,7 @@
 // Managed type : <T>
 - (DBManagedObject *)value
 {
+    // keep us sane
    [NSException raise:@"Not supported" format:@"A boxed System.Nullable is just an instance of the underlying type so calling -value is not possible."];
     return nil;
 }
