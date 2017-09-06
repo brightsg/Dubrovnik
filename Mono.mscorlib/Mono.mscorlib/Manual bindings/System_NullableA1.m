@@ -44,17 +44,15 @@
 // Managed type : System.Boolean
 - (BOOL)hasValue
 {
-    MonoObject * monoObject = [self getMonoProperty:"HasValue"];
-    BOOL result = DB_UNBOX_BOOLEAN(monoObject);
-    return result;
+    [NSException raise:@"Not supported" format:@"A boxed System.Nullable is just an instance of the underlying type so calling -hasValue is not possible."];
+    return NO;
 }
 
 // Managed type : <T>
 - (DBManagedObject *)value
 {
-    MonoObject * monoObject = [self getMonoProperty:"Value"];
-    DBManagedObject * result = [DBManagedObject objectWithMonoObject:monoObject];
-    return result;
+   [NSException raise:@"Not supported" format:@"A boxed System.Nullable is just an instance of the underlying type so calling -value is not possible."];
+    return nil;
 }
 
 #pragma mark -
@@ -88,6 +86,11 @@
 {
     MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
     return DB_UNBOX_INT32(monoObject);
+}
+
+- (NSString *)description
+{
+    return [[self objectValue] description];
 }
 
 @end
