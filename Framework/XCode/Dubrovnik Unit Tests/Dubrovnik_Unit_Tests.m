@@ -1577,10 +1577,12 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //============================
     // System.Nullable<T>
     //=============================
+    
+    // integer
     System_NullableA1 *intNullable = [refObject intNullable];
     XCTAssertTrue(intNullable != nil, DBUNotNilTestFailed);
     XCTAssertTrue([[intNullable numberValue] intValue] == 1, DBUEqualityTestFailed);
-    
+    XCTAssertTrue(intNullable.description != nil, DBUNotNilTestFailed);
     
     // set value to null
     System_NullableA1 *intNullable2 = [System_NullableA1 newNullableFromObject:nil withTypeArgumentName:@"int32_t"];
@@ -1588,16 +1590,17 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     intNullable = [refObject intNullable];
     XCTAssertTrue(intNullable == nil, DBUNilTestFailed);
     
-    
     // get float null
     System_NullableA1 *floatNullable = [refObject floatNullable];
     XCTAssertTrue(floatNullable == nil, DBUNilTestFailed);
 
+    // float
     System_NullableA1 *floatNullable2 = [System_NullableA1 newNullableFromObject:@((float)5) withTypeArgumentName:@"float"];
     [refObject setFloatNullable:floatNullable2];
     floatNullable = [refObject floatNullable];
     XCTAssertTrue(floatNullable != nil, DBUNotNilTestFailed);
     XCTAssertTrue([[floatNullable numberValue] floatValue] == 5, DBUEqualityTestFailed);
+    XCTAssertTrue(floatNullable.description != nil, DBUNotNilTestFailed);
     
     //=========================================================
     // Generic reference object
