@@ -25,7 +25,7 @@
 	// Managed method name : BeginInvoke
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Object, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginInvoke_withObject:(System_Object *)p1 callback:(System_AsyncCallback *)p2 object:(System_Object *)p3;
+    - (id <System_IAsyncResult>)beginInvoke_withObject:(System_Object *)p1 callback:(System_AsyncCallback *)p2 __object:(System_Object *)p3;
 
 	// Managed method name : EndInvoke
 	// Managed return type : System.Int32

@@ -294,6 +294,11 @@
 	// Managed param types : 
     - (int32_t)getHashCode;
 
+	// Managed method name : initWithString
+	// Managed return type : System.String
+	// Managed param types : System.String
+    - (NSString *)db_initWithString_withS:(NSString *)p1;
+
 	// Managed method name : InvokeActionDelegate
 	// Managed return type : System.Void
 	// Managed param types : Dubrovnik.UnitTests.ReferenceObject+ActionDelegate

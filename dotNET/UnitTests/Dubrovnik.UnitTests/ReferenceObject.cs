@@ -67,7 +67,7 @@ namespace Dubrovnik.UnitTests {
 		//==============================
 		public delegate void SimpleDelegate();
 		public delegate void ActionDelegate(string message);
-		public delegate int FunctionDelegate1(System.Object @object);
+		public delegate int FunctionDelegate1(System.Object @object); // @object will appear as __object Obj-C named parameter
 		public delegate int FunctionDelegate2(int value, string message);
 
 		//==============================
@@ -356,6 +356,11 @@ namespace Dubrovnik.UnitTests {
 		//==============================
 		// methods
 		//==============================
+
+		// ARC semantics will require that methods beginning with init return type related to receiver.
+		public string initWithString(string s) {
+			return s;
+		}
 
 		//
 		// string parameter methods

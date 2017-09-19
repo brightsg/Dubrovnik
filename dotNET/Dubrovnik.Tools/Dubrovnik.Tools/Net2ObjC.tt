@@ -829,9 +829,12 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 	string objCMethodType = null;
 
 	// Method name. We do some rudimentary processing to prevent troublesome behaviour.
+	// We may have to prefix certian method names to conform to ARC's semantics
+	// see https://stackoverflow.com/questions/22529454/simple-rules-for-naming-methods-compatible-with-arc-naming-conventions
 	string monoMethodName = facet.Name;
 	string objCMethodName = monoMethodName.FirstCharacterToLower();
-	List<string> unsafeObjCMethodNames = new List<string> {""};
+	List<string> unsafeObjCMethodNames = null;
+	List<string> unsafeObjCMethodNamesStartingWith = null;
 	if (facet.IsStatic || isConstructorMethod) 
 	{
 		objCMethodType = "+";
@@ -849,11 +852,22 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 	}
 	else 
 	{
+		unsafeObjCInitMethodNamesStartingWith = new List<string> {
+												"init" 
+		};
 		objCMethodType = "-";
 	}
-	if (unsafeObjCMethodNames.Contains(objCMethodName)) 
+	if (unsafeObjCMethodNames != null && unsafeObjCMethodNames.Contains(objCMethodName))
 	{
 		objCMethodName += "_";
+	}
+
+	// methods beginning with init are expected to return a type related to the receiver
+	if (unsafeObjCInitMethodNamesStartingWith != null && 
+		facet.Type != "System.Void" &&
+		unsafeObjCInitMethodNamesStartingWith.Any(p => objCMethodName.StartsWith(p, false, null)))
+	{
+			objCMethodName = "db_" + objCMethodName;
 	}
 
 	// return type
@@ -1023,7 +1037,7 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 		// ObjC paramter name is constructed as follows:
 		// Managed parameter name + Managed parameter type + Ref
 		string objCParamName = ObjCIdentifierFromManagedIdentifier(parameter.Name);
-
+		
 		// If the method is overloaded by parameter then make the ObjC method
 		// name unique by including type info in the name.
 		//

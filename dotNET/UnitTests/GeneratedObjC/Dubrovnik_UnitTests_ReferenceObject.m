@@ -1884,6 +1884,17 @@
 		return DB_UNBOX_INT32(monoObject);
     }
 
+	// Managed method name : initWithString
+	// Managed return type : System.String
+	// Managed param types : System.String
+    - (NSString *)db_initWithString_withS:(NSString *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"initWithString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+    }
+
 	// Managed method name : InvokeActionDelegate
 	// Managed return type : System.Void
 	// Managed param types : Dubrovnik.UnitTests.ReferenceObject+ActionDelegate

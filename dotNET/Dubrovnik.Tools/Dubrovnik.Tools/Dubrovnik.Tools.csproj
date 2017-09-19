@@ -81,11 +81,8 @@
     <None Include="Net2ObjC.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <CustomToolNamespace>Dubrovnik.Tools</CustomToolNamespace>
-      <LastGenOutput>Net2ObjC1.cs</LastGenOutput>
+      <LastGenOutput>Net2ObjC.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Microsoft.VisualStudio.TextTemplating.Interfaces.11.0.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
