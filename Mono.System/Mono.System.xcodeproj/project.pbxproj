@@ -11,6 +11,7 @@
 		AB178060199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = AB17805E199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m */; };
 		AB178063199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = AB178061199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB178064199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = AB178062199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m */; };
+		AB17A02A1F6BEDEC00FED930 /* System_Collections_Specialized_NotifyCollectionChangedAction.h in Headers */ = {isa = PBXBuildFile; fileRef = AB17A0291F6BEDEC00FED930 /* System_Collections_Specialized_NotifyCollectionChangedAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB26E0AD1E4A15C0004876FE /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB26E0AC1E4A15C0004876FE /* Mono.framework */; };
 		AB6245231E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h in Headers */ = {isa = PBXBuildFile; fileRef = AB6245211E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB6245241E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6245221E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m */; };
@@ -60,6 +61,7 @@
 		AB17805E199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_PropertyChangedEventArgs.m; sourceTree = "<group>"; };
 		AB178061199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_PropertyChangingEventArgs.h; sourceTree = "<group>"; };
 		AB178062199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_PropertyChangingEventArgs.m; sourceTree = "<group>"; };
+		AB17A0291F6BEDEC00FED930 /* System_Collections_Specialized_NotifyCollectionChangedAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_Specialized_NotifyCollectionChangedAction.h; sourceTree = "<group>"; };
 		AB26E0AC1E4A15C0004876FE /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.System/../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
 		AB6245211E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Collections_ObjectModel_ObservableCollectionA1+Events.h"; sourceTree = "<group>"; };
 		AB6245221E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Collections_ObjectModel_ObservableCollectionA1+Events.m"; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				ABDA50E01A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.h */,
 				ABDA50E11A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.m */,
 				ABDA50E21A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.h */,
+				AB17A0291F6BEDEC00FED930 /* System_Collections_Specialized_NotifyCollectionChangedAction.h */,
 				ABDA50E31A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.m */,
 				AB178061199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h */,
 				AB178062199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m */,
@@ -273,6 +276,7 @@
 				AB178063199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h in Headers */,
 				AB17805F199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.h in Headers */,
 				ABF37D4E1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.h in Headers */,
+				AB17A02A1F6BEDEC00FED930 /* System_Collections_Specialized_NotifyCollectionChangedAction.h in Headers */,
 				ABA3975E1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h in Headers */,
 				AB6245231E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h in Headers */,
 				ABA397491906BAE600D5CA6E /* ManualBindings.h in Headers */,

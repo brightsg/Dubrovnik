@@ -49,7 +49,7 @@
 	// Managed method name : Add
 	// Managed return type : System.IntPtr
 	// Managed param types : System.IntPtr, System.Int32
-    + (System_IntPtr *)add_withPointer:(void *)p1 offset:(int32_t)p2;
+    + (void *)add_withPointer:(void *)p1 offset:(int32_t)p2;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
@@ -64,7 +64,7 @@
 	// Managed method name : op_Addition
 	// Managed return type : System.IntPtr
 	// Managed param types : System.IntPtr, System.Int32
-    + (System_IntPtr *)op_Addition_withPointer:(void *)p1 offset:(int32_t)p2;
+    + (void *)op_Addition_withPointer:(void *)p1 offset:(int32_t)p2;
 
 	// Managed method name : op_Equality
 	// Managed return type : System.Boolean
@@ -74,17 +74,17 @@
 	// Managed method name : op_Explicit
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Int32
-    + (System_IntPtr *)op_Explicit_withValueInt:(int32_t)p1;
+    + (void *)op_Explicit_withValueInt:(int32_t)p1;
 
 	// Managed method name : op_Explicit
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Int64
-    + (System_IntPtr *)op_Explicit_withValueLong:(int64_t)p1;
+    + (void *)op_Explicit_withValueLong:(int64_t)p1;
 
 	// Managed method name : op_Explicit
 	// Managed return type : System.IntPtr
 	// Managed param types : System.Void*
-    + (System_IntPtr *)op_Explicit_withValueVoid:(void*)p1;
+    + (void *)op_Explicit_withValueVoid:(void*)p1;
 
 	// Managed method name : op_Inequality
 	// Managed return type : System.Boolean
@@ -94,12 +94,12 @@
 	// Managed method name : op_Subtraction
 	// Managed return type : System.IntPtr
 	// Managed param types : System.IntPtr, System.Int32
-    + (System_IntPtr *)op_Subtraction_withPointer:(void *)p1 offset:(int32_t)p2;
+    + (void *)op_Subtraction_withPointer:(void *)p1 offset:(int32_t)p2;
 
 	// Managed method name : Subtract
 	// Managed return type : System.IntPtr
 	// Managed param types : System.IntPtr, System.Int32
-    + (System_IntPtr *)subtract_withPointer:(void *)p1 offset:(int32_t)p2;
+    + (void *)subtract_withPointer:(void *)p1 offset:(int32_t)p2;
 
 	// Managed method name : ToInt32
 	// Managed return type : System.Int32
@@ -114,7 +114,7 @@
 	// Managed method name : ToPointer
 	// Managed return type : System.Void*
 	// Managed param types : 
-    - (System_IntPtr *)toPointer;
+    - (void *)toPointer;
 
 	// Managed method name : ToString
 	// Managed return type : System.String

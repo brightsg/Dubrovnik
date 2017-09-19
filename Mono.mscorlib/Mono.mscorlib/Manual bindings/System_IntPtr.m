@@ -59,7 +59,7 @@
     static System_IntPtr * m_zero;
     + (System_IntPtr *)zero
     {
-		MonoObject *monoObject = [[self class] getMonoClassField:"Zero"];
+		//MonoObject *monoObject = [[self class] getMonoClassField:"Zero"];
 		//m_zero = DB_UNBOX_PTR(monoObject);
 
 		return m_zero;

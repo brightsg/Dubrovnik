@@ -27,6 +27,7 @@
 
 #import "System_IntPtr.h"
 #import "System_Int32.h"
+#import "System_Decimal.h"
 
 #import "System_Convert.h"
 #import "System_Enum.h"
@@ -76,6 +77,7 @@
 #import "System_Collections_Generic_IEnumeratorA1_Protocol.h"
 #import "System_Collections_Generic_IEnumeratorA1.h"
 #import "System_Collections_Generic_IEnumerableA1.h"
+#import "System_Collections_Generic_KeyValuePairA2.h"
 
 #import "DBSystem_Collections_IList.h"
 #import "System_Collections_Generic_IDictionaryA2.h"

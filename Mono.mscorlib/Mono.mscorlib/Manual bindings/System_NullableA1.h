@@ -77,7 +77,7 @@ extern NS_ENUM(NSInteger, DBSystemNullableTypes) {
 
 - (NSDecimalNumber *)decimalNumberValue;
 
-- (NSComparisonResult)compare:(System_NullableA1 *)object;
+// - (NSComparisonResult)compare:(System_NullableA1 *)object; // not yet implemented
 
 /*!
  

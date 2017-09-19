@@ -77,6 +77,8 @@
 		AB81D5C417D7B1B6007214E1 /* DBType.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81D5C217D7B1B6007214E1 /* DBType.m */; };
 		AB81D5C717D7B380007214E1 /* DBTypeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = AB81D5C517D7B380007214E1 /* DBTypeManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB81D5C817D7B380007214E1 /* DBTypeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81D5C617D7B380007214E1 /* DBTypeManager.m */; };
+		AB895FE41EDDA6EC00931D95 /* DBEnvironmentTracer.h in Headers */ = {isa = PBXBuildFile; fileRef = AB895FE21EDDA6EC00931D95 /* DBEnvironmentTracer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB895FE51EDDA6EC00931D95 /* DBEnvironmentTracer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB895FE31EDDA6EC00931D95 /* DBEnvironmentTracer.m */; };
 		AB91B69718EE03A00021B462 /* DBManagedEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = AB91B69518EE03A00021B462 /* DBManagedEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB91B69818EE03A00021B462 /* DBManagedEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = AB91B69618EE03A00021B462 /* DBManagedEvent.m */; };
 		AB91B69B18EE04570021B462 /* NSObject+DBManagedEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = AB91B69918EE04570021B462 /* NSObject+DBManagedEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -256,6 +258,8 @@
 		AB81D5C217D7B1B6007214E1 /* DBType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBType.m; path = "Mono Environment/DBType.m"; sourceTree = "<group>"; };
 		AB81D5C517D7B380007214E1 /* DBTypeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBTypeManager.h; path = "Mono Environment/DBTypeManager.h"; sourceTree = "<group>"; };
 		AB81D5C617D7B380007214E1 /* DBTypeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBTypeManager.m; path = "Mono Environment/DBTypeManager.m"; sourceTree = "<group>"; };
+		AB895FE21EDDA6EC00931D95 /* DBEnvironmentTracer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBEnvironmentTracer.h; sourceTree = "<group>"; };
+		AB895FE31EDDA6EC00931D95 /* DBEnvironmentTracer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBEnvironmentTracer.m; sourceTree = "<group>"; };
 		AB8DDC7818EED0B100FEEA8B /* EventHelper.cs */ = {isa = PBXFileReference; lastKnownFileType = text; name = EventHelper.cs; path = ../../../dotNET/UnitTests/Dubrovnik.UnitTests/EventHelper.cs; sourceTree = "<group>"; };
 		AB91B69518EE03A00021B462 /* DBManagedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManagedEvent.h; sourceTree = "<group>"; };
 		AB91B69618EE03A00021B462 /* DBManagedEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManagedEvent.m; sourceTree = "<group>"; };
@@ -475,6 +479,8 @@
 			children = (
 				9D69DC4108B1851E008BB787 /* DBManagedEnvironment.h */,
 				9D69DC4208B1851E008BB787 /* DBManagedEnvironment.m */,
+				AB895FE21EDDA6EC00931D95 /* DBEnvironmentTracer.h */,
+				AB895FE31EDDA6EC00931D95 /* DBEnvironmentTracer.m */,
 			);
 			name = "Mono Environment";
 			sourceTree = "<group>";
@@ -822,6 +828,7 @@
 				9D13A6EE08833E74008ACA37 /* DBBoxing.h in Headers */,
 				9D8BE9670886152500D019A5 /* NSCategories.h in Headers */,
 				ABE5764B1D9C5ABA0085C457 /* DBManagedType.h in Headers */,
+				AB895FE41EDDA6EC00931D95 /* DBEnvironmentTracer.h in Headers */,
 				9D8BE971088615D200D019A5 /* DBUtility.h in Headers */,
 				9D69DC4308B1851E008BB787 /* DBManagedEnvironment.h in Headers */,
 				9D68AF5408EA1569002C7AB0 /* NSDate+Dubrovnik.h in Headers */,
@@ -958,6 +965,7 @@
 				ABD1CC2319A905FC0072F538 /* NSPointerArray+Dubrovnik.m in Sources */,
 				AB4919261CF9DA6800B4A411 /* NSThread+Dubrovnik.m in Sources */,
 				9D68AF5508EA1569002C7AB0 /* NSDate+Dubrovnik.m in Sources */,
+				AB895FE51EDDA6EC00931D95 /* DBEnvironmentTracer.m in Sources */,
 				ABB8A3DF18FF0F4400213B80 /* NSString+Dubrovnik.m in Sources */,
 				9D496B3009082F6700CD26AF /* NSImage+Dubrovnik.m in Sources */,
 				9D88634A0974F55500365976 /* DBString.m in Sources */,

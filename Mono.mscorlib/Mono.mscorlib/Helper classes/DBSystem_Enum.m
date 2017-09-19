@@ -67,7 +67,7 @@ static DBManagedClass *_classRep = nil;
 {
     Class klass = self.class;
     System_Type *type = [klass underlyingType];
-    MonoType *monoType = mono_reflection_type_get_type(type.monoObject); // SystemType is represented by MonoReflectionType
+    MonoType *monoType = mono_reflection_type_get_type((MonoReflectionType *)type.monoObject); // SystemType.monoObject is MonoReflectionType
     MonoClass *monoClass = mono_class_from_mono_type(monoType);
     MonoObject *monoObject = nil;
 
@@ -96,7 +96,7 @@ static DBManagedClass *_classRep = nil;
         monoObject = [klass monoEnumFromUInt8:(uint8_t)value];
     }
     else {
-        NSAssert(YES, @"Cannot get enum for % value : %lu", type.monoClassName, value);
+        NSAssert(YES, @"Cannot get enum for %s value : %lu", type.monoClassName, value);
     }
         
     self = [self initWithMonoObject:monoObject];

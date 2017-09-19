@@ -7,6 +7,7 @@
 //
 
 #import "System_Delegate+mscorlib.h"
+#import "System_Object+mscorlib.h"
 #import "System_Type.h"
 #import "System_IntPtr.h"
 #import <objc/runtime.h>
@@ -104,8 +105,8 @@ static MonoObject *UniversalDelegateServices_NativeHandler_DelegateInfoContext(v
     
     // wrap context in IntPtr - remember IntPtr is a value type.
     void *context = (__bridge void *)(info);
-    System_IntPtr *contextPtr = [System_IntPtr new_withValueLong:context];
-    NSAssert(context == contextPtr.toInt64, @"invalid context");
+    System_IntPtr *contextPtr = [System_IntPtr new_withValueLong:(int64_t)context];
+    NSAssert((int64_t)context == contextPtr.toInt64, @"invalid context");
      
     // Invoke CreateWrapper
     MonoMethod *method = [DBManagedEnvironment dubrovnikMonoMethodWithName:"CreateWrapper" className:"Mono.Embedding.UniversalDelegateServices" argCount:2];

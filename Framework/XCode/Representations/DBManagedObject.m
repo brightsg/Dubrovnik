@@ -94,11 +94,11 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 @property (assign, nonatomic, readwrite) MonoClass *monoClass;
 @property (assign, nonatomic, readwrite) MonoType *monoType;
 
-
 // primitives
 @property (assign, readwrite) NSUInteger monoHash;
 @property (assign) uint32_t mono_gchandle;
 @property (assign, readwrite) BOOL isPrimaryInstance;
+//@property (nonatomic, assign) void *kvoInfo;
 
 #ifdef DB_TRACE_MONO_OBJECT_ADDRESS
 @property (assign) NSUInteger monoObjectTrace;
@@ -350,6 +350,11 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
         }
     }
     
+    // trace
+    if (self.monoEnvironment.tracer.onAlloc) {
+        self.monoEnvironment.tracer.onAlloc(self);
+    }
+    
 	return self;
 }
 
@@ -379,8 +384,13 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 - (void)disposeOfInstance
 {
+    // trace
+    if (self.monoEnvironment.tracer.onDealloc) {
+        self.monoEnvironment.tracer.onDealloc(self);
+    }
+    
     // cleanup primary instance.
-     if (self.isPrimaryInstance) {
+    if (self.isPrimaryInstance) {
         
         // remove property change notifications
         self.automaticallyNotifiesObserversOfManagedPropertyChanges = NO;
@@ -400,6 +410,15 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 	MonoString *monoString = (MonoString *)[self invokeMonoMethod:"System.Object:ToString()" withNumArgs:0];
 	
 	return([NSString stringWithMonoString:monoString]);
+}
+
+#pragma mark -
+#pragma mark System.Object backing methods
+
+- (id)db_getType
+{
+    // no-op - subclasses must override
+    return nil;
 }
 
 #pragma mark -
@@ -810,7 +829,6 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
         if (self.monoEnvironment.pinObjects) {
             [NSException raise:@"DBManagedObjectMovedException" format:@"Managed object has moved when pinning enabled."];
         } else {
-            //NSLog(@"DBManagedObject has moved: %@ traced from %lu to %lu", self, self.monoObjectTrace, trace);
             self.monoObjectTrace = trace;
         }
     }
@@ -988,8 +1006,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     }
 
 #ifdef DB_TRACE_KVO
-        //NSLog(@"%p %@ -%@ key: %@ observation info: %@", self, self, NSStringFromSelector(_cmd), key, [self observationInfo]);
-        NSLog(@"%p %@ -%@ key: %@", self, [self className], NSStringFromSelector(_cmd), key);
+    NSLog(@"%p %@ -%@ key: %@", self, [self className], NSStringFromSelector(_cmd), key);
 #endif
     
     [super willChangeValueForKey:key];
@@ -1007,8 +1024,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     }
 
 #ifdef DB_TRACE_KVO
-        //NSLog(@"%p %@ -%@ key: %@ observation info: %@", self, self, NSStringFromSelector(_cmd), key, [self observationInfo]);
-        NSLog(@"%p %@ -%@ key: %@", self, [self className], NSStringFromSelector(_cmd), key);
+    NSLog(@"%p %@ -%@ key: %@", self, [self className], NSStringFromSelector(_cmd), key);
 #endif
     
     [super didChangeValueForKey:key];
@@ -1022,6 +1038,11 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
         [NSException raise:@"DBObservationException" format:@"%@ (%p): Only primary instances support the raising of managed events. Observing the properties of a managed object requires the use of managed events, which this object cannot support. Use the primary instance for the represented managed object instead.\nThe primary instance is %@ %p obsInfo : %@", self, self, primaryInstance, primaryInstance, [primaryInstance observationInfo]];
     }
     
+    // trace
+    if (self.monoEnvironment.tracer.onSetObservationInfo) {
+        self.monoEnvironment.tracer.onSetObservationInfo(self, self.observationInfo, observationInfo);
+    }
+    
     /*
      
      This method will be called whenever an observer or binding changes.
@@ -1032,7 +1053,14 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
         self.automaticallyNotifiesObserversOfManagedPropertyChanges = YES;
     }
     
+    // caching the observation info in an ivar is a documented optimisation
+    //_kvoInfo = observationInfo;
     [super setObservationInfo:observationInfo];
+}
+
+- (void *)observationInfo
+{
+    return [super observationInfo];
 }
 
 - (BOOL)trackWillChangeValueForKey:(NSString *)key
@@ -1050,7 +1078,14 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     BOOL isTracked = [self.willChangeValueForKeyTracker containsObject:key];
     if (isTracked) {
         
-        NSLog(@"Managed object KVO sequence warning: %@ -willChangeValueForKey: %@. Prior -didChangeValueForKey: was not received. Managed PropertyChanged(%@) event required.", [self className], key, key);
+        NSString *s = [NSString stringWithFormat:@"Managed object KVO sequence warning: %@ -willChangeValueForKey: %@. Prior -didChangeValueForKey: was not received. Managed PropertyChanged(%@) event required.", [self className], key, key];
+        
+        if (self.monoEnvironment.tracer.trace) {
+            self.monoEnvironment.tracer.trace(s, DBTraceLavelWarn, __func__);
+        }
+        else {
+            NSLog(@"%@", s);
+        }
         
         sequenceOkay = NO;
     } else {
@@ -1070,8 +1105,13 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
     BOOL isTracked = [self.willChangeValueForKeyTracker containsObject:key];
     if (!isTracked) {
-        
-        NSLog(@"Managed object KVO sequence warning: %@ -didChangeValueForKey: %@. Prior -willChangeValueForKey: was not received. Managed PropertyChanging(%@) event required.", [self className], key, key);
+        NSString *s = [NSString stringWithFormat:@"Managed object KVO sequence warning: %@ -didChangeValueForKey: %@. Prior -willChangeValueForKey: was not received. Managed PropertyChanging(%@) event required.", [self className], key, key];
+        if (self.monoEnvironment.tracer.trace) {
+            self.monoEnvironment.tracer.trace(s, DBTraceLavelWarn, __func__);
+        }
+        else {
+            NSLog(@"%@", s);
+        }
         
         sequenceOkay = NO;
     } else {
@@ -1111,22 +1151,36 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     // failure to heed this warning and fix offenders can lead to hard to diagnose crashes, often in and around -will/didChangeValueForKey:
     NSString *key = [keyPath componentsSeparatedByString:@"."].firstObject;
     if ([self.class.keysToIgnoreInChangeValueForKeyMethods containsObject:key]) {
-        NSLog(@"%@ -%@ is being observed by %@ but +keysToIgnoreInChangeValueForKeyMethods indicates that KVO notifications for that path will be ignored", self, keyPath, observer);
+        NSString *s = [NSString stringWithFormat:@"%@ -%@ is being observed by %@ but +keysToIgnoreInChangeValueForKeyMethods indicates that KVO notifications for that path will be ignored", self, keyPath, observer ];
+        if (self.monoEnvironment.tracer.trace) {
+            self.monoEnvironment.tracer.trace(s, DBTraceLavelWarn, __func__);
+        }
+        else {
+            NSLog(@"%@", s);
+        }
     }
-    
-#ifdef DB_TRACE_KVO
-    NSLog(@"%@ %@ is observed by %@", self, keyPath, observer);
-#endif
+
+    if (self.monoEnvironment.tracer.onAddObserver) {
+        self.monoEnvironment.tracer.onAddObserver(self, observer, keyPath, options, context);
+    }
     
     [super addObserver:observer forKeyPath:keyPath options:options context:context];
 }
 
+- (void)removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath
+{
+    if (self.monoEnvironment.tracer.onAddObserver) {
+        self.monoEnvironment.tracer.onRemoveObserver(self, observer, keyPath, NULL);
+    }
+    
+    [super removeObserver:observer forKeyPath:keyPath];
+}
+
 - (void)removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath context:(void *)context
 {
-    
-#ifdef DB_TRACE_KVO
-    NSLog(@"%@ %@ is no longer observed by %@", self, keyPath, observer);
-#endif
+    if (self.monoEnvironment.tracer.onRemoveObserver) {
+        self.monoEnvironment.tracer.onRemoveObserver(self, observer, keyPath, NULL);
+    }
     
     [super removeObserver:observer forKeyPath:keyPath context:context];
 }

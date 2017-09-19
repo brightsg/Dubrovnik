@@ -9,5 +9,6 @@
 #import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 #import <Mono.mscorlib/Framework.h>
+#import "ManualBindings.h"
 
 #endif

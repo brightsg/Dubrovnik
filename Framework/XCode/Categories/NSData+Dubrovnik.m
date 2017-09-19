@@ -74,7 +74,7 @@
 
 - (MonoObject *)monoObject
 {
-    return [self monoArray];
+    return (MonoObject *)[self monoArray];
 }
 
 @end

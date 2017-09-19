@@ -46,7 +46,7 @@
     
     // add objects
     for (id object in objects) {
-        DBManagedObject *managedObject = object;
+        System_Object *managedObject = object;
         
         if (![object isKindOfClass:[DBManagedObject class]]) {
             if (![object respondsToSelector:@selector(managedObject)]) {

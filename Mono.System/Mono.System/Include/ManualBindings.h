@@ -15,4 +15,5 @@
 #import "System_ComponentModel_INotifyPropertyChanged.h"
 #import "System_ComponentModel_AsyncCompletedEventArgs.h"
 #import "System_ComponentModel_RunWorkerCompletedEventArgs.h"
+#import "System_Collections_Specialized_NotifyCollectionChangedAction.h"
 #import "System_Collections_Specialized_NotifyCollectionChangedEventArgs.h"
