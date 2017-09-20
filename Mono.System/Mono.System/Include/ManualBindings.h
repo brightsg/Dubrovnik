@@ -6,6 +6,13 @@
 //  Copyright (c) 2014 Thesaurus Software. All rights reserved.
 //
 
+#import "System_UriHostNameType.h"
+#import "System_UriKind.h"
+#import "System_Uri.h"
+#import "System_UriComponents.h"
+#import "System_UriFormat.h"
+#import "System_UriPartial.h"
+
 #import "System_Text_RegularExpressions_RegexOptions.h"
 #import "System_Text_RegularExpressions_Regex.h"
 #import "System_Collections_ObjectModel_ObservableCollectionA1.h"

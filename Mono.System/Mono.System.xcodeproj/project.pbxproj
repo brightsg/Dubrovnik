@@ -13,6 +13,18 @@
 		AB178064199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = AB178062199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m */; };
 		AB17A02A1F6BEDEC00FED930 /* System_Collections_Specialized_NotifyCollectionChangedAction.h in Headers */ = {isa = PBXBuildFile; fileRef = AB17A0291F6BEDEC00FED930 /* System_Collections_Specialized_NotifyCollectionChangedAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB26E0AD1E4A15C0004876FE /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB26E0AC1E4A15C0004876FE /* Mono.framework */; };
+		AB61C1621F72833F00C1E7AE /* System_Uri.h in Headers */ = {isa = PBXBuildFile; fileRef = AB61C1561F72833F00C1E7AE /* System_Uri.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB61C1631F72833F00C1E7AE /* System_Uri.m in Sources */ = {isa = PBXBuildFile; fileRef = AB61C1571F72833F00C1E7AE /* System_Uri.m */; };
+		AB61C1641F72833F00C1E7AE /* System_UriComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = AB61C1581F72833F00C1E7AE /* System_UriComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB61C1651F72833F00C1E7AE /* System_UriComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = AB61C1591F72833F00C1E7AE /* System_UriComponents.m */; };
+		AB61C1661F72833F00C1E7AE /* System_UriFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = AB61C15A1F72833F00C1E7AE /* System_UriFormat.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB61C1671F72833F00C1E7AE /* System_UriFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = AB61C15B1F72833F00C1E7AE /* System_UriFormat.m */; };
+		AB61C1681F72833F00C1E7AE /* System_UriHostNameType.h in Headers */ = {isa = PBXBuildFile; fileRef = AB61C15C1F72833F00C1E7AE /* System_UriHostNameType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB61C1691F72833F00C1E7AE /* System_UriHostNameType.m in Sources */ = {isa = PBXBuildFile; fileRef = AB61C15D1F72833F00C1E7AE /* System_UriHostNameType.m */; };
+		AB61C16A1F72833F00C1E7AE /* System_UriKind.h in Headers */ = {isa = PBXBuildFile; fileRef = AB61C15E1F72833F00C1E7AE /* System_UriKind.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB61C16B1F72833F00C1E7AE /* System_UriKind.m in Sources */ = {isa = PBXBuildFile; fileRef = AB61C15F1F72833F00C1E7AE /* System_UriKind.m */; };
+		AB61C16C1F72833F00C1E7AE /* System_UriPartial.h in Headers */ = {isa = PBXBuildFile; fileRef = AB61C1601F72833F00C1E7AE /* System_UriPartial.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB61C16D1F72833F00C1E7AE /* System_UriPartial.m in Sources */ = {isa = PBXBuildFile; fileRef = AB61C1611F72833F00C1E7AE /* System_UriPartial.m */; };
 		AB6245231E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h in Headers */ = {isa = PBXBuildFile; fileRef = AB6245211E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB6245241E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6245221E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m */; };
 		AB7DF4BE1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7DF4BC1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -63,6 +75,18 @@
 		AB178062199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_PropertyChangingEventArgs.m; sourceTree = "<group>"; };
 		AB17A0291F6BEDEC00FED930 /* System_Collections_Specialized_NotifyCollectionChangedAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_Specialized_NotifyCollectionChangedAction.h; sourceTree = "<group>"; };
 		AB26E0AC1E4A15C0004876FE /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.System/../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
+		AB61C1561F72833F00C1E7AE /* System_Uri.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Uri.h; sourceTree = "<group>"; };
+		AB61C1571F72833F00C1E7AE /* System_Uri.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Uri.m; sourceTree = "<group>"; };
+		AB61C1581F72833F00C1E7AE /* System_UriComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_UriComponents.h; sourceTree = "<group>"; };
+		AB61C1591F72833F00C1E7AE /* System_UriComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_UriComponents.m; sourceTree = "<group>"; };
+		AB61C15A1F72833F00C1E7AE /* System_UriFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_UriFormat.h; sourceTree = "<group>"; };
+		AB61C15B1F72833F00C1E7AE /* System_UriFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_UriFormat.m; sourceTree = "<group>"; };
+		AB61C15C1F72833F00C1E7AE /* System_UriHostNameType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_UriHostNameType.h; sourceTree = "<group>"; };
+		AB61C15D1F72833F00C1E7AE /* System_UriHostNameType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_UriHostNameType.m; sourceTree = "<group>"; };
+		AB61C15E1F72833F00C1E7AE /* System_UriKind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_UriKind.h; sourceTree = "<group>"; };
+		AB61C15F1F72833F00C1E7AE /* System_UriKind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_UriKind.m; sourceTree = "<group>"; };
+		AB61C1601F72833F00C1E7AE /* System_UriPartial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_UriPartial.h; sourceTree = "<group>"; };
+		AB61C1611F72833F00C1E7AE /* System_UriPartial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_UriPartial.m; sourceTree = "<group>"; };
 		AB6245211E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Collections_ObjectModel_ObservableCollectionA1+Events.h"; sourceTree = "<group>"; };
 		AB6245221E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Collections_ObjectModel_ObservableCollectionA1+Events.m"; sourceTree = "<group>"; };
 		AB7DF4BC1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_INotifyPropertyChanged.h; sourceTree = "<group>"; };
@@ -231,6 +255,18 @@
 		ABA3975C1906BFA700D5CA6E /* Manual Bindings */ = {
 			isa = PBXGroup;
 			children = (
+				AB61C1561F72833F00C1E7AE /* System_Uri.h */,
+				AB61C1571F72833F00C1E7AE /* System_Uri.m */,
+				AB61C1581F72833F00C1E7AE /* System_UriComponents.h */,
+				AB61C1591F72833F00C1E7AE /* System_UriComponents.m */,
+				AB61C15A1F72833F00C1E7AE /* System_UriFormat.h */,
+				AB61C15B1F72833F00C1E7AE /* System_UriFormat.m */,
+				AB61C15C1F72833F00C1E7AE /* System_UriHostNameType.h */,
+				AB61C15D1F72833F00C1E7AE /* System_UriHostNameType.m */,
+				AB61C15E1F72833F00C1E7AE /* System_UriKind.h */,
+				AB61C15F1F72833F00C1E7AE /* System_UriKind.m */,
+				AB61C1601F72833F00C1E7AE /* System_UriPartial.h */,
+				AB61C1611F72833F00C1E7AE /* System_UriPartial.m */,
 				ABDA50E01A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.h */,
 				ABDA50E11A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.m */,
 				ABDA50E21A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.h */,
@@ -271,15 +307,21 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB61C1621F72833F00C1E7AE /* System_Uri.h in Headers */,
 				AB7DF4C21A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.h in Headers */,
+				AB61C16C1F72833F00C1E7AE /* System_UriPartial.h in Headers */,
 				AB7DF4BE1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h in Headers */,
+				AB61C16A1F72833F00C1E7AE /* System_UriKind.h in Headers */,
+				AB61C1661F72833F00C1E7AE /* System_UriFormat.h in Headers */,
 				AB178063199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h in Headers */,
 				AB17805F199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.h in Headers */,
 				ABF37D4E1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.h in Headers */,
+				AB61C1681F72833F00C1E7AE /* System_UriHostNameType.h in Headers */,
 				AB17A02A1F6BEDEC00FED930 /* System_Collections_Specialized_NotifyCollectionChangedAction.h in Headers */,
 				ABA3975E1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h in Headers */,
 				AB6245231E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h in Headers */,
 				ABA397491906BAE600D5CA6E /* ManualBindings.h in Headers */,
+				AB61C1641F72833F00C1E7AE /* System_UriComponents.h in Headers */,
 				ABAAE7211E26409F00CC81F1 /* Mono_System_Assembly.h in Headers */,
 				ABA397451906BAE600D5CA6E /* Categories.h in Headers */,
 				ABA6EEE81E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.h in Headers */,
@@ -392,11 +434,17 @@
 				AB178060199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m in Sources */,
 				ABF37D4F1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.m in Sources */,
 				ABA6EEE91E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.m in Sources */,
+				AB61C16B1F72833F00C1E7AE /* System_UriKind.m in Sources */,
 				AB7DF4C31A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.m in Sources */,
+				AB61C1671F72833F00C1E7AE /* System_UriFormat.m in Sources */,
 				AB178064199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m in Sources */,
+				AB61C1631F72833F00C1E7AE /* System_Uri.m in Sources */,
 				ABA397621906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m in Sources */,
 				AB6245241E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m in Sources */,
 				ABDA50E51A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.m in Sources */,
+				AB61C1651F72833F00C1E7AE /* System_UriComponents.m in Sources */,
+				AB61C16D1F72833F00C1E7AE /* System_UriPartial.m in Sources */,
+				AB61C1691F72833F00C1E7AE /* System_UriHostNameType.m in Sources */,
 				ABAAE7221E26409F00CC81F1 /* Mono_System_Assembly.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
