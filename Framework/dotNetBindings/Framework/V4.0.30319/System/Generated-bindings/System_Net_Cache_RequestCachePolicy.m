@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Cache.RequestCachePolicy
 	// Managed param types : System.Net.Cache.RequestCacheLevel
-    + (System_Net_Cache_RequestCachePolicy *)new_withLevel:(System_Net_Cache_RequestCacheLevel)p1
+    + (System_Net_Cache_RequestCachePolicy *)new_withLevel:(int32_t)p1
     {
 		
-		System_Net_Cache_RequestCachePolicy * object = [[self alloc] initWithSignature:"System.Net.Cache.RequestCacheLevel" withNumArgs:1, DB_VALUE(p1)];;
+		System_Net_Cache_RequestCachePolicy * object = [[self alloc] initWithSignature:"System.Net.Cache.RequestCacheLevel" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -44,10 +44,20 @@
 	// Managed property name : Level
 	// Managed property type : System.Net.Cache.RequestCacheLevel
     @synthesize level = _level;
-    - (System_Net_Cache_RequestCacheLevel)level
+    - (int32_t)level
     {
-		MonoObject *monoObject = [self getMonoProperty:"Level"];
-		_level = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Level");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_level = monoObject;
 
 		return _level;
 	}

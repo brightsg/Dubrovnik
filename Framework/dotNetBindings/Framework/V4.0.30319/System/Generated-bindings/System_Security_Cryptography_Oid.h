@@ -46,11 +46,11 @@
 	// Managed method name : FromFriendlyName
 	// Managed return type : System.Security.Cryptography.Oid
 	// Managed param types : System.String, System.Security.Cryptography.OidGroup
-    + (System_Security_Cryptography_Oid *)fromFriendlyName_withFriendlyName:(NSString *)p1 group:(System_Security_Cryptography_OidGroup)p2;
+    + (System_Security_Cryptography_Oid *)fromFriendlyName_withFriendlyName:(NSString *)p1 group:(int32_t)p2;
 
 	// Managed method name : FromOidValue
 	// Managed return type : System.Security.Cryptography.Oid
 	// Managed param types : System.String, System.Security.Cryptography.OidGroup
-    + (System_Security_Cryptography_Oid *)fromOidValue_withOidValue:(NSString *)p1 group:(System_Security_Cryptography_OidGroup)p2;
+    + (System_Security_Cryptography_Oid *)fromOidValue_withOidValue:(NSString *)p1 group:(int32_t)p2;
 @end
 //--Dubrovnik.CodeGenerator

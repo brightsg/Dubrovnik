@@ -27,12 +27,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.PropertyTabAttribute
 	// Managed param types : System.Type, System.ComponentModel.PropertyTabScope
-    + (System_ComponentModel_PropertyTabAttribute *)new_withTabClass:(System_Type *)p1 tabScope:(System_ComponentModel_PropertyTabScope)p2;
+    + (System_ComponentModel_PropertyTabAttribute *)new_withTabClass:(System_Type *)p1 tabScope:(int32_t)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.PropertyTabAttribute
 	// Managed param types : System.String, System.ComponentModel.PropertyTabScope
-    + (System_ComponentModel_PropertyTabAttribute *)new_withTabClassName:(NSString *)p1 tabScope:(System_ComponentModel_PropertyTabScope)p2;
+    + (System_ComponentModel_PropertyTabAttribute *)new_withTabClassName:(NSString *)p1 tabScope:(int32_t)p2;
 
 #pragma mark -
 #pragma mark Properties

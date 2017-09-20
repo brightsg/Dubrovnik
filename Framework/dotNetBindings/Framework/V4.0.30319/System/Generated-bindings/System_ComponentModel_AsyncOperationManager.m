@@ -32,7 +32,17 @@
     static System_Threading_SynchronizationContext * m_synchronizationContext;
     + (System_Threading_SynchronizationContext *)synchronizationContext
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"SynchronizationContext"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SynchronizationContext");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_synchronizationContext isEqualToMonoObject:monoObject]) return m_synchronizationContext;					
 		m_synchronizationContext = [System_Threading_SynchronizationContext bestObjectWithMonoObject:monoObject];
 
@@ -41,8 +51,17 @@
     + (void)setSynchronizationContext:(System_Threading_SynchronizationContext *)value
 	{
 		m_synchronizationContext = value;
-		MonoObject *monoObject = [value monoObject];
-		[[self class] setMonoClassProperty:"SynchronizationContext" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "SynchronizationContext");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk([value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -54,7 +73,7 @@
     + (System_ComponentModel_AsyncOperation *)createOperation_withUserSuppliedState:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateOperation(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateOperation(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_AsyncOperation bestObjectWithMonoObject:monoObject];
     }

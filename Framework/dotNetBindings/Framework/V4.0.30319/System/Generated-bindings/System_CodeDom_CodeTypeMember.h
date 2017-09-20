@@ -16,7 +16,7 @@
 
 	// Managed property name : Attributes
 	// Managed property type : System.CodeDom.MemberAttributes
-    @property (nonatomic) System_CodeDom_MemberAttributes attributes;
+    @property (nonatomic) int32_t attributes;
 
 	// Managed property name : Comments
 	// Managed property type : System.CodeDom.CodeCommentStatementCollection

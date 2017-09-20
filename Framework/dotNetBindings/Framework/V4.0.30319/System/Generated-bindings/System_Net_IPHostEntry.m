@@ -32,7 +32,17 @@
     @synthesize addressList = _addressList;
     - (DBSystem_Array *)addressList
     {
-		MonoObject *monoObject = [self getMonoProperty:"AddressList"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AddressList");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_addressList isEqualToMonoObject:monoObject]) return _addressList;					
 		_addressList = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -41,8 +51,17 @@
     - (void)setAddressList:(DBSystem_Array *)value
 	{
 		_addressList = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"AddressList" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "AddressList");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Aliases
@@ -50,7 +69,17 @@
     @synthesize aliases = _aliases;
     - (DBSystem_Array *)aliases
     {
-		MonoObject *monoObject = [self getMonoProperty:"Aliases"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Aliases");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_aliases isEqualToMonoObject:monoObject]) return _aliases;					
 		_aliases = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -59,8 +88,17 @@
     - (void)setAliases:(DBSystem_Array *)value
 	{
 		_aliases = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"Aliases" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Aliases");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : HostName
@@ -68,7 +106,17 @@
     @synthesize hostName = _hostName;
     - (NSString *)hostName
     {
-		MonoObject *monoObject = [self getMonoProperty:"HostName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HostName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_hostName isEqualToMonoObject:monoObject]) return _hostName;					
 		_hostName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -77,8 +125,17 @@
     - (void)setHostName:(NSString *)value
 	{
 		_hostName = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"HostName" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "HostName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

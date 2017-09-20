@@ -33,7 +33,7 @@
     + (System_Net_Mail_Attachment *)new_withFileName:(NSString *)p1
     {
 		
-		System_Net_Mail_Attachment * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_Net_Mail_Attachment * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Net_Mail_Attachment *)new_withFileName:(NSString *)p1 mediaType:(NSString *)p2
     {
 		
-		System_Net_Mail_Attachment * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Net_Mail_Attachment * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Net_Mail_Attachment *)new_withFileName:(NSString *)p1 contentType:(System_Net_Mime_ContentType *)p2
     {
 		
-		System_Net_Mail_Attachment * object = [[self alloc] initWithSignature:"string,System.Net.Mime.ContentType" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Net_Mail_Attachment * object = [[self alloc] initWithSignature:"string,System.Net.Mime.ContentType" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -66,7 +66,7 @@
     + (System_Net_Mail_Attachment *)new_withContentStream:(System_IO_Stream *)p1 name:(NSString *)p2
     {
 		
-		System_Net_Mail_Attachment * object = [[self alloc] initWithSignature:"System.IO.Stream,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Net_Mail_Attachment * object = [[self alloc] initWithSignature:"System.IO.Stream,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -77,7 +77,7 @@
     + (System_Net_Mail_Attachment *)new_withContentStream:(System_IO_Stream *)p1 name:(NSString *)p2 mediaType:(NSString *)p3
     {
 		
-		System_Net_Mail_Attachment * object = [[self alloc] initWithSignature:"System.IO.Stream,string,string" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		System_Net_Mail_Attachment * object = [[self alloc] initWithSignature:"System.IO.Stream,string,string" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -88,7 +88,7 @@
     + (System_Net_Mail_Attachment *)new_withContentStream:(System_IO_Stream *)p1 contentType:(System_Net_Mime_ContentType *)p2
     {
 		
-		System_Net_Mail_Attachment * object = [[self alloc] initWithSignature:"System.IO.Stream,System.Net.Mime.ContentType" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Net_Mail_Attachment * object = [[self alloc] initWithSignature:"System.IO.Stream,System.Net.Mime.ContentType" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -101,7 +101,17 @@
     @synthesize contentDisposition = _contentDisposition;
     - (System_Net_Mime_ContentDisposition *)contentDisposition
     {
-		MonoObject *monoObject = [self getMonoProperty:"ContentDisposition"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ContentDisposition");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_contentDisposition isEqualToMonoObject:monoObject]) return _contentDisposition;					
 		_contentDisposition = [System_Net_Mime_ContentDisposition bestObjectWithMonoObject:monoObject];
 
@@ -113,7 +123,17 @@
     @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -122,8 +142,17 @@
     - (void)setName:(NSString *)value
 	{
 		_name = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"Name" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : NameEncoding
@@ -131,7 +160,17 @@
     @synthesize nameEncoding = _nameEncoding;
     - (System_Text_Encoding *)nameEncoding
     {
-		MonoObject *monoObject = [self getMonoProperty:"NameEncoding"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NameEncoding");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_nameEncoding isEqualToMonoObject:monoObject]) return _nameEncoding;					
 		_nameEncoding = [System_Text_Encoding bestObjectWithMonoObject:monoObject];
 
@@ -140,8 +179,17 @@
     - (void)setNameEncoding:(System_Text_Encoding *)value
 	{
 		_nameEncoding = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"NameEncoding" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "NameEncoding");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -153,7 +201,7 @@
     + (System_Net_Mail_Attachment *)createAttachmentFromString_withContent:(NSString *)p1 name:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateAttachmentFromString(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateAttachmentFromString(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Net_Mail_Attachment bestObjectWithMonoObject:monoObject];
     }
@@ -164,7 +212,7 @@
     + (System_Net_Mail_Attachment *)createAttachmentFromString_withContent:(NSString *)p1 name:(NSString *)p2 contentEncoding:(System_Text_Encoding *)p3 mediaType:(NSString *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateAttachmentFromString(string,string,System.Text.Encoding,string)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateAttachmentFromString(string,string,System.Text.Encoding,string)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_Net_Mail_Attachment bestObjectWithMonoObject:monoObject];
     }
@@ -175,7 +223,7 @@
     + (System_Net_Mail_Attachment *)createAttachmentFromString_withContent:(NSString *)p1 contentType:(System_Net_Mime_ContentType *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateAttachmentFromString(string,System.Net.Mime.ContentType)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateAttachmentFromString(string,System.Net.Mime.ContentType)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Net_Mail_Attachment bestObjectWithMonoObject:monoObject];
     }

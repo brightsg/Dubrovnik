@@ -17,14 +17,14 @@
 	// Managed method name : .ctor
 	// Managed return type : System.IO.FileSystemEventArgs
 	// Managed param types : System.IO.WatcherChangeTypes, System.String, System.String
-    + (System_IO_FileSystemEventArgs *)new_withChangeType:(System_IO_WatcherChangeTypes)p1 directory:(NSString *)p2 name:(NSString *)p3;
+    + (System_IO_FileSystemEventArgs *)new_withChangeType:(int32_t)p1 directory:(NSString *)p2 name:(NSString *)p3;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : ChangeType
 	// Managed property type : System.IO.WatcherChangeTypes
-    @property (nonatomic, readonly) System_IO_WatcherChangeTypes changeType;
+    @property (nonatomic, readonly) int32_t changeType;
 
 	// Managed property name : FullPath
 	// Managed property type : System.String

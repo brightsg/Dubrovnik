@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.EventLogPermission
 	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Diagnostics_EventLogPermission *)new_withState:(System_Security_Permissions_PermissionState)p1
+    + (System_Diagnostics_EventLogPermission *)new_withState:(int32_t)p1
     {
 		
-		System_Diagnostics_EventLogPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];;
+		System_Diagnostics_EventLogPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -41,10 +41,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.EventLogPermission
 	// Managed param types : System.Diagnostics.EventLogPermissionAccess, System.String
-    + (System_Diagnostics_EventLogPermission *)new_withPermissionAccess:(System_Diagnostics_EventLogPermissionAccess)p1 machineName:(NSString *)p2
+    + (System_Diagnostics_EventLogPermission *)new_withPermissionAccess:(int32_t)p1 machineName:(NSString *)p2
     {
 		
-		System_Diagnostics_EventLogPermission * object = [[self alloc] initWithSignature:"System.Diagnostics.EventLogPermissionAccess,string" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		System_Diagnostics_EventLogPermission * object = [[self alloc] initWithSignature:"System.Diagnostics.EventLogPermissionAccess,string" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Diagnostics_EventLogPermission *)new_withPermissionAccessEntries:(DBSystem_Array *)p1
     {
 		
-		System_Diagnostics_EventLogPermission * object = [[self alloc] initWithSignature:"System.Diagnostics.EventLogPermissionEntry[]" withNumArgs:1, [p1 monoValue]];;
+		System_Diagnostics_EventLogPermission * object = [[self alloc] initWithSignature:"System.Diagnostics.EventLogPermissionEntry[]" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -68,7 +68,17 @@
     @synthesize permissionEntries = _permissionEntries;
     - (System_Diagnostics_EventLogPermissionEntryCollection *)permissionEntries
     {
-		MonoObject *monoObject = [self getMonoProperty:"PermissionEntries"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PermissionEntries");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_permissionEntries isEqualToMonoObject:monoObject]) return _permissionEntries;					
 		_permissionEntries = [System_Diagnostics_EventLogPermissionEntryCollection bestObjectWithMonoObject:monoObject];
 

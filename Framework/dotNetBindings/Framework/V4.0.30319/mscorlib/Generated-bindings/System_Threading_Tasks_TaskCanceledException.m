@@ -29,6 +29,17 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.Tasks.TaskCanceledException
+	// Managed param types : System.Threading.Tasks.Task
+    + (System_Threading_Tasks_TaskCanceledException *)new_withTask:(System_Threading_Tasks_Task *)p1
+    {
+		
+		System_Threading_Tasks_TaskCanceledException * object = [[self alloc] initWithSignature:"System.Threading.Tasks.Task" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+        return object;
+    }
+
+	// Managed method name : .ctor
+	// Managed return type : System.Threading.Tasks.TaskCanceledException
 	// Managed param types : System.String
     + (System_Threading_Tasks_TaskCanceledException *)new_withMessage:(NSString *)p1
     {
@@ -45,17 +56,6 @@
     {
 		
 		System_Threading_Tasks_TaskCanceledException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-        
-        return object;
-    }
-
-	// Managed method name : .ctor
-	// Managed return type : System.Threading.Tasks.TaskCanceledException
-	// Managed param types : System.Threading.Tasks.Task
-    + (System_Threading_Tasks_TaskCanceledException *)new_withTask:(System_Threading_Tasks_Task *)p1
-    {
-		
-		System_Threading_Tasks_TaskCanceledException * object = [[self alloc] initWithSignature:"System.Threading.Tasks.Task" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }

@@ -32,8 +32,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -43,8 +53,18 @@
     @synthesize isReadOnly = _isReadOnly;
     - (BOOL)isReadOnly
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsReadOnly"];
-		_isReadOnly = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsReadOnly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isReadOnly = monoObject;
 
 		return _isReadOnly;
 	}
@@ -54,7 +74,17 @@
     @synthesize item = _item;
     - (System_Net_NetworkInformation_MulticastIPAddressInformation *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
 		_item = [System_Net_NetworkInformation_MulticastIPAddressInformation bestObjectWithMonoObject:monoObject];
 
@@ -70,7 +100,7 @@
     - (void)add_withAddress:(System_Net_NetworkInformation_MulticastIPAddressInformation *)p1
     {
 		
-		[self invokeMonoMethod:"Add(System.Net.NetworkInformation.MulticastIPAddressInformation)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Add(System.Net.NetworkInformation.MulticastIPAddressInformation)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -80,7 +110,7 @@
     - (void)clear
     {
 		
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];
         
     }
 
@@ -90,7 +120,7 @@
     - (BOOL)contains_withAddress:(System_Net_NetworkInformation_MulticastIPAddressInformation *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Contains(System.Net.NetworkInformation.MulticastIPAddressInformation)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Contains(System.Net.NetworkInformation.MulticastIPAddressInformation)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -101,7 +131,7 @@
     - (void)copyTo_withArray:(DBSystem_Array *)p1 offset:(int32_t)p2
     {
 		
-		[self invokeMonoMethod:"CopyTo(System.Net.NetworkInformation.MulticastIPAddressInformation[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"CopyTo(System.Net.NetworkInformation.MulticastIPAddressInformation[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
     }
 
@@ -122,7 +152,7 @@
     - (BOOL)remove_withAddress:(System_Net_NetworkInformation_MulticastIPAddressInformation *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Remove(System.Net.NetworkInformation.MulticastIPAddressInformation)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Remove(System.Net.NetworkInformation.MulticastIPAddressInformation)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

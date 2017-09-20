@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.ListSortDescription
 	// Managed param types : System.ComponentModel.PropertyDescriptor, System.ComponentModel.ListSortDirection
-    + (System_ComponentModel_ListSortDescription *)new_withProperty:(System_ComponentModel_PropertyDescriptor *)p1 direction:(System_ComponentModel_ListSortDirection)p2
+    + (System_ComponentModel_ListSortDescription *)new_withProperty:(System_ComponentModel_PropertyDescriptor *)p1 direction:(int32_t)p2
     {
 		
-		System_ComponentModel_ListSortDescription * object = [[self alloc] initWithSignature:"System.ComponentModel.PropertyDescriptor,System.ComponentModel.ListSortDirection" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_ComponentModel_ListSortDescription * object = [[self alloc] initWithSignature:"System.ComponentModel.PropertyDescriptor,System.ComponentModel.ListSortDirection" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize propertyDescriptor = _propertyDescriptor;
     - (System_ComponentModel_PropertyDescriptor *)propertyDescriptor
     {
-		MonoObject *monoObject = [self getMonoProperty:"PropertyDescriptor"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PropertyDescriptor");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_propertyDescriptor isEqualToMonoObject:monoObject]) return _propertyDescriptor;					
 		_propertyDescriptor = [System_ComponentModel_PropertyDescriptor bestObjectWithMonoObject:monoObject];
 
@@ -55,25 +65,53 @@
     - (void)setPropertyDescriptor:(System_ComponentModel_PropertyDescriptor *)value
 	{
 		_propertyDescriptor = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"PropertyDescriptor" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "PropertyDescriptor");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : SortDirection
 	// Managed property type : System.ComponentModel.ListSortDirection
     @synthesize sortDirection = _sortDirection;
-    - (System_ComponentModel_ListSortDirection)sortDirection
+    - (int32_t)sortDirection
     {
-		MonoObject *monoObject = [self getMonoProperty:"SortDirection"];
-		_sortDirection = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SortDirection");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_sortDirection = monoObject;
 
 		return _sortDirection;
 	}
-    - (void)setSortDirection:(System_ComponentModel_ListSortDirection)value
+    - (void)setSortDirection:(int32_t)value
 	{
 		_sortDirection = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"SortDirection" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "SortDirection");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

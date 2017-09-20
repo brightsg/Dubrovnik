@@ -32,8 +32,18 @@
     @synthesize datagramsReceived = _datagramsReceived;
     - (int64_t)datagramsReceived
     {
-		MonoObject *monoObject = [self getMonoProperty:"DatagramsReceived"];
-		_datagramsReceived = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DatagramsReceived");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_datagramsReceived = monoObject;
 
 		return _datagramsReceived;
 	}
@@ -43,8 +53,18 @@
     @synthesize datagramsSent = _datagramsSent;
     - (int64_t)datagramsSent
     {
-		MonoObject *monoObject = [self getMonoProperty:"DatagramsSent"];
-		_datagramsSent = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DatagramsSent");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_datagramsSent = monoObject;
 
 		return _datagramsSent;
 	}
@@ -54,8 +74,18 @@
     @synthesize incomingDatagramsDiscarded = _incomingDatagramsDiscarded;
     - (int64_t)incomingDatagramsDiscarded
     {
-		MonoObject *monoObject = [self getMonoProperty:"IncomingDatagramsDiscarded"];
-		_incomingDatagramsDiscarded = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IncomingDatagramsDiscarded");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_incomingDatagramsDiscarded = monoObject;
 
 		return _incomingDatagramsDiscarded;
 	}
@@ -65,8 +95,18 @@
     @synthesize incomingDatagramsWithErrors = _incomingDatagramsWithErrors;
     - (int64_t)incomingDatagramsWithErrors
     {
-		MonoObject *monoObject = [self getMonoProperty:"IncomingDatagramsWithErrors"];
-		_incomingDatagramsWithErrors = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IncomingDatagramsWithErrors");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_incomingDatagramsWithErrors = monoObject;
 
 		return _incomingDatagramsWithErrors;
 	}
@@ -76,8 +116,18 @@
     @synthesize udpListeners = _udpListeners;
     - (int32_t)udpListeners
     {
-		MonoObject *monoObject = [self getMonoProperty:"UdpListeners"];
-		_udpListeners = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UdpListeners");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_udpListeners = monoObject;
 
 		return _udpListeners;
 	}

@@ -32,7 +32,17 @@
     @synthesize context = _context;
     - (System_Configuration_SettingsContext *)context
     {
-		MonoObject *monoObject = [self getMonoProperty:"Context"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Context");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_context isEqualToMonoObject:monoObject]) return _context;					
 		_context = [System_Configuration_SettingsContext bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize item = _item;
     - (System_Object *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
 		_item = [System_Object objectWithMonoObject:monoObject];
 
@@ -53,8 +73,17 @@
     - (void)setItem:(System_Object *)value
 	{
 		_item = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"Item" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Properties
@@ -62,7 +91,17 @@
     @synthesize properties = _properties;
     - (System_Configuration_SettingsPropertyCollection *)properties
     {
-		MonoObject *monoObject = [self getMonoProperty:"Properties"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Properties");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_properties isEqualToMonoObject:monoObject]) return _properties;					
 		_properties = [System_Configuration_SettingsPropertyCollection bestObjectWithMonoObject:monoObject];
 
@@ -74,7 +113,17 @@
     @synthesize propertyValues = _propertyValues;
     - (System_Configuration_SettingsPropertyValueCollection *)propertyValues
     {
-		MonoObject *monoObject = [self getMonoProperty:"PropertyValues"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PropertyValues");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_propertyValues isEqualToMonoObject:monoObject]) return _propertyValues;					
 		_propertyValues = [System_Configuration_SettingsPropertyValueCollection bestObjectWithMonoObject:monoObject];
 
@@ -86,7 +135,17 @@
     @synthesize providers = _providers;
     - (System_Configuration_SettingsProviderCollection *)providers
     {
-		MonoObject *monoObject = [self getMonoProperty:"Providers"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Providers");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_providers isEqualToMonoObject:monoObject]) return _providers;					
 		_providers = [System_Configuration_SettingsProviderCollection bestObjectWithMonoObject:monoObject];
 
@@ -98,7 +157,17 @@
     @synthesize settingsKey = _settingsKey;
     - (NSString *)settingsKey
     {
-		MonoObject *monoObject = [self getMonoProperty:"SettingsKey"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SettingsKey");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_settingsKey isEqualToMonoObject:monoObject]) return _settingsKey;					
 		_settingsKey = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -107,8 +176,17 @@
     - (void)setSettingsKey:(NSString *)value
 	{
 		_settingsKey = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"SettingsKey" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "SettingsKey");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -120,7 +198,7 @@
     - (System_Object *)getPreviousVersion_withPropertyName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetPreviousVersion(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetPreviousVersion(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -131,7 +209,7 @@
     - (void)reload
     {
 		
-		[self invokeMonoMethod:"Reload()" withNumArgs:0];;
+		[self invokeMonoMethod:"Reload()" withNumArgs:0];
         
     }
 
@@ -141,7 +219,7 @@
     - (void)reset
     {
 		
-		[self invokeMonoMethod:"Reset()" withNumArgs:0];;
+		[self invokeMonoMethod:"Reset()" withNumArgs:0];
         
     }
 
@@ -151,7 +229,7 @@
     - (void)save
     {
 		
-		[self invokeMonoMethod:"Save()" withNumArgs:0];;
+		[self invokeMonoMethod:"Save()" withNumArgs:0];
         
     }
 
@@ -161,7 +239,7 @@
     - (void)upgrade
     {
 		
-		[self invokeMonoMethod:"Upgrade()" withNumArgs:0];;
+		[self invokeMonoMethod:"Upgrade()" withNumArgs:0];
         
     }
 

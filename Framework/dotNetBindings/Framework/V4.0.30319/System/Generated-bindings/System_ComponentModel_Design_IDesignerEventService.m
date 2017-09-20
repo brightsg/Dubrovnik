@@ -32,7 +32,17 @@
     @synthesize activeDesigner = _activeDesigner;
     - (System_ComponentModel_Design_IDesignerHost *)activeDesigner
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.Design.IDesignerEventService.ActiveDesigner"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.Design.IDesignerEventService.ActiveDesigner");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_activeDesigner isEqualToMonoObject:monoObject]) return _activeDesigner;					
 		_activeDesigner = [System_ComponentModel_Design_IDesignerHost bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize designers = _designers;
     - (System_ComponentModel_Design_DesignerCollection *)designers
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.Design.IDesignerEventService.Designers"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.Design.IDesignerEventService.Designers");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_designers isEqualToMonoObject:monoObject]) return _designers;					
 		_designers = [System_ComponentModel_Design_DesignerCollection bestObjectWithMonoObject:monoObject];
 

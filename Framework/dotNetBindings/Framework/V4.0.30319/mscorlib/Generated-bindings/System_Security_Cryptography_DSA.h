@@ -44,10 +44,40 @@
 	// Managed param types : System.Security.Cryptography.DSAParameters
     - (void)importParameters_withParameters:(System_Security_Cryptography_DSAParameters *)p1;
 
+	// Managed method name : SignData
+	// Managed return type : System.Byte[]
+	// Managed param types : System.Byte[], System.Security.Cryptography.HashAlgorithmName
+    - (NSData *)signData_withDataByte:(NSData *)p1 hashAlgorithmSSCHashAlgorithmName:(System_Security_Cryptography_HashAlgorithmName *)p2;
+
+	// Managed method name : SignData
+	// Managed return type : System.Byte[]
+	// Managed param types : System.Byte[], System.Int32, System.Int32, System.Security.Cryptography.HashAlgorithmName
+    - (NSData *)signData_withData:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 hashAlgorithm:(System_Security_Cryptography_HashAlgorithmName *)p4;
+
+	// Managed method name : SignData
+	// Managed return type : System.Byte[]
+	// Managed param types : System.IO.Stream, System.Security.Cryptography.HashAlgorithmName
+    - (NSData *)signData_withDataSIStream:(System_IO_Stream *)p1 hashAlgorithmSSCHashAlgorithmName:(System_Security_Cryptography_HashAlgorithmName *)p2;
+
 	// Managed method name : ToXmlString
 	// Managed return type : System.String
 	// Managed param types : System.Boolean
     - (NSString *)toXmlString_withIncludePrivateParameters:(BOOL)p1;
+
+	// Managed method name : VerifyData
+	// Managed return type : System.Boolean
+	// Managed param types : System.Byte[], System.Byte[], System.Security.Cryptography.HashAlgorithmName
+    - (BOOL)verifyData_withDataByte:(NSData *)p1 signatureByte:(NSData *)p2 hashAlgorithmSSCHashAlgorithmName:(System_Security_Cryptography_HashAlgorithmName *)p3;
+
+	// Managed method name : VerifyData
+	// Managed return type : System.Boolean
+	// Managed param types : System.Byte[], System.Int32, System.Int32, System.Byte[], System.Security.Cryptography.HashAlgorithmName
+    - (BOOL)verifyData_withData:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 signature:(NSData *)p4 hashAlgorithm:(System_Security_Cryptography_HashAlgorithmName *)p5;
+
+	// Managed method name : VerifyData
+	// Managed return type : System.Boolean
+	// Managed param types : System.IO.Stream, System.Byte[], System.Security.Cryptography.HashAlgorithmName
+    - (BOOL)verifyData_withDataSIStream:(System_IO_Stream *)p1 signatureByte:(NSData *)p2 hashAlgorithmSSCHashAlgorithmName:(System_Security_Cryptography_HashAlgorithmName *)p3;
 
 	// Managed method name : VerifySignature
 	// Managed return type : System.Boolean

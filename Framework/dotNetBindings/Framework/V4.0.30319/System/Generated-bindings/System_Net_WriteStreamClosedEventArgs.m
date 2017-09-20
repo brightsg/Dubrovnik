@@ -32,7 +32,17 @@
     @synthesize error = _error;
     - (System_Exception *)error
     {
-		MonoObject *monoObject = [self getMonoProperty:"Error"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Error");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_error isEqualToMonoObject:monoObject]) return _error;					
 		_error = [System_Exception bestObjectWithMonoObject:monoObject];
 

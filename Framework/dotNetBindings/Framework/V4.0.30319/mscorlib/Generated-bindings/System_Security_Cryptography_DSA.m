@@ -91,6 +91,39 @@
         
     }
 
+	// Managed method name : SignData
+	// Managed return type : System.Byte[]
+	// Managed param types : System.Byte[], System.Security.Cryptography.HashAlgorithmName
+    - (NSData *)signData_withDataByte:(NSData *)p1 hashAlgorithmSSCHashAlgorithmName:(System_Security_Cryptography_HashAlgorithmName *)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"SignData(byte[],System.Security.Cryptography.HashAlgorithmName)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		
+		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+    }
+
+	// Managed method name : SignData
+	// Managed return type : System.Byte[]
+	// Managed param types : System.Byte[], System.Int32, System.Int32, System.Security.Cryptography.HashAlgorithmName
+    - (NSData *)signData_withData:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 hashAlgorithm:(System_Security_Cryptography_HashAlgorithmName *)p4
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"SignData(byte[],int,int,System.Security.Cryptography.HashAlgorithmName)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
+		
+		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+    }
+
+	// Managed method name : SignData
+	// Managed return type : System.Byte[]
+	// Managed param types : System.IO.Stream, System.Security.Cryptography.HashAlgorithmName
+    - (NSData *)signData_withDataSIStream:(System_IO_Stream *)p1 hashAlgorithmSSCHashAlgorithmName:(System_Security_Cryptography_HashAlgorithmName *)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"SignData(System.IO.Stream,System.Security.Cryptography.HashAlgorithmName)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		
+		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+    }
+
 	// Managed method name : ToXmlString
 	// Managed return type : System.String
 	// Managed param types : System.Boolean
@@ -100,6 +133,39 @@
 		MonoObject *monoObject = [self invokeMonoMethod:"ToXmlString(bool)" withNumArgs:1, DB_VALUE(p1)];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+    }
+
+	// Managed method name : VerifyData
+	// Managed return type : System.Boolean
+	// Managed param types : System.Byte[], System.Byte[], System.Security.Cryptography.HashAlgorithmName
+    - (BOOL)verifyData_withDataByte:(NSData *)p1 signatureByte:(NSData *)p2 hashAlgorithmSSCHashAlgorithmName:(System_Security_Cryptography_HashAlgorithmName *)p3
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"VerifyData(byte[],byte[],System.Security.Cryptography.HashAlgorithmName)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+		
+		return DB_UNBOX_BOOLEAN(monoObject);
+    }
+
+	// Managed method name : VerifyData
+	// Managed return type : System.Boolean
+	// Managed param types : System.Byte[], System.Int32, System.Int32, System.Byte[], System.Security.Cryptography.HashAlgorithmName
+    - (BOOL)verifyData_withData:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 signature:(NSData *)p4 hashAlgorithm:(System_Security_Cryptography_HashAlgorithmName *)p5
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"VerifyData(byte[],int,int,byte[],System.Security.Cryptography.HashAlgorithmName)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
+		
+		return DB_UNBOX_BOOLEAN(monoObject);
+    }
+
+	// Managed method name : VerifyData
+	// Managed return type : System.Boolean
+	// Managed param types : System.IO.Stream, System.Byte[], System.Security.Cryptography.HashAlgorithmName
+    - (BOOL)verifyData_withDataSIStream:(System_IO_Stream *)p1 signatureByte:(NSData *)p2 hashAlgorithmSSCHashAlgorithmName:(System_Security_Cryptography_HashAlgorithmName *)p3
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"VerifyData(System.IO.Stream,byte[],System.Security.Cryptography.HashAlgorithmName)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+		
+		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
 	// Managed method name : VerifySignature

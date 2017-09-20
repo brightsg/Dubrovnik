@@ -32,7 +32,17 @@
     @synthesize item = _item;
     - (System_Object *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Collections.Specialized.IOrderedDictionary.Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Collections.Specialized.IOrderedDictionary.Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
 		_item = [System_Object objectWithMonoObject:monoObject];
 
@@ -41,8 +51,17 @@
     - (void)setItem:(System_Object *)value
 	{
 		_item = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"System.Collections.Specialized.IOrderedDictionary.Item" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.Collections.Specialized.IOrderedDictionary.Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -65,7 +84,7 @@
     - (void)insert_withIndex:(int32_t)p1 key:(System_Object *)p2 value:(System_Object *)p3
     {
 		
-		[self invokeMonoMethod:"System.Collections.Specialized.IOrderedDictionary.Insert(int,object,object)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"System.Collections.Specialized.IOrderedDictionary.Insert(int,object,object)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -75,7 +94,7 @@
     - (void)removeAt_withIndex:(int32_t)p1
     {
 		
-		[self invokeMonoMethod:"System.Collections.Specialized.IOrderedDictionary.RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"System.Collections.Specialized.IOrderedDictionary.RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 

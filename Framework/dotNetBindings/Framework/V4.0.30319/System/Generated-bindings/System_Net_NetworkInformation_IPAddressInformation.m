@@ -32,7 +32,17 @@
     @synthesize address = _address;
     - (System_Net_IPAddress *)address
     {
-		MonoObject *monoObject = [self getMonoProperty:"Address"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Address");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_address isEqualToMonoObject:monoObject]) return _address;					
 		_address = [System_Net_IPAddress bestObjectWithMonoObject:monoObject];
 
@@ -44,8 +54,18 @@
     @synthesize isDnsEligible = _isDnsEligible;
     - (BOOL)isDnsEligible
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsDnsEligible"];
-		_isDnsEligible = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsDnsEligible");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isDnsEligible = monoObject;
 
 		return _isDnsEligible;
 	}
@@ -55,8 +75,18 @@
     @synthesize isTransient = _isTransient;
     - (BOOL)isTransient
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsTransient"];
-		_isTransient = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsTransient");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isTransient = monoObject;
 
 		return _isTransient;
 	}

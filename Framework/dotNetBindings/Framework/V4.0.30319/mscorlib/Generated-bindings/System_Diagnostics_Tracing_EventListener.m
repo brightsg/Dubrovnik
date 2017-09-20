@@ -77,6 +77,17 @@
         
     }
 
+	// Managed method name : EventSourceIndex
+	// Managed return type : System.Int32
+	// Managed param types : System.Diagnostics.Tracing.EventSource
+    + (int32_t)eventSourceIndex_withEventSource:(System_Diagnostics_Tracing_EventSource *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"EventSourceIndex(System.Diagnostics.Tracing.EventSource)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return DB_UNBOX_INT32(monoObject);
+    }
+
 #pragma mark -
 #pragma mark Teardown
 	- (void)dealloc

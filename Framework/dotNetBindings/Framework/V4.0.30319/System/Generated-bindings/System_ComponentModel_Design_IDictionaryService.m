@@ -33,7 +33,7 @@
     - (System_Object *)getKey_withValue:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IDictionaryService.GetKey(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IDictionaryService.GetKey(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -44,7 +44,7 @@
     - (System_Object *)getValue_withKey:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IDictionaryService.GetValue(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IDictionaryService.GetValue(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -55,7 +55,7 @@
     - (void)setValue_withKey:(System_Object *)p1 value:(System_Object *)p2
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IDictionaryService.SetValue(object,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IDictionaryService.SetValue(object,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 

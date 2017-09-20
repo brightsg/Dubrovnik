@@ -32,8 +32,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -43,7 +53,17 @@
     @synthesize item = _item;
     - (System_Diagnostics_TraceListener *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
 		_item = [System_Diagnostics_TraceListener bestObjectWithMonoObject:monoObject];
 
@@ -52,8 +72,17 @@
     - (void)setItem:(System_Diagnostics_TraceListener *)value
 	{
 		_item = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Item" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Item
@@ -61,7 +90,17 @@
     @synthesize item = _item;
     - (System_Diagnostics_TraceListener *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
 		_item = [System_Diagnostics_TraceListener bestObjectWithMonoObject:monoObject];
 
@@ -77,7 +116,7 @@
     - (int32_t)add_withListener:(System_Diagnostics_TraceListener *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Add(System.Diagnostics.TraceListener)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Add(System.Diagnostics.TraceListener)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -88,7 +127,7 @@
     - (void)addRange_withValueSDTraceListener:(DBSystem_Array *)p1
     {
 		
-		[self invokeMonoMethod:"AddRange(System.Diagnostics.TraceListener[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddRange(System.Diagnostics.TraceListener[])" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -98,7 +137,7 @@
     - (void)addRange_withValueSDTraceListenerCollection:(System_Diagnostics_TraceListenerCollection *)p1
     {
 		
-		[self invokeMonoMethod:"AddRange(System.Diagnostics.TraceListenerCollection)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddRange(System.Diagnostics.TraceListenerCollection)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -108,7 +147,7 @@
     - (void)clear
     {
 		
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];
         
     }
 
@@ -118,7 +157,7 @@
     - (BOOL)contains_withListener:(System_Diagnostics_TraceListener *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Contains(System.Diagnostics.TraceListener)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Contains(System.Diagnostics.TraceListener)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -129,7 +168,7 @@
     - (void)copyTo_withListeners:(DBSystem_Array *)p1 index:(int32_t)p2
     {
 		
-		[self invokeMonoMethod:"CopyTo(System.Diagnostics.TraceListener[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"CopyTo(System.Diagnostics.TraceListener[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
     }
 
@@ -150,7 +189,7 @@
     - (int32_t)indexOf_withListener:(System_Diagnostics_TraceListener *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(System.Diagnostics.TraceListener)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(System.Diagnostics.TraceListener)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -161,7 +200,7 @@
     - (void)insert_withIndex:(int32_t)p1 listener:(System_Diagnostics_TraceListener *)p2
     {
 		
-		[self invokeMonoMethod:"Insert(int,System.Diagnostics.TraceListener)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoMethod:"Insert(int,System.Diagnostics.TraceListener)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
     }
 
@@ -171,7 +210,7 @@
     - (void)remove_withListener:(System_Diagnostics_TraceListener *)p1
     {
 		
-		[self invokeMonoMethod:"Remove(System.Diagnostics.TraceListener)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Remove(System.Diagnostics.TraceListener)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -181,7 +220,7 @@
     - (void)remove_withName:(NSString *)p1
     {
 		
-		[self invokeMonoMethod:"Remove(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Remove(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -191,7 +230,7 @@
     - (void)removeAt_withIndex:(int32_t)p1
     {
 		
-		[self invokeMonoMethod:"RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 

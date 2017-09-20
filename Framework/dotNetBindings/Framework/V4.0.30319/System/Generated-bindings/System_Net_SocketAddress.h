@@ -17,19 +17,19 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.SocketAddress
 	// Managed param types : System.Net.Sockets.AddressFamily, System.Int32
-    + (System_Net_SocketAddress *)new_withFamily:(System_Net_Sockets_AddressFamily)p1 size:(int32_t)p2;
+    + (System_Net_SocketAddress *)new_withFamily:(int32_t)p1 size:(int32_t)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.SocketAddress
 	// Managed param types : System.Net.Sockets.AddressFamily
-    + (System_Net_SocketAddress *)new_withFamily:(System_Net_Sockets_AddressFamily)p1;
+    + (System_Net_SocketAddress *)new_withFamily:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Family
 	// Managed property type : System.Net.Sockets.AddressFamily
-    @property (nonatomic, readonly) System_Net_Sockets_AddressFamily family;
+    @property (nonatomic, readonly) int32_t family;
 
 	// Managed property name : Item
 	// Managed property type : System.Byte

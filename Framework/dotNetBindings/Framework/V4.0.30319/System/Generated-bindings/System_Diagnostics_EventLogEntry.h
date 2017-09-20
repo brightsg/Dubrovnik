@@ -28,7 +28,7 @@
 
 	// Managed property name : EntryType
 	// Managed property type : System.Diagnostics.EventLogEntryType
-    @property (nonatomic, readonly) System_Diagnostics_EventLogEntryType entryType;
+    @property (nonatomic, readonly) int32_t entryType;
 
 	// Managed property name : EventID
 	// Managed property type : System.Int32

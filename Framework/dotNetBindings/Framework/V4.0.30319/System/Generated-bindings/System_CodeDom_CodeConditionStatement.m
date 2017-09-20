@@ -33,7 +33,7 @@
     + (System_CodeDom_CodeConditionStatement *)new_withCondition:(System_CodeDom_CodeExpression *)p1 trueStatements:(DBSystem_Array *)p2
     {
 		
-		System_CodeDom_CodeConditionStatement * object = [[self alloc] initWithSignature:"System.CodeDom.CodeExpression,System.CodeDom.CodeStatement[]" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_CodeDom_CodeConditionStatement * object = [[self alloc] initWithSignature:"System.CodeDom.CodeExpression,System.CodeDom.CodeStatement[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_CodeDom_CodeConditionStatement *)new_withCondition:(System_CodeDom_CodeExpression *)p1 trueStatements:(DBSystem_Array *)p2 falseStatements:(DBSystem_Array *)p3
     {
 		
-		System_CodeDom_CodeConditionStatement * object = [[self alloc] initWithSignature:"System.CodeDom.CodeExpression,System.CodeDom.CodeStatement[],System.CodeDom.CodeStatement[]" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		System_CodeDom_CodeConditionStatement * object = [[self alloc] initWithSignature:"System.CodeDom.CodeExpression,System.CodeDom.CodeStatement[],System.CodeDom.CodeStatement[]" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -57,7 +57,17 @@
     @synthesize condition = _condition;
     - (System_CodeDom_CodeExpression *)condition
     {
-		MonoObject *monoObject = [self getMonoProperty:"Condition"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Condition");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_condition isEqualToMonoObject:monoObject]) return _condition;					
 		_condition = [System_CodeDom_CodeExpression bestObjectWithMonoObject:monoObject];
 
@@ -66,8 +76,17 @@
     - (void)setCondition:(System_CodeDom_CodeExpression *)value
 	{
 		_condition = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Condition" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Condition");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : FalseStatements
@@ -75,7 +94,17 @@
     @synthesize falseStatements = _falseStatements;
     - (System_CodeDom_CodeStatementCollection *)falseStatements
     {
-		MonoObject *monoObject = [self getMonoProperty:"FalseStatements"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FalseStatements");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_falseStatements isEqualToMonoObject:monoObject]) return _falseStatements;					
 		_falseStatements = [System_CodeDom_CodeStatementCollection bestObjectWithMonoObject:monoObject];
 
@@ -87,7 +116,17 @@
     @synthesize trueStatements = _trueStatements;
     - (System_CodeDom_CodeStatementCollection *)trueStatements
     {
-		MonoObject *monoObject = [self getMonoProperty:"TrueStatements"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TrueStatements");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_trueStatements isEqualToMonoObject:monoObject]) return _trueStatements;					
 		_trueStatements = [System_CodeDom_CodeStatementCollection bestObjectWithMonoObject:monoObject];
 

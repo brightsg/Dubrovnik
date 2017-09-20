@@ -33,7 +33,7 @@
     + (System_Runtime_Versioning_FrameworkName *)new_withIdentifier:(NSString *)p1 version:(System_Version *)p2
     {
 		
-		System_Runtime_Versioning_FrameworkName * object = [[self alloc] initWithSignature:"string,System.Version" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Runtime_Versioning_FrameworkName * object = [[self alloc] initWithSignature:"string,System.Version" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Runtime_Versioning_FrameworkName *)new_withIdentifier:(NSString *)p1 version:(System_Version *)p2 profile:(NSString *)p3
     {
 		
-		System_Runtime_Versioning_FrameworkName * object = [[self alloc] initWithSignature:"string,System.Version,string" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		System_Runtime_Versioning_FrameworkName * object = [[self alloc] initWithSignature:"string,System.Version,string" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Runtime_Versioning_FrameworkName *)new_withFrameworkName:(NSString *)p1
     {
 		
-		System_Runtime_Versioning_FrameworkName * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_Runtime_Versioning_FrameworkName * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -68,7 +68,17 @@
     @synthesize fullName = _fullName;
     - (NSString *)fullName
     {
-		MonoObject *monoObject = [self getMonoProperty:"FullName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FullName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_fullName isEqualToMonoObject:monoObject]) return _fullName;					
 		_fullName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -80,7 +90,17 @@
     @synthesize identifier = _identifier;
     - (NSString *)identifier
     {
-		MonoObject *monoObject = [self getMonoProperty:"Identifier"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Identifier");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_identifier isEqualToMonoObject:monoObject]) return _identifier;					
 		_identifier = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -92,7 +112,17 @@
     @synthesize profile = _profile;
     - (NSString *)profile
     {
-		MonoObject *monoObject = [self getMonoProperty:"Profile"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Profile");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_profile isEqualToMonoObject:monoObject]) return _profile;					
 		_profile = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -104,7 +134,17 @@
     @synthesize version = _version;
     - (System_Version *)version
     {
-		MonoObject *monoObject = [self getMonoProperty:"Version"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Version");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_version isEqualToMonoObject:monoObject]) return _version;					
 		_version = [System_Version bestObjectWithMonoObject:monoObject];
 
@@ -120,7 +160,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -131,7 +171,7 @@
     - (BOOL)equals_withOther:(System_Runtime_Versioning_FrameworkName *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Runtime.Versioning.FrameworkName)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Runtime.Versioning.FrameworkName)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -153,7 +193,7 @@
     + (BOOL)op_Equality_withLeft:(System_Runtime_Versioning_FrameworkName *)p1 right:(System_Runtime_Versioning_FrameworkName *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Runtime.Versioning.FrameworkName,System.Runtime.Versioning.FrameworkName)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Runtime.Versioning.FrameworkName,System.Runtime.Versioning.FrameworkName)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -164,7 +204,7 @@
     + (BOOL)op_Inequality_withLeft:(System_Runtime_Versioning_FrameworkName *)p1 right:(System_Runtime_Versioning_FrameworkName *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Runtime.Versioning.FrameworkName,System.Runtime.Versioning.FrameworkName)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Runtime.Versioning.FrameworkName,System.Runtime.Versioning.FrameworkName)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

@@ -24,7 +24,7 @@
 
 	// Managed property name : DefaultPolicyLevel
 	// Managed property type : System.Net.Cache.RequestCacheLevel
-    @property (nonatomic) System_Net_Cache_RequestCacheLevel defaultPolicyLevel;
+    @property (nonatomic) int32_t defaultPolicyLevel;
 
 	// Managed property name : DisableAllCaching
 	// Managed property type : System.Boolean

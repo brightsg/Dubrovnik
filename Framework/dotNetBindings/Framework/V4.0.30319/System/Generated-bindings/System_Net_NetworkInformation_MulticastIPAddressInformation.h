@@ -28,14 +28,14 @@
 
 	// Managed property name : DuplicateAddressDetectionState
 	// Managed property type : System.Net.NetworkInformation.DuplicateAddressDetectionState
-    @property (nonatomic, readonly) System_Net_NetworkInformation_DuplicateAddressDetectionState duplicateAddressDetectionState;
+    @property (nonatomic, readonly) int32_t duplicateAddressDetectionState;
 
 	// Managed property name : PrefixOrigin
 	// Managed property type : System.Net.NetworkInformation.PrefixOrigin
-    @property (nonatomic, readonly) System_Net_NetworkInformation_PrefixOrigin prefixOrigin;
+    @property (nonatomic, readonly) int32_t prefixOrigin;
 
 	// Managed property name : SuffixOrigin
 	// Managed property type : System.Net.NetworkInformation.SuffixOrigin
-    @property (nonatomic, readonly) System_Net_NetworkInformation_SuffixOrigin suffixOrigin;
+    @property (nonatomic, readonly) int32_t suffixOrigin;
 @end
 //--Dubrovnik.CodeGenerator

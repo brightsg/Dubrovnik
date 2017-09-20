@@ -33,7 +33,7 @@
     + (System_Security_Permissions_ResourcePermissionBaseEntry *)new_withPermissionAccess:(int32_t)p1 permissionAccessPath:(DBSystem_Array *)p2
     {
 		
-		System_Security_Permissions_ResourcePermissionBaseEntry * object = [[self alloc] initWithSignature:"int,string[]" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		System_Security_Permissions_ResourcePermissionBaseEntry * object = [[self alloc] initWithSignature:"int,string[]" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,8 +46,18 @@
     @synthesize permissionAccess = _permissionAccess;
     - (int32_t)permissionAccess
     {
-		MonoObject *monoObject = [self getMonoProperty:"PermissionAccess"];
-		_permissionAccess = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PermissionAccess");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_permissionAccess = monoObject;
 
 		return _permissionAccess;
 	}
@@ -57,7 +67,17 @@
     @synthesize permissionAccessPath = _permissionAccessPath;
     - (DBSystem_Array *)permissionAccessPath
     {
-		MonoObject *monoObject = [self getMonoProperty:"PermissionAccessPath"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PermissionAccessPath");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_permissionAccessPath isEqualToMonoObject:monoObject]) return _permissionAccessPath;					
 		_permissionAccessPath = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 

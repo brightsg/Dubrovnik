@@ -33,7 +33,7 @@
     + (System_Net_IPAddress *)new_withNewAddress:(int64_t)p1
     {
 		
-		System_Net_IPAddress * object = [[self alloc] initWithSignature:"long" withNumArgs:1, DB_VALUE(p1)];;
+		System_Net_IPAddress * object = [[self alloc] initWithSignature:"long" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Net_IPAddress *)new_withAddress:(NSData *)p1 scopeid:(int64_t)p2
     {
 		
-		System_Net_IPAddress * object = [[self alloc] initWithSignature:"byte[],long" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Net_IPAddress * object = [[self alloc] initWithSignature:"byte[],long" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Net_IPAddress *)new_withAddress:(NSData *)p1
     {
 		
-		System_Net_IPAddress * object = [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoValue]];;
+		System_Net_IPAddress * object = [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -155,25 +155,54 @@
     @synthesize address = _address;
     - (int64_t)address
     {
-		MonoObject *monoObject = [self getMonoProperty:"Address"];
-		_address = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Address");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_address = monoObject;
 
 		return _address;
 	}
     - (void)setAddress:(int64_t)value
 	{
 		_address = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Address" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int64_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Address");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : AddressFamily
 	// Managed property type : System.Net.Sockets.AddressFamily
     @synthesize addressFamily = _addressFamily;
-    - (System_Net_Sockets_AddressFamily)addressFamily
+    - (int32_t)addressFamily
     {
-		MonoObject *monoObject = [self getMonoProperty:"AddressFamily"];
-		_addressFamily = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AddressFamily");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_addressFamily = monoObject;
 
 		return _addressFamily;
 	}
@@ -183,8 +212,18 @@
     @synthesize isIPv4MappedToIPv6 = _isIPv4MappedToIPv6;
     - (BOOL)isIPv4MappedToIPv6
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsIPv4MappedToIPv6"];
-		_isIPv4MappedToIPv6 = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsIPv4MappedToIPv6");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isIPv4MappedToIPv6 = monoObject;
 
 		return _isIPv4MappedToIPv6;
 	}
@@ -194,8 +233,18 @@
     @synthesize isIPv6LinkLocal = _isIPv6LinkLocal;
     - (BOOL)isIPv6LinkLocal
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsIPv6LinkLocal"];
-		_isIPv6LinkLocal = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsIPv6LinkLocal");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isIPv6LinkLocal = monoObject;
 
 		return _isIPv6LinkLocal;
 	}
@@ -205,8 +254,18 @@
     @synthesize isIPv6Multicast = _isIPv6Multicast;
     - (BOOL)isIPv6Multicast
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsIPv6Multicast"];
-		_isIPv6Multicast = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsIPv6Multicast");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isIPv6Multicast = monoObject;
 
 		return _isIPv6Multicast;
 	}
@@ -216,8 +275,18 @@
     @synthesize isIPv6SiteLocal = _isIPv6SiteLocal;
     - (BOOL)isIPv6SiteLocal
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsIPv6SiteLocal"];
-		_isIPv6SiteLocal = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsIPv6SiteLocal");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isIPv6SiteLocal = monoObject;
 
 		return _isIPv6SiteLocal;
 	}
@@ -227,8 +296,18 @@
     @synthesize isIPv6Teredo = _isIPv6Teredo;
     - (BOOL)isIPv6Teredo
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsIPv6Teredo"];
-		_isIPv6Teredo = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsIPv6Teredo");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isIPv6Teredo = monoObject;
 
 		return _isIPv6Teredo;
 	}
@@ -238,16 +317,35 @@
     @synthesize scopeId = _scopeId;
     - (int64_t)scopeId
     {
-		MonoObject *monoObject = [self getMonoProperty:"ScopeId"];
-		_scopeId = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ScopeId");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_scopeId = monoObject;
 
 		return _scopeId;
 	}
     - (void)setScopeId:(int64_t)value
 	{
 		_scopeId = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ScopeId" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int64_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ScopeId");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -259,7 +357,7 @@
     - (BOOL)equals_withComparand:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -325,7 +423,7 @@
     + (BOOL)isLoopback_withAddress:(System_Net_IPAddress *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"IsLoopback(System.Net.IPAddress)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsLoopback(System.Net.IPAddress)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -391,7 +489,7 @@
     + (System_Net_IPAddress *)parse_withIpString:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Net_IPAddress bestObjectWithMonoObject:monoObject];
     }
@@ -412,9 +510,9 @@
 	// Managed param types : System.String, ref System.Net.IPAddress&
     + (BOOL)tryParse_withIpString:(NSString *)p1 addressRef:(System_Net_IPAddress **)p2
     {
-		void *refPtr2 = [*p2 monoValue];
+		void *refPtr2 = [*p2 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.Net.IPAddress&)" withNumArgs:2, [p1 monoValue], &refPtr2];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.Net.IPAddress&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 
 		*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 

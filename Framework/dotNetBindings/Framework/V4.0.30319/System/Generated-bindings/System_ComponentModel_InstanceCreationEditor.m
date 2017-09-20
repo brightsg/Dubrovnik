@@ -32,7 +32,17 @@
     @synthesize text = _text;
     - (NSString *)text
     {
-		MonoObject *monoObject = [self getMonoProperty:"Text"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Text");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_text isEqualToMonoObject:monoObject]) return _text;					
 		_text = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -48,7 +58,7 @@
     - (System_Object *)createInstance_withContext:(id <System_ComponentModel_ITypeDescriptorContext_>)p1 instanceType:(System_Type *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(System.ComponentModel.ITypeDescriptorContext,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(System.ComponentModel.ITypeDescriptorContext,System.Type)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }

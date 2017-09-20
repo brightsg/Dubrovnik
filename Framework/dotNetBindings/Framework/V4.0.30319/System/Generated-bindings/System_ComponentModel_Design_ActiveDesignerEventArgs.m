@@ -33,7 +33,7 @@
     + (System_ComponentModel_Design_ActiveDesignerEventArgs *)new_withOldDesigner:(id <System_ComponentModel_Design_IDesignerHost_>)p1 newDesigner:(id <System_ComponentModel_Design_IDesignerHost_>)p2
     {
 		
-		System_ComponentModel_Design_ActiveDesignerEventArgs * object = [[self alloc] initWithSignature:"System.ComponentModel.Design.IDesignerHost,System.ComponentModel.Design.IDesignerHost" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_ComponentModel_Design_ActiveDesignerEventArgs * object = [[self alloc] initWithSignature:"System.ComponentModel.Design.IDesignerHost,System.ComponentModel.Design.IDesignerHost" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize newDesigner = _newDesigner;
     - (System_ComponentModel_Design_IDesignerHost *)newDesigner
     {
-		MonoObject *monoObject = [self getMonoProperty:"NewDesigner"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NewDesigner");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_newDesigner isEqualToMonoObject:monoObject]) return _newDesigner;					
 		_newDesigner = [System_ComponentModel_Design_IDesignerHost bestObjectWithMonoObject:monoObject];
 
@@ -58,7 +68,17 @@
     @synthesize oldDesigner = _oldDesigner;
     - (System_ComponentModel_Design_IDesignerHost *)oldDesigner
     {
-		MonoObject *monoObject = [self getMonoProperty:"OldDesigner"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OldDesigner");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_oldDesigner isEqualToMonoObject:monoObject]) return _oldDesigner;					
 		_oldDesigner = [System_ComponentModel_Design_IDesignerHost bestObjectWithMonoObject:monoObject];
 

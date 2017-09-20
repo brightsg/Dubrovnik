@@ -33,7 +33,7 @@
     - (System_Object *)createInstance_withProvider:(id <System_IServiceProvider_>)p1 objectType:(System_Type *)p2 argTypes:(DBSystem_Array *)p3 args:(DBSystem_Array *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(System.IServiceProvider,System.Type,System.Type[],object[])" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(System.IServiceProvider,System.Type,System.Type[],object[])" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -44,7 +44,7 @@
     - (id <System_Collections_IDictionary>)getCache_withInstance:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCache(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetCache(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Collections_IDictionary bestObjectWithMonoObject:monoObject];
     }
@@ -55,7 +55,7 @@
     - (id <System_ComponentModel_ICustomTypeDescriptor>)getExtendedTypeDescriptor_withInstance:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetExtendedTypeDescriptor(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetExtendedTypeDescriptor(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_ICustomTypeDescriptor bestObjectWithMonoObject:monoObject];
     }
@@ -66,7 +66,7 @@
     - (NSString *)getFullComponentName_withComponent:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetFullComponentName(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetFullComponentName(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -77,7 +77,7 @@
     - (System_Type *)getReflectionType_withObjectType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetReflectionType(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetReflectionType(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Type bestObjectWithMonoObject:monoObject];
     }
@@ -88,7 +88,7 @@
     - (System_Type *)getReflectionType_withInstance:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetReflectionType(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetReflectionType(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Type bestObjectWithMonoObject:monoObject];
     }
@@ -99,7 +99,7 @@
     - (System_Type *)getReflectionType_withObjectType:(System_Type *)p1 instance:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetReflectionType(System.Type,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetReflectionType(System.Type,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Type bestObjectWithMonoObject:monoObject];
     }
@@ -110,20 +110,9 @@
     - (System_Type *)getRuntimeType_withReflectionType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetRuntimeType(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetRuntimeType(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Type bestObjectWithMonoObject:monoObject];
-    }
-
-	// Managed method name : GetTypeDescriptor
-	// Managed return type : System.ComponentModel.ICustomTypeDescriptor
-	// Managed param types : System.Type, System.Object
-    - (id <System_ComponentModel_ICustomTypeDescriptor>)getTypeDescriptor_withObjectType:(System_Type *)p1 instance:(System_Object *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeDescriptor(System.Type,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
-		
-		return [System_ComponentModel_ICustomTypeDescriptor bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetTypeDescriptor
@@ -132,7 +121,7 @@
     - (id <System_ComponentModel_ICustomTypeDescriptor>)getTypeDescriptor_withObjectType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeDescriptor(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeDescriptor(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_ICustomTypeDescriptor bestObjectWithMonoObject:monoObject];
     }
@@ -143,7 +132,18 @@
     - (id <System_ComponentModel_ICustomTypeDescriptor>)getTypeDescriptor_withInstance:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeDescriptor(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeDescriptor(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return [System_ComponentModel_ICustomTypeDescriptor bestObjectWithMonoObject:monoObject];
+    }
+
+	// Managed method name : GetTypeDescriptor
+	// Managed return type : System.ComponentModel.ICustomTypeDescriptor
+	// Managed param types : System.Type, System.Object
+    - (id <System_ComponentModel_ICustomTypeDescriptor>)getTypeDescriptor_withObjectType:(System_Type *)p1 instance:(System_Object *)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeDescriptor(System.Type,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_ICustomTypeDescriptor bestObjectWithMonoObject:monoObject];
     }
@@ -154,7 +154,7 @@
     - (BOOL)isSupportedType_withType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsSupportedType(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IsSupportedType(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

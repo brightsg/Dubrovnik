@@ -33,7 +33,7 @@
     + (System_Net_Security_RemoteCertificateValidationCallback *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
 		
-		System_Net_Security_RemoteCertificateValidationCallback * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Net_Security_RemoteCertificateValidationCallback * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -44,10 +44,10 @@
 	// Managed method name : BeginInvoke
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Object, System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography.X509Certificates.X509Chain, System.Net.Security.SslPolicyErrors, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginInvoke_withSender:(System_Object *)p1 certificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p2 chain:(System_Security_Cryptography_X509Certificates_X509Chain *)p3 sslPolicyErrors:(System_Net_Security_SslPolicyErrors)p4 callback:(System_AsyncCallback *)p5 object:(System_Object *)p6
+    - (id <System_IAsyncResult>)beginInvoke_withSender:(System_Object *)p1 certificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p2 chain:(System_Security_Cryptography_X509Certificates_X509Chain *)p3 sslPolicyErrors:(int32_t)p4 callback:(System_AsyncCallback *)p5 object:(System_Object *)p6
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(object,System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors,System.AsyncCallback,object)" withNumArgs:6, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), [p5 monoValue], [p6 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(object,System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors,System.AsyncCallback,object)" withNumArgs:6, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), [p5 monoRTInvokeArg], [p6 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -58,7 +58,7 @@
     - (BOOL)endInvoke_withResult:(id <System_IAsyncResult_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -66,10 +66,10 @@
 	// Managed method name : Invoke
 	// Managed return type : System.Boolean
 	// Managed param types : System.Object, System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography.X509Certificates.X509Chain, System.Net.Security.SslPolicyErrors
-    - (BOOL)invoke_withSender:(System_Object *)p1 certificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p2 chain:(System_Security_Cryptography_X509Certificates_X509Chain *)p3 sslPolicyErrors:(System_Net_Security_SslPolicyErrors)p4
+    - (BOOL)invoke_withSender:(System_Object *)p1 certificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p2 chain:(System_Security_Cryptography_X509Certificates_X509Chain *)p3 sslPolicyErrors:(int32_t)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object,System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object,System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

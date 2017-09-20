@@ -32,7 +32,17 @@
     @synthesize component = _component;
     - (System_ComponentModel_IComponent *)component
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.Design.IDesigner.Component"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.Design.IDesigner.Component");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_component isEqualToMonoObject:monoObject]) return _component;					
 		_component = [System_ComponentModel_IComponent bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize verbs = _verbs;
     - (System_ComponentModel_Design_DesignerVerbCollection *)verbs
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.Design.IDesigner.Verbs"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.Design.IDesigner.Verbs");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_verbs isEqualToMonoObject:monoObject]) return _verbs;					
 		_verbs = [System_ComponentModel_Design_DesignerVerbCollection bestObjectWithMonoObject:monoObject];
 
@@ -60,7 +80,7 @@
     - (void)doDefaultAction
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IDesigner.DoDefaultAction()" withNumArgs:0];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IDesigner.DoDefaultAction()" withNumArgs:0];
         
     }
 
@@ -70,7 +90,7 @@
     - (void)initialize_withComponent:(id <System_ComponentModel_IComponent_>)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IDesigner.Initialize(System.ComponentModel.IComponent)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IDesigner.Initialize(System.ComponentModel.IComponent)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

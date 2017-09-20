@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Concurrent.ConcurrentBag`1<System.Collections.Concurrent.ConcurrentBag`1+T>";
+		return "System.Collections.Concurrent.ConcurrentBag`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -33,7 +33,7 @@
     + (System_Collections_Concurrent_ConcurrentBagA1 *)new_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
 		
-		System_Collections_Concurrent_ConcurrentBagA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.ConcurrentBag`1+T>" withNumArgs:1, [p1 monoValue]];;
+		System_Collections_Concurrent_ConcurrentBagA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.ConcurrentBag`1+T>" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,8 +46,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -57,8 +67,18 @@
     @synthesize isEmpty = _isEmpty;
     - (BOOL)isEmpty
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsEmpty"];
-		_isEmpty = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsEmpty");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isEmpty = monoObject;
 
 		return _isEmpty;
 	}
@@ -72,7 +92,7 @@
     - (void)add_withItem:(System_Object *)p1
     {
 		
-		[self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -82,7 +102,7 @@
     - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
 		
-		[self invokeMonoMethod:"CopyTo(T[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
     }
 
@@ -113,7 +133,7 @@
 	// Managed param types : ref T&
     - (BOOL)tryPeek_withResultRef:(System_Collections_Concurrent_ConcurrentBagA1__T **)p1
     {
-		void *refPtr1 = [*p1 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoMethod:"TryPeek(System.Collections.Concurrent.ConcurrentBag`1+T&)" withNumArgs:1, &refPtr1];
 
@@ -127,7 +147,7 @@
 	// Managed param types : ref T&
     - (BOOL)tryTake_withResultRef:(System_Collections_Concurrent_ConcurrentBagA1__T **)p1
     {
-		void *refPtr1 = [*p1 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoMethod:"TryTake(System.Collections.Concurrent.ConcurrentBag`1+T&)" withNumArgs:1, &refPtr1];
 

@@ -33,7 +33,7 @@
     + (System_Net_Sockets_SocketException *)new_withErrorCode:(int32_t)p1
     {
 		
-		System_Net_Sockets_SocketException * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		System_Net_Sockets_SocketException * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -46,8 +46,18 @@
     @synthesize errorCode = _errorCode;
     - (int32_t)errorCode
     {
-		MonoObject *monoObject = [self getMonoProperty:"ErrorCode"];
-		_errorCode = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ErrorCode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_errorCode = monoObject;
 
 		return _errorCode;
 	}
@@ -57,7 +67,17 @@
     @synthesize message = _message;
     - (NSString *)message
     {
-		MonoObject *monoObject = [self getMonoProperty:"Message"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Message");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_message isEqualToMonoObject:monoObject]) return _message;					
 		_message = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -67,10 +87,20 @@
 	// Managed property name : SocketErrorCode
 	// Managed property type : System.Net.Sockets.SocketError
     @synthesize socketErrorCode = _socketErrorCode;
-    - (System_Net_Sockets_SocketError)socketErrorCode
+    - (int32_t)socketErrorCode
     {
-		MonoObject *monoObject = [self getMonoProperty:"SocketErrorCode"];
-		_socketErrorCode = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SocketErrorCode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_socketErrorCode = monoObject;
 
 		return _socketErrorCode;
 	}

@@ -17,12 +17,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebSockets.WebSocketReceiveResult
 	// Managed param types : System.Int32, System.Net.WebSockets.WebSocketMessageType, System.Boolean
-    + (System_Net_WebSockets_WebSocketReceiveResult *)new_withCount:(int32_t)p1 messageType:(System_Net_WebSockets_WebSocketMessageType)p2 endOfMessage:(BOOL)p3;
+    + (System_Net_WebSockets_WebSocketReceiveResult *)new_withCount:(int32_t)p1 messageType:(int32_t)p2 endOfMessage:(BOOL)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebSockets.WebSocketReceiveResult
 	// Managed param types : System.Int32, System.Net.WebSockets.WebSocketMessageType, System.Boolean, System.Nullable`1<System.Net.WebSockets.WebSocketCloseStatus>, System.String
-    + (System_Net_WebSockets_WebSocketReceiveResult *)new_withCount:(int32_t)p1 messageType:(System_Net_WebSockets_WebSocketMessageType)p2 endOfMessage:(BOOL)p3 closeStatus:(System_NullableA1 *)p4 closeStatusDescription:(NSString *)p5;
+    + (System_Net_WebSockets_WebSocketReceiveResult *)new_withCount:(int32_t)p1 messageType:(int32_t)p2 endOfMessage:(BOOL)p3 closeStatus:(System_NullableA1 *)p4 closeStatusDescription:(NSString *)p5;
 
 #pragma mark -
 #pragma mark Properties
@@ -45,6 +45,6 @@
 
 	// Managed property name : MessageType
 	// Managed property type : System.Net.WebSockets.WebSocketMessageType
-    @property (nonatomic) System_Net_WebSockets_WebSocketMessageType messageType;
+    @property (nonatomic) int32_t messageType;
 @end
 //--Dubrovnik.CodeGenerator

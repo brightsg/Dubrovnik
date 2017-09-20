@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.DataObjectMethodAttribute
 	// Managed param types : System.ComponentModel.DataObjectMethodType
-    + (System_ComponentModel_DataObjectMethodAttribute *)new_withMethodType:(System_ComponentModel_DataObjectMethodType)p1
+    + (System_ComponentModel_DataObjectMethodAttribute *)new_withMethodType:(int32_t)p1
     {
 		
-		System_ComponentModel_DataObjectMethodAttribute * object = [[self alloc] initWithSignature:"System.ComponentModel.DataObjectMethodType" withNumArgs:1, DB_VALUE(p1)];;
+		System_ComponentModel_DataObjectMethodAttribute * object = [[self alloc] initWithSignature:"System.ComponentModel.DataObjectMethodType" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -41,10 +41,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.DataObjectMethodAttribute
 	// Managed param types : System.ComponentModel.DataObjectMethodType, System.Boolean
-    + (System_ComponentModel_DataObjectMethodAttribute *)new_withMethodType:(System_ComponentModel_DataObjectMethodType)p1 isDefault:(BOOL)p2
+    + (System_ComponentModel_DataObjectMethodAttribute *)new_withMethodType:(int32_t)p1 isDefault:(BOOL)p2
     {
 		
-		System_ComponentModel_DataObjectMethodAttribute * object = [[self alloc] initWithSignature:"System.ComponentModel.DataObjectMethodType,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		System_ComponentModel_DataObjectMethodAttribute * object = [[self alloc] initWithSignature:"System.ComponentModel.DataObjectMethodType,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
         
         return object;
     }
@@ -57,8 +57,18 @@
     @synthesize isDefault = _isDefault;
     - (BOOL)isDefault
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsDefault"];
-		_isDefault = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsDefault");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isDefault = monoObject;
 
 		return _isDefault;
 	}
@@ -66,10 +76,20 @@
 	// Managed property name : MethodType
 	// Managed property type : System.ComponentModel.DataObjectMethodType
     @synthesize methodType = _methodType;
-    - (System_ComponentModel_DataObjectMethodType)methodType
+    - (int32_t)methodType
     {
-		MonoObject *monoObject = [self getMonoProperty:"MethodType"];
-		_methodType = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MethodType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_methodType = monoObject;
 
 		return _methodType;
 	}
@@ -83,7 +103,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -105,7 +125,7 @@
     - (BOOL)match_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Match(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Match(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

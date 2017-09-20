@@ -33,7 +33,7 @@
     + (void)serialize_withO:(System_IO_Stream *)p1 cryptoKey:(NSString *)p2 context:(System_ComponentModel_Design_DesigntimeLicenseContext *)p3
     {
 		
-		[self invokeMonoClassMethod:"Serialize(System.IO.Stream,string,System.ComponentModel.Design.DesigntimeLicenseContext)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoClassMethod:"Serialize(System.IO.Stream,string,System.ComponentModel.Design.DesigntimeLicenseContext)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 

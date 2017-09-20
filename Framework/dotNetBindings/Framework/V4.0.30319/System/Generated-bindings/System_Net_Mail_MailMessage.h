@@ -54,7 +54,7 @@
 
 	// Managed property name : BodyTransferEncoding
 	// Managed property type : System.Net.Mime.TransferEncoding
-    @property (nonatomic) System_Net_Mime_TransferEncoding bodyTransferEncoding;
+    @property (nonatomic) int32_t bodyTransferEncoding;
 
 	// Managed property name : CC
 	// Managed property type : System.Net.Mail.MailAddressCollection
@@ -62,7 +62,7 @@
 
 	// Managed property name : DeliveryNotificationOptions
 	// Managed property type : System.Net.Mail.DeliveryNotificationOptions
-    @property (nonatomic) System_Net_Mail_DeliveryNotificationOptions deliveryNotificationOptions;
+    @property (nonatomic) int32_t deliveryNotificationOptions;
 
 	// Managed property name : From
 	// Managed property type : System.Net.Mail.MailAddress
@@ -82,7 +82,7 @@
 
 	// Managed property name : Priority
 	// Managed property type : System.Net.Mail.MailPriority
-    @property (nonatomic) System_Net_Mail_MailPriority priority;
+    @property (nonatomic) int32_t priority;
 
 	// Managed property name : ReplyTo
 	// Managed property type : System.Net.Mail.MailAddress

@@ -32,7 +32,17 @@
     @synthesize dhcpScopeName = _dhcpScopeName;
     - (NSString *)dhcpScopeName
     {
-		MonoObject *monoObject = [self getMonoProperty:"DhcpScopeName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DhcpScopeName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_dhcpScopeName isEqualToMonoObject:monoObject]) return _dhcpScopeName;					
 		_dhcpScopeName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -44,7 +54,17 @@
     @synthesize domainName = _domainName;
     - (NSString *)domainName
     {
-		MonoObject *monoObject = [self getMonoProperty:"DomainName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DomainName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_domainName isEqualToMonoObject:monoObject]) return _domainName;					
 		_domainName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -56,7 +76,17 @@
     @synthesize hostName = _hostName;
     - (NSString *)hostName
     {
-		MonoObject *monoObject = [self getMonoProperty:"HostName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HostName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_hostName isEqualToMonoObject:monoObject]) return _hostName;					
 		_hostName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -68,8 +98,18 @@
     @synthesize isWinsProxy = _isWinsProxy;
     - (BOOL)isWinsProxy
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsWinsProxy"];
-		_isWinsProxy = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsWinsProxy");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isWinsProxy = monoObject;
 
 		return _isWinsProxy;
 	}
@@ -77,10 +117,20 @@
 	// Managed property name : NodeType
 	// Managed property type : System.Net.NetworkInformation.NetBiosNodeType
     @synthesize nodeType = _nodeType;
-    - (System_Net_NetworkInformation_NetBiosNodeType)nodeType
+    - (int32_t)nodeType
     {
-		MonoObject *monoObject = [self getMonoProperty:"NodeType"];
-		_nodeType = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NodeType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_nodeType = monoObject;
 
 		return _nodeType;
 	}
@@ -94,7 +144,7 @@
     - (id <System_IAsyncResult>)beginGetUnicastAddresses_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginGetUnicastAddresses(System.AsyncCallback,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginGetUnicastAddresses(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -105,7 +155,7 @@
     - (System_Net_NetworkInformation_UnicastIPAddressInformationCollection *)endGetUnicastAddresses_withAsyncResult:(id <System_IAsyncResult_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"EndGetUnicastAddresses(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"EndGetUnicastAddresses(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Net_NetworkInformation_UnicastIPAddressInformationCollection bestObjectWithMonoObject:monoObject];
     }

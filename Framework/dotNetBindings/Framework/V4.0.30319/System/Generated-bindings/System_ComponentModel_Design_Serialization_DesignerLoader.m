@@ -32,8 +32,18 @@
     @synthesize loading = _loading;
     - (BOOL)loading
     {
-		MonoObject *monoObject = [self getMonoProperty:"Loading"];
-		_loading = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Loading");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_loading = monoObject;
 
 		return _loading;
 	}
@@ -47,7 +57,7 @@
     - (void)beginLoad_withHost:(id <System_ComponentModel_Design_Serialization_IDesignerLoaderHost_>)p1
     {
 		
-		[self invokeMonoMethod:"BeginLoad(System.ComponentModel.Design.Serialization.IDesignerLoaderHost)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"BeginLoad(System.ComponentModel.Design.Serialization.IDesignerLoaderHost)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -57,7 +67,7 @@
     - (void)dispose
     {
 		
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
         
     }
 
@@ -67,7 +77,7 @@
     - (void)flush
     {
 		
-		[self invokeMonoMethod:"Flush()" withNumArgs:0];;
+		[self invokeMonoMethod:"Flush()" withNumArgs:0];
         
     }
 

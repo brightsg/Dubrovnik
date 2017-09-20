@@ -32,8 +32,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -43,7 +53,17 @@
     @synthesize item = _item;
     - (System_CodeDom_CodeNamespaceImport *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
 		_item = [System_CodeDom_CodeNamespaceImport bestObjectWithMonoObject:monoObject];
 
@@ -52,8 +72,17 @@
     - (void)setItem:(System_CodeDom_CodeNamespaceImport *)value
 	{
 		_item = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Item" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -65,7 +94,7 @@
     - (void)add_withValue:(System_CodeDom_CodeNamespaceImport *)p1
     {
 		
-		[self invokeMonoMethod:"Add(System.CodeDom.CodeNamespaceImport)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Add(System.CodeDom.CodeNamespaceImport)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -75,7 +104,7 @@
     - (void)addRange_withValue:(DBSystem_Array *)p1
     {
 		
-		[self invokeMonoMethod:"AddRange(System.CodeDom.CodeNamespaceImport[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddRange(System.CodeDom.CodeNamespaceImport[])" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -85,7 +114,7 @@
     - (void)clear
     {
 		
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];
         
     }
 

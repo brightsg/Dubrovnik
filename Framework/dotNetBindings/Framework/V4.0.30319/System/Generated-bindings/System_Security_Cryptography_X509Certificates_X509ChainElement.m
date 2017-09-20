@@ -32,7 +32,17 @@
     @synthesize certificate = _certificate;
     - (System_Security_Cryptography_X509Certificates_X509Certificate2 *)certificate
     {
-		MonoObject *monoObject = [self getMonoProperty:"Certificate"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Certificate");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_certificate isEqualToMonoObject:monoObject]) return _certificate;					
 		_certificate = [System_Security_Cryptography_X509Certificates_X509Certificate2 bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize chainElementStatus = _chainElementStatus;
     - (DBSystem_Array *)chainElementStatus
     {
-		MonoObject *monoObject = [self getMonoProperty:"ChainElementStatus"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ChainElementStatus");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_chainElementStatus isEqualToMonoObject:monoObject]) return _chainElementStatus;					
 		_chainElementStatus = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -56,7 +76,17 @@
     @synthesize information = _information;
     - (NSString *)information
     {
-		MonoObject *monoObject = [self getMonoProperty:"Information"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Information");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_information isEqualToMonoObject:monoObject]) return _information;					
 		_information = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

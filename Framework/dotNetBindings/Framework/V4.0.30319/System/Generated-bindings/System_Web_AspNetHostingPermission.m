@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Web.AspNetHostingPermission
 	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Web_AspNetHostingPermission *)new_withState:(System_Security_Permissions_PermissionState)p1
+    + (System_Web_AspNetHostingPermission *)new_withState:(int32_t)p1
     {
 		
-		System_Web_AspNetHostingPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];;
+		System_Web_AspNetHostingPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -41,10 +41,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Web.AspNetHostingPermission
 	// Managed param types : System.Web.AspNetHostingPermissionLevel
-    + (System_Web_AspNetHostingPermission *)new_withLevel:(System_Web_AspNetHostingPermissionLevel)p1
+    + (System_Web_AspNetHostingPermission *)new_withLevel:(int32_t)p1
     {
 		
-		System_Web_AspNetHostingPermission * object = [[self alloc] initWithSignature:"System.Web.AspNetHostingPermissionLevel" withNumArgs:1, DB_VALUE(p1)];;
+		System_Web_AspNetHostingPermission * object = [[self alloc] initWithSignature:"System.Web.AspNetHostingPermissionLevel" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -55,18 +55,37 @@
 	// Managed property name : Level
 	// Managed property type : System.Web.AspNetHostingPermissionLevel
     @synthesize level = _level;
-    - (System_Web_AspNetHostingPermissionLevel)level
+    - (int32_t)level
     {
-		MonoObject *monoObject = [self getMonoProperty:"Level"];
-		_level = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Level");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_level = monoObject;
 
 		return _level;
 	}
-    - (void)setLevel:(System_Web_AspNetHostingPermissionLevel)value
+    - (void)setLevel:(int32_t)value
 	{
 		_level = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Level" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Level");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -89,7 +108,7 @@
     - (void)fromXml_withSecurityElement:(System_Security_SecurityElement *)p1
     {
 		
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -99,7 +118,7 @@
     - (id <System_Security_IPermission>)intersect_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
@@ -110,7 +129,7 @@
     - (BOOL)isSubsetOf_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -143,7 +162,7 @@
     - (id <System_Security_IPermission>)union_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }

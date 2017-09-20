@@ -32,7 +32,17 @@
     @synthesize timeouts = _timeouts;
     - (System_Net_Configuration_HttpListenerTimeoutsElement *)timeouts
     {
-		MonoObject *monoObject = [self getMonoProperty:"Timeouts"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Timeouts");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_timeouts isEqualToMonoObject:monoObject]) return _timeouts;					
 		_timeouts = [System_Net_Configuration_HttpListenerTimeoutsElement bestObjectWithMonoObject:monoObject];
 
@@ -44,8 +54,18 @@
     @synthesize unescapeRequestUrl = _unescapeRequestUrl;
     - (BOOL)unescapeRequestUrl
     {
-		MonoObject *monoObject = [self getMonoProperty:"UnescapeRequestUrl"];
-		_unescapeRequestUrl = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UnescapeRequestUrl");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_unescapeRequestUrl = monoObject;
 
 		return _unescapeRequestUrl;
 	}

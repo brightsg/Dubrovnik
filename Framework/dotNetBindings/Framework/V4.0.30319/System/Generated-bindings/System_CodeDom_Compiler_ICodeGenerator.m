@@ -33,7 +33,7 @@
     - (NSString *)createEscapedIdentifier_withValue:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.CodeDom.Compiler.ICodeGenerator.CreateEscapedIdentifier(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.CodeDom.Compiler.ICodeGenerator.CreateEscapedIdentifier(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -44,7 +44,7 @@
     - (NSString *)createValidIdentifier_withValue:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.CodeDom.Compiler.ICodeGenerator.CreateValidIdentifier(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.CodeDom.Compiler.ICodeGenerator.CreateValidIdentifier(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -55,7 +55,7 @@
     - (void)generateCodeFromCompileUnit_withE:(System_CodeDom_CodeCompileUnit *)p1 w:(System_IO_TextWriter *)p2 o:(System_CodeDom_Compiler_CodeGeneratorOptions *)p3
     {
 		
-		[self invokeMonoMethod:"System.CodeDom.Compiler.ICodeGenerator.GenerateCodeFromCompileUnit(System.CodeDom.CodeCompileUnit,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"System.CodeDom.Compiler.ICodeGenerator.GenerateCodeFromCompileUnit(System.CodeDom.CodeCompileUnit,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -65,7 +65,7 @@
     - (void)generateCodeFromExpression_withE:(System_CodeDom_CodeExpression *)p1 w:(System_IO_TextWriter *)p2 o:(System_CodeDom_Compiler_CodeGeneratorOptions *)p3
     {
 		
-		[self invokeMonoMethod:"System.CodeDom.Compiler.ICodeGenerator.GenerateCodeFromExpression(System.CodeDom.CodeExpression,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"System.CodeDom.Compiler.ICodeGenerator.GenerateCodeFromExpression(System.CodeDom.CodeExpression,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -75,7 +75,7 @@
     - (void)generateCodeFromNamespace_withE:(System_CodeDom_CodeNamespace *)p1 w:(System_IO_TextWriter *)p2 o:(System_CodeDom_Compiler_CodeGeneratorOptions *)p3
     {
 		
-		[self invokeMonoMethod:"System.CodeDom.Compiler.ICodeGenerator.GenerateCodeFromNamespace(System.CodeDom.CodeNamespace,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"System.CodeDom.Compiler.ICodeGenerator.GenerateCodeFromNamespace(System.CodeDom.CodeNamespace,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -85,7 +85,7 @@
     - (void)generateCodeFromStatement_withE:(System_CodeDom_CodeStatement *)p1 w:(System_IO_TextWriter *)p2 o:(System_CodeDom_Compiler_CodeGeneratorOptions *)p3
     {
 		
-		[self invokeMonoMethod:"System.CodeDom.Compiler.ICodeGenerator.GenerateCodeFromStatement(System.CodeDom.CodeStatement,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"System.CodeDom.Compiler.ICodeGenerator.GenerateCodeFromStatement(System.CodeDom.CodeStatement,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -95,7 +95,7 @@
     - (void)generateCodeFromType_withE:(System_CodeDom_CodeTypeDeclaration *)p1 w:(System_IO_TextWriter *)p2 o:(System_CodeDom_Compiler_CodeGeneratorOptions *)p3
     {
 		
-		[self invokeMonoMethod:"System.CodeDom.Compiler.ICodeGenerator.GenerateCodeFromType(System.CodeDom.CodeTypeDeclaration,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"System.CodeDom.Compiler.ICodeGenerator.GenerateCodeFromType(System.CodeDom.CodeTypeDeclaration,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -105,7 +105,7 @@
     - (NSString *)getTypeOutput_withType:(System_CodeDom_CodeTypeReference *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.CodeDom.Compiler.ICodeGenerator.GetTypeOutput(System.CodeDom.CodeTypeReference)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.CodeDom.Compiler.ICodeGenerator.GetTypeOutput(System.CodeDom.CodeTypeReference)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -116,7 +116,7 @@
     - (BOOL)isValidIdentifier_withValue:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.CodeDom.Compiler.ICodeGenerator.IsValidIdentifier(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.CodeDom.Compiler.ICodeGenerator.IsValidIdentifier(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -124,7 +124,7 @@
 	// Managed method name : Supports
 	// Managed return type : System.Boolean
 	// Managed param types : System.CodeDom.Compiler.GeneratorSupport
-    - (BOOL)supports_withSupports:(System_CodeDom_Compiler_GeneratorSupport)p1
+    - (BOOL)supports_withSupports:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.CodeDom.Compiler.ICodeGenerator.Supports(System.CodeDom.Compiler.GeneratorSupport)" withNumArgs:1, DB_VALUE(p1)];
@@ -138,7 +138,7 @@
     - (void)validateIdentifier_withValue:(NSString *)p1
     {
 		
-		[self invokeMonoMethod:"System.CodeDom.Compiler.ICodeGenerator.ValidateIdentifier(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.CodeDom.Compiler.ICodeGenerator.ValidateIdentifier(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

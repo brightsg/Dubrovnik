@@ -33,7 +33,7 @@
     + (System_Text_RegularExpressions_RegexMatchTimeoutException *)new_withRegexInput:(NSString *)p1 regexPattern:(NSString *)p2 matchTimeout:(System_TimeSpan *)p3
     {
 		
-		System_Text_RegularExpressions_RegexMatchTimeoutException * object = [[self alloc] initWithSignature:"string,string,System.TimeSpan" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		System_Text_RegularExpressions_RegexMatchTimeoutException * object = [[self alloc] initWithSignature:"string,string,System.TimeSpan" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Text_RegularExpressions_RegexMatchTimeoutException *)new_withMessage:(NSString *)p1
     {
 		
-		System_Text_RegularExpressions_RegexMatchTimeoutException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_Text_RegularExpressions_RegexMatchTimeoutException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Text_RegularExpressions_RegexMatchTimeoutException *)new_withMessage:(NSString *)p1 inner:(System_Exception *)p2
     {
 		
-		System_Text_RegularExpressions_RegexMatchTimeoutException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Text_RegularExpressions_RegexMatchTimeoutException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -68,7 +68,17 @@
     @synthesize input = _input;
     - (NSString *)input
     {
-		MonoObject *monoObject = [self getMonoProperty:"Input"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Input");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_input isEqualToMonoObject:monoObject]) return _input;					
 		_input = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -80,7 +90,17 @@
     @synthesize matchTimeout = _matchTimeout;
     - (System_TimeSpan *)matchTimeout
     {
-		MonoObject *monoObject = [self getMonoProperty:"MatchTimeout"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MatchTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_matchTimeout isEqualToMonoObject:monoObject]) return _matchTimeout;					
 		_matchTimeout = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
@@ -92,7 +112,17 @@
     @synthesize pattern = _pattern;
     - (NSString *)pattern
     {
-		MonoObject *monoObject = [self getMonoProperty:"Pattern"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Pattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_pattern isEqualToMonoObject:monoObject]) return _pattern;					
 		_pattern = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

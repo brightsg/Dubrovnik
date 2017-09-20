@@ -22,22 +22,22 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Store
 	// Managed param types : System.Security.Cryptography.X509Certificates.StoreName
-    + (System_Security_Cryptography_X509Certificates_X509Store *)new_withStoreNameSSCXStoreName:(System_Security_Cryptography_X509Certificates_StoreName)p1;
+    + (System_Security_Cryptography_X509Certificates_X509Store *)new_withStoreNameSSCXStoreName:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Store
 	// Managed param types : System.Security.Cryptography.X509Certificates.StoreLocation
-    + (System_Security_Cryptography_X509Certificates_X509Store *)new_withStoreLocation:(System_Security_Cryptography_X509Certificates_StoreLocation)p1;
+    + (System_Security_Cryptography_X509Certificates_X509Store *)new_withStoreLocation:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Store
 	// Managed param types : System.Security.Cryptography.X509Certificates.StoreName, System.Security.Cryptography.X509Certificates.StoreLocation
-    + (System_Security_Cryptography_X509Certificates_X509Store *)new_withStoreNameSSCXStoreName:(System_Security_Cryptography_X509Certificates_StoreName)p1 storeLocationSSCXStoreLocation:(System_Security_Cryptography_X509Certificates_StoreLocation)p2;
+    + (System_Security_Cryptography_X509Certificates_X509Store *)new_withStoreNameSSCXStoreName:(int32_t)p1 storeLocationSSCXStoreLocation:(int32_t)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Store
 	// Managed param types : System.String, System.Security.Cryptography.X509Certificates.StoreLocation
-    + (System_Security_Cryptography_X509Certificates_X509Store *)new_withStoreNameString:(NSString *)p1 storeLocationSSCXStoreLocation:(System_Security_Cryptography_X509Certificates_StoreLocation)p2;
+    + (System_Security_Cryptography_X509Certificates_X509Store *)new_withStoreNameString:(NSString *)p1 storeLocationSSCXStoreLocation:(int32_t)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Store
@@ -53,7 +53,7 @@
 
 	// Managed property name : Location
 	// Managed property type : System.Security.Cryptography.X509Certificates.StoreLocation
-    @property (nonatomic, readonly) System_Security_Cryptography_X509Certificates_StoreLocation location;
+    @property (nonatomic, readonly) int32_t location;
 
 	// Managed property name : Name
 	// Managed property type : System.String
@@ -89,7 +89,7 @@
 	// Managed method name : Open
 	// Managed return type : System.Void
 	// Managed param types : System.Security.Cryptography.X509Certificates.OpenFlags
-    - (void)open_withFlags:(System_Security_Cryptography_X509Certificates_OpenFlags)p1;
+    - (void)open_withFlags:(int32_t)p1;
 
 	// Managed method name : Remove
 	// Managed return type : System.Void

@@ -33,7 +33,7 @@
     - (void)addExtenderProvider_withProvider:(id <System_ComponentModel_IExtenderProvider_>)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IExtenderProviderService.AddExtenderProvider(System.ComponentModel.IExtenderProvider)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IExtenderProviderService.AddExtenderProvider(System.ComponentModel.IExtenderProvider)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -43,7 +43,7 @@
     - (void)removeExtenderProvider_withProvider:(id <System_ComponentModel_IExtenderProvider_>)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IExtenderProviderService.RemoveExtenderProvider(System.ComponentModel.IExtenderProvider)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IExtenderProviderService.RemoveExtenderProvider(System.ComponentModel.IExtenderProvider)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

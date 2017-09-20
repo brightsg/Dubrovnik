@@ -16,11 +16,11 @@
 
 	// Managed property name : DeliveryFormat
 	// Managed property type : System.Net.Mail.SmtpDeliveryFormat
-    @property (nonatomic) System_Net_Mail_SmtpDeliveryFormat deliveryFormat;
+    @property (nonatomic) int32_t deliveryFormat;
 
 	// Managed property name : DeliveryMethod
 	// Managed property type : System.Net.Mail.SmtpDeliveryMethod
-    @property (nonatomic) System_Net_Mail_SmtpDeliveryMethod deliveryMethod;
+    @property (nonatomic) int32_t deliveryMethod;
 
 	// Managed property name : From
 	// Managed property type : System.String

@@ -17,13 +17,13 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Configuration.SettingsSerializeAsAttribute
 	// Managed param types : System.Configuration.SettingsSerializeAs
-    + (System_Configuration_SettingsSerializeAsAttribute *)new_withSerializeAs:(System_Configuration_SettingsSerializeAs)p1;
+    + (System_Configuration_SettingsSerializeAsAttribute *)new_withSerializeAs:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : SerializeAs
 	// Managed property type : System.Configuration.SettingsSerializeAs
-    @property (nonatomic, readonly) System_Configuration_SettingsSerializeAs serializeAs;
+    @property (nonatomic, readonly) int32_t serializeAs;
 @end
 //--Dubrovnik.CodeGenerator

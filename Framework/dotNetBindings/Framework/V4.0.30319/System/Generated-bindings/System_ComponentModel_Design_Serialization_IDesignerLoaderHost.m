@@ -33,7 +33,7 @@
     - (void)endLoad_withBaseClassName:(NSString *)p1 successful:(BOOL)p2 errorCollection:(id <System_Collections_ICollection_>)p3
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerLoaderHost.EndLoad(string,bool,System.Collections.ICollection)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerLoaderHost.EndLoad(string,bool,System.Collections.ICollection)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
         
     }
 
@@ -43,7 +43,7 @@
     - (void)reload
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerLoaderHost.Reload()" withNumArgs:0];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerLoaderHost.Reload()" withNumArgs:0];
         
     }
 

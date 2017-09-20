@@ -32,7 +32,17 @@
     @synthesize componentType = _componentType;
     - (System_Type *)componentType
     {
-		MonoObject *monoObject = [self getMonoProperty:"ComponentType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ComponentType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_componentType isEqualToMonoObject:monoObject]) return _componentType;					
 		_componentType = [System_Type bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize converter = _converter;
     - (System_ComponentModel_TypeConverter *)converter
     {
-		MonoObject *monoObject = [self getMonoProperty:"Converter"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Converter");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_converter isEqualToMonoObject:monoObject]) return _converter;					
 		_converter = [System_ComponentModel_TypeConverter bestObjectWithMonoObject:monoObject];
 
@@ -56,8 +76,18 @@
     @synthesize isLocalizable = _isLocalizable;
     - (BOOL)isLocalizable
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsLocalizable"];
-		_isLocalizable = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsLocalizable");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isLocalizable = monoObject;
 
 		return _isLocalizable;
 	}
@@ -67,8 +97,18 @@
     @synthesize isReadOnly = _isReadOnly;
     - (BOOL)isReadOnly
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsReadOnly"];
-		_isReadOnly = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsReadOnly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isReadOnly = monoObject;
 
 		return _isReadOnly;
 	}
@@ -78,7 +118,17 @@
     @synthesize propertyType = _propertyType;
     - (System_Type *)propertyType
     {
-		MonoObject *monoObject = [self getMonoProperty:"PropertyType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PropertyType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_propertyType isEqualToMonoObject:monoObject]) return _propertyType;					
 		_propertyType = [System_Type bestObjectWithMonoObject:monoObject];
 
@@ -88,10 +138,20 @@
 	// Managed property name : SerializationVisibility
 	// Managed property type : System.ComponentModel.DesignerSerializationVisibility
     @synthesize serializationVisibility = _serializationVisibility;
-    - (System_ComponentModel_DesignerSerializationVisibility)serializationVisibility
+    - (int32_t)serializationVisibility
     {
-		MonoObject *monoObject = [self getMonoProperty:"SerializationVisibility"];
-		_serializationVisibility = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SerializationVisibility");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_serializationVisibility = monoObject;
 
 		return _serializationVisibility;
 	}
@@ -101,8 +161,18 @@
     @synthesize supportsChangeEvents = _supportsChangeEvents;
     - (BOOL)supportsChangeEvents
     {
-		MonoObject *monoObject = [self getMonoProperty:"SupportsChangeEvents"];
-		_supportsChangeEvents = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SupportsChangeEvents");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_supportsChangeEvents = monoObject;
 
 		return _supportsChangeEvents;
 	}
@@ -116,7 +186,7 @@
     - (void)addValueChanged_withComponent:(System_Object *)p1 handler:(System_EventHandler *)p2
     {
 		
-		[self invokeMonoMethod:"AddValueChanged(object,System.EventHandler)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"AddValueChanged(object,System.EventHandler)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -126,7 +196,7 @@
     - (BOOL)canResetValue_withComponent:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CanResetValue(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CanResetValue(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -137,7 +207,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -159,7 +229,7 @@
     - (System_ComponentModel_PropertyDescriptorCollection *)getChildProperties_withFilter:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetChildProperties(System.Attribute[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetChildProperties(System.Attribute[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_PropertyDescriptorCollection bestObjectWithMonoObject:monoObject];
     }
@@ -170,7 +240,7 @@
     - (System_ComponentModel_PropertyDescriptorCollection *)getChildProperties_withInstance:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetChildProperties(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetChildProperties(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_PropertyDescriptorCollection bestObjectWithMonoObject:monoObject];
     }
@@ -181,7 +251,7 @@
     - (System_ComponentModel_PropertyDescriptorCollection *)getChildProperties_withInstance:(System_Object *)p1 filter:(DBSystem_Array *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetChildProperties(object,System.Attribute[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetChildProperties(object,System.Attribute[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_PropertyDescriptorCollection bestObjectWithMonoObject:monoObject];
     }
@@ -192,7 +262,7 @@
     - (System_Object *)getEditor_withEditorBaseType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetEditor(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetEditor(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -214,7 +284,7 @@
     - (System_Object *)getValue_withComponent:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetValue(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetValue(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -225,7 +295,7 @@
     - (void)removeValueChanged_withComponent:(System_Object *)p1 handler:(System_EventHandler *)p2
     {
 		
-		[self invokeMonoMethod:"RemoveValueChanged(object,System.EventHandler)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"RemoveValueChanged(object,System.EventHandler)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -235,7 +305,7 @@
     - (void)resetValue_withComponent:(System_Object *)p1
     {
 		
-		[self invokeMonoMethod:"ResetValue(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"ResetValue(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -245,7 +315,7 @@
     - (void)setValue_withComponent:(System_Object *)p1 value:(System_Object *)p2
     {
 		
-		[self invokeMonoMethod:"SetValue(object,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"SetValue(object,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -255,7 +325,7 @@
     - (BOOL)shouldSerializeValue_withComponent:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ShouldSerializeValue(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ShouldSerializeValue(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

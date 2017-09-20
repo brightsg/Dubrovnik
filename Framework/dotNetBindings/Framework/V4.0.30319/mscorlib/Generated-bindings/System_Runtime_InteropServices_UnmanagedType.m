@@ -282,6 +282,17 @@
 		return m_lPTStr;
 	}
 
+	// Managed field name : LPUTF8Str
+	// Managed field type : System.Runtime.InteropServices.UnmanagedType
+    static int32_t m_lPUTF8Str;
+    + (int32_t)lPUTF8Str
+    {
+		MonoObject *monoObject = [[self class] getMonoClassField:"LPUTF8Str"];
+		m_lPUTF8Str = DB_UNBOX_INT32(monoObject);
+
+		return m_lPUTF8Str;
+	}
+
 	// Managed field name : LPWStr
 	// Managed field type : System.Runtime.InteropServices.UnmanagedType
     static int32_t m_lPWStr;

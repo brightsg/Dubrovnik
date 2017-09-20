@@ -33,7 +33,7 @@
     + (System_Security_Cryptography_X509Certificates_PublicKey *)new_withOid:(System_Security_Cryptography_Oid *)p1 parameters:(System_Security_Cryptography_AsnEncodedData *)p2 keyValue:(System_Security_Cryptography_AsnEncodedData *)p3
     {
 		
-		System_Security_Cryptography_X509Certificates_PublicKey * object = [[self alloc] initWithSignature:"System.Security.Cryptography.Oid,System.Security.Cryptography.AsnEncodedData,System.Security.Cryptography.AsnEncodedData" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		System_Security_Cryptography_X509Certificates_PublicKey * object = [[self alloc] initWithSignature:"System.Security.Cryptography.Oid,System.Security.Cryptography.AsnEncodedData,System.Security.Cryptography.AsnEncodedData" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize encodedKeyValue = _encodedKeyValue;
     - (System_Security_Cryptography_AsnEncodedData *)encodedKeyValue
     {
-		MonoObject *monoObject = [self getMonoProperty:"EncodedKeyValue"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EncodedKeyValue");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_encodedKeyValue isEqualToMonoObject:monoObject]) return _encodedKeyValue;					
 		_encodedKeyValue = [System_Security_Cryptography_AsnEncodedData bestObjectWithMonoObject:monoObject];
 
@@ -58,7 +68,17 @@
     @synthesize encodedParameters = _encodedParameters;
     - (System_Security_Cryptography_AsnEncodedData *)encodedParameters
     {
-		MonoObject *monoObject = [self getMonoProperty:"EncodedParameters"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EncodedParameters");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_encodedParameters isEqualToMonoObject:monoObject]) return _encodedParameters;					
 		_encodedParameters = [System_Security_Cryptography_AsnEncodedData bestObjectWithMonoObject:monoObject];
 
@@ -70,7 +90,17 @@
     @synthesize key = _key;
     - (System_Security_Cryptography_AsymmetricAlgorithm *)key
     {
-		MonoObject *monoObject = [self getMonoProperty:"Key"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Key");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_key isEqualToMonoObject:monoObject]) return _key;					
 		_key = [System_Security_Cryptography_AsymmetricAlgorithm bestObjectWithMonoObject:monoObject];
 
@@ -82,7 +112,17 @@
     @synthesize oid = _oid;
     - (System_Security_Cryptography_Oid *)oid
     {
-		MonoObject *monoObject = [self getMonoProperty:"Oid"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Oid");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_oid isEqualToMonoObject:monoObject]) return _oid;					
 		_oid = [System_Security_Cryptography_Oid bestObjectWithMonoObject:monoObject];
 

@@ -30,18 +30,37 @@
 	// Managed property name : Status
 	// Managed property type : System.Security.Cryptography.X509Certificates.X509ChainStatusFlags
     @synthesize status = _status;
-    - (System_Security_Cryptography_X509Certificates_X509ChainStatusFlags)status
+    - (int32_t)status
     {
-		MonoObject *monoObject = [self getMonoProperty:"Status"];
-		_status = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Status");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_status = monoObject;
 
 		return _status;
 	}
-    - (void)setStatus:(System_Security_Cryptography_X509Certificates_X509ChainStatusFlags)value
+    - (void)setStatus:(int32_t)value
 	{
 		_status = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Status" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Status");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : StatusInformation
@@ -49,7 +68,17 @@
     @synthesize statusInformation = _statusInformation;
     - (NSString *)statusInformation
     {
-		MonoObject *monoObject = [self getMonoProperty:"StatusInformation"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "StatusInformation");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_statusInformation isEqualToMonoObject:monoObject]) return _statusInformation;					
 		_statusInformation = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -58,8 +87,17 @@
     - (void)setStatusInformation:(NSString *)value
 	{
 		_statusInformation = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"StatusInformation" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "StatusInformation");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

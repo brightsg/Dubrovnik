@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.IO.RenamedEventArgs
 	// Managed param types : System.IO.WatcherChangeTypes, System.String, System.String, System.String
-    + (System_IO_RenamedEventArgs *)new_withChangeType:(System_IO_WatcherChangeTypes)p1 directory:(NSString *)p2 name:(NSString *)p3 oldName:(NSString *)p4;
+    + (System_IO_RenamedEventArgs *)new_withChangeType:(int32_t)p1 directory:(NSString *)p2 name:(NSString *)p3 oldName:(NSString *)p4;
 
 #pragma mark -
 #pragma mark Properties

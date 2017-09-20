@@ -33,7 +33,7 @@
     + (System_Net_Mail_MailAddress *)new_withAddress:(NSString *)p1
     {
 		
-		System_Net_Mail_MailAddress * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_Net_Mail_MailAddress * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Net_Mail_MailAddress *)new_withAddress:(NSString *)p1 displayName:(NSString *)p2
     {
 		
-		System_Net_Mail_MailAddress * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Net_Mail_MailAddress * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Net_Mail_MailAddress *)new_withAddress:(NSString *)p1 displayName:(NSString *)p2 displayNameEncoding:(System_Text_Encoding *)p3
     {
 		
-		System_Net_Mail_MailAddress * object = [[self alloc] initWithSignature:"string,string,System.Text.Encoding" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		System_Net_Mail_MailAddress * object = [[self alloc] initWithSignature:"string,string,System.Text.Encoding" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -68,7 +68,17 @@
     @synthesize address = _address;
     - (NSString *)address
     {
-		MonoObject *monoObject = [self getMonoProperty:"Address"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Address");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_address isEqualToMonoObject:monoObject]) return _address;					
 		_address = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -80,7 +90,17 @@
     @synthesize displayName = _displayName;
     - (NSString *)displayName
     {
-		MonoObject *monoObject = [self getMonoProperty:"DisplayName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DisplayName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_displayName isEqualToMonoObject:monoObject]) return _displayName;					
 		_displayName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -92,7 +112,17 @@
     @synthesize host = _host;
     - (NSString *)host
     {
-		MonoObject *monoObject = [self getMonoProperty:"Host"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Host");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_host isEqualToMonoObject:monoObject]) return _host;					
 		_host = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -104,7 +134,17 @@
     @synthesize user = _user;
     - (NSString *)user
     {
-		MonoObject *monoObject = [self getMonoProperty:"User"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "User");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_user isEqualToMonoObject:monoObject]) return _user;					
 		_user = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -120,7 +160,7 @@
     - (BOOL)equals_withValue:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

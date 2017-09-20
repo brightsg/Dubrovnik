@@ -22,12 +22,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.CodeDom.CodeTypeReference
 	// Managed param types : System.Type, System.CodeDom.CodeTypeReferenceOptions
-    + (System_CodeDom_CodeTypeReference *)new_withType:(System_Type *)p1 codeTypeReferenceOption:(System_CodeDom_CodeTypeReferenceOptions)p2;
+    + (System_CodeDom_CodeTypeReference *)new_withType:(System_Type *)p1 codeTypeReferenceOption:(int32_t)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.CodeDom.CodeTypeReference
 	// Managed param types : System.String, System.CodeDom.CodeTypeReferenceOptions
-    + (System_CodeDom_CodeTypeReference *)new_withTypeName:(NSString *)p1 codeTypeReferenceOption:(System_CodeDom_CodeTypeReferenceOptions)p2;
+    + (System_CodeDom_CodeTypeReference *)new_withTypeName:(NSString *)p1 codeTypeReferenceOption:(int32_t)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.CodeDom.CodeTypeReference
@@ -71,7 +71,7 @@
 
 	// Managed property name : Options
 	// Managed property type : System.CodeDom.CodeTypeReferenceOptions
-    @property (nonatomic) System_CodeDom_CodeTypeReferenceOptions options;
+    @property (nonatomic) int32_t options;
 
 	// Managed property name : TypeArguments
 	// Managed property type : System.CodeDom.CodeTypeReferenceCollection

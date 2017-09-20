@@ -95,7 +95,7 @@
 	// Managed method name : InitializeServerObject
 	// Managed return type : System.Runtime.Remoting.Activation.IConstructionReturnMessage
 	// Managed param types : System.Runtime.Remoting.Activation.IConstructionCallMessage
-    - (id <System_Runtime_Remoting_Activation_IConstructionReturnMessage>)initializeServerObject_withCtorMsg:(id <System_Runtime_Remoting_Activation_IConstructionCallMessage_>)p1
+    - (id <System_Runtime_Remoting_Activation_IConstructionReturnMessage>)db_initializeServerObject_withCtorMsg:(id <System_Runtime_Remoting_Activation_IConstructionCallMessage_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"InitializeServerObject(System.Runtime.Remoting.Activation.IConstructionCallMessage)" withNumArgs:1, [p1 monoRTInvokeArg]];

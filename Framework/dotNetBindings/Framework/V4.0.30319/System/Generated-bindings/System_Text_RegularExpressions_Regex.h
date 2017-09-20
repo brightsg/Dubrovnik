@@ -22,12 +22,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Text.RegularExpressions.Regex
 	// Managed param types : System.String, System.Text.RegularExpressions.RegexOptions
-    + (System_Text_RegularExpressions_Regex *)new_withPattern:(NSString *)p1 options:(System_Text_RegularExpressions_RegexOptions)p2;
+    + (System_Text_RegularExpressions_Regex *)new_withPattern:(NSString *)p1 options:(int32_t)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Text.RegularExpressions.Regex
 	// Managed param types : System.String, System.Text.RegularExpressions.RegexOptions, System.TimeSpan
-    + (System_Text_RegularExpressions_Regex *)new_withPattern:(NSString *)p1 options:(System_Text_RegularExpressions_RegexOptions)p2 matchTimeout:(System_TimeSpan *)p3;
+    + (System_Text_RegularExpressions_Regex *)new_withPattern:(NSString *)p1 options:(int32_t)p2 matchTimeout:(System_TimeSpan *)p3;
 
 #pragma mark -
 #pragma mark Fields
@@ -50,7 +50,7 @@
 
 	// Managed property name : Options
 	// Managed property type : System.Text.RegularExpressions.RegexOptions
-    @property (nonatomic, readonly) System_Text_RegularExpressions_RegexOptions options;
+    @property (nonatomic, readonly) int32_t options;
 
 	// Managed property name : RightToLeft
 	// Managed property type : System.Boolean
@@ -107,12 +107,12 @@
 	// Managed method name : IsMatch
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.String, System.Text.RegularExpressions.RegexOptions
-    + (BOOL)isMatch_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(System_Text_RegularExpressions_RegexOptions)p3;
+    + (BOOL)isMatch_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(int32_t)p3;
 
 	// Managed method name : IsMatch
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.String, System.Text.RegularExpressions.RegexOptions, System.TimeSpan
-    + (BOOL)isMatch_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(System_Text_RegularExpressions_RegexOptions)p3 matchTimeout:(System_TimeSpan *)p4;
+    + (BOOL)isMatch_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(int32_t)p3 matchTimeout:(System_TimeSpan *)p4;
 
 	// Managed method name : IsMatch
 	// Managed return type : System.Boolean
@@ -132,12 +132,12 @@
 	// Managed method name : Match
 	// Managed return type : System.Text.RegularExpressions.Match
 	// Managed param types : System.String, System.String, System.Text.RegularExpressions.RegexOptions
-    + (System_Text_RegularExpressions_Match *)match_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(System_Text_RegularExpressions_RegexOptions)p3;
+    + (System_Text_RegularExpressions_Match *)match_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(int32_t)p3;
 
 	// Managed method name : Match
 	// Managed return type : System.Text.RegularExpressions.Match
 	// Managed param types : System.String, System.String, System.Text.RegularExpressions.RegexOptions, System.TimeSpan
-    + (System_Text_RegularExpressions_Match *)match_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(System_Text_RegularExpressions_RegexOptions)p3 matchTimeout:(System_TimeSpan *)p4;
+    + (System_Text_RegularExpressions_Match *)match_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(int32_t)p3 matchTimeout:(System_TimeSpan *)p4;
 
 	// Managed method name : Match
 	// Managed return type : System.Text.RegularExpressions.Match
@@ -162,12 +162,12 @@
 	// Managed method name : Matches
 	// Managed return type : System.Text.RegularExpressions.MatchCollection
 	// Managed param types : System.String, System.String, System.Text.RegularExpressions.RegexOptions
-    + (System_Text_RegularExpressions_MatchCollection *)matches_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(System_Text_RegularExpressions_RegexOptions)p3;
+    + (System_Text_RegularExpressions_MatchCollection *)matches_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(int32_t)p3;
 
 	// Managed method name : Matches
 	// Managed return type : System.Text.RegularExpressions.MatchCollection
 	// Managed param types : System.String, System.String, System.Text.RegularExpressions.RegexOptions, System.TimeSpan
-    + (System_Text_RegularExpressions_MatchCollection *)matches_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(System_Text_RegularExpressions_RegexOptions)p3 matchTimeout:(System_TimeSpan *)p4;
+    + (System_Text_RegularExpressions_MatchCollection *)matches_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(int32_t)p3 matchTimeout:(System_TimeSpan *)p4;
 
 	// Managed method name : Matches
 	// Managed return type : System.Text.RegularExpressions.MatchCollection
@@ -187,12 +187,12 @@
 	// Managed method name : Replace
 	// Managed return type : System.String
 	// Managed param types : System.String, System.String, System.String, System.Text.RegularExpressions.RegexOptions
-    + (NSString *)replace_withInput:(NSString *)p1 pattern:(NSString *)p2 replacement:(NSString *)p3 options:(System_Text_RegularExpressions_RegexOptions)p4;
+    + (NSString *)replace_withInput:(NSString *)p1 pattern:(NSString *)p2 replacement:(NSString *)p3 options:(int32_t)p4;
 
 	// Managed method name : Replace
 	// Managed return type : System.String
 	// Managed param types : System.String, System.String, System.String, System.Text.RegularExpressions.RegexOptions, System.TimeSpan
-    + (NSString *)replace_withInput:(NSString *)p1 pattern:(NSString *)p2 replacement:(NSString *)p3 options:(System_Text_RegularExpressions_RegexOptions)p4 matchTimeout:(System_TimeSpan *)p5;
+    + (NSString *)replace_withInput:(NSString *)p1 pattern:(NSString *)p2 replacement:(NSString *)p3 options:(int32_t)p4 matchTimeout:(System_TimeSpan *)p5;
 
 	// Managed method name : Replace
 	// Managed return type : System.String
@@ -217,12 +217,12 @@
 	// Managed method name : Replace
 	// Managed return type : System.String
 	// Managed param types : System.String, System.String, System.Text.RegularExpressions.MatchEvaluator, System.Text.RegularExpressions.RegexOptions
-    + (NSString *)replace_withInput:(NSString *)p1 pattern:(NSString *)p2 evaluator:(System_Text_RegularExpressions_MatchEvaluator *)p3 options:(System_Text_RegularExpressions_RegexOptions)p4;
+    + (NSString *)replace_withInput:(NSString *)p1 pattern:(NSString *)p2 evaluator:(System_Text_RegularExpressions_MatchEvaluator *)p3 options:(int32_t)p4;
 
 	// Managed method name : Replace
 	// Managed return type : System.String
 	// Managed param types : System.String, System.String, System.Text.RegularExpressions.MatchEvaluator, System.Text.RegularExpressions.RegexOptions, System.TimeSpan
-    + (NSString *)replace_withInput:(NSString *)p1 pattern:(NSString *)p2 evaluator:(System_Text_RegularExpressions_MatchEvaluator *)p3 options:(System_Text_RegularExpressions_RegexOptions)p4 matchTimeout:(System_TimeSpan *)p5;
+    + (NSString *)replace_withInput:(NSString *)p1 pattern:(NSString *)p2 evaluator:(System_Text_RegularExpressions_MatchEvaluator *)p3 options:(int32_t)p4 matchTimeout:(System_TimeSpan *)p5;
 
 	// Managed method name : Replace
 	// Managed return type : System.String
@@ -247,12 +247,12 @@
 	// Managed method name : Split
 	// Managed return type : System.String[]
 	// Managed param types : System.String, System.String, System.Text.RegularExpressions.RegexOptions
-    + (DBSystem_Array *)split_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(System_Text_RegularExpressions_RegexOptions)p3;
+    + (DBSystem_Array *)split_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(int32_t)p3;
 
 	// Managed method name : Split
 	// Managed return type : System.String[]
 	// Managed param types : System.String, System.String, System.Text.RegularExpressions.RegexOptions, System.TimeSpan
-    + (DBSystem_Array *)split_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(System_Text_RegularExpressions_RegexOptions)p3 matchTimeout:(System_TimeSpan *)p4;
+    + (DBSystem_Array *)split_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(int32_t)p3 matchTimeout:(System_TimeSpan *)p4;
 
 	// Managed method name : Split
 	// Managed return type : System.String[]

@@ -16,11 +16,11 @@
 
 	// Managed property name : AutoDetect
 	// Managed property type : System.Net.Configuration.ProxyElement+AutoDetectValues
-    @property (nonatomic) System_Net_Configuration_ProxyElement__AutoDetectValues autoDetect;
+    @property (nonatomic) int32_t autoDetect;
 
 	// Managed property name : BypassOnLocal
 	// Managed property type : System.Net.Configuration.ProxyElement+BypassOnLocalValues
-    @property (nonatomic) System_Net_Configuration_ProxyElement__BypassOnLocalValues bypassOnLocal;
+    @property (nonatomic) int32_t bypassOnLocal;
 
 	// Managed property name : ProxyAddress
 	// Managed property type : System.Uri
@@ -32,6 +32,6 @@
 
 	// Managed property name : UseSystemDefault
 	// Managed property type : System.Net.Configuration.ProxyElement+UseSystemDefaultValues
-    @property (nonatomic) System_Net_Configuration_ProxyElement__UseSystemDefaultValues useSystemDefault;
+    @property (nonatomic) int32_t useSystemDefault;
 @end
 //--Dubrovnik.CodeGenerator

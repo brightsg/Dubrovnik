@@ -48,7 +48,7 @@
 
 	// Managed property name : LastOperation
 	// Managed property type : System.Net.Sockets.SocketAsyncOperation
-    @property (nonatomic, readonly) System_Net_Sockets_SocketAsyncOperation lastOperation;
+    @property (nonatomic, readonly) int32_t lastOperation;
 
 	// Managed property name : Offset
 	// Managed property type : System.Int32
@@ -68,7 +68,7 @@
 
 	// Managed property name : SendPacketsFlags
 	// Managed property type : System.Net.Sockets.TransmitFileOptions
-    @property (nonatomic) System_Net_Sockets_TransmitFileOptions sendPacketsFlags;
+    @property (nonatomic) int32_t sendPacketsFlags;
 
 	// Managed property name : SendPacketsSendSize
 	// Managed property type : System.Int32
@@ -76,15 +76,15 @@
 
 	// Managed property name : SocketClientAccessPolicyProtocol
 	// Managed property type : System.Net.Sockets.SocketClientAccessPolicyProtocol
-    @property (nonatomic) System_Net_Sockets_SocketClientAccessPolicyProtocol socketClientAccessPolicyProtocol;
+    @property (nonatomic) int32_t socketClientAccessPolicyProtocol;
 
 	// Managed property name : SocketError
 	// Managed property type : System.Net.Sockets.SocketError
-    @property (nonatomic) System_Net_Sockets_SocketError socketError;
+    @property (nonatomic) int32_t socketError;
 
 	// Managed property name : SocketFlags
 	// Managed property type : System.Net.Sockets.SocketFlags
-    @property (nonatomic) System_Net_Sockets_SocketFlags socketFlags;
+    @property (nonatomic) int32_t socketFlags;
 
 	// Managed property name : UserToken
 	// Managed property type : System.Object

@@ -32,7 +32,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Uri
 	// Managed param types : System.String, System.UriKind
-    + (System_Uri *)new_withUriString:(NSString *)p1 uriKind:(System_UriKind)p2;
+    + (System_Uri *)new_withUriString:(NSString *)p1 uriKind:(int32_t)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Uri
@@ -120,7 +120,7 @@
 
 	// Managed property name : HostNameType
 	// Managed property type : System.UriHostNameType
-    @property (nonatomic, readonly) System_UriHostNameType hostNameType;
+    @property (nonatomic, readonly) int32_t hostNameType;
 
 	// Managed property name : IdnHost
 	// Managed property type : System.String
@@ -188,7 +188,7 @@
 	// Managed method name : CheckHostName
 	// Managed return type : System.UriHostNameType
 	// Managed param types : System.String
-    + (System_UriHostNameType)checkHostName_withName:(NSString *)p1;
+    + (int32_t)checkHostName_withName:(NSString *)p1;
 
 	// Managed method name : CheckSchemeName
 	// Managed return type : System.Boolean
@@ -198,7 +198,7 @@
 	// Managed method name : Compare
 	// Managed return type : System.Int32
 	// Managed param types : System.Uri, System.Uri, System.UriComponents, System.UriFormat, System.StringComparison
-    + (int32_t)compare_withUri1:(System_Uri *)p1 uri2:(System_Uri *)p2 partsToCompare:(System_UriComponents)p3 compareFormat:(System_UriFormat)p4 comparisonType:(System_StringComparison)p5;
+    + (int32_t)compare_withUri1:(System_Uri *)p1 uri2:(System_Uri *)p2 partsToCompare:(int32_t)p3 compareFormat:(int32_t)p4 comparisonType:(int32_t)p5;
 
 	// Managed method name : Equals
 	// Managed return type : System.Boolean
@@ -223,7 +223,7 @@
 	// Managed method name : GetComponents
 	// Managed return type : System.String
 	// Managed param types : System.UriComponents, System.UriFormat
-    - (NSString *)getComponents_withComponents:(System_UriComponents)p1 format:(System_UriFormat)p2;
+    - (NSString *)getComponents_withComponents:(int32_t)p1 format:(int32_t)p2;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
@@ -233,7 +233,7 @@
 	// Managed method name : GetLeftPart
 	// Managed return type : System.String
 	// Managed param types : System.UriPartial
-    - (NSString *)getLeftPart_withPart:(System_UriPartial)p1;
+    - (NSString *)getLeftPart_withPart:(int32_t)p1;
 
 	// Managed method name : HexEscape
 	// Managed return type : System.String
@@ -268,7 +268,7 @@
 	// Managed method name : IsWellFormedUriString
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.UriKind
-    + (BOOL)isWellFormedUriString_withUriString:(NSString *)p1 uriKind:(System_UriKind)p2;
+    + (BOOL)isWellFormedUriString_withUriString:(NSString *)p1 uriKind:(int32_t)p2;
 
 	// Managed method name : MakeRelative
 	// Managed return type : System.String
@@ -298,7 +298,7 @@
 	// Managed method name : TryCreate
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.UriKind, ref System.Uri&
-    + (BOOL)tryCreate_withUriString:(NSString *)p1 uriKind:(System_UriKind)p2 resultRef:(System_Uri **)p3;
+    + (BOOL)tryCreate_withUriString:(NSString *)p1 uriKind:(int32_t)p2 resultRef:(System_Uri **)p3;
 
 	// Managed method name : TryCreate
 	// Managed return type : System.Boolean

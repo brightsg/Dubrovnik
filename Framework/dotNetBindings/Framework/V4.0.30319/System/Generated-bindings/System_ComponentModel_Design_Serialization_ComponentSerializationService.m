@@ -44,7 +44,7 @@
     - (id <System_Collections_ICollection>)deserialize_withStore:(System_ComponentModel_Design_Serialization_SerializationStore *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Deserialize(System.ComponentModel.Design.Serialization.SerializationStore)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Deserialize(System.ComponentModel.Design.Serialization.SerializationStore)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Collections_ICollection bestObjectWithMonoObject:monoObject];
     }
@@ -55,7 +55,7 @@
     - (id <System_Collections_ICollection>)deserialize_withStore:(System_ComponentModel_Design_Serialization_SerializationStore *)p1 container:(id <System_ComponentModel_IContainer_>)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Deserialize(System.ComponentModel.Design.Serialization.SerializationStore,System.ComponentModel.IContainer)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Deserialize(System.ComponentModel.Design.Serialization.SerializationStore,System.ComponentModel.IContainer)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Collections_ICollection bestObjectWithMonoObject:monoObject];
     }
@@ -66,7 +66,7 @@
     - (void)deserializeTo_withStore:(System_ComponentModel_Design_Serialization_SerializationStore *)p1 container:(id <System_ComponentModel_IContainer_>)p2 validateRecycledTypes:(BOOL)p3 applyDefaults:(BOOL)p4
     {
 		
-		[self invokeMonoMethod:"DeserializeTo(System.ComponentModel.Design.Serialization.SerializationStore,System.ComponentModel.IContainer,bool,bool)" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4)];;
+		[self invokeMonoMethod:"DeserializeTo(System.ComponentModel.Design.Serialization.SerializationStore,System.ComponentModel.IContainer,bool,bool)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
         
     }
 
@@ -76,7 +76,7 @@
     - (void)deserializeTo_withStore:(System_ComponentModel_Design_Serialization_SerializationStore *)p1 container:(id <System_ComponentModel_IContainer_>)p2
     {
 		
-		[self invokeMonoMethod:"DeserializeTo(System.ComponentModel.Design.Serialization.SerializationStore,System.ComponentModel.IContainer)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"DeserializeTo(System.ComponentModel.Design.Serialization.SerializationStore,System.ComponentModel.IContainer)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -86,7 +86,7 @@
     - (void)deserializeTo_withStore:(System_ComponentModel_Design_Serialization_SerializationStore *)p1 container:(id <System_ComponentModel_IContainer_>)p2 validateRecycledTypes:(BOOL)p3
     {
 		
-		[self invokeMonoMethod:"DeserializeTo(System.ComponentModel.Design.Serialization.SerializationStore,System.ComponentModel.IContainer,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		[self invokeMonoMethod:"DeserializeTo(System.ComponentModel.Design.Serialization.SerializationStore,System.ComponentModel.IContainer,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
         
     }
 
@@ -96,7 +96,7 @@
     - (System_ComponentModel_Design_Serialization_SerializationStore *)loadStore_withStream:(System_IO_Stream *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"LoadStore(System.IO.Stream)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"LoadStore(System.IO.Stream)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_Design_Serialization_SerializationStore bestObjectWithMonoObject:monoObject];
     }
@@ -107,7 +107,7 @@
     - (void)serialize_withStore:(System_ComponentModel_Design_Serialization_SerializationStore *)p1 value:(System_Object *)p2
     {
 		
-		[self invokeMonoMethod:"Serialize(System.ComponentModel.Design.Serialization.SerializationStore,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"Serialize(System.ComponentModel.Design.Serialization.SerializationStore,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -117,7 +117,7 @@
     - (void)serializeAbsolute_withStore:(System_ComponentModel_Design_Serialization_SerializationStore *)p1 value:(System_Object *)p2
     {
 		
-		[self invokeMonoMethod:"SerializeAbsolute(System.ComponentModel.Design.Serialization.SerializationStore,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"SerializeAbsolute(System.ComponentModel.Design.Serialization.SerializationStore,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -127,7 +127,7 @@
     - (void)serializeMember_withStore:(System_ComponentModel_Design_Serialization_SerializationStore *)p1 owningObject:(System_Object *)p2 member:(System_ComponentModel_MemberDescriptor *)p3
     {
 		
-		[self invokeMonoMethod:"SerializeMember(System.ComponentModel.Design.Serialization.SerializationStore,object,System.ComponentModel.MemberDescriptor)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"SerializeMember(System.ComponentModel.Design.Serialization.SerializationStore,object,System.ComponentModel.MemberDescriptor)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -137,7 +137,7 @@
     - (void)serializeMemberAbsolute_withStore:(System_ComponentModel_Design_Serialization_SerializationStore *)p1 owningObject:(System_Object *)p2 member:(System_ComponentModel_MemberDescriptor *)p3
     {
 		
-		[self invokeMonoMethod:"SerializeMemberAbsolute(System.ComponentModel.Design.Serialization.SerializationStore,object,System.ComponentModel.MemberDescriptor)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"SerializeMemberAbsolute(System.ComponentModel.Design.Serialization.SerializationStore,object,System.ComponentModel.MemberDescriptor)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 

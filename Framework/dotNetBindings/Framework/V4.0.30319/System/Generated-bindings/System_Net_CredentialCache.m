@@ -32,7 +32,17 @@
     static System_Net_ICredentials * m_defaultCredentials;
     + (System_Net_ICredentials *)defaultCredentials
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"DefaultCredentials"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DefaultCredentials");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_defaultCredentials isEqualToMonoObject:monoObject]) return m_defaultCredentials;					
 		m_defaultCredentials = [System_Net_ICredentials bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     static System_Net_NetworkCredential * m_defaultNetworkCredentials;
     + (System_Net_NetworkCredential *)defaultNetworkCredentials
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"DefaultNetworkCredentials"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DefaultNetworkCredentials");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_defaultNetworkCredentials isEqualToMonoObject:monoObject]) return m_defaultNetworkCredentials;					
 		m_defaultNetworkCredentials = [System_Net_NetworkCredential bestObjectWithMonoObject:monoObject];
 
@@ -60,7 +80,7 @@
     - (void)add_withUriPrefix:(System_Uri *)p1 authType:(NSString *)p2 cred:(System_Net_NetworkCredential *)p3
     {
 		
-		[self invokeMonoMethod:"Add(System.Uri,string,System.Net.NetworkCredential)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"Add(System.Uri,string,System.Net.NetworkCredential)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -70,7 +90,7 @@
     - (void)add_withHost:(NSString *)p1 port:(int32_t)p2 authenticationType:(NSString *)p3 credential:(System_Net_NetworkCredential *)p4
     {
 		
-		[self invokeMonoMethod:"Add(string,int,string,System.Net.NetworkCredential)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue]];;
+		[self invokeMonoMethod:"Add(string,int,string,System.Net.NetworkCredential)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
         
     }
 
@@ -80,7 +100,7 @@
     - (System_Net_NetworkCredential *)getCredential_withUriPrefix:(System_Uri *)p1 authType:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCredential(System.Uri,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetCredential(System.Uri,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Net_NetworkCredential bestObjectWithMonoObject:monoObject];
     }
@@ -91,7 +111,7 @@
     - (System_Net_NetworkCredential *)getCredential_withHost:(NSString *)p1 port:(int32_t)p2 authenticationType:(NSString *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCredential(string,int,string)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetCredential(string,int,string)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
 		return [System_Net_NetworkCredential bestObjectWithMonoObject:monoObject];
     }
@@ -113,7 +133,7 @@
     - (void)remove_withUriPrefix:(System_Uri *)p1 authType:(NSString *)p2
     {
 		
-		[self invokeMonoMethod:"Remove(System.Uri,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"Remove(System.Uri,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -123,7 +143,7 @@
     - (void)remove_withHost:(NSString *)p1 port:(int32_t)p2 authenticationType:(NSString *)p3
     {
 		
-		[self invokeMonoMethod:"Remove(string,int,string)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];;
+		[self invokeMonoMethod:"Remove(string,int,string)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
         
     }
 

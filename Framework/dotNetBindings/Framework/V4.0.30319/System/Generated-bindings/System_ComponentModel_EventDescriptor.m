@@ -32,7 +32,17 @@
     @synthesize componentType = _componentType;
     - (System_Type *)componentType
     {
-		MonoObject *monoObject = [self getMonoProperty:"ComponentType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ComponentType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_componentType isEqualToMonoObject:monoObject]) return _componentType;					
 		_componentType = [System_Type bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize eventType = _eventType;
     - (System_Type *)eventType
     {
-		MonoObject *monoObject = [self getMonoProperty:"EventType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EventType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_eventType isEqualToMonoObject:monoObject]) return _eventType;					
 		_eventType = [System_Type bestObjectWithMonoObject:monoObject];
 
@@ -56,8 +76,18 @@
     @synthesize isMulticast = _isMulticast;
     - (BOOL)isMulticast
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsMulticast"];
-		_isMulticast = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsMulticast");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isMulticast = monoObject;
 
 		return _isMulticast;
 	}
@@ -71,7 +101,7 @@
     - (void)addEventHandler_withComponent:(System_Object *)p1 value:(System_Delegate *)p2
     {
 		
-		[self invokeMonoMethod:"AddEventHandler(object,System.Delegate)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"AddEventHandler(object,System.Delegate)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -81,7 +111,7 @@
     - (void)removeEventHandler_withComponent:(System_Object *)p1 value:(System_Delegate *)p2
     {
 		
-		[self invokeMonoMethod:"RemoveEventHandler(object,System.Delegate)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"RemoveEventHandler(object,System.Delegate)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 

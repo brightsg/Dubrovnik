@@ -33,7 +33,7 @@
     - (void)generateCodeFromMember_withMember:(System_CodeDom_CodeTypeMember *)p1 writer:(System_IO_TextWriter *)p2 options:(System_CodeDom_Compiler_CodeGeneratorOptions *)p3
     {
 		
-		[self invokeMonoMethod:"GenerateCodeFromMember(System.CodeDom.CodeTypeMember,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"GenerateCodeFromMember(System.CodeDom.CodeTypeMember,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -43,7 +43,7 @@
     + (BOOL)isValidLanguageIndependentIdentifier_withValue:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"IsValidLanguageIndependentIdentifier(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsValidLanguageIndependentIdentifier(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -54,7 +54,7 @@
     + (void)validateIdentifiers_withE:(System_CodeDom_CodeObject *)p1
     {
 		
-		[self invokeMonoClassMethod:"ValidateIdentifiers(System.CodeDom.CodeObject)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"ValidateIdentifiers(System.CodeDom.CodeObject)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

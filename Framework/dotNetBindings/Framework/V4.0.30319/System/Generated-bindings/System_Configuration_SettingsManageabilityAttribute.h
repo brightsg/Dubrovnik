@@ -17,13 +17,13 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Configuration.SettingsManageabilityAttribute
 	// Managed param types : System.Configuration.SettingsManageability
-    + (System_Configuration_SettingsManageabilityAttribute *)new_withManageability:(System_Configuration_SettingsManageability)p1;
+    + (System_Configuration_SettingsManageabilityAttribute *)new_withManageability:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Manageability
 	// Managed property type : System.Configuration.SettingsManageability
-    @property (nonatomic, readonly) System_Configuration_SettingsManageability manageability;
+    @property (nonatomic, readonly) int32_t manageability;
 @end
 //--Dubrovnik.CodeGenerator

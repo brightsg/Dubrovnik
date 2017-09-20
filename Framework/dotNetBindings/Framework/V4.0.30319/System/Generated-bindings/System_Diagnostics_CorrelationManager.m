@@ -32,7 +32,17 @@
     @synthesize activityId = _activityId;
     - (System_Guid *)activityId
     {
-		MonoObject *monoObject = [self getMonoProperty:"ActivityId"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ActivityId");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_activityId isEqualToMonoObject:monoObject]) return _activityId;					
 		_activityId = [System_Guid bestObjectWithMonoObject:monoObject];
 
@@ -41,8 +51,17 @@
     - (void)setActivityId:(System_Guid *)value
 	{
 		_activityId = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"ActivityId" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ActivityId");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : LogicalOperationStack
@@ -50,7 +69,17 @@
     @synthesize logicalOperationStack = _logicalOperationStack;
     - (System_Collections_Stack *)logicalOperationStack
     {
-		MonoObject *monoObject = [self getMonoProperty:"LogicalOperationStack"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LogicalOperationStack");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_logicalOperationStack isEqualToMonoObject:monoObject]) return _logicalOperationStack;					
 		_logicalOperationStack = [System_Collections_Stack bestObjectWithMonoObject:monoObject];
 
@@ -66,7 +95,7 @@
     - (void)startLogicalOperation_withOperationId:(System_Object *)p1
     {
 		
-		[self invokeMonoMethod:"StartLogicalOperation(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"StartLogicalOperation(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -76,7 +105,7 @@
     - (void)startLogicalOperation
     {
 		
-		[self invokeMonoMethod:"StartLogicalOperation()" withNumArgs:0];;
+		[self invokeMonoMethod:"StartLogicalOperation()" withNumArgs:0];
         
     }
 
@@ -86,7 +115,7 @@
     - (void)stopLogicalOperation
     {
 		
-		[self invokeMonoMethod:"StopLogicalOperation()" withNumArgs:0];;
+		[self invokeMonoMethod:"StopLogicalOperation()" withNumArgs:0];
         
     }
 

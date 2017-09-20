@@ -33,7 +33,7 @@
     - (NSString *)createUniqueMethodName_withComponent:(id <System_ComponentModel_IComponent_>)p1 e:(System_ComponentModel_EventDescriptor *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IEventBindingService.CreateUniqueMethodName(System.ComponentModel.IComponent,System.ComponentModel.EventDescriptor)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IEventBindingService.CreateUniqueMethodName(System.ComponentModel.IComponent,System.ComponentModel.EventDescriptor)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -44,7 +44,7 @@
     - (id <System_Collections_ICollection>)getCompatibleMethods_withE:(System_ComponentModel_EventDescriptor *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IEventBindingService.GetCompatibleMethods(System.ComponentModel.EventDescriptor)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IEventBindingService.GetCompatibleMethods(System.ComponentModel.EventDescriptor)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Collections_ICollection bestObjectWithMonoObject:monoObject];
     }
@@ -55,7 +55,7 @@
     - (System_ComponentModel_EventDescriptor *)getEvent_withProperty:(System_ComponentModel_PropertyDescriptor *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IEventBindingService.GetEvent(System.ComponentModel.PropertyDescriptor)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IEventBindingService.GetEvent(System.ComponentModel.PropertyDescriptor)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_EventDescriptor bestObjectWithMonoObject:monoObject];
     }
@@ -66,7 +66,7 @@
     - (System_ComponentModel_PropertyDescriptorCollection *)getEventProperties_withEvents:(System_ComponentModel_EventDescriptorCollection *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IEventBindingService.GetEventProperties(System.ComponentModel.EventDescriptorCollection)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IEventBindingService.GetEventProperties(System.ComponentModel.EventDescriptorCollection)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_PropertyDescriptorCollection bestObjectWithMonoObject:monoObject];
     }
@@ -77,7 +77,7 @@
     - (System_ComponentModel_PropertyDescriptor *)getEventProperty_withE:(System_ComponentModel_EventDescriptor *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IEventBindingService.GetEventProperty(System.ComponentModel.EventDescriptor)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IEventBindingService.GetEventProperty(System.ComponentModel.EventDescriptor)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_PropertyDescriptor bestObjectWithMonoObject:monoObject];
     }
@@ -110,7 +110,7 @@
     - (BOOL)showCode_withComponent:(id <System_ComponentModel_IComponent_>)p1 e:(System_ComponentModel_EventDescriptor *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IEventBindingService.ShowCode(System.ComponentModel.IComponent,System.ComponentModel.EventDescriptor)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IEventBindingService.ShowCode(System.ComponentModel.IComponent,System.ComponentModel.EventDescriptor)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

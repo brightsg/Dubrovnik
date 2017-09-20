@@ -33,7 +33,7 @@
     + (System_Media_SoundPlayer *)new_withSoundLocation:(NSString *)p1
     {
 		
-		System_Media_SoundPlayer * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_Media_SoundPlayer * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Media_SoundPlayer *)new_withStream:(System_IO_Stream *)p1
     {
 		
-		System_Media_SoundPlayer * object = [[self alloc] initWithSignature:"System.IO.Stream" withNumArgs:1, [p1 monoValue]];;
+		System_Media_SoundPlayer * object = [[self alloc] initWithSignature:"System.IO.Stream" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -57,8 +57,18 @@
     @synthesize isLoadCompleted = _isLoadCompleted;
     - (BOOL)isLoadCompleted
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsLoadCompleted"];
-		_isLoadCompleted = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsLoadCompleted");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isLoadCompleted = monoObject;
 
 		return _isLoadCompleted;
 	}
@@ -68,16 +78,35 @@
     @synthesize loadTimeout = _loadTimeout;
     - (int32_t)loadTimeout
     {
-		MonoObject *monoObject = [self getMonoProperty:"LoadTimeout"];
-		_loadTimeout = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LoadTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_loadTimeout = monoObject;
 
 		return _loadTimeout;
 	}
     - (void)setLoadTimeout:(int32_t)value
 	{
 		_loadTimeout = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"LoadTimeout" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "LoadTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : SoundLocation
@@ -85,7 +114,17 @@
     @synthesize soundLocation = _soundLocation;
     - (NSString *)soundLocation
     {
-		MonoObject *monoObject = [self getMonoProperty:"SoundLocation"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SoundLocation");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_soundLocation isEqualToMonoObject:monoObject]) return _soundLocation;					
 		_soundLocation = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -94,8 +133,17 @@
     - (void)setSoundLocation:(NSString *)value
 	{
 		_soundLocation = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"SoundLocation" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "SoundLocation");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Stream
@@ -103,7 +151,17 @@
     @synthesize stream = _stream;
     - (System_IO_Stream *)stream
     {
-		MonoObject *monoObject = [self getMonoProperty:"Stream"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Stream");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_stream isEqualToMonoObject:monoObject]) return _stream;					
 		_stream = [System_IO_Stream bestObjectWithMonoObject:monoObject];
 
@@ -112,8 +170,17 @@
     - (void)setStream:(System_IO_Stream *)value
 	{
 		_stream = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Stream" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Stream");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Tag
@@ -121,7 +188,17 @@
     @synthesize tag = _tag;
     - (System_Object *)tag
     {
-		MonoObject *monoObject = [self getMonoProperty:"Tag"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Tag");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_tag isEqualToMonoObject:monoObject]) return _tag;					
 		_tag = [System_Object objectWithMonoObject:monoObject];
 
@@ -130,8 +207,17 @@
     - (void)setTag:(System_Object *)value
 	{
 		_tag = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"Tag" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Tag");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -143,7 +229,7 @@
     - (void)load
     {
 		
-		[self invokeMonoMethod:"Load()" withNumArgs:0];;
+		[self invokeMonoMethod:"Load()" withNumArgs:0];
         
     }
 
@@ -153,7 +239,7 @@
     - (void)loadAsync
     {
 		
-		[self invokeMonoMethod:"LoadAsync()" withNumArgs:0];;
+		[self invokeMonoMethod:"LoadAsync()" withNumArgs:0];
         
     }
 
@@ -163,7 +249,7 @@
     - (void)play
     {
 		
-		[self invokeMonoMethod:"Play()" withNumArgs:0];;
+		[self invokeMonoMethod:"Play()" withNumArgs:0];
         
     }
 
@@ -173,7 +259,7 @@
     - (void)playLooping
     {
 		
-		[self invokeMonoMethod:"PlayLooping()" withNumArgs:0];;
+		[self invokeMonoMethod:"PlayLooping()" withNumArgs:0];
         
     }
 
@@ -183,7 +269,7 @@
     - (void)playSync
     {
 		
-		[self invokeMonoMethod:"PlaySync()" withNumArgs:0];;
+		[self invokeMonoMethod:"PlaySync()" withNumArgs:0];
         
     }
 
@@ -193,7 +279,7 @@
     - (void)stop
     {
 		
-		[self invokeMonoMethod:"Stop()" withNumArgs:0];;
+		[self invokeMonoMethod:"Stop()" withNumArgs:0];
         
     }
 

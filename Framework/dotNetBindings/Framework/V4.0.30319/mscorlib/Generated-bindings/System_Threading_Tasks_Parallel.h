@@ -76,13 +76,13 @@
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>, System.Threading.Tasks.ParallelOptions, System.Action`1<System.Threading.Tasks.Parallel+TSource>
-    + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCGITTParallel__TSource:(id <System_Collections_Generic_IEnumerableA1_>)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 bodySATTParallel__TSource:(System_ActionA1 *)p3;
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>, System.Action`1<System.Threading.Tasks.Parallel+TSource>
+    + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCGITTParallel__TSource:(id <System_Collections_Generic_IEnumerableA1_>)p1 bodySATTParallel__TSource:(System_ActionA1 *)p2;
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult
-	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>, System.Action`1<System.Threading.Tasks.Parallel+TSource>
-    + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCGITTParallel__TSource:(id <System_Collections_Generic_IEnumerableA1_>)p1 bodySATTParallel__TSource:(System_ActionA1 *)p2;
+	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Parallel+TSource>, System.Threading.Tasks.ParallelOptions, System.Action`1<System.Threading.Tasks.Parallel+TSource>
+    + (System_Threading_Tasks_ParallelLoopResult *)forEach_withSourceSCGITTParallel__TSource:(id <System_Collections_Generic_IEnumerableA1_>)p1 parallelOptionsSTTParallelOptions:(System_Threading_Tasks_ParallelOptions *)p2 bodySATTParallel__TSource:(System_ActionA1 *)p3;
 
 	// Managed method name : ForEach
 	// Managed return type : System.Threading.Tasks.ParallelLoopResult

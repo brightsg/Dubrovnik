@@ -28,6 +28,6 @@
 
 	// Managed property name : PolicyLevel
 	// Managed property type : System.Net.Cache.HttpRequestCacheLevel
-    @property (nonatomic) System_Net_Cache_HttpRequestCacheLevel policyLevel;
+    @property (nonatomic) int32_t policyLevel;
 @end
 //--Dubrovnik.CodeGenerator

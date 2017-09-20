@@ -33,7 +33,7 @@
     + (System_Net_WebProxy *)new_withAddressSUri:(System_Uri *)p1
     {
 		
-		System_Net_WebProxy * object = [[self alloc] initWithSignature:"System.Uri" withNumArgs:1, [p1 monoValue]];;
+		System_Net_WebProxy * object = [[self alloc] initWithSignature:"System.Uri" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Net_WebProxy *)new_withAddressSUri:(System_Uri *)p1 bypassOnLocalBool:(BOOL)p2
     {
 		
-		System_Net_WebProxy * object = [[self alloc] initWithSignature:"System.Uri,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Net_WebProxy * object = [[self alloc] initWithSignature:"System.Uri,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Net_WebProxy *)new_withAddressSUri:(System_Uri *)p1 bypassOnLocalBool:(BOOL)p2 bypassListString:(DBSystem_Array *)p3
     {
 		
-		System_Net_WebProxy * object = [[self alloc] initWithSignature:"System.Uri,bool,string[]" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];;
+		System_Net_WebProxy * object = [[self alloc] initWithSignature:"System.Uri,bool,string[]" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -66,7 +66,7 @@
     + (System_Net_WebProxy *)new_withAddressSUri:(System_Uri *)p1 bypassOnLocalBool:(BOOL)p2 bypassListString:(DBSystem_Array *)p3 credentialsSNICredentials:(id <System_Net_ICredentials_>)p4
     {
 		
-		System_Net_WebProxy * object = [[self alloc] initWithSignature:"System.Uri,bool,string[],System.Net.ICredentials" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue]];;
+		System_Net_WebProxy * object = [[self alloc] initWithSignature:"System.Uri,bool,string[],System.Net.ICredentials" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
         
         return object;
     }
@@ -77,7 +77,7 @@
     + (System_Net_WebProxy *)new_withHost:(NSString *)p1 port:(int32_t)p2
     {
 		
-		System_Net_WebProxy * object = [[self alloc] initWithSignature:"string,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Net_WebProxy * object = [[self alloc] initWithSignature:"string,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -88,7 +88,7 @@
     + (System_Net_WebProxy *)new_withAddressString:(NSString *)p1
     {
 		
-		System_Net_WebProxy * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_Net_WebProxy * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -99,7 +99,7 @@
     + (System_Net_WebProxy *)new_withAddressString:(NSString *)p1 bypassOnLocalBool:(BOOL)p2
     {
 		
-		System_Net_WebProxy * object = [[self alloc] initWithSignature:"string,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Net_WebProxy * object = [[self alloc] initWithSignature:"string,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -110,7 +110,7 @@
     + (System_Net_WebProxy *)new_withAddressString:(NSString *)p1 bypassOnLocalBool:(BOOL)p2 bypassListString:(DBSystem_Array *)p3
     {
 		
-		System_Net_WebProxy * object = [[self alloc] initWithSignature:"string,bool,string[]" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];;
+		System_Net_WebProxy * object = [[self alloc] initWithSignature:"string,bool,string[]" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -121,7 +121,7 @@
     + (System_Net_WebProxy *)new_withAddressString:(NSString *)p1 bypassOnLocalBool:(BOOL)p2 bypassListString:(DBSystem_Array *)p3 credentialsSNICredentials:(id <System_Net_ICredentials_>)p4
     {
 		
-		System_Net_WebProxy * object = [[self alloc] initWithSignature:"string,bool,string[],System.Net.ICredentials" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue]];;
+		System_Net_WebProxy * object = [[self alloc] initWithSignature:"string,bool,string[],System.Net.ICredentials" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
         
         return object;
     }
@@ -134,7 +134,17 @@
     @synthesize address = _address;
     - (System_Uri *)address
     {
-		MonoObject *monoObject = [self getMonoProperty:"Address"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Address");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_address isEqualToMonoObject:monoObject]) return _address;					
 		_address = [System_Uri bestObjectWithMonoObject:monoObject];
 
@@ -143,8 +153,17 @@
     - (void)setAddress:(System_Uri *)value
 	{
 		_address = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Address" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Address");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : BypassArrayList
@@ -152,7 +171,17 @@
     @synthesize bypassArrayList = _bypassArrayList;
     - (DBSystem_Collections_ArrayList *)bypassArrayList
     {
-		MonoObject *monoObject = [self getMonoProperty:"BypassArrayList"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BypassArrayList");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_bypassArrayList isEqualToMonoObject:monoObject]) return _bypassArrayList;					
 		_bypassArrayList = [DBSystem_Collections_ArrayList listWithMonoObject:monoObject];
 
@@ -164,7 +193,17 @@
     @synthesize bypassList = _bypassList;
     - (DBSystem_Array *)bypassList
     {
-		MonoObject *monoObject = [self getMonoProperty:"BypassList"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BypassList");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_bypassList isEqualToMonoObject:monoObject]) return _bypassList;					
 		_bypassList = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -173,8 +212,17 @@
     - (void)setBypassList:(DBSystem_Array *)value
 	{
 		_bypassList = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"BypassList" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "BypassList");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : BypassProxyOnLocal
@@ -182,16 +230,35 @@
     @synthesize bypassProxyOnLocal = _bypassProxyOnLocal;
     - (BOOL)bypassProxyOnLocal
     {
-		MonoObject *monoObject = [self getMonoProperty:"BypassProxyOnLocal"];
-		_bypassProxyOnLocal = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BypassProxyOnLocal");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_bypassProxyOnLocal = monoObject;
 
 		return _bypassProxyOnLocal;
 	}
     - (void)setBypassProxyOnLocal:(BOOL)value
 	{
 		_bypassProxyOnLocal = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"BypassProxyOnLocal" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "BypassProxyOnLocal");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Credentials
@@ -199,7 +266,17 @@
     @synthesize credentials = _credentials;
     - (System_Net_ICredentials *)credentials
     {
-		MonoObject *monoObject = [self getMonoProperty:"Credentials"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Credentials");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_credentials isEqualToMonoObject:monoObject]) return _credentials;					
 		_credentials = [System_Net_ICredentials bestObjectWithMonoObject:monoObject];
 
@@ -208,8 +285,17 @@
     - (void)setCredentials:(System_Net_ICredentials *)value
 	{
 		_credentials = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Credentials" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Credentials");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : UseDefaultCredentials
@@ -217,16 +303,35 @@
     @synthesize useDefaultCredentials = _useDefaultCredentials;
     - (BOOL)useDefaultCredentials
     {
-		MonoObject *monoObject = [self getMonoProperty:"UseDefaultCredentials"];
-		_useDefaultCredentials = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UseDefaultCredentials");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_useDefaultCredentials = monoObject;
 
 		return _useDefaultCredentials;
 	}
     - (void)setUseDefaultCredentials:(BOOL)value
 	{
 		_useDefaultCredentials = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"UseDefaultCredentials" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "UseDefaultCredentials");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -249,7 +354,7 @@
     - (System_Uri *)getProxy_withDestination:(System_Uri *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetProxy(System.Uri)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetProxy(System.Uri)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Uri bestObjectWithMonoObject:monoObject];
     }
@@ -260,7 +365,7 @@
     - (BOOL)isBypassed_withHost:(System_Uri *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsBypassed(System.Uri)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IsBypassed(System.Uri)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

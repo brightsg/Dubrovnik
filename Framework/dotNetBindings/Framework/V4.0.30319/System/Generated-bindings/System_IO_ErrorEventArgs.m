@@ -33,7 +33,7 @@
     + (System_IO_ErrorEventArgs *)new_withException:(System_Exception *)p1
     {
 		
-		System_IO_ErrorEventArgs * object = [[self alloc] initWithSignature:"System.Exception" withNumArgs:1, [p1 monoValue]];;
+		System_IO_ErrorEventArgs * object = [[self alloc] initWithSignature:"System.Exception" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }

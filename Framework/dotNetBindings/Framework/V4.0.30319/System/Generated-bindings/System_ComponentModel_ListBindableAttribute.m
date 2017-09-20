@@ -33,7 +33,7 @@
     + (System_ComponentModel_ListBindableAttribute *)new_withListBindable:(BOOL)p1
     {
 		
-		System_ComponentModel_ListBindableAttribute * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
+		System_ComponentModel_ListBindableAttribute * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -41,10 +41,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.ListBindableAttribute
 	// Managed param types : System.ComponentModel.BindableSupport
-    + (System_ComponentModel_ListBindableAttribute *)new_withFlags:(System_ComponentModel_BindableSupport)p1
+    + (System_ComponentModel_ListBindableAttribute *)new_withFlags:(int32_t)p1
     {
 		
-		System_ComponentModel_ListBindableAttribute * object = [[self alloc] initWithSignature:"System.ComponentModel.BindableSupport" withNumArgs:1, DB_VALUE(p1)];;
+		System_ComponentModel_ListBindableAttribute * object = [[self alloc] initWithSignature:"System.ComponentModel.BindableSupport" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -96,8 +96,18 @@
     @synthesize listBindable = _listBindable;
     - (BOOL)listBindable
     {
-		MonoObject *monoObject = [self getMonoProperty:"ListBindable"];
-		_listBindable = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ListBindable");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_listBindable = monoObject;
 
 		return _listBindable;
 	}
@@ -111,7 +121,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

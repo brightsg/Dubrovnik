@@ -50,7 +50,7 @@
 	// Managed method name : OpenExisting
 	// Managed return type : System.Threading.Semaphore
 	// Managed param types : System.String, System.Security.AccessControl.SemaphoreRights
-    + (System_Threading_Semaphore *)openExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_SemaphoreRights)p2;
+    + (System_Threading_Semaphore *)openExisting_withName:(NSString *)p1 rights:(int32_t)p2;
 
 	// Managed method name : Release
 	// Managed return type : System.Int32
@@ -75,6 +75,6 @@
 	// Managed method name : TryOpenExisting
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.Security.AccessControl.SemaphoreRights, ref System.Threading.Semaphore&
-    + (BOOL)tryOpenExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_SemaphoreRights)p2 resultRef:(System_Threading_Semaphore **)p3;
+    + (BOOL)tryOpenExisting_withName:(NSString *)p1 rights:(int32_t)p2 resultRef:(System_Threading_Semaphore **)p3;
 @end
 //--Dubrovnik.CodeGenerator

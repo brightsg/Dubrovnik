@@ -33,7 +33,7 @@
     + (System_ComponentModel_BindableAttribute *)new_withBindable:(BOOL)p1
     {
 		
-		System_ComponentModel_BindableAttribute * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
+		System_ComponentModel_BindableAttribute * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -41,10 +41,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.BindableAttribute
 	// Managed param types : System.Boolean, System.ComponentModel.BindingDirection
-    + (System_ComponentModel_BindableAttribute *)new_withBindable:(BOOL)p1 direction:(System_ComponentModel_BindingDirection)p2
+    + (System_ComponentModel_BindableAttribute *)new_withBindable:(BOOL)p1 direction:(int32_t)p2
     {
 		
-		System_ComponentModel_BindableAttribute * object = [[self alloc] initWithSignature:"bool,System.ComponentModel.BindingDirection" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		System_ComponentModel_BindableAttribute * object = [[self alloc] initWithSignature:"bool,System.ComponentModel.BindingDirection" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
         
         return object;
     }
@@ -52,10 +52,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.BindableAttribute
 	// Managed param types : System.ComponentModel.BindableSupport
-    + (System_ComponentModel_BindableAttribute *)new_withFlags:(System_ComponentModel_BindableSupport)p1
+    + (System_ComponentModel_BindableAttribute *)new_withFlags:(int32_t)p1
     {
 		
-		System_ComponentModel_BindableAttribute * object = [[self alloc] initWithSignature:"System.ComponentModel.BindableSupport" withNumArgs:1, DB_VALUE(p1)];;
+		System_ComponentModel_BindableAttribute * object = [[self alloc] initWithSignature:"System.ComponentModel.BindableSupport" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -63,10 +63,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.BindableAttribute
 	// Managed param types : System.ComponentModel.BindableSupport, System.ComponentModel.BindingDirection
-    + (System_ComponentModel_BindableAttribute *)new_withFlags:(System_ComponentModel_BindableSupport)p1 direction:(System_ComponentModel_BindingDirection)p2
+    + (System_ComponentModel_BindableAttribute *)new_withFlags:(int32_t)p1 direction:(int32_t)p2
     {
 		
-		System_ComponentModel_BindableAttribute * object = [[self alloc] initWithSignature:"System.ComponentModel.BindableSupport,System.ComponentModel.BindingDirection" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		System_ComponentModel_BindableAttribute * object = [[self alloc] initWithSignature:"System.ComponentModel.BindableSupport,System.ComponentModel.BindingDirection" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
         
         return object;
     }
@@ -118,8 +118,18 @@
     @synthesize bindable = _bindable;
     - (BOOL)bindable
     {
-		MonoObject *monoObject = [self getMonoProperty:"Bindable"];
-		_bindable = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Bindable");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_bindable = monoObject;
 
 		return _bindable;
 	}
@@ -127,10 +137,20 @@
 	// Managed property name : Direction
 	// Managed property type : System.ComponentModel.BindingDirection
     @synthesize direction = _direction;
-    - (System_ComponentModel_BindingDirection)direction
+    - (int32_t)direction
     {
-		MonoObject *monoObject = [self getMonoProperty:"Direction"];
-		_direction = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Direction");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_direction = monoObject;
 
 		return _direction;
 	}
@@ -144,7 +164,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

@@ -33,7 +33,7 @@
     + (System_Security_Authentication_ExtendedProtection_ServiceNameCollection *)new_withItems:(id <System_Collections_ICollection_>)p1
     {
 		
-		System_Security_Authentication_ExtendedProtection_ServiceNameCollection * object = [[self alloc] initWithSignature:"System.Collections.ICollection" withNumArgs:1, [p1 monoValue]];;
+		System_Security_Authentication_ExtendedProtection_ServiceNameCollection * object = [[self alloc] initWithSignature:"System.Collections.ICollection" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -47,7 +47,7 @@
     - (BOOL)contains_withSearchServiceName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Contains(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Contains(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -58,7 +58,7 @@
     - (System_Security_Authentication_ExtendedProtection_ServiceNameCollection *)merge_withServiceName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Merge(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Merge(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Authentication_ExtendedProtection_ServiceNameCollection bestObjectWithMonoObject:monoObject];
     }
@@ -69,7 +69,7 @@
     - (System_Security_Authentication_ExtendedProtection_ServiceNameCollection *)merge_withServiceNames:(id <System_Collections_IEnumerable_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Merge(System.Collections.IEnumerable)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Merge(System.Collections.IEnumerable)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Authentication_ExtendedProtection_ServiceNameCollection bestObjectWithMonoObject:monoObject];
     }

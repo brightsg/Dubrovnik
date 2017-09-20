@@ -30,10 +30,20 @@
 	// Managed property name : AddressFamily
 	// Managed property type : System.Net.Sockets.AddressFamily
     @synthesize addressFamily = _addressFamily;
-    - (System_Net_Sockets_AddressFamily)addressFamily
+    - (int32_t)addressFamily
     {
-		MonoObject *monoObject = [self getMonoProperty:"AddressFamily"];
-		_addressFamily = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AddressFamily");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_addressFamily = monoObject;
 
 		return _addressFamily;
 	}
@@ -47,7 +57,7 @@
     - (System_Net_EndPoint *)create_withSocketAddress:(System_Net_SocketAddress *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Create(System.Net.SocketAddress)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Create(System.Net.SocketAddress)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Net_EndPoint bestObjectWithMonoObject:monoObject];
     }

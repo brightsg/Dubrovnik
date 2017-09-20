@@ -33,7 +33,7 @@
     + (System_Diagnostics_ConsoleTraceListener *)new_withUseErrorStream:(BOOL)p1
     {
 		
-		System_Diagnostics_ConsoleTraceListener * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
+		System_Diagnostics_ConsoleTraceListener * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -47,7 +47,7 @@
     - (void)close
     {
 		
-		[self invokeMonoMethod:"Close()" withNumArgs:0];;
+		[self invokeMonoMethod:"Close()" withNumArgs:0];
         
     }
 

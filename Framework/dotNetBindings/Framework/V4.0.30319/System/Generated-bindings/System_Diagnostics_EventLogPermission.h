@@ -17,12 +17,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.EventLogPermission
 	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Diagnostics_EventLogPermission *)new_withState:(System_Security_Permissions_PermissionState)p1;
+    + (System_Diagnostics_EventLogPermission *)new_withState:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.EventLogPermission
 	// Managed param types : System.Diagnostics.EventLogPermissionAccess, System.String
-    + (System_Diagnostics_EventLogPermission *)new_withPermissionAccess:(System_Diagnostics_EventLogPermissionAccess)p1 machineName:(NSString *)p2;
+    + (System_Diagnostics_EventLogPermission *)new_withPermissionAccess:(int32_t)p1 machineName:(NSString *)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.EventLogPermission

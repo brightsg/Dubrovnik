@@ -36,7 +36,7 @@
 
 	// Managed property name : PriorityLevel
 	// Managed property type : System.Diagnostics.ThreadPriorityLevel
-    @property (nonatomic) System_Diagnostics_ThreadPriorityLevel priorityLevel;
+    @property (nonatomic) int32_t priorityLevel;
 
 	// Managed property name : PrivilegedProcessorTime
 	// Managed property type : System.TimeSpan
@@ -56,7 +56,7 @@
 
 	// Managed property name : ThreadState
 	// Managed property type : System.Diagnostics.ThreadState
-    @property (nonatomic, readonly) System_Diagnostics_ThreadState threadState;
+    @property (nonatomic, readonly) int32_t threadState;
 
 	// Managed property name : TotalProcessorTime
 	// Managed property type : System.TimeSpan
@@ -68,7 +68,7 @@
 
 	// Managed property name : WaitReason
 	// Managed property type : System.Diagnostics.ThreadWaitReason
-    @property (nonatomic, readonly) System_Diagnostics_ThreadWaitReason waitReason;
+    @property (nonatomic, readonly) int32_t waitReason;
 
 #pragma mark -
 #pragma mark Methods

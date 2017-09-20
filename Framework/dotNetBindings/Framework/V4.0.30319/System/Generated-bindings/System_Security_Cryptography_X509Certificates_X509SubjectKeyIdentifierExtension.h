@@ -37,7 +37,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509SubjectKeyIdentifierExtension
 	// Managed param types : System.Security.Cryptography.X509Certificates.PublicKey, System.Security.Cryptography.X509Certificates.X509SubjectKeyIdentifierHashAlgorithm, System.Boolean
-    + (System_Security_Cryptography_X509Certificates_X509SubjectKeyIdentifierExtension *)new_withKey:(System_Security_Cryptography_X509Certificates_PublicKey *)p1 algorithm:(System_Security_Cryptography_X509Certificates_X509SubjectKeyIdentifierHashAlgorithm)p2 critical:(BOOL)p3;
+    + (System_Security_Cryptography_X509Certificates_X509SubjectKeyIdentifierExtension *)new_withKey:(System_Security_Cryptography_X509Certificates_PublicKey *)p1 algorithm:(int32_t)p2 critical:(BOOL)p3;
 
 #pragma mark -
 #pragma mark Properties

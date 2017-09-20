@@ -32,8 +32,18 @@
     @synthesize basePriority = _basePriority;
     - (int32_t)basePriority
     {
-		MonoObject *monoObject = [self getMonoProperty:"BasePriority"];
-		_basePriority = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BasePriority");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_basePriority = monoObject;
 
 		return _basePriority;
 	}
@@ -43,8 +53,18 @@
     @synthesize currentPriority = _currentPriority;
     - (int32_t)currentPriority
     {
-		MonoObject *monoObject = [self getMonoProperty:"CurrentPriority"];
-		_currentPriority = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrentPriority");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_currentPriority = monoObject;
 
 		return _currentPriority;
 	}
@@ -54,8 +74,18 @@
     @synthesize id = _id;
     - (int32_t)id
     {
-		MonoObject *monoObject = [self getMonoProperty:"Id"];
-		_id = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Id");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_id = monoObject;
 
 		return _id;
 	}
@@ -66,8 +96,17 @@
     - (void)setIdealProcessor:(int32_t)value
 	{
 		_idealProcessor = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"IdealProcessor" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "IdealProcessor");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : PriorityBoostEnabled
@@ -75,33 +114,71 @@
     @synthesize priorityBoostEnabled = _priorityBoostEnabled;
     - (BOOL)priorityBoostEnabled
     {
-		MonoObject *monoObject = [self getMonoProperty:"PriorityBoostEnabled"];
-		_priorityBoostEnabled = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PriorityBoostEnabled");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_priorityBoostEnabled = monoObject;
 
 		return _priorityBoostEnabled;
 	}
     - (void)setPriorityBoostEnabled:(BOOL)value
 	{
 		_priorityBoostEnabled = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"PriorityBoostEnabled" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "PriorityBoostEnabled");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : PriorityLevel
 	// Managed property type : System.Diagnostics.ThreadPriorityLevel
     @synthesize priorityLevel = _priorityLevel;
-    - (System_Diagnostics_ThreadPriorityLevel)priorityLevel
+    - (int32_t)priorityLevel
     {
-		MonoObject *monoObject = [self getMonoProperty:"PriorityLevel"];
-		_priorityLevel = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PriorityLevel");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_priorityLevel = monoObject;
 
 		return _priorityLevel;
 	}
-    - (void)setPriorityLevel:(System_Diagnostics_ThreadPriorityLevel)value
+    - (void)setPriorityLevel:(int32_t)value
 	{
 		_priorityLevel = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"PriorityLevel" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "PriorityLevel");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : PrivilegedProcessorTime
@@ -109,7 +186,17 @@
     @synthesize privilegedProcessorTime = _privilegedProcessorTime;
     - (System_TimeSpan *)privilegedProcessorTime
     {
-		MonoObject *monoObject = [self getMonoProperty:"PrivilegedProcessorTime"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PrivilegedProcessorTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_privilegedProcessorTime isEqualToMonoObject:monoObject]) return _privilegedProcessorTime;					
 		_privilegedProcessorTime = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
@@ -122,8 +209,17 @@
     - (void)setProcessorAffinity:(void *)value
 	{
 		_processorAffinity = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ProcessorAffinity" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, void *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ProcessorAffinity");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : StartAddress
@@ -131,8 +227,18 @@
     @synthesize startAddress = _startAddress;
     - (void *)startAddress
     {
-		MonoObject *monoObject = [self getMonoProperty:"StartAddress"];
-		_startAddress = DB_UNBOX_PTR(monoObject);
+		typedef void * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "StartAddress");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		void * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_startAddress = monoObject;
 
 		return _startAddress;
 	}
@@ -142,7 +248,17 @@
     @synthesize startTime = _startTime;
     - (NSDate *)startTime
     {
-		MonoObject *monoObject = [self getMonoProperty:"StartTime"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "StartTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_startTime isEqualToMonoObject:monoObject]) return _startTime;					
 		_startTime = [NSDate dateWithMonoDateTime:monoObject];
 
@@ -152,10 +268,20 @@
 	// Managed property name : ThreadState
 	// Managed property type : System.Diagnostics.ThreadState
     @synthesize threadState = _threadState;
-    - (System_Diagnostics_ThreadState)threadState
+    - (int32_t)threadState
     {
-		MonoObject *monoObject = [self getMonoProperty:"ThreadState"];
-		_threadState = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ThreadState");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_threadState = monoObject;
 
 		return _threadState;
 	}
@@ -165,7 +291,17 @@
     @synthesize totalProcessorTime = _totalProcessorTime;
     - (System_TimeSpan *)totalProcessorTime
     {
-		MonoObject *monoObject = [self getMonoProperty:"TotalProcessorTime"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TotalProcessorTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_totalProcessorTime isEqualToMonoObject:monoObject]) return _totalProcessorTime;					
 		_totalProcessorTime = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
@@ -177,7 +313,17 @@
     @synthesize userProcessorTime = _userProcessorTime;
     - (System_TimeSpan *)userProcessorTime
     {
-		MonoObject *monoObject = [self getMonoProperty:"UserProcessorTime"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UserProcessorTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_userProcessorTime isEqualToMonoObject:monoObject]) return _userProcessorTime;					
 		_userProcessorTime = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
@@ -187,10 +333,20 @@
 	// Managed property name : WaitReason
 	// Managed property type : System.Diagnostics.ThreadWaitReason
     @synthesize waitReason = _waitReason;
-    - (System_Diagnostics_ThreadWaitReason)waitReason
+    - (int32_t)waitReason
     {
-		MonoObject *monoObject = [self getMonoProperty:"WaitReason"];
-		_waitReason = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WaitReason");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_waitReason = monoObject;
 
 		return _waitReason;
 	}
@@ -204,7 +360,7 @@
     - (void)resetIdealProcessor
     {
 		
-		[self invokeMonoMethod:"ResetIdealProcessor()" withNumArgs:0];;
+		[self invokeMonoMethod:"ResetIdealProcessor()" withNumArgs:0];
         
     }
 

@@ -33,7 +33,7 @@
     + (id <System_IAsyncResult>)beginGetHostAddresses_withHostNameOrAddress:(NSString *)p1 requestCallback:(System_AsyncCallback *)p2 state:(System_Object *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"BeginGetHostAddresses(string,System.AsyncCallback,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"BeginGetHostAddresses(string,System.AsyncCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -44,7 +44,7 @@
     + (id <System_IAsyncResult>)beginGetHostByName_withHostName:(NSString *)p1 requestCallback:(System_AsyncCallback *)p2 stateObject:(System_Object *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"BeginGetHostByName(string,System.AsyncCallback,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"BeginGetHostByName(string,System.AsyncCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -55,7 +55,7 @@
     + (id <System_IAsyncResult>)beginGetHostEntry_withHostNameOrAddress:(NSString *)p1 requestCallback:(System_AsyncCallback *)p2 stateObject:(System_Object *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"BeginGetHostEntry(string,System.AsyncCallback,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"BeginGetHostEntry(string,System.AsyncCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -66,7 +66,7 @@
     + (id <System_IAsyncResult>)beginGetHostEntry_withAddress:(System_Net_IPAddress *)p1 requestCallback:(System_AsyncCallback *)p2 stateObject:(System_Object *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"BeginGetHostEntry(System.Net.IPAddress,System.AsyncCallback,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"BeginGetHostEntry(System.Net.IPAddress,System.AsyncCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -77,7 +77,7 @@
     + (id <System_IAsyncResult>)beginResolve_withHostName:(NSString *)p1 requestCallback:(System_AsyncCallback *)p2 stateObject:(System_Object *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"BeginResolve(string,System.AsyncCallback,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"BeginResolve(string,System.AsyncCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -88,7 +88,7 @@
     + (DBSystem_Array *)endGetHostAddresses_withAsyncResult:(id <System_IAsyncResult_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"EndGetHostAddresses(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"EndGetHostAddresses(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -99,7 +99,7 @@
     + (System_Net_IPHostEntry *)endGetHostByName_withAsyncResult:(id <System_IAsyncResult_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"EndGetHostByName(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"EndGetHostByName(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Net_IPHostEntry bestObjectWithMonoObject:monoObject];
     }
@@ -110,7 +110,7 @@
     + (System_Net_IPHostEntry *)endGetHostEntry_withAsyncResult:(id <System_IAsyncResult_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"EndGetHostEntry(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"EndGetHostEntry(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Net_IPHostEntry bestObjectWithMonoObject:monoObject];
     }
@@ -121,7 +121,7 @@
     + (System_Net_IPHostEntry *)endResolve_withAsyncResult:(id <System_IAsyncResult_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"EndResolve(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"EndResolve(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Net_IPHostEntry bestObjectWithMonoObject:monoObject];
     }
@@ -132,7 +132,7 @@
     + (DBSystem_Array *)getHostAddresses_withHostNameOrAddress:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetHostAddresses(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetHostAddresses(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -143,7 +143,7 @@
     + (System_Threading_Tasks_TaskA1 *)getHostAddressesAsync_withHostNameOrAddress:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetHostAddressesAsync(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetHostAddressesAsync(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
@@ -154,7 +154,7 @@
     + (System_Net_IPHostEntry *)getHostByAddress_withAddressString:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetHostByAddress(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetHostByAddress(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Net_IPHostEntry bestObjectWithMonoObject:monoObject];
     }
@@ -165,7 +165,7 @@
     + (System_Net_IPHostEntry *)getHostByAddress_withAddressSNIPAddress:(System_Net_IPAddress *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetHostByAddress(System.Net.IPAddress)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetHostByAddress(System.Net.IPAddress)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Net_IPHostEntry bestObjectWithMonoObject:monoObject];
     }
@@ -176,7 +176,7 @@
     + (System_Net_IPHostEntry *)getHostByName_withHostName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetHostByName(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetHostByName(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Net_IPHostEntry bestObjectWithMonoObject:monoObject];
     }
@@ -187,7 +187,7 @@
     + (System_Net_IPHostEntry *)getHostEntry_withHostNameOrAddress:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetHostEntry(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetHostEntry(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Net_IPHostEntry bestObjectWithMonoObject:monoObject];
     }
@@ -198,7 +198,7 @@
     + (System_Net_IPHostEntry *)getHostEntry_withAddress:(System_Net_IPAddress *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetHostEntry(System.Net.IPAddress)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetHostEntry(System.Net.IPAddress)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Net_IPHostEntry bestObjectWithMonoObject:monoObject];
     }
@@ -209,7 +209,7 @@
     + (System_Threading_Tasks_TaskA1 *)getHostEntryAsync_withAddress:(System_Net_IPAddress *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetHostEntryAsync(System.Net.IPAddress)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetHostEntryAsync(System.Net.IPAddress)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
@@ -220,7 +220,7 @@
     + (System_Threading_Tasks_TaskA1 *)getHostEntryAsync_withHostNameOrAddress:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetHostEntryAsync(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetHostEntryAsync(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
@@ -242,7 +242,7 @@
     + (System_Net_IPHostEntry *)resolve_withHostName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Resolve(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Resolve(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Net_IPHostEntry bestObjectWithMonoObject:monoObject];
     }

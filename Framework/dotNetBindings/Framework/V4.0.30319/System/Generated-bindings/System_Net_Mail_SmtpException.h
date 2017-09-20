@@ -17,12 +17,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Mail.SmtpException
 	// Managed param types : System.Net.Mail.SmtpStatusCode
-    + (System_Net_Mail_SmtpException *)new_withStatusCode:(System_Net_Mail_SmtpStatusCode)p1;
+    + (System_Net_Mail_SmtpException *)new_withStatusCode:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Mail.SmtpException
 	// Managed param types : System.Net.Mail.SmtpStatusCode, System.String
-    + (System_Net_Mail_SmtpException *)new_withStatusCode:(System_Net_Mail_SmtpStatusCode)p1 message:(NSString *)p2;
+    + (System_Net_Mail_SmtpException *)new_withStatusCode:(int32_t)p1 message:(NSString *)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Mail.SmtpException
@@ -39,7 +39,7 @@
 
 	// Managed property name : StatusCode
 	// Managed property type : System.Net.Mail.SmtpStatusCode
-    @property (nonatomic) System_Net_Mail_SmtpStatusCode statusCode;
+    @property (nonatomic) int32_t statusCode;
 
 #pragma mark -
 #pragma mark Methods

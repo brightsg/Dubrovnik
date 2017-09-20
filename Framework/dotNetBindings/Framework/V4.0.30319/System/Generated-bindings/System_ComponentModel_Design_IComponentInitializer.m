@@ -33,7 +33,7 @@
     - (void)initializeExistingComponent_withDefaultValues:(id <System_Collections_IDictionary_>)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IComponentInitializer.InitializeExistingComponent(System.Collections.IDictionary)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IComponentInitializer.InitializeExistingComponent(System.Collections.IDictionary)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -43,7 +43,7 @@
     - (void)initializeNewComponent_withDefaultValues:(id <System_Collections_IDictionary_>)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IComponentInitializer.InitializeNewComponent(System.Collections.IDictionary)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IComponentInitializer.InitializeNewComponent(System.Collections.IDictionary)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

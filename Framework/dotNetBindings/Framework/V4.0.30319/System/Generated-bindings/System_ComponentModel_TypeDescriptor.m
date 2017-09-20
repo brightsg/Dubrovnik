@@ -32,7 +32,17 @@
     static System_ComponentModel_IComNativeDescriptorHandler * m_comNativeDescriptorHandler;
     + (System_ComponentModel_IComNativeDescriptorHandler *)comNativeDescriptorHandler
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"ComNativeDescriptorHandler"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ComNativeDescriptorHandler");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_comNativeDescriptorHandler isEqualToMonoObject:monoObject]) return m_comNativeDescriptorHandler;					
 		m_comNativeDescriptorHandler = [System_ComponentModel_IComNativeDescriptorHandler bestObjectWithMonoObject:monoObject];
 
@@ -41,8 +51,17 @@
     + (void)setComNativeDescriptorHandler:(System_ComponentModel_IComNativeDescriptorHandler *)value
 	{
 		m_comNativeDescriptorHandler = value;
-		MonoObject *monoObject = [value monoObject];
-		[[self class] setMonoClassProperty:"ComNativeDescriptorHandler" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ComNativeDescriptorHandler");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk([value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ComObjectType
@@ -50,7 +69,17 @@
     static System_Type * m_comObjectType;
     + (System_Type *)comObjectType
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"ComObjectType"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ComObjectType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_comObjectType isEqualToMonoObject:monoObject]) return m_comObjectType;					
 		m_comObjectType = [System_Type bestObjectWithMonoObject:monoObject];
 
@@ -62,7 +91,17 @@
     static System_Type * m_interfaceType;
     + (System_Type *)interfaceType
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"InterfaceType"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InterfaceType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_interfaceType isEqualToMonoObject:monoObject]) return m_interfaceType;					
 		m_interfaceType = [System_Type bestObjectWithMonoObject:monoObject];
 
@@ -78,7 +117,7 @@
     + (System_ComponentModel_TypeDescriptionProvider *)addAttributes_withType:(System_Type *)p1 attributes:(DBSystem_Array *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"AddAttributes(System.Type,System.Attribute[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"AddAttributes(System.Type,System.Attribute[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_TypeDescriptionProvider bestObjectWithMonoObject:monoObject];
     }
@@ -89,7 +128,7 @@
     + (System_ComponentModel_TypeDescriptionProvider *)addAttributes_withInstance:(System_Object *)p1 attributes:(DBSystem_Array *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"AddAttributes(object,System.Attribute[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"AddAttributes(object,System.Attribute[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_TypeDescriptionProvider bestObjectWithMonoObject:monoObject];
     }
@@ -100,7 +139,7 @@
     + (void)addEditorTable_withEditorBaseType:(System_Type *)p1 table:(System_Collections_Hashtable *)p2
     {
 		
-		[self invokeMonoClassMethod:"AddEditorTable(System.Type,System.Collections.Hashtable)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"AddEditorTable(System.Type,System.Collections.Hashtable)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -110,7 +149,7 @@
     + (void)addProvider_withProvider:(System_ComponentModel_TypeDescriptionProvider *)p1 type:(System_Type *)p2
     {
 		
-		[self invokeMonoClassMethod:"AddProvider(System.ComponentModel.TypeDescriptionProvider,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"AddProvider(System.ComponentModel.TypeDescriptionProvider,System.Type)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -120,7 +159,7 @@
     + (void)addProvider_withProvider:(System_ComponentModel_TypeDescriptionProvider *)p1 instance:(System_Object *)p2
     {
 		
-		[self invokeMonoClassMethod:"AddProvider(System.ComponentModel.TypeDescriptionProvider,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"AddProvider(System.ComponentModel.TypeDescriptionProvider,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -130,7 +169,7 @@
     + (void)addProviderTransparent_withProvider:(System_ComponentModel_TypeDescriptionProvider *)p1 type:(System_Type *)p2
     {
 		
-		[self invokeMonoClassMethod:"AddProviderTransparent(System.ComponentModel.TypeDescriptionProvider,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"AddProviderTransparent(System.ComponentModel.TypeDescriptionProvider,System.Type)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -140,7 +179,7 @@
     + (void)addProviderTransparent_withProvider:(System_ComponentModel_TypeDescriptionProvider *)p1 instance:(System_Object *)p2
     {
 		
-		[self invokeMonoClassMethod:"AddProviderTransparent(System.ComponentModel.TypeDescriptionProvider,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"AddProviderTransparent(System.ComponentModel.TypeDescriptionProvider,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -150,7 +189,7 @@
     + (void)createAssociation_withPrimary:(System_Object *)p1 secondary:(System_Object *)p2
     {
 		
-		[self invokeMonoClassMethod:"CreateAssociation(object,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"CreateAssociation(object,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -160,7 +199,7 @@
     + (id <System_ComponentModel_Design_IDesigner>)createDesigner_withComponent:(id <System_ComponentModel_IComponent_>)p1 designerBaseType:(System_Type *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDesigner(System.ComponentModel.IComponent,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDesigner(System.ComponentModel.IComponent,System.Type)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_Design_IDesigner bestObjectWithMonoObject:monoObject];
     }
@@ -171,7 +210,7 @@
     + (System_ComponentModel_EventDescriptor *)createEvent_withComponentType:(System_Type *)p1 name:(NSString *)p2 type:(System_Type *)p3 attributes:(DBSystem_Array *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateEvent(System.Type,string,System.Type,System.Attribute[])" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateEvent(System.Type,string,System.Type,System.Attribute[])" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_EventDescriptor bestObjectWithMonoObject:monoObject];
     }
@@ -182,7 +221,7 @@
     + (System_ComponentModel_EventDescriptor *)createEvent_withComponentType:(System_Type *)p1 oldEventDescriptor:(System_ComponentModel_EventDescriptor *)p2 attributes:(DBSystem_Array *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateEvent(System.Type,System.ComponentModel.EventDescriptor,System.Attribute[])" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateEvent(System.Type,System.ComponentModel.EventDescriptor,System.Attribute[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_EventDescriptor bestObjectWithMonoObject:monoObject];
     }
@@ -193,7 +232,7 @@
     + (System_Object *)createInstance_withProvider:(id <System_IServiceProvider_>)p1 objectType:(System_Type *)p2 argTypes:(DBSystem_Array *)p3 args:(DBSystem_Array *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.IServiceProvider,System.Type,System.Type[],object[])" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.IServiceProvider,System.Type,System.Type[],object[])" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -204,7 +243,7 @@
     + (System_ComponentModel_PropertyDescriptor *)createProperty_withComponentType:(System_Type *)p1 name:(NSString *)p2 type:(System_Type *)p3 attributes:(DBSystem_Array *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateProperty(System.Type,string,System.Type,System.Attribute[])" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateProperty(System.Type,string,System.Type,System.Attribute[])" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_PropertyDescriptor bestObjectWithMonoObject:monoObject];
     }
@@ -215,7 +254,7 @@
     + (System_ComponentModel_PropertyDescriptor *)createProperty_withComponentType:(System_Type *)p1 oldPropertyDescriptor:(System_ComponentModel_PropertyDescriptor *)p2 attributes:(DBSystem_Array *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateProperty(System.Type,System.ComponentModel.PropertyDescriptor,System.Attribute[])" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateProperty(System.Type,System.ComponentModel.PropertyDescriptor,System.Attribute[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_PropertyDescriptor bestObjectWithMonoObject:monoObject];
     }
@@ -226,7 +265,7 @@
     + (System_Object *)getAssociation_withType:(System_Type *)p1 primary:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetAssociation(System.Type,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetAssociation(System.Type,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -237,7 +276,7 @@
     + (System_ComponentModel_AttributeCollection *)getAttributes_withComponentType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetAttributes(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetAttributes(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_AttributeCollection bestObjectWithMonoObject:monoObject];
     }
@@ -248,7 +287,7 @@
     + (System_ComponentModel_AttributeCollection *)getAttributes_withComponent:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetAttributes(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetAttributes(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_AttributeCollection bestObjectWithMonoObject:monoObject];
     }
@@ -259,7 +298,7 @@
     + (System_ComponentModel_AttributeCollection *)getAttributes_withComponent:(System_Object *)p1 noCustomTypeDesc:(BOOL)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetAttributes(object,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetAttributes(object,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_ComponentModel_AttributeCollection bestObjectWithMonoObject:monoObject];
     }
@@ -270,7 +309,7 @@
     + (NSString *)getClassName_withComponent:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetClassName(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetClassName(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -281,7 +320,7 @@
     + (NSString *)getClassName_withComponent:(System_Object *)p1 noCustomTypeDesc:(BOOL)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetClassName(object,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetClassName(object,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -292,7 +331,7 @@
     + (NSString *)getClassName_withComponentType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetClassName(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetClassName(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -303,7 +342,7 @@
     + (NSString *)getComponentName_withComponent:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetComponentName(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetComponentName(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -314,7 +353,7 @@
     + (NSString *)getComponentName_withComponent:(System_Object *)p1 noCustomTypeDesc:(BOOL)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetComponentName(object,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetComponentName(object,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -325,7 +364,7 @@
     + (System_ComponentModel_TypeConverter *)getConverter_withComponent:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetConverter(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetConverter(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_TypeConverter bestObjectWithMonoObject:monoObject];
     }
@@ -336,7 +375,7 @@
     + (System_ComponentModel_TypeConverter *)getConverter_withComponent:(System_Object *)p1 noCustomTypeDesc:(BOOL)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetConverter(object,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetConverter(object,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_ComponentModel_TypeConverter bestObjectWithMonoObject:monoObject];
     }
@@ -347,7 +386,7 @@
     + (System_ComponentModel_TypeConverter *)getConverter_withType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetConverter(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetConverter(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_TypeConverter bestObjectWithMonoObject:monoObject];
     }
@@ -358,7 +397,7 @@
     + (System_ComponentModel_EventDescriptor *)getDefaultEvent_withComponentType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDefaultEvent(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDefaultEvent(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_EventDescriptor bestObjectWithMonoObject:monoObject];
     }
@@ -369,7 +408,7 @@
     + (System_ComponentModel_EventDescriptor *)getDefaultEvent_withComponent:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDefaultEvent(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDefaultEvent(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_EventDescriptor bestObjectWithMonoObject:monoObject];
     }
@@ -380,7 +419,7 @@
     + (System_ComponentModel_EventDescriptor *)getDefaultEvent_withComponent:(System_Object *)p1 noCustomTypeDesc:(BOOL)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDefaultEvent(object,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDefaultEvent(object,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_ComponentModel_EventDescriptor bestObjectWithMonoObject:monoObject];
     }
@@ -391,7 +430,7 @@
     + (System_ComponentModel_PropertyDescriptor *)getDefaultProperty_withComponentType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDefaultProperty(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDefaultProperty(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_PropertyDescriptor bestObjectWithMonoObject:monoObject];
     }
@@ -402,7 +441,7 @@
     + (System_ComponentModel_PropertyDescriptor *)getDefaultProperty_withComponent:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDefaultProperty(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDefaultProperty(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_PropertyDescriptor bestObjectWithMonoObject:monoObject];
     }
@@ -413,7 +452,7 @@
     + (System_ComponentModel_PropertyDescriptor *)getDefaultProperty_withComponent:(System_Object *)p1 noCustomTypeDesc:(BOOL)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDefaultProperty(object,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDefaultProperty(object,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_ComponentModel_PropertyDescriptor bestObjectWithMonoObject:monoObject];
     }
@@ -424,7 +463,7 @@
     + (System_Object *)getEditor_withComponent:(System_Object *)p1 editorBaseType:(System_Type *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEditor(object,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEditor(object,System.Type)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -435,7 +474,7 @@
     + (System_Object *)getEditor_withComponent:(System_Object *)p1 editorBaseType:(System_Type *)p2 noCustomTypeDesc:(BOOL)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEditor(object,System.Type,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEditor(object,System.Type,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -446,7 +485,7 @@
     + (System_Object *)getEditor_withType:(System_Type *)p1 editorBaseType:(System_Type *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEditor(System.Type,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEditor(System.Type,System.Type)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -457,7 +496,7 @@
     + (System_ComponentModel_EventDescriptorCollection *)getEvents_withComponentType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEvents(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEvents(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_EventDescriptorCollection bestObjectWithMonoObject:monoObject];
     }
@@ -468,7 +507,7 @@
     + (System_ComponentModel_EventDescriptorCollection *)getEvents_withComponentType:(System_Type *)p1 attributes:(DBSystem_Array *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEvents(System.Type,System.Attribute[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEvents(System.Type,System.Attribute[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_EventDescriptorCollection bestObjectWithMonoObject:monoObject];
     }
@@ -479,7 +518,7 @@
     + (System_ComponentModel_EventDescriptorCollection *)getEvents_withComponent:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEvents(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEvents(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_EventDescriptorCollection bestObjectWithMonoObject:monoObject];
     }
@@ -490,7 +529,7 @@
     + (System_ComponentModel_EventDescriptorCollection *)getEvents_withComponent:(System_Object *)p1 noCustomTypeDesc:(BOOL)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEvents(object,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEvents(object,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_ComponentModel_EventDescriptorCollection bestObjectWithMonoObject:monoObject];
     }
@@ -501,7 +540,7 @@
     + (System_ComponentModel_EventDescriptorCollection *)getEvents_withComponent:(System_Object *)p1 attributes:(DBSystem_Array *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEvents(object,System.Attribute[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEvents(object,System.Attribute[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_EventDescriptorCollection bestObjectWithMonoObject:monoObject];
     }
@@ -512,7 +551,7 @@
     + (System_ComponentModel_EventDescriptorCollection *)getEvents_withComponent:(System_Object *)p1 attributes:(DBSystem_Array *)p2 noCustomTypeDesc:(BOOL)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEvents(object,System.Attribute[],bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEvents(object,System.Attribute[],bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
 		
 		return [System_ComponentModel_EventDescriptorCollection bestObjectWithMonoObject:monoObject];
     }
@@ -523,7 +562,7 @@
     + (NSString *)getFullComponentName_withComponent:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetFullComponentName(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetFullComponentName(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -534,7 +573,7 @@
     + (System_ComponentModel_PropertyDescriptorCollection *)getProperties_withComponentType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetProperties(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetProperties(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_PropertyDescriptorCollection bestObjectWithMonoObject:monoObject];
     }
@@ -545,7 +584,7 @@
     + (System_ComponentModel_PropertyDescriptorCollection *)getProperties_withComponentType:(System_Type *)p1 attributes:(DBSystem_Array *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetProperties(System.Type,System.Attribute[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetProperties(System.Type,System.Attribute[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_PropertyDescriptorCollection bestObjectWithMonoObject:monoObject];
     }
@@ -556,7 +595,7 @@
     + (System_ComponentModel_PropertyDescriptorCollection *)getProperties_withComponent:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetProperties(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetProperties(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_PropertyDescriptorCollection bestObjectWithMonoObject:monoObject];
     }
@@ -567,7 +606,7 @@
     + (System_ComponentModel_PropertyDescriptorCollection *)getProperties_withComponent:(System_Object *)p1 noCustomTypeDesc:(BOOL)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetProperties(object,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetProperties(object,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_ComponentModel_PropertyDescriptorCollection bestObjectWithMonoObject:monoObject];
     }
@@ -578,7 +617,7 @@
     + (System_ComponentModel_PropertyDescriptorCollection *)getProperties_withComponent:(System_Object *)p1 attributes:(DBSystem_Array *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetProperties(object,System.Attribute[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetProperties(object,System.Attribute[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_PropertyDescriptorCollection bestObjectWithMonoObject:monoObject];
     }
@@ -589,7 +628,7 @@
     + (System_ComponentModel_PropertyDescriptorCollection *)getProperties_withComponent:(System_Object *)p1 attributes:(DBSystem_Array *)p2 noCustomTypeDesc:(BOOL)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetProperties(object,System.Attribute[],bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetProperties(object,System.Attribute[],bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
 		
 		return [System_ComponentModel_PropertyDescriptorCollection bestObjectWithMonoObject:monoObject];
     }
@@ -600,7 +639,7 @@
     + (System_ComponentModel_TypeDescriptionProvider *)getProvider_withType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetProvider(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetProvider(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_TypeDescriptionProvider bestObjectWithMonoObject:monoObject];
     }
@@ -611,7 +650,7 @@
     + (System_ComponentModel_TypeDescriptionProvider *)getProvider_withInstance:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetProvider(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetProvider(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_TypeDescriptionProvider bestObjectWithMonoObject:monoObject];
     }
@@ -622,7 +661,7 @@
     + (System_Type *)getReflectionType_withType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetReflectionType(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetReflectionType(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Type bestObjectWithMonoObject:monoObject];
     }
@@ -633,7 +672,7 @@
     + (System_Type *)getReflectionType_withInstance:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetReflectionType(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetReflectionType(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Type bestObjectWithMonoObject:monoObject];
     }
@@ -644,7 +683,7 @@
     + (void)refresh_withComponent:(System_Object *)p1
     {
 		
-		[self invokeMonoClassMethod:"Refresh(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"Refresh(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -654,7 +693,7 @@
     + (void)refresh_withType:(System_Type *)p1
     {
 		
-		[self invokeMonoClassMethod:"Refresh(System.Type)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"Refresh(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -664,7 +703,7 @@
     + (void)refresh_withModule:(System_Reflection_Module *)p1
     {
 		
-		[self invokeMonoClassMethod:"Refresh(System.Reflection.Module)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"Refresh(System.Reflection.Module)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -674,7 +713,7 @@
     + (void)refresh_withAssembly:(System_Reflection_Assembly *)p1
     {
 		
-		[self invokeMonoClassMethod:"Refresh(System.Reflection.Assembly)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"Refresh(System.Reflection.Assembly)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -684,7 +723,7 @@
     + (void)removeAssociation_withPrimary:(System_Object *)p1 secondary:(System_Object *)p2
     {
 		
-		[self invokeMonoClassMethod:"RemoveAssociation(object,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"RemoveAssociation(object,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -694,7 +733,7 @@
     + (void)removeAssociations_withPrimary:(System_Object *)p1
     {
 		
-		[self invokeMonoClassMethod:"RemoveAssociations(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"RemoveAssociations(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -704,7 +743,7 @@
     + (void)removeProvider_withProvider:(System_ComponentModel_TypeDescriptionProvider *)p1 type:(System_Type *)p2
     {
 		
-		[self invokeMonoClassMethod:"RemoveProvider(System.ComponentModel.TypeDescriptionProvider,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"RemoveProvider(System.ComponentModel.TypeDescriptionProvider,System.Type)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -714,7 +753,7 @@
     + (void)removeProvider_withProvider:(System_ComponentModel_TypeDescriptionProvider *)p1 instance:(System_Object *)p2
     {
 		
-		[self invokeMonoClassMethod:"RemoveProvider(System.ComponentModel.TypeDescriptionProvider,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"RemoveProvider(System.ComponentModel.TypeDescriptionProvider,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -724,7 +763,7 @@
     + (void)removeProviderTransparent_withProvider:(System_ComponentModel_TypeDescriptionProvider *)p1 type:(System_Type *)p2
     {
 		
-		[self invokeMonoClassMethod:"RemoveProviderTransparent(System.ComponentModel.TypeDescriptionProvider,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"RemoveProviderTransparent(System.ComponentModel.TypeDescriptionProvider,System.Type)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -734,7 +773,7 @@
     + (void)removeProviderTransparent_withProvider:(System_ComponentModel_TypeDescriptionProvider *)p1 instance:(System_Object *)p2
     {
 		
-		[self invokeMonoClassMethod:"RemoveProviderTransparent(System.ComponentModel.TypeDescriptionProvider,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"RemoveProviderTransparent(System.ComponentModel.TypeDescriptionProvider,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -744,7 +783,7 @@
     + (void)sortDescriptorArray_withInfos:(id <System_Collections_IList_>)p1
     {
 		
-		[self invokeMonoClassMethod:"SortDescriptorArray(System.Collections.IList)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"SortDescriptorArray(System.Collections.IList)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

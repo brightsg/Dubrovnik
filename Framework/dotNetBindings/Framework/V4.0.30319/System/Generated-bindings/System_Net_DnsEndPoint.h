@@ -22,14 +22,14 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.DnsEndPoint
 	// Managed param types : System.String, System.Int32, System.Net.Sockets.AddressFamily
-    + (System_Net_DnsEndPoint *)new_withHost:(NSString *)p1 port:(int32_t)p2 addressFamily:(System_Net_Sockets_AddressFamily)p3;
+    + (System_Net_DnsEndPoint *)new_withHost:(NSString *)p1 port:(int32_t)p2 addressFamily:(int32_t)p3;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : AddressFamily
 	// Managed property type : System.Net.Sockets.AddressFamily
-    @property (nonatomic, readonly) System_Net_Sockets_AddressFamily addressFamily;
+    @property (nonatomic, readonly) int32_t addressFamily;
 
 	// Managed property name : Host
 	// Managed property type : System.String

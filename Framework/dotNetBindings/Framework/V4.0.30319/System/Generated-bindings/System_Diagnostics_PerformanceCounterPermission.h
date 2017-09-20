@@ -17,12 +17,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.PerformanceCounterPermission
 	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Diagnostics_PerformanceCounterPermission *)new_withState:(System_Security_Permissions_PermissionState)p1;
+    + (System_Diagnostics_PerformanceCounterPermission *)new_withState:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.PerformanceCounterPermission
 	// Managed param types : System.Diagnostics.PerformanceCounterPermissionAccess, System.String, System.String
-    + (System_Diagnostics_PerformanceCounterPermission *)new_withPermissionAccess:(System_Diagnostics_PerformanceCounterPermissionAccess)p1 machineName:(NSString *)p2 categoryName:(NSString *)p3;
+    + (System_Diagnostics_PerformanceCounterPermission *)new_withPermissionAccess:(int32_t)p1 machineName:(NSString *)p2 categoryName:(NSString *)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.PerformanceCounterPermission

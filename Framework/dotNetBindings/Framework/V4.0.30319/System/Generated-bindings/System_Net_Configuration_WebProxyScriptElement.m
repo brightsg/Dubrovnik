@@ -32,7 +32,17 @@
     @synthesize downloadTimeout = _downloadTimeout;
     - (System_TimeSpan *)downloadTimeout
     {
-		MonoObject *monoObject = [self getMonoProperty:"DownloadTimeout"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DownloadTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_downloadTimeout isEqualToMonoObject:monoObject]) return _downloadTimeout;					
 		_downloadTimeout = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
@@ -41,8 +51,17 @@
     - (void)setDownloadTimeout:(System_TimeSpan *)value
 	{
 		_downloadTimeout = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"DownloadTimeout" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "DownloadTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

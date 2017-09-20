@@ -16,7 +16,7 @@
 
 	// Managed property name : UsageMode
 	// Managed property type : System.ComponentModel.LicenseUsageMode
-    @property (nonatomic, readonly) System_ComponentModel_LicenseUsageMode usageMode;
+    @property (nonatomic, readonly) int32_t usageMode;
 
 #pragma mark -
 #pragma mark Methods

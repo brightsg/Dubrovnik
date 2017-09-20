@@ -33,7 +33,7 @@
     - (id <System_Collections_ICollection>)deserialize_withSerializationData:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerSerializationService.Deserialize(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerSerializationService.Deserialize(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Collections_ICollection bestObjectWithMonoObject:monoObject];
     }
@@ -44,7 +44,7 @@
     - (System_Object *)serialize_withObjects:(id <System_Collections_ICollection_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerSerializationService.Serialize(System.Collections.ICollection)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerSerializationService.Serialize(System.Collections.ICollection)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }

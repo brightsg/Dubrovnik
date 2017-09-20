@@ -28,7 +28,7 @@
 
 	// Managed property name : TransferEncoding
 	// Managed property type : System.Net.Mime.TransferEncoding
-    @property (nonatomic) System_Net_Mime_TransferEncoding transferEncoding;
+    @property (nonatomic) int32_t transferEncoding;
 
 #pragma mark -
 #pragma mark Methods

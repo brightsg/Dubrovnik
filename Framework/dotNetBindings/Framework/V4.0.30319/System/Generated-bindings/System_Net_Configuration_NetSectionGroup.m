@@ -32,7 +32,17 @@
     @synthesize authenticationModules = _authenticationModules;
     - (System_Net_Configuration_AuthenticationModulesSection *)authenticationModules
     {
-		MonoObject *monoObject = [self getMonoProperty:"AuthenticationModules"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AuthenticationModules");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_authenticationModules isEqualToMonoObject:monoObject]) return _authenticationModules;					
 		_authenticationModules = [System_Net_Configuration_AuthenticationModulesSection bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize connectionManagement = _connectionManagement;
     - (System_Net_Configuration_ConnectionManagementSection *)connectionManagement
     {
-		MonoObject *monoObject = [self getMonoProperty:"ConnectionManagement"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ConnectionManagement");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_connectionManagement isEqualToMonoObject:monoObject]) return _connectionManagement;					
 		_connectionManagement = [System_Net_Configuration_ConnectionManagementSection bestObjectWithMonoObject:monoObject];
 
@@ -56,7 +76,17 @@
     @synthesize defaultProxy = _defaultProxy;
     - (System_Net_Configuration_DefaultProxySection *)defaultProxy
     {
-		MonoObject *monoObject = [self getMonoProperty:"DefaultProxy"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DefaultProxy");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_defaultProxy isEqualToMonoObject:monoObject]) return _defaultProxy;					
 		_defaultProxy = [System_Net_Configuration_DefaultProxySection bestObjectWithMonoObject:monoObject];
 
@@ -68,7 +98,17 @@
     @synthesize mailSettings = _mailSettings;
     - (System_Net_Configuration_MailSettingsSectionGroup *)mailSettings
     {
-		MonoObject *monoObject = [self getMonoProperty:"MailSettings"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MailSettings");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_mailSettings isEqualToMonoObject:monoObject]) return _mailSettings;					
 		_mailSettings = [System_Net_Configuration_MailSettingsSectionGroup bestObjectWithMonoObject:monoObject];
 
@@ -80,7 +120,17 @@
     @synthesize requestCaching = _requestCaching;
     - (System_Net_Configuration_RequestCachingSection *)requestCaching
     {
-		MonoObject *monoObject = [self getMonoProperty:"RequestCaching"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RequestCaching");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_requestCaching isEqualToMonoObject:monoObject]) return _requestCaching;					
 		_requestCaching = [System_Net_Configuration_RequestCachingSection bestObjectWithMonoObject:monoObject];
 
@@ -92,7 +142,17 @@
     @synthesize settings = _settings;
     - (System_Net_Configuration_SettingsSection *)settings
     {
-		MonoObject *monoObject = [self getMonoProperty:"Settings"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Settings");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_settings isEqualToMonoObject:monoObject]) return _settings;					
 		_settings = [System_Net_Configuration_SettingsSection bestObjectWithMonoObject:monoObject];
 
@@ -104,7 +164,17 @@
     @synthesize webRequestModules = _webRequestModules;
     - (System_Net_Configuration_WebRequestModulesSection *)webRequestModules
     {
-		MonoObject *monoObject = [self getMonoProperty:"WebRequestModules"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WebRequestModules");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_webRequestModules isEqualToMonoObject:monoObject]) return _webRequestModules;					
 		_webRequestModules = [System_Net_Configuration_WebRequestModulesSection bestObjectWithMonoObject:monoObject];
 
@@ -120,7 +190,7 @@
     + (System_Net_Configuration_NetSectionGroup *)getSectionGroup_withConfig:(System_Configuration_Configuration *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetSectionGroup(System.Configuration.Configuration)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetSectionGroup(System.Configuration.Configuration)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Net_Configuration_NetSectionGroup bestObjectWithMonoObject:monoObject];
     }

@@ -248,22 +248,22 @@
 
 	// Managed method name : Pack
 	// Managed return type : System.Threading.NativeOverlapped*
-	// Managed param types : System.Threading.IOCompletionCallback
-    - (System_Threading_NativeOverlapped *)pack_withIocb:(System_Threading_IOCompletionCallback *)p1
+	// Managed param types : System.Threading.IOCompletionCallback, System.Object
+    - (System_Threading_NativeOverlapped *)pack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Pack(System.Threading.IOCompletionCallback)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Pack(System.Threading.IOCompletionCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Threading_NativeOverlapped bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Pack
 	// Managed return type : System.Threading.NativeOverlapped*
-	// Managed param types : System.Threading.IOCompletionCallback, System.Object
-    - (System_Threading_NativeOverlapped *)pack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(System_Object *)p2
+	// Managed param types : System.Threading.IOCompletionCallback
+    - (System_Threading_NativeOverlapped *)pack_withIocb:(System_Threading_IOCompletionCallback *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Pack(System.Threading.IOCompletionCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Pack(System.Threading.IOCompletionCallback)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Threading_NativeOverlapped bestObjectWithMonoObject:monoObject];
     }
@@ -281,22 +281,22 @@
 
 	// Managed method name : UnsafePack
 	// Managed return type : System.Threading.NativeOverlapped*
-	// Managed param types : System.Threading.IOCompletionCallback
-    - (System_Threading_NativeOverlapped *)unsafePack_withIocb:(System_Threading_IOCompletionCallback *)p1
+	// Managed param types : System.Threading.IOCompletionCallback, System.Object
+    - (System_Threading_NativeOverlapped *)unsafePack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"UnsafePack(System.Threading.IOCompletionCallback)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"UnsafePack(System.Threading.IOCompletionCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Threading_NativeOverlapped bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : UnsafePack
 	// Managed return type : System.Threading.NativeOverlapped*
-	// Managed param types : System.Threading.IOCompletionCallback, System.Object
-    - (System_Threading_NativeOverlapped *)unsafePack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(System_Object *)p2
+	// Managed param types : System.Threading.IOCompletionCallback
+    - (System_Threading_NativeOverlapped *)unsafePack_withIocb:(System_Threading_IOCompletionCallback *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"UnsafePack(System.Threading.IOCompletionCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"UnsafePack(System.Threading.IOCompletionCallback)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Threading_NativeOverlapped bestObjectWithMonoObject:monoObject];
     }

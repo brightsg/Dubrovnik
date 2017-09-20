@@ -30,11 +30,11 @@
 	// Managed method name : DAdvise
 	// Managed return type : System.Int32
 	// Managed param types : ref System.Runtime.InteropServices.ComTypes.FORMATETC&, System.Runtime.InteropServices.ComTypes.ADVF, System.Runtime.InteropServices.ComTypes.IAdviseSink, ref System.Int32&
-    - (int32_t)dAdvise_withPFormatetcRef:(System_Runtime_InteropServices_ComTypes_FORMATETC **)p1 advf:(System_Runtime_InteropServices_ComTypes_ADVF)p2 adviseSink:(id <System_Runtime_InteropServices_ComTypes_IAdviseSink_>)p3 connectionRef:(int32_t*)p4
+    - (int32_t)dAdvise_withPFormatetcRef:(System_Runtime_InteropServices_ComTypes_FORMATETC **)p1 advf:(int32_t)p2 adviseSink:(id <System_Runtime_InteropServices_ComTypes_IAdviseSink_>)p3 connectionRef:(int32_t*)p4
     {
-		void *refPtr1 = [*p1 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IDataObject.DAdvise(System.Runtime.InteropServices.ComTypes.FORMATETC&,System.Runtime.InteropServices.ComTypes.ADVF,System.Runtime.InteropServices.ComTypes.IAdviseSink,int&)" withNumArgs:4, &refPtr1, DB_VALUE(p2), [p3 monoValue], p4];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IDataObject.DAdvise(System.Runtime.InteropServices.ComTypes.FORMATETC&,System.Runtime.InteropServices.ComTypes.ADVF,System.Runtime.InteropServices.ComTypes.IAdviseSink,int&)" withNumArgs:4, &refPtr1, DB_VALUE(p2), [p3 monoRTInvokeArg], p4];
 
 		*p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 
@@ -47,7 +47,7 @@
     - (void)dUnadvise_withConnection:(int32_t)p1
     {
 		
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IDataObject.DUnadvise(int)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IDataObject.DUnadvise(int)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -56,7 +56,7 @@
 	// Managed param types : ref System.Runtime.InteropServices.ComTypes.IEnumSTATDATA&
     - (int32_t)enumDAdvise_withEnumAdviseRef:(System_Runtime_InteropServices_ComTypes_IEnumSTATDATA **)p1
     {
-		void *refPtr1 = [*p1 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IDataObject.EnumDAdvise(System.Runtime.InteropServices.ComTypes.IEnumSTATDATA&)" withNumArgs:1, &refPtr1];
 
@@ -68,7 +68,7 @@
 	// Managed method name : EnumFormatEtc
 	// Managed return type : System.Runtime.InteropServices.ComTypes.IEnumFORMATETC
 	// Managed param types : System.Runtime.InteropServices.ComTypes.DATADIR
-    - (id <System_Runtime_InteropServices_ComTypes_IEnumFORMATETC>)enumFormatEtc_withDirection:(System_Runtime_InteropServices_ComTypes_DATADIR)p1
+    - (id <System_Runtime_InteropServices_ComTypes_IEnumFORMATETC>)enumFormatEtc_withDirection:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IDataObject.EnumFormatEtc(System.Runtime.InteropServices.ComTypes.DATADIR)" withNumArgs:1, DB_VALUE(p1)];
@@ -81,8 +81,8 @@
 	// Managed param types : ref System.Runtime.InteropServices.ComTypes.FORMATETC&, ref System.Runtime.InteropServices.ComTypes.FORMATETC&
     - (int32_t)getCanonicalFormatEtc_withFormatInRef:(System_Runtime_InteropServices_ComTypes_FORMATETC **)p1 formatOutRef:(System_Runtime_InteropServices_ComTypes_FORMATETC **)p2
     {
-		void *refPtr1 = [*p1 monoValue];
-void *refPtr2 = [*p2 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+void *refPtr2 = [*p2 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IDataObject.GetCanonicalFormatEtc(System.Runtime.InteropServices.ComTypes.FORMATETC&,System.Runtime.InteropServices.ComTypes.FORMATETC&)" withNumArgs:2, &refPtr1, &refPtr2];
 
@@ -97,11 +97,11 @@ void *refPtr2 = [*p2 monoValue];
 	// Managed param types : ref System.Runtime.InteropServices.ComTypes.FORMATETC&, ref System.Runtime.InteropServices.ComTypes.STGMEDIUM&
     - (void)getData_withFormatRef:(System_Runtime_InteropServices_ComTypes_FORMATETC **)p1 mediumRef:(System_Runtime_InteropServices_ComTypes_STGMEDIUM **)p2
     {
-		void *refPtr1 = [*p1 monoValue];
-void *refPtr2 = [*p2 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+void *refPtr2 = [*p2 monoRTInvokeArg];
 
 		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IDataObject.GetData(System.Runtime.InteropServices.ComTypes.FORMATETC&,System.Runtime.InteropServices.ComTypes.STGMEDIUM&)" withNumArgs:2, &refPtr1, &refPtr2];
-;
+
         *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 *p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 
@@ -112,11 +112,11 @@ void *refPtr2 = [*p2 monoValue];
 	// Managed param types : ref System.Runtime.InteropServices.ComTypes.FORMATETC&, ref System.Runtime.InteropServices.ComTypes.STGMEDIUM&
     - (void)getDataHere_withFormatRef:(System_Runtime_InteropServices_ComTypes_FORMATETC **)p1 mediumRef:(System_Runtime_InteropServices_ComTypes_STGMEDIUM **)p2
     {
-		void *refPtr1 = [*p1 monoValue];
-void *refPtr2 = [*p2 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+void *refPtr2 = [*p2 monoRTInvokeArg];
 
 		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IDataObject.GetDataHere(System.Runtime.InteropServices.ComTypes.FORMATETC&,System.Runtime.InteropServices.ComTypes.STGMEDIUM&)" withNumArgs:2, &refPtr1, &refPtr2];
-;
+
         *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 *p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 
@@ -127,7 +127,7 @@ void *refPtr2 = [*p2 monoValue];
 	// Managed param types : ref System.Runtime.InteropServices.ComTypes.FORMATETC&
     - (int32_t)queryGetData_withFormatRef:(System_Runtime_InteropServices_ComTypes_FORMATETC **)p1
     {
-		void *refPtr1 = [*p1 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IDataObject.QueryGetData(System.Runtime.InteropServices.ComTypes.FORMATETC&)" withNumArgs:1, &refPtr1];
 
@@ -141,11 +141,11 @@ void *refPtr2 = [*p2 monoValue];
 	// Managed param types : ref System.Runtime.InteropServices.ComTypes.FORMATETC&, ref System.Runtime.InteropServices.ComTypes.STGMEDIUM&, System.Boolean
     - (void)setData_withFormatInRef:(System_Runtime_InteropServices_ComTypes_FORMATETC **)p1 mediumRef:(System_Runtime_InteropServices_ComTypes_STGMEDIUM **)p2 release:(BOOL)p3
     {
-		void *refPtr1 = [*p1 monoValue];
-void *refPtr2 = [*p2 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+void *refPtr2 = [*p2 monoRTInvokeArg];
 
 		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IDataObject.SetData(System.Runtime.InteropServices.ComTypes.FORMATETC&,System.Runtime.InteropServices.ComTypes.STGMEDIUM&,bool)" withNumArgs:3, &refPtr1, &refPtr2, DB_VALUE(p3)];
-;
+
         *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 *p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 

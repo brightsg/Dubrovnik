@@ -56,11 +56,6 @@
 
 	// Managed method name : GetTypeDescriptor
 	// Managed return type : System.ComponentModel.ICustomTypeDescriptor
-	// Managed param types : System.Type, System.Object
-    - (id <System_ComponentModel_ICustomTypeDescriptor>)getTypeDescriptor_withObjectType:(System_Type *)p1 instance:(System_Object *)p2;
-
-	// Managed method name : GetTypeDescriptor
-	// Managed return type : System.ComponentModel.ICustomTypeDescriptor
 	// Managed param types : System.Type
     - (id <System_ComponentModel_ICustomTypeDescriptor>)getTypeDescriptor_withObjectType:(System_Type *)p1;
 
@@ -68,6 +63,11 @@
 	// Managed return type : System.ComponentModel.ICustomTypeDescriptor
 	// Managed param types : System.Object
     - (id <System_ComponentModel_ICustomTypeDescriptor>)getTypeDescriptor_withInstance:(System_Object *)p1;
+
+	// Managed method name : GetTypeDescriptor
+	// Managed return type : System.ComponentModel.ICustomTypeDescriptor
+	// Managed param types : System.Type, System.Object
+    - (id <System_ComponentModel_ICustomTypeDescriptor>)getTypeDescriptor_withObjectType:(System_Type *)p1 instance:(System_Object *)p2;
 
 	// Managed method name : IsSupportedType
 	// Managed return type : System.Boolean

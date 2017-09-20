@@ -28,7 +28,7 @@
 
 	// Managed property name : State
 	// Managed property type : System.Net.WebSockets.WebSocketState
-    @property (nonatomic, readonly) System_Net_WebSockets_WebSocketState state;
+    @property (nonatomic, readonly) int32_t state;
 
 	// Managed property name : SubProtocol
 	// Managed property type : System.String
@@ -45,12 +45,12 @@
 	// Managed method name : CloseAsync
 	// Managed return type : System.Threading.Tasks.Task
 	// Managed param types : System.Net.WebSockets.WebSocketCloseStatus, System.String, System.Threading.CancellationToken
-    - (System_Threading_Tasks_Task *)closeAsync_withCloseStatus:(System_Net_WebSockets_WebSocketCloseStatus)p1 statusDescription:(NSString *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
+    - (System_Threading_Tasks_Task *)closeAsync_withCloseStatus:(int32_t)p1 statusDescription:(NSString *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
 
 	// Managed method name : CloseOutputAsync
 	// Managed return type : System.Threading.Tasks.Task
 	// Managed param types : System.Net.WebSockets.WebSocketCloseStatus, System.String, System.Threading.CancellationToken
-    - (System_Threading_Tasks_Task *)closeOutputAsync_withCloseStatus:(System_Net_WebSockets_WebSocketCloseStatus)p1 statusDescription:(NSString *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
+    - (System_Threading_Tasks_Task *)closeOutputAsync_withCloseStatus:(int32_t)p1 statusDescription:(NSString *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
 
 	// Managed method name : ConnectAsync
 	// Managed return type : System.Threading.Tasks.Task
@@ -70,6 +70,6 @@
 	// Managed method name : SendAsync
 	// Managed return type : System.Threading.Tasks.Task
 	// Managed param types : System.ArraySegment`1<System.Byte>, System.Net.WebSockets.WebSocketMessageType, System.Boolean, System.Threading.CancellationToken
-    - (System_Threading_Tasks_Task *)sendAsync_withBuffer:(System_ArraySegmentA1 *)p1 messageType:(System_Net_WebSockets_WebSocketMessageType)p2 endOfMessage:(BOOL)p3 cancellationToken:(System_Threading_CancellationToken *)p4;
+    - (System_Threading_Tasks_Task *)sendAsync_withBuffer:(System_ArraySegmentA1 *)p1 messageType:(int32_t)p2 endOfMessage:(BOOL)p3 cancellationToken:(System_Threading_CancellationToken *)p4;
 @end
 //--Dubrovnik.CodeGenerator

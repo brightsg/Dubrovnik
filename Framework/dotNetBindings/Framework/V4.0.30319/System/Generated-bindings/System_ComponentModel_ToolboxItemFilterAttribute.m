@@ -33,7 +33,7 @@
     + (System_ComponentModel_ToolboxItemFilterAttribute *)new_withFilterString:(NSString *)p1
     {
 		
-		System_ComponentModel_ToolboxItemFilterAttribute * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_ToolboxItemFilterAttribute * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -41,10 +41,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.ToolboxItemFilterAttribute
 	// Managed param types : System.String, System.ComponentModel.ToolboxItemFilterType
-    + (System_ComponentModel_ToolboxItemFilterAttribute *)new_withFilterString:(NSString *)p1 filterType:(System_ComponentModel_ToolboxItemFilterType)p2
+    + (System_ComponentModel_ToolboxItemFilterAttribute *)new_withFilterString:(NSString *)p1 filterType:(int32_t)p2
     {
 		
-		System_ComponentModel_ToolboxItemFilterAttribute * object = [[self alloc] initWithSignature:"string,System.ComponentModel.ToolboxItemFilterType" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_ComponentModel_ToolboxItemFilterAttribute * object = [[self alloc] initWithSignature:"string,System.ComponentModel.ToolboxItemFilterType" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -57,7 +57,17 @@
     @synthesize filterString = _filterString;
     - (NSString *)filterString
     {
-		MonoObject *monoObject = [self getMonoProperty:"FilterString"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FilterString");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_filterString isEqualToMonoObject:monoObject]) return _filterString;					
 		_filterString = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -67,10 +77,20 @@
 	// Managed property name : FilterType
 	// Managed property type : System.ComponentModel.ToolboxItemFilterType
     @synthesize filterType = _filterType;
-    - (System_ComponentModel_ToolboxItemFilterType)filterType
+    - (int32_t)filterType
     {
-		MonoObject *monoObject = [self getMonoProperty:"FilterType"];
-		_filterType = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FilterType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_filterType = monoObject;
 
 		return _filterType;
 	}
@@ -80,7 +100,17 @@
     @synthesize typeId = _typeId;
     - (System_Object *)typeId
     {
-		MonoObject *monoObject = [self getMonoProperty:"TypeId"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TypeId");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_typeId isEqualToMonoObject:monoObject]) return _typeId;					
 		_typeId = [System_Object objectWithMonoObject:monoObject];
 
@@ -96,7 +126,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -118,7 +148,7 @@
     - (BOOL)match_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Match(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Match(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

@@ -33,7 +33,7 @@
     + (System_Net_CookieContainer *)new_withCapacity:(int32_t)p1
     {
 		
-		System_Net_CookieContainer * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		System_Net_CookieContainer * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Net_CookieContainer *)new_withCapacity:(int32_t)p1 perDomainCapacity:(int32_t)p2 maxCookieSize:(int32_t)p3
     {
 		
-		System_Net_CookieContainer * object = [[self alloc] initWithSignature:"int,int,int" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];;
+		System_Net_CookieContainer * object = [[self alloc] initWithSignature:"int,int,int" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
         
         return object;
     }
@@ -93,16 +93,35 @@
     @synthesize capacity = _capacity;
     - (int32_t)capacity
     {
-		MonoObject *monoObject = [self getMonoProperty:"Capacity"];
-		_capacity = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Capacity");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_capacity = monoObject;
 
 		return _capacity;
 	}
     - (void)setCapacity:(int32_t)value
 	{
 		_capacity = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Capacity" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Capacity");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Count
@@ -110,8 +129,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -121,16 +150,35 @@
     @synthesize maxCookieSize = _maxCookieSize;
     - (int32_t)maxCookieSize
     {
-		MonoObject *monoObject = [self getMonoProperty:"MaxCookieSize"];
-		_maxCookieSize = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MaxCookieSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_maxCookieSize = monoObject;
 
 		return _maxCookieSize;
 	}
     - (void)setMaxCookieSize:(int32_t)value
 	{
 		_maxCookieSize = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"MaxCookieSize" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "MaxCookieSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : PerDomainCapacity
@@ -138,16 +186,35 @@
     @synthesize perDomainCapacity = _perDomainCapacity;
     - (int32_t)perDomainCapacity
     {
-		MonoObject *monoObject = [self getMonoProperty:"PerDomainCapacity"];
-		_perDomainCapacity = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PerDomainCapacity");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_perDomainCapacity = monoObject;
 
 		return _perDomainCapacity;
 	}
     - (void)setPerDomainCapacity:(int32_t)value
 	{
 		_perDomainCapacity = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"PerDomainCapacity" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "PerDomainCapacity");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -159,7 +226,7 @@
     - (void)add_withCookie:(System_Net_Cookie *)p1
     {
 		
-		[self invokeMonoMethod:"Add(System.Net.Cookie)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Add(System.Net.Cookie)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -169,7 +236,7 @@
     - (void)add_withCookies:(System_Net_CookieCollection *)p1
     {
 		
-		[self invokeMonoMethod:"Add(System.Net.CookieCollection)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Add(System.Net.CookieCollection)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -179,7 +246,7 @@
     - (void)add_withUri:(System_Uri *)p1 cookie:(System_Net_Cookie *)p2
     {
 		
-		[self invokeMonoMethod:"Add(System.Uri,System.Net.Cookie)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"Add(System.Uri,System.Net.Cookie)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -189,7 +256,7 @@
     - (void)add_withUri:(System_Uri *)p1 cookies:(System_Net_CookieCollection *)p2
     {
 		
-		[self invokeMonoMethod:"Add(System.Uri,System.Net.CookieCollection)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"Add(System.Uri,System.Net.CookieCollection)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -199,7 +266,7 @@
     - (NSString *)getCookieHeader_withUri:(System_Uri *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCookieHeader(System.Uri)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetCookieHeader(System.Uri)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -210,7 +277,7 @@
     - (System_Net_CookieCollection *)getCookies_withUri:(System_Uri *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCookies(System.Uri)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetCookies(System.Uri)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Net_CookieCollection bestObjectWithMonoObject:monoObject];
     }
@@ -221,7 +288,7 @@
     - (void)setCookies_withUri:(System_Uri *)p1 cookieHeader:(NSString *)p2
     {
 		
-		[self invokeMonoMethod:"SetCookies(System.Uri,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"SetCookies(System.Uri,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 

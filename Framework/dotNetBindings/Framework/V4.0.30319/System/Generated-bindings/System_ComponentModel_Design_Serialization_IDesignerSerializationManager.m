@@ -32,7 +32,17 @@
     @synthesize context = _context;
     - (System_ComponentModel_Design_Serialization_ContextStack *)context
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Context"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Context");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_context isEqualToMonoObject:monoObject]) return _context;					
 		_context = [System_ComponentModel_Design_Serialization_ContextStack bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize properties = _properties;
     - (System_ComponentModel_PropertyDescriptorCollection *)properties
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Properties"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Properties");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_properties isEqualToMonoObject:monoObject]) return _properties;					
 		_properties = [System_ComponentModel_PropertyDescriptorCollection bestObjectWithMonoObject:monoObject];
 
@@ -60,7 +80,7 @@
     - (void)addSerializationProvider_withProvider:(id <System_ComponentModel_Design_Serialization_IDesignerSerializationProvider_>)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerSerializationManager.AddSerializationProvider(System.ComponentModel.Design.Serialization.IDesignerSerializationProvider)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerSerializationManager.AddSerializationProvider(System.ComponentModel.Design.Serialization.IDesignerSerializationProvider)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -70,7 +90,7 @@
     - (System_Object *)createInstance_withType:(System_Type *)p1 arguments:(id <System_Collections_ICollection_>)p2 name:(NSString *)p3 addToContainer:(BOOL)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerSerializationManager.CreateInstance(System.Type,System.Collections.ICollection,string,bool)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerSerializationManager.CreateInstance(System.Type,System.Collections.ICollection,string,bool)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -81,7 +101,7 @@
     - (System_Object *)getInstance_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetInstance(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetInstance(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -92,7 +112,7 @@
     - (NSString *)getName_withValue:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetName(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetName(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -103,7 +123,7 @@
     - (System_Object *)getSerializer_withObjectType:(System_Type *)p1 serializerType:(System_Type *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer(System.Type,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer(System.Type,System.Type)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -114,7 +134,7 @@
     - (System_Type *)getType_withTypeName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetType(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetType(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Type bestObjectWithMonoObject:monoObject];
     }
@@ -125,7 +145,7 @@
     - (void)removeSerializationProvider_withProvider:(id <System_ComponentModel_Design_Serialization_IDesignerSerializationProvider_>)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerSerializationManager.RemoveSerializationProvider(System.ComponentModel.Design.Serialization.IDesignerSerializationProvider)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerSerializationManager.RemoveSerializationProvider(System.ComponentModel.Design.Serialization.IDesignerSerializationProvider)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -135,7 +155,7 @@
     - (void)reportError_withErrorInformation:(System_Object *)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerSerializationManager.ReportError(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerSerializationManager.ReportError(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -145,7 +165,7 @@
     - (void)setName_withInstance:(System_Object *)p1 name:(NSString *)p2
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerSerializationManager.SetName(object,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerSerializationManager.SetName(object,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 

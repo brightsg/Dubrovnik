@@ -32,8 +32,18 @@
     @synthesize cancellationPending = _cancellationPending;
     - (BOOL)cancellationPending
     {
-		MonoObject *monoObject = [self getMonoProperty:"CancellationPending"];
-		_cancellationPending = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CancellationPending");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_cancellationPending = monoObject;
 
 		return _cancellationPending;
 	}
@@ -43,8 +53,18 @@
     @synthesize isBusy = _isBusy;
     - (BOOL)isBusy
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsBusy"];
-		_isBusy = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsBusy");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isBusy = monoObject;
 
 		return _isBusy;
 	}
@@ -54,16 +74,35 @@
     @synthesize workerReportsProgress = _workerReportsProgress;
     - (BOOL)workerReportsProgress
     {
-		MonoObject *monoObject = [self getMonoProperty:"WorkerReportsProgress"];
-		_workerReportsProgress = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WorkerReportsProgress");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_workerReportsProgress = monoObject;
 
 		return _workerReportsProgress;
 	}
     - (void)setWorkerReportsProgress:(BOOL)value
 	{
 		_workerReportsProgress = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"WorkerReportsProgress" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "WorkerReportsProgress");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : WorkerSupportsCancellation
@@ -71,16 +110,35 @@
     @synthesize workerSupportsCancellation = _workerSupportsCancellation;
     - (BOOL)workerSupportsCancellation
     {
-		MonoObject *monoObject = [self getMonoProperty:"WorkerSupportsCancellation"];
-		_workerSupportsCancellation = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WorkerSupportsCancellation");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_workerSupportsCancellation = monoObject;
 
 		return _workerSupportsCancellation;
 	}
     - (void)setWorkerSupportsCancellation:(BOOL)value
 	{
 		_workerSupportsCancellation = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"WorkerSupportsCancellation" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "WorkerSupportsCancellation");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -92,7 +150,7 @@
     - (void)cancelAsync
     {
 		
-		[self invokeMonoMethod:"CancelAsync()" withNumArgs:0];;
+		[self invokeMonoMethod:"CancelAsync()" withNumArgs:0];
         
     }
 
@@ -102,7 +160,7 @@
     - (void)reportProgress_withPercentProgress:(int32_t)p1
     {
 		
-		[self invokeMonoMethod:"ReportProgress(int)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"ReportProgress(int)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -112,7 +170,7 @@
     - (void)reportProgress_withPercentProgress:(int32_t)p1 userState:(System_Object *)p2
     {
 		
-		[self invokeMonoMethod:"ReportProgress(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoMethod:"ReportProgress(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
     }
 
@@ -122,7 +180,7 @@
     - (void)runWorkerAsync
     {
 		
-		[self invokeMonoMethod:"RunWorkerAsync()" withNumArgs:0];;
+		[self invokeMonoMethod:"RunWorkerAsync()" withNumArgs:0];
         
     }
 
@@ -132,7 +190,7 @@
     - (void)runWorkerAsync_withArgument:(System_Object *)p1
     {
 		
-		[self invokeMonoMethod:"RunWorkerAsync(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"RunWorkerAsync(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

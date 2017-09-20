@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Mail.SmtpPermissionAttribute
 	// Managed param types : System.Security.Permissions.SecurityAction
-    + (System_Net_Mail_SmtpPermissionAttribute *)new_withAction:(System_Security_Permissions_SecurityAction)p1;
+    + (System_Net_Mail_SmtpPermissionAttribute *)new_withAction:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties

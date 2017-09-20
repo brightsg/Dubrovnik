@@ -36,7 +36,7 @@
 
 	// Managed property name : SerializationVisibility
 	// Managed property type : System.ComponentModel.DesignerSerializationVisibility
-    @property (nonatomic, readonly) System_ComponentModel_DesignerSerializationVisibility serializationVisibility;
+    @property (nonatomic, readonly) int32_t serializationVisibility;
 
 	// Managed property name : SupportsChangeEvents
 	// Managed property type : System.Boolean

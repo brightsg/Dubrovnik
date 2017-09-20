@@ -33,7 +33,7 @@
     + (System_Net_Authorization *)new_withToken:(NSString *)p1
     {
 		
-		System_Net_Authorization * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_Net_Authorization * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Net_Authorization *)new_withToken:(NSString *)p1 finished:(BOOL)p2
     {
 		
-		System_Net_Authorization * object = [[self alloc] initWithSignature:"string,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Net_Authorization * object = [[self alloc] initWithSignature:"string,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Net_Authorization *)new_withToken:(NSString *)p1 finished:(BOOL)p2 connectionGroupId:(NSString *)p3
     {
 		
-		System_Net_Authorization * object = [[self alloc] initWithSignature:"string,bool,string" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];;
+		System_Net_Authorization * object = [[self alloc] initWithSignature:"string,bool,string" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -68,8 +68,18 @@
     @synthesize complete = _complete;
     - (BOOL)complete
     {
-		MonoObject *monoObject = [self getMonoProperty:"Complete"];
-		_complete = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Complete");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_complete = monoObject;
 
 		return _complete;
 	}
@@ -79,7 +89,17 @@
     @synthesize connectionGroupId = _connectionGroupId;
     - (NSString *)connectionGroupId
     {
-		MonoObject *monoObject = [self getMonoProperty:"ConnectionGroupId"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ConnectionGroupId");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_connectionGroupId isEqualToMonoObject:monoObject]) return _connectionGroupId;					
 		_connectionGroupId = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -91,7 +111,17 @@
     @synthesize message = _message;
     - (NSString *)message
     {
-		MonoObject *monoObject = [self getMonoProperty:"Message"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Message");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_message isEqualToMonoObject:monoObject]) return _message;					
 		_message = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -103,16 +133,35 @@
     @synthesize mutuallyAuthenticated = _mutuallyAuthenticated;
     - (BOOL)mutuallyAuthenticated
     {
-		MonoObject *monoObject = [self getMonoProperty:"MutuallyAuthenticated"];
-		_mutuallyAuthenticated = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MutuallyAuthenticated");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_mutuallyAuthenticated = monoObject;
 
 		return _mutuallyAuthenticated;
 	}
     - (void)setMutuallyAuthenticated:(BOOL)value
 	{
 		_mutuallyAuthenticated = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"MutuallyAuthenticated" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "MutuallyAuthenticated");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ProtectionRealm
@@ -120,7 +169,17 @@
     @synthesize protectionRealm = _protectionRealm;
     - (DBSystem_Array *)protectionRealm
     {
-		MonoObject *monoObject = [self getMonoProperty:"ProtectionRealm"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ProtectionRealm");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_protectionRealm isEqualToMonoObject:monoObject]) return _protectionRealm;					
 		_protectionRealm = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -129,8 +188,17 @@
     - (void)setProtectionRealm:(DBSystem_Array *)value
 	{
 		_protectionRealm = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"ProtectionRealm" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ProtectionRealm");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

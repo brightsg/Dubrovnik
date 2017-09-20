@@ -33,7 +33,7 @@
     - (void)addInheritedComponents_withComponent:(id <System_ComponentModel_IComponent_>)p1 container:(id <System_ComponentModel_IContainer_>)p2
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IInheritanceService.AddInheritedComponents(System.ComponentModel.IComponent,System.ComponentModel.IContainer)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IInheritanceService.AddInheritedComponents(System.ComponentModel.IComponent,System.ComponentModel.IContainer)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -43,7 +43,7 @@
     - (System_ComponentModel_InheritanceAttribute *)getInheritanceAttribute_withComponent:(id <System_ComponentModel_IComponent_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IInheritanceService.GetInheritanceAttribute(System.ComponentModel.IComponent)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IInheritanceService.GetInheritanceAttribute(System.ComponentModel.IComponent)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_InheritanceAttribute bestObjectWithMonoObject:monoObject];
     }

@@ -30,14 +30,14 @@
 	// Managed field name : advf
 	// Managed field type : System.Runtime.InteropServices.ComTypes.ADVF
     @synthesize advf = _advf;
-    - (System_Runtime_InteropServices_ComTypes_ADVF)advf
+    - (int32_t)advf
     {
 		MonoObject *monoObject = [self getMonoField:"advf"];
 		_advf = DB_UNBOX_INT32(monoObject);
 
 		return _advf;
 	}
-    - (void)setAdvf:(System_Runtime_InteropServices_ComTypes_ADVF)value
+    - (void)setAdvf:(int32_t)value
 	{
 		_advf = value;
 		MonoObject *monoObject = DB_VALUE(value);

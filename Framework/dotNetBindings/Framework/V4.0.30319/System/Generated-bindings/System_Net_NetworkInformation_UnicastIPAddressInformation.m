@@ -32,8 +32,18 @@
     @synthesize addressPreferredLifetime = _addressPreferredLifetime;
     - (int64_t)addressPreferredLifetime
     {
-		MonoObject *monoObject = [self getMonoProperty:"AddressPreferredLifetime"];
-		_addressPreferredLifetime = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AddressPreferredLifetime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_addressPreferredLifetime = monoObject;
 
 		return _addressPreferredLifetime;
 	}
@@ -43,8 +53,18 @@
     @synthesize addressValidLifetime = _addressValidLifetime;
     - (int64_t)addressValidLifetime
     {
-		MonoObject *monoObject = [self getMonoProperty:"AddressValidLifetime"];
-		_addressValidLifetime = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AddressValidLifetime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_addressValidLifetime = monoObject;
 
 		return _addressValidLifetime;
 	}
@@ -54,8 +74,18 @@
     @synthesize dhcpLeaseLifetime = _dhcpLeaseLifetime;
     - (int64_t)dhcpLeaseLifetime
     {
-		MonoObject *monoObject = [self getMonoProperty:"DhcpLeaseLifetime"];
-		_dhcpLeaseLifetime = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DhcpLeaseLifetime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_dhcpLeaseLifetime = monoObject;
 
 		return _dhcpLeaseLifetime;
 	}
@@ -63,10 +93,20 @@
 	// Managed property name : DuplicateAddressDetectionState
 	// Managed property type : System.Net.NetworkInformation.DuplicateAddressDetectionState
     @synthesize duplicateAddressDetectionState = _duplicateAddressDetectionState;
-    - (System_Net_NetworkInformation_DuplicateAddressDetectionState)duplicateAddressDetectionState
+    - (int32_t)duplicateAddressDetectionState
     {
-		MonoObject *monoObject = [self getMonoProperty:"DuplicateAddressDetectionState"];
-		_duplicateAddressDetectionState = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DuplicateAddressDetectionState");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_duplicateAddressDetectionState = monoObject;
 
 		return _duplicateAddressDetectionState;
 	}
@@ -76,7 +116,17 @@
     @synthesize iPv4Mask = _iPv4Mask;
     - (System_Net_IPAddress *)iPv4Mask
     {
-		MonoObject *monoObject = [self getMonoProperty:"IPv4Mask"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IPv4Mask");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_iPv4Mask isEqualToMonoObject:monoObject]) return _iPv4Mask;					
 		_iPv4Mask = [System_Net_IPAddress bestObjectWithMonoObject:monoObject];
 
@@ -88,8 +138,18 @@
     @synthesize prefixLength = _prefixLength;
     - (int32_t)prefixLength
     {
-		MonoObject *monoObject = [self getMonoProperty:"PrefixLength"];
-		_prefixLength = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PrefixLength");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_prefixLength = monoObject;
 
 		return _prefixLength;
 	}
@@ -97,10 +157,20 @@
 	// Managed property name : PrefixOrigin
 	// Managed property type : System.Net.NetworkInformation.PrefixOrigin
     @synthesize prefixOrigin = _prefixOrigin;
-    - (System_Net_NetworkInformation_PrefixOrigin)prefixOrigin
+    - (int32_t)prefixOrigin
     {
-		MonoObject *monoObject = [self getMonoProperty:"PrefixOrigin"];
-		_prefixOrigin = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PrefixOrigin");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_prefixOrigin = monoObject;
 
 		return _prefixOrigin;
 	}
@@ -108,10 +178,20 @@
 	// Managed property name : SuffixOrigin
 	// Managed property type : System.Net.NetworkInformation.SuffixOrigin
     @synthesize suffixOrigin = _suffixOrigin;
-    - (System_Net_NetworkInformation_SuffixOrigin)suffixOrigin
+    - (int32_t)suffixOrigin
     {
-		MonoObject *monoObject = [self getMonoProperty:"SuffixOrigin"];
-		_suffixOrigin = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SuffixOrigin");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_suffixOrigin = monoObject;
 
 		return _suffixOrigin;
 	}

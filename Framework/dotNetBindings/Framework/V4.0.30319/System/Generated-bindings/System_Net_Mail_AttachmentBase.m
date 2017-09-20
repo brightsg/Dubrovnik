@@ -32,7 +32,17 @@
     @synthesize contentId = _contentId;
     - (NSString *)contentId
     {
-		MonoObject *monoObject = [self getMonoProperty:"ContentId"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ContentId");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_contentId isEqualToMonoObject:monoObject]) return _contentId;					
 		_contentId = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -41,8 +51,17 @@
     - (void)setContentId:(NSString *)value
 	{
 		_contentId = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"ContentId" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ContentId");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ContentStream
@@ -50,7 +69,17 @@
     @synthesize contentStream = _contentStream;
     - (System_IO_Stream *)contentStream
     {
-		MonoObject *monoObject = [self getMonoProperty:"ContentStream"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ContentStream");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_contentStream isEqualToMonoObject:monoObject]) return _contentStream;					
 		_contentStream = [System_IO_Stream bestObjectWithMonoObject:monoObject];
 
@@ -62,7 +91,17 @@
     @synthesize contentType = _contentType;
     - (System_Net_Mime_ContentType *)contentType
     {
-		MonoObject *monoObject = [self getMonoProperty:"ContentType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ContentType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_contentType isEqualToMonoObject:monoObject]) return _contentType;					
 		_contentType = [System_Net_Mime_ContentType bestObjectWithMonoObject:monoObject];
 
@@ -71,25 +110,53 @@
     - (void)setContentType:(System_Net_Mime_ContentType *)value
 	{
 		_contentType = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"ContentType" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ContentType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : TransferEncoding
 	// Managed property type : System.Net.Mime.TransferEncoding
     @synthesize transferEncoding = _transferEncoding;
-    - (System_Net_Mime_TransferEncoding)transferEncoding
+    - (int32_t)transferEncoding
     {
-		MonoObject *monoObject = [self getMonoProperty:"TransferEncoding"];
-		_transferEncoding = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TransferEncoding");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_transferEncoding = monoObject;
 
 		return _transferEncoding;
 	}
-    - (void)setTransferEncoding:(System_Net_Mime_TransferEncoding)value
+    - (void)setTransferEncoding:(int32_t)value
 	{
 		_transferEncoding = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"TransferEncoding" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "TransferEncoding");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -101,7 +168,7 @@
     - (void)dispose
     {
 		
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
         
     }
 

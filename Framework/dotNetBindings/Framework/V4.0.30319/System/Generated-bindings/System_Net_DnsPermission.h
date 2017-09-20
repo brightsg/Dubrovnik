@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.DnsPermission
 	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Net_DnsPermission *)new_withState:(System_Security_Permissions_PermissionState)p1;
+    + (System_Net_DnsPermission *)new_withState:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Methods

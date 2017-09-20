@@ -33,7 +33,7 @@
     + (System_CodeDom_CodeTryCatchFinallyStatement *)new_withTryStatements:(DBSystem_Array *)p1 catchClauses:(DBSystem_Array *)p2
     {
 		
-		System_CodeDom_CodeTryCatchFinallyStatement * object = [[self alloc] initWithSignature:"System.CodeDom.CodeStatement[],System.CodeDom.CodeCatchClause[]" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_CodeDom_CodeTryCatchFinallyStatement * object = [[self alloc] initWithSignature:"System.CodeDom.CodeStatement[],System.CodeDom.CodeCatchClause[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_CodeDom_CodeTryCatchFinallyStatement *)new_withTryStatements:(DBSystem_Array *)p1 catchClauses:(DBSystem_Array *)p2 finallyStatements:(DBSystem_Array *)p3
     {
 		
-		System_CodeDom_CodeTryCatchFinallyStatement * object = [[self alloc] initWithSignature:"System.CodeDom.CodeStatement[],System.CodeDom.CodeCatchClause[],System.CodeDom.CodeStatement[]" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		System_CodeDom_CodeTryCatchFinallyStatement * object = [[self alloc] initWithSignature:"System.CodeDom.CodeStatement[],System.CodeDom.CodeCatchClause[],System.CodeDom.CodeStatement[]" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -57,7 +57,17 @@
     @synthesize catchClauses = _catchClauses;
     - (System_CodeDom_CodeCatchClauseCollection *)catchClauses
     {
-		MonoObject *monoObject = [self getMonoProperty:"CatchClauses"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CatchClauses");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_catchClauses isEqualToMonoObject:monoObject]) return _catchClauses;					
 		_catchClauses = [System_CodeDom_CodeCatchClauseCollection bestObjectWithMonoObject:monoObject];
 
@@ -69,7 +79,17 @@
     @synthesize finallyStatements = _finallyStatements;
     - (System_CodeDom_CodeStatementCollection *)finallyStatements
     {
-		MonoObject *monoObject = [self getMonoProperty:"FinallyStatements"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FinallyStatements");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_finallyStatements isEqualToMonoObject:monoObject]) return _finallyStatements;					
 		_finallyStatements = [System_CodeDom_CodeStatementCollection bestObjectWithMonoObject:monoObject];
 
@@ -81,7 +101,17 @@
     @synthesize tryStatements = _tryStatements;
     - (System_CodeDom_CodeStatementCollection *)tryStatements
     {
-		MonoObject *monoObject = [self getMonoProperty:"TryStatements"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TryStatements");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_tryStatements isEqualToMonoObject:monoObject]) return _tryStatements;					
 		_tryStatements = [System_CodeDom_CodeStatementCollection bestObjectWithMonoObject:monoObject];
 

@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Concurrent.BlockingCollection`1<System.Collections.Concurrent.BlockingCollection`1+T>";
+		return "System.Collections.Concurrent.BlockingCollection`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -33,7 +33,7 @@
     + (System_Collections_Concurrent_BlockingCollectionA1 *)new_withBoundedCapacity:(int32_t)p1
     {
 		
-		System_Collections_Concurrent_BlockingCollectionA1 * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		System_Collections_Concurrent_BlockingCollectionA1 * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Collections_Concurrent_BlockingCollectionA1 *)new_withCollection:(id <System_Collections_Concurrent_IProducerConsumerCollectionA1_>)p1 boundedCapacity:(int32_t)p2
     {
 		
-		System_Collections_Concurrent_BlockingCollectionA1 * object = [[self alloc] initWithSignature:"System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.BlockingCollection`1+T>,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Collections_Concurrent_BlockingCollectionA1 * object = [[self alloc] initWithSignature:"System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.BlockingCollection`1+T>,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Collections_Concurrent_BlockingCollectionA1 *)new_withCollection:(id <System_Collections_Concurrent_IProducerConsumerCollectionA1_>)p1
     {
 		
-		System_Collections_Concurrent_BlockingCollectionA1 * object = [[self alloc] initWithSignature:"System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.BlockingCollection`1+T>" withNumArgs:1, [p1 monoValue]];;
+		System_Collections_Concurrent_BlockingCollectionA1 * object = [[self alloc] initWithSignature:"System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.BlockingCollection`1+T>" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -68,8 +68,18 @@
     @synthesize boundedCapacity = _boundedCapacity;
     - (int32_t)boundedCapacity
     {
-		MonoObject *monoObject = [self getMonoProperty:"BoundedCapacity"];
-		_boundedCapacity = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BoundedCapacity");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_boundedCapacity = monoObject;
 
 		return _boundedCapacity;
 	}
@@ -79,8 +89,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -90,8 +110,18 @@
     @synthesize isAddingCompleted = _isAddingCompleted;
     - (BOOL)isAddingCompleted
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsAddingCompleted"];
-		_isAddingCompleted = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsAddingCompleted");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isAddingCompleted = monoObject;
 
 		return _isAddingCompleted;
 	}
@@ -101,8 +131,18 @@
     @synthesize isCompleted = _isCompleted;
     - (BOOL)isCompleted
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsCompleted"];
-		_isCompleted = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsCompleted");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isCompleted = monoObject;
 
 		return _isCompleted;
 	}
@@ -116,7 +156,7 @@
     - (void)add_withItem:(System_Object *)p1
     {
 		
-		[self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -126,7 +166,7 @@
     - (void)add_withItem:(System_Object *)p1 cancellationToken:(System_Threading_CancellationToken *)p2
     {
 		
-		[self invokeMonoMethod:"Add(<_T_0>,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"Add(<_T_0>,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -136,7 +176,7 @@
     + (int32_t)addToAny_withCollections:(DBSystem_Array *)p1 item:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"AddToAny(System.Collections.Concurrent.BlockingCollection`1[],<_T_0>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"AddToAny(System.Collections.Concurrent.BlockingCollection`1[],<_T_0>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -147,7 +187,7 @@
     + (int32_t)addToAny_withCollections:(DBSystem_Array *)p1 item:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"AddToAny(System.Collections.Concurrent.BlockingCollection`1[],<_T_0>,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"AddToAny(System.Collections.Concurrent.BlockingCollection`1[],<_T_0>,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -158,7 +198,7 @@
     - (void)completeAdding
     {
 		
-		[self invokeMonoMethod:"CompleteAdding()" withNumArgs:0];;
+		[self invokeMonoMethod:"CompleteAdding()" withNumArgs:0];
         
     }
 
@@ -168,7 +208,7 @@
     - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
 		
-		[self invokeMonoMethod:"CopyTo(T[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
     }
 
@@ -178,7 +218,7 @@
     - (void)dispose
     {
 		
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
         
     }
 
@@ -199,7 +239,7 @@
     - (id <System_Collections_Generic_IEnumerableA1>)getConsumingEnumerable_withCancellationToken:(System_Threading_CancellationToken *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetConsumingEnumerable(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetConsumingEnumerable(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
     }
@@ -221,7 +261,7 @@
     - (System_Object *)take_withCancellationToken:(System_Threading_CancellationToken *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Take(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Take(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object bestObjectWithMonoObject:monoObject];
     }
@@ -231,9 +271,9 @@
 	// Managed param types : System.Collections.Concurrent.BlockingCollection`1[], ref T&
     + (int32_t)takeFromAny_withCollections:(DBSystem_Array *)p1 itemRef:(System_Collections_Concurrent_BlockingCollectionA1__T **)p2
     {
-		void *refPtr2 = [*p2 monoValue];
+		void *refPtr2 = [*p2 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TakeFromAny(System.Collections.Concurrent.BlockingCollection`1[],System.Collections.Concurrent.BlockingCollection`1+T&)" withNumArgs:2, [p1 monoValue], &refPtr2];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TakeFromAny(System.Collections.Concurrent.BlockingCollection`1[],System.Collections.Concurrent.BlockingCollection`1+T&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 
 		*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 
@@ -245,9 +285,9 @@
 	// Managed param types : System.Collections.Concurrent.BlockingCollection`1[], ref T&, System.Threading.CancellationToken
     + (int32_t)takeFromAny_withCollections:(DBSystem_Array *)p1 itemRef:(System_Collections_Concurrent_BlockingCollectionA1__T **)p2 cancellationToken:(System_Threading_CancellationToken *)p3
     {
-		void *refPtr2 = [*p2 monoValue];
+		void *refPtr2 = [*p2 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TakeFromAny(System.Collections.Concurrent.BlockingCollection`1[],System.Collections.Concurrent.BlockingCollection`1+T&,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoValue], &refPtr2, [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TakeFromAny(System.Collections.Concurrent.BlockingCollection`1[],System.Collections.Concurrent.BlockingCollection`1+T&,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoRTInvokeArg], &refPtr2, [p3 monoRTInvokeArg]];
 
 		*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 
@@ -271,7 +311,7 @@
     - (BOOL)tryAdd_withItem:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"TryAdd(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"TryAdd(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -282,7 +322,7 @@
     - (BOOL)tryAdd_withItem:(System_Object *)p1 timeout:(System_TimeSpan *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"TryAdd(<_T_0>,System.TimeSpan)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"TryAdd(<_T_0>,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -293,7 +333,7 @@
     - (BOOL)tryAdd_withItem:(System_Object *)p1 millisecondsTimeout:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"TryAdd(<_T_0>,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"TryAdd(<_T_0>,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -304,7 +344,7 @@
     - (BOOL)tryAdd_withItem:(System_Object *)p1 millisecondsTimeout:(int32_t)p2 cancellationToken:(System_Threading_CancellationToken *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"TryAdd(<_T_0>,int,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"TryAdd(<_T_0>,int,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -315,7 +355,7 @@
     + (int32_t)tryAddToAny_withCollections:(DBSystem_Array *)p1 item:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TryAddToAny(System.Collections.Concurrent.BlockingCollection`1[],<_T_0>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryAddToAny(System.Collections.Concurrent.BlockingCollection`1[],<_T_0>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -326,7 +366,7 @@
     + (int32_t)tryAddToAny_withCollections:(DBSystem_Array *)p1 item:(System_Object *)p2 timeout:(System_TimeSpan *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TryAddToAny(System.Collections.Concurrent.BlockingCollection`1[],<_T_0>,System.TimeSpan)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryAddToAny(System.Collections.Concurrent.BlockingCollection`1[],<_T_0>,System.TimeSpan)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -337,7 +377,7 @@
     + (int32_t)tryAddToAny_withCollections:(DBSystem_Array *)p1 item:(System_Object *)p2 millisecondsTimeout:(int32_t)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TryAddToAny(System.Collections.Concurrent.BlockingCollection`1[],<_T_0>,int)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryAddToAny(System.Collections.Concurrent.BlockingCollection`1[],<_T_0>,int)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -348,7 +388,7 @@
     + (int32_t)tryAddToAny_withCollections:(DBSystem_Array *)p1 item:(System_Object *)p2 millisecondsTimeout:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TryAddToAny(System.Collections.Concurrent.BlockingCollection`1[],<_T_0>,int,System.Threading.CancellationToken)" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryAddToAny(System.Collections.Concurrent.BlockingCollection`1[],<_T_0>,int,System.Threading.CancellationToken)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), [p4 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -358,7 +398,7 @@
 	// Managed param types : ref T&
     - (BOOL)tryTake_withItemRef:(System_Collections_Concurrent_BlockingCollectionA1__T **)p1
     {
-		void *refPtr1 = [*p1 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoMethod:"TryTake(System.Collections.Concurrent.BlockingCollection`1+T&)" withNumArgs:1, &refPtr1];
 
@@ -372,9 +412,9 @@
 	// Managed param types : ref T&, System.TimeSpan
     - (BOOL)tryTake_withItemRef:(System_Collections_Concurrent_BlockingCollectionA1__T **)p1 timeout:(System_TimeSpan *)p2
     {
-		void *refPtr1 = [*p1 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoMethod:"TryTake(System.Collections.Concurrent.BlockingCollection`1+T&,System.TimeSpan)" withNumArgs:2, &refPtr1, [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"TryTake(System.Collections.Concurrent.BlockingCollection`1+T&,System.TimeSpan)" withNumArgs:2, &refPtr1, [p2 monoRTInvokeArg]];
 
 		*p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 
@@ -386,7 +426,7 @@
 	// Managed param types : ref T&, System.Int32
     - (BOOL)tryTake_withItemRef:(System_Collections_Concurrent_BlockingCollectionA1__T **)p1 millisecondsTimeout:(int32_t)p2
     {
-		void *refPtr1 = [*p1 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoMethod:"TryTake(System.Collections.Concurrent.BlockingCollection`1+T&,int)" withNumArgs:2, &refPtr1, DB_VALUE(p2)];
 
@@ -400,9 +440,9 @@
 	// Managed param types : ref T&, System.Int32, System.Threading.CancellationToken
     - (BOOL)tryTake_withItemRef:(System_Collections_Concurrent_BlockingCollectionA1__T **)p1 millisecondsTimeout:(int32_t)p2 cancellationToken:(System_Threading_CancellationToken *)p3
     {
-		void *refPtr1 = [*p1 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoMethod:"TryTake(System.Collections.Concurrent.BlockingCollection`1+T&,int,System.Threading.CancellationToken)" withNumArgs:3, &refPtr1, DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"TryTake(System.Collections.Concurrent.BlockingCollection`1+T&,int,System.Threading.CancellationToken)" withNumArgs:3, &refPtr1, DB_VALUE(p2), [p3 monoRTInvokeArg]];
 
 		*p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 
@@ -411,12 +451,26 @@
 
 	// Managed method name : TryTakeFromAny
 	// Managed return type : System.Int32
+	// Managed param types : System.Collections.Concurrent.BlockingCollection`1[], ref T&, System.Int32
+    + (int32_t)tryTakeFromAny_withCollections:(DBSystem_Array *)p1 itemRef:(System_Collections_Concurrent_BlockingCollectionA1__T **)p2 millisecondsTimeout:(int32_t)p3
+    {
+		void *refPtr2 = [*p2 monoRTInvokeArg];
+
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryTakeFromAny(System.Collections.Concurrent.BlockingCollection`1[],System.Collections.Concurrent.BlockingCollection`1+T&,int)" withNumArgs:3, [p1 monoRTInvokeArg], &refPtr2, DB_VALUE(p3)];
+
+		*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+
+		return DB_UNBOX_INT32(monoObject);
+    }
+
+	// Managed method name : TryTakeFromAny
+	// Managed return type : System.Int32
 	// Managed param types : System.Collections.Concurrent.BlockingCollection`1[], ref T&
     + (int32_t)tryTakeFromAny_withCollections:(DBSystem_Array *)p1 itemRef:(System_Collections_Concurrent_BlockingCollectionA1__T **)p2
     {
-		void *refPtr2 = [*p2 monoValue];
+		void *refPtr2 = [*p2 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TryTakeFromAny(System.Collections.Concurrent.BlockingCollection`1[],System.Collections.Concurrent.BlockingCollection`1+T&)" withNumArgs:2, [p1 monoValue], &refPtr2];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryTakeFromAny(System.Collections.Concurrent.BlockingCollection`1[],System.Collections.Concurrent.BlockingCollection`1+T&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 
 		*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 
@@ -428,23 +482,9 @@
 	// Managed param types : System.Collections.Concurrent.BlockingCollection`1[], ref T&, System.TimeSpan
     + (int32_t)tryTakeFromAny_withCollections:(DBSystem_Array *)p1 itemRef:(System_Collections_Concurrent_BlockingCollectionA1__T **)p2 timeout:(System_TimeSpan *)p3
     {
-		void *refPtr2 = [*p2 monoValue];
+		void *refPtr2 = [*p2 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TryTakeFromAny(System.Collections.Concurrent.BlockingCollection`1[],System.Collections.Concurrent.BlockingCollection`1+T&,System.TimeSpan)" withNumArgs:3, [p1 monoValue], &refPtr2, [p3 monoValue]];
-
-		*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
-
-		return DB_UNBOX_INT32(monoObject);
-    }
-
-	// Managed method name : TryTakeFromAny
-	// Managed return type : System.Int32
-	// Managed param types : System.Collections.Concurrent.BlockingCollection`1[], ref T&, System.Int32
-    + (int32_t)tryTakeFromAny_withCollections:(DBSystem_Array *)p1 itemRef:(System_Collections_Concurrent_BlockingCollectionA1__T **)p2 millisecondsTimeout:(int32_t)p3
-    {
-		void *refPtr2 = [*p2 monoValue];
-
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TryTakeFromAny(System.Collections.Concurrent.BlockingCollection`1[],System.Collections.Concurrent.BlockingCollection`1+T&,int)" withNumArgs:3, [p1 monoValue], &refPtr2, DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryTakeFromAny(System.Collections.Concurrent.BlockingCollection`1[],System.Collections.Concurrent.BlockingCollection`1+T&,System.TimeSpan)" withNumArgs:3, [p1 monoRTInvokeArg], &refPtr2, [p3 monoRTInvokeArg]];
 
 		*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 
@@ -456,9 +496,9 @@
 	// Managed param types : System.Collections.Concurrent.BlockingCollection`1[], ref T&, System.Int32, System.Threading.CancellationToken
     + (int32_t)tryTakeFromAny_withCollections:(DBSystem_Array *)p1 itemRef:(System_Collections_Concurrent_BlockingCollectionA1__T **)p2 millisecondsTimeout:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4
     {
-		void *refPtr2 = [*p2 monoValue];
+		void *refPtr2 = [*p2 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TryTakeFromAny(System.Collections.Concurrent.BlockingCollection`1[],System.Collections.Concurrent.BlockingCollection`1+T&,int,System.Threading.CancellationToken)" withNumArgs:4, [p1 monoValue], &refPtr2, DB_VALUE(p3), [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryTakeFromAny(System.Collections.Concurrent.BlockingCollection`1[],System.Collections.Concurrent.BlockingCollection`1+T&,int,System.Threading.CancellationToken)" withNumArgs:4, [p1 monoRTInvokeArg], &refPtr2, DB_VALUE(p3), [p4 monoRTInvokeArg]];
 
 		*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 

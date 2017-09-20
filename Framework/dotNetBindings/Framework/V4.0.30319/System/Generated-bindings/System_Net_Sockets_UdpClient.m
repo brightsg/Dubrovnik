@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Sockets.UdpClient
 	// Managed param types : System.Net.Sockets.AddressFamily
-    + (System_Net_Sockets_UdpClient *)new_withFamily:(System_Net_Sockets_AddressFamily)p1
+    + (System_Net_Sockets_UdpClient *)new_withFamily:(int32_t)p1
     {
 		
-		System_Net_Sockets_UdpClient * object = [[self alloc] initWithSignature:"System.Net.Sockets.AddressFamily" withNumArgs:1, DB_VALUE(p1)];;
+		System_Net_Sockets_UdpClient * object = [[self alloc] initWithSignature:"System.Net.Sockets.AddressFamily" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Net_Sockets_UdpClient *)new_withPort:(int32_t)p1
     {
 		
-		System_Net_Sockets_UdpClient * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		System_Net_Sockets_UdpClient * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -52,10 +52,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Sockets.UdpClient
 	// Managed param types : System.Int32, System.Net.Sockets.AddressFamily
-    + (System_Net_Sockets_UdpClient *)new_withPort:(int32_t)p1 family:(System_Net_Sockets_AddressFamily)p2
+    + (System_Net_Sockets_UdpClient *)new_withPort:(int32_t)p1 family:(int32_t)p2
     {
 		
-		System_Net_Sockets_UdpClient * object = [[self alloc] initWithSignature:"int,System.Net.Sockets.AddressFamily" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		System_Net_Sockets_UdpClient * object = [[self alloc] initWithSignature:"int,System.Net.Sockets.AddressFamily" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
         
         return object;
     }
@@ -66,7 +66,7 @@
     + (System_Net_Sockets_UdpClient *)new_withLocalEP:(System_Net_IPEndPoint *)p1
     {
 		
-		System_Net_Sockets_UdpClient * object = [[self alloc] initWithSignature:"System.Net.IPEndPoint" withNumArgs:1, [p1 monoValue]];;
+		System_Net_Sockets_UdpClient * object = [[self alloc] initWithSignature:"System.Net.IPEndPoint" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -77,7 +77,7 @@
     + (System_Net_Sockets_UdpClient *)new_withHostname:(NSString *)p1 port:(int32_t)p2
     {
 		
-		System_Net_Sockets_UdpClient * object = [[self alloc] initWithSignature:"string,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Net_Sockets_UdpClient * object = [[self alloc] initWithSignature:"string,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -90,8 +90,18 @@
     @synthesize available = _available;
     - (int32_t)available
     {
-		MonoObject *monoObject = [self getMonoProperty:"Available"];
-		_available = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Available");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_available = monoObject;
 
 		return _available;
 	}
@@ -101,7 +111,17 @@
     @synthesize client = _client;
     - (System_Net_Sockets_Socket *)client
     {
-		MonoObject *monoObject = [self getMonoProperty:"Client"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Client");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_client isEqualToMonoObject:monoObject]) return _client;					
 		_client = [System_Net_Sockets_Socket bestObjectWithMonoObject:monoObject];
 
@@ -110,8 +130,17 @@
     - (void)setClient:(System_Net_Sockets_Socket *)value
 	{
 		_client = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Client" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Client");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : DontFragment
@@ -119,16 +148,35 @@
     @synthesize dontFragment = _dontFragment;
     - (BOOL)dontFragment
     {
-		MonoObject *monoObject = [self getMonoProperty:"DontFragment"];
-		_dontFragment = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DontFragment");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_dontFragment = monoObject;
 
 		return _dontFragment;
 	}
     - (void)setDontFragment:(BOOL)value
 	{
 		_dontFragment = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"DontFragment" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "DontFragment");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : EnableBroadcast
@@ -136,16 +184,35 @@
     @synthesize enableBroadcast = _enableBroadcast;
     - (BOOL)enableBroadcast
     {
-		MonoObject *monoObject = [self getMonoProperty:"EnableBroadcast"];
-		_enableBroadcast = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EnableBroadcast");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_enableBroadcast = monoObject;
 
 		return _enableBroadcast;
 	}
     - (void)setEnableBroadcast:(BOOL)value
 	{
 		_enableBroadcast = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"EnableBroadcast" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "EnableBroadcast");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ExclusiveAddressUse
@@ -153,16 +220,35 @@
     @synthesize exclusiveAddressUse = _exclusiveAddressUse;
     - (BOOL)exclusiveAddressUse
     {
-		MonoObject *monoObject = [self getMonoProperty:"ExclusiveAddressUse"];
-		_exclusiveAddressUse = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ExclusiveAddressUse");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_exclusiveAddressUse = monoObject;
 
 		return _exclusiveAddressUse;
 	}
     - (void)setExclusiveAddressUse:(BOOL)value
 	{
 		_exclusiveAddressUse = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ExclusiveAddressUse" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ExclusiveAddressUse");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : MulticastLoopback
@@ -170,16 +256,35 @@
     @synthesize multicastLoopback = _multicastLoopback;
     - (BOOL)multicastLoopback
     {
-		MonoObject *monoObject = [self getMonoProperty:"MulticastLoopback"];
-		_multicastLoopback = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MulticastLoopback");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_multicastLoopback = monoObject;
 
 		return _multicastLoopback;
 	}
     - (void)setMulticastLoopback:(BOOL)value
 	{
 		_multicastLoopback = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"MulticastLoopback" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "MulticastLoopback");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Ttl
@@ -187,16 +292,35 @@
     @synthesize ttl = _ttl;
     - (int16_t)ttl
     {
-		MonoObject *monoObject = [self getMonoProperty:"Ttl"];
-		_ttl = DB_UNBOX_INT16(monoObject);
+		typedef int16_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Ttl");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int16_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_ttl = monoObject;
 
 		return _ttl;
 	}
     - (void)setTtl:(int16_t)value
 	{
 		_ttl = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Ttl" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int16_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Ttl");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -208,7 +332,7 @@
     - (void)allowNatTraversal_withAllowed:(BOOL)p1
     {
 		
-		[self invokeMonoMethod:"AllowNatTraversal(bool)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"AllowNatTraversal(bool)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -218,7 +342,7 @@
     - (id <System_IAsyncResult>)beginReceive_withRequestCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginReceive(System.AsyncCallback,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginReceive(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -229,7 +353,7 @@
     - (id <System_IAsyncResult>)beginSend_withDatagram:(NSData *)p1 bytes:(int32_t)p2 endPoint:(System_Net_IPEndPoint *)p3 requestCallback:(System_AsyncCallback *)p4 state:(System_Object *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginSend(byte[],int,System.Net.IPEndPoint,System.AsyncCallback,object)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginSend(byte[],int,System.Net.IPEndPoint,System.AsyncCallback,object)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -240,7 +364,7 @@
     - (id <System_IAsyncResult>)beginSend_withDatagram:(NSData *)p1 bytes:(int32_t)p2 hostname:(NSString *)p3 port:(int32_t)p4 requestCallback:(System_AsyncCallback *)p5 state:(System_Object *)p6
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginSend(byte[],int,string,int,System.AsyncCallback,object)" withNumArgs:6, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], DB_VALUE(p4), [p5 monoValue], [p6 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginSend(byte[],int,string,int,System.AsyncCallback,object)" withNumArgs:6, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], DB_VALUE(p4), [p5 monoRTInvokeArg], [p6 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -251,7 +375,7 @@
     - (id <System_IAsyncResult>)beginSend_withDatagram:(NSData *)p1 bytes:(int32_t)p2 requestCallback:(System_AsyncCallback *)p3 state:(System_Object *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginSend(byte[],int,System.AsyncCallback,object)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginSend(byte[],int,System.AsyncCallback,object)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -262,7 +386,7 @@
     - (void)close
     {
 		
-		[self invokeMonoMethod:"Close()" withNumArgs:0];;
+		[self invokeMonoMethod:"Close()" withNumArgs:0];
         
     }
 
@@ -272,7 +396,7 @@
     - (void)connect_withHostname:(NSString *)p1 port:(int32_t)p2
     {
 		
-		[self invokeMonoMethod:"Connect(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"Connect(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
     }
 
@@ -282,7 +406,7 @@
     - (void)connect_withAddr:(System_Net_IPAddress *)p1 port:(int32_t)p2
     {
 		
-		[self invokeMonoMethod:"Connect(System.Net.IPAddress,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"Connect(System.Net.IPAddress,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
     }
 
@@ -292,7 +416,7 @@
     - (void)connect_withEndPoint:(System_Net_IPEndPoint *)p1
     {
 		
-		[self invokeMonoMethod:"Connect(System.Net.IPEndPoint)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Connect(System.Net.IPEndPoint)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -302,7 +426,7 @@
     - (void)dispose
     {
 		
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
         
     }
 
@@ -312,7 +436,7 @@
     - (void)dropMulticastGroup_withMulticastAddr:(System_Net_IPAddress *)p1
     {
 		
-		[self invokeMonoMethod:"DropMulticastGroup(System.Net.IPAddress)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"DropMulticastGroup(System.Net.IPAddress)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -322,7 +446,7 @@
     - (void)dropMulticastGroup_withMulticastAddr:(System_Net_IPAddress *)p1 ifindex:(int32_t)p2
     {
 		
-		[self invokeMonoMethod:"DropMulticastGroup(System.Net.IPAddress,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"DropMulticastGroup(System.Net.IPAddress,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
     }
 
@@ -331,9 +455,9 @@
 	// Managed param types : System.IAsyncResult, ref System.Net.IPEndPoint&
     - (NSData *)endReceive_withAsyncResult:(id <System_IAsyncResult_>)p1 remoteEPRef:(System_Net_IPEndPoint **)p2
     {
-		void *refPtr2 = [*p2 monoValue];
+		void *refPtr2 = [*p2 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoMethod:"EndReceive(System.IAsyncResult,System.Net.IPEndPoint&)" withNumArgs:2, [p1 monoValue], &refPtr2];
+		MonoObject *monoObject = [self invokeMonoMethod:"EndReceive(System.IAsyncResult,System.Net.IPEndPoint&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 
 		*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 
@@ -346,7 +470,7 @@
     - (int32_t)endSend_withAsyncResult:(id <System_IAsyncResult_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"EndSend(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"EndSend(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -357,7 +481,7 @@
     - (void)joinMulticastGroup_withMulticastAddr:(System_Net_IPAddress *)p1
     {
 		
-		[self invokeMonoMethod:"JoinMulticastGroup(System.Net.IPAddress)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"JoinMulticastGroup(System.Net.IPAddress)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -367,7 +491,7 @@
     - (void)joinMulticastGroup_withMulticastAddr:(System_Net_IPAddress *)p1 localAddress:(System_Net_IPAddress *)p2
     {
 		
-		[self invokeMonoMethod:"JoinMulticastGroup(System.Net.IPAddress,System.Net.IPAddress)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"JoinMulticastGroup(System.Net.IPAddress,System.Net.IPAddress)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -377,7 +501,7 @@
     - (void)joinMulticastGroup_withIfindex:(int32_t)p1 multicastAddr:(System_Net_IPAddress *)p2
     {
 		
-		[self invokeMonoMethod:"JoinMulticastGroup(int,System.Net.IPAddress)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoMethod:"JoinMulticastGroup(int,System.Net.IPAddress)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
     }
 
@@ -387,7 +511,7 @@
     - (void)joinMulticastGroup_withMulticastAddr:(System_Net_IPAddress *)p1 timeToLive:(int32_t)p2
     {
 		
-		[self invokeMonoMethod:"JoinMulticastGroup(System.Net.IPAddress,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"JoinMulticastGroup(System.Net.IPAddress,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
     }
 
@@ -396,7 +520,7 @@
 	// Managed param types : ref System.Net.IPEndPoint&
     - (NSData *)receive_withRemoteEPRef:(System_Net_IPEndPoint **)p1
     {
-		void *refPtr1 = [*p1 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoMethod:"Receive(System.Net.IPEndPoint&)" withNumArgs:1, &refPtr1];
 
@@ -422,7 +546,7 @@
     - (int32_t)send_withDgram:(NSData *)p1 bytes:(int32_t)p2 endPoint:(System_Net_IPEndPoint *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Send(byte[],int,System.Net.IPEndPoint)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Send(byte[],int,System.Net.IPEndPoint)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -433,7 +557,7 @@
     - (int32_t)send_withDgram:(NSData *)p1 bytes:(int32_t)p2 hostname:(NSString *)p3 port:(int32_t)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Send(byte[],int,string,int)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], DB_VALUE(p4)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Send(byte[],int,string,int)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], DB_VALUE(p4)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -444,7 +568,7 @@
     - (int32_t)send_withDgram:(NSData *)p1 bytes:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Send(byte[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Send(byte[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -455,7 +579,7 @@
     - (System_Threading_Tasks_TaskA1 *)sendAsync_withDatagram:(NSData *)p1 bytes:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"SendAsync(byte[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"SendAsync(byte[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
@@ -466,7 +590,7 @@
     - (System_Threading_Tasks_TaskA1 *)sendAsync_withDatagram:(NSData *)p1 bytes:(int32_t)p2 endPoint:(System_Net_IPEndPoint *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"SendAsync(byte[],int,System.Net.IPEndPoint)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"SendAsync(byte[],int,System.Net.IPEndPoint)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
@@ -477,7 +601,7 @@
     - (System_Threading_Tasks_TaskA1 *)sendAsync_withDatagram:(NSData *)p1 bytes:(int32_t)p2 hostname:(NSString *)p3 port:(int32_t)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"SendAsync(byte[],int,string,int)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], DB_VALUE(p4)];
+		MonoObject *monoObject = [self invokeMonoMethod:"SendAsync(byte[],int,string,int)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], DB_VALUE(p4)];
 		
 		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }

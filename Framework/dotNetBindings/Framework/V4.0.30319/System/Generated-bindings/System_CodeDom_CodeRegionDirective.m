@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.CodeDom.CodeRegionDirective
 	// Managed param types : System.CodeDom.CodeRegionMode, System.String
-    + (System_CodeDom_CodeRegionDirective *)new_withRegionMode:(System_CodeDom_CodeRegionMode)p1 regionText:(NSString *)p2
+    + (System_CodeDom_CodeRegionDirective *)new_withRegionMode:(int32_t)p1 regionText:(NSString *)p2
     {
 		
-		System_CodeDom_CodeRegionDirective * object = [[self alloc] initWithSignature:"System.CodeDom.CodeRegionMode,string" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		System_CodeDom_CodeRegionDirective * object = [[self alloc] initWithSignature:"System.CodeDom.CodeRegionMode,string" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,18 +44,37 @@
 	// Managed property name : RegionMode
 	// Managed property type : System.CodeDom.CodeRegionMode
     @synthesize regionMode = _regionMode;
-    - (System_CodeDom_CodeRegionMode)regionMode
+    - (int32_t)regionMode
     {
-		MonoObject *monoObject = [self getMonoProperty:"RegionMode"];
-		_regionMode = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RegionMode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_regionMode = monoObject;
 
 		return _regionMode;
 	}
-    - (void)setRegionMode:(System_CodeDom_CodeRegionMode)value
+    - (void)setRegionMode:(int32_t)value
 	{
 		_regionMode = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"RegionMode" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "RegionMode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : RegionText
@@ -63,7 +82,17 @@
     @synthesize regionText = _regionText;
     - (NSString *)regionText
     {
-		MonoObject *monoObject = [self getMonoProperty:"RegionText"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RegionText");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_regionText isEqualToMonoObject:monoObject]) return _regionText;					
 		_regionText = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -72,8 +101,17 @@
     - (void)setRegionText:(NSString *)value
 	{
 		_regionText = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"RegionText" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "RegionText");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

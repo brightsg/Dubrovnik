@@ -33,7 +33,7 @@
     + (System_ComponentModel_EventDescriptorCollection *)new_withEvents:(DBSystem_Array *)p1
     {
 		
-		System_ComponentModel_EventDescriptorCollection * object = [[self alloc] initWithSignature:"System.ComponentModel.EventDescriptor[]" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_EventDescriptorCollection * object = [[self alloc] initWithSignature:"System.ComponentModel.EventDescriptor[]" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_ComponentModel_EventDescriptorCollection *)new_withEvents:(DBSystem_Array *)p1 readOnly:(BOOL)p2
     {
 		
-		System_ComponentModel_EventDescriptorCollection * object = [[self alloc] initWithSignature:"System.ComponentModel.EventDescriptor[],bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_ComponentModel_EventDescriptorCollection * object = [[self alloc] initWithSignature:"System.ComponentModel.EventDescriptor[],bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -72,8 +72,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -83,7 +93,17 @@
     @synthesize item = _item;
     - (System_ComponentModel_EventDescriptor *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
 		_item = [System_ComponentModel_EventDescriptor bestObjectWithMonoObject:monoObject];
 
@@ -95,7 +115,17 @@
     @synthesize item = _item;
     - (System_ComponentModel_EventDescriptor *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
 		_item = [System_ComponentModel_EventDescriptor bestObjectWithMonoObject:monoObject];
 
@@ -111,7 +141,7 @@
     - (int32_t)add_withValue:(System_ComponentModel_EventDescriptor *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Add(System.ComponentModel.EventDescriptor)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Add(System.ComponentModel.EventDescriptor)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -122,7 +152,7 @@
     - (void)clear
     {
 		
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];
         
     }
 
@@ -132,7 +162,7 @@
     - (BOOL)contains_withValue:(System_ComponentModel_EventDescriptor *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Contains(System.ComponentModel.EventDescriptor)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Contains(System.ComponentModel.EventDescriptor)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -143,7 +173,7 @@
     - (System_ComponentModel_EventDescriptor *)find_withName:(NSString *)p1 ignoreCase:(BOOL)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Find(string,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Find(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_ComponentModel_EventDescriptor bestObjectWithMonoObject:monoObject];
     }
@@ -165,7 +195,7 @@
     - (int32_t)indexOf_withValue:(System_ComponentModel_EventDescriptor *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(System.ComponentModel.EventDescriptor)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(System.ComponentModel.EventDescriptor)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -176,7 +206,7 @@
     - (void)insert_withIndex:(int32_t)p1 value:(System_ComponentModel_EventDescriptor *)p2
     {
 		
-		[self invokeMonoMethod:"Insert(int,System.ComponentModel.EventDescriptor)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoMethod:"Insert(int,System.ComponentModel.EventDescriptor)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
     }
 
@@ -186,7 +216,7 @@
     - (void)remove_withValue:(System_ComponentModel_EventDescriptor *)p1
     {
 		
-		[self invokeMonoMethod:"Remove(System.ComponentModel.EventDescriptor)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Remove(System.ComponentModel.EventDescriptor)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -196,7 +226,7 @@
     - (void)removeAt_withIndex:(int32_t)p1
     {
 		
-		[self invokeMonoMethod:"RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -217,7 +247,7 @@
     - (System_ComponentModel_EventDescriptorCollection *)sort_withNames:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Sort(string[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Sort(string[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_EventDescriptorCollection bestObjectWithMonoObject:monoObject];
     }
@@ -228,7 +258,7 @@
     - (System_ComponentModel_EventDescriptorCollection *)sort_withNames:(DBSystem_Array *)p1 comparer:(id <System_Collections_IComparer_>)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Sort(string[],System.Collections.IComparer)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Sort(string[],System.Collections.IComparer)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_EventDescriptorCollection bestObjectWithMonoObject:monoObject];
     }
@@ -239,7 +269,7 @@
     - (System_ComponentModel_EventDescriptorCollection *)sort_withComparer:(id <System_Collections_IComparer_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Sort(System.Collections.IComparer)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Sort(System.Collections.IComparer)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_EventDescriptorCollection bestObjectWithMonoObject:monoObject];
     }

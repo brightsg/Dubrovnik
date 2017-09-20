@@ -33,7 +33,7 @@
     + (System_ComponentModel_AddingNewEventArgs *)new_withNewObject:(System_Object *)p1
     {
 		
-		System_ComponentModel_AddingNewEventArgs * object = [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_AddingNewEventArgs * object = [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize newObject = _newObject;
     - (System_Object *)newObject
     {
-		MonoObject *monoObject = [self getMonoProperty:"NewObject"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NewObject");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_newObject isEqualToMonoObject:monoObject]) return _newObject;					
 		_newObject = [System_Object objectWithMonoObject:monoObject];
 
@@ -55,8 +65,17 @@
     - (void)setNewObject:(System_Object *)value
 	{
 		_newObject = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"NewObject" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "NewObject");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

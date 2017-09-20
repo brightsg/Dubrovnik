@@ -33,7 +33,7 @@
     - (NSString *)createName_withContainer:(id <System_ComponentModel_IContainer_>)p1 dataType:(System_Type *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.Serialization.INameCreationService.CreateName(System.ComponentModel.IContainer,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.Serialization.INameCreationService.CreateName(System.ComponentModel.IContainer,System.Type)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -44,7 +44,7 @@
     - (BOOL)isValidName_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.Serialization.INameCreationService.IsValidName(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.Serialization.INameCreationService.IsValidName(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -55,7 +55,7 @@
     - (void)validateName_withName:(NSString *)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.Serialization.INameCreationService.ValidateName(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.Serialization.INameCreationService.ValidateName(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

@@ -33,7 +33,7 @@
     + (System_Diagnostics_EntryWrittenEventArgs *)new_withEntry:(System_Diagnostics_EventLogEntry *)p1
     {
 		
-		System_Diagnostics_EntryWrittenEventArgs * object = [[self alloc] initWithSignature:"System.Diagnostics.EventLogEntry" withNumArgs:1, [p1 monoValue]];;
+		System_Diagnostics_EntryWrittenEventArgs * object = [[self alloc] initWithSignature:"System.Diagnostics.EventLogEntry" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize entry = _entry;
     - (System_Diagnostics_EventLogEntry *)entry
     {
-		MonoObject *monoObject = [self getMonoProperty:"Entry"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Entry");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_entry isEqualToMonoObject:monoObject]) return _entry;					
 		_entry = [System_Diagnostics_EventLogEntry bestObjectWithMonoObject:monoObject];
 

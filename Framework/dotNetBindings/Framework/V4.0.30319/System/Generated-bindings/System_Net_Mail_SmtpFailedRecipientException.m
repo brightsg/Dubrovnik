@@ -33,7 +33,7 @@
     + (System_Net_Mail_SmtpFailedRecipientException *)new_withMessage:(NSString *)p1
     {
 		
-		System_Net_Mail_SmtpFailedRecipientException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_Net_Mail_SmtpFailedRecipientException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Net_Mail_SmtpFailedRecipientException *)new_withMessage:(NSString *)p1 innerException:(System_Exception *)p2
     {
 		
-		System_Net_Mail_SmtpFailedRecipientException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Net_Mail_SmtpFailedRecipientException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -52,10 +52,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Mail.SmtpFailedRecipientException
 	// Managed param types : System.Net.Mail.SmtpStatusCode, System.String
-    + (System_Net_Mail_SmtpFailedRecipientException *)new_withStatusCode:(System_Net_Mail_SmtpStatusCode)p1 failedRecipient:(NSString *)p2
+    + (System_Net_Mail_SmtpFailedRecipientException *)new_withStatusCode:(int32_t)p1 failedRecipient:(NSString *)p2
     {
 		
-		System_Net_Mail_SmtpFailedRecipientException * object = [[self alloc] initWithSignature:"System.Net.Mail.SmtpStatusCode,string" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		System_Net_Mail_SmtpFailedRecipientException * object = [[self alloc] initWithSignature:"System.Net.Mail.SmtpStatusCode,string" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -63,10 +63,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Mail.SmtpFailedRecipientException
 	// Managed param types : System.Net.Mail.SmtpStatusCode, System.String, System.String
-    + (System_Net_Mail_SmtpFailedRecipientException *)new_withStatusCode:(System_Net_Mail_SmtpStatusCode)p1 failedRecipient:(NSString *)p2 serverResponse:(NSString *)p3
+    + (System_Net_Mail_SmtpFailedRecipientException *)new_withStatusCode:(int32_t)p1 failedRecipient:(NSString *)p2 serverResponse:(NSString *)p3
     {
 		
-		System_Net_Mail_SmtpFailedRecipientException * object = [[self alloc] initWithSignature:"System.Net.Mail.SmtpStatusCode,string,string" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];;
+		System_Net_Mail_SmtpFailedRecipientException * object = [[self alloc] initWithSignature:"System.Net.Mail.SmtpStatusCode,string,string" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -77,7 +77,7 @@
     + (System_Net_Mail_SmtpFailedRecipientException *)new_withMessage:(NSString *)p1 failedRecipient:(NSString *)p2 innerException:(System_Exception *)p3
     {
 		
-		System_Net_Mail_SmtpFailedRecipientException * object = [[self alloc] initWithSignature:"string,string,System.Exception" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		System_Net_Mail_SmtpFailedRecipientException * object = [[self alloc] initWithSignature:"string,string,System.Exception" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -90,7 +90,17 @@
     @synthesize failedRecipient = _failedRecipient;
     - (NSString *)failedRecipient
     {
-		MonoObject *monoObject = [self getMonoProperty:"FailedRecipient"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FailedRecipient");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_failedRecipient isEqualToMonoObject:monoObject]) return _failedRecipient;					
 		_failedRecipient = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -106,7 +116,7 @@
     - (void)getObjectData_withSerializationInfo:(System_Runtime_Serialization_SerializationInfo *)p1 streamingContext:(System_Runtime_Serialization_StreamingContext *)p2
     {
 		
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 

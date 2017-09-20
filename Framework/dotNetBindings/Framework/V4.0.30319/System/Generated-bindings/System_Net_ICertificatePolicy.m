@@ -33,7 +33,7 @@
     - (BOOL)checkValidationResult_withSrvPoint:(System_Net_ServicePoint *)p1 certificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p2 request:(System_Net_WebRequest *)p3 certificateProblem:(int32_t)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Net.ICertificatePolicy.CheckValidationResult(System.Net.ServicePoint,System.Security.Cryptography.X509Certificates.X509Certificate,System.Net.WebRequest,int)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Net.ICertificatePolicy.CheckValidationResult(System.Net.ServicePoint,System.Security.Cryptography.X509Certificates.X509Certificate,System.Net.WebRequest,int)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

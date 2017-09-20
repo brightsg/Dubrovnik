@@ -30,35 +30,73 @@
 	// Managed property name : AutoDetect
 	// Managed property type : System.Net.Configuration.ProxyElement+AutoDetectValues
     @synthesize autoDetect = _autoDetect;
-    - (System_Net_Configuration_ProxyElement__AutoDetectValues)autoDetect
+    - (int32_t)autoDetect
     {
-		MonoObject *monoObject = [self getMonoProperty:"AutoDetect"];
-		_autoDetect = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AutoDetect");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_autoDetect = monoObject;
 
 		return _autoDetect;
 	}
-    - (void)setAutoDetect:(System_Net_Configuration_ProxyElement__AutoDetectValues)value
+    - (void)setAutoDetect:(int32_t)value
 	{
 		_autoDetect = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"AutoDetect" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "AutoDetect");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : BypassOnLocal
 	// Managed property type : System.Net.Configuration.ProxyElement+BypassOnLocalValues
     @synthesize bypassOnLocal = _bypassOnLocal;
-    - (System_Net_Configuration_ProxyElement__BypassOnLocalValues)bypassOnLocal
+    - (int32_t)bypassOnLocal
     {
-		MonoObject *monoObject = [self getMonoProperty:"BypassOnLocal"];
-		_bypassOnLocal = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BypassOnLocal");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_bypassOnLocal = monoObject;
 
 		return _bypassOnLocal;
 	}
-    - (void)setBypassOnLocal:(System_Net_Configuration_ProxyElement__BypassOnLocalValues)value
+    - (void)setBypassOnLocal:(int32_t)value
 	{
 		_bypassOnLocal = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"BypassOnLocal" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "BypassOnLocal");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ProxyAddress
@@ -66,7 +104,17 @@
     @synthesize proxyAddress = _proxyAddress;
     - (System_Uri *)proxyAddress
     {
-		MonoObject *monoObject = [self getMonoProperty:"ProxyAddress"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ProxyAddress");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_proxyAddress isEqualToMonoObject:monoObject]) return _proxyAddress;					
 		_proxyAddress = [System_Uri bestObjectWithMonoObject:monoObject];
 
@@ -75,8 +123,17 @@
     - (void)setProxyAddress:(System_Uri *)value
 	{
 		_proxyAddress = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"ProxyAddress" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ProxyAddress");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ScriptLocation
@@ -84,7 +141,17 @@
     @synthesize scriptLocation = _scriptLocation;
     - (System_Uri *)scriptLocation
     {
-		MonoObject *monoObject = [self getMonoProperty:"ScriptLocation"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ScriptLocation");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_scriptLocation isEqualToMonoObject:monoObject]) return _scriptLocation;					
 		_scriptLocation = [System_Uri bestObjectWithMonoObject:monoObject];
 
@@ -93,25 +160,53 @@
     - (void)setScriptLocation:(System_Uri *)value
 	{
 		_scriptLocation = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"ScriptLocation" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ScriptLocation");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : UseSystemDefault
 	// Managed property type : System.Net.Configuration.ProxyElement+UseSystemDefaultValues
     @synthesize useSystemDefault = _useSystemDefault;
-    - (System_Net_Configuration_ProxyElement__UseSystemDefaultValues)useSystemDefault
+    - (int32_t)useSystemDefault
     {
-		MonoObject *monoObject = [self getMonoProperty:"UseSystemDefault"];
-		_useSystemDefault = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UseSystemDefault");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_useSystemDefault = monoObject;
 
 		return _useSystemDefault;
 	}
-    - (void)setUseSystemDefault:(System_Net_Configuration_ProxyElement__UseSystemDefaultValues)value
+    - (void)setUseSystemDefault:(int32_t)value
 	{
 		_useSystemDefault = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"UseSystemDefault" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "UseSystemDefault");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

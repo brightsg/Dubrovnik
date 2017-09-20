@@ -33,7 +33,7 @@
     + (System_Net_Configuration_WebRequestModuleElement *)new_withPrefixString:(NSString *)p1 typeString:(NSString *)p2
     {
 		
-		System_Net_Configuration_WebRequestModuleElement * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Net_Configuration_WebRequestModuleElement * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Net_Configuration_WebRequestModuleElement *)new_withPrefixString:(NSString *)p1 typeSType:(System_Type *)p2
     {
 		
-		System_Net_Configuration_WebRequestModuleElement * object = [[self alloc] initWithSignature:"string,System.Type" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Net_Configuration_WebRequestModuleElement * object = [[self alloc] initWithSignature:"string,System.Type" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -57,7 +57,17 @@
     @synthesize prefix = _prefix;
     - (NSString *)prefix
     {
-		MonoObject *monoObject = [self getMonoProperty:"Prefix"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Prefix");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_prefix isEqualToMonoObject:monoObject]) return _prefix;					
 		_prefix = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -66,8 +76,17 @@
     - (void)setPrefix:(NSString *)value
 	{
 		_prefix = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"Prefix" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Prefix");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Type
@@ -75,7 +94,17 @@
     @synthesize type = _type;
     - (System_Type *)type
     {
-		MonoObject *monoObject = [self getMonoProperty:"Type"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Type");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_type isEqualToMonoObject:monoObject]) return _type;					
 		_type = [System_Type bestObjectWithMonoObject:monoObject];
 
@@ -84,8 +113,17 @@
     - (void)setType:(System_Type *)value
 	{
 		_type = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Type" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Type");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

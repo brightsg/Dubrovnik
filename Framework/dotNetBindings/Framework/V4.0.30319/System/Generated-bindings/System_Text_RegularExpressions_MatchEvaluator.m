@@ -33,7 +33,7 @@
     + (System_Text_RegularExpressions_MatchEvaluator *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
 		
-		System_Text_RegularExpressions_MatchEvaluator * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Text_RegularExpressions_MatchEvaluator * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -47,7 +47,7 @@
     - (id <System_IAsyncResult>)beginInvoke_withMatch:(System_Text_RegularExpressions_Match *)p1 callback:(System_AsyncCallback *)p2 object:(System_Object *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(System.Text.RegularExpressions.Match,System.AsyncCallback,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(System.Text.RegularExpressions.Match,System.AsyncCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -58,7 +58,7 @@
     - (NSString *)endInvoke_withResult:(id <System_IAsyncResult_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -69,7 +69,7 @@
     - (NSString *)invoke_withMatch:(System_Text_RegularExpressions_Match *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(System.Text.RegularExpressions.Match)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(System.Text.RegularExpressions.Match)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }

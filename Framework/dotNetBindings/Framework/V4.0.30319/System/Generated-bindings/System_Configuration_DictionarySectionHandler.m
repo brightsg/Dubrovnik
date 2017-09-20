@@ -33,7 +33,7 @@
     - (System_Object *)create_withParent:(System_Object *)p1 context:(System_Object *)p2 section:(System_Xml_XmlNode *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Create(object,object,System.Xml.XmlNode)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Create(object,object,System.Xml.XmlNode)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }

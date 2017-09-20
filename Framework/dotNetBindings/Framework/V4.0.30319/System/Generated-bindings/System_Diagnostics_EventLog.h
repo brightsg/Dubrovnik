@@ -62,7 +62,7 @@
 
 	// Managed property name : OverflowAction
 	// Managed property type : System.Diagnostics.OverflowAction
-    @property (nonatomic, readonly) System_Diagnostics_OverflowAction overflowAction;
+    @property (nonatomic, readonly) int32_t overflowAction;
 
 	// Managed property name : Source
 	// Managed property type : System.String
@@ -158,7 +158,7 @@
 	// Managed method name : ModifyOverflowPolicy
 	// Managed return type : System.Void
 	// Managed param types : System.Diagnostics.OverflowAction, System.Int32
-    - (void)modifyOverflowPolicy_withAction:(System_Diagnostics_OverflowAction)p1 retentionDays:(int32_t)p2;
+    - (void)modifyOverflowPolicy_withAction:(int32_t)p1 retentionDays:(int32_t)p2;
 
 	// Managed method name : RegisterDisplayName
 	// Managed return type : System.Void
@@ -188,42 +188,42 @@
 	// Managed method name : WriteEntry
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Diagnostics.EventLogEntryType
-    - (void)writeEntry_withMessage:(NSString *)p1 type:(System_Diagnostics_EventLogEntryType)p2;
+    - (void)writeEntry_withMessage:(NSString *)p1 type:(int32_t)p2;
 
 	// Managed method name : WriteEntry
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.String, System.Diagnostics.EventLogEntryType
-    + (void)writeEntry_withSource:(NSString *)p1 message:(NSString *)p2 type:(System_Diagnostics_EventLogEntryType)p3;
+    + (void)writeEntry_withSource:(NSString *)p1 message:(NSString *)p2 type:(int32_t)p3;
 
 	// Managed method name : WriteEntry
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Diagnostics.EventLogEntryType, System.Int32
-    - (void)writeEntry_withMessage:(NSString *)p1 type:(System_Diagnostics_EventLogEntryType)p2 eventID:(int32_t)p3;
+    - (void)writeEntry_withMessage:(NSString *)p1 type:(int32_t)p2 eventID:(int32_t)p3;
 
 	// Managed method name : WriteEntry
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.String, System.Diagnostics.EventLogEntryType, System.Int32
-    + (void)writeEntry_withSource:(NSString *)p1 message:(NSString *)p2 type:(System_Diagnostics_EventLogEntryType)p3 eventID:(int32_t)p4;
+    + (void)writeEntry_withSource:(NSString *)p1 message:(NSString *)p2 type:(int32_t)p3 eventID:(int32_t)p4;
 
 	// Managed method name : WriteEntry
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Diagnostics.EventLogEntryType, System.Int32, System.Int16
-    - (void)writeEntry_withMessage:(NSString *)p1 type:(System_Diagnostics_EventLogEntryType)p2 eventID:(int32_t)p3 category:(int16_t)p4;
+    - (void)writeEntry_withMessage:(NSString *)p1 type:(int32_t)p2 eventID:(int32_t)p3 category:(int16_t)p4;
 
 	// Managed method name : WriteEntry
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.String, System.Diagnostics.EventLogEntryType, System.Int32, System.Int16
-    + (void)writeEntry_withSource:(NSString *)p1 message:(NSString *)p2 type:(System_Diagnostics_EventLogEntryType)p3 eventID:(int32_t)p4 category:(int16_t)p5;
+    + (void)writeEntry_withSource:(NSString *)p1 message:(NSString *)p2 type:(int32_t)p3 eventID:(int32_t)p4 category:(int16_t)p5;
 
 	// Managed method name : WriteEntry
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.String, System.Diagnostics.EventLogEntryType, System.Int32, System.Int16, System.Byte[]
-    + (void)writeEntry_withSource:(NSString *)p1 message:(NSString *)p2 type:(System_Diagnostics_EventLogEntryType)p3 eventID:(int32_t)p4 category:(int16_t)p5 rawData:(NSData *)p6;
+    + (void)writeEntry_withSource:(NSString *)p1 message:(NSString *)p2 type:(int32_t)p3 eventID:(int32_t)p4 category:(int16_t)p5 rawData:(NSData *)p6;
 
 	// Managed method name : WriteEntry
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Diagnostics.EventLogEntryType, System.Int32, System.Int16, System.Byte[]
-    - (void)writeEntry_withMessage:(NSString *)p1 type:(System_Diagnostics_EventLogEntryType)p2 eventID:(int32_t)p3 category:(int16_t)p4 rawData:(NSData *)p5;
+    - (void)writeEntry_withMessage:(NSString *)p1 type:(int32_t)p2 eventID:(int32_t)p3 category:(int16_t)p4 rawData:(NSData *)p5;
 
 	// Managed method name : WriteEvent
 	// Managed return type : System.Void

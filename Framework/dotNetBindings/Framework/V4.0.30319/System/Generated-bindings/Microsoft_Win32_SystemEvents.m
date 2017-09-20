@@ -44,7 +44,7 @@
     + (void)invokeOnEventsThread_withMethod:(System_Delegate *)p1
     {
 		
-		[self invokeMonoClassMethod:"InvokeOnEventsThread(System.Delegate)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"InvokeOnEventsThread(System.Delegate)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -54,7 +54,7 @@
     + (void)killTimer_withTimerId:(void *)p1
     {
 		
-		[self invokeMonoClassMethod:"KillTimer(intptr)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoClassMethod:"KillTimer(intptr)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 

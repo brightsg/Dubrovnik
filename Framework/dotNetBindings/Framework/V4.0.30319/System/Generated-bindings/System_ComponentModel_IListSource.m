@@ -32,8 +32,18 @@
     @synthesize containsListCollection = _containsListCollection;
     - (BOOL)containsListCollection
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.IListSource.ContainsListCollection"];
-		_containsListCollection = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.IListSource.ContainsListCollection");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_containsListCollection = monoObject;
 
 		return _containsListCollection;
 	}

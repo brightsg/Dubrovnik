@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : Microsoft.Win32.UserPreferenceChangingEventArgs
 	// Managed param types : Microsoft.Win32.UserPreferenceCategory
-    + (Microsoft_Win32_UserPreferenceChangingEventArgs *)new_withCategory:(Microsoft_Win32_UserPreferenceCategory)p1
+    + (Microsoft_Win32_UserPreferenceChangingEventArgs *)new_withCategory:(int32_t)p1
     {
 		
-		Microsoft_Win32_UserPreferenceChangingEventArgs * object = [[self alloc] initWithSignature:"Microsoft.Win32.UserPreferenceCategory" withNumArgs:1, DB_VALUE(p1)];;
+		Microsoft_Win32_UserPreferenceChangingEventArgs * object = [[self alloc] initWithSignature:"Microsoft.Win32.UserPreferenceCategory" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -44,10 +44,20 @@
 	// Managed property name : Category
 	// Managed property type : Microsoft.Win32.UserPreferenceCategory
     @synthesize category = _category;
-    - (Microsoft_Win32_UserPreferenceCategory)category
+    - (int32_t)category
     {
-		MonoObject *monoObject = [self getMonoProperty:"Category"];
-		_category = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Category");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_category = monoObject;
 
 		return _category;
 	}

@@ -2,7 +2,9 @@
 //
 // Managed enumeration : NetworkInterfaceType
 //
-typedef NS_ENUM(int32_t, System_Net_NetworkInformation_NetworkInterfaceType) {
+
+// C enumeration
+typedef NS_ENUM(int32_t, enumSystem_Net_NetworkInformation_NetworkInterfaceType) {
 	System_Net_NetworkInformation_NetworkInterfaceType_AsymmetricDsl = 94,
 	System_Net_NetworkInformation_NetworkInterfaceType_Atm = 37,
 	System_Net_NetworkInformation_NetworkInterfaceType_BasicIsdn = 20,
@@ -32,4 +34,128 @@ typedef NS_ENUM(int32_t, System_Net_NetworkInformation_NetworkInterfaceType) {
 	System_Net_NetworkInformation_NetworkInterfaceType_Wwanpp = 243,
 	System_Net_NetworkInformation_NetworkInterfaceType_Wwanpp2 = 244,
 };
+@interface System_Net_NetworkInformation_NetworkInterfaceType : DBSystem_Enum
+
+#pragma mark -
+#pragma mark Setup
+	// obligatory override
+	+ (const char *)monoClassName;
+	// obligatory override
+	+ (const char *)monoAssemblyName;
+
+#pragma mark -
+#pragma mark Fields
+
+	// Managed field name : AsymmetricDsl
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)asymmetricDsl;
+
+	// Managed field name : Atm
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)atm;
+
+	// Managed field name : BasicIsdn
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)basicIsdn;
+
+	// Managed field name : Ethernet
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)ethernet;
+
+	// Managed field name : Ethernet3Megabit
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)ethernet3Megabit;
+
+	// Managed field name : FastEthernetFx
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)fastEthernetFx;
+
+	// Managed field name : FastEthernetT
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)fastEthernetT;
+
+	// Managed field name : Fddi
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)fddi;
+
+	// Managed field name : GenericModem
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)genericModem;
+
+	// Managed field name : GigabitEthernet
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)gigabitEthernet;
+
+	// Managed field name : HighPerformanceSerialBus
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)highPerformanceSerialBus;
+
+	// Managed field name : IPOverAtm
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)iPOverAtm;
+
+	// Managed field name : Isdn
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)isdn;
+
+	// Managed field name : Loopback
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)loopback;
+
+	// Managed field name : MultiRateSymmetricDsl
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)multiRateSymmetricDsl;
+
+	// Managed field name : Ppp
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)ppp;
+
+	// Managed field name : PrimaryIsdn
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)primaryIsdn;
+
+	// Managed field name : RateAdaptDsl
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)rateAdaptDsl;
+
+	// Managed field name : Slip
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)slip;
+
+	// Managed field name : SymmetricDsl
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)symmetricDsl;
+
+	// Managed field name : TokenRing
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)tokenRing;
+
+	// Managed field name : Tunnel
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)tunnel;
+
+	// Managed field name : Unknown
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)unknown;
+
+	// Managed field name : VeryHighSpeedDsl
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)veryHighSpeedDsl;
+
+	// Managed field name : Wireless80211
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)wireless80211;
+
+	// Managed field name : Wman
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)wman;
+
+	// Managed field name : Wwanpp
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)wwanpp;
+
+	// Managed field name : Wwanpp2
+	// Managed field type : System.Net.NetworkInformation.NetworkInterfaceType
+    + (int32_t)wwanpp2;
+@end
 //--Dubrovnik.CodeGenerator

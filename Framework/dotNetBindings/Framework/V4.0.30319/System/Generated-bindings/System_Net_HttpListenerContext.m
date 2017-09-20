@@ -32,7 +32,17 @@
     @synthesize request = _request;
     - (System_Net_HttpListenerRequest *)request
     {
-		MonoObject *monoObject = [self getMonoProperty:"Request"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Request");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_request isEqualToMonoObject:monoObject]) return _request;					
 		_request = [System_Net_HttpListenerRequest bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize response = _response;
     - (System_Net_HttpListenerResponse *)response
     {
-		MonoObject *monoObject = [self getMonoProperty:"Response"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Response");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_response isEqualToMonoObject:monoObject]) return _response;					
 		_response = [System_Net_HttpListenerResponse bestObjectWithMonoObject:monoObject];
 
@@ -56,7 +76,17 @@
     @synthesize user = _user;
     - (System_Security_Principal_IPrincipal *)user
     {
-		MonoObject *monoObject = [self getMonoProperty:"User"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "User");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_user isEqualToMonoObject:monoObject]) return _user;					
 		_user = [System_Security_Principal_IPrincipal bestObjectWithMonoObject:monoObject];
 
@@ -72,7 +102,7 @@
     - (System_Threading_Tasks_TaskA1 *)acceptWebSocketAsync_withSubProtocol:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AcceptWebSocketAsync(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"AcceptWebSocketAsync(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
@@ -83,7 +113,7 @@
     - (System_Threading_Tasks_TaskA1 *)acceptWebSocketAsync_withSubProtocol:(NSString *)p1 keepAliveInterval:(System_TimeSpan *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AcceptWebSocketAsync(string,System.TimeSpan)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"AcceptWebSocketAsync(string,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
@@ -94,7 +124,7 @@
     - (System_Threading_Tasks_TaskA1 *)acceptWebSocketAsync_withSubProtocol:(NSString *)p1 receiveBufferSize:(int32_t)p2 keepAliveInterval:(System_TimeSpan *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AcceptWebSocketAsync(string,int,System.TimeSpan)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"AcceptWebSocketAsync(string,int,System.TimeSpan)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
@@ -105,7 +135,7 @@
     - (System_Threading_Tasks_TaskA1 *)acceptWebSocketAsync_withSubProtocol:(NSString *)p1 receiveBufferSize:(int32_t)p2 keepAliveInterval:(System_TimeSpan *)p3 internalBuffer:(System_ArraySegmentA1 *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AcceptWebSocketAsync(string,int,System.TimeSpan,System.ArraySegment`1<byte>)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"AcceptWebSocketAsync(string,int,System.TimeSpan,System.ArraySegment`1<byte>)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }

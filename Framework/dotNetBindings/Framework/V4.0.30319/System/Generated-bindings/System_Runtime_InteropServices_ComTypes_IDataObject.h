@@ -17,7 +17,7 @@
 	// Managed method name : DAdvise
 	// Managed return type : System.Int32
 	// Managed param types : ref System.Runtime.InteropServices.ComTypes.FORMATETC&, System.Runtime.InteropServices.ComTypes.ADVF, System.Runtime.InteropServices.ComTypes.IAdviseSink, ref System.Int32&
-    - (int32_t)dAdvise_withPFormatetcRef:(System_Runtime_InteropServices_ComTypes_FORMATETC **)p1 advf:(System_Runtime_InteropServices_ComTypes_ADVF)p2 adviseSink:(id <System_Runtime_InteropServices_ComTypes_IAdviseSink_>)p3 connectionRef:(int32_t*)p4;
+    - (int32_t)dAdvise_withPFormatetcRef:(System_Runtime_InteropServices_ComTypes_FORMATETC **)p1 advf:(int32_t)p2 adviseSink:(id <System_Runtime_InteropServices_ComTypes_IAdviseSink_>)p3 connectionRef:(int32_t*)p4;
 
 	// Managed method name : DUnadvise
 	// Managed return type : System.Void
@@ -32,7 +32,7 @@
 	// Managed method name : EnumFormatEtc
 	// Managed return type : System.Runtime.InteropServices.ComTypes.IEnumFORMATETC
 	// Managed param types : System.Runtime.InteropServices.ComTypes.DATADIR
-    - (id <System_Runtime_InteropServices_ComTypes_IEnumFORMATETC>)enumFormatEtc_withDirection:(System_Runtime_InteropServices_ComTypes_DATADIR)p1;
+    - (id <System_Runtime_InteropServices_ComTypes_IEnumFORMATETC>)enumFormatEtc_withDirection:(int32_t)p1;
 
 	// Managed method name : GetCanonicalFormatEtc
 	// Managed return type : System.Int32

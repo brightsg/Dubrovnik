@@ -33,7 +33,7 @@
     + (System_Net_BindIPEndPoint *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
 		
-		System_Net_BindIPEndPoint * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Net_BindIPEndPoint * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -47,7 +47,7 @@
     - (id <System_IAsyncResult>)beginInvoke_withServicePoint:(System_Net_ServicePoint *)p1 remoteEndPoint:(System_Net_IPEndPoint *)p2 retryCount:(int32_t)p3 callback:(System_AsyncCallback *)p4 object:(System_Object *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(System.Net.ServicePoint,System.Net.IPEndPoint,int,System.AsyncCallback,object)" withNumArgs:5, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(System.Net.ServicePoint,System.Net.IPEndPoint,int,System.AsyncCallback,object)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -58,7 +58,7 @@
     - (System_Net_IPEndPoint *)endInvoke_withResult:(id <System_IAsyncResult_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Net_IPEndPoint bestObjectWithMonoObject:monoObject];
     }
@@ -69,7 +69,7 @@
     - (System_Net_IPEndPoint *)invoke_withServicePoint:(System_Net_ServicePoint *)p1 remoteEndPoint:(System_Net_IPEndPoint *)p2 retryCount:(int32_t)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(System.Net.ServicePoint,System.Net.IPEndPoint,int)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(System.Net.ServicePoint,System.Net.IPEndPoint,int)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
 		
 		return [System_Net_IPEndPoint bestObjectWithMonoObject:monoObject];
     }

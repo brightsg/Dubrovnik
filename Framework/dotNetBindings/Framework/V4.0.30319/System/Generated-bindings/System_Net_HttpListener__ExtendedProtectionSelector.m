@@ -33,7 +33,7 @@
     + (System_Net_HttpListener__ExtendedProtectionSelector *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
 		
-		System_Net_HttpListener__ExtendedProtectionSelector * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Net_HttpListener__ExtendedProtectionSelector * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -47,7 +47,7 @@
     - (id <System_IAsyncResult>)beginInvoke_withRequest:(System_Net_HttpListenerRequest *)p1 callback:(System_AsyncCallback *)p2 object:(System_Object *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(System.Net.HttpListenerRequest,System.AsyncCallback,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(System.Net.HttpListenerRequest,System.AsyncCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -58,7 +58,7 @@
     - (System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)endInvoke_withResult:(id <System_IAsyncResult_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy bestObjectWithMonoObject:monoObject];
     }
@@ -69,7 +69,7 @@
     - (System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)invoke_withRequest:(System_Net_HttpListenerRequest *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(System.Net.HttpListenerRequest)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(System.Net.HttpListenerRequest)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy bestObjectWithMonoObject:monoObject];
     }

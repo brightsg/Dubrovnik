@@ -33,7 +33,7 @@
     + (Microsoft_VisualBasic_VBCodeProvider *)new_withProviderOptions:(id <System_Collections_Generic_IDictionaryA2_>)p1
     {
 		
-		Microsoft_VisualBasic_VBCodeProvider * object = [[self alloc] initWithSignature:"System.Collections.Generic.IDictionary`2<string, string>" withNumArgs:1, [p1 monoValue]];;
+		Microsoft_VisualBasic_VBCodeProvider * object = [[self alloc] initWithSignature:"System.Collections.Generic.IDictionary`2<string, string>" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize fileExtension = _fileExtension;
     - (NSString *)fileExtension
     {
-		MonoObject *monoObject = [self getMonoProperty:"FileExtension"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FileExtension");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_fileExtension isEqualToMonoObject:monoObject]) return _fileExtension;					
 		_fileExtension = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -56,10 +66,20 @@
 	// Managed property name : LanguageOptions
 	// Managed property type : System.CodeDom.Compiler.LanguageOptions
     @synthesize languageOptions = _languageOptions;
-    - (System_CodeDom_Compiler_LanguageOptions)languageOptions
+    - (int32_t)languageOptions
     {
-		MonoObject *monoObject = [self getMonoProperty:"LanguageOptions"];
-		_languageOptions = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LanguageOptions");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_languageOptions = monoObject;
 
 		return _languageOptions;
 	}
@@ -95,7 +115,7 @@
     - (void)generateCodeFromMember_withMember:(System_CodeDom_CodeTypeMember *)p1 writer:(System_IO_TextWriter *)p2 options:(System_CodeDom_Compiler_CodeGeneratorOptions *)p3
     {
 		
-		[self invokeMonoMethod:"GenerateCodeFromMember(System.CodeDom.CodeTypeMember,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"GenerateCodeFromMember(System.CodeDom.CodeTypeMember,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -105,7 +125,7 @@
     - (System_ComponentModel_TypeConverter *)getConverter_withType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetConverter(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetConverter(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_TypeConverter bestObjectWithMonoObject:monoObject];
     }

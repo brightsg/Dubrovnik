@@ -33,7 +33,7 @@
     - (System_Net_WebRequest *)create_withUri:(System_Uri *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Net.IWebRequestCreate.Create(System.Uri)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Net.IWebRequestCreate.Create(System.Uri)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Net_WebRequest bestObjectWithMonoObject:monoObject];
     }

@@ -33,7 +33,7 @@
     + (System_ComponentModel_Design_ComponentEventArgs *)new_withComponent:(id <System_ComponentModel_IComponent_>)p1
     {
 		
-		System_ComponentModel_Design_ComponentEventArgs * object = [[self alloc] initWithSignature:"System.ComponentModel.IComponent" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_Design_ComponentEventArgs * object = [[self alloc] initWithSignature:"System.ComponentModel.IComponent" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize component = _component;
     - (System_ComponentModel_IComponent *)component
     {
-		MonoObject *monoObject = [self getMonoProperty:"Component"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Component");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_component isEqualToMonoObject:monoObject]) return _component;					
 		_component = [System_ComponentModel_IComponent bestObjectWithMonoObject:monoObject];
 

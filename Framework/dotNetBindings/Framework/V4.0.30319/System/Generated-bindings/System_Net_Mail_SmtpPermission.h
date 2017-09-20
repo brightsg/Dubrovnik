@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Mail.SmtpPermission
 	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Net_Mail_SmtpPermission *)new_withState:(System_Security_Permissions_PermissionState)p1;
+    + (System_Net_Mail_SmtpPermission *)new_withState:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Mail.SmtpPermission
@@ -27,14 +27,14 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Mail.SmtpPermission
 	// Managed param types : System.Net.Mail.SmtpAccess
-    + (System_Net_Mail_SmtpPermission *)new_withAccess:(System_Net_Mail_SmtpAccess)p1;
+    + (System_Net_Mail_SmtpPermission *)new_withAccess:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Access
 	// Managed property type : System.Net.Mail.SmtpAccess
-    @property (nonatomic, readonly) System_Net_Mail_SmtpAccess access;
+    @property (nonatomic, readonly) int32_t access;
 
 #pragma mark -
 #pragma mark Methods
@@ -42,7 +42,7 @@
 	// Managed method name : AddPermission
 	// Managed return type : System.Void
 	// Managed param types : System.Net.Mail.SmtpAccess
-    - (void)addPermission_withAccess:(System_Net_Mail_SmtpAccess)p1;
+    - (void)addPermission_withAccess:(int32_t)p1;
 
 	// Managed method name : Copy
 	// Managed return type : System.Security.IPermission

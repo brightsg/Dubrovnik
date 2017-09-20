@@ -33,7 +33,7 @@
     + (System_ComponentModel_DataErrorsChangedEventArgs *)new_withPropertyName:(NSString *)p1
     {
 		
-		System_ComponentModel_DataErrorsChangedEventArgs * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_DataErrorsChangedEventArgs * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize propertyName = _propertyName;
     - (NSString *)propertyName
     {
-		MonoObject *monoObject = [self getMonoProperty:"PropertyName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PropertyName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_propertyName isEqualToMonoObject:monoObject]) return _propertyName;					
 		_propertyName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

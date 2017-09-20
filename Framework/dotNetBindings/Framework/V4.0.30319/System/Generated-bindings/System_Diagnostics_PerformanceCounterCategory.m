@@ -33,7 +33,7 @@
     + (System_Diagnostics_PerformanceCounterCategory *)new_withCategoryName:(NSString *)p1
     {
 		
-		System_Diagnostics_PerformanceCounterCategory * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_Diagnostics_PerformanceCounterCategory * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Diagnostics_PerformanceCounterCategory *)new_withCategoryName:(NSString *)p1 machineName:(NSString *)p2
     {
 		
-		System_Diagnostics_PerformanceCounterCategory * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Diagnostics_PerformanceCounterCategory * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -57,7 +57,17 @@
     @synthesize categoryHelp = _categoryHelp;
     - (NSString *)categoryHelp
     {
-		MonoObject *monoObject = [self getMonoProperty:"CategoryHelp"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CategoryHelp");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_categoryHelp isEqualToMonoObject:monoObject]) return _categoryHelp;					
 		_categoryHelp = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -69,7 +79,17 @@
     @synthesize categoryName = _categoryName;
     - (NSString *)categoryName
     {
-		MonoObject *monoObject = [self getMonoProperty:"CategoryName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CategoryName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_categoryName isEqualToMonoObject:monoObject]) return _categoryName;					
 		_categoryName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -78,17 +98,36 @@
     - (void)setCategoryName:(NSString *)value
 	{
 		_categoryName = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"CategoryName" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CategoryName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CategoryType
 	// Managed property type : System.Diagnostics.PerformanceCounterCategoryType
     @synthesize categoryType = _categoryType;
-    - (System_Diagnostics_PerformanceCounterCategoryType)categoryType
+    - (int32_t)categoryType
     {
-		MonoObject *monoObject = [self getMonoProperty:"CategoryType"];
-		_categoryType = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CategoryType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_categoryType = monoObject;
 
 		return _categoryType;
 	}
@@ -98,7 +137,17 @@
     @synthesize machineName = _machineName;
     - (NSString *)machineName
     {
-		MonoObject *monoObject = [self getMonoProperty:"MachineName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MachineName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_machineName isEqualToMonoObject:monoObject]) return _machineName;					
 		_machineName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -107,8 +156,17 @@
     - (void)setMachineName:(NSString *)value
 	{
 		_machineName = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"MachineName" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "MachineName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -120,7 +178,7 @@
     - (BOOL)counterExists_withCounterName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CounterExists(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CounterExists(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -131,7 +189,7 @@
     + (BOOL)counterExists_withCounterName:(NSString *)p1 categoryName:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CounterExists(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CounterExists(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -142,7 +200,7 @@
     + (BOOL)counterExists_withCounterName:(NSString *)p1 categoryName:(NSString *)p2 machineName:(NSString *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CounterExists(string,string,string)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CounterExists(string,string,string)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -153,7 +211,7 @@
     + (System_Diagnostics_PerformanceCounterCategory *)create_withCategoryName:(NSString *)p1 categoryHelp:(NSString *)p2 counterName:(NSString *)p3 counterHelp:(NSString *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string,string,string,string)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string,string,string,string)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_Diagnostics_PerformanceCounterCategory bestObjectWithMonoObject:monoObject];
     }
@@ -161,10 +219,10 @@
 	// Managed method name : Create
 	// Managed return type : System.Diagnostics.PerformanceCounterCategory
 	// Managed param types : System.String, System.String, System.Diagnostics.PerformanceCounterCategoryType, System.String, System.String
-    + (System_Diagnostics_PerformanceCounterCategory *)create_withCategoryName:(NSString *)p1 categoryHelp:(NSString *)p2 categoryType:(System_Diagnostics_PerformanceCounterCategoryType)p3 counterName:(NSString *)p4 counterHelp:(NSString *)p5
+    + (System_Diagnostics_PerformanceCounterCategory *)create_withCategoryName:(NSString *)p1 categoryHelp:(NSString *)p2 categoryType:(int32_t)p3 counterName:(NSString *)p4 counterHelp:(NSString *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string,string,System.Diagnostics.PerformanceCounterCategoryType,string,string)" withNumArgs:5, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string,string,System.Diagnostics.PerformanceCounterCategoryType,string,string)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_Diagnostics_PerformanceCounterCategory bestObjectWithMonoObject:monoObject];
     }
@@ -175,7 +233,7 @@
     + (System_Diagnostics_PerformanceCounterCategory *)create_withCategoryName:(NSString *)p1 categoryHelp:(NSString *)p2 counterData:(System_Diagnostics_CounterCreationDataCollection *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string,string,System.Diagnostics.CounterCreationDataCollection)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string,string,System.Diagnostics.CounterCreationDataCollection)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_Diagnostics_PerformanceCounterCategory bestObjectWithMonoObject:monoObject];
     }
@@ -183,10 +241,10 @@
 	// Managed method name : Create
 	// Managed return type : System.Diagnostics.PerformanceCounterCategory
 	// Managed param types : System.String, System.String, System.Diagnostics.PerformanceCounterCategoryType, System.Diagnostics.CounterCreationDataCollection
-    + (System_Diagnostics_PerformanceCounterCategory *)create_withCategoryName:(NSString *)p1 categoryHelp:(NSString *)p2 categoryType:(System_Diagnostics_PerformanceCounterCategoryType)p3 counterData:(System_Diagnostics_CounterCreationDataCollection *)p4
+    + (System_Diagnostics_PerformanceCounterCategory *)create_withCategoryName:(NSString *)p1 categoryHelp:(NSString *)p2 categoryType:(int32_t)p3 counterData:(System_Diagnostics_CounterCreationDataCollection *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string,string,System.Diagnostics.PerformanceCounterCategoryType,System.Diagnostics.CounterCreationDataCollection)" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string,string,System.Diagnostics.PerformanceCounterCategoryType,System.Diagnostics.CounterCreationDataCollection)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), [p4 monoRTInvokeArg]];
 		
 		return [System_Diagnostics_PerformanceCounterCategory bestObjectWithMonoObject:monoObject];
     }
@@ -197,7 +255,7 @@
     + (void)delete_withCategoryName:(NSString *)p1
     {
 		
-		[self invokeMonoClassMethod:"Delete(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"Delete(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -207,7 +265,7 @@
     + (BOOL)exists_withCategoryName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Exists(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Exists(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -218,7 +276,7 @@
     + (BOOL)exists_withCategoryName:(NSString *)p1 machineName:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Exists(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Exists(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -240,7 +298,7 @@
     + (DBSystem_Array *)getCategories_withMachineName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCategories(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCategories(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -262,7 +320,7 @@
     - (DBSystem_Array *)getCounters_withInstanceName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCounters(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetCounters(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -284,7 +342,7 @@
     - (BOOL)instanceExists_withInstanceName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"InstanceExists(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"InstanceExists(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -295,7 +353,7 @@
     + (BOOL)instanceExists_withInstanceName:(NSString *)p1 categoryName:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"InstanceExists(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"InstanceExists(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -306,7 +364,7 @@
     + (BOOL)instanceExists_withInstanceName:(NSString *)p1 categoryName:(NSString *)p2 machineName:(NSString *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"InstanceExists(string,string,string)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"InstanceExists(string,string,string)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

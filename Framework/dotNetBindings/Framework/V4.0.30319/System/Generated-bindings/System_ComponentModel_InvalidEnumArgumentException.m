@@ -33,7 +33,7 @@
     + (System_ComponentModel_InvalidEnumArgumentException *)new_withMessage:(NSString *)p1
     {
 		
-		System_ComponentModel_InvalidEnumArgumentException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_InvalidEnumArgumentException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_ComponentModel_InvalidEnumArgumentException *)new_withMessage:(NSString *)p1 innerException:(System_Exception *)p2
     {
 		
-		System_ComponentModel_InvalidEnumArgumentException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_ComponentModel_InvalidEnumArgumentException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_ComponentModel_InvalidEnumArgumentException *)new_withArgumentName:(NSString *)p1 invalidValue:(int32_t)p2 enumClass:(System_Type *)p3
     {
 		
-		System_ComponentModel_InvalidEnumArgumentException * object = [[self alloc] initWithSignature:"string,int,System.Type" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];;
+		System_ComponentModel_InvalidEnumArgumentException * object = [[self alloc] initWithSignature:"string,int,System.Type" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
         
         return object;
     }

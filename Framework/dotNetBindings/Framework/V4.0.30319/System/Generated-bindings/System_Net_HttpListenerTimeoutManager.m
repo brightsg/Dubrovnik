@@ -32,7 +32,17 @@
     @synthesize drainEntityBody = _drainEntityBody;
     - (System_TimeSpan *)drainEntityBody
     {
-		MonoObject *monoObject = [self getMonoProperty:"DrainEntityBody"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DrainEntityBody");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_drainEntityBody isEqualToMonoObject:monoObject]) return _drainEntityBody;					
 		_drainEntityBody = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
@@ -41,8 +51,17 @@
     - (void)setDrainEntityBody:(System_TimeSpan *)value
 	{
 		_drainEntityBody = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"DrainEntityBody" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "DrainEntityBody");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : EntityBody
@@ -50,7 +69,17 @@
     @synthesize entityBody = _entityBody;
     - (System_TimeSpan *)entityBody
     {
-		MonoObject *monoObject = [self getMonoProperty:"EntityBody"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EntityBody");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_entityBody isEqualToMonoObject:monoObject]) return _entityBody;					
 		_entityBody = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
@@ -59,8 +88,17 @@
     - (void)setEntityBody:(System_TimeSpan *)value
 	{
 		_entityBody = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"EntityBody" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "EntityBody");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : HeaderWait
@@ -68,7 +106,17 @@
     @synthesize headerWait = _headerWait;
     - (System_TimeSpan *)headerWait
     {
-		MonoObject *monoObject = [self getMonoProperty:"HeaderWait"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HeaderWait");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_headerWait isEqualToMonoObject:monoObject]) return _headerWait;					
 		_headerWait = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
@@ -77,8 +125,17 @@
     - (void)setHeaderWait:(System_TimeSpan *)value
 	{
 		_headerWait = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"HeaderWait" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "HeaderWait");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : IdleConnection
@@ -86,7 +143,17 @@
     @synthesize idleConnection = _idleConnection;
     - (System_TimeSpan *)idleConnection
     {
-		MonoObject *monoObject = [self getMonoProperty:"IdleConnection"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IdleConnection");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_idleConnection isEqualToMonoObject:monoObject]) return _idleConnection;					
 		_idleConnection = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
@@ -95,8 +162,17 @@
     - (void)setIdleConnection:(System_TimeSpan *)value
 	{
 		_idleConnection = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"IdleConnection" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "IdleConnection");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : MinSendBytesPerSecond
@@ -104,16 +180,35 @@
     @synthesize minSendBytesPerSecond = _minSendBytesPerSecond;
     - (int64_t)minSendBytesPerSecond
     {
-		MonoObject *monoObject = [self getMonoProperty:"MinSendBytesPerSecond"];
-		_minSendBytesPerSecond = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MinSendBytesPerSecond");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_minSendBytesPerSecond = monoObject;
 
 		return _minSendBytesPerSecond;
 	}
     - (void)setMinSendBytesPerSecond:(int64_t)value
 	{
 		_minSendBytesPerSecond = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"MinSendBytesPerSecond" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int64_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "MinSendBytesPerSecond");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : RequestQueue
@@ -121,7 +216,17 @@
     @synthesize requestQueue = _requestQueue;
     - (System_TimeSpan *)requestQueue
     {
-		MonoObject *monoObject = [self getMonoProperty:"RequestQueue"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RequestQueue");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_requestQueue isEqualToMonoObject:monoObject]) return _requestQueue;					
 		_requestQueue = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
@@ -130,8 +235,17 @@
     - (void)setRequestQueue:(System_TimeSpan *)value
 	{
 		_requestQueue = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"RequestQueue" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "RequestQueue");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

@@ -33,7 +33,7 @@
     + (System_Threading_Barrier *)new_withParticipantCount:(int32_t)p1
     {
 		
-		System_Threading_Barrier * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		System_Threading_Barrier * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Threading_Barrier *)new_withParticipantCount:(int32_t)p1 postPhaseAction:(System_ActionA1 *)p2
     {
 		
-		System_Threading_Barrier * object = [[self alloc] initWithSignature:"int,System.Action`1<System.Threading.Barrier>" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		System_Threading_Barrier * object = [[self alloc] initWithSignature:"int,System.Action`1<System.Threading.Barrier>" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -57,16 +57,35 @@
     @synthesize currentPhaseNumber = _currentPhaseNumber;
     - (int64_t)currentPhaseNumber
     {
-		MonoObject *monoObject = [self getMonoProperty:"CurrentPhaseNumber"];
-		_currentPhaseNumber = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrentPhaseNumber");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_currentPhaseNumber = monoObject;
 
 		return _currentPhaseNumber;
 	}
     - (void)setCurrentPhaseNumber:(int64_t)value
 	{
 		_currentPhaseNumber = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"CurrentPhaseNumber" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int64_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CurrentPhaseNumber");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ParticipantCount
@@ -74,8 +93,18 @@
     @synthesize participantCount = _participantCount;
     - (int32_t)participantCount
     {
-		MonoObject *monoObject = [self getMonoProperty:"ParticipantCount"];
-		_participantCount = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ParticipantCount");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_participantCount = monoObject;
 
 		return _participantCount;
 	}
@@ -85,8 +114,18 @@
     @synthesize participantsRemaining = _participantsRemaining;
     - (int32_t)participantsRemaining
     {
-		MonoObject *monoObject = [self getMonoProperty:"ParticipantsRemaining"];
-		_participantsRemaining = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ParticipantsRemaining");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_participantsRemaining = monoObject;
 
 		return _participantsRemaining;
 	}
@@ -122,7 +161,7 @@
     - (void)dispose
     {
 		
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
         
     }
 
@@ -132,7 +171,7 @@
     - (void)removeParticipant
     {
 		
-		[self invokeMonoMethod:"RemoveParticipant()" withNumArgs:0];;
+		[self invokeMonoMethod:"RemoveParticipant()" withNumArgs:0];
         
     }
 
@@ -142,7 +181,7 @@
     - (void)removeParticipants_withParticipantCount:(int32_t)p1
     {
 		
-		[self invokeMonoMethod:"RemoveParticipants(int)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"RemoveParticipants(int)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -152,7 +191,7 @@
     - (void)signalAndWait
     {
 		
-		[self invokeMonoMethod:"SignalAndWait()" withNumArgs:0];;
+		[self invokeMonoMethod:"SignalAndWait()" withNumArgs:0];
         
     }
 
@@ -162,7 +201,7 @@
     - (void)signalAndWait_withCancellationToken:(System_Threading_CancellationToken *)p1
     {
 		
-		[self invokeMonoMethod:"SignalAndWait(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SignalAndWait(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -172,7 +211,7 @@
     - (BOOL)signalAndWait_withTimeout:(System_TimeSpan *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"SignalAndWait(System.TimeSpan)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"SignalAndWait(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -183,7 +222,7 @@
     - (BOOL)signalAndWait_withTimeout:(System_TimeSpan *)p1 cancellationToken:(System_Threading_CancellationToken *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"SignalAndWait(System.TimeSpan,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"SignalAndWait(System.TimeSpan,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -205,7 +244,7 @@
     - (BOOL)signalAndWait_withMillisecondsTimeout:(int32_t)p1 cancellationToken:(System_Threading_CancellationToken *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"SignalAndWait(int,System.Threading.CancellationToken)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"SignalAndWait(int,System.Threading.CancellationToken)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

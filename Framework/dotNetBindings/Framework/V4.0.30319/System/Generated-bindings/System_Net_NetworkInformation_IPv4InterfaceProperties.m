@@ -32,8 +32,18 @@
     @synthesize index = _index;
     - (int32_t)index
     {
-		MonoObject *monoObject = [self getMonoProperty:"Index"];
-		_index = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Index");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_index = monoObject;
 
 		return _index;
 	}
@@ -43,8 +53,18 @@
     @synthesize isAutomaticPrivateAddressingActive = _isAutomaticPrivateAddressingActive;
     - (BOOL)isAutomaticPrivateAddressingActive
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsAutomaticPrivateAddressingActive"];
-		_isAutomaticPrivateAddressingActive = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsAutomaticPrivateAddressingActive");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isAutomaticPrivateAddressingActive = monoObject;
 
 		return _isAutomaticPrivateAddressingActive;
 	}
@@ -54,8 +74,18 @@
     @synthesize isAutomaticPrivateAddressingEnabled = _isAutomaticPrivateAddressingEnabled;
     - (BOOL)isAutomaticPrivateAddressingEnabled
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsAutomaticPrivateAddressingEnabled"];
-		_isAutomaticPrivateAddressingEnabled = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsAutomaticPrivateAddressingEnabled");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isAutomaticPrivateAddressingEnabled = monoObject;
 
 		return _isAutomaticPrivateAddressingEnabled;
 	}
@@ -65,8 +95,18 @@
     @synthesize isDhcpEnabled = _isDhcpEnabled;
     - (BOOL)isDhcpEnabled
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsDhcpEnabled"];
-		_isDhcpEnabled = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsDhcpEnabled");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isDhcpEnabled = monoObject;
 
 		return _isDhcpEnabled;
 	}
@@ -76,8 +116,18 @@
     @synthesize isForwardingEnabled = _isForwardingEnabled;
     - (BOOL)isForwardingEnabled
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsForwardingEnabled"];
-		_isForwardingEnabled = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsForwardingEnabled");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isForwardingEnabled = monoObject;
 
 		return _isForwardingEnabled;
 	}
@@ -87,8 +137,18 @@
     @synthesize mtu = _mtu;
     - (int32_t)mtu
     {
-		MonoObject *monoObject = [self getMonoProperty:"Mtu"];
-		_mtu = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Mtu");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_mtu = monoObject;
 
 		return _mtu;
 	}
@@ -98,8 +158,18 @@
     @synthesize usesWins = _usesWins;
     - (BOOL)usesWins
     {
-		MonoObject *monoObject = [self getMonoProperty:"UsesWins"];
-		_usesWins = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UsesWins");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_usesWins = monoObject;
 
 		return _usesWins;
 	}

@@ -16,7 +16,7 @@
 
 	// Managed property name : CollectionType
 	// Managed property type : System.Configuration.ConfigurationElementCollectionType
-    @property (nonatomic, readonly) System_Configuration_ConfigurationElementCollectionType collectionType;
+    @property (nonatomic, readonly) int32_t collectionType;
 
 #pragma mark -
 #pragma mark Methods

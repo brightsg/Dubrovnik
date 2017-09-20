@@ -33,7 +33,7 @@
     + (System_ComponentModel_CategoryAttribute *)new_withCategory:(NSString *)p1
     {
 		
-		System_ComponentModel_CategoryAttribute * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_CategoryAttribute * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     static System_ComponentModel_CategoryAttribute * m_action;
     + (System_ComponentModel_CategoryAttribute *)action
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Action"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Action");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_action isEqualToMonoObject:monoObject]) return m_action;					
 		m_action = [System_ComponentModel_CategoryAttribute bestObjectWithMonoObject:monoObject];
 
@@ -58,7 +68,17 @@
     static System_ComponentModel_CategoryAttribute * m_appearance;
     + (System_ComponentModel_CategoryAttribute *)appearance
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Appearance"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Appearance");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_appearance isEqualToMonoObject:monoObject]) return m_appearance;					
 		m_appearance = [System_ComponentModel_CategoryAttribute bestObjectWithMonoObject:monoObject];
 
@@ -70,7 +90,17 @@
     static System_ComponentModel_CategoryAttribute * m_asynchronous;
     + (System_ComponentModel_CategoryAttribute *)asynchronous
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Asynchronous"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Asynchronous");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_asynchronous isEqualToMonoObject:monoObject]) return m_asynchronous;					
 		m_asynchronous = [System_ComponentModel_CategoryAttribute bestObjectWithMonoObject:monoObject];
 
@@ -82,7 +112,17 @@
     static System_ComponentModel_CategoryAttribute * m_behavior;
     + (System_ComponentModel_CategoryAttribute *)behavior
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Behavior"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Behavior");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_behavior isEqualToMonoObject:monoObject]) return m_behavior;					
 		m_behavior = [System_ComponentModel_CategoryAttribute bestObjectWithMonoObject:monoObject];
 
@@ -94,7 +134,17 @@
     @synthesize category = _category;
     - (NSString *)category
     {
-		MonoObject *monoObject = [self getMonoProperty:"Category"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Category");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_category isEqualToMonoObject:monoObject]) return _category;					
 		_category = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -106,7 +156,17 @@
     static System_ComponentModel_CategoryAttribute * m_data;
     + (System_ComponentModel_CategoryAttribute *)data
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Data"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Data");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_data isEqualToMonoObject:monoObject]) return m_data;					
 		m_data = [System_ComponentModel_CategoryAttribute bestObjectWithMonoObject:monoObject];
 
@@ -118,7 +178,17 @@
     static System_ComponentModel_CategoryAttribute * m_default;
     + (System_ComponentModel_CategoryAttribute *)default
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Default"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Default");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_default isEqualToMonoObject:monoObject]) return m_default;					
 		m_default = [System_ComponentModel_CategoryAttribute bestObjectWithMonoObject:monoObject];
 
@@ -130,7 +200,17 @@
     static System_ComponentModel_CategoryAttribute * m_design;
     + (System_ComponentModel_CategoryAttribute *)design
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Design"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Design");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_design isEqualToMonoObject:monoObject]) return m_design;					
 		m_design = [System_ComponentModel_CategoryAttribute bestObjectWithMonoObject:monoObject];
 
@@ -142,7 +222,17 @@
     static System_ComponentModel_CategoryAttribute * m_dragDrop;
     + (System_ComponentModel_CategoryAttribute *)dragDrop
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"DragDrop"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DragDrop");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_dragDrop isEqualToMonoObject:monoObject]) return m_dragDrop;					
 		m_dragDrop = [System_ComponentModel_CategoryAttribute bestObjectWithMonoObject:monoObject];
 
@@ -154,7 +244,17 @@
     static System_ComponentModel_CategoryAttribute * m_focus;
     + (System_ComponentModel_CategoryAttribute *)focus
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Focus"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Focus");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_focus isEqualToMonoObject:monoObject]) return m_focus;					
 		m_focus = [System_ComponentModel_CategoryAttribute bestObjectWithMonoObject:monoObject];
 
@@ -166,7 +266,17 @@
     static System_ComponentModel_CategoryAttribute * m_format;
     + (System_ComponentModel_CategoryAttribute *)format
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Format"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Format");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_format isEqualToMonoObject:monoObject]) return m_format;					
 		m_format = [System_ComponentModel_CategoryAttribute bestObjectWithMonoObject:monoObject];
 
@@ -178,7 +288,17 @@
     static System_ComponentModel_CategoryAttribute * m_key;
     + (System_ComponentModel_CategoryAttribute *)key
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Key"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Key");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_key isEqualToMonoObject:monoObject]) return m_key;					
 		m_key = [System_ComponentModel_CategoryAttribute bestObjectWithMonoObject:monoObject];
 
@@ -190,7 +310,17 @@
     static System_ComponentModel_CategoryAttribute * m_layout;
     + (System_ComponentModel_CategoryAttribute *)layout
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Layout"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Layout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_layout isEqualToMonoObject:monoObject]) return m_layout;					
 		m_layout = [System_ComponentModel_CategoryAttribute bestObjectWithMonoObject:monoObject];
 
@@ -202,7 +332,17 @@
     static System_ComponentModel_CategoryAttribute * m_mouse;
     + (System_ComponentModel_CategoryAttribute *)mouse
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Mouse"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Mouse");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_mouse isEqualToMonoObject:monoObject]) return m_mouse;					
 		m_mouse = [System_ComponentModel_CategoryAttribute bestObjectWithMonoObject:monoObject];
 
@@ -214,7 +354,17 @@
     static System_ComponentModel_CategoryAttribute * m_windowStyle;
     + (System_ComponentModel_CategoryAttribute *)windowStyle
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"WindowStyle"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WindowStyle");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_windowStyle isEqualToMonoObject:monoObject]) return m_windowStyle;					
 		m_windowStyle = [System_ComponentModel_CategoryAttribute bestObjectWithMonoObject:monoObject];
 
@@ -230,7 +380,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

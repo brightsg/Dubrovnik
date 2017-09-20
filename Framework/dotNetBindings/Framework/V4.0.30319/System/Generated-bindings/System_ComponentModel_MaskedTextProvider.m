@@ -33,7 +33,7 @@
     + (System_ComponentModel_MaskedTextProvider *)new_withMask:(NSString *)p1
     {
 		
-		System_ComponentModel_MaskedTextProvider * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_MaskedTextProvider * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_ComponentModel_MaskedTextProvider *)new_withMask:(NSString *)p1 restrictToAscii:(BOOL)p2
     {
 		
-		System_ComponentModel_MaskedTextProvider * object = [[self alloc] initWithSignature:"string,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_ComponentModel_MaskedTextProvider * object = [[self alloc] initWithSignature:"string,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_ComponentModel_MaskedTextProvider *)new_withMask:(NSString *)p1 culture:(System_Globalization_CultureInfo *)p2
     {
 		
-		System_ComponentModel_MaskedTextProvider * object = [[self alloc] initWithSignature:"string,System.Globalization.CultureInfo" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_ComponentModel_MaskedTextProvider * object = [[self alloc] initWithSignature:"string,System.Globalization.CultureInfo" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -66,7 +66,7 @@
     + (System_ComponentModel_MaskedTextProvider *)new_withMask:(NSString *)p1 culture:(System_Globalization_CultureInfo *)p2 restrictToAscii:(BOOL)p3
     {
 		
-		System_ComponentModel_MaskedTextProvider * object = [[self alloc] initWithSignature:"string,System.Globalization.CultureInfo,bool" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		System_ComponentModel_MaskedTextProvider * object = [[self alloc] initWithSignature:"string,System.Globalization.CultureInfo,bool" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
         
         return object;
     }
@@ -77,7 +77,7 @@
     + (System_ComponentModel_MaskedTextProvider *)new_withMask:(NSString *)p1 passwordChar:(uint16_t)p2 allowPromptAsInput:(BOOL)p3
     {
 		
-		System_ComponentModel_MaskedTextProvider * object = [[self alloc] initWithSignature:"string,char,bool" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		System_ComponentModel_MaskedTextProvider * object = [[self alloc] initWithSignature:"string,char,bool" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
         
         return object;
     }
@@ -88,7 +88,7 @@
     + (System_ComponentModel_MaskedTextProvider *)new_withMask:(NSString *)p1 culture:(System_Globalization_CultureInfo *)p2 passwordChar:(uint16_t)p3 allowPromptAsInput:(BOOL)p4
     {
 		
-		System_ComponentModel_MaskedTextProvider * object = [[self alloc] initWithSignature:"string,System.Globalization.CultureInfo,char,bool" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4)];;
+		System_ComponentModel_MaskedTextProvider * object = [[self alloc] initWithSignature:"string,System.Globalization.CultureInfo,char,bool" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
         
         return object;
     }
@@ -99,7 +99,7 @@
     + (System_ComponentModel_MaskedTextProvider *)new_withMask:(NSString *)p1 culture:(System_Globalization_CultureInfo *)p2 allowPromptAsInput:(BOOL)p3 promptChar:(uint16_t)p4 passwordChar:(uint16_t)p5 restrictToAscii:(BOOL)p6
     {
 		
-		System_ComponentModel_MaskedTextProvider * object = [[self alloc] initWithSignature:"string,System.Globalization.CultureInfo,bool,char,char,bool" withNumArgs:6, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6)];;
+		System_ComponentModel_MaskedTextProvider * object = [[self alloc] initWithSignature:"string,System.Globalization.CultureInfo,bool,char,char,bool" withNumArgs:6, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6)];
         
         return object;
     }
@@ -112,8 +112,18 @@
     @synthesize allowPromptAsInput = _allowPromptAsInput;
     - (BOOL)allowPromptAsInput
     {
-		MonoObject *monoObject = [self getMonoProperty:"AllowPromptAsInput"];
-		_allowPromptAsInput = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AllowPromptAsInput");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_allowPromptAsInput = monoObject;
 
 		return _allowPromptAsInput;
 	}
@@ -123,8 +133,18 @@
     @synthesize asciiOnly = _asciiOnly;
     - (BOOL)asciiOnly
     {
-		MonoObject *monoObject = [self getMonoProperty:"AsciiOnly"];
-		_asciiOnly = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AsciiOnly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_asciiOnly = monoObject;
 
 		return _asciiOnly;
 	}
@@ -134,8 +154,18 @@
     @synthesize assignedEditPositionCount = _assignedEditPositionCount;
     - (int32_t)assignedEditPositionCount
     {
-		MonoObject *monoObject = [self getMonoProperty:"AssignedEditPositionCount"];
-		_assignedEditPositionCount = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AssignedEditPositionCount");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_assignedEditPositionCount = monoObject;
 
 		return _assignedEditPositionCount;
 	}
@@ -145,8 +175,18 @@
     @synthesize availableEditPositionCount = _availableEditPositionCount;
     - (int32_t)availableEditPositionCount
     {
-		MonoObject *monoObject = [self getMonoProperty:"AvailableEditPositionCount"];
-		_availableEditPositionCount = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AvailableEditPositionCount");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_availableEditPositionCount = monoObject;
 
 		return _availableEditPositionCount;
 	}
@@ -156,7 +196,17 @@
     @synthesize culture = _culture;
     - (System_Globalization_CultureInfo *)culture
     {
-		MonoObject *monoObject = [self getMonoProperty:"Culture"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Culture");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_culture isEqualToMonoObject:monoObject]) return _culture;					
 		_culture = [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
 
@@ -168,8 +218,18 @@
     static uint16_t m_defaultPasswordChar;
     + (uint16_t)defaultPasswordChar
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"DefaultPasswordChar"];
-		m_defaultPasswordChar = DB_UNBOX_UINT16(monoObject);
+		typedef uint16_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DefaultPasswordChar");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		uint16_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_defaultPasswordChar = monoObject;
 
 		return m_defaultPasswordChar;
 	}
@@ -179,8 +239,18 @@
     @synthesize editPositionCount = _editPositionCount;
     - (int32_t)editPositionCount
     {
-		MonoObject *monoObject = [self getMonoProperty:"EditPositionCount"];
-		_editPositionCount = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EditPositionCount");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_editPositionCount = monoObject;
 
 		return _editPositionCount;
 	}
@@ -190,7 +260,17 @@
     @synthesize editPositions = _editPositions;
     - (System_Collections_IEnumerator *)editPositions
     {
-		MonoObject *monoObject = [self getMonoProperty:"EditPositions"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EditPositions");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_editPositions isEqualToMonoObject:monoObject]) return _editPositions;					
 		_editPositions = [System_Collections_IEnumerator bestObjectWithMonoObject:monoObject];
 
@@ -202,16 +282,35 @@
     @synthesize includeLiterals = _includeLiterals;
     - (BOOL)includeLiterals
     {
-		MonoObject *monoObject = [self getMonoProperty:"IncludeLiterals"];
-		_includeLiterals = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IncludeLiterals");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_includeLiterals = monoObject;
 
 		return _includeLiterals;
 	}
     - (void)setIncludeLiterals:(BOOL)value
 	{
 		_includeLiterals = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"IncludeLiterals" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "IncludeLiterals");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : IncludePrompt
@@ -219,16 +318,35 @@
     @synthesize includePrompt = _includePrompt;
     - (BOOL)includePrompt
     {
-		MonoObject *monoObject = [self getMonoProperty:"IncludePrompt"];
-		_includePrompt = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IncludePrompt");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_includePrompt = monoObject;
 
 		return _includePrompt;
 	}
     - (void)setIncludePrompt:(BOOL)value
 	{
 		_includePrompt = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"IncludePrompt" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "IncludePrompt");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : InvalidIndex
@@ -236,8 +354,18 @@
     static int32_t m_invalidIndex;
     + (int32_t)invalidIndex
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"InvalidIndex"];
-		m_invalidIndex = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InvalidIndex");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_invalidIndex = monoObject;
 
 		return m_invalidIndex;
 	}
@@ -247,16 +375,35 @@
     @synthesize isPassword = _isPassword;
     - (BOOL)isPassword
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsPassword"];
-		_isPassword = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsPassword");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isPassword = monoObject;
 
 		return _isPassword;
 	}
     - (void)setIsPassword:(BOOL)value
 	{
 		_isPassword = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"IsPassword" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "IsPassword");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Item
@@ -264,8 +411,18 @@
     @synthesize item = _item;
     - (uint16_t)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
-		_item = DB_UNBOX_UINT16(monoObject);
+		typedef uint16_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		uint16_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_item = monoObject;
 
 		return _item;
 	}
@@ -275,8 +432,18 @@
     @synthesize lastAssignedPosition = _lastAssignedPosition;
     - (int32_t)lastAssignedPosition
     {
-		MonoObject *monoObject = [self getMonoProperty:"LastAssignedPosition"];
-		_lastAssignedPosition = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LastAssignedPosition");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_lastAssignedPosition = monoObject;
 
 		return _lastAssignedPosition;
 	}
@@ -286,8 +453,18 @@
     @synthesize length = _length;
     - (int32_t)length
     {
-		MonoObject *monoObject = [self getMonoProperty:"Length"];
-		_length = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Length");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_length = monoObject;
 
 		return _length;
 	}
@@ -297,7 +474,17 @@
     @synthesize mask = _mask;
     - (NSString *)mask
     {
-		MonoObject *monoObject = [self getMonoProperty:"Mask"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Mask");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_mask isEqualToMonoObject:monoObject]) return _mask;					
 		_mask = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -309,8 +496,18 @@
     @synthesize maskCompleted = _maskCompleted;
     - (BOOL)maskCompleted
     {
-		MonoObject *monoObject = [self getMonoProperty:"MaskCompleted"];
-		_maskCompleted = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MaskCompleted");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_maskCompleted = monoObject;
 
 		return _maskCompleted;
 	}
@@ -320,8 +517,18 @@
     @synthesize maskFull = _maskFull;
     - (BOOL)maskFull
     {
-		MonoObject *monoObject = [self getMonoProperty:"MaskFull"];
-		_maskFull = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MaskFull");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_maskFull = monoObject;
 
 		return _maskFull;
 	}
@@ -331,16 +538,35 @@
     @synthesize passwordChar = _passwordChar;
     - (uint16_t)passwordChar
     {
-		MonoObject *monoObject = [self getMonoProperty:"PasswordChar"];
-		_passwordChar = DB_UNBOX_UINT16(monoObject);
+		typedef uint16_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PasswordChar");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		uint16_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_passwordChar = monoObject;
 
 		return _passwordChar;
 	}
     - (void)setPasswordChar:(uint16_t)value
 	{
 		_passwordChar = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"PasswordChar" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, uint16_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "PasswordChar");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : PromptChar
@@ -348,16 +574,35 @@
     @synthesize promptChar = _promptChar;
     - (uint16_t)promptChar
     {
-		MonoObject *monoObject = [self getMonoProperty:"PromptChar"];
-		_promptChar = DB_UNBOX_UINT16(monoObject);
+		typedef uint16_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PromptChar");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		uint16_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_promptChar = monoObject;
 
 		return _promptChar;
 	}
     - (void)setPromptChar:(uint16_t)value
 	{
 		_promptChar = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"PromptChar" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, uint16_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "PromptChar");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ResetOnPrompt
@@ -365,16 +610,35 @@
     @synthesize resetOnPrompt = _resetOnPrompt;
     - (BOOL)resetOnPrompt
     {
-		MonoObject *monoObject = [self getMonoProperty:"ResetOnPrompt"];
-		_resetOnPrompt = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ResetOnPrompt");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_resetOnPrompt = monoObject;
 
 		return _resetOnPrompt;
 	}
     - (void)setResetOnPrompt:(BOOL)value
 	{
 		_resetOnPrompt = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ResetOnPrompt" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ResetOnPrompt");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ResetOnSpace
@@ -382,16 +646,35 @@
     @synthesize resetOnSpace = _resetOnSpace;
     - (BOOL)resetOnSpace
     {
-		MonoObject *monoObject = [self getMonoProperty:"ResetOnSpace"];
-		_resetOnSpace = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ResetOnSpace");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_resetOnSpace = monoObject;
 
 		return _resetOnSpace;
 	}
     - (void)setResetOnSpace:(BOOL)value
 	{
 		_resetOnSpace = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ResetOnSpace" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ResetOnSpace");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : SkipLiterals
@@ -399,16 +682,35 @@
     @synthesize skipLiterals = _skipLiterals;
     - (BOOL)skipLiterals
     {
-		MonoObject *monoObject = [self getMonoProperty:"SkipLiterals"];
-		_skipLiterals = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SkipLiterals");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_skipLiterals = monoObject;
 
 		return _skipLiterals;
 	}
     - (void)setSkipLiterals:(BOOL)value
 	{
 		_skipLiterals = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"SkipLiterals" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "SkipLiterals");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -430,7 +732,7 @@
 	// Managed param types : System.Char, ref System.Int32&, ref System.ComponentModel.MaskedTextResultHint&
     - (BOOL)add_withInputChar:(uint16_t)p1 testPositionIntRef:(int32_t*)p2 resultHintSCMaskedTextResultHintRef:(System_ComponentModel_MaskedTextResultHint **)p3
     {
-		void *refPtr3 = [*p3 monoValue];
+		void *refPtr3 = [*p3 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoMethod:"Add(char,int&,System.ComponentModel.MaskedTextResultHint&)" withNumArgs:3, DB_VALUE(p1), p2, &refPtr3];
 
@@ -445,7 +747,7 @@
     - (BOOL)add_withInputString:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Add(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Add(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -455,9 +757,9 @@
 	// Managed param types : System.String, ref System.Int32&, ref System.ComponentModel.MaskedTextResultHint&
     - (BOOL)add_withInputString:(NSString *)p1 testPositionIntRef:(int32_t*)p2 resultHintSCMaskedTextResultHintRef:(System_ComponentModel_MaskedTextResultHint **)p3
     {
-		void *refPtr3 = [*p3 monoValue];
+		void *refPtr3 = [*p3 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoMethod:"Add(string,int&,System.ComponentModel.MaskedTextResultHint&)" withNumArgs:3, [p1 monoValue], p2, &refPtr3];
+		MonoObject *monoObject = [self invokeMonoMethod:"Add(string,int&,System.ComponentModel.MaskedTextResultHint&)" withNumArgs:3, [p1 monoRTInvokeArg], p2, &refPtr3];
 
 		*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
 
@@ -470,7 +772,7 @@
     - (void)clear
     {
 		
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];
         
     }
 
@@ -479,10 +781,10 @@
 	// Managed param types : ref System.ComponentModel.MaskedTextResultHint&
     - (void)clear_withResultHintRef:(System_ComponentModel_MaskedTextResultHint **)p1
     {
-		void *refPtr1 = [*p1 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
 
 		[self invokeMonoMethod:"Clear(System.ComponentModel.MaskedTextResultHint&)" withNumArgs:1, &refPtr1];
-;
+
         *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 
     }
@@ -589,7 +891,7 @@
 	// Managed method name : GetOperationResultFromHint
 	// Managed return type : System.Boolean
 	// Managed param types : System.ComponentModel.MaskedTextResultHint
-    + (BOOL)getOperationResultFromHint_withHint:(System_ComponentModel_MaskedTextResultHint)p1
+    + (BOOL)getOperationResultFromHint_withHint:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetOperationResultFromHint(System.ComponentModel.MaskedTextResultHint)" withNumArgs:1, DB_VALUE(p1)];
@@ -613,7 +915,7 @@
 	// Managed param types : System.Char, System.Int32, ref System.Int32&, ref System.ComponentModel.MaskedTextResultHint&
     - (BOOL)insertAt_withInputChar:(uint16_t)p1 positionInt:(int32_t)p2 testPositionIntRef:(int32_t*)p3 resultHintSCMaskedTextResultHintRef:(System_ComponentModel_MaskedTextResultHint **)p4
     {
-		void *refPtr4 = [*p4 monoValue];
+		void *refPtr4 = [*p4 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoMethod:"InsertAt(char,int,int&,System.ComponentModel.MaskedTextResultHint&)" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), p3, &refPtr4];
 
@@ -628,7 +930,7 @@
     - (BOOL)insertAt_withInputString:(NSString *)p1 positionInt:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"InsertAt(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"InsertAt(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -638,9 +940,9 @@
 	// Managed param types : System.String, System.Int32, ref System.Int32&, ref System.ComponentModel.MaskedTextResultHint&
     - (BOOL)insertAt_withInputString:(NSString *)p1 positionInt:(int32_t)p2 testPositionIntRef:(int32_t*)p3 resultHintSCMaskedTextResultHintRef:(System_ComponentModel_MaskedTextResultHint **)p4
     {
-		void *refPtr4 = [*p4 monoValue];
+		void *refPtr4 = [*p4 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoMethod:"InsertAt(string,int,int&,System.ComponentModel.MaskedTextResultHint&)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), p3, &refPtr4];
+		MonoObject *monoObject = [self invokeMonoMethod:"InsertAt(string,int,int&,System.ComponentModel.MaskedTextResultHint&)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), p3, &refPtr4];
 
 		*p4 = [System_Object bestObjectWithMonoObject:refPtr4];
 
@@ -718,7 +1020,7 @@
 	// Managed param types : ref System.Int32&, ref System.ComponentModel.MaskedTextResultHint&
     - (BOOL)remove_withTestPositionRef:(int32_t*)p1 resultHintRef:(System_ComponentModel_MaskedTextResultHint **)p2
     {
-		void *refPtr2 = [*p2 monoValue];
+		void *refPtr2 = [*p2 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoMethod:"Remove(int&,System.ComponentModel.MaskedTextResultHint&)" withNumArgs:2, p1, &refPtr2];
 
@@ -754,7 +1056,7 @@
 	// Managed param types : System.Int32, System.Int32, ref System.Int32&, ref System.ComponentModel.MaskedTextResultHint&
     - (BOOL)removeAt_withStartPosition:(int32_t)p1 endPosition:(int32_t)p2 testPositionRef:(int32_t*)p3 resultHintRef:(System_ComponentModel_MaskedTextResultHint **)p4
     {
-		void *refPtr4 = [*p4 monoValue];
+		void *refPtr4 = [*p4 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoMethod:"RemoveAt(int,int,int&,System.ComponentModel.MaskedTextResultHint&)" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), p3, &refPtr4];
 
@@ -779,7 +1081,7 @@
 	// Managed param types : System.Char, System.Int32, ref System.Int32&, ref System.ComponentModel.MaskedTextResultHint&
     - (BOOL)replace_withInputChar:(uint16_t)p1 positionInt:(int32_t)p2 testPositionIntRef:(int32_t*)p3 resultHintSCMaskedTextResultHintRef:(System_ComponentModel_MaskedTextResultHint **)p4
     {
-		void *refPtr4 = [*p4 monoValue];
+		void *refPtr4 = [*p4 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoMethod:"Replace(char,int,int&,System.ComponentModel.MaskedTextResultHint&)" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), p3, &refPtr4];
 
@@ -793,7 +1095,7 @@
 	// Managed param types : System.Char, System.Int32, System.Int32, ref System.Int32&, ref System.ComponentModel.MaskedTextResultHint&
     - (BOOL)replace_withInputChar:(uint16_t)p1 startPositionInt:(int32_t)p2 endPositionInt:(int32_t)p3 testPositionIntRef:(int32_t*)p4 resultHintSCMaskedTextResultHintRef:(System_ComponentModel_MaskedTextResultHint **)p5
     {
-		void *refPtr5 = [*p5 monoValue];
+		void *refPtr5 = [*p5 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoMethod:"Replace(char,int,int,int&,System.ComponentModel.MaskedTextResultHint&)" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), p4, &refPtr5];
 
@@ -808,7 +1110,7 @@
     - (BOOL)replace_withInputString:(NSString *)p1 positionInt:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -818,9 +1120,9 @@
 	// Managed param types : System.String, System.Int32, ref System.Int32&, ref System.ComponentModel.MaskedTextResultHint&
     - (BOOL)replace_withInputString:(NSString *)p1 positionInt:(int32_t)p2 testPositionIntRef:(int32_t*)p3 resultHintSCMaskedTextResultHintRef:(System_ComponentModel_MaskedTextResultHint **)p4
     {
-		void *refPtr4 = [*p4 monoValue];
+		void *refPtr4 = [*p4 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,int,int&,System.ComponentModel.MaskedTextResultHint&)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), p3, &refPtr4];
+		MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,int,int&,System.ComponentModel.MaskedTextResultHint&)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), p3, &refPtr4];
 
 		*p4 = [System_Object bestObjectWithMonoObject:refPtr4];
 
@@ -832,9 +1134,9 @@
 	// Managed param types : System.String, System.Int32, System.Int32, ref System.Int32&, ref System.ComponentModel.MaskedTextResultHint&
     - (BOOL)replace_withInputString:(NSString *)p1 startPositionInt:(int32_t)p2 endPositionInt:(int32_t)p3 testPositionIntRef:(int32_t*)p4 resultHintSCMaskedTextResultHintRef:(System_ComponentModel_MaskedTextResultHint **)p5
     {
-		void *refPtr5 = [*p5 monoValue];
+		void *refPtr5 = [*p5 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,int,int,int&,System.ComponentModel.MaskedTextResultHint&)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), p4, &refPtr5];
+		MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,int,int,int&,System.ComponentModel.MaskedTextResultHint&)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), p4, &refPtr5];
 
 		*p5 = [System_Object bestObjectWithMonoObject:refPtr5];
 
@@ -847,7 +1149,7 @@
     - (BOOL)set_withInput:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Set(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Set(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -857,9 +1159,9 @@
 	// Managed param types : System.String, ref System.Int32&, ref System.ComponentModel.MaskedTextResultHint&
     - (BOOL)set_withInput:(NSString *)p1 testPositionRef:(int32_t*)p2 resultHintRef:(System_ComponentModel_MaskedTextResultHint **)p3
     {
-		void *refPtr3 = [*p3 monoValue];
+		void *refPtr3 = [*p3 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoMethod:"Set(string,int&,System.ComponentModel.MaskedTextResultHint&)" withNumArgs:3, [p1 monoValue], p2, &refPtr3];
+		MonoObject *monoObject = [self invokeMonoMethod:"Set(string,int&,System.ComponentModel.MaskedTextResultHint&)" withNumArgs:3, [p1 monoRTInvokeArg], p2, &refPtr3];
 
 		*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
 
@@ -959,7 +1261,7 @@
 	// Managed param types : System.Char, System.Int32, ref System.ComponentModel.MaskedTextResultHint&
     - (BOOL)verifyChar_withInput:(uint16_t)p1 position:(int32_t)p2 hintRef:(System_ComponentModel_MaskedTextResultHint **)p3
     {
-		void *refPtr3 = [*p3 monoValue];
+		void *refPtr3 = [*p3 monoRTInvokeArg];
 
 		MonoObject *monoObject = [self invokeMonoMethod:"VerifyChar(char,int,System.ComponentModel.MaskedTextResultHint&)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), &refPtr3];
 
@@ -985,7 +1287,7 @@
     - (BOOL)verifyString_withInput:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"VerifyString(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"VerifyString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -995,9 +1297,9 @@
 	// Managed param types : System.String, ref System.Int32&, ref System.ComponentModel.MaskedTextResultHint&
     - (BOOL)verifyString_withInput:(NSString *)p1 testPositionRef:(int32_t*)p2 resultHintRef:(System_ComponentModel_MaskedTextResultHint **)p3
     {
-		void *refPtr3 = [*p3 monoValue];
+		void *refPtr3 = [*p3 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoMethod:"VerifyString(string,int&,System.ComponentModel.MaskedTextResultHint&)" withNumArgs:3, [p1 monoValue], p2, &refPtr3];
+		MonoObject *monoObject = [self invokeMonoMethod:"VerifyString(string,int&,System.ComponentModel.MaskedTextResultHint&)" withNumArgs:3, [p1 monoRTInvokeArg], p2, &refPtr3];
 
 		*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
 

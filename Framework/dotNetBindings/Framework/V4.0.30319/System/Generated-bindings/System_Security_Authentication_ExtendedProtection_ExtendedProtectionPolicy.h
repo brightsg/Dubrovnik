@@ -17,22 +17,22 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy
 	// Managed param types : System.Security.Authentication.ExtendedProtection.PolicyEnforcement, System.Security.Authentication.ExtendedProtection.ProtectionScenario, System.Security.Authentication.ExtendedProtection.ServiceNameCollection
-    + (System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)new_withPolicyEnforcementSSAEPolicyEnforcement:(System_Security_Authentication_ExtendedProtection_PolicyEnforcement)p1 protectionScenarioSSAEProtectionScenario:(System_Security_Authentication_ExtendedProtection_ProtectionScenario)p2 customServiceNamesSSAEServiceNameCollection:(System_Security_Authentication_ExtendedProtection_ServiceNameCollection *)p3;
+    + (System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)new_withPolicyEnforcementSSAEPolicyEnforcement:(int32_t)p1 protectionScenarioSSAEProtectionScenario:(int32_t)p2 customServiceNamesSSAEServiceNameCollection:(System_Security_Authentication_ExtendedProtection_ServiceNameCollection *)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy
 	// Managed param types : System.Security.Authentication.ExtendedProtection.PolicyEnforcement, System.Security.Authentication.ExtendedProtection.ProtectionScenario, System.Collections.ICollection
-    + (System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)new_withPolicyEnforcementSSAEPolicyEnforcement:(System_Security_Authentication_ExtendedProtection_PolicyEnforcement)p1 protectionScenarioSSAEProtectionScenario:(System_Security_Authentication_ExtendedProtection_ProtectionScenario)p2 customServiceNamesSCICollection:(id <System_Collections_ICollection_>)p3;
+    + (System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)new_withPolicyEnforcementSSAEPolicyEnforcement:(int32_t)p1 protectionScenarioSSAEProtectionScenario:(int32_t)p2 customServiceNamesSCICollection:(id <System_Collections_ICollection_>)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy
 	// Managed param types : System.Security.Authentication.ExtendedProtection.PolicyEnforcement, System.Security.Authentication.ExtendedProtection.ChannelBinding
-    + (System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)new_withPolicyEnforcement:(System_Security_Authentication_ExtendedProtection_PolicyEnforcement)p1 customChannelBinding:(System_Security_Authentication_ExtendedProtection_ChannelBinding *)p2;
+    + (System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)new_withPolicyEnforcement:(int32_t)p1 customChannelBinding:(System_Security_Authentication_ExtendedProtection_ChannelBinding *)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy
 	// Managed param types : System.Security.Authentication.ExtendedProtection.PolicyEnforcement
-    + (System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)new_withPolicyEnforcement:(System_Security_Authentication_ExtendedProtection_PolicyEnforcement)p1;
+    + (System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)new_withPolicyEnforcement:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -51,11 +51,11 @@
 
 	// Managed property name : PolicyEnforcement
 	// Managed property type : System.Security.Authentication.ExtendedProtection.PolicyEnforcement
-    @property (nonatomic, readonly) System_Security_Authentication_ExtendedProtection_PolicyEnforcement policyEnforcement;
+    @property (nonatomic, readonly) int32_t policyEnforcement;
 
 	// Managed property name : ProtectionScenario
 	// Managed property type : System.Security.Authentication.ExtendedProtection.ProtectionScenario
-    @property (nonatomic, readonly) System_Security_Authentication_ExtendedProtection_ProtectionScenario protectionScenario;
+    @property (nonatomic, readonly) int32_t protectionScenario;
 
 #pragma mark -
 #pragma mark Methods

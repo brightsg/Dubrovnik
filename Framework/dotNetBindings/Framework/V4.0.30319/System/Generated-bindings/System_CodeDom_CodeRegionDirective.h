@@ -17,14 +17,14 @@
 	// Managed method name : .ctor
 	// Managed return type : System.CodeDom.CodeRegionDirective
 	// Managed param types : System.CodeDom.CodeRegionMode, System.String
-    + (System_CodeDom_CodeRegionDirective *)new_withRegionMode:(System_CodeDom_CodeRegionMode)p1 regionText:(NSString *)p2;
+    + (System_CodeDom_CodeRegionDirective *)new_withRegionMode:(int32_t)p1 regionText:(NSString *)p2;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : RegionMode
 	// Managed property type : System.CodeDom.CodeRegionMode
-    @property (nonatomic) System_CodeDom_CodeRegionMode regionMode;
+    @property (nonatomic) int32_t regionMode;
 
 	// Managed property name : RegionText
 	// Managed property type : System.String

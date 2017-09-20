@@ -33,7 +33,7 @@
     + (System_ComponentModel_Design_DesignerTransactionCloseEventArgs *)new_withCommit:(BOOL)p1
     {
 		
-		System_ComponentModel_Design_DesignerTransactionCloseEventArgs * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
+		System_ComponentModel_Design_DesignerTransactionCloseEventArgs * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_ComponentModel_Design_DesignerTransactionCloseEventArgs *)new_withCommit:(BOOL)p1 lastTransaction:(BOOL)p2
     {
 		
-		System_ComponentModel_Design_DesignerTransactionCloseEventArgs * object = [[self alloc] initWithSignature:"bool,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		System_ComponentModel_Design_DesignerTransactionCloseEventArgs * object = [[self alloc] initWithSignature:"bool,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
         
         return object;
     }
@@ -57,8 +57,18 @@
     @synthesize lastTransaction = _lastTransaction;
     - (BOOL)lastTransaction
     {
-		MonoObject *monoObject = [self getMonoProperty:"LastTransaction"];
-		_lastTransaction = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LastTransaction");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_lastTransaction = monoObject;
 
 		return _lastTransaction;
 	}
@@ -68,8 +78,18 @@
     @synthesize transactionCommitted = _transactionCommitted;
     - (BOOL)transactionCommitted
     {
-		MonoObject *monoObject = [self getMonoProperty:"TransactionCommitted"];
-		_transactionCommitted = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TransactionCommitted");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_transactionCommitted = monoObject;
 
 		return _transactionCommitted;
 	}

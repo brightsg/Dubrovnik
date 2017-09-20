@@ -33,7 +33,7 @@
     + (System_Security_Cryptography_X509Certificates_X509EnhancedKeyUsageExtension *)new_withEnhancedKeyUsages:(System_Security_Cryptography_OidCollection *)p1 critical:(BOOL)p2
     {
 		
-		System_Security_Cryptography_X509Certificates_X509EnhancedKeyUsageExtension * object = [[self alloc] initWithSignature:"System.Security.Cryptography.OidCollection,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Security_Cryptography_X509Certificates_X509EnhancedKeyUsageExtension * object = [[self alloc] initWithSignature:"System.Security.Cryptography.OidCollection,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Security_Cryptography_X509Certificates_X509EnhancedKeyUsageExtension *)new_withEncodedEnhancedKeyUsages:(System_Security_Cryptography_AsnEncodedData *)p1 critical:(BOOL)p2
     {
 		
-		System_Security_Cryptography_X509Certificates_X509EnhancedKeyUsageExtension * object = [[self alloc] initWithSignature:"System.Security.Cryptography.AsnEncodedData,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Security_Cryptography_X509Certificates_X509EnhancedKeyUsageExtension * object = [[self alloc] initWithSignature:"System.Security.Cryptography.AsnEncodedData,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -57,7 +57,17 @@
     @synthesize enhancedKeyUsages = _enhancedKeyUsages;
     - (System_Security_Cryptography_OidCollection *)enhancedKeyUsages
     {
-		MonoObject *monoObject = [self getMonoProperty:"EnhancedKeyUsages"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EnhancedKeyUsages");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_enhancedKeyUsages isEqualToMonoObject:monoObject]) return _enhancedKeyUsages;					
 		_enhancedKeyUsages = [System_Security_Cryptography_OidCollection bestObjectWithMonoObject:monoObject];
 
@@ -73,7 +83,7 @@
     - (void)copyFrom_withAsnEncodedData:(System_Security_Cryptography_AsnEncodedData *)p1
     {
 		
-		[self invokeMonoMethod:"CopyFrom(System.Security.Cryptography.AsnEncodedData)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"CopyFrom(System.Security.Cryptography.AsnEncodedData)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

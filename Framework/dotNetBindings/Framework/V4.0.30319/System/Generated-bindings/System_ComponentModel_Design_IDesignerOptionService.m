@@ -33,7 +33,7 @@
     - (System_Object *)getOptionValue_withPageName:(NSString *)p1 valueName:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IDesignerOptionService.GetOptionValue(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IDesignerOptionService.GetOptionValue(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -44,7 +44,7 @@
     - (void)setOptionValue_withPageName:(NSString *)p1 valueName:(NSString *)p2 value:(System_Object *)p3
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IDesignerOptionService.SetOptionValue(string,string,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IDesignerOptionService.SetOptionValue(string,string,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 

@@ -20,7 +20,7 @@
 
 	// Managed field name : dwAspect
 	// Managed field type : System.Runtime.InteropServices.ComTypes.DVASPECT
-    @property (nonatomic) System_Runtime_InteropServices_ComTypes_DVASPECT dwAspect;
+    @property (nonatomic) int32_t dwAspect;
 
 	// Managed field name : lindex
 	// Managed field type : System.Int32
@@ -32,6 +32,6 @@
 
 	// Managed field name : tymed
 	// Managed field type : System.Runtime.InteropServices.ComTypes.TYMED
-    @property (nonatomic) System_Runtime_InteropServices_ComTypes_TYMED tymed;
+    @property (nonatomic) int32_t tymed;
 @end
 //--Dubrovnik.CodeGenerator

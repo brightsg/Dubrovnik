@@ -17,17 +17,17 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Cache.HttpRequestCachePolicy
 	// Managed param types : System.Net.Cache.HttpRequestCacheLevel
-    + (System_Net_Cache_HttpRequestCachePolicy *)new_withLevel:(System_Net_Cache_HttpRequestCacheLevel)p1;
+    + (System_Net_Cache_HttpRequestCachePolicy *)new_withLevel:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Cache.HttpRequestCachePolicy
 	// Managed param types : System.Net.Cache.HttpCacheAgeControl, System.TimeSpan
-    + (System_Net_Cache_HttpRequestCachePolicy *)new_withCacheAgeControl:(System_Net_Cache_HttpCacheAgeControl)p1 ageOrFreshOrStale:(System_TimeSpan *)p2;
+    + (System_Net_Cache_HttpRequestCachePolicy *)new_withCacheAgeControl:(int32_t)p1 ageOrFreshOrStale:(System_TimeSpan *)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Cache.HttpRequestCachePolicy
 	// Managed param types : System.Net.Cache.HttpCacheAgeControl, System.TimeSpan, System.TimeSpan
-    + (System_Net_Cache_HttpRequestCachePolicy *)new_withCacheAgeControl:(System_Net_Cache_HttpCacheAgeControl)p1 maxAge:(System_TimeSpan *)p2 freshOrStale:(System_TimeSpan *)p3;
+    + (System_Net_Cache_HttpRequestCachePolicy *)new_withCacheAgeControl:(int32_t)p1 maxAge:(System_TimeSpan *)p2 freshOrStale:(System_TimeSpan *)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Cache.HttpRequestCachePolicy
@@ -37,7 +37,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Cache.HttpRequestCachePolicy
 	// Managed param types : System.Net.Cache.HttpCacheAgeControl, System.TimeSpan, System.TimeSpan, System.DateTime
-    + (System_Net_Cache_HttpRequestCachePolicy *)new_withCacheAgeControl:(System_Net_Cache_HttpCacheAgeControl)p1 maxAge:(System_TimeSpan *)p2 freshOrStale:(System_TimeSpan *)p3 cacheSyncDate:(NSDate *)p4;
+    + (System_Net_Cache_HttpRequestCachePolicy *)new_withCacheAgeControl:(int32_t)p1 maxAge:(System_TimeSpan *)p2 freshOrStale:(System_TimeSpan *)p3 cacheSyncDate:(NSDate *)p4;
 
 #pragma mark -
 #pragma mark Properties
@@ -48,7 +48,7 @@
 
 	// Managed property name : Level
 	// Managed property type : System.Net.Cache.HttpRequestCacheLevel
-    @property (nonatomic, readonly) System_Net_Cache_HttpRequestCacheLevel level;
+    @property (nonatomic, readonly) int32_t level;
 
 	// Managed property name : MaxAge
 	// Managed property type : System.TimeSpan

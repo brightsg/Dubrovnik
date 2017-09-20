@@ -16,7 +16,7 @@
 
 	// Managed property name : GenericUriParserOptions
 	// Managed property type : System.GenericUriParserOptions
-    @property (nonatomic, readonly) System_GenericUriParserOptions genericUriParserOptions;
+    @property (nonatomic, readonly) int32_t genericUriParserOptions;
 
 	// Managed property name : Name
 	// Managed property type : System.String

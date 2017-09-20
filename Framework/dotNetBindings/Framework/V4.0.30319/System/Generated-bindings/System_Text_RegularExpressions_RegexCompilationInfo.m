@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Text.RegularExpressions.RegexCompilationInfo
 	// Managed param types : System.String, System.Text.RegularExpressions.RegexOptions, System.String, System.String, System.Boolean
-    + (System_Text_RegularExpressions_RegexCompilationInfo *)new_withPattern:(NSString *)p1 options:(System_Text_RegularExpressions_RegexOptions)p2 name:(NSString *)p3 fullnamespace:(NSString *)p4 ispublic:(BOOL)p5
+    + (System_Text_RegularExpressions_RegexCompilationInfo *)new_withPattern:(NSString *)p1 options:(int32_t)p2 name:(NSString *)p3 fullnamespace:(NSString *)p4 ispublic:(BOOL)p5
     {
 		
-		System_Text_RegularExpressions_RegexCompilationInfo * object = [[self alloc] initWithSignature:"string,System.Text.RegularExpressions.RegexOptions,string,string,bool" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue], DB_VALUE(p5)];;
+		System_Text_RegularExpressions_RegexCompilationInfo * object = [[self alloc] initWithSignature:"string,System.Text.RegularExpressions.RegexOptions,string,string,bool" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], DB_VALUE(p5)];
         
         return object;
     }
@@ -41,10 +41,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Text.RegularExpressions.RegexCompilationInfo
 	// Managed param types : System.String, System.Text.RegularExpressions.RegexOptions, System.String, System.String, System.Boolean, System.TimeSpan
-    + (System_Text_RegularExpressions_RegexCompilationInfo *)new_withPattern:(NSString *)p1 options:(System_Text_RegularExpressions_RegexOptions)p2 name:(NSString *)p3 fullnamespace:(NSString *)p4 ispublic:(BOOL)p5 matchTimeout:(System_TimeSpan *)p6
+    + (System_Text_RegularExpressions_RegexCompilationInfo *)new_withPattern:(NSString *)p1 options:(int32_t)p2 name:(NSString *)p3 fullnamespace:(NSString *)p4 ispublic:(BOOL)p5 matchTimeout:(System_TimeSpan *)p6
     {
 		
-		System_Text_RegularExpressions_RegexCompilationInfo * object = [[self alloc] initWithSignature:"string,System.Text.RegularExpressions.RegexOptions,string,string,bool,System.TimeSpan" withNumArgs:6, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue], DB_VALUE(p5), [p6 monoValue]];;
+		System_Text_RegularExpressions_RegexCompilationInfo * object = [[self alloc] initWithSignature:"string,System.Text.RegularExpressions.RegexOptions,string,string,bool,System.TimeSpan" withNumArgs:6, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], DB_VALUE(p5), [p6 monoRTInvokeArg]];
         
         return object;
     }
@@ -57,16 +57,35 @@
     @synthesize isPublic = _isPublic;
     - (BOOL)isPublic
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsPublic"];
-		_isPublic = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsPublic");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isPublic = monoObject;
 
 		return _isPublic;
 	}
     - (void)setIsPublic:(BOOL)value
 	{
 		_isPublic = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"IsPublic" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "IsPublic");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : MatchTimeout
@@ -74,7 +93,17 @@
     @synthesize matchTimeout = _matchTimeout;
     - (System_TimeSpan *)matchTimeout
     {
-		MonoObject *monoObject = [self getMonoProperty:"MatchTimeout"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MatchTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_matchTimeout isEqualToMonoObject:monoObject]) return _matchTimeout;					
 		_matchTimeout = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
@@ -83,8 +112,17 @@
     - (void)setMatchTimeout:(System_TimeSpan *)value
 	{
 		_matchTimeout = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"MatchTimeout" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "MatchTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Name
@@ -92,7 +130,17 @@
     @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -101,8 +149,17 @@
     - (void)setName:(NSString *)value
 	{
 		_name = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"Name" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Namespace
@@ -110,7 +167,17 @@
     @synthesize namespace = _namespace;
     - (NSString *)namespace
     {
-		MonoObject *monoObject = [self getMonoProperty:"Namespace"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Namespace");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_namespace isEqualToMonoObject:monoObject]) return _namespace;					
 		_namespace = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -119,25 +186,53 @@
     - (void)setNamespace:(NSString *)value
 	{
 		_namespace = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"Namespace" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Namespace");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Options
 	// Managed property type : System.Text.RegularExpressions.RegexOptions
     @synthesize options = _options;
-    - (System_Text_RegularExpressions_RegexOptions)options
+    - (int32_t)options
     {
-		MonoObject *monoObject = [self getMonoProperty:"Options"];
-		_options = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Options");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_options = monoObject;
 
 		return _options;
 	}
-    - (void)setOptions:(System_Text_RegularExpressions_RegexOptions)value
+    - (void)setOptions:(int32_t)value
 	{
 		_options = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Options" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Options");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Pattern
@@ -145,7 +240,17 @@
     @synthesize pattern = _pattern;
     - (NSString *)pattern
     {
-		MonoObject *monoObject = [self getMonoProperty:"Pattern"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Pattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_pattern isEqualToMonoObject:monoObject]) return _pattern;					
 		_pattern = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -154,8 +259,17 @@
     - (void)setPattern:(NSString *)value
 	{
 		_pattern = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"Pattern" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Pattern");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

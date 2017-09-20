@@ -22,7 +22,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.ListBindableAttribute
 	// Managed param types : System.ComponentModel.BindableSupport
-    + (System_ComponentModel_ListBindableAttribute *)new_withFlags:(System_ComponentModel_BindableSupport)p1;
+    + (System_ComponentModel_ListBindableAttribute *)new_withFlags:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Fields

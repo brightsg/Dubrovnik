@@ -16,6 +16,6 @@
 
 	// Managed property name : EventType
 	// Managed property type : System.IO.Ports.SerialData
-    @property (nonatomic, readonly) System_IO_Ports_SerialData eventType;
+    @property (nonatomic, readonly) int32_t eventType;
 @end
 //--Dubrovnik.CodeGenerator

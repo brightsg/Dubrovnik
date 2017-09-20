@@ -17,14 +17,14 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.EditorBrowsableAttribute
 	// Managed param types : System.ComponentModel.EditorBrowsableState
-    + (System_ComponentModel_EditorBrowsableAttribute *)new_withState:(System_ComponentModel_EditorBrowsableState)p1;
+    + (System_ComponentModel_EditorBrowsableAttribute *)new_withState:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : State
 	// Managed property type : System.ComponentModel.EditorBrowsableState
-    @property (nonatomic, readonly) System_ComponentModel_EditorBrowsableState state;
+    @property (nonatomic, readonly) int32_t state;
 
 #pragma mark -
 #pragma mark Methods

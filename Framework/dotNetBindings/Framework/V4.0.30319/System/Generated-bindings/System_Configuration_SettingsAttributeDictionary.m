@@ -33,7 +33,7 @@
     + (System_Configuration_SettingsAttributeDictionary *)new_withAttributes:(System_Configuration_SettingsAttributeDictionary *)p1
     {
 		
-		System_Configuration_SettingsAttributeDictionary * object = [[self alloc] initWithSignature:"System.Configuration.SettingsAttributeDictionary" withNumArgs:1, [p1 monoValue]];;
+		System_Configuration_SettingsAttributeDictionary * object = [[self alloc] initWithSignature:"System.Configuration.SettingsAttributeDictionary" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }

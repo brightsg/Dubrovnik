@@ -33,7 +33,7 @@
     - (void)closeData
     {
 		
-		[self invokeMonoMethod:"System.Diagnostics.ICollectData.CloseData()" withNumArgs:0];;
+		[self invokeMonoMethod:"System.Diagnostics.ICollectData.CloseData()" withNumArgs:0];
         
     }
 
@@ -43,7 +43,7 @@
     - (void)collectData_withId:(int32_t)p1 valueName:(void *)p2 data:(void *)p3 totalBytes:(int32_t)p4 resRef:(void **)p5
     {
 		
-		[self invokeMonoMethod:"System.Diagnostics.ICollectData.CollectData(int,intptr,intptr,int,intptr&)" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), p5];;
+		[self invokeMonoMethod:"System.Diagnostics.ICollectData.CollectData(int,intptr,intptr,int,intptr&)" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), p5];
         
     }
 

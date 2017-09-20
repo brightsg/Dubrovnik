@@ -94,13 +94,13 @@
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : System.Int32, T[], System.Int32, System.Int32
-    - (void)copyTo_withIndex:(int32_t)p1 array:(DBSystem_Array *)p2 arrayIndex:(int32_t)p3 count:(int32_t)p4;
+	// Managed param types : T[], System.Int32
+    - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2;
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : T[], System.Int32
-    - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2;
+	// Managed param types : System.Int32, T[], System.Int32, System.Int32
+    - (void)copyTo_withIndex:(int32_t)p1 array:(DBSystem_Array *)p2 arrayIndex:(int32_t)p3 count:(int32_t)p4;
 
 	// Managed method name : Exists
 	// Managed return type : System.Boolean
@@ -119,13 +119,13 @@
 
 	// Managed method name : FindIndex
 	// Managed return type : System.Int32
-	// Managed param types : System.Int32, System.Int32, System.Predicate`1<System.Collections.Generic.List`1+T>
-    - (int32_t)findIndex_withStartIndex:(int32_t)p1 count:(int32_t)p2 match:(System_PredicateA1 *)p3;
+	// Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
+    - (int32_t)findIndex_withMatch:(System_PredicateA1 *)p1;
 
 	// Managed method name : FindIndex
 	// Managed return type : System.Int32
-	// Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
-    - (int32_t)findIndex_withMatch:(System_PredicateA1 *)p1;
+	// Managed param types : System.Int32, System.Int32, System.Predicate`1<System.Collections.Generic.List`1+T>
+    - (int32_t)findIndex_withStartIndex:(int32_t)p1 count:(int32_t)p2 match:(System_PredicateA1 *)p3;
 
 	// Managed method name : FindIndex
 	// Managed return type : System.Int32

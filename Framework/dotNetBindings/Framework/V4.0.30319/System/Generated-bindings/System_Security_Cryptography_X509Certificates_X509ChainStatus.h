@@ -16,7 +16,7 @@
 
 	// Managed property name : Status
 	// Managed property type : System.Security.Cryptography.X509Certificates.X509ChainStatusFlags
-    @property (nonatomic) System_Security_Cryptography_X509Certificates_X509ChainStatusFlags status;
+    @property (nonatomic) int32_t status;
 
 	// Managed property name : StatusInformation
 	// Managed property type : System.String

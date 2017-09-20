@@ -32,7 +32,17 @@
     @synthesize credentials = _credentials;
     - (System_Net_ICredentials *)credentials
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Net.IWebProxy.Credentials"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Net.IWebProxy.Credentials");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_credentials isEqualToMonoObject:monoObject]) return _credentials;					
 		_credentials = [System_Net_ICredentials bestObjectWithMonoObject:monoObject];
 
@@ -41,8 +51,17 @@
     - (void)setCredentials:(System_Net_ICredentials *)value
 	{
 		_credentials = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"System.Net.IWebProxy.Credentials" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.Net.IWebProxy.Credentials");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -54,7 +73,7 @@
     - (System_Uri *)getProxy_withDestination:(System_Uri *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Net.IWebProxy.GetProxy(System.Uri)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Net.IWebProxy.GetProxy(System.Uri)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Uri bestObjectWithMonoObject:monoObject];
     }
@@ -65,7 +84,7 @@
     - (BOOL)isBypassed_withHost:(System_Uri *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Net.IWebProxy.IsBypassed(System.Uri)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Net.IWebProxy.IsBypassed(System.Uri)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

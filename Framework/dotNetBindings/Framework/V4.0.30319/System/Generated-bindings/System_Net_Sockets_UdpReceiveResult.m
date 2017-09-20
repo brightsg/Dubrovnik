@@ -33,7 +33,7 @@
     + (System_Net_Sockets_UdpReceiveResult *)new_withBuffer:(NSData *)p1 remoteEndPoint:(System_Net_IPEndPoint *)p2
     {
 		
-		System_Net_Sockets_UdpReceiveResult * object = [[self alloc] initWithSignature:"byte[],System.Net.IPEndPoint" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Net_Sockets_UdpReceiveResult * object = [[self alloc] initWithSignature:"byte[],System.Net.IPEndPoint" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize buffer = _buffer;
     - (NSData *)buffer
     {
-		MonoObject *monoObject = [self getMonoProperty:"Buffer"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Buffer");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_buffer isEqualToMonoObject:monoObject]) return _buffer;					
 		_buffer = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -58,7 +68,17 @@
     @synthesize remoteEndPoint = _remoteEndPoint;
     - (System_Net_IPEndPoint *)remoteEndPoint
     {
-		MonoObject *monoObject = [self getMonoProperty:"RemoteEndPoint"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RemoteEndPoint");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_remoteEndPoint isEqualToMonoObject:monoObject]) return _remoteEndPoint;					
 		_remoteEndPoint = [System_Net_IPEndPoint bestObjectWithMonoObject:monoObject];
 
@@ -74,7 +94,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -85,7 +105,7 @@
     - (BOOL)equals_withOther:(System_Net_Sockets_UdpReceiveResult *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Net.Sockets.UdpReceiveResult)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Net.Sockets.UdpReceiveResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -107,7 +127,7 @@
     + (BOOL)op_Equality_withLeft:(System_Net_Sockets_UdpReceiveResult *)p1 right:(System_Net_Sockets_UdpReceiveResult *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Net.Sockets.UdpReceiveResult,System.Net.Sockets.UdpReceiveResult)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Net.Sockets.UdpReceiveResult,System.Net.Sockets.UdpReceiveResult)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -118,7 +138,7 @@
     + (BOOL)op_Inequality_withLeft:(System_Net_Sockets_UdpReceiveResult *)p1 right:(System_Net_Sockets_UdpReceiveResult *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Net.Sockets.UdpReceiveResult,System.Net.Sockets.UdpReceiveResult)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Net.Sockets.UdpReceiveResult,System.Net.Sockets.UdpReceiveResult)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

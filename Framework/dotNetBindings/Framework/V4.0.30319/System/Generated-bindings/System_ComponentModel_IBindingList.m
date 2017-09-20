@@ -32,8 +32,18 @@
     @synthesize allowEdit = _allowEdit;
     - (BOOL)allowEdit
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.IBindingList.AllowEdit"];
-		_allowEdit = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.IBindingList.AllowEdit");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_allowEdit = monoObject;
 
 		return _allowEdit;
 	}
@@ -43,8 +53,18 @@
     @synthesize allowNew = _allowNew;
     - (BOOL)allowNew
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.IBindingList.AllowNew"];
-		_allowNew = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.IBindingList.AllowNew");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_allowNew = monoObject;
 
 		return _allowNew;
 	}
@@ -54,8 +74,18 @@
     @synthesize allowRemove = _allowRemove;
     - (BOOL)allowRemove
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.IBindingList.AllowRemove"];
-		_allowRemove = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.IBindingList.AllowRemove");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_allowRemove = monoObject;
 
 		return _allowRemove;
 	}
@@ -65,8 +95,18 @@
     @synthesize isSorted = _isSorted;
     - (BOOL)isSorted
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.IBindingList.IsSorted"];
-		_isSorted = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.IBindingList.IsSorted");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isSorted = monoObject;
 
 		return _isSorted;
 	}
@@ -74,10 +114,20 @@
 	// Managed property name : SortDirection
 	// Managed property type : System.ComponentModel.ListSortDirection
     @synthesize sortDirection = _sortDirection;
-    - (System_ComponentModel_ListSortDirection)sortDirection
+    - (int32_t)sortDirection
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.IBindingList.SortDirection"];
-		_sortDirection = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.IBindingList.SortDirection");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_sortDirection = monoObject;
 
 		return _sortDirection;
 	}
@@ -87,7 +137,17 @@
     @synthesize sortProperty = _sortProperty;
     - (System_ComponentModel_PropertyDescriptor *)sortProperty
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.IBindingList.SortProperty"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.IBindingList.SortProperty");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_sortProperty isEqualToMonoObject:monoObject]) return _sortProperty;					
 		_sortProperty = [System_ComponentModel_PropertyDescriptor bestObjectWithMonoObject:monoObject];
 
@@ -99,8 +159,18 @@
     @synthesize supportsChangeNotification = _supportsChangeNotification;
     - (BOOL)supportsChangeNotification
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.IBindingList.SupportsChangeNotification"];
-		_supportsChangeNotification = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.IBindingList.SupportsChangeNotification");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_supportsChangeNotification = monoObject;
 
 		return _supportsChangeNotification;
 	}
@@ -110,8 +180,18 @@
     @synthesize supportsSearching = _supportsSearching;
     - (BOOL)supportsSearching
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.IBindingList.SupportsSearching"];
-		_supportsSearching = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.IBindingList.SupportsSearching");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_supportsSearching = monoObject;
 
 		return _supportsSearching;
 	}
@@ -121,8 +201,18 @@
     @synthesize supportsSorting = _supportsSorting;
     - (BOOL)supportsSorting
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.IBindingList.SupportsSorting"];
-		_supportsSorting = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.IBindingList.SupportsSorting");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_supportsSorting = monoObject;
 
 		return _supportsSorting;
 	}
@@ -136,7 +226,7 @@
     - (void)addIndex_withProperty:(System_ComponentModel_PropertyDescriptor *)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.IBindingList.AddIndex(System.ComponentModel.PropertyDescriptor)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.IBindingList.AddIndex(System.ComponentModel.PropertyDescriptor)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -154,10 +244,10 @@
 	// Managed method name : ApplySort
 	// Managed return type : System.Void
 	// Managed param types : System.ComponentModel.PropertyDescriptor, System.ComponentModel.ListSortDirection
-    - (void)applySort_withProperty:(System_ComponentModel_PropertyDescriptor *)p1 direction:(System_ComponentModel_ListSortDirection)p2
+    - (void)applySort_withProperty:(System_ComponentModel_PropertyDescriptor *)p1 direction:(int32_t)p2
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.IBindingList.ApplySort(System.ComponentModel.PropertyDescriptor,System.ComponentModel.ListSortDirection)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"System.ComponentModel.IBindingList.ApplySort(System.ComponentModel.PropertyDescriptor,System.ComponentModel.ListSortDirection)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
     }
 
@@ -167,7 +257,7 @@
     - (int32_t)find_withProperty:(System_ComponentModel_PropertyDescriptor *)p1 key:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IBindingList.Find(System.ComponentModel.PropertyDescriptor,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IBindingList.Find(System.ComponentModel.PropertyDescriptor,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -178,7 +268,7 @@
     - (void)removeIndex_withProperty:(System_ComponentModel_PropertyDescriptor *)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.IBindingList.RemoveIndex(System.ComponentModel.PropertyDescriptor)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.IBindingList.RemoveIndex(System.ComponentModel.PropertyDescriptor)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -188,7 +278,7 @@
     - (void)removeSort
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.IBindingList.RemoveSort()" withNumArgs:0];;
+		[self invokeMonoMethod:"System.ComponentModel.IBindingList.RemoveSort()" withNumArgs:0];
         
     }
 

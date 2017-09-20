@@ -32,7 +32,17 @@
     @synthesize description = _description;
     - (NSString *)description
     {
-		MonoObject *monoObject = [self getMonoProperty:"Description"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Description");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_description isEqualToMonoObject:monoObject]) return _description;					
 		_description = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -44,7 +54,17 @@
     @synthesize id = _id;
     - (NSString *)id
     {
-		MonoObject *monoObject = [self getMonoProperty:"Id"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Id");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_id isEqualToMonoObject:monoObject]) return _id;					
 		_id = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -56,8 +76,18 @@
     static int32_t m_iPv6LoopbackInterfaceIndex;
     + (int32_t)iPv6LoopbackInterfaceIndex
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"IPv6LoopbackInterfaceIndex"];
-		m_iPv6LoopbackInterfaceIndex = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IPv6LoopbackInterfaceIndex");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_iPv6LoopbackInterfaceIndex = monoObject;
 
 		return m_iPv6LoopbackInterfaceIndex;
 	}
@@ -67,8 +97,18 @@
     @synthesize isReceiveOnly = _isReceiveOnly;
     - (BOOL)isReceiveOnly
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsReceiveOnly"];
-		_isReceiveOnly = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsReceiveOnly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isReceiveOnly = monoObject;
 
 		return _isReceiveOnly;
 	}
@@ -78,8 +118,18 @@
     static int32_t m_loopbackInterfaceIndex;
     + (int32_t)loopbackInterfaceIndex
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"LoopbackInterfaceIndex"];
-		m_loopbackInterfaceIndex = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LoopbackInterfaceIndex");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_loopbackInterfaceIndex = monoObject;
 
 		return m_loopbackInterfaceIndex;
 	}
@@ -89,7 +139,17 @@
     @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -99,10 +159,20 @@
 	// Managed property name : NetworkInterfaceType
 	// Managed property type : System.Net.NetworkInformation.NetworkInterfaceType
     @synthesize networkInterfaceType = _networkInterfaceType;
-    - (System_Net_NetworkInformation_NetworkInterfaceType)networkInterfaceType
+    - (int32_t)networkInterfaceType
     {
-		MonoObject *monoObject = [self getMonoProperty:"NetworkInterfaceType"];
-		_networkInterfaceType = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NetworkInterfaceType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_networkInterfaceType = monoObject;
 
 		return _networkInterfaceType;
 	}
@@ -110,10 +180,20 @@
 	// Managed property name : OperationalStatus
 	// Managed property type : System.Net.NetworkInformation.OperationalStatus
     @synthesize operationalStatus = _operationalStatus;
-    - (System_Net_NetworkInformation_OperationalStatus)operationalStatus
+    - (int32_t)operationalStatus
     {
-		MonoObject *monoObject = [self getMonoProperty:"OperationalStatus"];
-		_operationalStatus = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OperationalStatus");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_operationalStatus = monoObject;
 
 		return _operationalStatus;
 	}
@@ -123,8 +203,18 @@
     @synthesize speed = _speed;
     - (int64_t)speed
     {
-		MonoObject *monoObject = [self getMonoProperty:"Speed"];
-		_speed = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Speed");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_speed = monoObject;
 
 		return _speed;
 	}
@@ -134,8 +224,18 @@
     @synthesize supportsMulticast = _supportsMulticast;
     - (BOOL)supportsMulticast
     {
-		MonoObject *monoObject = [self getMonoProperty:"SupportsMulticast"];
-		_supportsMulticast = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SupportsMulticast");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_supportsMulticast = monoObject;
 
 		return _supportsMulticast;
 	}
@@ -212,7 +312,7 @@
 	// Managed method name : Supports
 	// Managed return type : System.Boolean
 	// Managed param types : System.Net.NetworkInformation.NetworkInterfaceComponent
-    - (BOOL)supports_withNetworkInterfaceComponent:(System_Net_NetworkInformation_NetworkInterfaceComponent)p1
+    - (BOOL)supports_withNetworkInterfaceComponent:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Supports(System.Net.NetworkInformation.NetworkInterfaceComponent)" withNumArgs:1, DB_VALUE(p1)];

@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.SocketAddress
 	// Managed param types : System.Net.Sockets.AddressFamily, System.Int32
-    + (System_Net_SocketAddress *)new_withFamily:(System_Net_Sockets_AddressFamily)p1 size:(int32_t)p2
+    + (System_Net_SocketAddress *)new_withFamily:(int32_t)p1 size:(int32_t)p2
     {
 		
-		System_Net_SocketAddress * object = [[self alloc] initWithSignature:"System.Net.Sockets.AddressFamily,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		System_Net_SocketAddress * object = [[self alloc] initWithSignature:"System.Net.Sockets.AddressFamily,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
         
         return object;
     }
@@ -41,10 +41,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.SocketAddress
 	// Managed param types : System.Net.Sockets.AddressFamily
-    + (System_Net_SocketAddress *)new_withFamily:(System_Net_Sockets_AddressFamily)p1
+    + (System_Net_SocketAddress *)new_withFamily:(int32_t)p1
     {
 		
-		System_Net_SocketAddress * object = [[self alloc] initWithSignature:"System.Net.Sockets.AddressFamily" withNumArgs:1, DB_VALUE(p1)];;
+		System_Net_SocketAddress * object = [[self alloc] initWithSignature:"System.Net.Sockets.AddressFamily" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -55,10 +55,20 @@
 	// Managed property name : Family
 	// Managed property type : System.Net.Sockets.AddressFamily
     @synthesize family = _family;
-    - (System_Net_Sockets_AddressFamily)family
+    - (int32_t)family
     {
-		MonoObject *monoObject = [self getMonoProperty:"Family"];
-		_family = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Family");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_family = monoObject;
 
 		return _family;
 	}
@@ -68,16 +78,35 @@
     @synthesize item = _item;
     - (uint8_t)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
-		_item = DB_UNBOX_UINT8(monoObject);
+		typedef uint8_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		uint8_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_item = monoObject;
 
 		return _item;
 	}
     - (void)setItem:(uint8_t)value
 	{
 		_item = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Item" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, uint8_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Size
@@ -85,8 +114,18 @@
     @synthesize size = _size;
     - (int32_t)size
     {
-		MonoObject *monoObject = [self getMonoProperty:"Size"];
-		_size = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Size");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_size = monoObject;
 
 		return _size;
 	}
@@ -100,7 +139,7 @@
     - (BOOL)equals_withComparand:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

@@ -32,7 +32,7 @@
 
 	// Managed property name : EncryptionPolicy
 	// Managed property type : System.Net.Security.EncryptionPolicy
-    @property (nonatomic) System_Net_Security_EncryptionPolicy encryptionPolicy;
+    @property (nonatomic) int32_t encryptionPolicy;
 
 	// Managed property name : Expect100Continue
 	// Managed property type : System.Boolean

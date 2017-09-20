@@ -22,7 +22,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.EventInstance
 	// Managed param types : System.Int64, System.Int32, System.Diagnostics.EventLogEntryType
-    + (System_Diagnostics_EventInstance *)new_withInstanceId:(int64_t)p1 categoryId:(int32_t)p2 entryType:(System_Diagnostics_EventLogEntryType)p3;
+    + (System_Diagnostics_EventInstance *)new_withInstanceId:(int64_t)p1 categoryId:(int32_t)p2 entryType:(int32_t)p3;
 
 #pragma mark -
 #pragma mark Properties
@@ -33,7 +33,7 @@
 
 	// Managed property name : EntryType
 	// Managed property type : System.Diagnostics.EventLogEntryType
-    @property (nonatomic) System_Diagnostics_EventLogEntryType entryType;
+    @property (nonatomic) int32_t entryType;
 
 	// Managed property name : InstanceId
 	// Managed property type : System.Int64

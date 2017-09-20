@@ -37,7 +37,7 @@
 
 	// Managed property name : CategoryType
 	// Managed property type : System.Diagnostics.PerformanceCounterCategoryType
-    @property (nonatomic, readonly) System_Diagnostics_PerformanceCounterCategoryType categoryType;
+    @property (nonatomic, readonly) int32_t categoryType;
 
 	// Managed property name : MachineName
 	// Managed property type : System.String
@@ -69,7 +69,7 @@
 	// Managed method name : Create
 	// Managed return type : System.Diagnostics.PerformanceCounterCategory
 	// Managed param types : System.String, System.String, System.Diagnostics.PerformanceCounterCategoryType, System.String, System.String
-    + (System_Diagnostics_PerformanceCounterCategory *)create_withCategoryName:(NSString *)p1 categoryHelp:(NSString *)p2 categoryType:(System_Diagnostics_PerformanceCounterCategoryType)p3 counterName:(NSString *)p4 counterHelp:(NSString *)p5;
+    + (System_Diagnostics_PerformanceCounterCategory *)create_withCategoryName:(NSString *)p1 categoryHelp:(NSString *)p2 categoryType:(int32_t)p3 counterName:(NSString *)p4 counterHelp:(NSString *)p5;
 
 	// Managed method name : Create
 	// Managed return type : System.Diagnostics.PerformanceCounterCategory
@@ -79,7 +79,7 @@
 	// Managed method name : Create
 	// Managed return type : System.Diagnostics.PerformanceCounterCategory
 	// Managed param types : System.String, System.String, System.Diagnostics.PerformanceCounterCategoryType, System.Diagnostics.CounterCreationDataCollection
-    + (System_Diagnostics_PerformanceCounterCategory *)create_withCategoryName:(NSString *)p1 categoryHelp:(NSString *)p2 categoryType:(System_Diagnostics_PerformanceCounterCategoryType)p3 counterData:(System_Diagnostics_CounterCreationDataCollection *)p4;
+    + (System_Diagnostics_PerformanceCounterCategory *)create_withCategoryName:(NSString *)p1 categoryHelp:(NSString *)p2 categoryType:(int32_t)p3 counterData:(System_Diagnostics_CounterCreationDataCollection *)p4;
 
 	// Managed method name : Delete
 	// Managed return type : System.Void

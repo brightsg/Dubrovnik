@@ -33,7 +33,7 @@
     + (System_IO_Ports_SerialPort *)new_withContainer:(id <System_ComponentModel_IContainer_>)p1
     {
 		
-		System_IO_Ports_SerialPort * object = [[self alloc] initWithSignature:"System.ComponentModel.IContainer" withNumArgs:1, [p1 monoValue]];;
+		System_IO_Ports_SerialPort * object = [[self alloc] initWithSignature:"System.ComponentModel.IContainer" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_IO_Ports_SerialPort *)new_withPortName:(NSString *)p1
     {
 		
-		System_IO_Ports_SerialPort * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_IO_Ports_SerialPort * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_IO_Ports_SerialPort *)new_withPortName:(NSString *)p1 baudRate:(int32_t)p2
     {
 		
-		System_IO_Ports_SerialPort * object = [[self alloc] initWithSignature:"string,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_IO_Ports_SerialPort * object = [[self alloc] initWithSignature:"string,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -63,10 +63,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.IO.Ports.SerialPort
 	// Managed param types : System.String, System.Int32, System.IO.Ports.Parity
-    + (System_IO_Ports_SerialPort *)new_withPortName:(NSString *)p1 baudRate:(int32_t)p2 parity:(System_IO_Ports_Parity)p3
+    + (System_IO_Ports_SerialPort *)new_withPortName:(NSString *)p1 baudRate:(int32_t)p2 parity:(int32_t)p3
     {
 		
-		System_IO_Ports_SerialPort * object = [[self alloc] initWithSignature:"string,int,System.IO.Ports.Parity" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		System_IO_Ports_SerialPort * object = [[self alloc] initWithSignature:"string,int,System.IO.Ports.Parity" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
         
         return object;
     }
@@ -74,10 +74,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.IO.Ports.SerialPort
 	// Managed param types : System.String, System.Int32, System.IO.Ports.Parity, System.Int32
-    + (System_IO_Ports_SerialPort *)new_withPortName:(NSString *)p1 baudRate:(int32_t)p2 parity:(System_IO_Ports_Parity)p3 dataBits:(int32_t)p4
+    + (System_IO_Ports_SerialPort *)new_withPortName:(NSString *)p1 baudRate:(int32_t)p2 parity:(int32_t)p3 dataBits:(int32_t)p4
     {
 		
-		System_IO_Ports_SerialPort * object = [[self alloc] initWithSignature:"string,int,System.IO.Ports.Parity,int" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];;
+		System_IO_Ports_SerialPort * object = [[self alloc] initWithSignature:"string,int,System.IO.Ports.Parity,int" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
         
         return object;
     }
@@ -85,10 +85,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.IO.Ports.SerialPort
 	// Managed param types : System.String, System.Int32, System.IO.Ports.Parity, System.Int32, System.IO.Ports.StopBits
-    + (System_IO_Ports_SerialPort *)new_withPortName:(NSString *)p1 baudRate:(int32_t)p2 parity:(System_IO_Ports_Parity)p3 dataBits:(int32_t)p4 stopBits:(System_IO_Ports_StopBits)p5
+    + (System_IO_Ports_SerialPort *)new_withPortName:(NSString *)p1 baudRate:(int32_t)p2 parity:(int32_t)p3 dataBits:(int32_t)p4 stopBits:(int32_t)p5
     {
 		
-		System_IO_Ports_SerialPort * object = [[self alloc] initWithSignature:"string,int,System.IO.Ports.Parity,int,System.IO.Ports.StopBits" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];;
+		System_IO_Ports_SerialPort * object = [[self alloc] initWithSignature:"string,int,System.IO.Ports.Parity,int,System.IO.Ports.StopBits" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];
         
         return object;
     }
@@ -115,7 +115,17 @@
     @synthesize baseStream = _baseStream;
     - (System_IO_Stream *)baseStream
     {
-		MonoObject *monoObject = [self getMonoProperty:"BaseStream"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BaseStream");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_baseStream isEqualToMonoObject:monoObject]) return _baseStream;					
 		_baseStream = [System_IO_Stream bestObjectWithMonoObject:monoObject];
 
@@ -127,16 +137,35 @@
     @synthesize baudRate = _baudRate;
     - (int32_t)baudRate
     {
-		MonoObject *monoObject = [self getMonoProperty:"BaudRate"];
-		_baudRate = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BaudRate");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_baudRate = monoObject;
 
 		return _baudRate;
 	}
     - (void)setBaudRate:(int32_t)value
 	{
 		_baudRate = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"BaudRate" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "BaudRate");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : BreakState
@@ -144,16 +173,35 @@
     @synthesize breakState = _breakState;
     - (BOOL)breakState
     {
-		MonoObject *monoObject = [self getMonoProperty:"BreakState"];
-		_breakState = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BreakState");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_breakState = monoObject;
 
 		return _breakState;
 	}
     - (void)setBreakState:(BOOL)value
 	{
 		_breakState = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"BreakState" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "BreakState");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : BytesToRead
@@ -161,8 +209,18 @@
     @synthesize bytesToRead = _bytesToRead;
     - (int32_t)bytesToRead
     {
-		MonoObject *monoObject = [self getMonoProperty:"BytesToRead"];
-		_bytesToRead = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BytesToRead");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_bytesToRead = monoObject;
 
 		return _bytesToRead;
 	}
@@ -172,8 +230,18 @@
     @synthesize bytesToWrite = _bytesToWrite;
     - (int32_t)bytesToWrite
     {
-		MonoObject *monoObject = [self getMonoProperty:"BytesToWrite"];
-		_bytesToWrite = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BytesToWrite");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_bytesToWrite = monoObject;
 
 		return _bytesToWrite;
 	}
@@ -183,8 +251,18 @@
     @synthesize cDHolding = _cDHolding;
     - (BOOL)cDHolding
     {
-		MonoObject *monoObject = [self getMonoProperty:"CDHolding"];
-		_cDHolding = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CDHolding");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_cDHolding = monoObject;
 
 		return _cDHolding;
 	}
@@ -194,8 +272,18 @@
     @synthesize ctsHolding = _ctsHolding;
     - (BOOL)ctsHolding
     {
-		MonoObject *monoObject = [self getMonoProperty:"CtsHolding"];
-		_ctsHolding = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CtsHolding");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_ctsHolding = monoObject;
 
 		return _ctsHolding;
 	}
@@ -205,16 +293,35 @@
     @synthesize dataBits = _dataBits;
     - (int32_t)dataBits
     {
-		MonoObject *monoObject = [self getMonoProperty:"DataBits"];
-		_dataBits = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DataBits");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_dataBits = monoObject;
 
 		return _dataBits;
 	}
     - (void)setDataBits:(int32_t)value
 	{
 		_dataBits = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"DataBits" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "DataBits");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : DiscardNull
@@ -222,16 +329,35 @@
     @synthesize discardNull = _discardNull;
     - (BOOL)discardNull
     {
-		MonoObject *monoObject = [self getMonoProperty:"DiscardNull"];
-		_discardNull = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DiscardNull");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_discardNull = monoObject;
 
 		return _discardNull;
 	}
     - (void)setDiscardNull:(BOOL)value
 	{
 		_discardNull = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"DiscardNull" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "DiscardNull");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : DsrHolding
@@ -239,8 +365,18 @@
     @synthesize dsrHolding = _dsrHolding;
     - (BOOL)dsrHolding
     {
-		MonoObject *monoObject = [self getMonoProperty:"DsrHolding"];
-		_dsrHolding = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DsrHolding");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_dsrHolding = monoObject;
 
 		return _dsrHolding;
 	}
@@ -250,16 +386,35 @@
     @synthesize dtrEnable = _dtrEnable;
     - (BOOL)dtrEnable
     {
-		MonoObject *monoObject = [self getMonoProperty:"DtrEnable"];
-		_dtrEnable = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DtrEnable");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_dtrEnable = monoObject;
 
 		return _dtrEnable;
 	}
     - (void)setDtrEnable:(BOOL)value
 	{
 		_dtrEnable = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"DtrEnable" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "DtrEnable");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Encoding
@@ -267,7 +422,17 @@
     @synthesize encoding = _encoding;
     - (System_Text_Encoding *)encoding
     {
-		MonoObject *monoObject = [self getMonoProperty:"Encoding"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Encoding");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_encoding isEqualToMonoObject:monoObject]) return _encoding;					
 		_encoding = [System_Text_Encoding bestObjectWithMonoObject:monoObject];
 
@@ -276,25 +441,53 @@
     - (void)setEncoding:(System_Text_Encoding *)value
 	{
 		_encoding = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Encoding" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Encoding");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Handshake
 	// Managed property type : System.IO.Ports.Handshake
     @synthesize handshake = _handshake;
-    - (System_IO_Ports_Handshake)handshake
+    - (int32_t)handshake
     {
-		MonoObject *monoObject = [self getMonoProperty:"Handshake"];
-		_handshake = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Handshake");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_handshake = monoObject;
 
 		return _handshake;
 	}
-    - (void)setHandshake:(System_IO_Ports_Handshake)value
+    - (void)setHandshake:(int32_t)value
 	{
 		_handshake = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Handshake" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Handshake");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : IsOpen
@@ -302,8 +495,18 @@
     @synthesize isOpen = _isOpen;
     - (BOOL)isOpen
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsOpen"];
-		_isOpen = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsOpen");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isOpen = monoObject;
 
 		return _isOpen;
 	}
@@ -313,7 +516,17 @@
     @synthesize newLine = _newLine;
     - (NSString *)newLine
     {
-		MonoObject *monoObject = [self getMonoProperty:"NewLine"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NewLine");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_newLine isEqualToMonoObject:monoObject]) return _newLine;					
 		_newLine = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -322,25 +535,53 @@
     - (void)setNewLine:(NSString *)value
 	{
 		_newLine = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"NewLine" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "NewLine");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Parity
 	// Managed property type : System.IO.Ports.Parity
     @synthesize parity = _parity;
-    - (System_IO_Ports_Parity)parity
+    - (int32_t)parity
     {
-		MonoObject *monoObject = [self getMonoProperty:"Parity"];
-		_parity = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Parity");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_parity = monoObject;
 
 		return _parity;
 	}
-    - (void)setParity:(System_IO_Ports_Parity)value
+    - (void)setParity:(int32_t)value
 	{
 		_parity = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Parity" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Parity");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ParityReplace
@@ -348,16 +589,35 @@
     @synthesize parityReplace = _parityReplace;
     - (uint8_t)parityReplace
     {
-		MonoObject *monoObject = [self getMonoProperty:"ParityReplace"];
-		_parityReplace = DB_UNBOX_UINT8(monoObject);
+		typedef uint8_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ParityReplace");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		uint8_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_parityReplace = monoObject;
 
 		return _parityReplace;
 	}
     - (void)setParityReplace:(uint8_t)value
 	{
 		_parityReplace = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ParityReplace" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, uint8_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ParityReplace");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : PortName
@@ -365,7 +625,17 @@
     @synthesize portName = _portName;
     - (NSString *)portName
     {
-		MonoObject *monoObject = [self getMonoProperty:"PortName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PortName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_portName isEqualToMonoObject:monoObject]) return _portName;					
 		_portName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -374,8 +644,17 @@
     - (void)setPortName:(NSString *)value
 	{
 		_portName = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"PortName" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "PortName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ReadBufferSize
@@ -383,16 +662,35 @@
     @synthesize readBufferSize = _readBufferSize;
     - (int32_t)readBufferSize
     {
-		MonoObject *monoObject = [self getMonoProperty:"ReadBufferSize"];
-		_readBufferSize = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ReadBufferSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_readBufferSize = monoObject;
 
 		return _readBufferSize;
 	}
     - (void)setReadBufferSize:(int32_t)value
 	{
 		_readBufferSize = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ReadBufferSize" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ReadBufferSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ReadTimeout
@@ -400,16 +698,35 @@
     @synthesize readTimeout = _readTimeout;
     - (int32_t)readTimeout
     {
-		MonoObject *monoObject = [self getMonoProperty:"ReadTimeout"];
-		_readTimeout = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ReadTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_readTimeout = monoObject;
 
 		return _readTimeout;
 	}
     - (void)setReadTimeout:(int32_t)value
 	{
 		_readTimeout = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ReadTimeout" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ReadTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ReceivedBytesThreshold
@@ -417,16 +734,35 @@
     @synthesize receivedBytesThreshold = _receivedBytesThreshold;
     - (int32_t)receivedBytesThreshold
     {
-		MonoObject *monoObject = [self getMonoProperty:"ReceivedBytesThreshold"];
-		_receivedBytesThreshold = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ReceivedBytesThreshold");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_receivedBytesThreshold = monoObject;
 
 		return _receivedBytesThreshold;
 	}
     - (void)setReceivedBytesThreshold:(int32_t)value
 	{
 		_receivedBytesThreshold = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ReceivedBytesThreshold" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ReceivedBytesThreshold");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : RtsEnable
@@ -434,33 +770,71 @@
     @synthesize rtsEnable = _rtsEnable;
     - (BOOL)rtsEnable
     {
-		MonoObject *monoObject = [self getMonoProperty:"RtsEnable"];
-		_rtsEnable = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RtsEnable");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_rtsEnable = monoObject;
 
 		return _rtsEnable;
 	}
     - (void)setRtsEnable:(BOOL)value
 	{
 		_rtsEnable = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"RtsEnable" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "RtsEnable");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : StopBits
 	// Managed property type : System.IO.Ports.StopBits
     @synthesize stopBits = _stopBits;
-    - (System_IO_Ports_StopBits)stopBits
+    - (int32_t)stopBits
     {
-		MonoObject *monoObject = [self getMonoProperty:"StopBits"];
-		_stopBits = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "StopBits");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_stopBits = monoObject;
 
 		return _stopBits;
 	}
-    - (void)setStopBits:(System_IO_Ports_StopBits)value
+    - (void)setStopBits:(int32_t)value
 	{
 		_stopBits = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"StopBits" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "StopBits");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : WriteBufferSize
@@ -468,16 +842,35 @@
     @synthesize writeBufferSize = _writeBufferSize;
     - (int32_t)writeBufferSize
     {
-		MonoObject *monoObject = [self getMonoProperty:"WriteBufferSize"];
-		_writeBufferSize = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WriteBufferSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_writeBufferSize = monoObject;
 
 		return _writeBufferSize;
 	}
     - (void)setWriteBufferSize:(int32_t)value
 	{
 		_writeBufferSize = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"WriteBufferSize" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "WriteBufferSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : WriteTimeout
@@ -485,16 +878,35 @@
     @synthesize writeTimeout = _writeTimeout;
     - (int32_t)writeTimeout
     {
-		MonoObject *monoObject = [self getMonoProperty:"WriteTimeout"];
-		_writeTimeout = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WriteTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_writeTimeout = monoObject;
 
 		return _writeTimeout;
 	}
     - (void)setWriteTimeout:(int32_t)value
 	{
 		_writeTimeout = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"WriteTimeout" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "WriteTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -506,7 +918,7 @@
     - (void)close
     {
 		
-		[self invokeMonoMethod:"Close()" withNumArgs:0];;
+		[self invokeMonoMethod:"Close()" withNumArgs:0];
         
     }
 
@@ -516,7 +928,7 @@
     - (void)discardInBuffer
     {
 		
-		[self invokeMonoMethod:"DiscardInBuffer()" withNumArgs:0];;
+		[self invokeMonoMethod:"DiscardInBuffer()" withNumArgs:0];
         
     }
 
@@ -526,7 +938,7 @@
     - (void)discardOutBuffer
     {
 		
-		[self invokeMonoMethod:"DiscardOutBuffer()" withNumArgs:0];;
+		[self invokeMonoMethod:"DiscardOutBuffer()" withNumArgs:0];
         
     }
 
@@ -547,7 +959,7 @@
     - (void)open
     {
 		
-		[self invokeMonoMethod:"Open()" withNumArgs:0];;
+		[self invokeMonoMethod:"Open()" withNumArgs:0];
         
     }
 
@@ -557,7 +969,7 @@
     - (int32_t)read_withBufferByte:(NSData *)p1 offsetInt:(int32_t)p2 countInt:(int32_t)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Read(byte[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Read(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -568,7 +980,7 @@
     - (int32_t)read_withBufferChar:(DBSystem_Array *)p1 offsetInt:(int32_t)p2 countInt:(int32_t)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Read(char[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Read(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -623,7 +1035,7 @@
     - (NSString *)readTo_withValue:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"ReadTo(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"ReadTo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -634,7 +1046,7 @@
     - (void)write_withText:(NSString *)p1
     {
 		
-		[self invokeMonoMethod:"Write(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Write(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -644,7 +1056,7 @@
     - (void)write_withBufferChar:(DBSystem_Array *)p1 offsetInt:(int32_t)p2 countInt:(int32_t)p3
     {
 		
-		[self invokeMonoMethod:"Write(char[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		[self invokeMonoMethod:"Write(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
         
     }
 
@@ -654,7 +1066,7 @@
     - (void)write_withBufferByte:(NSData *)p1 offsetInt:(int32_t)p2 countInt:(int32_t)p3
     {
 		
-		[self invokeMonoMethod:"Write(byte[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		[self invokeMonoMethod:"Write(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
         
     }
 
@@ -664,7 +1076,7 @@
     - (void)writeLine_withText:(NSString *)p1
     {
 		
-		[self invokeMonoMethod:"WriteLine(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"WriteLine(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

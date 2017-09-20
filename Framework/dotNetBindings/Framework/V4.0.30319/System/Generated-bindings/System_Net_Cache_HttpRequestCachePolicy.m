@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Cache.HttpRequestCachePolicy
 	// Managed param types : System.Net.Cache.HttpRequestCacheLevel
-    + (System_Net_Cache_HttpRequestCachePolicy *)new_withLevel:(System_Net_Cache_HttpRequestCacheLevel)p1
+    + (System_Net_Cache_HttpRequestCachePolicy *)new_withLevel:(int32_t)p1
     {
 		
-		System_Net_Cache_HttpRequestCachePolicy * object = [[self alloc] initWithSignature:"System.Net.Cache.HttpRequestCacheLevel" withNumArgs:1, DB_VALUE(p1)];;
+		System_Net_Cache_HttpRequestCachePolicy * object = [[self alloc] initWithSignature:"System.Net.Cache.HttpRequestCacheLevel" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -41,10 +41,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Cache.HttpRequestCachePolicy
 	// Managed param types : System.Net.Cache.HttpCacheAgeControl, System.TimeSpan
-    + (System_Net_Cache_HttpRequestCachePolicy *)new_withCacheAgeControl:(System_Net_Cache_HttpCacheAgeControl)p1 ageOrFreshOrStale:(System_TimeSpan *)p2
+    + (System_Net_Cache_HttpRequestCachePolicy *)new_withCacheAgeControl:(int32_t)p1 ageOrFreshOrStale:(System_TimeSpan *)p2
     {
 		
-		System_Net_Cache_HttpRequestCachePolicy * object = [[self alloc] initWithSignature:"System.Net.Cache.HttpCacheAgeControl,System.TimeSpan" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		System_Net_Cache_HttpRequestCachePolicy * object = [[self alloc] initWithSignature:"System.Net.Cache.HttpCacheAgeControl,System.TimeSpan" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -52,10 +52,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Cache.HttpRequestCachePolicy
 	// Managed param types : System.Net.Cache.HttpCacheAgeControl, System.TimeSpan, System.TimeSpan
-    + (System_Net_Cache_HttpRequestCachePolicy *)new_withCacheAgeControl:(System_Net_Cache_HttpCacheAgeControl)p1 maxAge:(System_TimeSpan *)p2 freshOrStale:(System_TimeSpan *)p3
+    + (System_Net_Cache_HttpRequestCachePolicy *)new_withCacheAgeControl:(int32_t)p1 maxAge:(System_TimeSpan *)p2 freshOrStale:(System_TimeSpan *)p3
     {
 		
-		System_Net_Cache_HttpRequestCachePolicy * object = [[self alloc] initWithSignature:"System.Net.Cache.HttpCacheAgeControl,System.TimeSpan,System.TimeSpan" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];;
+		System_Net_Cache_HttpRequestCachePolicy * object = [[self alloc] initWithSignature:"System.Net.Cache.HttpCacheAgeControl,System.TimeSpan,System.TimeSpan" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -66,7 +66,7 @@
     + (System_Net_Cache_HttpRequestCachePolicy *)new_withCacheSyncDate:(NSDate *)p1
     {
 		
-		System_Net_Cache_HttpRequestCachePolicy * object = [[self alloc] initWithSignature:"System.DateTime" withNumArgs:1, [p1 monoValue]];;
+		System_Net_Cache_HttpRequestCachePolicy * object = [[self alloc] initWithSignature:"System.DateTime" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -74,10 +74,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Cache.HttpRequestCachePolicy
 	// Managed param types : System.Net.Cache.HttpCacheAgeControl, System.TimeSpan, System.TimeSpan, System.DateTime
-    + (System_Net_Cache_HttpRequestCachePolicy *)new_withCacheAgeControl:(System_Net_Cache_HttpCacheAgeControl)p1 maxAge:(System_TimeSpan *)p2 freshOrStale:(System_TimeSpan *)p3 cacheSyncDate:(NSDate *)p4
+    + (System_Net_Cache_HttpRequestCachePolicy *)new_withCacheAgeControl:(int32_t)p1 maxAge:(System_TimeSpan *)p2 freshOrStale:(System_TimeSpan *)p3 cacheSyncDate:(NSDate *)p4
     {
 		
-		System_Net_Cache_HttpRequestCachePolicy * object = [[self alloc] initWithSignature:"System.Net.Cache.HttpCacheAgeControl,System.TimeSpan,System.TimeSpan,System.DateTime" withNumArgs:4, DB_VALUE(p1), [p2 monoValue], [p3 monoValue], [p4 monoValue]];;
+		System_Net_Cache_HttpRequestCachePolicy * object = [[self alloc] initWithSignature:"System.Net.Cache.HttpCacheAgeControl,System.TimeSpan,System.TimeSpan,System.DateTime" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
         
         return object;
     }
@@ -90,7 +90,17 @@
     @synthesize cacheSyncDate = _cacheSyncDate;
     - (NSDate *)cacheSyncDate
     {
-		MonoObject *monoObject = [self getMonoProperty:"CacheSyncDate"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CacheSyncDate");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_cacheSyncDate isEqualToMonoObject:monoObject]) return _cacheSyncDate;					
 		_cacheSyncDate = [NSDate dateWithMonoDateTime:monoObject];
 
@@ -100,10 +110,20 @@
 	// Managed property name : Level
 	// Managed property type : System.Net.Cache.HttpRequestCacheLevel
     @synthesize level = _level;
-    - (System_Net_Cache_HttpRequestCacheLevel)level
+    - (int32_t)level
     {
-		MonoObject *monoObject = [self getMonoProperty:"Level"];
-		_level = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Level");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_level = monoObject;
 
 		return _level;
 	}
@@ -113,7 +133,17 @@
     @synthesize maxAge = _maxAge;
     - (System_TimeSpan *)maxAge
     {
-		MonoObject *monoObject = [self getMonoProperty:"MaxAge"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MaxAge");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_maxAge isEqualToMonoObject:monoObject]) return _maxAge;					
 		_maxAge = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
@@ -125,7 +155,17 @@
     @synthesize maxStale = _maxStale;
     - (System_TimeSpan *)maxStale
     {
-		MonoObject *monoObject = [self getMonoProperty:"MaxStale"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MaxStale");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_maxStale isEqualToMonoObject:monoObject]) return _maxStale;					
 		_maxStale = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
@@ -137,7 +177,17 @@
     @synthesize minFresh = _minFresh;
     - (System_TimeSpan *)minFresh
     {
-		MonoObject *monoObject = [self getMonoProperty:"MinFresh"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MinFresh");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_minFresh isEqualToMonoObject:monoObject]) return _minFresh;					
 		_minFresh = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 

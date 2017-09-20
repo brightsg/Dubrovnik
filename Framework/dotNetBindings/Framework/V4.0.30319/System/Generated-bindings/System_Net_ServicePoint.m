@@ -32,7 +32,17 @@
     @synthesize address = _address;
     - (System_Uri *)address
     {
-		MonoObject *monoObject = [self getMonoProperty:"Address"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Address");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_address isEqualToMonoObject:monoObject]) return _address;					
 		_address = [System_Uri bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize bindIPEndPointDelegate = _bindIPEndPointDelegate;
     - (System_Net_BindIPEndPoint *)bindIPEndPointDelegate
     {
-		MonoObject *monoObject = [self getMonoProperty:"BindIPEndPointDelegate"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BindIPEndPointDelegate");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_bindIPEndPointDelegate isEqualToMonoObject:monoObject]) return _bindIPEndPointDelegate;					
 		_bindIPEndPointDelegate = [System_Net_BindIPEndPoint bestObjectWithMonoObject:monoObject];
 
@@ -53,8 +73,17 @@
     - (void)setBindIPEndPointDelegate:(System_Net_BindIPEndPoint *)value
 	{
 		_bindIPEndPointDelegate = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"BindIPEndPointDelegate" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "BindIPEndPointDelegate");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Certificate
@@ -62,7 +91,17 @@
     @synthesize certificate = _certificate;
     - (System_Security_Cryptography_X509Certificates_X509Certificate *)certificate
     {
-		MonoObject *monoObject = [self getMonoProperty:"Certificate"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Certificate");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_certificate isEqualToMonoObject:monoObject]) return _certificate;					
 		_certificate = [System_Security_Cryptography_X509Certificates_X509Certificate bestObjectWithMonoObject:monoObject];
 
@@ -74,7 +113,17 @@
     @synthesize clientCertificate = _clientCertificate;
     - (System_Security_Cryptography_X509Certificates_X509Certificate *)clientCertificate
     {
-		MonoObject *monoObject = [self getMonoProperty:"ClientCertificate"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ClientCertificate");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_clientCertificate isEqualToMonoObject:monoObject]) return _clientCertificate;					
 		_clientCertificate = [System_Security_Cryptography_X509Certificates_X509Certificate bestObjectWithMonoObject:monoObject];
 
@@ -86,16 +135,35 @@
     @synthesize connectionLeaseTimeout = _connectionLeaseTimeout;
     - (int32_t)connectionLeaseTimeout
     {
-		MonoObject *monoObject = [self getMonoProperty:"ConnectionLeaseTimeout"];
-		_connectionLeaseTimeout = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ConnectionLeaseTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_connectionLeaseTimeout = monoObject;
 
 		return _connectionLeaseTimeout;
 	}
     - (void)setConnectionLeaseTimeout:(int32_t)value
 	{
 		_connectionLeaseTimeout = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ConnectionLeaseTimeout" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ConnectionLeaseTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ConnectionLimit
@@ -103,16 +171,35 @@
     @synthesize connectionLimit = _connectionLimit;
     - (int32_t)connectionLimit
     {
-		MonoObject *monoObject = [self getMonoProperty:"ConnectionLimit"];
-		_connectionLimit = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ConnectionLimit");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_connectionLimit = monoObject;
 
 		return _connectionLimit;
 	}
     - (void)setConnectionLimit:(int32_t)value
 	{
 		_connectionLimit = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ConnectionLimit" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ConnectionLimit");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ConnectionName
@@ -120,7 +207,17 @@
     @synthesize connectionName = _connectionName;
     - (NSString *)connectionName
     {
-		MonoObject *monoObject = [self getMonoProperty:"ConnectionName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ConnectionName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_connectionName isEqualToMonoObject:monoObject]) return _connectionName;					
 		_connectionName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -132,8 +229,18 @@
     @synthesize currentConnections = _currentConnections;
     - (int32_t)currentConnections
     {
-		MonoObject *monoObject = [self getMonoProperty:"CurrentConnections"];
-		_currentConnections = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrentConnections");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_currentConnections = monoObject;
 
 		return _currentConnections;
 	}
@@ -143,16 +250,35 @@
     @synthesize expect100Continue = _expect100Continue;
     - (BOOL)expect100Continue
     {
-		MonoObject *monoObject = [self getMonoProperty:"Expect100Continue"];
-		_expect100Continue = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Expect100Continue");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_expect100Continue = monoObject;
 
 		return _expect100Continue;
 	}
     - (void)setExpect100Continue:(BOOL)value
 	{
 		_expect100Continue = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Expect100Continue" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Expect100Continue");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : IdleSince
@@ -160,7 +286,17 @@
     @synthesize idleSince = _idleSince;
     - (NSDate *)idleSince
     {
-		MonoObject *monoObject = [self getMonoProperty:"IdleSince"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IdleSince");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_idleSince isEqualToMonoObject:monoObject]) return _idleSince;					
 		_idleSince = [NSDate dateWithMonoDateTime:monoObject];
 
@@ -172,16 +308,35 @@
     @synthesize maxIdleTime = _maxIdleTime;
     - (int32_t)maxIdleTime
     {
-		MonoObject *monoObject = [self getMonoProperty:"MaxIdleTime"];
-		_maxIdleTime = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MaxIdleTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_maxIdleTime = monoObject;
 
 		return _maxIdleTime;
 	}
     - (void)setMaxIdleTime:(int32_t)value
 	{
 		_maxIdleTime = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"MaxIdleTime" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "MaxIdleTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ProtocolVersion
@@ -189,7 +344,17 @@
     @synthesize protocolVersion = _protocolVersion;
     - (System_Version *)protocolVersion
     {
-		MonoObject *monoObject = [self getMonoProperty:"ProtocolVersion"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ProtocolVersion");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_protocolVersion isEqualToMonoObject:monoObject]) return _protocolVersion;					
 		_protocolVersion = [System_Version bestObjectWithMonoObject:monoObject];
 
@@ -201,16 +366,35 @@
     @synthesize receiveBufferSize = _receiveBufferSize;
     - (int32_t)receiveBufferSize
     {
-		MonoObject *monoObject = [self getMonoProperty:"ReceiveBufferSize"];
-		_receiveBufferSize = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ReceiveBufferSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_receiveBufferSize = monoObject;
 
 		return _receiveBufferSize;
 	}
     - (void)setReceiveBufferSize:(int32_t)value
 	{
 		_receiveBufferSize = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ReceiveBufferSize" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ReceiveBufferSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : SupportsPipelining
@@ -218,8 +402,18 @@
     @synthesize supportsPipelining = _supportsPipelining;
     - (BOOL)supportsPipelining
     {
-		MonoObject *monoObject = [self getMonoProperty:"SupportsPipelining"];
-		_supportsPipelining = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SupportsPipelining");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_supportsPipelining = monoObject;
 
 		return _supportsPipelining;
 	}
@@ -229,16 +423,35 @@
     @synthesize useNagleAlgorithm = _useNagleAlgorithm;
     - (BOOL)useNagleAlgorithm
     {
-		MonoObject *monoObject = [self getMonoProperty:"UseNagleAlgorithm"];
-		_useNagleAlgorithm = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UseNagleAlgorithm");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_useNagleAlgorithm = monoObject;
 
 		return _useNagleAlgorithm;
 	}
     - (void)setUseNagleAlgorithm:(BOOL)value
 	{
 		_useNagleAlgorithm = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"UseNagleAlgorithm" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "UseNagleAlgorithm");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -250,7 +463,7 @@
     - (BOOL)closeConnectionGroup_withConnectionGroupName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CloseConnectionGroup(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CloseConnectionGroup(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -261,7 +474,7 @@
     - (void)setTcpKeepAlive_withEnabled:(BOOL)p1 keepAliveTime:(int32_t)p2 keepAliveInterval:(int32_t)p3
     {
 		
-		[self invokeMonoMethod:"SetTcpKeepAlive(bool,int,int)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];;
+		[self invokeMonoMethod:"SetTcpKeepAlive(bool,int,int)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
         
     }
 

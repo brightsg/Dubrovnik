@@ -28,6 +28,6 @@
 	// Managed method name : GetScopeId
 	// Managed return type : System.Int64
 	// Managed param types : System.Net.NetworkInformation.ScopeLevel
-    - (int64_t)getScopeId_withScopeLevel:(System_Net_NetworkInformation_ScopeLevel)p1;
+    - (int64_t)getScopeId_withScopeLevel:(int32_t)p1;
 @end
 //--Dubrovnik.CodeGenerator

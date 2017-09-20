@@ -33,7 +33,7 @@
     - (id <System_ComponentModel_IComponent>)getComponent_withReference:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IReferenceService.GetComponent(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IReferenceService.GetComponent(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_IComponent bestObjectWithMonoObject:monoObject];
     }
@@ -44,7 +44,7 @@
     - (NSString *)getName_withReference:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IReferenceService.GetName(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IReferenceService.GetName(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -55,7 +55,7 @@
     - (System_Object *)getReference_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IReferenceService.GetReference(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IReferenceService.GetReference(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -77,7 +77,7 @@
     - (DBSystem_Array *)getReferences_withBaseType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IReferenceService.GetReferences(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IReferenceService.GetReferences(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }

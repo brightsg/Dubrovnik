@@ -33,7 +33,7 @@
     + (Microsoft_Win32_SafeHandles_SafeProcessHandle *)new_withExistingHandle:(void *)p1 ownsHandle:(BOOL)p2
     {
 		
-		Microsoft_Win32_SafeHandles_SafeProcessHandle * object = [[self alloc] initWithSignature:"intptr,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		Microsoft_Win32_SafeHandles_SafeProcessHandle * object = [[self alloc] initWithSignature:"intptr,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
         
         return object;
     }

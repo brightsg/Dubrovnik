@@ -33,7 +33,7 @@
     - (System_Object *)getConfig_withConfigKey:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Configuration.IConfigurationSystem.GetConfig(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Configuration.IConfigurationSystem.GetConfig(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -44,7 +44,7 @@
     - (void)init
     {
 		
-		[self invokeMonoMethod:"System.Configuration.IConfigurationSystem.Init()" withNumArgs:0];;
+		[self invokeMonoMethod:"System.Configuration.IConfigurationSystem.Init()" withNumArgs:0];
         
     }
 

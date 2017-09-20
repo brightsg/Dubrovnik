@@ -32,8 +32,18 @@
     @synthesize invokeRequired = _invokeRequired;
     - (BOOL)invokeRequired
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.ISynchronizeInvoke.InvokeRequired"];
-		_invokeRequired = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.ISynchronizeInvoke.InvokeRequired");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_invokeRequired = monoObject;
 
 		return _invokeRequired;
 	}
@@ -47,7 +57,7 @@
     - (id <System_IAsyncResult>)beginInvoke_withMethod:(System_Delegate *)p1 args:(DBSystem_Array *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.ISynchronizeInvoke.BeginInvoke(System.Delegate,object[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.ISynchronizeInvoke.BeginInvoke(System.Delegate,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -58,7 +68,7 @@
     - (System_Object *)endInvoke_withResult:(id <System_IAsyncResult_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.ISynchronizeInvoke.EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.ISynchronizeInvoke.EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -69,7 +79,7 @@
     - (System_Object *)invoke_withMethod:(System_Delegate *)p1 args:(DBSystem_Array *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.ISynchronizeInvoke.Invoke(System.Delegate,object[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.ISynchronizeInvoke.Invoke(System.Delegate,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }

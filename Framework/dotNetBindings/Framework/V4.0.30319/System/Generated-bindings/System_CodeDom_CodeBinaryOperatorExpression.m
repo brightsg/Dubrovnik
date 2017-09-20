@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.CodeDom.CodeBinaryOperatorExpression
 	// Managed param types : System.CodeDom.CodeExpression, System.CodeDom.CodeBinaryOperatorType, System.CodeDom.CodeExpression
-    + (System_CodeDom_CodeBinaryOperatorExpression *)new_withLeft:(System_CodeDom_CodeExpression *)p1 op:(System_CodeDom_CodeBinaryOperatorType)p2 right:(System_CodeDom_CodeExpression *)p3
+    + (System_CodeDom_CodeBinaryOperatorExpression *)new_withLeft:(System_CodeDom_CodeExpression *)p1 op:(int32_t)p2 right:(System_CodeDom_CodeExpression *)p3
     {
 		
-		System_CodeDom_CodeBinaryOperatorExpression * object = [[self alloc] initWithSignature:"System.CodeDom.CodeExpression,System.CodeDom.CodeBinaryOperatorType,System.CodeDom.CodeExpression" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];;
+		System_CodeDom_CodeBinaryOperatorExpression * object = [[self alloc] initWithSignature:"System.CodeDom.CodeExpression,System.CodeDom.CodeBinaryOperatorType,System.CodeDom.CodeExpression" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize left = _left;
     - (System_CodeDom_CodeExpression *)left
     {
-		MonoObject *monoObject = [self getMonoProperty:"Left"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Left");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_left isEqualToMonoObject:monoObject]) return _left;					
 		_left = [System_CodeDom_CodeExpression bestObjectWithMonoObject:monoObject];
 
@@ -55,25 +65,53 @@
     - (void)setLeft:(System_CodeDom_CodeExpression *)value
 	{
 		_left = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Left" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Left");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Operator
 	// Managed property type : System.CodeDom.CodeBinaryOperatorType
     @synthesize operator = _operator;
-    - (System_CodeDom_CodeBinaryOperatorType)operator
+    - (int32_t)operator
     {
-		MonoObject *monoObject = [self getMonoProperty:"Operator"];
-		_operator = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Operator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_operator = monoObject;
 
 		return _operator;
 	}
-    - (void)setOperator:(System_CodeDom_CodeBinaryOperatorType)value
+    - (void)setOperator:(int32_t)value
 	{
 		_operator = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Operator" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Operator");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Right
@@ -81,7 +119,17 @@
     @synthesize right = _right;
     - (System_CodeDom_CodeExpression *)right
     {
-		MonoObject *monoObject = [self getMonoProperty:"Right"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Right");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_right isEqualToMonoObject:monoObject]) return _right;					
 		_right = [System_CodeDom_CodeExpression bestObjectWithMonoObject:monoObject];
 
@@ -90,8 +138,17 @@
     - (void)setRight:(System_CodeDom_CodeExpression *)value
 	{
 		_right = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Right" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Right");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

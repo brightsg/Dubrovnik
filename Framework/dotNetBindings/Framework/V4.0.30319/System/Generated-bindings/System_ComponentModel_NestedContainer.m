@@ -33,7 +33,7 @@
     + (System_ComponentModel_NestedContainer *)new_withOwner:(id <System_ComponentModel_IComponent_>)p1
     {
 		
-		System_ComponentModel_NestedContainer * object = [[self alloc] initWithSignature:"System.ComponentModel.IComponent" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_NestedContainer * object = [[self alloc] initWithSignature:"System.ComponentModel.IComponent" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize owner = _owner;
     - (System_ComponentModel_IComponent *)owner
     {
-		MonoObject *monoObject = [self getMonoProperty:"Owner"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Owner");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_owner isEqualToMonoObject:monoObject]) return _owner;					
 		_owner = [System_ComponentModel_IComponent bestObjectWithMonoObject:monoObject];
 

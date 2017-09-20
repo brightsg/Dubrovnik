@@ -33,7 +33,7 @@
     - (void)cancelNew_withItemIndex:(int32_t)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.ICancelAddNew.CancelNew(int)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"System.ComponentModel.ICancelAddNew.CancelNew(int)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -43,7 +43,7 @@
     - (void)endNew_withItemIndex:(int32_t)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.ICancelAddNew.EndNew(int)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"System.ComponentModel.ICancelAddNew.EndNew(int)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 

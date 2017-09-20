@@ -29,7 +29,7 @@
 
 	// Managed property name : Level
 	// Managed property type : System.Diagnostics.TraceLevel
-    @property (nonatomic) System_Diagnostics_TraceLevel level;
+    @property (nonatomic) int32_t level;
 
 	// Managed property name : TraceError
 	// Managed property type : System.Boolean

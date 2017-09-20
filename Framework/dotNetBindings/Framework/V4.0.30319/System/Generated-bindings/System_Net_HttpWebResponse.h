@@ -64,7 +64,7 @@
 
 	// Managed property name : StatusCode
 	// Managed property type : System.Net.HttpStatusCode
-    @property (nonatomic, readonly) System_Net_HttpStatusCode statusCode;
+    @property (nonatomic, readonly) int32_t statusCode;
 
 	// Managed property name : StatusDescription
 	// Managed property type : System.String

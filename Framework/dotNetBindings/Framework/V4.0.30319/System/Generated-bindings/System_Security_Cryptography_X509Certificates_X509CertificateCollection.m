@@ -33,7 +33,7 @@
     + (System_Security_Cryptography_X509Certificates_X509CertificateCollection *)new_withValueSSCXX509CertificateCollection:(System_Security_Cryptography_X509Certificates_X509CertificateCollection *)p1
     {
 		
-		System_Security_Cryptography_X509Certificates_X509CertificateCollection * object = [[self alloc] initWithSignature:"System.Security.Cryptography.X509Certificates.X509CertificateCollection" withNumArgs:1, [p1 monoValue]];;
+		System_Security_Cryptography_X509Certificates_X509CertificateCollection * object = [[self alloc] initWithSignature:"System.Security.Cryptography.X509Certificates.X509CertificateCollection" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Security_Cryptography_X509Certificates_X509CertificateCollection *)new_withValueSSCXX509Certificate:(DBSystem_Array *)p1
     {
 		
-		System_Security_Cryptography_X509Certificates_X509CertificateCollection * object = [[self alloc] initWithSignature:"System.Security.Cryptography.X509Certificates.X509Certificate[]" withNumArgs:1, [p1 monoValue]];;
+		System_Security_Cryptography_X509Certificates_X509CertificateCollection * object = [[self alloc] initWithSignature:"System.Security.Cryptography.X509Certificates.X509Certificate[]" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -57,7 +57,17 @@
     @synthesize item = _item;
     - (System_Security_Cryptography_X509Certificates_X509Certificate *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
 		_item = [System_Security_Cryptography_X509Certificates_X509Certificate bestObjectWithMonoObject:monoObject];
 
@@ -66,8 +76,17 @@
     - (void)setItem:(System_Security_Cryptography_X509Certificates_X509Certificate *)value
 	{
 		_item = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Item" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -79,7 +98,7 @@
     - (int32_t)add_withValue:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Add(System.Security.Cryptography.X509Certificates.X509Certificate)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Add(System.Security.Cryptography.X509Certificates.X509Certificate)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -90,7 +109,7 @@
     - (void)addRange_withValueSSCXX509Certificate:(DBSystem_Array *)p1
     {
 		
-		[self invokeMonoMethod:"AddRange(System.Security.Cryptography.X509Certificates.X509Certificate[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddRange(System.Security.Cryptography.X509Certificates.X509Certificate[])" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -100,7 +119,7 @@
     - (void)addRange_withValueSSCXX509CertificateCollection:(System_Security_Cryptography_X509Certificates_X509CertificateCollection *)p1
     {
 		
-		[self invokeMonoMethod:"AddRange(System.Security.Cryptography.X509Certificates.X509CertificateCollection)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddRange(System.Security.Cryptography.X509Certificates.X509CertificateCollection)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -110,7 +129,7 @@
     - (BOOL)contains_withValue:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Contains(System.Security.Cryptography.X509Certificates.X509Certificate)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Contains(System.Security.Cryptography.X509Certificates.X509Certificate)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -121,7 +140,7 @@
     - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
 		
-		[self invokeMonoMethod:"CopyTo(System.Security.Cryptography.X509Certificates.X509Certificate[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"CopyTo(System.Security.Cryptography.X509Certificates.X509Certificate[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
     }
 
@@ -153,7 +172,7 @@
     - (int32_t)indexOf_withValue:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(System.Security.Cryptography.X509Certificates.X509Certificate)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(System.Security.Cryptography.X509Certificates.X509Certificate)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -164,7 +183,7 @@
     - (void)insert_withIndex:(int32_t)p1 value:(System_Security_Cryptography_X509Certificates_X509Certificate *)p2
     {
 		
-		[self invokeMonoMethod:"Insert(int,System.Security.Cryptography.X509Certificates.X509Certificate)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoMethod:"Insert(int,System.Security.Cryptography.X509Certificates.X509Certificate)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
     }
 
@@ -174,7 +193,7 @@
     - (void)remove_withValue:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1
     {
 		
-		[self invokeMonoMethod:"Remove(System.Security.Cryptography.X509Certificates.X509Certificate)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Remove(System.Security.Cryptography.X509Certificates.X509Certificate)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

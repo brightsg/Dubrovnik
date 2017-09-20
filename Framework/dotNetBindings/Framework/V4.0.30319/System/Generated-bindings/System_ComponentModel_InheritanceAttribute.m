@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.InheritanceAttribute
 	// Managed param types : System.ComponentModel.InheritanceLevel
-    + (System_ComponentModel_InheritanceAttribute *)new_withInheritanceLevel:(System_ComponentModel_InheritanceLevel)p1
+    + (System_ComponentModel_InheritanceAttribute *)new_withInheritanceLevel:(int32_t)p1
     {
 		
-		System_ComponentModel_InheritanceAttribute * object = [[self alloc] initWithSignature:"System.ComponentModel.InheritanceLevel" withNumArgs:1, DB_VALUE(p1)];;
+		System_ComponentModel_InheritanceAttribute * object = [[self alloc] initWithSignature:"System.ComponentModel.InheritanceLevel" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -95,10 +95,20 @@
 	// Managed property name : InheritanceLevel
 	// Managed property type : System.ComponentModel.InheritanceLevel
     @synthesize inheritanceLevel = _inheritanceLevel;
-    - (System_ComponentModel_InheritanceLevel)inheritanceLevel
+    - (int32_t)inheritanceLevel
     {
-		MonoObject *monoObject = [self getMonoProperty:"InheritanceLevel"];
-		_inheritanceLevel = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InheritanceLevel");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_inheritanceLevel = monoObject;
 
 		return _inheritanceLevel;
 	}
@@ -112,7 +122,7 @@
     - (BOOL)equals_withValue:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

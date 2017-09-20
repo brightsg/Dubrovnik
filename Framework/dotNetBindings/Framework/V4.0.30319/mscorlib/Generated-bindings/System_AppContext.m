@@ -49,8 +49,41 @@
 		return m_baseDirectory;
 	}
 
+	// Managed property name : TargetFrameworkName
+	// Managed property type : System.String
+    static NSString * m_targetFrameworkName;
+    + (NSString *)targetFrameworkName
+    {
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TargetFrameworkName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		if ([self object:m_targetFrameworkName isEqualToMonoObject:monoObject]) return m_targetFrameworkName;					
+		m_targetFrameworkName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return m_targetFrameworkName;
+	}
+
 #pragma mark -
 #pragma mark Methods
+
+	// Managed method name : GetData
+	// Managed return type : System.Object
+	// Managed param types : System.String
+    + (System_Object *)getData_withName:(NSString *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetData(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return [System_Object objectWithMonoObject:monoObject];
+    }
 
 	// Managed method name : SetSwitch
 	// Managed return type : System.Void
@@ -78,6 +111,7 @@
 	- (void)dealloc
 	{
 		m_baseDirectory = nil;
+		m_targetFrameworkName = nil;
 	}
 @end
 //--Dubrovnik.CodeGenerator

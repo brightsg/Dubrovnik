@@ -33,7 +33,7 @@
     + (void)execWait_withCmd:(NSString *)p1 tempFiles:(System_CodeDom_Compiler_TempFileCollection *)p2
     {
 		
-		[self invokeMonoClassMethod:"ExecWait(string,System.CodeDom.Compiler.TempFileCollection)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"ExecWait(string,System.CodeDom.Compiler.TempFileCollection)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -42,10 +42,10 @@
 	// Managed param types : System.String, System.CodeDom.Compiler.TempFileCollection, ref System.String&, ref System.String&
     + (int32_t)execWaitWithCapture_withCmd:(NSString *)p1 tempFiles:(System_CodeDom_Compiler_TempFileCollection *)p2 outputNameRef:(NSString **)p3 errorNameRef:(NSString **)p4
     {
-		void *refPtr3 = [*p3 monoValue];
-void *refPtr4 = [*p4 monoValue];
+		void *refPtr3 = [*p3 monoRTInvokeArg];
+void *refPtr4 = [*p4 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ExecWaitWithCapture(string,System.CodeDom.Compiler.TempFileCollection,string&,string&)" withNumArgs:4, [p1 monoValue], [p2 monoValue], &refPtr3, &refPtr4];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ExecWaitWithCapture(string,System.CodeDom.Compiler.TempFileCollection,string&,string&)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], &refPtr3, &refPtr4];
 
 		*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
 *p4 = [System_Object bestObjectWithMonoObject:refPtr4];
@@ -58,10 +58,10 @@ void *refPtr4 = [*p4 monoValue];
 	// Managed param types : System.String, System.String, System.CodeDom.Compiler.TempFileCollection, ref System.String&, ref System.String&
     + (int32_t)execWaitWithCapture_withCmd:(NSString *)p1 currentDir:(NSString *)p2 tempFiles:(System_CodeDom_Compiler_TempFileCollection *)p3 outputNameRef:(NSString **)p4 errorNameRef:(NSString **)p5
     {
-		void *refPtr4 = [*p4 monoValue];
-void *refPtr5 = [*p5 monoValue];
+		void *refPtr4 = [*p4 monoRTInvokeArg];
+void *refPtr5 = [*p5 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ExecWaitWithCapture(string,string,System.CodeDom.Compiler.TempFileCollection,string&,string&)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], &refPtr4, &refPtr5];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ExecWaitWithCapture(string,string,System.CodeDom.Compiler.TempFileCollection,string&,string&)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], &refPtr4, &refPtr5];
 
 		*p4 = [System_Object bestObjectWithMonoObject:refPtr4];
 *p5 = [System_Object bestObjectWithMonoObject:refPtr5];
@@ -74,10 +74,10 @@ void *refPtr5 = [*p5 monoValue];
 	// Managed param types : System.IntPtr, System.String, System.CodeDom.Compiler.TempFileCollection, ref System.String&, ref System.String&
     + (int32_t)execWaitWithCapture_withUserToken:(void *)p1 cmd:(NSString *)p2 tempFiles:(System_CodeDom_Compiler_TempFileCollection *)p3 outputNameRef:(NSString **)p4 errorNameRef:(NSString **)p5
     {
-		void *refPtr4 = [*p4 monoValue];
-void *refPtr5 = [*p5 monoValue];
+		void *refPtr4 = [*p4 monoRTInvokeArg];
+void *refPtr5 = [*p5 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ExecWaitWithCapture(intptr,string,System.CodeDom.Compiler.TempFileCollection,string&,string&)" withNumArgs:5, DB_VALUE(p1), [p2 monoValue], [p3 monoValue], &refPtr4, &refPtr5];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ExecWaitWithCapture(intptr,string,System.CodeDom.Compiler.TempFileCollection,string&,string&)" withNumArgs:5, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], &refPtr4, &refPtr5];
 
 		*p4 = [System_Object bestObjectWithMonoObject:refPtr4];
 *p5 = [System_Object bestObjectWithMonoObject:refPtr5];
@@ -90,10 +90,10 @@ void *refPtr5 = [*p5 monoValue];
 	// Managed param types : System.IntPtr, System.String, System.String, System.CodeDom.Compiler.TempFileCollection, ref System.String&, ref System.String&
     + (int32_t)execWaitWithCapture_withUserToken:(void *)p1 cmd:(NSString *)p2 currentDir:(NSString *)p3 tempFiles:(System_CodeDom_Compiler_TempFileCollection *)p4 outputNameRef:(NSString **)p5 errorNameRef:(NSString **)p6
     {
-		void *refPtr5 = [*p5 monoValue];
-void *refPtr6 = [*p6 monoValue];
+		void *refPtr5 = [*p5 monoRTInvokeArg];
+void *refPtr6 = [*p6 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ExecWaitWithCapture(intptr,string,string,System.CodeDom.Compiler.TempFileCollection,string&,string&)" withNumArgs:6, DB_VALUE(p1), [p2 monoValue], [p3 monoValue], [p4 monoValue], &refPtr5, &refPtr6];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ExecWaitWithCapture(intptr,string,string,System.CodeDom.Compiler.TempFileCollection,string&,string&)" withNumArgs:6, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], &refPtr5, &refPtr6];
 
 		*p5 = [System_Object bestObjectWithMonoObject:refPtr5];
 *p6 = [System_Object bestObjectWithMonoObject:refPtr6];

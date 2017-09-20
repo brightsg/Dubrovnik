@@ -16,6 +16,16 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.SecurityException
+	// Managed param types : System.String, System.Reflection.AssemblyName, System.Security.PermissionSet, System.Security.PermissionSet, System.Reflection.MethodInfo, System.Security.Permissions.SecurityAction, System.Object, System.Security.IPermission, System.Security.Policy.Evidence
+    + (System_Security_SecurityException *)new_withMessage:(NSString *)p1 assemblyName:(System_Reflection_AssemblyName *)p2 grant:(System_Security_PermissionSet *)p3 refused:(System_Security_PermissionSet *)p4 method:(System_Reflection_MethodInfo *)p5 action:(int32_t)p6 demanded:(System_Object *)p7 permThatFailed:(id <System_Security_IPermission_>)p8 evidence:(System_Security_Policy_Evidence *)p9;
+
+	// Managed method name : .ctor
+	// Managed return type : System.Security.SecurityException
+	// Managed param types : System.String, System.Object, System.Object, System.Reflection.MethodInfo, System.Object, System.Security.IPermission
+    + (System_Security_SecurityException *)new_withMessage:(NSString *)p1 deny:(System_Object *)p2 permitOnly:(System_Object *)p3 method:(System_Reflection_MethodInfo *)p4 demanded:(System_Object *)p5 permThatFailed:(id <System_Security_IPermission_>)p6;
+
+	// Managed method name : .ctor
+	// Managed return type : System.Security.SecurityException
 	// Managed param types : System.String
     + (System_Security_SecurityException *)new_withMessage:(NSString *)p1;
 
@@ -33,16 +43,6 @@
 	// Managed return type : System.Security.SecurityException
 	// Managed param types : System.String, System.Exception
     + (System_Security_SecurityException *)new_withMessage:(NSString *)p1 inner:(System_Exception *)p2;
-
-	// Managed method name : .ctor
-	// Managed return type : System.Security.SecurityException
-	// Managed param types : System.String, System.Reflection.AssemblyName, System.Security.PermissionSet, System.Security.PermissionSet, System.Reflection.MethodInfo, System.Security.Permissions.SecurityAction, System.Object, System.Security.IPermission, System.Security.Policy.Evidence
-    + (System_Security_SecurityException *)new_withMessage:(NSString *)p1 assemblyName:(System_Reflection_AssemblyName *)p2 grant:(System_Security_PermissionSet *)p3 refused:(System_Security_PermissionSet *)p4 method:(System_Reflection_MethodInfo *)p5 action:(int32_t)p6 demanded:(System_Object *)p7 permThatFailed:(id <System_Security_IPermission_>)p8 evidence:(System_Security_Policy_Evidence *)p9;
-
-	// Managed method name : .ctor
-	// Managed return type : System.Security.SecurityException
-	// Managed param types : System.String, System.Object, System.Object, System.Reflection.MethodInfo, System.Object, System.Security.IPermission
-    + (System_Security_SecurityException *)new_withMessage:(NSString *)p1 deny:(System_Object *)p2 permitOnly:(System_Object *)p3 method:(System_Reflection_MethodInfo *)p4 demanded:(System_Object *)p5 permThatFailed:(id <System_Security_IPermission_>)p6;
 
 #pragma mark -
 #pragma mark Properties

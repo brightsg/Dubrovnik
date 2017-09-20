@@ -22,7 +22,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Security.SslStream
 	// Managed param types : System.IO.Stream, System.Boolean, System.Net.Security.RemoteCertificateValidationCallback, System.Net.Security.LocalCertificateSelectionCallback, System.Net.Security.EncryptionPolicy
-    + (System_Net_Security_SslStream *)new_withInnerStream:(System_IO_Stream *)p1 leaveInnerStreamOpen:(BOOL)p2 userCertificateValidationCallback:(System_Net_Security_RemoteCertificateValidationCallback *)p3 userCertificateSelectionCallback:(System_Net_Security_LocalCertificateSelectionCallback *)p4 encryptionPolicy:(System_Net_Security_EncryptionPolicy)p5;
+    + (System_Net_Security_SslStream *)new_withInnerStream:(System_IO_Stream *)p1 leaveInnerStreamOpen:(BOOL)p2 userCertificateValidationCallback:(System_Net_Security_RemoteCertificateValidationCallback *)p3 userCertificateSelectionCallback:(System_Net_Security_LocalCertificateSelectionCallback *)p4 encryptionPolicy:(int32_t)p5;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Security.SslStream
@@ -64,7 +64,7 @@
 
 	// Managed property name : CipherAlgorithm
 	// Managed property type : System.Security.Authentication.CipherAlgorithmType
-    @property (nonatomic, readonly) System_Security_Authentication_CipherAlgorithmType cipherAlgorithm;
+    @property (nonatomic, readonly) int32_t cipherAlgorithm;
 
 	// Managed property name : CipherStrength
 	// Managed property type : System.Int32
@@ -72,7 +72,7 @@
 
 	// Managed property name : HashAlgorithm
 	// Managed property type : System.Security.Authentication.HashAlgorithmType
-    @property (nonatomic, readonly) System_Security_Authentication_HashAlgorithmType hashAlgorithm;
+    @property (nonatomic, readonly) int32_t hashAlgorithm;
 
 	// Managed property name : HashStrength
 	// Managed property type : System.Int32
@@ -100,7 +100,7 @@
 
 	// Managed property name : KeyExchangeAlgorithm
 	// Managed property type : System.Security.Authentication.ExchangeAlgorithmType
-    @property (nonatomic, readonly) System_Security_Authentication_ExchangeAlgorithmType keyExchangeAlgorithm;
+    @property (nonatomic, readonly) int32_t keyExchangeAlgorithm;
 
 	// Managed property name : KeyExchangeStrength
 	// Managed property type : System.Int32
@@ -128,7 +128,7 @@
 
 	// Managed property name : SslProtocol
 	// Managed property type : System.Security.Authentication.SslProtocols
-    @property (nonatomic, readonly) System_Security_Authentication_SslProtocols sslProtocol;
+    @property (nonatomic, readonly) int32_t sslProtocol;
 
 	// Managed property name : TransportContext
 	// Managed property type : System.Net.TransportContext
@@ -144,12 +144,17 @@
 	// Managed method name : AuthenticateAsClient
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Security.Authentication.SslProtocols, System.Boolean
-    - (void)authenticateAsClient_withTargetHost:(NSString *)p1 clientCertificates:(System_Security_Cryptography_X509Certificates_X509CertificateCollection *)p2 enabledSslProtocols:(System_Security_Authentication_SslProtocols)p3 checkCertificateRevocation:(BOOL)p4;
+    - (void)authenticateAsClient_withTargetHost:(NSString *)p1 clientCertificates:(System_Security_Cryptography_X509Certificates_X509CertificateCollection *)p2 enabledSslProtocols:(int32_t)p3 checkCertificateRevocation:(BOOL)p4;
 
 	// Managed method name : AuthenticateAsClient
 	// Managed return type : System.Void
 	// Managed param types : System.String
     - (void)authenticateAsClient_withTargetHost:(NSString *)p1;
+
+	// Managed method name : AuthenticateAsClient
+	// Managed return type : System.Void
+	// Managed param types : System.String, System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Boolean
+    - (void)authenticateAsClient_withTargetHost:(NSString *)p1 clientCertificates:(System_Security_Cryptography_X509Certificates_X509CertificateCollection *)p2 checkCertificateRevocation:(BOOL)p3;
 
 	// Managed method name : AuthenticateAsClientAsync
 	// Managed return type : System.Threading.Tasks.Task
@@ -158,8 +163,13 @@
 
 	// Managed method name : AuthenticateAsClientAsync
 	// Managed return type : System.Threading.Tasks.Task
+	// Managed param types : System.String, System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Boolean
+    - (System_Threading_Tasks_Task *)authenticateAsClientAsync_withTargetHost:(NSString *)p1 clientCertificates:(System_Security_Cryptography_X509Certificates_X509CertificateCollection *)p2 checkCertificateRevocation:(BOOL)p3;
+
+	// Managed method name : AuthenticateAsClientAsync
+	// Managed return type : System.Threading.Tasks.Task
 	// Managed param types : System.String, System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Security.Authentication.SslProtocols, System.Boolean
-    - (System_Threading_Tasks_Task *)authenticateAsClientAsync_withTargetHost:(NSString *)p1 clientCertificates:(System_Security_Cryptography_X509Certificates_X509CertificateCollection *)p2 enabledSslProtocols:(System_Security_Authentication_SslProtocols)p3 checkCertificateRevocation:(BOOL)p4;
+    - (System_Threading_Tasks_Task *)authenticateAsClientAsync_withTargetHost:(NSString *)p1 clientCertificates:(System_Security_Cryptography_X509Certificates_X509CertificateCollection *)p2 enabledSslProtocols:(int32_t)p3 checkCertificateRevocation:(BOOL)p4;
 
 	// Managed method name : AuthenticateAsServer
 	// Managed return type : System.Void
@@ -168,8 +178,13 @@
 
 	// Managed method name : AuthenticateAsServer
 	// Managed return type : System.Void
+	// Managed param types : System.Security.Cryptography.X509Certificates.X509Certificate, System.Boolean, System.Boolean
+    - (void)authenticateAsServer_withServerCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1 clientCertificateRequired:(BOOL)p2 checkCertificateRevocation:(BOOL)p3;
+
+	// Managed method name : AuthenticateAsServer
+	// Managed return type : System.Void
 	// Managed param types : System.Security.Cryptography.X509Certificates.X509Certificate, System.Boolean, System.Security.Authentication.SslProtocols, System.Boolean
-    - (void)authenticateAsServer_withServerCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1 clientCertificateRequired:(BOOL)p2 enabledSslProtocols:(System_Security_Authentication_SslProtocols)p3 checkCertificateRevocation:(BOOL)p4;
+    - (void)authenticateAsServer_withServerCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1 clientCertificateRequired:(BOOL)p2 enabledSslProtocols:(int32_t)p3 checkCertificateRevocation:(BOOL)p4;
 
 	// Managed method name : AuthenticateAsServerAsync
 	// Managed return type : System.Threading.Tasks.Task
@@ -178,8 +193,13 @@
 
 	// Managed method name : AuthenticateAsServerAsync
 	// Managed return type : System.Threading.Tasks.Task
+	// Managed param types : System.Security.Cryptography.X509Certificates.X509Certificate, System.Boolean, System.Boolean
+    - (System_Threading_Tasks_Task *)authenticateAsServerAsync_withServerCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1 clientCertificateRequired:(BOOL)p2 checkCertificateRevocation:(BOOL)p3;
+
+	// Managed method name : AuthenticateAsServerAsync
+	// Managed return type : System.Threading.Tasks.Task
 	// Managed param types : System.Security.Cryptography.X509Certificates.X509Certificate, System.Boolean, System.Security.Authentication.SslProtocols, System.Boolean
-    - (System_Threading_Tasks_Task *)authenticateAsServerAsync_withServerCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1 clientCertificateRequired:(BOOL)p2 enabledSslProtocols:(System_Security_Authentication_SslProtocols)p3 checkCertificateRevocation:(BOOL)p4;
+    - (System_Threading_Tasks_Task *)authenticateAsServerAsync_withServerCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1 clientCertificateRequired:(BOOL)p2 enabledSslProtocols:(int32_t)p3 checkCertificateRevocation:(BOOL)p4;
 
 	// Managed method name : BeginAuthenticateAsClient
 	// Managed return type : System.IAsyncResult
@@ -188,8 +208,13 @@
 
 	// Managed method name : BeginAuthenticateAsClient
 	// Managed return type : System.IAsyncResult
+	// Managed param types : System.String, System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Boolean, System.AsyncCallback, System.Object
+    - (id <System_IAsyncResult>)beginAuthenticateAsClient_withTargetHost:(NSString *)p1 clientCertificates:(System_Security_Cryptography_X509Certificates_X509CertificateCollection *)p2 checkCertificateRevocation:(BOOL)p3 asyncCallback:(System_AsyncCallback *)p4 asyncState:(System_Object *)p5;
+
+	// Managed method name : BeginAuthenticateAsClient
+	// Managed return type : System.IAsyncResult
 	// Managed param types : System.String, System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Security.Authentication.SslProtocols, System.Boolean, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginAuthenticateAsClient_withTargetHost:(NSString *)p1 clientCertificates:(System_Security_Cryptography_X509Certificates_X509CertificateCollection *)p2 enabledSslProtocols:(System_Security_Authentication_SslProtocols)p3 checkCertificateRevocation:(BOOL)p4 asyncCallback:(System_AsyncCallback *)p5 asyncState:(System_Object *)p6;
+    - (id <System_IAsyncResult>)beginAuthenticateAsClient_withTargetHost:(NSString *)p1 clientCertificates:(System_Security_Cryptography_X509Certificates_X509CertificateCollection *)p2 enabledSslProtocols:(int32_t)p3 checkCertificateRevocation:(BOOL)p4 asyncCallback:(System_AsyncCallback *)p5 asyncState:(System_Object *)p6;
 
 	// Managed method name : BeginAuthenticateAsServer
 	// Managed return type : System.IAsyncResult
@@ -198,8 +223,13 @@
 
 	// Managed method name : BeginAuthenticateAsServer
 	// Managed return type : System.IAsyncResult
+	// Managed param types : System.Security.Cryptography.X509Certificates.X509Certificate, System.Boolean, System.Boolean, System.AsyncCallback, System.Object
+    - (id <System_IAsyncResult>)beginAuthenticateAsServer_withServerCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1 clientCertificateRequired:(BOOL)p2 checkCertificateRevocation:(BOOL)p3 asyncCallback:(System_AsyncCallback *)p4 asyncState:(System_Object *)p5;
+
+	// Managed method name : BeginAuthenticateAsServer
+	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Security.Cryptography.X509Certificates.X509Certificate, System.Boolean, System.Security.Authentication.SslProtocols, System.Boolean, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginAuthenticateAsServer_withServerCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1 clientCertificateRequired:(BOOL)p2 enabledSslProtocols:(System_Security_Authentication_SslProtocols)p3 checkCertificateRevocation:(BOOL)p4 asyncCallback:(System_AsyncCallback *)p5 asyncState:(System_Object *)p6;
+    - (id <System_IAsyncResult>)beginAuthenticateAsServer_withServerCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1 clientCertificateRequired:(BOOL)p2 enabledSslProtocols:(int32_t)p3 checkCertificateRevocation:(BOOL)p4 asyncCallback:(System_AsyncCallback *)p5 asyncState:(System_Object *)p6;
 
 	// Managed method name : BeginRead
 	// Managed return type : System.IAsyncResult
@@ -244,12 +274,17 @@
 	// Managed method name : Seek
 	// Managed return type : System.Int64
 	// Managed param types : System.Int64, System.IO.SeekOrigin
-    - (int64_t)seek_withOffset:(int64_t)p1 origin:(System_IO_SeekOrigin)p2;
+    - (int64_t)seek_withOffset:(int64_t)p1 origin:(int32_t)p2;
 
 	// Managed method name : SetLength
 	// Managed return type : System.Void
 	// Managed param types : System.Int64
     - (void)setLength_withValue:(int64_t)p1;
+
+	// Managed method name : ShutdownAsync
+	// Managed return type : System.Threading.Tasks.Task
+	// Managed param types : 
+    - (System_Threading_Tasks_Task *)shutdownAsync;
 
 	// Managed method name : Write
 	// Managed return type : System.Void

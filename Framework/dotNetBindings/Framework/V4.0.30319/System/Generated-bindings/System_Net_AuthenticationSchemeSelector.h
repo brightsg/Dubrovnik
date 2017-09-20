@@ -30,11 +30,11 @@
 	// Managed method name : EndInvoke
 	// Managed return type : System.Net.AuthenticationSchemes
 	// Managed param types : System.IAsyncResult
-    - (System_Net_AuthenticationSchemes)endInvoke_withResult:(id <System_IAsyncResult_>)p1;
+    - (int32_t)endInvoke_withResult:(id <System_IAsyncResult_>)p1;
 
 	// Managed method name : Invoke
 	// Managed return type : System.Net.AuthenticationSchemes
 	// Managed param types : System.Net.HttpListenerRequest
-    - (System_Net_AuthenticationSchemes)invoke_withHttpRequest:(System_Net_HttpListenerRequest *)p1;
+    - (int32_t)invoke_withHttpRequest:(System_Net_HttpListenerRequest *)p1;
 @end
 //--Dubrovnik.CodeGenerator

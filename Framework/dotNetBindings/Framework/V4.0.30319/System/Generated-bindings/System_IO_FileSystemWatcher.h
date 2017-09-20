@@ -45,7 +45,7 @@
 
 	// Managed property name : NotifyFilter
 	// Managed property type : System.IO.NotifyFilters
-    @property (nonatomic) System_IO_NotifyFilters notifyFilter;
+    @property (nonatomic) int32_t notifyFilter;
 
 	// Managed property name : Path
 	// Managed property type : System.String
@@ -75,11 +75,11 @@
 	// Managed method name : WaitForChanged
 	// Managed return type : System.IO.WaitForChangedResult
 	// Managed param types : System.IO.WatcherChangeTypes
-    - (System_IO_WaitForChangedResult *)waitForChanged_withChangeType:(System_IO_WatcherChangeTypes)p1;
+    - (System_IO_WaitForChangedResult *)waitForChanged_withChangeType:(int32_t)p1;
 
 	// Managed method name : WaitForChanged
 	// Managed return type : System.IO.WaitForChangedResult
 	// Managed param types : System.IO.WatcherChangeTypes, System.Int32
-    - (System_IO_WaitForChangedResult *)waitForChanged_withChangeType:(System_IO_WatcherChangeTypes)p1 timeout:(int32_t)p2;
+    - (System_IO_WaitForChangedResult *)waitForChanged_withChangeType:(int32_t)p1 timeout:(int32_t)p2;
 @end
 //--Dubrovnik.CodeGenerator

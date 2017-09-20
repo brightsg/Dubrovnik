@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebPermission
 	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Net_WebPermission *)new_withState:(System_Security_Permissions_PermissionState)p1
+    + (System_Net_WebPermission *)new_withState:(int32_t)p1
     {
 		
-		System_Net_WebPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];;
+		System_Net_WebPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -41,10 +41,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebPermission
 	// Managed param types : System.Net.NetworkAccess, System.Text.RegularExpressions.Regex
-    + (System_Net_WebPermission *)new_withAccess:(System_Net_NetworkAccess)p1 uriRegex:(System_Text_RegularExpressions_Regex *)p2
+    + (System_Net_WebPermission *)new_withAccess:(int32_t)p1 uriRegex:(System_Text_RegularExpressions_Regex *)p2
     {
 		
-		System_Net_WebPermission * object = [[self alloc] initWithSignature:"System.Net.NetworkAccess,System.Text.RegularExpressions.Regex" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		System_Net_WebPermission * object = [[self alloc] initWithSignature:"System.Net.NetworkAccess,System.Text.RegularExpressions.Regex" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -52,10 +52,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebPermission
 	// Managed param types : System.Net.NetworkAccess, System.String
-    + (System_Net_WebPermission *)new_withAccess:(System_Net_NetworkAccess)p1 uriString:(NSString *)p2
+    + (System_Net_WebPermission *)new_withAccess:(int32_t)p1 uriString:(NSString *)p2
     {
 		
-		System_Net_WebPermission * object = [[self alloc] initWithSignature:"System.Net.NetworkAccess,string" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		System_Net_WebPermission * object = [[self alloc] initWithSignature:"System.Net.NetworkAccess,string" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -68,7 +68,17 @@
     @synthesize acceptList = _acceptList;
     - (System_Collections_IEnumerator *)acceptList
     {
-		MonoObject *monoObject = [self getMonoProperty:"AcceptList"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AcceptList");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_acceptList isEqualToMonoObject:monoObject]) return _acceptList;					
 		_acceptList = [System_Collections_IEnumerator bestObjectWithMonoObject:monoObject];
 
@@ -80,7 +90,17 @@
     @synthesize connectList = _connectList;
     - (System_Collections_IEnumerator *)connectList
     {
-		MonoObject *monoObject = [self getMonoProperty:"ConnectList"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ConnectList");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_connectList isEqualToMonoObject:monoObject]) return _connectList;					
 		_connectList = [System_Collections_IEnumerator bestObjectWithMonoObject:monoObject];
 
@@ -93,20 +113,20 @@
 	// Managed method name : AddPermission
 	// Managed return type : System.Void
 	// Managed param types : System.Net.NetworkAccess, System.String
-    - (void)addPermission_withAccess:(System_Net_NetworkAccess)p1 uriString:(NSString *)p2
+    - (void)addPermission_withAccess:(int32_t)p1 uriString:(NSString *)p2
     {
 		
-		[self invokeMonoMethod:"AddPermission(System.Net.NetworkAccess,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoMethod:"AddPermission(System.Net.NetworkAccess,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
     }
 
 	// Managed method name : AddPermission
 	// Managed return type : System.Void
 	// Managed param types : System.Net.NetworkAccess, System.Text.RegularExpressions.Regex
-    - (void)addPermission_withAccess:(System_Net_NetworkAccess)p1 uriRegex:(System_Text_RegularExpressions_Regex *)p2
+    - (void)addPermission_withAccess:(int32_t)p1 uriRegex:(System_Text_RegularExpressions_Regex *)p2
     {
 		
-		[self invokeMonoMethod:"AddPermission(System.Net.NetworkAccess,System.Text.RegularExpressions.Regex)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoMethod:"AddPermission(System.Net.NetworkAccess,System.Text.RegularExpressions.Regex)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
     }
 
@@ -127,7 +147,7 @@
     - (void)fromXml_withSecurityElement:(System_Security_SecurityElement *)p1
     {
 		
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -137,7 +157,7 @@
     - (id <System_Security_IPermission>)intersect_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
@@ -148,7 +168,7 @@
     - (BOOL)isSubsetOf_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -181,7 +201,7 @@
     - (id <System_Security_IPermission>)union_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }

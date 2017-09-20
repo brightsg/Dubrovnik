@@ -16,7 +16,7 @@
 
 	// Managed property name : AuthenticationLevel
 	// Managed property type : System.Net.Security.AuthenticationLevel
-    @property (nonatomic) System_Net_Security_AuthenticationLevel authenticationLevel;
+    @property (nonatomic) int32_t authenticationLevel;
 
 	// Managed property name : CachePolicy
 	// Managed property type : System.Net.Cache.RequestCachePolicy
@@ -58,7 +58,7 @@
 
 	// Managed property name : ImpersonationLevel
 	// Managed property type : System.Security.Principal.TokenImpersonationLevel
-    @property (nonatomic) System_Security_Principal_TokenImpersonationLevel impersonationLevel;
+    @property (nonatomic) int32_t impersonationLevel;
 
 	// Managed property name : Method
 	// Managed property type : System.String

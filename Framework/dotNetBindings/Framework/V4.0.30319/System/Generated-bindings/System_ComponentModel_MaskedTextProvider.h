@@ -225,7 +225,7 @@
 	// Managed method name : GetOperationResultFromHint
 	// Managed return type : System.Boolean
 	// Managed param types : System.ComponentModel.MaskedTextResultHint
-    + (BOOL)getOperationResultFromHint_withHint:(System_ComponentModel_MaskedTextResultHint)p1;
+    + (BOOL)getOperationResultFromHint_withHint:(int32_t)p1;
 
 	// Managed method name : InsertAt
 	// Managed return type : System.Boolean

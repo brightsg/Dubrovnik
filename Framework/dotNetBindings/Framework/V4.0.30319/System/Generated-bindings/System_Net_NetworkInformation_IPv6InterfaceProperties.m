@@ -32,8 +32,18 @@
     @synthesize index = _index;
     - (int32_t)index
     {
-		MonoObject *monoObject = [self getMonoProperty:"Index"];
-		_index = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Index");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_index = monoObject;
 
 		return _index;
 	}
@@ -43,8 +53,18 @@
     @synthesize mtu = _mtu;
     - (int32_t)mtu
     {
-		MonoObject *monoObject = [self getMonoProperty:"Mtu"];
-		_mtu = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Mtu");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_mtu = monoObject;
 
 		return _mtu;
 	}
@@ -55,7 +75,7 @@
 	// Managed method name : GetScopeId
 	// Managed return type : System.Int64
 	// Managed param types : System.Net.NetworkInformation.ScopeLevel
-    - (int64_t)getScopeId_withScopeLevel:(System_Net_NetworkInformation_ScopeLevel)p1
+    - (int64_t)getScopeId_withScopeLevel:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetScopeId(System.Net.NetworkInformation.ScopeLevel)" withNumArgs:1, DB_VALUE(p1)];

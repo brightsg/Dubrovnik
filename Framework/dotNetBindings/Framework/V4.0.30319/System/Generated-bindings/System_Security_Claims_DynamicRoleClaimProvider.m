@@ -33,7 +33,7 @@
     + (void)addDynamicRoleClaims_withClaimsIdentity:(System_Security_Claims_ClaimsIdentity *)p1 claims:(id <System_Collections_Generic_IEnumerableA1_>)p2
     {
 		
-		[self invokeMonoClassMethod:"AddDynamicRoleClaims(System.Security.Claims.ClaimsIdentity,System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"AddDynamicRoleClaims(System.Security.Claims.ClaimsIdentity,System.Collections.Generic.IEnumerable`1<System.Security.Claims.Claim>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 

@@ -33,7 +33,7 @@
     + (void)registerNetworkChange_withNc:(System_Net_NetworkInformation_NetworkChange *)p1
     {
 		
-		[self invokeMonoClassMethod:"RegisterNetworkChange(System.Net.NetworkInformation.NetworkChange)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"RegisterNetworkChange(System.Net.NetworkInformation.NetworkChange)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

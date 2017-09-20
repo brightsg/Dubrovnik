@@ -32,7 +32,17 @@
     @synthesize verbs = _verbs;
     - (System_ComponentModel_Design_DesignerVerbCollection *)verbs
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.Design.IMenuCommandService.Verbs"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.Design.IMenuCommandService.Verbs");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_verbs isEqualToMonoObject:monoObject]) return _verbs;					
 		_verbs = [System_ComponentModel_Design_DesignerVerbCollection bestObjectWithMonoObject:monoObject];
 
@@ -48,7 +58,7 @@
     - (void)addCommand_withCommand:(System_ComponentModel_Design_MenuCommand *)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IMenuCommandService.AddCommand(System.ComponentModel.Design.MenuCommand)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IMenuCommandService.AddCommand(System.ComponentModel.Design.MenuCommand)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -58,7 +68,7 @@
     - (void)addVerb_withVerb:(System_ComponentModel_Design_DesignerVerb *)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IMenuCommandService.AddVerb(System.ComponentModel.Design.DesignerVerb)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IMenuCommandService.AddVerb(System.ComponentModel.Design.DesignerVerb)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -68,7 +78,7 @@
     - (System_ComponentModel_Design_MenuCommand *)findCommand_withCommandID:(System_ComponentModel_Design_CommandID *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IMenuCommandService.FindCommand(System.ComponentModel.Design.CommandID)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IMenuCommandService.FindCommand(System.ComponentModel.Design.CommandID)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_Design_MenuCommand bestObjectWithMonoObject:monoObject];
     }
@@ -79,7 +89,7 @@
     - (BOOL)globalInvoke_withCommandID:(System_ComponentModel_Design_CommandID *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IMenuCommandService.GlobalInvoke(System.ComponentModel.Design.CommandID)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IMenuCommandService.GlobalInvoke(System.ComponentModel.Design.CommandID)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -90,7 +100,7 @@
     - (void)removeCommand_withCommand:(System_ComponentModel_Design_MenuCommand *)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IMenuCommandService.RemoveCommand(System.ComponentModel.Design.MenuCommand)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IMenuCommandService.RemoveCommand(System.ComponentModel.Design.MenuCommand)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -100,7 +110,7 @@
     - (void)removeVerb_withVerb:(System_ComponentModel_Design_DesignerVerb *)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IMenuCommandService.RemoveVerb(System.ComponentModel.Design.DesignerVerb)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IMenuCommandService.RemoveVerb(System.ComponentModel.Design.DesignerVerb)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -110,7 +120,7 @@
     - (void)showContextMenu_withMenuID:(System_ComponentModel_Design_CommandID *)p1 x:(int32_t)p2 y:(int32_t)p3
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IMenuCommandService.ShowContextMenu(System.ComponentModel.Design.CommandID,int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IMenuCommandService.ShowContextMenu(System.ComponentModel.Design.CommandID,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
         
     }
 

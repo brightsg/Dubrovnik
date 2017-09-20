@@ -33,7 +33,7 @@
     + (System_Net_Security_SslStream *)new_withInnerStream:(System_IO_Stream *)p1 leaveInnerStreamOpen:(BOOL)p2 userCertificateValidationCallback:(System_Net_Security_RemoteCertificateValidationCallback *)p3 userCertificateSelectionCallback:(System_Net_Security_LocalCertificateSelectionCallback *)p4
     {
 		
-		System_Net_Security_SslStream * object = [[self alloc] initWithSignature:"System.IO.Stream,bool,System.Net.Security.RemoteCertificateValidationCallback,System.Net.Security.LocalCertificateSelectionCallback" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue]];;
+		System_Net_Security_SslStream * object = [[self alloc] initWithSignature:"System.IO.Stream,bool,System.Net.Security.RemoteCertificateValidationCallback,System.Net.Security.LocalCertificateSelectionCallback" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
         
         return object;
     }
@@ -41,10 +41,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Security.SslStream
 	// Managed param types : System.IO.Stream, System.Boolean, System.Net.Security.RemoteCertificateValidationCallback, System.Net.Security.LocalCertificateSelectionCallback, System.Net.Security.EncryptionPolicy
-    + (System_Net_Security_SslStream *)new_withInnerStream:(System_IO_Stream *)p1 leaveInnerStreamOpen:(BOOL)p2 userCertificateValidationCallback:(System_Net_Security_RemoteCertificateValidationCallback *)p3 userCertificateSelectionCallback:(System_Net_Security_LocalCertificateSelectionCallback *)p4 encryptionPolicy:(System_Net_Security_EncryptionPolicy)p5
+    + (System_Net_Security_SslStream *)new_withInnerStream:(System_IO_Stream *)p1 leaveInnerStreamOpen:(BOOL)p2 userCertificateValidationCallback:(System_Net_Security_RemoteCertificateValidationCallback *)p3 userCertificateSelectionCallback:(System_Net_Security_LocalCertificateSelectionCallback *)p4 encryptionPolicy:(int32_t)p5
     {
 		
-		System_Net_Security_SslStream * object = [[self alloc] initWithSignature:"System.IO.Stream,bool,System.Net.Security.RemoteCertificateValidationCallback,System.Net.Security.LocalCertificateSelectionCallback,System.Net.Security.EncryptionPolicy" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue], DB_VALUE(p5)];;
+		System_Net_Security_SslStream * object = [[self alloc] initWithSignature:"System.IO.Stream,bool,System.Net.Security.RemoteCertificateValidationCallback,System.Net.Security.LocalCertificateSelectionCallback,System.Net.Security.EncryptionPolicy" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], DB_VALUE(p5)];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Net_Security_SslStream *)new_withInnerStream:(System_IO_Stream *)p1
     {
 		
-		System_Net_Security_SslStream * object = [[self alloc] initWithSignature:"System.IO.Stream" withNumArgs:1, [p1 monoValue]];;
+		System_Net_Security_SslStream * object = [[self alloc] initWithSignature:"System.IO.Stream" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -66,7 +66,7 @@
     + (System_Net_Security_SslStream *)new_withInnerStream:(System_IO_Stream *)p1 leaveInnerStreamOpen:(BOOL)p2
     {
 		
-		System_Net_Security_SslStream * object = [[self alloc] initWithSignature:"System.IO.Stream,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Net_Security_SslStream * object = [[self alloc] initWithSignature:"System.IO.Stream,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -77,7 +77,7 @@
     + (System_Net_Security_SslStream *)new_withInnerStream:(System_IO_Stream *)p1 leaveInnerStreamOpen:(BOOL)p2 userCertificateValidationCallback:(System_Net_Security_RemoteCertificateValidationCallback *)p3
     {
 		
-		System_Net_Security_SslStream * object = [[self alloc] initWithSignature:"System.IO.Stream,bool,System.Net.Security.RemoteCertificateValidationCallback" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];;
+		System_Net_Security_SslStream * object = [[self alloc] initWithSignature:"System.IO.Stream,bool,System.Net.Security.RemoteCertificateValidationCallback" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -90,8 +90,18 @@
     @synthesize canRead = _canRead;
     - (BOOL)canRead
     {
-		MonoObject *monoObject = [self getMonoProperty:"CanRead"];
-		_canRead = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CanRead");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_canRead = monoObject;
 
 		return _canRead;
 	}
@@ -101,8 +111,18 @@
     @synthesize canSeek = _canSeek;
     - (BOOL)canSeek
     {
-		MonoObject *monoObject = [self getMonoProperty:"CanSeek"];
-		_canSeek = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CanSeek");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_canSeek = monoObject;
 
 		return _canSeek;
 	}
@@ -112,8 +132,18 @@
     @synthesize canTimeout = _canTimeout;
     - (BOOL)canTimeout
     {
-		MonoObject *monoObject = [self getMonoProperty:"CanTimeout"];
-		_canTimeout = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CanTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_canTimeout = monoObject;
 
 		return _canTimeout;
 	}
@@ -123,8 +153,18 @@
     @synthesize canWrite = _canWrite;
     - (BOOL)canWrite
     {
-		MonoObject *monoObject = [self getMonoProperty:"CanWrite"];
-		_canWrite = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CanWrite");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_canWrite = monoObject;
 
 		return _canWrite;
 	}
@@ -134,8 +174,18 @@
     @synthesize checkCertRevocationStatus = _checkCertRevocationStatus;
     - (BOOL)checkCertRevocationStatus
     {
-		MonoObject *monoObject = [self getMonoProperty:"CheckCertRevocationStatus"];
-		_checkCertRevocationStatus = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CheckCertRevocationStatus");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_checkCertRevocationStatus = monoObject;
 
 		return _checkCertRevocationStatus;
 	}
@@ -143,10 +193,20 @@
 	// Managed property name : CipherAlgorithm
 	// Managed property type : System.Security.Authentication.CipherAlgorithmType
     @synthesize cipherAlgorithm = _cipherAlgorithm;
-    - (System_Security_Authentication_CipherAlgorithmType)cipherAlgorithm
+    - (int32_t)cipherAlgorithm
     {
-		MonoObject *monoObject = [self getMonoProperty:"CipherAlgorithm"];
-		_cipherAlgorithm = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CipherAlgorithm");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_cipherAlgorithm = monoObject;
 
 		return _cipherAlgorithm;
 	}
@@ -156,8 +216,18 @@
     @synthesize cipherStrength = _cipherStrength;
     - (int32_t)cipherStrength
     {
-		MonoObject *monoObject = [self getMonoProperty:"CipherStrength"];
-		_cipherStrength = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CipherStrength");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_cipherStrength = monoObject;
 
 		return _cipherStrength;
 	}
@@ -165,10 +235,20 @@
 	// Managed property name : HashAlgorithm
 	// Managed property type : System.Security.Authentication.HashAlgorithmType
     @synthesize hashAlgorithm = _hashAlgorithm;
-    - (System_Security_Authentication_HashAlgorithmType)hashAlgorithm
+    - (int32_t)hashAlgorithm
     {
-		MonoObject *monoObject = [self getMonoProperty:"HashAlgorithm"];
-		_hashAlgorithm = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HashAlgorithm");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_hashAlgorithm = monoObject;
 
 		return _hashAlgorithm;
 	}
@@ -178,8 +258,18 @@
     @synthesize hashStrength = _hashStrength;
     - (int32_t)hashStrength
     {
-		MonoObject *monoObject = [self getMonoProperty:"HashStrength"];
-		_hashStrength = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HashStrength");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_hashStrength = monoObject;
 
 		return _hashStrength;
 	}
@@ -189,8 +279,18 @@
     @synthesize isAuthenticated = _isAuthenticated;
     - (BOOL)isAuthenticated
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsAuthenticated"];
-		_isAuthenticated = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsAuthenticated");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isAuthenticated = monoObject;
 
 		return _isAuthenticated;
 	}
@@ -200,8 +300,18 @@
     @synthesize isEncrypted = _isEncrypted;
     - (BOOL)isEncrypted
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsEncrypted"];
-		_isEncrypted = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsEncrypted");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isEncrypted = monoObject;
 
 		return _isEncrypted;
 	}
@@ -211,8 +321,18 @@
     @synthesize isMutuallyAuthenticated = _isMutuallyAuthenticated;
     - (BOOL)isMutuallyAuthenticated
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsMutuallyAuthenticated"];
-		_isMutuallyAuthenticated = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsMutuallyAuthenticated");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isMutuallyAuthenticated = monoObject;
 
 		return _isMutuallyAuthenticated;
 	}
@@ -222,8 +342,18 @@
     @synthesize isServer = _isServer;
     - (BOOL)isServer
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsServer"];
-		_isServer = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsServer");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isServer = monoObject;
 
 		return _isServer;
 	}
@@ -233,8 +363,18 @@
     @synthesize isSigned = _isSigned;
     - (BOOL)isSigned
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsSigned"];
-		_isSigned = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsSigned");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isSigned = monoObject;
 
 		return _isSigned;
 	}
@@ -242,10 +382,20 @@
 	// Managed property name : KeyExchangeAlgorithm
 	// Managed property type : System.Security.Authentication.ExchangeAlgorithmType
     @synthesize keyExchangeAlgorithm = _keyExchangeAlgorithm;
-    - (System_Security_Authentication_ExchangeAlgorithmType)keyExchangeAlgorithm
+    - (int32_t)keyExchangeAlgorithm
     {
-		MonoObject *monoObject = [self getMonoProperty:"KeyExchangeAlgorithm"];
-		_keyExchangeAlgorithm = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "KeyExchangeAlgorithm");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_keyExchangeAlgorithm = monoObject;
 
 		return _keyExchangeAlgorithm;
 	}
@@ -255,8 +405,18 @@
     @synthesize keyExchangeStrength = _keyExchangeStrength;
     - (int32_t)keyExchangeStrength
     {
-		MonoObject *monoObject = [self getMonoProperty:"KeyExchangeStrength"];
-		_keyExchangeStrength = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "KeyExchangeStrength");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_keyExchangeStrength = monoObject;
 
 		return _keyExchangeStrength;
 	}
@@ -266,8 +426,18 @@
     @synthesize length = _length;
     - (int64_t)length
     {
-		MonoObject *monoObject = [self getMonoProperty:"Length"];
-		_length = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Length");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_length = monoObject;
 
 		return _length;
 	}
@@ -277,7 +447,17 @@
     @synthesize localCertificate = _localCertificate;
     - (System_Security_Cryptography_X509Certificates_X509Certificate *)localCertificate
     {
-		MonoObject *monoObject = [self getMonoProperty:"LocalCertificate"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LocalCertificate");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_localCertificate isEqualToMonoObject:monoObject]) return _localCertificate;					
 		_localCertificate = [System_Security_Cryptography_X509Certificates_X509Certificate bestObjectWithMonoObject:monoObject];
 
@@ -289,16 +469,35 @@
     @synthesize position = _position;
     - (int64_t)position
     {
-		MonoObject *monoObject = [self getMonoProperty:"Position"];
-		_position = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Position");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_position = monoObject;
 
 		return _position;
 	}
     - (void)setPosition:(int64_t)value
 	{
 		_position = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Position" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int64_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Position");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ReadTimeout
@@ -306,16 +505,35 @@
     @synthesize readTimeout = _readTimeout;
     - (int32_t)readTimeout
     {
-		MonoObject *monoObject = [self getMonoProperty:"ReadTimeout"];
-		_readTimeout = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ReadTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_readTimeout = monoObject;
 
 		return _readTimeout;
 	}
     - (void)setReadTimeout:(int32_t)value
 	{
 		_readTimeout = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ReadTimeout" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ReadTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : RemoteCertificate
@@ -323,7 +541,17 @@
     @synthesize remoteCertificate = _remoteCertificate;
     - (System_Security_Cryptography_X509Certificates_X509Certificate *)remoteCertificate
     {
-		MonoObject *monoObject = [self getMonoProperty:"RemoteCertificate"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RemoteCertificate");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_remoteCertificate isEqualToMonoObject:monoObject]) return _remoteCertificate;					
 		_remoteCertificate = [System_Security_Cryptography_X509Certificates_X509Certificate bestObjectWithMonoObject:monoObject];
 
@@ -333,10 +561,20 @@
 	// Managed property name : SslProtocol
 	// Managed property type : System.Security.Authentication.SslProtocols
     @synthesize sslProtocol = _sslProtocol;
-    - (System_Security_Authentication_SslProtocols)sslProtocol
+    - (int32_t)sslProtocol
     {
-		MonoObject *monoObject = [self getMonoProperty:"SslProtocol"];
-		_sslProtocol = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SslProtocol");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_sslProtocol = monoObject;
 
 		return _sslProtocol;
 	}
@@ -346,7 +584,17 @@
     @synthesize transportContext = _transportContext;
     - (System_Net_TransportContext *)transportContext
     {
-		MonoObject *monoObject = [self getMonoProperty:"TransportContext"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TransportContext");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_transportContext isEqualToMonoObject:monoObject]) return _transportContext;					
 		_transportContext = [System_Net_TransportContext bestObjectWithMonoObject:monoObject];
 
@@ -358,16 +606,35 @@
     @synthesize writeTimeout = _writeTimeout;
     - (int32_t)writeTimeout
     {
-		MonoObject *monoObject = [self getMonoProperty:"WriteTimeout"];
-		_writeTimeout = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WriteTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_writeTimeout = monoObject;
 
 		return _writeTimeout;
 	}
     - (void)setWriteTimeout:(int32_t)value
 	{
 		_writeTimeout = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"WriteTimeout" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "WriteTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -376,10 +643,10 @@
 	// Managed method name : AuthenticateAsClient
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Security.Authentication.SslProtocols, System.Boolean
-    - (void)authenticateAsClient_withTargetHost:(NSString *)p1 clientCertificates:(System_Security_Cryptography_X509Certificates_X509CertificateCollection *)p2 enabledSslProtocols:(System_Security_Authentication_SslProtocols)p3 checkCertificateRevocation:(BOOL)p4
+    - (void)authenticateAsClient_withTargetHost:(NSString *)p1 clientCertificates:(System_Security_Cryptography_X509Certificates_X509CertificateCollection *)p2 enabledSslProtocols:(int32_t)p3 checkCertificateRevocation:(BOOL)p4
     {
 		
-		[self invokeMonoMethod:"AuthenticateAsClient(string,System.Security.Cryptography.X509Certificates.X509CertificateCollection,System.Security.Authentication.SslProtocols,bool)" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4)];;
+		[self invokeMonoMethod:"AuthenticateAsClient(string,System.Security.Cryptography.X509Certificates.X509CertificateCollection,System.Security.Authentication.SslProtocols,bool)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
         
     }
 
@@ -389,7 +656,17 @@
     - (void)authenticateAsClient_withTargetHost:(NSString *)p1
     {
 		
-		[self invokeMonoMethod:"AuthenticateAsClient(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AuthenticateAsClient(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+    }
+
+	// Managed method name : AuthenticateAsClient
+	// Managed return type : System.Void
+	// Managed param types : System.String, System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Boolean
+    - (void)authenticateAsClient_withTargetHost:(NSString *)p1 clientCertificates:(System_Security_Cryptography_X509Certificates_X509CertificateCollection *)p2 checkCertificateRevocation:(BOOL)p3
+    {
+		
+		[self invokeMonoMethod:"AuthenticateAsClient(string,System.Security.Cryptography.X509Certificates.X509CertificateCollection,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
         
     }
 
@@ -399,7 +676,18 @@
     - (System_Threading_Tasks_Task *)authenticateAsClientAsync_withTargetHost:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AuthenticateAsClientAsync(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"AuthenticateAsClientAsync(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+    }
+
+	// Managed method name : AuthenticateAsClientAsync
+	// Managed return type : System.Threading.Tasks.Task
+	// Managed param types : System.String, System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Boolean
+    - (System_Threading_Tasks_Task *)authenticateAsClientAsync_withTargetHost:(NSString *)p1 clientCertificates:(System_Security_Cryptography_X509Certificates_X509CertificateCollection *)p2 checkCertificateRevocation:(BOOL)p3
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"AuthenticateAsClientAsync(string,System.Security.Cryptography.X509Certificates.X509CertificateCollection,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
 		
 		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
     }
@@ -407,10 +695,10 @@
 	// Managed method name : AuthenticateAsClientAsync
 	// Managed return type : System.Threading.Tasks.Task
 	// Managed param types : System.String, System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Security.Authentication.SslProtocols, System.Boolean
-    - (System_Threading_Tasks_Task *)authenticateAsClientAsync_withTargetHost:(NSString *)p1 clientCertificates:(System_Security_Cryptography_X509Certificates_X509CertificateCollection *)p2 enabledSslProtocols:(System_Security_Authentication_SslProtocols)p3 checkCertificateRevocation:(BOOL)p4
+    - (System_Threading_Tasks_Task *)authenticateAsClientAsync_withTargetHost:(NSString *)p1 clientCertificates:(System_Security_Cryptography_X509Certificates_X509CertificateCollection *)p2 enabledSslProtocols:(int32_t)p3 checkCertificateRevocation:(BOOL)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AuthenticateAsClientAsync(string,System.Security.Cryptography.X509Certificates.X509CertificateCollection,System.Security.Authentication.SslProtocols,bool)" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4)];
+		MonoObject *monoObject = [self invokeMonoMethod:"AuthenticateAsClientAsync(string,System.Security.Cryptography.X509Certificates.X509CertificateCollection,System.Security.Authentication.SslProtocols,bool)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
 		
 		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
     }
@@ -421,17 +709,27 @@
     - (void)authenticateAsServer_withServerCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1
     {
 		
-		[self invokeMonoMethod:"AuthenticateAsServer(System.Security.Cryptography.X509Certificates.X509Certificate)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AuthenticateAsServer(System.Security.Cryptography.X509Certificates.X509Certificate)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+    }
+
+	// Managed method name : AuthenticateAsServer
+	// Managed return type : System.Void
+	// Managed param types : System.Security.Cryptography.X509Certificates.X509Certificate, System.Boolean, System.Boolean
+    - (void)authenticateAsServer_withServerCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1 clientCertificateRequired:(BOOL)p2 checkCertificateRevocation:(BOOL)p3
+    {
+		
+		[self invokeMonoMethod:"AuthenticateAsServer(System.Security.Cryptography.X509Certificates.X509Certificate,bool,bool)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
         
     }
 
 	// Managed method name : AuthenticateAsServer
 	// Managed return type : System.Void
 	// Managed param types : System.Security.Cryptography.X509Certificates.X509Certificate, System.Boolean, System.Security.Authentication.SslProtocols, System.Boolean
-    - (void)authenticateAsServer_withServerCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1 clientCertificateRequired:(BOOL)p2 enabledSslProtocols:(System_Security_Authentication_SslProtocols)p3 checkCertificateRevocation:(BOOL)p4
+    - (void)authenticateAsServer_withServerCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1 clientCertificateRequired:(BOOL)p2 enabledSslProtocols:(int32_t)p3 checkCertificateRevocation:(BOOL)p4
     {
 		
-		[self invokeMonoMethod:"AuthenticateAsServer(System.Security.Cryptography.X509Certificates.X509Certificate,bool,System.Security.Authentication.SslProtocols,bool)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];;
+		[self invokeMonoMethod:"AuthenticateAsServer(System.Security.Cryptography.X509Certificates.X509Certificate,bool,System.Security.Authentication.SslProtocols,bool)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
         
     }
 
@@ -441,7 +739,18 @@
     - (System_Threading_Tasks_Task *)authenticateAsServerAsync_withServerCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AuthenticateAsServerAsync(System.Security.Cryptography.X509Certificates.X509Certificate)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"AuthenticateAsServerAsync(System.Security.Cryptography.X509Certificates.X509Certificate)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+    }
+
+	// Managed method name : AuthenticateAsServerAsync
+	// Managed return type : System.Threading.Tasks.Task
+	// Managed param types : System.Security.Cryptography.X509Certificates.X509Certificate, System.Boolean, System.Boolean
+    - (System_Threading_Tasks_Task *)authenticateAsServerAsync_withServerCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1 clientCertificateRequired:(BOOL)p2 checkCertificateRevocation:(BOOL)p3
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"AuthenticateAsServerAsync(System.Security.Cryptography.X509Certificates.X509Certificate,bool,bool)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
     }
@@ -449,10 +758,10 @@
 	// Managed method name : AuthenticateAsServerAsync
 	// Managed return type : System.Threading.Tasks.Task
 	// Managed param types : System.Security.Cryptography.X509Certificates.X509Certificate, System.Boolean, System.Security.Authentication.SslProtocols, System.Boolean
-    - (System_Threading_Tasks_Task *)authenticateAsServerAsync_withServerCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1 clientCertificateRequired:(BOOL)p2 enabledSslProtocols:(System_Security_Authentication_SslProtocols)p3 checkCertificateRevocation:(BOOL)p4
+    - (System_Threading_Tasks_Task *)authenticateAsServerAsync_withServerCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1 clientCertificateRequired:(BOOL)p2 enabledSslProtocols:(int32_t)p3 checkCertificateRevocation:(BOOL)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AuthenticateAsServerAsync(System.Security.Cryptography.X509Certificates.X509Certificate,bool,System.Security.Authentication.SslProtocols,bool)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
+		MonoObject *monoObject = [self invokeMonoMethod:"AuthenticateAsServerAsync(System.Security.Cryptography.X509Certificates.X509Certificate,bool,System.Security.Authentication.SslProtocols,bool)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
 		
 		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
     }
@@ -463,7 +772,18 @@
     - (id <System_IAsyncResult>)beginAuthenticateAsClient_withTargetHost:(NSString *)p1 asyncCallback:(System_AsyncCallback *)p2 asyncState:(System_Object *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsClient(string,System.AsyncCallback,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsClient(string,System.AsyncCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+		
+		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
+    }
+
+	// Managed method name : BeginAuthenticateAsClient
+	// Managed return type : System.IAsyncResult
+	// Managed param types : System.String, System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Boolean, System.AsyncCallback, System.Object
+    - (id <System_IAsyncResult>)beginAuthenticateAsClient_withTargetHost:(NSString *)p1 clientCertificates:(System_Security_Cryptography_X509Certificates_X509CertificateCollection *)p2 checkCertificateRevocation:(BOOL)p3 asyncCallback:(System_AsyncCallback *)p4 asyncState:(System_Object *)p5
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsClient(string,System.Security.Cryptography.X509Certificates.X509CertificateCollection,bool,System.AsyncCallback,object)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -471,10 +791,10 @@
 	// Managed method name : BeginAuthenticateAsClient
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.String, System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Security.Authentication.SslProtocols, System.Boolean, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginAuthenticateAsClient_withTargetHost:(NSString *)p1 clientCertificates:(System_Security_Cryptography_X509Certificates_X509CertificateCollection *)p2 enabledSslProtocols:(System_Security_Authentication_SslProtocols)p3 checkCertificateRevocation:(BOOL)p4 asyncCallback:(System_AsyncCallback *)p5 asyncState:(System_Object *)p6
+    - (id <System_IAsyncResult>)beginAuthenticateAsClient_withTargetHost:(NSString *)p1 clientCertificates:(System_Security_Cryptography_X509Certificates_X509CertificateCollection *)p2 enabledSslProtocols:(int32_t)p3 checkCertificateRevocation:(BOOL)p4 asyncCallback:(System_AsyncCallback *)p5 asyncState:(System_Object *)p6
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsClient(string,System.Security.Cryptography.X509Certificates.X509CertificateCollection,System.Security.Authentication.SslProtocols,bool,System.AsyncCallback,object)" withNumArgs:6, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4), [p5 monoValue], [p6 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsClient(string,System.Security.Cryptography.X509Certificates.X509CertificateCollection,System.Security.Authentication.SslProtocols,bool,System.AsyncCallback,object)" withNumArgs:6, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4), [p5 monoRTInvokeArg], [p6 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -485,7 +805,18 @@
     - (id <System_IAsyncResult>)beginAuthenticateAsServer_withServerCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1 asyncCallback:(System_AsyncCallback *)p2 asyncState:(System_Object *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsServer(System.Security.Cryptography.X509Certificates.X509Certificate,System.AsyncCallback,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsServer(System.Security.Cryptography.X509Certificates.X509Certificate,System.AsyncCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+		
+		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
+    }
+
+	// Managed method name : BeginAuthenticateAsServer
+	// Managed return type : System.IAsyncResult
+	// Managed param types : System.Security.Cryptography.X509Certificates.X509Certificate, System.Boolean, System.Boolean, System.AsyncCallback, System.Object
+    - (id <System_IAsyncResult>)beginAuthenticateAsServer_withServerCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1 clientCertificateRequired:(BOOL)p2 checkCertificateRevocation:(BOOL)p3 asyncCallback:(System_AsyncCallback *)p4 asyncState:(System_Object *)p5
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsServer(System.Security.Cryptography.X509Certificates.X509Certificate,bool,bool,System.AsyncCallback,object)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -493,10 +824,10 @@
 	// Managed method name : BeginAuthenticateAsServer
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Security.Cryptography.X509Certificates.X509Certificate, System.Boolean, System.Security.Authentication.SslProtocols, System.Boolean, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginAuthenticateAsServer_withServerCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1 clientCertificateRequired:(BOOL)p2 enabledSslProtocols:(System_Security_Authentication_SslProtocols)p3 checkCertificateRevocation:(BOOL)p4 asyncCallback:(System_AsyncCallback *)p5 asyncState:(System_Object *)p6
+    - (id <System_IAsyncResult>)beginAuthenticateAsServer_withServerCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1 clientCertificateRequired:(BOOL)p2 enabledSslProtocols:(int32_t)p3 checkCertificateRevocation:(BOOL)p4 asyncCallback:(System_AsyncCallback *)p5 asyncState:(System_Object *)p6
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsServer(System.Security.Cryptography.X509Certificates.X509Certificate,bool,System.Security.Authentication.SslProtocols,bool,System.AsyncCallback,object)" withNumArgs:6, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), [p5 monoValue], [p6 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsServer(System.Security.Cryptography.X509Certificates.X509Certificate,bool,System.Security.Authentication.SslProtocols,bool,System.AsyncCallback,object)" withNumArgs:6, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), [p5 monoRTInvokeArg], [p6 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -507,7 +838,7 @@
     - (id <System_IAsyncResult>)beginRead_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 asyncCallback:(System_AsyncCallback *)p4 asyncState:(System_Object *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginRead(byte[],int,int,System.AsyncCallback,object)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginRead(byte[],int,int,System.AsyncCallback,object)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -518,7 +849,7 @@
     - (id <System_IAsyncResult>)beginWrite_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 asyncCallback:(System_AsyncCallback *)p4 asyncState:(System_Object *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginWrite(byte[],int,int,System.AsyncCallback,object)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginWrite(byte[],int,int,System.AsyncCallback,object)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -529,7 +860,7 @@
     - (void)endAuthenticateAsClient_withAsyncResult:(id <System_IAsyncResult_>)p1
     {
 		
-		[self invokeMonoMethod:"EndAuthenticateAsClient(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"EndAuthenticateAsClient(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -539,7 +870,7 @@
     - (void)endAuthenticateAsServer_withAsyncResult:(id <System_IAsyncResult_>)p1
     {
 		
-		[self invokeMonoMethod:"EndAuthenticateAsServer(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"EndAuthenticateAsServer(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -549,7 +880,7 @@
     - (int32_t)endRead_withAsyncResult:(id <System_IAsyncResult_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"EndRead(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"EndRead(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -560,7 +891,7 @@
     - (void)endWrite_withAsyncResult:(id <System_IAsyncResult_>)p1
     {
 		
-		[self invokeMonoMethod:"EndWrite(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"EndWrite(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -570,7 +901,7 @@
     - (void)flush
     {
 		
-		[self invokeMonoMethod:"Flush()" withNumArgs:0];;
+		[self invokeMonoMethod:"Flush()" withNumArgs:0];
         
     }
 
@@ -580,7 +911,7 @@
     - (int32_t)read_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Read(byte[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Read(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -588,7 +919,7 @@
 	// Managed method name : Seek
 	// Managed return type : System.Int64
 	// Managed param types : System.Int64, System.IO.SeekOrigin
-    - (int64_t)seek_withOffset:(int64_t)p1 origin:(System_IO_SeekOrigin)p2
+    - (int64_t)seek_withOffset:(int64_t)p1 origin:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Seek(long,System.IO.SeekOrigin)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
@@ -602,8 +933,19 @@
     - (void)setLength_withValue:(int64_t)p1
     {
 		
-		[self invokeMonoMethod:"SetLength(long)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"SetLength(long)" withNumArgs:1, DB_VALUE(p1)];
         
+    }
+
+	// Managed method name : ShutdownAsync
+	// Managed return type : System.Threading.Tasks.Task
+	// Managed param types : 
+    - (System_Threading_Tasks_Task *)shutdownAsync
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"ShutdownAsync()" withNumArgs:0];
+		
+		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : Write
@@ -612,7 +954,7 @@
     - (void)write_withBuffer:(NSData *)p1
     {
 		
-		[self invokeMonoMethod:"Write(byte[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Write(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -622,7 +964,7 @@
     - (void)write_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3
     {
 		
-		[self invokeMonoMethod:"Write(byte[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		[self invokeMonoMethod:"Write(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
         
     }
 

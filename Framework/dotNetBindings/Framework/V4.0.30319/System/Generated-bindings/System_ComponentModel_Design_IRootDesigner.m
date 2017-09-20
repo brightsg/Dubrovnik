@@ -32,7 +32,17 @@
     @synthesize supportedTechnologies = _supportedTechnologies;
     - (DBSystem_Array *)supportedTechnologies
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.Design.IRootDesigner.SupportedTechnologies"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.Design.IRootDesigner.SupportedTechnologies");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_supportedTechnologies isEqualToMonoObject:monoObject]) return _supportedTechnologies;					
 		_supportedTechnologies = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -45,7 +55,7 @@
 	// Managed method name : GetView
 	// Managed return type : System.Object
 	// Managed param types : System.ComponentModel.Design.ViewTechnology
-    - (System_Object *)getView_withTechnology:(System_ComponentModel_Design_ViewTechnology)p1
+    - (System_Object *)getView_withTechnology:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IRootDesigner.GetView(System.ComponentModel.Design.ViewTechnology)" withNumArgs:1, DB_VALUE(p1)];

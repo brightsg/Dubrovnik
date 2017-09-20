@@ -45,12 +45,12 @@
 	// Managed method name : Add
 	// Managed return type : System.Void
 	// Managed param types : System.Net.HttpRequestHeader, System.String
-    - (void)add_withHeaderSNHttpRequestHeader:(System_Net_HttpRequestHeader)p1 valueString:(NSString *)p2;
+    - (void)add_withHeaderSNHttpRequestHeader:(int32_t)p1 valueString:(NSString *)p2;
 
 	// Managed method name : Add
 	// Managed return type : System.Void
 	// Managed param types : System.Net.HttpResponseHeader, System.String
-    - (void)add_withHeaderSNHttpResponseHeader:(System_Net_HttpResponseHeader)p1 valueString:(NSString *)p2;
+    - (void)add_withHeaderSNHttpResponseHeader:(int32_t)p1 valueString:(NSString *)p2;
 
 	// Managed method name : Add
 	// Managed return type : System.Void
@@ -115,12 +115,12 @@
 	// Managed method name : Remove
 	// Managed return type : System.Void
 	// Managed param types : System.Net.HttpRequestHeader
-    - (void)remove_withHeaderSNHttpRequestHeader:(System_Net_HttpRequestHeader)p1;
+    - (void)remove_withHeaderSNHttpRequestHeader:(int32_t)p1;
 
 	// Managed method name : Remove
 	// Managed return type : System.Void
 	// Managed param types : System.Net.HttpResponseHeader
-    - (void)remove_withHeaderSNHttpResponseHeader:(System_Net_HttpResponseHeader)p1;
+    - (void)remove_withHeaderSNHttpResponseHeader:(int32_t)p1;
 
 	// Managed method name : Remove
 	// Managed return type : System.Void
@@ -130,7 +130,7 @@
 	// Managed method name : Set
 	// Managed return type : System.Void
 	// Managed param types : System.Net.HttpRequestHeader, System.String
-    - (void)set_withHeaderSNHttpRequestHeader:(System_Net_HttpRequestHeader)p1 valueString:(NSString *)p2;
+    - (void)set_withHeaderSNHttpRequestHeader:(int32_t)p1 valueString:(NSString *)p2;
 
 	// Managed method name : Set
 	// Managed return type : System.Void
@@ -140,7 +140,7 @@
 	// Managed method name : Set
 	// Managed return type : System.Void
 	// Managed param types : System.Net.HttpResponseHeader, System.String
-    - (void)set_withHeaderSNHttpResponseHeader:(System_Net_HttpResponseHeader)p1 valueString:(NSString *)p2;
+    - (void)set_withHeaderSNHttpResponseHeader:(int32_t)p1 valueString:(NSString *)p2;
 
 	// Managed method name : ToByteArray
 	// Managed return type : System.Byte[]

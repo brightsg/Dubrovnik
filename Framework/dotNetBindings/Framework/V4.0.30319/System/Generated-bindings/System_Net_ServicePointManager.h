@@ -52,7 +52,7 @@
 
 	// Managed property name : EncryptionPolicy
 	// Managed property type : System.Net.Security.EncryptionPolicy
-    + (System_Net_Security_EncryptionPolicy)encryptionPolicy;
+    + (int32_t)encryptionPolicy;
 
 	// Managed property name : Expect100Continue
 	// Managed property type : System.Boolean
@@ -76,8 +76,8 @@
 
 	// Managed property name : SecurityProtocol
 	// Managed property type : System.Net.SecurityProtocolType
-    + (System_Net_SecurityProtocolType)securityProtocol;
-    + (void)setSecurityProtocol:(System_Net_SecurityProtocolType)value;
+    + (int32_t)securityProtocol;
+    + (void)setSecurityProtocol:(int32_t)value;
 
 	// Managed property name : ServerCertificateValidationCallback
 	// Managed property type : System.Net.Security.RemoteCertificateValidationCallback

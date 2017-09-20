@@ -33,7 +33,7 @@
     + (System_Net_NetworkCredential *)new_withUserNameString:(NSString *)p1 passwordString:(NSString *)p2
     {
 		
-		System_Net_NetworkCredential * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Net_NetworkCredential * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Net_NetworkCredential *)new_withUserNameString:(NSString *)p1 passwordSSSecureString:(System_Security_SecureString *)p2
     {
 		
-		System_Net_NetworkCredential * object = [[self alloc] initWithSignature:"string,System.Security.SecureString" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Net_NetworkCredential * object = [[self alloc] initWithSignature:"string,System.Security.SecureString" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Net_NetworkCredential *)new_withUserNameString:(NSString *)p1 passwordString:(NSString *)p2 domainString:(NSString *)p3
     {
 		
-		System_Net_NetworkCredential * object = [[self alloc] initWithSignature:"string,string,string" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		System_Net_NetworkCredential * object = [[self alloc] initWithSignature:"string,string,string" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -66,7 +66,7 @@
     + (System_Net_NetworkCredential *)new_withUserNameString:(NSString *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 domainString:(NSString *)p3
     {
 		
-		System_Net_NetworkCredential * object = [[self alloc] initWithSignature:"string,System.Security.SecureString,string" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		System_Net_NetworkCredential * object = [[self alloc] initWithSignature:"string,System.Security.SecureString,string" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -79,7 +79,17 @@
     @synthesize domain = _domain;
     - (NSString *)domain
     {
-		MonoObject *monoObject = [self getMonoProperty:"Domain"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Domain");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_domain isEqualToMonoObject:monoObject]) return _domain;					
 		_domain = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -88,8 +98,17 @@
     - (void)setDomain:(NSString *)value
 	{
 		_domain = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"Domain" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Domain");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Password
@@ -97,7 +116,17 @@
     @synthesize password = _password;
     - (NSString *)password
     {
-		MonoObject *monoObject = [self getMonoProperty:"Password"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Password");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_password isEqualToMonoObject:monoObject]) return _password;					
 		_password = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -106,8 +135,17 @@
     - (void)setPassword:(NSString *)value
 	{
 		_password = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"Password" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Password");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : SecurePassword
@@ -115,7 +153,17 @@
     @synthesize securePassword = _securePassword;
     - (System_Security_SecureString *)securePassword
     {
-		MonoObject *monoObject = [self getMonoProperty:"SecurePassword"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SecurePassword");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_securePassword isEqualToMonoObject:monoObject]) return _securePassword;					
 		_securePassword = [System_Security_SecureString bestObjectWithMonoObject:monoObject];
 
@@ -124,8 +172,17 @@
     - (void)setSecurePassword:(System_Security_SecureString *)value
 	{
 		_securePassword = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"SecurePassword" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "SecurePassword");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : UserName
@@ -133,7 +190,17 @@
     @synthesize userName = _userName;
     - (NSString *)userName
     {
-		MonoObject *monoObject = [self getMonoProperty:"UserName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UserName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_userName isEqualToMonoObject:monoObject]) return _userName;					
 		_userName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -142,8 +209,17 @@
     - (void)setUserName:(NSString *)value
 	{
 		_userName = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"UserName" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "UserName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -155,7 +231,7 @@
     - (System_Net_NetworkCredential *)getCredential_withUri:(System_Uri *)p1 authType:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCredential(System.Uri,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetCredential(System.Uri,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Net_NetworkCredential bestObjectWithMonoObject:monoObject];
     }
@@ -166,7 +242,7 @@
     - (System_Net_NetworkCredential *)getCredential_withHost:(NSString *)p1 port:(int32_t)p2 authenticationType:(NSString *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCredential(string,int,string)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetCredential(string,int,string)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
 		return [System_Net_NetworkCredential bestObjectWithMonoObject:monoObject];
     }

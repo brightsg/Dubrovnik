@@ -186,21 +186,21 @@
 
 	// Managed method name : Register
 	// Managed return type : System.Void
-	// Managed param types : System.Runtime.Remoting.Lifetime.ISponsor, System.TimeSpan
-    - (void)register_withObj:(id <System_Runtime_Remoting_Lifetime_ISponsor_>)p1 renewalTime:(System_TimeSpan *)p2
-    {
-		
-		[self invokeMonoMethod:"System.Runtime.Remoting.Lifetime.ILease.Register(System.Runtime.Remoting.Lifetime.ISponsor,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-        
-    }
-
-	// Managed method name : Register
-	// Managed return type : System.Void
 	// Managed param types : System.Runtime.Remoting.Lifetime.ISponsor
     - (void)register_withObj:(id <System_Runtime_Remoting_Lifetime_ISponsor_>)p1
     {
 		
 		[self invokeMonoMethod:"System.Runtime.Remoting.Lifetime.ILease.Register(System.Runtime.Remoting.Lifetime.ISponsor)" withNumArgs:1, [p1 monoRTInvokeArg]];
+        
+    }
+
+	// Managed method name : Register
+	// Managed return type : System.Void
+	// Managed param types : System.Runtime.Remoting.Lifetime.ISponsor, System.TimeSpan
+    - (void)register_withObj:(id <System_Runtime_Remoting_Lifetime_ISponsor_>)p1 renewalTime:(System_TimeSpan *)p2
+    {
+		
+		[self invokeMonoMethod:"System.Runtime.Remoting.Lifetime.ILease.Register(System.Runtime.Remoting.Lifetime.ISponsor,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 

@@ -128,7 +128,7 @@
 
 	// Managed property name : PriorityClass
 	// Managed property type : System.Diagnostics.ProcessPriorityClass
-    @property (nonatomic) System_Diagnostics_ProcessPriorityClass priorityClass;
+    @property (nonatomic) int32_t priorityClass;
 
 	// Managed property name : PrivateMemorySize
 	// Managed property type : System.Int32

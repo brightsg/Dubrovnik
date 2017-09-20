@@ -17,19 +17,19 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.NetworkInformation.NetworkInformationPermission
 	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Net_NetworkInformation_NetworkInformationPermission *)new_withState:(System_Security_Permissions_PermissionState)p1;
+    + (System_Net_NetworkInformation_NetworkInformationPermission *)new_withState:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.NetworkInformation.NetworkInformationPermission
 	// Managed param types : System.Net.NetworkInformation.NetworkInformationAccess
-    + (System_Net_NetworkInformation_NetworkInformationPermission *)new_withAccess:(System_Net_NetworkInformation_NetworkInformationAccess)p1;
+    + (System_Net_NetworkInformation_NetworkInformationPermission *)new_withAccess:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Access
 	// Managed property type : System.Net.NetworkInformation.NetworkInformationAccess
-    @property (nonatomic, readonly) System_Net_NetworkInformation_NetworkInformationAccess access;
+    @property (nonatomic, readonly) int32_t access;
 
 #pragma mark -
 #pragma mark Methods
@@ -37,7 +37,7 @@
 	// Managed method name : AddPermission
 	// Managed return type : System.Void
 	// Managed param types : System.Net.NetworkInformation.NetworkInformationAccess
-    - (void)addPermission_withAccess:(System_Net_NetworkInformation_NetworkInformationAccess)p1;
+    - (void)addPermission_withAccess:(int32_t)p1;
 
 	// Managed method name : Copy
 	// Managed return type : System.Security.IPermission

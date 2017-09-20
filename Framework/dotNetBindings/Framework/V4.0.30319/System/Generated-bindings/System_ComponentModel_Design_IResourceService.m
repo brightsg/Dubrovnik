@@ -33,7 +33,7 @@
     - (id <System_Resources_IResourceReader>)getResourceReader_withInfo:(System_Globalization_CultureInfo *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IResourceService.GetResourceReader(System.Globalization.CultureInfo)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IResourceService.GetResourceReader(System.Globalization.CultureInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Resources_IResourceReader bestObjectWithMonoObject:monoObject];
     }
@@ -44,7 +44,7 @@
     - (id <System_Resources_IResourceWriter>)getResourceWriter_withInfo:(System_Globalization_CultureInfo *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IResourceService.GetResourceWriter(System.Globalization.CultureInfo)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IResourceService.GetResourceWriter(System.Globalization.CultureInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Resources_IResourceWriter bestObjectWithMonoObject:monoObject];
     }

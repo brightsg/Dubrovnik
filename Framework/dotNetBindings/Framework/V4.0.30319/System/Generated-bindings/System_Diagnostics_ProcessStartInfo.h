@@ -109,7 +109,7 @@
 
 	// Managed property name : WindowStyle
 	// Managed property type : System.Diagnostics.ProcessWindowStyle
-    @property (nonatomic) System_Diagnostics_ProcessWindowStyle windowStyle;
+    @property (nonatomic) int32_t windowStyle;
 
 	// Managed property name : WorkingDirectory
 	// Managed property type : System.String

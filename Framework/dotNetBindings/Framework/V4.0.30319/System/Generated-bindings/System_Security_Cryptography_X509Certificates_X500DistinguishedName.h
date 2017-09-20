@@ -37,7 +37,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X500DistinguishedName
 	// Managed param types : System.String, System.Security.Cryptography.X509Certificates.X500DistinguishedNameFlags
-    + (System_Security_Cryptography_X509Certificates_X500DistinguishedName *)new_withDistinguishedName:(NSString *)p1 flag:(System_Security_Cryptography_X509Certificates_X500DistinguishedNameFlags)p2;
+    + (System_Security_Cryptography_X509Certificates_X500DistinguishedName *)new_withDistinguishedName:(NSString *)p1 flag:(int32_t)p2;
 
 #pragma mark -
 #pragma mark Properties
@@ -52,7 +52,7 @@
 	// Managed method name : Decode
 	// Managed return type : System.String
 	// Managed param types : System.Security.Cryptography.X509Certificates.X500DistinguishedNameFlags
-    - (NSString *)decode_withFlag:(System_Security_Cryptography_X509Certificates_X500DistinguishedNameFlags)p1;
+    - (NSString *)decode_withFlag:(int32_t)p1;
 
 	// Managed method name : Format
 	// Managed return type : System.String

@@ -22,7 +22,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.ToolboxItemFilterAttribute
 	// Managed param types : System.String, System.ComponentModel.ToolboxItemFilterType
-    + (System_ComponentModel_ToolboxItemFilterAttribute *)new_withFilterString:(NSString *)p1 filterType:(System_ComponentModel_ToolboxItemFilterType)p2;
+    + (System_ComponentModel_ToolboxItemFilterAttribute *)new_withFilterString:(NSString *)p1 filterType:(int32_t)p2;
 
 #pragma mark -
 #pragma mark Properties
@@ -33,7 +33,7 @@
 
 	// Managed property name : FilterType
 	// Managed property type : System.ComponentModel.ToolboxItemFilterType
-    @property (nonatomic, readonly) System_ComponentModel_ToolboxItemFilterType filterType;
+    @property (nonatomic, readonly) int32_t filterType;
 
 	// Managed property name : TypeId
 	// Managed property type : System.Object

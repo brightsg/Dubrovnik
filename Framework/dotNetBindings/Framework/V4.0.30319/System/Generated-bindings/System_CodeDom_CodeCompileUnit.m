@@ -32,7 +32,17 @@
     @synthesize assemblyCustomAttributes = _assemblyCustomAttributes;
     - (System_CodeDom_CodeAttributeDeclarationCollection *)assemblyCustomAttributes
     {
-		MonoObject *monoObject = [self getMonoProperty:"AssemblyCustomAttributes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AssemblyCustomAttributes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_assemblyCustomAttributes isEqualToMonoObject:monoObject]) return _assemblyCustomAttributes;					
 		_assemblyCustomAttributes = [System_CodeDom_CodeAttributeDeclarationCollection bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize endDirectives = _endDirectives;
     - (System_CodeDom_CodeDirectiveCollection *)endDirectives
     {
-		MonoObject *monoObject = [self getMonoProperty:"EndDirectives"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EndDirectives");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_endDirectives isEqualToMonoObject:monoObject]) return _endDirectives;					
 		_endDirectives = [System_CodeDom_CodeDirectiveCollection bestObjectWithMonoObject:monoObject];
 
@@ -56,7 +76,17 @@
     @synthesize namespaces = _namespaces;
     - (System_CodeDom_CodeNamespaceCollection *)namespaces
     {
-		MonoObject *monoObject = [self getMonoProperty:"Namespaces"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Namespaces");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_namespaces isEqualToMonoObject:monoObject]) return _namespaces;					
 		_namespaces = [System_CodeDom_CodeNamespaceCollection bestObjectWithMonoObject:monoObject];
 
@@ -68,7 +98,17 @@
     @synthesize referencedAssemblies = _referencedAssemblies;
     - (System_Collections_Specialized_StringCollection *)referencedAssemblies
     {
-		MonoObject *monoObject = [self getMonoProperty:"ReferencedAssemblies"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ReferencedAssemblies");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_referencedAssemblies isEqualToMonoObject:monoObject]) return _referencedAssemblies;					
 		_referencedAssemblies = [System_Collections_Specialized_StringCollection bestObjectWithMonoObject:monoObject];
 
@@ -80,7 +120,17 @@
     @synthesize startDirectives = _startDirectives;
     - (System_CodeDom_CodeDirectiveCollection *)startDirectives
     {
-		MonoObject *monoObject = [self getMonoProperty:"StartDirectives"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "StartDirectives");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_startDirectives isEqualToMonoObject:monoObject]) return _startDirectives;					
 		_startDirectives = [System_CodeDom_CodeDirectiveCollection bestObjectWithMonoObject:monoObject];
 

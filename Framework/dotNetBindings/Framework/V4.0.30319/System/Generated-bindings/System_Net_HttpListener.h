@@ -16,7 +16,7 @@
 
 	// Managed property name : AuthenticationSchemes
 	// Managed property type : System.Net.AuthenticationSchemes
-    @property (nonatomic) System_Net_AuthenticationSchemes authenticationSchemes;
+    @property (nonatomic) int32_t authenticationSchemes;
 
 	// Managed property name : AuthenticationSchemeSelectorDelegate
 	// Managed property type : System.Net.AuthenticationSchemeSelector

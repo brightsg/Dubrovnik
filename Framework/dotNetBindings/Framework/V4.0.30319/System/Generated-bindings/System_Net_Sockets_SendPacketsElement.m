@@ -33,7 +33,7 @@
     + (System_Net_Sockets_SendPacketsElement *)new_withFilepath:(NSString *)p1
     {
 		
-		System_Net_Sockets_SendPacketsElement * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_Net_Sockets_SendPacketsElement * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Net_Sockets_SendPacketsElement *)new_withFilepath:(NSString *)p1 offset:(int32_t)p2 count:(int32_t)p3
     {
 		
-		System_Net_Sockets_SendPacketsElement * object = [[self alloc] initWithSignature:"string,int,int" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		System_Net_Sockets_SendPacketsElement * object = [[self alloc] initWithSignature:"string,int,int" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Net_Sockets_SendPacketsElement *)new_withFilepath:(NSString *)p1 offset:(int32_t)p2 count:(int32_t)p3 endOfPacket:(BOOL)p4
     {
 		
-		System_Net_Sockets_SendPacketsElement * object = [[self alloc] initWithSignature:"string,int,int,bool" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];;
+		System_Net_Sockets_SendPacketsElement * object = [[self alloc] initWithSignature:"string,int,int,bool" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
         
         return object;
     }
@@ -66,7 +66,7 @@
     + (System_Net_Sockets_SendPacketsElement *)new_withBuffer:(NSData *)p1
     {
 		
-		System_Net_Sockets_SendPacketsElement * object = [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoValue]];;
+		System_Net_Sockets_SendPacketsElement * object = [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -77,7 +77,7 @@
     + (System_Net_Sockets_SendPacketsElement *)new_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3
     {
 		
-		System_Net_Sockets_SendPacketsElement * object = [[self alloc] initWithSignature:"byte[],int,int" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		System_Net_Sockets_SendPacketsElement * object = [[self alloc] initWithSignature:"byte[],int,int" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
         
         return object;
     }
@@ -88,7 +88,7 @@
     + (System_Net_Sockets_SendPacketsElement *)new_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 endOfPacket:(BOOL)p4
     {
 		
-		System_Net_Sockets_SendPacketsElement * object = [[self alloc] initWithSignature:"byte[],int,int,bool" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];;
+		System_Net_Sockets_SendPacketsElement * object = [[self alloc] initWithSignature:"byte[],int,int,bool" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
         
         return object;
     }
@@ -101,7 +101,17 @@
     @synthesize buffer = _buffer;
     - (NSData *)buffer
     {
-		MonoObject *monoObject = [self getMonoProperty:"Buffer"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Buffer");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_buffer isEqualToMonoObject:monoObject]) return _buffer;					
 		_buffer = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -113,8 +123,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -124,8 +144,18 @@
     @synthesize endOfPacket = _endOfPacket;
     - (BOOL)endOfPacket
     {
-		MonoObject *monoObject = [self getMonoProperty:"EndOfPacket"];
-		_endOfPacket = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EndOfPacket");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_endOfPacket = monoObject;
 
 		return _endOfPacket;
 	}
@@ -135,7 +165,17 @@
     @synthesize filePath = _filePath;
     - (NSString *)filePath
     {
-		MonoObject *monoObject = [self getMonoProperty:"FilePath"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FilePath");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_filePath isEqualToMonoObject:monoObject]) return _filePath;					
 		_filePath = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -147,8 +187,18 @@
     @synthesize offset = _offset;
     - (int32_t)offset
     {
-		MonoObject *monoObject = [self getMonoProperty:"Offset"];
-		_offset = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Offset");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_offset = monoObject;
 
 		return _offset;
 	}

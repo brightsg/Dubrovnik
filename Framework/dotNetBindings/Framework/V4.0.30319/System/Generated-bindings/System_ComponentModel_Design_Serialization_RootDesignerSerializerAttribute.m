@@ -33,7 +33,7 @@
     + (System_ComponentModel_Design_Serialization_RootDesignerSerializerAttribute *)new_withSerializerTypeName:(NSString *)p1 baseSerializerTypeName:(NSString *)p2 reloadable:(BOOL)p3
     {
 		
-		System_ComponentModel_Design_Serialization_RootDesignerSerializerAttribute * object = [[self alloc] initWithSignature:"string,string,bool" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		System_ComponentModel_Design_Serialization_RootDesignerSerializerAttribute * object = [[self alloc] initWithSignature:"string,string,bool" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_ComponentModel_Design_Serialization_RootDesignerSerializerAttribute *)new_withSerializerType:(System_Type *)p1 baseSerializerType:(System_Type *)p2 reloadable:(BOOL)p3
     {
 		
-		System_ComponentModel_Design_Serialization_RootDesignerSerializerAttribute * object = [[self alloc] initWithSignature:"System.Type,System.Type,bool" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		System_ComponentModel_Design_Serialization_RootDesignerSerializerAttribute * object = [[self alloc] initWithSignature:"System.Type,System.Type,bool" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_ComponentModel_Design_Serialization_RootDesignerSerializerAttribute *)new_withSerializerTypeName:(NSString *)p1 baseSerializerType:(System_Type *)p2 reloadable:(BOOL)p3
     {
 		
-		System_ComponentModel_Design_Serialization_RootDesignerSerializerAttribute * object = [[self alloc] initWithSignature:"string,System.Type,bool" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		System_ComponentModel_Design_Serialization_RootDesignerSerializerAttribute * object = [[self alloc] initWithSignature:"string,System.Type,bool" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
         
         return object;
     }
@@ -68,8 +68,18 @@
     @synthesize reloadable = _reloadable;
     - (BOOL)reloadable
     {
-		MonoObject *monoObject = [self getMonoProperty:"Reloadable"];
-		_reloadable = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Reloadable");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_reloadable = monoObject;
 
 		return _reloadable;
 	}
@@ -79,7 +89,17 @@
     @synthesize serializerBaseTypeName = _serializerBaseTypeName;
     - (NSString *)serializerBaseTypeName
     {
-		MonoObject *monoObject = [self getMonoProperty:"SerializerBaseTypeName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SerializerBaseTypeName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_serializerBaseTypeName isEqualToMonoObject:monoObject]) return _serializerBaseTypeName;					
 		_serializerBaseTypeName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -91,7 +111,17 @@
     @synthesize serializerTypeName = _serializerTypeName;
     - (NSString *)serializerTypeName
     {
-		MonoObject *monoObject = [self getMonoProperty:"SerializerTypeName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SerializerTypeName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_serializerTypeName isEqualToMonoObject:monoObject]) return _serializerTypeName;					
 		_serializerTypeName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -103,7 +133,17 @@
     @synthesize typeId = _typeId;
     - (System_Object *)typeId
     {
-		MonoObject *monoObject = [self getMonoProperty:"TypeId"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TypeId");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_typeId isEqualToMonoObject:monoObject]) return _typeId;					
 		_typeId = [System_Object objectWithMonoObject:monoObject];
 

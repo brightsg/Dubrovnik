@@ -33,7 +33,7 @@
     + (System_ComponentModel_LicenseException *)new_withType:(System_Type *)p1
     {
 		
-		System_ComponentModel_LicenseException * object = [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_LicenseException * object = [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_ComponentModel_LicenseException *)new_withType:(System_Type *)p1 instance:(System_Object *)p2
     {
 		
-		System_ComponentModel_LicenseException * object = [[self alloc] initWithSignature:"System.Type,object" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_ComponentModel_LicenseException * object = [[self alloc] initWithSignature:"System.Type,object" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_ComponentModel_LicenseException *)new_withType:(System_Type *)p1 instance:(System_Object *)p2 message:(NSString *)p3
     {
 		
-		System_ComponentModel_LicenseException * object = [[self alloc] initWithSignature:"System.Type,object,string" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		System_ComponentModel_LicenseException * object = [[self alloc] initWithSignature:"System.Type,object,string" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -66,7 +66,7 @@
     + (System_ComponentModel_LicenseException *)new_withType:(System_Type *)p1 instance:(System_Object *)p2 message:(NSString *)p3 innerException:(System_Exception *)p4
     {
 		
-		System_ComponentModel_LicenseException * object = [[self alloc] initWithSignature:"System.Type,object,string,System.Exception" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];;
+		System_ComponentModel_LicenseException * object = [[self alloc] initWithSignature:"System.Type,object,string,System.Exception" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
         
         return object;
     }
@@ -79,7 +79,17 @@
     @synthesize licensedType = _licensedType;
     - (System_Type *)licensedType
     {
-		MonoObject *monoObject = [self getMonoProperty:"LicensedType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LicensedType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_licensedType isEqualToMonoObject:monoObject]) return _licensedType;					
 		_licensedType = [System_Type bestObjectWithMonoObject:monoObject];
 
@@ -95,7 +105,7 @@
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
 		
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 

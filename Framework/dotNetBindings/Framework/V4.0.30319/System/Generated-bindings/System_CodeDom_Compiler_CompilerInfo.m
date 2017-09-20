@@ -32,7 +32,17 @@
     @synthesize codeDomProviderType = _codeDomProviderType;
     - (System_Type *)codeDomProviderType
     {
-		MonoObject *monoObject = [self getMonoProperty:"CodeDomProviderType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CodeDomProviderType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_codeDomProviderType isEqualToMonoObject:monoObject]) return _codeDomProviderType;					
 		_codeDomProviderType = [System_Type bestObjectWithMonoObject:monoObject];
 
@@ -44,8 +54,18 @@
     @synthesize isCodeDomProviderTypeValid = _isCodeDomProviderTypeValid;
     - (BOOL)isCodeDomProviderTypeValid
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsCodeDomProviderTypeValid"];
-		_isCodeDomProviderTypeValid = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsCodeDomProviderTypeValid");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isCodeDomProviderTypeValid = monoObject;
 
 		return _isCodeDomProviderTypeValid;
 	}
@@ -70,7 +90,7 @@
     - (System_CodeDom_Compiler_CodeDomProvider *)createProvider_withProviderOptions:(id <System_Collections_Generic_IDictionaryA2_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateProvider(System.Collections.Generic.IDictionary`2<string, string>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CreateProvider(System.Collections.Generic.IDictionary`2<string, string>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_CodeDom_Compiler_CodeDomProvider bestObjectWithMonoObject:monoObject];
     }
@@ -92,7 +112,7 @@
     - (BOOL)equals_withO:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

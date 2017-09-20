@@ -33,7 +33,7 @@
     + (System_CodeDom_CodeDefaultValueExpression *)new_withType:(System_CodeDom_CodeTypeReference *)p1
     {
 		
-		System_CodeDom_CodeDefaultValueExpression * object = [[self alloc] initWithSignature:"System.CodeDom.CodeTypeReference" withNumArgs:1, [p1 monoValue]];;
+		System_CodeDom_CodeDefaultValueExpression * object = [[self alloc] initWithSignature:"System.CodeDom.CodeTypeReference" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize type = _type;
     - (System_CodeDom_CodeTypeReference *)type
     {
-		MonoObject *monoObject = [self getMonoProperty:"Type"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Type");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_type isEqualToMonoObject:monoObject]) return _type;					
 		_type = [System_CodeDom_CodeTypeReference bestObjectWithMonoObject:monoObject];
 
@@ -55,8 +65,17 @@
     - (void)setType:(System_CodeDom_CodeTypeReference *)value
 	{
 		_type = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Type" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Type");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

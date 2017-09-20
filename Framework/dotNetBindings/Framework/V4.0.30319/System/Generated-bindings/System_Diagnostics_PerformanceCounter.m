@@ -33,7 +33,7 @@
     + (System_Diagnostics_PerformanceCounter *)new_withCategoryName:(NSString *)p1 counterName:(NSString *)p2 instanceName:(NSString *)p3 machineName:(NSString *)p4
     {
 		
-		System_Diagnostics_PerformanceCounter * object = [[self alloc] initWithSignature:"string,string,string,string" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];;
+		System_Diagnostics_PerformanceCounter * object = [[self alloc] initWithSignature:"string,string,string,string" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Diagnostics_PerformanceCounter *)new_withCategoryName:(NSString *)p1 counterName:(NSString *)p2 instanceName:(NSString *)p3
     {
 		
-		System_Diagnostics_PerformanceCounter * object = [[self alloc] initWithSignature:"string,string,string" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		System_Diagnostics_PerformanceCounter * object = [[self alloc] initWithSignature:"string,string,string" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Diagnostics_PerformanceCounter *)new_withCategoryName:(NSString *)p1 counterName:(NSString *)p2 instanceName:(NSString *)p3 readOnly:(BOOL)p4
     {
 		
-		System_Diagnostics_PerformanceCounter * object = [[self alloc] initWithSignature:"string,string,string,bool" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];;
+		System_Diagnostics_PerformanceCounter * object = [[self alloc] initWithSignature:"string,string,string,bool" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
         
         return object;
     }
@@ -66,7 +66,7 @@
     + (System_Diagnostics_PerformanceCounter *)new_withCategoryName:(NSString *)p1 counterName:(NSString *)p2
     {
 		
-		System_Diagnostics_PerformanceCounter * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Diagnostics_PerformanceCounter * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -77,7 +77,7 @@
     + (System_Diagnostics_PerformanceCounter *)new_withCategoryName:(NSString *)p1 counterName:(NSString *)p2 readOnly:(BOOL)p3
     {
 		
-		System_Diagnostics_PerformanceCounter * object = [[self alloc] initWithSignature:"string,string,bool" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		System_Diagnostics_PerformanceCounter * object = [[self alloc] initWithSignature:"string,string,bool" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
         
         return object;
     }
@@ -110,7 +110,17 @@
     @synthesize categoryName = _categoryName;
     - (NSString *)categoryName
     {
-		MonoObject *monoObject = [self getMonoProperty:"CategoryName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CategoryName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_categoryName isEqualToMonoObject:monoObject]) return _categoryName;					
 		_categoryName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -119,8 +129,17 @@
     - (void)setCategoryName:(NSString *)value
 	{
 		_categoryName = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"CategoryName" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CategoryName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CounterHelp
@@ -128,7 +147,17 @@
     @synthesize counterHelp = _counterHelp;
     - (NSString *)counterHelp
     {
-		MonoObject *monoObject = [self getMonoProperty:"CounterHelp"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CounterHelp");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_counterHelp isEqualToMonoObject:monoObject]) return _counterHelp;					
 		_counterHelp = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -140,7 +169,17 @@
     @synthesize counterName = _counterName;
     - (NSString *)counterName
     {
-		MonoObject *monoObject = [self getMonoProperty:"CounterName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CounterName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_counterName isEqualToMonoObject:monoObject]) return _counterName;					
 		_counterName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -149,17 +188,36 @@
     - (void)setCounterName:(NSString *)value
 	{
 		_counterName = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"CounterName" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CounterName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CounterType
 	// Managed property type : System.Diagnostics.PerformanceCounterType
     @synthesize counterType = _counterType;
-    - (System_Diagnostics_PerformanceCounterType)counterType
+    - (int32_t)counterType
     {
-		MonoObject *monoObject = [self getMonoProperty:"CounterType"];
-		_counterType = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CounterType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_counterType = monoObject;
 
 		return _counterType;
 	}
@@ -167,18 +225,37 @@
 	// Managed property name : InstanceLifetime
 	// Managed property type : System.Diagnostics.PerformanceCounterInstanceLifetime
     @synthesize instanceLifetime = _instanceLifetime;
-    - (System_Diagnostics_PerformanceCounterInstanceLifetime)instanceLifetime
+    - (int32_t)instanceLifetime
     {
-		MonoObject *monoObject = [self getMonoProperty:"InstanceLifetime"];
-		_instanceLifetime = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InstanceLifetime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_instanceLifetime = monoObject;
 
 		return _instanceLifetime;
 	}
-    - (void)setInstanceLifetime:(System_Diagnostics_PerformanceCounterInstanceLifetime)value
+    - (void)setInstanceLifetime:(int32_t)value
 	{
 		_instanceLifetime = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"InstanceLifetime" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "InstanceLifetime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : InstanceName
@@ -186,7 +263,17 @@
     @synthesize instanceName = _instanceName;
     - (NSString *)instanceName
     {
-		MonoObject *monoObject = [self getMonoProperty:"InstanceName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InstanceName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_instanceName isEqualToMonoObject:monoObject]) return _instanceName;					
 		_instanceName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -195,8 +282,17 @@
     - (void)setInstanceName:(NSString *)value
 	{
 		_instanceName = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"InstanceName" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "InstanceName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : MachineName
@@ -204,7 +300,17 @@
     @synthesize machineName = _machineName;
     - (NSString *)machineName
     {
-		MonoObject *monoObject = [self getMonoProperty:"MachineName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MachineName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_machineName isEqualToMonoObject:monoObject]) return _machineName;					
 		_machineName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -213,8 +319,17 @@
     - (void)setMachineName:(NSString *)value
 	{
 		_machineName = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"MachineName" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "MachineName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : RawValue
@@ -222,16 +337,35 @@
     @synthesize rawValue = _rawValue;
     - (int64_t)rawValue
     {
-		MonoObject *monoObject = [self getMonoProperty:"RawValue"];
-		_rawValue = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RawValue");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_rawValue = monoObject;
 
 		return _rawValue;
 	}
     - (void)setRawValue:(int64_t)value
 	{
 		_rawValue = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"RawValue" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int64_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "RawValue");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ReadOnly
@@ -239,16 +373,35 @@
     @synthesize readOnly = _readOnly;
     - (BOOL)readOnly
     {
-		MonoObject *monoObject = [self getMonoProperty:"ReadOnly"];
-		_readOnly = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ReadOnly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_readOnly = monoObject;
 
 		return _readOnly;
 	}
     - (void)setReadOnly:(BOOL)value
 	{
 		_readOnly = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ReadOnly" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ReadOnly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -260,7 +413,7 @@
     - (void)beginInit
     {
 		
-		[self invokeMonoMethod:"BeginInit()" withNumArgs:0];;
+		[self invokeMonoMethod:"BeginInit()" withNumArgs:0];
         
     }
 
@@ -270,7 +423,7 @@
     - (void)close
     {
 		
-		[self invokeMonoMethod:"Close()" withNumArgs:0];;
+		[self invokeMonoMethod:"Close()" withNumArgs:0];
         
     }
 
@@ -280,7 +433,7 @@
     + (void)closeSharedResources
     {
 		
-		[self invokeMonoClassMethod:"CloseSharedResources()" withNumArgs:0];;
+		[self invokeMonoClassMethod:"CloseSharedResources()" withNumArgs:0];
         
     }
 
@@ -301,7 +454,7 @@
     - (void)endInit
     {
 		
-		[self invokeMonoMethod:"EndInit()" withNumArgs:0];;
+		[self invokeMonoMethod:"EndInit()" withNumArgs:0];
         
     }
 
@@ -355,7 +508,7 @@
     - (void)removeInstance
     {
 		
-		[self invokeMonoMethod:"RemoveInstance()" withNumArgs:0];;
+		[self invokeMonoMethod:"RemoveInstance()" withNumArgs:0];
         
     }
 

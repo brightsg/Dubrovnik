@@ -33,7 +33,7 @@
     - (System_Configuration_SettingsPropertyValue *)getPreviousVersion_withContext:(System_Configuration_SettingsContext *)p1 property:(System_Configuration_SettingsProperty *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Configuration.IApplicationSettingsProvider.GetPreviousVersion(System.Configuration.SettingsContext,System.Configuration.SettingsProperty)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Configuration.IApplicationSettingsProvider.GetPreviousVersion(System.Configuration.SettingsContext,System.Configuration.SettingsProperty)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Configuration_SettingsPropertyValue bestObjectWithMonoObject:monoObject];
     }
@@ -44,7 +44,7 @@
     - (void)reset_withContext:(System_Configuration_SettingsContext *)p1
     {
 		
-		[self invokeMonoMethod:"System.Configuration.IApplicationSettingsProvider.Reset(System.Configuration.SettingsContext)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.Configuration.IApplicationSettingsProvider.Reset(System.Configuration.SettingsContext)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -54,7 +54,7 @@
     - (void)upgrade_withContext:(System_Configuration_SettingsContext *)p1 properties:(System_Configuration_SettingsPropertyCollection *)p2
     {
 		
-		[self invokeMonoMethod:"System.Configuration.IApplicationSettingsProvider.Upgrade(System.Configuration.SettingsContext,System.Configuration.SettingsPropertyCollection)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"System.Configuration.IApplicationSettingsProvider.Upgrade(System.Configuration.SettingsContext,System.Configuration.SettingsPropertyCollection)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 

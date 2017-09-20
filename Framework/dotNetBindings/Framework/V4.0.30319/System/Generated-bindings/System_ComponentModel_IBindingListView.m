@@ -32,7 +32,17 @@
     @synthesize filter = _filter;
     - (NSString *)filter
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.IBindingListView.Filter"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.IBindingListView.Filter");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_filter isEqualToMonoObject:monoObject]) return _filter;					
 		_filter = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -41,8 +51,17 @@
     - (void)setFilter:(NSString *)value
 	{
 		_filter = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"System.ComponentModel.IBindingListView.Filter" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.ComponentModel.IBindingListView.Filter");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : SortDescriptions
@@ -50,7 +69,17 @@
     @synthesize sortDescriptions = _sortDescriptions;
     - (System_ComponentModel_ListSortDescriptionCollection *)sortDescriptions
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.IBindingListView.SortDescriptions"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.IBindingListView.SortDescriptions");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_sortDescriptions isEqualToMonoObject:monoObject]) return _sortDescriptions;					
 		_sortDescriptions = [System_ComponentModel_ListSortDescriptionCollection bestObjectWithMonoObject:monoObject];
 
@@ -62,8 +91,18 @@
     @synthesize supportsAdvancedSorting = _supportsAdvancedSorting;
     - (BOOL)supportsAdvancedSorting
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.IBindingListView.SupportsAdvancedSorting"];
-		_supportsAdvancedSorting = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.IBindingListView.SupportsAdvancedSorting");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_supportsAdvancedSorting = monoObject;
 
 		return _supportsAdvancedSorting;
 	}
@@ -73,8 +112,18 @@
     @synthesize supportsFiltering = _supportsFiltering;
     - (BOOL)supportsFiltering
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.IBindingListView.SupportsFiltering"];
-		_supportsFiltering = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.IBindingListView.SupportsFiltering");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_supportsFiltering = monoObject;
 
 		return _supportsFiltering;
 	}
@@ -88,7 +137,7 @@
     - (void)applySort_withSorts:(System_ComponentModel_ListSortDescriptionCollection *)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.IBindingListView.ApplySort(System.ComponentModel.ListSortDescriptionCollection)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.IBindingListView.ApplySort(System.ComponentModel.ListSortDescriptionCollection)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -98,7 +147,7 @@
     - (void)removeFilter
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.IBindingListView.RemoveFilter()" withNumArgs:0];;
+		[self invokeMonoMethod:"System.ComponentModel.IBindingListView.RemoveFilter()" withNumArgs:0];
         
     }
 

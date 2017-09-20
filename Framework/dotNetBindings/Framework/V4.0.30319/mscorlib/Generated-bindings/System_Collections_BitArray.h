@@ -16,13 +16,13 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.BitArray
-	// Managed param types : System.Int32, System.Boolean
-    + (System_Collections_BitArray *)new_withLength:(int32_t)p1 defaultValue:(BOOL)p2;
+	// Managed param types : System.Int32
+    + (System_Collections_BitArray *)new_withLength:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.BitArray
-	// Managed param types : System.Int32
-    + (System_Collections_BitArray *)new_withLength:(int32_t)p1;
+	// Managed param types : System.Int32, System.Boolean
+    + (System_Collections_BitArray *)new_withLength:(int32_t)p1 defaultValue:(BOOL)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.BitArray

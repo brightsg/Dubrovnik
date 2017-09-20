@@ -26,6 +26,10 @@
 	// Managed property type : System.Boolean
     @property (nonatomic, readonly) BOOL exists;
 
+	// Managed property name : FullName
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * fullName;
+
 	// Managed property name : Name
 	// Managed property type : System.String
     @property (nonatomic, strong, readonly) NSString * name;

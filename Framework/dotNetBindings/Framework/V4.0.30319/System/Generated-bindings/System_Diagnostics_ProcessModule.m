@@ -32,8 +32,18 @@
     @synthesize baseAddress = _baseAddress;
     - (void *)baseAddress
     {
-		MonoObject *monoObject = [self getMonoProperty:"BaseAddress"];
-		_baseAddress = DB_UNBOX_PTR(monoObject);
+		typedef void * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BaseAddress");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		void * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_baseAddress = monoObject;
 
 		return _baseAddress;
 	}
@@ -43,8 +53,18 @@
     @synthesize entryPointAddress = _entryPointAddress;
     - (void *)entryPointAddress
     {
-		MonoObject *monoObject = [self getMonoProperty:"EntryPointAddress"];
-		_entryPointAddress = DB_UNBOX_PTR(monoObject);
+		typedef void * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EntryPointAddress");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		void * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_entryPointAddress = monoObject;
 
 		return _entryPointAddress;
 	}
@@ -54,7 +74,17 @@
     @synthesize fileName = _fileName;
     - (NSString *)fileName
     {
-		MonoObject *monoObject = [self getMonoProperty:"FileName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FileName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_fileName isEqualToMonoObject:monoObject]) return _fileName;					
 		_fileName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -66,7 +96,17 @@
     @synthesize fileVersionInfo = _fileVersionInfo;
     - (System_Diagnostics_FileVersionInfo *)fileVersionInfo
     {
-		MonoObject *monoObject = [self getMonoProperty:"FileVersionInfo"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FileVersionInfo");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_fileVersionInfo isEqualToMonoObject:monoObject]) return _fileVersionInfo;					
 		_fileVersionInfo = [System_Diagnostics_FileVersionInfo bestObjectWithMonoObject:monoObject];
 
@@ -78,8 +118,18 @@
     @synthesize moduleMemorySize = _moduleMemorySize;
     - (int32_t)moduleMemorySize
     {
-		MonoObject *monoObject = [self getMonoProperty:"ModuleMemorySize"];
-		_moduleMemorySize = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ModuleMemorySize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_moduleMemorySize = monoObject;
 
 		return _moduleMemorySize;
 	}
@@ -89,7 +139,17 @@
     @synthesize moduleName = _moduleName;
     - (NSString *)moduleName
     {
-		MonoObject *monoObject = [self getMonoProperty:"ModuleName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ModuleName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_moduleName isEqualToMonoObject:monoObject]) return _moduleName;					
 		_moduleName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

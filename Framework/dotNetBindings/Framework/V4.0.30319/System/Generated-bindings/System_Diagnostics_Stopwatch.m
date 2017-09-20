@@ -57,7 +57,17 @@
     @synthesize elapsed = _elapsed;
     - (System_TimeSpan *)elapsed
     {
-		MonoObject *monoObject = [self getMonoProperty:"Elapsed"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Elapsed");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_elapsed isEqualToMonoObject:monoObject]) return _elapsed;					
 		_elapsed = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
@@ -69,8 +79,18 @@
     @synthesize elapsedMilliseconds = _elapsedMilliseconds;
     - (int64_t)elapsedMilliseconds
     {
-		MonoObject *monoObject = [self getMonoProperty:"ElapsedMilliseconds"];
-		_elapsedMilliseconds = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ElapsedMilliseconds");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_elapsedMilliseconds = monoObject;
 
 		return _elapsedMilliseconds;
 	}
@@ -80,8 +100,18 @@
     @synthesize elapsedTicks = _elapsedTicks;
     - (int64_t)elapsedTicks
     {
-		MonoObject *monoObject = [self getMonoProperty:"ElapsedTicks"];
-		_elapsedTicks = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ElapsedTicks");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_elapsedTicks = monoObject;
 
 		return _elapsedTicks;
 	}
@@ -91,8 +121,18 @@
     @synthesize isRunning = _isRunning;
     - (BOOL)isRunning
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsRunning"];
-		_isRunning = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsRunning");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isRunning = monoObject;
 
 		return _isRunning;
 	}
@@ -117,7 +157,7 @@
     - (void)reset
     {
 		
-		[self invokeMonoMethod:"Reset()" withNumArgs:0];;
+		[self invokeMonoMethod:"Reset()" withNumArgs:0];
         
     }
 
@@ -127,7 +167,7 @@
     - (void)restart
     {
 		
-		[self invokeMonoMethod:"Restart()" withNumArgs:0];;
+		[self invokeMonoMethod:"Restart()" withNumArgs:0];
         
     }
 
@@ -137,7 +177,7 @@
     - (void)start
     {
 		
-		[self invokeMonoMethod:"Start()" withNumArgs:0];;
+		[self invokeMonoMethod:"Start()" withNumArgs:0];
         
     }
 
@@ -158,7 +198,7 @@
     - (void)stop
     {
 		
-		[self invokeMonoMethod:"Stop()" withNumArgs:0];;
+		[self invokeMonoMethod:"Stop()" withNumArgs:0];
         
     }
 

@@ -30,18 +30,37 @@
 	// Managed property name : Enabled
 	// Managed property type : System.UriIdnScope
     @synthesize enabled = _enabled;
-    - (System_UriIdnScope)enabled
+    - (int32_t)enabled
     {
-		MonoObject *monoObject = [self getMonoProperty:"Enabled"];
-		_enabled = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Enabled");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_enabled = monoObject;
 
 		return _enabled;
 	}
-    - (void)setEnabled:(System_UriIdnScope)value
+    - (void)setEnabled:(int32_t)value
 	{
 		_enabled = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Enabled" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Enabled");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

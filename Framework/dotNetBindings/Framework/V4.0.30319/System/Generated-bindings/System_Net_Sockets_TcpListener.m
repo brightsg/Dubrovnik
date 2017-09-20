@@ -33,7 +33,7 @@
     + (System_Net_Sockets_TcpListener *)new_withLocalEP:(System_Net_IPEndPoint *)p1
     {
 		
-		System_Net_Sockets_TcpListener * object = [[self alloc] initWithSignature:"System.Net.IPEndPoint" withNumArgs:1, [p1 monoValue]];;
+		System_Net_Sockets_TcpListener * object = [[self alloc] initWithSignature:"System.Net.IPEndPoint" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Net_Sockets_TcpListener *)new_withLocaladdr:(System_Net_IPAddress *)p1 port:(int32_t)p2
     {
 		
-		System_Net_Sockets_TcpListener * object = [[self alloc] initWithSignature:"System.Net.IPAddress,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Net_Sockets_TcpListener * object = [[self alloc] initWithSignature:"System.Net.IPAddress,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Net_Sockets_TcpListener *)new_withPort:(int32_t)p1
     {
 		
-		System_Net_Sockets_TcpListener * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		System_Net_Sockets_TcpListener * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -68,16 +68,35 @@
     @synthesize exclusiveAddressUse = _exclusiveAddressUse;
     - (BOOL)exclusiveAddressUse
     {
-		MonoObject *monoObject = [self getMonoProperty:"ExclusiveAddressUse"];
-		_exclusiveAddressUse = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ExclusiveAddressUse");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_exclusiveAddressUse = monoObject;
 
 		return _exclusiveAddressUse;
 	}
     - (void)setExclusiveAddressUse:(BOOL)value
 	{
 		_exclusiveAddressUse = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ExclusiveAddressUse" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ExclusiveAddressUse");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : LocalEndpoint
@@ -85,7 +104,17 @@
     @synthesize localEndpoint = _localEndpoint;
     - (System_Net_EndPoint *)localEndpoint
     {
-		MonoObject *monoObject = [self getMonoProperty:"LocalEndpoint"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LocalEndpoint");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_localEndpoint isEqualToMonoObject:monoObject]) return _localEndpoint;					
 		_localEndpoint = [System_Net_EndPoint bestObjectWithMonoObject:monoObject];
 
@@ -97,7 +126,17 @@
     @synthesize server = _server;
     - (System_Net_Sockets_Socket *)server
     {
-		MonoObject *monoObject = [self getMonoProperty:"Server"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Server");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_server isEqualToMonoObject:monoObject]) return _server;					
 		_server = [System_Net_Sockets_Socket bestObjectWithMonoObject:monoObject];
 
@@ -157,7 +196,7 @@
     - (void)allowNatTraversal_withAllowed:(BOOL)p1
     {
 		
-		[self invokeMonoMethod:"AllowNatTraversal(bool)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"AllowNatTraversal(bool)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -167,7 +206,7 @@
     - (id <System_IAsyncResult>)beginAcceptSocket_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginAcceptSocket(System.AsyncCallback,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginAcceptSocket(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -178,7 +217,7 @@
     - (id <System_IAsyncResult>)beginAcceptTcpClient_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginAcceptTcpClient(System.AsyncCallback,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginAcceptTcpClient(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -200,7 +239,7 @@
     - (System_Net_Sockets_Socket *)endAcceptSocket_withAsyncResult:(id <System_IAsyncResult_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"EndAcceptSocket(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"EndAcceptSocket(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Net_Sockets_Socket bestObjectWithMonoObject:monoObject];
     }
@@ -211,7 +250,7 @@
     - (System_Net_Sockets_TcpClient *)endAcceptTcpClient_withAsyncResult:(id <System_IAsyncResult_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"EndAcceptTcpClient(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"EndAcceptTcpClient(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Net_Sockets_TcpClient bestObjectWithMonoObject:monoObject];
     }
@@ -233,7 +272,7 @@
     - (void)start
     {
 		
-		[self invokeMonoMethod:"Start()" withNumArgs:0];;
+		[self invokeMonoMethod:"Start()" withNumArgs:0];
         
     }
 
@@ -243,7 +282,7 @@
     - (void)start_withBacklog:(int32_t)p1
     {
 		
-		[self invokeMonoMethod:"Start(int)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"Start(int)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -253,7 +292,7 @@
     - (void)stop
     {
 		
-		[self invokeMonoMethod:"Stop()" withNumArgs:0];;
+		[self invokeMonoMethod:"Stop()" withNumArgs:0];
         
     }
 

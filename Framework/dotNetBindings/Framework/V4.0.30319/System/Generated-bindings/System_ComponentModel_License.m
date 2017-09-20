@@ -32,7 +32,17 @@
     @synthesize licenseKey = _licenseKey;
     - (NSString *)licenseKey
     {
-		MonoObject *monoObject = [self getMonoProperty:"LicenseKey"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LicenseKey");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_licenseKey isEqualToMonoObject:monoObject]) return _licenseKey;					
 		_licenseKey = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -48,7 +58,7 @@
     - (void)dispose
     {
 		
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
         
     }
 

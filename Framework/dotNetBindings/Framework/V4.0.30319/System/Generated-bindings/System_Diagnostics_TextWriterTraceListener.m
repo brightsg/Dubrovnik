@@ -33,7 +33,7 @@
     + (System_Diagnostics_TextWriterTraceListener *)new_withStream:(System_IO_Stream *)p1
     {
 		
-		System_Diagnostics_TextWriterTraceListener * object = [[self alloc] initWithSignature:"System.IO.Stream" withNumArgs:1, [p1 monoValue]];;
+		System_Diagnostics_TextWriterTraceListener * object = [[self alloc] initWithSignature:"System.IO.Stream" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Diagnostics_TextWriterTraceListener *)new_withStream:(System_IO_Stream *)p1 name:(NSString *)p2
     {
 		
-		System_Diagnostics_TextWriterTraceListener * object = [[self alloc] initWithSignature:"System.IO.Stream,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Diagnostics_TextWriterTraceListener * object = [[self alloc] initWithSignature:"System.IO.Stream,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Diagnostics_TextWriterTraceListener *)new_withWriter:(System_IO_TextWriter *)p1
     {
 		
-		System_Diagnostics_TextWriterTraceListener * object = [[self alloc] initWithSignature:"System.IO.TextWriter" withNumArgs:1, [p1 monoValue]];;
+		System_Diagnostics_TextWriterTraceListener * object = [[self alloc] initWithSignature:"System.IO.TextWriter" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -66,7 +66,7 @@
     + (System_Diagnostics_TextWriterTraceListener *)new_withWriter:(System_IO_TextWriter *)p1 name:(NSString *)p2
     {
 		
-		System_Diagnostics_TextWriterTraceListener * object = [[self alloc] initWithSignature:"System.IO.TextWriter,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Diagnostics_TextWriterTraceListener * object = [[self alloc] initWithSignature:"System.IO.TextWriter,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -77,7 +77,7 @@
     + (System_Diagnostics_TextWriterTraceListener *)new_withFileName:(NSString *)p1
     {
 		
-		System_Diagnostics_TextWriterTraceListener * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_Diagnostics_TextWriterTraceListener * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -88,7 +88,7 @@
     + (System_Diagnostics_TextWriterTraceListener *)new_withFileName:(NSString *)p1 name:(NSString *)p2
     {
 		
-		System_Diagnostics_TextWriterTraceListener * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Diagnostics_TextWriterTraceListener * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -101,7 +101,17 @@
     @synthesize writer = _writer;
     - (System_IO_TextWriter *)writer
     {
-		MonoObject *monoObject = [self getMonoProperty:"Writer"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Writer");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_writer isEqualToMonoObject:monoObject]) return _writer;					
 		_writer = [System_IO_TextWriter bestObjectWithMonoObject:monoObject];
 
@@ -110,8 +120,17 @@
     - (void)setWriter:(System_IO_TextWriter *)value
 	{
 		_writer = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Writer" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Writer");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -123,7 +142,7 @@
     - (void)close
     {
 		
-		[self invokeMonoMethod:"Close()" withNumArgs:0];;
+		[self invokeMonoMethod:"Close()" withNumArgs:0];
         
     }
 
@@ -133,7 +152,7 @@
     - (void)flush
     {
 		
-		[self invokeMonoMethod:"Flush()" withNumArgs:0];;
+		[self invokeMonoMethod:"Flush()" withNumArgs:0];
         
     }
 
@@ -143,7 +162,7 @@
     - (void)write_withMessage:(NSString *)p1
     {
 		
-		[self invokeMonoMethod:"Write(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Write(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -153,7 +172,7 @@
     - (void)writeLine_withMessage:(NSString *)p1
     {
 		
-		[self invokeMonoMethod:"WriteLine(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"WriteLine(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

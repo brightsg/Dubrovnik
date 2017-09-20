@@ -24,6 +24,6 @@
 	// Managed method name : GetView
 	// Managed return type : System.Object
 	// Managed param types : System.ComponentModel.Design.ViewTechnology
-    - (System_Object *)getView_withTechnology:(System_ComponentModel_Design_ViewTechnology)p1;
+    - (System_Object *)getView_withTechnology:(int32_t)p1;
 @end
 //--Dubrovnik.CodeGenerator

@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.DesignerSerializationVisibilityAttribute
 	// Managed param types : System.ComponentModel.DesignerSerializationVisibility
-    + (System_ComponentModel_DesignerSerializationVisibilityAttribute *)new_withVisibility:(System_ComponentModel_DesignerSerializationVisibility)p1;
+    + (System_ComponentModel_DesignerSerializationVisibilityAttribute *)new_withVisibility:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Fields
@@ -43,7 +43,7 @@
 
 	// Managed property name : Visibility
 	// Managed property type : System.ComponentModel.DesignerSerializationVisibility
-    @property (nonatomic, readonly) System_ComponentModel_DesignerSerializationVisibility visibility;
+    @property (nonatomic, readonly) int32_t visibility;
 
 #pragma mark -
 #pragma mark Methods

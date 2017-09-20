@@ -32,7 +32,17 @@
     static System_Net_IWebProxy * m_select;
     + (System_Net_IWebProxy *)select
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Select"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Select");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_select isEqualToMonoObject:monoObject]) return m_select;					
 		m_select = [System_Net_IWebProxy bestObjectWithMonoObject:monoObject];
 
@@ -41,8 +51,17 @@
     + (void)setSelect:(System_Net_IWebProxy *)value
 	{
 		m_select = value;
-		MonoObject *monoObject = [value monoObject];
-		[[self class] setMonoClassProperty:"Select" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Select");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk([value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

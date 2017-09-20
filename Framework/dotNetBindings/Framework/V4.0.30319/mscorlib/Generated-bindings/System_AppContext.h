@@ -18,8 +18,17 @@
 	// Managed property type : System.String
     + (NSString *)baseDirectory;
 
+	// Managed property name : TargetFrameworkName
+	// Managed property type : System.String
+    + (NSString *)targetFrameworkName;
+
 #pragma mark -
 #pragma mark Methods
+
+	// Managed method name : GetData
+	// Managed return type : System.Object
+	// Managed param types : System.String
+    + (System_Object *)getData_withName:(NSString *)p1;
 
 	// Managed method name : SetSwitch
 	// Managed return type : System.Void

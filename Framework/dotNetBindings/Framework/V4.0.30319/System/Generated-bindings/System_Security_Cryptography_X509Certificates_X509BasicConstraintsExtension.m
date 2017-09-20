@@ -33,7 +33,7 @@
     + (System_Security_Cryptography_X509Certificates_X509BasicConstraintsExtension *)new_withCertificateAuthority:(BOOL)p1 hasPathLengthConstraint:(BOOL)p2 pathLengthConstraint:(int32_t)p3 critical:(BOOL)p4
     {
 		
-		System_Security_Cryptography_X509Certificates_X509BasicConstraintsExtension * object = [[self alloc] initWithSignature:"bool,bool,int,bool" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];;
+		System_Security_Cryptography_X509Certificates_X509BasicConstraintsExtension * object = [[self alloc] initWithSignature:"bool,bool,int,bool" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Security_Cryptography_X509Certificates_X509BasicConstraintsExtension *)new_withEncodedBasicConstraints:(System_Security_Cryptography_AsnEncodedData *)p1 critical:(BOOL)p2
     {
 		
-		System_Security_Cryptography_X509Certificates_X509BasicConstraintsExtension * object = [[self alloc] initWithSignature:"System.Security.Cryptography.AsnEncodedData,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Security_Cryptography_X509Certificates_X509BasicConstraintsExtension * object = [[self alloc] initWithSignature:"System.Security.Cryptography.AsnEncodedData,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -57,8 +57,18 @@
     @synthesize certificateAuthority = _certificateAuthority;
     - (BOOL)certificateAuthority
     {
-		MonoObject *monoObject = [self getMonoProperty:"CertificateAuthority"];
-		_certificateAuthority = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CertificateAuthority");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_certificateAuthority = monoObject;
 
 		return _certificateAuthority;
 	}
@@ -68,8 +78,18 @@
     @synthesize hasPathLengthConstraint = _hasPathLengthConstraint;
     - (BOOL)hasPathLengthConstraint
     {
-		MonoObject *monoObject = [self getMonoProperty:"HasPathLengthConstraint"];
-		_hasPathLengthConstraint = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HasPathLengthConstraint");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_hasPathLengthConstraint = monoObject;
 
 		return _hasPathLengthConstraint;
 	}
@@ -79,8 +99,18 @@
     @synthesize pathLengthConstraint = _pathLengthConstraint;
     - (int32_t)pathLengthConstraint
     {
-		MonoObject *monoObject = [self getMonoProperty:"PathLengthConstraint"];
-		_pathLengthConstraint = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PathLengthConstraint");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_pathLengthConstraint = monoObject;
 
 		return _pathLengthConstraint;
 	}
@@ -94,7 +124,7 @@
     - (void)copyFrom_withAsnEncodedData:(System_Security_Cryptography_AsnEncodedData *)p1
     {
 		
-		[self invokeMonoMethod:"CopyFrom(System.Security.Cryptography.AsnEncodedData)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"CopyFrom(System.Security.Cryptography.AsnEncodedData)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

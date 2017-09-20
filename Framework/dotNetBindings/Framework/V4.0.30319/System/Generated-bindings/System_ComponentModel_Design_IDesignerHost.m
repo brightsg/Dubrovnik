@@ -32,7 +32,17 @@
     @synthesize container = _container;
     - (System_ComponentModel_IContainer *)container
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.Design.IDesignerHost.Container"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.Design.IDesignerHost.Container");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_container isEqualToMonoObject:monoObject]) return _container;					
 		_container = [System_ComponentModel_IContainer bestObjectWithMonoObject:monoObject];
 
@@ -44,8 +54,18 @@
     @synthesize inTransaction = _inTransaction;
     - (BOOL)inTransaction
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.Design.IDesignerHost.InTransaction"];
-		_inTransaction = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.Design.IDesignerHost.InTransaction");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_inTransaction = monoObject;
 
 		return _inTransaction;
 	}
@@ -55,8 +75,18 @@
     @synthesize loading = _loading;
     - (BOOL)loading
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.Design.IDesignerHost.Loading"];
-		_loading = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.Design.IDesignerHost.Loading");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_loading = monoObject;
 
 		return _loading;
 	}
@@ -66,7 +96,17 @@
     @synthesize rootComponent = _rootComponent;
     - (System_ComponentModel_IComponent *)rootComponent
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.Design.IDesignerHost.RootComponent"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.Design.IDesignerHost.RootComponent");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_rootComponent isEqualToMonoObject:monoObject]) return _rootComponent;					
 		_rootComponent = [System_ComponentModel_IComponent bestObjectWithMonoObject:monoObject];
 
@@ -78,7 +118,17 @@
     @synthesize rootComponentClassName = _rootComponentClassName;
     - (NSString *)rootComponentClassName
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.Design.IDesignerHost.RootComponentClassName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.Design.IDesignerHost.RootComponentClassName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_rootComponentClassName isEqualToMonoObject:monoObject]) return _rootComponentClassName;					
 		_rootComponentClassName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -90,7 +140,17 @@
     @synthesize transactionDescription = _transactionDescription;
     - (NSString *)transactionDescription
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.Design.IDesignerHost.TransactionDescription"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.Design.IDesignerHost.TransactionDescription");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_transactionDescription isEqualToMonoObject:monoObject]) return _transactionDescription;					
 		_transactionDescription = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -106,7 +166,7 @@
     - (void)activate
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IDesignerHost.Activate()" withNumArgs:0];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IDesignerHost.Activate()" withNumArgs:0];
         
     }
 
@@ -116,7 +176,7 @@
     - (id <System_ComponentModel_IComponent>)createComponent_withComponentClass:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IDesignerHost.CreateComponent(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IDesignerHost.CreateComponent(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_IComponent bestObjectWithMonoObject:monoObject];
     }
@@ -127,7 +187,7 @@
     - (id <System_ComponentModel_IComponent>)createComponent_withComponentClass:(System_Type *)p1 name:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IDesignerHost.CreateComponent(System.Type,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IDesignerHost.CreateComponent(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_IComponent bestObjectWithMonoObject:monoObject];
     }
@@ -149,7 +209,7 @@
     - (System_ComponentModel_Design_DesignerTransaction *)createTransaction_withDescription:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IDesignerHost.CreateTransaction(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IDesignerHost.CreateTransaction(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_Design_DesignerTransaction bestObjectWithMonoObject:monoObject];
     }
@@ -160,7 +220,7 @@
     - (void)destroyComponent_withComponent:(id <System_ComponentModel_IComponent_>)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IDesignerHost.DestroyComponent(System.ComponentModel.IComponent)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IDesignerHost.DestroyComponent(System.ComponentModel.IComponent)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -170,7 +230,7 @@
     - (id <System_ComponentModel_Design_IDesigner>)getDesigner_withComponent:(id <System_ComponentModel_IComponent_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IDesignerHost.GetDesigner(System.ComponentModel.IComponent)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IDesignerHost.GetDesigner(System.ComponentModel.IComponent)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_Design_IDesigner bestObjectWithMonoObject:monoObject];
     }
@@ -181,7 +241,7 @@
     - (System_Type *)getType_withTypeName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IDesignerHost.GetType(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IDesignerHost.GetType(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Type bestObjectWithMonoObject:monoObject];
     }

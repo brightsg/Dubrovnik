@@ -33,7 +33,7 @@
     - (System_ComponentModel_AttributeCollection *)getAttributes_withComponent:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IComNativeDescriptorHandler.GetAttributes(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IComNativeDescriptorHandler.GetAttributes(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_AttributeCollection bestObjectWithMonoObject:monoObject];
     }
@@ -44,7 +44,7 @@
     - (NSString *)getClassName_withComponent:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IComNativeDescriptorHandler.GetClassName(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IComNativeDescriptorHandler.GetClassName(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -55,7 +55,7 @@
     - (System_ComponentModel_TypeConverter *)getConverter_withComponent:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IComNativeDescriptorHandler.GetConverter(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IComNativeDescriptorHandler.GetConverter(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_TypeConverter bestObjectWithMonoObject:monoObject];
     }
@@ -66,7 +66,7 @@
     - (System_ComponentModel_EventDescriptor *)getDefaultEvent_withComponent:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IComNativeDescriptorHandler.GetDefaultEvent(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IComNativeDescriptorHandler.GetDefaultEvent(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_EventDescriptor bestObjectWithMonoObject:monoObject];
     }
@@ -77,7 +77,7 @@
     - (System_ComponentModel_PropertyDescriptor *)getDefaultProperty_withComponent:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IComNativeDescriptorHandler.GetDefaultProperty(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IComNativeDescriptorHandler.GetDefaultProperty(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_PropertyDescriptor bestObjectWithMonoObject:monoObject];
     }
@@ -88,7 +88,7 @@
     - (System_Object *)getEditor_withComponent:(System_Object *)p1 baseEditorType:(System_Type *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IComNativeDescriptorHandler.GetEditor(object,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IComNativeDescriptorHandler.GetEditor(object,System.Type)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -99,7 +99,7 @@
     - (System_ComponentModel_EventDescriptorCollection *)getEvents_withComponent:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IComNativeDescriptorHandler.GetEvents(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IComNativeDescriptorHandler.GetEvents(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_EventDescriptorCollection bestObjectWithMonoObject:monoObject];
     }
@@ -110,7 +110,7 @@
     - (System_ComponentModel_EventDescriptorCollection *)getEvents_withComponent:(System_Object *)p1 attributes:(DBSystem_Array *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IComNativeDescriptorHandler.GetEvents(object,System.Attribute[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IComNativeDescriptorHandler.GetEvents(object,System.Attribute[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_EventDescriptorCollection bestObjectWithMonoObject:monoObject];
     }
@@ -121,7 +121,7 @@
     - (NSString *)getName_withComponent:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IComNativeDescriptorHandler.GetName(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IComNativeDescriptorHandler.GetName(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -132,7 +132,7 @@
     - (System_ComponentModel_PropertyDescriptorCollection *)getProperties_withComponent:(System_Object *)p1 attributes:(DBSystem_Array *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IComNativeDescriptorHandler.GetProperties(object,System.Attribute[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IComNativeDescriptorHandler.GetProperties(object,System.Attribute[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_PropertyDescriptorCollection bestObjectWithMonoObject:monoObject];
     }
@@ -143,7 +143,7 @@
     - (System_Object *)getPropertyValue_withComponent:(System_Object *)p1 propertyName:(NSString *)p2 successRef:(BOOL*)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IComNativeDescriptorHandler.GetPropertyValue(object,string,bool&)" withNumArgs:3, [p1 monoValue], [p2 monoValue], p3];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IComNativeDescriptorHandler.GetPropertyValue(object,string,bool&)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], p3];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -154,7 +154,7 @@
     - (System_Object *)getPropertyValue_withComponent:(System_Object *)p1 dispid:(int32_t)p2 successRef:(BOOL*)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IComNativeDescriptorHandler.GetPropertyValue(object,int,bool&)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), p3];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.IComNativeDescriptorHandler.GetPropertyValue(object,int,bool&)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), p3];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }

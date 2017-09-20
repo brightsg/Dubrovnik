@@ -64,11 +64,11 @@
 
 	// Managed property name : CounterType
 	// Managed property type : System.Diagnostics.PerformanceCounterType
-    @property (nonatomic, readonly) System_Diagnostics_PerformanceCounterType counterType;
+    @property (nonatomic, readonly) int32_t counterType;
 
 	// Managed property name : InstanceLifetime
 	// Managed property type : System.Diagnostics.PerformanceCounterInstanceLifetime
-    @property (nonatomic) System_Diagnostics_PerformanceCounterInstanceLifetime instanceLifetime;
+    @property (nonatomic) int32_t instanceLifetime;
 
 	// Managed property name : InstanceName
 	// Managed property type : System.String

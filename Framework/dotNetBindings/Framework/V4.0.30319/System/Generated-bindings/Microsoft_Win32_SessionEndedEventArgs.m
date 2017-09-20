@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : Microsoft.Win32.SessionEndedEventArgs
 	// Managed param types : Microsoft.Win32.SessionEndReasons
-    + (Microsoft_Win32_SessionEndedEventArgs *)new_withReason:(Microsoft_Win32_SessionEndReasons)p1
+    + (Microsoft_Win32_SessionEndedEventArgs *)new_withReason:(int32_t)p1
     {
 		
-		Microsoft_Win32_SessionEndedEventArgs * object = [[self alloc] initWithSignature:"Microsoft.Win32.SessionEndReasons" withNumArgs:1, DB_VALUE(p1)];;
+		Microsoft_Win32_SessionEndedEventArgs * object = [[self alloc] initWithSignature:"Microsoft.Win32.SessionEndReasons" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -44,10 +44,20 @@
 	// Managed property name : Reason
 	// Managed property type : Microsoft.Win32.SessionEndReasons
     @synthesize reason = _reason;
-    - (Microsoft_Win32_SessionEndReasons)reason
+    - (int32_t)reason
     {
-		MonoObject *monoObject = [self getMonoProperty:"Reason"];
-		_reason = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Reason");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_reason = monoObject;
 
 		return _reason;
 	}

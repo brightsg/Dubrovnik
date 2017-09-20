@@ -33,7 +33,7 @@
     + (System_ComponentModel_Design_DesignerEventArgs *)new_withHost:(id <System_ComponentModel_Design_IDesignerHost_>)p1
     {
 		
-		System_ComponentModel_Design_DesignerEventArgs * object = [[self alloc] initWithSignature:"System.ComponentModel.Design.IDesignerHost" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_Design_DesignerEventArgs * object = [[self alloc] initWithSignature:"System.ComponentModel.Design.IDesignerHost" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize designer = _designer;
     - (System_ComponentModel_Design_IDesignerHost *)designer
     {
-		MonoObject *monoObject = [self getMonoProperty:"Designer"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Designer");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_designer isEqualToMonoObject:monoObject]) return _designer;					
 		_designer = [System_ComponentModel_Design_IDesignerHost bestObjectWithMonoObject:monoObject];
 

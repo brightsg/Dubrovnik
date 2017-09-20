@@ -33,7 +33,7 @@
     + (System_ComponentModel_InvalidAsynchronousStateException *)new_withMessage:(NSString *)p1
     {
 		
-		System_ComponentModel_InvalidAsynchronousStateException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_InvalidAsynchronousStateException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_ComponentModel_InvalidAsynchronousStateException *)new_withMessage:(NSString *)p1 innerException:(System_Exception *)p2
     {
 		
-		System_ComponentModel_InvalidAsynchronousStateException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_ComponentModel_InvalidAsynchronousStateException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }

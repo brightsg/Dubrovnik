@@ -32,7 +32,17 @@
     @synthesize errors = _errors;
     - (System_Collections_ICollection *)errors
     {
-		MonoObject *monoObject = [self getMonoProperty:"Errors"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Errors");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_errors isEqualToMonoObject:monoObject]) return _errors;					
 		_errors = [System_Collections_ICollection bestObjectWithMonoObject:monoObject];
 
@@ -48,7 +58,7 @@
     - (void)close
     {
 		
-		[self invokeMonoMethod:"Close()" withNumArgs:0];;
+		[self invokeMonoMethod:"Close()" withNumArgs:0];
         
     }
 
@@ -58,7 +68,7 @@
     - (void)save_withStream:(System_IO_Stream *)p1
     {
 		
-		[self invokeMonoMethod:"Save(System.IO.Stream)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Save(System.IO.Stream)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

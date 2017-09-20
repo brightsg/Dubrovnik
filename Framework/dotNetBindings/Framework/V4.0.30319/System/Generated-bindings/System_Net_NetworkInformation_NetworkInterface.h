@@ -40,11 +40,11 @@
 
 	// Managed property name : NetworkInterfaceType
 	// Managed property type : System.Net.NetworkInformation.NetworkInterfaceType
-    @property (nonatomic, readonly) System_Net_NetworkInformation_NetworkInterfaceType networkInterfaceType;
+    @property (nonatomic, readonly) int32_t networkInterfaceType;
 
 	// Managed property name : OperationalStatus
 	// Managed property type : System.Net.NetworkInformation.OperationalStatus
-    @property (nonatomic, readonly) System_Net_NetworkInformation_OperationalStatus operationalStatus;
+    @property (nonatomic, readonly) int32_t operationalStatus;
 
 	// Managed property name : Speed
 	// Managed property type : System.Int64
@@ -90,6 +90,6 @@
 	// Managed method name : Supports
 	// Managed return type : System.Boolean
 	// Managed param types : System.Net.NetworkInformation.NetworkInterfaceComponent
-    - (BOOL)supports_withNetworkInterfaceComponent:(System_Net_NetworkInformation_NetworkInterfaceComponent)p1;
+    - (BOOL)supports_withNetworkInterfaceComponent:(int32_t)p1;
 @end
 //--Dubrovnik.CodeGenerator

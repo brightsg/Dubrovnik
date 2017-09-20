@@ -33,7 +33,7 @@
     + (System_Net_DnsEndPoint *)new_withHost:(NSString *)p1 port:(int32_t)p2
     {
 		
-		System_Net_DnsEndPoint * object = [[self alloc] initWithSignature:"string,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Net_DnsEndPoint * object = [[self alloc] initWithSignature:"string,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -41,10 +41,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.DnsEndPoint
 	// Managed param types : System.String, System.Int32, System.Net.Sockets.AddressFamily
-    + (System_Net_DnsEndPoint *)new_withHost:(NSString *)p1 port:(int32_t)p2 addressFamily:(System_Net_Sockets_AddressFamily)p3
+    + (System_Net_DnsEndPoint *)new_withHost:(NSString *)p1 port:(int32_t)p2 addressFamily:(int32_t)p3
     {
 		
-		System_Net_DnsEndPoint * object = [[self alloc] initWithSignature:"string,int,System.Net.Sockets.AddressFamily" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		System_Net_DnsEndPoint * object = [[self alloc] initWithSignature:"string,int,System.Net.Sockets.AddressFamily" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
         
         return object;
     }
@@ -55,10 +55,20 @@
 	// Managed property name : AddressFamily
 	// Managed property type : System.Net.Sockets.AddressFamily
     @synthesize addressFamily = _addressFamily;
-    - (System_Net_Sockets_AddressFamily)addressFamily
+    - (int32_t)addressFamily
     {
-		MonoObject *monoObject = [self getMonoProperty:"AddressFamily"];
-		_addressFamily = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AddressFamily");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_addressFamily = monoObject;
 
 		return _addressFamily;
 	}
@@ -68,7 +78,17 @@
     @synthesize host = _host;
     - (NSString *)host
     {
-		MonoObject *monoObject = [self getMonoProperty:"Host"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Host");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_host isEqualToMonoObject:monoObject]) return _host;					
 		_host = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -80,8 +100,18 @@
     @synthesize port = _port;
     - (int32_t)port
     {
-		MonoObject *monoObject = [self getMonoProperty:"Port"];
-		_port = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Port");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_port = monoObject;
 
 		return _port;
 	}
@@ -95,7 +125,7 @@
     - (BOOL)equals_withComparand:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

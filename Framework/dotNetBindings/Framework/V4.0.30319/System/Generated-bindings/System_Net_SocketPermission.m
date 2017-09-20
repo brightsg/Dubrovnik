@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.SocketPermission
 	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Net_SocketPermission *)new_withState:(System_Security_Permissions_PermissionState)p1
+    + (System_Net_SocketPermission *)new_withState:(int32_t)p1
     {
 		
-		System_Net_SocketPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];;
+		System_Net_SocketPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -41,10 +41,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.SocketPermission
 	// Managed param types : System.Net.NetworkAccess, System.Net.TransportType, System.String, System.Int32
-    + (System_Net_SocketPermission *)new_withAccess:(System_Net_NetworkAccess)p1 transport:(System_Net_TransportType)p2 hostName:(NSString *)p3 portNumber:(int32_t)p4
+    + (System_Net_SocketPermission *)new_withAccess:(int32_t)p1 transport:(int32_t)p2 hostName:(NSString *)p3 portNumber:(int32_t)p4
     {
 		
-		System_Net_SocketPermission * object = [[self alloc] initWithSignature:"System.Net.NetworkAccess,System.Net.TransportType,string,int" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], DB_VALUE(p4)];;
+		System_Net_SocketPermission * object = [[self alloc] initWithSignature:"System.Net.NetworkAccess,System.Net.TransportType,string,int" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg], DB_VALUE(p4)];
         
         return object;
     }
@@ -71,7 +71,17 @@
     @synthesize acceptList = _acceptList;
     - (System_Collections_IEnumerator *)acceptList
     {
-		MonoObject *monoObject = [self getMonoProperty:"AcceptList"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AcceptList");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_acceptList isEqualToMonoObject:monoObject]) return _acceptList;					
 		_acceptList = [System_Collections_IEnumerator bestObjectWithMonoObject:monoObject];
 
@@ -83,7 +93,17 @@
     @synthesize connectList = _connectList;
     - (System_Collections_IEnumerator *)connectList
     {
-		MonoObject *monoObject = [self getMonoProperty:"ConnectList"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ConnectList");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_connectList isEqualToMonoObject:monoObject]) return _connectList;					
 		_connectList = [System_Collections_IEnumerator bestObjectWithMonoObject:monoObject];
 
@@ -96,10 +116,10 @@
 	// Managed method name : AddPermission
 	// Managed return type : System.Void
 	// Managed param types : System.Net.NetworkAccess, System.Net.TransportType, System.String, System.Int32
-    - (void)addPermission_withAccess:(System_Net_NetworkAccess)p1 transport:(System_Net_TransportType)p2 hostName:(NSString *)p3 portNumber:(int32_t)p4
+    - (void)addPermission_withAccess:(int32_t)p1 transport:(int32_t)p2 hostName:(NSString *)p3 portNumber:(int32_t)p4
     {
 		
-		[self invokeMonoMethod:"AddPermission(System.Net.NetworkAccess,System.Net.TransportType,string,int)" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], DB_VALUE(p4)];;
+		[self invokeMonoMethod:"AddPermission(System.Net.NetworkAccess,System.Net.TransportType,string,int)" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg], DB_VALUE(p4)];
         
     }
 
@@ -120,7 +140,7 @@
     - (void)fromXml_withSecurityElement:(System_Security_SecurityElement *)p1
     {
 		
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -130,7 +150,7 @@
     - (id <System_Security_IPermission>)intersect_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
@@ -141,7 +161,7 @@
     - (BOOL)isSubsetOf_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -174,7 +194,7 @@
     - (id <System_Security_IPermission>)union_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }

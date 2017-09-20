@@ -29,28 +29,6 @@
 
 	// Managed method name : Create
 	// Managed return type : System.Collections.Concurrent.OrderablePartitioner`1<System.Collections.Concurrent.Partitioner+TSource>
-	// Managed param types : System.Collections.Generic.IList`1<System.Collections.Concurrent.Partitioner+TSource>, System.Boolean
-    + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withList:(id <System_Collections_Generic_IListA1_>)p1 loadBalance:(BOOL)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Collections.Generic.IList`1<System.Collections.Concurrent.Partitioner+TSource>,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-		
-		return [System_Collections_Concurrent_OrderablePartitionerA1 bestObjectWithMonoObject:monoObject];
-    }
-
-	// Managed method name : Create
-	// Managed return type : System.Collections.Concurrent.OrderablePartitioner`1<System.Collections.Concurrent.Partitioner+TSource>
-	// Managed param types : TSource[], System.Boolean
-    + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withArray:(DBSystem_Array *)p1 loadBalance:(BOOL)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(TSource[],bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-		
-		return [System_Collections_Concurrent_OrderablePartitionerA1 bestObjectWithMonoObject:monoObject];
-    }
-
-	// Managed method name : Create
-	// Managed return type : System.Collections.Concurrent.OrderablePartitioner`1<System.Collections.Concurrent.Partitioner+TSource>
 	// Managed param types : System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.Partitioner+TSource>
     + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withSource:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
@@ -67,6 +45,28 @@
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.Partitioner+TSource>,System.Collections.Concurrent.EnumerablePartitionerOptions)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+		
+		return [System_Collections_Concurrent_OrderablePartitionerA1 bestObjectWithMonoObject:monoObject];
+    }
+
+	// Managed method name : Create
+	// Managed return type : System.Collections.Concurrent.OrderablePartitioner`1<System.Collections.Concurrent.Partitioner+TSource>
+	// Managed param types : System.Collections.Generic.IList`1<System.Collections.Concurrent.Partitioner+TSource>, System.Boolean
+    + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withList:(id <System_Collections_Generic_IListA1_>)p1 loadBalance:(BOOL)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Collections.Generic.IList`1<System.Collections.Concurrent.Partitioner+TSource>,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+		
+		return [System_Collections_Concurrent_OrderablePartitionerA1 bestObjectWithMonoObject:monoObject];
+    }
+
+	// Managed method name : Create
+	// Managed return type : System.Collections.Concurrent.OrderablePartitioner`1<System.Collections.Concurrent.Partitioner+TSource>
+	// Managed param types : TSource[], System.Boolean
+    + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withArray:(DBSystem_Array *)p1 loadBalance:(BOOL)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(TSource[],bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_Collections_Concurrent_OrderablePartitionerA1 bestObjectWithMonoObject:monoObject];
     }

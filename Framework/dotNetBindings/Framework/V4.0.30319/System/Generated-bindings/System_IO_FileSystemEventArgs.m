@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.IO.FileSystemEventArgs
 	// Managed param types : System.IO.WatcherChangeTypes, System.String, System.String
-    + (System_IO_FileSystemEventArgs *)new_withChangeType:(System_IO_WatcherChangeTypes)p1 directory:(NSString *)p2 name:(NSString *)p3
+    + (System_IO_FileSystemEventArgs *)new_withChangeType:(int32_t)p1 directory:(NSString *)p2 name:(NSString *)p3
     {
 		
-		System_IO_FileSystemEventArgs * object = [[self alloc] initWithSignature:"System.IO.WatcherChangeTypes,string,string" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];;
+		System_IO_FileSystemEventArgs * object = [[self alloc] initWithSignature:"System.IO.WatcherChangeTypes,string,string" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,10 +44,20 @@
 	// Managed property name : ChangeType
 	// Managed property type : System.IO.WatcherChangeTypes
     @synthesize changeType = _changeType;
-    - (System_IO_WatcherChangeTypes)changeType
+    - (int32_t)changeType
     {
-		MonoObject *monoObject = [self getMonoProperty:"ChangeType"];
-		_changeType = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ChangeType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_changeType = monoObject;
 
 		return _changeType;
 	}
@@ -57,7 +67,17 @@
     @synthesize fullPath = _fullPath;
     - (NSString *)fullPath
     {
-		MonoObject *monoObject = [self getMonoProperty:"FullPath"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FullPath");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_fullPath isEqualToMonoObject:monoObject]) return _fullPath;					
 		_fullPath = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -69,7 +89,17 @@
     @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

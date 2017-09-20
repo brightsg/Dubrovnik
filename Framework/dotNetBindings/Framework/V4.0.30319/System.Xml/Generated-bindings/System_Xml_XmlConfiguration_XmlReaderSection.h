@@ -14,6 +14,10 @@
 #pragma mark -
 #pragma mark Properties
 
+	// Managed property name : CollapseWhiteSpaceIntoEmptyStringString
+	// Managed property type : System.String
+    @property (nonatomic, strong) NSString * collapseWhiteSpaceIntoEmptyStringString;
+
 	// Managed property name : ProhibitDefaultResolverString
 	// Managed property type : System.String
     @property (nonatomic, strong) NSString * prohibitDefaultResolverString;

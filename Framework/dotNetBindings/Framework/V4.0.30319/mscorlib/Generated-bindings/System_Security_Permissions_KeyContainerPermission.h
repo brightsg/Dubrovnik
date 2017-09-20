@@ -16,13 +16,13 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.KeyContainerPermission
-	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Security_Permissions_KeyContainerPermission *)new_withState:(int32_t)p1;
+	// Managed param types : System.Security.Permissions.KeyContainerPermissionFlags
+    + (System_Security_Permissions_KeyContainerPermission *)new_withFlags:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.KeyContainerPermission
-	// Managed param types : System.Security.Permissions.KeyContainerPermissionFlags
-    + (System_Security_Permissions_KeyContainerPermission *)new_withFlags:(int32_t)p1;
+	// Managed param types : System.Security.Permissions.PermissionState
+    + (System_Security_Permissions_KeyContainerPermission *)new_withState:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.KeyContainerPermission

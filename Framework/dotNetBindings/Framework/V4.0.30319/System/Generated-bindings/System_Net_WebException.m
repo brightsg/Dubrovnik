@@ -33,7 +33,7 @@
     + (System_Net_WebException *)new_withMessage:(NSString *)p1
     {
 		
-		System_Net_WebException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_Net_WebException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Net_WebException *)new_withMessage:(NSString *)p1 innerException:(System_Exception *)p2
     {
 		
-		System_Net_WebException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Net_WebException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -52,10 +52,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebException
 	// Managed param types : System.String, System.Net.WebExceptionStatus
-    + (System_Net_WebException *)new_withMessage:(NSString *)p1 status:(System_Net_WebExceptionStatus)p2
+    + (System_Net_WebException *)new_withMessage:(NSString *)p1 status:(int32_t)p2
     {
 		
-		System_Net_WebException * object = [[self alloc] initWithSignature:"string,System.Net.WebExceptionStatus" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Net_WebException * object = [[self alloc] initWithSignature:"string,System.Net.WebExceptionStatus" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -63,10 +63,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebException
 	// Managed param types : System.String, System.Exception, System.Net.WebExceptionStatus, System.Net.WebResponse
-    + (System_Net_WebException *)new_withMessage:(NSString *)p1 innerException:(System_Exception *)p2 status:(System_Net_WebExceptionStatus)p3 response:(System_Net_WebResponse *)p4
+    + (System_Net_WebException *)new_withMessage:(NSString *)p1 innerException:(System_Exception *)p2 status:(int32_t)p3 response:(System_Net_WebResponse *)p4
     {
 		
-		System_Net_WebException * object = [[self alloc] initWithSignature:"string,System.Exception,System.Net.WebExceptionStatus,System.Net.WebResponse" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), [p4 monoValue]];;
+		System_Net_WebException * object = [[self alloc] initWithSignature:"string,System.Exception,System.Net.WebExceptionStatus,System.Net.WebResponse" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), [p4 monoRTInvokeArg]];
         
         return object;
     }
@@ -79,7 +79,17 @@
     @synthesize response = _response;
     - (System_Net_WebResponse *)response
     {
-		MonoObject *monoObject = [self getMonoProperty:"Response"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Response");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_response isEqualToMonoObject:monoObject]) return _response;					
 		_response = [System_Net_WebResponse bestObjectWithMonoObject:monoObject];
 
@@ -89,10 +99,20 @@
 	// Managed property name : Status
 	// Managed property type : System.Net.WebExceptionStatus
     @synthesize status = _status;
-    - (System_Net_WebExceptionStatus)status
+    - (int32_t)status
     {
-		MonoObject *monoObject = [self getMonoProperty:"Status"];
-		_status = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Status");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_status = monoObject;
 
 		return _status;
 	}
@@ -106,7 +126,7 @@
     - (void)getObjectData_withSerializationInfo:(System_Runtime_Serialization_SerializationInfo *)p1 streamingContext:(System_Runtime_Serialization_StreamingContext *)p2
     {
 		
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 

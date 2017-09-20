@@ -32,7 +32,17 @@
     @synthesize container = _container;
     - (System_ComponentModel_IContainer *)container
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.ITypeDescriptorContext.Container"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.ITypeDescriptorContext.Container");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_container isEqualToMonoObject:monoObject]) return _container;					
 		_container = [System_ComponentModel_IContainer bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize instance = _instance;
     - (System_Object *)instance
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.ITypeDescriptorContext.Instance"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.ITypeDescriptorContext.Instance");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_instance isEqualToMonoObject:monoObject]) return _instance;					
 		_instance = [System_Object objectWithMonoObject:monoObject];
 
@@ -56,7 +76,17 @@
     @synthesize propertyDescriptor = _propertyDescriptor;
     - (System_ComponentModel_PropertyDescriptor *)propertyDescriptor
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.ITypeDescriptorContext.PropertyDescriptor"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.ITypeDescriptorContext.PropertyDescriptor");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_propertyDescriptor isEqualToMonoObject:monoObject]) return _propertyDescriptor;					
 		_propertyDescriptor = [System_ComponentModel_PropertyDescriptor bestObjectWithMonoObject:monoObject];
 
@@ -72,7 +102,7 @@
     - (void)onComponentChanged
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.ITypeDescriptorContext.OnComponentChanged()" withNumArgs:0];;
+		[self invokeMonoMethod:"System.ComponentModel.ITypeDescriptorContext.OnComponentChanged()" withNumArgs:0];
         
     }
 

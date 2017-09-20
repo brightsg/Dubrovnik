@@ -33,7 +33,7 @@
     + (System_Configuration_SettingChangingEventArgs *)new_withSettingName:(NSString *)p1 settingClass:(NSString *)p2 settingKey:(NSString *)p3 newValue:(System_Object *)p4 cancel:(BOOL)p5
     {
 		
-		System_Configuration_SettingChangingEventArgs * object = [[self alloc] initWithSignature:"string,string,string,object,bool" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], DB_VALUE(p5)];;
+		System_Configuration_SettingChangingEventArgs * object = [[self alloc] initWithSignature:"string,string,string,object,bool" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], DB_VALUE(p5)];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize newValue = _newValue;
     - (System_Object *)newValue
     {
-		MonoObject *monoObject = [self getMonoProperty:"NewValue"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NewValue");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_newValue isEqualToMonoObject:monoObject]) return _newValue;					
 		_newValue = [System_Object objectWithMonoObject:monoObject];
 
@@ -58,7 +68,17 @@
     @synthesize settingClass = _settingClass;
     - (NSString *)settingClass
     {
-		MonoObject *monoObject = [self getMonoProperty:"SettingClass"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SettingClass");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_settingClass isEqualToMonoObject:monoObject]) return _settingClass;					
 		_settingClass = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -70,7 +90,17 @@
     @synthesize settingKey = _settingKey;
     - (NSString *)settingKey
     {
-		MonoObject *monoObject = [self getMonoProperty:"SettingKey"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SettingKey");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_settingKey isEqualToMonoObject:monoObject]) return _settingKey;					
 		_settingKey = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -82,7 +112,17 @@
     @synthesize settingName = _settingName;
     - (NSString *)settingName
     {
-		MonoObject *monoObject = [self getMonoProperty:"SettingName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SettingName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_settingName isEqualToMonoObject:monoObject]) return _settingName;					
 		_settingName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

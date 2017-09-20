@@ -33,7 +33,7 @@
     + (System_ComponentModel_Design_Serialization_DesignerSerializerAttribute *)new_withSerializerType:(System_Type *)p1 baseSerializerType:(System_Type *)p2
     {
 		
-		System_ComponentModel_Design_Serialization_DesignerSerializerAttribute * object = [[self alloc] initWithSignature:"System.Type,System.Type" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_ComponentModel_Design_Serialization_DesignerSerializerAttribute * object = [[self alloc] initWithSignature:"System.Type,System.Type" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_ComponentModel_Design_Serialization_DesignerSerializerAttribute *)new_withSerializerTypeName:(NSString *)p1 baseSerializerType:(System_Type *)p2
     {
 		
-		System_ComponentModel_Design_Serialization_DesignerSerializerAttribute * object = [[self alloc] initWithSignature:"string,System.Type" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_ComponentModel_Design_Serialization_DesignerSerializerAttribute * object = [[self alloc] initWithSignature:"string,System.Type" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_ComponentModel_Design_Serialization_DesignerSerializerAttribute *)new_withSerializerTypeName:(NSString *)p1 baseSerializerTypeName:(NSString *)p2
     {
 		
-		System_ComponentModel_Design_Serialization_DesignerSerializerAttribute * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_ComponentModel_Design_Serialization_DesignerSerializerAttribute * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -68,7 +68,17 @@
     @synthesize serializerBaseTypeName = _serializerBaseTypeName;
     - (NSString *)serializerBaseTypeName
     {
-		MonoObject *monoObject = [self getMonoProperty:"SerializerBaseTypeName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SerializerBaseTypeName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_serializerBaseTypeName isEqualToMonoObject:monoObject]) return _serializerBaseTypeName;					
 		_serializerBaseTypeName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -80,7 +90,17 @@
     @synthesize serializerTypeName = _serializerTypeName;
     - (NSString *)serializerTypeName
     {
-		MonoObject *monoObject = [self getMonoProperty:"SerializerTypeName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SerializerTypeName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_serializerTypeName isEqualToMonoObject:monoObject]) return _serializerTypeName;					
 		_serializerTypeName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -92,7 +112,17 @@
     @synthesize typeId = _typeId;
     - (System_Object *)typeId
     {
-		MonoObject *monoObject = [self getMonoProperty:"TypeId"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TypeId");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_typeId isEqualToMonoObject:monoObject]) return _typeId;					
 		_typeId = [System_Object objectWithMonoObject:monoObject];
 

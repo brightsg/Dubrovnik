@@ -25,7 +25,7 @@
 	// Managed method name : InitializeLifetimeService
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (System_Object *)initializeLifetimeService;
+    - (System_Object *)db_initializeLifetimeService;
 
 	// Managed method name : Unwrap
 	// Managed return type : System.Object

@@ -32,7 +32,17 @@
     @synthesize localEndPoint = _localEndPoint;
     - (System_Net_IPEndPoint *)localEndPoint
     {
-		MonoObject *monoObject = [self getMonoProperty:"LocalEndPoint"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LocalEndPoint");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_localEndPoint isEqualToMonoObject:monoObject]) return _localEndPoint;					
 		_localEndPoint = [System_Net_IPEndPoint bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize remoteEndPoint = _remoteEndPoint;
     - (System_Net_IPEndPoint *)remoteEndPoint
     {
-		MonoObject *monoObject = [self getMonoProperty:"RemoteEndPoint"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RemoteEndPoint");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_remoteEndPoint isEqualToMonoObject:monoObject]) return _remoteEndPoint;					
 		_remoteEndPoint = [System_Net_IPEndPoint bestObjectWithMonoObject:monoObject];
 
@@ -54,10 +74,20 @@
 	// Managed property name : State
 	// Managed property type : System.Net.NetworkInformation.TcpState
     @synthesize state = _state;
-    - (System_Net_NetworkInformation_TcpState)state
+    - (int32_t)state
     {
-		MonoObject *monoObject = [self getMonoProperty:"State"];
-		_state = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "State");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_state = monoObject;
 
 		return _state;
 	}

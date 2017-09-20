@@ -32,7 +32,17 @@
     static System_Media_SystemSound * m_asterisk;
     + (System_Media_SystemSound *)asterisk
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Asterisk"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Asterisk");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_asterisk isEqualToMonoObject:monoObject]) return m_asterisk;					
 		m_asterisk = [System_Media_SystemSound bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     static System_Media_SystemSound * m_beep;
     + (System_Media_SystemSound *)beep
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Beep"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Beep");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_beep isEqualToMonoObject:monoObject]) return m_beep;					
 		m_beep = [System_Media_SystemSound bestObjectWithMonoObject:monoObject];
 
@@ -56,7 +76,17 @@
     static System_Media_SystemSound * m_exclamation;
     + (System_Media_SystemSound *)exclamation
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Exclamation"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Exclamation");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_exclamation isEqualToMonoObject:monoObject]) return m_exclamation;					
 		m_exclamation = [System_Media_SystemSound bestObjectWithMonoObject:monoObject];
 
@@ -68,7 +98,17 @@
     static System_Media_SystemSound * m_hand;
     + (System_Media_SystemSound *)hand
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Hand"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Hand");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_hand isEqualToMonoObject:monoObject]) return m_hand;					
 		m_hand = [System_Media_SystemSound bestObjectWithMonoObject:monoObject];
 
@@ -80,7 +120,17 @@
     static System_Media_SystemSound * m_question;
     + (System_Media_SystemSound *)question
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Question"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Question");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_question isEqualToMonoObject:monoObject]) return m_question;					
 		m_question = [System_Media_SystemSound bestObjectWithMonoObject:monoObject];
 

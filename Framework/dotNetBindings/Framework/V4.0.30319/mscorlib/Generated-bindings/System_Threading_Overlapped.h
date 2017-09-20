@@ -57,13 +57,13 @@
 
 	// Managed method name : Pack
 	// Managed return type : System.Threading.NativeOverlapped*
-	// Managed param types : System.Threading.IOCompletionCallback
-    - (System_Threading_NativeOverlapped *)pack_withIocb:(System_Threading_IOCompletionCallback *)p1;
+	// Managed param types : System.Threading.IOCompletionCallback, System.Object
+    - (System_Threading_NativeOverlapped *)pack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(System_Object *)p2;
 
 	// Managed method name : Pack
 	// Managed return type : System.Threading.NativeOverlapped*
-	// Managed param types : System.Threading.IOCompletionCallback, System.Object
-    - (System_Threading_NativeOverlapped *)pack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(System_Object *)p2;
+	// Managed param types : System.Threading.IOCompletionCallback
+    - (System_Threading_NativeOverlapped *)pack_withIocb:(System_Threading_IOCompletionCallback *)p1;
 
 	// Managed method name : Unpack
 	// Managed return type : System.Threading.Overlapped
@@ -72,12 +72,12 @@
 
 	// Managed method name : UnsafePack
 	// Managed return type : System.Threading.NativeOverlapped*
-	// Managed param types : System.Threading.IOCompletionCallback
-    - (System_Threading_NativeOverlapped *)unsafePack_withIocb:(System_Threading_IOCompletionCallback *)p1;
+	// Managed param types : System.Threading.IOCompletionCallback, System.Object
+    - (System_Threading_NativeOverlapped *)unsafePack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(System_Object *)p2;
 
 	// Managed method name : UnsafePack
 	// Managed return type : System.Threading.NativeOverlapped*
-	// Managed param types : System.Threading.IOCompletionCallback, System.Object
-    - (System_Threading_NativeOverlapped *)unsafePack_withIocb:(System_Threading_IOCompletionCallback *)p1 userData:(System_Object *)p2;
+	// Managed param types : System.Threading.IOCompletionCallback
+    - (System_Threading_NativeOverlapped *)unsafePack_withIocb:(System_Threading_IOCompletionCallback *)p1;
 @end
 //--Dubrovnik.CodeGenerator

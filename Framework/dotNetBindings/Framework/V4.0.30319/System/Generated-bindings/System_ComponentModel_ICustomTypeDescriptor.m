@@ -99,7 +99,7 @@
     - (System_Object *)getEditor_withEditorBaseType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.ICustomTypeDescriptor.GetEditor(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.ICustomTypeDescriptor.GetEditor(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -121,7 +121,7 @@
     - (System_ComponentModel_EventDescriptorCollection *)getEvents_withAttributes:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.ICustomTypeDescriptor.GetEvents(System.Attribute[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.ICustomTypeDescriptor.GetEvents(System.Attribute[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_EventDescriptorCollection bestObjectWithMonoObject:monoObject];
     }
@@ -143,7 +143,7 @@
     - (System_ComponentModel_PropertyDescriptorCollection *)getProperties_withAttributes:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.ICustomTypeDescriptor.GetProperties(System.Attribute[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.ICustomTypeDescriptor.GetProperties(System.Attribute[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_PropertyDescriptorCollection bestObjectWithMonoObject:monoObject];
     }
@@ -154,7 +154,7 @@
     - (System_Object *)getPropertyOwner_withPd:(System_ComponentModel_PropertyDescriptor *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.ICustomTypeDescriptor.GetPropertyOwner(System.ComponentModel.PropertyDescriptor)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.ICustomTypeDescriptor.GetPropertyOwner(System.ComponentModel.PropertyDescriptor)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }

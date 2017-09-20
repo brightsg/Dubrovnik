@@ -33,7 +33,7 @@
     + (System_Security_Cryptography_X509Certificates_X509CertificateCollection__X509CertificateEnumerator *)new_withMappings:(System_Security_Cryptography_X509Certificates_X509CertificateCollection *)p1
     {
 		
-		System_Security_Cryptography_X509Certificates_X509CertificateCollection__X509CertificateEnumerator * object = [[self alloc] initWithSignature:"System.Security.Cryptography.X509Certificates.X509CertificateCollection" withNumArgs:1, [p1 monoValue]];;
+		System_Security_Cryptography_X509Certificates_X509CertificateCollection__X509CertificateEnumerator * object = [[self alloc] initWithSignature:"System.Security.Cryptography.X509Certificates.X509CertificateCollection" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize current = _current;
     - (System_Security_Cryptography_X509Certificates_X509Certificate *)current
     {
-		MonoObject *monoObject = [self getMonoProperty:"Current"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Current");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_current isEqualToMonoObject:monoObject]) return _current;					
 		_current = [System_Security_Cryptography_X509Certificates_X509Certificate bestObjectWithMonoObject:monoObject];
 
@@ -73,7 +83,7 @@
     - (void)reset
     {
 		
-		[self invokeMonoMethod:"Reset()" withNumArgs:0];;
+		[self invokeMonoMethod:"Reset()" withNumArgs:0];
         
     }
 

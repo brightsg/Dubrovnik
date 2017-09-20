@@ -32,7 +32,17 @@
     @synthesize site = _site;
     - (System_ComponentModel_ISite *)site
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.IComponent.Site"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.IComponent.Site");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_site isEqualToMonoObject:monoObject]) return _site;					
 		_site = [System_ComponentModel_ISite bestObjectWithMonoObject:monoObject];
 
@@ -41,8 +51,17 @@
     - (void)setSite:(System_ComponentModel_ISite *)value
 	{
 		_site = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"System.ComponentModel.IComponent.Site" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.ComponentModel.IComponent.Site");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

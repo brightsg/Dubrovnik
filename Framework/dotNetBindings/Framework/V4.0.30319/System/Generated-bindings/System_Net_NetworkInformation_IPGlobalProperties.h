@@ -32,7 +32,7 @@
 
 	// Managed property name : NodeType
 	// Managed property type : System.Net.NetworkInformation.NetBiosNodeType
-    @property (nonatomic, readonly) System_Net_NetworkInformation_NetBiosNodeType nodeType;
+    @property (nonatomic, readonly) int32_t nodeType;
 
 #pragma mark -
 #pragma mark Methods

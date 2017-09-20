@@ -33,7 +33,7 @@
     - (void)beginInit
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.ISupportInitialize.BeginInit()" withNumArgs:0];;
+		[self invokeMonoMethod:"System.ComponentModel.ISupportInitialize.BeginInit()" withNumArgs:0];
         
     }
 
@@ -43,7 +43,7 @@
     - (void)endInit
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.ISupportInitialize.EndInit()" withNumArgs:0];;
+		[self invokeMonoMethod:"System.ComponentModel.ISupportInitialize.EndInit()" withNumArgs:0];
         
     }
 

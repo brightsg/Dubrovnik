@@ -181,22 +181,22 @@
 
 	// Managed method name : SubstringByTextElements
 	// Managed return type : System.String
-	// Managed param types : System.Int32
-    - (NSString *)substringByTextElements_withStartingTextElement:(int32_t)p1
+	// Managed param types : System.Int32, System.Int32
+    - (NSString *)substringByTextElements_withStartingTextElement:(int32_t)p1 lengthInTextElements:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"SubstringByTextElements(int)" withNumArgs:1, DB_VALUE(p1)];
+		MonoObject *monoObject = [self invokeMonoMethod:"SubstringByTextElements(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
 	// Managed method name : SubstringByTextElements
 	// Managed return type : System.String
-	// Managed param types : System.Int32, System.Int32
-    - (NSString *)substringByTextElements_withStartingTextElement:(int32_t)p1 lengthInTextElements:(int32_t)p2
+	// Managed param types : System.Int32
+    - (NSString *)substringByTextElements_withStartingTextElement:(int32_t)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"SubstringByTextElements(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"SubstringByTextElements(int)" withNumArgs:1, DB_VALUE(p1)];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }

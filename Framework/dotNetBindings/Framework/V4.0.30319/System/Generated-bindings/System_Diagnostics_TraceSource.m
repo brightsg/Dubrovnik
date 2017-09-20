@@ -33,7 +33,7 @@
     + (System_Diagnostics_TraceSource *)new_withName:(NSString *)p1
     {
 		
-		System_Diagnostics_TraceSource * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_Diagnostics_TraceSource * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -41,10 +41,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.TraceSource
 	// Managed param types : System.String, System.Diagnostics.SourceLevels
-    + (System_Diagnostics_TraceSource *)new_withName:(NSString *)p1 defaultLevel:(System_Diagnostics_SourceLevels)p2
+    + (System_Diagnostics_TraceSource *)new_withName:(NSString *)p1 defaultLevel:(int32_t)p2
     {
 		
-		System_Diagnostics_TraceSource * object = [[self alloc] initWithSignature:"string,System.Diagnostics.SourceLevels" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Diagnostics_TraceSource * object = [[self alloc] initWithSignature:"string,System.Diagnostics.SourceLevels" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -57,7 +57,17 @@
     @synthesize attributes = _attributes;
     - (System_Collections_Specialized_StringDictionary *)attributes
     {
-		MonoObject *monoObject = [self getMonoProperty:"Attributes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Attributes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_attributes isEqualToMonoObject:monoObject]) return _attributes;					
 		_attributes = [System_Collections_Specialized_StringDictionary bestObjectWithMonoObject:monoObject];
 
@@ -69,7 +79,17 @@
     @synthesize listeners = _listeners;
     - (System_Diagnostics_TraceListenerCollection *)listeners
     {
-		MonoObject *monoObject = [self getMonoProperty:"Listeners"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Listeners");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_listeners isEqualToMonoObject:monoObject]) return _listeners;					
 		_listeners = [System_Diagnostics_TraceListenerCollection bestObjectWithMonoObject:monoObject];
 
@@ -81,7 +101,17 @@
     @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -93,7 +123,17 @@
     @synthesize switch = _switch;
     - (System_Diagnostics_SourceSwitch *)switch
     {
-		MonoObject *monoObject = [self getMonoProperty:"Switch"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Switch");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_switch isEqualToMonoObject:monoObject]) return _switch;					
 		_switch = [System_Diagnostics_SourceSwitch bestObjectWithMonoObject:monoObject];
 
@@ -102,8 +142,17 @@
     - (void)setSwitch:(System_Diagnostics_SourceSwitch *)value
 	{
 		_switch = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Switch" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Switch");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -115,7 +164,7 @@
     - (void)close
     {
 		
-		[self invokeMonoMethod:"Close()" withNumArgs:0];;
+		[self invokeMonoMethod:"Close()" withNumArgs:0];
         
     }
 
@@ -125,57 +174,57 @@
     - (void)flush
     {
 		
-		[self invokeMonoMethod:"Flush()" withNumArgs:0];;
+		[self invokeMonoMethod:"Flush()" withNumArgs:0];
         
     }
 
 	// Managed method name : TraceData
 	// Managed return type : System.Void
 	// Managed param types : System.Diagnostics.TraceEventType, System.Int32, System.Object
-    - (void)traceData_withEventTypeSDTraceEventType:(System_Diagnostics_TraceEventType)p1 idInt:(int32_t)p2 dataObject:(System_Object *)p3
+    - (void)traceData_withEventTypeSDTraceEventType:(int32_t)p1 idInt:(int32_t)p2 dataObject:(System_Object *)p3
     {
 		
-		[self invokeMonoMethod:"TraceData(System.Diagnostics.TraceEventType,int,object)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]];;
+		[self invokeMonoMethod:"TraceData(System.Diagnostics.TraceEventType,int,object)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
         
     }
 
 	// Managed method name : TraceData
 	// Managed return type : System.Void
 	// Managed param types : System.Diagnostics.TraceEventType, System.Int32, System.Object[]
-    - (void)traceData_withEventTypeSDTraceEventType:(System_Diagnostics_TraceEventType)p1 idInt:(int32_t)p2 dataObject:(DBSystem_Array *)p3
+    - (void)traceData_withEventTypeSDTraceEventType:(int32_t)p1 idInt:(int32_t)p2 dataObject:(DBSystem_Array *)p3
     {
 		
-		[self invokeMonoMethod:"TraceData(System.Diagnostics.TraceEventType,int,object[])" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]];;
+		[self invokeMonoMethod:"TraceData(System.Diagnostics.TraceEventType,int,object[])" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
         
     }
 
 	// Managed method name : TraceEvent
 	// Managed return type : System.Void
 	// Managed param types : System.Diagnostics.TraceEventType, System.Int32
-    - (void)traceEvent_withEventType:(System_Diagnostics_TraceEventType)p1 id:(int32_t)p2
+    - (void)traceEvent_withEventType:(int32_t)p1 id:(int32_t)p2
     {
 		
-		[self invokeMonoMethod:"TraceEvent(System.Diagnostics.TraceEventType,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		[self invokeMonoMethod:"TraceEvent(System.Diagnostics.TraceEventType,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
         
     }
 
 	// Managed method name : TraceEvent
 	// Managed return type : System.Void
 	// Managed param types : System.Diagnostics.TraceEventType, System.Int32, System.String
-    - (void)traceEvent_withEventType:(System_Diagnostics_TraceEventType)p1 id:(int32_t)p2 message:(NSString *)p3
+    - (void)traceEvent_withEventType:(int32_t)p1 id:(int32_t)p2 message:(NSString *)p3
     {
 		
-		[self invokeMonoMethod:"TraceEvent(System.Diagnostics.TraceEventType,int,string)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]];;
+		[self invokeMonoMethod:"TraceEvent(System.Diagnostics.TraceEventType,int,string)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
         
     }
 
 	// Managed method name : TraceEvent
 	// Managed return type : System.Void
 	// Managed param types : System.Diagnostics.TraceEventType, System.Int32, System.String, System.Object[]
-    - (void)traceEvent_withEventType:(System_Diagnostics_TraceEventType)p1 id:(int32_t)p2 format:(NSString *)p3 args:(DBSystem_Array *)p4
+    - (void)traceEvent_withEventType:(int32_t)p1 id:(int32_t)p2 format:(NSString *)p3 args:(DBSystem_Array *)p4
     {
 		
-		[self invokeMonoMethod:"TraceEvent(System.Diagnostics.TraceEventType,int,string,object[])" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], [p4 monoValue]];;
+		[self invokeMonoMethod:"TraceEvent(System.Diagnostics.TraceEventType,int,string,object[])" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
         
     }
 
@@ -185,7 +234,7 @@
     - (void)traceInformation_withMessage:(NSString *)p1
     {
 		
-		[self invokeMonoMethod:"TraceInformation(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"TraceInformation(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -195,7 +244,7 @@
     - (void)traceInformation_withFormat:(NSString *)p1 args:(DBSystem_Array *)p2
     {
 		
-		[self invokeMonoMethod:"TraceInformation(string,object[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"TraceInformation(string,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -205,7 +254,7 @@
     - (void)traceTransfer_withId:(int32_t)p1 message:(NSString *)p2 relatedActivityId:(System_Guid *)p3
     {
 		
-		[self invokeMonoMethod:"TraceTransfer(int,string,System.Guid)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"TraceTransfer(int,string,System.Guid)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 

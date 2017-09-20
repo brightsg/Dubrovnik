@@ -33,7 +33,7 @@
     + (System_Diagnostics_EventLog *)new_withLogName:(NSString *)p1
     {
 		
-		System_Diagnostics_EventLog * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_Diagnostics_EventLog * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Diagnostics_EventLog *)new_withLogName:(NSString *)p1 machineName:(NSString *)p2
     {
 		
-		System_Diagnostics_EventLog * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Diagnostics_EventLog * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Diagnostics_EventLog *)new_withLogName:(NSString *)p1 machineName:(NSString *)p2 source:(NSString *)p3
     {
 		
-		System_Diagnostics_EventLog * object = [[self alloc] initWithSignature:"string,string,string" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		System_Diagnostics_EventLog * object = [[self alloc] initWithSignature:"string,string,string" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -68,16 +68,35 @@
     @synthesize enableRaisingEvents = _enableRaisingEvents;
     - (BOOL)enableRaisingEvents
     {
-		MonoObject *monoObject = [self getMonoProperty:"EnableRaisingEvents"];
-		_enableRaisingEvents = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EnableRaisingEvents");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_enableRaisingEvents = monoObject;
 
 		return _enableRaisingEvents;
 	}
     - (void)setEnableRaisingEvents:(BOOL)value
 	{
 		_enableRaisingEvents = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"EnableRaisingEvents" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "EnableRaisingEvents");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Entries
@@ -85,7 +104,17 @@
     @synthesize entries = _entries;
     - (System_Diagnostics_EventLogEntryCollection *)entries
     {
-		MonoObject *monoObject = [self getMonoProperty:"Entries"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Entries");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_entries isEqualToMonoObject:monoObject]) return _entries;					
 		_entries = [System_Diagnostics_EventLogEntryCollection bestObjectWithMonoObject:monoObject];
 
@@ -97,7 +126,17 @@
     @synthesize log = _log;
     - (NSString *)log
     {
-		MonoObject *monoObject = [self getMonoProperty:"Log"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Log");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_log isEqualToMonoObject:monoObject]) return _log;					
 		_log = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -106,8 +145,17 @@
     - (void)setLog:(NSString *)value
 	{
 		_log = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"Log" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Log");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : LogDisplayName
@@ -115,7 +163,17 @@
     @synthesize logDisplayName = _logDisplayName;
     - (NSString *)logDisplayName
     {
-		MonoObject *monoObject = [self getMonoProperty:"LogDisplayName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LogDisplayName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_logDisplayName isEqualToMonoObject:monoObject]) return _logDisplayName;					
 		_logDisplayName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -127,7 +185,17 @@
     @synthesize machineName = _machineName;
     - (NSString *)machineName
     {
-		MonoObject *monoObject = [self getMonoProperty:"MachineName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MachineName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_machineName isEqualToMonoObject:monoObject]) return _machineName;					
 		_machineName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -136,8 +204,17 @@
     - (void)setMachineName:(NSString *)value
 	{
 		_machineName = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"MachineName" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "MachineName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : MaximumKilobytes
@@ -145,16 +222,35 @@
     @synthesize maximumKilobytes = _maximumKilobytes;
     - (int64_t)maximumKilobytes
     {
-		MonoObject *monoObject = [self getMonoProperty:"MaximumKilobytes"];
-		_maximumKilobytes = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MaximumKilobytes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_maximumKilobytes = monoObject;
 
 		return _maximumKilobytes;
 	}
     - (void)setMaximumKilobytes:(int64_t)value
 	{
 		_maximumKilobytes = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"MaximumKilobytes" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int64_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "MaximumKilobytes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : MinimumRetentionDays
@@ -162,8 +258,18 @@
     @synthesize minimumRetentionDays = _minimumRetentionDays;
     - (int32_t)minimumRetentionDays
     {
-		MonoObject *monoObject = [self getMonoProperty:"MinimumRetentionDays"];
-		_minimumRetentionDays = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MinimumRetentionDays");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_minimumRetentionDays = monoObject;
 
 		return _minimumRetentionDays;
 	}
@@ -171,10 +277,20 @@
 	// Managed property name : OverflowAction
 	// Managed property type : System.Diagnostics.OverflowAction
     @synthesize overflowAction = _overflowAction;
-    - (System_Diagnostics_OverflowAction)overflowAction
+    - (int32_t)overflowAction
     {
-		MonoObject *monoObject = [self getMonoProperty:"OverflowAction"];
-		_overflowAction = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OverflowAction");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_overflowAction = monoObject;
 
 		return _overflowAction;
 	}
@@ -184,7 +300,17 @@
     @synthesize source = _source;
     - (NSString *)source
     {
-		MonoObject *monoObject = [self getMonoProperty:"Source"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Source");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_source isEqualToMonoObject:monoObject]) return _source;					
 		_source = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -193,8 +319,17 @@
     - (void)setSource:(NSString *)value
 	{
 		_source = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"Source" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Source");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : SynchronizingObject
@@ -202,7 +337,17 @@
     @synthesize synchronizingObject = _synchronizingObject;
     - (System_ComponentModel_ISynchronizeInvoke *)synchronizingObject
     {
-		MonoObject *monoObject = [self getMonoProperty:"SynchronizingObject"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SynchronizingObject");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_synchronizingObject isEqualToMonoObject:monoObject]) return _synchronizingObject;					
 		_synchronizingObject = [System_ComponentModel_ISynchronizeInvoke bestObjectWithMonoObject:monoObject];
 
@@ -211,8 +356,17 @@
     - (void)setSynchronizingObject:(System_ComponentModel_ISynchronizeInvoke *)value
 	{
 		_synchronizingObject = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"SynchronizingObject" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "SynchronizingObject");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -224,7 +378,7 @@
     - (void)beginInit
     {
 		
-		[self invokeMonoMethod:"BeginInit()" withNumArgs:0];;
+		[self invokeMonoMethod:"BeginInit()" withNumArgs:0];
         
     }
 
@@ -234,7 +388,7 @@
     - (void)clear
     {
 		
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];
         
     }
 
@@ -244,7 +398,7 @@
     - (void)close
     {
 		
-		[self invokeMonoMethod:"Close()" withNumArgs:0];;
+		[self invokeMonoMethod:"Close()" withNumArgs:0];
         
     }
 
@@ -254,7 +408,7 @@
     + (void)createEventSource_withSource:(NSString *)p1 logName:(NSString *)p2
     {
 		
-		[self invokeMonoClassMethod:"CreateEventSource(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"CreateEventSource(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -264,7 +418,7 @@
     + (void)createEventSource_withSource:(NSString *)p1 logName:(NSString *)p2 machineName:(NSString *)p3
     {
 		
-		[self invokeMonoClassMethod:"CreateEventSource(string,string,string)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoClassMethod:"CreateEventSource(string,string,string)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -274,7 +428,7 @@
     + (void)createEventSource_withSourceData:(System_Diagnostics_EventSourceCreationData *)p1
     {
 		
-		[self invokeMonoClassMethod:"CreateEventSource(System.Diagnostics.EventSourceCreationData)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"CreateEventSource(System.Diagnostics.EventSourceCreationData)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -284,7 +438,7 @@
     + (void)delete_withLogName:(NSString *)p1
     {
 		
-		[self invokeMonoClassMethod:"Delete(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"Delete(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -294,7 +448,7 @@
     + (void)delete_withLogName:(NSString *)p1 machineName:(NSString *)p2
     {
 		
-		[self invokeMonoClassMethod:"Delete(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"Delete(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -304,7 +458,7 @@
     + (void)deleteEventSource_withSource:(NSString *)p1
     {
 		
-		[self invokeMonoClassMethod:"DeleteEventSource(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"DeleteEventSource(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -314,7 +468,7 @@
     + (void)deleteEventSource_withSource:(NSString *)p1 machineName:(NSString *)p2
     {
 		
-		[self invokeMonoClassMethod:"DeleteEventSource(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"DeleteEventSource(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -324,7 +478,7 @@
     - (void)endInit
     {
 		
-		[self invokeMonoMethod:"EndInit()" withNumArgs:0];;
+		[self invokeMonoMethod:"EndInit()" withNumArgs:0];
         
     }
 
@@ -334,7 +488,7 @@
     + (BOOL)exists_withLogName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Exists(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Exists(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -345,7 +499,7 @@
     + (BOOL)exists_withLogName:(NSString *)p1 machineName:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Exists(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Exists(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -367,7 +521,7 @@
     + (DBSystem_Array *)getEventLogs_withMachineName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEventLogs(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEventLogs(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -378,7 +532,7 @@
     + (NSString *)logNameFromSourceName_withSource:(NSString *)p1 machineName:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"LogNameFromSourceName(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"LogNameFromSourceName(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -386,10 +540,10 @@
 	// Managed method name : ModifyOverflowPolicy
 	// Managed return type : System.Void
 	// Managed param types : System.Diagnostics.OverflowAction, System.Int32
-    - (void)modifyOverflowPolicy_withAction:(System_Diagnostics_OverflowAction)p1 retentionDays:(int32_t)p2
+    - (void)modifyOverflowPolicy_withAction:(int32_t)p1 retentionDays:(int32_t)p2
     {
 		
-		[self invokeMonoMethod:"ModifyOverflowPolicy(System.Diagnostics.OverflowAction,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		[self invokeMonoMethod:"ModifyOverflowPolicy(System.Diagnostics.OverflowAction,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
         
     }
 
@@ -399,7 +553,7 @@
     - (void)registerDisplayName_withResourceFile:(NSString *)p1 resourceId:(int64_t)p2
     {
 		
-		[self invokeMonoMethod:"RegisterDisplayName(string,long)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"RegisterDisplayName(string,long)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
     }
 
@@ -409,7 +563,7 @@
     + (BOOL)sourceExists_withSource:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"SourceExists(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"SourceExists(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -420,7 +574,7 @@
     + (BOOL)sourceExists_withSource:(NSString *)p1 machineName:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"SourceExists(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"SourceExists(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -431,7 +585,7 @@
     - (void)writeEntry_withMessage:(NSString *)p1
     {
 		
-		[self invokeMonoMethod:"WriteEntry(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"WriteEntry(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -441,87 +595,87 @@
     + (void)writeEntry_withSource:(NSString *)p1 message:(NSString *)p2
     {
 		
-		[self invokeMonoClassMethod:"WriteEntry(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"WriteEntry(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
 	// Managed method name : WriteEntry
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Diagnostics.EventLogEntryType
-    - (void)writeEntry_withMessage:(NSString *)p1 type:(System_Diagnostics_EventLogEntryType)p2
+    - (void)writeEntry_withMessage:(NSString *)p1 type:(int32_t)p2
     {
 		
-		[self invokeMonoMethod:"WriteEntry(string,System.Diagnostics.EventLogEntryType)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"WriteEntry(string,System.Diagnostics.EventLogEntryType)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
     }
 
 	// Managed method name : WriteEntry
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.String, System.Diagnostics.EventLogEntryType
-    + (void)writeEntry_withSource:(NSString *)p1 message:(NSString *)p2 type:(System_Diagnostics_EventLogEntryType)p3
+    + (void)writeEntry_withSource:(NSString *)p1 message:(NSString *)p2 type:(int32_t)p3
     {
 		
-		[self invokeMonoClassMethod:"WriteEntry(string,string,System.Diagnostics.EventLogEntryType)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		[self invokeMonoClassMethod:"WriteEntry(string,string,System.Diagnostics.EventLogEntryType)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
         
     }
 
 	// Managed method name : WriteEntry
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Diagnostics.EventLogEntryType, System.Int32
-    - (void)writeEntry_withMessage:(NSString *)p1 type:(System_Diagnostics_EventLogEntryType)p2 eventID:(int32_t)p3
+    - (void)writeEntry_withMessage:(NSString *)p1 type:(int32_t)p2 eventID:(int32_t)p3
     {
 		
-		[self invokeMonoMethod:"WriteEntry(string,System.Diagnostics.EventLogEntryType,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		[self invokeMonoMethod:"WriteEntry(string,System.Diagnostics.EventLogEntryType,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
         
     }
 
 	// Managed method name : WriteEntry
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.String, System.Diagnostics.EventLogEntryType, System.Int32
-    + (void)writeEntry_withSource:(NSString *)p1 message:(NSString *)p2 type:(System_Diagnostics_EventLogEntryType)p3 eventID:(int32_t)p4
+    + (void)writeEntry_withSource:(NSString *)p1 message:(NSString *)p2 type:(int32_t)p3 eventID:(int32_t)p4
     {
 		
-		[self invokeMonoClassMethod:"WriteEntry(string,string,System.Diagnostics.EventLogEntryType,int)" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4)];;
+		[self invokeMonoClassMethod:"WriteEntry(string,string,System.Diagnostics.EventLogEntryType,int)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
         
     }
 
 	// Managed method name : WriteEntry
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Diagnostics.EventLogEntryType, System.Int32, System.Int16
-    - (void)writeEntry_withMessage:(NSString *)p1 type:(System_Diagnostics_EventLogEntryType)p2 eventID:(int32_t)p3 category:(int16_t)p4
+    - (void)writeEntry_withMessage:(NSString *)p1 type:(int32_t)p2 eventID:(int32_t)p3 category:(int16_t)p4
     {
 		
-		[self invokeMonoMethod:"WriteEntry(string,System.Diagnostics.EventLogEntryType,int,int16)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];;
+		[self invokeMonoMethod:"WriteEntry(string,System.Diagnostics.EventLogEntryType,int,int16)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
         
     }
 
 	// Managed method name : WriteEntry
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.String, System.Diagnostics.EventLogEntryType, System.Int32, System.Int16
-    + (void)writeEntry_withSource:(NSString *)p1 message:(NSString *)p2 type:(System_Diagnostics_EventLogEntryType)p3 eventID:(int32_t)p4 category:(int16_t)p5
+    + (void)writeEntry_withSource:(NSString *)p1 message:(NSString *)p2 type:(int32_t)p3 eventID:(int32_t)p4 category:(int16_t)p5
     {
 		
-		[self invokeMonoClassMethod:"WriteEntry(string,string,System.Diagnostics.EventLogEntryType,int,int16)" withNumArgs:5, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];;
+		[self invokeMonoClassMethod:"WriteEntry(string,string,System.Diagnostics.EventLogEntryType,int,int16)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];
         
     }
 
 	// Managed method name : WriteEntry
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.String, System.Diagnostics.EventLogEntryType, System.Int32, System.Int16, System.Byte[]
-    + (void)writeEntry_withSource:(NSString *)p1 message:(NSString *)p2 type:(System_Diagnostics_EventLogEntryType)p3 eventID:(int32_t)p4 category:(int16_t)p5 rawData:(NSData *)p6
+    + (void)writeEntry_withSource:(NSString *)p1 message:(NSString *)p2 type:(int32_t)p3 eventID:(int32_t)p4 category:(int16_t)p5 rawData:(NSData *)p6
     {
 		
-		[self invokeMonoClassMethod:"WriteEntry(string,string,System.Diagnostics.EventLogEntryType,int,int16,byte[])" withNumArgs:6, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), [p6 monoValue]];;
+		[self invokeMonoClassMethod:"WriteEntry(string,string,System.Diagnostics.EventLogEntryType,int,int16,byte[])" withNumArgs:6, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), [p6 monoRTInvokeArg]];
         
     }
 
 	// Managed method name : WriteEntry
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Diagnostics.EventLogEntryType, System.Int32, System.Int16, System.Byte[]
-    - (void)writeEntry_withMessage:(NSString *)p1 type:(System_Diagnostics_EventLogEntryType)p2 eventID:(int32_t)p3 category:(int16_t)p4 rawData:(NSData *)p5
+    - (void)writeEntry_withMessage:(NSString *)p1 type:(int32_t)p2 eventID:(int32_t)p3 category:(int16_t)p4 rawData:(NSData *)p5
     {
 		
-		[self invokeMonoMethod:"WriteEntry(string,System.Diagnostics.EventLogEntryType,int,int16,byte[])" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), [p5 monoValue]];;
+		[self invokeMonoMethod:"WriteEntry(string,System.Diagnostics.EventLogEntryType,int,int16,byte[])" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), [p5 monoRTInvokeArg]];
         
     }
 
@@ -531,7 +685,7 @@
     - (void)writeEvent_withInstance:(System_Diagnostics_EventInstance *)p1 values:(DBSystem_Array *)p2
     {
 		
-		[self invokeMonoMethod:"WriteEvent(System.Diagnostics.EventInstance,object[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"WriteEvent(System.Diagnostics.EventInstance,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -541,7 +695,7 @@
     - (void)writeEvent_withInstance:(System_Diagnostics_EventInstance *)p1 data:(NSData *)p2 values:(DBSystem_Array *)p3
     {
 		
-		[self invokeMonoMethod:"WriteEvent(System.Diagnostics.EventInstance,byte[],object[])" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"WriteEvent(System.Diagnostics.EventInstance,byte[],object[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -551,7 +705,7 @@
     + (void)writeEvent_withSource:(NSString *)p1 instance:(System_Diagnostics_EventInstance *)p2 values:(DBSystem_Array *)p3
     {
 		
-		[self invokeMonoClassMethod:"WriteEvent(string,System.Diagnostics.EventInstance,object[])" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoClassMethod:"WriteEvent(string,System.Diagnostics.EventInstance,object[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -561,7 +715,7 @@
     + (void)writeEvent_withSource:(NSString *)p1 instance:(System_Diagnostics_EventInstance *)p2 data:(NSData *)p3 values:(DBSystem_Array *)p4
     {
 		
-		[self invokeMonoClassMethod:"WriteEvent(string,System.Diagnostics.EventInstance,byte[],object[])" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];;
+		[self invokeMonoClassMethod:"WriteEvent(string,System.Diagnostics.EventInstance,byte[],object[])" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
         
     }
 

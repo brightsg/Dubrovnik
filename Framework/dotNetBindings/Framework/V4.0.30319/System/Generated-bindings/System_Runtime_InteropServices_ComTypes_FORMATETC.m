@@ -47,14 +47,14 @@
 	// Managed field name : dwAspect
 	// Managed field type : System.Runtime.InteropServices.ComTypes.DVASPECT
     @synthesize dwAspect = _dwAspect;
-    - (System_Runtime_InteropServices_ComTypes_DVASPECT)dwAspect
+    - (int32_t)dwAspect
     {
 		MonoObject *monoObject = [self getMonoField:"dwAspect"];
 		_dwAspect = DB_UNBOX_INT32(monoObject);
 
 		return _dwAspect;
 	}
-    - (void)setDwAspect:(System_Runtime_InteropServices_ComTypes_DVASPECT)value
+    - (void)setDwAspect:(int32_t)value
 	{
 		_dwAspect = value;
 		MonoObject *monoObject = DB_VALUE(value);
@@ -98,14 +98,14 @@
 	// Managed field name : tymed
 	// Managed field type : System.Runtime.InteropServices.ComTypes.TYMED
     @synthesize tymed = _tymed;
-    - (System_Runtime_InteropServices_ComTypes_TYMED)tymed
+    - (int32_t)tymed
     {
 		MonoObject *monoObject = [self getMonoField:"tymed"];
 		_tymed = DB_UNBOX_INT32(monoObject);
 
 		return _tymed;
 	}
-    - (void)setTymed:(System_Runtime_InteropServices_ComTypes_TYMED)value
+    - (void)setTymed:(int32_t)value
 	{
 		_tymed = value;
 		MonoObject *monoObject = DB_VALUE(value);

@@ -33,7 +33,7 @@
     - (BOOL)editComponent_withComponent:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"EditComponent(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"EditComponent(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -44,7 +44,7 @@
     - (BOOL)editComponent_withContext:(id <System_ComponentModel_ITypeDescriptorContext_>)p1 component:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"EditComponent(System.ComponentModel.ITypeDescriptorContext,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"EditComponent(System.ComponentModel.ITypeDescriptorContext,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.PerformanceCounterPermissionEntry
 	// Managed param types : System.Diagnostics.PerformanceCounterPermissionAccess, System.String, System.String
-    + (System_Diagnostics_PerformanceCounterPermissionEntry *)new_withPermissionAccess:(System_Diagnostics_PerformanceCounterPermissionAccess)p1 machineName:(NSString *)p2 categoryName:(NSString *)p3;
+    + (System_Diagnostics_PerformanceCounterPermissionEntry *)new_withPermissionAccess:(int32_t)p1 machineName:(NSString *)p2 categoryName:(NSString *)p3;
 
 #pragma mark -
 #pragma mark Properties
@@ -32,6 +32,6 @@
 
 	// Managed property name : PermissionAccess
 	// Managed property type : System.Diagnostics.PerformanceCounterPermissionAccess
-    @property (nonatomic, readonly) System_Diagnostics_PerformanceCounterPermissionAccess permissionAccess;
+    @property (nonatomic, readonly) int32_t permissionAccess;
 @end
 //--Dubrovnik.CodeGenerator

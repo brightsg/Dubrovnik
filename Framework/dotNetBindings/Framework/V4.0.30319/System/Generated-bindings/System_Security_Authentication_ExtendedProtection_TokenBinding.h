@@ -16,7 +16,7 @@
 
 	// Managed property name : BindingType
 	// Managed property type : System.Security.Authentication.ExtendedProtection.TokenBindingType
-    @property (nonatomic) System_Security_Authentication_ExtendedProtection_TokenBindingType bindingType;
+    @property (nonatomic) int32_t bindingType;
 
 #pragma mark -
 #pragma mark Methods

@@ -30,35 +30,73 @@
 	// Managed property name : UnicodeDecodingConformance
 	// Managed property type : System.Net.Configuration.UnicodeDecodingConformance
     @synthesize unicodeDecodingConformance = _unicodeDecodingConformance;
-    - (System_Net_Configuration_UnicodeDecodingConformance)unicodeDecodingConformance
+    - (int32_t)unicodeDecodingConformance
     {
-		MonoObject *monoObject = [self getMonoProperty:"UnicodeDecodingConformance"];
-		_unicodeDecodingConformance = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UnicodeDecodingConformance");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_unicodeDecodingConformance = monoObject;
 
 		return _unicodeDecodingConformance;
 	}
-    - (void)setUnicodeDecodingConformance:(System_Net_Configuration_UnicodeDecodingConformance)value
+    - (void)setUnicodeDecodingConformance:(int32_t)value
 	{
 		_unicodeDecodingConformance = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"UnicodeDecodingConformance" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "UnicodeDecodingConformance");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : UnicodeEncodingConformance
 	// Managed property type : System.Net.Configuration.UnicodeEncodingConformance
     @synthesize unicodeEncodingConformance = _unicodeEncodingConformance;
-    - (System_Net_Configuration_UnicodeEncodingConformance)unicodeEncodingConformance
+    - (int32_t)unicodeEncodingConformance
     {
-		MonoObject *monoObject = [self getMonoProperty:"UnicodeEncodingConformance"];
-		_unicodeEncodingConformance = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UnicodeEncodingConformance");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_unicodeEncodingConformance = monoObject;
 
 		return _unicodeEncodingConformance;
 	}
-    - (void)setUnicodeEncodingConformance:(System_Net_Configuration_UnicodeEncodingConformance)value
+    - (void)setUnicodeEncodingConformance:(int32_t)value
 	{
 		_unicodeEncodingConformance = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"UnicodeEncodingConformance" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "UnicodeEncodingConformance");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

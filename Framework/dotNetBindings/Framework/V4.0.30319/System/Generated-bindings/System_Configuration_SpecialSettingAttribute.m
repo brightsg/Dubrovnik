@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Configuration.SpecialSettingAttribute
 	// Managed param types : System.Configuration.SpecialSetting
-    + (System_Configuration_SpecialSettingAttribute *)new_withSpecialSetting:(System_Configuration_SpecialSetting)p1
+    + (System_Configuration_SpecialSettingAttribute *)new_withSpecialSetting:(int32_t)p1
     {
 		
-		System_Configuration_SpecialSettingAttribute * object = [[self alloc] initWithSignature:"System.Configuration.SpecialSetting" withNumArgs:1, DB_VALUE(p1)];;
+		System_Configuration_SpecialSettingAttribute * object = [[self alloc] initWithSignature:"System.Configuration.SpecialSetting" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -44,10 +44,20 @@
 	// Managed property name : SpecialSetting
 	// Managed property type : System.Configuration.SpecialSetting
     @synthesize specialSetting = _specialSetting;
-    - (System_Configuration_SpecialSetting)specialSetting
+    - (int32_t)specialSetting
     {
-		MonoObject *monoObject = [self getMonoProperty:"SpecialSetting"];
-		_specialSetting = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SpecialSetting");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_specialSetting = monoObject;
 
 		return _specialSetting;
 	}

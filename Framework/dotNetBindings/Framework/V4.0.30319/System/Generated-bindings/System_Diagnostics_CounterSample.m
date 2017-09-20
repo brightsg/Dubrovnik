@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.CounterSample
 	// Managed param types : System.Int64, System.Int64, System.Int64, System.Int64, System.Int64, System.Int64, System.Diagnostics.PerformanceCounterType
-    + (System_Diagnostics_CounterSample *)new_withRawValue:(int64_t)p1 baseValue:(int64_t)p2 counterFrequency:(int64_t)p3 systemFrequency:(int64_t)p4 timeStamp:(int64_t)p5 timeStamp100nSec:(int64_t)p6 counterType:(System_Diagnostics_PerformanceCounterType)p7
+    + (System_Diagnostics_CounterSample *)new_withRawValue:(int64_t)p1 baseValue:(int64_t)p2 counterFrequency:(int64_t)p3 systemFrequency:(int64_t)p4 timeStamp:(int64_t)p5 timeStamp100nSec:(int64_t)p6 counterType:(int32_t)p7
     {
 		
-		System_Diagnostics_CounterSample * object = [[self alloc] initWithSignature:"long,long,long,long,long,long,System.Diagnostics.PerformanceCounterType" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7)];;
+		System_Diagnostics_CounterSample * object = [[self alloc] initWithSignature:"long,long,long,long,long,long,System.Diagnostics.PerformanceCounterType" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7)];
         
         return object;
     }
@@ -41,10 +41,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.CounterSample
 	// Managed param types : System.Int64, System.Int64, System.Int64, System.Int64, System.Int64, System.Int64, System.Diagnostics.PerformanceCounterType, System.Int64
-    + (System_Diagnostics_CounterSample *)new_withRawValue:(int64_t)p1 baseValue:(int64_t)p2 counterFrequency:(int64_t)p3 systemFrequency:(int64_t)p4 timeStamp:(int64_t)p5 timeStamp100nSec:(int64_t)p6 counterType:(System_Diagnostics_PerformanceCounterType)p7 counterTimeStamp:(int64_t)p8
+    + (System_Diagnostics_CounterSample *)new_withRawValue:(int64_t)p1 baseValue:(int64_t)p2 counterFrequency:(int64_t)p3 systemFrequency:(int64_t)p4 timeStamp:(int64_t)p5 timeStamp100nSec:(int64_t)p6 counterType:(int32_t)p7 counterTimeStamp:(int64_t)p8
     {
 		
-		System_Diagnostics_CounterSample * object = [[self alloc] initWithSignature:"long,long,long,long,long,long,System.Diagnostics.PerformanceCounterType,long" withNumArgs:8, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), DB_VALUE(p8)];;
+		System_Diagnostics_CounterSample * object = [[self alloc] initWithSignature:"long,long,long,long,long,long,System.Diagnostics.PerformanceCounterType,long" withNumArgs:8, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), DB_VALUE(p8)];
         
         return object;
     }
@@ -78,8 +78,18 @@
     @synthesize baseValue = _baseValue;
     - (int64_t)baseValue
     {
-		MonoObject *monoObject = [self getMonoProperty:"BaseValue"];
-		_baseValue = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BaseValue");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_baseValue = monoObject;
 
 		return _baseValue;
 	}
@@ -89,8 +99,18 @@
     @synthesize counterFrequency = _counterFrequency;
     - (int64_t)counterFrequency
     {
-		MonoObject *monoObject = [self getMonoProperty:"CounterFrequency"];
-		_counterFrequency = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CounterFrequency");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_counterFrequency = monoObject;
 
 		return _counterFrequency;
 	}
@@ -100,8 +120,18 @@
     @synthesize counterTimeStamp = _counterTimeStamp;
     - (int64_t)counterTimeStamp
     {
-		MonoObject *monoObject = [self getMonoProperty:"CounterTimeStamp"];
-		_counterTimeStamp = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CounterTimeStamp");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_counterTimeStamp = monoObject;
 
 		return _counterTimeStamp;
 	}
@@ -109,10 +139,20 @@
 	// Managed property name : CounterType
 	// Managed property type : System.Diagnostics.PerformanceCounterType
     @synthesize counterType = _counterType;
-    - (System_Diagnostics_PerformanceCounterType)counterType
+    - (int32_t)counterType
     {
-		MonoObject *monoObject = [self getMonoProperty:"CounterType"];
-		_counterType = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CounterType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_counterType = monoObject;
 
 		return _counterType;
 	}
@@ -122,8 +162,18 @@
     @synthesize rawValue = _rawValue;
     - (int64_t)rawValue
     {
-		MonoObject *monoObject = [self getMonoProperty:"RawValue"];
-		_rawValue = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RawValue");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_rawValue = monoObject;
 
 		return _rawValue;
 	}
@@ -133,8 +183,18 @@
     @synthesize systemFrequency = _systemFrequency;
     - (int64_t)systemFrequency
     {
-		MonoObject *monoObject = [self getMonoProperty:"SystemFrequency"];
-		_systemFrequency = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SystemFrequency");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_systemFrequency = monoObject;
 
 		return _systemFrequency;
 	}
@@ -144,8 +204,18 @@
     @synthesize timeStamp = _timeStamp;
     - (int64_t)timeStamp
     {
-		MonoObject *monoObject = [self getMonoProperty:"TimeStamp"];
-		_timeStamp = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TimeStamp");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_timeStamp = monoObject;
 
 		return _timeStamp;
 	}
@@ -155,8 +225,18 @@
     @synthesize timeStamp100nSec = _timeStamp100nSec;
     - (int64_t)timeStamp100nSec
     {
-		MonoObject *monoObject = [self getMonoProperty:"TimeStamp100nSec"];
-		_timeStamp100nSec = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TimeStamp100nSec");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_timeStamp100nSec = monoObject;
 
 		return _timeStamp100nSec;
 	}
@@ -170,7 +250,7 @@
     + (float)calculate_withCounterSample:(System_Diagnostics_CounterSample *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Calculate(System.Diagnostics.CounterSample)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Calculate(System.Diagnostics.CounterSample)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_FLOAT(monoObject);
     }
@@ -181,7 +261,7 @@
     + (float)calculate_withCounterSample:(System_Diagnostics_CounterSample *)p1 nextCounterSample:(System_Diagnostics_CounterSample *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Calculate(System.Diagnostics.CounterSample,System.Diagnostics.CounterSample)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Calculate(System.Diagnostics.CounterSample,System.Diagnostics.CounterSample)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_FLOAT(monoObject);
     }
@@ -192,7 +272,7 @@
     - (BOOL)equals_withO:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -203,7 +283,7 @@
     - (BOOL)equals_withSample:(System_Diagnostics_CounterSample *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Diagnostics.CounterSample)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Diagnostics.CounterSample)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -225,7 +305,7 @@
     + (BOOL)op_Equality_withA:(System_Diagnostics_CounterSample *)p1 b:(System_Diagnostics_CounterSample *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Diagnostics.CounterSample,System.Diagnostics.CounterSample)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Diagnostics.CounterSample,System.Diagnostics.CounterSample)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -236,7 +316,7 @@
     + (BOOL)op_Inequality_withA:(System_Diagnostics_CounterSample *)p1 b:(System_Diagnostics_CounterSample *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Diagnostics.CounterSample,System.Diagnostics.CounterSample)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Diagnostics.CounterSample,System.Diagnostics.CounterSample)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

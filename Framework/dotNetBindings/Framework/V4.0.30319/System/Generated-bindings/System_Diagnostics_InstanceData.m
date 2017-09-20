@@ -33,7 +33,7 @@
     + (System_Diagnostics_InstanceData *)new_withInstanceName:(NSString *)p1 sample:(System_Diagnostics_CounterSample *)p2
     {
 		
-		System_Diagnostics_InstanceData * object = [[self alloc] initWithSignature:"string,System.Diagnostics.CounterSample" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Diagnostics_InstanceData * object = [[self alloc] initWithSignature:"string,System.Diagnostics.CounterSample" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize instanceName = _instanceName;
     - (NSString *)instanceName
     {
-		MonoObject *monoObject = [self getMonoProperty:"InstanceName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InstanceName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_instanceName isEqualToMonoObject:monoObject]) return _instanceName;					
 		_instanceName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -58,8 +68,18 @@
     @synthesize rawValue = _rawValue;
     - (int64_t)rawValue
     {
-		MonoObject *monoObject = [self getMonoProperty:"RawValue"];
-		_rawValue = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RawValue");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_rawValue = monoObject;
 
 		return _rawValue;
 	}
@@ -69,7 +89,17 @@
     @synthesize sample = _sample;
     - (System_Diagnostics_CounterSample *)sample
     {
-		MonoObject *monoObject = [self getMonoProperty:"Sample"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Sample");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_sample isEqualToMonoObject:monoObject]) return _sample;					
 		_sample = [System_Diagnostics_CounterSample bestObjectWithMonoObject:monoObject];
 

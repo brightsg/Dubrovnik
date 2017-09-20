@@ -17,19 +17,19 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Web.AspNetHostingPermission
 	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Web_AspNetHostingPermission *)new_withState:(System_Security_Permissions_PermissionState)p1;
+    + (System_Web_AspNetHostingPermission *)new_withState:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Web.AspNetHostingPermission
 	// Managed param types : System.Web.AspNetHostingPermissionLevel
-    + (System_Web_AspNetHostingPermission *)new_withLevel:(System_Web_AspNetHostingPermissionLevel)p1;
+    + (System_Web_AspNetHostingPermission *)new_withLevel:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Level
 	// Managed property type : System.Web.AspNetHostingPermissionLevel
-    @property (nonatomic) System_Web_AspNetHostingPermissionLevel level;
+    @property (nonatomic) int32_t level;
 
 #pragma mark -
 #pragma mark Methods

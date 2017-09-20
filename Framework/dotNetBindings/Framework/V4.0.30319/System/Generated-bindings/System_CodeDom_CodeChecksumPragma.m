@@ -33,7 +33,7 @@
     + (System_CodeDom_CodeChecksumPragma *)new_withFileName:(NSString *)p1 checksumAlgorithmId:(System_Guid *)p2 checksumData:(NSData *)p3
     {
 		
-		System_CodeDom_CodeChecksumPragma * object = [[self alloc] initWithSignature:"string,System.Guid,byte[]" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		System_CodeDom_CodeChecksumPragma * object = [[self alloc] initWithSignature:"string,System.Guid,byte[]" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize checksumAlgorithmId = _checksumAlgorithmId;
     - (System_Guid *)checksumAlgorithmId
     {
-		MonoObject *monoObject = [self getMonoProperty:"ChecksumAlgorithmId"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ChecksumAlgorithmId");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_checksumAlgorithmId isEqualToMonoObject:monoObject]) return _checksumAlgorithmId;					
 		_checksumAlgorithmId = [System_Guid bestObjectWithMonoObject:monoObject];
 
@@ -55,8 +65,17 @@
     - (void)setChecksumAlgorithmId:(System_Guid *)value
 	{
 		_checksumAlgorithmId = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"ChecksumAlgorithmId" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ChecksumAlgorithmId");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ChecksumData
@@ -64,7 +83,17 @@
     @synthesize checksumData = _checksumData;
     - (NSData *)checksumData
     {
-		MonoObject *monoObject = [self getMonoProperty:"ChecksumData"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ChecksumData");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_checksumData isEqualToMonoObject:monoObject]) return _checksumData;					
 		_checksumData = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -73,8 +102,17 @@
     - (void)setChecksumData:(NSData *)value
 	{
 		_checksumData = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"ChecksumData" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ChecksumData");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : FileName
@@ -82,7 +120,17 @@
     @synthesize fileName = _fileName;
     - (NSString *)fileName
     {
-		MonoObject *monoObject = [self getMonoProperty:"FileName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FileName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_fileName isEqualToMonoObject:monoObject]) return _fileName;					
 		_fileName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -91,8 +139,17 @@
     - (void)setFileName:(NSString *)value
 	{
 		_fileName = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"FileName" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "FileName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

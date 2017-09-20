@@ -16,10 +16,10 @@
 
 	// Managed property name : UnicodeDecodingConformance
 	// Managed property type : System.Net.Configuration.UnicodeDecodingConformance
-    @property (nonatomic) System_Net_Configuration_UnicodeDecodingConformance unicodeDecodingConformance;
+    @property (nonatomic) int32_t unicodeDecodingConformance;
 
 	// Managed property name : UnicodeEncodingConformance
 	// Managed property type : System.Net.Configuration.UnicodeEncodingConformance
-    @property (nonatomic) System_Net_Configuration_UnicodeEncodingConformance unicodeEncodingConformance;
+    @property (nonatomic) int32_t unicodeEncodingConformance;
 @end
 //--Dubrovnik.CodeGenerator

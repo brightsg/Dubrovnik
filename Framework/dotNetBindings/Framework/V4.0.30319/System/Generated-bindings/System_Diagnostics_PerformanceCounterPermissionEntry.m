@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.PerformanceCounterPermissionEntry
 	// Managed param types : System.Diagnostics.PerformanceCounterPermissionAccess, System.String, System.String
-    + (System_Diagnostics_PerformanceCounterPermissionEntry *)new_withPermissionAccess:(System_Diagnostics_PerformanceCounterPermissionAccess)p1 machineName:(NSString *)p2 categoryName:(NSString *)p3
+    + (System_Diagnostics_PerformanceCounterPermissionEntry *)new_withPermissionAccess:(int32_t)p1 machineName:(NSString *)p2 categoryName:(NSString *)p3
     {
 		
-		System_Diagnostics_PerformanceCounterPermissionEntry * object = [[self alloc] initWithSignature:"System.Diagnostics.PerformanceCounterPermissionAccess,string,string" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];;
+		System_Diagnostics_PerformanceCounterPermissionEntry * object = [[self alloc] initWithSignature:"System.Diagnostics.PerformanceCounterPermissionAccess,string,string" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize categoryName = _categoryName;
     - (NSString *)categoryName
     {
-		MonoObject *monoObject = [self getMonoProperty:"CategoryName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CategoryName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_categoryName isEqualToMonoObject:monoObject]) return _categoryName;					
 		_categoryName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -58,7 +68,17 @@
     @synthesize machineName = _machineName;
     - (NSString *)machineName
     {
-		MonoObject *monoObject = [self getMonoProperty:"MachineName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MachineName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_machineName isEqualToMonoObject:monoObject]) return _machineName;					
 		_machineName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -68,10 +88,20 @@
 	// Managed property name : PermissionAccess
 	// Managed property type : System.Diagnostics.PerformanceCounterPermissionAccess
     @synthesize permissionAccess = _permissionAccess;
-    - (System_Diagnostics_PerformanceCounterPermissionAccess)permissionAccess
+    - (int32_t)permissionAccess
     {
-		MonoObject *monoObject = [self getMonoProperty:"PermissionAccess"];
-		_permissionAccess = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PermissionAccess");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_permissionAccess = monoObject;
 
 		return _permissionAccess;
 	}

@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     20/04/2017 12:04:02
+// Date:     20/09/2017 11:07:34
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -302,6 +302,15 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 // Dubrovnik.CodeGenerator made System_UInt32.m
 // Dubrovnik.CodeGenerator made System_UInt64.m
 // Dubrovnik.CodeGenerator made System_UIntPtr.m
+// Dubrovnik.CodeGenerator made System_ValueTuple.m
+// Dubrovnik.CodeGenerator made System_ValueTupleA1.m
+// Dubrovnik.CodeGenerator made System_ValueTupleA2.m
+// Dubrovnik.CodeGenerator made System_ValueTupleA3.m
+// Dubrovnik.CodeGenerator made System_ValueTupleA4.m
+// Dubrovnik.CodeGenerator made System_ValueTupleA5.m
+// Dubrovnik.CodeGenerator made System_ValueTupleA6.m
+// Dubrovnik.CodeGenerator made System_ValueTupleA7.m
+// Dubrovnik.CodeGenerator made System_ValueTupleA8.m
 // Dubrovnik.CodeGenerator made System_Void.m
 // Dubrovnik.CodeGenerator made System_Collections_DictionaryEntry.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_DictionaryA2__Enumerator.m
@@ -544,6 +553,7 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 // Dubrovnik.CodeGenerator made System_TupleA6.m
 // Dubrovnik.CodeGenerator made System_TupleA7.m
 // Dubrovnik.CodeGenerator made System_TupleA8.m
+// Dubrovnik.CodeGenerator made System_TupleExtensions.m
 // Dubrovnik.CodeGenerator made System_Reflection_MemberInfo.m
 // Dubrovnik.CodeGenerator made System_Type.m
 // Dubrovnik.CodeGenerator made System_TypeAccessException.m
@@ -628,6 +638,7 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 // Dubrovnik.CodeGenerator made System_Diagnostics_Tracing_EventListener.m
 // Dubrovnik.CodeGenerator made System_Diagnostics_Tracing_EventSource.m
 // Dubrovnik.CodeGenerator made System_Diagnostics_Tracing_EventSourceAttribute.m
+// Dubrovnik.CodeGenerator made System_Diagnostics_Tracing_EventSourceCreatedEventArgs.m
 // Dubrovnik.CodeGenerator made System_Diagnostics_Tracing_EventSourceException.m
 // Dubrovnik.CodeGenerator made System_Diagnostics_Tracing_EventWrittenEventArgs.m
 // Dubrovnik.CodeGenerator made System_Diagnostics_Tracing_NonEventAttribute.m
@@ -845,6 +856,7 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 // Dubrovnik.CodeGenerator made System_Runtime_CompilerServices_SpecialNameAttribute.m
 // Dubrovnik.CodeGenerator made System_Runtime_CompilerServices_StringFreezingAttribute.m
 // Dubrovnik.CodeGenerator made System_Runtime_CompilerServices_SuppressIldasmAttribute.m
+// Dubrovnik.CodeGenerator made System_Runtime_CompilerServices_TupleElementNamesAttribute.m
 // Dubrovnik.CodeGenerator made System_Runtime_CompilerServices_TypeForwardedFromAttribute.m
 // Dubrovnik.CodeGenerator made System_Runtime_CompilerServices_TypeForwardedToAttribute.m
 // Dubrovnik.CodeGenerator made System_Runtime_CompilerServices_UnsafeValueTypeAttribute.m

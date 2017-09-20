@@ -2,7 +2,9 @@
 //
 // Managed enumeration : HttpResponseHeader
 //
-typedef NS_ENUM(int32_t, System_Net_HttpResponseHeader) {
+
+// C enumeration
+typedef NS_ENUM(int32_t, enumSystem_Net_HttpResponseHeader) {
 	System_Net_HttpResponseHeader_AcceptRanges = 20,
 	System_Net_HttpResponseHeader_Age = 21,
 	System_Net_HttpResponseHeader_Allow = 10,
@@ -34,4 +36,136 @@ typedef NS_ENUM(int32_t, System_Net_HttpResponseHeader) {
 	System_Net_HttpResponseHeader_Warning = 9,
 	System_Net_HttpResponseHeader_WwwAuthenticate = 29,
 };
+@interface System_Net_HttpResponseHeader : DBSystem_Enum
+
+#pragma mark -
+#pragma mark Setup
+	// obligatory override
+	+ (const char *)monoClassName;
+	// obligatory override
+	+ (const char *)monoAssemblyName;
+
+#pragma mark -
+#pragma mark Fields
+
+	// Managed field name : AcceptRanges
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)acceptRanges;
+
+	// Managed field name : Age
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)age;
+
+	// Managed field name : Allow
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)allow;
+
+	// Managed field name : CacheControl
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)cacheControl;
+
+	// Managed field name : Connection
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)connection;
+
+	// Managed field name : ContentEncoding
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)contentEncoding;
+
+	// Managed field name : ContentLanguage
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)contentLanguage;
+
+	// Managed field name : ContentLength
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)contentLength;
+
+	// Managed field name : ContentLocation
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)contentLocation;
+
+	// Managed field name : ContentMd5
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)contentMd5;
+
+	// Managed field name : ContentRange
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)contentRange;
+
+	// Managed field name : ContentType
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)contentType;
+
+	// Managed field name : Date
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)date;
+
+	// Managed field name : ETag
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)eTag;
+
+	// Managed field name : Expires
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)expires;
+
+	// Managed field name : KeepAlive
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)keepAlive;
+
+	// Managed field name : LastModified
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)lastModified;
+
+	// Managed field name : Location
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)location;
+
+	// Managed field name : Pragma
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)pragma;
+
+	// Managed field name : ProxyAuthenticate
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)proxyAuthenticate;
+
+	// Managed field name : RetryAfter
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)retryAfter;
+
+	// Managed field name : Server
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)server;
+
+	// Managed field name : SetCookie
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)setCookie;
+
+	// Managed field name : Trailer
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)trailer;
+
+	// Managed field name : TransferEncoding
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)transferEncoding;
+
+	// Managed field name : Upgrade
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)upgrade;
+
+	// Managed field name : Vary
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)vary;
+
+	// Managed field name : Via
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)via;
+
+	// Managed field name : Warning
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)warning;
+
+	// Managed field name : WwwAuthenticate
+	// Managed field type : System.Net.HttpResponseHeader
+    + (int32_t)wwwAuthenticate;
+@end
 //--Dubrovnik.CodeGenerator

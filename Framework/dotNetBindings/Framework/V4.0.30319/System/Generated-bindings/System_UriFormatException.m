@@ -33,7 +33,7 @@
     + (System_UriFormatException *)new_withTextString:(NSString *)p1
     {
 		
-		System_UriFormatException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_UriFormatException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_UriFormatException *)new_withTextString:(NSString *)p1 e:(System_Exception *)p2
     {
 		
-		System_UriFormatException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_UriFormatException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }

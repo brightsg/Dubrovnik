@@ -30,7 +30,7 @@
 	// Managed method name : GetChannelBinding
 	// Managed return type : System.Security.Authentication.ExtendedProtection.ChannelBinding
 	// Managed param types : System.Security.Authentication.ExtendedProtection.ChannelBindingKind
-    - (System_Security_Authentication_ExtendedProtection_ChannelBinding *)getChannelBinding_withKind:(System_Security_Authentication_ExtendedProtection_ChannelBindingKind)p1
+    - (System_Security_Authentication_ExtendedProtection_ChannelBinding *)getChannelBinding_withKind:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetChannelBinding(System.Security.Authentication.ExtendedProtection.ChannelBindingKind)" withNumArgs:1, DB_VALUE(p1)];

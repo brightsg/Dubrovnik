@@ -17,12 +17,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.CounterSample
 	// Managed param types : System.Int64, System.Int64, System.Int64, System.Int64, System.Int64, System.Int64, System.Diagnostics.PerformanceCounterType
-    + (System_Diagnostics_CounterSample *)new_withRawValue:(int64_t)p1 baseValue:(int64_t)p2 counterFrequency:(int64_t)p3 systemFrequency:(int64_t)p4 timeStamp:(int64_t)p5 timeStamp100nSec:(int64_t)p6 counterType:(System_Diagnostics_PerformanceCounterType)p7;
+    + (System_Diagnostics_CounterSample *)new_withRawValue:(int64_t)p1 baseValue:(int64_t)p2 counterFrequency:(int64_t)p3 systemFrequency:(int64_t)p4 timeStamp:(int64_t)p5 timeStamp100nSec:(int64_t)p6 counterType:(int32_t)p7;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.CounterSample
 	// Managed param types : System.Int64, System.Int64, System.Int64, System.Int64, System.Int64, System.Int64, System.Diagnostics.PerformanceCounterType, System.Int64
-    + (System_Diagnostics_CounterSample *)new_withRawValue:(int64_t)p1 baseValue:(int64_t)p2 counterFrequency:(int64_t)p3 systemFrequency:(int64_t)p4 timeStamp:(int64_t)p5 timeStamp100nSec:(int64_t)p6 counterType:(System_Diagnostics_PerformanceCounterType)p7 counterTimeStamp:(int64_t)p8;
+    + (System_Diagnostics_CounterSample *)new_withRawValue:(int64_t)p1 baseValue:(int64_t)p2 counterFrequency:(int64_t)p3 systemFrequency:(int64_t)p4 timeStamp:(int64_t)p5 timeStamp100nSec:(int64_t)p6 counterType:(int32_t)p7 counterTimeStamp:(int64_t)p8;
 
 #pragma mark -
 #pragma mark Fields
@@ -49,7 +49,7 @@
 
 	// Managed property name : CounterType
 	// Managed property type : System.Diagnostics.PerformanceCounterType
-    @property (nonatomic, readonly) System_Diagnostics_PerformanceCounterType counterType;
+    @property (nonatomic, readonly) int32_t counterType;
 
 	// Managed property name : RawValue
 	// Managed property type : System.Int64

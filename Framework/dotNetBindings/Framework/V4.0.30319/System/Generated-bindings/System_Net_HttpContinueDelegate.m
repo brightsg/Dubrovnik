@@ -33,7 +33,7 @@
     + (System_Net_HttpContinueDelegate *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
 		
-		System_Net_HttpContinueDelegate * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Net_HttpContinueDelegate * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -47,7 +47,7 @@
     - (id <System_IAsyncResult>)beginInvoke_withStatusCode:(int32_t)p1 httpHeaders:(System_Net_WebHeaderCollection *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(int,System.Net.WebHeaderCollection,System.AsyncCallback,object)" withNumArgs:4, DB_VALUE(p1), [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(int,System.Net.WebHeaderCollection,System.AsyncCallback,object)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -58,7 +58,7 @@
     - (void)endInvoke_withResult:(id <System_IAsyncResult_>)p1
     {
 		
-		[self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -68,7 +68,7 @@
     - (void)invoke_withStatusCode:(int32_t)p1 httpHeaders:(System_Net_WebHeaderCollection *)p2
     {
 		
-		[self invokeMonoMethod:"Invoke(int,System.Net.WebHeaderCollection)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoMethod:"Invoke(int,System.Net.WebHeaderCollection)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
     }
 

@@ -30,18 +30,37 @@
 	// Managed property name : Options
 	// Managed property type : System.Net.Sockets.SocketInformationOptions
     @synthesize options = _options;
-    - (System_Net_Sockets_SocketInformationOptions)options
+    - (int32_t)options
     {
-		MonoObject *monoObject = [self getMonoProperty:"Options"];
-		_options = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Options");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_options = monoObject;
 
 		return _options;
 	}
-    - (void)setOptions:(System_Net_Sockets_SocketInformationOptions)value
+    - (void)setOptions:(int32_t)value
 	{
 		_options = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Options" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Options");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ProtocolInformation
@@ -49,7 +68,17 @@
     @synthesize protocolInformation = _protocolInformation;
     - (NSData *)protocolInformation
     {
-		MonoObject *monoObject = [self getMonoProperty:"ProtocolInformation"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ProtocolInformation");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_protocolInformation isEqualToMonoObject:monoObject]) return _protocolInformation;					
 		_protocolInformation = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -58,8 +87,17 @@
     - (void)setProtocolInformation:(NSData *)value
 	{
 		_protocolInformation = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"ProtocolInformation" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ProtocolInformation");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

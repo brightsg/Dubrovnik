@@ -33,7 +33,7 @@
     + (System_ComponentModel_PropertyTabAttribute *)new_withTabClass:(System_Type *)p1
     {
 		
-		System_ComponentModel_PropertyTabAttribute * object = [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_PropertyTabAttribute * object = [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_ComponentModel_PropertyTabAttribute *)new_withTabClassName:(NSString *)p1
     {
 		
-		System_ComponentModel_PropertyTabAttribute * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_PropertyTabAttribute * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -52,10 +52,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.PropertyTabAttribute
 	// Managed param types : System.Type, System.ComponentModel.PropertyTabScope
-    + (System_ComponentModel_PropertyTabAttribute *)new_withTabClass:(System_Type *)p1 tabScope:(System_ComponentModel_PropertyTabScope)p2
+    + (System_ComponentModel_PropertyTabAttribute *)new_withTabClass:(System_Type *)p1 tabScope:(int32_t)p2
     {
 		
-		System_ComponentModel_PropertyTabAttribute * object = [[self alloc] initWithSignature:"System.Type,System.ComponentModel.PropertyTabScope" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_ComponentModel_PropertyTabAttribute * object = [[self alloc] initWithSignature:"System.Type,System.ComponentModel.PropertyTabScope" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -63,10 +63,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.PropertyTabAttribute
 	// Managed param types : System.String, System.ComponentModel.PropertyTabScope
-    + (System_ComponentModel_PropertyTabAttribute *)new_withTabClassName:(NSString *)p1 tabScope:(System_ComponentModel_PropertyTabScope)p2
+    + (System_ComponentModel_PropertyTabAttribute *)new_withTabClassName:(NSString *)p1 tabScope:(int32_t)p2
     {
 		
-		System_ComponentModel_PropertyTabAttribute * object = [[self alloc] initWithSignature:"string,System.ComponentModel.PropertyTabScope" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_ComponentModel_PropertyTabAttribute * object = [[self alloc] initWithSignature:"string,System.ComponentModel.PropertyTabScope" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -79,7 +79,17 @@
     @synthesize tabClasses = _tabClasses;
     - (DBSystem_Array *)tabClasses
     {
-		MonoObject *monoObject = [self getMonoProperty:"TabClasses"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TabClasses");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_tabClasses isEqualToMonoObject:monoObject]) return _tabClasses;					
 		_tabClasses = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -91,7 +101,17 @@
     @synthesize tabScopes = _tabScopes;
     - (DBSystem_Array *)tabScopes
     {
-		MonoObject *monoObject = [self getMonoProperty:"TabScopes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TabScopes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_tabScopes isEqualToMonoObject:monoObject]) return _tabScopes;					
 		_tabScopes = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -107,7 +127,7 @@
     - (BOOL)equals_withOtherObject:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -118,7 +138,7 @@
     - (BOOL)equals_withOtherSCPropertyTabAttribute:(System_ComponentModel_PropertyTabAttribute *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.ComponentModel.PropertyTabAttribute)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.ComponentModel.PropertyTabAttribute)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

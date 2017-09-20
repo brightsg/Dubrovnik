@@ -27,6 +27,43 @@
 #pragma mark -
 #pragma mark Properties
 
+	// Managed property name : CollapseWhiteSpaceIntoEmptyStringString
+	// Managed property type : System.String
+    @synthesize collapseWhiteSpaceIntoEmptyStringString = _collapseWhiteSpaceIntoEmptyStringString;
+    - (NSString *)collapseWhiteSpaceIntoEmptyStringString
+    {
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CollapseWhiteSpaceIntoEmptyStringString");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		if ([self object:_collapseWhiteSpaceIntoEmptyStringString isEqualToMonoObject:monoObject]) return _collapseWhiteSpaceIntoEmptyStringString;					
+		_collapseWhiteSpaceIntoEmptyStringString = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+		return _collapseWhiteSpaceIntoEmptyStringString;
+	}
+    - (void)setCollapseWhiteSpaceIntoEmptyStringString:(NSString *)value
+	{
+		_collapseWhiteSpaceIntoEmptyStringString = value;
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CollapseWhiteSpaceIntoEmptyStringString");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	}
+
 	// Managed property name : ProhibitDefaultResolverString
 	// Managed property type : System.String
     @synthesize prohibitDefaultResolverString = _prohibitDefaultResolverString;

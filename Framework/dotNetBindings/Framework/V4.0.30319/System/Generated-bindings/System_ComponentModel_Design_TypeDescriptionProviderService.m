@@ -33,7 +33,7 @@
     - (System_ComponentModel_TypeDescriptionProvider *)getProvider_withInstance:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetProvider(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetProvider(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_TypeDescriptionProvider bestObjectWithMonoObject:monoObject];
     }
@@ -44,7 +44,7 @@
     - (System_ComponentModel_TypeDescriptionProvider *)getProvider_withType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetProvider(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetProvider(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_TypeDescriptionProvider bestObjectWithMonoObject:monoObject];
     }

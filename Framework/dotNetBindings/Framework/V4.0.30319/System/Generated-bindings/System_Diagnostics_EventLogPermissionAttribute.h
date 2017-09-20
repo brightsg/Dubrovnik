@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.EventLogPermissionAttribute
 	// Managed param types : System.Security.Permissions.SecurityAction
-    + (System_Diagnostics_EventLogPermissionAttribute *)new_withAction:(System_Security_Permissions_SecurityAction)p1;
+    + (System_Diagnostics_EventLogPermissionAttribute *)new_withAction:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -28,7 +28,7 @@
 
 	// Managed property name : PermissionAccess
 	// Managed property type : System.Diagnostics.EventLogPermissionAccess
-    @property (nonatomic) System_Diagnostics_EventLogPermissionAccess permissionAccess;
+    @property (nonatomic) int32_t permissionAccess;
 
 #pragma mark -
 #pragma mark Methods

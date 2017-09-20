@@ -33,7 +33,7 @@
     + (System_Threading_BarrierPostPhaseException *)new_withInnerException:(System_Exception *)p1
     {
 		
-		System_Threading_BarrierPostPhaseException * object = [[self alloc] initWithSignature:"System.Exception" withNumArgs:1, [p1 monoValue]];;
+		System_Threading_BarrierPostPhaseException * object = [[self alloc] initWithSignature:"System.Exception" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Threading_BarrierPostPhaseException *)new_withMessage:(NSString *)p1
     {
 		
-		System_Threading_BarrierPostPhaseException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_Threading_BarrierPostPhaseException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Threading_BarrierPostPhaseException *)new_withMessage:(NSString *)p1 innerException:(System_Exception *)p2
     {
 		
-		System_Threading_BarrierPostPhaseException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Threading_BarrierPostPhaseException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }

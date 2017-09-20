@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.RefreshPropertiesAttribute
 	// Managed param types : System.ComponentModel.RefreshProperties
-    + (System_ComponentModel_RefreshPropertiesAttribute *)new_withRefresh:(System_ComponentModel_RefreshProperties)p1;
+    + (System_ComponentModel_RefreshPropertiesAttribute *)new_withRefresh:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Fields
@@ -39,7 +39,7 @@
 
 	// Managed property name : RefreshProperties
 	// Managed property type : System.ComponentModel.RefreshProperties
-    @property (nonatomic, readonly) System_ComponentModel_RefreshProperties refreshProperties;
+    @property (nonatomic, readonly) int32_t refreshProperties;
 
 #pragma mark -
 #pragma mark Methods

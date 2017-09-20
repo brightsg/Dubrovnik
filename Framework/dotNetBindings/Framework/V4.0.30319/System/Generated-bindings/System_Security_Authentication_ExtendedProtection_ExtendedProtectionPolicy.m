@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy
 	// Managed param types : System.Security.Authentication.ExtendedProtection.PolicyEnforcement, System.Security.Authentication.ExtendedProtection.ProtectionScenario, System.Security.Authentication.ExtendedProtection.ServiceNameCollection
-    + (System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)new_withPolicyEnforcementSSAEPolicyEnforcement:(System_Security_Authentication_ExtendedProtection_PolicyEnforcement)p1 protectionScenarioSSAEProtectionScenario:(System_Security_Authentication_ExtendedProtection_ProtectionScenario)p2 customServiceNamesSSAEServiceNameCollection:(System_Security_Authentication_ExtendedProtection_ServiceNameCollection *)p3
+    + (System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)new_withPolicyEnforcementSSAEPolicyEnforcement:(int32_t)p1 protectionScenarioSSAEProtectionScenario:(int32_t)p2 customServiceNamesSSAEServiceNameCollection:(System_Security_Authentication_ExtendedProtection_ServiceNameCollection *)p3
     {
 		
-		System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy * object = [[self alloc] initWithSignature:"System.Security.Authentication.ExtendedProtection.PolicyEnforcement,System.Security.Authentication.ExtendedProtection.ProtectionScenario,System.Security.Authentication.ExtendedProtection.ServiceNameCollection" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]];;
+		System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy * object = [[self alloc] initWithSignature:"System.Security.Authentication.ExtendedProtection.PolicyEnforcement,System.Security.Authentication.ExtendedProtection.ProtectionScenario,System.Security.Authentication.ExtendedProtection.ServiceNameCollection" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -41,10 +41,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy
 	// Managed param types : System.Security.Authentication.ExtendedProtection.PolicyEnforcement, System.Security.Authentication.ExtendedProtection.ProtectionScenario, System.Collections.ICollection
-    + (System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)new_withPolicyEnforcementSSAEPolicyEnforcement:(System_Security_Authentication_ExtendedProtection_PolicyEnforcement)p1 protectionScenarioSSAEProtectionScenario:(System_Security_Authentication_ExtendedProtection_ProtectionScenario)p2 customServiceNamesSCICollection:(id <System_Collections_ICollection_>)p3
+    + (System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)new_withPolicyEnforcementSSAEPolicyEnforcement:(int32_t)p1 protectionScenarioSSAEProtectionScenario:(int32_t)p2 customServiceNamesSCICollection:(id <System_Collections_ICollection_>)p3
     {
 		
-		System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy * object = [[self alloc] initWithSignature:"System.Security.Authentication.ExtendedProtection.PolicyEnforcement,System.Security.Authentication.ExtendedProtection.ProtectionScenario,System.Collections.ICollection" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]];;
+		System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy * object = [[self alloc] initWithSignature:"System.Security.Authentication.ExtendedProtection.PolicyEnforcement,System.Security.Authentication.ExtendedProtection.ProtectionScenario,System.Collections.ICollection" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -52,10 +52,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy
 	// Managed param types : System.Security.Authentication.ExtendedProtection.PolicyEnforcement, System.Security.Authentication.ExtendedProtection.ChannelBinding
-    + (System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)new_withPolicyEnforcement:(System_Security_Authentication_ExtendedProtection_PolicyEnforcement)p1 customChannelBinding:(System_Security_Authentication_ExtendedProtection_ChannelBinding *)p2
+    + (System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)new_withPolicyEnforcement:(int32_t)p1 customChannelBinding:(System_Security_Authentication_ExtendedProtection_ChannelBinding *)p2
     {
 		
-		System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy * object = [[self alloc] initWithSignature:"System.Security.Authentication.ExtendedProtection.PolicyEnforcement,System.Security.Authentication.ExtendedProtection.ChannelBinding" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy * object = [[self alloc] initWithSignature:"System.Security.Authentication.ExtendedProtection.PolicyEnforcement,System.Security.Authentication.ExtendedProtection.ChannelBinding" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -63,10 +63,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy
 	// Managed param types : System.Security.Authentication.ExtendedProtection.PolicyEnforcement
-    + (System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)new_withPolicyEnforcement:(System_Security_Authentication_ExtendedProtection_PolicyEnforcement)p1
+    + (System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)new_withPolicyEnforcement:(int32_t)p1
     {
 		
-		System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy * object = [[self alloc] initWithSignature:"System.Security.Authentication.ExtendedProtection.PolicyEnforcement" withNumArgs:1, DB_VALUE(p1)];;
+		System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy * object = [[self alloc] initWithSignature:"System.Security.Authentication.ExtendedProtection.PolicyEnforcement" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -79,7 +79,17 @@
     @synthesize customChannelBinding = _customChannelBinding;
     - (System_Security_Authentication_ExtendedProtection_ChannelBinding *)customChannelBinding
     {
-		MonoObject *monoObject = [self getMonoProperty:"CustomChannelBinding"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CustomChannelBinding");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_customChannelBinding isEqualToMonoObject:monoObject]) return _customChannelBinding;					
 		_customChannelBinding = [System_Security_Authentication_ExtendedProtection_ChannelBinding bestObjectWithMonoObject:monoObject];
 
@@ -91,7 +101,17 @@
     @synthesize customServiceNames = _customServiceNames;
     - (System_Security_Authentication_ExtendedProtection_ServiceNameCollection *)customServiceNames
     {
-		MonoObject *monoObject = [self getMonoProperty:"CustomServiceNames"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CustomServiceNames");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_customServiceNames isEqualToMonoObject:monoObject]) return _customServiceNames;					
 		_customServiceNames = [System_Security_Authentication_ExtendedProtection_ServiceNameCollection bestObjectWithMonoObject:monoObject];
 
@@ -103,8 +123,18 @@
     static BOOL m_oSSupportsExtendedProtection;
     + (BOOL)oSSupportsExtendedProtection
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"OSSupportsExtendedProtection"];
-		m_oSSupportsExtendedProtection = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OSSupportsExtendedProtection");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_oSSupportsExtendedProtection = monoObject;
 
 		return m_oSSupportsExtendedProtection;
 	}
@@ -112,10 +142,20 @@
 	// Managed property name : PolicyEnforcement
 	// Managed property type : System.Security.Authentication.ExtendedProtection.PolicyEnforcement
     @synthesize policyEnforcement = _policyEnforcement;
-    - (System_Security_Authentication_ExtendedProtection_PolicyEnforcement)policyEnforcement
+    - (int32_t)policyEnforcement
     {
-		MonoObject *monoObject = [self getMonoProperty:"PolicyEnforcement"];
-		_policyEnforcement = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PolicyEnforcement");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_policyEnforcement = monoObject;
 
 		return _policyEnforcement;
 	}
@@ -123,10 +163,20 @@
 	// Managed property name : ProtectionScenario
 	// Managed property type : System.Security.Authentication.ExtendedProtection.ProtectionScenario
     @synthesize protectionScenario = _protectionScenario;
-    - (System_Security_Authentication_ExtendedProtection_ProtectionScenario)protectionScenario
+    - (int32_t)protectionScenario
     {
-		MonoObject *monoObject = [self getMonoProperty:"ProtectionScenario"];
-		_protectionScenario = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ProtectionScenario");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_protectionScenario = monoObject;
 
 		return _protectionScenario;
 	}

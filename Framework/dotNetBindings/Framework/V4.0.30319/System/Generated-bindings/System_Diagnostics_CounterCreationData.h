@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.CounterCreationData
 	// Managed param types : System.String, System.String, System.Diagnostics.PerformanceCounterType
-    + (System_Diagnostics_CounterCreationData *)new_withCounterName:(NSString *)p1 counterHelp:(NSString *)p2 counterType:(System_Diagnostics_PerformanceCounterType)p3;
+    + (System_Diagnostics_CounterCreationData *)new_withCounterName:(NSString *)p1 counterHelp:(NSString *)p2 counterType:(int32_t)p3;
 
 #pragma mark -
 #pragma mark Properties
@@ -32,6 +32,6 @@
 
 	// Managed property name : CounterType
 	// Managed property type : System.Diagnostics.PerformanceCounterType
-    @property (nonatomic) System_Diagnostics_PerformanceCounterType counterType;
+    @property (nonatomic) int32_t counterType;
 @end
 //--Dubrovnik.CodeGenerator

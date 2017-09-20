@@ -30,10 +30,20 @@
 	// Managed property name : EventType
 	// Managed property type : System.IO.Ports.SerialData
     @synthesize eventType = _eventType;
-    - (System_IO_Ports_SerialData)eventType
+    - (int32_t)eventType
     {
-		MonoObject *monoObject = [self getMonoProperty:"EventType"];
-		_eventType = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EventType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_eventType = monoObject;
 
 		return _eventType;
 	}

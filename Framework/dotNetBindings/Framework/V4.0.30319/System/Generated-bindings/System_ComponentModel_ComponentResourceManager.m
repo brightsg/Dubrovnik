@@ -33,7 +33,7 @@
     + (System_ComponentModel_ComponentResourceManager *)new_withT:(System_Type *)p1
     {
 		
-		System_ComponentModel_ComponentResourceManager * object = [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_ComponentResourceManager * object = [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -47,7 +47,7 @@
     - (void)applyResources_withValue:(System_Object *)p1 objectName:(NSString *)p2
     {
 		
-		[self invokeMonoMethod:"ApplyResources(object,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"ApplyResources(object,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -57,7 +57,7 @@
     - (void)applyResources_withValue:(System_Object *)p1 objectName:(NSString *)p2 culture:(System_Globalization_CultureInfo *)p3
     {
 		
-		[self invokeMonoMethod:"ApplyResources(object,string,System.Globalization.CultureInfo)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"ApplyResources(object,string,System.Globalization.CultureInfo)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 

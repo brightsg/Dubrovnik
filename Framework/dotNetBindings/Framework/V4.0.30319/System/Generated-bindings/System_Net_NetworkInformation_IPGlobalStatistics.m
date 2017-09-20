@@ -32,8 +32,18 @@
     @synthesize defaultTtl = _defaultTtl;
     - (int32_t)defaultTtl
     {
-		MonoObject *monoObject = [self getMonoProperty:"DefaultTtl"];
-		_defaultTtl = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DefaultTtl");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_defaultTtl = monoObject;
 
 		return _defaultTtl;
 	}
@@ -43,8 +53,18 @@
     @synthesize forwardingEnabled = _forwardingEnabled;
     - (BOOL)forwardingEnabled
     {
-		MonoObject *monoObject = [self getMonoProperty:"ForwardingEnabled"];
-		_forwardingEnabled = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ForwardingEnabled");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_forwardingEnabled = monoObject;
 
 		return _forwardingEnabled;
 	}
@@ -54,8 +74,18 @@
     @synthesize numberOfInterfaces = _numberOfInterfaces;
     - (int32_t)numberOfInterfaces
     {
-		MonoObject *monoObject = [self getMonoProperty:"NumberOfInterfaces"];
-		_numberOfInterfaces = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NumberOfInterfaces");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_numberOfInterfaces = monoObject;
 
 		return _numberOfInterfaces;
 	}
@@ -65,8 +95,18 @@
     @synthesize numberOfIPAddresses = _numberOfIPAddresses;
     - (int32_t)numberOfIPAddresses
     {
-		MonoObject *monoObject = [self getMonoProperty:"NumberOfIPAddresses"];
-		_numberOfIPAddresses = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NumberOfIPAddresses");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_numberOfIPAddresses = monoObject;
 
 		return _numberOfIPAddresses;
 	}
@@ -76,8 +116,18 @@
     @synthesize numberOfRoutes = _numberOfRoutes;
     - (int32_t)numberOfRoutes
     {
-		MonoObject *monoObject = [self getMonoProperty:"NumberOfRoutes"];
-		_numberOfRoutes = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NumberOfRoutes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_numberOfRoutes = monoObject;
 
 		return _numberOfRoutes;
 	}
@@ -87,8 +137,18 @@
     @synthesize outputPacketRequests = _outputPacketRequests;
     - (int64_t)outputPacketRequests
     {
-		MonoObject *monoObject = [self getMonoProperty:"OutputPacketRequests"];
-		_outputPacketRequests = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OutputPacketRequests");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_outputPacketRequests = monoObject;
 
 		return _outputPacketRequests;
 	}
@@ -98,8 +158,18 @@
     @synthesize outputPacketRoutingDiscards = _outputPacketRoutingDiscards;
     - (int64_t)outputPacketRoutingDiscards
     {
-		MonoObject *monoObject = [self getMonoProperty:"OutputPacketRoutingDiscards"];
-		_outputPacketRoutingDiscards = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OutputPacketRoutingDiscards");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_outputPacketRoutingDiscards = monoObject;
 
 		return _outputPacketRoutingDiscards;
 	}
@@ -109,8 +179,18 @@
     @synthesize outputPacketsDiscarded = _outputPacketsDiscarded;
     - (int64_t)outputPacketsDiscarded
     {
-		MonoObject *monoObject = [self getMonoProperty:"OutputPacketsDiscarded"];
-		_outputPacketsDiscarded = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OutputPacketsDiscarded");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_outputPacketsDiscarded = monoObject;
 
 		return _outputPacketsDiscarded;
 	}
@@ -120,8 +200,18 @@
     @synthesize outputPacketsWithNoRoute = _outputPacketsWithNoRoute;
     - (int64_t)outputPacketsWithNoRoute
     {
-		MonoObject *monoObject = [self getMonoProperty:"OutputPacketsWithNoRoute"];
-		_outputPacketsWithNoRoute = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OutputPacketsWithNoRoute");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_outputPacketsWithNoRoute = monoObject;
 
 		return _outputPacketsWithNoRoute;
 	}
@@ -131,8 +221,18 @@
     @synthesize packetFragmentFailures = _packetFragmentFailures;
     - (int64_t)packetFragmentFailures
     {
-		MonoObject *monoObject = [self getMonoProperty:"PacketFragmentFailures"];
-		_packetFragmentFailures = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PacketFragmentFailures");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_packetFragmentFailures = monoObject;
 
 		return _packetFragmentFailures;
 	}
@@ -142,8 +242,18 @@
     @synthesize packetReassembliesRequired = _packetReassembliesRequired;
     - (int64_t)packetReassembliesRequired
     {
-		MonoObject *monoObject = [self getMonoProperty:"PacketReassembliesRequired"];
-		_packetReassembliesRequired = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PacketReassembliesRequired");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_packetReassembliesRequired = monoObject;
 
 		return _packetReassembliesRequired;
 	}
@@ -153,8 +263,18 @@
     @synthesize packetReassemblyFailures = _packetReassemblyFailures;
     - (int64_t)packetReassemblyFailures
     {
-		MonoObject *monoObject = [self getMonoProperty:"PacketReassemblyFailures"];
-		_packetReassemblyFailures = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PacketReassemblyFailures");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_packetReassemblyFailures = monoObject;
 
 		return _packetReassemblyFailures;
 	}
@@ -164,8 +284,18 @@
     @synthesize packetReassemblyTimeout = _packetReassemblyTimeout;
     - (int64_t)packetReassemblyTimeout
     {
-		MonoObject *monoObject = [self getMonoProperty:"PacketReassemblyTimeout"];
-		_packetReassemblyTimeout = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PacketReassemblyTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_packetReassemblyTimeout = monoObject;
 
 		return _packetReassemblyTimeout;
 	}
@@ -175,8 +305,18 @@
     @synthesize packetsFragmented = _packetsFragmented;
     - (int64_t)packetsFragmented
     {
-		MonoObject *monoObject = [self getMonoProperty:"PacketsFragmented"];
-		_packetsFragmented = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PacketsFragmented");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_packetsFragmented = monoObject;
 
 		return _packetsFragmented;
 	}
@@ -186,8 +326,18 @@
     @synthesize packetsReassembled = _packetsReassembled;
     - (int64_t)packetsReassembled
     {
-		MonoObject *monoObject = [self getMonoProperty:"PacketsReassembled"];
-		_packetsReassembled = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PacketsReassembled");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_packetsReassembled = monoObject;
 
 		return _packetsReassembled;
 	}
@@ -197,8 +347,18 @@
     @synthesize receivedPackets = _receivedPackets;
     - (int64_t)receivedPackets
     {
-		MonoObject *monoObject = [self getMonoProperty:"ReceivedPackets"];
-		_receivedPackets = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ReceivedPackets");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_receivedPackets = monoObject;
 
 		return _receivedPackets;
 	}
@@ -208,8 +368,18 @@
     @synthesize receivedPacketsDelivered = _receivedPacketsDelivered;
     - (int64_t)receivedPacketsDelivered
     {
-		MonoObject *monoObject = [self getMonoProperty:"ReceivedPacketsDelivered"];
-		_receivedPacketsDelivered = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ReceivedPacketsDelivered");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_receivedPacketsDelivered = monoObject;
 
 		return _receivedPacketsDelivered;
 	}
@@ -219,8 +389,18 @@
     @synthesize receivedPacketsDiscarded = _receivedPacketsDiscarded;
     - (int64_t)receivedPacketsDiscarded
     {
-		MonoObject *monoObject = [self getMonoProperty:"ReceivedPacketsDiscarded"];
-		_receivedPacketsDiscarded = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ReceivedPacketsDiscarded");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_receivedPacketsDiscarded = monoObject;
 
 		return _receivedPacketsDiscarded;
 	}
@@ -230,8 +410,18 @@
     @synthesize receivedPacketsForwarded = _receivedPacketsForwarded;
     - (int64_t)receivedPacketsForwarded
     {
-		MonoObject *monoObject = [self getMonoProperty:"ReceivedPacketsForwarded"];
-		_receivedPacketsForwarded = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ReceivedPacketsForwarded");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_receivedPacketsForwarded = monoObject;
 
 		return _receivedPacketsForwarded;
 	}
@@ -241,8 +431,18 @@
     @synthesize receivedPacketsWithAddressErrors = _receivedPacketsWithAddressErrors;
     - (int64_t)receivedPacketsWithAddressErrors
     {
-		MonoObject *monoObject = [self getMonoProperty:"ReceivedPacketsWithAddressErrors"];
-		_receivedPacketsWithAddressErrors = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ReceivedPacketsWithAddressErrors");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_receivedPacketsWithAddressErrors = monoObject;
 
 		return _receivedPacketsWithAddressErrors;
 	}
@@ -252,8 +452,18 @@
     @synthesize receivedPacketsWithHeadersErrors = _receivedPacketsWithHeadersErrors;
     - (int64_t)receivedPacketsWithHeadersErrors
     {
-		MonoObject *monoObject = [self getMonoProperty:"ReceivedPacketsWithHeadersErrors"];
-		_receivedPacketsWithHeadersErrors = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ReceivedPacketsWithHeadersErrors");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_receivedPacketsWithHeadersErrors = monoObject;
 
 		return _receivedPacketsWithHeadersErrors;
 	}
@@ -263,8 +473,18 @@
     @synthesize receivedPacketsWithUnknownProtocol = _receivedPacketsWithUnknownProtocol;
     - (int64_t)receivedPacketsWithUnknownProtocol
     {
-		MonoObject *monoObject = [self getMonoProperty:"ReceivedPacketsWithUnknownProtocol"];
-		_receivedPacketsWithUnknownProtocol = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ReceivedPacketsWithUnknownProtocol");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_receivedPacketsWithUnknownProtocol = monoObject;
 
 		return _receivedPacketsWithUnknownProtocol;
 	}

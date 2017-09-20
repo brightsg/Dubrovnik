@@ -17,22 +17,22 @@
 	// Managed method name : .ctor
 	// Managed return type : System.IO.Compression.GZipStream
 	// Managed param types : System.IO.Stream, System.IO.Compression.CompressionMode
-    + (System_IO_Compression_GZipStream *)new_withStream:(System_IO_Stream *)p1 mode:(System_IO_Compression_CompressionMode)p2;
+    + (System_IO_Compression_GZipStream *)new_withStream:(System_IO_Stream *)p1 mode:(int32_t)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.IO.Compression.GZipStream
 	// Managed param types : System.IO.Stream, System.IO.Compression.CompressionMode, System.Boolean
-    + (System_IO_Compression_GZipStream *)new_withStream:(System_IO_Stream *)p1 mode:(System_IO_Compression_CompressionMode)p2 leaveOpen:(BOOL)p3;
+    + (System_IO_Compression_GZipStream *)new_withStream:(System_IO_Stream *)p1 mode:(int32_t)p2 leaveOpen:(BOOL)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.IO.Compression.GZipStream
 	// Managed param types : System.IO.Stream, System.IO.Compression.CompressionLevel
-    + (System_IO_Compression_GZipStream *)new_withStream:(System_IO_Stream *)p1 compressionLevel:(System_IO_Compression_CompressionLevel)p2;
+    + (System_IO_Compression_GZipStream *)new_withStream:(System_IO_Stream *)p1 compressionLevel:(int32_t)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.IO.Compression.GZipStream
 	// Managed param types : System.IO.Stream, System.IO.Compression.CompressionLevel, System.Boolean
-    + (System_IO_Compression_GZipStream *)new_withStream:(System_IO_Stream *)p1 compressionLevel:(System_IO_Compression_CompressionLevel)p2 leaveOpen:(BOOL)p3;
+    + (System_IO_Compression_GZipStream *)new_withStream:(System_IO_Stream *)p1 compressionLevel:(int32_t)p2 leaveOpen:(BOOL)p3;
 
 #pragma mark -
 #pragma mark Properties
@@ -97,7 +97,7 @@
 	// Managed method name : Seek
 	// Managed return type : System.Int64
 	// Managed param types : System.Int64, System.IO.SeekOrigin
-    - (int64_t)seek_withOffset:(int64_t)p1 origin:(System_IO_SeekOrigin)p2;
+    - (int64_t)seek_withOffset:(int64_t)p1 origin:(int32_t)p2;
 
 	// Managed method name : SetLength
 	// Managed return type : System.Void

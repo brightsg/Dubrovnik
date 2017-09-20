@@ -32,7 +32,17 @@
     static System_Text_RegularExpressions_Match * m_empty;
     + (System_Text_RegularExpressions_Match *)empty
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Empty"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Empty");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_empty isEqualToMonoObject:monoObject]) return m_empty;					
 		m_empty = [System_Text_RegularExpressions_Match bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize groups = _groups;
     - (System_Text_RegularExpressions_GroupCollection *)groups
     {
-		MonoObject *monoObject = [self getMonoProperty:"Groups"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Groups");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_groups isEqualToMonoObject:monoObject]) return _groups;					
 		_groups = [System_Text_RegularExpressions_GroupCollection bestObjectWithMonoObject:monoObject];
 
@@ -71,7 +91,7 @@
     - (NSString *)result_withReplacement:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Result(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Result(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -82,7 +102,7 @@
     + (System_Text_RegularExpressions_Match *)synchronized_withInner:(System_Text_RegularExpressions_Match *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Synchronized(System.Text.RegularExpressions.Match)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Synchronized(System.Text.RegularExpressions.Match)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Text_RegularExpressions_Match bestObjectWithMonoObject:monoObject];
     }

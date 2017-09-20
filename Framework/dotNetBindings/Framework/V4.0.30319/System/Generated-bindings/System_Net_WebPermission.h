@@ -17,17 +17,17 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebPermission
 	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Net_WebPermission *)new_withState:(System_Security_Permissions_PermissionState)p1;
+    + (System_Net_WebPermission *)new_withState:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebPermission
 	// Managed param types : System.Net.NetworkAccess, System.Text.RegularExpressions.Regex
-    + (System_Net_WebPermission *)new_withAccess:(System_Net_NetworkAccess)p1 uriRegex:(System_Text_RegularExpressions_Regex *)p2;
+    + (System_Net_WebPermission *)new_withAccess:(int32_t)p1 uriRegex:(System_Text_RegularExpressions_Regex *)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebPermission
 	// Managed param types : System.Net.NetworkAccess, System.String
-    + (System_Net_WebPermission *)new_withAccess:(System_Net_NetworkAccess)p1 uriString:(NSString *)p2;
+    + (System_Net_WebPermission *)new_withAccess:(int32_t)p1 uriString:(NSString *)p2;
 
 #pragma mark -
 #pragma mark Properties
@@ -46,12 +46,12 @@
 	// Managed method name : AddPermission
 	// Managed return type : System.Void
 	// Managed param types : System.Net.NetworkAccess, System.String
-    - (void)addPermission_withAccess:(System_Net_NetworkAccess)p1 uriString:(NSString *)p2;
+    - (void)addPermission_withAccess:(int32_t)p1 uriString:(NSString *)p2;
 
 	// Managed method name : AddPermission
 	// Managed return type : System.Void
 	// Managed param types : System.Net.NetworkAccess, System.Text.RegularExpressions.Regex
-    - (void)addPermission_withAccess:(System_Net_NetworkAccess)p1 uriRegex:(System_Text_RegularExpressions_Regex *)p2;
+    - (void)addPermission_withAccess:(int32_t)p1 uriRegex:(System_Text_RegularExpressions_Regex *)p2;
 
 	// Managed method name : Copy
 	// Managed return type : System.Security.IPermission

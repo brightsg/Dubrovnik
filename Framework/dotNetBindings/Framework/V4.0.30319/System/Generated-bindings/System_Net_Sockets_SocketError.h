@@ -2,7 +2,9 @@
 //
 // Managed enumeration : SocketError
 //
-typedef NS_ENUM(int32_t, System_Net_Sockets_SocketError) {
+
+// C enumeration
+typedef NS_ENUM(int32_t, enumSystem_Net_Sockets_SocketError) {
 	System_Net_Sockets_SocketError_AccessDenied = 10013,
 	System_Net_Sockets_SocketError_AddressAlreadyInUse = 10048,
 	System_Net_Sockets_SocketError_AddressFamilyNotSupported = 10047,
@@ -51,4 +53,204 @@ typedef NS_ENUM(int32_t, System_Net_Sockets_SocketError) {
 	System_Net_Sockets_SocketError_VersionNotSupported = 10092,
 	System_Net_Sockets_SocketError_WouldBlock = 10035,
 };
+@interface System_Net_Sockets_SocketError : DBSystem_Enum
+
+#pragma mark -
+#pragma mark Setup
+	// obligatory override
+	+ (const char *)monoClassName;
+	// obligatory override
+	+ (const char *)monoAssemblyName;
+
+#pragma mark -
+#pragma mark Fields
+
+	// Managed field name : AccessDenied
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)accessDenied;
+
+	// Managed field name : AddressAlreadyInUse
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)addressAlreadyInUse;
+
+	// Managed field name : AddressFamilyNotSupported
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)addressFamilyNotSupported;
+
+	// Managed field name : AddressNotAvailable
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)addressNotAvailable;
+
+	// Managed field name : AlreadyInProgress
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)alreadyInProgress;
+
+	// Managed field name : ConnectionAborted
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)connectionAborted;
+
+	// Managed field name : ConnectionRefused
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)connectionRefused;
+
+	// Managed field name : ConnectionReset
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)connectionReset;
+
+	// Managed field name : DestinationAddressRequired
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)destinationAddressRequired;
+
+	// Managed field name : Disconnecting
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)disconnecting;
+
+	// Managed field name : Fault
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)fault;
+
+	// Managed field name : HostDown
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)hostDown;
+
+	// Managed field name : HostNotFound
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)hostNotFound;
+
+	// Managed field name : HostUnreachable
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)hostUnreachable;
+
+	// Managed field name : InProgress
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)inProgress;
+
+	// Managed field name : Interrupted
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)interrupted;
+
+	// Managed field name : InvalidArgument
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)invalidArgument;
+
+	// Managed field name : IOPending
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)iOPending;
+
+	// Managed field name : IsConnected
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)isConnected;
+
+	// Managed field name : MessageSize
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)messageSize;
+
+	// Managed field name : NetworkDown
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)networkDown;
+
+	// Managed field name : NetworkReset
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)networkReset;
+
+	// Managed field name : NetworkUnreachable
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)networkUnreachable;
+
+	// Managed field name : NoBufferSpaceAvailable
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)noBufferSpaceAvailable;
+
+	// Managed field name : NoData
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)noData;
+
+	// Managed field name : NoRecovery
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)noRecovery;
+
+	// Managed field name : NotConnected
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)notConnected;
+
+	// Managed field name : NotInitialized
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)notInitialized;
+
+	// Managed field name : NotSocket
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)notSocket;
+
+	// Managed field name : OperationAborted
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)operationAborted;
+
+	// Managed field name : OperationNotSupported
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)operationNotSupported;
+
+	// Managed field name : ProcessLimit
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)processLimit;
+
+	// Managed field name : ProtocolFamilyNotSupported
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)protocolFamilyNotSupported;
+
+	// Managed field name : ProtocolNotSupported
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)protocolNotSupported;
+
+	// Managed field name : ProtocolOption
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)protocolOption;
+
+	// Managed field name : ProtocolType
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)protocolType;
+
+	// Managed field name : Shutdown
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)shutdown;
+
+	// Managed field name : SocketError
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)socketError;
+
+	// Managed field name : SocketNotSupported
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)socketNotSupported;
+
+	// Managed field name : Success
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)success;
+
+	// Managed field name : SystemNotReady
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)systemNotReady;
+
+	// Managed field name : TimedOut
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)timedOut;
+
+	// Managed field name : TooManyOpenSockets
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)tooManyOpenSockets;
+
+	// Managed field name : TryAgain
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)tryAgain;
+
+	// Managed field name : TypeNotFound
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)typeNotFound;
+
+	// Managed field name : VersionNotSupported
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)versionNotSupported;
+
+	// Managed field name : WouldBlock
+	// Managed field type : System.Net.Sockets.SocketError
+    + (int32_t)wouldBlock;
+@end
 //--Dubrovnik.CodeGenerator

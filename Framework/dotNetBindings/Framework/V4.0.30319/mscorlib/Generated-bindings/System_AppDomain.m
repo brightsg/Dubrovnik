@@ -1136,7 +1136,7 @@
 	// Managed method name : InitializeLifetimeService
 	// Managed return type : System.Object
 	// Managed param types : 
-    - (System_Object *)initializeLifetimeService
+    - (System_Object *)db_initializeLifetimeService
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"InitializeLifetimeService()" withNumArgs:0];

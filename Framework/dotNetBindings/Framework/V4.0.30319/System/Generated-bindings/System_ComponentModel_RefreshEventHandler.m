@@ -33,7 +33,7 @@
     + (System_ComponentModel_RefreshEventHandler *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
 		
-		System_ComponentModel_RefreshEventHandler * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_ComponentModel_RefreshEventHandler * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -47,7 +47,7 @@
     - (id <System_IAsyncResult>)beginInvoke_withE:(System_ComponentModel_RefreshEventArgs *)p1 callback:(System_AsyncCallback *)p2 object:(System_Object *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(System.ComponentModel.RefreshEventArgs,System.AsyncCallback,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(System.ComponentModel.RefreshEventArgs,System.AsyncCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -58,7 +58,7 @@
     - (void)endInvoke_withResult:(id <System_IAsyncResult_>)p1
     {
 		
-		[self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -68,7 +68,7 @@
     - (void)invoke_withE:(System_ComponentModel_RefreshEventArgs *)p1
     {
 		
-		[self invokeMonoMethod:"Invoke(System.ComponentModel.RefreshEventArgs)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Invoke(System.ComponentModel.RefreshEventArgs)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

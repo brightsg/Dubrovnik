@@ -33,7 +33,7 @@
     + (System_CodeDom_CodeCatchClause *)new_withLocalName:(NSString *)p1
     {
 		
-		System_CodeDom_CodeCatchClause * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_CodeDom_CodeCatchClause * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_CodeDom_CodeCatchClause *)new_withLocalName:(NSString *)p1 catchExceptionType:(System_CodeDom_CodeTypeReference *)p2
     {
 		
-		System_CodeDom_CodeCatchClause * object = [[self alloc] initWithSignature:"string,System.CodeDom.CodeTypeReference" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_CodeDom_CodeCatchClause * object = [[self alloc] initWithSignature:"string,System.CodeDom.CodeTypeReference" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_CodeDom_CodeCatchClause *)new_withLocalName:(NSString *)p1 catchExceptionType:(System_CodeDom_CodeTypeReference *)p2 statements:(DBSystem_Array *)p3
     {
 		
-		System_CodeDom_CodeCatchClause * object = [[self alloc] initWithSignature:"string,System.CodeDom.CodeTypeReference,System.CodeDom.CodeStatement[]" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		System_CodeDom_CodeCatchClause * object = [[self alloc] initWithSignature:"string,System.CodeDom.CodeTypeReference,System.CodeDom.CodeStatement[]" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -68,7 +68,17 @@
     @synthesize catchExceptionType = _catchExceptionType;
     - (System_CodeDom_CodeTypeReference *)catchExceptionType
     {
-		MonoObject *monoObject = [self getMonoProperty:"CatchExceptionType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CatchExceptionType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_catchExceptionType isEqualToMonoObject:monoObject]) return _catchExceptionType;					
 		_catchExceptionType = [System_CodeDom_CodeTypeReference bestObjectWithMonoObject:monoObject];
 
@@ -77,8 +87,17 @@
     - (void)setCatchExceptionType:(System_CodeDom_CodeTypeReference *)value
 	{
 		_catchExceptionType = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"CatchExceptionType" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CatchExceptionType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : LocalName
@@ -86,7 +105,17 @@
     @synthesize localName = _localName;
     - (NSString *)localName
     {
-		MonoObject *monoObject = [self getMonoProperty:"LocalName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LocalName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_localName isEqualToMonoObject:monoObject]) return _localName;					
 		_localName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -95,8 +124,17 @@
     - (void)setLocalName:(NSString *)value
 	{
 		_localName = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"LocalName" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "LocalName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Statements
@@ -104,7 +142,17 @@
     @synthesize statements = _statements;
     - (System_CodeDom_CodeStatementCollection *)statements
     {
-		MonoObject *monoObject = [self getMonoProperty:"Statements"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Statements");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_statements isEqualToMonoObject:monoObject]) return _statements;					
 		_statements = [System_CodeDom_CodeStatementCollection bestObjectWithMonoObject:monoObject];
 

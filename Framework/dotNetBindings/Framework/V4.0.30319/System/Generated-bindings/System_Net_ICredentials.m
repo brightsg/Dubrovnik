@@ -33,7 +33,7 @@
     - (System_Net_NetworkCredential *)getCredential_withUri:(System_Uri *)p1 authType:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Net.ICredentials.GetCredential(System.Uri,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Net.ICredentials.GetCredential(System.Uri,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Net_NetworkCredential bestObjectWithMonoObject:monoObject];
     }

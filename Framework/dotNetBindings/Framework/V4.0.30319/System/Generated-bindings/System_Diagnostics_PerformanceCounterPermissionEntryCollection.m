@@ -32,7 +32,17 @@
     @synthesize item = _item;
     - (System_Diagnostics_PerformanceCounterPermissionEntry *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
 		_item = [System_Diagnostics_PerformanceCounterPermissionEntry bestObjectWithMonoObject:monoObject];
 
@@ -41,8 +51,17 @@
     - (void)setItem:(System_Diagnostics_PerformanceCounterPermissionEntry *)value
 	{
 		_item = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Item" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -54,7 +73,7 @@
     - (int32_t)add_withValue:(System_Diagnostics_PerformanceCounterPermissionEntry *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Add(System.Diagnostics.PerformanceCounterPermissionEntry)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Add(System.Diagnostics.PerformanceCounterPermissionEntry)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -65,7 +84,7 @@
     - (void)addRange_withValueSDPerformanceCounterPermissionEntry:(DBSystem_Array *)p1
     {
 		
-		[self invokeMonoMethod:"AddRange(System.Diagnostics.PerformanceCounterPermissionEntry[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddRange(System.Diagnostics.PerformanceCounterPermissionEntry[])" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -75,7 +94,7 @@
     - (void)addRange_withValueSDPerformanceCounterPermissionEntryCollection:(System_Diagnostics_PerformanceCounterPermissionEntryCollection *)p1
     {
 		
-		[self invokeMonoMethod:"AddRange(System.Diagnostics.PerformanceCounterPermissionEntryCollection)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddRange(System.Diagnostics.PerformanceCounterPermissionEntryCollection)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -85,7 +104,7 @@
     - (BOOL)contains_withValue:(System_Diagnostics_PerformanceCounterPermissionEntry *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Contains(System.Diagnostics.PerformanceCounterPermissionEntry)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Contains(System.Diagnostics.PerformanceCounterPermissionEntry)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -96,7 +115,7 @@
     - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
 		
-		[self invokeMonoMethod:"CopyTo(System.Diagnostics.PerformanceCounterPermissionEntry[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"CopyTo(System.Diagnostics.PerformanceCounterPermissionEntry[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
     }
 
@@ -106,7 +125,7 @@
     - (int32_t)indexOf_withValue:(System_Diagnostics_PerformanceCounterPermissionEntry *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(System.Diagnostics.PerformanceCounterPermissionEntry)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(System.Diagnostics.PerformanceCounterPermissionEntry)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -117,7 +136,7 @@
     - (void)insert_withIndex:(int32_t)p1 value:(System_Diagnostics_PerformanceCounterPermissionEntry *)p2
     {
 		
-		[self invokeMonoMethod:"Insert(int,System.Diagnostics.PerformanceCounterPermissionEntry)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoMethod:"Insert(int,System.Diagnostics.PerformanceCounterPermissionEntry)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
     }
 
@@ -127,7 +146,7 @@
     - (void)remove_withValue:(System_Diagnostics_PerformanceCounterPermissionEntry *)p1
     {
 		
-		[self invokeMonoMethod:"Remove(System.Diagnostics.PerformanceCounterPermissionEntry)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Remove(System.Diagnostics.PerformanceCounterPermissionEntry)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

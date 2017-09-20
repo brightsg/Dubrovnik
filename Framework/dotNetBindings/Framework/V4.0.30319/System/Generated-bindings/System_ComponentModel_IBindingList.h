@@ -32,7 +32,7 @@
 
 	// Managed property name : SortDirection
 	// Managed property type : System.ComponentModel.ListSortDirection
-    @property (nonatomic, readonly) System_ComponentModel_ListSortDirection sortDirection;
+    @property (nonatomic, readonly) int32_t sortDirection;
 
 	// Managed property name : SortProperty
 	// Managed property type : System.ComponentModel.PropertyDescriptor
@@ -66,7 +66,7 @@
 	// Managed method name : ApplySort
 	// Managed return type : System.Void
 	// Managed param types : System.ComponentModel.PropertyDescriptor, System.ComponentModel.ListSortDirection
-    - (void)applySort_withProperty:(System_ComponentModel_PropertyDescriptor *)p1 direction:(System_ComponentModel_ListSortDirection)p2;
+    - (void)applySort_withProperty:(System_ComponentModel_PropertyDescriptor *)p1 direction:(int32_t)p2;
 
 	// Managed method name : Find
 	// Managed return type : System.Int32

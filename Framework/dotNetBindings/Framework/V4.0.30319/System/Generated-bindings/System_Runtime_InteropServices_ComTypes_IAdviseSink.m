@@ -33,7 +33,7 @@
     - (void)onClose
     {
 		
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IAdviseSink.OnClose()" withNumArgs:0];;
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IAdviseSink.OnClose()" withNumArgs:0];
         
     }
 
@@ -42,11 +42,11 @@
 	// Managed param types : ref System.Runtime.InteropServices.ComTypes.FORMATETC&, ref System.Runtime.InteropServices.ComTypes.STGMEDIUM&
     - (void)onDataChange_withFormatRef:(System_Runtime_InteropServices_ComTypes_FORMATETC **)p1 stgmediumRef:(System_Runtime_InteropServices_ComTypes_STGMEDIUM **)p2
     {
-		void *refPtr1 = [*p1 monoValue];
-void *refPtr2 = [*p2 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
+void *refPtr2 = [*p2 monoRTInvokeArg];
 
 		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IAdviseSink.OnDataChange(System.Runtime.InteropServices.ComTypes.FORMATETC&,System.Runtime.InteropServices.ComTypes.STGMEDIUM&)" withNumArgs:2, &refPtr1, &refPtr2];
-;
+
         *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 *p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 
@@ -58,7 +58,7 @@ void *refPtr2 = [*p2 monoValue];
     - (void)onRename_withMoniker:(id <System_Runtime_InteropServices_ComTypes_IMoniker_>)p1
     {
 		
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IAdviseSink.OnRename(System.Runtime.InteropServices.ComTypes.IMoniker)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IAdviseSink.OnRename(System.Runtime.InteropServices.ComTypes.IMoniker)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -68,7 +68,7 @@ void *refPtr2 = [*p2 monoValue];
     - (void)onSave
     {
 		
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IAdviseSink.OnSave()" withNumArgs:0];;
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IAdviseSink.OnSave()" withNumArgs:0];
         
     }
 
@@ -78,7 +78,7 @@ void *refPtr2 = [*p2 monoValue];
     - (void)onViewChange_withAspect:(int32_t)p1 index:(int32_t)p2
     {
 		
-		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IAdviseSink.OnViewChange(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IAdviseSink.OnViewChange(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
         
     }
 

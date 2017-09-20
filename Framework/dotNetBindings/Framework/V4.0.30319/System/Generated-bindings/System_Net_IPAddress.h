@@ -69,7 +69,7 @@
 
 	// Managed property name : AddressFamily
 	// Managed property type : System.Net.Sockets.AddressFamily
-    @property (nonatomic, readonly) System_Net_Sockets_AddressFamily addressFamily;
+    @property (nonatomic, readonly) int32_t addressFamily;
 
 	// Managed property name : IsIPv4MappedToIPv6
 	// Managed property type : System.Boolean

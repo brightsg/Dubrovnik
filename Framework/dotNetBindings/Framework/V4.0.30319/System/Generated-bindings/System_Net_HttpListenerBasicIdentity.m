@@ -33,7 +33,7 @@
     + (System_Net_HttpListenerBasicIdentity *)new_withUsername:(NSString *)p1 password:(NSString *)p2
     {
 		
-		System_Net_HttpListenerBasicIdentity * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Net_HttpListenerBasicIdentity * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize password = _password;
     - (NSString *)password
     {
-		MonoObject *monoObject = [self getMonoProperty:"Password"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Password");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_password isEqualToMonoObject:monoObject]) return _password;					
 		_password = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

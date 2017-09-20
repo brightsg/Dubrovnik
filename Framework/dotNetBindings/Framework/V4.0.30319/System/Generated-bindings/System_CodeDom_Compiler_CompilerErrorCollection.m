@@ -33,7 +33,7 @@
     + (System_CodeDom_Compiler_CompilerErrorCollection *)new_withValueSCCCompilerErrorCollection:(System_CodeDom_Compiler_CompilerErrorCollection *)p1
     {
 		
-		System_CodeDom_Compiler_CompilerErrorCollection * object = [[self alloc] initWithSignature:"System.CodeDom.Compiler.CompilerErrorCollection" withNumArgs:1, [p1 monoValue]];;
+		System_CodeDom_Compiler_CompilerErrorCollection * object = [[self alloc] initWithSignature:"System.CodeDom.Compiler.CompilerErrorCollection" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_CodeDom_Compiler_CompilerErrorCollection *)new_withValueSCCCompilerError:(DBSystem_Array *)p1
     {
 		
-		System_CodeDom_Compiler_CompilerErrorCollection * object = [[self alloc] initWithSignature:"System.CodeDom.Compiler.CompilerError[]" withNumArgs:1, [p1 monoValue]];;
+		System_CodeDom_Compiler_CompilerErrorCollection * object = [[self alloc] initWithSignature:"System.CodeDom.Compiler.CompilerError[]" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -57,8 +57,18 @@
     @synthesize hasErrors = _hasErrors;
     - (BOOL)hasErrors
     {
-		MonoObject *monoObject = [self getMonoProperty:"HasErrors"];
-		_hasErrors = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HasErrors");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_hasErrors = monoObject;
 
 		return _hasErrors;
 	}
@@ -68,8 +78,18 @@
     @synthesize hasWarnings = _hasWarnings;
     - (BOOL)hasWarnings
     {
-		MonoObject *monoObject = [self getMonoProperty:"HasWarnings"];
-		_hasWarnings = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HasWarnings");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_hasWarnings = monoObject;
 
 		return _hasWarnings;
 	}
@@ -79,7 +99,17 @@
     @synthesize item = _item;
     - (System_CodeDom_Compiler_CompilerError *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
 		_item = [System_CodeDom_Compiler_CompilerError bestObjectWithMonoObject:monoObject];
 
@@ -88,8 +118,17 @@
     - (void)setItem:(System_CodeDom_Compiler_CompilerError *)value
 	{
 		_item = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Item" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -101,7 +140,7 @@
     - (int32_t)add_withValue:(System_CodeDom_Compiler_CompilerError *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Add(System.CodeDom.Compiler.CompilerError)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Add(System.CodeDom.Compiler.CompilerError)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -112,7 +151,7 @@
     - (void)addRange_withValueSCCCompilerError:(DBSystem_Array *)p1
     {
 		
-		[self invokeMonoMethod:"AddRange(System.CodeDom.Compiler.CompilerError[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddRange(System.CodeDom.Compiler.CompilerError[])" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -122,7 +161,7 @@
     - (void)addRange_withValueSCCCompilerErrorCollection:(System_CodeDom_Compiler_CompilerErrorCollection *)p1
     {
 		
-		[self invokeMonoMethod:"AddRange(System.CodeDom.Compiler.CompilerErrorCollection)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddRange(System.CodeDom.Compiler.CompilerErrorCollection)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -132,7 +171,7 @@
     - (BOOL)contains_withValue:(System_CodeDom_Compiler_CompilerError *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Contains(System.CodeDom.Compiler.CompilerError)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Contains(System.CodeDom.Compiler.CompilerError)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -143,7 +182,7 @@
     - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
 		
-		[self invokeMonoMethod:"CopyTo(System.CodeDom.Compiler.CompilerError[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"CopyTo(System.CodeDom.Compiler.CompilerError[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
     }
 
@@ -153,7 +192,7 @@
     - (int32_t)indexOf_withValue:(System_CodeDom_Compiler_CompilerError *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(System.CodeDom.Compiler.CompilerError)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(System.CodeDom.Compiler.CompilerError)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -164,7 +203,7 @@
     - (void)insert_withIndex:(int32_t)p1 value:(System_CodeDom_Compiler_CompilerError *)p2
     {
 		
-		[self invokeMonoMethod:"Insert(int,System.CodeDom.Compiler.CompilerError)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoMethod:"Insert(int,System.CodeDom.Compiler.CompilerError)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
     }
 
@@ -174,7 +213,7 @@
     - (void)remove_withValue:(System_CodeDom_Compiler_CompilerError *)p1
     {
 		
-		[self invokeMonoMethod:"Remove(System.CodeDom.Compiler.CompilerError)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Remove(System.CodeDom.Compiler.CompilerError)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

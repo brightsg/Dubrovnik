@@ -257,21 +257,21 @@
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
-	// Managed param types : System.Int32, T[], System.Int32, System.Int32
-    - (void)copyTo_withIndex:(int32_t)p1 array:(DBSystem_Array *)p2 arrayIndex:(int32_t)p3 count:(int32_t)p4
-    {
-		
-		[self invokeMonoMethod:"CopyTo(int,T[],int,int)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
-        
-    }
-
-	// Managed method name : CopyTo
-	// Managed return type : System.Void
 	// Managed param types : T[], System.Int32
     - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2
     {
 		
 		[self invokeMonoMethod:"CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+        
+    }
+
+	// Managed method name : CopyTo
+	// Managed return type : System.Void
+	// Managed param types : System.Int32, T[], System.Int32, System.Int32
+    - (void)copyTo_withIndex:(int32_t)p1 array:(DBSystem_Array *)p2 arrayIndex:(int32_t)p3 count:(int32_t)p4
+    {
+		
+		[self invokeMonoMethod:"CopyTo(int,T[],int,int)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
         
     }
 
@@ -310,22 +310,22 @@
 
 	// Managed method name : FindIndex
 	// Managed return type : System.Int32
-	// Managed param types : System.Int32, System.Int32, System.Predicate`1<System.Collections.Generic.List`1+T>
-    - (int32_t)findIndex_withStartIndex:(int32_t)p1 count:(int32_t)p2 match:(System_PredicateA1 *)p3
+	// Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
+    - (int32_t)findIndex_withMatch:(System_PredicateA1 *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"FindIndex(int,int,System.Predicate`1<System.Collections.Generic.List`1+T>)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"FindIndex(System.Predicate`1<System.Collections.Generic.List`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
 
 	// Managed method name : FindIndex
 	// Managed return type : System.Int32
-	// Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
-    - (int32_t)findIndex_withMatch:(System_PredicateA1 *)p1
+	// Managed param types : System.Int32, System.Int32, System.Predicate`1<System.Collections.Generic.List`1+T>
+    - (int32_t)findIndex_withStartIndex:(int32_t)p1 count:(int32_t)p2 match:(System_PredicateA1 *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"FindIndex(System.Predicate`1<System.Collections.Generic.List`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"FindIndex(int,int,System.Predicate`1<System.Collections.Generic.List`1+T>)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }

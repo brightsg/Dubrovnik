@@ -33,7 +33,7 @@
     - (System_ComponentModel_License *)getLicense_withContext:(System_ComponentModel_LicenseContext *)p1 type:(System_Type *)p2 instance:(System_Object *)p3 allowExceptions:(BOOL)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetLicense(System.ComponentModel.LicenseContext,System.Type,object,bool)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4)];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetLicense(System.ComponentModel.LicenseContext,System.Type,object,bool)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
 		
 		return [System_ComponentModel_License bestObjectWithMonoObject:monoObject];
     }

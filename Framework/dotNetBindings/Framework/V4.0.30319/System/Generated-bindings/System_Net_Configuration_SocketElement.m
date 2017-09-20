@@ -32,16 +32,35 @@
     @synthesize alwaysUseCompletionPortsForAccept = _alwaysUseCompletionPortsForAccept;
     - (BOOL)alwaysUseCompletionPortsForAccept
     {
-		MonoObject *monoObject = [self getMonoProperty:"AlwaysUseCompletionPortsForAccept"];
-		_alwaysUseCompletionPortsForAccept = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AlwaysUseCompletionPortsForAccept");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_alwaysUseCompletionPortsForAccept = monoObject;
 
 		return _alwaysUseCompletionPortsForAccept;
 	}
     - (void)setAlwaysUseCompletionPortsForAccept:(BOOL)value
 	{
 		_alwaysUseCompletionPortsForAccept = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"AlwaysUseCompletionPortsForAccept" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "AlwaysUseCompletionPortsForAccept");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : AlwaysUseCompletionPortsForConnect
@@ -49,33 +68,71 @@
     @synthesize alwaysUseCompletionPortsForConnect = _alwaysUseCompletionPortsForConnect;
     - (BOOL)alwaysUseCompletionPortsForConnect
     {
-		MonoObject *monoObject = [self getMonoProperty:"AlwaysUseCompletionPortsForConnect"];
-		_alwaysUseCompletionPortsForConnect = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AlwaysUseCompletionPortsForConnect");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_alwaysUseCompletionPortsForConnect = monoObject;
 
 		return _alwaysUseCompletionPortsForConnect;
 	}
     - (void)setAlwaysUseCompletionPortsForConnect:(BOOL)value
 	{
 		_alwaysUseCompletionPortsForConnect = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"AlwaysUseCompletionPortsForConnect" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "AlwaysUseCompletionPortsForConnect");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : IPProtectionLevel
 	// Managed property type : System.Net.Sockets.IPProtectionLevel
     @synthesize iPProtectionLevel = _iPProtectionLevel;
-    - (System_Net_Sockets_IPProtectionLevel)iPProtectionLevel
+    - (int32_t)iPProtectionLevel
     {
-		MonoObject *monoObject = [self getMonoProperty:"IPProtectionLevel"];
-		_iPProtectionLevel = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IPProtectionLevel");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_iPProtectionLevel = monoObject;
 
 		return _iPProtectionLevel;
 	}
-    - (void)setIPProtectionLevel:(System_Net_Sockets_IPProtectionLevel)value
+    - (void)setIPProtectionLevel:(int32_t)value
 	{
 		_iPProtectionLevel = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"IPProtectionLevel" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "IPProtectionLevel");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

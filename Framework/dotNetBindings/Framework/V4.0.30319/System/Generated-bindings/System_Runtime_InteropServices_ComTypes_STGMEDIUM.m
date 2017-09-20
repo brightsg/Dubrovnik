@@ -41,21 +41,21 @@
     - (void)setPUnkForRelease:(System_Object *)value
 	{
 		_pUnkForRelease = value;
-		MonoObject *monoObject = [value monoValue];
+		MonoObject *monoObject = [value monoRTInvokeArg];
 		[self setMonoField:"pUnkForRelease" valueObject:monoObject];          
 	}
 
 	// Managed field name : tymed
 	// Managed field type : System.Runtime.InteropServices.ComTypes.TYMED
     @synthesize tymed = _tymed;
-    - (System_Runtime_InteropServices_ComTypes_TYMED)tymed
+    - (int32_t)tymed
     {
 		MonoObject *monoObject = [self getMonoField:"tymed"];
 		_tymed = DB_UNBOX_INT32(monoObject);
 
 		return _tymed;
 	}
-    - (void)setTymed:(System_Runtime_InteropServices_ComTypes_TYMED)value
+    - (void)setTymed:(int32_t)value
 	{
 		_tymed = value;
 		MonoObject *monoObject = DB_VALUE(value);

@@ -33,7 +33,7 @@
     + (System_ComponentModel_ToolboxItemAttribute *)new_withDefaultType:(BOOL)p1
     {
 		
-		System_ComponentModel_ToolboxItemAttribute * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
+		System_ComponentModel_ToolboxItemAttribute * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_ComponentModel_ToolboxItemAttribute *)new_withToolboxItemTypeName:(NSString *)p1
     {
 		
-		System_ComponentModel_ToolboxItemAttribute * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_ToolboxItemAttribute * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_ComponentModel_ToolboxItemAttribute *)new_withToolboxItemType:(System_Type *)p1
     {
 		
-		System_ComponentModel_ToolboxItemAttribute * object = [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_ToolboxItemAttribute * object = [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -95,7 +95,17 @@
     @synthesize toolboxItemType = _toolboxItemType;
     - (System_Type *)toolboxItemType
     {
-		MonoObject *monoObject = [self getMonoProperty:"ToolboxItemType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ToolboxItemType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_toolboxItemType isEqualToMonoObject:monoObject]) return _toolboxItemType;					
 		_toolboxItemType = [System_Type bestObjectWithMonoObject:monoObject];
 
@@ -107,7 +117,17 @@
     @synthesize toolboxItemTypeName = _toolboxItemTypeName;
     - (NSString *)toolboxItemTypeName
     {
-		MonoObject *monoObject = [self getMonoProperty:"ToolboxItemTypeName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ToolboxItemTypeName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_toolboxItemTypeName isEqualToMonoObject:monoObject]) return _toolboxItemTypeName;					
 		_toolboxItemTypeName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -123,7 +143,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

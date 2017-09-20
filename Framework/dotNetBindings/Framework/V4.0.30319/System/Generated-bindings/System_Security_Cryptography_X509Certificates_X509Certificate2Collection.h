@@ -62,17 +62,17 @@
 	// Managed method name : Export
 	// Managed return type : System.Byte[]
 	// Managed param types : System.Security.Cryptography.X509Certificates.X509ContentType
-    - (NSData *)export_withContentType:(System_Security_Cryptography_X509Certificates_X509ContentType)p1;
+    - (NSData *)export_withContentType:(int32_t)p1;
 
 	// Managed method name : Export
 	// Managed return type : System.Byte[]
 	// Managed param types : System.Security.Cryptography.X509Certificates.X509ContentType, System.String
-    - (NSData *)export_withContentType:(System_Security_Cryptography_X509Certificates_X509ContentType)p1 password:(NSString *)p2;
+    - (NSData *)export_withContentType:(int32_t)p1 password:(NSString *)p2;
 
 	// Managed method name : Find
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate2Collection
 	// Managed param types : System.Security.Cryptography.X509Certificates.X509FindType, System.Object, System.Boolean
-    - (System_Security_Cryptography_X509Certificates_X509Certificate2Collection *)find_withFindType:(System_Security_Cryptography_X509Certificates_X509FindType)p1 findValue:(System_Object *)p2 validOnly:(BOOL)p3;
+    - (System_Security_Cryptography_X509Certificates_X509Certificate2Collection *)find_withFindType:(int32_t)p1 findValue:(System_Object *)p2 validOnly:(BOOL)p3;
 
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate2Enumerator
@@ -87,7 +87,7 @@
 	// Managed method name : Import
 	// Managed return type : System.Void
 	// Managed param types : System.Byte[], System.String, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    - (void)import_withRawData:(NSData *)p1 password:(NSString *)p2 keyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3;
+    - (void)import_withRawData:(NSData *)p1 password:(NSString *)p2 keyStorageFlags:(int32_t)p3;
 
 	// Managed method name : Import
 	// Managed return type : System.Void
@@ -97,7 +97,7 @@
 	// Managed method name : Import
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.String, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    - (void)import_withFileName:(NSString *)p1 password:(NSString *)p2 keyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3;
+    - (void)import_withFileName:(NSString *)p1 password:(NSString *)p2 keyStorageFlags:(int32_t)p3;
 
 	// Managed method name : Insert
 	// Managed return type : System.Void

@@ -17,12 +17,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.SocketPermission
 	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Net_SocketPermission *)new_withState:(System_Security_Permissions_PermissionState)p1;
+    + (System_Net_SocketPermission *)new_withState:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.SocketPermission
 	// Managed param types : System.Net.NetworkAccess, System.Net.TransportType, System.String, System.Int32
-    + (System_Net_SocketPermission *)new_withAccess:(System_Net_NetworkAccess)p1 transport:(System_Net_TransportType)p2 hostName:(NSString *)p3 portNumber:(int32_t)p4;
+    + (System_Net_SocketPermission *)new_withAccess:(int32_t)p1 transport:(int32_t)p2 hostName:(NSString *)p3 portNumber:(int32_t)p4;
 
 #pragma mark -
 #pragma mark Fields
@@ -48,7 +48,7 @@
 	// Managed method name : AddPermission
 	// Managed return type : System.Void
 	// Managed param types : System.Net.NetworkAccess, System.Net.TransportType, System.String, System.Int32
-    - (void)addPermission_withAccess:(System_Net_NetworkAccess)p1 transport:(System_Net_TransportType)p2 hostName:(NSString *)p3 portNumber:(int32_t)p4;
+    - (void)addPermission_withAccess:(int32_t)p1 transport:(int32_t)p2 hostName:(NSString *)p3 portNumber:(int32_t)p4;
 
 	// Managed method name : Copy
 	// Managed return type : System.Security.IPermission

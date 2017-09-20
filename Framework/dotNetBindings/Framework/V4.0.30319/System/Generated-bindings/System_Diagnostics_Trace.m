@@ -32,16 +32,35 @@
     static BOOL m_autoFlush;
     + (BOOL)autoFlush
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"AutoFlush"];
-		m_autoFlush = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AutoFlush");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_autoFlush = monoObject;
 
 		return m_autoFlush;
 	}
     + (void)setAutoFlush:(BOOL)value
 	{
 		m_autoFlush = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[[self class] setMonoClassProperty:"AutoFlush" valueObject:monoObject];          
+		typedef void (*Thunk)(BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "AutoFlush");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CorrelationManager
@@ -49,7 +68,17 @@
     static System_Diagnostics_CorrelationManager * m_correlationManager;
     + (System_Diagnostics_CorrelationManager *)correlationManager
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"CorrelationManager"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CorrelationManager");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_correlationManager isEqualToMonoObject:monoObject]) return m_correlationManager;					
 		m_correlationManager = [System_Diagnostics_CorrelationManager bestObjectWithMonoObject:monoObject];
 
@@ -61,16 +90,35 @@
     static int32_t m_indentLevel;
     + (int32_t)indentLevel
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"IndentLevel"];
-		m_indentLevel = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IndentLevel");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_indentLevel = monoObject;
 
 		return m_indentLevel;
 	}
     + (void)setIndentLevel:(int32_t)value
 	{
 		m_indentLevel = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[[self class] setMonoClassProperty:"IndentLevel" valueObject:monoObject];          
+		typedef void (*Thunk)(int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "IndentLevel");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : IndentSize
@@ -78,16 +126,35 @@
     static int32_t m_indentSize;
     + (int32_t)indentSize
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"IndentSize"];
-		m_indentSize = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IndentSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_indentSize = monoObject;
 
 		return m_indentSize;
 	}
     + (void)setIndentSize:(int32_t)value
 	{
 		m_indentSize = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[[self class] setMonoClassProperty:"IndentSize" valueObject:monoObject];          
+		typedef void (*Thunk)(int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "IndentSize");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Listeners
@@ -95,7 +162,17 @@
     static System_Diagnostics_TraceListenerCollection * m_listeners;
     + (System_Diagnostics_TraceListenerCollection *)listeners
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"Listeners"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Listeners");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_listeners isEqualToMonoObject:monoObject]) return m_listeners;					
 		m_listeners = [System_Diagnostics_TraceListenerCollection bestObjectWithMonoObject:monoObject];
 
@@ -107,16 +184,35 @@
     static BOOL m_useGlobalLock;
     + (BOOL)useGlobalLock
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"UseGlobalLock"];
-		m_useGlobalLock = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UseGlobalLock");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_useGlobalLock = monoObject;
 
 		return m_useGlobalLock;
 	}
     + (void)setUseGlobalLock:(BOOL)value
 	{
 		m_useGlobalLock = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[[self class] setMonoClassProperty:"UseGlobalLock" valueObject:monoObject];          
+		typedef void (*Thunk)(BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "UseGlobalLock");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -128,7 +224,7 @@
     + (void)assert_withCondition:(BOOL)p1
     {
 		
-		[self invokeMonoClassMethod:"Assert(bool)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoClassMethod:"Assert(bool)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -138,7 +234,7 @@
     + (void)assert_withCondition:(BOOL)p1 message:(NSString *)p2
     {
 		
-		[self invokeMonoClassMethod:"Assert(bool,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoClassMethod:"Assert(bool,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
     }
 
@@ -148,7 +244,7 @@
     + (void)assert_withCondition:(BOOL)p1 message:(NSString *)p2 detailMessage:(NSString *)p3
     {
 		
-		[self invokeMonoClassMethod:"Assert(bool,string,string)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoClassMethod:"Assert(bool,string,string)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -158,7 +254,7 @@
     + (void)close
     {
 		
-		[self invokeMonoClassMethod:"Close()" withNumArgs:0];;
+		[self invokeMonoClassMethod:"Close()" withNumArgs:0];
         
     }
 
@@ -168,7 +264,7 @@
     + (void)fail_withMessage:(NSString *)p1
     {
 		
-		[self invokeMonoClassMethod:"Fail(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"Fail(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -178,7 +274,7 @@
     + (void)fail_withMessage:(NSString *)p1 detailMessage:(NSString *)p2
     {
 		
-		[self invokeMonoClassMethod:"Fail(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"Fail(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -188,7 +284,7 @@
     + (void)flush
     {
 		
-		[self invokeMonoClassMethod:"Flush()" withNumArgs:0];;
+		[self invokeMonoClassMethod:"Flush()" withNumArgs:0];
         
     }
 
@@ -198,7 +294,7 @@
     + (void)indent
     {
 		
-		[self invokeMonoClassMethod:"Indent()" withNumArgs:0];;
+		[self invokeMonoClassMethod:"Indent()" withNumArgs:0];
         
     }
 
@@ -208,7 +304,7 @@
     + (void)refresh
     {
 		
-		[self invokeMonoClassMethod:"Refresh()" withNumArgs:0];;
+		[self invokeMonoClassMethod:"Refresh()" withNumArgs:0];
         
     }
 
@@ -218,7 +314,7 @@
     + (void)traceError_withMessage:(NSString *)p1
     {
 		
-		[self invokeMonoClassMethod:"TraceError(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"TraceError(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -228,7 +324,7 @@
     + (void)traceError_withFormat:(NSString *)p1 args:(DBSystem_Array *)p2
     {
 		
-		[self invokeMonoClassMethod:"TraceError(string,object[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"TraceError(string,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -238,7 +334,7 @@
     + (void)traceInformation_withMessage:(NSString *)p1
     {
 		
-		[self invokeMonoClassMethod:"TraceInformation(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"TraceInformation(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -248,7 +344,7 @@
     + (void)traceInformation_withFormat:(NSString *)p1 args:(DBSystem_Array *)p2
     {
 		
-		[self invokeMonoClassMethod:"TraceInformation(string,object[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"TraceInformation(string,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -258,7 +354,7 @@
     + (void)traceWarning_withMessage:(NSString *)p1
     {
 		
-		[self invokeMonoClassMethod:"TraceWarning(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"TraceWarning(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -268,7 +364,7 @@
     + (void)traceWarning_withFormat:(NSString *)p1 args:(DBSystem_Array *)p2
     {
 		
-		[self invokeMonoClassMethod:"TraceWarning(string,object[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"TraceWarning(string,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -278,7 +374,7 @@
     + (void)unindent
     {
 		
-		[self invokeMonoClassMethod:"Unindent()" withNumArgs:0];;
+		[self invokeMonoClassMethod:"Unindent()" withNumArgs:0];
         
     }
 
@@ -288,7 +384,7 @@
     + (void)write_withMessage:(NSString *)p1
     {
 		
-		[self invokeMonoClassMethod:"Write(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"Write(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -298,7 +394,7 @@
     + (void)write_withValue:(System_Object *)p1
     {
 		
-		[self invokeMonoClassMethod:"Write(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"Write(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -308,7 +404,7 @@
     + (void)write_withMessage:(NSString *)p1 category:(NSString *)p2
     {
 		
-		[self invokeMonoClassMethod:"Write(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"Write(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -318,7 +414,7 @@
     + (void)write_withValue:(System_Object *)p1 category:(NSString *)p2
     {
 		
-		[self invokeMonoClassMethod:"Write(object,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"Write(object,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -328,7 +424,7 @@
     + (void)writeIf_withCondition:(BOOL)p1 message:(NSString *)p2
     {
 		
-		[self invokeMonoClassMethod:"WriteIf(bool,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoClassMethod:"WriteIf(bool,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
     }
 
@@ -338,7 +434,7 @@
     + (void)writeIf_withCondition:(BOOL)p1 value:(System_Object *)p2
     {
 		
-		[self invokeMonoClassMethod:"WriteIf(bool,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoClassMethod:"WriteIf(bool,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
     }
 
@@ -348,7 +444,7 @@
     + (void)writeIf_withCondition:(BOOL)p1 message:(NSString *)p2 category:(NSString *)p3
     {
 		
-		[self invokeMonoClassMethod:"WriteIf(bool,string,string)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoClassMethod:"WriteIf(bool,string,string)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -358,7 +454,7 @@
     + (void)writeIf_withCondition:(BOOL)p1 value:(System_Object *)p2 category:(NSString *)p3
     {
 		
-		[self invokeMonoClassMethod:"WriteIf(bool,object,string)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoClassMethod:"WriteIf(bool,object,string)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -368,7 +464,7 @@
     + (void)writeLine_withMessage:(NSString *)p1
     {
 		
-		[self invokeMonoClassMethod:"WriteLine(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"WriteLine(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -378,7 +474,7 @@
     + (void)writeLine_withValue:(System_Object *)p1
     {
 		
-		[self invokeMonoClassMethod:"WriteLine(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"WriteLine(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -388,7 +484,7 @@
     + (void)writeLine_withMessage:(NSString *)p1 category:(NSString *)p2
     {
 		
-		[self invokeMonoClassMethod:"WriteLine(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"WriteLine(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -398,7 +494,7 @@
     + (void)writeLine_withValue:(System_Object *)p1 category:(NSString *)p2
     {
 		
-		[self invokeMonoClassMethod:"WriteLine(object,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoClassMethod:"WriteLine(object,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -408,7 +504,7 @@
     + (void)writeLineIf_withCondition:(BOOL)p1 message:(NSString *)p2
     {
 		
-		[self invokeMonoClassMethod:"WriteLineIf(bool,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoClassMethod:"WriteLineIf(bool,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
     }
 
@@ -418,7 +514,7 @@
     + (void)writeLineIf_withCondition:(BOOL)p1 value:(System_Object *)p2
     {
 		
-		[self invokeMonoClassMethod:"WriteLineIf(bool,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoClassMethod:"WriteLineIf(bool,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
     }
 
@@ -428,7 +524,7 @@
     + (void)writeLineIf_withCondition:(BOOL)p1 message:(NSString *)p2 category:(NSString *)p3
     {
 		
-		[self invokeMonoClassMethod:"WriteLineIf(bool,string,string)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoClassMethod:"WriteLineIf(bool,string,string)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -438,7 +534,7 @@
     + (void)writeLineIf_withCondition:(BOOL)p1 value:(System_Object *)p2 category:(NSString *)p3
     {
 		
-		[self invokeMonoClassMethod:"WriteLineIf(bool,object,string)" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoClassMethod:"WriteLineIf(bool,object,string)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 

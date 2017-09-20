@@ -33,7 +33,7 @@
     - (void)addLoadDependency
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerLoaderService.AddLoadDependency()" withNumArgs:0];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerLoaderService.AddLoadDependency()" withNumArgs:0];
         
     }
 
@@ -43,7 +43,7 @@
     - (void)dependentLoadComplete_withSuccessful:(BOOL)p1 errorCollection:(id <System_Collections_ICollection_>)p2
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete(bool,System.Collections.ICollection)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete(bool,System.Collections.ICollection)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
     }
 

@@ -33,7 +33,7 @@
     + (System_Runtime_InteropServices_HandleCollector *)new_withName:(NSString *)p1 initialThreshold:(int32_t)p2
     {
 		
-		System_Runtime_InteropServices_HandleCollector * object = [[self alloc] initWithSignature:"string,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Runtime_InteropServices_HandleCollector * object = [[self alloc] initWithSignature:"string,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Runtime_InteropServices_HandleCollector *)new_withName:(NSString *)p1 initialThreshold:(int32_t)p2 maximumThreshold:(int32_t)p3
     {
 		
-		System_Runtime_InteropServices_HandleCollector * object = [[self alloc] initWithSignature:"string,int,int" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		System_Runtime_InteropServices_HandleCollector * object = [[self alloc] initWithSignature:"string,int,int" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
         
         return object;
     }
@@ -57,8 +57,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -68,8 +78,18 @@
     @synthesize initialThreshold = _initialThreshold;
     - (int32_t)initialThreshold
     {
-		MonoObject *monoObject = [self getMonoProperty:"InitialThreshold"];
-		_initialThreshold = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InitialThreshold");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_initialThreshold = monoObject;
 
 		return _initialThreshold;
 	}
@@ -79,8 +99,18 @@
     @synthesize maximumThreshold = _maximumThreshold;
     - (int32_t)maximumThreshold
     {
-		MonoObject *monoObject = [self getMonoProperty:"MaximumThreshold"];
-		_maximumThreshold = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MaximumThreshold");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_maximumThreshold = monoObject;
 
 		return _maximumThreshold;
 	}
@@ -90,7 +120,17 @@
     @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -106,7 +146,7 @@
     - (void)add
     {
 		
-		[self invokeMonoMethod:"Add()" withNumArgs:0];;
+		[self invokeMonoMethod:"Add()" withNumArgs:0];
         
     }
 
@@ -116,7 +156,7 @@
     - (void)remove
     {
 		
-		[self invokeMonoMethod:"Remove()" withNumArgs:0];;
+		[self invokeMonoMethod:"Remove()" withNumArgs:0];
         
     }
 

@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509KeyUsageExtension
 	// Managed param types : System.Security.Cryptography.X509Certificates.X509KeyUsageFlags, System.Boolean
-    + (System_Security_Cryptography_X509Certificates_X509KeyUsageExtension *)new_withKeyUsages:(System_Security_Cryptography_X509Certificates_X509KeyUsageFlags)p1 critical:(BOOL)p2;
+    + (System_Security_Cryptography_X509Certificates_X509KeyUsageExtension *)new_withKeyUsages:(int32_t)p1 critical:(BOOL)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509KeyUsageExtension
@@ -29,7 +29,7 @@
 
 	// Managed property name : KeyUsages
 	// Managed property type : System.Security.Cryptography.X509Certificates.X509KeyUsageFlags
-    @property (nonatomic, readonly) System_Security_Cryptography_X509Certificates_X509KeyUsageFlags keyUsages;
+    @property (nonatomic, readonly) int32_t keyUsages;
 
 #pragma mark -
 #pragma mark Methods

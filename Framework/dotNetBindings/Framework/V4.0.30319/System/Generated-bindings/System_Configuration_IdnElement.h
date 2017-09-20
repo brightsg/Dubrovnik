@@ -16,6 +16,6 @@
 
 	// Managed property name : Enabled
 	// Managed property type : System.UriIdnScope
-    @property (nonatomic) System_UriIdnScope enabled;
+    @property (nonatomic) int32_t enabled;
 @end
 //--Dubrovnik.CodeGenerator

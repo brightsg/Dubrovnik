@@ -33,7 +33,7 @@
     + (System_Collections_Specialized_NameValueCollection *)new_withCol:(System_Collections_Specialized_NameValueCollection *)p1
     {
 		
-		System_Collections_Specialized_NameValueCollection * object = [[self alloc] initWithSignature:"System.Collections.Specialized.NameValueCollection" withNumArgs:1, [p1 monoValue]];;
+		System_Collections_Specialized_NameValueCollection * object = [[self alloc] initWithSignature:"System.Collections.Specialized.NameValueCollection" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Collections_Specialized_NameValueCollection *)new_withHashProvider:(id <System_Collections_IHashCodeProvider_>)p1 comparer:(id <System_Collections_IComparer_>)p2
     {
 		
-		System_Collections_Specialized_NameValueCollection * object = [[self alloc] initWithSignature:"System.Collections.IHashCodeProvider,System.Collections.IComparer" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Collections_Specialized_NameValueCollection * object = [[self alloc] initWithSignature:"System.Collections.IHashCodeProvider,System.Collections.IComparer" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Collections_Specialized_NameValueCollection *)new_withCapacity:(int32_t)p1
     {
 		
-		System_Collections_Specialized_NameValueCollection * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		System_Collections_Specialized_NameValueCollection * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -66,7 +66,7 @@
     + (System_Collections_Specialized_NameValueCollection *)new_withEqualityComparer:(id <System_Collections_IEqualityComparer_>)p1
     {
 		
-		System_Collections_Specialized_NameValueCollection * object = [[self alloc] initWithSignature:"System.Collections.IEqualityComparer" withNumArgs:1, [p1 monoValue]];;
+		System_Collections_Specialized_NameValueCollection * object = [[self alloc] initWithSignature:"System.Collections.IEqualityComparer" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -77,7 +77,7 @@
     + (System_Collections_Specialized_NameValueCollection *)new_withCapacity:(int32_t)p1 equalityComparer:(id <System_Collections_IEqualityComparer_>)p2
     {
 		
-		System_Collections_Specialized_NameValueCollection * object = [[self alloc] initWithSignature:"int,System.Collections.IEqualityComparer" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		System_Collections_Specialized_NameValueCollection * object = [[self alloc] initWithSignature:"int,System.Collections.IEqualityComparer" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -88,7 +88,7 @@
     + (System_Collections_Specialized_NameValueCollection *)new_withCapacity:(int32_t)p1 col:(System_Collections_Specialized_NameValueCollection *)p2
     {
 		
-		System_Collections_Specialized_NameValueCollection * object = [[self alloc] initWithSignature:"int,System.Collections.Specialized.NameValueCollection" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		System_Collections_Specialized_NameValueCollection * object = [[self alloc] initWithSignature:"int,System.Collections.Specialized.NameValueCollection" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -99,7 +99,7 @@
     + (System_Collections_Specialized_NameValueCollection *)new_withCapacity:(int32_t)p1 hashProvider:(id <System_Collections_IHashCodeProvider_>)p2 comparer:(id <System_Collections_IComparer_>)p3
     {
 		
-		System_Collections_Specialized_NameValueCollection * object = [[self alloc] initWithSignature:"int,System.Collections.IHashCodeProvider,System.Collections.IComparer" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];;
+		System_Collections_Specialized_NameValueCollection * object = [[self alloc] initWithSignature:"int,System.Collections.IHashCodeProvider,System.Collections.IComparer" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -112,7 +112,17 @@
     @synthesize allKeys = _allKeys;
     - (DBSystem_Array *)allKeys
     {
-		MonoObject *monoObject = [self getMonoProperty:"AllKeys"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AllKeys");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_allKeys isEqualToMonoObject:monoObject]) return _allKeys;					
 		_allKeys = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -124,7 +134,17 @@
     @synthesize item = _item;
     - (NSString *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
 		_item = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -133,8 +153,17 @@
     - (void)setItem:(NSString *)value
 	{
 		_item = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"Item" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Item
@@ -142,7 +171,17 @@
     @synthesize item = _item;
     - (NSString *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
 		_item = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -158,7 +197,7 @@
     - (void)add_withC:(System_Collections_Specialized_NameValueCollection *)p1
     {
 		
-		[self invokeMonoMethod:"Add(System.Collections.Specialized.NameValueCollection)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Add(System.Collections.Specialized.NameValueCollection)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -168,7 +207,7 @@
     - (void)add_withName:(NSString *)p1 value:(NSString *)p2
     {
 		
-		[self invokeMonoMethod:"Add(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"Add(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -178,7 +217,7 @@
     - (void)clear
     {
 		
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];
         
     }
 
@@ -188,7 +227,7 @@
     - (void)copyTo_withDest:(DBSystem_Array *)p1 index:(int32_t)p2
     {
 		
-		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
     }
 
@@ -198,7 +237,7 @@
     - (NSString *)get_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Get(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Get(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -231,7 +270,7 @@
     - (DBSystem_Array *)getValues_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetValues(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetValues(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -264,7 +303,7 @@
     - (void)remove_withName:(NSString *)p1
     {
 		
-		[self invokeMonoMethod:"Remove(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Remove(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -274,7 +313,7 @@
     - (void)set_withName:(NSString *)p1 value:(NSString *)p2
     {
 		
-		[self invokeMonoMethod:"Set(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"Set(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 

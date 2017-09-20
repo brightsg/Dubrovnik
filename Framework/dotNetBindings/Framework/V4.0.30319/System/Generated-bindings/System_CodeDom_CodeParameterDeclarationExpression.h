@@ -38,7 +38,7 @@
 
 	// Managed property name : Direction
 	// Managed property type : System.CodeDom.FieldDirection
-    @property (nonatomic) System_CodeDom_FieldDirection direction;
+    @property (nonatomic) int32_t direction;
 
 	// Managed property name : Name
 	// Managed property type : System.String

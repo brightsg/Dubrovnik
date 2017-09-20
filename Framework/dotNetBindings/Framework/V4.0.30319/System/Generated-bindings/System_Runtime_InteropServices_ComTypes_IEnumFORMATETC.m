@@ -32,10 +32,10 @@
 	// Managed param types : ref System.Runtime.InteropServices.ComTypes.IEnumFORMATETC&
     - (void)clone_withNewEnumRef:(System_Runtime_InteropServices_ComTypes_IEnumFORMATETC **)p1
     {
-		void *refPtr1 = [*p1 monoValue];
+		void *refPtr1 = [*p1 monoRTInvokeArg];
 
 		[self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IEnumFORMATETC.Clone(System.Runtime.InteropServices.ComTypes.IEnumFORMATETC&)" withNumArgs:1, &refPtr1];
-;
+
         *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 
     }
@@ -46,7 +46,7 @@
     - (int32_t)next_withCelt:(int32_t)p1 rgelt:(DBSystem_Array *)p2 pceltFetched:(DBSystem_Array *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IEnumFORMATETC.Next(int,System.Runtime.InteropServices.ComTypes.FORMATETC[],int[])" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices.ComTypes.IEnumFORMATETC.Next(int,System.Runtime.InteropServices.ComTypes.FORMATETC[],int[])" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }

@@ -33,7 +33,7 @@
     - (System_ComponentModel_PropertyDescriptorCollection *)getItemProperties_withListAccessors:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.ITypedList.GetItemProperties(System.ComponentModel.PropertyDescriptor[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.ITypedList.GetItemProperties(System.ComponentModel.PropertyDescriptor[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_PropertyDescriptorCollection bestObjectWithMonoObject:monoObject];
     }
@@ -44,7 +44,7 @@
     - (NSString *)getListName_withListAccessors:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.ITypedList.GetListName(System.ComponentModel.PropertyDescriptor[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.ITypedList.GetListName(System.ComponentModel.PropertyDescriptor[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }

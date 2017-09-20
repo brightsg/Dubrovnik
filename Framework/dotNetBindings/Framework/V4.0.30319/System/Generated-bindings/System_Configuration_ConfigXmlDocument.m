@@ -32,7 +32,17 @@
     @synthesize filename = _filename;
     - (NSString *)filename
     {
-		MonoObject *monoObject = [self getMonoProperty:"Filename"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Filename");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_filename isEqualToMonoObject:monoObject]) return _filename;					
 		_filename = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -44,8 +54,18 @@
     @synthesize lineNumber = _lineNumber;
     - (int32_t)lineNumber
     {
-		MonoObject *monoObject = [self getMonoProperty:"LineNumber"];
-		_lineNumber = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LineNumber");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_lineNumber = monoObject;
 
 		return _lineNumber;
 	}
@@ -59,7 +79,7 @@
     - (System_Xml_XmlAttribute *)createAttribute_withPrefix:(NSString *)p1 localName:(NSString *)p2 namespaceUri:(NSString *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateAttribute(string,string,string)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CreateAttribute(string,string,string)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_Xml_XmlAttribute bestObjectWithMonoObject:monoObject];
     }
@@ -70,7 +90,7 @@
     - (System_Xml_XmlCDataSection *)createCDataSection_withData:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateCDataSection(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CreateCDataSection(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Xml_XmlCDataSection bestObjectWithMonoObject:monoObject];
     }
@@ -81,7 +101,7 @@
     - (System_Xml_XmlComment *)createComment_withData:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateComment(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CreateComment(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Xml_XmlComment bestObjectWithMonoObject:monoObject];
     }
@@ -92,7 +112,7 @@
     - (System_Xml_XmlElement *)createElement_withPrefix:(NSString *)p1 localName:(NSString *)p2 namespaceUri:(NSString *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateElement(string,string,string)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CreateElement(string,string,string)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_Xml_XmlElement bestObjectWithMonoObject:monoObject];
     }
@@ -103,7 +123,7 @@
     - (System_Xml_XmlSignificantWhitespace *)createSignificantWhitespace_withData:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateSignificantWhitespace(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CreateSignificantWhitespace(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Xml_XmlSignificantWhitespace bestObjectWithMonoObject:monoObject];
     }
@@ -114,7 +134,7 @@
     - (System_Xml_XmlText *)createTextNode_withText:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateTextNode(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CreateTextNode(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Xml_XmlText bestObjectWithMonoObject:monoObject];
     }
@@ -125,7 +145,7 @@
     - (System_Xml_XmlWhitespace *)createWhitespace_withData:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateWhitespace(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CreateWhitespace(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Xml_XmlWhitespace bestObjectWithMonoObject:monoObject];
     }
@@ -136,7 +156,7 @@
     - (void)load_withFilename:(NSString *)p1
     {
 		
-		[self invokeMonoMethod:"Load(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Load(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -146,7 +166,7 @@
     - (void)loadSingleElement_withFilename:(NSString *)p1 sourceReader:(System_Xml_XmlTextReader *)p2
     {
 		
-		[self invokeMonoMethod:"LoadSingleElement(string,System.Xml.XmlTextReader)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"LoadSingleElement(string,System.Xml.XmlTextReader)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 

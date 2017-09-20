@@ -33,7 +33,7 @@
     + (float)computeCounterValue_withNewSample:(System_Diagnostics_CounterSample *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ComputeCounterValue(System.Diagnostics.CounterSample)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ComputeCounterValue(System.Diagnostics.CounterSample)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_FLOAT(monoObject);
     }
@@ -44,7 +44,7 @@
     + (float)computeCounterValue_withOldSample:(System_Diagnostics_CounterSample *)p1 newSample:(System_Diagnostics_CounterSample *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ComputeCounterValue(System.Diagnostics.CounterSample,System.Diagnostics.CounterSample)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ComputeCounterValue(System.Diagnostics.CounterSample,System.Diagnostics.CounterSample)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_FLOAT(monoObject);
     }

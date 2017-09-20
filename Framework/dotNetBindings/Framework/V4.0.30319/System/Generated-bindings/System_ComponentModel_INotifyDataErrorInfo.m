@@ -32,8 +32,18 @@
     @synthesize hasErrors = _hasErrors;
     - (BOOL)hasErrors
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.INotifyDataErrorInfo.HasErrors"];
-		_hasErrors = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.INotifyDataErrorInfo.HasErrors");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_hasErrors = monoObject;
 
 		return _hasErrors;
 	}
@@ -47,7 +57,7 @@
     - (id <System_Collections_IEnumerable>)getErrors_withPropertyName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.INotifyDataErrorInfo.GetErrors(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.INotifyDataErrorInfo.GetErrors(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Collections_IEnumerable bestObjectWithMonoObject:monoObject];
     }

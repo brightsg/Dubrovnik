@@ -33,7 +33,7 @@
     + (System_CodeDom_CodeDelegateInvokeExpression *)new_withTargetObject:(System_CodeDom_CodeExpression *)p1
     {
 		
-		System_CodeDom_CodeDelegateInvokeExpression * object = [[self alloc] initWithSignature:"System.CodeDom.CodeExpression" withNumArgs:1, [p1 monoValue]];;
+		System_CodeDom_CodeDelegateInvokeExpression * object = [[self alloc] initWithSignature:"System.CodeDom.CodeExpression" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_CodeDom_CodeDelegateInvokeExpression *)new_withTargetObject:(System_CodeDom_CodeExpression *)p1 parameters:(DBSystem_Array *)p2
     {
 		
-		System_CodeDom_CodeDelegateInvokeExpression * object = [[self alloc] initWithSignature:"System.CodeDom.CodeExpression,System.CodeDom.CodeExpression[]" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_CodeDom_CodeDelegateInvokeExpression * object = [[self alloc] initWithSignature:"System.CodeDom.CodeExpression,System.CodeDom.CodeExpression[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -57,7 +57,17 @@
     @synthesize parameters = _parameters;
     - (System_CodeDom_CodeExpressionCollection *)parameters
     {
-		MonoObject *monoObject = [self getMonoProperty:"Parameters"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Parameters");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_parameters isEqualToMonoObject:monoObject]) return _parameters;					
 		_parameters = [System_CodeDom_CodeExpressionCollection bestObjectWithMonoObject:monoObject];
 
@@ -69,7 +79,17 @@
     @synthesize targetObject = _targetObject;
     - (System_CodeDom_CodeExpression *)targetObject
     {
-		MonoObject *monoObject = [self getMonoProperty:"TargetObject"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TargetObject");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_targetObject isEqualToMonoObject:monoObject]) return _targetObject;					
 		_targetObject = [System_CodeDom_CodeExpression bestObjectWithMonoObject:monoObject];
 
@@ -78,8 +98,17 @@
     - (void)setTargetObject:(System_CodeDom_CodeExpression *)value
 	{
 		_targetObject = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"TargetObject" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "TargetObject");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

@@ -30,10 +30,20 @@
 	// Managed property name : CollectionType
 	// Managed property type : System.Configuration.ConfigurationElementCollectionType
     @synthesize collectionType = _collectionType;
-    - (System_Configuration_ConfigurationElementCollectionType)collectionType
+    - (int32_t)collectionType
     {
-		MonoObject *monoObject = [self getMonoProperty:"CollectionType"];
-		_collectionType = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CollectionType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_collectionType = monoObject;
 
 		return _collectionType;
 	}
@@ -47,7 +57,7 @@
     - (void)add_withElement:(System_Configuration_SettingElement *)p1
     {
 		
-		[self invokeMonoMethod:"Add(System.Configuration.SettingElement)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Add(System.Configuration.SettingElement)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -57,7 +67,7 @@
     - (void)clear
     {
 		
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];
         
     }
 
@@ -67,7 +77,7 @@
     - (System_Configuration_SettingElement *)get_withElementKey:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Get(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Get(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Configuration_SettingElement bestObjectWithMonoObject:monoObject];
     }
@@ -78,7 +88,7 @@
     - (void)remove_withElement:(System_Configuration_SettingElement *)p1
     {
 		
-		[self invokeMonoMethod:"Remove(System.Configuration.SettingElement)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Remove(System.Configuration.SettingElement)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

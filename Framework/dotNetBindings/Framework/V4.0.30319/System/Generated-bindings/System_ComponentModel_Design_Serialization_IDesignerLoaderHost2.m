@@ -32,16 +32,35 @@
     @synthesize canReloadWithErrors = _canReloadWithErrors;
     - (BOOL)canReloadWithErrors
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.Design.Serialization.IDesignerLoaderHost2.CanReloadWithErrors"];
-		_canReloadWithErrors = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.Design.Serialization.IDesignerLoaderHost2.CanReloadWithErrors");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_canReloadWithErrors = monoObject;
 
 		return _canReloadWithErrors;
 	}
     - (void)setCanReloadWithErrors:(BOOL)value
 	{
 		_canReloadWithErrors = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"System.ComponentModel.Design.Serialization.IDesignerLoaderHost2.CanReloadWithErrors" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.ComponentModel.Design.Serialization.IDesignerLoaderHost2.CanReloadWithErrors");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : IgnoreErrorsDuringReload
@@ -49,16 +68,35 @@
     @synthesize ignoreErrorsDuringReload = _ignoreErrorsDuringReload;
     - (BOOL)ignoreErrorsDuringReload
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.Design.Serialization.IDesignerLoaderHost2.IgnoreErrorsDuringReload"];
-		_ignoreErrorsDuringReload = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.Design.Serialization.IDesignerLoaderHost2.IgnoreErrorsDuringReload");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_ignoreErrorsDuringReload = monoObject;
 
 		return _ignoreErrorsDuringReload;
 	}
     - (void)setIgnoreErrorsDuringReload:(BOOL)value
 	{
 		_ignoreErrorsDuringReload = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"System.ComponentModel.Design.Serialization.IDesignerLoaderHost2.IgnoreErrorsDuringReload" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.ComponentModel.Design.Serialization.IDesignerLoaderHost2.IgnoreErrorsDuringReload");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

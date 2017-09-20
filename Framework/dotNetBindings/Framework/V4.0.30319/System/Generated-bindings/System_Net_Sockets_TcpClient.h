@@ -22,7 +22,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Sockets.TcpClient
 	// Managed param types : System.Net.Sockets.AddressFamily
-    + (System_Net_Sockets_TcpClient *)new_withFamily:(System_Net_Sockets_AddressFamily)p1;
+    + (System_Net_Sockets_TcpClient *)new_withFamily:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Sockets.TcpClient

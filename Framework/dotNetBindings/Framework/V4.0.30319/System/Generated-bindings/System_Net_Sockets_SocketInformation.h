@@ -16,7 +16,7 @@
 
 	// Managed property name : Options
 	// Managed property type : System.Net.Sockets.SocketInformationOptions
-    @property (nonatomic) System_Net_Sockets_SocketInformationOptions options;
+    @property (nonatomic) int32_t options;
 
 	// Managed property name : ProtocolInformation
 	// Managed property type : System.Byte[]

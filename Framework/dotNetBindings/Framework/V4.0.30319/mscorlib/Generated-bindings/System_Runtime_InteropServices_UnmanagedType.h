@@ -28,6 +28,7 @@ typedef NS_ENUM(int32_t, enumSystem_Runtime_InteropServices_UnmanagedType) {
 	System_Runtime_InteropServices_UnmanagedType_LPStr = 20,
 	System_Runtime_InteropServices_UnmanagedType_LPStruct = 43,
 	System_Runtime_InteropServices_UnmanagedType_LPTStr = 22,
+	System_Runtime_InteropServices_UnmanagedType_LPUTF8Str = 48,
 	System_Runtime_InteropServices_UnmanagedType_LPWStr = 21,
 	System_Runtime_InteropServices_UnmanagedType_R4 = 11,
 	System_Runtime_InteropServices_UnmanagedType_R8 = 12,
@@ -146,6 +147,10 @@ typedef NS_ENUM(int32_t, enumSystem_Runtime_InteropServices_UnmanagedType) {
 	// Managed field name : LPTStr
 	// Managed field type : System.Runtime.InteropServices.UnmanagedType
     + (int32_t)lPTStr;
+
+	// Managed field name : LPUTF8Str
+	// Managed field type : System.Runtime.InteropServices.UnmanagedType
+    + (int32_t)lPUTF8Str;
 
 	// Managed field name : LPWStr
 	// Managed field type : System.Runtime.InteropServices.UnmanagedType

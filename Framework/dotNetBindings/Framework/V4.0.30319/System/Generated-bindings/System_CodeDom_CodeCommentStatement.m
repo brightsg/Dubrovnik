@@ -33,7 +33,7 @@
     + (System_CodeDom_CodeCommentStatement *)new_withComment:(System_CodeDom_CodeComment *)p1
     {
 		
-		System_CodeDom_CodeCommentStatement * object = [[self alloc] initWithSignature:"System.CodeDom.CodeComment" withNumArgs:1, [p1 monoValue]];;
+		System_CodeDom_CodeCommentStatement * object = [[self alloc] initWithSignature:"System.CodeDom.CodeComment" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_CodeDom_CodeCommentStatement *)new_withText:(NSString *)p1
     {
 		
-		System_CodeDom_CodeCommentStatement * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_CodeDom_CodeCommentStatement * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_CodeDom_CodeCommentStatement *)new_withText:(NSString *)p1 docComment:(BOOL)p2
     {
 		
-		System_CodeDom_CodeCommentStatement * object = [[self alloc] initWithSignature:"string,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_CodeDom_CodeCommentStatement * object = [[self alloc] initWithSignature:"string,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -68,7 +68,17 @@
     @synthesize comment = _comment;
     - (System_CodeDom_CodeComment *)comment
     {
-		MonoObject *monoObject = [self getMonoProperty:"Comment"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Comment");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_comment isEqualToMonoObject:monoObject]) return _comment;					
 		_comment = [System_CodeDom_CodeComment bestObjectWithMonoObject:monoObject];
 
@@ -77,8 +87,17 @@
     - (void)setComment:(System_CodeDom_CodeComment *)value
 	{
 		_comment = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Comment" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Comment");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

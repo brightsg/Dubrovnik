@@ -21,7 +21,7 @@
 
 	// Managed property name : UsageMode
 	// Managed property type : System.ComponentModel.LicenseUsageMode
-    + (System_ComponentModel_LicenseUsageMode)usageMode;
+    + (int32_t)usageMode;
 
 #pragma mark -
 #pragma mark Methods

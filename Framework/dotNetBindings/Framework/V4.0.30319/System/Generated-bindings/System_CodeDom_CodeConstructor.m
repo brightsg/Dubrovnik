@@ -32,7 +32,17 @@
     @synthesize baseConstructorArgs = _baseConstructorArgs;
     - (System_CodeDom_CodeExpressionCollection *)baseConstructorArgs
     {
-		MonoObject *monoObject = [self getMonoProperty:"BaseConstructorArgs"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BaseConstructorArgs");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_baseConstructorArgs isEqualToMonoObject:monoObject]) return _baseConstructorArgs;					
 		_baseConstructorArgs = [System_CodeDom_CodeExpressionCollection bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize chainedConstructorArgs = _chainedConstructorArgs;
     - (System_CodeDom_CodeExpressionCollection *)chainedConstructorArgs
     {
-		MonoObject *monoObject = [self getMonoProperty:"ChainedConstructorArgs"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ChainedConstructorArgs");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_chainedConstructorArgs isEqualToMonoObject:monoObject]) return _chainedConstructorArgs;					
 		_chainedConstructorArgs = [System_CodeDom_CodeExpressionCollection bestObjectWithMonoObject:monoObject];
 

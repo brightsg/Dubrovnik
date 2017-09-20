@@ -33,7 +33,7 @@
     - (System_Configuration_SettingsProvider *)getSettingsProvider_withProperty:(System_Configuration_SettingsProperty *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Configuration.ISettingsProviderService.GetSettingsProvider(System.Configuration.SettingsProperty)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Configuration.ISettingsProviderService.GetSettingsProvider(System.Configuration.SettingsProperty)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Configuration_SettingsProvider bestObjectWithMonoObject:monoObject];
     }

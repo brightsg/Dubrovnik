@@ -38,5 +38,10 @@
 	// Managed return type : System.Void
 	// Managed param types : System.Diagnostics.Tracing.EventSource, System.Diagnostics.Tracing.EventLevel, System.Diagnostics.Tracing.EventKeywords, System.Collections.Generic.IDictionary`2<System.String, System.String>
     - (void)enableEvents_withEventSource:(System_Diagnostics_Tracing_EventSource *)p1 level:(int32_t)p2 matchAnyKeyword:(int64_t)p3 arguments:(id <System_Collections_Generic_IDictionaryA2_>)p4;
+
+	// Managed method name : EventSourceIndex
+	// Managed return type : System.Int32
+	// Managed param types : System.Diagnostics.Tracing.EventSource
+    + (int32_t)eventSourceIndex_withEventSource:(System_Diagnostics_Tracing_EventSource *)p1;
 @end
 //--Dubrovnik.CodeGenerator

@@ -98,7 +98,7 @@
 	// Managed method name : Supports
 	// Managed return type : System.Boolean
 	// Managed param types : System.CodeDom.Compiler.GeneratorSupport
-    - (BOOL)supports_withSupports:(System_CodeDom_Compiler_GeneratorSupport)p1;
+    - (BOOL)supports_withSupports:(int32_t)p1;
 
 	// Managed method name : ValidateIdentifier
 	// Managed return type : System.Void
@@ -169,7 +169,7 @@
 	// Managed method name : Supports
 	// Managed return type : System.Boolean
 	// Managed param types : System.CodeDom.Compiler.GeneratorSupport
-    - (BOOL)supports_withSupports:(System_CodeDom_Compiler_GeneratorSupport)p1;
+    - (BOOL)supports_withSupports:(int32_t)p1;
 
 	// Managed method name : ValidateIdentifier
 	// Managed return type : System.Void

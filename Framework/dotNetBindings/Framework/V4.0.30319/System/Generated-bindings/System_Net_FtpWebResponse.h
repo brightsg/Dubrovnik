@@ -40,7 +40,7 @@
 
 	// Managed property name : StatusCode
 	// Managed property type : System.Net.FtpStatusCode
-    @property (nonatomic, readonly) System_Net_FtpStatusCode statusCode;
+    @property (nonatomic, readonly) int32_t statusCode;
 
 	// Managed property name : StatusDescription
 	// Managed property type : System.String

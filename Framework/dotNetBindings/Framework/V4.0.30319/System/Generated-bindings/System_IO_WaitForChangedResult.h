@@ -16,7 +16,7 @@
 
 	// Managed property name : ChangeType
 	// Managed property type : System.IO.WatcherChangeTypes
-    @property (nonatomic) System_IO_WatcherChangeTypes changeType;
+    @property (nonatomic) int32_t changeType;
 
 	// Managed property name : Name
 	// Managed property type : System.String

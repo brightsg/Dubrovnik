@@ -32,7 +32,17 @@
     @synthesize httpListener = _httpListener;
     - (System_Net_Configuration_HttpListenerElement *)httpListener
     {
-		MonoObject *monoObject = [self getMonoProperty:"HttpListener"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HttpListener");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_httpListener isEqualToMonoObject:monoObject]) return _httpListener;					
 		_httpListener = [System_Net_Configuration_HttpListenerElement bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize httpWebRequest = _httpWebRequest;
     - (System_Net_Configuration_HttpWebRequestElement *)httpWebRequest
     {
-		MonoObject *monoObject = [self getMonoProperty:"HttpWebRequest"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HttpWebRequest");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_httpWebRequest isEqualToMonoObject:monoObject]) return _httpWebRequest;					
 		_httpWebRequest = [System_Net_Configuration_HttpWebRequestElement bestObjectWithMonoObject:monoObject];
 
@@ -56,7 +76,17 @@
     @synthesize ipv6 = _ipv6;
     - (System_Net_Configuration_Ipv6Element *)ipv6
     {
-		MonoObject *monoObject = [self getMonoProperty:"Ipv6"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Ipv6");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_ipv6 isEqualToMonoObject:monoObject]) return _ipv6;					
 		_ipv6 = [System_Net_Configuration_Ipv6Element bestObjectWithMonoObject:monoObject];
 
@@ -68,7 +98,17 @@
     @synthesize performanceCounters = _performanceCounters;
     - (System_Net_Configuration_PerformanceCountersElement *)performanceCounters
     {
-		MonoObject *monoObject = [self getMonoProperty:"PerformanceCounters"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PerformanceCounters");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_performanceCounters isEqualToMonoObject:monoObject]) return _performanceCounters;					
 		_performanceCounters = [System_Net_Configuration_PerformanceCountersElement bestObjectWithMonoObject:monoObject];
 
@@ -80,7 +120,17 @@
     @synthesize servicePointManager = _servicePointManager;
     - (System_Net_Configuration_ServicePointManagerElement *)servicePointManager
     {
-		MonoObject *monoObject = [self getMonoProperty:"ServicePointManager"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ServicePointManager");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_servicePointManager isEqualToMonoObject:monoObject]) return _servicePointManager;					
 		_servicePointManager = [System_Net_Configuration_ServicePointManagerElement bestObjectWithMonoObject:monoObject];
 
@@ -92,7 +142,17 @@
     @synthesize socket = _socket;
     - (System_Net_Configuration_SocketElement *)socket
     {
-		MonoObject *monoObject = [self getMonoProperty:"Socket"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Socket");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_socket isEqualToMonoObject:monoObject]) return _socket;					
 		_socket = [System_Net_Configuration_SocketElement bestObjectWithMonoObject:monoObject];
 
@@ -104,7 +164,17 @@
     @synthesize webProxyScript = _webProxyScript;
     - (System_Net_Configuration_WebProxyScriptElement *)webProxyScript
     {
-		MonoObject *monoObject = [self getMonoProperty:"WebProxyScript"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WebProxyScript");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_webProxyScript isEqualToMonoObject:monoObject]) return _webProxyScript;					
 		_webProxyScript = [System_Net_Configuration_WebProxyScriptElement bestObjectWithMonoObject:monoObject];
 
@@ -116,7 +186,17 @@
     @synthesize webUtility = _webUtility;
     - (System_Net_Configuration_WebUtilityElement *)webUtility
     {
-		MonoObject *monoObject = [self getMonoProperty:"WebUtility"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WebUtility");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_webUtility isEqualToMonoObject:monoObject]) return _webUtility;					
 		_webUtility = [System_Net_Configuration_WebUtilityElement bestObjectWithMonoObject:monoObject];
 

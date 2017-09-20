@@ -32,7 +32,17 @@
     @synthesize applicationName = _applicationName;
     - (NSString *)applicationName
     {
-		MonoObject *monoObject = [self getMonoProperty:"ApplicationName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ApplicationName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_applicationName isEqualToMonoObject:monoObject]) return _applicationName;					
 		_applicationName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -41,8 +51,17 @@
     - (void)setApplicationName:(NSString *)value
 	{
 		_applicationName = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"ApplicationName" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ApplicationName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -54,7 +73,7 @@
     - (System_Configuration_SettingsPropertyValue *)getPreviousVersion_withContext:(System_Configuration_SettingsContext *)p1 property:(System_Configuration_SettingsProperty *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetPreviousVersion(System.Configuration.SettingsContext,System.Configuration.SettingsProperty)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetPreviousVersion(System.Configuration.SettingsContext,System.Configuration.SettingsProperty)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Configuration_SettingsPropertyValue bestObjectWithMonoObject:monoObject];
     }
@@ -65,7 +84,7 @@
     - (System_Configuration_SettingsPropertyValueCollection *)getPropertyValues_withContext:(System_Configuration_SettingsContext *)p1 properties:(System_Configuration_SettingsPropertyCollection *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetPropertyValues(System.Configuration.SettingsContext,System.Configuration.SettingsPropertyCollection)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetPropertyValues(System.Configuration.SettingsContext,System.Configuration.SettingsPropertyCollection)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Configuration_SettingsPropertyValueCollection bestObjectWithMonoObject:monoObject];
     }
@@ -76,7 +95,7 @@
     - (void)initialize_withName:(NSString *)p1 values:(System_Collections_Specialized_NameValueCollection *)p2
     {
 		
-		[self invokeMonoMethod:"Initialize(string,System.Collections.Specialized.NameValueCollection)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"Initialize(string,System.Collections.Specialized.NameValueCollection)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -86,7 +105,7 @@
     - (void)reset_withContext:(System_Configuration_SettingsContext *)p1
     {
 		
-		[self invokeMonoMethod:"Reset(System.Configuration.SettingsContext)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Reset(System.Configuration.SettingsContext)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -96,7 +115,7 @@
     - (void)setPropertyValues_withContext:(System_Configuration_SettingsContext *)p1 values:(System_Configuration_SettingsPropertyValueCollection *)p2
     {
 		
-		[self invokeMonoMethod:"SetPropertyValues(System.Configuration.SettingsContext,System.Configuration.SettingsPropertyValueCollection)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"SetPropertyValues(System.Configuration.SettingsContext,System.Configuration.SettingsPropertyValueCollection)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -106,7 +125,7 @@
     - (void)upgrade_withContext:(System_Configuration_SettingsContext *)p1 properties:(System_Configuration_SettingsPropertyCollection *)p2
     {
 		
-		[self invokeMonoMethod:"Upgrade(System.Configuration.SettingsContext,System.Configuration.SettingsPropertyCollection)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"Upgrade(System.Configuration.SettingsContext,System.Configuration.SettingsPropertyCollection)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 

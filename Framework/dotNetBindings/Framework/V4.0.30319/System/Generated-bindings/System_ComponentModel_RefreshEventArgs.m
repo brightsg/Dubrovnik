@@ -33,7 +33,7 @@
     + (System_ComponentModel_RefreshEventArgs *)new_withComponentChanged:(System_Object *)p1
     {
 		
-		System_ComponentModel_RefreshEventArgs * object = [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_RefreshEventArgs * object = [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_ComponentModel_RefreshEventArgs *)new_withTypeChanged:(System_Type *)p1
     {
 		
-		System_ComponentModel_RefreshEventArgs * object = [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_RefreshEventArgs * object = [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -57,7 +57,17 @@
     @synthesize componentChanged = _componentChanged;
     - (System_Object *)componentChanged
     {
-		MonoObject *monoObject = [self getMonoProperty:"ComponentChanged"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ComponentChanged");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_componentChanged isEqualToMonoObject:monoObject]) return _componentChanged;					
 		_componentChanged = [System_Object objectWithMonoObject:monoObject];
 
@@ -69,7 +79,17 @@
     @synthesize typeChanged = _typeChanged;
     - (System_Type *)typeChanged
     {
-		MonoObject *monoObject = [self getMonoProperty:"TypeChanged"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TypeChanged");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_typeChanged isEqualToMonoObject:monoObject]) return _typeChanged;					
 		_typeChanged = [System_Type bestObjectWithMonoObject:monoObject];
 

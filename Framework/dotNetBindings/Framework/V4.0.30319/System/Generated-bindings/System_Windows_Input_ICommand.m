@@ -33,7 +33,7 @@
     - (BOOL)canExecute_withParameter:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Windows.Input.ICommand.CanExecute(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Windows.Input.ICommand.CanExecute(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -44,7 +44,7 @@
     - (void)execute_withParameter:(System_Object *)p1
     {
 		
-		[self invokeMonoMethod:"System.Windows.Input.ICommand.Execute(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.Windows.Input.ICommand.Execute(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

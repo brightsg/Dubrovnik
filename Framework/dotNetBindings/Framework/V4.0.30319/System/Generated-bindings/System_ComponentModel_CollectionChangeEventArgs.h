@@ -17,14 +17,14 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.CollectionChangeEventArgs
 	// Managed param types : System.ComponentModel.CollectionChangeAction, System.Object
-    + (System_ComponentModel_CollectionChangeEventArgs *)new_withAction:(System_ComponentModel_CollectionChangeAction)p1 element:(System_Object *)p2;
+    + (System_ComponentModel_CollectionChangeEventArgs *)new_withAction:(int32_t)p1 element:(System_Object *)p2;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Action
 	// Managed property type : System.ComponentModel.CollectionChangeAction
-    @property (nonatomic, readonly) System_ComponentModel_CollectionChangeAction action;
+    @property (nonatomic, readonly) int32_t action;
 
 	// Managed property name : Element
 	// Managed property type : System.Object

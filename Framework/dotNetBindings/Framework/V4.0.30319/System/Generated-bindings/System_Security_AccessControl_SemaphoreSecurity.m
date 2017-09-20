@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.SemaphoreSecurity
 	// Managed param types : System.String, System.Security.AccessControl.AccessControlSections
-    + (System_Security_AccessControl_SemaphoreSecurity *)new_withName:(NSString *)p1 includeSections:(System_Security_AccessControl_AccessControlSections)p2
+    + (System_Security_AccessControl_SemaphoreSecurity *)new_withName:(NSString *)p1 includeSections:(int32_t)p2
     {
 		
-		System_Security_AccessControl_SemaphoreSecurity * object = [[self alloc] initWithSignature:"string,System.Security.AccessControl.AccessControlSections" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Security_AccessControl_SemaphoreSecurity * object = [[self alloc] initWithSignature:"string,System.Security.AccessControl.AccessControlSections" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize accessRightType = _accessRightType;
     - (System_Type *)accessRightType
     {
-		MonoObject *monoObject = [self getMonoProperty:"AccessRightType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AccessRightType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_accessRightType isEqualToMonoObject:monoObject]) return _accessRightType;					
 		_accessRightType = [System_Type bestObjectWithMonoObject:monoObject];
 
@@ -58,7 +68,17 @@
     @synthesize accessRuleType = _accessRuleType;
     - (System_Type *)accessRuleType
     {
-		MonoObject *monoObject = [self getMonoProperty:"AccessRuleType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AccessRuleType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_accessRuleType isEqualToMonoObject:monoObject]) return _accessRuleType;					
 		_accessRuleType = [System_Type bestObjectWithMonoObject:monoObject];
 
@@ -70,7 +90,17 @@
     @synthesize auditRuleType = _auditRuleType;
     - (System_Type *)auditRuleType
     {
-		MonoObject *monoObject = [self getMonoProperty:"AuditRuleType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AuditRuleType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_auditRuleType isEqualToMonoObject:monoObject]) return _auditRuleType;					
 		_auditRuleType = [System_Type bestObjectWithMonoObject:monoObject];
 
@@ -83,10 +113,10 @@
 	// Managed method name : AccessRuleFactory
 	// Managed return type : System.Security.AccessControl.AccessRule
 	// Managed param types : System.Security.Principal.IdentityReference, System.Int32, System.Boolean, System.Security.AccessControl.InheritanceFlags, System.Security.AccessControl.PropagationFlags, System.Security.AccessControl.AccessControlType
-    - (System_Security_AccessControl_AccessRule *)accessRuleFactory_withIdentityReference:(System_Security_Principal_IdentityReference *)p1 accessMask:(int32_t)p2 isInherited:(BOOL)p3 inheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p4 propagationFlags:(System_Security_AccessControl_PropagationFlags)p5 type:(System_Security_AccessControl_AccessControlType)p6
+    - (System_Security_AccessControl_AccessRule *)accessRuleFactory_withIdentityReference:(System_Security_Principal_IdentityReference *)p1 accessMask:(int32_t)p2 isInherited:(BOOL)p3 inheritanceFlags:(int32_t)p4 propagationFlags:(int32_t)p5 type:(int32_t)p6
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AccessRuleFactory(System.Security.Principal.IdentityReference,int,bool,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AccessControlType)" withNumArgs:6, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6)];
+		MonoObject *monoObject = [self invokeMonoMethod:"AccessRuleFactory(System.Security.Principal.IdentityReference,int,bool,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AccessControlType)" withNumArgs:6, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6)];
 		
 		return [System_Security_AccessControl_AccessRule bestObjectWithMonoObject:monoObject];
     }
@@ -97,7 +127,7 @@
     - (void)addAccessRule_withRule:(System_Security_AccessControl_SemaphoreAccessRule *)p1
     {
 		
-		[self invokeMonoMethod:"AddAccessRule(System.Security.AccessControl.SemaphoreAccessRule)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddAccessRule(System.Security.AccessControl.SemaphoreAccessRule)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -107,17 +137,17 @@
     - (void)addAuditRule_withRule:(System_Security_AccessControl_SemaphoreAuditRule *)p1
     {
 		
-		[self invokeMonoMethod:"AddAuditRule(System.Security.AccessControl.SemaphoreAuditRule)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AddAuditRule(System.Security.AccessControl.SemaphoreAuditRule)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
 	// Managed method name : AuditRuleFactory
 	// Managed return type : System.Security.AccessControl.AuditRule
 	// Managed param types : System.Security.Principal.IdentityReference, System.Int32, System.Boolean, System.Security.AccessControl.InheritanceFlags, System.Security.AccessControl.PropagationFlags, System.Security.AccessControl.AuditFlags
-    - (System_Security_AccessControl_AuditRule *)auditRuleFactory_withIdentityReference:(System_Security_Principal_IdentityReference *)p1 accessMask:(int32_t)p2 isInherited:(BOOL)p3 inheritanceFlags:(System_Security_AccessControl_InheritanceFlags)p4 propagationFlags:(System_Security_AccessControl_PropagationFlags)p5 flags:(System_Security_AccessControl_AuditFlags)p6
+    - (System_Security_AccessControl_AuditRule *)auditRuleFactory_withIdentityReference:(System_Security_Principal_IdentityReference *)p1 accessMask:(int32_t)p2 isInherited:(BOOL)p3 inheritanceFlags:(int32_t)p4 propagationFlags:(int32_t)p5 flags:(int32_t)p6
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AuditRuleFactory(System.Security.Principal.IdentityReference,int,bool,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AuditFlags)" withNumArgs:6, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6)];
+		MonoObject *monoObject = [self invokeMonoMethod:"AuditRuleFactory(System.Security.Principal.IdentityReference,int,bool,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AuditFlags)" withNumArgs:6, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6)];
 		
 		return [System_Security_AccessControl_AuditRule bestObjectWithMonoObject:monoObject];
     }
@@ -128,7 +158,7 @@
     - (BOOL)removeAccessRule_withRule:(System_Security_AccessControl_SemaphoreAccessRule *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"RemoveAccessRule(System.Security.AccessControl.SemaphoreAccessRule)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"RemoveAccessRule(System.Security.AccessControl.SemaphoreAccessRule)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -139,7 +169,7 @@
     - (void)removeAccessRuleAll_withRule:(System_Security_AccessControl_SemaphoreAccessRule *)p1
     {
 		
-		[self invokeMonoMethod:"RemoveAccessRuleAll(System.Security.AccessControl.SemaphoreAccessRule)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"RemoveAccessRuleAll(System.Security.AccessControl.SemaphoreAccessRule)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -149,7 +179,7 @@
     - (void)removeAccessRuleSpecific_withRule:(System_Security_AccessControl_SemaphoreAccessRule *)p1
     {
 		
-		[self invokeMonoMethod:"RemoveAccessRuleSpecific(System.Security.AccessControl.SemaphoreAccessRule)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"RemoveAccessRuleSpecific(System.Security.AccessControl.SemaphoreAccessRule)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -159,7 +189,7 @@
     - (BOOL)removeAuditRule_withRule:(System_Security_AccessControl_SemaphoreAuditRule *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"RemoveAuditRule(System.Security.AccessControl.SemaphoreAuditRule)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"RemoveAuditRule(System.Security.AccessControl.SemaphoreAuditRule)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -170,7 +200,7 @@
     - (void)removeAuditRuleAll_withRule:(System_Security_AccessControl_SemaphoreAuditRule *)p1
     {
 		
-		[self invokeMonoMethod:"RemoveAuditRuleAll(System.Security.AccessControl.SemaphoreAuditRule)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"RemoveAuditRuleAll(System.Security.AccessControl.SemaphoreAuditRule)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -180,7 +210,7 @@
     - (void)removeAuditRuleSpecific_withRule:(System_Security_AccessControl_SemaphoreAuditRule *)p1
     {
 		
-		[self invokeMonoMethod:"RemoveAuditRuleSpecific(System.Security.AccessControl.SemaphoreAuditRule)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"RemoveAuditRuleSpecific(System.Security.AccessControl.SemaphoreAuditRule)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -190,7 +220,7 @@
     - (void)resetAccessRule_withRule:(System_Security_AccessControl_SemaphoreAccessRule *)p1
     {
 		
-		[self invokeMonoMethod:"ResetAccessRule(System.Security.AccessControl.SemaphoreAccessRule)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"ResetAccessRule(System.Security.AccessControl.SemaphoreAccessRule)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -200,7 +230,7 @@
     - (void)setAccessRule_withRule:(System_Security_AccessControl_SemaphoreAccessRule *)p1
     {
 		
-		[self invokeMonoMethod:"SetAccessRule(System.Security.AccessControl.SemaphoreAccessRule)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetAccessRule(System.Security.AccessControl.SemaphoreAccessRule)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -210,7 +240,7 @@
     - (void)setAuditRule_withRule:(System_Security_AccessControl_SemaphoreAuditRule *)p1
     {
 		
-		[self invokeMonoMethod:"SetAuditRule(System.Security.AccessControl.SemaphoreAuditRule)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetAuditRule(System.Security.AccessControl.SemaphoreAuditRule)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

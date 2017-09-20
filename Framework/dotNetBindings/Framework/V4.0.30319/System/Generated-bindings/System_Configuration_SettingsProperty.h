@@ -22,7 +22,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Configuration.SettingsProperty
 	// Managed param types : System.String, System.Type, System.Configuration.SettingsProvider, System.Boolean, System.Object, System.Configuration.SettingsSerializeAs, System.Configuration.SettingsAttributeDictionary, System.Boolean, System.Boolean
-    + (System_Configuration_SettingsProperty *)new_withName:(NSString *)p1 propertyType:(System_Type *)p2 provider:(System_Configuration_SettingsProvider *)p3 isReadOnly:(BOOL)p4 defaultValue:(System_Object *)p5 serializeAs:(System_Configuration_SettingsSerializeAs)p6 attributes:(System_Configuration_SettingsAttributeDictionary *)p7 throwOnErrorDeserializing:(BOOL)p8 throwOnErrorSerializing:(BOOL)p9;
+    + (System_Configuration_SettingsProperty *)new_withName:(NSString *)p1 propertyType:(System_Type *)p2 provider:(System_Configuration_SettingsProvider *)p3 isReadOnly:(BOOL)p4 defaultValue:(System_Object *)p5 serializeAs:(int32_t)p6 attributes:(System_Configuration_SettingsAttributeDictionary *)p7 throwOnErrorDeserializing:(BOOL)p8 throwOnErrorSerializing:(BOOL)p9;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Configuration.SettingsProperty
@@ -58,7 +58,7 @@
 
 	// Managed property name : SerializeAs
 	// Managed property type : System.Configuration.SettingsSerializeAs
-    @property (nonatomic) System_Configuration_SettingsSerializeAs serializeAs;
+    @property (nonatomic) int32_t serializeAs;
 
 	// Managed property name : ThrowOnErrorDeserializing
 	// Managed property type : System.Boolean

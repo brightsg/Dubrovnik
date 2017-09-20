@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Generic.SortedSet`1<System.Collections.Generic.SortedSet`1+T>";
+		return "System.Collections.Generic.SortedSet`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -33,7 +33,7 @@
     + (System_Collections_Generic_SortedSetA1 *)new_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
 		
-		System_Collections_Generic_SortedSetA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Generic.SortedSet`1+T>" withNumArgs:1, [p1 monoValue]];;
+		System_Collections_Generic_SortedSetA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Generic.SortedSet`1+T>" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Collections_Generic_SortedSetA1 *)new_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1 comparer:(id <System_Collections_Generic_IComparerA1_>)p2
     {
 		
-		System_Collections_Generic_SortedSetA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Generic.SortedSet`1+T>,System.Collections.Generic.IComparer`1<System.Collections.Generic.SortedSet`1+T>" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Collections_Generic_SortedSetA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Generic.SortedSet`1+T>,System.Collections.Generic.IComparer`1<System.Collections.Generic.SortedSet`1+T>" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Collections_Generic_SortedSetA1 *)new_withComparer:(id <System_Collections_Generic_IComparerA1_>)p1
     {
 		
-		System_Collections_Generic_SortedSetA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IComparer`1<System.Collections.Generic.SortedSet`1+T>" withNumArgs:1, [p1 monoValue]];;
+		System_Collections_Generic_SortedSetA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IComparer`1<System.Collections.Generic.SortedSet`1+T>" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -68,7 +68,17 @@
     @synthesize comparer = _comparer;
     - (System_Collections_Generic_IComparerA1 *)comparer
     {
-		MonoObject *monoObject = [self getMonoProperty:"Comparer"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Comparer");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_comparer isEqualToMonoObject:monoObject]) return _comparer;					
 		_comparer = [System_Collections_Generic_IComparerA1 bestObjectWithMonoObject:monoObject];
 
@@ -80,8 +90,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -91,7 +111,17 @@
     @synthesize max = _max;
     - (System_Object *)max
     {
-		MonoObject *monoObject = [self getMonoProperty:"Max"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Max");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_max isEqualToMonoObject:monoObject]) return _max;					
 		_max = [System_Object bestObjectWithMonoObject:monoObject];
 
@@ -103,7 +133,17 @@
     @synthesize min = _min;
     - (System_Object *)min
     {
-		MonoObject *monoObject = [self getMonoProperty:"Min"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Min");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_min isEqualToMonoObject:monoObject]) return _min;					
 		_min = [System_Object bestObjectWithMonoObject:monoObject];
 
@@ -119,7 +159,7 @@
     - (BOOL)add_withItem:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -130,7 +170,7 @@
     - (void)clear
     {
 		
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];
         
     }
 
@@ -140,7 +180,7 @@
     - (BOOL)contains_withItem:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Contains(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Contains(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -151,7 +191,7 @@
     - (void)copyTo_withArray:(DBSystem_Array *)p1
     {
 		
-		[self invokeMonoMethod:"CopyTo(T[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"CopyTo(T[])" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -161,7 +201,7 @@
     - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
 		
-		[self invokeMonoMethod:"CopyTo(T[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
     }
 
@@ -171,7 +211,7 @@
     - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		
-		[self invokeMonoMethod:"CopyTo(T[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		[self invokeMonoMethod:"CopyTo(T[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
         
     }
 
@@ -192,7 +232,7 @@
     + (id <System_Collections_Generic_IEqualityComparerA1>)createSetComparer_withMemberEqualityComparer:(id <System_Collections_Generic_IEqualityComparerA1_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateSetComparer(System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.SortedSet`1+T>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateSetComparer(System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.SortedSet`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Collections_Generic_IEqualityComparerA1 bestObjectWithMonoObject:monoObject];
     }
@@ -203,7 +243,7 @@
     - (void)exceptWith_withOther:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
 		
-		[self invokeMonoMethod:"ExceptWith(System.Collections.Generic.IEnumerable`1<System.Collections.Generic.SortedSet`1+T>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"ExceptWith(System.Collections.Generic.IEnumerable`1<System.Collections.Generic.SortedSet`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -224,7 +264,7 @@
     - (System_Collections_Generic_SortedSetA1 *)getViewBetween_withLowerValue:(System_Object *)p1 upperValue:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetViewBetween(<_T_0>,<_T_0>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetViewBetween(<_T_0>,<_T_0>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Collections_Generic_SortedSetA1 bestObjectWithMonoObject:monoObject];
     }
@@ -235,7 +275,7 @@
     - (void)intersectWith_withOther:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
 		
-		[self invokeMonoMethod:"IntersectWith(System.Collections.Generic.IEnumerable`1<System.Collections.Generic.SortedSet`1+T>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"IntersectWith(System.Collections.Generic.IEnumerable`1<System.Collections.Generic.SortedSet`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -245,7 +285,7 @@
     - (BOOL)isProperSubsetOf_withOther:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsProperSubsetOf(System.Collections.Generic.IEnumerable`1<System.Collections.Generic.SortedSet`1+T>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IsProperSubsetOf(System.Collections.Generic.IEnumerable`1<System.Collections.Generic.SortedSet`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -256,7 +296,7 @@
     - (BOOL)isProperSupersetOf_withOther:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsProperSupersetOf(System.Collections.Generic.IEnumerable`1<System.Collections.Generic.SortedSet`1+T>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IsProperSupersetOf(System.Collections.Generic.IEnumerable`1<System.Collections.Generic.SortedSet`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -267,7 +307,7 @@
     - (BOOL)isSubsetOf_withOther:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Collections.Generic.IEnumerable`1<System.Collections.Generic.SortedSet`1+T>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Collections.Generic.IEnumerable`1<System.Collections.Generic.SortedSet`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -278,7 +318,7 @@
     - (BOOL)isSupersetOf_withOther:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsSupersetOf(System.Collections.Generic.IEnumerable`1<System.Collections.Generic.SortedSet`1+T>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IsSupersetOf(System.Collections.Generic.IEnumerable`1<System.Collections.Generic.SortedSet`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -289,7 +329,7 @@
     - (BOOL)overlaps_withOther:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Overlaps(System.Collections.Generic.IEnumerable`1<System.Collections.Generic.SortedSet`1+T>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Overlaps(System.Collections.Generic.IEnumerable`1<System.Collections.Generic.SortedSet`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -300,7 +340,7 @@
     - (BOOL)remove_withItem:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -311,7 +351,7 @@
     - (int32_t)removeWhere_withMatch:(System_PredicateA1 *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"RemoveWhere(System.Predicate`1<System.Collections.Generic.SortedSet`1+T>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"RemoveWhere(System.Predicate`1<System.Collections.Generic.SortedSet`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -333,7 +373,7 @@
     - (BOOL)setEquals_withOther:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"SetEquals(System.Collections.Generic.IEnumerable`1<System.Collections.Generic.SortedSet`1+T>)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"SetEquals(System.Collections.Generic.IEnumerable`1<System.Collections.Generic.SortedSet`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -344,7 +384,7 @@
     - (void)symmetricExceptWith_withOther:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
 		
-		[self invokeMonoMethod:"SymmetricExceptWith(System.Collections.Generic.IEnumerable`1<System.Collections.Generic.SortedSet`1+T>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SymmetricExceptWith(System.Collections.Generic.IEnumerable`1<System.Collections.Generic.SortedSet`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -354,7 +394,7 @@
     - (void)unionWith_withOther:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
 		
-		[self invokeMonoMethod:"UnionWith(System.Collections.Generic.IEnumerable`1<System.Collections.Generic.SortedSet`1+T>)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"UnionWith(System.Collections.Generic.IEnumerable`1<System.Collections.Generic.SortedSet`1+T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

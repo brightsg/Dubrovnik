@@ -32,7 +32,17 @@
     @synthesize fileExtension = _fileExtension;
     - (NSString *)fileExtension
     {
-		MonoObject *monoObject = [self getMonoProperty:"FileExtension"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FileExtension");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_fileExtension isEqualToMonoObject:monoObject]) return _fileExtension;					
 		_fileExtension = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -42,10 +52,20 @@
 	// Managed property name : LanguageOptions
 	// Managed property type : System.CodeDom.Compiler.LanguageOptions
     @synthesize languageOptions = _languageOptions;
-    - (System_CodeDom_Compiler_LanguageOptions)languageOptions
+    - (int32_t)languageOptions
     {
-		MonoObject *monoObject = [self getMonoProperty:"LanguageOptions"];
-		_languageOptions = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LanguageOptions");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_languageOptions = monoObject;
 
 		return _languageOptions;
 	}
@@ -59,7 +79,7 @@
     - (System_CodeDom_Compiler_CompilerResults *)compileAssemblyFromDom_withOptions:(System_CodeDom_Compiler_CompilerParameters *)p1 compilationUnits:(DBSystem_Array *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CompileAssemblyFromDom(System.CodeDom.Compiler.CompilerParameters,System.CodeDom.CodeCompileUnit[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CompileAssemblyFromDom(System.CodeDom.Compiler.CompilerParameters,System.CodeDom.CodeCompileUnit[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_CodeDom_Compiler_CompilerResults bestObjectWithMonoObject:monoObject];
     }
@@ -70,7 +90,7 @@
     - (System_CodeDom_Compiler_CompilerResults *)compileAssemblyFromFile_withOptions:(System_CodeDom_Compiler_CompilerParameters *)p1 fileNames:(DBSystem_Array *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CompileAssemblyFromFile(System.CodeDom.Compiler.CompilerParameters,string[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CompileAssemblyFromFile(System.CodeDom.Compiler.CompilerParameters,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_CodeDom_Compiler_CompilerResults bestObjectWithMonoObject:monoObject];
     }
@@ -81,7 +101,7 @@
     - (System_CodeDom_Compiler_CompilerResults *)compileAssemblyFromSource_withOptions:(System_CodeDom_Compiler_CompilerParameters *)p1 sources:(DBSystem_Array *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CompileAssemblyFromSource(System.CodeDom.Compiler.CompilerParameters,string[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CompileAssemblyFromSource(System.CodeDom.Compiler.CompilerParameters,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_CodeDom_Compiler_CompilerResults bestObjectWithMonoObject:monoObject];
     }
@@ -103,7 +123,7 @@
     - (NSString *)createEscapedIdentifier_withValue:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateEscapedIdentifier(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CreateEscapedIdentifier(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -125,7 +145,7 @@
     - (id <System_CodeDom_Compiler_ICodeGenerator>)createGenerator_withOutput:(System_IO_TextWriter *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateGenerator(System.IO.TextWriter)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CreateGenerator(System.IO.TextWriter)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_CodeDom_Compiler_ICodeGenerator bestObjectWithMonoObject:monoObject];
     }
@@ -136,7 +156,7 @@
     - (id <System_CodeDom_Compiler_ICodeGenerator>)createGenerator_withFileName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateGenerator(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CreateGenerator(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_CodeDom_Compiler_ICodeGenerator bestObjectWithMonoObject:monoObject];
     }
@@ -158,7 +178,7 @@
     + (System_CodeDom_Compiler_CodeDomProvider *)createProvider_withLanguage:(NSString *)p1 providerOptions:(id <System_Collections_Generic_IDictionaryA2_>)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateProvider(string,System.Collections.Generic.IDictionary`2<string, string>)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateProvider(string,System.Collections.Generic.IDictionary`2<string, string>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_CodeDom_Compiler_CodeDomProvider bestObjectWithMonoObject:monoObject];
     }
@@ -169,7 +189,7 @@
     + (System_CodeDom_Compiler_CodeDomProvider *)createProvider_withLanguage:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateProvider(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateProvider(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_CodeDom_Compiler_CodeDomProvider bestObjectWithMonoObject:monoObject];
     }
@@ -180,7 +200,7 @@
     - (NSString *)createValidIdentifier_withValue:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateValidIdentifier(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"CreateValidIdentifier(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -191,7 +211,7 @@
     - (void)generateCodeFromCompileUnit_withCompileUnit:(System_CodeDom_CodeCompileUnit *)p1 writer:(System_IO_TextWriter *)p2 options:(System_CodeDom_Compiler_CodeGeneratorOptions *)p3
     {
 		
-		[self invokeMonoMethod:"GenerateCodeFromCompileUnit(System.CodeDom.CodeCompileUnit,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"GenerateCodeFromCompileUnit(System.CodeDom.CodeCompileUnit,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -201,7 +221,7 @@
     - (void)generateCodeFromExpression_withExpression:(System_CodeDom_CodeExpression *)p1 writer:(System_IO_TextWriter *)p2 options:(System_CodeDom_Compiler_CodeGeneratorOptions *)p3
     {
 		
-		[self invokeMonoMethod:"GenerateCodeFromExpression(System.CodeDom.CodeExpression,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"GenerateCodeFromExpression(System.CodeDom.CodeExpression,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -211,7 +231,7 @@
     - (void)generateCodeFromMember_withMember:(System_CodeDom_CodeTypeMember *)p1 writer:(System_IO_TextWriter *)p2 options:(System_CodeDom_Compiler_CodeGeneratorOptions *)p3
     {
 		
-		[self invokeMonoMethod:"GenerateCodeFromMember(System.CodeDom.CodeTypeMember,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"GenerateCodeFromMember(System.CodeDom.CodeTypeMember,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -221,7 +241,7 @@
     - (void)generateCodeFromNamespace_withCodeNamespace:(System_CodeDom_CodeNamespace *)p1 writer:(System_IO_TextWriter *)p2 options:(System_CodeDom_Compiler_CodeGeneratorOptions *)p3
     {
 		
-		[self invokeMonoMethod:"GenerateCodeFromNamespace(System.CodeDom.CodeNamespace,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"GenerateCodeFromNamespace(System.CodeDom.CodeNamespace,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -231,7 +251,7 @@
     - (void)generateCodeFromStatement_withStatement:(System_CodeDom_CodeStatement *)p1 writer:(System_IO_TextWriter *)p2 options:(System_CodeDom_Compiler_CodeGeneratorOptions *)p3
     {
 		
-		[self invokeMonoMethod:"GenerateCodeFromStatement(System.CodeDom.CodeStatement,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"GenerateCodeFromStatement(System.CodeDom.CodeStatement,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -241,7 +261,7 @@
     - (void)generateCodeFromType_withCodeType:(System_CodeDom_CodeTypeDeclaration *)p1 writer:(System_IO_TextWriter *)p2 options:(System_CodeDom_Compiler_CodeGeneratorOptions *)p3
     {
 		
-		[self invokeMonoMethod:"GenerateCodeFromType(System.CodeDom.CodeTypeDeclaration,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"GenerateCodeFromType(System.CodeDom.CodeTypeDeclaration,System.IO.TextWriter,System.CodeDom.Compiler.CodeGeneratorOptions)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -262,7 +282,7 @@
     + (System_CodeDom_Compiler_CompilerInfo *)getCompilerInfo_withLanguage:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCompilerInfo(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCompilerInfo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_CodeDom_Compiler_CompilerInfo bestObjectWithMonoObject:monoObject];
     }
@@ -273,7 +293,7 @@
     - (System_ComponentModel_TypeConverter *)getConverter_withType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetConverter(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetConverter(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_TypeConverter bestObjectWithMonoObject:monoObject];
     }
@@ -284,7 +304,7 @@
     + (NSString *)getLanguageFromExtension_withExtension:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetLanguageFromExtension(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetLanguageFromExtension(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -295,7 +315,7 @@
     - (NSString *)getTypeOutput_withType:(System_CodeDom_CodeTypeReference *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeOutput(System.CodeDom.CodeTypeReference)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeOutput(System.CodeDom.CodeTypeReference)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -306,7 +326,7 @@
     + (BOOL)isDefinedExtension_withExtension:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"IsDefinedExtension(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsDefinedExtension(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -317,7 +337,7 @@
     + (BOOL)isDefinedLanguage_withLanguage:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"IsDefinedLanguage(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsDefinedLanguage(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -328,7 +348,7 @@
     - (BOOL)isValidIdentifier_withValue:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsValidIdentifier(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IsValidIdentifier(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -339,7 +359,7 @@
     - (System_CodeDom_CodeCompileUnit *)parse_withCodeStream:(System_IO_TextReader *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Parse(System.IO.TextReader)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Parse(System.IO.TextReader)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_CodeDom_CodeCompileUnit bestObjectWithMonoObject:monoObject];
     }
@@ -347,7 +367,7 @@
 	// Managed method name : Supports
 	// Managed return type : System.Boolean
 	// Managed param types : System.CodeDom.Compiler.GeneratorSupport
-    - (BOOL)supports_withGeneratorSupport:(System_CodeDom_Compiler_GeneratorSupport)p1
+    - (BOOL)supports_withGeneratorSupport:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Supports(System.CodeDom.Compiler.GeneratorSupport)" withNumArgs:1, DB_VALUE(p1)];

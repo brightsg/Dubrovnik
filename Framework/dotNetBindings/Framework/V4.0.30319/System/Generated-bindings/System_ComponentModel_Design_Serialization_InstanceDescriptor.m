@@ -33,7 +33,7 @@
     + (System_ComponentModel_Design_Serialization_InstanceDescriptor *)new_withMember:(System_Reflection_MemberInfo *)p1 arguments:(id <System_Collections_ICollection_>)p2 isComplete:(BOOL)p3
     {
 		
-		System_ComponentModel_Design_Serialization_InstanceDescriptor * object = [[self alloc] initWithSignature:"System.Reflection.MemberInfo,System.Collections.ICollection,bool" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		System_ComponentModel_Design_Serialization_InstanceDescriptor * object = [[self alloc] initWithSignature:"System.Reflection.MemberInfo,System.Collections.ICollection,bool" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_ComponentModel_Design_Serialization_InstanceDescriptor *)new_withMember:(System_Reflection_MemberInfo *)p1 arguments:(id <System_Collections_ICollection_>)p2
     {
 		
-		System_ComponentModel_Design_Serialization_InstanceDescriptor * object = [[self alloc] initWithSignature:"System.Reflection.MemberInfo,System.Collections.ICollection" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_ComponentModel_Design_Serialization_InstanceDescriptor * object = [[self alloc] initWithSignature:"System.Reflection.MemberInfo,System.Collections.ICollection" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -57,7 +57,17 @@
     @synthesize arguments = _arguments;
     - (System_Collections_ICollection *)arguments
     {
-		MonoObject *monoObject = [self getMonoProperty:"Arguments"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Arguments");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_arguments isEqualToMonoObject:monoObject]) return _arguments;					
 		_arguments = [System_Collections_ICollection bestObjectWithMonoObject:monoObject];
 
@@ -69,8 +79,18 @@
     @synthesize isComplete = _isComplete;
     - (BOOL)isComplete
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsComplete"];
-		_isComplete = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsComplete");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isComplete = monoObject;
 
 		return _isComplete;
 	}
@@ -80,7 +100,17 @@
     @synthesize memberInfo = _memberInfo;
     - (System_Reflection_MemberInfo *)memberInfo
     {
-		MonoObject *monoObject = [self getMonoProperty:"MemberInfo"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MemberInfo");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_memberInfo isEqualToMonoObject:monoObject]) return _memberInfo;					
 		_memberInfo = [System_Reflection_MemberInfo bestObjectWithMonoObject:monoObject];
 

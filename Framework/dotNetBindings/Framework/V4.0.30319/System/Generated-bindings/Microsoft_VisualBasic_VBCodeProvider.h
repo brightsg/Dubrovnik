@@ -28,7 +28,7 @@
 
 	// Managed property name : LanguageOptions
 	// Managed property type : System.CodeDom.Compiler.LanguageOptions
-    @property (nonatomic, readonly) System_CodeDom_Compiler_LanguageOptions languageOptions;
+    @property (nonatomic, readonly) int32_t languageOptions;
 
 #pragma mark -
 #pragma mark Methods

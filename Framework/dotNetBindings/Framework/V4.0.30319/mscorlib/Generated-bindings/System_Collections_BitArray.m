@@ -29,22 +29,22 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.BitArray
-	// Managed param types : System.Int32, System.Boolean
-    + (System_Collections_BitArray *)new_withLength:(int32_t)p1 defaultValue:(BOOL)p2
+	// Managed param types : System.Int32
+    + (System_Collections_BitArray *)new_withLength:(int32_t)p1
     {
 		
-		System_Collections_BitArray * object = [[self alloc] initWithSignature:"int,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+		System_Collections_BitArray * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Collections.BitArray
-	// Managed param types : System.Int32
-    + (System_Collections_BitArray *)new_withLength:(int32_t)p1
+	// Managed param types : System.Int32, System.Boolean
+    + (System_Collections_BitArray *)new_withLength:(int32_t)p1 defaultValue:(BOOL)p2
     {
 		
-		System_Collections_BitArray * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+		System_Collections_BitArray * object = [[self alloc] initWithSignature:"int,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
         
         return object;
     }

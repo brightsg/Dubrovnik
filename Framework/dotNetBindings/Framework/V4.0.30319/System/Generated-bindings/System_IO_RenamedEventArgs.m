@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.IO.RenamedEventArgs
 	// Managed param types : System.IO.WatcherChangeTypes, System.String, System.String, System.String
-    + (System_IO_RenamedEventArgs *)new_withChangeType:(System_IO_WatcherChangeTypes)p1 directory:(NSString *)p2 name:(NSString *)p3 oldName:(NSString *)p4
+    + (System_IO_RenamedEventArgs *)new_withChangeType:(int32_t)p1 directory:(NSString *)p2 name:(NSString *)p3 oldName:(NSString *)p4
     {
 		
-		System_IO_RenamedEventArgs * object = [[self alloc] initWithSignature:"System.IO.WatcherChangeTypes,string,string,string" withNumArgs:4, DB_VALUE(p1), [p2 monoValue], [p3 monoValue], [p4 monoValue]];;
+		System_IO_RenamedEventArgs * object = [[self alloc] initWithSignature:"System.IO.WatcherChangeTypes,string,string,string" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize oldFullPath = _oldFullPath;
     - (NSString *)oldFullPath
     {
-		MonoObject *monoObject = [self getMonoProperty:"OldFullPath"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OldFullPath");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_oldFullPath isEqualToMonoObject:monoObject]) return _oldFullPath;					
 		_oldFullPath = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -58,7 +68,17 @@
     @synthesize oldName = _oldName;
     - (NSString *)oldName
     {
-		MonoObject *monoObject = [self getMonoProperty:"OldName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OldName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_oldName isEqualToMonoObject:monoObject]) return _oldName;					
 		_oldName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

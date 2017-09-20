@@ -33,7 +33,7 @@
     + (System_Threading_Semaphore *)new_withInitialCount:(int32_t)p1 maximumCount:(int32_t)p2
     {
 		
-		System_Threading_Semaphore * object = [[self alloc] initWithSignature:"int,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		System_Threading_Semaphore * object = [[self alloc] initWithSignature:"int,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Threading_Semaphore *)new_withInitialCount:(int32_t)p1 maximumCount:(int32_t)p2 name:(NSString *)p3
     {
 		
-		System_Threading_Semaphore * object = [[self alloc] initWithSignature:"int,int,string" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]];;
+		System_Threading_Semaphore * object = [[self alloc] initWithSignature:"int,int,string" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Threading_Semaphore *)new_withInitialCount:(int32_t)p1 maximumCount:(int32_t)p2 name:(NSString *)p3 createdNewRef:(BOOL*)p4
     {
 		
-		System_Threading_Semaphore * object = [[self alloc] initWithSignature:"int,int,string,bool&" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], p4];;
+		System_Threading_Semaphore * object = [[self alloc] initWithSignature:"int,int,string,bool&" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg], p4];
         
         return object;
     }
@@ -66,7 +66,7 @@
     + (System_Threading_Semaphore *)new_withInitialCount:(int32_t)p1 maximumCount:(int32_t)p2 name:(NSString *)p3 createdNewRef:(BOOL*)p4 semaphoreSecurity:(System_Security_AccessControl_SemaphoreSecurity *)p5
     {
 		
-		System_Threading_Semaphore * object = [[self alloc] initWithSignature:"int,int,string,bool&,System.Security.AccessControl.SemaphoreSecurity" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue], p4, [p5 monoValue]];;
+		System_Threading_Semaphore * object = [[self alloc] initWithSignature:"int,int,string,bool&,System.Security.AccessControl.SemaphoreSecurity" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg], p4, [p5 monoRTInvokeArg]];
         
         return object;
     }
@@ -91,7 +91,7 @@
     + (System_Threading_Semaphore *)openExisting_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenExisting(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenExisting(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Threading_Semaphore bestObjectWithMonoObject:monoObject];
     }
@@ -99,10 +99,10 @@
 	// Managed method name : OpenExisting
 	// Managed return type : System.Threading.Semaphore
 	// Managed param types : System.String, System.Security.AccessControl.SemaphoreRights
-    + (System_Threading_Semaphore *)openExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_SemaphoreRights)p2
+    + (System_Threading_Semaphore *)openExisting_withName:(NSString *)p1 rights:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenExisting(string,System.Security.AccessControl.SemaphoreRights)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"OpenExisting(string,System.Security.AccessControl.SemaphoreRights)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_Threading_Semaphore bestObjectWithMonoObject:monoObject];
     }
@@ -135,7 +135,7 @@
     - (void)setAccessControl_withSemaphoreSecurity:(System_Security_AccessControl_SemaphoreSecurity *)p1
     {
 		
-		[self invokeMonoMethod:"SetAccessControl(System.Security.AccessControl.SemaphoreSecurity)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"SetAccessControl(System.Security.AccessControl.SemaphoreSecurity)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -144,9 +144,9 @@
 	// Managed param types : System.String, ref System.Threading.Semaphore&
     + (BOOL)tryOpenExisting_withName:(NSString *)p1 resultRef:(System_Threading_Semaphore **)p2
     {
-		void *refPtr2 = [*p2 monoValue];
+		void *refPtr2 = [*p2 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TryOpenExisting(string,System.Threading.Semaphore&)" withNumArgs:2, [p1 monoValue], &refPtr2];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryOpenExisting(string,System.Threading.Semaphore&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
 
 		*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 
@@ -156,11 +156,11 @@
 	// Managed method name : TryOpenExisting
 	// Managed return type : System.Boolean
 	// Managed param types : System.String, System.Security.AccessControl.SemaphoreRights, ref System.Threading.Semaphore&
-    + (BOOL)tryOpenExisting_withName:(NSString *)p1 rights:(System_Security_AccessControl_SemaphoreRights)p2 resultRef:(System_Threading_Semaphore **)p3
+    + (BOOL)tryOpenExisting_withName:(NSString *)p1 rights:(int32_t)p2 resultRef:(System_Threading_Semaphore **)p3
     {
-		void *refPtr3 = [*p3 monoValue];
+		void *refPtr3 = [*p3 monoRTInvokeArg];
 
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TryOpenExisting(string,System.Security.AccessControl.SemaphoreRights,System.Threading.Semaphore&)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), &refPtr3];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"TryOpenExisting(string,System.Security.AccessControl.SemaphoreRights,System.Threading.Semaphore&)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), &refPtr3];
 
 		*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
 

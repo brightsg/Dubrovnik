@@ -22,7 +22,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.TraceSource
 	// Managed param types : System.String, System.Diagnostics.SourceLevels
-    + (System_Diagnostics_TraceSource *)new_withName:(NSString *)p1 defaultLevel:(System_Diagnostics_SourceLevels)p2;
+    + (System_Diagnostics_TraceSource *)new_withName:(NSString *)p1 defaultLevel:(int32_t)p2;
 
 #pragma mark -
 #pragma mark Properties
@@ -59,27 +59,27 @@
 	// Managed method name : TraceData
 	// Managed return type : System.Void
 	// Managed param types : System.Diagnostics.TraceEventType, System.Int32, System.Object
-    - (void)traceData_withEventTypeSDTraceEventType:(System_Diagnostics_TraceEventType)p1 idInt:(int32_t)p2 dataObject:(System_Object *)p3;
+    - (void)traceData_withEventTypeSDTraceEventType:(int32_t)p1 idInt:(int32_t)p2 dataObject:(System_Object *)p3;
 
 	// Managed method name : TraceData
 	// Managed return type : System.Void
 	// Managed param types : System.Diagnostics.TraceEventType, System.Int32, System.Object[]
-    - (void)traceData_withEventTypeSDTraceEventType:(System_Diagnostics_TraceEventType)p1 idInt:(int32_t)p2 dataObject:(DBSystem_Array *)p3;
+    - (void)traceData_withEventTypeSDTraceEventType:(int32_t)p1 idInt:(int32_t)p2 dataObject:(DBSystem_Array *)p3;
 
 	// Managed method name : TraceEvent
 	// Managed return type : System.Void
 	// Managed param types : System.Diagnostics.TraceEventType, System.Int32
-    - (void)traceEvent_withEventType:(System_Diagnostics_TraceEventType)p1 id:(int32_t)p2;
+    - (void)traceEvent_withEventType:(int32_t)p1 id:(int32_t)p2;
 
 	// Managed method name : TraceEvent
 	// Managed return type : System.Void
 	// Managed param types : System.Diagnostics.TraceEventType, System.Int32, System.String
-    - (void)traceEvent_withEventType:(System_Diagnostics_TraceEventType)p1 id:(int32_t)p2 message:(NSString *)p3;
+    - (void)traceEvent_withEventType:(int32_t)p1 id:(int32_t)p2 message:(NSString *)p3;
 
 	// Managed method name : TraceEvent
 	// Managed return type : System.Void
 	// Managed param types : System.Diagnostics.TraceEventType, System.Int32, System.String, System.Object[]
-    - (void)traceEvent_withEventType:(System_Diagnostics_TraceEventType)p1 id:(int32_t)p2 format:(NSString *)p3 args:(DBSystem_Array *)p4;
+    - (void)traceEvent_withEventType:(int32_t)p1 id:(int32_t)p2 format:(NSString *)p3 args:(DBSystem_Array *)p4;
 
 	// Managed method name : TraceInformation
 	// Managed return type : System.Void

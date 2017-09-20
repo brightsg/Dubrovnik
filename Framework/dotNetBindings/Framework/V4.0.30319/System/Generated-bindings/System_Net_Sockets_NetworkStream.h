@@ -27,12 +27,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Sockets.NetworkStream
 	// Managed param types : System.Net.Sockets.Socket, System.IO.FileAccess
-    + (System_Net_Sockets_NetworkStream *)new_withSocket:(System_Net_Sockets_Socket *)p1 access:(System_IO_FileAccess)p2;
+    + (System_Net_Sockets_NetworkStream *)new_withSocket:(System_Net_Sockets_Socket *)p1 access:(int32_t)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Sockets.NetworkStream
 	// Managed param types : System.Net.Sockets.Socket, System.IO.FileAccess, System.Boolean
-    + (System_Net_Sockets_NetworkStream *)new_withSocket:(System_Net_Sockets_Socket *)p1 access:(System_IO_FileAccess)p2 ownsSocket:(BOOL)p3;
+    + (System_Net_Sockets_NetworkStream *)new_withSocket:(System_Net_Sockets_Socket *)p1 access:(int32_t)p2 ownsSocket:(BOOL)p3;
 
 #pragma mark -
 #pragma mark Properties
@@ -119,7 +119,7 @@
 	// Managed method name : Seek
 	// Managed return type : System.Int64
 	// Managed param types : System.Int64, System.IO.SeekOrigin
-    - (int64_t)seek_withOffset:(int64_t)p1 origin:(System_IO_SeekOrigin)p2;
+    - (int64_t)seek_withOffset:(int64_t)p1 origin:(int32_t)p2;
 
 	// Managed method name : SetLength
 	// Managed return type : System.Void

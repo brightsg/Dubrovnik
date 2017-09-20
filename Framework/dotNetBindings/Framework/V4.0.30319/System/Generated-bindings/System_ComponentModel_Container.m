@@ -32,7 +32,17 @@
     @synthesize components = _components;
     - (System_ComponentModel_ComponentCollection *)components
     {
-		MonoObject *monoObject = [self getMonoProperty:"Components"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Components");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_components isEqualToMonoObject:monoObject]) return _components;					
 		_components = [System_ComponentModel_ComponentCollection bestObjectWithMonoObject:monoObject];
 
@@ -48,7 +58,7 @@
     - (void)add_withComponent:(id <System_ComponentModel_IComponent_>)p1
     {
 		
-		[self invokeMonoMethod:"Add(System.ComponentModel.IComponent)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Add(System.ComponentModel.IComponent)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -58,7 +68,7 @@
     - (void)add_withComponent:(id <System_ComponentModel_IComponent_>)p1 name:(NSString *)p2
     {
 		
-		[self invokeMonoMethod:"Add(System.ComponentModel.IComponent,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"Add(System.ComponentModel.IComponent,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -68,7 +78,7 @@
     - (void)dispose
     {
 		
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
         
     }
 
@@ -78,7 +88,7 @@
     - (void)remove_withComponent:(id <System_ComponentModel_IComponent_>)p1
     {
 		
-		[self invokeMonoMethod:"Remove(System.ComponentModel.IComponent)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Remove(System.ComponentModel.IComponent)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

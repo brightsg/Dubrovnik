@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     20/04/2017 12:04:02
+// Date:     20/09/2017 11:07:34
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -1125,6 +1125,13 @@
 #define STupleA8_ System_TupleA8
 #endif
 
+@class System_TupleExtensions;
+#ifdef STupleExtensions_
+#warning STupleExtensions_ class name collision.
+#else
+#define STupleExtensions_ System_TupleExtensions
+#endif
+
 @class System_Type;
 #ifdef SType_
 #warning SType_ class name collision.
@@ -1529,6 +1536,69 @@
 #warning SUIntPtr_ class name collision.
 #else
 #define SUIntPtr_ System_UIntPtr
+#endif
+
+@class System_ValueTuple;
+#ifdef SValueTuple_
+#warning SValueTuple_ class name collision.
+#else
+#define SValueTuple_ System_ValueTuple
+#endif
+
+@class System_ValueTupleA1;
+#ifdef SValueTupleA1_
+#warning SValueTupleA1_ class name collision.
+#else
+#define SValueTupleA1_ System_ValueTupleA1
+#endif
+
+@class System_ValueTupleA2;
+#ifdef SValueTupleA2_
+#warning SValueTupleA2_ class name collision.
+#else
+#define SValueTupleA2_ System_ValueTupleA2
+#endif
+
+@class System_ValueTupleA3;
+#ifdef SValueTupleA3_
+#warning SValueTupleA3_ class name collision.
+#else
+#define SValueTupleA3_ System_ValueTupleA3
+#endif
+
+@class System_ValueTupleA4;
+#ifdef SValueTupleA4_
+#warning SValueTupleA4_ class name collision.
+#else
+#define SValueTupleA4_ System_ValueTupleA4
+#endif
+
+@class System_ValueTupleA5;
+#ifdef SValueTupleA5_
+#warning SValueTupleA5_ class name collision.
+#else
+#define SValueTupleA5_ System_ValueTupleA5
+#endif
+
+@class System_ValueTupleA6;
+#ifdef SValueTupleA6_
+#warning SValueTupleA6_ class name collision.
+#else
+#define SValueTupleA6_ System_ValueTupleA6
+#endif
+
+@class System_ValueTupleA7;
+#ifdef SValueTupleA7_
+#warning SValueTupleA7_ class name collision.
+#else
+#define SValueTupleA7_ System_ValueTupleA7
+#endif
+
+@class System_ValueTupleA8;
+#ifdef SValueTupleA8_
+#warning SValueTupleA8_ class name collision.
+#else
+#define SValueTupleA8_ System_ValueTupleA8
 #endif
 
 @class System_Void;
@@ -2523,6 +2593,13 @@
 #warning SDTEventSourceAttribute_ class name collision.
 #else
 #define SDTEventSourceAttribute_ System_Diagnostics_Tracing_EventSourceAttribute
+#endif
+
+@class System_Diagnostics_Tracing_EventSourceCreatedEventArgs;
+#ifdef SDTEventSourceCreatedEventArgs_
+#warning SDTEventSourceCreatedEventArgs_ class name collision.
+#else
+#define SDTEventSourceCreatedEventArgs_ System_Diagnostics_Tracing_EventSourceCreatedEventArgs
 #endif
 
 @class System_Diagnostics_Tracing_EventSourceException;
@@ -4623,6 +4700,13 @@
 #warning SRCSuppressIldasmAttribute_ class name collision.
 #else
 #define SRCSuppressIldasmAttribute_ System_Runtime_CompilerServices_SuppressIldasmAttribute
+#endif
+
+@class System_Runtime_CompilerServices_TupleElementNamesAttribute;
+#ifdef SRCTupleElementNamesAttribute_
+#warning SRCTupleElementNamesAttribute_ class name collision.
+#else
+#define SRCTupleElementNamesAttribute_ System_Runtime_CompilerServices_TupleElementNamesAttribute
 #endif
 
 @class System_Runtime_CompilerServices_TypeForwardedFromAttribute;
@@ -11172,6 +11256,15 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "System_UInt32.h"
 #import "System_UInt64.h"
 #import "System_UIntPtr.h"
+#import "System_ValueTuple.h"
+#import "System_ValueTupleA1.h"
+#import "System_ValueTupleA2.h"
+#import "System_ValueTupleA3.h"
+#import "System_ValueTupleA4.h"
+#import "System_ValueTupleA5.h"
+#import "System_ValueTupleA6.h"
+#import "System_ValueTupleA7.h"
+#import "System_ValueTupleA8.h"
 #import "System_Void.h"
 #import "System_Collections_DictionaryEntry.h"
 #import "System_Collections_Generic_DictionaryA2__Enumerator.h"
@@ -11414,6 +11507,7 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "System_TupleA6.h"
 #import "System_TupleA7.h"
 #import "System_TupleA8.h"
+#import "System_TupleExtensions.h"
 #import "System_Reflection_MemberInfo.h"
 #import "System_Type.h"
 #import "System_TypeAccessException.h"
@@ -11498,6 +11592,7 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "System_Diagnostics_Tracing_EventListener.h"
 #import "System_Diagnostics_Tracing_EventSource.h"
 #import "System_Diagnostics_Tracing_EventSourceAttribute.h"
+#import "System_Diagnostics_Tracing_EventSourceCreatedEventArgs.h"
 #import "System_Diagnostics_Tracing_EventSourceException.h"
 #import "System_Diagnostics_Tracing_EventWrittenEventArgs.h"
 #import "System_Diagnostics_Tracing_NonEventAttribute.h"
@@ -11715,6 +11810,7 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "System_Runtime_CompilerServices_SpecialNameAttribute.h"
 #import "System_Runtime_CompilerServices_StringFreezingAttribute.h"
 #import "System_Runtime_CompilerServices_SuppressIldasmAttribute.h"
+#import "System_Runtime_CompilerServices_TupleElementNamesAttribute.h"
 #import "System_Runtime_CompilerServices_TypeForwardedFromAttribute.h"
 #import "System_Runtime_CompilerServices_TypeForwardedToAttribute.h"
 #import "System_Runtime_CompilerServices_UnsafeValueTypeAttribute.h"

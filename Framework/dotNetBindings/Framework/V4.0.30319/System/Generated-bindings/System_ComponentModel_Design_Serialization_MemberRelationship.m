@@ -33,7 +33,7 @@
     + (System_ComponentModel_Design_Serialization_MemberRelationship *)new_withOwner:(System_Object *)p1 member:(System_ComponentModel_MemberDescriptor *)p2
     {
 		
-		System_ComponentModel_Design_Serialization_MemberRelationship * object = [[self alloc] initWithSignature:"object,System.ComponentModel.MemberDescriptor" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_ComponentModel_Design_Serialization_MemberRelationship * object = [[self alloc] initWithSignature:"object,System.ComponentModel.MemberDescriptor" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -61,8 +61,18 @@
     @synthesize isEmpty = _isEmpty;
     - (BOOL)isEmpty
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsEmpty"];
-		_isEmpty = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsEmpty");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isEmpty = monoObject;
 
 		return _isEmpty;
 	}
@@ -72,7 +82,17 @@
     @synthesize member = _member;
     - (System_ComponentModel_MemberDescriptor *)member
     {
-		MonoObject *monoObject = [self getMonoProperty:"Member"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Member");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_member isEqualToMonoObject:monoObject]) return _member;					
 		_member = [System_ComponentModel_MemberDescriptor bestObjectWithMonoObject:monoObject];
 
@@ -84,7 +104,17 @@
     @synthesize owner = _owner;
     - (System_Object *)owner
     {
-		MonoObject *monoObject = [self getMonoProperty:"Owner"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Owner");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_owner isEqualToMonoObject:monoObject]) return _owner;					
 		_owner = [System_Object objectWithMonoObject:monoObject];
 
@@ -100,7 +130,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -122,7 +152,7 @@
     + (BOOL)op_Equality_withLeft:(System_ComponentModel_Design_Serialization_MemberRelationship *)p1 right:(System_ComponentModel_Design_Serialization_MemberRelationship *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.ComponentModel.Design.Serialization.MemberRelationship,System.ComponentModel.Design.Serialization.MemberRelationship)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.ComponentModel.Design.Serialization.MemberRelationship,System.ComponentModel.Design.Serialization.MemberRelationship)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -133,7 +163,7 @@
     + (BOOL)op_Inequality_withLeft:(System_ComponentModel_Design_Serialization_MemberRelationship *)p1 right:(System_ComponentModel_Design_Serialization_MemberRelationship *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.ComponentModel.Design.Serialization.MemberRelationship,System.ComponentModel.Design.Serialization.MemberRelationship)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.ComponentModel.Design.Serialization.MemberRelationship,System.ComponentModel.Design.Serialization.MemberRelationship)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

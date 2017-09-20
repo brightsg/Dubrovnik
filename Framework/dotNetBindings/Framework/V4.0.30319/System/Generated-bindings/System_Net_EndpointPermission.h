@@ -24,7 +24,7 @@
 
 	// Managed property name : Transport
 	// Managed property type : System.Net.TransportType
-    @property (nonatomic, readonly) System_Net_TransportType transport;
+    @property (nonatomic, readonly) int32_t transport;
 
 #pragma mark -
 #pragma mark Methods

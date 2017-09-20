@@ -33,7 +33,7 @@
     + (System_Diagnostics_ProcessModuleCollection *)new_withProcessModules:(DBSystem_Array *)p1
     {
 		
-		System_Diagnostics_ProcessModuleCollection * object = [[self alloc] initWithSignature:"System.Diagnostics.ProcessModule[]" withNumArgs:1, [p1 monoValue]];;
+		System_Diagnostics_ProcessModuleCollection * object = [[self alloc] initWithSignature:"System.Diagnostics.ProcessModule[]" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize item = _item;
     - (System_Diagnostics_ProcessModule *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
 		_item = [System_Diagnostics_ProcessModule bestObjectWithMonoObject:monoObject];
 
@@ -62,7 +72,7 @@
     - (BOOL)contains_withModule:(System_Diagnostics_ProcessModule *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Contains(System.Diagnostics.ProcessModule)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Contains(System.Diagnostics.ProcessModule)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -73,7 +83,7 @@
     - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
 		
-		[self invokeMonoMethod:"CopyTo(System.Diagnostics.ProcessModule[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"CopyTo(System.Diagnostics.ProcessModule[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
     }
 
@@ -83,7 +93,7 @@
     - (int32_t)indexOf_withModule:(System_Diagnostics_ProcessModule *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(System.Diagnostics.ProcessModule)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(System.Diagnostics.ProcessModule)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }

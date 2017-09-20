@@ -20,7 +20,7 @@
 
 	// Managed property name : LanguageOptions
 	// Managed property type : System.CodeDom.Compiler.LanguageOptions
-    @property (nonatomic, readonly) System_CodeDom_Compiler_LanguageOptions languageOptions;
+    @property (nonatomic, readonly) int32_t languageOptions;
 
 #pragma mark -
 #pragma mark Methods
@@ -163,6 +163,6 @@
 	// Managed method name : Supports
 	// Managed return type : System.Boolean
 	// Managed param types : System.CodeDom.Compiler.GeneratorSupport
-    - (BOOL)supports_withGeneratorSupport:(System_CodeDom_Compiler_GeneratorSupport)p1;
+    - (BOOL)supports_withGeneratorSupport:(int32_t)p1;
 @end
 //--Dubrovnik.CodeGenerator

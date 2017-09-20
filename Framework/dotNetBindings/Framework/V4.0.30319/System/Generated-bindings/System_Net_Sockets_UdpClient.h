@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Sockets.UdpClient
 	// Managed param types : System.Net.Sockets.AddressFamily
-    + (System_Net_Sockets_UdpClient *)new_withFamily:(System_Net_Sockets_AddressFamily)p1;
+    + (System_Net_Sockets_UdpClient *)new_withFamily:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Sockets.UdpClient
@@ -27,7 +27,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Sockets.UdpClient
 	// Managed param types : System.Int32, System.Net.Sockets.AddressFamily
-    + (System_Net_Sockets_UdpClient *)new_withPort:(int32_t)p1 family:(System_Net_Sockets_AddressFamily)p2;
+    + (System_Net_Sockets_UdpClient *)new_withPort:(int32_t)p1 family:(int32_t)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Sockets.UdpClient

@@ -17,18 +17,18 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.SemaphoreAccessRule
 	// Managed param types : System.Security.Principal.IdentityReference, System.Security.AccessControl.SemaphoreRights, System.Security.AccessControl.AccessControlType
-    + (System_Security_AccessControl_SemaphoreAccessRule *)new_withIdentitySSPIdentityReference:(System_Security_Principal_IdentityReference *)p1 eventRightsSSASemaphoreRights:(System_Security_AccessControl_SemaphoreRights)p2 typeSSAAccessControlType:(System_Security_AccessControl_AccessControlType)p3;
+    + (System_Security_AccessControl_SemaphoreAccessRule *)new_withIdentitySSPIdentityReference:(System_Security_Principal_IdentityReference *)p1 eventRightsSSASemaphoreRights:(int32_t)p2 typeSSAAccessControlType:(int32_t)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.AccessControl.SemaphoreAccessRule
 	// Managed param types : System.String, System.Security.AccessControl.SemaphoreRights, System.Security.AccessControl.AccessControlType
-    + (System_Security_AccessControl_SemaphoreAccessRule *)new_withIdentityString:(NSString *)p1 eventRightsSSASemaphoreRights:(System_Security_AccessControl_SemaphoreRights)p2 typeSSAAccessControlType:(System_Security_AccessControl_AccessControlType)p3;
+    + (System_Security_AccessControl_SemaphoreAccessRule *)new_withIdentityString:(NSString *)p1 eventRightsSSASemaphoreRights:(int32_t)p2 typeSSAAccessControlType:(int32_t)p3;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : SemaphoreRights
 	// Managed property type : System.Security.AccessControl.SemaphoreRights
-    @property (nonatomic, readonly) System_Security_AccessControl_SemaphoreRights semaphoreRights;
+    @property (nonatomic, readonly) int32_t semaphoreRights;
 @end
 //--Dubrovnik.CodeGenerator

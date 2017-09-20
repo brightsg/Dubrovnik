@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.StorePermissionAttribute
 	// Managed param types : System.Security.Permissions.SecurityAction
-    + (System_Security_Permissions_StorePermissionAttribute *)new_withAction:(System_Security_Permissions_SecurityAction)p1;
+    + (System_Security_Permissions_StorePermissionAttribute *)new_withAction:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -44,7 +44,7 @@
 
 	// Managed property name : Flags
 	// Managed property type : System.Security.Permissions.StorePermissionFlags
-    @property (nonatomic) System_Security_Permissions_StorePermissionFlags flags;
+    @property (nonatomic) int32_t flags;
 
 	// Managed property name : OpenStore
 	// Managed property type : System.Boolean

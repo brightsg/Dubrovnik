@@ -36,7 +36,7 @@
 
 	// Managed property name : AutomaticDecompression
 	// Managed property type : System.Net.DecompressionMethods
-    @property (nonatomic) System_Net_DecompressionMethods automaticDecompression;
+    @property (nonatomic) int32_t automaticDecompression;
 
 	// Managed property name : ClientCertificates
 	// Managed property type : System.Security.Cryptography.X509Certificates.X509CertificateCollection

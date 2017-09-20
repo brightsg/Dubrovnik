@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.CollectionChangeEventArgs
 	// Managed param types : System.ComponentModel.CollectionChangeAction, System.Object
-    + (System_ComponentModel_CollectionChangeEventArgs *)new_withAction:(System_ComponentModel_CollectionChangeAction)p1 element:(System_Object *)p2
+    + (System_ComponentModel_CollectionChangeEventArgs *)new_withAction:(int32_t)p1 element:(System_Object *)p2
     {
 		
-		System_ComponentModel_CollectionChangeEventArgs * object = [[self alloc] initWithSignature:"System.ComponentModel.CollectionChangeAction,object" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		System_ComponentModel_CollectionChangeEventArgs * object = [[self alloc] initWithSignature:"System.ComponentModel.CollectionChangeAction,object" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,10 +44,20 @@
 	// Managed property name : Action
 	// Managed property type : System.ComponentModel.CollectionChangeAction
     @synthesize action = _action;
-    - (System_ComponentModel_CollectionChangeAction)action
+    - (int32_t)action
     {
-		MonoObject *monoObject = [self getMonoProperty:"Action"];
-		_action = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Action");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_action = monoObject;
 
 		return _action;
 	}
@@ -57,7 +67,17 @@
     @synthesize element = _element;
     - (System_Object *)element
     {
-		MonoObject *monoObject = [self getMonoProperty:"Element"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Element");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_element isEqualToMonoObject:monoObject]) return _element;					
 		_element = [System_Object objectWithMonoObject:monoObject];
 

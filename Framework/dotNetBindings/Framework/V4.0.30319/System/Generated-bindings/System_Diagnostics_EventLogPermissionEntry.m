@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.EventLogPermissionEntry
 	// Managed param types : System.Diagnostics.EventLogPermissionAccess, System.String
-    + (System_Diagnostics_EventLogPermissionEntry *)new_withPermissionAccess:(System_Diagnostics_EventLogPermissionAccess)p1 machineName:(NSString *)p2
+    + (System_Diagnostics_EventLogPermissionEntry *)new_withPermissionAccess:(int32_t)p1 machineName:(NSString *)p2
     {
 		
-		System_Diagnostics_EventLogPermissionEntry * object = [[self alloc] initWithSignature:"System.Diagnostics.EventLogPermissionAccess,string" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		System_Diagnostics_EventLogPermissionEntry * object = [[self alloc] initWithSignature:"System.Diagnostics.EventLogPermissionAccess,string" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize machineName = _machineName;
     - (NSString *)machineName
     {
-		MonoObject *monoObject = [self getMonoProperty:"MachineName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MachineName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_machineName isEqualToMonoObject:monoObject]) return _machineName;					
 		_machineName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -56,10 +66,20 @@
 	// Managed property name : PermissionAccess
 	// Managed property type : System.Diagnostics.EventLogPermissionAccess
     @synthesize permissionAccess = _permissionAccess;
-    - (System_Diagnostics_EventLogPermissionAccess)permissionAccess
+    - (int32_t)permissionAccess
     {
-		MonoObject *monoObject = [self getMonoProperty:"PermissionAccess"];
-		_permissionAccess = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PermissionAccess");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_permissionAccess = monoObject;
 
 		return _permissionAccess;
 	}

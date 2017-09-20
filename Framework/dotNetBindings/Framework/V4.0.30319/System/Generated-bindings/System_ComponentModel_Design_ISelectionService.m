@@ -32,7 +32,17 @@
     @synthesize primarySelection = _primarySelection;
     - (System_Object *)primarySelection
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.Design.ISelectionService.PrimarySelection"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.Design.ISelectionService.PrimarySelection");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_primarySelection isEqualToMonoObject:monoObject]) return _primarySelection;					
 		_primarySelection = [System_Object objectWithMonoObject:monoObject];
 
@@ -44,8 +54,18 @@
     @synthesize selectionCount = _selectionCount;
     - (int32_t)selectionCount
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.ComponentModel.Design.ISelectionService.SelectionCount"];
-		_selectionCount = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.ComponentModel.Design.ISelectionService.SelectionCount");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_selectionCount = monoObject;
 
 		return _selectionCount;
 	}
@@ -59,7 +79,7 @@
     - (BOOL)getComponentSelected_withComponent:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.ISelectionService.GetComponentSelected(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.ISelectionService.GetComponentSelected(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -81,17 +101,17 @@
     - (void)setSelectedComponents_withComponents:(id <System_Collections_ICollection_>)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.ISelectionService.SetSelectedComponents(System.Collections.ICollection)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.ISelectionService.SetSelectedComponents(System.Collections.ICollection)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
 	// Managed method name : SetSelectedComponents
 	// Managed return type : System.Void
 	// Managed param types : System.Collections.ICollection, System.ComponentModel.Design.SelectionTypes
-    - (void)setSelectedComponents_withComponents:(id <System_Collections_ICollection_>)p1 selectionType:(System_ComponentModel_Design_SelectionTypes)p2
+    - (void)setSelectedComponents_withComponents:(id <System_Collections_ICollection_>)p1 selectionType:(int32_t)p2
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.ISelectionService.SetSelectedComponents(System.Collections.ICollection,System.ComponentModel.Design.SelectionTypes)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.ISelectionService.SetSelectedComponents(System.Collections.ICollection,System.ComponentModel.Design.SelectionTypes)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
     }
 

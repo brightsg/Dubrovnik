@@ -33,7 +33,7 @@
     + (System_Net_Mail_AlternateView *)new_withFileName:(NSString *)p1
     {
 		
-		System_Net_Mail_AlternateView * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_Net_Mail_AlternateView * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Net_Mail_AlternateView *)new_withFileName:(NSString *)p1 mediaType:(NSString *)p2
     {
 		
-		System_Net_Mail_AlternateView * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Net_Mail_AlternateView * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Net_Mail_AlternateView *)new_withFileName:(NSString *)p1 contentType:(System_Net_Mime_ContentType *)p2
     {
 		
-		System_Net_Mail_AlternateView * object = [[self alloc] initWithSignature:"string,System.Net.Mime.ContentType" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Net_Mail_AlternateView * object = [[self alloc] initWithSignature:"string,System.Net.Mime.ContentType" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -66,7 +66,7 @@
     + (System_Net_Mail_AlternateView *)new_withContentStream:(System_IO_Stream *)p1
     {
 		
-		System_Net_Mail_AlternateView * object = [[self alloc] initWithSignature:"System.IO.Stream" withNumArgs:1, [p1 monoValue]];;
+		System_Net_Mail_AlternateView * object = [[self alloc] initWithSignature:"System.IO.Stream" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -77,7 +77,7 @@
     + (System_Net_Mail_AlternateView *)new_withContentStream:(System_IO_Stream *)p1 mediaType:(NSString *)p2
     {
 		
-		System_Net_Mail_AlternateView * object = [[self alloc] initWithSignature:"System.IO.Stream,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Net_Mail_AlternateView * object = [[self alloc] initWithSignature:"System.IO.Stream,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -88,7 +88,7 @@
     + (System_Net_Mail_AlternateView *)new_withContentStream:(System_IO_Stream *)p1 contentType:(System_Net_Mime_ContentType *)p2
     {
 		
-		System_Net_Mail_AlternateView * object = [[self alloc] initWithSignature:"System.IO.Stream,System.Net.Mime.ContentType" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Net_Mail_AlternateView * object = [[self alloc] initWithSignature:"System.IO.Stream,System.Net.Mime.ContentType" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -101,7 +101,17 @@
     @synthesize baseUri = _baseUri;
     - (System_Uri *)baseUri
     {
-		MonoObject *monoObject = [self getMonoProperty:"BaseUri"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BaseUri");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_baseUri isEqualToMonoObject:monoObject]) return _baseUri;					
 		_baseUri = [System_Uri bestObjectWithMonoObject:monoObject];
 
@@ -110,8 +120,17 @@
     - (void)setBaseUri:(System_Uri *)value
 	{
 		_baseUri = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"BaseUri" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "BaseUri");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : LinkedResources
@@ -119,7 +138,17 @@
     @synthesize linkedResources = _linkedResources;
     - (System_Net_Mail_LinkedResourceCollection *)linkedResources
     {
-		MonoObject *monoObject = [self getMonoProperty:"LinkedResources"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LinkedResources");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_linkedResources isEqualToMonoObject:monoObject]) return _linkedResources;					
 		_linkedResources = [System_Net_Mail_LinkedResourceCollection bestObjectWithMonoObject:monoObject];
 
@@ -135,7 +164,7 @@
     + (System_Net_Mail_AlternateView *)createAlternateViewFromString_withContent:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateAlternateViewFromString(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateAlternateViewFromString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Net_Mail_AlternateView bestObjectWithMonoObject:monoObject];
     }
@@ -146,7 +175,7 @@
     + (System_Net_Mail_AlternateView *)createAlternateViewFromString_withContent:(NSString *)p1 contentEncoding:(System_Text_Encoding *)p2 mediaType:(NSString *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateAlternateViewFromString(string,System.Text.Encoding,string)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateAlternateViewFromString(string,System.Text.Encoding,string)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_Net_Mail_AlternateView bestObjectWithMonoObject:monoObject];
     }
@@ -157,7 +186,7 @@
     + (System_Net_Mail_AlternateView *)createAlternateViewFromString_withContent:(NSString *)p1 contentType:(System_Net_Mime_ContentType *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateAlternateViewFromString(string,System.Net.Mime.ContentType)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateAlternateViewFromString(string,System.Net.Mime.ContentType)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Net_Mail_AlternateView bestObjectWithMonoObject:monoObject];
     }

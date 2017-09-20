@@ -27,12 +27,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Mail.SmtpFailedRecipientException
 	// Managed param types : System.Net.Mail.SmtpStatusCode, System.String
-    + (System_Net_Mail_SmtpFailedRecipientException *)new_withStatusCode:(System_Net_Mail_SmtpStatusCode)p1 failedRecipient:(NSString *)p2;
+    + (System_Net_Mail_SmtpFailedRecipientException *)new_withStatusCode:(int32_t)p1 failedRecipient:(NSString *)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Mail.SmtpFailedRecipientException
 	// Managed param types : System.Net.Mail.SmtpStatusCode, System.String, System.String
-    + (System_Net_Mail_SmtpFailedRecipientException *)new_withStatusCode:(System_Net_Mail_SmtpStatusCode)p1 failedRecipient:(NSString *)p2 serverResponse:(NSString *)p3;
+    + (System_Net_Mail_SmtpFailedRecipientException *)new_withStatusCode:(int32_t)p1 failedRecipient:(NSString *)p2 serverResponse:(NSString *)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Mail.SmtpFailedRecipientException

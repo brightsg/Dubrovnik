@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebSockets.WebSocketReceiveResult
 	// Managed param types : System.Int32, System.Net.WebSockets.WebSocketMessageType, System.Boolean
-    + (System_Net_WebSockets_WebSocketReceiveResult *)new_withCount:(int32_t)p1 messageType:(System_Net_WebSockets_WebSocketMessageType)p2 endOfMessage:(BOOL)p3
+    + (System_Net_WebSockets_WebSocketReceiveResult *)new_withCount:(int32_t)p1 messageType:(int32_t)p2 endOfMessage:(BOOL)p3
     {
 		
-		System_Net_WebSockets_WebSocketReceiveResult * object = [[self alloc] initWithSignature:"int,System.Net.WebSockets.WebSocketMessageType,bool" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];;
+		System_Net_WebSockets_WebSocketReceiveResult * object = [[self alloc] initWithSignature:"int,System.Net.WebSockets.WebSocketMessageType,bool" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
         
         return object;
     }
@@ -41,10 +41,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebSockets.WebSocketReceiveResult
 	// Managed param types : System.Int32, System.Net.WebSockets.WebSocketMessageType, System.Boolean, System.Nullable`1<System.Net.WebSockets.WebSocketCloseStatus>, System.String
-    + (System_Net_WebSockets_WebSocketReceiveResult *)new_withCount:(int32_t)p1 messageType:(System_Net_WebSockets_WebSocketMessageType)p2 endOfMessage:(BOOL)p3 closeStatus:(System_NullableA1 *)p4 closeStatusDescription:(NSString *)p5
+    + (System_Net_WebSockets_WebSocketReceiveResult *)new_withCount:(int32_t)p1 messageType:(int32_t)p2 endOfMessage:(BOOL)p3 closeStatus:(System_NullableA1 *)p4 closeStatusDescription:(NSString *)p5
     {
 		
-		System_Net_WebSockets_WebSocketReceiveResult * object = [[self alloc] initWithSignature:"int,System.Net.WebSockets.WebSocketMessageType,bool,System.Nullable`1<System.Net.WebSockets.WebSocketCloseStatus>,string" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue], [p5 monoValue]];;
+		System_Net_WebSockets_WebSocketReceiveResult * object = [[self alloc] initWithSignature:"int,System.Net.WebSockets.WebSocketMessageType,bool,System.Nullable`1<System.Net.WebSockets.WebSocketCloseStatus>,string" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
         
         return object;
     }
@@ -57,7 +57,17 @@
     @synthesize closeStatus = _closeStatus;
     - (System_NullableA1 *)closeStatus
     {
-		MonoObject *monoObject = [self getMonoProperty:"CloseStatus"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CloseStatus");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_closeStatus isEqualToMonoObject:monoObject]) return _closeStatus;					
 		_closeStatus = [System_NullableA1 bestObjectWithMonoObject:monoObject];
 
@@ -66,8 +76,17 @@
     - (void)setCloseStatus:(System_NullableA1 *)value
 	{
 		_closeStatus = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"CloseStatus" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CloseStatus");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CloseStatusDescription
@@ -75,7 +94,17 @@
     @synthesize closeStatusDescription = _closeStatusDescription;
     - (NSString *)closeStatusDescription
     {
-		MonoObject *monoObject = [self getMonoProperty:"CloseStatusDescription"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CloseStatusDescription");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_closeStatusDescription isEqualToMonoObject:monoObject]) return _closeStatusDescription;					
 		_closeStatusDescription = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -84,8 +113,17 @@
     - (void)setCloseStatusDescription:(NSString *)value
 	{
 		_closeStatusDescription = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"CloseStatusDescription" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CloseStatusDescription");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Count
@@ -93,16 +131,35 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
     - (void)setCount:(int32_t)value
 	{
 		_count = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Count" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : EndOfMessage
@@ -110,33 +167,71 @@
     @synthesize endOfMessage = _endOfMessage;
     - (BOOL)endOfMessage
     {
-		MonoObject *monoObject = [self getMonoProperty:"EndOfMessage"];
-		_endOfMessage = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EndOfMessage");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_endOfMessage = monoObject;
 
 		return _endOfMessage;
 	}
     - (void)setEndOfMessage:(BOOL)value
 	{
 		_endOfMessage = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"EndOfMessage" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "EndOfMessage");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : MessageType
 	// Managed property type : System.Net.WebSockets.WebSocketMessageType
     @synthesize messageType = _messageType;
-    - (System_Net_WebSockets_WebSocketMessageType)messageType
+    - (int32_t)messageType
     {
-		MonoObject *monoObject = [self getMonoProperty:"MessageType"];
-		_messageType = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MessageType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_messageType = monoObject;
 
 		return _messageType;
 	}
-    - (void)setMessageType:(System_Net_WebSockets_WebSocketMessageType)value
+    - (void)setMessageType:(int32_t)value
 	{
 		_messageType = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"MessageType" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "MessageType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

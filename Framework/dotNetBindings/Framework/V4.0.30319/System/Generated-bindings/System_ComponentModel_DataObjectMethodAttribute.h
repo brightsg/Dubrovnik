@@ -17,12 +17,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.DataObjectMethodAttribute
 	// Managed param types : System.ComponentModel.DataObjectMethodType
-    + (System_ComponentModel_DataObjectMethodAttribute *)new_withMethodType:(System_ComponentModel_DataObjectMethodType)p1;
+    + (System_ComponentModel_DataObjectMethodAttribute *)new_withMethodType:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.DataObjectMethodAttribute
 	// Managed param types : System.ComponentModel.DataObjectMethodType, System.Boolean
-    + (System_ComponentModel_DataObjectMethodAttribute *)new_withMethodType:(System_ComponentModel_DataObjectMethodType)p1 isDefault:(BOOL)p2;
+    + (System_ComponentModel_DataObjectMethodAttribute *)new_withMethodType:(int32_t)p1 isDefault:(BOOL)p2;
 
 #pragma mark -
 #pragma mark Properties
@@ -33,7 +33,7 @@
 
 	// Managed property name : MethodType
 	// Managed property type : System.ComponentModel.DataObjectMethodType
-    @property (nonatomic, readonly) System_ComponentModel_DataObjectMethodType methodType;
+    @property (nonatomic, readonly) int32_t methodType;
 
 #pragma mark -
 #pragma mark Methods

@@ -33,7 +33,7 @@
     + (System_Diagnostics_SwitchLevelAttribute *)new_withSwitchLevelType:(System_Type *)p1
     {
 		
-		System_Diagnostics_SwitchLevelAttribute * object = [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoValue]];;
+		System_Diagnostics_SwitchLevelAttribute * object = [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize switchLevelType = _switchLevelType;
     - (System_Type *)switchLevelType
     {
-		MonoObject *monoObject = [self getMonoProperty:"SwitchLevelType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SwitchLevelType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_switchLevelType isEqualToMonoObject:monoObject]) return _switchLevelType;					
 		_switchLevelType = [System_Type bestObjectWithMonoObject:monoObject];
 
@@ -55,8 +65,17 @@
     - (void)setSwitchLevelType:(System_Type *)value
 	{
 		_switchLevelType = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"SwitchLevelType" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "SwitchLevelType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

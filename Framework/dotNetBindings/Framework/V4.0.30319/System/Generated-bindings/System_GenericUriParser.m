@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.GenericUriParser
 	// Managed param types : System.GenericUriParserOptions
-    + (System_GenericUriParser *)new_withOptions:(System_GenericUriParserOptions)p1
+    + (System_GenericUriParser *)new_withOptions:(int32_t)p1
     {
 		
-		System_GenericUriParser * object = [[self alloc] initWithSignature:"System.GenericUriParserOptions" withNumArgs:1, DB_VALUE(p1)];;
+		System_GenericUriParser * object = [[self alloc] initWithSignature:"System.GenericUriParserOptions" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }

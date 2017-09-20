@@ -33,7 +33,7 @@
     + (Microsoft_Win32_TimerElapsedEventArgs *)new_withTimerId:(void *)p1
     {
 		
-		Microsoft_Win32_TimerElapsedEventArgs * object = [[self alloc] initWithSignature:"intptr" withNumArgs:1, DB_VALUE(p1)];;
+		Microsoft_Win32_TimerElapsedEventArgs * object = [[self alloc] initWithSignature:"intptr" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -46,8 +46,18 @@
     @synthesize timerId = _timerId;
     - (void *)timerId
     {
-		MonoObject *monoObject = [self getMonoProperty:"TimerId"];
-		_timerId = DB_UNBOX_PTR(monoObject);
+		typedef void * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TimerId");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		void * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_timerId = monoObject;
 
 		return _timerId;
 	}

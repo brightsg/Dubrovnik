@@ -33,7 +33,7 @@
     - (System_CodeDom_CodeCompileUnit *)parse_withCodeStream:(System_IO_TextReader *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Parse(System.IO.TextReader)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Parse(System.IO.TextReader)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_CodeDom_CodeCompileUnit bestObjectWithMonoObject:monoObject];
     }

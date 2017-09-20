@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.Generic.SortedDictionary`2<System.Collections.Generic.SortedDictionary`2+KeyCollection+TKey,System.Collections.Generic.SortedDictionary`2+KeyCollection+TValue>+KeyCollection";
+		return "System.Collections.Generic.SortedDictionary`2+KeyCollection";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -33,7 +33,7 @@
     + (System_Collections_Generic_SortedDictionaryA2__KeyCollection *)new_withDictionary:(System_Collections_Generic_SortedDictionaryA2 *)p1
     {
 		
-		System_Collections_Generic_SortedDictionaryA2__KeyCollection * object = [[self alloc] initWithSignature:"System.Collections.Generic.SortedDictionary`2<System.Collections.Generic.SortedDictionary`2+KeyCollection+TKey, System.Collections.Generic.SortedDictionary`2+KeyCollection+TValue>" withNumArgs:1, [p1 monoValue]];;
+		System_Collections_Generic_SortedDictionaryA2__KeyCollection * object = [[self alloc] initWithSignature:"System.Collections.Generic.SortedDictionary`2<System.Collections.Generic.SortedDictionary`2+KeyCollection+TKey, System.Collections.Generic.SortedDictionary`2+KeyCollection+TValue>" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,8 +46,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -61,7 +71,7 @@
     - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
 		
-		[self invokeMonoMethod:"CopyTo(TKey[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"CopyTo(TKey[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
     }
 

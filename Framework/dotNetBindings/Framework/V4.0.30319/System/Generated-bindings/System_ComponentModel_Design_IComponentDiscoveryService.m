@@ -33,7 +33,7 @@
     - (id <System_Collections_ICollection>)getComponentTypes_withDesignerHost:(id <System_ComponentModel_Design_IDesignerHost_>)p1 baseType:(System_Type *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IComponentDiscoveryService.GetComponentTypes(System.ComponentModel.Design.IDesignerHost,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IComponentDiscoveryService.GetComponentTypes(System.ComponentModel.Design.IDesignerHost,System.Type)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Collections_ICollection bestObjectWithMonoObject:monoObject];
     }

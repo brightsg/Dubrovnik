@@ -151,13 +151,13 @@
 
 	// Managed method name : GetAllDateTimePatterns
 	// Managed return type : System.String[]
-	// Managed param types : 
-    - (DBSystem_Array *)getAllDateTimePatterns;
+	// Managed param types : System.Char
+    - (DBSystem_Array *)getAllDateTimePatterns_withFormat:(uint16_t)p1;
 
 	// Managed method name : GetAllDateTimePatterns
 	// Managed return type : System.String[]
-	// Managed param types : System.Char
-    - (DBSystem_Array *)getAllDateTimePatterns_withFormat:(uint16_t)p1;
+	// Managed param types : 
+    - (DBSystem_Array *)getAllDateTimePatterns;
 
 	// Managed method name : GetDayName
 	// Managed return type : System.String

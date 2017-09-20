@@ -32,7 +32,17 @@
     @synthesize anycastAddresses = _anycastAddresses;
     - (System_Net_NetworkInformation_IPAddressInformationCollection *)anycastAddresses
     {
-		MonoObject *monoObject = [self getMonoProperty:"AnycastAddresses"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AnycastAddresses");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_anycastAddresses isEqualToMonoObject:monoObject]) return _anycastAddresses;					
 		_anycastAddresses = [System_Net_NetworkInformation_IPAddressInformationCollection bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize dhcpServerAddresses = _dhcpServerAddresses;
     - (System_Net_NetworkInformation_IPAddressCollection *)dhcpServerAddresses
     {
-		MonoObject *monoObject = [self getMonoProperty:"DhcpServerAddresses"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DhcpServerAddresses");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_dhcpServerAddresses isEqualToMonoObject:monoObject]) return _dhcpServerAddresses;					
 		_dhcpServerAddresses = [System_Net_NetworkInformation_IPAddressCollection bestObjectWithMonoObject:monoObject];
 
@@ -56,7 +76,17 @@
     @synthesize dnsAddresses = _dnsAddresses;
     - (System_Net_NetworkInformation_IPAddressCollection *)dnsAddresses
     {
-		MonoObject *monoObject = [self getMonoProperty:"DnsAddresses"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DnsAddresses");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_dnsAddresses isEqualToMonoObject:monoObject]) return _dnsAddresses;					
 		_dnsAddresses = [System_Net_NetworkInformation_IPAddressCollection bestObjectWithMonoObject:monoObject];
 
@@ -68,7 +98,17 @@
     @synthesize dnsSuffix = _dnsSuffix;
     - (NSString *)dnsSuffix
     {
-		MonoObject *monoObject = [self getMonoProperty:"DnsSuffix"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DnsSuffix");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_dnsSuffix isEqualToMonoObject:monoObject]) return _dnsSuffix;					
 		_dnsSuffix = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -80,7 +120,17 @@
     @synthesize gatewayAddresses = _gatewayAddresses;
     - (System_Net_NetworkInformation_GatewayIPAddressInformationCollection *)gatewayAddresses
     {
-		MonoObject *monoObject = [self getMonoProperty:"GatewayAddresses"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "GatewayAddresses");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_gatewayAddresses isEqualToMonoObject:monoObject]) return _gatewayAddresses;					
 		_gatewayAddresses = [System_Net_NetworkInformation_GatewayIPAddressInformationCollection bestObjectWithMonoObject:monoObject];
 
@@ -92,8 +142,18 @@
     @synthesize isDnsEnabled = _isDnsEnabled;
     - (BOOL)isDnsEnabled
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsDnsEnabled"];
-		_isDnsEnabled = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsDnsEnabled");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isDnsEnabled = monoObject;
 
 		return _isDnsEnabled;
 	}
@@ -103,8 +163,18 @@
     @synthesize isDynamicDnsEnabled = _isDynamicDnsEnabled;
     - (BOOL)isDynamicDnsEnabled
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsDynamicDnsEnabled"];
-		_isDynamicDnsEnabled = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsDynamicDnsEnabled");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isDynamicDnsEnabled = monoObject;
 
 		return _isDynamicDnsEnabled;
 	}
@@ -114,7 +184,17 @@
     @synthesize multicastAddresses = _multicastAddresses;
     - (System_Net_NetworkInformation_MulticastIPAddressInformationCollection *)multicastAddresses
     {
-		MonoObject *monoObject = [self getMonoProperty:"MulticastAddresses"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MulticastAddresses");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_multicastAddresses isEqualToMonoObject:monoObject]) return _multicastAddresses;					
 		_multicastAddresses = [System_Net_NetworkInformation_MulticastIPAddressInformationCollection bestObjectWithMonoObject:monoObject];
 
@@ -126,7 +206,17 @@
     @synthesize unicastAddresses = _unicastAddresses;
     - (System_Net_NetworkInformation_UnicastIPAddressInformationCollection *)unicastAddresses
     {
-		MonoObject *monoObject = [self getMonoProperty:"UnicastAddresses"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UnicastAddresses");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_unicastAddresses isEqualToMonoObject:monoObject]) return _unicastAddresses;					
 		_unicastAddresses = [System_Net_NetworkInformation_UnicastIPAddressInformationCollection bestObjectWithMonoObject:monoObject];
 
@@ -138,7 +228,17 @@
     @synthesize winsServersAddresses = _winsServersAddresses;
     - (System_Net_NetworkInformation_IPAddressCollection *)winsServersAddresses
     {
-		MonoObject *monoObject = [self getMonoProperty:"WinsServersAddresses"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WinsServersAddresses");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_winsServersAddresses isEqualToMonoObject:monoObject]) return _winsServersAddresses;					
 		_winsServersAddresses = [System_Net_NetworkInformation_IPAddressCollection bestObjectWithMonoObject:monoObject];
 

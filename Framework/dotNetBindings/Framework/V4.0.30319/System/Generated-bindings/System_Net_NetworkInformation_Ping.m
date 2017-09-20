@@ -33,7 +33,7 @@
     - (System_Net_NetworkInformation_PingReply *)send_withHostNameOrAddress:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Send(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Send(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Net_NetworkInformation_PingReply bestObjectWithMonoObject:monoObject];
     }
@@ -44,7 +44,7 @@
     - (System_Net_NetworkInformation_PingReply *)send_withHostNameOrAddress:(NSString *)p1 timeout:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Send(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Send(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_Net_NetworkInformation_PingReply bestObjectWithMonoObject:monoObject];
     }
@@ -55,7 +55,7 @@
     - (System_Net_NetworkInformation_PingReply *)send_withAddress:(System_Net_IPAddress *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Send(System.Net.IPAddress)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Send(System.Net.IPAddress)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Net_NetworkInformation_PingReply bestObjectWithMonoObject:monoObject];
     }
@@ -66,7 +66,7 @@
     - (System_Net_NetworkInformation_PingReply *)send_withAddress:(System_Net_IPAddress *)p1 timeout:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Send(System.Net.IPAddress,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Send(System.Net.IPAddress,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_Net_NetworkInformation_PingReply bestObjectWithMonoObject:monoObject];
     }
@@ -77,7 +77,7 @@
     - (System_Net_NetworkInformation_PingReply *)send_withHostNameOrAddress:(NSString *)p1 timeout:(int32_t)p2 buffer:(NSData *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Send(string,int,byte[])" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Send(string,int,byte[])" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
 		return [System_Net_NetworkInformation_PingReply bestObjectWithMonoObject:monoObject];
     }
@@ -88,7 +88,7 @@
     - (System_Net_NetworkInformation_PingReply *)send_withAddress:(System_Net_IPAddress *)p1 timeout:(int32_t)p2 buffer:(NSData *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Send(System.Net.IPAddress,int,byte[])" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Send(System.Net.IPAddress,int,byte[])" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
 		return [System_Net_NetworkInformation_PingReply bestObjectWithMonoObject:monoObject];
     }
@@ -99,7 +99,7 @@
     - (System_Net_NetworkInformation_PingReply *)send_withHostNameOrAddress:(NSString *)p1 timeout:(int32_t)p2 buffer:(NSData *)p3 options:(System_Net_NetworkInformation_PingOptions *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Send(string,int,byte[],System.Net.NetworkInformation.PingOptions)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Send(string,int,byte[],System.Net.NetworkInformation.PingOptions)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_Net_NetworkInformation_PingReply bestObjectWithMonoObject:monoObject];
     }
@@ -110,7 +110,7 @@
     - (System_Net_NetworkInformation_PingReply *)send_withAddress:(System_Net_IPAddress *)p1 timeout:(int32_t)p2 buffer:(NSData *)p3 options:(System_Net_NetworkInformation_PingOptions *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Send(System.Net.IPAddress,int,byte[],System.Net.NetworkInformation.PingOptions)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Send(System.Net.IPAddress,int,byte[],System.Net.NetworkInformation.PingOptions)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_Net_NetworkInformation_PingReply bestObjectWithMonoObject:monoObject];
     }
@@ -121,7 +121,7 @@
     - (void)sendAsync_withHostNameOrAddress:(NSString *)p1 userToken:(System_Object *)p2
     {
 		
-		[self invokeMonoMethod:"SendAsync(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"SendAsync(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -131,7 +131,7 @@
     - (void)sendAsync_withHostNameOrAddress:(NSString *)p1 timeout:(int32_t)p2 userToken:(System_Object *)p3
     {
 		
-		[self invokeMonoMethod:"SendAsync(string,int,object)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];;
+		[self invokeMonoMethod:"SendAsync(string,int,object)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
         
     }
 
@@ -141,7 +141,7 @@
     - (void)sendAsync_withAddress:(System_Net_IPAddress *)p1 userToken:(System_Object *)p2
     {
 		
-		[self invokeMonoMethod:"SendAsync(System.Net.IPAddress,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"SendAsync(System.Net.IPAddress,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -151,7 +151,7 @@
     - (void)sendAsync_withAddress:(System_Net_IPAddress *)p1 timeout:(int32_t)p2 userToken:(System_Object *)p3
     {
 		
-		[self invokeMonoMethod:"SendAsync(System.Net.IPAddress,int,object)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];;
+		[self invokeMonoMethod:"SendAsync(System.Net.IPAddress,int,object)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
         
     }
 
@@ -161,7 +161,7 @@
     - (void)sendAsync_withHostNameOrAddress:(NSString *)p1 timeout:(int32_t)p2 buffer:(NSData *)p3 userToken:(System_Object *)p4
     {
 		
-		[self invokeMonoMethod:"SendAsync(string,int,byte[],object)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue]];;
+		[self invokeMonoMethod:"SendAsync(string,int,byte[],object)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
         
     }
 
@@ -171,7 +171,7 @@
     - (void)sendAsync_withAddress:(System_Net_IPAddress *)p1 timeout:(int32_t)p2 buffer:(NSData *)p3 userToken:(System_Object *)p4
     {
 		
-		[self invokeMonoMethod:"SendAsync(System.Net.IPAddress,int,byte[],object)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue]];;
+		[self invokeMonoMethod:"SendAsync(System.Net.IPAddress,int,byte[],object)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
         
     }
 
@@ -181,7 +181,7 @@
     - (void)sendAsync_withHostNameOrAddress:(NSString *)p1 timeout:(int32_t)p2 buffer:(NSData *)p3 options:(System_Net_NetworkInformation_PingOptions *)p4 userToken:(System_Object *)p5
     {
 		
-		[self invokeMonoMethod:"SendAsync(string,int,byte[],System.Net.NetworkInformation.PingOptions,object)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue]];;
+		[self invokeMonoMethod:"SendAsync(string,int,byte[],System.Net.NetworkInformation.PingOptions,object)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
         
     }
 
@@ -191,7 +191,7 @@
     - (void)sendAsync_withAddress:(System_Net_IPAddress *)p1 timeout:(int32_t)p2 buffer:(NSData *)p3 options:(System_Net_NetworkInformation_PingOptions *)p4 userToken:(System_Object *)p5
     {
 		
-		[self invokeMonoMethod:"SendAsync(System.Net.IPAddress,int,byte[],System.Net.NetworkInformation.PingOptions,object)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue], [p5 monoValue]];;
+		[self invokeMonoMethod:"SendAsync(System.Net.IPAddress,int,byte[],System.Net.NetworkInformation.PingOptions,object)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
         
     }
 
@@ -201,7 +201,7 @@
     - (void)sendAsyncCancel
     {
 		
-		[self invokeMonoMethod:"SendAsyncCancel()" withNumArgs:0];;
+		[self invokeMonoMethod:"SendAsyncCancel()" withNumArgs:0];
         
     }
 
@@ -211,7 +211,7 @@
     - (System_Threading_Tasks_TaskA1 *)sendPingAsync_withAddress:(System_Net_IPAddress *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"SendPingAsync(System.Net.IPAddress)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"SendPingAsync(System.Net.IPAddress)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
@@ -222,7 +222,7 @@
     - (System_Threading_Tasks_TaskA1 *)sendPingAsync_withHostNameOrAddress:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"SendPingAsync(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"SendPingAsync(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
@@ -233,7 +233,7 @@
     - (System_Threading_Tasks_TaskA1 *)sendPingAsync_withAddress:(System_Net_IPAddress *)p1 timeout:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"SendPingAsync(System.Net.IPAddress,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"SendPingAsync(System.Net.IPAddress,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
@@ -244,7 +244,7 @@
     - (System_Threading_Tasks_TaskA1 *)sendPingAsync_withHostNameOrAddress:(NSString *)p1 timeout:(int32_t)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"SendPingAsync(string,int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"SendPingAsync(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
@@ -255,7 +255,7 @@
     - (System_Threading_Tasks_TaskA1 *)sendPingAsync_withAddress:(System_Net_IPAddress *)p1 timeout:(int32_t)p2 buffer:(NSData *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"SendPingAsync(System.Net.IPAddress,int,byte[])" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"SendPingAsync(System.Net.IPAddress,int,byte[])" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
@@ -266,7 +266,7 @@
     - (System_Threading_Tasks_TaskA1 *)sendPingAsync_withHostNameOrAddress:(NSString *)p1 timeout:(int32_t)p2 buffer:(NSData *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"SendPingAsync(string,int,byte[])" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"SendPingAsync(string,int,byte[])" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
@@ -277,7 +277,7 @@
     - (System_Threading_Tasks_TaskA1 *)sendPingAsync_withAddress:(System_Net_IPAddress *)p1 timeout:(int32_t)p2 buffer:(NSData *)p3 options:(System_Net_NetworkInformation_PingOptions *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"SendPingAsync(System.Net.IPAddress,int,byte[],System.Net.NetworkInformation.PingOptions)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"SendPingAsync(System.Net.IPAddress,int,byte[],System.Net.NetworkInformation.PingOptions)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }
@@ -288,7 +288,7 @@
     - (System_Threading_Tasks_TaskA1 *)sendPingAsync_withHostNameOrAddress:(NSString *)p1 timeout:(int32_t)p2 buffer:(NSData *)p3 options:(System_Net_NetworkInformation_PingOptions *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"SendPingAsync(string,int,byte[],System.Net.NetworkInformation.PingOptions)" withNumArgs:4, [p1 monoValue], DB_VALUE(p2), [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"SendPingAsync(string,int,byte[],System.Net.NetworkInformation.PingOptions)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
     }

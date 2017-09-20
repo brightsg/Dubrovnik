@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509KeyUsageExtension
 	// Managed param types : System.Security.Cryptography.X509Certificates.X509KeyUsageFlags, System.Boolean
-    + (System_Security_Cryptography_X509Certificates_X509KeyUsageExtension *)new_withKeyUsages:(System_Security_Cryptography_X509Certificates_X509KeyUsageFlags)p1 critical:(BOOL)p2
+    + (System_Security_Cryptography_X509Certificates_X509KeyUsageExtension *)new_withKeyUsages:(int32_t)p1 critical:(BOOL)p2
     {
 		
-		System_Security_Cryptography_X509Certificates_X509KeyUsageExtension * object = [[self alloc] initWithSignature:"System.Security.Cryptography.X509Certificates.X509KeyUsageFlags,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		System_Security_Cryptography_X509Certificates_X509KeyUsageExtension * object = [[self alloc] initWithSignature:"System.Security.Cryptography.X509Certificates.X509KeyUsageFlags,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Security_Cryptography_X509Certificates_X509KeyUsageExtension *)new_withEncodedKeyUsage:(System_Security_Cryptography_AsnEncodedData *)p1 critical:(BOOL)p2
     {
 		
-		System_Security_Cryptography_X509Certificates_X509KeyUsageExtension * object = [[self alloc] initWithSignature:"System.Security.Cryptography.AsnEncodedData,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Security_Cryptography_X509Certificates_X509KeyUsageExtension * object = [[self alloc] initWithSignature:"System.Security.Cryptography.AsnEncodedData,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -55,10 +55,20 @@
 	// Managed property name : KeyUsages
 	// Managed property type : System.Security.Cryptography.X509Certificates.X509KeyUsageFlags
     @synthesize keyUsages = _keyUsages;
-    - (System_Security_Cryptography_X509Certificates_X509KeyUsageFlags)keyUsages
+    - (int32_t)keyUsages
     {
-		MonoObject *monoObject = [self getMonoProperty:"KeyUsages"];
-		_keyUsages = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "KeyUsages");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_keyUsages = monoObject;
 
 		return _keyUsages;
 	}
@@ -72,7 +82,7 @@
     - (void)copyFrom_withAsnEncodedData:(System_Security_Cryptography_AsnEncodedData *)p1
     {
 		
-		[self invokeMonoMethod:"CopyFrom(System.Security.Cryptography.AsnEncodedData)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"CopyFrom(System.Security.Cryptography.AsnEncodedData)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

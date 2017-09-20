@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.PerformanceCounterPermission
 	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Diagnostics_PerformanceCounterPermission *)new_withState:(System_Security_Permissions_PermissionState)p1
+    + (System_Diagnostics_PerformanceCounterPermission *)new_withState:(int32_t)p1
     {
 		
-		System_Diagnostics_PerformanceCounterPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];;
+		System_Diagnostics_PerformanceCounterPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -41,10 +41,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.PerformanceCounterPermission
 	// Managed param types : System.Diagnostics.PerformanceCounterPermissionAccess, System.String, System.String
-    + (System_Diagnostics_PerformanceCounterPermission *)new_withPermissionAccess:(System_Diagnostics_PerformanceCounterPermissionAccess)p1 machineName:(NSString *)p2 categoryName:(NSString *)p3
+    + (System_Diagnostics_PerformanceCounterPermission *)new_withPermissionAccess:(int32_t)p1 machineName:(NSString *)p2 categoryName:(NSString *)p3
     {
 		
-		System_Diagnostics_PerformanceCounterPermission * object = [[self alloc] initWithSignature:"System.Diagnostics.PerformanceCounterPermissionAccess,string,string" withNumArgs:3, DB_VALUE(p1), [p2 monoValue], [p3 monoValue]];;
+		System_Diagnostics_PerformanceCounterPermission * object = [[self alloc] initWithSignature:"System.Diagnostics.PerformanceCounterPermissionAccess,string,string" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Diagnostics_PerformanceCounterPermission *)new_withPermissionAccessEntries:(DBSystem_Array *)p1
     {
 		
-		System_Diagnostics_PerformanceCounterPermission * object = [[self alloc] initWithSignature:"System.Diagnostics.PerformanceCounterPermissionEntry[]" withNumArgs:1, [p1 monoValue]];;
+		System_Diagnostics_PerformanceCounterPermission * object = [[self alloc] initWithSignature:"System.Diagnostics.PerformanceCounterPermissionEntry[]" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -68,7 +68,17 @@
     @synthesize permissionEntries = _permissionEntries;
     - (System_Diagnostics_PerformanceCounterPermissionEntryCollection *)permissionEntries
     {
-		MonoObject *monoObject = [self getMonoProperty:"PermissionEntries"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PermissionEntries");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_permissionEntries isEqualToMonoObject:monoObject]) return _permissionEntries;					
 		_permissionEntries = [System_Diagnostics_PerformanceCounterPermissionEntryCollection bestObjectWithMonoObject:monoObject];
 

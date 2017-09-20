@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.ListChangedEventArgs
 	// Managed param types : System.ComponentModel.ListChangedType, System.Int32
-    + (System_ComponentModel_ListChangedEventArgs *)new_withListChangedType:(System_ComponentModel_ListChangedType)p1 newIndex:(int32_t)p2
+    + (System_ComponentModel_ListChangedEventArgs *)new_withListChangedType:(int32_t)p1 newIndex:(int32_t)p2
     {
 		
-		System_ComponentModel_ListChangedEventArgs * object = [[self alloc] initWithSignature:"System.ComponentModel.ListChangedType,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		System_ComponentModel_ListChangedEventArgs * object = [[self alloc] initWithSignature:"System.ComponentModel.ListChangedType,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
         
         return object;
     }
@@ -41,10 +41,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.ListChangedEventArgs
 	// Managed param types : System.ComponentModel.ListChangedType, System.Int32, System.ComponentModel.PropertyDescriptor
-    + (System_ComponentModel_ListChangedEventArgs *)new_withListChangedType:(System_ComponentModel_ListChangedType)p1 newIndex:(int32_t)p2 propDesc:(System_ComponentModel_PropertyDescriptor *)p3
+    + (System_ComponentModel_ListChangedEventArgs *)new_withListChangedType:(int32_t)p1 newIndex:(int32_t)p2 propDesc:(System_ComponentModel_PropertyDescriptor *)p3
     {
 		
-		System_ComponentModel_ListChangedEventArgs * object = [[self alloc] initWithSignature:"System.ComponentModel.ListChangedType,int,System.ComponentModel.PropertyDescriptor" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoValue]];;
+		System_ComponentModel_ListChangedEventArgs * object = [[self alloc] initWithSignature:"System.ComponentModel.ListChangedType,int,System.ComponentModel.PropertyDescriptor" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -52,10 +52,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.ListChangedEventArgs
 	// Managed param types : System.ComponentModel.ListChangedType, System.ComponentModel.PropertyDescriptor
-    + (System_ComponentModel_ListChangedEventArgs *)new_withListChangedType:(System_ComponentModel_ListChangedType)p1 propDesc:(System_ComponentModel_PropertyDescriptor *)p2
+    + (System_ComponentModel_ListChangedEventArgs *)new_withListChangedType:(int32_t)p1 propDesc:(System_ComponentModel_PropertyDescriptor *)p2
     {
 		
-		System_ComponentModel_ListChangedEventArgs * object = [[self alloc] initWithSignature:"System.ComponentModel.ListChangedType,System.ComponentModel.PropertyDescriptor" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		System_ComponentModel_ListChangedEventArgs * object = [[self alloc] initWithSignature:"System.ComponentModel.ListChangedType,System.ComponentModel.PropertyDescriptor" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -63,10 +63,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.ListChangedEventArgs
 	// Managed param types : System.ComponentModel.ListChangedType, System.Int32, System.Int32
-    + (System_ComponentModel_ListChangedEventArgs *)new_withListChangedType:(System_ComponentModel_ListChangedType)p1 newIndex:(int32_t)p2 oldIndex:(int32_t)p3
+    + (System_ComponentModel_ListChangedEventArgs *)new_withListChangedType:(int32_t)p1 newIndex:(int32_t)p2 oldIndex:(int32_t)p3
     {
 		
-		System_ComponentModel_ListChangedEventArgs * object = [[self alloc] initWithSignature:"System.ComponentModel.ListChangedType,int,int" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];;
+		System_ComponentModel_ListChangedEventArgs * object = [[self alloc] initWithSignature:"System.ComponentModel.ListChangedType,int,int" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
         
         return object;
     }
@@ -77,10 +77,20 @@
 	// Managed property name : ListChangedType
 	// Managed property type : System.ComponentModel.ListChangedType
     @synthesize listChangedType = _listChangedType;
-    - (System_ComponentModel_ListChangedType)listChangedType
+    - (int32_t)listChangedType
     {
-		MonoObject *monoObject = [self getMonoProperty:"ListChangedType"];
-		_listChangedType = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ListChangedType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_listChangedType = monoObject;
 
 		return _listChangedType;
 	}
@@ -90,8 +100,18 @@
     @synthesize newIndex = _newIndex;
     - (int32_t)newIndex
     {
-		MonoObject *monoObject = [self getMonoProperty:"NewIndex"];
-		_newIndex = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NewIndex");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_newIndex = monoObject;
 
 		return _newIndex;
 	}
@@ -101,8 +121,18 @@
     @synthesize oldIndex = _oldIndex;
     - (int32_t)oldIndex
     {
-		MonoObject *monoObject = [self getMonoProperty:"OldIndex"];
-		_oldIndex = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OldIndex");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_oldIndex = monoObject;
 
 		return _oldIndex;
 	}
@@ -112,7 +142,17 @@
     @synthesize propertyDescriptor = _propertyDescriptor;
     - (System_ComponentModel_PropertyDescriptor *)propertyDescriptor
     {
-		MonoObject *monoObject = [self getMonoProperty:"PropertyDescriptor"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PropertyDescriptor");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_propertyDescriptor isEqualToMonoObject:monoObject]) return _propertyDescriptor;					
 		_propertyDescriptor = [System_ComponentModel_PropertyDescriptor bestObjectWithMonoObject:monoObject];
 

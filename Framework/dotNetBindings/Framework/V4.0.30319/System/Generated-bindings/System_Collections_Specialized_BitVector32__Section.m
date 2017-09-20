@@ -32,8 +32,18 @@
     @synthesize mask = _mask;
     - (int16_t)mask
     {
-		MonoObject *monoObject = [self getMonoProperty:"Mask"];
-		_mask = DB_UNBOX_INT16(monoObject);
+		typedef int16_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Mask");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int16_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_mask = monoObject;
 
 		return _mask;
 	}
@@ -43,8 +53,18 @@
     @synthesize offset = _offset;
     - (int16_t)offset
     {
-		MonoObject *monoObject = [self getMonoProperty:"Offset"];
-		_offset = DB_UNBOX_INT16(monoObject);
+		typedef int16_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Offset");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int16_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_offset = monoObject;
 
 		return _offset;
 	}
@@ -58,7 +78,7 @@
     - (BOOL)equals_withO:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -69,7 +89,7 @@
     - (BOOL)equals_withObj:(System_Collections_Specialized_BitVector32__Section *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Collections.Specialized.BitVector32/Section)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Collections.Specialized.BitVector32/Section)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -91,7 +111,7 @@
     + (BOOL)op_Equality_withA:(System_Collections_Specialized_BitVector32__Section *)p1 b:(System_Collections_Specialized_BitVector32__Section *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Collections.Specialized.BitVector32/Section,System.Collections.Specialized.BitVector32/Section)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Collections.Specialized.BitVector32/Section,System.Collections.Specialized.BitVector32/Section)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -102,7 +122,7 @@
     + (BOOL)op_Inequality_withA:(System_Collections_Specialized_BitVector32__Section *)p1 b:(System_Collections_Specialized_BitVector32__Section *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Collections.Specialized.BitVector32/Section,System.Collections.Specialized.BitVector32/Section)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Collections.Specialized.BitVector32/Section,System.Collections.Specialized.BitVector32/Section)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -113,7 +133,7 @@
     + (NSString *)toString_withValue:(System_Collections_Specialized_BitVector32__Section *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(System.Collections.Specialized.BitVector32/Section)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(System.Collections.Specialized.BitVector32/Section)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }

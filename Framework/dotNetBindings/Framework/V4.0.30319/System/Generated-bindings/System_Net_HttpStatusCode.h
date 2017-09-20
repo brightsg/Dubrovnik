@@ -2,7 +2,9 @@
 //
 // Managed enumeration : HttpStatusCode
 //
-typedef NS_ENUM(int32_t, System_Net_HttpStatusCode) {
+
+// C enumeration
+typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
 	System_Net_HttpStatusCode_Accepted = 202,
 	System_Net_HttpStatusCode_Ambiguous = 300,
 	System_Net_HttpStatusCode_BadGateway = 502,
@@ -51,4 +53,204 @@ typedef NS_ENUM(int32_t, System_Net_HttpStatusCode) {
 	System_Net_HttpStatusCode_UpgradeRequired = 426,
 	System_Net_HttpStatusCode_UseProxy = 305,
 };
+@interface System_Net_HttpStatusCode : DBSystem_Enum
+
+#pragma mark -
+#pragma mark Setup
+	// obligatory override
+	+ (const char *)monoClassName;
+	// obligatory override
+	+ (const char *)monoAssemblyName;
+
+#pragma mark -
+#pragma mark Fields
+
+	// Managed field name : Accepted
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)accepted;
+
+	// Managed field name : Ambiguous
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)ambiguous;
+
+	// Managed field name : BadGateway
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)badGateway;
+
+	// Managed field name : BadRequest
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)badRequest;
+
+	// Managed field name : Conflict
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)conflict;
+
+	// Managed field name : Continue
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)continue;
+
+	// Managed field name : Created
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)created;
+
+	// Managed field name : ExpectationFailed
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)expectationFailed;
+
+	// Managed field name : Forbidden
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)forbidden;
+
+	// Managed field name : Found
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)found;
+
+	// Managed field name : GatewayTimeout
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)gatewayTimeout;
+
+	// Managed field name : Gone
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)gone;
+
+	// Managed field name : HttpVersionNotSupported
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)httpVersionNotSupported;
+
+	// Managed field name : InternalServerError
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)internalServerError;
+
+	// Managed field name : LengthRequired
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)lengthRequired;
+
+	// Managed field name : MethodNotAllowed
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)methodNotAllowed;
+
+	// Managed field name : Moved
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)moved;
+
+	// Managed field name : MovedPermanently
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)movedPermanently;
+
+	// Managed field name : MultipleChoices
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)multipleChoices;
+
+	// Managed field name : NoContent
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)noContent;
+
+	// Managed field name : NonAuthoritativeInformation
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)nonAuthoritativeInformation;
+
+	// Managed field name : NotAcceptable
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)notAcceptable;
+
+	// Managed field name : NotFound
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)notFound;
+
+	// Managed field name : NotImplemented
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)notImplemented;
+
+	// Managed field name : NotModified
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)notModified;
+
+	// Managed field name : OK
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)oK;
+
+	// Managed field name : PartialContent
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)partialContent;
+
+	// Managed field name : PaymentRequired
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)paymentRequired;
+
+	// Managed field name : PreconditionFailed
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)preconditionFailed;
+
+	// Managed field name : ProxyAuthenticationRequired
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)proxyAuthenticationRequired;
+
+	// Managed field name : Redirect
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)redirect;
+
+	// Managed field name : RedirectKeepVerb
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)redirectKeepVerb;
+
+	// Managed field name : RedirectMethod
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)redirectMethod;
+
+	// Managed field name : RequestedRangeNotSatisfiable
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)requestedRangeNotSatisfiable;
+
+	// Managed field name : RequestEntityTooLarge
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)requestEntityTooLarge;
+
+	// Managed field name : RequestTimeout
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)requestTimeout;
+
+	// Managed field name : RequestUriTooLong
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)requestUriTooLong;
+
+	// Managed field name : ResetContent
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)resetContent;
+
+	// Managed field name : SeeOther
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)seeOther;
+
+	// Managed field name : ServiceUnavailable
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)serviceUnavailable;
+
+	// Managed field name : SwitchingProtocols
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)switchingProtocols;
+
+	// Managed field name : TemporaryRedirect
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)temporaryRedirect;
+
+	// Managed field name : Unauthorized
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)unauthorized;
+
+	// Managed field name : UnsupportedMediaType
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)unsupportedMediaType;
+
+	// Managed field name : Unused
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)unused;
+
+	// Managed field name : UpgradeRequired
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)upgradeRequired;
+
+	// Managed field name : UseProxy
+	// Managed field type : System.Net.HttpStatusCode
+    + (int32_t)useProxy;
+@end
 //--Dubrovnik.CodeGenerator

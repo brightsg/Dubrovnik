@@ -33,7 +33,7 @@
     + (System_Configuration_SettingsLoadedEventArgs *)new_withProvider:(System_Configuration_SettingsProvider *)p1
     {
 		
-		System_Configuration_SettingsLoadedEventArgs * object = [[self alloc] initWithSignature:"System.Configuration.SettingsProvider" withNumArgs:1, [p1 monoValue]];;
+		System_Configuration_SettingsLoadedEventArgs * object = [[self alloc] initWithSignature:"System.Configuration.SettingsProvider" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize provider = _provider;
     - (System_Configuration_SettingsProvider *)provider
     {
-		MonoObject *monoObject = [self getMonoProperty:"Provider"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Provider");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_provider isEqualToMonoObject:monoObject]) return _provider;					
 		_provider = [System_Configuration_SettingsProvider bestObjectWithMonoObject:monoObject];
 

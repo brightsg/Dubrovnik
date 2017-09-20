@@ -32,7 +32,17 @@
     @synthesize maximumAge = _maximumAge;
     - (System_TimeSpan *)maximumAge
     {
-		MonoObject *monoObject = [self getMonoProperty:"MaximumAge"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MaximumAge");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_maximumAge isEqualToMonoObject:monoObject]) return _maximumAge;					
 		_maximumAge = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
@@ -41,8 +51,17 @@
     - (void)setMaximumAge:(System_TimeSpan *)value
 	{
 		_maximumAge = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"MaximumAge" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "MaximumAge");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : MaximumStale
@@ -50,7 +69,17 @@
     @synthesize maximumStale = _maximumStale;
     - (System_TimeSpan *)maximumStale
     {
-		MonoObject *monoObject = [self getMonoProperty:"MaximumStale"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MaximumStale");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_maximumStale isEqualToMonoObject:monoObject]) return _maximumStale;					
 		_maximumStale = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
@@ -59,8 +88,17 @@
     - (void)setMaximumStale:(System_TimeSpan *)value
 	{
 		_maximumStale = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"MaximumStale" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "MaximumStale");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : MinimumFresh
@@ -68,7 +106,17 @@
     @synthesize minimumFresh = _minimumFresh;
     - (System_TimeSpan *)minimumFresh
     {
-		MonoObject *monoObject = [self getMonoProperty:"MinimumFresh"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MinimumFresh");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_minimumFresh isEqualToMonoObject:monoObject]) return _minimumFresh;					
 		_minimumFresh = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
@@ -77,25 +125,53 @@
     - (void)setMinimumFresh:(System_TimeSpan *)value
 	{
 		_minimumFresh = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"MinimumFresh" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "MinimumFresh");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : PolicyLevel
 	// Managed property type : System.Net.Cache.HttpRequestCacheLevel
     @synthesize policyLevel = _policyLevel;
-    - (System_Net_Cache_HttpRequestCacheLevel)policyLevel
+    - (int32_t)policyLevel
     {
-		MonoObject *monoObject = [self getMonoProperty:"PolicyLevel"];
-		_policyLevel = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PolicyLevel");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_policyLevel = monoObject;
 
 		return _policyLevel;
 	}
-    - (void)setPolicyLevel:(System_Net_Cache_HttpRequestCacheLevel)value
+    - (void)setPolicyLevel:(int32_t)value
 	{
 		_policyLevel = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"PolicyLevel" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "PolicyLevel");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

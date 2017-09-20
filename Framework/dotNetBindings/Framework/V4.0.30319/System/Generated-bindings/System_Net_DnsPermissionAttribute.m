@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.DnsPermissionAttribute
 	// Managed param types : System.Security.Permissions.SecurityAction
-    + (System_Net_DnsPermissionAttribute *)new_withAction:(System_Security_Permissions_SecurityAction)p1
+    + (System_Net_DnsPermissionAttribute *)new_withAction:(int32_t)p1
     {
 		
-		System_Net_DnsPermissionAttribute * object = [[self alloc] initWithSignature:"System.Security.Permissions.SecurityAction" withNumArgs:1, DB_VALUE(p1)];;
+		System_Net_DnsPermissionAttribute * object = [[self alloc] initWithSignature:"System.Security.Permissions.SecurityAction" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }

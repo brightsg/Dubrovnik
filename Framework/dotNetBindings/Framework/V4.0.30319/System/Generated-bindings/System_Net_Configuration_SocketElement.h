@@ -24,6 +24,6 @@
 
 	// Managed property name : IPProtectionLevel
 	// Managed property type : System.Net.Sockets.IPProtectionLevel
-    @property (nonatomic) System_Net_Sockets_IPProtectionLevel iPProtectionLevel;
+    @property (nonatomic) int32_t iPProtectionLevel;
 @end
 //--Dubrovnik.CodeGenerator

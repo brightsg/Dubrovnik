@@ -33,7 +33,7 @@
     - (void)add_withAddresses:(NSString *)p1
     {
 		
-		[self invokeMonoMethod:"Add(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Add(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

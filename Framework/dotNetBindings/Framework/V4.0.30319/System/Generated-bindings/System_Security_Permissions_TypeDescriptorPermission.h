@@ -17,19 +17,19 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.TypeDescriptorPermission
 	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Security_Permissions_TypeDescriptorPermission *)new_withState:(System_Security_Permissions_PermissionState)p1;
+    + (System_Security_Permissions_TypeDescriptorPermission *)new_withState:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Permissions.TypeDescriptorPermission
 	// Managed param types : System.Security.Permissions.TypeDescriptorPermissionFlags
-    + (System_Security_Permissions_TypeDescriptorPermission *)new_withFlag:(System_Security_Permissions_TypeDescriptorPermissionFlags)p1;
+    + (System_Security_Permissions_TypeDescriptorPermission *)new_withFlag:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Flags
 	// Managed property type : System.Security.Permissions.TypeDescriptorPermissionFlags
-    @property (nonatomic) System_Security_Permissions_TypeDescriptorPermissionFlags flags;
+    @property (nonatomic) int32_t flags;
 
 #pragma mark -
 #pragma mark Methods

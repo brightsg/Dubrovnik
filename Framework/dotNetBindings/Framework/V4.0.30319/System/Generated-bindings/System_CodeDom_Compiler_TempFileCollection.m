@@ -33,7 +33,7 @@
     + (System_CodeDom_Compiler_TempFileCollection *)new_withTempDir:(NSString *)p1 keepFiles:(BOOL)p2
     {
 		
-		System_CodeDom_Compiler_TempFileCollection * object = [[self alloc] initWithSignature:"string,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_CodeDom_Compiler_TempFileCollection * object = [[self alloc] initWithSignature:"string,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_CodeDom_Compiler_TempFileCollection *)new_withTempDir:(NSString *)p1
     {
 		
-		System_CodeDom_Compiler_TempFileCollection * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_CodeDom_Compiler_TempFileCollection * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -57,7 +57,17 @@
     @synthesize basePath = _basePath;
     - (NSString *)basePath
     {
-		MonoObject *monoObject = [self getMonoProperty:"BasePath"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BasePath");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_basePath isEqualToMonoObject:monoObject]) return _basePath;					
 		_basePath = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -69,8 +79,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -80,16 +100,35 @@
     @synthesize keepFiles = _keepFiles;
     - (BOOL)keepFiles
     {
-		MonoObject *monoObject = [self getMonoProperty:"KeepFiles"];
-		_keepFiles = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "KeepFiles");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_keepFiles = monoObject;
 
 		return _keepFiles;
 	}
     - (void)setKeepFiles:(BOOL)value
 	{
 		_keepFiles = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"KeepFiles" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "KeepFiles");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : TempDir
@@ -97,7 +136,17 @@
     @synthesize tempDir = _tempDir;
     - (NSString *)tempDir
     {
-		MonoObject *monoObject = [self getMonoProperty:"TempDir"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TempDir");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_tempDir isEqualToMonoObject:monoObject]) return _tempDir;					
 		_tempDir = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -113,7 +162,7 @@
     - (NSString *)addExtension_withFileExtension:(NSString *)p1 keepFile:(BOOL)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AddExtension(string,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"AddExtension(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -124,7 +173,7 @@
     - (NSString *)addExtension_withFileExtension:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AddExtension(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"AddExtension(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -135,7 +184,7 @@
     - (void)addFile_withFileName:(NSString *)p1 keepFile:(BOOL)p2
     {
 		
-		[self invokeMonoMethod:"AddFile(string,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"AddFile(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
     }
 
@@ -145,7 +194,7 @@
     - (void)copyTo_withFileNames:(DBSystem_Array *)p1 start:(int32_t)p2
     {
 		
-		[self invokeMonoMethod:"CopyTo(string[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"CopyTo(string[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
     }
 
@@ -155,7 +204,7 @@
     - (void)delete
     {
 		
-		[self invokeMonoMethod:"Delete()" withNumArgs:0];;
+		[self invokeMonoMethod:"Delete()" withNumArgs:0];
         
     }
 

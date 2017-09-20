@@ -33,7 +33,7 @@
     + (System_ComponentModel_ProgressChangedEventArgs *)new_withProgressPercentage:(int32_t)p1 userState:(System_Object *)p2
     {
 		
-		System_ComponentModel_ProgressChangedEventArgs * object = [[self alloc] initWithSignature:"int,object" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		System_ComponentModel_ProgressChangedEventArgs * object = [[self alloc] initWithSignature:"int,object" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,8 +46,18 @@
     @synthesize progressPercentage = _progressPercentage;
     - (int32_t)progressPercentage
     {
-		MonoObject *monoObject = [self getMonoProperty:"ProgressPercentage"];
-		_progressPercentage = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ProgressPercentage");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_progressPercentage = monoObject;
 
 		return _progressPercentage;
 	}
@@ -57,7 +67,17 @@
     @synthesize userState = _userState;
     - (System_Object *)userState
     {
-		MonoObject *monoObject = [self getMonoProperty:"UserState"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UserState");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_userState isEqualToMonoObject:monoObject]) return _userState;					
 		_userState = [System_Object objectWithMonoObject:monoObject];
 

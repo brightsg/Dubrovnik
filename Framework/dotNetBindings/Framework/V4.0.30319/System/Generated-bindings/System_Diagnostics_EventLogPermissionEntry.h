@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Diagnostics.EventLogPermissionEntry
 	// Managed param types : System.Diagnostics.EventLogPermissionAccess, System.String
-    + (System_Diagnostics_EventLogPermissionEntry *)new_withPermissionAccess:(System_Diagnostics_EventLogPermissionAccess)p1 machineName:(NSString *)p2;
+    + (System_Diagnostics_EventLogPermissionEntry *)new_withPermissionAccess:(int32_t)p1 machineName:(NSString *)p2;
 
 #pragma mark -
 #pragma mark Properties
@@ -28,6 +28,6 @@
 
 	// Managed property name : PermissionAccess
 	// Managed property type : System.Diagnostics.EventLogPermissionAccess
-    @property (nonatomic, readonly) System_Diagnostics_EventLogPermissionAccess permissionAccess;
+    @property (nonatomic, readonly) int32_t permissionAccess;
 @end
 //--Dubrovnik.CodeGenerator

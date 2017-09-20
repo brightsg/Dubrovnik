@@ -17,22 +17,22 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebSockets.WebSocketException
 	// Managed param types : System.Net.WebSockets.WebSocketError
-    + (System_Net_WebSockets_WebSocketException *)new_withError:(System_Net_WebSockets_WebSocketError)p1;
+    + (System_Net_WebSockets_WebSocketException *)new_withError:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebSockets.WebSocketException
 	// Managed param types : System.Net.WebSockets.WebSocketError, System.String
-    + (System_Net_WebSockets_WebSocketException *)new_withError:(System_Net_WebSockets_WebSocketError)p1 message:(NSString *)p2;
+    + (System_Net_WebSockets_WebSocketException *)new_withError:(int32_t)p1 message:(NSString *)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebSockets.WebSocketException
 	// Managed param types : System.Net.WebSockets.WebSocketError, System.Exception
-    + (System_Net_WebSockets_WebSocketException *)new_withError:(System_Net_WebSockets_WebSocketError)p1 innerException:(System_Exception *)p2;
+    + (System_Net_WebSockets_WebSocketException *)new_withError:(int32_t)p1 innerException:(System_Exception *)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebSockets.WebSocketException
 	// Managed param types : System.Net.WebSockets.WebSocketError, System.String, System.Exception
-    + (System_Net_WebSockets_WebSocketException *)new_withError:(System_Net_WebSockets_WebSocketError)p1 message:(NSString *)p2 innerException:(System_Exception *)p3;
+    + (System_Net_WebSockets_WebSocketException *)new_withError:(int32_t)p1 message:(NSString *)p2 innerException:(System_Exception *)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebSockets.WebSocketException
@@ -52,22 +52,22 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebSockets.WebSocketException
 	// Managed param types : System.Net.WebSockets.WebSocketError, System.Int32
-    + (System_Net_WebSockets_WebSocketException *)new_withError:(System_Net_WebSockets_WebSocketError)p1 nativeError:(int32_t)p2;
+    + (System_Net_WebSockets_WebSocketException *)new_withError:(int32_t)p1 nativeError:(int32_t)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebSockets.WebSocketException
 	// Managed param types : System.Net.WebSockets.WebSocketError, System.Int32, System.String
-    + (System_Net_WebSockets_WebSocketException *)new_withError:(System_Net_WebSockets_WebSocketError)p1 nativeError:(int32_t)p2 message:(NSString *)p3;
+    + (System_Net_WebSockets_WebSocketException *)new_withError:(int32_t)p1 nativeError:(int32_t)p2 message:(NSString *)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebSockets.WebSocketException
 	// Managed param types : System.Net.WebSockets.WebSocketError, System.Int32, System.Exception
-    + (System_Net_WebSockets_WebSocketException *)new_withError:(System_Net_WebSockets_WebSocketError)p1 nativeError:(int32_t)p2 innerException:(System_Exception *)p3;
+    + (System_Net_WebSockets_WebSocketException *)new_withError:(int32_t)p1 nativeError:(int32_t)p2 innerException:(System_Exception *)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebSockets.WebSocketException
 	// Managed param types : System.Net.WebSockets.WebSocketError, System.Int32, System.String, System.Exception
-    + (System_Net_WebSockets_WebSocketException *)new_withError:(System_Net_WebSockets_WebSocketError)p1 nativeError:(int32_t)p2 message:(NSString *)p3 innerException:(System_Exception *)p4;
+    + (System_Net_WebSockets_WebSocketException *)new_withError:(int32_t)p1 nativeError:(int32_t)p2 message:(NSString *)p3 innerException:(System_Exception *)p4;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebSockets.WebSocketException
@@ -88,7 +88,7 @@
 
 	// Managed property name : WebSocketErrorCode
 	// Managed property type : System.Net.WebSockets.WebSocketError
-    @property (nonatomic, readonly) System_Net_WebSockets_WebSocketError webSocketErrorCode;
+    @property (nonatomic, readonly) int32_t webSocketErrorCode;
 
 #pragma mark -
 #pragma mark Methods

@@ -29,33 +29,11 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate2
-	// Managed param types : System.IntPtr
-    + (System_Security_Cryptography_X509Certificates_X509Certificate2 *)new_withHandle:(void *)p1
-    {
-		
-		System_Security_Cryptography_X509Certificates_X509Certificate2 * object = [[self alloc] initWithSignature:"intptr" withNumArgs:1, DB_VALUE(p1)];;
-        
-        return object;
-    }
-
-	// Managed method name : .ctor
-	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate2
-	// Managed param types : System.Security.Cryptography.X509Certificates.X509Certificate
-    + (System_Security_Cryptography_X509Certificates_X509Certificate2 *)new_withCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1
-    {
-		
-		System_Security_Cryptography_X509Certificates_X509Certificate2 * object = [[self alloc] initWithSignature:"System.Security.Cryptography.X509Certificates.X509Certificate" withNumArgs:1, [p1 monoValue]];;
-        
-        return object;
-    }
-
-	// Managed method name : .ctor
-	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate2
 	// Managed param types : System.Byte[]
     + (System_Security_Cryptography_X509Certificates_X509Certificate2 *)new_withRawData:(NSData *)p1
     {
 		
-		System_Security_Cryptography_X509Certificates_X509Certificate2 * object = [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoValue]];;
+		System_Security_Cryptography_X509Certificates_X509Certificate2 * object = [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -66,7 +44,7 @@
     + (System_Security_Cryptography_X509Certificates_X509Certificate2 *)new_withRawDataByte:(NSData *)p1 passwordString:(NSString *)p2
     {
 		
-		System_Security_Cryptography_X509Certificates_X509Certificate2 * object = [[self alloc] initWithSignature:"byte[],string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Security_Cryptography_X509Certificates_X509Certificate2 * object = [[self alloc] initWithSignature:"byte[],string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -77,7 +55,7 @@
     + (System_Security_Cryptography_X509Certificates_X509Certificate2 *)new_withRawDataByte:(NSData *)p1 passwordSSSecureString:(System_Security_SecureString *)p2
     {
 		
-		System_Security_Cryptography_X509Certificates_X509Certificate2 * object = [[self alloc] initWithSignature:"byte[],System.Security.SecureString" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Security_Cryptography_X509Certificates_X509Certificate2 * object = [[self alloc] initWithSignature:"byte[],System.Security.SecureString" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -85,10 +63,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate2
 	// Managed param types : System.Byte[], System.String, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    + (System_Security_Cryptography_X509Certificates_X509Certificate2 *)new_withRawDataByte:(NSData *)p1 passwordString:(NSString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3
+    + (System_Security_Cryptography_X509Certificates_X509Certificate2 *)new_withRawDataByte:(NSData *)p1 passwordString:(NSString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(int32_t)p3
     {
 		
-		System_Security_Cryptography_X509Certificates_X509Certificate2 * object = [[self alloc] initWithSignature:"byte[],string,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		System_Security_Cryptography_X509Certificates_X509Certificate2 * object = [[self alloc] initWithSignature:"byte[],string,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
         
         return object;
     }
@@ -96,10 +74,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate2
 	// Managed param types : System.Byte[], System.Security.SecureString, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    + (System_Security_Cryptography_X509Certificates_X509Certificate2 *)new_withRawDataByte:(NSData *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3
+    + (System_Security_Cryptography_X509Certificates_X509Certificate2 *)new_withRawDataByte:(NSData *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(int32_t)p3
     {
 		
-		System_Security_Cryptography_X509Certificates_X509Certificate2 * object = [[self alloc] initWithSignature:"byte[],System.Security.SecureString,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		System_Security_Cryptography_X509Certificates_X509Certificate2 * object = [[self alloc] initWithSignature:"byte[],System.Security.SecureString,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
         
         return object;
     }
@@ -110,7 +88,7 @@
     + (System_Security_Cryptography_X509Certificates_X509Certificate2 *)new_withFileName:(NSString *)p1
     {
 		
-		System_Security_Cryptography_X509Certificates_X509Certificate2 * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_Security_Cryptography_X509Certificates_X509Certificate2 * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -121,7 +99,7 @@
     + (System_Security_Cryptography_X509Certificates_X509Certificate2 *)new_withFileNameString:(NSString *)p1 passwordString:(NSString *)p2
     {
 		
-		System_Security_Cryptography_X509Certificates_X509Certificate2 * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Security_Cryptography_X509Certificates_X509Certificate2 * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -132,7 +110,7 @@
     + (System_Security_Cryptography_X509Certificates_X509Certificate2 *)new_withFileNameString:(NSString *)p1 passwordSSSecureString:(System_Security_SecureString *)p2
     {
 		
-		System_Security_Cryptography_X509Certificates_X509Certificate2 * object = [[self alloc] initWithSignature:"string,System.Security.SecureString" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Security_Cryptography_X509Certificates_X509Certificate2 * object = [[self alloc] initWithSignature:"string,System.Security.SecureString" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -140,10 +118,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate2
 	// Managed param types : System.String, System.String, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    + (System_Security_Cryptography_X509Certificates_X509Certificate2 *)new_withFileNameString:(NSString *)p1 passwordString:(NSString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3
+    + (System_Security_Cryptography_X509Certificates_X509Certificate2 *)new_withFileNameString:(NSString *)p1 passwordString:(NSString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(int32_t)p3
     {
 		
-		System_Security_Cryptography_X509Certificates_X509Certificate2 * object = [[self alloc] initWithSignature:"string,string,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		System_Security_Cryptography_X509Certificates_X509Certificate2 * object = [[self alloc] initWithSignature:"string,string,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
         
         return object;
     }
@@ -151,10 +129,32 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate2
 	// Managed param types : System.String, System.Security.SecureString, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    + (System_Security_Cryptography_X509Certificates_X509Certificate2 *)new_withFileNameString:(NSString *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3
+    + (System_Security_Cryptography_X509Certificates_X509Certificate2 *)new_withFileNameString:(NSString *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(int32_t)p3
     {
 		
-		System_Security_Cryptography_X509Certificates_X509Certificate2 * object = [[self alloc] initWithSignature:"string,System.Security.SecureString,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		System_Security_Cryptography_X509Certificates_X509Certificate2 * object = [[self alloc] initWithSignature:"string,System.Security.SecureString,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+        
+        return object;
+    }
+
+	// Managed method name : .ctor
+	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate2
+	// Managed param types : System.IntPtr
+    + (System_Security_Cryptography_X509Certificates_X509Certificate2 *)new_withHandle:(void *)p1
+    {
+		
+		System_Security_Cryptography_X509Certificates_X509Certificate2 * object = [[self alloc] initWithSignature:"intptr" withNumArgs:1, DB_VALUE(p1)];
+        
+        return object;
+    }
+
+	// Managed method name : .ctor
+	// Managed return type : System.Security.Cryptography.X509Certificates.X509Certificate2
+	// Managed param types : System.Security.Cryptography.X509Certificates.X509Certificate
+    + (System_Security_Cryptography_X509Certificates_X509Certificate2 *)new_withCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p1
+    {
+		
+		System_Security_Cryptography_X509Certificates_X509Certificate2 * object = [[self alloc] initWithSignature:"System.Security.Cryptography.X509Certificates.X509Certificate" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -167,16 +167,35 @@
     @synthesize archived = _archived;
     - (BOOL)archived
     {
-		MonoObject *monoObject = [self getMonoProperty:"Archived"];
-		_archived = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Archived");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_archived = monoObject;
 
 		return _archived;
 	}
     - (void)setArchived:(BOOL)value
 	{
 		_archived = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Archived" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Archived");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Extensions
@@ -184,7 +203,17 @@
     @synthesize extensions = _extensions;
     - (System_Security_Cryptography_X509Certificates_X509ExtensionCollection *)extensions
     {
-		MonoObject *monoObject = [self getMonoProperty:"Extensions"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Extensions");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_extensions isEqualToMonoObject:monoObject]) return _extensions;					
 		_extensions = [System_Security_Cryptography_X509Certificates_X509ExtensionCollection bestObjectWithMonoObject:monoObject];
 
@@ -196,7 +225,17 @@
     @synthesize friendlyName = _friendlyName;
     - (NSString *)friendlyName
     {
-		MonoObject *monoObject = [self getMonoProperty:"FriendlyName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FriendlyName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_friendlyName isEqualToMonoObject:monoObject]) return _friendlyName;					
 		_friendlyName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -205,8 +244,17 @@
     - (void)setFriendlyName:(NSString *)value
 	{
 		_friendlyName = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"FriendlyName" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "FriendlyName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : HasPrivateKey
@@ -214,8 +262,18 @@
     @synthesize hasPrivateKey = _hasPrivateKey;
     - (BOOL)hasPrivateKey
     {
-		MonoObject *monoObject = [self getMonoProperty:"HasPrivateKey"];
-		_hasPrivateKey = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HasPrivateKey");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_hasPrivateKey = monoObject;
 
 		return _hasPrivateKey;
 	}
@@ -225,7 +283,17 @@
     @synthesize issuerName = _issuerName;
     - (System_Security_Cryptography_X509Certificates_X500DistinguishedName *)issuerName
     {
-		MonoObject *monoObject = [self getMonoProperty:"IssuerName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IssuerName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_issuerName isEqualToMonoObject:monoObject]) return _issuerName;					
 		_issuerName = [System_Security_Cryptography_X509Certificates_X500DistinguishedName bestObjectWithMonoObject:monoObject];
 
@@ -237,7 +305,17 @@
     @synthesize notAfter = _notAfter;
     - (NSDate *)notAfter
     {
-		MonoObject *monoObject = [self getMonoProperty:"NotAfter"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NotAfter");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_notAfter isEqualToMonoObject:monoObject]) return _notAfter;					
 		_notAfter = [NSDate dateWithMonoDateTime:monoObject];
 
@@ -249,7 +327,17 @@
     @synthesize notBefore = _notBefore;
     - (NSDate *)notBefore
     {
-		MonoObject *monoObject = [self getMonoProperty:"NotBefore"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NotBefore");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_notBefore isEqualToMonoObject:monoObject]) return _notBefore;					
 		_notBefore = [NSDate dateWithMonoDateTime:monoObject];
 
@@ -261,7 +349,17 @@
     @synthesize privateKey = _privateKey;
     - (System_Security_Cryptography_AsymmetricAlgorithm *)privateKey
     {
-		MonoObject *monoObject = [self getMonoProperty:"PrivateKey"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PrivateKey");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_privateKey isEqualToMonoObject:monoObject]) return _privateKey;					
 		_privateKey = [System_Security_Cryptography_AsymmetricAlgorithm bestObjectWithMonoObject:monoObject];
 
@@ -270,8 +368,17 @@
     - (void)setPrivateKey:(System_Security_Cryptography_AsymmetricAlgorithm *)value
 	{
 		_privateKey = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"PrivateKey" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "PrivateKey");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : PublicKey
@@ -279,7 +386,17 @@
     @synthesize publicKey = _publicKey;
     - (System_Security_Cryptography_X509Certificates_PublicKey *)publicKey
     {
-		MonoObject *monoObject = [self getMonoProperty:"PublicKey"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PublicKey");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_publicKey isEqualToMonoObject:monoObject]) return _publicKey;					
 		_publicKey = [System_Security_Cryptography_X509Certificates_PublicKey bestObjectWithMonoObject:monoObject];
 
@@ -291,7 +408,17 @@
     @synthesize rawData = _rawData;
     - (NSData *)rawData
     {
-		MonoObject *monoObject = [self getMonoProperty:"RawData"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RawData");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_rawData isEqualToMonoObject:monoObject]) return _rawData;					
 		_rawData = [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -303,7 +430,17 @@
     @synthesize serialNumber = _serialNumber;
     - (NSString *)serialNumber
     {
-		MonoObject *monoObject = [self getMonoProperty:"SerialNumber"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SerialNumber");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_serialNumber isEqualToMonoObject:monoObject]) return _serialNumber;					
 		_serialNumber = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -315,7 +452,17 @@
     @synthesize signatureAlgorithm = _signatureAlgorithm;
     - (System_Security_Cryptography_Oid *)signatureAlgorithm
     {
-		MonoObject *monoObject = [self getMonoProperty:"SignatureAlgorithm"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SignatureAlgorithm");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_signatureAlgorithm isEqualToMonoObject:monoObject]) return _signatureAlgorithm;					
 		_signatureAlgorithm = [System_Security_Cryptography_Oid bestObjectWithMonoObject:monoObject];
 
@@ -327,7 +474,17 @@
     @synthesize subjectName = _subjectName;
     - (System_Security_Cryptography_X509Certificates_X500DistinguishedName *)subjectName
     {
-		MonoObject *monoObject = [self getMonoProperty:"SubjectName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SubjectName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_subjectName isEqualToMonoObject:monoObject]) return _subjectName;					
 		_subjectName = [System_Security_Cryptography_X509Certificates_X500DistinguishedName bestObjectWithMonoObject:monoObject];
 
@@ -339,7 +496,17 @@
     @synthesize thumbprint = _thumbprint;
     - (NSString *)thumbprint
     {
-		MonoObject *monoObject = [self getMonoProperty:"Thumbprint"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Thumbprint");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_thumbprint isEqualToMonoObject:monoObject]) return _thumbprint;					
 		_thumbprint = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -351,8 +518,18 @@
     @synthesize version = _version;
     - (int32_t)version
     {
-		MonoObject *monoObject = [self getMonoProperty:"Version"];
-		_version = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Version");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_version = monoObject;
 
 		return _version;
 	}
@@ -363,10 +540,10 @@
 	// Managed method name : GetCertContentType
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509ContentType
 	// Managed param types : System.Byte[]
-    + (System_Security_Cryptography_X509Certificates_X509ContentType)getCertContentType_withRawData:(NSData *)p1
+    + (int32_t)getCertContentType_withRawData:(NSData *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCertContentType(byte[])" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCertContentType(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -374,10 +551,10 @@
 	// Managed method name : GetCertContentType
 	// Managed return type : System.Security.Cryptography.X509Certificates.X509ContentType
 	// Managed param types : System.String
-    + (System_Security_Cryptography_X509Certificates_X509ContentType)getCertContentType_withFileName:(NSString *)p1
+    + (int32_t)getCertContentType_withFileName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCertContentType(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCertContentType(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -385,7 +562,7 @@
 	// Managed method name : GetNameInfo
 	// Managed return type : System.String
 	// Managed param types : System.Security.Cryptography.X509Certificates.X509NameType, System.Boolean
-    - (NSString *)getNameInfo_withNameType:(System_Security_Cryptography_X509Certificates_X509NameType)p1 forIssuer:(BOOL)p2
+    - (NSString *)getNameInfo_withNameType:(int32_t)p1 forIssuer:(BOOL)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetNameInfo(System.Security.Cryptography.X509Certificates.X509NameType,bool)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
@@ -399,27 +576,27 @@
     - (void)import_withRawData:(NSData *)p1
     {
 		
-		[self invokeMonoMethod:"Import(byte[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Import(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
 	// Managed method name : Import
 	// Managed return type : System.Void
 	// Managed param types : System.Byte[], System.String, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    - (void)import_withRawDataByte:(NSData *)p1 passwordString:(NSString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3
+    - (void)import_withRawDataByte:(NSData *)p1 passwordString:(NSString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(int32_t)p3
     {
 		
-		[self invokeMonoMethod:"Import(byte[],string,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		[self invokeMonoMethod:"Import(byte[],string,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
         
     }
 
 	// Managed method name : Import
 	// Managed return type : System.Void
 	// Managed param types : System.Byte[], System.Security.SecureString, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    - (void)import_withRawDataByte:(NSData *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3
+    - (void)import_withRawDataByte:(NSData *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(int32_t)p3
     {
 		
-		[self invokeMonoMethod:"Import(byte[],System.Security.SecureString,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		[self invokeMonoMethod:"Import(byte[],System.Security.SecureString,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
         
     }
 
@@ -429,27 +606,27 @@
     - (void)import_withFileName:(NSString *)p1
     {
 		
-		[self invokeMonoMethod:"Import(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Import(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
 	// Managed method name : Import
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.String, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    - (void)import_withFileNameString:(NSString *)p1 passwordString:(NSString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3
+    - (void)import_withFileNameString:(NSString *)p1 passwordString:(NSString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(int32_t)p3
     {
 		
-		[self invokeMonoMethod:"Import(string,string,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		[self invokeMonoMethod:"Import(string,string,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
         
     }
 
 	// Managed method name : Import
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Security.SecureString, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags
-    - (void)import_withFileNameString:(NSString *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(System_Security_Cryptography_X509Certificates_X509KeyStorageFlags)p3
+    - (void)import_withFileNameString:(NSString *)p1 passwordSSSecureString:(System_Security_SecureString *)p2 keyStorageFlagsSSCXX509KeyStorageFlags:(int32_t)p3
     {
 		
-		[self invokeMonoMethod:"Import(string,System.Security.SecureString,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		[self invokeMonoMethod:"Import(string,System.Security.SecureString,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
         
     }
 
@@ -459,7 +636,7 @@
     - (void)reset
     {
 		
-		[self invokeMonoMethod:"Reset()" withNumArgs:0];;
+		[self invokeMonoMethod:"Reset()" withNumArgs:0];
         
     }
 

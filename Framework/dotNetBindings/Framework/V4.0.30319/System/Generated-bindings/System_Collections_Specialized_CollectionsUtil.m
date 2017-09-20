@@ -55,7 +55,7 @@
     + (System_Collections_Hashtable *)createCaseInsensitiveHashtable_withD:(id <System_Collections_IDictionary_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateCaseInsensitiveHashtable(System.Collections.IDictionary)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateCaseInsensitiveHashtable(System.Collections.IDictionary)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Collections_Hashtable bestObjectWithMonoObject:monoObject];
     }

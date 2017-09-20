@@ -32,7 +32,17 @@
     @synthesize extenderProperty = _extenderProperty;
     - (System_ComponentModel_PropertyDescriptor *)extenderProperty
     {
-		MonoObject *monoObject = [self getMonoProperty:"ExtenderProperty"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ExtenderProperty");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_extenderProperty isEqualToMonoObject:monoObject]) return _extenderProperty;					
 		_extenderProperty = [System_ComponentModel_PropertyDescriptor bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize provider = _provider;
     - (System_ComponentModel_IExtenderProvider *)provider
     {
-		MonoObject *monoObject = [self getMonoProperty:"Provider"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Provider");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_provider isEqualToMonoObject:monoObject]) return _provider;					
 		_provider = [System_ComponentModel_IExtenderProvider bestObjectWithMonoObject:monoObject];
 
@@ -56,7 +76,17 @@
     @synthesize receiverType = _receiverType;
     - (System_Type *)receiverType
     {
-		MonoObject *monoObject = [self getMonoProperty:"ReceiverType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ReceiverType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_receiverType isEqualToMonoObject:monoObject]) return _receiverType;					
 		_receiverType = [System_Type bestObjectWithMonoObject:monoObject];
 
@@ -72,7 +102,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

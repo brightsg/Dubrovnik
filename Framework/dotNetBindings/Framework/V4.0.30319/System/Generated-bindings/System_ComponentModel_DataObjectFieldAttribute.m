@@ -33,7 +33,7 @@
     + (System_ComponentModel_DataObjectFieldAttribute *)new_withPrimaryKey:(BOOL)p1
     {
 		
-		System_ComponentModel_DataObjectFieldAttribute * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
+		System_ComponentModel_DataObjectFieldAttribute * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_ComponentModel_DataObjectFieldAttribute *)new_withPrimaryKey:(BOOL)p1 isIdentity:(BOOL)p2
     {
 		
-		System_ComponentModel_DataObjectFieldAttribute * object = [[self alloc] initWithSignature:"bool,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		System_ComponentModel_DataObjectFieldAttribute * object = [[self alloc] initWithSignature:"bool,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_ComponentModel_DataObjectFieldAttribute *)new_withPrimaryKey:(BOOL)p1 isIdentity:(BOOL)p2 isNullable:(BOOL)p3
     {
 		
-		System_ComponentModel_DataObjectFieldAttribute * object = [[self alloc] initWithSignature:"bool,bool,bool" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];;
+		System_ComponentModel_DataObjectFieldAttribute * object = [[self alloc] initWithSignature:"bool,bool,bool" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
         
         return object;
     }
@@ -66,7 +66,7 @@
     + (System_ComponentModel_DataObjectFieldAttribute *)new_withPrimaryKey:(BOOL)p1 isIdentity:(BOOL)p2 isNullable:(BOOL)p3 length:(int32_t)p4
     {
 		
-		System_ComponentModel_DataObjectFieldAttribute * object = [[self alloc] initWithSignature:"bool,bool,bool,int" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];;
+		System_ComponentModel_DataObjectFieldAttribute * object = [[self alloc] initWithSignature:"bool,bool,bool,int" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
         
         return object;
     }
@@ -79,8 +79,18 @@
     @synthesize isIdentity = _isIdentity;
     - (BOOL)isIdentity
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsIdentity"];
-		_isIdentity = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsIdentity");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isIdentity = monoObject;
 
 		return _isIdentity;
 	}
@@ -90,8 +100,18 @@
     @synthesize isNullable = _isNullable;
     - (BOOL)isNullable
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsNullable"];
-		_isNullable = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsNullable");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isNullable = monoObject;
 
 		return _isNullable;
 	}
@@ -101,8 +121,18 @@
     @synthesize length = _length;
     - (int32_t)length
     {
-		MonoObject *monoObject = [self getMonoProperty:"Length"];
-		_length = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Length");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_length = monoObject;
 
 		return _length;
 	}
@@ -112,8 +142,18 @@
     @synthesize primaryKey = _primaryKey;
     - (BOOL)primaryKey
     {
-		MonoObject *monoObject = [self getMonoProperty:"PrimaryKey"];
-		_primaryKey = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PrimaryKey");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_primaryKey = monoObject;
 
 		return _primaryKey;
 	}
@@ -127,7 +167,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

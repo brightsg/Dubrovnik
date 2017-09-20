@@ -33,7 +33,7 @@
     - (id <System_Collections_ICollection>)getTypes_withBaseType:(System_Type *)p1 excludeGlobalTypes:(BOOL)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.ITypeDiscoveryService.GetTypes(System.Type,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.ITypeDiscoveryService.GetTypes(System.Type,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_Collections_ICollection bestObjectWithMonoObject:monoObject];
     }

@@ -33,7 +33,7 @@
     + (System_ComponentModel_LookupBindingPropertiesAttribute *)new_withDataSource:(NSString *)p1 displayMember:(NSString *)p2 valueMember:(NSString *)p3 lookupMember:(NSString *)p4
     {
 		
-		System_ComponentModel_LookupBindingPropertiesAttribute * object = [[self alloc] initWithSignature:"string,string,string,string" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];;
+		System_ComponentModel_LookupBindingPropertiesAttribute * object = [[self alloc] initWithSignature:"string,string,string,string" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
         
         return object;
     }
@@ -61,7 +61,17 @@
     @synthesize dataSource = _dataSource;
     - (NSString *)dataSource
     {
-		MonoObject *monoObject = [self getMonoProperty:"DataSource"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DataSource");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_dataSource isEqualToMonoObject:monoObject]) return _dataSource;					
 		_dataSource = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -73,7 +83,17 @@
     @synthesize displayMember = _displayMember;
     - (NSString *)displayMember
     {
-		MonoObject *monoObject = [self getMonoProperty:"DisplayMember"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DisplayMember");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_displayMember isEqualToMonoObject:monoObject]) return _displayMember;					
 		_displayMember = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -85,7 +105,17 @@
     @synthesize lookupMember = _lookupMember;
     - (NSString *)lookupMember
     {
-		MonoObject *monoObject = [self getMonoProperty:"LookupMember"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LookupMember");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_lookupMember isEqualToMonoObject:monoObject]) return _lookupMember;					
 		_lookupMember = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -97,7 +127,17 @@
     @synthesize valueMember = _valueMember;
     - (NSString *)valueMember
     {
-		MonoObject *monoObject = [self getMonoProperty:"ValueMember"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ValueMember");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_valueMember isEqualToMonoObject:monoObject]) return _valueMember;					
 		_valueMember = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -113,7 +153,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

@@ -20,11 +20,11 @@
 
 	// Managed property name : PolicyEnforcement
 	// Managed property type : System.Security.Authentication.ExtendedProtection.PolicyEnforcement
-    @property (nonatomic) System_Security_Authentication_ExtendedProtection_PolicyEnforcement policyEnforcement;
+    @property (nonatomic) int32_t policyEnforcement;
 
 	// Managed property name : ProtectionScenario
 	// Managed property type : System.Security.Authentication.ExtendedProtection.ProtectionScenario
-    @property (nonatomic) System_Security_Authentication_ExtendedProtection_ProtectionScenario protectionScenario;
+    @property (nonatomic) int32_t protectionScenario;
 
 #pragma mark -
 #pragma mark Methods

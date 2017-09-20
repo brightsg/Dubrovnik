@@ -32,7 +32,17 @@
     @synthesize authenticationType = _authenticationType;
     - (NSString *)authenticationType
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Net.IAuthenticationModule.AuthenticationType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Net.IAuthenticationModule.AuthenticationType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_authenticationType isEqualToMonoObject:monoObject]) return _authenticationType;					
 		_authenticationType = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -44,8 +54,18 @@
     @synthesize canPreAuthenticate = _canPreAuthenticate;
     - (BOOL)canPreAuthenticate
     {
-		MonoObject *monoObject = [self getMonoProperty:"System.Net.IAuthenticationModule.CanPreAuthenticate"];
-		_canPreAuthenticate = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Net.IAuthenticationModule.CanPreAuthenticate");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_canPreAuthenticate = monoObject;
 
 		return _canPreAuthenticate;
 	}
@@ -59,7 +79,7 @@
     - (System_Net_Authorization *)authenticate_withChallenge:(NSString *)p1 request:(System_Net_WebRequest *)p2 credentials:(id <System_Net_ICredentials_>)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Net.IAuthenticationModule.Authenticate(string,System.Net.WebRequest,System.Net.ICredentials)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Net.IAuthenticationModule.Authenticate(string,System.Net.WebRequest,System.Net.ICredentials)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_Net_Authorization bestObjectWithMonoObject:monoObject];
     }
@@ -70,7 +90,7 @@
     - (System_Net_Authorization *)preAuthenticate_withRequest:(System_Net_WebRequest *)p1 credentials:(id <System_Net_ICredentials_>)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Net.IAuthenticationModule.PreAuthenticate(System.Net.WebRequest,System.Net.ICredentials)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Net.IAuthenticationModule.PreAuthenticate(System.Net.WebRequest,System.Net.ICredentials)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Net_Authorization bestObjectWithMonoObject:monoObject];
     }

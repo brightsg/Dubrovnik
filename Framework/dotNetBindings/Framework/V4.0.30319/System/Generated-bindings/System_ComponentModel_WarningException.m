@@ -33,7 +33,7 @@
     + (System_ComponentModel_WarningException *)new_withMessage:(NSString *)p1
     {
 		
-		System_ComponentModel_WarningException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_WarningException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_ComponentModel_WarningException *)new_withMessage:(NSString *)p1 helpUrl:(NSString *)p2
     {
 		
-		System_ComponentModel_WarningException * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_ComponentModel_WarningException * object = [[self alloc] initWithSignature:"string,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_ComponentModel_WarningException *)new_withMessage:(NSString *)p1 innerException:(System_Exception *)p2
     {
 		
-		System_ComponentModel_WarningException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_ComponentModel_WarningException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -66,7 +66,7 @@
     + (System_ComponentModel_WarningException *)new_withMessage:(NSString *)p1 helpUrl:(NSString *)p2 helpTopic:(NSString *)p3
     {
 		
-		System_ComponentModel_WarningException * object = [[self alloc] initWithSignature:"string,string,string" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		System_ComponentModel_WarningException * object = [[self alloc] initWithSignature:"string,string,string" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -79,7 +79,17 @@
     @synthesize helpTopic = _helpTopic;
     - (NSString *)helpTopic
     {
-		MonoObject *monoObject = [self getMonoProperty:"HelpTopic"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HelpTopic");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_helpTopic isEqualToMonoObject:monoObject]) return _helpTopic;					
 		_helpTopic = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -91,7 +101,17 @@
     @synthesize helpUrl = _helpUrl;
     - (NSString *)helpUrl
     {
-		MonoObject *monoObject = [self getMonoProperty:"HelpUrl"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "HelpUrl");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_helpUrl isEqualToMonoObject:monoObject]) return _helpUrl;					
 		_helpUrl = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -107,7 +127,7 @@
     - (void)getObjectData_withInfo:(System_Runtime_Serialization_SerializationInfo *)p1 context:(System_Runtime_Serialization_StreamingContext *)p2
     {
 		
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 

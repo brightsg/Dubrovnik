@@ -33,7 +33,7 @@
     + (System_Net_Security_LocalCertificateSelectionCallback *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
 		
-		System_Net_Security_LocalCertificateSelectionCallback * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Net_Security_LocalCertificateSelectionCallback * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -47,7 +47,7 @@
     - (id <System_IAsyncResult>)beginInvoke_withSender:(System_Object *)p1 targetHost:(NSString *)p2 localCertificates:(System_Security_Cryptography_X509Certificates_X509CertificateCollection *)p3 remoteCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p4 acceptableIssuers:(DBSystem_Array *)p5 callback:(System_AsyncCallback *)p6 object:(System_Object *)p7
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(object,string,System.Security.Cryptography.X509Certificates.X509CertificateCollection,System.Security.Cryptography.X509Certificates.X509Certificate,string[],System.AsyncCallback,object)" withNumArgs:7, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue], [p6 monoValue], [p7 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(object,string,System.Security.Cryptography.X509Certificates.X509CertificateCollection,System.Security.Cryptography.X509Certificates.X509Certificate,string[],System.AsyncCallback,object)" withNumArgs:7, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg], [p7 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -58,7 +58,7 @@
     - (System_Security_Cryptography_X509Certificates_X509Certificate *)endInvoke_withResult:(id <System_IAsyncResult_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_Cryptography_X509Certificates_X509Certificate bestObjectWithMonoObject:monoObject];
     }
@@ -69,7 +69,7 @@
     - (System_Security_Cryptography_X509Certificates_X509Certificate *)invoke_withSender:(System_Object *)p1 targetHost:(NSString *)p2 localCertificates:(System_Security_Cryptography_X509Certificates_X509CertificateCollection *)p3 remoteCertificate:(System_Security_Cryptography_X509Certificates_X509Certificate *)p4 acceptableIssuers:(DBSystem_Array *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object,string,System.Security.Cryptography.X509Certificates.X509CertificateCollection,System.Security.Cryptography.X509Certificates.X509Certificate,string[])" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object,string,System.Security.Cryptography.X509Certificates.X509CertificateCollection,System.Security.Cryptography.X509Certificates.X509Certificate,string[])" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_Security_Cryptography_X509Certificates_X509Certificate bestObjectWithMonoObject:monoObject];
     }

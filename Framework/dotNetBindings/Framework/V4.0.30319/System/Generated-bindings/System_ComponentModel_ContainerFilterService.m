@@ -33,7 +33,7 @@
     - (System_ComponentModel_ComponentCollection *)filterComponents_withComponents:(System_ComponentModel_ComponentCollection *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"FilterComponents(System.ComponentModel.ComponentCollection)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"FilterComponents(System.ComponentModel.ComponentCollection)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_ComponentModel_ComponentCollection bestObjectWithMonoObject:monoObject];
     }

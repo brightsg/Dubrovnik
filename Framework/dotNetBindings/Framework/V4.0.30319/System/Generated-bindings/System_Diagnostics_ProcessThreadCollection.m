@@ -33,7 +33,7 @@
     + (System_Diagnostics_ProcessThreadCollection *)new_withProcessThreads:(DBSystem_Array *)p1
     {
 		
-		System_Diagnostics_ProcessThreadCollection * object = [[self alloc] initWithSignature:"System.Diagnostics.ProcessThread[]" withNumArgs:1, [p1 monoValue]];;
+		System_Diagnostics_ProcessThreadCollection * object = [[self alloc] initWithSignature:"System.Diagnostics.ProcessThread[]" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize item = _item;
     - (System_Diagnostics_ProcessThread *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
 		_item = [System_Diagnostics_ProcessThread bestObjectWithMonoObject:monoObject];
 
@@ -62,7 +72,7 @@
     - (int32_t)add_withThread:(System_Diagnostics_ProcessThread *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Add(System.Diagnostics.ProcessThread)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Add(System.Diagnostics.ProcessThread)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -73,7 +83,7 @@
     - (BOOL)contains_withThread:(System_Diagnostics_ProcessThread *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Contains(System.Diagnostics.ProcessThread)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Contains(System.Diagnostics.ProcessThread)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -84,7 +94,7 @@
     - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
     {
 		
-		[self invokeMonoMethod:"CopyTo(System.Diagnostics.ProcessThread[],int)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"CopyTo(System.Diagnostics.ProcessThread[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
     }
 
@@ -94,7 +104,7 @@
     - (int32_t)indexOf_withThread:(System_Diagnostics_ProcessThread *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(System.Diagnostics.ProcessThread)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(System.Diagnostics.ProcessThread)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -105,7 +115,7 @@
     - (void)insert_withIndex:(int32_t)p1 thread:(System_Diagnostics_ProcessThread *)p2
     {
 		
-		[self invokeMonoMethod:"Insert(int,System.Diagnostics.ProcessThread)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoMethod:"Insert(int,System.Diagnostics.ProcessThread)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
     }
 
@@ -115,7 +125,7 @@
     - (void)remove_withThread:(System_Diagnostics_ProcessThread *)p1
     {
 		
-		[self invokeMonoMethod:"Remove(System.Diagnostics.ProcessThread)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Remove(System.Diagnostics.ProcessThread)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

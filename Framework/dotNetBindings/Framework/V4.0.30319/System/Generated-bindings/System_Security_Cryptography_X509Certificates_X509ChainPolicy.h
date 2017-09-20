@@ -28,11 +28,11 @@
 
 	// Managed property name : RevocationFlag
 	// Managed property type : System.Security.Cryptography.X509Certificates.X509RevocationFlag
-    @property (nonatomic) System_Security_Cryptography_X509Certificates_X509RevocationFlag revocationFlag;
+    @property (nonatomic) int32_t revocationFlag;
 
 	// Managed property name : RevocationMode
 	// Managed property type : System.Security.Cryptography.X509Certificates.X509RevocationMode
-    @property (nonatomic) System_Security_Cryptography_X509Certificates_X509RevocationMode revocationMode;
+    @property (nonatomic) int32_t revocationMode;
 
 	// Managed property name : UrlRetrievalTimeout
 	// Managed property type : System.TimeSpan
@@ -40,7 +40,7 @@
 
 	// Managed property name : VerificationFlags
 	// Managed property type : System.Security.Cryptography.X509Certificates.X509VerificationFlags
-    @property (nonatomic) System_Security_Cryptography_X509Certificates_X509VerificationFlags verificationFlags;
+    @property (nonatomic) int32_t verificationFlags;
 
 	// Managed property name : VerificationTime
 	// Managed property type : System.DateTime

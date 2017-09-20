@@ -33,7 +33,7 @@
     - (void)beginEdit
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.IEditableObject.BeginEdit()" withNumArgs:0];;
+		[self invokeMonoMethod:"System.ComponentModel.IEditableObject.BeginEdit()" withNumArgs:0];
         
     }
 
@@ -43,7 +43,7 @@
     - (void)cancelEdit
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.IEditableObject.CancelEdit()" withNumArgs:0];;
+		[self invokeMonoMethod:"System.ComponentModel.IEditableObject.CancelEdit()" withNumArgs:0];
         
     }
 
@@ -53,7 +53,7 @@
     - (void)endEdit
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.IEditableObject.EndEdit()" withNumArgs:0];;
+		[self invokeMonoMethod:"System.ComponentModel.IEditableObject.EndEdit()" withNumArgs:0];
         
     }
 

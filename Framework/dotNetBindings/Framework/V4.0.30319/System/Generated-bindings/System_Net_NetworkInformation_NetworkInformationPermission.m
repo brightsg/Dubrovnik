@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.NetworkInformation.NetworkInformationPermission
 	// Managed param types : System.Security.Permissions.PermissionState
-    + (System_Net_NetworkInformation_NetworkInformationPermission *)new_withState:(System_Security_Permissions_PermissionState)p1
+    + (System_Net_NetworkInformation_NetworkInformationPermission *)new_withState:(int32_t)p1
     {
 		
-		System_Net_NetworkInformation_NetworkInformationPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];;
+		System_Net_NetworkInformation_NetworkInformationPermission * object = [[self alloc] initWithSignature:"System.Security.Permissions.PermissionState" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -41,10 +41,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.NetworkInformation.NetworkInformationPermission
 	// Managed param types : System.Net.NetworkInformation.NetworkInformationAccess
-    + (System_Net_NetworkInformation_NetworkInformationPermission *)new_withAccess:(System_Net_NetworkInformation_NetworkInformationAccess)p1
+    + (System_Net_NetworkInformation_NetworkInformationPermission *)new_withAccess:(int32_t)p1
     {
 		
-		System_Net_NetworkInformation_NetworkInformationPermission * object = [[self alloc] initWithSignature:"System.Net.NetworkInformation.NetworkInformationAccess" withNumArgs:1, DB_VALUE(p1)];;
+		System_Net_NetworkInformation_NetworkInformationPermission * object = [[self alloc] initWithSignature:"System.Net.NetworkInformation.NetworkInformationAccess" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -55,10 +55,20 @@
 	// Managed property name : Access
 	// Managed property type : System.Net.NetworkInformation.NetworkInformationAccess
     @synthesize access = _access;
-    - (System_Net_NetworkInformation_NetworkInformationAccess)access
+    - (int32_t)access
     {
-		MonoObject *monoObject = [self getMonoProperty:"Access"];
-		_access = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Access");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_access = monoObject;
 
 		return _access;
 	}
@@ -69,10 +79,10 @@
 	// Managed method name : AddPermission
 	// Managed return type : System.Void
 	// Managed param types : System.Net.NetworkInformation.NetworkInformationAccess
-    - (void)addPermission_withAccess:(System_Net_NetworkInformation_NetworkInformationAccess)p1
+    - (void)addPermission_withAccess:(int32_t)p1
     {
 		
-		[self invokeMonoMethod:"AddPermission(System.Net.NetworkInformation.NetworkInformationAccess)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"AddPermission(System.Net.NetworkInformation.NetworkInformationAccess)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -93,7 +103,7 @@
     - (void)fromXml_withSecurityElement:(System_Security_SecurityElement *)p1
     {
 		
-		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"FromXml(System.Security.SecurityElement)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -103,7 +113,7 @@
     - (id <System_Security_IPermission>)intersect_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }
@@ -114,7 +124,7 @@
     - (BOOL)isSubsetOf_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"IsSubsetOf(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -147,7 +157,7 @@
     - (id <System_Security_IPermission>)union_withTarget:(id <System_Security_IPermission_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Security.IPermission)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Security_IPermission bestObjectWithMonoObject:monoObject];
     }

@@ -32,7 +32,17 @@
     @synthesize endDirectives = _endDirectives;
     - (System_CodeDom_CodeDirectiveCollection *)endDirectives
     {
-		MonoObject *monoObject = [self getMonoProperty:"EndDirectives"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EndDirectives");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_endDirectives isEqualToMonoObject:monoObject]) return _endDirectives;					
 		_endDirectives = [System_CodeDom_CodeDirectiveCollection bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize linePragma = _linePragma;
     - (System_CodeDom_CodeLinePragma *)linePragma
     {
-		MonoObject *monoObject = [self getMonoProperty:"LinePragma"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LinePragma");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_linePragma isEqualToMonoObject:monoObject]) return _linePragma;					
 		_linePragma = [System_CodeDom_CodeLinePragma bestObjectWithMonoObject:monoObject];
 
@@ -53,8 +73,17 @@
     - (void)setLinePragma:(System_CodeDom_CodeLinePragma *)value
 	{
 		_linePragma = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"LinePragma" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "LinePragma");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : StartDirectives
@@ -62,7 +91,17 @@
     @synthesize startDirectives = _startDirectives;
     - (System_CodeDom_CodeDirectiveCollection *)startDirectives
     {
-		MonoObject *monoObject = [self getMonoProperty:"StartDirectives"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "StartDirectives");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_startDirectives isEqualToMonoObject:monoObject]) return _startDirectives;					
 		_startDirectives = [System_CodeDom_CodeDirectiveCollection bestObjectWithMonoObject:monoObject];
 

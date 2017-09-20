@@ -33,7 +33,7 @@
     + (System_Net_NetworkInformation_PhysicalAddress *)new_withAddress:(NSData *)p1
     {
 		
-		System_Net_NetworkInformation_PhysicalAddress * object = [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoValue]];;
+		System_Net_NetworkInformation_PhysicalAddress * object = [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -62,7 +62,7 @@
     - (BOOL)equals_withComparand:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -95,7 +95,7 @@
     + (System_Net_NetworkInformation_PhysicalAddress *)parse_withAddress:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Net_NetworkInformation_PhysicalAddress bestObjectWithMonoObject:monoObject];
     }

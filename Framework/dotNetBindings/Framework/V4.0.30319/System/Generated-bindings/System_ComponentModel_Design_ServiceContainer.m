@@ -33,7 +33,7 @@
     + (System_ComponentModel_Design_ServiceContainer *)new_withParentProvider:(id <System_IServiceProvider_>)p1
     {
 		
-		System_ComponentModel_Design_ServiceContainer * object = [[self alloc] initWithSignature:"System.IServiceProvider" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_Design_ServiceContainer * object = [[self alloc] initWithSignature:"System.IServiceProvider" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -47,7 +47,7 @@
     - (void)addService_withServiceType:(System_Type *)p1 serviceInstance:(System_Object *)p2
     {
 		
-		[self invokeMonoMethod:"AddService(System.Type,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"AddService(System.Type,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -57,7 +57,7 @@
     - (void)addService_withServiceType:(System_Type *)p1 serviceInstance:(System_Object *)p2 promote:(BOOL)p3
     {
 		
-		[self invokeMonoMethod:"AddService(System.Type,object,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		[self invokeMonoMethod:"AddService(System.Type,object,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
         
     }
 
@@ -67,7 +67,7 @@
     - (void)addService_withServiceType:(System_Type *)p1 callback:(System_ComponentModel_Design_ServiceCreatorCallback *)p2
     {
 		
-		[self invokeMonoMethod:"AddService(System.Type,System.ComponentModel.Design.ServiceCreatorCallback)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"AddService(System.Type,System.ComponentModel.Design.ServiceCreatorCallback)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -77,7 +77,7 @@
     - (void)addService_withServiceType:(System_Type *)p1 callback:(System_ComponentModel_Design_ServiceCreatorCallback *)p2 promote:(BOOL)p3
     {
 		
-		[self invokeMonoMethod:"AddService(System.Type,System.ComponentModel.Design.ServiceCreatorCallback,bool)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		[self invokeMonoMethod:"AddService(System.Type,System.ComponentModel.Design.ServiceCreatorCallback,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
         
     }
 
@@ -87,7 +87,7 @@
     - (void)dispose
     {
 		
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];;
+		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
         
     }
 
@@ -97,7 +97,7 @@
     - (System_Object *)getService_withServiceType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetService(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetService(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -108,7 +108,7 @@
     - (void)removeService_withServiceType:(System_Type *)p1
     {
 		
-		[self invokeMonoMethod:"RemoveService(System.Type)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"RemoveService(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -118,7 +118,7 @@
     - (void)removeService_withServiceType:(System_Type *)p1 promote:(BOOL)p2
     {
 		
-		[self invokeMonoMethod:"RemoveService(System.Type,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		[self invokeMonoMethod:"RemoveService(System.Type,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
     }
 

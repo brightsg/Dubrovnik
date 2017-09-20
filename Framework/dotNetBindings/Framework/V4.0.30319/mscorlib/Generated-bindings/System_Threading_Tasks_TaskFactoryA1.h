@@ -138,6 +138,11 @@
 
 	// Managed method name : FromAsync
 	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
+	// Managed param types : System.Func`3<System.AsyncCallback, System.Object, System.IAsyncResult>, System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>, System.Object
+    - (System_Threading_Tasks_TaskA1 *)fromAsync_withBeginMethod:(System_FuncA3 *)p1 endMethod:(System_FuncA2 *)p2 state:(System_Object *)p3;
+
+	// Managed method name : FromAsync
+	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
 	// Managed param types : System.IAsyncResult, System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>
     - (System_Threading_Tasks_TaskA1 *)fromAsync_withAsyncResult:(id <System_IAsyncResult_>)p1 endMethod:(System_FuncA2 *)p2;
 
@@ -150,11 +155,6 @@
 	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
 	// Managed param types : System.IAsyncResult, System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.Tasks.TaskCreationOptions, System.Threading.Tasks.TaskScheduler
     - (System_Threading_Tasks_TaskA1 *)fromAsync_withAsyncResult:(id <System_IAsyncResult_>)p1 endMethod:(System_FuncA2 *)p2 creationOptions:(int32_t)p3 scheduler:(System_Threading_Tasks_TaskScheduler *)p4;
-
-	// Managed method name : FromAsync
-	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
-	// Managed param types : System.Func`3<System.AsyncCallback, System.Object, System.IAsyncResult>, System.Func`2<System.IAsyncResult, System.Threading.Tasks.TaskFactory`1+TResult>, System.Object
-    - (System_Threading_Tasks_TaskA1 *)fromAsync_withBeginMethod:(System_FuncA3 *)p1 endMethod:(System_FuncA2 *)p2 state:(System_Object *)p3;
 
 	// Managed method name : FromAsync
 	// Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>

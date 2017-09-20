@@ -33,7 +33,7 @@
     - (System_Reflection_Assembly *)getAssembly_withName:(System_Reflection_AssemblyName *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.ITypeResolutionService.GetAssembly(System.Reflection.AssemblyName)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.ITypeResolutionService.GetAssembly(System.Reflection.AssemblyName)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
@@ -44,7 +44,7 @@
     - (System_Reflection_Assembly *)getAssembly_withName:(System_Reflection_AssemblyName *)p1 throwOnError:(BOOL)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.ITypeResolutionService.GetAssembly(System.Reflection.AssemblyName,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.ITypeResolutionService.GetAssembly(System.Reflection.AssemblyName,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
     }
@@ -55,7 +55,7 @@
     - (NSString *)getPathOfAssembly_withName:(System_Reflection_AssemblyName *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.ITypeResolutionService.GetPathOfAssembly(System.Reflection.AssemblyName)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.ITypeResolutionService.GetPathOfAssembly(System.Reflection.AssemblyName)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -66,7 +66,7 @@
     - (System_Type *)getType_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.ITypeResolutionService.GetType(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.ITypeResolutionService.GetType(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Type bestObjectWithMonoObject:monoObject];
     }
@@ -77,7 +77,7 @@
     - (System_Type *)getType_withName:(NSString *)p1 throwOnError:(BOOL)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.ITypeResolutionService.GetType(string,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.ITypeResolutionService.GetType(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return [System_Type bestObjectWithMonoObject:monoObject];
     }
@@ -88,7 +88,7 @@
     - (System_Type *)getType_withName:(NSString *)p1 throwOnError:(BOOL)p2 ignoreCase:(BOOL)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.ITypeResolutionService.GetType(string,bool,bool)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.ITypeResolutionService.GetType(string,bool,bool)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return [System_Type bestObjectWithMonoObject:monoObject];
     }
@@ -99,7 +99,7 @@
     - (void)referenceAssembly_withName:(System_Reflection_AssemblyName *)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.ITypeResolutionService.ReferenceAssembly(System.Reflection.AssemblyName)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.ITypeResolutionService.ReferenceAssembly(System.Reflection.AssemblyName)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : Microsoft.Win32.SessionEndingEventArgs
 	// Managed param types : Microsoft.Win32.SessionEndReasons
-    + (Microsoft_Win32_SessionEndingEventArgs *)new_withReason:(Microsoft_Win32_SessionEndReasons)p1;
+    + (Microsoft_Win32_SessionEndingEventArgs *)new_withReason:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -28,6 +28,6 @@
 
 	// Managed property name : Reason
 	// Managed property type : Microsoft.Win32.SessionEndReasons
-    @property (nonatomic, readonly) Microsoft_Win32_SessionEndReasons reason;
+    @property (nonatomic, readonly) int32_t reason;
 @end
 //--Dubrovnik.CodeGenerator

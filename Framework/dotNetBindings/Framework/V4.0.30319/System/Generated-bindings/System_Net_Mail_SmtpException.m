@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Mail.SmtpException
 	// Managed param types : System.Net.Mail.SmtpStatusCode
-    + (System_Net_Mail_SmtpException *)new_withStatusCode:(System_Net_Mail_SmtpStatusCode)p1
+    + (System_Net_Mail_SmtpException *)new_withStatusCode:(int32_t)p1
     {
 		
-		System_Net_Mail_SmtpException * object = [[self alloc] initWithSignature:"System.Net.Mail.SmtpStatusCode" withNumArgs:1, DB_VALUE(p1)];;
+		System_Net_Mail_SmtpException * object = [[self alloc] initWithSignature:"System.Net.Mail.SmtpStatusCode" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -41,10 +41,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Mail.SmtpException
 	// Managed param types : System.Net.Mail.SmtpStatusCode, System.String
-    + (System_Net_Mail_SmtpException *)new_withStatusCode:(System_Net_Mail_SmtpStatusCode)p1 message:(NSString *)p2
+    + (System_Net_Mail_SmtpException *)new_withStatusCode:(int32_t)p1 message:(NSString *)p2
     {
 		
-		System_Net_Mail_SmtpException * object = [[self alloc] initWithSignature:"System.Net.Mail.SmtpStatusCode,string" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		System_Net_Mail_SmtpException * object = [[self alloc] initWithSignature:"System.Net.Mail.SmtpStatusCode,string" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Net_Mail_SmtpException *)new_withMessage:(NSString *)p1
     {
 		
-		System_Net_Mail_SmtpException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_Net_Mail_SmtpException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -66,7 +66,7 @@
     + (System_Net_Mail_SmtpException *)new_withMessage:(NSString *)p1 innerException:(System_Exception *)p2
     {
 		
-		System_Net_Mail_SmtpException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Net_Mail_SmtpException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -77,18 +77,37 @@
 	// Managed property name : StatusCode
 	// Managed property type : System.Net.Mail.SmtpStatusCode
     @synthesize statusCode = _statusCode;
-    - (System_Net_Mail_SmtpStatusCode)statusCode
+    - (int32_t)statusCode
     {
-		MonoObject *monoObject = [self getMonoProperty:"StatusCode"];
-		_statusCode = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "StatusCode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_statusCode = monoObject;
 
 		return _statusCode;
 	}
-    - (void)setStatusCode:(System_Net_Mail_SmtpStatusCode)value
+    - (void)setStatusCode:(int32_t)value
 	{
 		_statusCode = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"StatusCode" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "StatusCode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -100,7 +119,7 @@
     - (void)getObjectData_withSerializationInfo:(System_Runtime_Serialization_SerializationInfo *)p1 streamingContext:(System_Runtime_Serialization_StreamingContext *)p2
     {
 		
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 

@@ -20,7 +20,7 @@
 
 	// Managed field name : tymed
 	// Managed field type : System.Runtime.InteropServices.ComTypes.TYMED
-    @property (nonatomic) System_Runtime_InteropServices_ComTypes_TYMED tymed;
+    @property (nonatomic) int32_t tymed;
 
 	// Managed field name : unionmember
 	// Managed field type : System.IntPtr

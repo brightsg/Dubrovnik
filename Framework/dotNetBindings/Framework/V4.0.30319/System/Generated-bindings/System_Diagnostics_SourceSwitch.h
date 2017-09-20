@@ -29,7 +29,7 @@
 
 	// Managed property name : Level
 	// Managed property type : System.Diagnostics.SourceLevels
-    @property (nonatomic) System_Diagnostics_SourceLevels level;
+    @property (nonatomic) int32_t level;
 
 #pragma mark -
 #pragma mark Methods
@@ -37,6 +37,6 @@
 	// Managed method name : ShouldTrace
 	// Managed return type : System.Boolean
 	// Managed param types : System.Diagnostics.TraceEventType
-    - (BOOL)shouldTrace_withEventType:(System_Diagnostics_TraceEventType)p1;
+    - (BOOL)shouldTrace_withEventType:(int32_t)p1;
 @end
 //--Dubrovnik.CodeGenerator

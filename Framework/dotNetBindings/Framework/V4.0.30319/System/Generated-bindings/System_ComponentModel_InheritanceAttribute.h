@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.InheritanceAttribute
 	// Managed param types : System.ComponentModel.InheritanceLevel
-    + (System_ComponentModel_InheritanceAttribute *)new_withInheritanceLevel:(System_ComponentModel_InheritanceLevel)p1;
+    + (System_ComponentModel_InheritanceAttribute *)new_withInheritanceLevel:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Fields
@@ -43,7 +43,7 @@
 
 	// Managed property name : InheritanceLevel
 	// Managed property type : System.ComponentModel.InheritanceLevel
-    @property (nonatomic, readonly) System_ComponentModel_InheritanceLevel inheritanceLevel;
+    @property (nonatomic, readonly) int32_t inheritanceLevel;
 
 #pragma mark -
 #pragma mark Methods

@@ -33,7 +33,7 @@
     + (System_Net_HttpListenerException *)new_withErrorCode:(int32_t)p1
     {
 		
-		System_Net_HttpListenerException * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		System_Net_HttpListenerException * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Net_HttpListenerException *)new_withErrorCode:(int32_t)p1 message:(NSString *)p2
     {
 		
-		System_Net_HttpListenerException * object = [[self alloc] initWithSignature:"int,string" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		System_Net_HttpListenerException * object = [[self alloc] initWithSignature:"int,string" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -57,8 +57,18 @@
     @synthesize errorCode = _errorCode;
     - (int32_t)errorCode
     {
-		MonoObject *monoObject = [self getMonoProperty:"ErrorCode"];
-		_errorCode = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ErrorCode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_errorCode = monoObject;
 
 		return _errorCode;
 	}

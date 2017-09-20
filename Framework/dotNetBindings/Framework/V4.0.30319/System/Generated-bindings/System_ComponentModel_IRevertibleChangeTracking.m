@@ -33,7 +33,7 @@
     - (void)rejectChanges
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.IRevertibleChangeTracking.RejectChanges()" withNumArgs:0];;
+		[self invokeMonoMethod:"System.ComponentModel.IRevertibleChangeTracking.RejectChanges()" withNumArgs:0];
         
     }
 

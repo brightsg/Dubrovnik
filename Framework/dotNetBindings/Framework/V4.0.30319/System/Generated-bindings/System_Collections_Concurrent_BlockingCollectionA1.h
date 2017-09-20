@@ -183,6 +183,11 @@
 
 	// Managed method name : TryTakeFromAny
 	// Managed return type : System.Int32
+	// Managed param types : System.Collections.Concurrent.BlockingCollection`1[], ref T&, System.Int32
+    + (int32_t)tryTakeFromAny_withCollections:(DBSystem_Array *)p1 itemRef:(System_Collections_Concurrent_BlockingCollectionA1__T **)p2 millisecondsTimeout:(int32_t)p3;
+
+	// Managed method name : TryTakeFromAny
+	// Managed return type : System.Int32
 	// Managed param types : System.Collections.Concurrent.BlockingCollection`1[], ref T&
     + (int32_t)tryTakeFromAny_withCollections:(DBSystem_Array *)p1 itemRef:(System_Collections_Concurrent_BlockingCollectionA1__T **)p2;
 
@@ -190,11 +195,6 @@
 	// Managed return type : System.Int32
 	// Managed param types : System.Collections.Concurrent.BlockingCollection`1[], ref T&, System.TimeSpan
     + (int32_t)tryTakeFromAny_withCollections:(DBSystem_Array *)p1 itemRef:(System_Collections_Concurrent_BlockingCollectionA1__T **)p2 timeout:(System_TimeSpan *)p3;
-
-	// Managed method name : TryTakeFromAny
-	// Managed return type : System.Int32
-	// Managed param types : System.Collections.Concurrent.BlockingCollection`1[], ref T&, System.Int32
-    + (int32_t)tryTakeFromAny_withCollections:(DBSystem_Array *)p1 itemRef:(System_Collections_Concurrent_BlockingCollectionA1__T **)p2 millisecondsTimeout:(int32_t)p3;
 
 	// Managed method name : TryTakeFromAny
 	// Managed return type : System.Int32

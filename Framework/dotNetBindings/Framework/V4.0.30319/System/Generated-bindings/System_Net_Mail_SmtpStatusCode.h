@@ -2,7 +2,9 @@
 //
 // Managed enumeration : SmtpStatusCode
 //
-typedef NS_ENUM(int32_t, System_Net_Mail_SmtpStatusCode) {
+
+// C enumeration
+typedef NS_ENUM(int32_t, enumSystem_Net_Mail_SmtpStatusCode) {
 	System_Net_Mail_SmtpStatusCode_BadCommandSequence = 503,
 	System_Net_Mail_SmtpStatusCode_CannotVerifyUserWillAttemptDelivery = 252,
 	System_Net_Mail_SmtpStatusCode_ClientNotPermitted = 454,
@@ -29,4 +31,116 @@ typedef NS_ENUM(int32_t, System_Net_Mail_SmtpStatusCode) {
 	System_Net_Mail_SmtpStatusCode_UserNotLocalTryAlternatePath = 551,
 	System_Net_Mail_SmtpStatusCode_UserNotLocalWillForward = 251,
 };
+@interface System_Net_Mail_SmtpStatusCode : DBSystem_Enum
+
+#pragma mark -
+#pragma mark Setup
+	// obligatory override
+	+ (const char *)monoClassName;
+	// obligatory override
+	+ (const char *)monoAssemblyName;
+
+#pragma mark -
+#pragma mark Fields
+
+	// Managed field name : BadCommandSequence
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)badCommandSequence;
+
+	// Managed field name : CannotVerifyUserWillAttemptDelivery
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)cannotVerifyUserWillAttemptDelivery;
+
+	// Managed field name : ClientNotPermitted
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)clientNotPermitted;
+
+	// Managed field name : CommandNotImplemented
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)commandNotImplemented;
+
+	// Managed field name : CommandParameterNotImplemented
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)commandParameterNotImplemented;
+
+	// Managed field name : CommandUnrecognized
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)commandUnrecognized;
+
+	// Managed field name : ExceededStorageAllocation
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)exceededStorageAllocation;
+
+	// Managed field name : GeneralFailure
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)generalFailure;
+
+	// Managed field name : HelpMessage
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)helpMessage;
+
+	// Managed field name : InsufficientStorage
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)insufficientStorage;
+
+	// Managed field name : LocalErrorInProcessing
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)localErrorInProcessing;
+
+	// Managed field name : MailboxBusy
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)mailboxBusy;
+
+	// Managed field name : MailboxNameNotAllowed
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)mailboxNameNotAllowed;
+
+	// Managed field name : MailboxUnavailable
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)mailboxUnavailable;
+
+	// Managed field name : MustIssueStartTlsFirst
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)mustIssueStartTlsFirst;
+
+	// Managed field name : Ok
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)ok;
+
+	// Managed field name : ServiceClosingTransmissionChannel
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)serviceClosingTransmissionChannel;
+
+	// Managed field name : ServiceNotAvailable
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)serviceNotAvailable;
+
+	// Managed field name : ServiceReady
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)serviceReady;
+
+	// Managed field name : StartMailInput
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)startMailInput;
+
+	// Managed field name : SyntaxError
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)syntaxError;
+
+	// Managed field name : SystemStatus
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)systemStatus;
+
+	// Managed field name : TransactionFailed
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)transactionFailed;
+
+	// Managed field name : UserNotLocalTryAlternatePath
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)userNotLocalTryAlternatePath;
+
+	// Managed field name : UserNotLocalWillForward
+	// Managed field type : System.Net.Mail.SmtpStatusCode
+    + (int32_t)userNotLocalWillForward;
+@end
 //--Dubrovnik.CodeGenerator

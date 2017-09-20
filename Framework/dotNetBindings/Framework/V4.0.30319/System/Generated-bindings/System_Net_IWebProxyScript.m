@@ -33,7 +33,7 @@
     - (void)close
     {
 		
-		[self invokeMonoMethod:"System.Net.IWebProxyScript.Close()" withNumArgs:0];;
+		[self invokeMonoMethod:"System.Net.IWebProxyScript.Close()" withNumArgs:0];
         
     }
 
@@ -43,7 +43,7 @@
     - (BOOL)load_withScriptLocation:(System_Uri *)p1 script:(NSString *)p2 helperType:(System_Type *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Net.IWebProxyScript.Load(System.Uri,string,System.Type)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Net.IWebProxyScript.Load(System.Uri,string,System.Type)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -54,7 +54,7 @@
     - (NSString *)run_withUrl:(NSString *)p1 host:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Net.IWebProxyScript.Run(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Net.IWebProxyScript.Run(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }

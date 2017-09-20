@@ -32,7 +32,17 @@
     @synthesize applicationPolicy = _applicationPolicy;
     - (System_Security_Cryptography_OidCollection *)applicationPolicy
     {
-		MonoObject *monoObject = [self getMonoProperty:"ApplicationPolicy"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ApplicationPolicy");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_applicationPolicy isEqualToMonoObject:monoObject]) return _applicationPolicy;					
 		_applicationPolicy = [System_Security_Cryptography_OidCollection bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize certificatePolicy = _certificatePolicy;
     - (System_Security_Cryptography_OidCollection *)certificatePolicy
     {
-		MonoObject *monoObject = [self getMonoProperty:"CertificatePolicy"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CertificatePolicy");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_certificatePolicy isEqualToMonoObject:monoObject]) return _certificatePolicy;					
 		_certificatePolicy = [System_Security_Cryptography_OidCollection bestObjectWithMonoObject:monoObject];
 
@@ -56,7 +76,17 @@
     @synthesize extraStore = _extraStore;
     - (System_Security_Cryptography_X509Certificates_X509Certificate2Collection *)extraStore
     {
-		MonoObject *monoObject = [self getMonoProperty:"ExtraStore"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ExtraStore");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_extraStore isEqualToMonoObject:monoObject]) return _extraStore;					
 		_extraStore = [System_Security_Cryptography_X509Certificates_X509Certificate2Collection bestObjectWithMonoObject:monoObject];
 
@@ -66,35 +96,73 @@
 	// Managed property name : RevocationFlag
 	// Managed property type : System.Security.Cryptography.X509Certificates.X509RevocationFlag
     @synthesize revocationFlag = _revocationFlag;
-    - (System_Security_Cryptography_X509Certificates_X509RevocationFlag)revocationFlag
+    - (int32_t)revocationFlag
     {
-		MonoObject *monoObject = [self getMonoProperty:"RevocationFlag"];
-		_revocationFlag = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RevocationFlag");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_revocationFlag = monoObject;
 
 		return _revocationFlag;
 	}
-    - (void)setRevocationFlag:(System_Security_Cryptography_X509Certificates_X509RevocationFlag)value
+    - (void)setRevocationFlag:(int32_t)value
 	{
 		_revocationFlag = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"RevocationFlag" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "RevocationFlag");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : RevocationMode
 	// Managed property type : System.Security.Cryptography.X509Certificates.X509RevocationMode
     @synthesize revocationMode = _revocationMode;
-    - (System_Security_Cryptography_X509Certificates_X509RevocationMode)revocationMode
+    - (int32_t)revocationMode
     {
-		MonoObject *monoObject = [self getMonoProperty:"RevocationMode"];
-		_revocationMode = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RevocationMode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_revocationMode = monoObject;
 
 		return _revocationMode;
 	}
-    - (void)setRevocationMode:(System_Security_Cryptography_X509Certificates_X509RevocationMode)value
+    - (void)setRevocationMode:(int32_t)value
 	{
 		_revocationMode = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"RevocationMode" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "RevocationMode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : UrlRetrievalTimeout
@@ -102,7 +170,17 @@
     @synthesize urlRetrievalTimeout = _urlRetrievalTimeout;
     - (System_TimeSpan *)urlRetrievalTimeout
     {
-		MonoObject *monoObject = [self getMonoProperty:"UrlRetrievalTimeout"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UrlRetrievalTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_urlRetrievalTimeout isEqualToMonoObject:monoObject]) return _urlRetrievalTimeout;					
 		_urlRetrievalTimeout = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
@@ -111,25 +189,53 @@
     - (void)setUrlRetrievalTimeout:(System_TimeSpan *)value
 	{
 		_urlRetrievalTimeout = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"UrlRetrievalTimeout" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "UrlRetrievalTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : VerificationFlags
 	// Managed property type : System.Security.Cryptography.X509Certificates.X509VerificationFlags
     @synthesize verificationFlags = _verificationFlags;
-    - (System_Security_Cryptography_X509Certificates_X509VerificationFlags)verificationFlags
+    - (int32_t)verificationFlags
     {
-		MonoObject *monoObject = [self getMonoProperty:"VerificationFlags"];
-		_verificationFlags = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "VerificationFlags");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_verificationFlags = monoObject;
 
 		return _verificationFlags;
 	}
-    - (void)setVerificationFlags:(System_Security_Cryptography_X509Certificates_X509VerificationFlags)value
+    - (void)setVerificationFlags:(int32_t)value
 	{
 		_verificationFlags = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"VerificationFlags" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "VerificationFlags");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : VerificationTime
@@ -137,7 +243,17 @@
     @synthesize verificationTime = _verificationTime;
     - (NSDate *)verificationTime
     {
-		MonoObject *monoObject = [self getMonoProperty:"VerificationTime"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "VerificationTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_verificationTime isEqualToMonoObject:monoObject]) return _verificationTime;					
 		_verificationTime = [NSDate dateWithMonoDateTime:monoObject];
 
@@ -146,8 +262,17 @@
     - (void)setVerificationTime:(NSDate *)value
 	{
 		_verificationTime = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"VerificationTime" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "VerificationTime");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -159,7 +284,7 @@
     - (void)reset
     {
 		
-		[self invokeMonoMethod:"Reset()" withNumArgs:0];;
+		[self invokeMonoMethod:"Reset()" withNumArgs:0];
         
     }
 

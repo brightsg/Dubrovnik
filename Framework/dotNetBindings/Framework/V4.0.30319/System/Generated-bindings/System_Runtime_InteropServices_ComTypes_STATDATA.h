@@ -16,7 +16,7 @@
 
 	// Managed field name : advf
 	// Managed field type : System.Runtime.InteropServices.ComTypes.ADVF
-    @property (nonatomic) System_Runtime_InteropServices_ComTypes_ADVF advf;
+    @property (nonatomic) int32_t advf;
 
 	// Managed field name : advSink
 	// Managed field type : System.Runtime.InteropServices.ComTypes.IAdviseSink

@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Configuration.SettingElement
 	// Managed param types : System.String, System.Configuration.SettingsSerializeAs
-    + (System_Configuration_SettingElement *)new_withName:(NSString *)p1 serializeAs:(System_Configuration_SettingsSerializeAs)p2;
+    + (System_Configuration_SettingElement *)new_withName:(NSString *)p1 serializeAs:(int32_t)p2;
 
 #pragma mark -
 #pragma mark Properties
@@ -28,7 +28,7 @@
 
 	// Managed property name : SerializeAs
 	// Managed property type : System.Configuration.SettingsSerializeAs
-    @property (nonatomic) System_Configuration_SettingsSerializeAs serializeAs;
+    @property (nonatomic) int32_t serializeAs;
 
 	// Managed property name : Value
 	// Managed property type : System.Configuration.SettingValueElement

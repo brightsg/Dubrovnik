@@ -33,7 +33,7 @@
     + (System_ComponentModel_Design_CommandID *)new_withMenuGroup:(System_Guid *)p1 commandID:(int32_t)p2
     {
 		
-		System_ComponentModel_Design_CommandID * object = [[self alloc] initWithSignature:"System.Guid,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_ComponentModel_Design_CommandID * object = [[self alloc] initWithSignature:"System.Guid,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize guid = _guid;
     - (System_Guid *)guid
     {
-		MonoObject *monoObject = [self getMonoProperty:"Guid"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Guid");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_guid isEqualToMonoObject:monoObject]) return _guid;					
 		_guid = [System_Guid bestObjectWithMonoObject:monoObject];
 
@@ -58,8 +68,18 @@
     @synthesize iD = _iD;
     - (int32_t)iD
     {
-		MonoObject *monoObject = [self getMonoProperty:"ID"];
-		_iD = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ID");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_iD = monoObject;
 
 		return _iD;
 	}
@@ -73,7 +93,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

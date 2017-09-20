@@ -33,7 +33,7 @@
     + (System_ComponentModel_AmbientValueAttribute *)new_withType:(System_Type *)p1 value:(NSString *)p2
     {
 		
-		System_ComponentModel_AmbientValueAttribute * object = [[self alloc] initWithSignature:"System.Type,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_ComponentModel_AmbientValueAttribute * object = [[self alloc] initWithSignature:"System.Type,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_ComponentModel_AmbientValueAttribute *)new_withValueChar:(uint16_t)p1
     {
 		
-		System_ComponentModel_AmbientValueAttribute * object = [[self alloc] initWithSignature:"char" withNumArgs:1, DB_VALUE(p1)];;
+		System_ComponentModel_AmbientValueAttribute * object = [[self alloc] initWithSignature:"char" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_ComponentModel_AmbientValueAttribute *)new_withValueByte:(uint8_t)p1
     {
 		
-		System_ComponentModel_AmbientValueAttribute * object = [[self alloc] initWithSignature:"byte" withNumArgs:1, DB_VALUE(p1)];;
+		System_ComponentModel_AmbientValueAttribute * object = [[self alloc] initWithSignature:"byte" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -66,7 +66,7 @@
     + (System_ComponentModel_AmbientValueAttribute *)new_withValueInt16:(int16_t)p1
     {
 		
-		System_ComponentModel_AmbientValueAttribute * object = [[self alloc] initWithSignature:"int16" withNumArgs:1, DB_VALUE(p1)];;
+		System_ComponentModel_AmbientValueAttribute * object = [[self alloc] initWithSignature:"int16" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -77,7 +77,7 @@
     + (System_ComponentModel_AmbientValueAttribute *)new_withValueInt:(int32_t)p1
     {
 		
-		System_ComponentModel_AmbientValueAttribute * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		System_ComponentModel_AmbientValueAttribute * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -88,7 +88,7 @@
     + (System_ComponentModel_AmbientValueAttribute *)new_withValueLong:(int64_t)p1
     {
 		
-		System_ComponentModel_AmbientValueAttribute * object = [[self alloc] initWithSignature:"long" withNumArgs:1, DB_VALUE(p1)];;
+		System_ComponentModel_AmbientValueAttribute * object = [[self alloc] initWithSignature:"long" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -99,7 +99,7 @@
     + (System_ComponentModel_AmbientValueAttribute *)new_withValueSingle:(float)p1
     {
 		
-		System_ComponentModel_AmbientValueAttribute * object = [[self alloc] initWithSignature:"single" withNumArgs:1, DB_VALUE(p1)];;
+		System_ComponentModel_AmbientValueAttribute * object = [[self alloc] initWithSignature:"single" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -110,7 +110,7 @@
     + (System_ComponentModel_AmbientValueAttribute *)new_withValueDouble:(double)p1
     {
 		
-		System_ComponentModel_AmbientValueAttribute * object = [[self alloc] initWithSignature:"double" withNumArgs:1, DB_VALUE(p1)];;
+		System_ComponentModel_AmbientValueAttribute * object = [[self alloc] initWithSignature:"double" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -121,7 +121,7 @@
     + (System_ComponentModel_AmbientValueAttribute *)new_withValueBool:(BOOL)p1
     {
 		
-		System_ComponentModel_AmbientValueAttribute * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
+		System_ComponentModel_AmbientValueAttribute * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -132,7 +132,7 @@
     + (System_ComponentModel_AmbientValueAttribute *)new_withValueString:(NSString *)p1
     {
 		
-		System_ComponentModel_AmbientValueAttribute * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_AmbientValueAttribute * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -143,7 +143,7 @@
     + (System_ComponentModel_AmbientValueAttribute *)new_withValueObject:(System_Object *)p1
     {
 		
-		System_ComponentModel_AmbientValueAttribute * object = [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_AmbientValueAttribute * object = [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -156,7 +156,17 @@
     @synthesize value = _value;
     - (System_Object *)value
     {
-		MonoObject *monoObject = [self getMonoProperty:"Value"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Value");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_value isEqualToMonoObject:monoObject]) return _value;					
 		_value = [System_Object objectWithMonoObject:monoObject];
 
@@ -172,7 +182,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

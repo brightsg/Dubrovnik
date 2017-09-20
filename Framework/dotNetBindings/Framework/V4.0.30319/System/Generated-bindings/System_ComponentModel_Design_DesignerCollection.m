@@ -33,7 +33,7 @@
     + (System_ComponentModel_Design_DesignerCollection *)new_withDesignersSCDIDesignerHost:(DBSystem_Array *)p1
     {
 		
-		System_ComponentModel_Design_DesignerCollection * object = [[self alloc] initWithSignature:"System.ComponentModel.Design.IDesignerHost[]" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_Design_DesignerCollection * object = [[self alloc] initWithSignature:"System.ComponentModel.Design.IDesignerHost[]" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_ComponentModel_Design_DesignerCollection *)new_withDesignersSCIList:(id <System_Collections_IList_>)p1
     {
 		
-		System_ComponentModel_Design_DesignerCollection * object = [[self alloc] initWithSignature:"System.Collections.IList" withNumArgs:1, [p1 monoValue]];;
+		System_ComponentModel_Design_DesignerCollection * object = [[self alloc] initWithSignature:"System.Collections.IList" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -57,8 +57,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -68,7 +78,17 @@
     @synthesize item = _item;
     - (System_ComponentModel_Design_IDesignerHost *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
 		_item = [System_ComponentModel_Design_IDesignerHost bestObjectWithMonoObject:monoObject];
 

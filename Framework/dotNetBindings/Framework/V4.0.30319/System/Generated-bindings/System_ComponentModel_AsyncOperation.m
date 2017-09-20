@@ -32,7 +32,17 @@
     @synthesize synchronizationContext = _synchronizationContext;
     - (System_Threading_SynchronizationContext *)synchronizationContext
     {
-		MonoObject *monoObject = [self getMonoProperty:"SynchronizationContext"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SynchronizationContext");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_synchronizationContext isEqualToMonoObject:monoObject]) return _synchronizationContext;					
 		_synchronizationContext = [System_Threading_SynchronizationContext bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize userSuppliedState = _userSuppliedState;
     - (System_Object *)userSuppliedState
     {
-		MonoObject *monoObject = [self getMonoProperty:"UserSuppliedState"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UserSuppliedState");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_userSuppliedState isEqualToMonoObject:monoObject]) return _userSuppliedState;					
 		_userSuppliedState = [System_Object objectWithMonoObject:monoObject];
 
@@ -60,7 +80,7 @@
     - (void)operationCompleted
     {
 		
-		[self invokeMonoMethod:"OperationCompleted()" withNumArgs:0];;
+		[self invokeMonoMethod:"OperationCompleted()" withNumArgs:0];
         
     }
 
@@ -70,7 +90,7 @@
     - (void)post_withD:(System_Threading_SendOrPostCallback *)p1 arg:(System_Object *)p2
     {
 		
-		[self invokeMonoMethod:"Post(System.Threading.SendOrPostCallback,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"Post(System.Threading.SendOrPostCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -80,7 +100,7 @@
     - (void)postOperationCompleted_withD:(System_Threading_SendOrPostCallback *)p1 arg:(System_Object *)p2
     {
 		
-		[self invokeMonoMethod:"PostOperationCompleted(System.Threading.SendOrPostCallback,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"PostOperationCompleted(System.Threading.SendOrPostCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 

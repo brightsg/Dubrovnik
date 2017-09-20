@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Web.AspNetHostingPermissionAttribute
 	// Managed param types : System.Security.Permissions.SecurityAction
-    + (System_Web_AspNetHostingPermissionAttribute *)new_withAction:(System_Security_Permissions_SecurityAction)p1
+    + (System_Web_AspNetHostingPermissionAttribute *)new_withAction:(int32_t)p1
     {
 		
-		System_Web_AspNetHostingPermissionAttribute * object = [[self alloc] initWithSignature:"System.Security.Permissions.SecurityAction" withNumArgs:1, DB_VALUE(p1)];;
+		System_Web_AspNetHostingPermissionAttribute * object = [[self alloc] initWithSignature:"System.Security.Permissions.SecurityAction" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -44,18 +44,37 @@
 	// Managed property name : Level
 	// Managed property type : System.Web.AspNetHostingPermissionLevel
     @synthesize level = _level;
-    - (System_Web_AspNetHostingPermissionLevel)level
+    - (int32_t)level
     {
-		MonoObject *monoObject = [self getMonoProperty:"Level"];
-		_level = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Level");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_level = monoObject;
 
 		return _level;
 	}
-    - (void)setLevel:(System_Web_AspNetHostingPermissionLevel)value
+    - (void)setLevel:(int32_t)value
 	{
 		_level = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Level" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Level");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

@@ -30,10 +30,10 @@
 	// Managed method name : AddContextAttribute
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.String, System.ComponentModel.Design.HelpKeywordType
-    - (void)addContextAttribute_withName:(NSString *)p1 value:(NSString *)p2 keywordType:(System_ComponentModel_Design_HelpKeywordType)p3
+    - (void)addContextAttribute_withName:(NSString *)p1 value:(NSString *)p2 keywordType:(int32_t)p3
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IHelpService.AddContextAttribute(string,string,System.ComponentModel.Design.HelpKeywordType)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IHelpService.AddContextAttribute(string,string,System.ComponentModel.Design.HelpKeywordType)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
         
     }
 
@@ -43,14 +43,14 @@
     - (void)clearContextAttributes
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IHelpService.ClearContextAttributes()" withNumArgs:0];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IHelpService.ClearContextAttributes()" withNumArgs:0];
         
     }
 
 	// Managed method name : CreateLocalContext
 	// Managed return type : System.ComponentModel.Design.IHelpService
 	// Managed param types : System.ComponentModel.Design.HelpContextType
-    - (id <System_ComponentModel_Design_IHelpService>)createLocalContext_withContextType:(System_ComponentModel_Design_HelpContextType)p1
+    - (id <System_ComponentModel_Design_IHelpService>)createLocalContext_withContextType:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.ComponentModel.Design.IHelpService.CreateLocalContext(System.ComponentModel.Design.HelpContextType)" withNumArgs:1, DB_VALUE(p1)];
@@ -64,7 +64,7 @@
     - (void)removeContextAttribute_withName:(NSString *)p1 value:(NSString *)p2
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IHelpService.RemoveContextAttribute(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IHelpService.RemoveContextAttribute(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -74,7 +74,7 @@
     - (void)removeLocalContext_withLocalContext:(id <System_ComponentModel_Design_IHelpService_>)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IHelpService.RemoveLocalContext(System.ComponentModel.Design.IHelpService)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IHelpService.RemoveLocalContext(System.ComponentModel.Design.IHelpService)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -84,7 +84,7 @@
     - (void)showHelpFromKeyword_withHelpKeyword:(NSString *)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IHelpService.ShowHelpFromKeyword(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IHelpService.ShowHelpFromKeyword(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -94,7 +94,7 @@
     - (void)showHelpFromUrl_withHelpUrl:(NSString *)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IHelpService.ShowHelpFromUrl(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IHelpService.ShowHelpFromUrl(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

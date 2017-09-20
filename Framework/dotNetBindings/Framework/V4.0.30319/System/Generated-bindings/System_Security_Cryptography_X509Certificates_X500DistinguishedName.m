@@ -33,7 +33,7 @@
     + (System_Security_Cryptography_X509Certificates_X500DistinguishedName *)new_withEncodedDistinguishedNameByte:(NSData *)p1
     {
 		
-		System_Security_Cryptography_X509Certificates_X500DistinguishedName * object = [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoValue]];;
+		System_Security_Cryptography_X509Certificates_X500DistinguishedName * object = [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Security_Cryptography_X509Certificates_X500DistinguishedName *)new_withEncodedDistinguishedNameSSCAsnEncodedData:(System_Security_Cryptography_AsnEncodedData *)p1
     {
 		
-		System_Security_Cryptography_X509Certificates_X500DistinguishedName * object = [[self alloc] initWithSignature:"System.Security.Cryptography.AsnEncodedData" withNumArgs:1, [p1 monoValue]];;
+		System_Security_Cryptography_X509Certificates_X500DistinguishedName * object = [[self alloc] initWithSignature:"System.Security.Cryptography.AsnEncodedData" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Security_Cryptography_X509Certificates_X500DistinguishedName *)new_withDistinguishedNameSSCXX500DistinguishedName:(System_Security_Cryptography_X509Certificates_X500DistinguishedName *)p1
     {
 		
-		System_Security_Cryptography_X509Certificates_X500DistinguishedName * object = [[self alloc] initWithSignature:"System.Security.Cryptography.X509Certificates.X500DistinguishedName" withNumArgs:1, [p1 monoValue]];;
+		System_Security_Cryptography_X509Certificates_X500DistinguishedName * object = [[self alloc] initWithSignature:"System.Security.Cryptography.X509Certificates.X500DistinguishedName" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -66,7 +66,7 @@
     + (System_Security_Cryptography_X509Certificates_X500DistinguishedName *)new_withDistinguishedNameString:(NSString *)p1
     {
 		
-		System_Security_Cryptography_X509Certificates_X500DistinguishedName * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_Security_Cryptography_X509Certificates_X500DistinguishedName * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -74,10 +74,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Security.Cryptography.X509Certificates.X500DistinguishedName
 	// Managed param types : System.String, System.Security.Cryptography.X509Certificates.X500DistinguishedNameFlags
-    + (System_Security_Cryptography_X509Certificates_X500DistinguishedName *)new_withDistinguishedName:(NSString *)p1 flag:(System_Security_Cryptography_X509Certificates_X500DistinguishedNameFlags)p2
+    + (System_Security_Cryptography_X509Certificates_X500DistinguishedName *)new_withDistinguishedName:(NSString *)p1 flag:(int32_t)p2
     {
 		
-		System_Security_Cryptography_X509Certificates_X500DistinguishedName * object = [[self alloc] initWithSignature:"string,System.Security.Cryptography.X509Certificates.X500DistinguishedNameFlags" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Security_Cryptography_X509Certificates_X500DistinguishedName * object = [[self alloc] initWithSignature:"string,System.Security.Cryptography.X509Certificates.X500DistinguishedNameFlags" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -90,7 +90,17 @@
     @synthesize name = _name;
     - (NSString *)name
     {
-		MonoObject *monoObject = [self getMonoProperty:"Name"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Name");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
 		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -103,7 +113,7 @@
 	// Managed method name : Decode
 	// Managed return type : System.String
 	// Managed param types : System.Security.Cryptography.X509Certificates.X500DistinguishedNameFlags
-    - (NSString *)decode_withFlag:(System_Security_Cryptography_X509Certificates_X500DistinguishedNameFlags)p1
+    - (NSString *)decode_withFlag:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Decode(System.Security.Cryptography.X509Certificates.X500DistinguishedNameFlags)" withNumArgs:1, DB_VALUE(p1)];

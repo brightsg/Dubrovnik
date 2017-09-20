@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.ListSortDescription
 	// Managed param types : System.ComponentModel.PropertyDescriptor, System.ComponentModel.ListSortDirection
-    + (System_ComponentModel_ListSortDescription *)new_withProperty:(System_ComponentModel_PropertyDescriptor *)p1 direction:(System_ComponentModel_ListSortDirection)p2;
+    + (System_ComponentModel_ListSortDescription *)new_withProperty:(System_ComponentModel_PropertyDescriptor *)p1 direction:(int32_t)p2;
 
 #pragma mark -
 #pragma mark Properties
@@ -28,6 +28,6 @@
 
 	// Managed property name : SortDirection
 	// Managed property type : System.ComponentModel.ListSortDirection
-    @property (nonatomic) System_ComponentModel_ListSortDirection sortDirection;
+    @property (nonatomic) int32_t sortDirection;
 @end
 //--Dubrovnik.CodeGenerator

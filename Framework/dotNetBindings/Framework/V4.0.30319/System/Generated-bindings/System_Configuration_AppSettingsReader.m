@@ -33,7 +33,7 @@
     - (System_Object *)getValue_withKey:(NSString *)p1 type:(System_Type *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetValue(string,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetValue(string,System.Type)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }

@@ -30,18 +30,37 @@
 	// Managed property name : AuthenticationSchemes
 	// Managed property type : System.Net.AuthenticationSchemes
     @synthesize authenticationSchemes = _authenticationSchemes;
-    - (System_Net_AuthenticationSchemes)authenticationSchemes
+    - (int32_t)authenticationSchemes
     {
-		MonoObject *monoObject = [self getMonoProperty:"AuthenticationSchemes"];
-		_authenticationSchemes = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AuthenticationSchemes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_authenticationSchemes = monoObject;
 
 		return _authenticationSchemes;
 	}
-    - (void)setAuthenticationSchemes:(System_Net_AuthenticationSchemes)value
+    - (void)setAuthenticationSchemes:(int32_t)value
 	{
 		_authenticationSchemes = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"AuthenticationSchemes" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "AuthenticationSchemes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : AuthenticationSchemeSelectorDelegate
@@ -49,7 +68,17 @@
     @synthesize authenticationSchemeSelectorDelegate = _authenticationSchemeSelectorDelegate;
     - (System_Net_AuthenticationSchemeSelector *)authenticationSchemeSelectorDelegate
     {
-		MonoObject *monoObject = [self getMonoProperty:"AuthenticationSchemeSelectorDelegate"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AuthenticationSchemeSelectorDelegate");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_authenticationSchemeSelectorDelegate isEqualToMonoObject:monoObject]) return _authenticationSchemeSelectorDelegate;					
 		_authenticationSchemeSelectorDelegate = [System_Net_AuthenticationSchemeSelector bestObjectWithMonoObject:monoObject];
 
@@ -58,8 +87,17 @@
     - (void)setAuthenticationSchemeSelectorDelegate:(System_Net_AuthenticationSchemeSelector *)value
 	{
 		_authenticationSchemeSelectorDelegate = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"AuthenticationSchemeSelectorDelegate" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "AuthenticationSchemeSelectorDelegate");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : DefaultServiceNames
@@ -67,7 +105,17 @@
     @synthesize defaultServiceNames = _defaultServiceNames;
     - (System_Security_Authentication_ExtendedProtection_ServiceNameCollection *)defaultServiceNames
     {
-		MonoObject *monoObject = [self getMonoProperty:"DefaultServiceNames"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DefaultServiceNames");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_defaultServiceNames isEqualToMonoObject:monoObject]) return _defaultServiceNames;					
 		_defaultServiceNames = [System_Security_Authentication_ExtendedProtection_ServiceNameCollection bestObjectWithMonoObject:monoObject];
 
@@ -79,7 +127,17 @@
     @synthesize extendedProtectionPolicy = _extendedProtectionPolicy;
     - (System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)extendedProtectionPolicy
     {
-		MonoObject *monoObject = [self getMonoProperty:"ExtendedProtectionPolicy"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ExtendedProtectionPolicy");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_extendedProtectionPolicy isEqualToMonoObject:monoObject]) return _extendedProtectionPolicy;					
 		_extendedProtectionPolicy = [System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy bestObjectWithMonoObject:monoObject];
 
@@ -88,8 +146,17 @@
     - (void)setExtendedProtectionPolicy:(System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)value
 	{
 		_extendedProtectionPolicy = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"ExtendedProtectionPolicy" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ExtendedProtectionPolicy");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ExtendedProtectionSelectorDelegate
@@ -97,7 +164,17 @@
     @synthesize extendedProtectionSelectorDelegate = _extendedProtectionSelectorDelegate;
     - (System_Net_HttpListener__ExtendedProtectionSelector *)extendedProtectionSelectorDelegate
     {
-		MonoObject *monoObject = [self getMonoProperty:"ExtendedProtectionSelectorDelegate"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ExtendedProtectionSelectorDelegate");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_extendedProtectionSelectorDelegate isEqualToMonoObject:monoObject]) return _extendedProtectionSelectorDelegate;					
 		_extendedProtectionSelectorDelegate = [System_Net_HttpListener__ExtendedProtectionSelector bestObjectWithMonoObject:monoObject];
 
@@ -106,8 +183,17 @@
     - (void)setExtendedProtectionSelectorDelegate:(System_Net_HttpListener__ExtendedProtectionSelector *)value
 	{
 		_extendedProtectionSelectorDelegate = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"ExtendedProtectionSelectorDelegate" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ExtendedProtectionSelectorDelegate");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : IgnoreWriteExceptions
@@ -115,16 +201,35 @@
     @synthesize ignoreWriteExceptions = _ignoreWriteExceptions;
     - (BOOL)ignoreWriteExceptions
     {
-		MonoObject *monoObject = [self getMonoProperty:"IgnoreWriteExceptions"];
-		_ignoreWriteExceptions = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IgnoreWriteExceptions");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_ignoreWriteExceptions = monoObject;
 
 		return _ignoreWriteExceptions;
 	}
     - (void)setIgnoreWriteExceptions:(BOOL)value
 	{
 		_ignoreWriteExceptions = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"IgnoreWriteExceptions" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "IgnoreWriteExceptions");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : IsListening
@@ -132,8 +237,18 @@
     @synthesize isListening = _isListening;
     - (BOOL)isListening
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsListening"];
-		_isListening = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsListening");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isListening = monoObject;
 
 		return _isListening;
 	}
@@ -143,8 +258,18 @@
     static BOOL m_isSupported;
     + (BOOL)isSupported
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"IsSupported"];
-		m_isSupported = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsSupported");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		m_isSupported = monoObject;
 
 		return m_isSupported;
 	}
@@ -154,7 +279,17 @@
     @synthesize prefixes = _prefixes;
     - (System_Net_HttpListenerPrefixCollection *)prefixes
     {
-		MonoObject *monoObject = [self getMonoProperty:"Prefixes"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Prefixes");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_prefixes isEqualToMonoObject:monoObject]) return _prefixes;					
 		_prefixes = [System_Net_HttpListenerPrefixCollection bestObjectWithMonoObject:monoObject];
 
@@ -166,7 +301,17 @@
     @synthesize realm = _realm;
     - (NSString *)realm
     {
-		MonoObject *monoObject = [self getMonoProperty:"Realm"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Realm");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_realm isEqualToMonoObject:monoObject]) return _realm;					
 		_realm = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -175,8 +320,17 @@
     - (void)setRealm:(NSString *)value
 	{
 		_realm = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"Realm" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Realm");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : TimeoutManager
@@ -184,7 +338,17 @@
     @synthesize timeoutManager = _timeoutManager;
     - (System_Net_HttpListenerTimeoutManager *)timeoutManager
     {
-		MonoObject *monoObject = [self getMonoProperty:"TimeoutManager"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TimeoutManager");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_timeoutManager isEqualToMonoObject:monoObject]) return _timeoutManager;					
 		_timeoutManager = [System_Net_HttpListenerTimeoutManager bestObjectWithMonoObject:monoObject];
 
@@ -196,16 +360,35 @@
     @synthesize unsafeConnectionNtlmAuthentication = _unsafeConnectionNtlmAuthentication;
     - (BOOL)unsafeConnectionNtlmAuthentication
     {
-		MonoObject *monoObject = [self getMonoProperty:"UnsafeConnectionNtlmAuthentication"];
-		_unsafeConnectionNtlmAuthentication = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UnsafeConnectionNtlmAuthentication");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_unsafeConnectionNtlmAuthentication = monoObject;
 
 		return _unsafeConnectionNtlmAuthentication;
 	}
     - (void)setUnsafeConnectionNtlmAuthentication:(BOOL)value
 	{
 		_unsafeConnectionNtlmAuthentication = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"UnsafeConnectionNtlmAuthentication" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "UnsafeConnectionNtlmAuthentication");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -217,7 +400,7 @@
     - (void)abort
     {
 		
-		[self invokeMonoMethod:"Abort()" withNumArgs:0];;
+		[self invokeMonoMethod:"Abort()" withNumArgs:0];
         
     }
 
@@ -227,7 +410,7 @@
     - (id <System_IAsyncResult>)beginGetContext_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginGetContext(System.AsyncCallback,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginGetContext(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -238,7 +421,7 @@
     - (void)close
     {
 		
-		[self invokeMonoMethod:"Close()" withNumArgs:0];;
+		[self invokeMonoMethod:"Close()" withNumArgs:0];
         
     }
 
@@ -248,7 +431,7 @@
     - (System_Net_HttpListenerContext *)endGetContext_withAsyncResult:(id <System_IAsyncResult_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"EndGetContext(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"EndGetContext(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Net_HttpListenerContext bestObjectWithMonoObject:monoObject];
     }
@@ -281,7 +464,7 @@
     - (void)start
     {
 		
-		[self invokeMonoMethod:"Start()" withNumArgs:0];;
+		[self invokeMonoMethod:"Start()" withNumArgs:0];
         
     }
 
@@ -291,7 +474,7 @@
     - (void)stop
     {
 		
-		[self invokeMonoMethod:"Stop()" withNumArgs:0];;
+		[self invokeMonoMethod:"Stop()" withNumArgs:0];
         
     }
 

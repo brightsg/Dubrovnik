@@ -45,7 +45,7 @@
 
 	// Managed property name : ImpersonationLevel
 	// Managed property type : System.Security.Principal.TokenImpersonationLevel
-    @property (nonatomic, readonly) System_Security_Principal_TokenImpersonationLevel impersonationLevel;
+    @property (nonatomic, readonly) int32_t impersonationLevel;
 
 	// Managed property name : IsAuthenticated
 	// Managed property type : System.Boolean
@@ -108,12 +108,12 @@
 	// Managed method name : AuthenticateAsClient
 	// Managed return type : System.Void
 	// Managed param types : System.Net.NetworkCredential, System.String, System.Net.Security.ProtectionLevel, System.Security.Principal.TokenImpersonationLevel
-    - (void)authenticateAsClient_withCredential:(System_Net_NetworkCredential *)p1 targetName:(NSString *)p2 requiredProtectionLevel:(System_Net_Security_ProtectionLevel)p3 allowedImpersonationLevel:(System_Security_Principal_TokenImpersonationLevel)p4;
+    - (void)authenticateAsClient_withCredential:(System_Net_NetworkCredential *)p1 targetName:(NSString *)p2 requiredProtectionLevel:(int32_t)p3 allowedImpersonationLevel:(int32_t)p4;
 
 	// Managed method name : AuthenticateAsClient
 	// Managed return type : System.Void
 	// Managed param types : System.Net.NetworkCredential, System.Security.Authentication.ExtendedProtection.ChannelBinding, System.String, System.Net.Security.ProtectionLevel, System.Security.Principal.TokenImpersonationLevel
-    - (void)authenticateAsClient_withCredential:(System_Net_NetworkCredential *)p1 binding:(System_Security_Authentication_ExtendedProtection_ChannelBinding *)p2 targetName:(NSString *)p3 requiredProtectionLevel:(System_Net_Security_ProtectionLevel)p4 allowedImpersonationLevel:(System_Security_Principal_TokenImpersonationLevel)p5;
+    - (void)authenticateAsClient_withCredential:(System_Net_NetworkCredential *)p1 binding:(System_Security_Authentication_ExtendedProtection_ChannelBinding *)p2 targetName:(NSString *)p3 requiredProtectionLevel:(int32_t)p4 allowedImpersonationLevel:(int32_t)p5;
 
 	// Managed method name : AuthenticateAsClientAsync
 	// Managed return type : System.Threading.Tasks.Task
@@ -128,7 +128,7 @@
 	// Managed method name : AuthenticateAsClientAsync
 	// Managed return type : System.Threading.Tasks.Task
 	// Managed param types : System.Net.NetworkCredential, System.String, System.Net.Security.ProtectionLevel, System.Security.Principal.TokenImpersonationLevel
-    - (System_Threading_Tasks_Task *)authenticateAsClientAsync_withCredential:(System_Net_NetworkCredential *)p1 targetName:(NSString *)p2 requiredProtectionLevel:(System_Net_Security_ProtectionLevel)p3 allowedImpersonationLevel:(System_Security_Principal_TokenImpersonationLevel)p4;
+    - (System_Threading_Tasks_Task *)authenticateAsClientAsync_withCredential:(System_Net_NetworkCredential *)p1 targetName:(NSString *)p2 requiredProtectionLevel:(int32_t)p3 allowedImpersonationLevel:(int32_t)p4;
 
 	// Managed method name : AuthenticateAsClientAsync
 	// Managed return type : System.Threading.Tasks.Task
@@ -138,7 +138,7 @@
 	// Managed method name : AuthenticateAsClientAsync
 	// Managed return type : System.Threading.Tasks.Task
 	// Managed param types : System.Net.NetworkCredential, System.Security.Authentication.ExtendedProtection.ChannelBinding, System.String, System.Net.Security.ProtectionLevel, System.Security.Principal.TokenImpersonationLevel
-    - (System_Threading_Tasks_Task *)authenticateAsClientAsync_withCredential:(System_Net_NetworkCredential *)p1 binding:(System_Security_Authentication_ExtendedProtection_ChannelBinding *)p2 targetName:(NSString *)p3 requiredProtectionLevel:(System_Net_Security_ProtectionLevel)p4 allowedImpersonationLevel:(System_Security_Principal_TokenImpersonationLevel)p5;
+    - (System_Threading_Tasks_Task *)authenticateAsClientAsync_withCredential:(System_Net_NetworkCredential *)p1 binding:(System_Security_Authentication_ExtendedProtection_ChannelBinding *)p2 targetName:(NSString *)p3 requiredProtectionLevel:(int32_t)p4 allowedImpersonationLevel:(int32_t)p5;
 
 	// Managed method name : AuthenticateAsServer
 	// Managed return type : System.Void
@@ -153,12 +153,12 @@
 	// Managed method name : AuthenticateAsServer
 	// Managed return type : System.Void
 	// Managed param types : System.Net.NetworkCredential, System.Net.Security.ProtectionLevel, System.Security.Principal.TokenImpersonationLevel
-    - (void)authenticateAsServer_withCredential:(System_Net_NetworkCredential *)p1 requiredProtectionLevel:(System_Net_Security_ProtectionLevel)p2 requiredImpersonationLevel:(System_Security_Principal_TokenImpersonationLevel)p3;
+    - (void)authenticateAsServer_withCredential:(System_Net_NetworkCredential *)p1 requiredProtectionLevel:(int32_t)p2 requiredImpersonationLevel:(int32_t)p3;
 
 	// Managed method name : AuthenticateAsServer
 	// Managed return type : System.Void
 	// Managed param types : System.Net.NetworkCredential, System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy, System.Net.Security.ProtectionLevel, System.Security.Principal.TokenImpersonationLevel
-    - (void)authenticateAsServer_withCredential:(System_Net_NetworkCredential *)p1 policy:(System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)p2 requiredProtectionLevel:(System_Net_Security_ProtectionLevel)p3 requiredImpersonationLevel:(System_Security_Principal_TokenImpersonationLevel)p4;
+    - (void)authenticateAsServer_withCredential:(System_Net_NetworkCredential *)p1 policy:(System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)p2 requiredProtectionLevel:(int32_t)p3 requiredImpersonationLevel:(int32_t)p4;
 
 	// Managed method name : AuthenticateAsServerAsync
 	// Managed return type : System.Threading.Tasks.Task
@@ -173,12 +173,12 @@
 	// Managed method name : AuthenticateAsServerAsync
 	// Managed return type : System.Threading.Tasks.Task
 	// Managed param types : System.Net.NetworkCredential, System.Net.Security.ProtectionLevel, System.Security.Principal.TokenImpersonationLevel
-    - (System_Threading_Tasks_Task *)authenticateAsServerAsync_withCredential:(System_Net_NetworkCredential *)p1 requiredProtectionLevel:(System_Net_Security_ProtectionLevel)p2 requiredImpersonationLevel:(System_Security_Principal_TokenImpersonationLevel)p3;
+    - (System_Threading_Tasks_Task *)authenticateAsServerAsync_withCredential:(System_Net_NetworkCredential *)p1 requiredProtectionLevel:(int32_t)p2 requiredImpersonationLevel:(int32_t)p3;
 
 	// Managed method name : AuthenticateAsServerAsync
 	// Managed return type : System.Threading.Tasks.Task
 	// Managed param types : System.Net.NetworkCredential, System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy, System.Net.Security.ProtectionLevel, System.Security.Principal.TokenImpersonationLevel
-    - (System_Threading_Tasks_Task *)authenticateAsServerAsync_withCredential:(System_Net_NetworkCredential *)p1 policy:(System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)p2 requiredProtectionLevel:(System_Net_Security_ProtectionLevel)p3 requiredImpersonationLevel:(System_Security_Principal_TokenImpersonationLevel)p4;
+    - (System_Threading_Tasks_Task *)authenticateAsServerAsync_withCredential:(System_Net_NetworkCredential *)p1 policy:(System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)p2 requiredProtectionLevel:(int32_t)p3 requiredImpersonationLevel:(int32_t)p4;
 
 	// Managed method name : BeginAuthenticateAsClient
 	// Managed return type : System.IAsyncResult
@@ -198,12 +198,12 @@
 	// Managed method name : BeginAuthenticateAsClient
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Net.NetworkCredential, System.String, System.Net.Security.ProtectionLevel, System.Security.Principal.TokenImpersonationLevel, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginAuthenticateAsClient_withCredential:(System_Net_NetworkCredential *)p1 targetName:(NSString *)p2 requiredProtectionLevel:(System_Net_Security_ProtectionLevel)p3 allowedImpersonationLevel:(System_Security_Principal_TokenImpersonationLevel)p4 asyncCallback:(System_AsyncCallback *)p5 asyncState:(System_Object *)p6;
+    - (id <System_IAsyncResult>)beginAuthenticateAsClient_withCredential:(System_Net_NetworkCredential *)p1 targetName:(NSString *)p2 requiredProtectionLevel:(int32_t)p3 allowedImpersonationLevel:(int32_t)p4 asyncCallback:(System_AsyncCallback *)p5 asyncState:(System_Object *)p6;
 
 	// Managed method name : BeginAuthenticateAsClient
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Net.NetworkCredential, System.Security.Authentication.ExtendedProtection.ChannelBinding, System.String, System.Net.Security.ProtectionLevel, System.Security.Principal.TokenImpersonationLevel, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginAuthenticateAsClient_withCredential:(System_Net_NetworkCredential *)p1 binding:(System_Security_Authentication_ExtendedProtection_ChannelBinding *)p2 targetName:(NSString *)p3 requiredProtectionLevel:(System_Net_Security_ProtectionLevel)p4 allowedImpersonationLevel:(System_Security_Principal_TokenImpersonationLevel)p5 asyncCallback:(System_AsyncCallback *)p6 asyncState:(System_Object *)p7;
+    - (id <System_IAsyncResult>)beginAuthenticateAsClient_withCredential:(System_Net_NetworkCredential *)p1 binding:(System_Security_Authentication_ExtendedProtection_ChannelBinding *)p2 targetName:(NSString *)p3 requiredProtectionLevel:(int32_t)p4 allowedImpersonationLevel:(int32_t)p5 asyncCallback:(System_AsyncCallback *)p6 asyncState:(System_Object *)p7;
 
 	// Managed method name : BeginAuthenticateAsServer
 	// Managed return type : System.IAsyncResult
@@ -218,12 +218,12 @@
 	// Managed method name : BeginAuthenticateAsServer
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Net.NetworkCredential, System.Net.Security.ProtectionLevel, System.Security.Principal.TokenImpersonationLevel, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginAuthenticateAsServer_withCredential:(System_Net_NetworkCredential *)p1 requiredProtectionLevel:(System_Net_Security_ProtectionLevel)p2 requiredImpersonationLevel:(System_Security_Principal_TokenImpersonationLevel)p3 asyncCallback:(System_AsyncCallback *)p4 asyncState:(System_Object *)p5;
+    - (id <System_IAsyncResult>)beginAuthenticateAsServer_withCredential:(System_Net_NetworkCredential *)p1 requiredProtectionLevel:(int32_t)p2 requiredImpersonationLevel:(int32_t)p3 asyncCallback:(System_AsyncCallback *)p4 asyncState:(System_Object *)p5;
 
 	// Managed method name : BeginAuthenticateAsServer
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Net.NetworkCredential, System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy, System.Net.Security.ProtectionLevel, System.Security.Principal.TokenImpersonationLevel, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginAuthenticateAsServer_withCredential:(System_Net_NetworkCredential *)p1 policy:(System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)p2 requiredProtectionLevel:(System_Net_Security_ProtectionLevel)p3 requiredImpersonationLevel:(System_Security_Principal_TokenImpersonationLevel)p4 asyncCallback:(System_AsyncCallback *)p5 asyncState:(System_Object *)p6;
+    - (id <System_IAsyncResult>)beginAuthenticateAsServer_withCredential:(System_Net_NetworkCredential *)p1 policy:(System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)p2 requiredProtectionLevel:(int32_t)p3 requiredImpersonationLevel:(int32_t)p4 asyncCallback:(System_AsyncCallback *)p5 asyncState:(System_Object *)p6;
 
 	// Managed method name : BeginRead
 	// Managed return type : System.IAsyncResult
@@ -268,7 +268,7 @@
 	// Managed method name : Seek
 	// Managed return type : System.Int64
 	// Managed param types : System.Int64, System.IO.SeekOrigin
-    - (int64_t)seek_withOffset:(int64_t)p1 origin:(System_IO_SeekOrigin)p2;
+    - (int64_t)seek_withOffset:(int64_t)p1 origin:(int32_t)p2;
 
 	// Managed method name : SetLength
 	// Managed return type : System.Void

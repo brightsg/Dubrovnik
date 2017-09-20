@@ -2,7 +2,9 @@
 //
 // Managed enumeration : UriComponents
 //
-typedef NS_ENUM(int32_t, System_UriComponents) {
+
+// C enumeration
+typedef NS_ENUM(int32_t, enumSystem_UriComponents) {
 	System_UriComponents_AbsoluteUri = 127,
 	System_UriComponents_Fragment = 64,
 	System_UriComponents_Host = 4,
@@ -21,4 +23,84 @@ typedef NS_ENUM(int32_t, System_UriComponents) {
 	System_UriComponents_StrongPort = 128,
 	System_UriComponents_UserInfo = 2,
 };
+@interface System_UriComponents : DBSystem_Enum
+
+#pragma mark -
+#pragma mark Setup
+	// obligatory override
+	+ (const char *)monoClassName;
+	// obligatory override
+	+ (const char *)monoAssemblyName;
+
+#pragma mark -
+#pragma mark Fields
+
+	// Managed field name : AbsoluteUri
+	// Managed field type : System.UriComponents
+    + (int32_t)absoluteUri;
+
+	// Managed field name : Fragment
+	// Managed field type : System.UriComponents
+    + (int32_t)fragment;
+
+	// Managed field name : Host
+	// Managed field type : System.UriComponents
+    + (int32_t)host;
+
+	// Managed field name : HostAndPort
+	// Managed field type : System.UriComponents
+    + (int32_t)hostAndPort;
+
+	// Managed field name : HttpRequestUrl
+	// Managed field type : System.UriComponents
+    + (int32_t)httpRequestUrl;
+
+	// Managed field name : KeepDelimiter
+	// Managed field type : System.UriComponents
+    + (int32_t)keepDelimiter;
+
+	// Managed field name : NormalizedHost
+	// Managed field type : System.UriComponents
+    + (int32_t)normalizedHost;
+
+	// Managed field name : Path
+	// Managed field type : System.UriComponents
+    + (int32_t)path;
+
+	// Managed field name : PathAndQuery
+	// Managed field type : System.UriComponents
+    + (int32_t)pathAndQuery;
+
+	// Managed field name : Port
+	// Managed field type : System.UriComponents
+    + (int32_t)port;
+
+	// Managed field name : Query
+	// Managed field type : System.UriComponents
+    + (int32_t)query;
+
+	// Managed field name : Scheme
+	// Managed field type : System.UriComponents
+    + (int32_t)scheme;
+
+	// Managed field name : SchemeAndServer
+	// Managed field type : System.UriComponents
+    + (int32_t)schemeAndServer;
+
+	// Managed field name : SerializationInfoString
+	// Managed field type : System.UriComponents
+    + (int32_t)serializationInfoString;
+
+	// Managed field name : StrongAuthority
+	// Managed field type : System.UriComponents
+    + (int32_t)strongAuthority;
+
+	// Managed field name : StrongPort
+	// Managed field type : System.UriComponents
+    + (int32_t)strongPort;
+
+	// Managed field name : UserInfo
+	// Managed field type : System.UriComponents
+    + (int32_t)userInfo;
+@end
 //--Dubrovnik.CodeGenerator

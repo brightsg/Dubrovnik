@@ -16,7 +16,7 @@
 	// obligatory override
 	+ (const char *)monoClassName
 	{
-		return "System.Collections.ObjectModel.ObservableCollection`1<System.Collections.ObjectModel.ObservableCollection`1+T>";
+		return "System.Collections.ObjectModel.ObservableCollection`1";
 	}
 	// obligatory override
 	+ (const char *)monoAssemblyName
@@ -33,7 +33,7 @@
     + (System_Collections_ObjectModel_ObservableCollectionA1 *)new_withList:(DBSystem_Collections_Generic_ListA1 *)p1
     {
 		
-		System_Collections_ObjectModel_ObservableCollectionA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.List`1<System.Collections.ObjectModel.ObservableCollection`1+T>" withNumArgs:1, [p1 monoValue]];;
+		System_Collections_ObjectModel_ObservableCollectionA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.List`1<System.Collections.ObjectModel.ObservableCollection`1+T>" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Collections_ObjectModel_ObservableCollectionA1 *)new_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1
     {
 		
-		System_Collections_ObjectModel_ObservableCollectionA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.ObjectModel.ObservableCollection`1+T>" withNumArgs:1, [p1 monoValue]];;
+		System_Collections_ObjectModel_ObservableCollectionA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.ObjectModel.ObservableCollection`1+T>" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -58,7 +58,7 @@
     - (void)move_withOldIndex:(int32_t)p1 newIndex:(int32_t)p2
     {
 		
-		[self invokeMonoMethod:"Move(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];;
+		[self invokeMonoMethod:"Move(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
         
     }
 

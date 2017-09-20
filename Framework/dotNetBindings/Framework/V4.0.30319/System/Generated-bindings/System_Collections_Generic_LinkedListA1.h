@@ -38,14 +38,14 @@
 #pragma mark Methods
 
 	// Managed method name : AddAfter
-	// Managed return type : System.Collections.Generic.LinkedListNode`1<System.Collections.Generic.LinkedList`1+T>
-	// Managed param types : System.Collections.Generic.LinkedListNode`1<System.Collections.Generic.LinkedList`1+T>, <System.Collections.Generic.LinkedList`1+T>
-    - (System_Collections_Generic_LinkedListNodeA1 *)addAfter_withNode:(System_Collections_Generic_LinkedListNodeA1 *)p1 value:(System_Object *)p2;
-
-	// Managed method name : AddAfter
 	// Managed return type : System.Void
 	// Managed param types : System.Collections.Generic.LinkedListNode`1<System.Collections.Generic.LinkedList`1+T>, System.Collections.Generic.LinkedListNode`1<System.Collections.Generic.LinkedList`1+T>
     - (void)addAfter_withNode:(System_Collections_Generic_LinkedListNodeA1 *)p1 newNode:(System_Collections_Generic_LinkedListNodeA1 *)p2;
+
+	// Managed method name : AddAfter
+	// Managed return type : System.Collections.Generic.LinkedListNode`1<System.Collections.Generic.LinkedList`1+T>
+	// Managed param types : System.Collections.Generic.LinkedListNode`1<System.Collections.Generic.LinkedList`1+T>, <System.Collections.Generic.LinkedList`1+T>
+    - (System_Collections_Generic_LinkedListNodeA1 *)addAfter_withNode:(System_Collections_Generic_LinkedListNodeA1 *)p1 value:(System_Object *)p2;
 
 	// Managed method name : AddBefore
 	// Managed return type : System.Collections.Generic.LinkedListNode`1<System.Collections.Generic.LinkedList`1+T>
@@ -118,14 +118,14 @@
     - (void)onDeserialization_withSender:(System_Object *)p1;
 
 	// Managed method name : Remove
-	// Managed return type : System.Void
-	// Managed param types : System.Collections.Generic.LinkedListNode`1<System.Collections.Generic.LinkedList`1+T>
-    - (void)remove_withNode:(System_Collections_Generic_LinkedListNodeA1 *)p1;
-
-	// Managed method name : Remove
 	// Managed return type : System.Boolean
 	// Managed param types : <System.Collections.Generic.LinkedList`1+T>
     - (BOOL)remove_withValue:(System_Object *)p1;
+
+	// Managed method name : Remove
+	// Managed return type : System.Void
+	// Managed param types : System.Collections.Generic.LinkedListNode`1<System.Collections.Generic.LinkedList`1+T>
+    - (void)remove_withNode:(System_Collections_Generic_LinkedListNodeA1 *)p1;
 
 	// Managed method name : RemoveFirst
 	// Managed return type : System.Void

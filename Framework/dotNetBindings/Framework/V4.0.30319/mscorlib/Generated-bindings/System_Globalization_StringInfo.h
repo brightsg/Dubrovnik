@@ -70,12 +70,12 @@
 
 	// Managed method name : SubstringByTextElements
 	// Managed return type : System.String
-	// Managed param types : System.Int32
-    - (NSString *)substringByTextElements_withStartingTextElement:(int32_t)p1;
+	// Managed param types : System.Int32, System.Int32
+    - (NSString *)substringByTextElements_withStartingTextElement:(int32_t)p1 lengthInTextElements:(int32_t)p2;
 
 	// Managed method name : SubstringByTextElements
 	// Managed return type : System.String
-	// Managed param types : System.Int32, System.Int32
-    - (NSString *)substringByTextElements_withStartingTextElement:(int32_t)p1 lengthInTextElements:(int32_t)p2;
+	// Managed param types : System.Int32
+    - (NSString *)substringByTextElements_withStartingTextElement:(int32_t)p1;
 @end
 //--Dubrovnik.CodeGenerator

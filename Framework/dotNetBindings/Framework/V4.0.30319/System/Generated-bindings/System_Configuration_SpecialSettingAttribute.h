@@ -17,13 +17,13 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Configuration.SpecialSettingAttribute
 	// Managed param types : System.Configuration.SpecialSetting
-    + (System_Configuration_SpecialSettingAttribute *)new_withSpecialSetting:(System_Configuration_SpecialSetting)p1;
+    + (System_Configuration_SpecialSettingAttribute *)new_withSpecialSetting:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : SpecialSetting
 	// Managed property type : System.Configuration.SpecialSetting
-    @property (nonatomic, readonly) System_Configuration_SpecialSetting specialSetting;
+    @property (nonatomic, readonly) int32_t specialSetting;
 @end
 //--Dubrovnik.CodeGenerator

@@ -40,22 +40,22 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.Tasks.TaskCompletionSource`1<System.Threading.Tasks.TaskCompletionSource`1+TResult>
-	// Managed param types : System.Object
-    + (System_Threading_Tasks_TaskCompletionSourceA1 *)new_withState:(System_Object *)p1
+	// Managed param types : System.Object, System.Threading.Tasks.TaskCreationOptions
+    + (System_Threading_Tasks_TaskCompletionSourceA1 *)new_withState:(System_Object *)p1 creationOptions:(int32_t)p2
     {
 		
-		System_Threading_Tasks_TaskCompletionSourceA1 * object = [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoRTInvokeArg]];
+		System_Threading_Tasks_TaskCompletionSourceA1 * object = [[self alloc] initWithSignature:"object,System.Threading.Tasks.TaskCreationOptions" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
 
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.Tasks.TaskCompletionSource`1<System.Threading.Tasks.TaskCompletionSource`1+TResult>
-	// Managed param types : System.Object, System.Threading.Tasks.TaskCreationOptions
-    + (System_Threading_Tasks_TaskCompletionSourceA1 *)new_withState:(System_Object *)p1 creationOptions:(int32_t)p2
+	// Managed param types : System.Object
+    + (System_Threading_Tasks_TaskCompletionSourceA1 *)new_withState:(System_Object *)p1
     {
 		
-		System_Threading_Tasks_TaskCompletionSourceA1 * object = [[self alloc] initWithSignature:"object,System.Threading.Tasks.TaskCreationOptions" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+		System_Threading_Tasks_TaskCompletionSourceA1 * object = [[self alloc] initWithSignature:"object" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }

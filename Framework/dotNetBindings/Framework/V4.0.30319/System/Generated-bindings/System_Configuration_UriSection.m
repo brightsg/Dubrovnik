@@ -32,7 +32,17 @@
     @synthesize idn = _idn;
     - (System_Configuration_IdnElement *)idn
     {
-		MonoObject *monoObject = [self getMonoProperty:"Idn"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Idn");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_idn isEqualToMonoObject:monoObject]) return _idn;					
 		_idn = [System_Configuration_IdnElement bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize iriParsing = _iriParsing;
     - (System_Configuration_IriParsingElement *)iriParsing
     {
-		MonoObject *monoObject = [self getMonoProperty:"IriParsing"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IriParsing");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_iriParsing isEqualToMonoObject:monoObject]) return _iriParsing;					
 		_iriParsing = [System_Configuration_IriParsingElement bestObjectWithMonoObject:monoObject];
 
@@ -56,7 +76,17 @@
     @synthesize schemeSettings = _schemeSettings;
     - (System_Configuration_SchemeSettingElementCollection *)schemeSettings
     {
-		MonoObject *monoObject = [self getMonoProperty:"SchemeSettings"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SchemeSettings");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_schemeSettings isEqualToMonoObject:monoObject]) return _schemeSettings;					
 		_schemeSettings = [System_Configuration_SchemeSettingElementCollection bestObjectWithMonoObject:monoObject];
 

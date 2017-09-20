@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.EditorBrowsableAttribute
 	// Managed param types : System.ComponentModel.EditorBrowsableState
-    + (System_ComponentModel_EditorBrowsableAttribute *)new_withState:(System_ComponentModel_EditorBrowsableState)p1
+    + (System_ComponentModel_EditorBrowsableAttribute *)new_withState:(int32_t)p1
     {
 		
-		System_ComponentModel_EditorBrowsableAttribute * object = [[self alloc] initWithSignature:"System.ComponentModel.EditorBrowsableState" withNumArgs:1, DB_VALUE(p1)];;
+		System_ComponentModel_EditorBrowsableAttribute * object = [[self alloc] initWithSignature:"System.ComponentModel.EditorBrowsableState" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -44,10 +44,20 @@
 	// Managed property name : State
 	// Managed property type : System.ComponentModel.EditorBrowsableState
     @synthesize state = _state;
-    - (System_ComponentModel_EditorBrowsableState)state
+    - (int32_t)state
     {
-		MonoObject *monoObject = [self getMonoProperty:"State"];
-		_state = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "State");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_state = monoObject;
 
 		return _state;
 	}
@@ -61,7 +71,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

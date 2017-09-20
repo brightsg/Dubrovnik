@@ -32,8 +32,18 @@
     @synthesize isAuthenticated = _isAuthenticated;
     - (BOOL)isAuthenticated
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsAuthenticated"];
-		_isAuthenticated = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsAuthenticated");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isAuthenticated = monoObject;
 
 		return _isAuthenticated;
 	}
@@ -43,8 +53,18 @@
     @synthesize isEncrypted = _isEncrypted;
     - (BOOL)isEncrypted
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsEncrypted"];
-		_isEncrypted = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsEncrypted");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isEncrypted = monoObject;
 
 		return _isEncrypted;
 	}
@@ -54,8 +74,18 @@
     @synthesize isMutuallyAuthenticated = _isMutuallyAuthenticated;
     - (BOOL)isMutuallyAuthenticated
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsMutuallyAuthenticated"];
-		_isMutuallyAuthenticated = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsMutuallyAuthenticated");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isMutuallyAuthenticated = monoObject;
 
 		return _isMutuallyAuthenticated;
 	}
@@ -65,8 +95,18 @@
     @synthesize isServer = _isServer;
     - (BOOL)isServer
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsServer"];
-		_isServer = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsServer");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isServer = monoObject;
 
 		return _isServer;
 	}
@@ -76,8 +116,18 @@
     @synthesize isSigned = _isSigned;
     - (BOOL)isSigned
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsSigned"];
-		_isSigned = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsSigned");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isSigned = monoObject;
 
 		return _isSigned;
 	}
@@ -87,8 +137,18 @@
     @synthesize leaveInnerStreamOpen = _leaveInnerStreamOpen;
     - (BOOL)leaveInnerStreamOpen
     {
-		MonoObject *monoObject = [self getMonoProperty:"LeaveInnerStreamOpen"];
-		_leaveInnerStreamOpen = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LeaveInnerStreamOpen");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_leaveInnerStreamOpen = monoObject;
 
 		return _leaveInnerStreamOpen;
 	}

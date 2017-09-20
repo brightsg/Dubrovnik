@@ -33,7 +33,7 @@
     + (System_Configuration_SettingsProviderAttribute *)new_withProviderTypeName:(NSString *)p1
     {
 		
-		System_Configuration_SettingsProviderAttribute * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_Configuration_SettingsProviderAttribute * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Configuration_SettingsProviderAttribute *)new_withProviderType:(System_Type *)p1
     {
 		
-		System_Configuration_SettingsProviderAttribute * object = [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoValue]];;
+		System_Configuration_SettingsProviderAttribute * object = [[self alloc] initWithSignature:"System.Type" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -57,7 +57,17 @@
     @synthesize providerTypeName = _providerTypeName;
     - (NSString *)providerTypeName
     {
-		MonoObject *monoObject = [self getMonoProperty:"ProviderTypeName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ProviderTypeName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_providerTypeName isEqualToMonoObject:monoObject]) return _providerTypeName;					
 		_providerTypeName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

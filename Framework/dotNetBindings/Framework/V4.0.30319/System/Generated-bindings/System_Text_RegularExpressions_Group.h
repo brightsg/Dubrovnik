@@ -18,6 +18,10 @@
 	// Managed property type : System.Text.RegularExpressions.CaptureCollection
     @property (nonatomic, strong, readonly) System_Text_RegularExpressions_CaptureCollection * captures;
 
+	// Managed property name : Name
+	// Managed property type : System.String
+    @property (nonatomic, strong, readonly) NSString * name;
+
 	// Managed property name : Success
 	// Managed property type : System.Boolean
     @property (nonatomic, readonly) BOOL success;

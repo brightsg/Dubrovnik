@@ -33,7 +33,7 @@
     + (System_Net_NetworkInformation_NetworkInformationException *)new_withErrorCode:(int32_t)p1
     {
 		
-		System_Net_NetworkInformation_NetworkInformationException * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];;
+		System_Net_NetworkInformation_NetworkInformationException * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -46,8 +46,18 @@
     @synthesize errorCode = _errorCode;
     - (int32_t)errorCode
     {
-		MonoObject *monoObject = [self getMonoProperty:"ErrorCode"];
-		_errorCode = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ErrorCode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_errorCode = monoObject;
 
 		return _errorCode;
 	}

@@ -21,13 +21,13 @@
 
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.Tasks.TaskCompletionSource`1<System.Threading.Tasks.TaskCompletionSource`1+TResult>
-	// Managed param types : System.Object
-    + (System_Threading_Tasks_TaskCompletionSourceA1 *)new_withState:(System_Object *)p1;
+	// Managed param types : System.Object, System.Threading.Tasks.TaskCreationOptions
+    + (System_Threading_Tasks_TaskCompletionSourceA1 *)new_withState:(System_Object *)p1 creationOptions:(int32_t)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Threading.Tasks.TaskCompletionSource`1<System.Threading.Tasks.TaskCompletionSource`1+TResult>
-	// Managed param types : System.Object, System.Threading.Tasks.TaskCreationOptions
-    + (System_Threading_Tasks_TaskCompletionSourceA1 *)new_withState:(System_Object *)p1 creationOptions:(int32_t)p2;
+	// Managed param types : System.Object
+    + (System_Threading_Tasks_TaskCompletionSourceA1 *)new_withState:(System_Object *)p1;
 
 #pragma mark -
 #pragma mark Properties

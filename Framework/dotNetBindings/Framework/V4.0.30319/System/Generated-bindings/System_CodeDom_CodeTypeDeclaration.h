@@ -52,7 +52,7 @@
 
 	// Managed property name : TypeAttributes
 	// Managed property type : System.Reflection.TypeAttributes
-    @property (nonatomic) System_Reflection_TypeAttributes typeAttributes;
+    @property (nonatomic) int32_t typeAttributes;
 
 	// Managed property name : TypeParameters
 	// Managed property type : System.CodeDom.CodeTypeParameterCollection

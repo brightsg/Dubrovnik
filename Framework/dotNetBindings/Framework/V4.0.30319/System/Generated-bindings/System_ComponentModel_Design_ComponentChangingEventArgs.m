@@ -33,7 +33,7 @@
     + (System_ComponentModel_Design_ComponentChangingEventArgs *)new_withComponent:(System_Object *)p1 member:(System_ComponentModel_MemberDescriptor *)p2
     {
 		
-		System_ComponentModel_Design_ComponentChangingEventArgs * object = [[self alloc] initWithSignature:"object,System.ComponentModel.MemberDescriptor" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_ComponentModel_Design_ComponentChangingEventArgs * object = [[self alloc] initWithSignature:"object,System.ComponentModel.MemberDescriptor" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize component = _component;
     - (System_Object *)component
     {
-		MonoObject *monoObject = [self getMonoProperty:"Component"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Component");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_component isEqualToMonoObject:monoObject]) return _component;					
 		_component = [System_Object objectWithMonoObject:monoObject];
 
@@ -58,7 +68,17 @@
     @synthesize member = _member;
     - (System_ComponentModel_MemberDescriptor *)member
     {
-		MonoObject *monoObject = [self getMonoProperty:"Member"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Member");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_member isEqualToMonoObject:monoObject]) return _member;					
 		_member = [System_ComponentModel_MemberDescriptor bestObjectWithMonoObject:monoObject];
 

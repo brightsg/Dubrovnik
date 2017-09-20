@@ -33,7 +33,7 @@
     - (void)onComponentChanged_withComponent:(System_Object *)p1 member:(System_ComponentModel_MemberDescriptor *)p2 oldValue:(System_Object *)p3 newValue:(System_Object *)p4
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IComponentChangeService.OnComponentChanged(object,System.ComponentModel.MemberDescriptor,object,object)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IComponentChangeService.OnComponentChanged(object,System.ComponentModel.MemberDescriptor,object,object)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
         
     }
 
@@ -43,7 +43,7 @@
     - (void)onComponentChanging_withComponent:(System_Object *)p1 member:(System_ComponentModel_MemberDescriptor *)p2
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IComponentChangeService.OnComponentChanging(object,System.ComponentModel.MemberDescriptor)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IComponentChangeService.OnComponentChanging(object,System.ComponentModel.MemberDescriptor)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 

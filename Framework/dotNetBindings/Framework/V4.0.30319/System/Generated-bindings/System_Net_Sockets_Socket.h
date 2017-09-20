@@ -17,12 +17,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Sockets.Socket
 	// Managed param types : System.Net.Sockets.SocketType, System.Net.Sockets.ProtocolType
-    + (System_Net_Sockets_Socket *)new_withSocketType:(System_Net_Sockets_SocketType)p1 protocolType:(System_Net_Sockets_ProtocolType)p2;
+    + (System_Net_Sockets_Socket *)new_withSocketType:(int32_t)p1 protocolType:(int32_t)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Sockets.Socket
 	// Managed param types : System.Net.Sockets.AddressFamily, System.Net.Sockets.SocketType, System.Net.Sockets.ProtocolType
-    + (System_Net_Sockets_Socket *)new_withAddressFamily:(System_Net_Sockets_AddressFamily)p1 socketType:(System_Net_Sockets_SocketType)p2 protocolType:(System_Net_Sockets_ProtocolType)p3;
+    + (System_Net_Sockets_Socket *)new_withAddressFamily:(int32_t)p1 socketType:(int32_t)p2 protocolType:(int32_t)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Sockets.Socket
@@ -34,7 +34,7 @@
 
 	// Managed property name : AddressFamily
 	// Managed property type : System.Net.Sockets.AddressFamily
-    @property (nonatomic, readonly) System_Net_Sockets_AddressFamily addressFamily;
+    @property (nonatomic, readonly) int32_t addressFamily;
 
 	// Managed property name : Available
 	// Managed property type : System.Int32
@@ -98,7 +98,7 @@
 
 	// Managed property name : ProtocolType
 	// Managed property type : System.Net.Sockets.ProtocolType
-    @property (nonatomic, readonly) System_Net_Sockets_ProtocolType protocolType;
+    @property (nonatomic, readonly) int32_t protocolType;
 
 	// Managed property name : ReceiveBufferSize
 	// Managed property type : System.Int32
@@ -122,7 +122,7 @@
 
 	// Managed property name : SocketType
 	// Managed property type : System.Net.Sockets.SocketType
-    @property (nonatomic, readonly) System_Net_Sockets_SocketType socketType;
+    @property (nonatomic, readonly) int32_t socketType;
 
 	// Managed property name : SupportsIPv4
 	// Managed property type : System.Boolean
@@ -196,52 +196,52 @@
 	// Managed method name : BeginReceive
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.Net.Sockets.SocketFlags, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginReceive_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(System_Net_Sockets_SocketFlags)p4 callback:(System_AsyncCallback *)p5 state:(System_Object *)p6;
+    - (id <System_IAsyncResult>)beginReceive_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(int32_t)p4 callback:(System_AsyncCallback *)p5 state:(System_Object *)p6;
 
 	// Managed method name : BeginReceive
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.Net.Sockets.SocketFlags, ref System.Net.Sockets.SocketError&, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginReceive_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(System_Net_Sockets_SocketFlags)p4 errorCodeRef:(System_Net_Sockets_SocketError **)p5 callback:(System_AsyncCallback *)p6 state:(System_Object *)p7;
+    - (id <System_IAsyncResult>)beginReceive_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(int32_t)p4 errorCodeRef:(System_Net_Sockets_SocketError **)p5 callback:(System_AsyncCallback *)p6 state:(System_Object *)p7;
 
 	// Managed method name : BeginReceive
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Collections.Generic.IList`1<System.ArraySegment`1<System.Byte>>, System.Net.Sockets.SocketFlags, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginReceive_withBuffers:(id <System_Collections_Generic_IListA1_>)p1 socketFlags:(System_Net_Sockets_SocketFlags)p2 callback:(System_AsyncCallback *)p3 state:(System_Object *)p4;
+    - (id <System_IAsyncResult>)beginReceive_withBuffers:(id <System_Collections_Generic_IListA1_>)p1 socketFlags:(int32_t)p2 callback:(System_AsyncCallback *)p3 state:(System_Object *)p4;
 
 	// Managed method name : BeginReceive
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Collections.Generic.IList`1<System.ArraySegment`1<System.Byte>>, System.Net.Sockets.SocketFlags, ref System.Net.Sockets.SocketError&, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginReceive_withBuffers:(id <System_Collections_Generic_IListA1_>)p1 socketFlags:(System_Net_Sockets_SocketFlags)p2 errorCodeRef:(System_Net_Sockets_SocketError **)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5;
+    - (id <System_IAsyncResult>)beginReceive_withBuffers:(id <System_Collections_Generic_IListA1_>)p1 socketFlags:(int32_t)p2 errorCodeRef:(System_Net_Sockets_SocketError **)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5;
 
 	// Managed method name : BeginReceiveFrom
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.Net.Sockets.SocketFlags, ref System.Net.EndPoint&, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginReceiveFrom_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(System_Net_Sockets_SocketFlags)p4 remoteEPRef:(System_Net_EndPoint **)p5 callback:(System_AsyncCallback *)p6 state:(System_Object *)p7;
+    - (id <System_IAsyncResult>)beginReceiveFrom_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(int32_t)p4 remoteEPRef:(System_Net_EndPoint **)p5 callback:(System_AsyncCallback *)p6 state:(System_Object *)p7;
 
 	// Managed method name : BeginReceiveMessageFrom
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.Net.Sockets.SocketFlags, ref System.Net.EndPoint&, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginReceiveMessageFrom_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(System_Net_Sockets_SocketFlags)p4 remoteEPRef:(System_Net_EndPoint **)p5 callback:(System_AsyncCallback *)p6 state:(System_Object *)p7;
+    - (id <System_IAsyncResult>)beginReceiveMessageFrom_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(int32_t)p4 remoteEPRef:(System_Net_EndPoint **)p5 callback:(System_AsyncCallback *)p6 state:(System_Object *)p7;
 
 	// Managed method name : BeginSend
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.Net.Sockets.SocketFlags, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginSend_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(System_Net_Sockets_SocketFlags)p4 callback:(System_AsyncCallback *)p5 state:(System_Object *)p6;
+    - (id <System_IAsyncResult>)beginSend_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(int32_t)p4 callback:(System_AsyncCallback *)p5 state:(System_Object *)p6;
 
 	// Managed method name : BeginSend
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.Net.Sockets.SocketFlags, ref System.Net.Sockets.SocketError&, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginSend_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(System_Net_Sockets_SocketFlags)p4 errorCodeRef:(System_Net_Sockets_SocketError **)p5 callback:(System_AsyncCallback *)p6 state:(System_Object *)p7;
+    - (id <System_IAsyncResult>)beginSend_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(int32_t)p4 errorCodeRef:(System_Net_Sockets_SocketError **)p5 callback:(System_AsyncCallback *)p6 state:(System_Object *)p7;
 
 	// Managed method name : BeginSend
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Collections.Generic.IList`1<System.ArraySegment`1<System.Byte>>, System.Net.Sockets.SocketFlags, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginSend_withBuffers:(id <System_Collections_Generic_IListA1_>)p1 socketFlags:(System_Net_Sockets_SocketFlags)p2 callback:(System_AsyncCallback *)p3 state:(System_Object *)p4;
+    - (id <System_IAsyncResult>)beginSend_withBuffers:(id <System_Collections_Generic_IListA1_>)p1 socketFlags:(int32_t)p2 callback:(System_AsyncCallback *)p3 state:(System_Object *)p4;
 
 	// Managed method name : BeginSend
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Collections.Generic.IList`1<System.ArraySegment`1<System.Byte>>, System.Net.Sockets.SocketFlags, ref System.Net.Sockets.SocketError&, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginSend_withBuffers:(id <System_Collections_Generic_IListA1_>)p1 socketFlags:(System_Net_Sockets_SocketFlags)p2 errorCodeRef:(System_Net_Sockets_SocketError **)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5;
+    - (id <System_IAsyncResult>)beginSend_withBuffers:(id <System_Collections_Generic_IListA1_>)p1 socketFlags:(int32_t)p2 errorCodeRef:(System_Net_Sockets_SocketError **)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5;
 
 	// Managed method name : BeginSendFile
 	// Managed return type : System.IAsyncResult
@@ -251,12 +251,12 @@
 	// Managed method name : BeginSendFile
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.String, System.Byte[], System.Byte[], System.Net.Sockets.TransmitFileOptions, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginSendFile_withFileName:(NSString *)p1 preBuffer:(NSData *)p2 postBuffer:(NSData *)p3 flags:(System_Net_Sockets_TransmitFileOptions)p4 callback:(System_AsyncCallback *)p5 state:(System_Object *)p6;
+    - (id <System_IAsyncResult>)beginSendFile_withFileName:(NSString *)p1 preBuffer:(NSData *)p2 postBuffer:(NSData *)p3 flags:(int32_t)p4 callback:(System_AsyncCallback *)p5 state:(System_Object *)p6;
 
 	// Managed method name : BeginSendTo
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.Net.Sockets.SocketFlags, System.Net.EndPoint, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginSendTo_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(System_Net_Sockets_SocketFlags)p4 remoteEP:(System_Net_EndPoint *)p5 callback:(System_AsyncCallback *)p6 state:(System_Object *)p7;
+    - (id <System_IAsyncResult>)beginSendTo_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(int32_t)p4 remoteEP:(System_Net_EndPoint *)p5 callback:(System_AsyncCallback *)p6 state:(System_Object *)p7;
 
 	// Managed method name : Bind
 	// Managed return type : System.Void
@@ -306,7 +306,7 @@
 	// Managed method name : ConnectAsync
 	// Managed return type : System.Boolean
 	// Managed param types : System.Net.Sockets.SocketType, System.Net.Sockets.ProtocolType, System.Net.Sockets.SocketAsyncEventArgs
-    + (BOOL)connectAsync_withSocketType:(System_Net_Sockets_SocketType)p1 protocolType:(System_Net_Sockets_ProtocolType)p2 e:(System_Net_Sockets_SocketAsyncEventArgs *)p3;
+    + (BOOL)connectAsync_withSocketType:(int32_t)p1 protocolType:(int32_t)p2 e:(System_Net_Sockets_SocketAsyncEventArgs *)p3;
 
 	// Managed method name : Disconnect
 	// Managed return type : System.Void
@@ -396,17 +396,17 @@
 	// Managed method name : GetSocketOption
 	// Managed return type : System.Object
 	// Managed param types : System.Net.Sockets.SocketOptionLevel, System.Net.Sockets.SocketOptionName
-    - (System_Object *)getSocketOption_withOptionLevel:(System_Net_Sockets_SocketOptionLevel)p1 optionName:(System_Net_Sockets_SocketOptionName)p2;
+    - (System_Object *)getSocketOption_withOptionLevel:(int32_t)p1 optionName:(int32_t)p2;
 
 	// Managed method name : GetSocketOption
 	// Managed return type : System.Void
 	// Managed param types : System.Net.Sockets.SocketOptionLevel, System.Net.Sockets.SocketOptionName, System.Byte[]
-    - (void)getSocketOption_withOptionLevel:(System_Net_Sockets_SocketOptionLevel)p1 optionName:(System_Net_Sockets_SocketOptionName)p2 optionValue:(NSData *)p3;
+    - (void)getSocketOption_withOptionLevel:(int32_t)p1 optionName:(int32_t)p2 optionValue:(NSData *)p3;
 
 	// Managed method name : GetSocketOption
 	// Managed return type : System.Byte[]
 	// Managed param types : System.Net.Sockets.SocketOptionLevel, System.Net.Sockets.SocketOptionName, System.Int32
-    - (NSData *)getSocketOption_withOptionLevel:(System_Net_Sockets_SocketOptionLevel)p1 optionName:(System_Net_Sockets_SocketOptionName)p2 optionLength:(int32_t)p3;
+    - (NSData *)getSocketOption_withOptionLevel:(int32_t)p1 optionName:(int32_t)p2 optionLength:(int32_t)p3;
 
 	// Managed method name : IOControl
 	// Managed return type : System.Int32
@@ -416,7 +416,7 @@
 	// Managed method name : IOControl
 	// Managed return type : System.Int32
 	// Managed param types : System.Net.Sockets.IOControlCode, System.Byte[], System.Byte[]
-    - (int32_t)iOControl_withIoControlCodeSNSIOControlCode:(System_Net_Sockets_IOControlCode)p1 optionInValueByte:(NSData *)p2 optionOutValueByte:(NSData *)p3;
+    - (int32_t)iOControl_withIoControlCodeSNSIOControlCode:(int64_t)p1 optionInValueByte:(NSData *)p2 optionOutValueByte:(NSData *)p3;
 
 	// Managed method name : Listen
 	// Managed return type : System.Void
@@ -426,17 +426,17 @@
 	// Managed method name : Poll
 	// Managed return type : System.Boolean
 	// Managed param types : System.Int32, System.Net.Sockets.SelectMode
-    - (BOOL)poll_withMicroSeconds:(int32_t)p1 mode:(System_Net_Sockets_SelectMode)p2;
+    - (BOOL)poll_withMicroSeconds:(int32_t)p1 mode:(int32_t)p2;
 
 	// Managed method name : Receive
 	// Managed return type : System.Int32
 	// Managed param types : System.Byte[], System.Int32, System.Net.Sockets.SocketFlags
-    - (int32_t)receive_withBuffer:(NSData *)p1 size:(int32_t)p2 socketFlags:(System_Net_Sockets_SocketFlags)p3;
+    - (int32_t)receive_withBuffer:(NSData *)p1 size:(int32_t)p2 socketFlags:(int32_t)p3;
 
 	// Managed method name : Receive
 	// Managed return type : System.Int32
 	// Managed param types : System.Byte[], System.Net.Sockets.SocketFlags
-    - (int32_t)receive_withBuffer:(NSData *)p1 socketFlags:(System_Net_Sockets_SocketFlags)p2;
+    - (int32_t)receive_withBuffer:(NSData *)p1 socketFlags:(int32_t)p2;
 
 	// Managed method name : Receive
 	// Managed return type : System.Int32
@@ -446,12 +446,12 @@
 	// Managed method name : Receive
 	// Managed return type : System.Int32
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.Net.Sockets.SocketFlags
-    - (int32_t)receive_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(System_Net_Sockets_SocketFlags)p4;
+    - (int32_t)receive_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(int32_t)p4;
 
 	// Managed method name : Receive
 	// Managed return type : System.Int32
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.Net.Sockets.SocketFlags, ref System.Net.Sockets.SocketError&
-    - (int32_t)receive_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(System_Net_Sockets_SocketFlags)p4 errorCodeRef:(System_Net_Sockets_SocketError **)p5;
+    - (int32_t)receive_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(int32_t)p4 errorCodeRef:(System_Net_Sockets_SocketError **)p5;
 
 	// Managed method name : Receive
 	// Managed return type : System.Int32
@@ -461,12 +461,12 @@
 	// Managed method name : Receive
 	// Managed return type : System.Int32
 	// Managed param types : System.Collections.Generic.IList`1<System.ArraySegment`1<System.Byte>>, System.Net.Sockets.SocketFlags
-    - (int32_t)receive_withBuffers:(id <System_Collections_Generic_IListA1_>)p1 socketFlags:(System_Net_Sockets_SocketFlags)p2;
+    - (int32_t)receive_withBuffers:(id <System_Collections_Generic_IListA1_>)p1 socketFlags:(int32_t)p2;
 
 	// Managed method name : Receive
 	// Managed return type : System.Int32
 	// Managed param types : System.Collections.Generic.IList`1<System.ArraySegment`1<System.Byte>>, System.Net.Sockets.SocketFlags, ref System.Net.Sockets.SocketError&
-    - (int32_t)receive_withBuffers:(id <System_Collections_Generic_IListA1_>)p1 socketFlags:(System_Net_Sockets_SocketFlags)p2 errorCodeRef:(System_Net_Sockets_SocketError **)p3;
+    - (int32_t)receive_withBuffers:(id <System_Collections_Generic_IListA1_>)p1 socketFlags:(int32_t)p2 errorCodeRef:(System_Net_Sockets_SocketError **)p3;
 
 	// Managed method name : ReceiveAsync
 	// Managed return type : System.Boolean
@@ -476,17 +476,17 @@
 	// Managed method name : ReceiveFrom
 	// Managed return type : System.Int32
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.Net.Sockets.SocketFlags, ref System.Net.EndPoint&
-    - (int32_t)receiveFrom_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(System_Net_Sockets_SocketFlags)p4 remoteEPRef:(System_Net_EndPoint **)p5;
+    - (int32_t)receiveFrom_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(int32_t)p4 remoteEPRef:(System_Net_EndPoint **)p5;
 
 	// Managed method name : ReceiveFrom
 	// Managed return type : System.Int32
 	// Managed param types : System.Byte[], System.Int32, System.Net.Sockets.SocketFlags, ref System.Net.EndPoint&
-    - (int32_t)receiveFrom_withBuffer:(NSData *)p1 size:(int32_t)p2 socketFlags:(System_Net_Sockets_SocketFlags)p3 remoteEPRef:(System_Net_EndPoint **)p4;
+    - (int32_t)receiveFrom_withBuffer:(NSData *)p1 size:(int32_t)p2 socketFlags:(int32_t)p3 remoteEPRef:(System_Net_EndPoint **)p4;
 
 	// Managed method name : ReceiveFrom
 	// Managed return type : System.Int32
 	// Managed param types : System.Byte[], System.Net.Sockets.SocketFlags, ref System.Net.EndPoint&
-    - (int32_t)receiveFrom_withBuffer:(NSData *)p1 socketFlags:(System_Net_Sockets_SocketFlags)p2 remoteEPRef:(System_Net_EndPoint **)p3;
+    - (int32_t)receiveFrom_withBuffer:(NSData *)p1 socketFlags:(int32_t)p2 remoteEPRef:(System_Net_EndPoint **)p3;
 
 	// Managed method name : ReceiveFrom
 	// Managed return type : System.Int32
@@ -516,12 +516,12 @@
 	// Managed method name : Send
 	// Managed return type : System.Int32
 	// Managed param types : System.Byte[], System.Int32, System.Net.Sockets.SocketFlags
-    - (int32_t)send_withBuffer:(NSData *)p1 size:(int32_t)p2 socketFlags:(System_Net_Sockets_SocketFlags)p3;
+    - (int32_t)send_withBuffer:(NSData *)p1 size:(int32_t)p2 socketFlags:(int32_t)p3;
 
 	// Managed method name : Send
 	// Managed return type : System.Int32
 	// Managed param types : System.Byte[], System.Net.Sockets.SocketFlags
-    - (int32_t)send_withBuffer:(NSData *)p1 socketFlags:(System_Net_Sockets_SocketFlags)p2;
+    - (int32_t)send_withBuffer:(NSData *)p1 socketFlags:(int32_t)p2;
 
 	// Managed method name : Send
 	// Managed return type : System.Int32
@@ -536,22 +536,22 @@
 	// Managed method name : Send
 	// Managed return type : System.Int32
 	// Managed param types : System.Collections.Generic.IList`1<System.ArraySegment`1<System.Byte>>, System.Net.Sockets.SocketFlags
-    - (int32_t)send_withBuffers:(id <System_Collections_Generic_IListA1_>)p1 socketFlags:(System_Net_Sockets_SocketFlags)p2;
+    - (int32_t)send_withBuffers:(id <System_Collections_Generic_IListA1_>)p1 socketFlags:(int32_t)p2;
 
 	// Managed method name : Send
 	// Managed return type : System.Int32
 	// Managed param types : System.Collections.Generic.IList`1<System.ArraySegment`1<System.Byte>>, System.Net.Sockets.SocketFlags, ref System.Net.Sockets.SocketError&
-    - (int32_t)send_withBuffers:(id <System_Collections_Generic_IListA1_>)p1 socketFlags:(System_Net_Sockets_SocketFlags)p2 errorCodeRef:(System_Net_Sockets_SocketError **)p3;
+    - (int32_t)send_withBuffers:(id <System_Collections_Generic_IListA1_>)p1 socketFlags:(int32_t)p2 errorCodeRef:(System_Net_Sockets_SocketError **)p3;
 
 	// Managed method name : Send
 	// Managed return type : System.Int32
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.Net.Sockets.SocketFlags
-    - (int32_t)send_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(System_Net_Sockets_SocketFlags)p4;
+    - (int32_t)send_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(int32_t)p4;
 
 	// Managed method name : Send
 	// Managed return type : System.Int32
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.Net.Sockets.SocketFlags, ref System.Net.Sockets.SocketError&
-    - (int32_t)send_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(System_Net_Sockets_SocketFlags)p4 errorCodeRef:(System_Net_Sockets_SocketError **)p5;
+    - (int32_t)send_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(int32_t)p4 errorCodeRef:(System_Net_Sockets_SocketError **)p5;
 
 	// Managed method name : SendAsync
 	// Managed return type : System.Boolean
@@ -566,7 +566,7 @@
 	// Managed method name : SendFile
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Byte[], System.Byte[], System.Net.Sockets.TransmitFileOptions
-    - (void)sendFile_withFileName:(NSString *)p1 preBuffer:(NSData *)p2 postBuffer:(NSData *)p3 flags:(System_Net_Sockets_TransmitFileOptions)p4;
+    - (void)sendFile_withFileName:(NSString *)p1 preBuffer:(NSData *)p2 postBuffer:(NSData *)p3 flags:(int32_t)p4;
 
 	// Managed method name : SendPacketsAsync
 	// Managed return type : System.Boolean
@@ -576,17 +576,17 @@
 	// Managed method name : SendTo
 	// Managed return type : System.Int32
 	// Managed param types : System.Byte[], System.Int32, System.Int32, System.Net.Sockets.SocketFlags, System.Net.EndPoint
-    - (int32_t)sendTo_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(System_Net_Sockets_SocketFlags)p4 remoteEP:(System_Net_EndPoint *)p5;
+    - (int32_t)sendTo_withBuffer:(NSData *)p1 offset:(int32_t)p2 size:(int32_t)p3 socketFlags:(int32_t)p4 remoteEP:(System_Net_EndPoint *)p5;
 
 	// Managed method name : SendTo
 	// Managed return type : System.Int32
 	// Managed param types : System.Byte[], System.Int32, System.Net.Sockets.SocketFlags, System.Net.EndPoint
-    - (int32_t)sendTo_withBuffer:(NSData *)p1 size:(int32_t)p2 socketFlags:(System_Net_Sockets_SocketFlags)p3 remoteEP:(System_Net_EndPoint *)p4;
+    - (int32_t)sendTo_withBuffer:(NSData *)p1 size:(int32_t)p2 socketFlags:(int32_t)p3 remoteEP:(System_Net_EndPoint *)p4;
 
 	// Managed method name : SendTo
 	// Managed return type : System.Int32
 	// Managed param types : System.Byte[], System.Net.Sockets.SocketFlags, System.Net.EndPoint
-    - (int32_t)sendTo_withBuffer:(NSData *)p1 socketFlags:(System_Net_Sockets_SocketFlags)p2 remoteEP:(System_Net_EndPoint *)p3;
+    - (int32_t)sendTo_withBuffer:(NSData *)p1 socketFlags:(int32_t)p2 remoteEP:(System_Net_EndPoint *)p3;
 
 	// Managed method name : SendTo
 	// Managed return type : System.Int32
@@ -601,31 +601,31 @@
 	// Managed method name : SetIPProtectionLevel
 	// Managed return type : System.Void
 	// Managed param types : System.Net.Sockets.IPProtectionLevel
-    - (void)setIPProtectionLevel_withLevel:(System_Net_Sockets_IPProtectionLevel)p1;
+    - (void)setIPProtectionLevel_withLevel:(int32_t)p1;
 
 	// Managed method name : SetSocketOption
 	// Managed return type : System.Void
 	// Managed param types : System.Net.Sockets.SocketOptionLevel, System.Net.Sockets.SocketOptionName, System.Int32
-    - (void)setSocketOption_withOptionLevelSNSSocketOptionLevel:(System_Net_Sockets_SocketOptionLevel)p1 optionNameSNSSocketOptionName:(System_Net_Sockets_SocketOptionName)p2 optionValueInt:(int32_t)p3;
+    - (void)setSocketOption_withOptionLevelSNSSocketOptionLevel:(int32_t)p1 optionNameSNSSocketOptionName:(int32_t)p2 optionValueInt:(int32_t)p3;
 
 	// Managed method name : SetSocketOption
 	// Managed return type : System.Void
 	// Managed param types : System.Net.Sockets.SocketOptionLevel, System.Net.Sockets.SocketOptionName, System.Byte[]
-    - (void)setSocketOption_withOptionLevelSNSSocketOptionLevel:(System_Net_Sockets_SocketOptionLevel)p1 optionNameSNSSocketOptionName:(System_Net_Sockets_SocketOptionName)p2 optionValueByte:(NSData *)p3;
+    - (void)setSocketOption_withOptionLevelSNSSocketOptionLevel:(int32_t)p1 optionNameSNSSocketOptionName:(int32_t)p2 optionValueByte:(NSData *)p3;
 
 	// Managed method name : SetSocketOption
 	// Managed return type : System.Void
 	// Managed param types : System.Net.Sockets.SocketOptionLevel, System.Net.Sockets.SocketOptionName, System.Boolean
-    - (void)setSocketOption_withOptionLevelSNSSocketOptionLevel:(System_Net_Sockets_SocketOptionLevel)p1 optionNameSNSSocketOptionName:(System_Net_Sockets_SocketOptionName)p2 optionValueBool:(BOOL)p3;
+    - (void)setSocketOption_withOptionLevelSNSSocketOptionLevel:(int32_t)p1 optionNameSNSSocketOptionName:(int32_t)p2 optionValueBool:(BOOL)p3;
 
 	// Managed method name : SetSocketOption
 	// Managed return type : System.Void
 	// Managed param types : System.Net.Sockets.SocketOptionLevel, System.Net.Sockets.SocketOptionName, System.Object
-    - (void)setSocketOption_withOptionLevelSNSSocketOptionLevel:(System_Net_Sockets_SocketOptionLevel)p1 optionNameSNSSocketOptionName:(System_Net_Sockets_SocketOptionName)p2 optionValueObject:(System_Object *)p3;
+    - (void)setSocketOption_withOptionLevelSNSSocketOptionLevel:(int32_t)p1 optionNameSNSSocketOptionName:(int32_t)p2 optionValueObject:(System_Object *)p3;
 
 	// Managed method name : Shutdown
 	// Managed return type : System.Void
 	// Managed param types : System.Net.Sockets.SocketShutdown
-    - (void)shutdown_withHow:(System_Net_Sockets_SocketShutdown)p1;
+    - (void)shutdown_withHow:(int32_t)p1;
 @end
 //--Dubrovnik.CodeGenerator

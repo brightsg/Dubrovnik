@@ -32,8 +32,18 @@
     @synthesize bytesReceived = _bytesReceived;
     - (int64_t)bytesReceived
     {
-		MonoObject *monoObject = [self getMonoProperty:"BytesReceived"];
-		_bytesReceived = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BytesReceived");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_bytesReceived = monoObject;
 
 		return _bytesReceived;
 	}
@@ -43,8 +53,18 @@
     @synthesize totalBytesToReceive = _totalBytesToReceive;
     - (int64_t)totalBytesToReceive
     {
-		MonoObject *monoObject = [self getMonoProperty:"TotalBytesToReceive"];
-		_totalBytesToReceive = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TotalBytesToReceive");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_totalBytesToReceive = monoObject;
 
 		return _totalBytesToReceive;
 	}

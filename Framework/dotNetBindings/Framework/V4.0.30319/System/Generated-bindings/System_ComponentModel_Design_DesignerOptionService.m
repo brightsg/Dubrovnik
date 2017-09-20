@@ -32,7 +32,17 @@
     @synthesize options = _options;
     - (System_ComponentModel_Design_DesignerOptionService__DesignerOptionCollection *)options
     {
-		MonoObject *monoObject = [self getMonoProperty:"Options"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Options");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_options isEqualToMonoObject:monoObject]) return _options;					
 		_options = [System_ComponentModel_Design_DesignerOptionService__DesignerOptionCollection bestObjectWithMonoObject:monoObject];
 

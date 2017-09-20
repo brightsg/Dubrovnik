@@ -32,7 +32,17 @@
     static System_Net_ICredentialPolicy * m_credentialPolicy;
     + (System_Net_ICredentialPolicy *)credentialPolicy
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"CredentialPolicy"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CredentialPolicy");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_credentialPolicy isEqualToMonoObject:monoObject]) return m_credentialPolicy;					
 		m_credentialPolicy = [System_Net_ICredentialPolicy bestObjectWithMonoObject:monoObject];
 
@@ -41,8 +51,17 @@
     + (void)setCredentialPolicy:(System_Net_ICredentialPolicy *)value
 	{
 		m_credentialPolicy = value;
-		MonoObject *monoObject = [value monoObject];
-		[[self class] setMonoClassProperty:"CredentialPolicy" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CredentialPolicy");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk([value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : CustomTargetNameDictionary
@@ -50,7 +69,17 @@
     static System_Collections_Specialized_StringDictionary * m_customTargetNameDictionary;
     + (System_Collections_Specialized_StringDictionary *)customTargetNameDictionary
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"CustomTargetNameDictionary"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CustomTargetNameDictionary");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_customTargetNameDictionary isEqualToMonoObject:monoObject]) return m_customTargetNameDictionary;					
 		m_customTargetNameDictionary = [System_Collections_Specialized_StringDictionary bestObjectWithMonoObject:monoObject];
 
@@ -62,7 +91,17 @@
     static System_Collections_IEnumerator * m_registeredModules;
     + (System_Collections_IEnumerator *)registeredModules
     {
-		MonoObject *monoObject = [[self class] getMonoClassProperty:"RegisteredModules"];
+		typedef MonoObject * (*Thunk)(MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RegisteredModules");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(&monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:m_registeredModules isEqualToMonoObject:monoObject]) return m_registeredModules;					
 		m_registeredModules = [System_Collections_IEnumerator bestObjectWithMonoObject:monoObject];
 
@@ -78,7 +117,7 @@
     + (System_Net_Authorization *)authenticate_withChallenge:(NSString *)p1 request:(System_Net_WebRequest *)p2 credentials:(id <System_Net_ICredentials_>)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Authenticate(string,System.Net.WebRequest,System.Net.ICredentials)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Authenticate(string,System.Net.WebRequest,System.Net.ICredentials)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_Net_Authorization bestObjectWithMonoObject:monoObject];
     }
@@ -89,7 +128,7 @@
     + (System_Net_Authorization *)preAuthenticate_withRequest:(System_Net_WebRequest *)p1 credentials:(id <System_Net_ICredentials_>)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"PreAuthenticate(System.Net.WebRequest,System.Net.ICredentials)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"PreAuthenticate(System.Net.WebRequest,System.Net.ICredentials)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Net_Authorization bestObjectWithMonoObject:monoObject];
     }
@@ -100,7 +139,7 @@
     + (void)register_withAuthenticationModule:(id <System_Net_IAuthenticationModule_>)p1
     {
 		
-		[self invokeMonoClassMethod:"Register(System.Net.IAuthenticationModule)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"Register(System.Net.IAuthenticationModule)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -110,7 +149,7 @@
     + (void)unregister_withAuthenticationModule:(id <System_Net_IAuthenticationModule_>)p1
     {
 		
-		[self invokeMonoClassMethod:"Unregister(System.Net.IAuthenticationModule)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"Unregister(System.Net.IAuthenticationModule)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -120,7 +159,7 @@
     + (void)unregister_withAuthenticationScheme:(NSString *)p1
     {
 		
-		[self invokeMonoClassMethod:"Unregister(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoClassMethod:"Unregister(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

@@ -33,7 +33,7 @@
     + (System_ComponentModel_AsyncCompletedEventArgs *)new_withError:(System_Exception *)p1 cancelled:(BOOL)p2 userState:(System_Object *)p3
     {
 		
-		System_ComponentModel_AsyncCompletedEventArgs * object = [[self alloc] initWithSignature:"System.Exception,bool,object" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];;
+		System_ComponentModel_AsyncCompletedEventArgs * object = [[self alloc] initWithSignature:"System.Exception,bool,object" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,8 +46,18 @@
     @synthesize cancelled = _cancelled;
     - (BOOL)cancelled
     {
-		MonoObject *monoObject = [self getMonoProperty:"Cancelled"];
-		_cancelled = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Cancelled");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_cancelled = monoObject;
 
 		return _cancelled;
 	}
@@ -57,7 +67,17 @@
     @synthesize error = _error;
     - (System_Exception *)error
     {
-		MonoObject *monoObject = [self getMonoProperty:"Error"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Error");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_error isEqualToMonoObject:monoObject]) return _error;					
 		_error = [System_Exception bestObjectWithMonoObject:monoObject];
 
@@ -69,7 +89,17 @@
     @synthesize userState = _userState;
     - (System_Object *)userState
     {
-		MonoObject *monoObject = [self getMonoProperty:"UserState"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UserState");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_userState isEqualToMonoObject:monoObject]) return _userState;					
 		_userState = [System_Object objectWithMonoObject:monoObject];
 

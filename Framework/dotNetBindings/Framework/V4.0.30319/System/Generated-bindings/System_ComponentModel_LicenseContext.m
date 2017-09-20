@@ -30,10 +30,20 @@
 	// Managed property name : UsageMode
 	// Managed property type : System.ComponentModel.LicenseUsageMode
     @synthesize usageMode = _usageMode;
-    - (System_ComponentModel_LicenseUsageMode)usageMode
+    - (int32_t)usageMode
     {
-		MonoObject *monoObject = [self getMonoProperty:"UsageMode"];
-		_usageMode = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UsageMode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_usageMode = monoObject;
 
 		return _usageMode;
 	}
@@ -47,7 +57,7 @@
     - (NSString *)getSavedLicenseKey_withType:(System_Type *)p1 resourceAssembly:(System_Reflection_Assembly *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetSavedLicenseKey(System.Type,System.Reflection.Assembly)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetSavedLicenseKey(System.Type,System.Reflection.Assembly)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -58,7 +68,7 @@
     - (System_Object *)getService_withType:(System_Type *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetService(System.Type)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetService(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -69,7 +79,7 @@
     - (void)setSavedLicenseKey_withType:(System_Type *)p1 key:(NSString *)p2
     {
 		
-		[self invokeMonoMethod:"SetSavedLicenseKey(System.Type,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"SetSavedLicenseKey(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 

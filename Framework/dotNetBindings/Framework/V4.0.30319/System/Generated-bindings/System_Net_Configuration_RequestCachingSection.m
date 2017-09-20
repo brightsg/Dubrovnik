@@ -32,7 +32,17 @@
     @synthesize defaultFtpCachePolicy = _defaultFtpCachePolicy;
     - (System_Net_Configuration_FtpCachePolicyElement *)defaultFtpCachePolicy
     {
-		MonoObject *monoObject = [self getMonoProperty:"DefaultFtpCachePolicy"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DefaultFtpCachePolicy");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_defaultFtpCachePolicy isEqualToMonoObject:monoObject]) return _defaultFtpCachePolicy;					
 		_defaultFtpCachePolicy = [System_Net_Configuration_FtpCachePolicyElement bestObjectWithMonoObject:monoObject];
 
@@ -44,7 +54,17 @@
     @synthesize defaultHttpCachePolicy = _defaultHttpCachePolicy;
     - (System_Net_Configuration_HttpCachePolicyElement *)defaultHttpCachePolicy
     {
-		MonoObject *monoObject = [self getMonoProperty:"DefaultHttpCachePolicy"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DefaultHttpCachePolicy");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_defaultHttpCachePolicy isEqualToMonoObject:monoObject]) return _defaultHttpCachePolicy;					
 		_defaultHttpCachePolicy = [System_Net_Configuration_HttpCachePolicyElement bestObjectWithMonoObject:monoObject];
 
@@ -54,18 +74,37 @@
 	// Managed property name : DefaultPolicyLevel
 	// Managed property type : System.Net.Cache.RequestCacheLevel
     @synthesize defaultPolicyLevel = _defaultPolicyLevel;
-    - (System_Net_Cache_RequestCacheLevel)defaultPolicyLevel
+    - (int32_t)defaultPolicyLevel
     {
-		MonoObject *monoObject = [self getMonoProperty:"DefaultPolicyLevel"];
-		_defaultPolicyLevel = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DefaultPolicyLevel");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_defaultPolicyLevel = monoObject;
 
 		return _defaultPolicyLevel;
 	}
-    - (void)setDefaultPolicyLevel:(System_Net_Cache_RequestCacheLevel)value
+    - (void)setDefaultPolicyLevel:(int32_t)value
 	{
 		_defaultPolicyLevel = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"DefaultPolicyLevel" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "DefaultPolicyLevel");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : DisableAllCaching
@@ -73,16 +112,35 @@
     @synthesize disableAllCaching = _disableAllCaching;
     - (BOOL)disableAllCaching
     {
-		MonoObject *monoObject = [self getMonoProperty:"DisableAllCaching"];
-		_disableAllCaching = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DisableAllCaching");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_disableAllCaching = monoObject;
 
 		return _disableAllCaching;
 	}
     - (void)setDisableAllCaching:(BOOL)value
 	{
 		_disableAllCaching = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"DisableAllCaching" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "DisableAllCaching");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : IsPrivateCache
@@ -90,16 +148,35 @@
     @synthesize isPrivateCache = _isPrivateCache;
     - (BOOL)isPrivateCache
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsPrivateCache"];
-		_isPrivateCache = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsPrivateCache");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isPrivateCache = monoObject;
 
 		return _isPrivateCache;
 	}
     - (void)setIsPrivateCache:(BOOL)value
 	{
 		_isPrivateCache = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"IsPrivateCache" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "IsPrivateCache");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : UnspecifiedMaximumAge
@@ -107,7 +184,17 @@
     @synthesize unspecifiedMaximumAge = _unspecifiedMaximumAge;
     - (System_TimeSpan *)unspecifiedMaximumAge
     {
-		MonoObject *monoObject = [self getMonoProperty:"UnspecifiedMaximumAge"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UnspecifiedMaximumAge");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_unspecifiedMaximumAge isEqualToMonoObject:monoObject]) return _unspecifiedMaximumAge;					
 		_unspecifiedMaximumAge = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
@@ -116,8 +203,17 @@
     - (void)setUnspecifiedMaximumAge:(System_TimeSpan *)value
 	{
 		_unspecifiedMaximumAge = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"UnspecifiedMaximumAge" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "UnspecifiedMaximumAge");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

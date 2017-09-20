@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Configuration.SettingsManageabilityAttribute
 	// Managed param types : System.Configuration.SettingsManageability
-    + (System_Configuration_SettingsManageabilityAttribute *)new_withManageability:(System_Configuration_SettingsManageability)p1
+    + (System_Configuration_SettingsManageabilityAttribute *)new_withManageability:(int32_t)p1
     {
 		
-		System_Configuration_SettingsManageabilityAttribute * object = [[self alloc] initWithSignature:"System.Configuration.SettingsManageability" withNumArgs:1, DB_VALUE(p1)];;
+		System_Configuration_SettingsManageabilityAttribute * object = [[self alloc] initWithSignature:"System.Configuration.SettingsManageability" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -44,10 +44,20 @@
 	// Managed property name : Manageability
 	// Managed property type : System.Configuration.SettingsManageability
     @synthesize manageability = _manageability;
-    - (System_Configuration_SettingsManageability)manageability
+    - (int32_t)manageability
     {
-		MonoObject *monoObject = [self getMonoProperty:"Manageability"];
-		_manageability = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Manageability");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_manageability = monoObject;
 
 		return _manageability;
 	}

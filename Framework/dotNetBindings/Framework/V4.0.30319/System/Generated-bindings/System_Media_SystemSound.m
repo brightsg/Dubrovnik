@@ -33,7 +33,7 @@
     - (void)play
     {
 		
-		[self invokeMonoMethod:"Play()" withNumArgs:0];;
+		[self invokeMonoMethod:"Play()" withNumArgs:0];
         
     }
 

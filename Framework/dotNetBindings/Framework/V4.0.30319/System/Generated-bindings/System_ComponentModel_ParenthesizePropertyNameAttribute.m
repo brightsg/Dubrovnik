@@ -33,7 +33,7 @@
     + (System_ComponentModel_ParenthesizePropertyNameAttribute *)new_withNeedParenthesis:(BOOL)p1
     {
 		
-		System_ComponentModel_ParenthesizePropertyNameAttribute * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];;
+		System_ComponentModel_ParenthesizePropertyNameAttribute * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -61,8 +61,18 @@
     @synthesize needParenthesis = _needParenthesis;
     - (BOOL)needParenthesis
     {
-		MonoObject *monoObject = [self getMonoProperty:"NeedParenthesis"];
-		_needParenthesis = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NeedParenthesis");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_needParenthesis = monoObject;
 
 		return _needParenthesis;
 	}
@@ -76,7 +86,7 @@
     - (BOOL)equals_withO:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

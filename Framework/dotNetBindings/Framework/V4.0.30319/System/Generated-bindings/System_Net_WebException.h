@@ -27,12 +27,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebException
 	// Managed param types : System.String, System.Net.WebExceptionStatus
-    + (System_Net_WebException *)new_withMessage:(NSString *)p1 status:(System_Net_WebExceptionStatus)p2;
+    + (System_Net_WebException *)new_withMessage:(NSString *)p1 status:(int32_t)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebException
 	// Managed param types : System.String, System.Exception, System.Net.WebExceptionStatus, System.Net.WebResponse
-    + (System_Net_WebException *)new_withMessage:(NSString *)p1 innerException:(System_Exception *)p2 status:(System_Net_WebExceptionStatus)p3 response:(System_Net_WebResponse *)p4;
+    + (System_Net_WebException *)new_withMessage:(NSString *)p1 innerException:(System_Exception *)p2 status:(int32_t)p3 response:(System_Net_WebResponse *)p4;
 
 #pragma mark -
 #pragma mark Properties
@@ -43,7 +43,7 @@
 
 	// Managed property name : Status
 	// Managed property type : System.Net.WebExceptionStatus
-    @property (nonatomic, readonly) System_Net_WebExceptionStatus status;
+    @property (nonatomic, readonly) int32_t status;
 
 #pragma mark -
 #pragma mark Methods

@@ -32,8 +32,18 @@
     @synthesize canceled = _canceled;
     - (BOOL)canceled
     {
-		MonoObject *monoObject = [self getMonoProperty:"Canceled"];
-		_canceled = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Canceled");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_canceled = monoObject;
 
 		return _canceled;
 	}
@@ -43,8 +53,18 @@
     @synthesize committed = _committed;
     - (BOOL)committed
     {
-		MonoObject *monoObject = [self getMonoProperty:"Committed"];
-		_committed = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Committed");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_committed = monoObject;
 
 		return _committed;
 	}
@@ -54,7 +74,17 @@
     @synthesize description = _description;
     - (NSString *)description
     {
-		MonoObject *monoObject = [self getMonoProperty:"Description"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Description");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_description isEqualToMonoObject:monoObject]) return _description;					
 		_description = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -70,7 +100,7 @@
     - (void)cancel
     {
 		
-		[self invokeMonoMethod:"Cancel()" withNumArgs:0];;
+		[self invokeMonoMethod:"Cancel()" withNumArgs:0];
         
     }
 
@@ -80,7 +110,7 @@
     - (void)commit
     {
 		
-		[self invokeMonoMethod:"Commit()" withNumArgs:0];;
+		[self invokeMonoMethod:"Commit()" withNumArgs:0];
         
     }
 

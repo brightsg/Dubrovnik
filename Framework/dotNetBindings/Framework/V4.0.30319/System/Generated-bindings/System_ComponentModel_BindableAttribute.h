@@ -22,17 +22,17 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.BindableAttribute
 	// Managed param types : System.Boolean, System.ComponentModel.BindingDirection
-    + (System_ComponentModel_BindableAttribute *)new_withBindable:(BOOL)p1 direction:(System_ComponentModel_BindingDirection)p2;
+    + (System_ComponentModel_BindableAttribute *)new_withBindable:(BOOL)p1 direction:(int32_t)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.BindableAttribute
 	// Managed param types : System.ComponentModel.BindableSupport
-    + (System_ComponentModel_BindableAttribute *)new_withFlags:(System_ComponentModel_BindableSupport)p1;
+    + (System_ComponentModel_BindableAttribute *)new_withFlags:(int32_t)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.BindableAttribute
 	// Managed param types : System.ComponentModel.BindableSupport, System.ComponentModel.BindingDirection
-    + (System_ComponentModel_BindableAttribute *)new_withFlags:(System_ComponentModel_BindableSupport)p1 direction:(System_ComponentModel_BindingDirection)p2;
+    + (System_ComponentModel_BindableAttribute *)new_withFlags:(int32_t)p1 direction:(int32_t)p2;
 
 #pragma mark -
 #pragma mark Fields
@@ -58,7 +58,7 @@
 
 	// Managed property name : Direction
 	// Managed property type : System.ComponentModel.BindingDirection
-    @property (nonatomic, readonly) System_ComponentModel_BindingDirection direction;
+    @property (nonatomic, readonly) int32_t direction;
 
 #pragma mark -
 #pragma mark Methods

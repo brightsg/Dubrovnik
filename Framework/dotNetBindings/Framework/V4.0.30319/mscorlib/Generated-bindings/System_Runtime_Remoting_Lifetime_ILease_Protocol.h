@@ -75,13 +75,13 @@
 
 	// Managed method name : Register
 	// Managed return type : System.Void
-	// Managed param types : System.Runtime.Remoting.Lifetime.ISponsor, System.TimeSpan
-    - (void)register_withObj:(id <System_Runtime_Remoting_Lifetime_ISponsor_>)p1 renewalTime:(System_TimeSpan *)p2;
+	// Managed param types : System.Runtime.Remoting.Lifetime.ISponsor
+    - (void)register_withObj:(id <System_Runtime_Remoting_Lifetime_ISponsor_>)p1;
 
 	// Managed method name : Register
 	// Managed return type : System.Void
-	// Managed param types : System.Runtime.Remoting.Lifetime.ISponsor
-    - (void)register_withObj:(id <System_Runtime_Remoting_Lifetime_ISponsor_>)p1;
+	// Managed param types : System.Runtime.Remoting.Lifetime.ISponsor, System.TimeSpan
+    - (void)register_withObj:(id <System_Runtime_Remoting_Lifetime_ISponsor_>)p1 renewalTime:(System_TimeSpan *)p2;
 
 	// Managed method name : Renew
 	// Managed return type : System.TimeSpan
@@ -134,13 +134,13 @@
 
 	// Managed method name : Register
 	// Managed return type : System.Void
-	// Managed param types : System.Runtime.Remoting.Lifetime.ISponsor, System.TimeSpan
-    - (void)register_withObj:(id <System_Runtime_Remoting_Lifetime_ISponsor_>)p1 renewalTime:(System_TimeSpan *)p2;
+	// Managed param types : System.Runtime.Remoting.Lifetime.ISponsor
+    - (void)register_withObj:(id <System_Runtime_Remoting_Lifetime_ISponsor_>)p1;
 
 	// Managed method name : Register
 	// Managed return type : System.Void
-	// Managed param types : System.Runtime.Remoting.Lifetime.ISponsor
-    - (void)register_withObj:(id <System_Runtime_Remoting_Lifetime_ISponsor_>)p1;
+	// Managed param types : System.Runtime.Remoting.Lifetime.ISponsor, System.TimeSpan
+    - (void)register_withObj:(id <System_Runtime_Remoting_Lifetime_ISponsor_>)p1 renewalTime:(System_TimeSpan *)p2;
 
 	// Managed method name : Renew
 	// Managed return type : System.TimeSpan

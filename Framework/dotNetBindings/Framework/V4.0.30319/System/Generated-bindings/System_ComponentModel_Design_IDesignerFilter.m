@@ -33,7 +33,7 @@
     - (void)postFilterAttributes_withAttributes:(id <System_Collections_IDictionary_>)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IDesignerFilter.PostFilterAttributes(System.Collections.IDictionary)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IDesignerFilter.PostFilterAttributes(System.Collections.IDictionary)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -43,7 +43,7 @@
     - (void)postFilterEvents_withEvents:(id <System_Collections_IDictionary_>)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IDesignerFilter.PostFilterEvents(System.Collections.IDictionary)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IDesignerFilter.PostFilterEvents(System.Collections.IDictionary)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -53,7 +53,7 @@
     - (void)postFilterProperties_withProperties:(id <System_Collections_IDictionary_>)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IDesignerFilter.PostFilterProperties(System.Collections.IDictionary)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IDesignerFilter.PostFilterProperties(System.Collections.IDictionary)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -63,7 +63,7 @@
     - (void)preFilterAttributes_withAttributes:(id <System_Collections_IDictionary_>)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IDesignerFilter.PreFilterAttributes(System.Collections.IDictionary)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IDesignerFilter.PreFilterAttributes(System.Collections.IDictionary)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -73,7 +73,7 @@
     - (void)preFilterEvents_withEvents:(id <System_Collections_IDictionary_>)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IDesignerFilter.PreFilterEvents(System.Collections.IDictionary)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IDesignerFilter.PreFilterEvents(System.Collections.IDictionary)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -83,7 +83,7 @@
     - (void)preFilterProperties_withProperties:(id <System_Collections_IDictionary_>)p1
     {
 		
-		[self invokeMonoMethod:"System.ComponentModel.Design.IDesignerFilter.PreFilterProperties(System.Collections.IDictionary)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"System.ComponentModel.Design.IDesignerFilter.PreFilterProperties(System.Collections.IDictionary)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

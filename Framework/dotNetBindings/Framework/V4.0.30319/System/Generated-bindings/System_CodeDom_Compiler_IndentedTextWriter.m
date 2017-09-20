@@ -33,7 +33,7 @@
     + (System_CodeDom_Compiler_IndentedTextWriter *)new_withWriter:(System_IO_TextWriter *)p1 tabString:(NSString *)p2
     {
 		
-		System_CodeDom_Compiler_IndentedTextWriter * object = [[self alloc] initWithSignature:"System.IO.TextWriter,string" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_CodeDom_Compiler_IndentedTextWriter * object = [[self alloc] initWithSignature:"System.IO.TextWriter,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_CodeDom_Compiler_IndentedTextWriter *)new_withWriter:(System_IO_TextWriter *)p1
     {
 		
-		System_CodeDom_Compiler_IndentedTextWriter * object = [[self alloc] initWithSignature:"System.IO.TextWriter" withNumArgs:1, [p1 monoValue]];;
+		System_CodeDom_Compiler_IndentedTextWriter * object = [[self alloc] initWithSignature:"System.IO.TextWriter" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -72,7 +72,17 @@
     @synthesize encoding = _encoding;
     - (System_Text_Encoding *)encoding
     {
-		MonoObject *monoObject = [self getMonoProperty:"Encoding"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Encoding");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_encoding isEqualToMonoObject:monoObject]) return _encoding;					
 		_encoding = [System_Text_Encoding bestObjectWithMonoObject:monoObject];
 
@@ -84,16 +94,35 @@
     @synthesize indent = _indent;
     - (int32_t)indent
     {
-		MonoObject *monoObject = [self getMonoProperty:"Indent"];
-		_indent = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Indent");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_indent = monoObject;
 
 		return _indent;
 	}
     - (void)setIndent:(int32_t)value
 	{
 		_indent = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Indent" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Indent");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : InnerWriter
@@ -101,7 +130,17 @@
     @synthesize innerWriter = _innerWriter;
     - (System_IO_TextWriter *)innerWriter
     {
-		MonoObject *monoObject = [self getMonoProperty:"InnerWriter"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InnerWriter");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_innerWriter isEqualToMonoObject:monoObject]) return _innerWriter;					
 		_innerWriter = [System_IO_TextWriter bestObjectWithMonoObject:monoObject];
 
@@ -113,7 +152,17 @@
     @synthesize newLine = _newLine;
     - (NSString *)newLine
     {
-		MonoObject *monoObject = [self getMonoProperty:"NewLine"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NewLine");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_newLine isEqualToMonoObject:monoObject]) return _newLine;					
 		_newLine = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -122,8 +171,17 @@
     - (void)setNewLine:(NSString *)value
 	{
 		_newLine = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"NewLine" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "NewLine");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -135,7 +193,7 @@
     - (void)close
     {
 		
-		[self invokeMonoMethod:"Close()" withNumArgs:0];;
+		[self invokeMonoMethod:"Close()" withNumArgs:0];
         
     }
 
@@ -145,7 +203,7 @@
     - (void)flush
     {
 		
-		[self invokeMonoMethod:"Flush()" withNumArgs:0];;
+		[self invokeMonoMethod:"Flush()" withNumArgs:0];
         
     }
 
@@ -155,7 +213,7 @@
     - (void)write_withS:(NSString *)p1
     {
 		
-		[self invokeMonoMethod:"Write(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Write(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -165,7 +223,7 @@
     - (void)write_withValueBool:(BOOL)p1
     {
 		
-		[self invokeMonoMethod:"Write(bool)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"Write(bool)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -175,7 +233,7 @@
     - (void)write_withValueChar:(uint16_t)p1
     {
 		
-		[self invokeMonoMethod:"Write(char)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"Write(char)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -185,7 +243,7 @@
     - (void)write_withBuffer:(DBSystem_Array *)p1
     {
 		
-		[self invokeMonoMethod:"Write(char[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Write(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -195,7 +253,7 @@
     - (void)write_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		
-		[self invokeMonoMethod:"Write(char[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		[self invokeMonoMethod:"Write(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
         
     }
 
@@ -205,7 +263,7 @@
     - (void)write_withValueDouble:(double)p1
     {
 		
-		[self invokeMonoMethod:"Write(double)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"Write(double)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -215,7 +273,7 @@
     - (void)write_withValueSingle:(float)p1
     {
 		
-		[self invokeMonoMethod:"Write(single)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"Write(single)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -225,7 +283,7 @@
     - (void)write_withValueInt:(int32_t)p1
     {
 		
-		[self invokeMonoMethod:"Write(int)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"Write(int)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -235,7 +293,7 @@
     - (void)write_withValueLong:(int64_t)p1
     {
 		
-		[self invokeMonoMethod:"Write(long)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"Write(long)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -245,7 +303,7 @@
     - (void)write_withValueObject:(System_Object *)p1
     {
 		
-		[self invokeMonoMethod:"Write(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Write(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -255,7 +313,7 @@
     - (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2
     {
 		
-		[self invokeMonoMethod:"Write(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"Write(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -265,7 +323,7 @@
     - (void)write_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3
     {
 		
-		[self invokeMonoMethod:"Write(string,object,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"Write(string,object,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -275,7 +333,7 @@
     - (void)write_withFormat:(NSString *)p1 arg:(DBSystem_Array *)p2
     {
 		
-		[self invokeMonoMethod:"Write(string,object[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"Write(string,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -285,7 +343,7 @@
     - (void)writeLine_withS:(NSString *)p1
     {
 		
-		[self invokeMonoMethod:"WriteLine(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"WriteLine(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -295,7 +353,7 @@
     - (void)writeLine
     {
 		
-		[self invokeMonoMethod:"WriteLine()" withNumArgs:0];;
+		[self invokeMonoMethod:"WriteLine()" withNumArgs:0];
         
     }
 
@@ -305,7 +363,7 @@
     - (void)writeLine_withValueBool:(BOOL)p1
     {
 		
-		[self invokeMonoMethod:"WriteLine(bool)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"WriteLine(bool)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -315,7 +373,7 @@
     - (void)writeLine_withValueChar:(uint16_t)p1
     {
 		
-		[self invokeMonoMethod:"WriteLine(char)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"WriteLine(char)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -325,7 +383,7 @@
     - (void)writeLine_withBuffer:(DBSystem_Array *)p1
     {
 		
-		[self invokeMonoMethod:"WriteLine(char[])" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"WriteLine(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -335,7 +393,7 @@
     - (void)writeLine_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		
-		[self invokeMonoMethod:"WriteLine(char[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		[self invokeMonoMethod:"WriteLine(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
         
     }
 
@@ -345,7 +403,7 @@
     - (void)writeLine_withValueDouble:(double)p1
     {
 		
-		[self invokeMonoMethod:"WriteLine(double)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"WriteLine(double)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -355,7 +413,7 @@
     - (void)writeLine_withValueSingle:(float)p1
     {
 		
-		[self invokeMonoMethod:"WriteLine(single)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"WriteLine(single)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -365,7 +423,7 @@
     - (void)writeLine_withValueInt:(int32_t)p1
     {
 		
-		[self invokeMonoMethod:"WriteLine(int)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"WriteLine(int)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -375,7 +433,7 @@
     - (void)writeLine_withValueLong:(int64_t)p1
     {
 		
-		[self invokeMonoMethod:"WriteLine(long)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"WriteLine(long)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -385,7 +443,7 @@
     - (void)writeLine_withValueObject:(System_Object *)p1
     {
 		
-		[self invokeMonoMethod:"WriteLine(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"WriteLine(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -395,7 +453,7 @@
     - (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2
     {
 		
-		[self invokeMonoMethod:"WriteLine(string,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"WriteLine(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -405,7 +463,7 @@
     - (void)writeLine_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3
     {
 		
-		[self invokeMonoMethod:"WriteLine(string,object,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"WriteLine(string,object,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
@@ -415,7 +473,7 @@
     - (void)writeLine_withFormat:(NSString *)p1 arg:(DBSystem_Array *)p2
     {
 		
-		[self invokeMonoMethod:"WriteLine(string,object[])" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"WriteLine(string,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -425,7 +483,7 @@
     - (void)writeLine_withValueUint:(uint32_t)p1
     {
 		
-		[self invokeMonoMethod:"WriteLine(uint)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"WriteLine(uint)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -435,7 +493,7 @@
     - (void)writeLineNoTabs_withS:(NSString *)p1
     {
 		
-		[self invokeMonoMethod:"WriteLineNoTabs(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"WriteLineNoTabs(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

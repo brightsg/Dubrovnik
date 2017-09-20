@@ -33,7 +33,7 @@
     + (System_ComponentModel_Design_ComponentRenameEventArgs *)new_withComponent:(System_Object *)p1 oldName:(NSString *)p2 newName:(NSString *)p3
     {
 		
-		System_ComponentModel_Design_ComponentRenameEventArgs * object = [[self alloc] initWithSignature:"object,string,string" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		System_ComponentModel_Design_ComponentRenameEventArgs * object = [[self alloc] initWithSignature:"object,string,string" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize component = _component;
     - (System_Object *)component
     {
-		MonoObject *monoObject = [self getMonoProperty:"Component"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Component");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_component isEqualToMonoObject:monoObject]) return _component;					
 		_component = [System_Object objectWithMonoObject:monoObject];
 
@@ -58,7 +68,17 @@
     @synthesize newName = _newName;
     - (NSString *)newName
     {
-		MonoObject *monoObject = [self getMonoProperty:"NewName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NewName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_newName isEqualToMonoObject:monoObject]) return _newName;					
 		_newName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -70,7 +90,17 @@
     @synthesize oldName = _oldName;
     - (NSString *)oldName
     {
-		MonoObject *monoObject = [self getMonoProperty:"OldName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OldName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_oldName isEqualToMonoObject:monoObject]) return _oldName;					
 		_oldName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 

@@ -17,14 +17,14 @@
 	// Managed method name : .ctor
 	// Managed return type : System.CodeDom.CodeDirectionExpression
 	// Managed param types : System.CodeDom.FieldDirection, System.CodeDom.CodeExpression
-    + (System_CodeDom_CodeDirectionExpression *)new_withDirection:(System_CodeDom_FieldDirection)p1 expression:(System_CodeDom_CodeExpression *)p2;
+    + (System_CodeDom_CodeDirectionExpression *)new_withDirection:(int32_t)p1 expression:(System_CodeDom_CodeExpression *)p2;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Direction
 	// Managed property type : System.CodeDom.FieldDirection
-    @property (nonatomic) System_CodeDom_FieldDirection direction;
+    @property (nonatomic) int32_t direction;
 
 	// Managed property name : Expression
 	// Managed property type : System.CodeDom.CodeExpression

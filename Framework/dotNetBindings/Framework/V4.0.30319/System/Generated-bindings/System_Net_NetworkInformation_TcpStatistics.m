@@ -32,8 +32,18 @@
     @synthesize connectionsAccepted = _connectionsAccepted;
     - (int64_t)connectionsAccepted
     {
-		MonoObject *monoObject = [self getMonoProperty:"ConnectionsAccepted"];
-		_connectionsAccepted = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ConnectionsAccepted");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_connectionsAccepted = monoObject;
 
 		return _connectionsAccepted;
 	}
@@ -43,8 +53,18 @@
     @synthesize connectionsInitiated = _connectionsInitiated;
     - (int64_t)connectionsInitiated
     {
-		MonoObject *monoObject = [self getMonoProperty:"ConnectionsInitiated"];
-		_connectionsInitiated = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ConnectionsInitiated");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_connectionsInitiated = monoObject;
 
 		return _connectionsInitiated;
 	}
@@ -54,8 +74,18 @@
     @synthesize cumulativeConnections = _cumulativeConnections;
     - (int64_t)cumulativeConnections
     {
-		MonoObject *monoObject = [self getMonoProperty:"CumulativeConnections"];
-		_cumulativeConnections = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CumulativeConnections");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_cumulativeConnections = monoObject;
 
 		return _cumulativeConnections;
 	}
@@ -65,8 +95,18 @@
     @synthesize currentConnections = _currentConnections;
     - (int64_t)currentConnections
     {
-		MonoObject *monoObject = [self getMonoProperty:"CurrentConnections"];
-		_currentConnections = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrentConnections");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_currentConnections = monoObject;
 
 		return _currentConnections;
 	}
@@ -76,8 +116,18 @@
     @synthesize errorsReceived = _errorsReceived;
     - (int64_t)errorsReceived
     {
-		MonoObject *monoObject = [self getMonoProperty:"ErrorsReceived"];
-		_errorsReceived = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ErrorsReceived");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_errorsReceived = monoObject;
 
 		return _errorsReceived;
 	}
@@ -87,8 +137,18 @@
     @synthesize failedConnectionAttempts = _failedConnectionAttempts;
     - (int64_t)failedConnectionAttempts
     {
-		MonoObject *monoObject = [self getMonoProperty:"FailedConnectionAttempts"];
-		_failedConnectionAttempts = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FailedConnectionAttempts");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_failedConnectionAttempts = monoObject;
 
 		return _failedConnectionAttempts;
 	}
@@ -98,8 +158,18 @@
     @synthesize maximumConnections = _maximumConnections;
     - (int64_t)maximumConnections
     {
-		MonoObject *monoObject = [self getMonoProperty:"MaximumConnections"];
-		_maximumConnections = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MaximumConnections");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_maximumConnections = monoObject;
 
 		return _maximumConnections;
 	}
@@ -109,8 +179,18 @@
     @synthesize maximumTransmissionTimeout = _maximumTransmissionTimeout;
     - (int64_t)maximumTransmissionTimeout
     {
-		MonoObject *monoObject = [self getMonoProperty:"MaximumTransmissionTimeout"];
-		_maximumTransmissionTimeout = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MaximumTransmissionTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_maximumTransmissionTimeout = monoObject;
 
 		return _maximumTransmissionTimeout;
 	}
@@ -120,8 +200,18 @@
     @synthesize minimumTransmissionTimeout = _minimumTransmissionTimeout;
     - (int64_t)minimumTransmissionTimeout
     {
-		MonoObject *monoObject = [self getMonoProperty:"MinimumTransmissionTimeout"];
-		_minimumTransmissionTimeout = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MinimumTransmissionTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_minimumTransmissionTimeout = monoObject;
 
 		return _minimumTransmissionTimeout;
 	}
@@ -131,8 +221,18 @@
     @synthesize resetConnections = _resetConnections;
     - (int64_t)resetConnections
     {
-		MonoObject *monoObject = [self getMonoProperty:"ResetConnections"];
-		_resetConnections = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ResetConnections");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_resetConnections = monoObject;
 
 		return _resetConnections;
 	}
@@ -142,8 +242,18 @@
     @synthesize resetsSent = _resetsSent;
     - (int64_t)resetsSent
     {
-		MonoObject *monoObject = [self getMonoProperty:"ResetsSent"];
-		_resetsSent = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ResetsSent");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_resetsSent = monoObject;
 
 		return _resetsSent;
 	}
@@ -153,8 +263,18 @@
     @synthesize segmentsReceived = _segmentsReceived;
     - (int64_t)segmentsReceived
     {
-		MonoObject *monoObject = [self getMonoProperty:"SegmentsReceived"];
-		_segmentsReceived = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SegmentsReceived");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_segmentsReceived = monoObject;
 
 		return _segmentsReceived;
 	}
@@ -164,8 +284,18 @@
     @synthesize segmentsResent = _segmentsResent;
     - (int64_t)segmentsResent
     {
-		MonoObject *monoObject = [self getMonoProperty:"SegmentsResent"];
-		_segmentsResent = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SegmentsResent");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_segmentsResent = monoObject;
 
 		return _segmentsResent;
 	}
@@ -175,8 +305,18 @@
     @synthesize segmentsSent = _segmentsSent;
     - (int64_t)segmentsSent
     {
-		MonoObject *monoObject = [self getMonoProperty:"SegmentsSent"];
-		_segmentsSent = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SegmentsSent");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_segmentsSent = monoObject;
 
 		return _segmentsSent;
 	}

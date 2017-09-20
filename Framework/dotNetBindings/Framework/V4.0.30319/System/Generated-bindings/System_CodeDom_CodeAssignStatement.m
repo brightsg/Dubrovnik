@@ -33,7 +33,7 @@
     + (System_CodeDom_CodeAssignStatement *)new_withLeft:(System_CodeDom_CodeExpression *)p1 right:(System_CodeDom_CodeExpression *)p2
     {
 		
-		System_CodeDom_CodeAssignStatement * object = [[self alloc] initWithSignature:"System.CodeDom.CodeExpression,System.CodeDom.CodeExpression" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_CodeDom_CodeAssignStatement * object = [[self alloc] initWithSignature:"System.CodeDom.CodeExpression,System.CodeDom.CodeExpression" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -46,7 +46,17 @@
     @synthesize left = _left;
     - (System_CodeDom_CodeExpression *)left
     {
-		MonoObject *monoObject = [self getMonoProperty:"Left"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Left");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_left isEqualToMonoObject:monoObject]) return _left;					
 		_left = [System_CodeDom_CodeExpression bestObjectWithMonoObject:monoObject];
 
@@ -55,8 +65,17 @@
     - (void)setLeft:(System_CodeDom_CodeExpression *)value
 	{
 		_left = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Left" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Left");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Right
@@ -64,7 +83,17 @@
     @synthesize right = _right;
     - (System_CodeDom_CodeExpression *)right
     {
-		MonoObject *monoObject = [self getMonoProperty:"Right"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Right");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_right isEqualToMonoObject:monoObject]) return _right;					
 		_right = [System_CodeDom_CodeExpression bestObjectWithMonoObject:monoObject];
 
@@ -73,8 +102,17 @@
     - (void)setRight:(System_CodeDom_CodeExpression *)value
 	{
 		_right = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Right" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Right");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

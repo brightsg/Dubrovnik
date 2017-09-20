@@ -32,16 +32,35 @@
     @synthesize assertUiEnabled = _assertUiEnabled;
     - (BOOL)assertUiEnabled
     {
-		MonoObject *monoObject = [self getMonoProperty:"AssertUiEnabled"];
-		_assertUiEnabled = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AssertUiEnabled");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_assertUiEnabled = monoObject;
 
 		return _assertUiEnabled;
 	}
     - (void)setAssertUiEnabled:(BOOL)value
 	{
 		_assertUiEnabled = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"AssertUiEnabled" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "AssertUiEnabled");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : LogFileName
@@ -49,7 +68,17 @@
     @synthesize logFileName = _logFileName;
     - (NSString *)logFileName
     {
-		MonoObject *monoObject = [self getMonoProperty:"LogFileName"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LogFileName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_logFileName isEqualToMonoObject:monoObject]) return _logFileName;					
 		_logFileName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -58,8 +87,17 @@
     - (void)setLogFileName:(NSString *)value
 	{
 		_logFileName = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"LogFileName" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "LogFileName");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -71,7 +109,7 @@
     - (void)fail_withMessage:(NSString *)p1
     {
 		
-		[self invokeMonoMethod:"Fail(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Fail(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -81,7 +119,7 @@
     - (void)fail_withMessage:(NSString *)p1 detailMessage:(NSString *)p2
     {
 		
-		[self invokeMonoMethod:"Fail(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"Fail(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -91,7 +129,7 @@
     - (void)write_withMessage:(NSString *)p1
     {
 		
-		[self invokeMonoMethod:"Write(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Write(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -101,7 +139,7 @@
     - (void)writeLine_withMessage:(NSString *)p1
     {
 		
-		[self invokeMonoMethod:"WriteLine(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"WriteLine(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

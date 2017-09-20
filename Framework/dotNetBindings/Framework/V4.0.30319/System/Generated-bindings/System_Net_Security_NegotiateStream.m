@@ -33,7 +33,7 @@
     + (System_Net_Security_NegotiateStream *)new_withInnerStream:(System_IO_Stream *)p1
     {
 		
-		System_Net_Security_NegotiateStream * object = [[self alloc] initWithSignature:"System.IO.Stream" withNumArgs:1, [p1 monoValue]];;
+		System_Net_Security_NegotiateStream * object = [[self alloc] initWithSignature:"System.IO.Stream" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Net_Security_NegotiateStream *)new_withInnerStream:(System_IO_Stream *)p1 leaveInnerStreamOpen:(BOOL)p2
     {
 		
-		System_Net_Security_NegotiateStream * object = [[self alloc] initWithSignature:"System.IO.Stream,bool" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_Net_Security_NegotiateStream * object = [[self alloc] initWithSignature:"System.IO.Stream,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -57,8 +57,18 @@
     @synthesize canRead = _canRead;
     - (BOOL)canRead
     {
-		MonoObject *monoObject = [self getMonoProperty:"CanRead"];
-		_canRead = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CanRead");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_canRead = monoObject;
 
 		return _canRead;
 	}
@@ -68,8 +78,18 @@
     @synthesize canSeek = _canSeek;
     - (BOOL)canSeek
     {
-		MonoObject *monoObject = [self getMonoProperty:"CanSeek"];
-		_canSeek = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CanSeek");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_canSeek = monoObject;
 
 		return _canSeek;
 	}
@@ -79,8 +99,18 @@
     @synthesize canTimeout = _canTimeout;
     - (BOOL)canTimeout
     {
-		MonoObject *monoObject = [self getMonoProperty:"CanTimeout"];
-		_canTimeout = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CanTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_canTimeout = monoObject;
 
 		return _canTimeout;
 	}
@@ -90,8 +120,18 @@
     @synthesize canWrite = _canWrite;
     - (BOOL)canWrite
     {
-		MonoObject *monoObject = [self getMonoProperty:"CanWrite"];
-		_canWrite = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CanWrite");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_canWrite = monoObject;
 
 		return _canWrite;
 	}
@@ -99,10 +139,20 @@
 	// Managed property name : ImpersonationLevel
 	// Managed property type : System.Security.Principal.TokenImpersonationLevel
     @synthesize impersonationLevel = _impersonationLevel;
-    - (System_Security_Principal_TokenImpersonationLevel)impersonationLevel
+    - (int32_t)impersonationLevel
     {
-		MonoObject *monoObject = [self getMonoProperty:"ImpersonationLevel"];
-		_impersonationLevel = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ImpersonationLevel");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_impersonationLevel = monoObject;
 
 		return _impersonationLevel;
 	}
@@ -112,8 +162,18 @@
     @synthesize isAuthenticated = _isAuthenticated;
     - (BOOL)isAuthenticated
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsAuthenticated"];
-		_isAuthenticated = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsAuthenticated");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isAuthenticated = monoObject;
 
 		return _isAuthenticated;
 	}
@@ -123,8 +183,18 @@
     @synthesize isEncrypted = _isEncrypted;
     - (BOOL)isEncrypted
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsEncrypted"];
-		_isEncrypted = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsEncrypted");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isEncrypted = monoObject;
 
 		return _isEncrypted;
 	}
@@ -134,8 +204,18 @@
     @synthesize isMutuallyAuthenticated = _isMutuallyAuthenticated;
     - (BOOL)isMutuallyAuthenticated
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsMutuallyAuthenticated"];
-		_isMutuallyAuthenticated = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsMutuallyAuthenticated");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isMutuallyAuthenticated = monoObject;
 
 		return _isMutuallyAuthenticated;
 	}
@@ -145,8 +225,18 @@
     @synthesize isServer = _isServer;
     - (BOOL)isServer
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsServer"];
-		_isServer = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsServer");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isServer = monoObject;
 
 		return _isServer;
 	}
@@ -156,8 +246,18 @@
     @synthesize isSigned = _isSigned;
     - (BOOL)isSigned
     {
-		MonoObject *monoObject = [self getMonoProperty:"IsSigned"];
-		_isSigned = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsSigned");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_isSigned = monoObject;
 
 		return _isSigned;
 	}
@@ -167,8 +267,18 @@
     @synthesize length = _length;
     - (int64_t)length
     {
-		MonoObject *monoObject = [self getMonoProperty:"Length"];
-		_length = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Length");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_length = monoObject;
 
 		return _length;
 	}
@@ -178,16 +288,35 @@
     @synthesize position = _position;
     - (int64_t)position
     {
-		MonoObject *monoObject = [self getMonoProperty:"Position"];
-		_position = DB_UNBOX_INT64(monoObject);
+		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Position");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int64_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_position = monoObject;
 
 		return _position;
 	}
     - (void)setPosition:(int64_t)value
 	{
 		_position = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Position" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int64_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Position");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : ReadTimeout
@@ -195,16 +324,35 @@
     @synthesize readTimeout = _readTimeout;
     - (int32_t)readTimeout
     {
-		MonoObject *monoObject = [self getMonoProperty:"ReadTimeout"];
-		_readTimeout = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ReadTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_readTimeout = monoObject;
 
 		return _readTimeout;
 	}
     - (void)setReadTimeout:(int32_t)value
 	{
 		_readTimeout = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"ReadTimeout" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "ReadTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : RemoteIdentity
@@ -212,7 +360,17 @@
     @synthesize remoteIdentity = _remoteIdentity;
     - (System_Security_Principal_IIdentity *)remoteIdentity
     {
-		MonoObject *monoObject = [self getMonoProperty:"RemoteIdentity"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RemoteIdentity");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_remoteIdentity isEqualToMonoObject:monoObject]) return _remoteIdentity;					
 		_remoteIdentity = [System_Security_Principal_IIdentity bestObjectWithMonoObject:monoObject];
 
@@ -224,16 +382,35 @@
     @synthesize writeTimeout = _writeTimeout;
     - (int32_t)writeTimeout
     {
-		MonoObject *monoObject = [self getMonoProperty:"WriteTimeout"];
-		_writeTimeout = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "WriteTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_writeTimeout = monoObject;
 
 		return _writeTimeout;
 	}
     - (void)setWriteTimeout:(int32_t)value
 	{
 		_writeTimeout = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"WriteTimeout" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "WriteTimeout");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -
@@ -245,7 +422,7 @@
     - (void)authenticateAsClient
     {
 		
-		[self invokeMonoMethod:"AuthenticateAsClient()" withNumArgs:0];;
+		[self invokeMonoMethod:"AuthenticateAsClient()" withNumArgs:0];
         
     }
 
@@ -255,7 +432,7 @@
     - (void)authenticateAsClient_withCredential:(System_Net_NetworkCredential *)p1 targetName:(NSString *)p2
     {
 		
-		[self invokeMonoMethod:"AuthenticateAsClient(System.Net.NetworkCredential,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"AuthenticateAsClient(System.Net.NetworkCredential,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -265,27 +442,27 @@
     - (void)authenticateAsClient_withCredential:(System_Net_NetworkCredential *)p1 binding:(System_Security_Authentication_ExtendedProtection_ChannelBinding *)p2 targetName:(NSString *)p3
     {
 		
-		[self invokeMonoMethod:"AuthenticateAsClient(System.Net.NetworkCredential,System.Security.Authentication.ExtendedProtection.ChannelBinding,string)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];;
+		[self invokeMonoMethod:"AuthenticateAsClient(System.Net.NetworkCredential,System.Security.Authentication.ExtendedProtection.ChannelBinding,string)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
         
     }
 
 	// Managed method name : AuthenticateAsClient
 	// Managed return type : System.Void
 	// Managed param types : System.Net.NetworkCredential, System.String, System.Net.Security.ProtectionLevel, System.Security.Principal.TokenImpersonationLevel
-    - (void)authenticateAsClient_withCredential:(System_Net_NetworkCredential *)p1 targetName:(NSString *)p2 requiredProtectionLevel:(System_Net_Security_ProtectionLevel)p3 allowedImpersonationLevel:(System_Security_Principal_TokenImpersonationLevel)p4
+    - (void)authenticateAsClient_withCredential:(System_Net_NetworkCredential *)p1 targetName:(NSString *)p2 requiredProtectionLevel:(int32_t)p3 allowedImpersonationLevel:(int32_t)p4
     {
 		
-		[self invokeMonoMethod:"AuthenticateAsClient(System.Net.NetworkCredential,string,System.Net.Security.ProtectionLevel,System.Security.Principal.TokenImpersonationLevel)" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4)];;
+		[self invokeMonoMethod:"AuthenticateAsClient(System.Net.NetworkCredential,string,System.Net.Security.ProtectionLevel,System.Security.Principal.TokenImpersonationLevel)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
         
     }
 
 	// Managed method name : AuthenticateAsClient
 	// Managed return type : System.Void
 	// Managed param types : System.Net.NetworkCredential, System.Security.Authentication.ExtendedProtection.ChannelBinding, System.String, System.Net.Security.ProtectionLevel, System.Security.Principal.TokenImpersonationLevel
-    - (void)authenticateAsClient_withCredential:(System_Net_NetworkCredential *)p1 binding:(System_Security_Authentication_ExtendedProtection_ChannelBinding *)p2 targetName:(NSString *)p3 requiredProtectionLevel:(System_Net_Security_ProtectionLevel)p4 allowedImpersonationLevel:(System_Security_Principal_TokenImpersonationLevel)p5
+    - (void)authenticateAsClient_withCredential:(System_Net_NetworkCredential *)p1 binding:(System_Security_Authentication_ExtendedProtection_ChannelBinding *)p2 targetName:(NSString *)p3 requiredProtectionLevel:(int32_t)p4 allowedImpersonationLevel:(int32_t)p5
     {
 		
-		[self invokeMonoMethod:"AuthenticateAsClient(System.Net.NetworkCredential,System.Security.Authentication.ExtendedProtection.ChannelBinding,string,System.Net.Security.ProtectionLevel,System.Security.Principal.TokenImpersonationLevel)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), DB_VALUE(p5)];;
+		[self invokeMonoMethod:"AuthenticateAsClient(System.Net.NetworkCredential,System.Security.Authentication.ExtendedProtection.ChannelBinding,string,System.Net.Security.ProtectionLevel,System.Security.Principal.TokenImpersonationLevel)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
         
     }
 
@@ -306,7 +483,7 @@
     - (System_Threading_Tasks_Task *)authenticateAsClientAsync_withCredential:(System_Net_NetworkCredential *)p1 targetName:(NSString *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AuthenticateAsClientAsync(System.Net.NetworkCredential,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"AuthenticateAsClientAsync(System.Net.NetworkCredential,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
     }
@@ -314,10 +491,10 @@
 	// Managed method name : AuthenticateAsClientAsync
 	// Managed return type : System.Threading.Tasks.Task
 	// Managed param types : System.Net.NetworkCredential, System.String, System.Net.Security.ProtectionLevel, System.Security.Principal.TokenImpersonationLevel
-    - (System_Threading_Tasks_Task *)authenticateAsClientAsync_withCredential:(System_Net_NetworkCredential *)p1 targetName:(NSString *)p2 requiredProtectionLevel:(System_Net_Security_ProtectionLevel)p3 allowedImpersonationLevel:(System_Security_Principal_TokenImpersonationLevel)p4
+    - (System_Threading_Tasks_Task *)authenticateAsClientAsync_withCredential:(System_Net_NetworkCredential *)p1 targetName:(NSString *)p2 requiredProtectionLevel:(int32_t)p3 allowedImpersonationLevel:(int32_t)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AuthenticateAsClientAsync(System.Net.NetworkCredential,string,System.Net.Security.ProtectionLevel,System.Security.Principal.TokenImpersonationLevel)" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4)];
+		MonoObject *monoObject = [self invokeMonoMethod:"AuthenticateAsClientAsync(System.Net.NetworkCredential,string,System.Net.Security.ProtectionLevel,System.Security.Principal.TokenImpersonationLevel)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
 		
 		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
     }
@@ -328,7 +505,7 @@
     - (System_Threading_Tasks_Task *)authenticateAsClientAsync_withCredential:(System_Net_NetworkCredential *)p1 binding:(System_Security_Authentication_ExtendedProtection_ChannelBinding *)p2 targetName:(NSString *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AuthenticateAsClientAsync(System.Net.NetworkCredential,System.Security.Authentication.ExtendedProtection.ChannelBinding,string)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"AuthenticateAsClientAsync(System.Net.NetworkCredential,System.Security.Authentication.ExtendedProtection.ChannelBinding,string)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
     }
@@ -336,10 +513,10 @@
 	// Managed method name : AuthenticateAsClientAsync
 	// Managed return type : System.Threading.Tasks.Task
 	// Managed param types : System.Net.NetworkCredential, System.Security.Authentication.ExtendedProtection.ChannelBinding, System.String, System.Net.Security.ProtectionLevel, System.Security.Principal.TokenImpersonationLevel
-    - (System_Threading_Tasks_Task *)authenticateAsClientAsync_withCredential:(System_Net_NetworkCredential *)p1 binding:(System_Security_Authentication_ExtendedProtection_ChannelBinding *)p2 targetName:(NSString *)p3 requiredProtectionLevel:(System_Net_Security_ProtectionLevel)p4 allowedImpersonationLevel:(System_Security_Principal_TokenImpersonationLevel)p5
+    - (System_Threading_Tasks_Task *)authenticateAsClientAsync_withCredential:(System_Net_NetworkCredential *)p1 binding:(System_Security_Authentication_ExtendedProtection_ChannelBinding *)p2 targetName:(NSString *)p3 requiredProtectionLevel:(int32_t)p4 allowedImpersonationLevel:(int32_t)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AuthenticateAsClientAsync(System.Net.NetworkCredential,System.Security.Authentication.ExtendedProtection.ChannelBinding,string,System.Net.Security.ProtectionLevel,System.Security.Principal.TokenImpersonationLevel)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), DB_VALUE(p5)];
+		MonoObject *monoObject = [self invokeMonoMethod:"AuthenticateAsClientAsync(System.Net.NetworkCredential,System.Security.Authentication.ExtendedProtection.ChannelBinding,string,System.Net.Security.ProtectionLevel,System.Security.Principal.TokenImpersonationLevel)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
 		
 		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
     }
@@ -350,7 +527,7 @@
     - (void)authenticateAsServer
     {
 		
-		[self invokeMonoMethod:"AuthenticateAsServer()" withNumArgs:0];;
+		[self invokeMonoMethod:"AuthenticateAsServer()" withNumArgs:0];
         
     }
 
@@ -360,27 +537,27 @@
     - (void)authenticateAsServer_withPolicy:(System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)p1
     {
 		
-		[self invokeMonoMethod:"AuthenticateAsServer(System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"AuthenticateAsServer(System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
 	// Managed method name : AuthenticateAsServer
 	// Managed return type : System.Void
 	// Managed param types : System.Net.NetworkCredential, System.Net.Security.ProtectionLevel, System.Security.Principal.TokenImpersonationLevel
-    - (void)authenticateAsServer_withCredential:(System_Net_NetworkCredential *)p1 requiredProtectionLevel:(System_Net_Security_ProtectionLevel)p2 requiredImpersonationLevel:(System_Security_Principal_TokenImpersonationLevel)p3
+    - (void)authenticateAsServer_withCredential:(System_Net_NetworkCredential *)p1 requiredProtectionLevel:(int32_t)p2 requiredImpersonationLevel:(int32_t)p3
     {
 		
-		[self invokeMonoMethod:"AuthenticateAsServer(System.Net.NetworkCredential,System.Net.Security.ProtectionLevel,System.Security.Principal.TokenImpersonationLevel)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		[self invokeMonoMethod:"AuthenticateAsServer(System.Net.NetworkCredential,System.Net.Security.ProtectionLevel,System.Security.Principal.TokenImpersonationLevel)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
         
     }
 
 	// Managed method name : AuthenticateAsServer
 	// Managed return type : System.Void
 	// Managed param types : System.Net.NetworkCredential, System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy, System.Net.Security.ProtectionLevel, System.Security.Principal.TokenImpersonationLevel
-    - (void)authenticateAsServer_withCredential:(System_Net_NetworkCredential *)p1 policy:(System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)p2 requiredProtectionLevel:(System_Net_Security_ProtectionLevel)p3 requiredImpersonationLevel:(System_Security_Principal_TokenImpersonationLevel)p4
+    - (void)authenticateAsServer_withCredential:(System_Net_NetworkCredential *)p1 policy:(System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)p2 requiredProtectionLevel:(int32_t)p3 requiredImpersonationLevel:(int32_t)p4
     {
 		
-		[self invokeMonoMethod:"AuthenticateAsServer(System.Net.NetworkCredential,System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy,System.Net.Security.ProtectionLevel,System.Security.Principal.TokenImpersonationLevel)" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4)];;
+		[self invokeMonoMethod:"AuthenticateAsServer(System.Net.NetworkCredential,System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy,System.Net.Security.ProtectionLevel,System.Security.Principal.TokenImpersonationLevel)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
         
     }
 
@@ -401,7 +578,7 @@
     - (System_Threading_Tasks_Task *)authenticateAsServerAsync_withPolicy:(System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AuthenticateAsServerAsync(System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"AuthenticateAsServerAsync(System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
     }
@@ -409,10 +586,10 @@
 	// Managed method name : AuthenticateAsServerAsync
 	// Managed return type : System.Threading.Tasks.Task
 	// Managed param types : System.Net.NetworkCredential, System.Net.Security.ProtectionLevel, System.Security.Principal.TokenImpersonationLevel
-    - (System_Threading_Tasks_Task *)authenticateAsServerAsync_withCredential:(System_Net_NetworkCredential *)p1 requiredProtectionLevel:(System_Net_Security_ProtectionLevel)p2 requiredImpersonationLevel:(System_Security_Principal_TokenImpersonationLevel)p3
+    - (System_Threading_Tasks_Task *)authenticateAsServerAsync_withCredential:(System_Net_NetworkCredential *)p1 requiredProtectionLevel:(int32_t)p2 requiredImpersonationLevel:(int32_t)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AuthenticateAsServerAsync(System.Net.NetworkCredential,System.Net.Security.ProtectionLevel,System.Security.Principal.TokenImpersonationLevel)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"AuthenticateAsServerAsync(System.Net.NetworkCredential,System.Net.Security.ProtectionLevel,System.Security.Principal.TokenImpersonationLevel)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
     }
@@ -420,10 +597,10 @@
 	// Managed method name : AuthenticateAsServerAsync
 	// Managed return type : System.Threading.Tasks.Task
 	// Managed param types : System.Net.NetworkCredential, System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy, System.Net.Security.ProtectionLevel, System.Security.Principal.TokenImpersonationLevel
-    - (System_Threading_Tasks_Task *)authenticateAsServerAsync_withCredential:(System_Net_NetworkCredential *)p1 policy:(System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)p2 requiredProtectionLevel:(System_Net_Security_ProtectionLevel)p3 requiredImpersonationLevel:(System_Security_Principal_TokenImpersonationLevel)p4
+    - (System_Threading_Tasks_Task *)authenticateAsServerAsync_withCredential:(System_Net_NetworkCredential *)p1 policy:(System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)p2 requiredProtectionLevel:(int32_t)p3 requiredImpersonationLevel:(int32_t)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"AuthenticateAsServerAsync(System.Net.NetworkCredential,System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy,System.Net.Security.ProtectionLevel,System.Security.Principal.TokenImpersonationLevel)" withNumArgs:4, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4)];
+		MonoObject *monoObject = [self invokeMonoMethod:"AuthenticateAsServerAsync(System.Net.NetworkCredential,System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy,System.Net.Security.ProtectionLevel,System.Security.Principal.TokenImpersonationLevel)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
 		
 		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
     }
@@ -434,7 +611,7 @@
     - (id <System_IAsyncResult>)beginAuthenticateAsClient_withAsyncCallback:(System_AsyncCallback *)p1 asyncState:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsClient(System.AsyncCallback,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsClient(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -445,7 +622,7 @@
     - (id <System_IAsyncResult>)beginAuthenticateAsClient_withCredential:(System_Net_NetworkCredential *)p1 targetName:(NSString *)p2 asyncCallback:(System_AsyncCallback *)p3 asyncState:(System_Object *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsClient(System.Net.NetworkCredential,string,System.AsyncCallback,object)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsClient(System.Net.NetworkCredential,string,System.AsyncCallback,object)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -456,7 +633,7 @@
     - (id <System_IAsyncResult>)beginAuthenticateAsClient_withCredential:(System_Net_NetworkCredential *)p1 binding:(System_Security_Authentication_ExtendedProtection_ChannelBinding *)p2 targetName:(NSString *)p3 asyncCallback:(System_AsyncCallback *)p4 asyncState:(System_Object *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsClient(System.Net.NetworkCredential,System.Security.Authentication.ExtendedProtection.ChannelBinding,string,System.AsyncCallback,object)" withNumArgs:5, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsClient(System.Net.NetworkCredential,System.Security.Authentication.ExtendedProtection.ChannelBinding,string,System.AsyncCallback,object)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -464,10 +641,10 @@
 	// Managed method name : BeginAuthenticateAsClient
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Net.NetworkCredential, System.String, System.Net.Security.ProtectionLevel, System.Security.Principal.TokenImpersonationLevel, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginAuthenticateAsClient_withCredential:(System_Net_NetworkCredential *)p1 targetName:(NSString *)p2 requiredProtectionLevel:(System_Net_Security_ProtectionLevel)p3 allowedImpersonationLevel:(System_Security_Principal_TokenImpersonationLevel)p4 asyncCallback:(System_AsyncCallback *)p5 asyncState:(System_Object *)p6
+    - (id <System_IAsyncResult>)beginAuthenticateAsClient_withCredential:(System_Net_NetworkCredential *)p1 targetName:(NSString *)p2 requiredProtectionLevel:(int32_t)p3 allowedImpersonationLevel:(int32_t)p4 asyncCallback:(System_AsyncCallback *)p5 asyncState:(System_Object *)p6
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsClient(System.Net.NetworkCredential,string,System.Net.Security.ProtectionLevel,System.Security.Principal.TokenImpersonationLevel,System.AsyncCallback,object)" withNumArgs:6, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4), [p5 monoValue], [p6 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsClient(System.Net.NetworkCredential,string,System.Net.Security.ProtectionLevel,System.Security.Principal.TokenImpersonationLevel,System.AsyncCallback,object)" withNumArgs:6, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4), [p5 monoRTInvokeArg], [p6 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -475,10 +652,10 @@
 	// Managed method name : BeginAuthenticateAsClient
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Net.NetworkCredential, System.Security.Authentication.ExtendedProtection.ChannelBinding, System.String, System.Net.Security.ProtectionLevel, System.Security.Principal.TokenImpersonationLevel, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginAuthenticateAsClient_withCredential:(System_Net_NetworkCredential *)p1 binding:(System_Security_Authentication_ExtendedProtection_ChannelBinding *)p2 targetName:(NSString *)p3 requiredProtectionLevel:(System_Net_Security_ProtectionLevel)p4 allowedImpersonationLevel:(System_Security_Principal_TokenImpersonationLevel)p5 asyncCallback:(System_AsyncCallback *)p6 asyncState:(System_Object *)p7
+    - (id <System_IAsyncResult>)beginAuthenticateAsClient_withCredential:(System_Net_NetworkCredential *)p1 binding:(System_Security_Authentication_ExtendedProtection_ChannelBinding *)p2 targetName:(NSString *)p3 requiredProtectionLevel:(int32_t)p4 allowedImpersonationLevel:(int32_t)p5 asyncCallback:(System_AsyncCallback *)p6 asyncState:(System_Object *)p7
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsClient(System.Net.NetworkCredential,System.Security.Authentication.ExtendedProtection.ChannelBinding,string,System.Net.Security.ProtectionLevel,System.Security.Principal.TokenImpersonationLevel,System.AsyncCallback,object)" withNumArgs:7, [p1 monoValue], [p2 monoValue], [p3 monoValue], DB_VALUE(p4), DB_VALUE(p5), [p6 monoValue], [p7 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsClient(System.Net.NetworkCredential,System.Security.Authentication.ExtendedProtection.ChannelBinding,string,System.Net.Security.ProtectionLevel,System.Security.Principal.TokenImpersonationLevel,System.AsyncCallback,object)" withNumArgs:7, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5), [p6 monoRTInvokeArg], [p7 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -489,7 +666,7 @@
     - (id <System_IAsyncResult>)beginAuthenticateAsServer_withAsyncCallback:(System_AsyncCallback *)p1 asyncState:(System_Object *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsServer(System.AsyncCallback,object)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsServer(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -500,7 +677,7 @@
     - (id <System_IAsyncResult>)beginAuthenticateAsServer_withPolicy:(System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)p1 asyncCallback:(System_AsyncCallback *)p2 asyncState:(System_Object *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsServer(System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy,System.AsyncCallback,object)" withNumArgs:3, [p1 monoValue], [p2 monoValue], [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsServer(System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy,System.AsyncCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -508,10 +685,10 @@
 	// Managed method name : BeginAuthenticateAsServer
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Net.NetworkCredential, System.Net.Security.ProtectionLevel, System.Security.Principal.TokenImpersonationLevel, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginAuthenticateAsServer_withCredential:(System_Net_NetworkCredential *)p1 requiredProtectionLevel:(System_Net_Security_ProtectionLevel)p2 requiredImpersonationLevel:(System_Security_Principal_TokenImpersonationLevel)p3 asyncCallback:(System_AsyncCallback *)p4 asyncState:(System_Object *)p5
+    - (id <System_IAsyncResult>)beginAuthenticateAsServer_withCredential:(System_Net_NetworkCredential *)p1 requiredProtectionLevel:(int32_t)p2 requiredImpersonationLevel:(int32_t)p3 asyncCallback:(System_AsyncCallback *)p4 asyncState:(System_Object *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsServer(System.Net.NetworkCredential,System.Net.Security.ProtectionLevel,System.Security.Principal.TokenImpersonationLevel,System.AsyncCallback,object)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsServer(System.Net.NetworkCredential,System.Net.Security.ProtectionLevel,System.Security.Principal.TokenImpersonationLevel,System.AsyncCallback,object)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -519,10 +696,10 @@
 	// Managed method name : BeginAuthenticateAsServer
 	// Managed return type : System.IAsyncResult
 	// Managed param types : System.Net.NetworkCredential, System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy, System.Net.Security.ProtectionLevel, System.Security.Principal.TokenImpersonationLevel, System.AsyncCallback, System.Object
-    - (id <System_IAsyncResult>)beginAuthenticateAsServer_withCredential:(System_Net_NetworkCredential *)p1 policy:(System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)p2 requiredProtectionLevel:(System_Net_Security_ProtectionLevel)p3 requiredImpersonationLevel:(System_Security_Principal_TokenImpersonationLevel)p4 asyncCallback:(System_AsyncCallback *)p5 asyncState:(System_Object *)p6
+    - (id <System_IAsyncResult>)beginAuthenticateAsServer_withCredential:(System_Net_NetworkCredential *)p1 policy:(System_Security_Authentication_ExtendedProtection_ExtendedProtectionPolicy *)p2 requiredProtectionLevel:(int32_t)p3 requiredImpersonationLevel:(int32_t)p4 asyncCallback:(System_AsyncCallback *)p5 asyncState:(System_Object *)p6
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsServer(System.Net.NetworkCredential,System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy,System.Net.Security.ProtectionLevel,System.Security.Principal.TokenImpersonationLevel,System.AsyncCallback,object)" withNumArgs:6, [p1 monoValue], [p2 monoValue], DB_VALUE(p3), DB_VALUE(p4), [p5 monoValue], [p6 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginAuthenticateAsServer(System.Net.NetworkCredential,System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy,System.Net.Security.ProtectionLevel,System.Security.Principal.TokenImpersonationLevel,System.AsyncCallback,object)" withNumArgs:6, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4), [p5 monoRTInvokeArg], [p6 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -533,7 +710,7 @@
     - (id <System_IAsyncResult>)beginRead_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 asyncCallback:(System_AsyncCallback *)p4 asyncState:(System_Object *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginRead(byte[],int,int,System.AsyncCallback,object)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginRead(byte[],int,int,System.AsyncCallback,object)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -544,7 +721,7 @@
     - (id <System_IAsyncResult>)beginWrite_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 asyncCallback:(System_AsyncCallback *)p4 asyncState:(System_Object *)p5
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginWrite(byte[],int,int,System.AsyncCallback,object)" withNumArgs:5, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3), [p4 monoValue], [p5 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginWrite(byte[],int,int,System.AsyncCallback,object)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -555,7 +732,7 @@
     - (void)endAuthenticateAsClient_withAsyncResult:(id <System_IAsyncResult_>)p1
     {
 		
-		[self invokeMonoMethod:"EndAuthenticateAsClient(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"EndAuthenticateAsClient(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -565,7 +742,7 @@
     - (void)endAuthenticateAsServer_withAsyncResult:(id <System_IAsyncResult_>)p1
     {
 		
-		[self invokeMonoMethod:"EndAuthenticateAsServer(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"EndAuthenticateAsServer(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -575,7 +752,7 @@
     - (int32_t)endRead_withAsyncResult:(id <System_IAsyncResult_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"EndRead(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"EndRead(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -586,7 +763,7 @@
     - (void)endWrite_withAsyncResult:(id <System_IAsyncResult_>)p1
     {
 		
-		[self invokeMonoMethod:"EndWrite(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"EndWrite(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -596,7 +773,7 @@
     - (void)flush
     {
 		
-		[self invokeMonoMethod:"Flush()" withNumArgs:0];;
+		[self invokeMonoMethod:"Flush()" withNumArgs:0];
         
     }
 
@@ -606,7 +783,7 @@
     - (int32_t)read_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Read(byte[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];
+		MonoObject *monoObject = [self invokeMonoMethod:"Read(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
@@ -614,7 +791,7 @@
 	// Managed method name : Seek
 	// Managed return type : System.Int64
 	// Managed param types : System.Int64, System.IO.SeekOrigin
-    - (int64_t)seek_withOffset:(int64_t)p1 origin:(System_IO_SeekOrigin)p2
+    - (int64_t)seek_withOffset:(int64_t)p1 origin:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Seek(long,System.IO.SeekOrigin)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
@@ -628,7 +805,7 @@
     - (void)setLength_withValue:(int64_t)p1
     {
 		
-		[self invokeMonoMethod:"SetLength(long)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"SetLength(long)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -638,7 +815,7 @@
     - (void)write_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3
     {
 		
-		[self invokeMonoMethod:"Write(byte[],int,int)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), DB_VALUE(p3)];;
+		[self invokeMonoMethod:"Write(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
         
     }
 

@@ -43,6 +43,6 @@
 	// Managed method name : SetSelectedComponents
 	// Managed return type : System.Void
 	// Managed param types : System.Collections.ICollection, System.ComponentModel.Design.SelectionTypes
-    - (void)setSelectedComponents_withComponents:(id <System_Collections_ICollection_>)p1 selectionType:(System_ComponentModel_Design_SelectionTypes)p2;
+    - (void)setSelectedComponents_withComponents:(id <System_Collections_ICollection_>)p1 selectionType:(int32_t)p2;
 @end
 //--Dubrovnik.CodeGenerator

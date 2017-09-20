@@ -32,17 +32,17 @@
 	// Managed method name : .ctor
 	// Managed return type : System.IO.Ports.SerialPort
 	// Managed param types : System.String, System.Int32, System.IO.Ports.Parity
-    + (System_IO_Ports_SerialPort *)new_withPortName:(NSString *)p1 baudRate:(int32_t)p2 parity:(System_IO_Ports_Parity)p3;
+    + (System_IO_Ports_SerialPort *)new_withPortName:(NSString *)p1 baudRate:(int32_t)p2 parity:(int32_t)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.IO.Ports.SerialPort
 	// Managed param types : System.String, System.Int32, System.IO.Ports.Parity, System.Int32
-    + (System_IO_Ports_SerialPort *)new_withPortName:(NSString *)p1 baudRate:(int32_t)p2 parity:(System_IO_Ports_Parity)p3 dataBits:(int32_t)p4;
+    + (System_IO_Ports_SerialPort *)new_withPortName:(NSString *)p1 baudRate:(int32_t)p2 parity:(int32_t)p3 dataBits:(int32_t)p4;
 
 	// Managed method name : .ctor
 	// Managed return type : System.IO.Ports.SerialPort
 	// Managed param types : System.String, System.Int32, System.IO.Ports.Parity, System.Int32, System.IO.Ports.StopBits
-    + (System_IO_Ports_SerialPort *)new_withPortName:(NSString *)p1 baudRate:(int32_t)p2 parity:(System_IO_Ports_Parity)p3 dataBits:(int32_t)p4 stopBits:(System_IO_Ports_StopBits)p5;
+    + (System_IO_Ports_SerialPort *)new_withPortName:(NSString *)p1 baudRate:(int32_t)p2 parity:(int32_t)p3 dataBits:(int32_t)p4 stopBits:(int32_t)p5;
 
 #pragma mark -
 #pragma mark Fields
@@ -104,7 +104,7 @@
 
 	// Managed property name : Handshake
 	// Managed property type : System.IO.Ports.Handshake
-    @property (nonatomic) System_IO_Ports_Handshake handshake;
+    @property (nonatomic) int32_t handshake;
 
 	// Managed property name : IsOpen
 	// Managed property type : System.Boolean
@@ -116,7 +116,7 @@
 
 	// Managed property name : Parity
 	// Managed property type : System.IO.Ports.Parity
-    @property (nonatomic) System_IO_Ports_Parity parity;
+    @property (nonatomic) int32_t parity;
 
 	// Managed property name : ParityReplace
 	// Managed property type : System.Byte
@@ -144,7 +144,7 @@
 
 	// Managed property name : StopBits
 	// Managed property type : System.IO.Ports.StopBits
-    @property (nonatomic) System_IO_Ports_StopBits stopBits;
+    @property (nonatomic) int32_t stopBits;
 
 	// Managed property name : WriteBufferSize
 	// Managed property type : System.Int32

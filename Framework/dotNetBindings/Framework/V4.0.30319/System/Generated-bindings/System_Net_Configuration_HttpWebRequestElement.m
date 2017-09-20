@@ -32,16 +32,35 @@
     @synthesize maximumErrorResponseLength = _maximumErrorResponseLength;
     - (int32_t)maximumErrorResponseLength
     {
-		MonoObject *monoObject = [self getMonoProperty:"MaximumErrorResponseLength"];
-		_maximumErrorResponseLength = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MaximumErrorResponseLength");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_maximumErrorResponseLength = monoObject;
 
 		return _maximumErrorResponseLength;
 	}
     - (void)setMaximumErrorResponseLength:(int32_t)value
 	{
 		_maximumErrorResponseLength = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"MaximumErrorResponseLength" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "MaximumErrorResponseLength");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : MaximumResponseHeadersLength
@@ -49,16 +68,35 @@
     @synthesize maximumResponseHeadersLength = _maximumResponseHeadersLength;
     - (int32_t)maximumResponseHeadersLength
     {
-		MonoObject *monoObject = [self getMonoProperty:"MaximumResponseHeadersLength"];
-		_maximumResponseHeadersLength = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MaximumResponseHeadersLength");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_maximumResponseHeadersLength = monoObject;
 
 		return _maximumResponseHeadersLength;
 	}
     - (void)setMaximumResponseHeadersLength:(int32_t)value
 	{
 		_maximumResponseHeadersLength = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"MaximumResponseHeadersLength" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "MaximumResponseHeadersLength");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : MaximumUnauthorizedUploadLength
@@ -66,16 +104,35 @@
     @synthesize maximumUnauthorizedUploadLength = _maximumUnauthorizedUploadLength;
     - (int32_t)maximumUnauthorizedUploadLength
     {
-		MonoObject *monoObject = [self getMonoProperty:"MaximumUnauthorizedUploadLength"];
-		_maximumUnauthorizedUploadLength = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MaximumUnauthorizedUploadLength");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_maximumUnauthorizedUploadLength = monoObject;
 
 		return _maximumUnauthorizedUploadLength;
 	}
     - (void)setMaximumUnauthorizedUploadLength:(int32_t)value
 	{
 		_maximumUnauthorizedUploadLength = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"MaximumUnauthorizedUploadLength" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "MaximumUnauthorizedUploadLength");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : UseUnsafeHeaderParsing
@@ -83,16 +140,35 @@
     @synthesize useUnsafeHeaderParsing = _useUnsafeHeaderParsing;
     - (BOOL)useUnsafeHeaderParsing
     {
-		MonoObject *monoObject = [self getMonoProperty:"UseUnsafeHeaderParsing"];
-		_useUnsafeHeaderParsing = DB_UNBOX_BOOLEAN(monoObject);
+		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UseUnsafeHeaderParsing");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		BOOL monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_useUnsafeHeaderParsing = monoObject;
 
 		return _useUnsafeHeaderParsing;
 	}
     - (void)setUseUnsafeHeaderParsing:(BOOL)value
 	{
 		_useUnsafeHeaderParsing = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"UseUnsafeHeaderParsing" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "UseUnsafeHeaderParsing");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

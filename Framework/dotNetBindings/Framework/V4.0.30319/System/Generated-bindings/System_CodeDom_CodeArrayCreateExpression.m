@@ -33,7 +33,7 @@
     + (System_CodeDom_CodeArrayCreateExpression *)new_withCreateTypeSType:(System_Type *)p1 sizeInt:(int32_t)p2
     {
 		
-		System_CodeDom_CodeArrayCreateExpression * object = [[self alloc] initWithSignature:"System.Type,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_CodeDom_CodeArrayCreateExpression * object = [[self alloc] initWithSignature:"System.Type,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_CodeDom_CodeArrayCreateExpression *)new_withCreateTypeSCCodeTypeReference:(System_CodeDom_CodeTypeReference *)p1 initializersSCCodeExpression:(DBSystem_Array *)p2
     {
 		
-		System_CodeDom_CodeArrayCreateExpression * object = [[self alloc] initWithSignature:"System.CodeDom.CodeTypeReference,System.CodeDom.CodeExpression[]" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_CodeDom_CodeArrayCreateExpression * object = [[self alloc] initWithSignature:"System.CodeDom.CodeTypeReference,System.CodeDom.CodeExpression[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_CodeDom_CodeArrayCreateExpression *)new_withCreateTypeString:(NSString *)p1 initializersSCCodeExpression:(DBSystem_Array *)p2
     {
 		
-		System_CodeDom_CodeArrayCreateExpression * object = [[self alloc] initWithSignature:"string,System.CodeDom.CodeExpression[]" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_CodeDom_CodeArrayCreateExpression * object = [[self alloc] initWithSignature:"string,System.CodeDom.CodeExpression[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -66,7 +66,7 @@
     + (System_CodeDom_CodeArrayCreateExpression *)new_withCreateTypeSType:(System_Type *)p1 initializersSCCodeExpression:(DBSystem_Array *)p2
     {
 		
-		System_CodeDom_CodeArrayCreateExpression * object = [[self alloc] initWithSignature:"System.Type,System.CodeDom.CodeExpression[]" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_CodeDom_CodeArrayCreateExpression * object = [[self alloc] initWithSignature:"System.Type,System.CodeDom.CodeExpression[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -77,7 +77,7 @@
     + (System_CodeDom_CodeArrayCreateExpression *)new_withCreateTypeSCCodeTypeReference:(System_CodeDom_CodeTypeReference *)p1 sizeInt:(int32_t)p2
     {
 		
-		System_CodeDom_CodeArrayCreateExpression * object = [[self alloc] initWithSignature:"System.CodeDom.CodeTypeReference,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_CodeDom_CodeArrayCreateExpression * object = [[self alloc] initWithSignature:"System.CodeDom.CodeTypeReference,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -88,7 +88,7 @@
     + (System_CodeDom_CodeArrayCreateExpression *)new_withCreateTypeString:(NSString *)p1 sizeInt:(int32_t)p2
     {
 		
-		System_CodeDom_CodeArrayCreateExpression * object = [[self alloc] initWithSignature:"string,int" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_CodeDom_CodeArrayCreateExpression * object = [[self alloc] initWithSignature:"string,int" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -99,7 +99,7 @@
     + (System_CodeDom_CodeArrayCreateExpression *)new_withCreateTypeSCCodeTypeReference:(System_CodeDom_CodeTypeReference *)p1 sizeSCCodeExpression:(System_CodeDom_CodeExpression *)p2
     {
 		
-		System_CodeDom_CodeArrayCreateExpression * object = [[self alloc] initWithSignature:"System.CodeDom.CodeTypeReference,System.CodeDom.CodeExpression" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_CodeDom_CodeArrayCreateExpression * object = [[self alloc] initWithSignature:"System.CodeDom.CodeTypeReference,System.CodeDom.CodeExpression" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -110,7 +110,7 @@
     + (System_CodeDom_CodeArrayCreateExpression *)new_withCreateTypeString:(NSString *)p1 sizeSCCodeExpression:(System_CodeDom_CodeExpression *)p2
     {
 		
-		System_CodeDom_CodeArrayCreateExpression * object = [[self alloc] initWithSignature:"string,System.CodeDom.CodeExpression" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_CodeDom_CodeArrayCreateExpression * object = [[self alloc] initWithSignature:"string,System.CodeDom.CodeExpression" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -121,7 +121,7 @@
     + (System_CodeDom_CodeArrayCreateExpression *)new_withCreateTypeSType:(System_Type *)p1 sizeSCCodeExpression:(System_CodeDom_CodeExpression *)p2
     {
 		
-		System_CodeDom_CodeArrayCreateExpression * object = [[self alloc] initWithSignature:"System.Type,System.CodeDom.CodeExpression" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_CodeDom_CodeArrayCreateExpression * object = [[self alloc] initWithSignature:"System.Type,System.CodeDom.CodeExpression" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -134,7 +134,17 @@
     @synthesize createType = _createType;
     - (System_CodeDom_CodeTypeReference *)createType
     {
-		MonoObject *monoObject = [self getMonoProperty:"CreateType"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CreateType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_createType isEqualToMonoObject:monoObject]) return _createType;					
 		_createType = [System_CodeDom_CodeTypeReference bestObjectWithMonoObject:monoObject];
 
@@ -143,8 +153,17 @@
     - (void)setCreateType:(System_CodeDom_CodeTypeReference *)value
 	{
 		_createType = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"CreateType" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CreateType");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Initializers
@@ -152,7 +171,17 @@
     @synthesize initializers = _initializers;
     - (System_CodeDom_CodeExpressionCollection *)initializers
     {
-		MonoObject *monoObject = [self getMonoProperty:"Initializers"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Initializers");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_initializers isEqualToMonoObject:monoObject]) return _initializers;					
 		_initializers = [System_CodeDom_CodeExpressionCollection bestObjectWithMonoObject:monoObject];
 
@@ -164,16 +193,35 @@
     @synthesize size = _size;
     - (int32_t)size
     {
-		MonoObject *monoObject = [self getMonoProperty:"Size"];
-		_size = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Size");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_size = monoObject;
 
 		return _size;
 	}
     - (void)setSize:(int32_t)value
 	{
 		_size = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Size" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Size");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : SizeExpression
@@ -181,7 +229,17 @@
     @synthesize sizeExpression = _sizeExpression;
     - (System_CodeDom_CodeExpression *)sizeExpression
     {
-		MonoObject *monoObject = [self getMonoProperty:"SizeExpression"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SizeExpression");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_sizeExpression isEqualToMonoObject:monoObject]) return _sizeExpression;					
 		_sizeExpression = [System_CodeDom_CodeExpression bestObjectWithMonoObject:monoObject];
 
@@ -190,8 +248,17 @@
     - (void)setSizeExpression:(System_CodeDom_CodeExpression *)value
 	{
 		_sizeExpression = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"SizeExpression" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "SizeExpression");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

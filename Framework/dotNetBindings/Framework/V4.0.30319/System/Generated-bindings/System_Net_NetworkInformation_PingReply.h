@@ -32,6 +32,6 @@
 
 	// Managed property name : Status
 	// Managed property type : System.Net.NetworkInformation.IPStatus
-    @property (nonatomic, readonly) System_Net_NetworkInformation_IPStatus status;
+    @property (nonatomic, readonly) int32_t status;
 @end
 //--Dubrovnik.CodeGenerator

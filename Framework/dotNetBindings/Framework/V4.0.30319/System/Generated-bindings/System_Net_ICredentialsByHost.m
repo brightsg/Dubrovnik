@@ -33,7 +33,7 @@
     - (System_Net_NetworkCredential *)getCredential_withHost:(NSString *)p1 port:(int32_t)p2 authenticationType:(NSString *)p3
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Net.ICredentialsByHost.GetCredential(string,int,string)" withNumArgs:3, [p1 monoValue], DB_VALUE(p2), [p3 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Net.ICredentialsByHost.GetCredential(string,int,string)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
 		return [System_Net_NetworkCredential bestObjectWithMonoObject:monoObject];
     }

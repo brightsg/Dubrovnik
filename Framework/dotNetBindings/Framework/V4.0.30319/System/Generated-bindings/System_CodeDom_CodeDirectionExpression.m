@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.CodeDom.CodeDirectionExpression
 	// Managed param types : System.CodeDom.FieldDirection, System.CodeDom.CodeExpression
-    + (System_CodeDom_CodeDirectionExpression *)new_withDirection:(System_CodeDom_FieldDirection)p1 expression:(System_CodeDom_CodeExpression *)p2
+    + (System_CodeDom_CodeDirectionExpression *)new_withDirection:(int32_t)p1 expression:(System_CodeDom_CodeExpression *)p2
     {
 		
-		System_CodeDom_CodeDirectionExpression * object = [[self alloc] initWithSignature:"System.CodeDom.FieldDirection,System.CodeDom.CodeExpression" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		System_CodeDom_CodeDirectionExpression * object = [[self alloc] initWithSignature:"System.CodeDom.FieldDirection,System.CodeDom.CodeExpression" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,18 +44,37 @@
 	// Managed property name : Direction
 	// Managed property type : System.CodeDom.FieldDirection
     @synthesize direction = _direction;
-    - (System_CodeDom_FieldDirection)direction
+    - (int32_t)direction
     {
-		MonoObject *monoObject = [self getMonoProperty:"Direction"];
-		_direction = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Direction");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_direction = monoObject;
 
 		return _direction;
 	}
-    - (void)setDirection:(System_CodeDom_FieldDirection)value
+    - (void)setDirection:(int32_t)value
 	{
 		_direction = value;
-		MonoObject *monoObject = DB_VALUE(value);
-		[self setMonoProperty:"Direction" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Direction");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, value, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Expression
@@ -63,7 +82,17 @@
     @synthesize expression = _expression;
     - (System_CodeDom_CodeExpression *)expression
     {
-		MonoObject *monoObject = [self getMonoProperty:"Expression"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Expression");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_expression isEqualToMonoObject:monoObject]) return _expression;					
 		_expression = [System_CodeDom_CodeExpression bestObjectWithMonoObject:monoObject];
 
@@ -72,8 +101,17 @@
     - (void)setExpression:(System_CodeDom_CodeExpression *)value
 	{
 		_expression = value;
-		MonoObject *monoObject = [value monoObject];
-		[self setMonoProperty:"Expression" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Expression");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 #pragma mark -

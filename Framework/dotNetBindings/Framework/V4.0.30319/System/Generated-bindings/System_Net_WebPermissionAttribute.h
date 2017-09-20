@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.WebPermissionAttribute
 	// Managed param types : System.Security.Permissions.SecurityAction
-    + (System_Net_WebPermissionAttribute *)new_withAction:(System_Security_Permissions_SecurityAction)p1;
+    + (System_Net_WebPermissionAttribute *)new_withAction:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties

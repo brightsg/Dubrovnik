@@ -33,7 +33,7 @@
     + (System_Net_Mail_SmtpFailedRecipientsException *)new_withMessage:(NSString *)p1
     {
 		
-		System_Net_Mail_SmtpFailedRecipientsException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoValue]];;
+		System_Net_Mail_SmtpFailedRecipientsException * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
         
         return object;
     }
@@ -44,7 +44,7 @@
     + (System_Net_Mail_SmtpFailedRecipientsException *)new_withMessage:(NSString *)p1 innerException:(System_Exception *)p2
     {
 		
-		System_Net_Mail_SmtpFailedRecipientsException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Net_Mail_SmtpFailedRecipientsException * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -55,7 +55,7 @@
     + (System_Net_Mail_SmtpFailedRecipientsException *)new_withMessage:(NSString *)p1 innerExceptions:(DBSystem_Array *)p2
     {
 		
-		System_Net_Mail_SmtpFailedRecipientsException * object = [[self alloc] initWithSignature:"string,System.Net.Mail.SmtpFailedRecipientException[]" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		System_Net_Mail_SmtpFailedRecipientsException * object = [[self alloc] initWithSignature:"string,System.Net.Mail.SmtpFailedRecipientException[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
         return object;
     }
@@ -68,7 +68,17 @@
     @synthesize innerExceptions = _innerExceptions;
     - (DBSystem_Array *)innerExceptions
     {
-		MonoObject *monoObject = [self getMonoProperty:"InnerExceptions"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InnerExceptions");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_innerExceptions isEqualToMonoObject:monoObject]) return _innerExceptions;					
 		_innerExceptions = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -84,7 +94,7 @@
     - (void)getObjectData_withSerializationInfo:(System_Runtime_Serialization_SerializationInfo *)p1 streamingContext:(System_Runtime_Serialization_StreamingContext *)p2
     {
 		
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 

@@ -33,7 +33,7 @@
     + (System_ComponentModel_Design_ServiceCreatorCallback *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
 		
-		System_ComponentModel_Design_ServiceCreatorCallback * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];;
+		System_ComponentModel_Design_ServiceCreatorCallback * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
         
         return object;
     }
@@ -47,7 +47,7 @@
     - (id <System_IAsyncResult>)beginInvoke_withContainer:(id <System_ComponentModel_Design_IServiceContainer_>)p1 serviceType:(System_Type *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(System.ComponentModel.Design.IServiceContainer,System.Type,System.AsyncCallback,object)" withNumArgs:4, [p1 monoValue], [p2 monoValue], [p3 monoValue], [p4 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(System.ComponentModel.Design.IServiceContainer,System.Type,System.AsyncCallback,object)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
@@ -58,7 +58,7 @@
     - (System_Object *)endInvoke_withResult:(id <System_IAsyncResult_>)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }
@@ -69,7 +69,7 @@
     - (System_Object *)invoke_withContainer:(id <System_ComponentModel_Design_IServiceContainer_>)p1 serviceType:(System_Type *)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(System.ComponentModel.Design.IServiceContainer,System.Type)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(System.ComponentModel.Design.IServiceContainer,System.Type)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
 		return [System_Object objectWithMonoObject:monoObject];
     }

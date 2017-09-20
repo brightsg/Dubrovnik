@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : System.ComponentModel.DesignerSerializationVisibilityAttribute
 	// Managed param types : System.ComponentModel.DesignerSerializationVisibility
-    + (System_ComponentModel_DesignerSerializationVisibilityAttribute *)new_withVisibility:(System_ComponentModel_DesignerSerializationVisibility)p1
+    + (System_ComponentModel_DesignerSerializationVisibilityAttribute *)new_withVisibility:(int32_t)p1
     {
 		
-		System_ComponentModel_DesignerSerializationVisibilityAttribute * object = [[self alloc] initWithSignature:"System.ComponentModel.DesignerSerializationVisibility" withNumArgs:1, DB_VALUE(p1)];;
+		System_ComponentModel_DesignerSerializationVisibilityAttribute * object = [[self alloc] initWithSignature:"System.ComponentModel.DesignerSerializationVisibility" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -95,10 +95,20 @@
 	// Managed property name : Visibility
 	// Managed property type : System.ComponentModel.DesignerSerializationVisibility
     @synthesize visibility = _visibility;
-    - (System_ComponentModel_DesignerSerializationVisibility)visibility
+    - (int32_t)visibility
     {
-		MonoObject *monoObject = [self getMonoProperty:"Visibility"];
-		_visibility = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Visibility");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_visibility = monoObject;
 
 		return _visibility;
 	}
@@ -112,7 +122,7 @@
     - (BOOL)equals_withObj:(System_Object *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

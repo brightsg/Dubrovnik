@@ -30,10 +30,10 @@
 	// Managed method name : .ctor
 	// Managed return type : Microsoft.Win32.PowerModeChangedEventArgs
 	// Managed param types : Microsoft.Win32.PowerModes
-    + (Microsoft_Win32_PowerModeChangedEventArgs *)new_withMode:(Microsoft_Win32_PowerModes)p1
+    + (Microsoft_Win32_PowerModeChangedEventArgs *)new_withMode:(int32_t)p1
     {
 		
-		Microsoft_Win32_PowerModeChangedEventArgs * object = [[self alloc] initWithSignature:"Microsoft.Win32.PowerModes" withNumArgs:1, DB_VALUE(p1)];;
+		Microsoft_Win32_PowerModeChangedEventArgs * object = [[self alloc] initWithSignature:"Microsoft.Win32.PowerModes" withNumArgs:1, DB_VALUE(p1)];
         
         return object;
     }
@@ -44,10 +44,20 @@
 	// Managed property name : Mode
 	// Managed property type : Microsoft.Win32.PowerModes
     @synthesize mode = _mode;
-    - (Microsoft_Win32_PowerModes)mode
+    - (int32_t)mode
     {
-		MonoObject *monoObject = [self getMonoProperty:"Mode"];
-		_mode = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Mode");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_mode = monoObject;
 
 		return _mode;
 	}

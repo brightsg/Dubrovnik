@@ -32,7 +32,17 @@
     @synthesize item = _item;
     - (System_Configuration_SettingsProvider *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
 		_item = [System_Configuration_SettingsProvider bestObjectWithMonoObject:monoObject];
 
@@ -48,7 +58,7 @@
     - (void)add_withProvider:(System_Configuration_Provider_ProviderBase *)p1
     {
 		
-		[self invokeMonoMethod:"Add(System.Configuration.Provider.ProviderBase)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Add(System.Configuration.Provider.ProviderBase)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 

@@ -32,6 +32,6 @@
 
 	// Managed property name : SocketErrorCode
 	// Managed property type : System.Net.Sockets.SocketError
-    @property (nonatomic, readonly) System_Net_Sockets_SocketError socketErrorCode;
+    @property (nonatomic, readonly) int32_t socketErrorCode;
 @end
 //--Dubrovnik.CodeGenerator

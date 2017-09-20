@@ -32,7 +32,17 @@
     @synthesize allKeys = _allKeys;
     - (DBSystem_Array *)allKeys
     {
-		MonoObject *monoObject = [self getMonoProperty:"AllKeys"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AllKeys");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_allKeys isEqualToMonoObject:monoObject]) return _allKeys;					
 		_allKeys = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
@@ -44,8 +54,18 @@
     @synthesize count = _count;
     - (int32_t)count
     {
-		MonoObject *monoObject = [self getMonoProperty:"Count"];
-		_count = DB_UNBOX_INT32(monoObject);
+		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		int32_t monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		_count = monoObject;
 
 		return _count;
 	}
@@ -55,7 +75,17 @@
     @synthesize item = _item;
     - (NSString *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
 		_item = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -64,8 +94,17 @@
     - (void)setItem:(NSString *)value
 	{
 		_item = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"Item" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Item
@@ -73,7 +112,17 @@
     @synthesize item = _item;
     - (NSString *)item
     {
-		MonoObject *monoObject = [self getMonoProperty:"Item"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
 		_item = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
@@ -82,8 +131,17 @@
     - (void)setItem:(NSString *)value
 	{
 		_item = value;
-		MonoObject *monoObject = [value monoValue];
-		[self setMonoProperty:"Item" valueObject:monoObject];          
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Item");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
 	// Managed property name : Keys
@@ -91,7 +149,17 @@
     @synthesize keys = _keys;
     - (System_Collections_Specialized_NameObjectCollectionBase__KeysCollection *)keys
     {
-		MonoObject *monoObject = [self getMonoProperty:"Keys"];
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Keys");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_keys isEqualToMonoObject:monoObject]) return _keys;					
 		_keys = [System_Collections_Specialized_NameObjectCollectionBase__KeysCollection bestObjectWithMonoObject:monoObject];
 
@@ -107,27 +175,27 @@
     - (void)add_withName:(NSString *)p1 value:(NSString *)p2
     {
 		
-		[self invokeMonoMethod:"Add(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"Add(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
 	// Managed method name : Add
 	// Managed return type : System.Void
 	// Managed param types : System.Net.HttpRequestHeader, System.String
-    - (void)add_withHeaderSNHttpRequestHeader:(System_Net_HttpRequestHeader)p1 valueString:(NSString *)p2
+    - (void)add_withHeaderSNHttpRequestHeader:(int32_t)p1 valueString:(NSString *)p2
     {
 		
-		[self invokeMonoMethod:"Add(System.Net.HttpRequestHeader,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoMethod:"Add(System.Net.HttpRequestHeader,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
     }
 
 	// Managed method name : Add
 	// Managed return type : System.Void
 	// Managed param types : System.Net.HttpResponseHeader, System.String
-    - (void)add_withHeaderSNHttpResponseHeader:(System_Net_HttpResponseHeader)p1 valueString:(NSString *)p2
+    - (void)add_withHeaderSNHttpResponseHeader:(int32_t)p1 valueString:(NSString *)p2
     {
 		
-		[self invokeMonoMethod:"Add(System.Net.HttpResponseHeader,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoMethod:"Add(System.Net.HttpResponseHeader,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
     }
 
@@ -137,7 +205,7 @@
     - (void)add_withHeader:(NSString *)p1
     {
 		
-		[self invokeMonoMethod:"Add(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Add(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
@@ -147,7 +215,7 @@
     - (void)clear
     {
 		
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];;
+		[self invokeMonoMethod:"Clear()" withNumArgs:0];
         
     }
 
@@ -157,7 +225,7 @@
     - (NSString *)get_withName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"Get(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"Get(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
@@ -201,7 +269,7 @@
     - (void)getObjectData_withSerializationInfo:(System_Runtime_Serialization_SerializationInfo *)p1 streamingContext:(System_Runtime_Serialization_StreamingContext *)p2
     {
 		
-		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
@@ -211,7 +279,7 @@
     - (DBSystem_Array *)getValues_withHeader:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetValues(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetValues(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
@@ -233,7 +301,7 @@
     + (BOOL)isRestricted_withHeaderName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"IsRestricted(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsRestricted(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -244,7 +312,7 @@
     + (BOOL)isRestricted_withHeaderName:(NSString *)p1 response:(BOOL)p2
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"IsRestricted(string,bool)" withNumArgs:2, [p1 monoValue], DB_VALUE(p2)];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsRestricted(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -255,27 +323,27 @@
     - (void)onDeserialization_withSender:(System_Object *)p1
     {
 		
-		[self invokeMonoMethod:"OnDeserialization(object)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"OnDeserialization(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
 	// Managed method name : Remove
 	// Managed return type : System.Void
 	// Managed param types : System.Net.HttpRequestHeader
-    - (void)remove_withHeaderSNHttpRequestHeader:(System_Net_HttpRequestHeader)p1
+    - (void)remove_withHeaderSNHttpRequestHeader:(int32_t)p1
     {
 		
-		[self invokeMonoMethod:"Remove(System.Net.HttpRequestHeader)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"Remove(System.Net.HttpRequestHeader)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
 	// Managed method name : Remove
 	// Managed return type : System.Void
 	// Managed param types : System.Net.HttpResponseHeader
-    - (void)remove_withHeaderSNHttpResponseHeader:(System_Net_HttpResponseHeader)p1
+    - (void)remove_withHeaderSNHttpResponseHeader:(int32_t)p1
     {
 		
-		[self invokeMonoMethod:"Remove(System.Net.HttpResponseHeader)" withNumArgs:1, DB_VALUE(p1)];;
+		[self invokeMonoMethod:"Remove(System.Net.HttpResponseHeader)" withNumArgs:1, DB_VALUE(p1)];
         
     }
 
@@ -285,17 +353,17 @@
     - (void)remove_withName:(NSString *)p1
     {
 		
-		[self invokeMonoMethod:"Remove(string)" withNumArgs:1, [p1 monoValue]];;
+		[self invokeMonoMethod:"Remove(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
         
     }
 
 	// Managed method name : Set
 	// Managed return type : System.Void
 	// Managed param types : System.Net.HttpRequestHeader, System.String
-    - (void)set_withHeaderSNHttpRequestHeader:(System_Net_HttpRequestHeader)p1 valueString:(NSString *)p2
+    - (void)set_withHeaderSNHttpRequestHeader:(int32_t)p1 valueString:(NSString *)p2
     {
 		
-		[self invokeMonoMethod:"Set(System.Net.HttpRequestHeader,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoMethod:"Set(System.Net.HttpRequestHeader,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
     }
 
@@ -305,17 +373,17 @@
     - (void)set_withName:(NSString *)p1 value:(NSString *)p2
     {
 		
-		[self invokeMonoMethod:"Set(string,string)" withNumArgs:2, [p1 monoValue], [p2 monoValue]];;
+		[self invokeMonoMethod:"Set(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
         
     }
 
 	// Managed method name : Set
 	// Managed return type : System.Void
 	// Managed param types : System.Net.HttpResponseHeader, System.String
-    - (void)set_withHeaderSNHttpResponseHeader:(System_Net_HttpResponseHeader)p1 valueString:(NSString *)p2
+    - (void)set_withHeaderSNHttpResponseHeader:(int32_t)p1 valueString:(NSString *)p2
     {
 		
-		[self invokeMonoMethod:"Set(System.Net.HttpResponseHeader,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoValue]];;
+		[self invokeMonoMethod:"Set(System.Net.HttpResponseHeader,string)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
         
     }
 

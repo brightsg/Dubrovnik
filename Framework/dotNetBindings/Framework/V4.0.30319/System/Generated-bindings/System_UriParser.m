@@ -33,7 +33,7 @@
     + (BOOL)isKnownScheme_withSchemeName:(NSString *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"IsKnownScheme(string)" withNumArgs:1, [p1 monoValue]];
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsKnownScheme(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
@@ -44,7 +44,7 @@
     + (void)register_withUriParser:(System_UriParser *)p1 schemeName:(NSString *)p2 defaultPort:(int32_t)p3
     {
 		
-		[self invokeMonoClassMethod:"Register(System.UriParser,string,int)" withNumArgs:3, [p1 monoValue], [p2 monoValue], DB_VALUE(p3)];;
+		[self invokeMonoClassMethod:"Register(System.UriParser,string,int)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
         
     }
 

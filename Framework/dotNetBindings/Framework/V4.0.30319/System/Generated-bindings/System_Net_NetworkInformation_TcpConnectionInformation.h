@@ -24,6 +24,6 @@
 
 	// Managed property name : State
 	// Managed property type : System.Net.NetworkInformation.TcpState
-    @property (nonatomic, readonly) System_Net_NetworkInformation_TcpState state;
+    @property (nonatomic, readonly) int32_t state;
 @end
 //--Dubrovnik.CodeGenerator

@@ -17,14 +17,14 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Net.Cache.RequestCachePolicy
 	// Managed param types : System.Net.Cache.RequestCacheLevel
-    + (System_Net_Cache_RequestCachePolicy *)new_withLevel:(System_Net_Cache_RequestCacheLevel)p1;
+    + (System_Net_Cache_RequestCachePolicy *)new_withLevel:(int32_t)p1;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Level
 	// Managed property type : System.Net.Cache.RequestCacheLevel
-    @property (nonatomic, readonly) System_Net_Cache_RequestCacheLevel level;
+    @property (nonatomic, readonly) int32_t level;
 
 #pragma mark -
 #pragma mark Methods
