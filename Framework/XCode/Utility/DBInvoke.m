@@ -40,6 +40,8 @@
 #import "DBInvoke.h"
 #import "NSCategories.h"
 
+void (^DBOnManagedExceptionWillRaise)(NSException *) = nil;
+
 char *DBFormatPropertyName(const char * propertyName, const char* fmt);
 
 inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args, int numArgs) {
@@ -98,6 +100,10 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 void NSRaiseExceptionFromMonoException(MonoObject *monoException, NSDictionary *info)
 {
     NSException *e = NSExceptionFromMonoException(monoException, info);
+    
+    if (DBOnManagedExceptionWillRaise) {
+        DBOnManagedExceptionWillRaise(e);
+    }
     
     // raise the exception on the current thread.
     // it is up to the caller to catch this and raise it on the main thread if required.
