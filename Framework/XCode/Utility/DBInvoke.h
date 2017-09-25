@@ -31,7 +31,7 @@
 #define DB_ARRAY(x) (MonoArray *)x
 
 //Globalvariables
-extern void (^DBOnManagedExceptionWillRaise)(NSException *);
+extern void (^DBOnManagedExceptionWillRaise)(MonoObject *);
 
 //Cache Debugging
 void DBInvokeLogCache(BOOL freeContents);
