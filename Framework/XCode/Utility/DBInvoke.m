@@ -108,7 +108,11 @@ void NSRaiseExceptionFromMonoException(MonoObject *monoException, NSDictionary *
 NSException *NSExceptionFromMonoException(MonoObject *monoException, NSDictionary *info)
 {
     // run the configurable callback
-    if (DBOnManagedExceptionWillRaise) {
+    BOOL runWillRaiseCallback = YES;
+    if (info[@"runWillRaiseCallback"]) {
+        runWillRaiseCallback = [info[@"runWillRaiseCallback"] boolValue];
+    }
+    if (DBOnManagedExceptionWillRaise && runWillRaiseCallback) {
         DBOnManagedExceptionWillRaise(monoException);
     }
     
@@ -141,7 +145,7 @@ NSException *NSExceptionFromMonoException(MonoObject *monoException, NSDictionar
     NSException *innerException = nil;
     MonoObject *innerExceptionMonoObject = DBMonoObjectGetProperty(monoException, "InnerException");
     if (innerExceptionMonoObject && innerExceptionMonoObject != monoException) {
-        innerException = NSExceptionFromMonoException(innerExceptionMonoObject, nil);
+        innerException = NSExceptionFromMonoException(innerExceptionMonoObject, @{@"runWillRaiseCallback" : @NO});
     }
     
     //
