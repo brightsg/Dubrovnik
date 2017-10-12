@@ -8,6 +8,7 @@
 
 #import "NSDate+mscorlib.h"
 #import "System_Object.h"
+#import "System_NullableA1.h"
 #import "System_DateTime.h"
 
 @implementation NSDate (mscorlib)
@@ -21,4 +22,10 @@
 {
     return [self managedDate];
 }
+
+- (System_NullableA1 *)managedNullableA1
+{
+    return [System_NullableA1 newNullableFromDate:self];
+}
+
 @end

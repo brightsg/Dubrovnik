@@ -891,14 +891,17 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     System_NullableA1 *nullableDoubleResult = [refObject nullableDoubleMethod_withP1:nullableDouble];
     XCTAssertTrue([nullableDoubleResult doubleValue] == 33452.65672, DBUEqualityTestFailed);
 
-    System_NullableA1 *nullableDecimal = [System_NullableA1 newNullableFromDecimal:[NSDecimalNumber decimalNumberWithString:@"16782567776545.1278129"]];
+    NSDecimalNumber *decimal = [NSDecimalNumber decimalNumberWithString:@"16782567776545.1278129"];
+    System_NullableA1 *nullableDecimal = [System_NullableA1 newNullableFromDecimal:decimal];
     System_NullableA1 *nullableDecimalResult = [refObject nullableDecimalMethod_withP1:nullableDecimal];
     XCTAssertTrue([[nullableDecimalResult decimalNumberValue] isEqualToNumber:[nullableDecimal decimalNumberValue]], DBUEqualityTestFailed);
     
-    System_NullableA1 *nullableDate = [System_NullableA1 newNullableFromDate:[NSDate date]];
+    NSDate *date = [NSDate date];
+    System_NullableA1 *nullableDate = [System_NullableA1 newNullableFromDate:date];
     System_NullableA1 *nullableDateResult = [refObject nullableDateMethod_withP1:nullableDate];
     XCTAssertTrue([[nullableDateResult dateValue] isEqual:[nullableDate dateValue]], DBUEqualityTestFailed);
-
+    XCTAssertTrue([[nullableDateResult dateValue] isEqual:[[date managedNullableA1] dateValue]], DBUEqualityTestFailed);
+    
     //
     // mixed parameter methods
     //
