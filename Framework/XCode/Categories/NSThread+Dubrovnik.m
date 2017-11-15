@@ -10,23 +10,23 @@
 
 @implementation NSThread (Dubrovnik)
 
-+ (void)db_performBlockOnMainThread:(void (^)())block
++ (void)db_performBlockOnMainThread:(void (^)(void))block
 {
     [[NSThread mainThread] db_performBlock:block];
 }
 
-+ (void)db_performBlockInBackground:(void (^)())block
++ (void)db_performBlockInBackground:(void (^)(void))block
 {
     [NSThread performSelectorInBackground:@selector(db_runBlock:)
                                withObject:[block copy]];
 }
 
-+ (void)db_runBlock:(void (^)())block
++ (void)db_runBlock:(void (^)(void))block
 {
     block();
 }
 
-- (void)db_performBlock:(void (^)())block
+- (void)db_performBlock:(void (^)(void))block
 {
     
     if ([[NSThread currentThread] isEqual:self])
@@ -35,7 +35,7 @@
         [self db_performBlock:block waitUntilDone:NO];
 }
 
-- (void)db_performBlock:(void (^)())block waitUntilDone:(BOOL)wait
+- (void)db_performBlock:(void (^)(void))block waitUntilDone:(BOOL)wait
 {
     
     [NSThread performSelector:@selector(db_runBlock:)
@@ -44,12 +44,12 @@
                 waitUntilDone:wait];
 }
 
-- (void)db_performBlockOnMainThread:(void (^)())block waitUntilDone:(BOOL)wait
+- (void)db_performBlockOnMainThread:(void (^)(void))block waitUntilDone:(BOOL)wait
 {
     [self db_performBlock:block onThread:[NSThread mainThread] waitUntilDone:wait];
 }
 
-- (void)db_performBlock:(void (^)())block onThread:(NSThread *)thread waitUntilDone:(BOOL)wait
+- (void)db_performBlock:(void (^)(void))block onThread:(NSThread *)thread waitUntilDone:(BOOL)wait
 {
     
     [NSThread performSelector:@selector(db_runBlock:)
@@ -58,7 +58,7 @@
                 waitUntilDone:wait];
 }
 
-- (void)db_performBlock:(void (^)())block afterDelay:(NSTimeInterval)delay
+- (void)db_performBlock:(void (^)(void))block afterDelay:(NSTimeInterval)delay
 {
     
     [self performSelector:@selector(db_performBlock:)
