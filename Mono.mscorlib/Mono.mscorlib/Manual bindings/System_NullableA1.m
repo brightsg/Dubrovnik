@@ -9,7 +9,7 @@
 #import "System_NullableA1.h"
 
 // Nullable types are handled differently to other types:
-// http://msdn.microsoft.com/en-US/library/ms228597(v=VS.80).ASPX
+// https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/nullable-types/boxing-nullable-types
 // http://stackoverflow.com/questions/8691601/creating-a-nullable-object-via-activator-createinstance-returns-null
 // http://blogs.msdn.com/b/somasegar/archive/2005/08/11/450640.aspx
 //

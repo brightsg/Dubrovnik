@@ -130,6 +130,10 @@ NSException *NSExceptionFromMonoException(MonoObject *monoException, NSDictionar
 	NSString *message = [NSString stringWithMonoString:(MonoString *)DBMonoObjectGetProperty(monoException, "Message")];
 	
     // stacktrace
+    // note that the stacktrace can get truncated when rethrowing.
+    // https://msdn.microsoft.com/en-us/library/system.exception.aspx#Rethrow
+    // to preserve the managed stacktrace use 'throw' with no exception argument or set the original
+    // exception as the inner exception of the newly thrown exception.
     NSString *stackTrace = [NSString stringWithMonoString:(MonoString *)DBMonoObjectGetProperty(monoException, "StackTrace")];
     
     // string representation
