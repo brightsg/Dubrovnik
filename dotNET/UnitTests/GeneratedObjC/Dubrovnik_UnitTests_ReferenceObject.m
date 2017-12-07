@@ -1232,6 +1232,43 @@
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
 
+	// Managed property name : NestedClassList
+	// Managed property type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject+NestedClass>
+    @synthesize nestedClassList = _nestedClassList;
+    - (DBSystem_Collections_Generic_ListA1 *)nestedClassList
+    {
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NestedClassList");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		if ([self object:_nestedClassList isEqualToMonoObject:monoObject]) return _nestedClassList;					
+		_nestedClassList = [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
+
+		return _nestedClassList;
+	}
+    - (void)setNestedClassList:(DBSystem_Collections_Generic_ListA1 *)value
+	{
+		_nestedClassList = value;
+		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "NestedClassList");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject *monoException = NULL;
+		thunk(self.monoObject, [value monoObject], &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	}
+
 	// Managed property name : NotifyingProperty1
 	// Managed property type : System.String
     @synthesize notifyingProperty1 = _notifyingProperty1;

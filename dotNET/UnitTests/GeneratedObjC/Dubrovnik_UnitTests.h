@@ -9,10 +9,10 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     19/09/2017 22:16:55
+// Date:     07/12/2017 11:11:20
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.6471.40107, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.6550.20139, Culture=neutral, PublicKeyToken=null
 // Path:     C:\Users\Jonathan\Documents\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.2.9200.0
@@ -59,214 +59,94 @@
 // Forward class declarations and class aliases
 //
 @class Dubrovnik_ClientApplication_EventHelper;
-#ifdef DCEventHelper_
-#warning DCEventHelper_ class name collision.
-#else
 #define DCEventHelper_ Dubrovnik_ClientApplication_EventHelper
-#endif
 
 @class Dubrovnik_ClientApplication_IEventHelper;
-#ifdef DCIEventHelper_
-#warning DCIEventHelper_ class name collision.
-#else
 #define DCIEventHelper_ Dubrovnik_ClientApplication_IEventHelper
-#endif
 
 @class Dubrovnik_UnitTests_BaseObject;
-#ifdef DUBaseObject_
-#warning DUBaseObject_ class name collision.
-#else
 #define DUBaseObject_ Dubrovnik_UnitTests_BaseObject
-#endif
 
 @class Dubrovnik_UnitTests_BaseObjectOne;
-#ifdef DUBaseObjectOne_
-#warning DUBaseObjectOne_ class name collision.
-#else
 #define DUBaseObjectOne_ Dubrovnik_UnitTests_BaseObjectOne
-#endif
 
 @class Dubrovnik_UnitTests_BaseObjectThree;
-#ifdef DUBaseObjectThree_
-#warning DUBaseObjectThree_ class name collision.
-#else
 #define DUBaseObjectThree_ Dubrovnik_UnitTests_BaseObjectThree
-#endif
 
 @class Dubrovnik_UnitTests_BaseObjectTwo;
-#ifdef DUBaseObjectTwo_
-#warning DUBaseObjectTwo_ class name collision.
-#else
 #define DUBaseObjectTwo_ Dubrovnik_UnitTests_BaseObjectTwo
-#endif
 
 @class Dubrovnik_UnitTests_GenericReferenceObjectA2;
-#ifdef DUGenericReferenceObjectA2_
-#warning DUGenericReferenceObjectA2_ class name collision.
-#else
 #define DUGenericReferenceObjectA2_ Dubrovnik_UnitTests_GenericReferenceObjectA2
-#endif
 
 @class Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass;
-#ifdef DUGenericReferenceObjectA2_NestedClass_
-#warning DUGenericReferenceObjectA2_NestedClass_ class name collision.
-#else
 #define DUGenericReferenceObjectA2_NestedClass_ Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass
-#endif
 
 @class Dubrovnik_UnitTests_ReferenceObject;
-#ifdef DUReferenceObject_
-#warning DUReferenceObject_ class name collision.
-#else
 #define DUReferenceObject_ Dubrovnik_UnitTests_ReferenceObject
-#endif
 
 @class Dubrovnik_UnitTests_ReferenceObject__ActionDelegate;
-#ifdef DUReferenceObject_ActionDelegate_
-#warning DUReferenceObject_ActionDelegate_ class name collision.
-#else
 #define DUReferenceObject_ActionDelegate_ Dubrovnik_UnitTests_ReferenceObject__ActionDelegate
-#endif
 
 @class Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1;
-#ifdef DUReferenceObject_FunctionDelegate1_
-#warning DUReferenceObject_FunctionDelegate1_ class name collision.
-#else
 #define DUReferenceObject_FunctionDelegate1_ Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1
-#endif
 
 @class Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2;
-#ifdef DUReferenceObject_FunctionDelegate2_
-#warning DUReferenceObject_FunctionDelegate2_ class name collision.
-#else
 #define DUReferenceObject_FunctionDelegate2_ Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2
-#endif
 
 @class Dubrovnik_UnitTests_ReferenceObject__NestedClass;
-#ifdef DUReferenceObject_NestedClass_
-#warning DUReferenceObject_NestedClass_ class name collision.
-#else
 #define DUReferenceObject_NestedClass_ Dubrovnik_UnitTests_ReferenceObject__NestedClass
-#endif
 
 @class Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2;
-#ifdef DUReferenceObject_NestedGenericClassA2_
-#warning DUReferenceObject_NestedGenericClassA2_ class name collision.
-#else
 #define DUReferenceObject_NestedGenericClassA2_ Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2
-#endif
 
 @class Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate;
-#ifdef DUReferenceObject_SimpleDelegate_
-#warning DUReferenceObject_SimpleDelegate_ class name collision.
-#else
 #define DUReferenceObject_SimpleDelegate_ Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate
-#endif
 
 @class Dubrovnik_UnitTests_TestObject;
-#ifdef DUTestObject_
-#warning DUTestObject_ class name collision.
-#else
 #define DUTestObject_ Dubrovnik_UnitTests_TestObject
-#endif
 
 @class Dubrovnik_UnitTests_IMinimalReferenceObject;
-#ifdef DUIMinimalReferenceObject_
-#warning DUIMinimalReferenceObject_ class name collision.
-#else
 #define DUIMinimalReferenceObject_ Dubrovnik_UnitTests_IMinimalReferenceObject
-#endif
 
 @class Dubrovnik_UnitTests_IReferenceObject1;
-#ifdef DUIReferenceObject1_
-#warning DUIReferenceObject1_ class name collision.
-#else
 #define DUIReferenceObject1_ Dubrovnik_UnitTests_IReferenceObject1
-#endif
 
 @class Dubrovnik_UnitTests_IReferenceObject2;
-#ifdef DUIReferenceObject2_
-#warning DUIReferenceObject2_ class name collision.
-#else
 #define DUIReferenceObject2_ Dubrovnik_UnitTests_IReferenceObject2
-#endif
 
 @class Dubrovnik_UnitTests_IReferenceObject3;
-#ifdef DUIReferenceObject3_
-#warning DUIReferenceObject3_ class name collision.
-#else
 #define DUIReferenceObject3_ Dubrovnik_UnitTests_IReferenceObject3
-#endif
 
 @class Dubrovnik_UnitTests_IReferenceObjectBase;
-#ifdef DUIReferenceObjectBase_
-#warning DUIReferenceObjectBase_ class name collision.
-#else
 #define DUIReferenceObjectBase_ Dubrovnik_UnitTests_IReferenceObjectBase
-#endif
 
 @class Dubrovnik_UnitTests_IReferenceObjectBase1;
-#ifdef DUIReferenceObjectBase1_
-#warning DUIReferenceObjectBase1_ class name collision.
-#else
 #define DUIReferenceObjectBase1_ Dubrovnik_UnitTests_IReferenceObjectBase1
-#endif
 
 @class Dubrovnik_UnitTests_ITestProperty;
-#ifdef DUITestProperty_
-#warning DUITestProperty_ class name collision.
-#else
 #define DUITestProperty_ Dubrovnik_UnitTests_ITestProperty
-#endif
 
 @class Dubrovnik_UnitTests_ReferenceStruct;
-#ifdef DUReferenceStruct_
-#warning DUReferenceStruct_ class name collision.
-#else
 #define DUReferenceStruct_ Dubrovnik_UnitTests_ReferenceStruct
-#endif
 
 @class Dubrovnik_UnitTests_ByteEnum;
-#ifdef DUByteEnum_
-#warning DUByteEnum_ class name collision.
-#else
 #define DUByteEnum_ Dubrovnik_UnitTests_ByteEnum
-#endif
 
 @class Dubrovnik_UnitTests_IntEnum;
-#ifdef DUIntEnum_
-#warning DUIntEnum_ class name collision.
-#else
 #define DUIntEnum_ Dubrovnik_UnitTests_IntEnum
-#endif
 
 @class Dubrovnik_UnitTests_LongEnum;
-#ifdef DULongEnum_
-#warning DULongEnum_ class name collision.
-#else
 #define DULongEnum_ Dubrovnik_UnitTests_LongEnum
-#endif
 
 @class Dubrovnik_UnitTests_ReferenceObject__NestedEnum;
-#ifdef DUReferenceObject_NestedEnum_
-#warning DUReferenceObject_NestedEnum_ class name collision.
-#else
 #define DUReferenceObject_NestedEnum_ Dubrovnik_UnitTests_ReferenceObject__NestedEnum
-#endif
 
 @class Dubrovnik_UnitTests_ShortEnum;
-#ifdef DUShortEnum_
-#warning DUShortEnum_ class name collision.
-#else
 #define DUShortEnum_ Dubrovnik_UnitTests_ShortEnum
-#endif
 
 @class Dubrovnik_UnitTests_Extensions_ReferenceObjectExtensions;
-#ifdef DUEReferenceObjectExtensions_
-#warning DUEReferenceObjectExtensions_ class name collision.
-#else
 #define DUEReferenceObjectExtensions_ Dubrovnik_UnitTests_Extensions_ReferenceObjectExtensions
-#endif
 
 
 /*

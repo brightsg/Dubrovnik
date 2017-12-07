@@ -187,6 +187,10 @@
 	// Managed property type : System.String
     @property (nonatomic, strong) NSString * name;
 
+	// Managed property name : NestedClassList
+	// Managed property type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject+NestedClass>
+    @property (nonatomic, strong) DBSystem_Collections_Generic_ListA1 * nestedClassList;
+
 	// Managed property name : NotifyingProperty1
 	// Managed property type : System.String
     @property (nonatomic, strong) NSString * notifyingProperty1;

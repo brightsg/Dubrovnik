@@ -146,6 +146,10 @@ namespace Dubrovnik.UnitTests {
 				"Dubrovnik.UnitTests 1",
 				"Dubrovnik.UnitTests 2",
 			};
+			NestedClassList = new List<NestedClass> {
+				new NestedClass() { StringProperty = "Dubrovnik.UnitTests 1"},
+				new NestedClass() { StringProperty = "Dubrovnik.UnitTests 2"},
+			};
 			IntList = new List<int> {
 				1,
 				-10,
@@ -309,6 +313,7 @@ namespace Dubrovnik.UnitTests {
 
 		// generic properties
 		public List<string> StringList { get; set; }
+		public List<NestedClass> NestedClassList { get; set; }
 		public List<int> IntList { get; set; }
 		public List<uint> UIntList { get; set; }
 		public List<float> FloatList { get; set; }
