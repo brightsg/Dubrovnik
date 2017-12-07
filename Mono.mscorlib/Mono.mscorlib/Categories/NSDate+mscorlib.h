@@ -9,11 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "Dubrovnik/DBMonoIncludes.h"
 
-@class System_DateTime, System_Object;
+@class System_DateTime, System_Object, System_NullableA1;
 
 @interface NSDate (mscorlib)
 
 - (System_DateTime *)managedDate;
 - (System_Object *)managedObject;
-    
+- (System_NullableA1 *)managedNullableA1;
+
 @end

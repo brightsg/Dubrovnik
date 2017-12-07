@@ -40,6 +40,8 @@
 #import "DBInvoke.h"
 #import "NSCategories.h"
 
+void (^DBOnManagedExceptionWillRaise)(MonoObject *) = nil;
+
 char *DBFormatPropertyName(const char * propertyName, const char* fmt);
 
 inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args, int numArgs) {
@@ -97,15 +99,23 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
  
 void NSRaiseExceptionFromMonoException(MonoObject *monoException, NSDictionary *info)
 {
-    NSException *e = NSExceptionFromMonoException(monoException, info);
-    
     // raise the exception on the current thread.
     // it is up to the caller to catch this and raise it on the main thread if required.
+    NSException *e = NSExceptionFromMonoException(monoException, info);
     [e raise];
 }
 
 NSException *NSExceptionFromMonoException(MonoObject *monoException, NSDictionary *info)
 {
+    // run the configurable callback
+    BOOL runWillRaiseCallback = YES;
+    if (info[@"runWillRaiseCallback"]) {
+        runWillRaiseCallback = [info[@"runWillRaiseCallback"] boolValue];
+    }
+    if (DBOnManagedExceptionWillRaise && runWillRaiseCallback) {
+        DBOnManagedExceptionWillRaise(monoException);
+    }
+    
     id managedException = [[DBTypeManager sharedManager] objectWithNonValueTypeMonoObject:monoException];
     
     //
@@ -120,6 +130,10 @@ NSException *NSExceptionFromMonoException(MonoObject *monoException, NSDictionar
 	NSString *message = [NSString stringWithMonoString:(MonoString *)DBMonoObjectGetProperty(monoException, "Message")];
 	
     // stacktrace
+    // note that the stacktrace can get truncated when rethrowing.
+    // https://msdn.microsoft.com/en-us/library/system.exception.aspx#Rethrow
+    // to preserve the managed stacktrace use 'throw' with no exception argument or set the original
+    // exception as the inner exception of the newly thrown exception.
     NSString *stackTrace = [NSString stringWithMonoString:(MonoString *)DBMonoObjectGetProperty(monoException, "StackTrace")];
     
     // string representation
@@ -135,7 +149,7 @@ NSException *NSExceptionFromMonoException(MonoObject *monoException, NSDictionar
     NSException *innerException = nil;
     MonoObject *innerExceptionMonoObject = DBMonoObjectGetProperty(monoException, "InnerException");
     if (innerExceptionMonoObject && innerExceptionMonoObject != monoException) {
-        innerException = NSExceptionFromMonoException(innerExceptionMonoObject, nil);
+        innerException = NSExceptionFromMonoException(innerExceptionMonoObject, @{@"runWillRaiseCallback" : @NO});
     }
     
     //

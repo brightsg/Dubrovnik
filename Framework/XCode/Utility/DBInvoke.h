@@ -30,6 +30,9 @@
 #define DB_OBJECT(x) (MonoObject *)x
 #define DB_ARRAY(x) (MonoArray *)x
 
+//Globalvariables
+extern void (^DBOnManagedExceptionWillRaise)(MonoObject *);
+
 //Cache Debugging
 void DBInvokeLogCache(BOOL freeContents);
 
