@@ -183,6 +183,7 @@ public void WriteInterfaceFilePreliminaries()
 	}	
 }
 
+static List<string> _classDefines = new List<string>();
 //
 // WriteClassPredeclaration
 //
@@ -191,9 +192,14 @@ public void WriteClassPredeclaration(CodeFacet facet)
 	string namespacePrefix = ObjCAcronymFromManagedIdentifier(facet.TypeNamespace);
 	string classDefine = ObjCIdentifierFromManagedIdentifier(namespacePrefix + facet.Name) + "_";
 	string classObjCType = facet.ObjCFacet.Type;
-
 #>
 @class <#=classObjCType#>;
+<#+
+
+   // collision warning facility can be useful but it's loud when it kicks in!
+	bool warnAboutCollisions = false;
+	if (warnAboutCollisions) {
+#>
 #ifdef <#=classDefine#>
 #warning <#=classDefine#> class name collision.
 #else
@@ -201,6 +207,23 @@ public void WriteClassPredeclaration(CodeFacet facet)
 #endif
 
 <#+	
+	} else {
+
+		// issue the define if unique in this scope.
+		if (!_classDefines.Contains(classDefine)) {
+			_classDefines.Add(classDefine);
+#>
+#define <#=@classDefine#> <#=@classObjCType#>
+
+<#+
+		}
+		else {
+#>
+//#define <#=@classDefine#> <#=@classObjCType#> // WARNING: duplicate detected in file scope
+
+<#+
+		}	
+	}
 }
 
 //
@@ -834,7 +857,7 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 	string monoMethodName = facet.Name;
 	string objCMethodName = monoMethodName.FirstCharacterToLower();
 	List<string> unsafeObjCMethodNames = null;
-	List<string> unsafeObjCMethodNamesStartingWith = null;
+	List<string> unsafeObjCInitMethodNamesStartingWith = null;
 	if (facet.IsStatic || isConstructorMethod) 
 	{
 		objCMethodType = "+";
