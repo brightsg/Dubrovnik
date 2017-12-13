@@ -450,10 +450,6 @@ public void WriteClassSetup(CodeFacet facet)
 	if (OutputFileType == OutputType.Implementation) 
 	{
 		string name = CodeFacet.NormalizeGenericTypesInManagedIdentifier(facet.NameFromType);
-		if (name.IndexOf("NestedGenericClass") >= 0) {
-			Console.WriteLine("TypeNamespace {0}", facet.TypeNamespace);
-			Console.WriteLine("name {0}", name);
-		}
 #>
 	{
 		return "<#=facet.TypeNamespace#>.<#=name#>";
@@ -1036,13 +1032,14 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 		// as the signature may need to be specfically modified for the mono_method_desc API.
 		string monoParameterTypeInvoke_ = monoParameterTypeInvoke;
 
-		// The mono_method_desc * APIs prefix nested classes with a '/' rather than a '+'
+		// The mono_method_desc * APIs prefix nested classes with a '/' rather than a '+' to conform with IL/CTS conventions
 		// The approach used here is trivial and is likely fragile.
 		// We probably need a separate mono param type builder like that found in debug-helpers.c append_class_name().
 		// Note that Delegates will present as nested classes.
-		if (parameter.IsNested) {
-			monoParameterTypeInvoke_ = monoParameterTypeInvoke_.Replace("+", "/");
-		}
+		// Also note that although we have an IsNested property we shouldn't use it as a conditional test for this operation
+		// as generic types with nested type paramaters such as System.Collections.Generic.IEnumerable`1<A.B+C>
+		// won't identify as nested.
+		monoParameterTypeInvoke_ = monoParameterTypeInvoke_.Replace("+", "/");
 
 		// add type signature and access modifier
 		monoSigBuilder.Append(monoParameterTypeInvoke_);
