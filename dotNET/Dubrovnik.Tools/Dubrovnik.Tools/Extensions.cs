@@ -53,14 +53,10 @@ namespace Dubrovnik.Tools {
 						* If the type can be constructed then its namespace will be required.
 						*/
 						s = type.Namespace + sep + type.Name;
-					} else //if (type.IsGenericParameter || type.IsArray)
-                {
+					} else { 
+
 						s = type.Name;
 					}
-					/* else
-					 {
-						  throw new Exception(String.Format("{0} : cannot determine full name", type.Name));
-					 } */
 				}
 
 				// Truncate full type info.
