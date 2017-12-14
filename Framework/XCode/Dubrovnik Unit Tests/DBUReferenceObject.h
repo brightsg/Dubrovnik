@@ -237,6 +237,7 @@
 // generic type properties
 
 - (DBSystem_Collections_Generic_ListA1 *)stringList;
+- (DBSystem_Collections_Generic_ListA1 *)nestedClassList;
 - (DBSystem_Collections_Generic_ListA1 *)intList;
 - (DBSystem_Collections_Generic_ListA1 *)uIntList;
 - (DBSystem_Collections_Generic_ListA1 *)floatList;

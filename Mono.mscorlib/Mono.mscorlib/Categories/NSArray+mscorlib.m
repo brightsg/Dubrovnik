@@ -68,12 +68,11 @@
     
     // create a suitable MonoArray instance
     MonoArray *monoArray = [DBSystem_Array monoArrayWithType:type length:[self count]];
-    DBSystem_Array *dbsArray  = nil;
+
+    // create System.Array
+    DBSystem_Array *dbsArray = [DBSystem_Array arrayWithMonoArray:monoArray];
     
     if (monoArray && [self count] > 0) {
-        
-        // create System.Array
-        dbsArray = [DBSystem_Array arrayWithMonoArray:monoArray];
         
         // copy items to system array
         for (uint32_t i = 0; i < [self count]; i++) {

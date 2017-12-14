@@ -6,6 +6,10 @@
 //
 //
 #import "DBType.h"
+#import "DBManagedEnvironment.h"
+#import "NSCategories.h"
+#import "DBInvoke.h"
+#import "DBBoxing.h"
 
 @implementation DBType
 
@@ -91,6 +95,7 @@
 
 + (NSString *)monoClassNameSpaceForMonoClass:(MonoClass *)monoClass
 {
+    // nested classes have a NULL namespace
     const char *monoClassNameSpace = mono_class_get_namespace(monoClass);
     NSString *classNameSpace = nil;
     if (monoClassNameSpace) {
@@ -102,12 +107,44 @@
 
 + (NSString *)monoFullyQualifiedClassNameForMonoClass:(MonoClass *)monoClass
 {
-    NSString *className = [self monoClassNameForMonoClass:monoClass];
-    NSString *classNameSpace = [self monoClassNameSpaceForMonoClass:monoClass];
+    NSString *fullname = nil;
+    const char *monoClassName = mono_class_get_name(monoClass);
+    const char *monoClassNameSpace = mono_class_get_namespace(monoClass);
     
-    NSString *fullyQualifiedClassName = [NSString stringWithFormat:@"%@.%@", classNameSpace, className];
-
-    return fullyQualifiedClassName;
+    if (monoClassNameSpace == NULL || *monoClassNameSpace == 0) {
+        
+        // we might have a nested class
+        // nested classes have a null namespace so a simple namespace + name approach fails in that case
+        // see http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-335.pdf page 223, point 11
+        // see Dubrovnik.Tools.Extensions.GetFriendlyFullName(Type) for the low down on getting a C# name from managed Type.FullName()
+        MonoClass *nestingMonoClass = mono_class_get_nesting_type(monoClass);
+        if (nestingMonoClass) {
+            // note that the C# naming uses + to indicate a nested class.
+            // the CLI/CTS uses a /
+            // and if you get the name of a MonoType * it uses .
+            //
+            // here we walk the cursor up the nested type tree in order to construct the full name
+            NSString *nestedClassName = [NSString stringWithFormat:@"+%s", monoClassName];
+            MonoClass *cursorClass = nestingMonoClass;
+            do {
+                nestingMonoClass = mono_class_get_nesting_type(cursorClass);
+                if (nestingMonoClass) {
+                    nestedClassName = [NSString stringWithFormat:@"+%s%@",mono_class_get_name(nestingMonoClass),nestedClassName];
+                    cursorClass = nestingMonoClass;
+                }
+            } while (nestingMonoClass);
+            fullname = [NSString stringWithFormat:@"%s.%s%@", mono_class_get_namespace(cursorClass), mono_class_get_name(cursorClass), nestedClassName];
+        }
+        else {
+            // class has no namespace
+            fullname = [NSString stringWithUTF8String:monoClassName];
+        }
+    }
+    else {
+        fullname = [NSString stringWithFormat:@"%s.%s", monoClassNameSpace, monoClassName];
+    }
+    
+    return fullname;
 }
 
 + (MonoType *)monoTypeForMonoObject:(MonoObject *)monoObject
@@ -136,12 +173,15 @@
 
 + (NSString *)monoTypeNameForMonoType:(MonoType *)monoType
 {
-    const char *monoTypeName = mono_type_get_name(monoType);
+    // Say the reflection format for a nested class is Dubrovnik.UnitTests.ReferenceObject+NestedClass
+    // The CTS/IL format is Dubrovnik.UnitTests.ReferenceObject/NestedClass
+    // For the same type mono_type_get_name() returns Dubrovnik.UnitTests.ReferenceObject.NestedClass
+    // For the same type mono_type_full_name() returns Dubrovnik.UnitTests.ReferenceObject/NestedClass
+    const char *monoTypeFullName = mono_type_full_name(monoType);
     NSString *typeName = nil;
-    if (monoTypeName) {
-        typeName = @(monoTypeName);
+    if (monoTypeFullName) {
+        typeName = @(monoTypeFullName);
     }
-    
     return typeName;
 }
 
@@ -157,8 +197,11 @@
 {
     NSMutableString *managedClassName = [NSMutableString stringWithString:monoClassName];
     
-    // sanitise . separator
+    // sanitise namespace separator
     [managedClassName replaceOccurrencesOfString:@"." withString:@"_" options:NSCaseInsensitiveSearch range:NSMakeRange(0, managedClassName.length)];
+    
+    // sanitise nested class separator
+    [managedClassName replaceOccurrencesOfString:@"+" withString:@"__" options:NSCaseInsensitiveSearch range:NSMakeRange(0, managedClassName.length)];
     
     // sanitise the arity marker
     [managedClassName replaceOccurrencesOfString:@"`" withString:@"A" options:NSCaseInsensitiveSearch range:NSMakeRange(0, managedClassName.length)];

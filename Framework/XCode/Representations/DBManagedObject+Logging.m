@@ -19,6 +19,11 @@
     [[self class] logMonoClassInfo];
 }
 
+- (void)logMonoClassNameInfo
+{
+    [[self class] logMonoClassNameInfo:[self monoClass]];
+}
+
 + (void)logMonoClassInfo
 {
     [self logMonoClassInfo:[self monoClass]];

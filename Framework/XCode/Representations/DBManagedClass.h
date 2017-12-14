@@ -35,7 +35,7 @@
 - (MonoObject *)constructMonoObjectWithNumArgs:(int)numArgs, ...;
 
 - (MonoClass *)monoClass;
-- (MonoType *)monoType ;
+- (MonoType *)monoType;
 
 //Method Invocation
 - (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs varArgList:(va_list)va_args;

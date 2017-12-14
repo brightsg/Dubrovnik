@@ -98,7 +98,6 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 @property (assign, readwrite) NSUInteger monoHash;
 @property (assign) uint32_t mono_gchandle;
 @property (assign, readwrite) BOOL isPrimaryInstance;
-//@property (nonatomic, assign) void *kvoInfo;
 
 #ifdef DB_TRACE_MONO_OBJECT_ADDRESS
 @property (assign) NSUInteger monoObjectTrace;
@@ -165,6 +164,11 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 + (MonoType *)monoType
 {
     return mono_class_get_type([self monoClass]);
+}
+
++ (MonoReflectionType *)monoReflectionType
+{
+    return mono_type_get_object([DBManagedEnvironment currentDomain], self.monoType);
 }
 
 + (DBManagedClass *)dbClass

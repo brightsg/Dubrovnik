@@ -192,6 +192,8 @@
 		ABE1354E192AAEED000689BC /* DBNullableDecimalTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE1354C192AAEED000689BC /* DBNullableDecimalTransformer.m */; };
 		ABE13551192AB0C5000689BC /* DBNullableInt64Transformer.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE1354F192AB0C5000689BC /* DBNullableInt64Transformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABE13552192AB0C5000689BC /* DBNullableInt64Transformer.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE13550192AB0C5000689BC /* DBNullableInt64Transformer.m */; };
+		ABE229371FD026560096A875 /* NSNull+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE229351FD026560096A875 /* NSNull+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABE229381FD026560096A875 /* NSNull+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE229361FD026560096A875 /* NSNull+mscorlib.m */; };
 		ABE824321C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE8242F1C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABE824331C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE824301C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.m */; };
 		ABEFF7661E630BB4008A32EA /* System_Int32.h in Headers */ = {isa = PBXBuildFile; fileRef = ABEFF7641E630BB4008A32EA /* System_Int32.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -413,6 +415,8 @@
 		ABE1354C192AAEED000689BC /* DBNullableDecimalTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableDecimalTransformer.m; sourceTree = "<group>"; };
 		ABE1354F192AB0C5000689BC /* DBNullableInt64Transformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableInt64Transformer.h; sourceTree = "<group>"; };
 		ABE13550192AB0C5000689BC /* DBNullableInt64Transformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableInt64Transformer.m; sourceTree = "<group>"; };
+		ABE229351FD026560096A875 /* NSNull+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSNull+mscorlib.h"; path = "Categories/NSNull+mscorlib.h"; sourceTree = "<group>"; };
+		ABE229361FD026560096A875 /* NSNull+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSNull+mscorlib.m"; path = "Categories/NSNull+mscorlib.m"; sourceTree = "<group>"; };
 		ABE8242F1C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_Generic_IComparerA1.h; sourceTree = "<group>"; };
 		ABE824301C75DC1600E73D7A /* System_Collections_Generic_IComparerA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Collections_Generic_IComparerA1.m; sourceTree = "<group>"; };
 		ABEFF7641E630BB4008A32EA /* System_Int32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Int32.h; sourceTree = "<group>"; };
@@ -795,6 +799,8 @@
 				ABB8A37A18FF086200213B80 /* NSString+mscorlib.m */,
 				ABB9F2401DC8D4D300A95896 /* NSDate+mscorlib.h */,
 				ABB9F2411DC8D4D300A95896 /* NSDate+mscorlib.m */,
+				ABE229351FD026560096A875 /* NSNull+mscorlib.h */,
+				ABE229361FD026560096A875 /* NSNull+mscorlib.m */,
 			);
 			name = "Categories - Native";
 			sourceTree = "<group>";
@@ -909,6 +915,7 @@
 				ABC627911A60794600F89877 /* System_Text_StringBuilder.h in Headers */,
 				AB80230C1DE46D000094294A /* System_AppDomain.h in Headers */,
 				ABB8A37B18FF086200213B80 /* NSString+mscorlib.h in Headers */,
+				ABE229371FD026560096A875 /* NSNull+mscorlib.h in Headers */,
 				ABFEED041C89BB3D0060F305 /* System_FuncA1.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1017,6 +1024,7 @@
 				AB950DE9192AA6720035ABC6 /* DBNullableDateTransformer.m in Sources */,
 				ABB5CC2B1A9678E20089891A /* System_Collections_IList.m in Sources */,
 				AB2E744418FFCD0A0061C63E /* System_Reflection_PropertyInfo.m in Sources */,
+				ABE229381FD026560096A875 /* NSNull+mscorlib.m in Sources */,
 				AB9722931E6AD7D100DE0773 /* System_Threading_CancellationToken.m in Sources */,
 				ABB8A40518FF110000213B80 /* System_Collections_Generic_ListA1.m in Sources */,
 				AB5EBCAF1ED3019D00A14D47 /* System_Decimal.m in Sources */,

@@ -1,4 +1,4 @@
-﻿
+
 #import "DBSystem_Array.h"
 #import "System_Reflection_MemberFilter.h"
 #import "System_Reflection_Assembly.h"
@@ -7,6 +7,7 @@
 #import "System_Reflection_Binder.h"
 #import "System_Reflection_GenericParameterAttributes.h"
 #import "System_Guid.h"
+#import "System_Reflection_ConstructorInfo.h"
 
 @interface System_Type : System_Object
 
@@ -327,12 +328,12 @@
 	// Managed return type : System.Reflection.ConstructorInfo
 	// Managed param types : System.Reflection.BindingFlags, System.Reflection.Binder, System.Type[], System.Reflection.ParameterModifier[]
     - (System_Reflection_ConstructorInfo *)getConstructor_withBindingAttr:(System_Reflection_BindingFlags)p1 binder:(System_Reflection_Binder *)p2 types:(DBSystem_Array *)p3 modifiers:(DBSystem_Array *)p4;
-
+*/
 	// Managed method name : GetConstructor
 	// Managed return type : System.Reflection.ConstructorInfo
 	// Managed param types : System.Type[]
     - (System_Reflection_ConstructorInfo *)getConstructor_withTypes:(DBSystem_Array *)p1;
-
+/*
 	// Managed method name : GetConstructors
 	// Managed return type : System.Reflection.ConstructorInfo[]
 	// Managed param types : 

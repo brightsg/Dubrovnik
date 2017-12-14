@@ -12,6 +12,7 @@
 #import "Mono.mscorlib/DBSystem_Collections_IList.h"
 #import "Mono.mscorlib/DBGenericTypeHelper.h"
 #import "Dubrovnik/DBTypeManager.h"
+#import "Dubrovnik/DBMonoIncludes.h"
 
 @implementation DBSystem_Linq
 

@@ -1,4 +1,4 @@
-﻿#import "System_Type.h"
+#import "System_Type.h"
 //++Dubrovnik.CodeGenerator System_Type.m
 //
 // Managed class : Type
@@ -868,18 +868,18 @@
 		
 		return [System_Reflection_ConstructorInfo objectWithMonoObject:monoObject];
     }
-
+*/
 	// Managed method name : GetConstructor
 	// Managed return type : System.Reflection.ConstructorInfo
 	// Managed param types : System.Type[]
     - (System_Reflection_ConstructorInfo *)getConstructor_withTypes:(DBSystem_Array *)p1
     {
 		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetConstructor(System.Array[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+		MonoObject *monoObject = [self invokeMonoMethod:"GetConstructor(System.Type[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Reflection_ConstructorInfo objectWithMonoObject:monoObject];
     }
-
+/*
 	// Managed method name : GetConstructors
 	// Managed return type : System.Reflection.ConstructorInfo[]
 	// Managed param types : 

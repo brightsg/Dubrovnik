@@ -114,9 +114,32 @@ extern char DBCacheSuffixChar;
 + (const char *)monoClassName;
 
 // Class methods
+/*
+  Class note
+ 
+  An instance of a managed object is created from a MonoClass by calling a constructor method .ctor()
+  The class provides the actual implementation, the type provides the interface.
+  Type declarations can represent: class types, interface types, array types, value types, delegates, enumeration types, type parameters, generic type definitions, and open or closed constructed generic types.
+ 
+ */
 + (MonoClass *)monoClass;
-+ (MonoType *)monoType;
 + (DBManagedClass *)dbClass;
+
+/*!
+ Type note
+ 
+ The C type that represents a C# System.Type is MonoReflectionType* (still a MonoObject*).
+ To get a MonoReflectionType * call mono_type_get_object([DBManagedEnvironment currentDomain], MonoType *)
+ To get the MonoType* you can use in most of the rest of the embedding API you call mono_reflection_type_get_type(MonoReflectionType *).
+ The MonoType* pointer is analogous to the TypeHandle in C# land
+ 
+ Type is an abstract base class that allows multiple implementations.
+ The system will always provide the derived class RuntimeType.
+ In reflection, all classes beginning with the word Runtime are created only once per object in the system and support comparison operations.
+ 
+*/
++ (MonoType *)monoType;
++ (MonoReflectionType *)monoReflectionType;
 + (NSString *)managedTypeName;
 + (const char *)monoTypeName;
 

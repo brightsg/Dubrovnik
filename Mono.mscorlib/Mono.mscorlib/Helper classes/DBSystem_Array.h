@@ -52,42 +52,61 @@
 //
 // Numeric convenience accessors
 //
-- (float)floatAtIndex:(int)index;
-- (void)setFloatAtIndex:(int)index value:(float)value;
+- (float)floatAtIndex:(NSUInteger)index;
+- (void)setFloatAtIndex:(NSUInteger)index value:(float)value;
 
-- (double)doubleAtIndex:(int)index;
-- (void)setDoubleAtIndex:(int)index value:(double)value;
+- (double)doubleAtIndex:(NSUInteger)index;
+- (void)setDoubleAtIndex:(NSUInteger)index value:(double)value;
 
-- (int64_t)int64AtIndex:(int)index;
-- (void)setInt64AtIndex:(int)index value:(int64_t)value;
+- (int64_t)int64AtIndex:(NSUInteger)index;
+- (void)setInt64AtIndex:(NSUInteger)index value:(int64_t)value;
 
-- (int32_t)int32AtIndex:(int)index;
-- (void)setInt32AtIndex:(int)index value:(int32_t)value;
+- (int32_t)int32AtIndex:(NSUInteger)index;
+- (void)setInt32AtIndex:(NSUInteger)index value:(int32_t)value;
 
-- (int16_t)int16AtIndex:(int)index;
-- (void)setInt16AtIndex:(int)index value:(int16_t)value;
+- (int16_t)int16AtIndex:(NSUInteger)index;
+- (void)setInt16AtIndex:(NSUInteger)index value:(int16_t)value;
 
-- (int8_t)int8AtIndex:(int)index;
-- (void)setInt8AtIndex:(int)index value:(int8_t)value;
+- (int8_t)int8AtIndex:(NSUInteger)index;
+- (void)setInt8AtIndex:(NSUInteger)index value:(int8_t)value;
 
-- (uint64_t)uint64AtIndex:(int)index;
-- (void)setUint64AtIndex:(int)index value:(uint64_t)value;
+- (uint64_t)uint64AtIndex:(NSUInteger)index;
+- (void)setUint64AtIndex:(NSUInteger)index value:(uint64_t)value;
 
-- (uint32_t)uint32AtIndex:(int)index;
-- (void)setUint32AtIndex:(int)index value:(uint32_t)value;
+- (uint32_t)uint32AtIndex:(NSUInteger)index;
+- (void)setUint32AtIndex:(NSUInteger)index value:(uint32_t)value;
 
-- (uint16_t)uint16AtIndex:(int)index;
-- (void)setUint16AtIndex:(int)index value:(uint16_t)value;
+- (uint16_t)uint16AtIndex:(NSUInteger)index;
+- (void)setUint16AtIndex:(NSUInteger)index value:(uint16_t)value;
 
-- (uint8_t)uint8AtIndex:(int)index;
-- (void)setUint8AtIndex:(int)index value:(uint8_t)value;
+- (uint8_t)uint8AtIndex:(NSUInteger)index;
+- (void)setUint8AtIndex:(NSUInteger)index value:(uint8_t)value;
 
-- (BOOL)boolAtIndex:(int)index;
-- (void)setBoolAtIndex:(int)index value:(BOOL)value;
+- (BOOL)boolAtIndex:(NSUInteger)index;
+- (void)setBoolAtIndex:(NSUInteger)index value:(BOOL)value;
 
+// Native arrays
 - (NSMutableArray *)mutableArray;
+/*!
+ Array of reference type
+ */
 - (NSArray *)array;
+/*
+ Array of value type
+ */
+- (NSArray *)floatArray;
+- (NSArray *)doubleArray;
+- (NSArray *)int64Array;
+- (NSArray *)int32Array;
+- (NSArray *)int16Array;
+- (NSArray *)int8Array;
+- (NSArray *)uint64Array;
+- (NSArray *)uint32Array;
+- (NSArray *)uint16Array;
+- (NSArray *)uint8Array;
+- (NSArray *)boolArray;
 
+// Data
 - (NSData *)data;
 
 @end

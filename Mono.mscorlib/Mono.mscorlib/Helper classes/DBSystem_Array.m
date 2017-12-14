@@ -131,11 +131,11 @@
 //
 // float
 //
-- (float)floatAtIndex:(int)index
+- (float)floatAtIndex:(NSUInteger)index
 {
 	return mono_array_get([self monoArray], float, index);
 }
-- (void)setFloatAtIndex:(int)index value:(float)value
+- (void)setFloatAtIndex:(NSUInteger)index value:(float)value
 {
 	mono_array_set([self monoArray], float, index, value);
 }
@@ -143,11 +143,11 @@
 //
 // double
 //
-- (double)doubleAtIndex:(int)index
+- (double)doubleAtIndex:(NSUInteger)index
 {
 	return mono_array_get([self monoArray], double, index);
 }
-- (void)setDoubleAtIndex:(int)index value:(double)value
+- (void)setDoubleAtIndex:(NSUInteger)index value:(double)value
 {
 	mono_array_set([self monoArray], double, index, value);
 }
@@ -155,11 +155,11 @@
 //
 // 64 bit int
 //
-- (int64_t)int64AtIndex:(int)index
+- (int64_t)int64AtIndex:(NSUInteger)index
 {
 	return mono_array_get([self monoArray], int64_t, index);
 }
-- (void)setInt64AtIndex:(int)index value:(int64_t)value
+- (void)setInt64AtIndex:(NSUInteger)index value:(int64_t)value
 {
 	mono_array_set([self monoArray], int64_t, index, value);
 }
@@ -167,11 +167,11 @@
 //
 // 32 bit int
 //
-- (int32_t)int32AtIndex:(int)index
+- (int32_t)int32AtIndex:(NSUInteger)index
 {
 	return mono_array_get([self monoArray], int32_t, index);
 }
-- (void)setInt32AtIndex:(int)index value:(int32_t)value
+- (void)setInt32AtIndex:(NSUInteger)index value:(int32_t)value
 {
 	mono_array_set([self monoArray], int32_t, index, value);
 }
@@ -179,11 +179,11 @@
 //
 // 16 bit int
 //
-- (int16_t)int16AtIndex:(int)index
+- (int16_t)int16AtIndex:(NSUInteger)index
 {
 	return mono_array_get([self monoArray], int16_t, index);
 }
-- (void)setInt16AtIndex:(int)index value:(int16_t)value
+- (void)setInt16AtIndex:(NSUInteger)index value:(int16_t)value
 {
 	mono_array_set([self monoArray], int16_t, index, value);
 }
@@ -191,11 +191,11 @@
 //
 // 8 bit int
 //
-- (int8_t)int8AtIndex:(int)index
+- (int8_t)int8AtIndex:(NSUInteger)index
 {
 	return mono_array_get([self monoArray], int8_t, index);
 }
-- (void)setInt8AtIndex:(int)index value:(int8_t)value
+- (void)setInt8AtIndex:(NSUInteger)index value:(int8_t)value
 {
 	mono_array_set([self monoArray], int8_t, index, value);
 }
@@ -203,11 +203,11 @@
 //
 // 64 bit uint
 //
-- (uint64_t)uint64AtIndex:(int)index
+- (uint64_t)uint64AtIndex:(NSUInteger)index
 {
 	return mono_array_get([self monoArray], uint64_t, index);
 }
-- (void)setUint64AtIndex:(int)index value:(uint64_t)value
+- (void)setUint64AtIndex:(NSUInteger)index value:(uint64_t)value
 {
 	mono_array_set([self monoArray], uint64_t, index, value);
 }
@@ -215,11 +215,11 @@
 //
 // 32 bit uint
 //
-- (uint32_t)uint32AtIndex:(int)index
+- (uint32_t)uint32AtIndex:(NSUInteger)index
 {
 	return mono_array_get([self monoArray], uint32_t, index);
 }
-- (void)setUint32AtIndex:(int)index value:(uint32_t)value
+- (void)setUint32AtIndex:(NSUInteger)index value:(uint32_t)value
 {
 	mono_array_set([self monoArray], uint32_t, index, value);
 }
@@ -227,11 +227,11 @@
 //
 // 16 bit uint
 //
-- (uint16_t)uint16AtIndex:(int)index
+- (uint16_t)uint16AtIndex:(NSUInteger)index
 {
 	return mono_array_get([self monoArray], uint16_t, index);
 }
-- (void)setUint16AtIndex:(int)index value:(uint16_t)value
+- (void)setUint16AtIndex:(NSUInteger)index value:(uint16_t)value
 {
 	mono_array_set([self monoArray], uint16_t, index, value);
 }
@@ -239,11 +239,11 @@
 //
 // 8 bit uint
 //
-- (uint8_t)uint8AtIndex:(int)index
+- (uint8_t)uint8AtIndex:(NSUInteger)index
 {
 	return mono_array_get([self monoArray], uint8_t, index);
 }
-- (void)setUint8AtIndex:(int)index value:(uint8_t)value
+- (void)setUint8AtIndex:(NSUInteger)index value:(uint8_t)value
 {
 	mono_array_set([self monoArray], uint8_t, index, value);
 }
@@ -251,11 +251,11 @@
 //
 // bool
 //
-- (BOOL)boolAtIndex:(int)index
+- (BOOL)boolAtIndex:(NSUInteger)index
 {
 	return mono_array_get([self monoArray], BOOL, index);
 }
-- (void)setBoolAtIndex:(int)index value:(BOOL)value
+- (void)setBoolAtIndex:(NSUInteger)index value:(BOOL)value
 {
 	mono_array_set([self monoArray], BOOL, index, value);
 }
@@ -269,8 +269,7 @@
 }
 
 #pragma mark -
-#pragma mark - Array representations
-
+#pragma mark - Managed ref type array representations
 
 - (NSMutableArray *)mutableArray
 {
@@ -288,5 +287,116 @@
     return [self mutableArray];
 }
 
+#pragma mark -
+#pragma mark - Managed value type array representations
 
+- (NSArray *)floatArray
+{
+    NSUInteger count = [self count];
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
+    for (NSUInteger i = 0; i < count; i++) {
+        [array addObject:@([self floatAtIndex:i])];
+    }
+    return array;
+}
+
+- (NSArray *)doubleArray
+{
+    NSUInteger count = [self count];
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
+    for (NSUInteger i = 0; i < count; i++) {
+        [array addObject:@([self doubleAtIndex:i])];
+    }
+    return array;
+}
+
+- (NSArray *)int64Array
+{
+    NSUInteger count = [self count];
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
+    for (NSUInteger i = 0; i < count; i++) {
+        [array addObject:@([self int64AtIndex:i])];
+    }
+    return array;
+}
+
+- (NSArray *)int32Array
+{
+    NSUInteger count = [self count];
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
+    for (NSUInteger i = 0; i < count; i++) {
+        [array addObject:@([self int32AtIndex:i])];
+    }
+    return array;
+}
+
+- (NSArray *)int16Array
+{
+    NSUInteger count = [self count];
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
+    for (NSUInteger i = 0; i < count; i++) {
+        [array addObject:@([self int16AtIndex:i])];
+    }
+    return array;
+}
+
+- (NSArray *)int8Array
+{
+    NSUInteger count = [self count];
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
+    for (NSUInteger i = 0; i < count; i++) {
+        [array addObject:@([self int8AtIndex:i])];
+    }
+    return array;
+}
+
+- (NSArray *)uint64Array
+{
+    NSUInteger count = [self count];
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
+    for (NSUInteger i = 0; i < count; i++) {
+        [array addObject:@([self uint64AtIndex:i])];
+    }
+    return array;
+}
+
+- (NSArray *)uint32Array
+{
+    NSUInteger count = [self count];
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
+    for (NSUInteger i = 0; i < count; i++) {
+        [array addObject:@([self uint32AtIndex:i])];
+    }
+    return array;
+}
+
+- (NSArray *)uint16Array
+{
+    NSUInteger count = [self count];
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
+    for (NSUInteger i = 0; i < count; i++) {
+        [array addObject:@([self uint16AtIndex:i])];
+    }
+    return array;
+}
+
+- (NSArray *)uint8Array
+{
+    NSUInteger count = [self count];
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
+    for (NSUInteger i = 0; i < count; i++) {
+        [array addObject:@([self uint8AtIndex:i])];
+    }
+    return array;
+}
+
+- (NSArray *)boolArray
+{
+    NSUInteger count = [self count];
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
+    for (NSUInteger i = 0; i < count; i++) {
+        [array addObject:@([self boolAtIndex:i])];
+    }
+    return array;
+}
 @end

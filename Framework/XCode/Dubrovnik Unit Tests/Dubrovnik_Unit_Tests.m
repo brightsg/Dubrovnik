@@ -1137,7 +1137,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([ms dbTestString:DBUTestString], DBUSubstringTestFailed);
     
     // int64 array
-    DBSystem_Array *int64Array = [refObject int64Array];
+    DBSystem_Array *int64Array = [(DUReferenceObject_ *)refObject int64Array];
     XCTAssertTrue([int64Array count] == 10, DBUCountTestFailed);
     
     int64_t n = 0;
@@ -1149,7 +1149,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // mutate the property array
     [int64Array setInt64AtIndex:[int64Array count] - 1 value:1];
     [refObject setInt64Array:int64Array];   // set
-    int64Array = [refObject int64Array];    // get
+    int64Array = [(DUReferenceObject_ *)refObject int64Array];    // get
     XCTAssertTrue([int64Array count] == 10, DBUCountTestFailed);
     n = 0;
     for (uint32_t i = 0; i < [int64Array count]; i++) {
@@ -1161,7 +1161,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSArray *int64NSArray = @[@0L, @1L, @2L, @4L, @8L, @16L, @32L, @64L, @128L, @128L];
     int64Array = [int64NSArray managedArrayWithTypeName:DBType_System_Int64];
     [refObject setInt64Array:int64Array];   // set
-    int64Array = [refObject int64Array];    // get
+    int64Array = [(DUReferenceObject_ *)refObject int64Array];    // get
     XCTAssertTrue([int64Array count] == 10, DBUCountTestFailed);
     n = 0;
     for (uint32_t i = 0; i < [int64Array count]; i++) {
@@ -1170,7 +1170,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 128, DBUEqualityTestFailed);
 
     // int32 array
-    DBSystem_Array *int32Array = [refObject int32Array];
+    DBSystem_Array *int32Array = [(DUReferenceObject_ *)refObject int32Array];
     XCTAssertTrue([int32Array count] == 10, DBUCountTestFailed);
     
     n = 0;
@@ -1183,7 +1183,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSArray *int32NSArray = @[@0, @1, @2, @4, @8, @16, @32, @64, @128, @120];
     int32Array = [int32NSArray managedArrayWithTypeName:DBType_System_Int32];
     [refObject setInt32Array:int32Array];   // set
-    int32Array = [refObject int32Array];    // get
+    int32Array = [(DUReferenceObject_ *)refObject int32Array];    // get
     XCTAssertTrue([int32Array count] == 10, DBUCountTestFailed);
     n = 0;
     for (uint32_t i = 0; i < [int32Array count]; i++) {
@@ -1192,7 +1192,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 120, DBUEqualityTestFailed);
     
     // int16 array
-    DBSystem_Array *int16Array = [refObject int16Array];
+    DBSystem_Array *int16Array = [(DUReferenceObject_ *)refObject int16Array];
     XCTAssertTrue([int16Array count] == 10, DBUCountTestFailed);
     
     n = 0;
@@ -1202,7 +1202,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
     
     // float array
-    DBSystem_Array *floatArray = [refObject floatArray];
+    DBSystem_Array *floatArray = [(DUReferenceObject_ *)refObject floatArray];
     XCTAssertTrue([floatArray count] == 10, DBUCountTestFailed);
     
     float f = 0;
@@ -1215,7 +1215,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSArray *floatNSArray = @[@0.0F, @1.0F, @2.0F, @4.0F, @8.0F, @16.0F, @32.0F, @64.0F, @128.0F, @116.0F];
     floatArray = [floatNSArray managedArrayWithTypeName:DBType_System_Single];
     [refObject setFloatArray:floatArray];   // set
-    floatArray = [refObject floatArray];    // get
+    floatArray = [(DUReferenceObject_ *)refObject floatArray];    // get
     XCTAssertTrue([floatArray count] == 10, DBUCountTestFailed);
     n = 0;
     for (uint32_t i = 0; i < [floatArray count]; i++) {
@@ -1224,7 +1224,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 116, DBUEqualityTestFailed);
     
     // double array
-    DBSystem_Array *doubleArray = [refObject doubleArray];
+    DBSystem_Array *doubleArray = [(DUReferenceObject_ *)refObject doubleArray];
     XCTAssertTrue([doubleArray count] == 10, DBUCountTestFailed);
     
     double d = 0;
@@ -1237,7 +1237,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSArray *doubleNSArray = @[@0.0, @1.0, @2.0, @4.0, @8.0, @16.0, @32.0, @64.0, @128.0, @110.0];
     doubleArray = [doubleNSArray managedArrayWithTypeName:DBType_System_Double];
     [refObject setDoubleArray:doubleArray];   // set
-    doubleArray = [refObject doubleArray];    // get
+    doubleArray = [(DUReferenceObject_ *)refObject doubleArray];    // get
     XCTAssertTrue([doubleArray count] == 10, DBUCountTestFailed);
     n = 0;
     for (uint32_t i = 0; i < [doubleArray count]; i++) {
@@ -1246,7 +1246,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 110, DBUEqualityTestFailed);
     
     // bool array
-    DBSystem_Array *boolArray = [refObject boolArray];
+    DBSystem_Array *boolArray = [(DUReferenceObject_ *)refObject boolArray];
     XCTAssertTrue([boolArray count] == 10, DBUCountTestFailed);
     
     for (uint32_t i = 0; i < [boolArray count]; i++) {
@@ -1280,11 +1280,25 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // List<string>
     DBSystem_Collections_Generic_ListA1 *listOfStrings = [refObject stringList];
-    NSArray *arrayOfStrings = [listOfStrings array];
+    NSArray<NSString *> *arrayOfStrings = [listOfStrings array];
     XCTAssertTrue([arrayOfStrings[0] dbTestString:DBUTestString], DBUSubstringTestFailed);
     XCTAssertTrue([arrayOfStrings[0] dbTestString:@" 1"], DBUSubstringTestFailed);
     XCTAssertTrue([arrayOfStrings[1] dbTestString:DBUTestString], DBUSubstringTestFailed);
     XCTAssertTrue([arrayOfStrings[1] dbTestString:@" 2"], DBUSubstringTestFailed);
+    
+    // List<NestedClass>
+    DBSystem_Collections_Generic_ListA1 *nestedClassListA1 = [refObject nestedClassList];
+    NSArray<id> *nestedClassArray = [nestedClassListA1 array];
+    XCTAssertTrue([[nestedClassArray[0] stringProperty] dbTestString:@"Dubrovnik.UnitTests 1"], DBUSubstringTestFailed);
+    XCTAssertTrue([[nestedClassArray[1] stringProperty] dbTestString:@"Dubrovnik.UnitTests 2"], DBUSubstringTestFailed);
+    [nestedClassArray managedListA1]; // reverse the process
+    
+    // An aside
+    // The reflection format for nested class is Dubrovnik.UnitTests.ReferenceObject+NestedClass
+    // THE CTS/IL format is Dubrovnik.UnitTests.ReferenceObject/NestedClass
+    System_Object *s = nestedClassArray[0];
+    const char *sname = s.monoTypeName; // this evaluates to Dubrovnik.UnitTests.ReferenceObject.NestedClass"
+    (void)sname; // keep the compiler quiet
     
     // List<int>
     DBSystem_Collections_Generic_ListA1 *listOfInts = [refObject intList];
@@ -1315,6 +1329,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([arrayOfDoubles count] == 2, DBUCountTestFailed);
     XCTAssertTrue([arrayOfDoubles[0] doubleValue] == 11., DBUEqualityTestFailed);
     XCTAssertTrue([arrayOfDoubles[1] doubleValue] == 22., DBUEqualityTestFailed);
+    
     
     //============================
     // Dictionary<string,string>

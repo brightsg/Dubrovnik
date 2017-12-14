@@ -464,6 +464,13 @@
     return object;
 }
 
+- (DBSystem_Collections_Generic_ListA1 *)nestedClassList
+{
+    MonoObject * monoObject = [self getMonoProperty:"NestedClassList"];
+    id object = [DBSystem_Collections_Generic_ListA1 listWithMonoObject:monoObject];
+    return object;
+}
+
 - (DBSystem_Collections_Generic_ListA1 *)intList
 {
     MonoObject * monoObject = [self getMonoProperty:"IntList"];

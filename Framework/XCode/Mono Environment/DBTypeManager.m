@@ -421,6 +421,7 @@ static BOOL m_useClassLookupCache = YES;
     NSString *typeName = [DBType monoTypeNameForMonoType:monoType];
     
     // substitute with invoke/alias if available
+    // Note : this may be redundant
     NSString *alias = [self invokeForName:typeName];
     if (alias) {
         typeName = alias;
@@ -502,11 +503,8 @@ static BOOL m_useClassLookupCache = YES;
     if (!managedClass) {
         
         // search up the class hierarchy for an object that can be instantiated
-        do {
-            if (monoClass == NULL) {
-                break;
-            }
-
+        while (monoClass != NULL) {
+            
             // get ObjC class name from mono class name
             NSString *monoClassName = [DBType monoFullyQualifiedClassNameForMonoClass:monoClass];
             NSString *managedClassName = [DBType managedClassNameFromMonoClassName:monoClassName];
@@ -518,15 +516,13 @@ static BOOL m_useClassLookupCache = YES;
             if (!managedClass) {
                 managedClass = NSClassFromString(managedClassName);
             }
-            if (managedClass) {
-                break;
-            }
+            if (managedClass) break;
         
             // get the super class.
             // if we cannot represent the class precisely then the next best thing is to represent with a super class.
             // note that arrays will present like so System.String[] - the super class will be System.Array
             monoClass = mono_class_get_parent(monoClass);
-        } while (YES);
+        }
         
         // default to root class
         if (!managedClass) {

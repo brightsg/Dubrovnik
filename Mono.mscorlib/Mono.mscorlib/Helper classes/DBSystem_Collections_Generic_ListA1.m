@@ -11,13 +11,16 @@
 #import "System_Object+mscorlib.h"
 
 @interface DBSystem_Collections_Generic_ListA1 ()
-@property (nonatomic, readwrite) BOOL parameterTypeIsValueType;
+
+// primitives
+@property (assign, nonatomic, readwrite) BOOL parameterTypeIsValueType;
+@property (assign) BOOL parameterTypeEstablished;
 @end
 
 @implementation DBSystem_Collections_Generic_ListA1
 
 #pragma mark -
-#pragma mark - Identification
+#pragma mark Identification
 
 // obligatory override
 + (const char *)monoClassName
@@ -52,6 +55,8 @@
             if (![object respondsToSelector:@selector(managedObject)]) {
                 [NSException raise:@"No managed object representation" format:@"%@ %@ : does not repond to -managedObject", object, [object className]];
             }
+            
+            // if we are passing in an NSNull instance this will return nil here
             managedObject = [object managedObject];
         }
         
@@ -78,7 +83,21 @@
 
 
 #pragma mark -
-#pragma mark - List and array representations
+#pragma mark Accessors
+
+- (BOOL)parameterTypeIsValueType
+{
+    if (!self.parameterTypeEstablished) {
+        MonoType *monoType = [self.managedType monoGenericTypeAtIndex:0];
+        MonoClass *klass = mono_class_from_mono_type(monoType);
+        _parameterTypeIsValueType = mono_class_is_valuetype(klass);
+        self.parameterTypeEstablished = YES;
+    }
+    return _parameterTypeIsValueType;
+}
+
+#pragma mark -
+#pragma mark List and array representations
 
 - (DBSystem_Collections_IList *)list
 {
@@ -114,22 +133,35 @@
     return [[self list] array];
 }
 
+- (NSArray *)array:(Class)klass
+{
+    NSArray *array = [[self list] array];
+
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:array.count];
+    for (System_Object *obj in array) {
+        id obj2 = [klass objectWithMonoObject:obj.monoObject];
+        [result addObject:obj2];
+    }
+    return result;
+}
+
 - (NSArray *)arrayExcludingNulls
 {
     return [[self list] arrayExcludingNulls];
 }
 
 #pragma mark -
-#pragma mark - Collection management
+#pragma mark Collection management
 
 - (void)add:(System_Object *)object
 {
-    // unbox value types if generic parameter type is value type
-    MonoType *monoType = [self.managedType monoGenericTypeAtIndex:0];
-    MonoClass *klass = mono_class_from_mono_type(monoType);
-    BOOL parameterTypeIsValueType = mono_class_is_valuetype(klass);
+    void *arg = nil;
     
-    void *arg = parameterTypeIsValueType ? [object monoRTInvokeArg] : object.monoObject;
+    // adding nil is acceptable
+    if (object != nil) {
+        arg = self.parameterTypeIsValueType ? [object monoRTInvokeArg] : object.monoObject;
+    }
+    
     [self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, arg];
 }
 
@@ -140,6 +172,21 @@
     _count = DB_UNBOX_INT32(monoObject);
     
     return _count;
+}
+
+//
+// Wrapped Indexer Access
+//
+- (id)objectAtIndex:(NSUInteger)index
+{    
+    MonoObject *monoObject = [self monoObjectForIndexObject:&index];
+    NSObject *object = [[DBTypeManager sharedManager] objectWithMonoObject:monoObject];
+    
+    return object;
+}
+
+- (void)setObjectAtIndex:(int)index object:(DBManagedObject *)object {
+    [self setMonoObject:[object monoObject] forIndexObject:&index];
 }
 
 @end

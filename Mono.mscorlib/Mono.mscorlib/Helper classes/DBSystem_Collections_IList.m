@@ -211,4 +211,9 @@
     return [self mutableArrayExcludingNulls];
 }
 
+- (NSArray *)arrayWith
+{
+    return [self mutableArray];
+}
+
 @end

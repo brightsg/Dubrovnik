@@ -9,6 +9,7 @@
 @interface DBManagedObject (Logging)
 
 - (void)logMonoClassInfo;
+- (void)logMonoClassNameInfo;
 + (void)logMonoClassNameInfo:(MonoClass *)klass;
 + (void)logMonoClassMethodInfo:(MonoClass *)klass;
 + (void)logMonoClassInfo;
