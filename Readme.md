@@ -147,6 +147,9 @@ There are are a number of dependencies that ship pre-built in order to support e
 
 Judy 32/64 can be rebuilt on demand using the supplied Xcode projects and shell scripts. VS solution files are provided for the managed projects.
 
+Judy works but it is complex
+http://www.nothings.org/computer/judy/
+
 Linking to It
 =============
 
