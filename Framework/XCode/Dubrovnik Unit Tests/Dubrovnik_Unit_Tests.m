@@ -113,6 +113,8 @@ static MonoAssembly *monoAssembly;
 {
     if (_setup) return;
     
+    DBUseLegacyMethodCache = NO;
+    
     _setup = YES;
     _verbose = YES;
     
@@ -2002,6 +2004,21 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     NSTimeInterval invokeInterval = -[startTime timeIntervalSinceNow];
     NSLog(@"%@ : doTestReferenceClass(%u) Time: %f", self.runModeName, iterations, invokeInterval);
+    
+    // some simple timimgs used to highlight any disparity between legacy and modern method cache implementations
+    startTime = [NSDate date];
+    iterations = 10000000;
+    char *properties[] = {"StringList", "BoolArray", "Date", "DecimalNumber"};
+    NSUInteger max = sizeof(properties)/sizeof(char *);
+    MonoClass *monoClass = [testClass monoClass];
+    for (int i; i < iterations; i++) {
+        for (NSUInteger j = 0; j < max; j++) {
+            MonoMethod *method = GetPropertyGetMethod(monoClass, properties[j]);
+            (void)method;
+        }
+    }
+    invokeInterval = -[startTime timeIntervalSinceNow];
+    NSLog(@"%@ : GetPropertyGetMethod(%u) Time: %f", self.runModeName, iterations, invokeInterval);
 }
 
 - (NSString *)runModeName

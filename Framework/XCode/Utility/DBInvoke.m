@@ -29,8 +29,25 @@
 #import "DBTypeManager.h"
 #import "DBManagedEnvironment.h"
 
-// The 32 and 64 bit libs differ as the more modern 64 bit source
-// won't build in 64 bit
+/*
+ Judy Structure note Note:
+ 
+ // For info on using the Judy functions see
+ // https://linux.die.net/man/3/judy
+ 
+ Judy1  - maps an Index (word) to a bit
+ JudyL  - maps an Index (word) to a Value (word/pointer)
+ JudySL - maps an Index (null terminated string) to a Value
+ JudyHS - maps an Index (array-of-bytes) of Length to a Value
+ 
+ There is a functional API and a macro based API.
+ The macro API is preferred (though its rather opaque) as it can better usage errors.
+ 
+ The 32 and 64 bit libs differ as the more modern 64 bit source
+ won't build in 32 bit
+ 
+ */
+
 #ifdef __LP64__
 #import "../Judy/Judy64/Judy/src/Judy.h"
 #else
@@ -201,9 +218,54 @@ static pthread_mutex_t methodCacheMutex = PTHREAD_MUTEX_INITIALIZER;
 static pthread_mutex_t propertyGetCacheMutex = PTHREAD_MUTEX_INITIALIZER;
 static pthread_mutex_t propertySetCacheMutex = PTHREAD_MUTEX_INITIALIZER;
 
-static Pvoid_t methodCache = NULL; //JudySL arrays keyed on MonoClass *s
+// legacy Judy cache
+static Pvoid_t methodCache = NULL;
 static Pvoid_t propertyGetMethodCache = NULL;
 static Pvoid_t propertySetMethodCache = NULL;
+
+// modern cache
+static __strong NSMapTable *m_propertyGetMethodMap;
+static __strong NSMapTable *m_propertySetMethodMap;
+static __strong NSMapTable *m_methodMap;
+
+BOOL DBUseLegacyMethodCache = NO;
+
+static void MethodCacheInsert(NSMapTable __strong **map, MonoClass *monoClass, const char *name, MonoMethod *method) {
+    
+    // validate map
+    if (*map == NULL) {
+        // key : MonoClass *, value : NSMapTable *
+        *map = [NSMapTable mapTableWithKeyOptions:(NSPointerFunctionsOpaqueMemory | NSPointerFunctionsIntegerPersonality) // an integer
+                                         valueOptions:(NSPointerFunctionsStrongMemory | NSPointerFunctionsObjectPersonality)]; // strong object
+    }
+    
+    // get methods map
+    NSMapTable *methodsMap = (__bridge NSMapTable *)NSMapGet(*map, monoClass);
+    if (!methodsMap) {
+        // key : char *, value : MonoMethod *
+        methodsMap = [NSMapTable mapTableWithKeyOptions:(NSPointerFunctionsMallocMemory | NSPointerFunctionsCStringPersonality | NSPointerFunctionsCopyIn) // a copied C string (example give in NSPointerFunctions header is wrong)
+                                           valueOptions:(NSPointerFunctionsOpaqueMemory | NSPointerFunctionsIntegerPersonality)]; // an integer
+        NSMapInsert(*map, monoClass, (__bridge const void * _Nullable)(methodsMap));
+    }
+
+    // insert
+    NSMapInsert(methodsMap, name, method);
+}
+
+static MonoMethod *MethodCacheGet(NSMapTable *map, MonoClass *monoClass, const char *name)
+{
+    MonoMethod *method = NULL;
+    
+    // get method from cache
+    if (map) {
+        NSMapTable *methodsMap = (__bridge NSMapTable *)NSMapGet(map, monoClass);
+        if (methodsMap) {
+            method = NSMapGet(methodsMap, name);
+        }
+    }
+    
+    return method;
+}
 
 #ifdef DEBUG
 
@@ -343,33 +405,43 @@ void DBInvokeLogCache(BOOL freeContents) {
 
 #endif
 
-inline static MonoMethod *GetCachedMonoMethod(MonoClass *monoClass, const char *methodName) {
-	Pvoid_t nameToMethodsArray = NULL;
-	MonoMethod *meth = NULL;
-	Word_t *valuePointer = NULL;
-		
-	JLG(valuePointer, methodCache, (Word_t)monoClass);
-	if(valuePointer != NULL) nameToMethodsArray = (Pvoid_t)*valuePointer;
+inline static MonoMethod *GetCachedMonoMethod(MonoClass *monoClass, const char *name) {
+    
+    MonoMethod *method = NULL;
+    
+    if (DBUseLegacyMethodCache) {
+        Pvoid_t nameToMethodsArray = NULL;
+        Word_t *valuePointer = NULL;
+        
+        JLG(valuePointer, methodCache, (Word_t)monoClass);
+        if(valuePointer != NULL) nameToMethodsArray = (Pvoid_t)*valuePointer;
 
-	JSLG(valuePointer, nameToMethodsArray, (uint8_t *)methodName);
-	if(valuePointer != NULL) meth = (MonoMethod *)*valuePointer;
-
-	return(meth);
-
+        JSLG(valuePointer, nameToMethodsArray, (uint8_t *)name);
+        if(valuePointer != NULL) method = (MonoMethod *)*valuePointer;
+    }
+    else {
+        method = MethodCacheGet(m_methodMap, monoClass, name);
+    }
+	return method;
 }
 
-inline static void SetCachedMonoMethod(MonoMethod *method, MonoClass *monoClass, const char *methodName) {
-	Pvoid_t nameToMethodsArray = NULL;
-	Word_t *valuePointer;
-	
-	JLG(valuePointer, methodCache, (Word_t)monoClass);
-	if(valuePointer != NULL) nameToMethodsArray = (Pvoid_t)*valuePointer;
-	
-	JSLI(valuePointer, nameToMethodsArray, (uint8_t *)methodName);
-	*valuePointer = (Word_t)method;
-	
-	JLI(valuePointer, methodCache, (Word_t)monoClass);
-	*valuePointer = (Word_t)nameToMethodsArray;
+inline static void SetCachedMonoMethod(MonoMethod *method, MonoClass *monoClass, const char *name) {
+    if (DBUseLegacyMethodCache) {
+        Pvoid_t nameToMethodsArray = NULL;
+        Word_t *valuePointer;
+        
+        JLG(valuePointer, methodCache, (Word_t)monoClass);
+        if(valuePointer != NULL) nameToMethodsArray = (Pvoid_t)*valuePointer;
+        
+        JSLI(valuePointer, nameToMethodsArray, (uint8_t *)name);
+        *valuePointer = (Word_t)method;
+        
+        JLI(valuePointer, methodCache, (Word_t)monoClass);
+        *valuePointer = (Word_t)nameToMethodsArray;
+    }
+    else {
+        MethodCacheInsert(&m_methodMap, monoClass, name, method);
+    }
 }
 
 MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *inMethodName, BOOL requireSignature) {
@@ -550,105 +622,138 @@ MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *inMethodName
 	return(meth);	
 }
 
-inline static void SetPropertySetMethod(MonoClass *monoClass, const char *propertyName, MonoMethod *method) {
-	Pvoid_t nameToMethodArray = NULL;
-	Word_t *valuePointer = NULL;
-	
-	JLG(valuePointer, propertySetMethodCache, (Word_t)monoClass);
-	if(valuePointer != NULL) nameToMethodArray = (Pvoid_t)*valuePointer;
-	
-	JSLI(valuePointer, nameToMethodArray, (uint8_t *)propertyName);
-	*valuePointer = (Word_t)method;
-	
-	JLI(valuePointer, propertySetMethodCache, (Word_t)monoClass);
-	*valuePointer = (Word_t)nameToMethodArray;	
+inline static void SetPropertySetMethod(MonoClass *monoClass, const char *name, MonoMethod *method) {
+    if (DBUseLegacyMethodCache) {
+        Pvoid_t nameToMethodArray = NULL;
+        Word_t *valuePointer = NULL;
+        
+        // get name-method bucket
+        JLG(valuePointer, propertySetMethodCache, (Word_t)monoClass);
+        if (valuePointer != NULL) {
+            nameToMethodArray = (Pvoid_t)*valuePointer;
+        }
+        
+        // Insert zero terminated name : method into name-method bucket
+        JSLI(valuePointer, nameToMethodArray, (uint8_t *)name);
+        *valuePointer = (Word_t)method;
+        
+        // refresh the name-method bucket cache
+        JLI(valuePointer, propertySetMethodCache, (Word_t)monoClass);
+        *valuePointer = (Word_t)nameToMethodArray;
+    }
+    else {
+        MethodCacheInsert(&m_propertySetMethodMap, monoClass, name, method);
+    }
 }
 
-MonoMethod *GetPropertySetMethod(MonoClass *monoClass, const char *propertyName) {
-	Pvoid_t nameToMethodArray = NULL;
-	MonoMethod *meth = NULL;
-	Word_t *valuePointer = NULL;
+MonoMethod *GetPropertySetMethod(MonoClass *monoClass, const char *name) {
+	MonoMethod *method = NULL;
 	
 	pthread_mutex_lock(&propertySetCacheMutex);
 	
-	JLG(valuePointer, propertySetMethodCache, (Word_t)monoClass);
-	if(valuePointer != NULL) nameToMethodArray = (Pvoid_t)*valuePointer;
-	
-	JSLG(valuePointer, nameToMethodArray, (uint8_t *)propertyName);
-	if(valuePointer != NULL) meth = (MonoMethod *)*valuePointer;
-	
-	if(meth == NULL) {
+    if (DBUseLegacyMethodCache) {
+        Pvoid_t nameToMethodArray = NULL;
+        Word_t *valuePointer = NULL;
+
+        // get name-method bucket
+        JLG(valuePointer, propertySetMethodCache, (Word_t)monoClass);
+        if(valuePointer != NULL) nameToMethodArray = (Pvoid_t)*valuePointer;
+        
+        // get method from name-method bucket
+        JSLG(valuePointer, nameToMethodArray, (uint8_t *)name);
+        if(valuePointer != NULL) method = (MonoMethod *)*valuePointer;
+    }
+    else {
+        method = MethodCacheGet(m_propertySetMethodMap, monoClass, name);
+    }
+    
+	if (method == NULL) {
         
         // Get the setter method name.
         // An API exists to get property set method but it is not used here.
 		// MonoProperty *monoProperty = mono_class_get_property_from_name(monoClass, propertyName);
 		// meth = mono_property_get_set_method(monoProperty);
-        char *methodName = DBFormatPropertyName(propertyName, ":%sset_%s");
+        char *methodName = DBFormatPropertyName(name, ":%sset_%s");
         
         // Note: Exact name matching requirement is set to NO.
         // This enables searching for property setter methods by name only.
         // TODO: Require full method signature ?
-		meth = GetMonoClassMethod(monoClass, methodName, NO);
+		method = GetMonoClassMethod(monoClass, methodName, NO);
         free(methodName);
         
-		SetPropertySetMethod(monoClass, propertyName, meth);
+        // update the setter cache
+		SetPropertySetMethod(monoClass, name, method);
 	}
 	
 	pthread_mutex_unlock(&propertySetCacheMutex);
 	 
-	return(meth);	
+	return method;
 }
 
 
-inline static void SetPropertyGetMethod(MonoClass *monoClass, const char *propertyName, MonoMethod *method) {
-	Pvoid_t nameToMethodArray = NULL;
-	Word_t *valuePointer = NULL;
-	
-	JLG(valuePointer, propertyGetMethodCache, (Word_t)monoClass);
-	if(valuePointer != NULL) nameToMethodArray = (Pvoid_t)*valuePointer;
-	
-	JSLI(valuePointer, nameToMethodArray, (uint8_t *)propertyName);
-	*valuePointer = (Word_t)method;
-	
-	JLI(valuePointer, propertyGetMethodCache, (Word_t)monoClass);
-	*valuePointer = (Word_t)nameToMethodArray;
+
+inline static void SetPropertyGetMethod(MonoClass *monoClass, const char *name, MonoMethod *method) {
+    
+    if (DBUseLegacyMethodCache) {
+        Pvoid_t nameToMethodArray = NULL;
+        Word_t *valuePointer = NULL;
+        
+        JLG(valuePointer, propertyGetMethodCache, (Word_t)monoClass);
+        if(valuePointer != NULL) nameToMethodArray = (Pvoid_t)*valuePointer;
+        
+        JSLI(valuePointer, nameToMethodArray, (uint8_t *)name);
+        *valuePointer = (Word_t)method;
+        
+        JLI(valuePointer, propertyGetMethodCache, (Word_t)monoClass);
+        *valuePointer = (Word_t)nameToMethodArray;
+    }
+    else {
+        MethodCacheInsert(&m_propertyGetMethodMap, monoClass, name, method);
+    }
 }
 
-__attribute__((always_inline)) inline MonoMethod *GetPropertyGetMethod(MonoClass *monoClass, const char *propertyName) {
-	Pvoid_t nameToMethodArray = NULL;
-	MonoMethod *meth = NULL;
-	Word_t *valuePointer = NULL;
+__attribute__((always_inline)) inline MonoMethod *GetPropertyGetMethod(MonoClass *monoClass, const char *name) {
+    
+    MonoMethod *method = NULL;
+    
+    pthread_mutex_lock(&propertyGetCacheMutex);
+    
+    if (DBUseLegacyMethodCache) {
+        Pvoid_t nameToMethodArray = NULL;
+        Word_t *valuePointer = NULL;
 	
-	pthread_mutex_lock(&propertyGetCacheMutex);
-	
-	JLG(valuePointer, propertyGetMethodCache, (Word_t)monoClass);
-	if(valuePointer != NULL) nameToMethodArray = (Pvoid_t)*valuePointer;
-	
-	JSLG(valuePointer, nameToMethodArray, (uint8_t *)propertyName);
-	if(valuePointer != NULL) meth = (MonoMethod *)*valuePointer;
-
-	if(meth == NULL) {
+        JLG(valuePointer, propertyGetMethodCache, (Word_t)monoClass);
+        if(valuePointer != NULL) nameToMethodArray = (Pvoid_t)*valuePointer;
+        
+        JSLG(valuePointer, nameToMethodArray, (uint8_t *)name);
+        if(valuePointer != NULL) method = (MonoMethod *)*valuePointer;
+    }
+    else {
+        method = MethodCacheGet(m_propertyGetMethodMap, monoClass, name);
+    }
+    
+	if (method == NULL) {
         // cache miss
         
         // Get the getter method name.
         // note: an explicit API exists for this, though we do not utilise it here.
         // MonoProperty *monoProperty = mono_class_get_property_from_name(monoClass, propertyName);
         // meth = mono_property_get_get_method(monoProperty);
-        char *methodName = DBFormatPropertyName(propertyName, ":%sget_%s");
+        char *methodName = DBFormatPropertyName(name, ":%sget_%s");
         
         // Note: Exact name matching requirement is set to NO.
         // This enables searching for property getter methods by name only.
         // TODO: Require full method signature ?
-		meth = GetMonoClassMethod(monoClass, methodName, NO);
+		method = GetMonoClassMethod(monoClass, methodName, NO);
         free(methodName);
         
         // update the cache
-		SetPropertyGetMethod(monoClass, propertyName, meth);
+		SetPropertyGetMethod(monoClass, name, method);
 	}
 	
 	pthread_mutex_unlock(&propertyGetCacheMutex);
 	
-	return(meth);
+	return method;
 }
 
 __attribute__((always_inline)) inline char *DBFormatPropertyName(const char * propertyName, const char* fmt)
