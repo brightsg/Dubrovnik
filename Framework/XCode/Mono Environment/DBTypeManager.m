@@ -365,7 +365,7 @@ static BOOL m_useClassLookupCache = YES;
                                     id:DBTypeID_System_Exception
                              monoClass:mono_get_exception_class()
                              generator:^id(MonoObject *monoObject, Class defaultClass) {
-                                 return NSExceptionFromMonoException(monoObject, @{});
+                                 return NSExceptionFromMonoException(monoObject, @{@"runWillRaiseCallback" : @NO});
                              }
                    ]
          ];
