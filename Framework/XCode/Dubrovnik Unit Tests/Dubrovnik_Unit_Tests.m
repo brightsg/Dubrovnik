@@ -936,14 +936,14 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // Generic argument methods
     //
     DBSystem_Collections_Generic_ListA1 *list = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[@"1", @"2"]];
-    [refObject reverseList_withList:list];
+    [refObject reverseList_withListSCGListA1string:list];
     NSArray *revList = [list array];
     NSAssert([revList[0] isEqualToString:@"2"], DBUEqualityTestFailed);
     NSAssert([revList[1] isEqualToString:@"1"], DBUEqualityTestFailed);
  
 
     DBSystem_Collections_Generic_ListA1 *intList = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[DBNumInt(1), DBNumInt(2)]];
-    [refObject reverseList_withList:intList];
+    [refObject reverseList_withListSCGListA1int:intList];
     revList = [intList array];
     NSAssert([revList[0] isEqualTo:@(2)], DBUEqualityTestFailed);
     NSAssert([revList[1] isEqualTo:@(1)], DBUEqualityTestFailed);

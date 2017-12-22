@@ -153,7 +153,8 @@
 - (double)sumAndSwitch_withDoublePtrX:(double*)p1 doublePtrY:(double*)p2;
 
 // generic argument methods
-- (BOOL)reverseList_withList:(DBSystem_Collections_Generic_ListA1 *)p1;
+- (BOOL)reverseList_withListSCGListA1string:(DBSystem_Collections_Generic_ListA1 *)p1;
+- (BOOL)reverseList_withListSCGListA1int:(DBSystem_Collections_Generic_ListA1 *)p1;
 - (NSString *)addIEnumerable_withList:(System_Collections_Generic_IEnumerableA1 *)p1;
 
 // string property implementation
