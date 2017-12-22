@@ -2124,10 +2124,21 @@
 	// Managed method name : ReverseList
 	// Managed return type : System.Boolean
 	// Managed param types : System.Collections.Generic.List`1<System.String>
-    - (BOOL)reverseList_withList:(DBSystem_Collections_Generic_ListA1 *)p1
+    - (BOOL)reverseList_withListSCGListA1string:(DBSystem_Collections_Generic_ListA1 *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ReverseList(System.Collections.Generic.List`1<string>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return DB_UNBOX_BOOLEAN(monoObject);
+    }
+
+	// Managed method name : ReverseList
+	// Managed return type : System.Boolean
+	// Managed param types : System.Collections.Generic.List`1<System.Int32>
+    - (BOOL)reverseList_withListSCGListA1int:(DBSystem_Collections_Generic_ListA1 *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"ReverseList(System.Collections.Generic.List`1<int>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }

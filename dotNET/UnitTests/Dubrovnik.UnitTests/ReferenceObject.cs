@@ -592,12 +592,10 @@ namespace Dubrovnik.UnitTests {
 			return true;
 		}
 
-		/*
 		public bool ReverseList(List<int> list) {
 			 list.Reverse();
 			 return true;
 		}
-		*/
 
 		public string AddIEnumerable(IEnumerable<string> list) {
 			string value = null;
