@@ -1910,6 +1910,17 @@
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
 
+	// Managed method name : GenericMethod1
+	// Managed return type : <Dubrovnik.UnitTests.ReferenceObject+T>
+	// Managed param types : <Dubrovnik.UnitTests.ReferenceObject+T>
+    - (System_Object *)genericMethod1_withValue:(System_Object *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethod1(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return [System_Object bestObjectWithMonoObject:monoObject];
+    }
+
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
 	// Managed param types : 

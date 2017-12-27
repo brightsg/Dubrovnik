@@ -585,6 +585,14 @@ namespace Dubrovnik.UnitTests {
 		}
 
 		//
+		// Generic methods
+		//
+		public T GenericMethod1<T>(T value) 
+		{
+			return value;
+		}
+
+		//
 		// Generic parameter methods
 		//
 		public bool ReverseList(List<string> list) {
