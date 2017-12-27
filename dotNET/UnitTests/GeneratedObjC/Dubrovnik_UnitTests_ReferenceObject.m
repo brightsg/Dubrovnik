@@ -1913,7 +1913,7 @@
 	// Managed method name : GenericMethod1
 	// Managed return type : <Dubrovnik.UnitTests.ReferenceObject+T>
 	// Managed param types : <Dubrovnik.UnitTests.ReferenceObject+T>
-    - (System_Object *)genericMethod1_withValue:(System_Object *)p1
+    - (System_Object *)genericMethod1_withObject:(System_Object *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethod1(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];

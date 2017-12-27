@@ -587,9 +587,9 @@ namespace Dubrovnik.UnitTests {
 		//
 		// Generic methods
 		//
-		public T GenericMethod1<T>(T value) 
+		public T GenericMethod1<T>(T @object) 
 		{
-			return value;
+			return @object;
 		}
 
 		//
