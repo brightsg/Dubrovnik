@@ -933,6 +933,58 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 #endif
     
     //
+    // Generic methods
+    //
+    if (!m_runningAutoGenCodeTest) {
+        
+        // the object parameter can be any object that responds to -monoRTInvokeArg.
+        // the type paramter can be passed as a native class, a System_type instance, a native instance with a corresponding monoObject *,
+        // native NSValue containing a monoType *
+        
+        // Method<string>(string)
+        id genericResult = [refObject genericMethod1_withObject:[DBUTestString managedObject] typeParameter:[System_String class] ];
+        NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:DBUTestString], DBUEqualityTestFailed);
+        
+        genericResult = [refObject genericMethod1_withObject:DBUTestString typeParameter:[System_String db_getType]];
+        NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:DBUTestString], DBUEqualityTestFailed);
+        
+        genericResult = [refObject genericMethod1_withObject:DBUTestString typeParameter:@"a string"]; // get typeParameter from instance
+        NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:DBUTestString], DBUEqualityTestFailed);
+        
+        MonoType *monoType = [DBType monoTypeForMonoObject:[@"a string" monoObject]];
+        genericResult = [refObject genericMethod1_withObject:DBUTestString typeParameter:[NSValue valueWithPointer:monoType]];
+        NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:DBUTestString], DBUEqualityTestFailed);
+        
+        // Method<int>(int)
+        DBNumber *number = [DBNumber numberWithInt:101];
+        genericResult = [refObject genericMethod1_withObject:number typeParameter:[System_Int32 class]]; // explicit type parameter class
+        NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult integerValue] == 101, DBUEqualityTestFailed);
+
+        genericResult = [refObject genericMethod1_withObject:number typeParameter:number]; // get typeParameter from instance
+        NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult integerValue] == 101, DBUEqualityTestFailed);
+        
+        // Method<long>(long)
+        number = [DBNumber numberWithLong:101];
+        genericResult = [refObject genericMethod1_withObject:number typeParameter:number]; // get typeParameter from instance
+        NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult longValue] == 101, DBUEqualityTestFailed);
+        
+        // Method<float>(float)
+        number = [DBNumber numberWithFloat:101.1f];
+        genericResult = [refObject genericMethod1_withObject:number typeParameter:number]; // get typeParameter from instance
+        NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult floatValue] == 101.1f, DBUEqualityTestFailed);
+
+        // Method<double>(double)
+        number = [DBNumber numberWithDouble:101.1];
+        genericResult = [refObject genericMethod1_withObject:number typeParameter:number]; // get typeParameter from instance
+        NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult doubleValue] == 101.1, DBUEqualityTestFailed);
+        
+        // Method<List<string>>(List<string>)
+        DBSystem_Collections_Generic_ListA1 *listA1 = [@[@"A", @"B"] managedListA1];
+        genericResult = [refObject genericMethod1_withObject:listA1 typeParameter:[listA1 db_getType]];
+        NSAssert([genericResult isKindOfClass:[DBSystem_Collections_Generic_ListA1 class]], DBUEqualityTestFailed);
+    }
+    
+    //
     // Generic argument methods
     //
     DBSystem_Collections_Generic_ListA1 *list = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[@"1", @"2"]];
@@ -958,8 +1010,9 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSString *classDescription = (NSString *)[testClass classDescription];
     XCTAssertTrue([classDescription dbTestString:DBUTestString], DBUSubstringTestFailed);
     
+#if DB_RUN_AUTO_GENERATED_CODE_TEST == 1
     //
-    // nest type parameters + overloads
+    // nested type parameters + overloads
     //
     if (m_runningAutoGenCodeTest) {
         Dubrovnik_UnitTests_ReferenceObject__NestedClass *nestedClass = [Dubrovnik_UnitTests_ReferenceObject__NestedClass new];
@@ -976,6 +1029,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         nestedGenericClassA2 = [Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 newObjectWithGenericTypeParameters:@[[System_Int32 class], [System_String class]] monoImage:image];
         [refObject nestedTypeParameters_withPDUReferenceObject__NestedGenericClassA2int_string:nestedGenericClassA2];
     }
+#endif
 }
 
 - (void)doTestRefMethods:(id)refObject class:(Class)testClass

@@ -165,25 +165,27 @@
 
 - (const char *)inflateMethodName:(const char *)methodName
 {
-    /*
-     
-     Search the method signature for generic type keys and replace with actual type names
-     
-     */
     if (self.isGenericType && strstr(methodName, "<_T_")) {
-        NSMutableString *method = [[NSMutableString alloc] initWithUTF8String:methodName];;
-        NSUInteger i = 0;
-        
-        for (NSString *typeName in self.genericParameterMonoArgumentTypeNames) {
-            NSString *key = [NSString stringWithFormat:@"<_T_%lu>", (unsigned long)i++];
-            [method replaceOccurrencesOfString:key withString:typeName options:0 range:NSMakeRange(0, [method length])];
-        }
-        
-        // methodName should be valid until the NSAutoreleasePool state changes
-        // see http://clang.llvm.org/docs/AutomaticReferenceCounting.html#interior-pointers
-        methodName = [method UTF8String];
+        methodName = [self.class inflateMethodName:methodName typeNames:self.genericParameterMonoArgumentTypeNames];
     }
     
+    return methodName;
+}
+
++ (const char *)inflateMethodName:(const char *)methodName typeNames:(NSArray<NSString *> *)typeNames
+{
+    // Search the method signature for generic type keys and replace with actual type names
+    NSMutableString *method = [[NSMutableString alloc] initWithUTF8String:methodName];
+    NSUInteger i = 0;
+    for (NSString *typeName in typeNames) {
+        NSString *key = [NSString stringWithFormat:@"<_T_%lu>", (unsigned long)i++];
+        [method replaceOccurrencesOfString:key withString:typeName options:0 range:NSMakeRange(0, [method length])];
+    }
+    
+    // methodName should be valid until the NSAutoreleasePool state changes
+    // see http://clang.llvm.org/docs/AutomaticReferenceCounting.html#interior-pointers
+    methodName = [method UTF8String];
+
     return methodName;
 }
 

@@ -521,20 +521,19 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 
 - (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs, ... {
     
+    // build method name for generics
     if (self.managedType.isGenericType) {
         methodName = [self.managedType inflateMethodName:methodName];
     }
     
+    // invoke
     va_list va_args;
     va_start(va_args, numArgs);
-    
     MonoObject *ret = DBMonoObjectInvoke(self.monoObject, methodName, numArgs, va_args);
-    
     va_end(va_args);
     
     return ret;
 }
-
 
 inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args, int numArgs) {
     if(numArgs > 0) {
@@ -617,11 +616,11 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
         
         // If generic method has unassigned generic parameters then the method needs to be
         // inflated with real types instead of generic type placeholders.
-        
         BOOL containsGenericParameters = DB_UNBOX_BOOLEAN(DBMonoObjectGetProperty((MonoObject *)methodInfo, "ContainsGenericParameters"));
         BOOL isGenericMethodDefinition = DB_UNBOX_BOOLEAN(DBMonoObjectGetProperty((MonoObject *)methodInfo, "IsGenericMethodDefinition"));
         
-        // If method is a generic method definition then we can inflate the method
+        // If method is a generic method definition then we inflate the method so that from say
+        // T Method<T>(T) we make say String Method(String)
         if (isGenericMethodDefinition) {
             monoMethod = [self makeGenericMethod:methodInfo genericParameterType:methodRepresentation.genericMonoType];
         } else if (containsGenericParameters) {

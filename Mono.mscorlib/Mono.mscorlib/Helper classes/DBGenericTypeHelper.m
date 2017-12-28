@@ -78,9 +78,9 @@
 
 - (MonoType *)monoTypeForTypeParameter:(id)typeParameter
 {
-    MonoType *monoType = nil;
+    MonoType *monoType = NULL;
     
-    // System_Object subclass class
+    // System_Object subclass class - eg: [System_String class]
     if (class_isMetaClass(object_getClass(typeParameter))) {
         
         // validate the class
@@ -88,6 +88,11 @@
         if (![typeClass isSubclassOfClass:[System_Object class]]) [NSException raise:@"Invalid class" format:@""];
         
         monoType = [typeClass monoType];
+    }
+    
+    // System_Type instance - eg: [System_String db_getType]
+    else if ([typeParameter isKindOfClass:[System_Type class]]) {
+        monoType = [(System_Type *)typeParameter monoType];
     }
     
     // object responding to -monoObject (this obviously includes System_Object)

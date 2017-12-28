@@ -13,6 +13,7 @@
 
 - (instancetype)initWithMonoType:(MonoType *)monoType NS_DESIGNATED_INITIALIZER;
 - (const char *)inflateMethodName:(const char *)methodName;
++ (const char *)inflateMethodName:(const char *)methodName typeNames:(NSArray<NSString *> *)typeNames;
 - (MonoType *)firstMonoGenericType;
 - (MonoType *)lastMonoGenericType;
 - (MonoType *)monoGenericTypeAtIndex:(NSUInteger)idx;

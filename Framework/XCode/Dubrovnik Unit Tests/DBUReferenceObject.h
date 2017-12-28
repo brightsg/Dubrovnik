@@ -152,6 +152,9 @@
 - (float)sumAndSwitch_withFloatPtrX:(float*)p1 floatPtrY:(float*)p2;
 - (double)sumAndSwitch_withDoublePtrX:(double*)p1 doublePtrY:(double*)p2;
 
+// generic methods
+- (System_Object *)genericMethod1_withObject:(id)p1 typeParameter:(id)typeParameter;
+
 // generic argument methods
 - (BOOL)reverseList_withListSCGListA1string:(DBSystem_Collections_Generic_ListA1 *)p1;
 - (BOOL)reverseList_withListSCGListA1int:(DBSystem_Collections_Generic_ListA1 *)p1;

@@ -7,6 +7,7 @@
 //
 #import "DBUReferenceObject.h"
 #import "DBUIReferenceObject.h"
+#import "Mono.mscorlib/DBGenericTypeHelper.h"
 
 /*
  Note that the code here was written manually and uses
@@ -773,6 +774,18 @@
 {
     MonoObject *monoObject = [self invokeMonoMethod:"SumAndSwitch(double*,double*)" withNumArgs:2, p1, p2];
     return DB_UNBOX_DOUBLE(monoObject);
+}
+
+#pragma mark -
+#pragma mark Generic methods
+
+- (System_Object *)genericMethod1_withObject:(id)p1 typeParameter:(id)typeParameter
+{
+    DBManagedMethod *managedMethod = [DBManagedMethod methodWithMonoMethodNamed:"GenericMethod1(T)"];
+    managedMethod.genericMonoType = [[DBGenericTypeHelper sharedHelper] monoTypeForTypeParameter:typeParameter];
+    MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:1, [p1 monoRTInvokeArg]];
+    
+    return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 #pragma mark -
