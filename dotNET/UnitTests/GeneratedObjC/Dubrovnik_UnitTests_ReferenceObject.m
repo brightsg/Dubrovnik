@@ -1913,12 +1913,23 @@
 	// Managed method name : GenericMethod1
 	// Managed return type : <Dubrovnik.UnitTests.ReferenceObject+T>
 	// Managed param types : <Dubrovnik.UnitTests.ReferenceObject+T>
-    - (System_Object *)genericMethod1_withObject:(System_Object *)p1
+    - (System_Object *)genericMethod1_withValue:(System_Object *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethod1(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
 		return [System_Object bestObjectWithMonoObject:monoObject];
+    }
+
+	// Managed method name : GenericMethod2
+	// Managed return type : System.Collections.Generic.Dictionary`2<Dubrovnik.UnitTests.ReferenceObject+T, Dubrovnik.UnitTests.ReferenceObject+U>
+	// Managed param types : <Dubrovnik.UnitTests.ReferenceObject+T>, <Dubrovnik.UnitTests.ReferenceObject+U>
+    - (DBSystem_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(System_Object *)p1 value:(System_Object *)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethod2(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		
+		return [DBSystem_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
     }
 
 	// Managed method name : GetHashCode
