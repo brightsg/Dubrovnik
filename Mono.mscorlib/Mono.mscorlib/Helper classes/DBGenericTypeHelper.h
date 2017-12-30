@@ -58,5 +58,5 @@
  
  */
 - (NSArray<System_Type *> *)systemTypesForTypeParameters:(NSArray<id> *)typeParameters;
-
+- (DBManagedMethod *)methodWithMonoMethodNamed:(const char *)methodName typeParameters:(id)typeParametersObject;
 @end

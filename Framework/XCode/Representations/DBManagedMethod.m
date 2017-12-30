@@ -7,6 +7,7 @@
 //
 
 #import "DBManagedMethod.h"
+#import "DBManagedObject.h"
 
 @interface DBManagedMethod()
 @property (assign, readwrite) const char *methodName;
@@ -15,6 +16,9 @@
 @end
 
 @implementation DBManagedMethod
+
+#pragma mark -
+#pragma mark Lifecycle
 
 + (instancetype)methodWithMonoMethodNamed:(const char *)methodName
 {
@@ -42,9 +46,16 @@
     return self;
 }
 
+#pragma mark -
+#pragma mark Accessors
+
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"%@ methodName: %s", [super description], self.methodName];
 }
 
+- (MonoArray *)monoReflectionTypeParameters
+{
+    return (MonoArray *)[(id)self.typeParameters monoObject];
+}
 @end

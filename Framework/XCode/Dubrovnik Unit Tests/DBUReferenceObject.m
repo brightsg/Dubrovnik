@@ -779,13 +779,31 @@
 #pragma mark -
 #pragma mark Generic methods
 
-- (System_Object *)genericMethod1_withObject:(id)p1 typeParameter:(id)typeParameter
+- (System_Object *)genericMethod1_withValue:(id)p1 typeParameter:(id)typeParameter
 {
-    DBManagedMethod *managedMethod = [DBManagedMethod methodWithMonoMethodNamed:"GenericMethod1(T)"];
-    managedMethod.genericMonoType = [[DBGenericTypeHelper sharedHelper] monoTypeForTypeParameter:typeParameter];
+    // prepare method
+    DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"GenericMethod1(T)" typeParameters:typeParameter];
+    
+    // invoke
     MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:1, [p1 monoRTInvokeArg]];
     
+    // result
     return [System_Object bestObjectWithMonoObject:monoObject];
+}
+
+// Managed method name : GenericMethod2
+// Managed return type : System.Collections.Generic.Dictionary`2<Dubrovnik.UnitTests.ReferenceObject+T, Dubrovnik.UnitTests.ReferenceObject+U>
+// Managed param types : <Dubrovnik.UnitTests.ReferenceObject+T>, <Dubrovnik.UnitTests.ReferenceObject+U>
+- (DBSystem_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(id)p1 value:(id)p2 typeParameters:(NSArray<id> *)typeParameter
+{
+    // prepare method
+    DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"GenericMethod2(T,U)" typeParameters:typeParameter];
+    
+    // invoke
+    MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+    
+    // result
+    return [DBSystem_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
 }
 
 #pragma mark -

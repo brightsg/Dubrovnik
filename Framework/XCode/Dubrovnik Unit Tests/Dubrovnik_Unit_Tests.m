@@ -933,7 +933,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 #endif
     
     //
-    // Generic methods
+    // Generic methods of form Method<T>, Method<T,U> etc
     //
     if (!m_runningAutoGenCodeTest) {
         
@@ -941,51 +941,87 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         // the type paramter can be passed as a native class, a System_type instance, a native instance with a corresponding monoObject *,
         // native NSValue containing a monoType *
         
+        //
+        // One type parameter
+        //
+        
         // Method<string>(string)
-        id genericResult = [refObject genericMethod1_withObject:[DBUTestString managedObject] typeParameter:[System_String class] ];
+        id genericResult = [refObject genericMethod1_withValue:[DBUTestString managedObject] typeParameter:[System_String class] ];
         NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:DBUTestString], DBUEqualityTestFailed);
         
-        genericResult = [refObject genericMethod1_withObject:DBUTestString typeParameter:[System_String db_getType]];
+        genericResult = [refObject genericMethod1_withValue:DBUTestString typeParameter:[System_String db_getType]];
         NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:DBUTestString], DBUEqualityTestFailed);
         
-        genericResult = [refObject genericMethod1_withObject:DBUTestString typeParameter:@"a string"]; // get typeParameter from instance
+        genericResult = [refObject genericMethod1_withValue:DBUTestString typeParameter:@"a string"]; // get typeParameter from instance
         NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:DBUTestString], DBUEqualityTestFailed);
         
         MonoType *monoType = [DBType monoTypeForMonoObject:[@"a string" monoObject]];
-        genericResult = [refObject genericMethod1_withObject:DBUTestString typeParameter:[NSValue valueWithPointer:monoType]];
+        genericResult = [refObject genericMethod1_withValue:DBUTestString typeParameter:[NSValue valueWithPointer:monoType]];
         NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:DBUTestString], DBUEqualityTestFailed);
         
         // Method<int>(int)
         DBNumber *number = [DBNumber numberWithInt:101];
-        genericResult = [refObject genericMethod1_withObject:number typeParameter:[System_Int32 class]]; // explicit type parameter class
+        genericResult = [refObject genericMethod1_withValue:number typeParameter:[System_Int32 class]]; // explicit type parameter class
         NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult integerValue] == 101, DBUEqualityTestFailed);
 
-        genericResult = [refObject genericMethod1_withObject:number typeParameter:number]; // get typeParameter from instance
+        genericResult = [refObject genericMethod1_withValue:number typeParameter:number]; // get typeParameter from instance
         NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult integerValue] == 101, DBUEqualityTestFailed);
         
         // Method<long>(long)
         number = [DBNumber numberWithLong:101];
-        genericResult = [refObject genericMethod1_withObject:number typeParameter:number]; // get typeParameter from instance
+        genericResult = [refObject genericMethod1_withValue:number typeParameter:number]; // get typeParameter from instance
         NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult longValue] == 101, DBUEqualityTestFailed);
         
         // Method<float>(float)
         number = [DBNumber numberWithFloat:101.1f];
-        genericResult = [refObject genericMethod1_withObject:number typeParameter:number]; // get typeParameter from instance
+        genericResult = [refObject genericMethod1_withValue:number typeParameter:number]; // get typeParameter from instance
         NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult floatValue] == 101.1f, DBUEqualityTestFailed);
 
         // Method<double>(double)
         number = [DBNumber numberWithDouble:101.1];
-        genericResult = [refObject genericMethod1_withObject:number typeParameter:number]; // get typeParameter from instance
+        genericResult = [refObject genericMethod1_withValue:number typeParameter:number]; // get typeParameter from instance
         NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult doubleValue] == 101.1, DBUEqualityTestFailed);
         
         // Method<List<string>>(List<string>)
         DBSystem_Collections_Generic_ListA1 *listA1 = [@[@"A", @"B"] managedListA1];
-        genericResult = [refObject genericMethod1_withObject:listA1 typeParameter:[listA1 db_getType]];
+        genericResult = [refObject genericMethod1_withValue:listA1 typeParameter:[listA1 db_getType]];
         NSAssert([genericResult isKindOfClass:[DBSystem_Collections_Generic_ListA1 class]], DBUEqualityTestFailed);
+        
+        //
+        // Two type parameters
+        //
+        
+        // Method<string,string>(string,string)
+        DBSystem_Collections_Generic_DictionaryA2 *resultA2 = [refObject genericMethod2_withKey:@"key" value:DBUTestString typeParameters:@[[System_String class], [System_String class]]];
+        NSAssert([resultA2 isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        NSAssert([[resultA2 objectForKey:@"key"] isEqualToString:DBUTestString], DBUEqualityTestFailed);
+
+        // Method<int,string>(int,string)
+        DBNumber *numberKey = [DBNumber numberWithLong:101];
+        resultA2 = [refObject genericMethod2_withKey:numberKey value:DBUTestString typeParameters:@[number, [System_String class]]];
+        NSAssert([resultA2 isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        NSAssert([[resultA2 objectForKey:numberKey] isEqualToString:DBUTestString], DBUEqualityTestFailed);
+        
+        // Method<string,int>(string,int)
+        number = [DBNumber numberWithLong:101];
+        resultA2 = [refObject genericMethod2_withKey:@"key" value:number typeParameters:@[[System_String class], number]];
+        NSAssert([resultA2 isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        NSAssert([[resultA2 objectForKey:@"key"] isEqualTo:number], DBUEqualityTestFailed);
+        
+        // Method<int,int>(int,int)
+        DBNumber *numberValue = [DBNumber numberWithLong:9052];
+        resultA2 = [refObject genericMethod2_withKey:numberKey value:numberValue typeParameters:@[number, numberValue]];
+        NSAssert([resultA2 isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        NSAssert([[resultA2 objectForKey:numberKey] isEqualTo:numberValue], DBUEqualityTestFailed);
+        
+        // Method<int,List<string>>(int,List<string>)
+        resultA2 = [refObject genericMethod2_withKey:numberKey value:listA1 typeParameters:@[number, listA1]];
+        NSAssert([resultA2 isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        NSAssert([[resultA2 objectForKey:numberKey] isKindOfClass:[DBSystem_Collections_Generic_ListA1 class]], DBUEqualityTestFailed);
     }
     
     //
-    // Generic argument methods
+    // Generic type argument methods
     //
     DBSystem_Collections_Generic_ListA1 *list = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[@"1", @"2"]];
     [refObject reverseList_withListSCGListA1string:list];
@@ -993,7 +1029,6 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     NSAssert([revList[0] isEqualToString:@"2"], DBUEqualityTestFailed);
     NSAssert([revList[1] isEqualToString:@"1"], DBUEqualityTestFailed);
  
-
     DBSystem_Collections_Generic_ListA1 *intList = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[DBNumInt(1), DBNumInt(2)]];
     [refObject reverseList_withListSCGListA1int:intList];
     revList = [intList array];

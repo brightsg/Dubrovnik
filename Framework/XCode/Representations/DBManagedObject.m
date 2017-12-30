@@ -622,7 +622,12 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
         // If method is a generic method definition then we inflate the method so that from say
         // T Method<T>(T) we make say String Method(String)
         if (isGenericMethodDefinition) {
-            monoMethod = [self makeGenericMethod:methodInfo genericParameterType:methodRepresentation.genericMonoType];
+            if (methodRepresentation.typeParameters) {
+                monoMethod = [self makeGenericMethod:methodInfo typeParameters:methodRepresentation.monoReflectionTypeParameters];
+            }
+            else {
+                monoMethod = [self makeGenericMethod:methodInfo genericParameterType:methodRepresentation.genericMonoType];
+            }
         } else if (containsGenericParameters) {
             // What to do, what to do...
             NSAssert(NO, @"GenericMethod with generic parameters not yet supported");
@@ -663,6 +668,22 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
      De-referencing this gives the method pointer.
      */
     MonoMethod *genericMethod = *(MonoMethod**) mono_object_unbox (boxedGenericMethod);
+    if (!genericMethod) {
+        [NSException raise:@"DBMakeGenericMethodException" format: @"Generic method not found."];
+    }
+    
+    return genericMethod;
+}
+
+- (MonoMethod *)makeGenericMethod:(MonoReflectionMethod*)methodInfo typeParameters:(MonoArray *)typeParameters
+{
+    // get the generic method helper method
+    MonoMethod *helperMethod = [DBManagedEnvironment dubrovnikMonoMethodWithName:"MakeGenericMethod" className:"Dubrovnik.FrameworkHelper.GenericHelper" argCount:2];
+    
+    // get intPtr to methodHandle from MethodBase.MethodHandle.Value
+    // typeParameters is a MonoArray * of MonoReflectionType *
+    MonoObject *boxedPtr = DBMonoClassInvokeMethod(helperMethod, 2, methodInfo, typeParameters);
+    MonoMethod *genericMethod = (MonoMethod *)DB_UNBOX_PTR(boxedPtr);
     if (!genericMethod) {
         [NSException raise:@"DBMakeGenericMethodException" format: @"Generic method not found."];
     }

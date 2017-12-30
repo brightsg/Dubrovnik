@@ -11,6 +11,7 @@
 #import "NSArray+mscorlib.h"
 #import <objc/runtime.h>
 #import "System_Type.h"
+#import "NSArray+mscorlib.h"
 
 @implementation DBGenericTypeHelper
 
@@ -144,6 +145,27 @@
     }
     
     return systemTypes;
+}
+
+- (DBManagedMethod *)methodWithMonoMethodNamed:(const char *)methodName typeParameters:(id)typeParametersObject
+{
+    DBManagedMethod *method = [DBManagedMethod methodWithMonoMethodNamed:methodName className:NULL assemblyName:NULL];
+    
+    // get System_Type instances from possibly diverse typeParametersObject
+    NSArray *typeParameters = nil;
+    if (![typeParametersObject isKindOfClass:[NSArray class]]) {
+        typeParameters = @[typeParametersObject];
+    }
+    else {
+        typeParameters = typeParametersObject;
+    }
+    NSArray *systemTypeParameters =  [self systemTypesForTypeParameters:typeParameters];
+    
+    // create a System_Array of System_Type.
+    // if we send -monoArray or -monoObject to this object we will get a MonoArray *
+    method.typeParameters =  [systemTypeParameters managedArrayWithTypeName:@"System_Object"];
+    
+    return method;
 }
 
 @end
