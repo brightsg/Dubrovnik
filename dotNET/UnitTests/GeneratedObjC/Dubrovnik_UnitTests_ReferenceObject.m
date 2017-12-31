@@ -1989,6 +1989,21 @@
     }
 
 	/*! 
+		Managed method name : GenericMethodList1
+		Managed return type : <Dubrovnik.UnitTests.ReferenceObject+T>
+		Managed param types : System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject+T>
+		Generic method definition type params : <Dubrovnik.UnitTests.ReferenceObject+T>
+	 */
+    - (System_Object *)genericMethodList1_withValue:(DBSystem_Collections_Generic_ListA1 *)p1 typeParameter:(id)typeParameter
+    {
+		DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"GenericMethodList1(System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject/T>)" typeParameters:typeParameter];
+
+		MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return [System_Object bestObjectWithMonoObject:monoObject];
+    }
+
+	/*! 
 		Managed method name : GetHashCode
 		Managed return type : System.Int32
 		Managed param types : 

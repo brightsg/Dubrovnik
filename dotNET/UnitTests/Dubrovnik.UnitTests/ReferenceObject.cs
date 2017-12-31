@@ -603,6 +603,10 @@ namespace Dubrovnik.UnitTests {
 			return new Dictionary<T, U>() { { key, value} };
 		}
 
+		public T GenericMethodList1<T>(List<T> value) {
+			return value.FirstOrDefault();
+		}
+
 		//
 		// Generic parameter methods
 		//

@@ -344,6 +344,14 @@
     - (DBSystem_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter;
 
 	/*! 
+		Managed method name : GenericMethodList1
+		Managed return type : <Dubrovnik.UnitTests.ReferenceObject+T>
+		Managed param types : System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject+T>
+		Generic method definition type params : <Dubrovnik.UnitTests.ReferenceObject+T>
+	 */
+    - (System_Object *)genericMethodList1_withValue:(DBSystem_Collections_Generic_ListA1 *)p1 typeParameter:(id)typeParameter;
+
+	/*! 
 		Managed method name : GetHashCode
 		Managed return type : System.Int32
 		Managed param types : 

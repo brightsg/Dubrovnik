@@ -216,6 +216,21 @@
 #pragma mark Methods
 
 	/*! 
+		Managed method name : GenericMethod
+		Managed return type : <Dubrovnik.UnitTests.GenericReferenceObject`2+V>
+		Managed param types : <Dubrovnik.UnitTests.GenericReferenceObject`2+T>, <Dubrovnik.UnitTests.GenericReferenceObject`2+U>, <Dubrovnik.UnitTests.GenericReferenceObject`2+V>
+		Generic method definition type params : <Dubrovnik.UnitTests.GenericReferenceObject`2+V>
+	 */
+    - (System_Object *)genericMethod_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2 parameterV:(System_Object *)p3 typeParameter:(id)typeParameter
+    {
+		DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"GenericMethod(<_T_0>,<_T_1>,V)" typeParameters:typeParameter];
+
+		MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+		
+		return [System_Object bestObjectWithMonoObject:monoObject];
+    }
+
+	/*! 
 		Managed method name : GenericMethodReturningParameterTypeT
 		Managed return type : <Dubrovnik.UnitTests.GenericReferenceObject`2+T>
 		Managed param types : <Dubrovnik.UnitTests.GenericReferenceObject`2+T>, <Dubrovnik.UnitTests.GenericReferenceObject`2+U>

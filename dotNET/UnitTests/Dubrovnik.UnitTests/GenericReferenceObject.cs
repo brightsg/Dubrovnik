@@ -30,10 +30,11 @@ namespace Dubrovnik.UnitTests
             return parameterU;
         }
 
-		/*
-		public T GenericMethodReturningParameterTypeT(ref T parameterT) {
-			return parameterT;
-		} */
+		// in this case T and U are defined by the delaring type.
+		// V is defined by the generic method definition
+		public V GenericMethod<V>(T parameterT, U parameterU, V parameterV) {
+			return parameterV;
+		}
 
 		//==============================
 		// nested classes
