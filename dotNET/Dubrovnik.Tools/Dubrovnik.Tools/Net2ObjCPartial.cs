@@ -1395,10 +1395,26 @@ namespace Dubrovnik.Tools
             return s.ToString();
         }
 
-        //
-        // GenerateTypeWarnings
-        //
-        public void GenerateTypeWarnings(CodeFacet facet)
+		//
+		// WriteFacetTypeInfo
+		//
+		public string WriteFacetTypeInfo(IList<CodeFacet> facets) {
+			StringBuilder s = new StringBuilder();
+			int idx = 0;
+
+			foreach (CodeFacet facet in facets) {
+				if (idx > 0) s.Append(", ");
+				string facetInfo = WriteFacetTypeInfo(facet);
+				s.Append(facetInfo);
+				idx++;
+			}
+			return s.ToString();
+		}
+
+		//
+		// GenerateTypeWarnings
+		//
+		public void GenerateTypeWarnings(CodeFacet facet)
         {
             // in production quality code we should not have any warnings!
         }

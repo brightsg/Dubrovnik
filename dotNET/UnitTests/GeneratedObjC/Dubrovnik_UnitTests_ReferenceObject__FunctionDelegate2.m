@@ -27,23 +27,27 @@
 #pragma mark -
 #pragma mark Constructors
 
-	// Managed method name : .ctor
-	// Managed return type : Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate2
-	// Managed param types : System.Object, System.IntPtr
+	/*! 
+		Managed method name : .ctor
+		Managed return type : Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate2
+		Managed param types : System.Object, System.IntPtr
+	 */
     + (Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2 *)new_withObject:(System_Object *)p1 method:(void *)p2
     {
 		
 		Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2 * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-        
-        return object;
+      
+      return object;
     }
 
 #pragma mark -
 #pragma mark Methods
 
-	// Managed method name : BeginInvoke
-	// Managed return type : System.IAsyncResult
-	// Managed param types : System.Int32, System.String, System.AsyncCallback, System.Object
+	/*! 
+		Managed method name : BeginInvoke
+		Managed return type : System.IAsyncResult
+		Managed param types : System.Int32, System.String, System.AsyncCallback, System.Object
+	 */
     - (id <System_IAsyncResult>)beginInvoke_withValue:(int32_t)p1 message:(NSString *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4
     {
 		
@@ -52,9 +56,11 @@
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
 
-	// Managed method name : EndInvoke
-	// Managed return type : System.Int32
-	// Managed param types : System.IAsyncResult
+	/*! 
+		Managed method name : EndInvoke
+		Managed return type : System.Int32
+		Managed param types : System.IAsyncResult
+	 */
     - (int32_t)endInvoke_withResult:(id <System_IAsyncResult_>)p1
     {
 		
@@ -63,9 +69,11 @@
 		return DB_UNBOX_INT32(monoObject);
     }
 
-	// Managed method name : Invoke
-	// Managed return type : System.Int32
-	// Managed param types : System.Int32, System.String
+	/*! 
+		Managed method name : Invoke
+		Managed return type : System.Int32
+		Managed param types : System.Int32, System.String
+	 */
     - (int32_t)invoke_withValue:(int32_t)p1 message:(NSString *)p2
     {
 		

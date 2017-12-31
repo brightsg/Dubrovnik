@@ -215,9 +215,11 @@
 #pragma mark -
 #pragma mark Methods
 
-	// Managed method name : GenericMethodReturningParameterTypeT
-	// Managed return type : <Dubrovnik.UnitTests.GenericReferenceObject`2+T>
-	// Managed param types : <Dubrovnik.UnitTests.GenericReferenceObject`2+T>, <Dubrovnik.UnitTests.GenericReferenceObject`2+U>
+	/*! 
+		Managed method name : GenericMethodReturningParameterTypeT
+		Managed return type : <Dubrovnik.UnitTests.GenericReferenceObject`2+T>
+		Managed param types : <Dubrovnik.UnitTests.GenericReferenceObject`2+T>, <Dubrovnik.UnitTests.GenericReferenceObject`2+U>
+	 */
     - (System_Object *)genericMethodReturningParameterTypeT_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2
     {
 		
@@ -226,9 +228,11 @@
 		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
-	// Managed method name : GenericMethodReturningParameterTypeU
-	// Managed return type : <Dubrovnik.UnitTests.GenericReferenceObject`2+U>
-	// Managed param types : <Dubrovnik.UnitTests.GenericReferenceObject`2+T>, <Dubrovnik.UnitTests.GenericReferenceObject`2+U>
+	/*! 
+		Managed method name : GenericMethodReturningParameterTypeU
+		Managed return type : <Dubrovnik.UnitTests.GenericReferenceObject`2+U>
+		Managed param types : <Dubrovnik.UnitTests.GenericReferenceObject`2+T>, <Dubrovnik.UnitTests.GenericReferenceObject`2+U>
+	 */
     - (System_Object *)genericMethodReturningParameterTypeU_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2
     {
 		

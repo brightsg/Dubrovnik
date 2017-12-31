@@ -14,9 +14,11 @@
 #pragma mark -
 #pragma mark Methods
 
-	// Managed method name : GenericMethodReturningParameterOfTypeT
-	// Managed return type : <Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2+T>
-	// Managed param types : <Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2+T>, <Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2+U>
+	/*! 
+		Managed method name : GenericMethodReturningParameterOfTypeT
+		Managed return type : <Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2+T>
+		Managed param types : <Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2+T>, <Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2+U>
+	 */
     - (System_Object *)genericMethodReturningParameterOfTypeT_withP1:(System_Object *)p1 u:(System_Object *)p2;
 @end
 //--Dubrovnik.CodeGenerator

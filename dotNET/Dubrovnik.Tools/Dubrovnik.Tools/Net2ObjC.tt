@@ -843,7 +843,8 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 		return;
     }
 
-	string objCMethodFormat = null;
+	string objCMethodInvokeFormat = null;
+	string objCMethodPrepareFormat = null;
 	bool isConstructorMethod = (facet.Name == null);	// constructor has no method name
 	string objCMethodType = null;
 
@@ -901,32 +902,37 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 	// instance method requires a name and type
 	if (!isConstructorMethod) 
 	{
-
 		// create Obj-C representation of mono object
 		managedValueToObjC = ManagedValueToObjc(ManagedVariableName, facet);
 
 		if (!facet.IsStatic) 
 		{
-			objCMethodFormat = "[self invokeMonoMethod:\"{0}({1})\" withNumArgs:{2}]";
+			if (!facet.IsGenericMethodDefinition) {
+				objCMethodInvokeFormat = "[self invokeMonoMethod:\"{0}({1})\" withNumArgs:{2}]";
+			}
+			else
+			{
+				objCMethodPrepareFormat = "DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:\"{0}({1})\" typeParameters:typeParameter]";
+				objCMethodInvokeFormat = "[self invokeMethod:managedMethod withNumArgs:{2}]";
+			}
 		} 
 		else 
 		{
-			objCMethodFormat = "[self invokeMonoClassMethod:\"{0}({1})\" withNumArgs:{2}]";
+			objCMethodInvokeFormat = "[self invokeMonoClassMethod:\"{0}({1})\" withNumArgs:{2}]";
 		}
 	}
-	 else 
+	else 
 	{
-
 		// this looks like a default constructor
 		if (facet.Parameters.Count() == 0) 
 		{
 			return;
-        }
+		}
 
 		objCMethodName = "new";
 
 		// a constructor requires no explicit name or type
-		objCMethodFormat = "[[self alloc] initWithSignature:\"{1}\" withNumArgs:{2}]";
+		objCMethodInvokeFormat = "[[self alloc] initWithSignature:\"{1}\" withNumArgs:{2}]";
     }
 
 	// build the parameters
@@ -999,7 +1005,7 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 		if (parameter.IsByRef || parameter.IsPointer) 
 		{
 			objCParamTypeDecl += "*";	// add additional indirection
-        }
+		}
 
 		//
 		// Build the mono method argument invocation signature
@@ -1007,11 +1013,14 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 		if (idx > 0) monoSigBuilder.Append(",");
 		string monoParameterTypeInvoke = null;
  
-		// if type is a GenericParameter
-		if (parameter.IsGenericParameter) {
+		// if type is a GenericParameter defined by the class, as opposed to via a method like so Method<T>(T).
+		// in this case we want to identify the parameter by its position as this makes it simple
+		// to build the required signature at run time
+		if (parameter.IsGenericParameter && !parameter.DeclaredByMethod) {
 
 			// generic parameters must have an associate
-			if (managedTypeAssociate == null) {
+			if (managedTypeAssociate == null) 
+			{
 				throw new Exception("Missing managed type association for generic parameter."); 
 			}
 
@@ -1024,7 +1033,32 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 			// in order for the C api to substitute the correct type at run time
 			// the generic parameter position needs to be indicated.
 			monoParameterTypeInvoke = string.Format(monoParameterTypeInvoke, parameter.GenericParameterPosition);
-		} else {
+		}
+		
+		// if parameter is declared by the method like so Method<T>(T) then we want to preserve the type name
+		// as this constitutes part of the method signature this is used to lookup the generic method for inflation
+		else if (parameter.IsGenericParameter && parameter.DeclaredByMethod) 
+		{ 	
+			// we expect to be opertaing on a generic method definition
+		   if (!facet.IsGenericMethodDefinition) 
+			{
+				throw new Exception("Generic method definition expected."); 
+			}
+
+			// the type sig will be something like Declaring.Type+T but the embedded API sig
+			// uses just the type parameter name T
+			int symbolIndex = monoParameterType.IndexOf('+');
+			if (symbolIndex == -1) {
+				throw new Exception("Missing nested type symbol for generic parameter."); 
+			}
+			monoParameterTypeInvoke = monoParameterType.Substring(symbolIndex + 1);
+			if (parameter.IsArray)  
+			{
+				monoParameterTypeInvoke += "[]";
+         }
+		} 
+	   else 
+		{
 			monoParameterTypeInvoke = ManagedTypeInvokeFromManagedType(monoParameterType);
 		}
 
@@ -1143,10 +1177,31 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 			// create new object subclass for reference 
 			string postProcess = string.Format("*p{0} = [System_Object bestObjectWithMonoObject:refPtr{0}];{1}", idx + 1, Environment.NewLine);
 			referencePostProcessBuilder.Append(postProcess);
-        }
+		}
 
 		idx++;
-    }
+	}
+
+	// a generic method definition will require an additional parameter to specify the generic type parameters
+	if (facet.IsGenericMethodDefinition)
+	{
+		// get number of generic type arameters defined by the generic method definition as opposed to by the type defining the method
+	   int numberOfTypeParametersDeclaredByMethod = facet.GenericMethodDefinitionGenericTypeArguments.Count();
+	   string parameterSig = "typeParameter:(id)typeParameter";
+		if (numberOfTypeParametersDeclaredByMethod > 1) 
+		{
+			parameterSig = "typeParameters:(NSArray<id> *)typeParameter";
+		}
+		if (facet.Parameters.Count() == 0)
+		{
+			objCMethodName += "_with";
+			objCParameterBuilder.AppendFormat("{0}", parameterSig.FirstCharacterToUpper());
+		}
+		else 
+		{
+			objCParameterBuilder.AppendFormat(" {0}", parameterSig);
+		}
+	}
 
 	// finalize argument list representations
 	string monoMethodSig = monoSigBuilder.ToString();
@@ -1155,7 +1210,7 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 	if (facet.Parameters.Count() > 0) 
 	{
 		invokeArgs += ", " + invokeArgsBuilder.ToString();
-    }
+   }
 
 	// form mono method invocation name.
 	// a prefix may be required, for instance when calling explicit interface methods.
@@ -1167,7 +1222,14 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
     }
 	string monoInvocationName = monoMethodPrefix + monoMethodName;
 
-	string getExpression = String.Format(objCMethodFormat, monoInvocationName, monoMethodSig, invokeArgs) + ";";
+	// we may have an expression that prepares the get expression method argument
+	if (objCMethodPrepareFormat != null) {
+		string expression = String.Format(objCMethodPrepareFormat, monoInvocationName, monoMethodSig, invokeArgs) + ";";
+		referencePreProcessBuilder.AppendFormat("{0}{1}", expression, Environment.NewLine);
+	}
+
+	// the get expression invokes the method and gets the result
+	string getExpression = String.Format(objCMethodInvokeFormat, monoInvocationName, monoMethodSig, invokeArgs) + ";";
 	if (referencePostProcessBuilder.Length > 0) {
 		getExpression += Environment.NewLine;
     }
@@ -1183,9 +1245,19 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 	//
 #>
 
-	// Managed method name : <#=isConstructorMethod ? ".ctor" : monoMethodName #>
-	// Managed return type : <#=WriteFacetTypeInfo(facet)#>
-	// Managed param types : <#=WriteFacetTypeInfo(facet.Parameters)#>
+	/*! 
+		Managed method name : <#=isConstructorMethod ? ".ctor" : monoMethodName #>
+		Managed return type : <#=WriteFacetTypeInfo(facet)#>
+		Managed param types : <#=WriteFacetTypeInfo(facet.Parameters)#>
+<#+
+	if (facet.IsGenericMethodDefinition) 
+	{
+#>
+		Generic method definition type params : <#=WriteFacetTypeInfo(facet.GenericMethodDefinitionGenericTypeArguments)#>
+<#+
+	}
+#>
+	 */
     <#=objCMethodType#> (<#=objCTypeDecl#>)<#=objCMethodName#><#=objCMethodParameters#><#=LT#>
 <#+		
 	if (OutputFileType == OutputType.Implementation) 
@@ -1201,7 +1273,7 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 #>
 		<#=referencePreProcessBuilder.ToString()#>
 		<#=getExpression#>
-        <#=referencePostProcessBuilder.ToString()#>
+      <#=referencePostProcessBuilder.ToString()#>
 <#+
 		} 
 		else if (isConstructorMethod) 
@@ -1209,8 +1281,8 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 #>
 		<#=referencePreProcessBuilder.ToString()#>
 		<#=objCTypeDecl#> object = <#=getExpression#>
-        <#=referencePostProcessBuilder.ToString()#>
-        return object;
+      <#=referencePostProcessBuilder.ToString()#>
+      return object;
 <#+
 		} 
 		else 

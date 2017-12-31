@@ -27,9 +27,11 @@
 #pragma mark -
 #pragma mark Methods
 
-	// Managed method name : StringMethod
-	// Managed return type : System.String
-	// Managed param types : System.String, System.Int32
+	/*! 
+		Managed method name : StringMethod
+		Managed return type : System.String
+		Managed param types : System.String, System.Int32
+	 */
     - (NSString *)stringMethod_withS1:(NSString *)p1 n:(int32_t)p2
     {
 		

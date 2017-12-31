@@ -104,6 +104,10 @@ namespace Dubrovnik.Tools
 			{
 				xtw.WriteAttributeString("IsGenericParameter", Boolean.TrueString);
 				xtw.WriteAttributeString("GenericParameterPosition", type.GenericParameterPosition.ToString());
+
+				// determine if the type paramter is defined by a generic method as opposed to the type
+				// void Method<T>(T) as opposed to Method(U) {where U is supplied as a type parameter of the class)
+				if (type.DeclaringMethod != null) xtw.WriteAttributeString("DeclaredByMethod", Boolean.TrueString);
 			}
 		}
 
@@ -354,6 +358,7 @@ namespace Dubrovnik.Tools
 								xtw.WriteStartElement("Method");
 								xtw.WriteAttributeString("Name", methodInfo.Name);
 
+								// write return type
 								WriteTypeAttributes(xtw, methodInfo.ReturnType);
 								if (methodInfo.IsStatic) xtw.WriteAttributeString("IsStatic", Boolean.TrueString);
 
@@ -364,7 +369,17 @@ namespace Dubrovnik.Tools
 								if (methodInfo.ContainsGenericParameters)
 									xtw.WriteAttributeString("ContainsGenericMethodParameters", Boolean.TrueString);
 
+								// write generic return type info
 								WriteGenericTypeElements(xtw, methodInfo.ReturnType);
+
+								// write types defined by generic method definition eg: Method<T,U>();
+								if (methodInfo.IsGenericMethodDefinition) {
+									foreach (Type argument in methodInfo.GetGenericArguments()) {
+										xtw.WriteStartElement("GenericMethodDefinitionGenericTypeArgument");
+										WriteTypeAttributes(xtw, argument);
+										xtw.WriteEndElement();
+									}
+								}
 
 								// write parameter elements
 								foreach (var parameterInfo in methodInfo.GetParameters())

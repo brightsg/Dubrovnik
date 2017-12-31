@@ -27,79 +27,95 @@
 #pragma mark -
 #pragma mark Methods
 
-	// Managed method name : CollectionChanged
-	// Managed return type : System.Void
-	// Managed param types : System.Object, System.EventArgs
+	/*! 
+		Managed method name : CollectionChanged
+		Managed return type : System.Void
+		Managed param types : System.Object, System.EventArgs
+	 */
     + (void)collectionChanged_withSender:(System_Object *)p1 arg:(System_EventArgs *)p2
     {
 		
 		[self invokeMonoClassMethod:"CollectionChanged(object,System.EventArgs)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-        
+      
     }
 
-	// Managed method name : ConfigureStaticEventHandler
-	// Managed return type : System.Void
-	// Managed param types : System.Object, System.String, System.String, System.Boolean
+	/*! 
+		Managed method name : ConfigureStaticEventHandler
+		Managed return type : System.Void
+		Managed param types : System.Object, System.String, System.String, System.Boolean
+	 */
     + (void)configureStaticEventHandler_withObj:(System_Object *)p1 objEventName:(NSString *)p2 handlerMethodName:(NSString *)p3 attach:(BOOL)p4
     {
 		
 		[self invokeMonoClassMethod:"ConfigureStaticEventHandler(object,string,string,bool)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
-        
+      
     }
 
-	// Managed method name : DubrovnikEventHandlerICall1
-	// Managed return type : System.Void
-	// Managed param types : System.Object, System.EventArgs
+	/*! 
+		Managed method name : DubrovnikEventHandlerICall1
+		Managed return type : System.Void
+		Managed param types : System.Object, System.EventArgs
+	 */
     + (void)dubrovnikEventHandlerICall1_withSender:(System_Object *)p1 args:(System_EventArgs *)p2
     {
 		
 		[self invokeMonoClassMethod:"DubrovnikEventHandlerICall1(object,System.EventArgs)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-        
+      
     }
 
-	// Managed method name : DubrovnikEventHandlerICall2
-	// Managed return type : System.Void
-	// Managed param types : System.Object, System.EventArgs
+	/*! 
+		Managed method name : DubrovnikEventHandlerICall2
+		Managed return type : System.Void
+		Managed param types : System.Object, System.EventArgs
+	 */
     + (void)dubrovnikEventHandlerICall2_withSender:(System_Object *)p1 args:(System_EventArgs *)p2
     {
 		
 		[self invokeMonoClassMethod:"DubrovnikEventHandlerICall2(object,System.EventArgs)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-        
+      
     }
 
-	// Managed method name : ManagedEvent_AppDomain_UnhandledException
-	// Managed return type : System.Void
-	// Managed param types : System.Object, System.UnhandledExceptionEventArgs
+	/*! 
+		Managed method name : ManagedEvent_AppDomain_UnhandledException
+		Managed return type : System.Void
+		Managed param types : System.Object, System.UnhandledExceptionEventArgs
+	 */
     + (void)managedEvent_AppDomain_UnhandledException_withSender:(System_Object *)p1 args:(System_UnhandledExceptionEventArgs *)p2
     {
 		
 		[self invokeMonoClassMethod:"ManagedEvent_AppDomain_UnhandledException(object,System.UnhandledExceptionEventArgs)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-        
+      
     }
 
-	// Managed method name : ManagedEvent_ManagedObject_PropertyChanged
-	// Managed return type : System.Void
-	// Managed param types : System.Object, System.EventArgs
+	/*! 
+		Managed method name : ManagedEvent_ManagedObject_PropertyChanged
+		Managed return type : System.Void
+		Managed param types : System.Object, System.EventArgs
+	 */
     + (void)managedEvent_ManagedObject_PropertyChanged_withSender:(System_Object *)p1 args:(System_EventArgs *)p2
     {
 		
 		[self invokeMonoClassMethod:"ManagedEvent_ManagedObject_PropertyChanged(object,System.EventArgs)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-        
+      
     }
 
-	// Managed method name : ManagedEvent_ManagedObject_PropertyChanging
-	// Managed return type : System.Void
-	// Managed param types : System.Object, System.EventArgs
+	/*! 
+		Managed method name : ManagedEvent_ManagedObject_PropertyChanging
+		Managed return type : System.Void
+		Managed param types : System.Object, System.EventArgs
+	 */
     + (void)managedEvent_ManagedObject_PropertyChanging_withSender:(System_Object *)p1 args:(System_EventArgs *)p2
     {
 		
 		[self invokeMonoClassMethod:"ManagedEvent_ManagedObject_PropertyChanging(object,System.EventArgs)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-        
+      
     }
 
-	// Managed method name : ObjectSupportsEvent
-	// Managed return type : System.Boolean
-	// Managed param types : System.Object, System.String
+	/*! 
+		Managed method name : ObjectSupportsEvent
+		Managed return type : System.Boolean
+		Managed param types : System.Object, System.String
+	 */
     + (BOOL)objectSupportsEvent_withObj:(System_Object *)p1 objEventName:(NSString *)p2
     {
 		

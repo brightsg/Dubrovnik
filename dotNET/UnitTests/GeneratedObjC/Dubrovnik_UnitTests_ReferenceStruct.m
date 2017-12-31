@@ -27,15 +27,17 @@
 #pragma mark -
 #pragma mark Constructors
 
-	// Managed method name : .ctor
-	// Managed return type : Dubrovnik.UnitTests.ReferenceStruct
-	// Managed param types : System.String
+	/*! 
+		Managed method name : .ctor
+		Managed return type : Dubrovnik.UnitTests.ReferenceStruct
+		Managed param types : System.String
+	 */
     + (Dubrovnik_UnitTests_ReferenceStruct *)new_withS:(NSString *)p1
     {
 		
 		Dubrovnik_UnitTests_ReferenceStruct * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
-        
-        return object;
+      
+      return object;
     }
 
 #pragma mark -
@@ -119,9 +121,11 @@
 #pragma mark -
 #pragma mark Methods
 
-	// Managed method name : StringMethod
-	// Managed return type : System.String
-	// Managed param types : System.String
+	/*! 
+		Managed method name : StringMethod
+		Managed return type : System.String
+		Managed param types : System.String
+	 */
     - (NSString *)stringMethod_withS1:(NSString *)p1
     {
 		

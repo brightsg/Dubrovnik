@@ -14,14 +14,18 @@
 #pragma mark -
 #pragma mark Constructors
 
-	// Managed method name : .ctor
-	// Managed return type : Dubrovnik.UnitTests.ReferenceObject
-	// Managed param types : System.String
+	/*! 
+		Managed method name : .ctor
+		Managed return type : Dubrovnik.UnitTests.ReferenceObject
+		Managed param types : System.String
+	 */
     + (Dubrovnik_UnitTests_ReferenceObject *)new_withValue:(NSString *)p1;
 
-	// Managed method name : .ctor
-	// Managed return type : Dubrovnik.UnitTests.ReferenceObject
-	// Managed param types : System.String, System.String
+	/*! 
+		Managed method name : .ctor
+		Managed return type : Dubrovnik.UnitTests.ReferenceObject
+		Managed param types : System.String, System.String
+	 */
     + (Dubrovnik_UnitTests_ReferenceObject *)new_withValue1:(NSString *)p1 value2:(NSString *)p2;
 
 #pragma mark -
@@ -258,249 +262,365 @@
 #pragma mark -
 #pragma mark Methods
 
-	// Managed method name : AddIEnumerable
-	// Managed return type : System.String
-	// Managed param types : System.Collections.Generic.IEnumerable`1<System.String>
+	/*! 
+		Managed method name : AddIEnumerable
+		Managed return type : System.String
+		Managed param types : System.Collections.Generic.IEnumerable`1<System.String>
+	 */
     - (NSString *)addIEnumerable_withList:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
-	// Managed method name : ClassDescription
-	// Managed return type : System.String
-	// Managed param types : 
+	/*! 
+		Managed method name : ClassDescription
+		Managed return type : System.String
+		Managed param types : 
+	 */
     + (NSString *)classDescription;
 
-	// Managed method name : DateMethod
-	// Managed return type : System.DateTime
-	// Managed param types : System.DateTime
+	/*! 
+		Managed method name : DateMethod
+		Managed return type : System.DateTime
+		Managed param types : System.DateTime
+	 */
     - (NSDate *)dateMethod_withD1:(NSDate *)p1;
 
-	// Managed method name : DecimalMultiplierMethod
-	// Managed return type : System.Decimal
-	// Managed param types : System.Decimal, System.Decimal
+	/*! 
+		Managed method name : DecimalMultiplierMethod
+		Managed return type : System.Decimal
+		Managed param types : System.Decimal, System.Decimal
+	 */
     - (NSDecimalNumber *)decimalMultiplierMethod_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2;
 
-	// Managed method name : DoubleIt
-	// Managed return type : System.Int32
-	// Managed param types : System.Int32
+	/*! 
+		Managed method name : DoubleIt
+		Managed return type : System.Int32
+		Managed param types : System.Int32
+	 */
     - (int32_t)doubleIt_withXInt:(int32_t)p1;
 
-	// Managed method name : DoubleIt
-	// Managed return type : System.Int32
-	// Managed param types : ref System.Int32&
+	/*! 
+		Managed method name : DoubleIt
+		Managed return type : System.Int32
+		Managed param types : ref System.Int32&
+	 */
     - (int32_t)doubleIt_withXIntRef:(int32_t*)p1;
 
-	// Managed method name : Equals
-	// Managed return type : System.Boolean
-	// Managed param types : System.Object
+	/*! 
+		Managed method name : Equals
+		Managed return type : System.Boolean
+		Managed param types : System.Object
+	 */
     - (BOOL)equals_withObj:(System_Object *)p1;
 
-	// Managed method name : GenericMethod1
-	// Managed return type : <Dubrovnik.UnitTests.ReferenceObject+T>
-	// Managed param types : <Dubrovnik.UnitTests.ReferenceObject+T>
-    - (System_Object *)genericMethod1_withValue:(System_Object *)p1;
+	/*! 
+		Managed method name : GenericMethod0
+		Managed return type : <Dubrovnik.UnitTests.ReferenceObject+T>
+		Managed param types : 
+		Generic method definition type params : <Dubrovnik.UnitTests.ReferenceObject+T>
+	 */
+    - (System_Object *)genericMethod0_withTypeParameter:(id)typeParameter;
 
-	// Managed method name : GenericMethod2
-	// Managed return type : System.Collections.Generic.Dictionary`2<Dubrovnik.UnitTests.ReferenceObject+T, Dubrovnik.UnitTests.ReferenceObject+U>
-	// Managed param types : <Dubrovnik.UnitTests.ReferenceObject+T>, <Dubrovnik.UnitTests.ReferenceObject+U>
-    - (DBSystem_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(System_Object *)p1 value:(System_Object *)p2;
+	/*! 
+		Managed method name : GenericMethod02
+		Managed return type : <Dubrovnik.UnitTests.ReferenceObject+T>
+		Managed param types : 
+		Generic method definition type params : <Dubrovnik.UnitTests.ReferenceObject+T>, <Dubrovnik.UnitTests.ReferenceObject+U>
+	 */
+    - (System_Object *)genericMethod02_withTypeParameters:(NSArray<id> *)typeParameter;
 
-	// Managed method name : GetHashCode
-	// Managed return type : System.Int32
-	// Managed param types : 
+	/*! 
+		Managed method name : GenericMethod1
+		Managed return type : <Dubrovnik.UnitTests.ReferenceObject+T>
+		Managed param types : <Dubrovnik.UnitTests.ReferenceObject+T>
+		Generic method definition type params : <Dubrovnik.UnitTests.ReferenceObject+T>
+	 */
+    - (System_Object *)genericMethod1_withValue:(System_Object *)p1 typeParameter:(id)typeParameter;
+
+	/*! 
+		Managed method name : GenericMethod2
+		Managed return type : System.Collections.Generic.Dictionary`2<Dubrovnik.UnitTests.ReferenceObject+T, Dubrovnik.UnitTests.ReferenceObject+U>
+		Managed param types : <Dubrovnik.UnitTests.ReferenceObject+T>, <Dubrovnik.UnitTests.ReferenceObject+U>
+		Generic method definition type params : <Dubrovnik.UnitTests.ReferenceObject+T>, <Dubrovnik.UnitTests.ReferenceObject+U>
+	 */
+    - (DBSystem_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter;
+
+	/*! 
+		Managed method name : GetHashCode
+		Managed return type : System.Int32
+		Managed param types : 
+	 */
     - (int32_t)getHashCode;
 
-	// Managed method name : initWithString
-	// Managed return type : System.String
-	// Managed param types : System.String
+	/*! 
+		Managed method name : initWithString
+		Managed return type : System.String
+		Managed param types : System.String
+	 */
     - (NSString *)db_initWithString_withS:(NSString *)p1;
 
-	// Managed method name : InvokeActionDelegate
-	// Managed return type : System.Void
-	// Managed param types : Dubrovnik.UnitTests.ReferenceObject+ActionDelegate
+	/*! 
+		Managed method name : InvokeActionDelegate
+		Managed return type : System.Void
+		Managed param types : Dubrovnik.UnitTests.ReferenceObject+ActionDelegate
+	 */
     - (void)invokeActionDelegate_withAction:(Dubrovnik_UnitTests_ReferenceObject__ActionDelegate *)p1;
 
-	// Managed method name : InvokeFunctionDelegate1
-	// Managed return type : System.Void
-	// Managed param types : Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate1
+	/*! 
+		Managed method name : InvokeFunctionDelegate1
+		Managed return type : System.Void
+		Managed param types : Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate1
+	 */
     - (void)invokeFunctionDelegate1_withFunc:(Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1 *)p1;
 
-	// Managed method name : InvokeFunctionDelegate2
-	// Managed return type : System.Void
-	// Managed param types : Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate2
+	/*! 
+		Managed method name : InvokeFunctionDelegate2
+		Managed return type : System.Void
+		Managed param types : Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate2
+	 */
     - (void)invokeFunctionDelegate2_withFunc:(Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2 *)p1;
 
-	// Managed method name : InvokeSimpleDelegate
-	// Managed return type : System.Void
-	// Managed param types : Dubrovnik.UnitTests.ReferenceObject+SimpleDelegate
+	/*! 
+		Managed method name : InvokeSimpleDelegate
+		Managed return type : System.Void
+		Managed param types : Dubrovnik.UnitTests.ReferenceObject+SimpleDelegate
+	 */
     - (void)invokeSimpleDelegate_withDelg:(Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate *)p1;
 
-	// Managed method name : MixedMethod1
-	// Managed return type : System.String
-	// Managed param types : System.Int32, System.Int64, System.Single, System.Double, System.DateTime, System.String, Dubrovnik.UnitTests.ReferenceObject
+	/*! 
+		Managed method name : MixedMethod1
+		Managed return type : System.String
+		Managed param types : System.Int32, System.Int64, System.Single, System.Double, System.DateTime, System.String, Dubrovnik.UnitTests.ReferenceObject
+	 */
     - (NSString *)mixedMethod1_withIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(Dubrovnik_UnitTests_ReferenceObject *)p7;
 
-	// Managed method name : NestedTypeParameter
-	// Managed return type : System.Void
-	// Managed param types : Dubrovnik.UnitTests.ReferenceObject+NestedClass
+	/*! 
+		Managed method name : NestedTypeParameter
+		Managed return type : System.Void
+		Managed param types : Dubrovnik.UnitTests.ReferenceObject+NestedClass
+	 */
     - (void)nestedTypeParameter_withP1DUReferenceObject__NestedClass:(Dubrovnik_UnitTests_ReferenceObject__NestedClass *)p1;
 
-	// Managed method name : NestedTypeParameter
-	// Managed return type : System.Void
-	// Managed param types : Dubrovnik.UnitTests.ReferenceObject+NestedEnum
+	/*! 
+		Managed method name : NestedTypeParameter
+		Managed return type : System.Void
+		Managed param types : Dubrovnik.UnitTests.ReferenceObject+NestedEnum
+	 */
     - (void)nestedTypeParameter_withP1DUReferenceObject__NestedEnum:(int32_t)p1;
 
-	// Managed method name : NestedTypeParameters
-	// Managed return type : System.Void
-	// Managed param types : Dubrovnik.UnitTests.ReferenceObject+NestedClass, Dubrovnik.UnitTests.ReferenceObject+NestedEnum
+	/*! 
+		Managed method name : NestedTypeParameters
+		Managed return type : System.Void
+		Managed param types : Dubrovnik.UnitTests.ReferenceObject+NestedClass, Dubrovnik.UnitTests.ReferenceObject+NestedEnum
+	 */
     - (void)nestedTypeParameters_withP1:(Dubrovnik_UnitTests_ReferenceObject__NestedClass *)p1 p2:(int32_t)p2;
 
-	// Managed method name : NestedTypeParameters
-	// Managed return type : Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2<System.String, System.Int32>
-	// Managed param types : Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2<System.String, System.Int32>
+	/*! 
+		Managed method name : NestedTypeParameters
+		Managed return type : Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2<System.String, System.Int32>
+		Managed param types : Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2<System.String, System.Int32>
+	 */
     - (Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 *)nestedTypeParameters_withPDUReferenceObject__NestedGenericClassA2string_int:(Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 *)p1;
 
-	// Managed method name : NestedTypeParameters
-	// Managed return type : Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2<System.Int32, System.String>
-	// Managed param types : Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2<System.Int32, System.String>
+	/*! 
+		Managed method name : NestedTypeParameters
+		Managed return type : Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2<System.Int32, System.String>
+		Managed param types : Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2<System.Int32, System.String>
+	 */
     - (Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 *)nestedTypeParameters_withPDUReferenceObject__NestedGenericClassA2int_string:(Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 *)p1;
 
-	// Managed method name : NullableBoolMethod
-	// Managed return type : System.Nullable`1<System.Boolean>
-	// Managed param types : System.Nullable`1<System.Boolean>
+	/*! 
+		Managed method name : NullableBoolMethod
+		Managed return type : System.Nullable`1<System.Boolean>
+		Managed param types : System.Nullable`1<System.Boolean>
+	 */
     - (System_NullableA1 *)nullableBoolMethod_withP1:(System_NullableA1 *)p1;
 
-	// Managed method name : NullableDateMethod
-	// Managed return type : System.Nullable`1<System.DateTime>
-	// Managed param types : System.Nullable`1<System.DateTime>
+	/*! 
+		Managed method name : NullableDateMethod
+		Managed return type : System.Nullable`1<System.DateTime>
+		Managed param types : System.Nullable`1<System.DateTime>
+	 */
     - (System_NullableA1 *)nullableDateMethod_withP1:(System_NullableA1 *)p1;
 
-	// Managed method name : NullableDecimalMethod
-	// Managed return type : System.Nullable`1<System.Decimal>
-	// Managed param types : System.Nullable`1<System.Decimal>
+	/*! 
+		Managed method name : NullableDecimalMethod
+		Managed return type : System.Nullable`1<System.Decimal>
+		Managed param types : System.Nullable`1<System.Decimal>
+	 */
     - (System_NullableA1 *)nullableDecimalMethod_withP1:(System_NullableA1 *)p1;
 
-	// Managed method name : NullableDoubleMethod
-	// Managed return type : System.Nullable`1<System.Double>
-	// Managed param types : System.Nullable`1<System.Double>
+	/*! 
+		Managed method name : NullableDoubleMethod
+		Managed return type : System.Nullable`1<System.Double>
+		Managed param types : System.Nullable`1<System.Double>
+	 */
     - (System_NullableA1 *)nullableDoubleMethod_withP1:(System_NullableA1 *)p1;
 
-	// Managed method name : NullableInt32Method
-	// Managed return type : System.Nullable`1<System.Int32>
-	// Managed param types : System.Nullable`1<System.Int32>
+	/*! 
+		Managed method name : NullableInt32Method
+		Managed return type : System.Nullable`1<System.Int32>
+		Managed param types : System.Nullable`1<System.Int32>
+	 */
     - (System_NullableA1 *)nullableInt32Method_withP1:(System_NullableA1 *)p1;
 
-	// Managed method name : RaiseUnitTestEvent1
-	// Managed return type : System.Void
-	// Managed param types : 
+	/*! 
+		Managed method name : RaiseUnitTestEvent1
+		Managed return type : System.Void
+		Managed param types : 
+	 */
     - (void)raiseUnitTestEvent1;
 
-	// Managed method name : RaiseUnitTestEvent2
-	// Managed return type : System.Void
-	// Managed param types : 
+	/*! 
+		Managed method name : RaiseUnitTestEvent2
+		Managed return type : System.Void
+		Managed param types : 
+	 */
     - (void)raiseUnitTestEvent2;
 
-	// Managed method name : ReferenceStructMethod
-	// Managed return type : Dubrovnik.UnitTests.ReferenceStruct
-	// Managed param types : System.String
+	/*! 
+		Managed method name : ReferenceStructMethod
+		Managed return type : Dubrovnik.UnitTests.ReferenceStruct
+		Managed param types : System.String
+	 */
     - (Dubrovnik_UnitTests_ReferenceStruct *)referenceStructMethod_withS1:(NSString *)p1;
 
-	// Managed method name : ReverseList
-	// Managed return type : System.Boolean
-	// Managed param types : System.Collections.Generic.List`1<System.String>
+	/*! 
+		Managed method name : ReverseList
+		Managed return type : System.Boolean
+		Managed param types : System.Collections.Generic.List`1<System.String>
+	 */
     - (BOOL)reverseList_withListSCGListA1string:(DBSystem_Collections_Generic_ListA1 *)p1;
 
-	// Managed method name : ReverseList
-	// Managed return type : System.Boolean
-	// Managed param types : System.Collections.Generic.List`1<System.Int32>
+	/*! 
+		Managed method name : ReverseList
+		Managed return type : System.Boolean
+		Managed param types : System.Collections.Generic.List`1<System.Int32>
+	 */
     - (BOOL)reverseList_withListSCGListA1int:(DBSystem_Collections_Generic_ListA1 *)p1;
 
-	// Managed method name : StringMethod
-	// Managed return type : System.String
-	// Managed param types : 
+	/*! 
+		Managed method name : StringMethod
+		Managed return type : System.String
+		Managed param types : 
+	 */
     - (NSString *)stringMethod;
 
-	// Managed method name : StringMethod
-	// Managed return type : System.String
-	// Managed param types : System.String
+	/*! 
+		Managed method name : StringMethod
+		Managed return type : System.String
+		Managed param types : System.String
+	 */
     - (NSString *)stringMethod_withS1:(NSString *)p1;
 
-	// Managed method name : StringMethod
-	// Managed return type : System.String
-	// Managed param types : System.Int32
+	/*! 
+		Managed method name : StringMethod
+		Managed return type : System.String
+		Managed param types : System.Int32
+	 */
     - (NSString *)stringMethod_withN:(int32_t)p1;
 
-	// Managed method name : StringMethod
-	// Managed return type : System.String
-	// Managed param types : System.String, System.String
+	/*! 
+		Managed method name : StringMethod
+		Managed return type : System.String
+		Managed param types : System.String, System.String
+	 */
     - (NSString *)stringMethod_withS1String:(NSString *)p1 s2String:(NSString *)p2;
 
-	// Managed method name : StringMethod
-	// Managed return type : System.String
-	// Managed param types : System.String, System.Int32
+	/*! 
+		Managed method name : StringMethod
+		Managed return type : System.String
+		Managed param types : System.String, System.Int32
+	 */
     - (NSString *)stringMethod_withS1:(NSString *)p1 n:(int32_t)p2;
 
-	// Managed method name : StringMethod
-	// Managed return type : System.String
-	// Managed param types : System.String, System.Object
+	/*! 
+		Managed method name : StringMethod
+		Managed return type : System.String
+		Managed param types : System.String, System.Object
+	 */
     - (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(System_Object *)p2;
 
-	// Managed method name : StringMethodWithStringRef
-	// Managed return type : System.String
-	// Managed param types : ref System.String&
+	/*! 
+		Managed method name : StringMethodWithStringRef
+		Managed return type : System.String
+		Managed param types : ref System.String&
+	 */
     - (NSString *)stringMethodWithStringRef_withS1Ref:(NSString **)p1;
 
-	// Managed method name : Sum
-	// Managed return type : System.Int64
-	// Managed param types : System.Int64[]
+	/*! 
+		Managed method name : Sum
+		Managed return type : System.Int64
+		Managed param types : System.Int64[]
+	 */
     - (int64_t)sum_withInt64Array:(DBSystem_Array *)p1;
 
-	// Managed method name : Sum
-	// Managed return type : System.Int32
-	// Managed param types : System.Int32[]
+	/*! 
+		Managed method name : Sum
+		Managed return type : System.Int32
+		Managed param types : System.Int32[]
+	 */
     - (int32_t)sum_withInt32Array:(DBSystem_Array *)p1;
 
-	// Managed method name : Sum
-	// Managed return type : System.Int16
-	// Managed param types : System.Int16[]
+	/*! 
+		Managed method name : Sum
+		Managed return type : System.Int16
+		Managed param types : System.Int16[]
+	 */
     - (int16_t)sum_withInt16Array:(DBSystem_Array *)p1;
 
-	// Managed method name : Sum
-	// Managed return type : System.Byte
-	// Managed param types : System.Byte[]
+	/*! 
+		Managed method name : Sum
+		Managed return type : System.Byte
+		Managed param types : System.Byte[]
+	 */
     - (uint8_t)sum_withByteArray:(NSData *)p1;
 
-	// Managed method name : Sum
-	// Managed return type : System.Single
-	// Managed param types : System.Single[]
+	/*! 
+		Managed method name : Sum
+		Managed return type : System.Single
+		Managed param types : System.Single[]
+	 */
     - (float)sum_withFloatArray:(DBSystem_Array *)p1;
 
-	// Managed method name : Sum
-	// Managed return type : System.Double
-	// Managed param types : System.Double[]
+	/*! 
+		Managed method name : Sum
+		Managed return type : System.Double
+		Managed param types : System.Double[]
+	 */
     - (double)sum_withDoubleArray:(DBSystem_Array *)p1;
 
-	// Managed method name : Sum
-	// Managed return type : System.String
-	// Managed param types : System.String[]
+	/*! 
+		Managed method name : Sum
+		Managed return type : System.String
+		Managed param types : System.String[]
+	 */
     - (NSString *)sum_withStringArray:(DBSystem_Array *)p1;
 
-	// Managed method name : SumAndSwitch
-	// Managed return type : System.Int32
-	// Managed param types : System.Int32*, System.Int32*
+	/*! 
+		Managed method name : SumAndSwitch
+		Managed return type : System.Int32
+		Managed param types : System.Int32*, System.Int32*
+	 */
     - (int32_t)sumAndSwitch_withIntPtrX:(int32_t*)p1 intPtrY:(int32_t*)p2;
 
-	// Managed method name : SumAndSwitch
-	// Managed return type : System.Int64
-	// Managed param types : System.Int64*, System.Int64*
+	/*! 
+		Managed method name : SumAndSwitch
+		Managed return type : System.Int64
+		Managed param types : System.Int64*, System.Int64*
+	 */
     - (int64_t)sumAndSwitch_withInt64PtrX:(int64_t*)p1 int64PtrY:(int64_t*)p2;
 
-	// Managed method name : SumAndSwitch
-	// Managed return type : System.Single
-	// Managed param types : System.Single*, System.Single*
+	/*! 
+		Managed method name : SumAndSwitch
+		Managed return type : System.Single
+		Managed param types : System.Single*, System.Single*
+	 */
     - (float)sumAndSwitch_withFloatPtrX:(float*)p1 floatPtrY:(float*)p2;
 
-	// Managed method name : SumAndSwitch
-	// Managed return type : System.Double
-	// Managed param types : System.Double*, System.Double*
+	/*! 
+		Managed method name : SumAndSwitch
+		Managed return type : System.Double
+		Managed param types : System.Double*, System.Double*
+	 */
     - (double)sumAndSwitch_withDoublePtrX:(double*)p1 doublePtrY:(double*)p2;
 @end
 //--Dubrovnik.CodeGenerator

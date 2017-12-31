@@ -61,9 +61,10 @@ namespace Dubrovnik.Tools
             IsGenericParameter = XElementAttributeBool(xelement, "IsGenericParameter");
             ContainsGenericParameters = XElementAttributeBool(xelement, "ContainsGenericParameters");
             GenericParameterPosition = Convert.ToInt32(XElementAttributeValue(xelement, "GenericParameterPosition"));
-            
-            // define ObjC code facet
-            ObjCFacet = new CodeFacet(this);
+			DeclaredByMethod = XElementAttributeBool(xelement, "DeclaredByMethod");
+
+			// define ObjC code facet
+			ObjCFacet = new CodeFacet(this);
         }
 
         public CodeFacet Output { get; private set; }
@@ -87,8 +88,9 @@ namespace Dubrovnik.Tools
         public bool ContainsGenericParameters { get; private set; }
         public Int32 GenericParameterPosition { get; private set; }
         public string[] GenericArgumentTypes { get; private set; }
+		public bool DeclaredByMethod { get; private set; }
 
-        public bool IsPointer { get; private set; }
+		public bool IsPointer { get; private set; }
         public bool IsArray { get; private set; }
         public bool IsByRef { get; private set; }
         public bool IsInterface { get; private set; }
@@ -710,12 +712,17 @@ namespace Dubrovnik.Tools
             : base(xelement)
         {
             Parameters = new FacetList<ParameterFacet>(xelement, "Parameter");
-            IsGenericMethod = XElementAttributeBool(xelement, "IsGenericMethod");
+			GenericTypeArguments = new FacetList<CodeFacet>(xelement, "GenericTypeArgument");
+			GenericMethodDefinitionGenericTypeArguments = new FacetList<CodeFacet>(xelement, "GenericMethodDefinitionGenericTypeArgument");
+			IsGenericMethod = XElementAttributeBool(xelement, "IsGenericMethod");
             IsGenericMethodDefinition = XElementAttributeBool(xelement, "IsGenericMethodDefinition");
             ContainsGenericMethodParameters = XElementAttributeBool(xelement, "ContainsGenericMethodParameters");
         }
+
         public IList<ParameterFacet> Parameters { get; set; }
-        public bool IsGenericMethod { get; set; }
+		public IList<CodeFacet> GenericTypeArguments { get; set; } // return type GenericTypeArguments
+		public IList<CodeFacet> GenericMethodDefinitionGenericTypeArguments { get; set; } // generic types defined by say definition Method<T,U>
+		public bool IsGenericMethod { get; set; }
         public bool IsGenericMethodDefinition { get; set; }
         public bool ContainsGenericMethodParameters { get; set; }
         public bool IsOverloadedNameMethod { get; private set; }
