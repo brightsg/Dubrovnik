@@ -153,8 +153,11 @@
 - (double)sumAndSwitch_withDoublePtrX:(double*)p1 doublePtrY:(double*)p2;
 
 // generic methods
-- (System_Object *)genericMethod1_withValue:(id)p1 typeParameter:(id)typeParameter;
-- (DBSystem_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(id)p1 value:(id)p2 typeParameters:(NSArray<id> *)typeParameter;
+- (System_Object *)genericMethod0_withTypeParameter:(id)typeParameter;
+- (System_Object *)genericMethod02_withTypeParameters:(NSArray<id> *)typeParameter;
+- (System_Object *)genericMethod1_withValue:(System_Object *)p1 typeParameter:(id)typeParameter;
+- (DBSystem_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter;
+- (System_Object *)genericMethodList1_withValue:(DBSystem_Collections_Generic_ListA1 *)p1 typeParameter:(id)typeParameter;
 
 // generic argument methods
 - (BOOL)reverseList_withListSCGListA1string:(DBSystem_Collections_Generic_ListA1 *)p1;

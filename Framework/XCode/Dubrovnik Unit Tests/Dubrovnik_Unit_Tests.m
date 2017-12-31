@@ -933,53 +933,64 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 #endif
     
     //
-    // Generic methods of form Method<T>, Method<T,U> etc
+    // Generic methods called on generic method definition of form Method<T>, Method<T,U> etc
     //
-    if (!m_runningAutoGenCodeTest) {
+    if (!m_runningAutoGenCodeTest || YES) {
         
         // the object parameter can be any object that responds to -monoRTInvokeArg.
         // the type paramter can be passed as a native class, a System_type instance, a native instance with a corresponding monoObject *,
         // native NSValue containing a monoType *
         
+        id genericResult = nil;
+        
         //
         // One type parameter
         //
         
+        // Method<string>()
+        
+        @try {
+            genericResult = [refObject genericMethod0_withTypeParameter:[System_String db_getType]];
+            NSAssert([genericResult isKindOfClass:[NSString class]], DBUEqualityTestFailed);
+        } @catch (NSException *e) {
+#warning failing for manual and auto bindings
+        }
+
         // Method<string>(string)
-        id genericResult = [refObject genericMethod1_withValue:[DBUTestString managedObject] typeParameter:[System_String class] ];
+        genericResult = [refObject genericMethod1_withValue:[DBUTestString managedObject] typeParameter:[System_String class]];
         NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:DBUTestString], DBUEqualityTestFailed);
         
-        genericResult = [refObject genericMethod1_withValue:DBUTestString typeParameter:[System_String db_getType]];
+        genericResult = [refObject genericMethod1_withValue:DBUTestString.managedString typeParameter:[System_String db_getType]];
         NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:DBUTestString], DBUEqualityTestFailed);
         
-        genericResult = [refObject genericMethod1_withValue:DBUTestString typeParameter:@"a string"]; // get typeParameter from instance
+        genericResult = [refObject genericMethod1_withValue:DBUTestString.managedString typeParameter:@"a string"]; // get typeParameter from instance
         NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:DBUTestString], DBUEqualityTestFailed);
         
         MonoType *monoType = [DBType monoTypeForMonoObject:[@"a string" monoObject]];
-        genericResult = [refObject genericMethod1_withValue:DBUTestString typeParameter:[NSValue valueWithPointer:monoType]];
+        genericResult = [refObject genericMethod1_withValue:DBUTestString.managedString typeParameter:[NSValue valueWithPointer:monoType]];
         NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:DBUTestString], DBUEqualityTestFailed);
         
         // Method<int>(int)
         DBNumber *number = [DBNumber numberWithInt:101];
-        genericResult = [refObject genericMethod1_withValue:number typeParameter:[System_Int32 class]]; // explicit type parameter class
+        genericResult = [refObject genericMethod1_withValue:number.managedObject typeParameter:[System_Int32 class]]; // explicit type parameter class
         NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult integerValue] == 101, DBUEqualityTestFailed);
 
-        genericResult = [refObject genericMethod1_withValue:number typeParameter:number]; // get typeParameter from instance
+        genericResult = [refObject genericMethod1_withValue:number.managedObject typeParameter:number]; // get typeParameter from instance
         NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult integerValue] == 101, DBUEqualityTestFailed);
         
         // Method<long>(long)
         number = [DBNumber numberWithLong:101];
-        genericResult = [refObject genericMethod1_withValue:number typeParameter:number]; // get typeParameter from instance
+        genericResult = [refObject genericMethod1_withValue:number.managedObject typeParameter:number]; // get typeParameter from instance
         NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult longValue] == 101, DBUEqualityTestFailed);
         
         // Method<float>(float)
         number = [DBNumber numberWithFloat:101.1f];
-        genericResult = [refObject genericMethod1_withValue:number typeParameter:number]; // get typeParameter from instance
+        genericResult = [refObject genericMethod1_withValue:number.managedObject typeParameter:number]; // get typeParameter from instance
         NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult floatValue] == 101.1f, DBUEqualityTestFailed);
 
         // Method<double>(double)
         number = [DBNumber numberWithDouble:101.1];
-        genericResult = [refObject genericMethod1_withValue:number typeParameter:number]; // get typeParameter from instance
+        genericResult = [refObject genericMethod1_withValue:number.managedObject typeParameter:number]; // get typeParameter from instance
         NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult doubleValue] == 101.1, DBUEqualityTestFailed);
         
         // Method<List<string>>(List<string>)
@@ -987,35 +998,50 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         genericResult = [refObject genericMethod1_withValue:listA1 typeParameter:[listA1 db_getType]];
         NSAssert([genericResult isKindOfClass:[DBSystem_Collections_Generic_ListA1 class]], DBUEqualityTestFailed);
         
+        // Method<List<T>>(List<T>)
+        @try {
+            genericResult = [refObject genericMethodList1_withValue:listA1 typeParameter:[System_String db_getType]];
+            NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:@"A"], DBUEqualityTestFailed);
+        } @catch (NSException *e) {
+#warning failing for auto bindings
+        }
+        
         //
         // Two type parameters
         //
         
+        @try {
+            genericResult = [refObject genericMethod02_withTypeParameters:@[[System_String db_getType], [System_String db_getType]]];
+            NSAssert([genericResult isKindOfClass:[NSString class]], DBUEqualityTestFailed);
+        } @catch (NSException *e) {
+#warning failing for manual and auto bindings
+        }
+        
         // Method<string,string>(string,string)
-        DBSystem_Collections_Generic_DictionaryA2 *resultA2 = [refObject genericMethod2_withKey:@"key" value:DBUTestString typeParameters:@[[System_String class], [System_String class]]];
+        DBSystem_Collections_Generic_DictionaryA2 *resultA2 = [refObject genericMethod2_withKey:@"key".managedString value:DBUTestString.managedString typeParameters:@[[System_String class], [System_String class]]];
         NSAssert([resultA2 isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
         NSAssert([[resultA2 objectForKey:@"key"] isEqualToString:DBUTestString], DBUEqualityTestFailed);
 
         // Method<int,string>(int,string)
         DBNumber *numberKey = [DBNumber numberWithLong:101];
-        resultA2 = [refObject genericMethod2_withKey:numberKey value:DBUTestString typeParameters:@[number, [System_String class]]];
+        resultA2 = [refObject genericMethod2_withKey:numberKey.managedObject value:DBUTestString.managedString typeParameters:@[number, [System_String class]]];
         NSAssert([resultA2 isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
         NSAssert([[resultA2 objectForKey:numberKey] isEqualToString:DBUTestString], DBUEqualityTestFailed);
         
         // Method<string,int>(string,int)
         number = [DBNumber numberWithLong:101];
-        resultA2 = [refObject genericMethod2_withKey:@"key" value:number typeParameters:@[[System_String class], number]];
+        resultA2 = [refObject genericMethod2_withKey:@"key".managedString value:number.managedObject typeParameters:@[[System_String class], number]];
         NSAssert([resultA2 isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
         NSAssert([[resultA2 objectForKey:@"key"] isEqualTo:number], DBUEqualityTestFailed);
         
         // Method<int,int>(int,int)
         DBNumber *numberValue = [DBNumber numberWithLong:9052];
-        resultA2 = [refObject genericMethod2_withKey:numberKey value:numberValue typeParameters:@[number, numberValue]];
+        resultA2 = [refObject genericMethod2_withKey:numberKey.managedObject value:numberValue.managedObject typeParameters:@[number, numberValue]];
         NSAssert([resultA2 isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
         NSAssert([[resultA2 objectForKey:numberKey] isEqualTo:numberValue], DBUEqualityTestFailed);
         
         // Method<int,List<string>>(int,List<string>)
-        resultA2 = [refObject genericMethod2_withKey:numberKey value:listA1 typeParameters:@[number, listA1]];
+        resultA2 = [refObject genericMethod2_withKey:numberKey.managedObject value:listA1 typeParameters:@[number, listA1]];
         NSAssert([resultA2 isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
         NSAssert([[resultA2 objectForKey:numberKey] isKindOfClass:[DBSystem_Collections_Generic_ListA1 class]], DBUEqualityTestFailed);
     }
@@ -1736,6 +1762,12 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     id gm2 = [refObjectA2 genericMethodReturningParameterTypeU_withParameterT:ms1 parameterU:ms2];
     XCTAssertTrue([gm2 isEqual:@"I am of type U == string"], DBUEqualityTestFailed);
     
+    // in this case the managed type signature is
+    // public V GenericMethod<V>(T parameterT, U parameterU, V parameterV)
+    // the T and U type parameters are supplied by the closed constructed type
+    DBNumber *number = [DBNumber numberWithInt:101];
+    id gm3 = [refObjectA2 genericMethod_withParameterT:ms1 parameterU:ms2 parameterV:number.managedObject typeParameter:number];
+    XCTAssertTrue([gm3 isKindOfClass:[DBNumber class]] && [(DBNumber *)gm3 intValue] == 101, DBUEqualityTestFailed);
 }
 
 - (void)doTestArrayListRepresentation:(id)refObject class:(Class)testClass
