@@ -948,13 +948,8 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         //
         
         // Method<string>()
-        
-        @try {
-            genericResult = [refObject genericMethod0_withTypeParameter:[System_String db_getType]];
-            NSAssert([genericResult isKindOfClass:[NSString class]], DBUEqualityTestFailed);
-        } @catch (NSException *e) {
-#warning failing for manual and auto bindings
-        }
+        genericResult = [refObject genericMethod0_withTypeParameter:[System_String db_getType]];
+        NSAssert([genericResult isKindOfClass:[NSString class]], DBUEqualityTestFailed);
 
         // Method<string>(string)
         genericResult = [refObject genericMethod1_withValue:[DBUTestString managedObject] typeParameter:[System_String class]];
@@ -1009,13 +1004,8 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         //
         // Two type parameters
         //
-        
-        @try {
-            genericResult = [refObject genericMethod02_withTypeParameters:@[[System_String db_getType], [System_String db_getType]]];
-            NSAssert([genericResult isKindOfClass:[NSString class]], DBUEqualityTestFailed);
-        } @catch (NSException *e) {
-#warning failing for manual and auto bindings
-        }
+        genericResult = [refObject genericMethod02_withTypeParameters:@[[System_String db_getType], [System_String db_getType]]];
+        NSAssert([genericResult isKindOfClass:[NSString class]], DBUEqualityTestFailed);
         
         // Method<string,string>(string,string)
         DBSystem_Collections_Generic_DictionaryA2 *resultA2 = [refObject genericMethod2_withKey:@"key".managedString value:DBUTestString.managedString typeParameters:@[[System_String class], [System_String class]]];
