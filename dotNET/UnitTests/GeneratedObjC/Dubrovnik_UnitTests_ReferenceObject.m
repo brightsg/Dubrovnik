@@ -1930,32 +1930,32 @@
 
 	/*! 
 		Managed method name : GenericMethod0
-		Managed return type : <Dubrovnik.UnitTests.ReferenceObject+T>
+		Managed return type : System.String
 		Managed param types : 
 		Generic method definition type params : <Dubrovnik.UnitTests.ReferenceObject+T>
 	 */
-    - (System_Object *)genericMethod0_withTypeParameter:(id)typeParameter
+    - (NSString *)genericMethod0_withTypeParameter:(id)typeParameter
     {
 		DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"GenericMethod0()" typeParameters:typeParameter];
 
 		MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:0];
 		
-		return [System_Object bestObjectWithMonoObject:monoObject];
+		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
 	/*! 
 		Managed method name : GenericMethod02
-		Managed return type : <Dubrovnik.UnitTests.ReferenceObject+T>
+		Managed return type : System.String
 		Managed param types : 
 		Generic method definition type params : <Dubrovnik.UnitTests.ReferenceObject+T>, <Dubrovnik.UnitTests.ReferenceObject+U>
 	 */
-    - (System_Object *)genericMethod02_withTypeParameters:(NSArray<id> *)typeParameter
+    - (NSString *)genericMethod02_withTypeParameters:(NSArray<id> *)typeParameter
     {
 		DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"GenericMethod02()" typeParameters:typeParameter];
 
 		MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:0];
 		
-		return [System_Object bestObjectWithMonoObject:monoObject];
+		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
 
 	/*! 

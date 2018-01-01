@@ -313,19 +313,19 @@
 
 	/*! 
 		Managed method name : GenericMethod0
-		Managed return type : <Dubrovnik.UnitTests.ReferenceObject+T>
+		Managed return type : System.String
 		Managed param types : 
 		Generic method definition type params : <Dubrovnik.UnitTests.ReferenceObject+T>
 	 */
-    - (System_Object *)genericMethod0_withTypeParameter:(id)typeParameter;
+    - (NSString *)genericMethod0_withTypeParameter:(id)typeParameter;
 
 	/*! 
 		Managed method name : GenericMethod02
-		Managed return type : <Dubrovnik.UnitTests.ReferenceObject+T>
+		Managed return type : System.String
 		Managed param types : 
 		Generic method definition type params : <Dubrovnik.UnitTests.ReferenceObject+T>, <Dubrovnik.UnitTests.ReferenceObject+U>
 	 */
-    - (System_Object *)genericMethod02_withTypeParameters:(NSArray<id> *)typeParameter;
+    - (NSString *)genericMethod02_withTypeParameters:(NSArray<id> *)typeParameter;
 
 	/*! 
 		Managed method name : GenericMethod1

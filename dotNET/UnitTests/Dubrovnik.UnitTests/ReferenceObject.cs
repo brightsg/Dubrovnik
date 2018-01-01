@@ -587,12 +587,12 @@ namespace Dubrovnik.UnitTests {
 		//
 		// Generic methods
 		//
-		public T GenericMethod0<T>() where T : new() {
-			return new T();
+		public string GenericMethod0<T>() {
+			return typeof(T).ToString();
 		}
 
-		public T GenericMethod02<T,U>() where T : new() {
-			return new T();
+		public string GenericMethod02<T,U>() {
+			return typeof(T).ToString() + "," + typeof(U).ToString();
 		}
 
 		public T GenericMethod1<T>(T value) {
