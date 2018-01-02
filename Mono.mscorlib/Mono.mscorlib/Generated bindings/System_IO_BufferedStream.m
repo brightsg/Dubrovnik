@@ -241,7 +241,19 @@
 		[self invokeMonoMethod:"Flush()" withNumArgs:0];
       
     }
-/* Skipped method : System.Threading.Tasks.Task FlushAsync(System.Threading.CancellationToken cancellationToken) */
+
+	/*! 
+		Managed method name : FlushAsync
+		Managed return type : System.Threading.Tasks.Task
+		Managed param types : System.Threading.CancellationToken
+	 */
+    - (System_Threading_Tasks_Task *)flushAsync_withCancellationToken:(System_Threading_CancellationToken *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"FlushAsync(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+    }
 
 	/*! 
 		Managed method name : Read
@@ -255,7 +267,19 @@
 		
 		return DB_UNBOX_INT32(monoObject);
     }
-/* Skipped method : System.Threading.Tasks.Task`1<System.Int32> ReadAsync(System.Byte[] buffer, System.Int32 offset, System.Int32 count, System.Threading.CancellationToken cancellationToken) */
+
+	/*! 
+		Managed method name : ReadAsync
+		Managed return type : System.Threading.Tasks.Task`1<System.Int32>
+		Managed param types : System.Byte[], System.Int32, System.Int32, System.Threading.CancellationToken
+	 */
+    - (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"ReadAsync(byte[],int,int,System.Threading.CancellationToken)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
+		
+		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
+    }
 
 	/*! 
 		Managed method name : ReadByte
@@ -306,7 +330,19 @@
 		[self invokeMonoMethod:"Write(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
       
     }
-/* Skipped method : System.Threading.Tasks.Task WriteAsync(System.Byte[] buffer, System.Int32 offset, System.Int32 count, System.Threading.CancellationToken cancellationToken) */
+
+	/*! 
+		Managed method name : WriteAsync
+		Managed return type : System.Threading.Tasks.Task
+		Managed param types : System.Byte[], System.Int32, System.Int32, System.Threading.CancellationToken
+	 */
+    - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(byte[],int,int,System.Threading.CancellationToken)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
+		
+		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+    }
 
 	/*! 
 		Managed method name : WriteByte

@@ -16,5 +16,22 @@
 		<string>System.Threading.</string>
 	</TypeNameSkipList>
 	<TypeNameWhiteList>
+		<string>System.Threading.CancellationToken</string>
+		<string>System.Threading.Tasks.Task</string>
+		<string>System.Globalization.CultureInfo</string>
+		<string>System.Reflection.Assembly</string>
+		<string>System.Reflection.AssemblyName</string>
+		<string>System.Reflection.Binder</string>
+		<string>System.Reflection.ConstructorInfo</string>
+		<string>System.Reflection.GenericParameterAttributes</string>
+		<string>System.Reflection.MemberFilter</string>
+		<string>System.Reflection.MethodBase</string>
+		<string>System.Reflection.MethodInfo</string>
+		<string>System.Reflection.PropertyInfo</string>
+		<string>System.Reflection.TypeAttributes</string>
+		<string>System.Runtime.InteropServices._Exception</string>
+		<string>System.Runtime.Serialization.ISerializable</string>
+		<string>System.Threading.SendOrPostCallback</string>
+		<string>System.Threading.SynchronizationContext</string>
 	</TypeNameWhiteList>
 </ConfigObjC>

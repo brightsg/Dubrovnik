@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     02/01/2018 12:44:25
+// Date:     02/01/2018 17:36:08
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -75,7 +75,14 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 // Dubrovnik.CodeGenerator made System_IO_FileShare.m
 // Dubrovnik.CodeGenerator made System_IO_SearchOption.m
 // Dubrovnik.CodeGenerator made System_IO_SeekOrigin.m
+// Dubrovnik.CodeGenerator made System_Reflection_AssemblyContentType.m
+// Dubrovnik.CodeGenerator made System_Reflection_AssemblyNameFlags.m
+// Dubrovnik.CodeGenerator made System_Reflection_GenericParameterAttributes.m
+// Dubrovnik.CodeGenerator made System_Reflection_TypeAttributes.m
 // Dubrovnik.CodeGenerator made System_Text_NormalizationForm.m
+// Dubrovnik.CodeGenerator made System_Threading_Tasks_TaskContinuationOptions.m
+// Dubrovnik.CodeGenerator made System_Threading_Tasks_TaskCreationOptions.m
+// Dubrovnik.CodeGenerator made System_Threading_Tasks_TaskStatus.m
 // Dubrovnik.CodeGenerator made System_ArgIterator.m
 // Dubrovnik.CodeGenerator made System_ArraySegmentA1.m
 // Dubrovnik.CodeGenerator made System_Boolean.m
@@ -122,6 +129,8 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 // Dubrovnik.CodeGenerator made System_Collections_Generic_DictionaryA2__ValueCollection__Enumerator.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_KeyValuePairA2.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_ListA1__Enumerator.m
+// Dubrovnik.CodeGenerator made System_Threading_CancellationToken.m
+// Dubrovnik.CodeGenerator made System_Threading_CancellationTokenRegistration.m
 // Dubrovnik.CodeGenerator made System_Object.m
 // Dubrovnik.CodeGenerator made System_MarshalByRefObject.m
 // Dubrovnik.CodeGenerator made System_Exception.m
@@ -300,6 +309,7 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 // Dubrovnik.CodeGenerator made System_Collections_ObjectModel_ReadOnlyDictionaryA2.m
 // Dubrovnik.CodeGenerator made System_Collections_ObjectModel_ReadOnlyDictionaryA2__KeyCollection.m
 // Dubrovnik.CodeGenerator made System_Collections_ObjectModel_ReadOnlyDictionaryA2__ValueCollection.m
+// Dubrovnik.CodeGenerator made System_Globalization_CultureInfo.m
 // Dubrovnik.CodeGenerator made System_IO_BinaryReader.m
 // Dubrovnik.CodeGenerator made System_IO_BinaryWriter.m
 // Dubrovnik.CodeGenerator made System_IO_Stream.m
@@ -328,6 +338,34 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 // Dubrovnik.CodeGenerator made System_IO_StringWriter.m
 // Dubrovnik.CodeGenerator made System_IO_UnmanagedMemoryAccessor.m
 // Dubrovnik.CodeGenerator made System_IO_UnmanagedMemoryStream.m
+// Dubrovnik.CodeGenerator made System_Reflection_Assembly.m
+// Dubrovnik.CodeGenerator made System_Reflection_AssemblyAlgorithmIdAttribute.m
+// Dubrovnik.CodeGenerator made System_Reflection_AssemblyCompanyAttribute.m
+// Dubrovnik.CodeGenerator made System_Reflection_AssemblyConfigurationAttribute.m
+// Dubrovnik.CodeGenerator made System_Reflection_AssemblyCopyrightAttribute.m
+// Dubrovnik.CodeGenerator made System_Reflection_AssemblyCultureAttribute.m
+// Dubrovnik.CodeGenerator made System_Reflection_AssemblyDefaultAliasAttribute.m
+// Dubrovnik.CodeGenerator made System_Reflection_AssemblyDelaySignAttribute.m
+// Dubrovnik.CodeGenerator made System_Reflection_AssemblyDescriptionAttribute.m
+// Dubrovnik.CodeGenerator made System_Reflection_AssemblyFileVersionAttribute.m
+// Dubrovnik.CodeGenerator made System_Reflection_AssemblyFlagsAttribute.m
+// Dubrovnik.CodeGenerator made System_Reflection_AssemblyInformationalVersionAttribute.m
+// Dubrovnik.CodeGenerator made System_Reflection_AssemblyKeyFileAttribute.m
+// Dubrovnik.CodeGenerator made System_Reflection_AssemblyKeyNameAttribute.m
+// Dubrovnik.CodeGenerator made System_Reflection_AssemblyMetadataAttribute.m
+// Dubrovnik.CodeGenerator made System_Reflection_AssemblyName.m
+// Dubrovnik.CodeGenerator made System_Reflection_AssemblyNameProxy.m
+// Dubrovnik.CodeGenerator made System_Reflection_AssemblyProductAttribute.m
+// Dubrovnik.CodeGenerator made System_Reflection_AssemblySignatureKeyAttribute.m
+// Dubrovnik.CodeGenerator made System_Reflection_AssemblyTitleAttribute.m
+// Dubrovnik.CodeGenerator made System_Reflection_AssemblyTrademarkAttribute.m
+// Dubrovnik.CodeGenerator made System_Reflection_AssemblyVersionAttribute.m
+// Dubrovnik.CodeGenerator made System_Reflection_Binder.m
+// Dubrovnik.CodeGenerator made System_Reflection_MethodBase.m
+// Dubrovnik.CodeGenerator made System_Reflection_ConstructorInfo.m
+// Dubrovnik.CodeGenerator made System_Reflection_MemberFilter.m
+// Dubrovnik.CodeGenerator made System_Reflection_MethodInfo.m
+// Dubrovnik.CodeGenerator made System_Reflection_PropertyInfo.m
 // Dubrovnik.CodeGenerator made System_Text_Encoding.m
 // Dubrovnik.CodeGenerator made System_Text_ASCIIEncoding.m
 // Dubrovnik.CodeGenerator made System_Text_Decoder.m
@@ -353,6 +391,17 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 // Dubrovnik.CodeGenerator made System_Text_UTF32Encoding.m
 // Dubrovnik.CodeGenerator made System_Text_UTF7Encoding.m
 // Dubrovnik.CodeGenerator made System_Text_UTF8Encoding.m
+// Dubrovnik.CodeGenerator made System_Threading_CancellationTokenSource.m
+// Dubrovnik.CodeGenerator made System_Threading_SendOrPostCallback.m
+// Dubrovnik.CodeGenerator made System_Threading_SynchronizationContext.m
+// Dubrovnik.CodeGenerator made System_Threading_Tasks_Task.m
+// Dubrovnik.CodeGenerator made System_Threading_Tasks_TaskA1.m
+// Dubrovnik.CodeGenerator made System_Threading_Tasks_TaskCanceledException.m
+// Dubrovnik.CodeGenerator made System_Threading_Tasks_TaskCompletionSourceA1.m
+// Dubrovnik.CodeGenerator made System_Threading_Tasks_TaskFactory.m
+// Dubrovnik.CodeGenerator made System_Threading_Tasks_TaskFactoryA1.m
+// Dubrovnik.CodeGenerator made System_Threading_Tasks_TaskScheduler.m
+// Dubrovnik.CodeGenerator made System_Threading_Tasks_TaskSchedulerException.m
 // Dubrovnik.CodeGenerator made System__AppDomain.m
 // Dubrovnik.CodeGenerator made System_IAppDomainSetup.m
 // Dubrovnik.CodeGenerator made System_IAsyncResult.m
@@ -390,3 +439,5 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 // Dubrovnik.CodeGenerator made System_Collections_Generic_IReadOnlyCollectionA1.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_IReadOnlyDictionaryA2.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_IReadOnlyListA1.m
+// Dubrovnik.CodeGenerator made System_Runtime_InteropServices__Exception.m
+// Dubrovnik.CodeGenerator made System_Runtime_Serialization_ISerializable.m

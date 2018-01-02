@@ -105,7 +105,19 @@
 		[self invokeMonoMethod:"Close()" withNumArgs:0];
       
     }
-/* Skipped method : System.Threading.Tasks.Task FlushAsync() */
+
+	/*! 
+		Managed method name : FlushAsync
+		Managed return type : System.Threading.Tasks.Task
+		Managed param types : 
+	 */
+    - (System_Threading_Tasks_Task *)flushAsync
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"FlushAsync()" withNumArgs:0];
+		
+		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+    }
 
 	/*! 
 		Managed method name : GetStringBuilder
@@ -168,12 +180,84 @@
 		[self invokeMonoMethod:"Write(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
       
     }
-/* Skipped method : System.Threading.Tasks.Task WriteAsync(System.Char value) */
-/* Skipped method : System.Threading.Tasks.Task WriteAsync(System.String value) */
-/* Skipped method : System.Threading.Tasks.Task WriteAsync(System.Char[] buffer, System.Int32 index, System.Int32 count) */
-/* Skipped method : System.Threading.Tasks.Task WriteLineAsync(System.Char value) */
-/* Skipped method : System.Threading.Tasks.Task WriteLineAsync(System.String value) */
-/* Skipped method : System.Threading.Tasks.Task WriteLineAsync(System.Char[] buffer, System.Int32 index, System.Int32 count) */
+
+	/*! 
+		Managed method name : WriteAsync
+		Managed return type : System.Threading.Tasks.Task
+		Managed param types : System.Char
+	 */
+    - (System_Threading_Tasks_Task *)writeAsync_withValueChar:(uint16_t)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(char)" withNumArgs:1, DB_VALUE(p1)];
+		
+		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+    }
+
+	/*! 
+		Managed method name : WriteAsync
+		Managed return type : System.Threading.Tasks.Task
+		Managed param types : System.String
+	 */
+    - (System_Threading_Tasks_Task *)writeAsync_withValueString:(NSString *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+    }
+
+	/*! 
+		Managed method name : WriteAsync
+		Managed return type : System.Threading.Tasks.Task
+		Managed param types : System.Char[], System.Int32, System.Int32
+	 */
+    - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+		
+		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+    }
+
+	/*! 
+		Managed method name : WriteLineAsync
+		Managed return type : System.Threading.Tasks.Task
+		Managed param types : System.Char
+	 */
+    - (System_Threading_Tasks_Task *)writeLineAsync_withValueChar:(uint16_t)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync(char)" withNumArgs:1, DB_VALUE(p1)];
+		
+		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+    }
+
+	/*! 
+		Managed method name : WriteLineAsync
+		Managed return type : System.Threading.Tasks.Task
+		Managed param types : System.String
+	 */
+    - (System_Threading_Tasks_Task *)writeLineAsync_withValueString:(NSString *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+    }
+
+	/*! 
+		Managed method name : WriteLineAsync
+		Managed return type : System.Threading.Tasks.Task
+		Managed param types : System.Char[], System.Int32, System.Int32
+	 */
+    - (System_Threading_Tasks_Task *)writeLineAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+		
+		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+    }
 
 #pragma mark -
 #pragma mark Teardown

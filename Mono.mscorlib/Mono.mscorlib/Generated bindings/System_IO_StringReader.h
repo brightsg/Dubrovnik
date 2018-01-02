@@ -51,8 +51,20 @@
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
     - (int32_t)read_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
-/* Skipped method : System.Threading.Tasks.Task`1<System.Int32> ReadAsync(System.Char[] buffer, System.Int32 index, System.Int32 count) */
-/* Skipped method : System.Threading.Tasks.Task`1<System.Int32> ReadBlockAsync(System.Char[] buffer, System.Int32 index, System.Int32 count) */
+
+	/*! 
+		Managed method name : ReadAsync
+		Managed return type : System.Threading.Tasks.Task`1<System.Int32>
+		Managed param types : System.Char[], System.Int32, System.Int32
+	 */
+    - (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+
+	/*! 
+		Managed method name : ReadBlockAsync
+		Managed return type : System.Threading.Tasks.Task`1<System.Int32>
+		Managed param types : System.Char[], System.Int32, System.Int32
+	 */
+    - (System_Threading_Tasks_TaskA1 *)readBlockAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 	/*! 
 		Managed method name : ReadLine
@@ -60,7 +72,13 @@
 		Managed param types : 
 	 */
     - (NSString *)readLine;
-/* Skipped method : System.Threading.Tasks.Task`1<System.String> ReadLineAsync() */
+
+	/*! 
+		Managed method name : ReadLineAsync
+		Managed return type : System.Threading.Tasks.Task`1<System.String>
+		Managed param types : 
+	 */
+    - (System_Threading_Tasks_TaskA1 *)readLineAsync;
 
 	/*! 
 		Managed method name : ReadToEnd
@@ -68,6 +86,12 @@
 		Managed param types : 
 	 */
     - (NSString *)readToEnd;
-/* Skipped method : System.Threading.Tasks.Task`1<System.String> ReadToEndAsync() */
+
+	/*! 
+		Managed method name : ReadToEndAsync
+		Managed return type : System.Threading.Tasks.Task`1<System.String>
+		Managed param types : 
+	 */
+    - (System_Threading_Tasks_TaskA1 *)readToEndAsync;
 @end
 //--Dubrovnik.CodeGenerator

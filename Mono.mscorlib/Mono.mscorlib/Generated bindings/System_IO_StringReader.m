@@ -93,8 +93,32 @@
 		
 		return DB_UNBOX_INT32(monoObject);
     }
-/* Skipped method : System.Threading.Tasks.Task`1<System.Int32> ReadAsync(System.Char[] buffer, System.Int32 index, System.Int32 count) */
-/* Skipped method : System.Threading.Tasks.Task`1<System.Int32> ReadBlockAsync(System.Char[] buffer, System.Int32 index, System.Int32 count) */
+
+	/*! 
+		Managed method name : ReadAsync
+		Managed return type : System.Threading.Tasks.Task`1<System.Int32>
+		Managed param types : System.Char[], System.Int32, System.Int32
+	 */
+    - (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"ReadAsync(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+		
+		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
+    }
+
+	/*! 
+		Managed method name : ReadBlockAsync
+		Managed return type : System.Threading.Tasks.Task`1<System.Int32>
+		Managed param types : System.Char[], System.Int32, System.Int32
+	 */
+    - (System_Threading_Tasks_TaskA1 *)readBlockAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"ReadBlockAsync(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+		
+		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
+    }
 
 	/*! 
 		Managed method name : ReadLine
@@ -108,7 +132,19 @@
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
-/* Skipped method : System.Threading.Tasks.Task`1<System.String> ReadLineAsync() */
+
+	/*! 
+		Managed method name : ReadLineAsync
+		Managed return type : System.Threading.Tasks.Task`1<System.String>
+		Managed param types : 
+	 */
+    - (System_Threading_Tasks_TaskA1 *)readLineAsync
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"ReadLineAsync()" withNumArgs:0];
+		
+		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
+    }
 
 	/*! 
 		Managed method name : ReadToEnd
@@ -122,7 +158,19 @@
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
-/* Skipped method : System.Threading.Tasks.Task`1<System.String> ReadToEndAsync() */
+
+	/*! 
+		Managed method name : ReadToEndAsync
+		Managed return type : System.Threading.Tasks.Task`1<System.String>
+		Managed param types : 
+	 */
+    - (System_Threading_Tasks_TaskA1 *)readToEndAsync
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"ReadToEndAsync()" withNumArgs:0];
+		
+		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
+    }
 
 #pragma mark -
 #pragma mark Teardown

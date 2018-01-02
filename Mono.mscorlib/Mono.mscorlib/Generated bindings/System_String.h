@@ -119,7 +119,13 @@
 	 */
     + (int32_t)compare_withStrA:(NSString *)p1 strB:(NSString *)p2 comparisonType:(int32_t)p3;
 /* Skipped method : System.Int32 Compare(System.String strA, System.String strB, System.Globalization.CultureInfo culture, System.Globalization.CompareOptions options) */
-/* Skipped method : System.Int32 Compare(System.String strA, System.String strB, System.Boolean ignoreCase, System.Globalization.CultureInfo culture) */
+
+	/*! 
+		Managed method name : Compare
+		Managed return type : System.Int32
+		Managed param types : System.String, System.String, System.Boolean, System.Globalization.CultureInfo
+	 */
+    + (int32_t)compare_withStrA:(NSString *)p1 strB:(NSString *)p2 ignoreCase:(BOOL)p3 culture:(System_Globalization_CultureInfo *)p4;
 
 	/*! 
 		Managed method name : Compare
@@ -134,7 +140,13 @@
 		Managed param types : System.String, System.Int32, System.String, System.Int32, System.Int32, System.Boolean
 	 */
     + (int32_t)compare_withStrA:(NSString *)p1 indexA:(int32_t)p2 strB:(NSString *)p3 indexB:(int32_t)p4 length:(int32_t)p5 ignoreCase:(BOOL)p6;
-/* Skipped method : System.Int32 Compare(System.String strA, System.Int32 indexA, System.String strB, System.Int32 indexB, System.Int32 length, System.Boolean ignoreCase, System.Globalization.CultureInfo culture) */
+
+	/*! 
+		Managed method name : Compare
+		Managed return type : System.Int32
+		Managed param types : System.String, System.Int32, System.String, System.Int32, System.Int32, System.Boolean, System.Globalization.CultureInfo
+	 */
+    + (int32_t)compare_withStrA:(NSString *)p1 indexA:(int32_t)p2 strB:(NSString *)p3 indexB:(int32_t)p4 length:(int32_t)p5 ignoreCase:(BOOL)p6 culture:(System_Globalization_CultureInfo *)p7;
 /* Skipped method : System.Int32 Compare(System.String strA, System.Int32 indexA, System.String strB, System.Int32 indexB, System.Int32 length, System.Globalization.CultureInfo culture, System.Globalization.CompareOptions options) */
 
 	/*! 
@@ -284,7 +296,13 @@
 		Managed param types : System.String, System.StringComparison
 	 */
     - (BOOL)endsWith_withValue:(NSString *)p1 comparisonType:(int32_t)p2;
-/* Skipped method : System.Boolean EndsWith(System.String value, System.Boolean ignoreCase, System.Globalization.CultureInfo culture) */
+
+	/*! 
+		Managed method name : EndsWith
+		Managed return type : System.Boolean
+		Managed param types : System.String, System.Boolean, System.Globalization.CultureInfo
+	 */
+    - (BOOL)endsWith_withValue:(NSString *)p1 ignoreCase:(BOOL)p2 culture:(System_Globalization_CultureInfo *)p3;
 
 	/*! 
 		Managed method name : Equals
@@ -790,7 +808,13 @@
 		Managed param types : System.String, System.StringComparison
 	 */
     - (BOOL)startsWith_withValue:(NSString *)p1 comparisonType:(int32_t)p2;
-/* Skipped method : System.Boolean StartsWith(System.String value, System.Boolean ignoreCase, System.Globalization.CultureInfo culture) */
+
+	/*! 
+		Managed method name : StartsWith
+		Managed return type : System.Boolean
+		Managed param types : System.String, System.Boolean, System.Globalization.CultureInfo
+	 */
+    - (BOOL)startsWith_withValue:(NSString *)p1 ignoreCase:(BOOL)p2 culture:(System_Globalization_CultureInfo *)p3;
 
 	/*! 
 		Managed method name : Substring
@@ -826,7 +850,13 @@
 		Managed param types : 
 	 */
     - (NSString *)toLower;
-/* Skipped method : System.String ToLower(System.Globalization.CultureInfo culture) */
+
+	/*! 
+		Managed method name : ToLower
+		Managed return type : System.String
+		Managed param types : System.Globalization.CultureInfo
+	 */
+    - (NSString *)toLower_withCulture:(System_Globalization_CultureInfo *)p1;
 
 	/*! 
 		Managed method name : ToLowerInvariant
@@ -855,7 +885,13 @@
 		Managed param types : 
 	 */
     - (NSString *)toUpper;
-/* Skipped method : System.String ToUpper(System.Globalization.CultureInfo culture) */
+
+	/*! 
+		Managed method name : ToUpper
+		Managed return type : System.String
+		Managed param types : System.Globalization.CultureInfo
+	 */
+    - (NSString *)toUpper_withCulture:(System_Globalization_CultureInfo *)p1;
 
 	/*! 
 		Managed method name : ToUpperInvariant

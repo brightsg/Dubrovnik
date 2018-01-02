@@ -70,8 +70,32 @@
 /* Skipped method : System.Attribute GetCustomAttribute(System.Reflection.ParameterInfo element, System.Type attributeType, System.Boolean inherit) */
 /* Skipped method : System.Attribute GetCustomAttribute(System.Reflection.Module element, System.Type attributeType) */
 /* Skipped method : System.Attribute GetCustomAttribute(System.Reflection.Module element, System.Type attributeType, System.Boolean inherit) */
-/* Skipped method : System.Attribute GetCustomAttribute(System.Reflection.Assembly element, System.Type attributeType) */
-/* Skipped method : System.Attribute GetCustomAttribute(System.Reflection.Assembly element, System.Type attributeType, System.Boolean inherit) */
+
+	/*! 
+		Managed method name : GetCustomAttribute
+		Managed return type : System.Attribute
+		Managed param types : System.Reflection.Assembly, System.Type
+	 */
+    + (System_Attribute *)getCustomAttribute_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttribute(System.Reflection.Assembly,System.Type)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		
+		return [System_Attribute bestObjectWithMonoObject:monoObject];
+    }
+
+	/*! 
+		Managed method name : GetCustomAttribute
+		Managed return type : System.Attribute
+		Managed param types : System.Reflection.Assembly, System.Type, System.Boolean
+	 */
+    + (System_Attribute *)getCustomAttribute_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttribute(System.Reflection.Assembly,System.Type,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+		
+		return [System_Attribute bestObjectWithMonoObject:monoObject];
+    }
 /* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.MemberInfo element, System.Type type) */
 /* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.MemberInfo element, System.Type type, System.Boolean inherit) */
 /* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.MemberInfo element) */
@@ -84,10 +108,58 @@
 /* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.Module element) */
 /* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.Module element, System.Boolean inherit) */
 /* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.Module element, System.Type attributeType, System.Boolean inherit) */
-/* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.Assembly element, System.Type attributeType) */
-/* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.Assembly element, System.Type attributeType, System.Boolean inherit) */
-/* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.Assembly element) */
-/* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.Assembly element, System.Boolean inherit) */
+
+	/*! 
+		Managed method name : GetCustomAttributes
+		Managed return type : System.Attribute[]
+		Managed param types : System.Reflection.Assembly, System.Type
+	 */
+    + (DBSystem_Array *)getCustomAttributes_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttributes(System.Reflection.Assembly,System.Type)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+    }
+
+	/*! 
+		Managed method name : GetCustomAttributes
+		Managed return type : System.Attribute[]
+		Managed param types : System.Reflection.Assembly, System.Type, System.Boolean
+	 */
+    + (DBSystem_Array *)getCustomAttributes_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttributes(System.Reflection.Assembly,System.Type,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+		
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+    }
+
+	/*! 
+		Managed method name : GetCustomAttributes
+		Managed return type : System.Attribute[]
+		Managed param types : System.Reflection.Assembly
+	 */
+    + (DBSystem_Array *)getCustomAttributes_withElementSRAssembly:(System_Reflection_Assembly *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttributes(System.Reflection.Assembly)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+    }
+
+	/*! 
+		Managed method name : GetCustomAttributes
+		Managed return type : System.Attribute[]
+		Managed param types : System.Reflection.Assembly, System.Boolean
+	 */
+    + (DBSystem_Array *)getCustomAttributes_withElementSRAssembly:(System_Reflection_Assembly *)p1 inheritBool:(BOOL)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttributes(System.Reflection.Assembly,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+		
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+    }
 
 	/*! 
 		Managed method name : GetHashCode
@@ -120,8 +192,32 @@
 /* Skipped method : System.Boolean IsDefined(System.Reflection.ParameterInfo element, System.Type attributeType, System.Boolean inherit) */
 /* Skipped method : System.Boolean IsDefined(System.Reflection.Module element, System.Type attributeType) */
 /* Skipped method : System.Boolean IsDefined(System.Reflection.Module element, System.Type attributeType, System.Boolean inherit) */
-/* Skipped method : System.Boolean IsDefined(System.Reflection.Assembly element, System.Type attributeType) */
-/* Skipped method : System.Boolean IsDefined(System.Reflection.Assembly element, System.Type attributeType, System.Boolean inherit) */
+
+	/*! 
+		Managed method name : IsDefined
+		Managed return type : System.Boolean
+		Managed param types : System.Reflection.Assembly, System.Type
+	 */
+    + (BOOL)isDefined_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsDefined(System.Reflection.Assembly,System.Type)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		
+		return DB_UNBOX_BOOLEAN(monoObject);
+    }
+
+	/*! 
+		Managed method name : IsDefined
+		Managed return type : System.Boolean
+		Managed param types : System.Reflection.Assembly, System.Type, System.Boolean
+	 */
+    + (BOOL)isDefined_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsDefined(System.Reflection.Assembly,System.Type,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+		
+		return DB_UNBOX_BOOLEAN(monoObject);
+    }
 
 	/*! 
 		Managed method name : Match

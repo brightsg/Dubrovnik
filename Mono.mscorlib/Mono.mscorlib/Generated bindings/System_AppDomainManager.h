@@ -14,7 +14,10 @@
 #pragma mark -
 #pragma mark Properties
 /* Skipped property : System.Runtime.Hosting.ApplicationActivator ApplicationActivator */
-/* Skipped property : System.Reflection.Assembly EntryAssembly */
+
+	// Managed property name : EntryAssembly
+	// Managed property type : System.Reflection.Assembly
+    @property (nonatomic, strong, readonly) System_Reflection_Assembly * entryAssembly;
 /* Skipped property : System.Threading.HostExecutionContextManager HostExecutionContextManager */
 /* Skipped property : System.Security.HostSecurityManager HostSecurityManager */
 

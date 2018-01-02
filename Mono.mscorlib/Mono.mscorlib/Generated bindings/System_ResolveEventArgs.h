@@ -20,7 +20,13 @@
 		Managed param types : System.String
 	 */
     + (System_ResolveEventArgs *)new_withName:(NSString *)p1;
-/* Skipped constructor : System.ResolveEventArgs (System.String name, System.Reflection.Assembly requestingAssembly) */
+
+	/*! 
+		Managed method name : .ctor
+		Managed return type : System.ResolveEventArgs
+		Managed param types : System.String, System.Reflection.Assembly
+	 */
+    + (System_ResolveEventArgs *)new_withName:(NSString *)p1 requestingAssembly:(System_Reflection_Assembly *)p2;
 
 #pragma mark -
 #pragma mark Properties
@@ -28,6 +34,9 @@
 	// Managed property name : Name
 	// Managed property type : System.String
     @property (nonatomic, strong, readonly) NSString * name;
-/* Skipped property : System.Reflection.Assembly RequestingAssembly */
+
+	// Managed property name : RequestingAssembly
+	// Managed property type : System.Reflection.Assembly
+    @property (nonatomic, strong, readonly) System_Reflection_Assembly * requestingAssembly;
 @end
 //--Dubrovnik.CodeGenerator

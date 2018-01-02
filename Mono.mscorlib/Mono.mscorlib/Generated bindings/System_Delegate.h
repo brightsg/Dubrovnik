@@ -13,7 +13,10 @@
 
 #pragma mark -
 #pragma mark Properties
-/* Skipped property : System.Reflection.MethodInfo Method */
+
+	// Managed property name : Method
+	// Managed property type : System.Reflection.MethodInfo
+    @property (nonatomic, strong, readonly) System_Reflection_MethodInfo * method;
 
 	// Managed property name : Target
 	// Managed property type : System.Object
@@ -84,10 +87,34 @@
 		Managed param types : System.Type, System.Type, System.String, System.Boolean, System.Boolean
 	 */
     + (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetSType:(System_Type *)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4 throwOnBindFailureBool:(BOOL)p5;
-/* Skipped method : System.Delegate CreateDelegate(System.Type type, System.Reflection.MethodInfo method, System.Boolean throwOnBindFailure) */
-/* Skipped method : System.Delegate CreateDelegate(System.Type type, System.Object firstArgument, System.Reflection.MethodInfo method) */
-/* Skipped method : System.Delegate CreateDelegate(System.Type type, System.Object firstArgument, System.Reflection.MethodInfo method, System.Boolean throwOnBindFailure) */
-/* Skipped method : System.Delegate CreateDelegate(System.Type type, System.Reflection.MethodInfo method) */
+
+	/*! 
+		Managed method name : CreateDelegate
+		Managed return type : System.Delegate
+		Managed param types : System.Type, System.Reflection.MethodInfo, System.Boolean
+	 */
+    + (System_Delegate *)createDelegate_withType:(System_Type *)p1 method:(System_Reflection_MethodInfo *)p2 throwOnBindFailure:(BOOL)p3;
+
+	/*! 
+		Managed method name : CreateDelegate
+		Managed return type : System.Delegate
+		Managed param types : System.Type, System.Object, System.Reflection.MethodInfo
+	 */
+    + (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(System_Object *)p2 method:(System_Reflection_MethodInfo *)p3;
+
+	/*! 
+		Managed method name : CreateDelegate
+		Managed return type : System.Delegate
+		Managed param types : System.Type, System.Object, System.Reflection.MethodInfo, System.Boolean
+	 */
+    + (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(System_Object *)p2 method:(System_Reflection_MethodInfo *)p3 throwOnBindFailure:(BOOL)p4;
+
+	/*! 
+		Managed method name : CreateDelegate
+		Managed return type : System.Delegate
+		Managed param types : System.Type, System.Reflection.MethodInfo
+	 */
+    + (System_Delegate *)createDelegate_withType:(System_Type *)p1 method:(System_Reflection_MethodInfo *)p2;
 
 	/*! 
 		Managed method name : DynamicInvoke

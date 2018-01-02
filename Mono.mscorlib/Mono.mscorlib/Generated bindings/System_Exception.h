@@ -58,7 +58,10 @@
 	// Managed property name : StackTrace
 	// Managed property type : System.String
     @property (nonatomic, strong, readonly) NSString * stackTrace;
-/* Skipped property : System.Reflection.MethodBase TargetSite */
+
+	// Managed property name : TargetSite
+	// Managed property type : System.Reflection.MethodBase
+    @property (nonatomic, strong, readonly) System_Reflection_MethodBase * targetSite;
 
 #pragma mark -
 #pragma mark Methods

@@ -169,7 +169,13 @@
 		Managed param types : System.Boolean
 	 */
     - (void)flush_withFlushToDisk:(BOOL)p1;
-/* Skipped method : System.Threading.Tasks.Task FlushAsync(System.Threading.CancellationToken cancellationToken) */
+
+	/*! 
+		Managed method name : FlushAsync
+		Managed return type : System.Threading.Tasks.Task
+		Managed param types : System.Threading.CancellationToken
+	 */
+    - (System_Threading_Tasks_Task *)flushAsync_withCancellationToken:(System_Threading_CancellationToken *)p1;
 /* Skipped method : System.Security.AccessControl.FileSecurity GetAccessControl() */
 
 	/*! 
@@ -185,7 +191,13 @@
 		Managed param types : System.Byte[], System.Int32, System.Int32
 	 */
     - (int32_t)read_withArray:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3;
-/* Skipped method : System.Threading.Tasks.Task`1<System.Int32> ReadAsync(System.Byte[] buffer, System.Int32 offset, System.Int32 count, System.Threading.CancellationToken cancellationToken) */
+
+	/*! 
+		Managed method name : ReadAsync
+		Managed return type : System.Threading.Tasks.Task`1<System.Int32>
+		Managed param types : System.Byte[], System.Int32, System.Int32, System.Threading.CancellationToken
+	 */
+    - (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4;
 
 	/*! 
 		Managed method name : ReadByte
@@ -222,7 +234,13 @@
 		Managed param types : System.Byte[], System.Int32, System.Int32
 	 */
     - (void)write_withArray:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3;
-/* Skipped method : System.Threading.Tasks.Task WriteAsync(System.Byte[] buffer, System.Int32 offset, System.Int32 count, System.Threading.CancellationToken cancellationToken) */
+
+	/*! 
+		Managed method name : WriteAsync
+		Managed return type : System.Threading.Tasks.Task
+		Managed param types : System.Byte[], System.Int32, System.Int32, System.Threading.CancellationToken
+	 */
+    - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4;
 
 	/*! 
 		Managed method name : WriteByte

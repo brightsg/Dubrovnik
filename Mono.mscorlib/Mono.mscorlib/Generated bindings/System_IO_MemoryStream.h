@@ -85,7 +85,13 @@
 
 #pragma mark -
 #pragma mark Methods
-/* Skipped method : System.Threading.Tasks.Task CopyToAsync(System.IO.Stream destination, System.Int32 bufferSize, System.Threading.CancellationToken cancellationToken) */
+
+	/*! 
+		Managed method name : CopyToAsync
+		Managed return type : System.Threading.Tasks.Task
+		Managed param types : System.IO.Stream, System.Int32, System.Threading.CancellationToken
+	 */
+    - (System_Threading_Tasks_Task *)copyToAsync_withDestination:(System_IO_Stream *)p1 bufferSize:(int32_t)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
 
 	/*! 
 		Managed method name : Flush
@@ -93,7 +99,13 @@
 		Managed param types : 
 	 */
     - (void)flush;
-/* Skipped method : System.Threading.Tasks.Task FlushAsync(System.Threading.CancellationToken cancellationToken) */
+
+	/*! 
+		Managed method name : FlushAsync
+		Managed return type : System.Threading.Tasks.Task
+		Managed param types : System.Threading.CancellationToken
+	 */
+    - (System_Threading_Tasks_Task *)flushAsync_withCancellationToken:(System_Threading_CancellationToken *)p1;
 
 	/*! 
 		Managed method name : GetBuffer
@@ -108,7 +120,13 @@
 		Managed param types : System.Byte[], System.Int32, System.Int32
 	 */
     - (int32_t)read_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3;
-/* Skipped method : System.Threading.Tasks.Task`1<System.Int32> ReadAsync(System.Byte[] buffer, System.Int32 offset, System.Int32 count, System.Threading.CancellationToken cancellationToken) */
+
+	/*! 
+		Managed method name : ReadAsync
+		Managed return type : System.Threading.Tasks.Task`1<System.Int32>
+		Managed param types : System.Byte[], System.Int32, System.Int32, System.Threading.CancellationToken
+	 */
+    - (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4;
 
 	/*! 
 		Managed method name : ReadByte
@@ -151,7 +169,13 @@
 		Managed param types : System.Byte[], System.Int32, System.Int32
 	 */
     - (void)write_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3;
-/* Skipped method : System.Threading.Tasks.Task WriteAsync(System.Byte[] buffer, System.Int32 offset, System.Int32 count, System.Threading.CancellationToken cancellationToken) */
+
+	/*! 
+		Managed method name : WriteAsync
+		Managed return type : System.Threading.Tasks.Task
+		Managed param types : System.Byte[], System.Int32, System.Int32, System.Threading.CancellationToken
+	 */
+    - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4;
 
 	/*! 
 		Managed method name : WriteByte

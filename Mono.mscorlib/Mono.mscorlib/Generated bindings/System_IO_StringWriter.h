@@ -51,7 +51,13 @@
 		Managed param types : 
 	 */
     - (void)close;
-/* Skipped method : System.Threading.Tasks.Task FlushAsync() */
+
+	/*! 
+		Managed method name : FlushAsync
+		Managed return type : System.Threading.Tasks.Task
+		Managed param types : 
+	 */
+    - (System_Threading_Tasks_Task *)flushAsync;
 
 	/*! 
 		Managed method name : GetStringBuilder
@@ -87,11 +93,47 @@
 		Managed param types : System.String
 	 */
     - (void)write_withValueString:(NSString *)p1;
-/* Skipped method : System.Threading.Tasks.Task WriteAsync(System.Char value) */
-/* Skipped method : System.Threading.Tasks.Task WriteAsync(System.String value) */
-/* Skipped method : System.Threading.Tasks.Task WriteAsync(System.Char[] buffer, System.Int32 index, System.Int32 count) */
-/* Skipped method : System.Threading.Tasks.Task WriteLineAsync(System.Char value) */
-/* Skipped method : System.Threading.Tasks.Task WriteLineAsync(System.String value) */
-/* Skipped method : System.Threading.Tasks.Task WriteLineAsync(System.Char[] buffer, System.Int32 index, System.Int32 count) */
+
+	/*! 
+		Managed method name : WriteAsync
+		Managed return type : System.Threading.Tasks.Task
+		Managed param types : System.Char
+	 */
+    - (System_Threading_Tasks_Task *)writeAsync_withValueChar:(uint16_t)p1;
+
+	/*! 
+		Managed method name : WriteAsync
+		Managed return type : System.Threading.Tasks.Task
+		Managed param types : System.String
+	 */
+    - (System_Threading_Tasks_Task *)writeAsync_withValueString:(NSString *)p1;
+
+	/*! 
+		Managed method name : WriteAsync
+		Managed return type : System.Threading.Tasks.Task
+		Managed param types : System.Char[], System.Int32, System.Int32
+	 */
+    - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+
+	/*! 
+		Managed method name : WriteLineAsync
+		Managed return type : System.Threading.Tasks.Task
+		Managed param types : System.Char
+	 */
+    - (System_Threading_Tasks_Task *)writeLineAsync_withValueChar:(uint16_t)p1;
+
+	/*! 
+		Managed method name : WriteLineAsync
+		Managed return type : System.Threading.Tasks.Task
+		Managed param types : System.String
+	 */
+    - (System_Threading_Tasks_Task *)writeLineAsync_withValueString:(NSString *)p1;
+
+	/*! 
+		Managed method name : WriteLineAsync
+		Managed return type : System.Threading.Tasks.Task
+		Managed param types : System.Char[], System.Int32, System.Int32
+	 */
+    - (System_Threading_Tasks_Task *)writeLineAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 @end
 //--Dubrovnik.CodeGenerator

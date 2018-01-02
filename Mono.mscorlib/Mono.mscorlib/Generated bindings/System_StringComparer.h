@@ -54,7 +54,13 @@
 		Managed param types : System.String, System.String
 	 */
     - (int32_t)compare_withXString:(NSString *)p1 yString:(NSString *)p2;
-/* Skipped method : System.StringComparer Create(System.Globalization.CultureInfo culture, System.Boolean ignoreCase) */
+
+	/*! 
+		Managed method name : Create
+		Managed return type : System.StringComparer
+		Managed param types : System.Globalization.CultureInfo, System.Boolean
+	 */
+    + (System_StringComparer *)create_withCulture:(System_Globalization_CultureInfo *)p1 ignoreCase:(BOOL)p2;
 
 	/*! 
 		Managed method name : Equals

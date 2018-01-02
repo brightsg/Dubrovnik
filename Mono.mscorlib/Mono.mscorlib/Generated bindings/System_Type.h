@@ -21,9 +21,18 @@
 	// Managed field name : EmptyTypes
 	// Managed field type : System.Type[]
     + (DBSystem_Array *)emptyTypes;
-/* Skipped field : System.Reflection.MemberFilter FilterAttribute */
-/* Skipped field : System.Reflection.MemberFilter FilterName */
-/* Skipped field : System.Reflection.MemberFilter FilterNameIgnoreCase */
+
+	// Managed field name : FilterAttribute
+	// Managed field type : System.Reflection.MemberFilter
+    + (System_Reflection_MemberFilter *)filterAttribute;
+
+	// Managed field name : FilterName
+	// Managed field type : System.Reflection.MemberFilter
+    + (System_Reflection_MemberFilter *)filterName;
+
+	// Managed field name : FilterNameIgnoreCase
+	// Managed field type : System.Reflection.MemberFilter
+    + (System_Reflection_MemberFilter *)filterNameIgnoreCase;
 
 	// Managed field name : Missing
 	// Managed field type : System.Object
@@ -31,12 +40,18 @@
 
 #pragma mark -
 #pragma mark Properties
-/* Skipped property : System.Reflection.Assembly Assembly */
+
+	// Managed property name : Assembly
+	// Managed property type : System.Reflection.Assembly
+    @property (nonatomic, strong, readonly) System_Reflection_Assembly * assembly;
 
 	// Managed property name : AssemblyQualifiedName
 	// Managed property type : System.String
     @property (nonatomic, strong, readonly) NSString * assemblyQualifiedName;
-/* Skipped property : System.Reflection.TypeAttributes Attributes */
+
+	// Managed property name : Attributes
+	// Managed property type : System.Reflection.TypeAttributes
+    @property (nonatomic, readonly) int32_t attributes;
 
 	// Managed property name : BaseType
 	// Managed property type : System.Type
@@ -45,17 +60,26 @@
 	// Managed property name : ContainsGenericParameters
 	// Managed property type : System.Boolean
     @property (nonatomic, readonly) BOOL containsGenericParameters;
-/* Skipped property : System.Reflection.MethodBase DeclaringMethod */
+
+	// Managed property name : DeclaringMethod
+	// Managed property type : System.Reflection.MethodBase
+    @property (nonatomic, strong, readonly) System_Reflection_MethodBase * declaringMethod;
 
 	// Managed property name : DeclaringType
 	// Managed property type : System.Type
     @property (nonatomic, strong, readonly) System_Type * declaringType;
-/* Skipped property : System.Reflection.Binder DefaultBinder */
+
+	// Managed property name : DefaultBinder
+	// Managed property type : System.Reflection.Binder
+    + (System_Reflection_Binder *)defaultBinder;
 
 	// Managed property name : FullName
 	// Managed property type : System.String
     @property (nonatomic, strong, readonly) NSString * fullName;
-/* Skipped property : System.Reflection.GenericParameterAttributes GenericParameterAttributes */
+
+	// Managed property name : GenericParameterAttributes
+	// Managed property type : System.Reflection.GenericParameterAttributes
+    @property (nonatomic, readonly) int32_t genericParameterAttributes;
 
 	// Managed property name : GenericParameterPosition
 	// Managed property type : System.Int32
@@ -243,7 +267,10 @@
 	// Managed property name : TypeHandle
 	// Managed property type : System.RuntimeTypeHandle
     @property (nonatomic, strong, readonly) System_RuntimeTypeHandle * typeHandle;
-/* Skipped property : System.Reflection.ConstructorInfo TypeInitializer */
+
+	// Managed property name : TypeInitializer
+	// Managed property type : System.Reflection.ConstructorInfo
+    @property (nonatomic, strong, readonly) System_Reflection_ConstructorInfo * typeInitializer;
 
 	// Managed property name : UnderlyingSystemType
 	// Managed property type : System.Type
@@ -276,8 +303,20 @@
     - (int32_t)getArrayRank;
 /* Skipped method : System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConvention, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 /* Skipped method : System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
-/* Skipped method : System.Reflection.ConstructorInfo GetConstructor(System.Type[] types) */
-/* Skipped method : System.Reflection.ConstructorInfo[] GetConstructors() */
+
+	/*! 
+		Managed method name : GetConstructor
+		Managed return type : System.Reflection.ConstructorInfo
+		Managed param types : System.Type[]
+	 */
+    - (System_Reflection_ConstructorInfo *)getConstructor_withTypes:(DBSystem_Array *)p1;
+
+	/*! 
+		Managed method name : GetConstructors
+		Managed return type : System.Reflection.ConstructorInfo[]
+		Managed param types : 
+	 */
+    - (DBSystem_Array *)getConstructors;
 /* Skipped method : System.Reflection.ConstructorInfo[] GetConstructors(System.Reflection.BindingFlags bindingAttr) */
 /* Skipped method : System.Reflection.MemberInfo[] GetDefaultMembers() */
 
@@ -381,10 +420,28 @@
 /* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConvention, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 /* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 /* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
-/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Type[] types) */
+
+	/*! 
+		Managed method name : GetMethod
+		Managed return type : System.Reflection.MethodInfo
+		Managed param types : System.String, System.Type[]
+	 */
+    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 types:(DBSystem_Array *)p2;
 /* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr) */
-/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name) */
-/* Skipped method : System.Reflection.MethodInfo[] GetMethods() */
+
+	/*! 
+		Managed method name : GetMethod
+		Managed return type : System.Reflection.MethodInfo
+		Managed param types : System.String
+	 */
+    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1;
+
+	/*! 
+		Managed method name : GetMethods
+		Managed return type : System.Reflection.MethodInfo[]
+		Managed param types : 
+	 */
+    - (DBSystem_Array *)getMethods;
 /* Skipped method : System.Reflection.MethodInfo[] GetMethods(System.Reflection.BindingFlags bindingAttr) */
 
 	/*! 
@@ -403,14 +460,44 @@
     - (DBSystem_Array *)getNestedTypes;
 /* Skipped method : System.Type[] GetNestedTypes(System.Reflection.BindingFlags bindingAttr) */
 /* Skipped method : System.Reflection.PropertyInfo[] GetProperties(System.Reflection.BindingFlags bindingAttr) */
-/* Skipped method : System.Reflection.PropertyInfo[] GetProperties() */
+
+	/*! 
+		Managed method name : GetProperties
+		Managed return type : System.Reflection.PropertyInfo[]
+		Managed param types : 
+	 */
+    - (DBSystem_Array *)getProperties;
 /* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type returnType, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 /* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Type returnType, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 /* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Reflection.BindingFlags bindingAttr) */
-/* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Type returnType, System.Type[] types) */
-/* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Type[] types) */
-/* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Type returnType) */
-/* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name) */
+
+	/*! 
+		Managed method name : GetProperty
+		Managed return type : System.Reflection.PropertyInfo
+		Managed param types : System.String, System.Type, System.Type[]
+	 */
+    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2 types:(DBSystem_Array *)p3;
+
+	/*! 
+		Managed method name : GetProperty
+		Managed return type : System.Reflection.PropertyInfo
+		Managed param types : System.String, System.Type[]
+	 */
+    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 types:(DBSystem_Array *)p2;
+
+	/*! 
+		Managed method name : GetProperty
+		Managed return type : System.Reflection.PropertyInfo
+		Managed param types : System.String, System.Type
+	 */
+    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2;
+
+	/*! 
+		Managed method name : GetProperty
+		Managed return type : System.Reflection.PropertyInfo
+		Managed param types : System.String
+	 */
+    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1;
 
 	/*! 
 		Managed method name : GetType
@@ -432,9 +519,27 @@
 		Managed param types : System.String
 	 */
     + (System_Type *)getType_withTypeName:(NSString *)p1;
-/* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type> typeResolver) */
-/* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type> typeResolver, System.Boolean throwOnError) */
-/* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type> typeResolver, System.Boolean throwOnError, System.Boolean ignoreCase) */
+
+	/*! 
+		Managed method name : GetType
+		Managed return type : System.Type
+		Managed param types : System.String, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type>
+	 */
+    + (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_FuncA2 *)p2 typeResolver:(System_FuncA4 *)p3;
+
+	/*! 
+		Managed method name : GetType
+		Managed return type : System.Type
+		Managed param types : System.String, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type>, System.Boolean
+	 */
+    + (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_FuncA2 *)p2 typeResolver:(System_FuncA4 *)p3 throwOnError:(BOOL)p4;
+
+	/*! 
+		Managed method name : GetType
+		Managed return type : System.Type
+		Managed param types : System.String, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type>, System.Boolean, System.Boolean
+	 */
+    + (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_FuncA2 *)p2 typeResolver:(System_FuncA4 *)p3 throwOnError:(BOOL)p4 ignoreCase:(BOOL)p5;
 
 	/*! 
 		Managed method name : GetType

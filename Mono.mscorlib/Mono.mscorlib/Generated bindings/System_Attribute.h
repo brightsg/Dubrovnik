@@ -33,8 +33,20 @@
 /* Skipped method : System.Attribute GetCustomAttribute(System.Reflection.ParameterInfo element, System.Type attributeType, System.Boolean inherit) */
 /* Skipped method : System.Attribute GetCustomAttribute(System.Reflection.Module element, System.Type attributeType) */
 /* Skipped method : System.Attribute GetCustomAttribute(System.Reflection.Module element, System.Type attributeType, System.Boolean inherit) */
-/* Skipped method : System.Attribute GetCustomAttribute(System.Reflection.Assembly element, System.Type attributeType) */
-/* Skipped method : System.Attribute GetCustomAttribute(System.Reflection.Assembly element, System.Type attributeType, System.Boolean inherit) */
+
+	/*! 
+		Managed method name : GetCustomAttribute
+		Managed return type : System.Attribute
+		Managed param types : System.Reflection.Assembly, System.Type
+	 */
+    + (System_Attribute *)getCustomAttribute_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2;
+
+	/*! 
+		Managed method name : GetCustomAttribute
+		Managed return type : System.Attribute
+		Managed param types : System.Reflection.Assembly, System.Type, System.Boolean
+	 */
+    + (System_Attribute *)getCustomAttribute_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3;
 /* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.MemberInfo element, System.Type type) */
 /* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.MemberInfo element, System.Type type, System.Boolean inherit) */
 /* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.MemberInfo element) */
@@ -47,10 +59,34 @@
 /* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.Module element) */
 /* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.Module element, System.Boolean inherit) */
 /* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.Module element, System.Type attributeType, System.Boolean inherit) */
-/* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.Assembly element, System.Type attributeType) */
-/* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.Assembly element, System.Type attributeType, System.Boolean inherit) */
-/* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.Assembly element) */
-/* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.Assembly element, System.Boolean inherit) */
+
+	/*! 
+		Managed method name : GetCustomAttributes
+		Managed return type : System.Attribute[]
+		Managed param types : System.Reflection.Assembly, System.Type
+	 */
+    + (DBSystem_Array *)getCustomAttributes_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2;
+
+	/*! 
+		Managed method name : GetCustomAttributes
+		Managed return type : System.Attribute[]
+		Managed param types : System.Reflection.Assembly, System.Type, System.Boolean
+	 */
+    + (DBSystem_Array *)getCustomAttributes_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3;
+
+	/*! 
+		Managed method name : GetCustomAttributes
+		Managed return type : System.Attribute[]
+		Managed param types : System.Reflection.Assembly
+	 */
+    + (DBSystem_Array *)getCustomAttributes_withElementSRAssembly:(System_Reflection_Assembly *)p1;
+
+	/*! 
+		Managed method name : GetCustomAttributes
+		Managed return type : System.Attribute[]
+		Managed param types : System.Reflection.Assembly, System.Boolean
+	 */
+    + (DBSystem_Array *)getCustomAttributes_withElementSRAssembly:(System_Reflection_Assembly *)p1 inheritBool:(BOOL)p2;
 
 	/*! 
 		Managed method name : GetHashCode
@@ -71,8 +107,20 @@
 /* Skipped method : System.Boolean IsDefined(System.Reflection.ParameterInfo element, System.Type attributeType, System.Boolean inherit) */
 /* Skipped method : System.Boolean IsDefined(System.Reflection.Module element, System.Type attributeType) */
 /* Skipped method : System.Boolean IsDefined(System.Reflection.Module element, System.Type attributeType, System.Boolean inherit) */
-/* Skipped method : System.Boolean IsDefined(System.Reflection.Assembly element, System.Type attributeType) */
-/* Skipped method : System.Boolean IsDefined(System.Reflection.Assembly element, System.Type attributeType, System.Boolean inherit) */
+
+	/*! 
+		Managed method name : IsDefined
+		Managed return type : System.Boolean
+		Managed param types : System.Reflection.Assembly, System.Type
+	 */
+    + (BOOL)isDefined_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2;
+
+	/*! 
+		Managed method name : IsDefined
+		Managed return type : System.Boolean
+		Managed param types : System.Reflection.Assembly, System.Type, System.Boolean
+	 */
+    + (BOOL)isDefined_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3;
 
 	/*! 
 		Managed method name : Match

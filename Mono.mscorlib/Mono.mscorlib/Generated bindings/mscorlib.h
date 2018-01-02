@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     02/01/2018 12:44:25
+// Date:     02/01/2018 17:36:08
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -990,7 +990,9 @@
 /* Skipped type : System.Globalization.CharUnicodeInfo CharUnicodeInfo */
 /* Skipped type : System.Globalization.ChineseLunisolarCalendar ChineseLunisolarCalendar */
 /* Skipped type : System.Globalization.CompareInfo CompareInfo */
-/* Skipped type : System.Globalization.CultureInfo CultureInfo */
+@class System_Globalization_CultureInfo;
+#define SGCultureInfo_ System_Globalization_CultureInfo
+
 /* Skipped type : System.Globalization.CultureNotFoundException CultureNotFoundException */
 /* Skipped type : System.Globalization.DateTimeFormatInfo DateTimeFormatInfo */
 /* Skipped type : System.Globalization.DaylightTime DaylightTime */
@@ -1144,30 +1146,78 @@
 /* Skipped type : System.IO.IsolatedStorage.IsolatedStorageScope IsolatedStorageScope */
 /* Skipped type : System.IO.IsolatedStorage.IsolatedStorageSecurityOptions IsolatedStorageSecurityOptions */
 /* Skipped type : System.Reflection.AmbiguousMatchException AmbiguousMatchException */
-/* Skipped type : System.Reflection.Assembly Assembly */
-/* Skipped type : System.Reflection.AssemblyAlgorithmIdAttribute AssemblyAlgorithmIdAttribute */
-/* Skipped type : System.Reflection.AssemblyCompanyAttribute AssemblyCompanyAttribute */
-/* Skipped type : System.Reflection.AssemblyConfigurationAttribute AssemblyConfigurationAttribute */
-/* Skipped type : System.Reflection.AssemblyCopyrightAttribute AssemblyCopyrightAttribute */
-/* Skipped type : System.Reflection.AssemblyCultureAttribute AssemblyCultureAttribute */
-/* Skipped type : System.Reflection.AssemblyDefaultAliasAttribute AssemblyDefaultAliasAttribute */
-/* Skipped type : System.Reflection.AssemblyDelaySignAttribute AssemblyDelaySignAttribute */
-/* Skipped type : System.Reflection.AssemblyDescriptionAttribute AssemblyDescriptionAttribute */
-/* Skipped type : System.Reflection.AssemblyFileVersionAttribute AssemblyFileVersionAttribute */
-/* Skipped type : System.Reflection.AssemblyFlagsAttribute AssemblyFlagsAttribute */
-/* Skipped type : System.Reflection.AssemblyInformationalVersionAttribute AssemblyInformationalVersionAttribute */
-/* Skipped type : System.Reflection.AssemblyKeyFileAttribute AssemblyKeyFileAttribute */
-/* Skipped type : System.Reflection.AssemblyKeyNameAttribute AssemblyKeyNameAttribute */
-/* Skipped type : System.Reflection.AssemblyMetadataAttribute AssemblyMetadataAttribute */
-/* Skipped type : System.Reflection.AssemblyName AssemblyName */
-/* Skipped type : System.Reflection.AssemblyNameProxy AssemblyNameProxy */
-/* Skipped type : System.Reflection.AssemblyProductAttribute AssemblyProductAttribute */
-/* Skipped type : System.Reflection.AssemblySignatureKeyAttribute AssemblySignatureKeyAttribute */
-/* Skipped type : System.Reflection.AssemblyTitleAttribute AssemblyTitleAttribute */
-/* Skipped type : System.Reflection.AssemblyTrademarkAttribute AssemblyTrademarkAttribute */
-/* Skipped type : System.Reflection.AssemblyVersionAttribute AssemblyVersionAttribute */
-/* Skipped type : System.Reflection.Binder Binder */
-/* Skipped type : System.Reflection.ConstructorInfo ConstructorInfo */
+@class System_Reflection_Assembly;
+#define SRAssembly_ System_Reflection_Assembly
+
+@class System_Reflection_AssemblyAlgorithmIdAttribute;
+#define SRAssemblyAlgorithmIdAttribute_ System_Reflection_AssemblyAlgorithmIdAttribute
+
+@class System_Reflection_AssemblyCompanyAttribute;
+#define SRAssemblyCompanyAttribute_ System_Reflection_AssemblyCompanyAttribute
+
+@class System_Reflection_AssemblyConfigurationAttribute;
+#define SRAssemblyConfigurationAttribute_ System_Reflection_AssemblyConfigurationAttribute
+
+@class System_Reflection_AssemblyCopyrightAttribute;
+#define SRAssemblyCopyrightAttribute_ System_Reflection_AssemblyCopyrightAttribute
+
+@class System_Reflection_AssemblyCultureAttribute;
+#define SRAssemblyCultureAttribute_ System_Reflection_AssemblyCultureAttribute
+
+@class System_Reflection_AssemblyDefaultAliasAttribute;
+#define SRAssemblyDefaultAliasAttribute_ System_Reflection_AssemblyDefaultAliasAttribute
+
+@class System_Reflection_AssemblyDelaySignAttribute;
+#define SRAssemblyDelaySignAttribute_ System_Reflection_AssemblyDelaySignAttribute
+
+@class System_Reflection_AssemblyDescriptionAttribute;
+#define SRAssemblyDescriptionAttribute_ System_Reflection_AssemblyDescriptionAttribute
+
+@class System_Reflection_AssemblyFileVersionAttribute;
+#define SRAssemblyFileVersionAttribute_ System_Reflection_AssemblyFileVersionAttribute
+
+@class System_Reflection_AssemblyFlagsAttribute;
+#define SRAssemblyFlagsAttribute_ System_Reflection_AssemblyFlagsAttribute
+
+@class System_Reflection_AssemblyInformationalVersionAttribute;
+#define SRAssemblyInformationalVersionAttribute_ System_Reflection_AssemblyInformationalVersionAttribute
+
+@class System_Reflection_AssemblyKeyFileAttribute;
+#define SRAssemblyKeyFileAttribute_ System_Reflection_AssemblyKeyFileAttribute
+
+@class System_Reflection_AssemblyKeyNameAttribute;
+#define SRAssemblyKeyNameAttribute_ System_Reflection_AssemblyKeyNameAttribute
+
+@class System_Reflection_AssemblyMetadataAttribute;
+#define SRAssemblyMetadataAttribute_ System_Reflection_AssemblyMetadataAttribute
+
+@class System_Reflection_AssemblyName;
+#define SRAssemblyName_ System_Reflection_AssemblyName
+
+@class System_Reflection_AssemblyNameProxy;
+#define SRAssemblyNameProxy_ System_Reflection_AssemblyNameProxy
+
+@class System_Reflection_AssemblyProductAttribute;
+#define SRAssemblyProductAttribute_ System_Reflection_AssemblyProductAttribute
+
+@class System_Reflection_AssemblySignatureKeyAttribute;
+#define SRAssemblySignatureKeyAttribute_ System_Reflection_AssemblySignatureKeyAttribute
+
+@class System_Reflection_AssemblyTitleAttribute;
+#define SRAssemblyTitleAttribute_ System_Reflection_AssemblyTitleAttribute
+
+@class System_Reflection_AssemblyTrademarkAttribute;
+#define SRAssemblyTrademarkAttribute_ System_Reflection_AssemblyTrademarkAttribute
+
+@class System_Reflection_AssemblyVersionAttribute;
+#define SRAssemblyVersionAttribute_ System_Reflection_AssemblyVersionAttribute
+
+@class System_Reflection_Binder;
+#define SRBinder_ System_Reflection_Binder
+
+@class System_Reflection_ConstructorInfo;
+#define SRConstructorInfo_ System_Reflection_ConstructorInfo
+
 /* Skipped type : System.Reflection.CustomAttributeData CustomAttributeData */
 /* Skipped type : System.Reflection.CustomAttributeExtensions CustomAttributeExtensions */
 /* Skipped type : System.Reflection.CustomAttributeFormatException CustomAttributeFormatException */
@@ -1179,11 +1229,17 @@
 /* Skipped type : System.Reflection.InvalidFilterCriteriaException InvalidFilterCriteriaException */
 /* Skipped type : System.Reflection.LocalVariableInfo LocalVariableInfo */
 /* Skipped type : System.Reflection.ManifestResourceInfo ManifestResourceInfo */
-/* Skipped type : System.Reflection.MemberFilter MemberFilter */
+@class System_Reflection_MemberFilter;
+#define SRMemberFilter_ System_Reflection_MemberFilter
+
 /* Skipped type : System.Reflection.MemberInfo MemberInfo */
-/* Skipped type : System.Reflection.MethodBase MethodBase */
+@class System_Reflection_MethodBase;
+#define SRMethodBase_ System_Reflection_MethodBase
+
 /* Skipped type : System.Reflection.MethodBody MethodBody */
-/* Skipped type : System.Reflection.MethodInfo MethodInfo */
+@class System_Reflection_MethodInfo;
+#define SRMethodInfo_ System_Reflection_MethodInfo
+
 /* Skipped type : System.Reflection.Missing Missing */
 /* Skipped type : System.Reflection.Module Module */
 /* Skipped type : System.Reflection.ModuleResolveEventHandler ModuleResolveEventHandler */
@@ -1191,7 +1247,9 @@
 /* Skipped type : System.Reflection.ObfuscationAttribute ObfuscationAttribute */
 /* Skipped type : System.Reflection.ParameterInfo ParameterInfo */
 /* Skipped type : System.Reflection.Pointer Pointer */
-/* Skipped type : System.Reflection.PropertyInfo PropertyInfo */
+@class System_Reflection_PropertyInfo;
+#define SRPropertyInfo_ System_Reflection_PropertyInfo
+
 /* Skipped type : System.Reflection.ReflectionContext ReflectionContext */
 /* Skipped type : System.Reflection.ReflectionTypeLoadException ReflectionTypeLoadException */
 /* Skipped type : System.Reflection.RuntimeReflectionExtensions RuntimeReflectionExtensions */
@@ -1209,14 +1267,20 @@
 /* Skipped type : System.Reflection.CustomAttributeTypedArgument CustomAttributeTypedArgument */
 /* Skipped type : System.Reflection.InterfaceMapping InterfaceMapping */
 /* Skipped type : System.Reflection.ParameterModifier ParameterModifier */
-/* Skipped type : System.Reflection.AssemblyContentType AssemblyContentType */
-/* Skipped type : System.Reflection.AssemblyNameFlags AssemblyNameFlags */
+@class System_Reflection_AssemblyContentType;
+#define SRAssemblyContentType_ System_Reflection_AssemblyContentType
+
+@class System_Reflection_AssemblyNameFlags;
+#define SRAssemblyNameFlags_ System_Reflection_AssemblyNameFlags
+
 /* Skipped type : System.Reflection.BindingFlags BindingFlags */
 /* Skipped type : System.Reflection.CallingConventions CallingConventions */
 /* Skipped type : System.Reflection.EventAttributes EventAttributes */
 /* Skipped type : System.Reflection.ExceptionHandlingClauseOptions ExceptionHandlingClauseOptions */
 /* Skipped type : System.Reflection.FieldAttributes FieldAttributes */
-/* Skipped type : System.Reflection.GenericParameterAttributes GenericParameterAttributes */
+@class System_Reflection_GenericParameterAttributes;
+#define SRGenericParameterAttributes_ System_Reflection_GenericParameterAttributes
+
 /* Skipped type : System.Reflection.ImageFileMachine ImageFileMachine */
 /* Skipped type : System.Reflection.MemberTypes MemberTypes */
 /* Skipped type : System.Reflection.MethodAttributes MethodAttributes */
@@ -1227,7 +1291,9 @@
 /* Skipped type : System.Reflection.PropertyAttributes PropertyAttributes */
 /* Skipped type : System.Reflection.ResourceAttributes ResourceAttributes */
 /* Skipped type : System.Reflection.ResourceLocation ResourceLocation */
-/* Skipped type : System.Reflection.TypeAttributes TypeAttributes */
+@class System_Reflection_TypeAttributes;
+#define SRTypeAttributes_ System_Reflection_TypeAttributes
+
 /* Skipped type : System.Reflection.Emit.AssemblyBuilder AssemblyBuilder */
 /* Skipped type : System.Reflection.Emit.ConstructorBuilder ConstructorBuilder */
 /* Skipped type : System.Reflection.Emit.CustomAttributeBuilder CustomAttributeBuilder */
@@ -1458,7 +1524,9 @@
 /* Skipped type : System.Runtime.InteropServices._EnumBuilder _EnumBuilder */
 /* Skipped type : System.Runtime.InteropServices._EventBuilder _EventBuilder */
 /* Skipped type : System.Runtime.InteropServices._EventInfo _EventInfo */
-/* Skipped type : System.Runtime.InteropServices._Exception _Exception */
+@class System_Runtime_InteropServices__Exception;
+#define SRI_Exception_ System_Runtime_InteropServices__Exception
+
 /* Skipped type : System.Runtime.InteropServices._FieldBuilder _FieldBuilder */
 /* Skipped type : System.Runtime.InteropServices._FieldInfo _FieldInfo */
 /* Skipped type : System.Runtime.InteropServices._ILGenerator _ILGenerator */
@@ -1785,7 +1853,9 @@
 /* Skipped type : System.Runtime.Serialization.IFormatterConverter IFormatterConverter */
 /* Skipped type : System.Runtime.Serialization.IObjectReference IObjectReference */
 /* Skipped type : System.Runtime.Serialization.ISafeSerializationData ISafeSerializationData */
-/* Skipped type : System.Runtime.Serialization.ISerializable ISerializable */
+@class System_Runtime_Serialization_ISerializable;
+#define SRSISerializable_ System_Runtime_Serialization_ISerializable
+
 /* Skipped type : System.Runtime.Serialization.ISerializationSurrogate ISerializationSurrogate */
 /* Skipped type : System.Runtime.Serialization.ISurrogateSelector ISurrogateSelector */
 /* Skipped type : System.Runtime.Serialization.SerializationEntry SerializationEntry */
@@ -2199,7 +2269,9 @@
 /* Skipped type : System.Threading.AbandonedMutexException AbandonedMutexException */
 /* Skipped type : System.Threading.AsyncLocal`1<System.Threading.AsyncLocal`1+T> AsyncLocal`1<T> */
 /* Skipped type : System.Threading.AutoResetEvent AutoResetEvent */
-/* Skipped type : System.Threading.CancellationTokenSource CancellationTokenSource */
+@class System_Threading_CancellationTokenSource;
+#define STCancellationTokenSource_ System_Threading_CancellationTokenSource
+
 /* Skipped type : System.Threading.CompressedStack CompressedStack */
 /* Skipped type : System.Threading.ContextCallback ContextCallback */
 /* Skipped type : System.Threading.CountdownEvent CountdownEvent */
@@ -2222,8 +2294,12 @@
 /* Skipped type : System.Threading.RegisteredWaitHandle RegisteredWaitHandle */
 /* Skipped type : System.Threading.SemaphoreFullException SemaphoreFullException */
 /* Skipped type : System.Threading.SemaphoreSlim SemaphoreSlim */
-/* Skipped type : System.Threading.SendOrPostCallback SendOrPostCallback */
-/* Skipped type : System.Threading.SynchronizationContext SynchronizationContext */
+@class System_Threading_SendOrPostCallback;
+#define STSendOrPostCallback_ System_Threading_SendOrPostCallback
+
+@class System_Threading_SynchronizationContext;
+#define STSynchronizationContext_ System_Threading_SynchronizationContext
+
 /* Skipped type : System.Threading.SynchronizationLockException SynchronizationLockException */
 /* Skipped type : System.Threading.Thread Thread */
 /* Skipped type : System.Threading.ThreadAbortException ThreadAbortException */
@@ -2245,8 +2321,12 @@
 /* Skipped type : System.Threading.WaitOrTimerCallback WaitOrTimerCallback */
 /* Skipped type : System.Threading.AsyncFlowControl AsyncFlowControl */
 /* Skipped type : System.Threading.AsyncLocalValueChangedArgs`1<System.Threading.AsyncLocalValueChangedArgs`1+T> AsyncLocalValueChangedArgs`1<T> */
-/* Skipped type : System.Threading.CancellationToken CancellationToken */
-/* Skipped type : System.Threading.CancellationTokenRegistration CancellationTokenRegistration */
+@class System_Threading_CancellationToken;
+#define STCancellationToken_ System_Threading_CancellationToken
+
+@class System_Threading_CancellationTokenRegistration;
+#define STCancellationTokenRegistration_ System_Threading_CancellationTokenRegistration
+
 /* Skipped type : System.Threading.LockCookie LockCookie */
 /* Skipped type : System.Threading.NativeOverlapped NativeOverlapped */
 /* Skipped type : System.Threading.SpinLock SpinLock */
@@ -2260,19 +2340,41 @@
 /* Skipped type : System.Threading.Tasks.Parallel Parallel */
 /* Skipped type : System.Threading.Tasks.ParallelLoopState ParallelLoopState */
 /* Skipped type : System.Threading.Tasks.ParallelOptions ParallelOptions */
-/* Skipped type : System.Threading.Tasks.Task Task */
-/* Skipped type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult> Task`1<TResult> */
-/* Skipped type : System.Threading.Tasks.TaskCanceledException TaskCanceledException */
-/* Skipped type : System.Threading.Tasks.TaskCompletionSource`1<System.Threading.Tasks.TaskCompletionSource`1+TResult> TaskCompletionSource`1<TResult> */
-/* Skipped type : System.Threading.Tasks.TaskFactory TaskFactory */
-/* Skipped type : System.Threading.Tasks.TaskFactory`1<System.Threading.Tasks.TaskFactory`1+TResult> TaskFactory`1<TResult> */
-/* Skipped type : System.Threading.Tasks.TaskScheduler TaskScheduler */
-/* Skipped type : System.Threading.Tasks.TaskSchedulerException TaskSchedulerException */
+@class System_Threading_Tasks_Task;
+#define STTTask_ System_Threading_Tasks_Task
+
+@class System_Threading_Tasks_TaskA1;
+#define STTTaskA1_ System_Threading_Tasks_TaskA1
+
+@class System_Threading_Tasks_TaskCanceledException;
+#define STTTaskCanceledException_ System_Threading_Tasks_TaskCanceledException
+
+@class System_Threading_Tasks_TaskCompletionSourceA1;
+#define STTTaskCompletionSourceA1_ System_Threading_Tasks_TaskCompletionSourceA1
+
+@class System_Threading_Tasks_TaskFactory;
+#define STTTaskFactory_ System_Threading_Tasks_TaskFactory
+
+@class System_Threading_Tasks_TaskFactoryA1;
+#define STTTaskFactoryA1_ System_Threading_Tasks_TaskFactoryA1
+
+@class System_Threading_Tasks_TaskScheduler;
+#define STTTaskScheduler_ System_Threading_Tasks_TaskScheduler
+
+@class System_Threading_Tasks_TaskSchedulerException;
+#define STTTaskSchedulerException_ System_Threading_Tasks_TaskSchedulerException
+
 /* Skipped type : System.Threading.Tasks.UnobservedTaskExceptionEventArgs UnobservedTaskExceptionEventArgs */
 /* Skipped type : System.Threading.Tasks.ParallelLoopResult ParallelLoopResult */
-/* Skipped type : System.Threading.Tasks.TaskContinuationOptions TaskContinuationOptions */
-/* Skipped type : System.Threading.Tasks.TaskCreationOptions TaskCreationOptions */
-/* Skipped type : System.Threading.Tasks.TaskStatus TaskStatus */
+@class System_Threading_Tasks_TaskContinuationOptions;
+#define STTTaskContinuationOptions_ System_Threading_Tasks_TaskContinuationOptions
+
+@class System_Threading_Tasks_TaskCreationOptions;
+#define STTTaskCreationOptions_ System_Threading_Tasks_TaskCreationOptions
+
+@class System_Threading_Tasks_TaskStatus;
+#define STTTaskStatus_ System_Threading_Tasks_TaskStatus
+
 
 /*
 
@@ -2315,7 +2417,14 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "System_IO_FileShare.h"
 #import "System_IO_SearchOption.h"
 #import "System_IO_SeekOrigin.h"
+#import "System_Reflection_AssemblyContentType.h"
+#import "System_Reflection_AssemblyNameFlags.h"
+#import "System_Reflection_GenericParameterAttributes.h"
+#import "System_Reflection_TypeAttributes.h"
 #import "System_Text_NormalizationForm.h"
+#import "System_Threading_Tasks_TaskContinuationOptions.h"
+#import "System_Threading_Tasks_TaskCreationOptions.h"
+#import "System_Threading_Tasks_TaskStatus.h"
 #import "System__AppDomain_Protocol.h"
 #import "System_IAppDomainSetup_Protocol.h"
 #import "System_IAsyncResult_Protocol.h"
@@ -2353,6 +2462,8 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "System_Collections_Generic_IReadOnlyCollectionA1_Protocol.h"
 #import "System_Collections_Generic_IReadOnlyDictionaryA2_Protocol.h"
 #import "System_Collections_Generic_IReadOnlyListA1_Protocol.h"
+#import "System_Runtime_InteropServices__Exception_Protocol.h"
+#import "System_Runtime_Serialization_ISerializable_Protocol.h"
 #import "System_ArgIterator.h"
 #import "System_ArraySegmentA1.h"
 #import "System_Boolean.h"
@@ -2399,6 +2510,8 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "System_Collections_Generic_DictionaryA2__ValueCollection__Enumerator.h"
 #import "System_Collections_Generic_KeyValuePairA2.h"
 #import "System_Collections_Generic_ListA1__Enumerator.h"
+#import "System_Threading_CancellationToken.h"
+#import "System_Threading_CancellationTokenRegistration.h"
 #import "System_Object.h"
 #import "System_MarshalByRefObject.h"
 #import "System_Exception.h"
@@ -2577,6 +2690,7 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "System_Collections_ObjectModel_ReadOnlyDictionaryA2.h"
 #import "System_Collections_ObjectModel_ReadOnlyDictionaryA2__KeyCollection.h"
 #import "System_Collections_ObjectModel_ReadOnlyDictionaryA2__ValueCollection.h"
+#import "System_Globalization_CultureInfo.h"
 #import "System_IO_BinaryReader.h"
 #import "System_IO_BinaryWriter.h"
 #import "System_IO_Stream.h"
@@ -2605,6 +2719,34 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "System_IO_StringWriter.h"
 #import "System_IO_UnmanagedMemoryAccessor.h"
 #import "System_IO_UnmanagedMemoryStream.h"
+#import "System_Reflection_Assembly.h"
+#import "System_Reflection_AssemblyAlgorithmIdAttribute.h"
+#import "System_Reflection_AssemblyCompanyAttribute.h"
+#import "System_Reflection_AssemblyConfigurationAttribute.h"
+#import "System_Reflection_AssemblyCopyrightAttribute.h"
+#import "System_Reflection_AssemblyCultureAttribute.h"
+#import "System_Reflection_AssemblyDefaultAliasAttribute.h"
+#import "System_Reflection_AssemblyDelaySignAttribute.h"
+#import "System_Reflection_AssemblyDescriptionAttribute.h"
+#import "System_Reflection_AssemblyFileVersionAttribute.h"
+#import "System_Reflection_AssemblyFlagsAttribute.h"
+#import "System_Reflection_AssemblyInformationalVersionAttribute.h"
+#import "System_Reflection_AssemblyKeyFileAttribute.h"
+#import "System_Reflection_AssemblyKeyNameAttribute.h"
+#import "System_Reflection_AssemblyMetadataAttribute.h"
+#import "System_Reflection_AssemblyName.h"
+#import "System_Reflection_AssemblyNameProxy.h"
+#import "System_Reflection_AssemblyProductAttribute.h"
+#import "System_Reflection_AssemblySignatureKeyAttribute.h"
+#import "System_Reflection_AssemblyTitleAttribute.h"
+#import "System_Reflection_AssemblyTrademarkAttribute.h"
+#import "System_Reflection_AssemblyVersionAttribute.h"
+#import "System_Reflection_Binder.h"
+#import "System_Reflection_MethodBase.h"
+#import "System_Reflection_ConstructorInfo.h"
+#import "System_Reflection_MemberFilter.h"
+#import "System_Reflection_MethodInfo.h"
+#import "System_Reflection_PropertyInfo.h"
 #import "System_Text_Encoding.h"
 #import "System_Text_ASCIIEncoding.h"
 #import "System_Text_Decoder.h"
@@ -2630,6 +2772,17 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "System_Text_UTF32Encoding.h"
 #import "System_Text_UTF7Encoding.h"
 #import "System_Text_UTF8Encoding.h"
+#import "System_Threading_CancellationTokenSource.h"
+#import "System_Threading_SendOrPostCallback.h"
+#import "System_Threading_SynchronizationContext.h"
+#import "System_Threading_Tasks_Task.h"
+#import "System_Threading_Tasks_TaskA1.h"
+#import "System_Threading_Tasks_TaskCanceledException.h"
+#import "System_Threading_Tasks_TaskCompletionSourceA1.h"
+#import "System_Threading_Tasks_TaskFactory.h"
+#import "System_Threading_Tasks_TaskFactoryA1.h"
+#import "System_Threading_Tasks_TaskScheduler.h"
+#import "System_Threading_Tasks_TaskSchedulerException.h"
 #import "System__AppDomain.h"
 #import "System_IAppDomainSetup.h"
 #import "System_IAsyncResult.h"
@@ -2667,3 +2820,5 @@ Order here is Enumerations, Interface protocols, Structs, Classes, Explicit inte
 #import "System_Collections_Generic_IReadOnlyCollectionA1.h"
 #import "System_Collections_Generic_IReadOnlyDictionaryA2.h"
 #import "System_Collections_Generic_IReadOnlyListA1.h"
+#import "System_Runtime_InteropServices__Exception.h"
+#import "System_Runtime_Serialization_ISerializable.h"

@@ -26,7 +26,19 @@
 
 #pragma mark -
 #pragma mark Constructors
-/* Skipped constructor : System.Collections.Comparer (System.Globalization.CultureInfo culture) */
+
+	/*! 
+		Managed method name : .ctor
+		Managed return type : System.Collections.Comparer
+		Managed param types : System.Globalization.CultureInfo
+	 */
+    + (System_Collections_Comparer *)new_withCulture:(System_Globalization_CultureInfo *)p1
+    {
+		
+		System_Collections_Comparer * object = [[self alloc] initWithSignature:"System.Globalization.CultureInfo" withNumArgs:1, [p1 monoRTInvokeArg]];
+      
+      return object;
+    }
 
 #pragma mark -
 #pragma mark Fields

@@ -55,8 +55,32 @@
 		
 		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
     }
-/* Skipped method : System.Reflection.Assembly EndInvoke(System.IAsyncResult result) */
-/* Skipped method : System.Reflection.Assembly Invoke(System.Object sender, System.ResolveEventArgs args) */
+
+	/*! 
+		Managed method name : EndInvoke
+		Managed return type : System.Reflection.Assembly
+		Managed param types : System.IAsyncResult
+	 */
+    - (System_Reflection_Assembly *)endInvoke_withResult:(id <System_IAsyncResult_>)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
+    }
+
+	/*! 
+		Managed method name : Invoke
+		Managed return type : System.Reflection.Assembly
+		Managed param types : System.Object, System.ResolveEventArgs
+	 */
+    - (System_Reflection_Assembly *)invoke_withSender:(System_Object *)p1 args:(System_ResolveEventArgs *)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object,System.ResolveEventArgs)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
+    }
 
 #pragma mark -
 #pragma mark Teardown

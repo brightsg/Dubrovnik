@@ -30,7 +30,19 @@
 		Managed param types : System.Object, System.ResolveEventArgs, System.AsyncCallback, System.Object
 	 */
     - (id <System_IAsyncResult>)beginInvoke_withSender:(System_Object *)p1 args:(System_ResolveEventArgs *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4;
-/* Skipped method : System.Reflection.Assembly EndInvoke(System.IAsyncResult result) */
-/* Skipped method : System.Reflection.Assembly Invoke(System.Object sender, System.ResolveEventArgs args) */
+
+	/*! 
+		Managed method name : EndInvoke
+		Managed return type : System.Reflection.Assembly
+		Managed param types : System.IAsyncResult
+	 */
+    - (System_Reflection_Assembly *)endInvoke_withResult:(id <System_IAsyncResult_>)p1;
+
+	/*! 
+		Managed method name : Invoke
+		Managed return type : System.Reflection.Assembly
+		Managed param types : System.Object, System.ResolveEventArgs
+	 */
+    - (System_Reflection_Assembly *)invoke_withSender:(System_Object *)p1 args:(System_ResolveEventArgs *)p2;
 @end
 //--Dubrovnik.CodeGenerator

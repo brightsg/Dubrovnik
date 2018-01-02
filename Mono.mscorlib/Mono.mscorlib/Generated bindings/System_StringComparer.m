@@ -187,7 +187,19 @@
 		
 		return DB_UNBOX_INT32(monoObject);
     }
-/* Skipped method : System.StringComparer Create(System.Globalization.CultureInfo culture, System.Boolean ignoreCase) */
+
+	/*! 
+		Managed method name : Create
+		Managed return type : System.StringComparer
+		Managed param types : System.Globalization.CultureInfo, System.Boolean
+	 */
+    + (System_StringComparer *)create_withCulture:(System_Globalization_CultureInfo *)p1 ignoreCase:(BOOL)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Globalization.CultureInfo,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+		
+		return [System_StringComparer bestObjectWithMonoObject:monoObject];
+    }
 
 	/*! 
 		Managed method name : Equals

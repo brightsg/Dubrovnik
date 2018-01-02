@@ -229,8 +229,20 @@
 	 */
     - (int32_t)executeAssemblyByName_withAssemblyNameString:(NSString *)p1 argsString:(DBSystem_Array *)p2;
 /* Skipped method : System.Int32 ExecuteAssemblyByName(System.Reflection.AssemblyName assemblyName, System.Security.Policy.Evidence assemblySecurity, System.String[] args) */
-/* Skipped method : System.Int32 ExecuteAssemblyByName(System.Reflection.AssemblyName assemblyName, System.String[] args) */
-/* Skipped method : System.Reflection.Assembly[] GetAssemblies() */
+
+	/*! 
+		Managed method name : ExecuteAssemblyByName
+		Managed return type : System.Int32
+		Managed param types : System.Reflection.AssemblyName, System.String[]
+	 */
+    - (int32_t)executeAssemblyByName_withAssemblyNameSRAssemblyName:(System_Reflection_AssemblyName *)p1 argsString:(DBSystem_Array *)p2;
+
+	/*! 
+		Managed method name : GetAssemblies
+		Managed return type : System.Reflection.Assembly[]
+		Managed param types : 
+	 */
+    - (DBSystem_Array *)getAssemblies;
 
 	/*! 
 		Managed method name : GetCurrentThreadId
@@ -280,14 +292,44 @@
 		Managed param types : 
 	 */
     - (BOOL)isFinalizingForUnload;
-/* Skipped method : System.Reflection.Assembly Load(System.Reflection.AssemblyName assemblyRef) */
-/* Skipped method : System.Reflection.Assembly Load(System.String assemblyString) */
-/* Skipped method : System.Reflection.Assembly Load(System.Byte[] rawAssembly) */
-/* Skipped method : System.Reflection.Assembly Load(System.Byte[] rawAssembly, System.Byte[] rawSymbolStore) */
+
+	/*! 
+		Managed method name : Load
+		Managed return type : System.Reflection.Assembly
+		Managed param types : System.Reflection.AssemblyName
+	 */
+    - (System_Reflection_Assembly *)load_withAssemblyRef:(System_Reflection_AssemblyName *)p1;
+
+	/*! 
+		Managed method name : Load
+		Managed return type : System.Reflection.Assembly
+		Managed param types : System.String
+	 */
+    - (System_Reflection_Assembly *)load_withAssemblyString:(NSString *)p1;
+
+	/*! 
+		Managed method name : Load
+		Managed return type : System.Reflection.Assembly
+		Managed param types : System.Byte[]
+	 */
+    - (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1;
+
+	/*! 
+		Managed method name : Load
+		Managed return type : System.Reflection.Assembly
+		Managed param types : System.Byte[], System.Byte[]
+	 */
+    - (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2;
 /* Skipped method : System.Reflection.Assembly Load(System.Byte[] rawAssembly, System.Byte[] rawSymbolStore, System.Security.Policy.Evidence securityEvidence) */
 /* Skipped method : System.Reflection.Assembly Load(System.Reflection.AssemblyName assemblyRef, System.Security.Policy.Evidence assemblySecurity) */
 /* Skipped method : System.Reflection.Assembly Load(System.String assemblyString, System.Security.Policy.Evidence assemblySecurity) */
-/* Skipped method : System.Reflection.Assembly[] ReflectionOnlyGetAssemblies() */
+
+	/*! 
+		Managed method name : ReflectionOnlyGetAssemblies
+		Managed return type : System.Reflection.Assembly[]
+		Managed param types : 
+	 */
+    - (DBSystem_Array *)reflectionOnlyGetAssemblies;
 /* Skipped method : System.Void SetAppDomainPolicy(System.Security.Policy.PolicyLevel domainPolicy) */
 
 	/*! 

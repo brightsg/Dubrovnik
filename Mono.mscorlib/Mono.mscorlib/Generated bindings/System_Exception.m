@@ -253,7 +253,28 @@
 
 		return _stackTrace;
 	}
-/* Skipped property : System.Reflection.MethodBase TargetSite */
+
+	// Managed property name : TargetSite
+	// Managed property type : System.Reflection.MethodBase
+    @synthesize targetSite = _targetSite;
+    - (System_Reflection_MethodBase *)targetSite
+    {
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TargetSite");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		if ([self object:_targetSite isEqualToMonoObject:monoObject]) return _targetSite;					
+		_targetSite = [System_Reflection_MethodBase bestObjectWithMonoObject:monoObject];
+
+		return _targetSite;
+	}
 
 #pragma mark -
 #pragma mark Methods

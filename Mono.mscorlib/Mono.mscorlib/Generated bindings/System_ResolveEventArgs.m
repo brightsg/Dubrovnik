@@ -39,7 +39,19 @@
       
       return object;
     }
-/* Skipped constructor : System.ResolveEventArgs (System.String name, System.Reflection.Assembly requestingAssembly) */
+
+	/*! 
+		Managed method name : .ctor
+		Managed return type : System.ResolveEventArgs
+		Managed param types : System.String, System.Reflection.Assembly
+	 */
+    + (System_ResolveEventArgs *)new_withName:(NSString *)p1 requestingAssembly:(System_Reflection_Assembly *)p2
+    {
+		
+		System_ResolveEventArgs * object = [[self alloc] initWithSignature:"string,System.Reflection.Assembly" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+      
+      return object;
+    }
 
 #pragma mark -
 #pragma mark Properties
@@ -65,7 +77,28 @@
 
 		return _name;
 	}
-/* Skipped property : System.Reflection.Assembly RequestingAssembly */
+
+	// Managed property name : RequestingAssembly
+	// Managed property type : System.Reflection.Assembly
+    @synthesize requestingAssembly = _requestingAssembly;
+    - (System_Reflection_Assembly *)requestingAssembly
+    {
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RequestingAssembly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		if ([self object:_requestingAssembly isEqualToMonoObject:monoObject]) return _requestingAssembly;					
+		_requestingAssembly = [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
+
+		return _requestingAssembly;
+	}
 
 #pragma mark -
 #pragma mark Teardown

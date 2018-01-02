@@ -26,7 +26,19 @@
 
 #pragma mark -
 #pragma mark Constructors
-/* Skipped constructor : System.Collections.CaseInsensitiveHashCodeProvider (System.Globalization.CultureInfo culture) */
+
+	/*! 
+		Managed method name : .ctor
+		Managed return type : System.Collections.CaseInsensitiveHashCodeProvider
+		Managed param types : System.Globalization.CultureInfo
+	 */
+    + (System_Collections_CaseInsensitiveHashCodeProvider *)new_withCulture:(System_Globalization_CultureInfo *)p1
+    {
+		
+		System_Collections_CaseInsensitiveHashCodeProvider * object = [[self alloc] initWithSignature:"System.Globalization.CultureInfo" withNumArgs:1, [p1 monoRTInvokeArg]];
+      
+      return object;
+    }
 
 #pragma mark -
 #pragma mark Properties

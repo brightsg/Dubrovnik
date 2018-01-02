@@ -26,11 +26,44 @@
 
 #pragma mark -
 #pragma mark Constructors
-/* Skipped constructor : System.AssemblyLoadEventArgs (System.Reflection.Assembly loadedAssembly) */
+
+	/*! 
+		Managed method name : .ctor
+		Managed return type : System.AssemblyLoadEventArgs
+		Managed param types : System.Reflection.Assembly
+	 */
+    + (System_AssemblyLoadEventArgs *)new_withLoadedAssembly:(System_Reflection_Assembly *)p1
+    {
+		
+		System_AssemblyLoadEventArgs * object = [[self alloc] initWithSignature:"System.Reflection.Assembly" withNumArgs:1, [p1 monoRTInvokeArg]];
+      
+      return object;
+    }
 
 #pragma mark -
 #pragma mark Properties
-/* Skipped property : System.Reflection.Assembly LoadedAssembly */
+
+	// Managed property name : LoadedAssembly
+	// Managed property type : System.Reflection.Assembly
+    @synthesize loadedAssembly = _loadedAssembly;
+    - (System_Reflection_Assembly *)loadedAssembly
+    {
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LoadedAssembly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		if ([self object:_loadedAssembly isEqualToMonoObject:monoObject]) return _loadedAssembly;					
+		_loadedAssembly = [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
+
+		return _loadedAssembly;
+	}
 
 #pragma mark -
 #pragma mark Teardown

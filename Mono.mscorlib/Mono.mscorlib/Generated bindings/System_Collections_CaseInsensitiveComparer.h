@@ -13,7 +13,13 @@
 
 #pragma mark -
 #pragma mark Constructors
-/* Skipped constructor : System.Collections.CaseInsensitiveComparer (System.Globalization.CultureInfo culture) */
+
+	/*! 
+		Managed method name : .ctor
+		Managed return type : System.Collections.CaseInsensitiveComparer
+		Managed param types : System.Globalization.CultureInfo
+	 */
+    + (System_Collections_CaseInsensitiveComparer *)new_withCulture:(System_Globalization_CultureInfo *)p1;
 
 #pragma mark -
 #pragma mark Properties

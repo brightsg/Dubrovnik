@@ -27,7 +27,28 @@
 #pragma mark -
 #pragma mark Properties
 /* Skipped property : System.Runtime.Hosting.ApplicationActivator ApplicationActivator */
-/* Skipped property : System.Reflection.Assembly EntryAssembly */
+
+	// Managed property name : EntryAssembly
+	// Managed property type : System.Reflection.Assembly
+    @synthesize entryAssembly = _entryAssembly;
+    - (System_Reflection_Assembly *)entryAssembly
+    {
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EntryAssembly");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		if ([self object:_entryAssembly isEqualToMonoObject:monoObject]) return _entryAssembly;					
+		_entryAssembly = [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
+
+		return _entryAssembly;
+	}
 /* Skipped property : System.Threading.HostExecutionContextManager HostExecutionContextManager */
 /* Skipped property : System.Security.HostSecurityManager HostSecurityManager */
 

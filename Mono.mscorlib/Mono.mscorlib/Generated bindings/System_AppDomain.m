@@ -652,8 +652,32 @@
 		return DB_UNBOX_INT32(monoObject);
     }
 /* Skipped method : System.Int32 ExecuteAssemblyByName(System.Reflection.AssemblyName assemblyName, System.Security.Policy.Evidence assemblySecurity, System.String[] args) */
-/* Skipped method : System.Int32 ExecuteAssemblyByName(System.Reflection.AssemblyName assemblyName, System.String[] args) */
-/* Skipped method : System.Reflection.Assembly[] GetAssemblies() */
+
+	/*! 
+		Managed method name : ExecuteAssemblyByName
+		Managed return type : System.Int32
+		Managed param types : System.Reflection.AssemblyName, System.String[]
+	 */
+    - (int32_t)executeAssemblyByName_withAssemblyNameSRAssemblyName:(System_Reflection_AssemblyName *)p1 argsString:(DBSystem_Array *)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"ExecuteAssemblyByName(System.Reflection.AssemblyName,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		
+		return DB_UNBOX_INT32(monoObject);
+    }
+
+	/*! 
+		Managed method name : GetAssemblies
+		Managed return type : System.Reflection.Assembly[]
+		Managed param types : 
+	 */
+    - (DBSystem_Array *)getAssemblies
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"GetAssemblies()" withNumArgs:0];
+		
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+    }
 
 	/*! 
 		Managed method name : GetCurrentThreadId
@@ -745,14 +769,74 @@
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
-/* Skipped method : System.Reflection.Assembly Load(System.Reflection.AssemblyName assemblyRef) */
-/* Skipped method : System.Reflection.Assembly Load(System.String assemblyString) */
-/* Skipped method : System.Reflection.Assembly Load(System.Byte[] rawAssembly) */
-/* Skipped method : System.Reflection.Assembly Load(System.Byte[] rawAssembly, System.Byte[] rawSymbolStore) */
+
+	/*! 
+		Managed method name : Load
+		Managed return type : System.Reflection.Assembly
+		Managed param types : System.Reflection.AssemblyName
+	 */
+    - (System_Reflection_Assembly *)load_withAssemblyRef:(System_Reflection_AssemblyName *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"Load(System.Reflection.AssemblyName)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
+    }
+
+	/*! 
+		Managed method name : Load
+		Managed return type : System.Reflection.Assembly
+		Managed param types : System.String
+	 */
+    - (System_Reflection_Assembly *)load_withAssemblyString:(NSString *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"Load(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
+    }
+
+	/*! 
+		Managed method name : Load
+		Managed return type : System.Reflection.Assembly
+		Managed param types : System.Byte[]
+	 */
+    - (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"Load(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
+    }
+
+	/*! 
+		Managed method name : Load
+		Managed return type : System.Reflection.Assembly
+		Managed param types : System.Byte[], System.Byte[]
+	 */
+    - (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"Load(byte[],byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		
+		return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
+    }
 /* Skipped method : System.Reflection.Assembly Load(System.Byte[] rawAssembly, System.Byte[] rawSymbolStore, System.Security.Policy.Evidence securityEvidence) */
 /* Skipped method : System.Reflection.Assembly Load(System.Reflection.AssemblyName assemblyRef, System.Security.Policy.Evidence assemblySecurity) */
 /* Skipped method : System.Reflection.Assembly Load(System.String assemblyString, System.Security.Policy.Evidence assemblySecurity) */
-/* Skipped method : System.Reflection.Assembly[] ReflectionOnlyGetAssemblies() */
+
+	/*! 
+		Managed method name : ReflectionOnlyGetAssemblies
+		Managed return type : System.Reflection.Assembly[]
+		Managed param types : 
+	 */
+    - (DBSystem_Array *)reflectionOnlyGetAssemblies
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"ReflectionOnlyGetAssemblies()" withNumArgs:0];
+		
+		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+    }
 /* Skipped method : System.Void SetAppDomainPolicy(System.Security.Policy.PolicyLevel domainPolicy) */
 
 	/*! 

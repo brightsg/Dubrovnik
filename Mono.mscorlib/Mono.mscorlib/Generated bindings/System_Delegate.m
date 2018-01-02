@@ -26,7 +26,28 @@
 
 #pragma mark -
 #pragma mark Properties
-/* Skipped property : System.Reflection.MethodInfo Method */
+
+	// Managed property name : Method
+	// Managed property type : System.Reflection.MethodInfo
+    @synthesize method = _method;
+    - (System_Reflection_MethodInfo *)method
+    {
+		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+		static Thunk thunk;
+		static MonoClass *thunkClass;
+		MonoObject *monoException = NULL;
+		if (!thunk || thunkClass != self.monoClass) {
+			thunkClass = self.monoClass;
+			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Method");
+			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+		}
+		MonoObject * monoObject = thunk(self.monoObject, &monoException);
+		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+		if ([self object:_method isEqualToMonoObject:monoObject]) return _method;					
+		_method = [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
+
+		return _method;
+	}
 
 	// Managed property name : Target
 	// Managed property type : System.Object
@@ -169,10 +190,58 @@
 		
 		return [System_Delegate bestObjectWithMonoObject:monoObject];
     }
-/* Skipped method : System.Delegate CreateDelegate(System.Type type, System.Reflection.MethodInfo method, System.Boolean throwOnBindFailure) */
-/* Skipped method : System.Delegate CreateDelegate(System.Type type, System.Object firstArgument, System.Reflection.MethodInfo method) */
-/* Skipped method : System.Delegate CreateDelegate(System.Type type, System.Object firstArgument, System.Reflection.MethodInfo method, System.Boolean throwOnBindFailure) */
-/* Skipped method : System.Delegate CreateDelegate(System.Type type, System.Reflection.MethodInfo method) */
+
+	/*! 
+		Managed method name : CreateDelegate
+		Managed return type : System.Delegate
+		Managed param types : System.Type, System.Reflection.MethodInfo, System.Boolean
+	 */
+    + (System_Delegate *)createDelegate_withType:(System_Type *)p1 method:(System_Reflection_MethodInfo *)p2 throwOnBindFailure:(BOOL)p3
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,System.Reflection.MethodInfo,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+		
+		return [System_Delegate bestObjectWithMonoObject:monoObject];
+    }
+
+	/*! 
+		Managed method name : CreateDelegate
+		Managed return type : System.Delegate
+		Managed param types : System.Type, System.Object, System.Reflection.MethodInfo
+	 */
+    + (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(System_Object *)p2 method:(System_Reflection_MethodInfo *)p3
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,object,System.Reflection.MethodInfo)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+		
+		return [System_Delegate bestObjectWithMonoObject:monoObject];
+    }
+
+	/*! 
+		Managed method name : CreateDelegate
+		Managed return type : System.Delegate
+		Managed param types : System.Type, System.Object, System.Reflection.MethodInfo, System.Boolean
+	 */
+    + (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(System_Object *)p2 method:(System_Reflection_MethodInfo *)p3 throwOnBindFailure:(BOOL)p4
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,object,System.Reflection.MethodInfo,bool)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
+		
+		return [System_Delegate bestObjectWithMonoObject:monoObject];
+    }
+
+	/*! 
+		Managed method name : CreateDelegate
+		Managed return type : System.Delegate
+		Managed param types : System.Type, System.Reflection.MethodInfo
+	 */
+    + (System_Delegate *)createDelegate_withType:(System_Type *)p1 method:(System_Reflection_MethodInfo *)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,System.Reflection.MethodInfo)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		
+		return [System_Delegate bestObjectWithMonoObject:monoObject];
+    }
 
 	/*! 
 		Managed method name : DynamicInvoke

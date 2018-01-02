@@ -599,7 +599,19 @@
 		
 		return DB_UNBOX_UINT16(monoObject);
     }
-/* Skipped method : System.Char ToLower(System.Char c, System.Globalization.CultureInfo culture) */
+
+	/*! 
+		Managed method name : ToLower
+		Managed return type : System.Char
+		Managed param types : System.Char, System.Globalization.CultureInfo
+	 */
+    + (uint16_t)toLower_withC:(uint16_t)p1 culture:(System_Globalization_CultureInfo *)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToLower(char,System.Globalization.CultureInfo)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+		
+		return DB_UNBOX_UINT16(monoObject);
+    }
 
 	/*! 
 		Managed method name : ToLower
@@ -665,7 +677,19 @@
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
-/* Skipped method : System.Char ToUpper(System.Char c, System.Globalization.CultureInfo culture) */
+
+	/*! 
+		Managed method name : ToUpper
+		Managed return type : System.Char
+		Managed param types : System.Char, System.Globalization.CultureInfo
+	 */
+    + (uint16_t)toUpper_withC:(uint16_t)p1 culture:(System_Globalization_CultureInfo *)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"ToUpper(char,System.Globalization.CultureInfo)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+		
+		return DB_UNBOX_UINT16(monoObject);
+    }
 
 	/*! 
 		Managed method name : ToUpper
