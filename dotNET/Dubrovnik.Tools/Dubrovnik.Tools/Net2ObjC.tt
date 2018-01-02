@@ -178,7 +178,13 @@ public void WriteInterfaceFilePreliminaries()
 
 		foreach (CodeFacet facet in facets)
 		{
-			WriteClassPredeclaration(facet);
+		  	if (!Config.GenerateTypeBinding(facet)) {
+				WriteSkippedItem("type", facet.Description());
+			}
+			else 
+			{
+				WriteClassPredeclaration(facet);
+			}
 		}	
 	}	
 }

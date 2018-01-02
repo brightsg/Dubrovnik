@@ -14,7 +14,10 @@ namespace Dubrovnik.Tools
     // VS will compile the template into a class named Net2ObjC.
     public partial class Net2ObjC
     {
-        public static string GenToolName = "Dubrovnik.CodeGenerator";
+		public const string ManagedVariableName = "monoObject";
+		public const string ObjCVariableName = "value";
+
+		public static string GenToolName = "Dubrovnik.CodeGenerator";
         public static string GenericTypePlaceholder = "<_T_{0}>";
 
         public string InterfaceOutput { get; private set; }
@@ -25,8 +28,16 @@ namespace Dubrovnik.Tools
         public string TimeStamp { get; private set; }
         public IList<String> StaticObjectPropertyStorageNames { get; set; }
         public ConfigObjC Config { get; private set; }
+		public string InterfaceFile { get; private set; }
+		public string ImplementationFile { get; private set; }
+		public OutputType OutputFileType { get; private set; }
+		public enum OutputType { Implementation, Interface };
 
-        public Net2ObjC() : base ()
+		private AssemblyFacet _AssemblyFacet;
+		private Dictionary<string, ObjCTypeAssociation> ObjCTypeAssociations { get; set; }
+		private Dictionary<string, ManagedTypeAssociation> ManagedTypeAssociations { get; set; }
+
+		public Net2ObjC() : base ()
         {
             // build associations between Managed and ObjC types
             BuildTypeAssociations();
@@ -74,13 +85,23 @@ namespace Dubrovnik.Tools
             WriteAssembly();
         }
 
+		public void WriteSkippedItem(string item, string description, int newLinesSuffix = 1) {
+			string s = String.Format("/* Skipped {0} : {1} */", item, description);
+			if (newLinesSuffix > 0) {
+				WriteLine(s);
+				while (--newLinesSuffix > 0) WriteLine("");
+			}
+			else {
+				Write(s);
+			}
+		}
 
         //
         // WriteAssembly
         //
         public void WriteAssembly()
         {
-				// TODO: why don't we generate EVent reps too?
+			// TODO: why don't we generate Event reps too?
 
             //
             // Order is important here. 
@@ -91,9 +112,9 @@ namespace Dubrovnik.Tools
             WriteCommentBlock("Order here is Enumerations, Interface protocols, Structs, Classes, Explicit interface classes");
 
             // Write all enumerations
-				foreach (NamespaceFacet @namespace in AssemblyFacet.Namespaces) {
-					foreach (EnumerationFacet enumeration in @namespace.Enumerations) {
-						this.WriteEnumeration(enumeration);
+			foreach (NamespaceFacet @namespace in AssemblyFacet.Namespaces) {
+				foreach (EnumerationFacet enumeration in @namespace.Enumerations) {
+					this.WriteEnumeration(enumeration);
                 }
             }
 
@@ -135,89 +156,114 @@ namespace Dubrovnik.Tools
             }
         }
 
-		  //
-		  // WriteEnumeration
-		  //
-		  public void WriteEnumeration(EnumerationFacet @enum) {
-			  WriteClassStart(@enum, "enumeration");
-			  WriteFields(@enum.Fields);
-			  WriteClassEnd(@enum);
-		  }
+		//
+		// WriteEnumeration
+		//
+		public void WriteEnumeration(EnumerationFacet facet) 
+		{
+			if (!Config.GenerateTypeBinding(facet)) {
+				WriteSkippedItem("enumeration", facet.Description());
+				return;
+			}
+
+			WriteClassStart(facet, "enumeration");
+			WriteFields(facet.Fields);
+			WriteClassEnd(facet);
+		}
 
         //
         // WriteClass
         //
-        public void WriteClass(ClassFacet @class)
+        public void WriteClass(ClassFacet facet)
         {
-            WriteClassStart(@class, "class");
-            WriteConstructors(@class.Constructors);
-            WriteFields(@class.Fields);
-            WriteProperties(@class.Properties);
-            WriteMethods(@class.Methods);
-            WriteClassEnd(@class);
+			if (!Config.GenerateTypeBinding(facet)) {
+				WriteSkippedItem("class", facet.Description());
+				return;
+			}
+
+            WriteClassStart(facet, "class");
+            WriteConstructors(facet.Constructors);
+            WriteFields(facet.Fields);
+            WriteProperties(facet.Properties);
+            WriteMethods(facet.Methods);
+            WriteClassEnd(facet);
         }
 
         //
         // WriteStruct
         //
-        public void WriteStruct(StructFacet @struct)
+        public void WriteStruct(StructFacet facet)
         {
-            WriteClassStart(@struct, "struct");
-            WriteConstructors(@struct.Constructors);
-            WriteFields(@struct.Fields);
-            WriteProperties(@struct.Properties);
-            WriteMethods(@struct.Methods);
-            WriteClassEnd(@struct);
+			if (!Config.GenerateTypeBinding(facet)) {
+				WriteSkippedItem("structure", facet.Description());
+				return;
+			}
+
+			WriteClassStart(facet, "struct");
+            WriteConstructors(facet.Constructors);
+            WriteFields(facet.Fields);
+            WriteProperties(facet.Properties);
+            WriteMethods(facet.Methods);
+            WriteClassEnd(facet);
         }
 
         //
         // WriteInterface
         //
-        public void WriteInterface(InterfaceFacet @interface)
+        public void WriteInterface(InterfaceFacet facet)
         {
-            if (OutputFileType == OutputType.Interface)
+			if (!Config.GenerateTypeBinding(facet)) {
+				WriteSkippedItem("interface", facet.Description());
+				return;
+			}
+
+			if (OutputFileType == OutputType.Interface)
             {
                 // write interface as protocol
                 // this will be used to test for ObjC protocol conformance with
                 // Class -conformsToProtocol while still permitting
                 // the expression of explicit managed interfaces.
                 // accessor foward declarations are omitted from the protocol by default.
-                WriteProtocolStart(@interface, "interface");
-                WriteProperties(@interface.Properties);
-                WriteMethods(@interface.Methods);
-					 WriteProtocolEnd(@interface);
+                WriteProtocolStart(facet, "interface");
+                WriteProperties(facet.Properties);
+                WriteMethods(facet.Methods);
+				WriteProtocolEnd(facet);
 
                 // write interface as auxiliary protocol
                 // this can be used in expressions such as id <protocol>
                 // where it is helpful if the accessors are predeclared in the protocol
-					 WriteProtocolStart(@interface, "interface", true);
-                WriteProperties(@interface.Properties);
-                WriteMethods(@interface.Methods);
-					 WriteProtocolEnd(@interface, true);
-
+				WriteProtocolStart(facet, "interface", true);
+                WriteProperties(facet.Properties);
+                WriteMethods(facet.Methods);
+				WriteProtocolEnd(facet, true);
             }
-           
         }
 
         //
         // WriteInterfaceClass
         //
-        public void WriteInterfaceClass(InterfaceFacet @interface) {
-            if (OutputFileType == OutputType.Interface) {
+        public void WriteInterfaceClass(InterfaceFacet facet) 
+		{
+			if (!Config.GenerateTypeBinding(facet)) {
+				WriteSkippedItem("interface class", facet.Description());
+				return;
+			}
+
+			if (OutputFileType == OutputType.Interface) {
 
                 // write interface as class interface
                 // this will expose a managed interface as a bound ObjC class
-                WriteClassStart(@interface, "interface");
-                WriteProperties(@interface.Properties);
-                WriteMethods(@interface.Methods);
-                WriteClassEnd(@interface);
+                WriteClassStart(facet, "interface");
+                WriteProperties(facet.Properties);
+                WriteMethods(facet.Methods);
+                WriteClassEnd(facet);
             } else {
                 // implementation
-                var options = new Dictionary<string, object> { { "cAPIMethodPrefix", @interface.Type + "." } };
-                WriteClassStart(@interface, "interface");
-                WriteProperties(@interface.Properties, options);
-                WriteMethods(@interface.Methods, options);
-                WriteClassEnd(@interface);
+                var options = new Dictionary<string, object> { { "cAPIMethodPrefix", facet.Type + "." } };
+                WriteClassStart(facet, "interface");
+                WriteProperties(facet.Properties, options);
+                WriteMethods(facet.Methods, options);
+                WriteClassEnd(facet);
             }
         }
 
@@ -232,7 +278,12 @@ namespace Dubrovnik.Tools
 
                 foreach (CodeFacet facet in fields)
                 {
-                    WriteFacetAsAccessor(facet);
+					if (!Config.GenerateTypeBinding(facet)) {
+						WriteSkippedItem("field", facet.Description());
+						continue;
+					}
+
+					WriteFacetAsAccessor(facet);
                 }
             }
         }
@@ -246,9 +297,14 @@ namespace Dubrovnik.Tools
             {
                 WritePragmaMark("Properties");
 
-                foreach (PropertyFacet property in properties)
+                foreach (PropertyFacet facet in properties)
                 {
-                    WriteFacetAsAccessor(property, options);
+					if (!Config.GenerateTypeBinding(facet)) {
+						WriteSkippedItem("property", facet.Description());
+						continue;
+					}
+
+					WriteFacetAsAccessor(facet, options);
                 }
             }
         }
@@ -264,7 +320,12 @@ namespace Dubrovnik.Tools
 
                 foreach (MethodFacet facet in methods)
                 {
-                    WriteFacetAsMethod(facet, options);
+					if (!Config.GenerateTypeBinding(facet)) {
+						WriteSkippedItem("method", facet.Description());
+						continue;
+					}
+
+					WriteFacetAsMethod(facet, options);
                 }
             }
         }
@@ -281,7 +342,12 @@ namespace Dubrovnik.Tools
 
                 foreach (MethodFacet facet in methods)
                 {
-                    WriteFacetAsMethod(facet);
+					if (!Config.GenerateTypeBinding(facet)) {
+						WriteSkippedItem("constructor", facet.Description());
+						continue;
+					}
+
+					WriteFacetAsMethod(facet);
                 }
             }
         }
@@ -297,20 +363,6 @@ namespace Dubrovnik.Tools
                 ImplementationFile = fileName + ".m";
             }
         }
-        private AssemblyFacet _AssemblyFacet;
-
-        public string InterfaceFile { get; private set; }
-        public string ImplementationFile { get; private set; }
-        public OutputType OutputFileType { get; private set; }
-
-        public enum OutputType { Implementation, Interface };
-
-
-        private Dictionary<string, ObjCTypeAssociation> ObjCTypeAssociations { get; set; }
-        private Dictionary<string, ManagedTypeAssociation> ManagedTypeAssociations { get; set; }
-
-        public const string ManagedVariableName = "monoObject";
-        public const string ObjCVariableName = "value";
 
         private void _TransformText()
         {

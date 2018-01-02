@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ConfigObjC xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<FilterSystemInterfaces>false</FilterSystemInterfaces>
+	<TypeNameSkipList>
+		<string>Microsoft.Win32.</string>
+		<string>System.IO.IsolatedStorage.</string>
+		<string>System.Collections.Concurrent.</string>
+		<string>System.Configuration.Assemblies.</string>
+		<string>System.Deployment.</string>
+		<string>System.Diagnostics.</string>
+		<string>System.Globalization.</string>
+		<string>System.Reflection.</string>
+		<string>System.Resources.</string>
+		<string>System.Runtime.</string>
+		<string>System.Security.</string>
+		<string>System.Threading.</string>
+	</TypeNameSkipList>
+	<TypeNameWhiteList>
+	</TypeNameWhiteList>
+</ConfigObjC>

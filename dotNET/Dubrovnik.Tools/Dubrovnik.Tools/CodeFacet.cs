@@ -94,8 +94,8 @@ namespace Dubrovnik.Tools
         public bool IsArray { get; private set; }
         public bool IsByRef { get; private set; }
         public bool IsInterface { get; private set; }
-		  public bool IsDelegate { get; private set; }
-		  public bool IsNested { get; private set; }
+		public bool IsDelegate { get; private set; }
+		public bool IsNested { get; private set; }
         public string BaseName { get; private set; }
         public string BaseType { get; private set; }
         public string UnderlyingType { get; private set; }
@@ -492,6 +492,10 @@ namespace Dubrovnik.Tools
             BaseType = "System.Object";
         }
 
+		public virtual string Description() {
+			return String.Format("{0} {1}", Type, Name);
+		}
+
     }
 
     /*
@@ -858,7 +862,18 @@ namespace Dubrovnik.Tools
             }
             return equal;
         }
-    }
+
+		public override string Description() {
+			StringBuilder paramsDesc = new StringBuilder();
+			for (int i = 0; i < Parameters.Count; i++) {
+				ParameterFacet parameter = Parameters[i];
+				string sep = i + 1 < Parameters.Count ? ", " : "";
+				paramsDesc.AppendFormat("{0}{1}", parameter.Description(), sep);
+			}
+			string description = String.Format("{0}({1})", base.Description(), paramsDesc);
+			return description;
+		}
+	}
 
     /*
      * ParameterFacet

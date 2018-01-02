@@ -588,11 +588,11 @@ namespace Dubrovnik.UnitTests {
 		// Generic methods
 		//
 		public string GenericMethod0<T>() {
-			return typeof(T).ToString();
+			return typeof(T).FullName;
 		}
 
 		public string GenericMethod02<T,U>() {
-			return typeof(T).ToString() + "," + typeof(U).ToString();
+			return typeof(T).FullName + "," + typeof(U).FullName;
 		}
 
 		public T GenericMethod1<T>(T value) {
