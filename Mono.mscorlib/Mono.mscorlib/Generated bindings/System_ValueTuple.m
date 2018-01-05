@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_ValueTuple.m
+﻿//++Dubrovnik.CodeGenerator System_ValueTuple.m
 //
 // Managed struct : ValueTuple
 //
@@ -8,6 +7,18 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_Collections_IStructuralComparable.h"
+#import "System_Collections_IStructuralEquatable.h"
+#import "System_IComparable.h"
+#import "System_IComparableA1.h"
+#import "System_IEquatableA1.h"
+#import "System_Int32.h"
+#import "System_Object.h"
+#import "System_String.h"
+#import "System_ValueTuple.h"
 
 @implementation System_ValueTuple
 

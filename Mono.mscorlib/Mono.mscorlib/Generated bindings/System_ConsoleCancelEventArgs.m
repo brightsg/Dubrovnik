@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_ConsoleCancelEventArgs.m
+﻿//++Dubrovnik.CodeGenerator System_ConsoleCancelEventArgs.m
 //
 // Managed class : ConsoleCancelEventArgs
 //
@@ -8,6 +7,11 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_ConsoleCancelEventArgs.h"
+#import "System_ConsoleSpecialKey.h"
 
 @implementation System_ConsoleCancelEventArgs
 

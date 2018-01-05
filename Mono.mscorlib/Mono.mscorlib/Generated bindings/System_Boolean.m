@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Boolean.m
+﻿//++Dubrovnik.CodeGenerator System_Boolean.m
 //
 // Managed struct : Boolean
 //
@@ -8,6 +7,16 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_IComparable.h"
+#import "System_IComparableA1.h"
+#import "System_IConvertible.h"
+#import "System_IEquatableA1.h"
+#import "System_Int32.h"
+#import "System_String.h"
+#import "System_TypeCode.h"
 
 @implementation System_Boolean
 

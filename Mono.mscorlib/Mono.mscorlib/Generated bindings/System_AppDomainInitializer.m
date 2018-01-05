@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_AppDomainInitializer.m
+﻿//++Dubrovnik.CodeGenerator System_AppDomainInitializer.m
 //
 // Managed class : AppDomainInitializer
 //
@@ -8,6 +7,13 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_AppDomainInitializer.h"
+#import "System_IAsyncResult.h"
+#import "System_ICloneable.h"
+#import "System_Runtime_Serialization_ISerializable.h"
+#import "System_Void.h"
 
 @implementation System_AppDomainInitializer
 

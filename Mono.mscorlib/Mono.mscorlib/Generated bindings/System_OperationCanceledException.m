@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_OperationCanceledException.m
+﻿//++Dubrovnik.CodeGenerator System_OperationCanceledException.m
 //
 // Managed class : OperationCanceledException
 //
@@ -8,6 +7,12 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_OperationCanceledException.h"
+#import "System_Runtime_InteropServices__Exception.h"
+#import "System_Runtime_Serialization_ISerializable.h"
+#import "System_Threading_CancellationToken.h"
 
 @implementation System_OperationCanceledException
 

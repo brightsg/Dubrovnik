@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_ConsoleKeyInfo.m
+﻿//++Dubrovnik.CodeGenerator System_ConsoleKeyInfo.m
 //
 // Managed struct : ConsoleKeyInfo
 //
@@ -8,6 +7,14 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_Char.h"
+#import "System_ConsoleKey.h"
+#import "System_ConsoleKeyInfo.h"
+#import "System_ConsoleModifiers.h"
+#import "System_Int32.h"
 
 @implementation System_ConsoleKeyInfo
 

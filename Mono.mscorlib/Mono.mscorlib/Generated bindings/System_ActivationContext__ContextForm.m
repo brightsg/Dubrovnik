@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_ActivationContext__ContextForm.m
+﻿//++Dubrovnik.CodeGenerator System_ActivationContext__ContextForm.m
 //
 // Managed enumeration : ActivationContext.ContextForm
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_ActivationContext__ContextForm.h"
 
 
 // C enumeration

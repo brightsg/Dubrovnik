@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_OperatingSystem.m
+﻿//++Dubrovnik.CodeGenerator System_OperatingSystem.m
 //
 // Managed class : OperatingSystem
 //
@@ -8,6 +7,16 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_ICloneable.h"
+#import "System_Object.h"
+#import "System_OperatingSystem.h"
+#import "System_PlatformID.h"
+#import "System_Runtime_Serialization_ISerializable.h"
+#import "System_String.h"
+#import "System_Version.h"
+#import "System_Void.h"
 
 @implementation System_OperatingSystem
 

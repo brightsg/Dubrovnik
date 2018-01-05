@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_IO_Path.m
+﻿//++Dubrovnik.CodeGenerator System_IO_Path.m
 //
 // Managed class : Path
 //
@@ -8,6 +7,12 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_Char.h"
+#import "System_IO_Path.h"
+#import "System_String.h"
 
 @implementation System_IO_Path
 

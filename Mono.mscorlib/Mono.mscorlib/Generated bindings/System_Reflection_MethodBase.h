@@ -2,6 +2,31 @@
 //
 // Managed class : MethodBase
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Reflection_MethodBase.__Extra__.h")
+#import "System_Reflection_MethodBase.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Boolean;
+@class System_Int32;
+@class System_Object;
+@class System_Reflection_MethodBase;
+@class System_RuntimeMethodHandle;
+@class System_Type;
+
+// Import superclass and adopted protocols
+#import "System_Reflection_ICustomAttributeProvider_Protocol.h"
+#import "System_Reflection_MemberInfo.h"
+#import "System_Runtime_InteropServices__MemberInfo_Protocol.h"
+#import "System_Runtime_InteropServices__MethodBase_Protocol.h"
+
 @interface System_Reflection_MethodBase : System_Reflection_MemberInfo <System_Reflection_ICustomAttributeProvider_, System_Runtime_InteropServices__MemberInfo_, System_Runtime_InteropServices__MethodBase_>
 
 #pragma mark -

@@ -2,6 +2,34 @@
 //
 // Managed struct : Boolean
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Boolean.__Extra__.h")
+#import "System_Boolean.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Boolean;
+@class System_IComparable;
+@class System_IComparableA1;
+@class System_IConvertible;
+@class System_IEquatableA1;
+@class System_Int32;
+@class System_String;
+@class System_TypeCode;
+
+// Import superclass and adopted protocols
+#import "System_IComparable_Protocol.h"
+#import "System_IComparableA1_Protocol.h"
+#import "System_IConvertible_Protocol.h"
+#import "System_IEquatableA1_Protocol.h"
+#import "System_ValueType.h"
+
 @interface System_Boolean : DBManagedObject <System_IComparable_, System_IConvertible_, System_IComparableA1_, System_IEquatableA1_>
 
 #pragma mark -

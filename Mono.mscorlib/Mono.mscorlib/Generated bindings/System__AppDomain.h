@@ -2,6 +2,30 @@
 //
 // Managed interface : _AppDomain
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System__AppDomain.__Extra__.h")
+#import "System__AppDomain.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System__AppDomain;
+@class System_Boolean;
+@class System_Int32;
+@class System_Object;
+@class System_Reflection_Assembly;
+@class System_String;
+@class System_Type;
+@class System_Void;
+
+// Import superclass and adopted protocols
+#import "System_Object.h"
+
 @interface System__AppDomain : System_Object
 
 #pragma mark -

@@ -2,6 +2,37 @@
 //
 // Managed class : ArrayList
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Collections_ArrayList.__Extra__.h")
+#import "System_Collections_ArrayList.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Array;
+@class System_Boolean;
+@class System_Collections_ArrayList;
+@class System_Collections_ICollection;
+@class System_Collections_IEnumerable;
+@class System_Collections_IEnumerator;
+@class System_Collections_IList;
+@class System_ICloneable;
+@class System_Int32;
+@class System_Object;
+@class System_Void;
+
+// Import superclass and adopted protocols
+#import "System_Collections_ICollection_Protocol.h"
+#import "System_Collections_IEnumerable_Protocol.h"
+#import "System_Collections_IList_Protocol.h"
+#import "System_ICloneable_Protocol.h"
+#import "System_Object.h"
+
 @interface System_Collections_ArrayList : System_Object <System_Collections_IList_, System_Collections_ICollection_, System_Collections_IEnumerable_, System_ICloneable_>
 
 #pragma mark -

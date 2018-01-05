@@ -2,6 +2,25 @@
 //
 // Managed class : UnhandledExceptionEventArgs
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_UnhandledExceptionEventArgs.__Extra__.h")
+#import "System_UnhandledExceptionEventArgs.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Boolean;
+@class System_Object;
+@class System_UnhandledExceptionEventArgs;
+
+// Import superclass and adopted protocols
+#import "System_EventArgs.h"
+
 @interface System_UnhandledExceptionEventArgs : System_EventArgs
 
 #pragma mark -

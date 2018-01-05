@@ -2,6 +2,24 @@
 //
 // Managed interface : IObserver`1<T>
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_IObserverA1.__Extra__.h")
+#import "System_IObserverA1.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Object;
+@class System_Void;
+
+// Import superclass and adopted protocols
+#import "System_Object.h"
+
 
 /*
  A managed interface is represented as follows:

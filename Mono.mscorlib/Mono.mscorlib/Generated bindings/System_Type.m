@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Type.m
+﻿//++Dubrovnik.CodeGenerator System_Type.m
 //
 // Managed class : Type
 //
@@ -8,6 +7,27 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Array.h"
+#import "System_Boolean.h"
+#import "System_Char.h"
+#import "System_Guid.h"
+#import "System_Int32.h"
+#import "System_Object.h"
+#import "System_Reflection_Assembly.h"
+#import "System_Reflection_Binder.h"
+#import "System_Reflection_ConstructorInfo.h"
+#import "System_Reflection_GenericParameterAttributes.h"
+#import "System_Reflection_MemberFilter.h"
+#import "System_Reflection_MethodBase.h"
+#import "System_Reflection_MethodInfo.h"
+#import "System_Reflection_PropertyInfo.h"
+#import "System_Reflection_TypeAttributes.h"
+#import "System_RuntimeTypeHandle.h"
+#import "System_String.h"
+#import "System_Type.h"
+#import "System_TypeCode.h"
 
 @implementation System_Type
 

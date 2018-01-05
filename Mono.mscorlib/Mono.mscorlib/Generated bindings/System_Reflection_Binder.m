@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Reflection_Binder.m
+﻿//++Dubrovnik.CodeGenerator System_Reflection_Binder.m
 //
 // Managed class : Binder
 //
@@ -8,6 +7,13 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Object.h"
+#import "System_Reflection_Binder.h"
+#import "System_Reflection_MethodBase.h"
+#import "System_Reflection_PropertyInfo.h"
+#import "System_Void.h"
 
 @implementation System_Reflection_Binder
 

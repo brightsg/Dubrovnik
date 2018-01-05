@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_ModuleHandle.m
+﻿//++Dubrovnik.CodeGenerator System_ModuleHandle.m
 //
 // Managed struct : ModuleHandle
 //
@@ -8,6 +7,14 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_Int32.h"
+#import "System_ModuleHandle.h"
+#import "System_RuntimeFieldHandle.h"
+#import "System_RuntimeMethodHandle.h"
+#import "System_RuntimeTypeHandle.h"
 
 @implementation System_ModuleHandle
 

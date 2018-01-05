@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_CLSCompliantAttribute.m
+﻿//++Dubrovnik.CodeGenerator System_CLSCompliantAttribute.m
 //
 // Managed class : CLSCompliantAttribute
 //
@@ -8,6 +7,10 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_CLSCompliantAttribute.h"
 
 @implementation System_CLSCompliantAttribute
 

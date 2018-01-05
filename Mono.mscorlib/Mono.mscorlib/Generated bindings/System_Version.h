@@ -2,6 +2,36 @@
 //
 // Managed class : Version
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Version.__Extra__.h")
+#import "System_Version.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Boolean;
+@class System_ICloneable;
+@class System_IComparable;
+@class System_IComparableA1;
+@class System_IEquatableA1;
+@class System_Int16;
+@class System_Int32;
+@class System_Object;
+@class System_String;
+@class System_Version;
+
+// Import superclass and adopted protocols
+#import "System_ICloneable_Protocol.h"
+#import "System_IComparable_Protocol.h"
+#import "System_IComparableA1_Protocol.h"
+#import "System_IEquatableA1_Protocol.h"
+#import "System_Object.h"
+
 @interface System_Version : System_Object <System_ICloneable_, System_IComparable_, System_IComparableA1_, System_IEquatableA1_>
 
 #pragma mark -

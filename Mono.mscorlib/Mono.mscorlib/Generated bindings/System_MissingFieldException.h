@@ -2,6 +2,28 @@
 //
 // Managed class : MissingFieldException
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_MissingFieldException.__Extra__.h")
+#import "System_MissingFieldException.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_MissingFieldException;
+@class System_Runtime_InteropServices__Exception;
+@class System_Runtime_Serialization_ISerializable;
+@class System_String;
+
+// Import superclass and adopted protocols
+#import "System_MissingMemberException.h"
+#import "System_Runtime_InteropServices__Exception_Protocol.h"
+#import "System_Runtime_Serialization_ISerializable_Protocol.h"
+
 @interface System_MissingFieldException : System_MissingMemberException <System_Runtime_Serialization_ISerializable_, System_Runtime_InteropServices__Exception_>
 
 #pragma mark -

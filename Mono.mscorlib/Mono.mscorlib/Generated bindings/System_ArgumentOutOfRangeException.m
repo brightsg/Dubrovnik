@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_ArgumentOutOfRangeException.m
+﻿//++Dubrovnik.CodeGenerator System_ArgumentOutOfRangeException.m
 //
 // Managed class : ArgumentOutOfRangeException
 //
@@ -8,6 +7,14 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_ArgumentOutOfRangeException.h"
+#import "System_Object.h"
+#import "System_Runtime_InteropServices__Exception.h"
+#import "System_Runtime_Serialization_ISerializable.h"
+#import "System_String.h"
+#import "System_Void.h"
 
 @implementation System_ArgumentOutOfRangeException
 

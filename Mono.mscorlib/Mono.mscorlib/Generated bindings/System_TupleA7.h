@@ -2,6 +2,33 @@
 //
 // Managed class : Tuple`7
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_TupleA7.__Extra__.h")
+#import "System_TupleA7.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Boolean;
+@class System_Collections_IStructuralComparable;
+@class System_Collections_IStructuralEquatable;
+@class System_IComparable;
+@class System_Int32;
+@class System_Object;
+@class System_String;
+
+// Import superclass and adopted protocols
+#import "System_Collections_IStructuralComparable_Protocol.h"
+#import "System_Collections_IStructuralEquatable_Protocol.h"
+#import "System_IComparable_Protocol.h"
+#import "System_Object.h"
+#import "System_Runtime_CompilerServices_ITuple_Protocol.h"
+
 @interface System_TupleA7 : System_Object <System_Collections_IStructuralEquatable_, System_Collections_IStructuralComparable_, System_IComparable_, System_Runtime_CompilerServices_ITuple_>
 
 #pragma mark -

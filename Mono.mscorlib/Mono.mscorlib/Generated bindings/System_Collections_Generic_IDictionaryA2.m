@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Collections_Generic_IDictionaryA2.m
+﻿//++Dubrovnik.CodeGenerator System_Collections_Generic_IDictionaryA2.m
 //
 // Managed interface : IDictionary`2<TKey, TValue>
 //
@@ -8,6 +7,14 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_Collections_Generic_ICollectionA1.h"
+#import "System_Collections_Generic_IEnumerableA1.h"
+#import "System_Collections_IEnumerable.h"
+#import "System_Object.h"
+#import "System_Void.h"
 
 @implementation System_Collections_Generic_IDictionaryA2
 

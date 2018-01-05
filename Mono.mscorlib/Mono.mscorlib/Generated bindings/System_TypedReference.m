@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_TypedReference.m
+﻿//++Dubrovnik.CodeGenerator System_TypedReference.m
 //
 // Managed struct : TypedReference
 //
@@ -8,6 +7,15 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_Int32.h"
+#import "System_Object.h"
+#import "System_RuntimeTypeHandle.h"
+#import "System_Type.h"
+#import "System_TypedReference.h"
+#import "System_Void.h"
 
 @implementation System_TypedReference
 

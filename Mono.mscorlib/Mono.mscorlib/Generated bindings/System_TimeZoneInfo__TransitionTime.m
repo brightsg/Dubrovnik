@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_TimeZoneInfo__TransitionTime.m
+﻿//++Dubrovnik.CodeGenerator System_TimeZoneInfo__TransitionTime.m
 //
 // Managed struct : TimeZoneInfo.TransitionTime
 //
@@ -8,6 +7,15 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_DateTime.h"
+#import "System_DayOfWeek.h"
+#import "System_IEquatableA1.h"
+#import "System_Int32.h"
+#import "System_Runtime_Serialization_ISerializable.h"
+#import "System_TimeZoneInfo__TransitionTime.h"
 
 @implementation System_TimeZoneInfo__TransitionTime
 

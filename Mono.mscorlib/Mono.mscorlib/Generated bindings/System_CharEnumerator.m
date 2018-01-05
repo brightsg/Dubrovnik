@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_CharEnumerator.m
+﻿//++Dubrovnik.CodeGenerator System_CharEnumerator.m
 //
 // Managed class : CharEnumerator
 //
@@ -8,6 +7,17 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_Char.h"
+#import "System_CharEnumerator.h"
+#import "System_Collections_Generic_IEnumeratorA1.h"
+#import "System_Collections_IEnumerator.h"
+#import "System_ICloneable.h"
+#import "System_IDisposable.h"
+#import "System_Object.h"
+#import "System_Void.h"
 
 @implementation System_CharEnumerator
 

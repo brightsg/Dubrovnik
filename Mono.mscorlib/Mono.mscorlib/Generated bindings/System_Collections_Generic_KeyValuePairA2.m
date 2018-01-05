@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Collections_Generic_KeyValuePairA2.m
+﻿//++Dubrovnik.CodeGenerator System_Collections_Generic_KeyValuePairA2.m
 //
 // Managed struct : KeyValuePair`2<TKey, TValue>
 //
@@ -8,6 +7,10 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Object.h"
+#import "System_String.h"
 
 @implementation System_Collections_Generic_KeyValuePairA2
 

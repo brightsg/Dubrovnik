@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Console.m
+﻿//++Dubrovnik.CodeGenerator System_Console.m
 //
 // Managed class : Console
 //
@@ -8,6 +7,19 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_Console.h"
+#import "System_ConsoleColor.h"
+#import "System_ConsoleKeyInfo.h"
+#import "System_Int32.h"
+#import "System_IO_Stream.h"
+#import "System_IO_TextReader.h"
+#import "System_IO_TextWriter.h"
+#import "System_String.h"
+#import "System_Text_Encoding.h"
+#import "System_Void.h"
 
 @implementation System_Console
 

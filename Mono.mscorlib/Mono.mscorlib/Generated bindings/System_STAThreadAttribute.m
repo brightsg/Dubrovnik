@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_STAThreadAttribute.m
+﻿//++Dubrovnik.CodeGenerator System_STAThreadAttribute.m
 //
 // Managed class : STAThreadAttribute
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_STAThreadAttribute.h"
 
 @implementation System_STAThreadAttribute
 

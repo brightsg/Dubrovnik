@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Text_EncoderReplacementFallback.m
+﻿//++Dubrovnik.CodeGenerator System_Text_EncoderReplacementFallback.m
 //
 // Managed class : EncoderReplacementFallback
 //
@@ -8,6 +7,13 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_Int32.h"
+#import "System_String.h"
+#import "System_Text_EncoderFallbackBuffer.h"
+#import "System_Text_EncoderReplacementFallback.h"
 
 @implementation System_Text_EncoderReplacementFallback
 

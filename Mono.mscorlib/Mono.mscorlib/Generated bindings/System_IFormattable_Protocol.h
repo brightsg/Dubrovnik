@@ -2,6 +2,24 @@
 //
 // Managed interface : IFormattable
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_IFormattable.__Extra__.h")
+#import "System_IFormattable.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_IFormattable;
+@class System_String;
+
+// Import superclass and adopted protocols
+#import "System_Object.h"
+
 
 /*
  A managed interface is represented as follows:

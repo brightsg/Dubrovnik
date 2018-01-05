@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Collections_CaseInsensitiveHashCodeProvider.m
+﻿//++Dubrovnik.CodeGenerator System_Collections_CaseInsensitiveHashCodeProvider.m
 //
 // Managed class : CaseInsensitiveHashCodeProvider
 //
@@ -8,6 +7,11 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Collections_CaseInsensitiveHashCodeProvider.h"
+#import "System_Collections_IHashCodeProvider.h"
+#import "System_Int32.h"
 
 @implementation System_Collections_CaseInsensitiveHashCodeProvider
 

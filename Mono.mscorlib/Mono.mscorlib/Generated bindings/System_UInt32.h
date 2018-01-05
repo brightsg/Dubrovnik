@@ -2,6 +2,37 @@
 //
 // Managed struct : UInt32
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_UInt32.__Extra__.h")
+#import "System_UInt32.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Boolean;
+@class System_IComparable;
+@class System_IComparableA1;
+@class System_IConvertible;
+@class System_IEquatableA1;
+@class System_IFormattable;
+@class System_Int32;
+@class System_String;
+@class System_TypeCode;
+@class System_UInt32;
+
+// Import superclass and adopted protocols
+#import "System_IComparable_Protocol.h"
+#import "System_IComparableA1_Protocol.h"
+#import "System_IConvertible_Protocol.h"
+#import "System_IEquatableA1_Protocol.h"
+#import "System_IFormattable_Protocol.h"
+#import "System_ValueType.h"
+
 @interface System_UInt32 : DBManagedObject <System_IComparable_, System_IFormattable_, System_IConvertible_, System_IComparableA1_, System_IEquatableA1_>
 
 #pragma mark -

@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Reflection_AssemblyDefaultAliasAttribute.m
+﻿//++Dubrovnik.CodeGenerator System_Reflection_AssemblyDefaultAliasAttribute.m
 //
 // Managed class : AssemblyDefaultAliasAttribute
 //
@@ -8,6 +7,10 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Reflection_AssemblyDefaultAliasAttribute.h"
+#import "System_String.h"
 
 @implementation System_Reflection_AssemblyDefaultAliasAttribute
 

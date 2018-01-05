@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_TypeInitializationException.m
+﻿//++Dubrovnik.CodeGenerator System_TypeInitializationException.m
 //
 // Managed class : TypeInitializationException
 //
@@ -8,6 +7,13 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Runtime_InteropServices__Exception.h"
+#import "System_Runtime_Serialization_ISerializable.h"
+#import "System_String.h"
+#import "System_TypeInitializationException.h"
+#import "System_Void.h"
 
 @implementation System_TypeInitializationException
 

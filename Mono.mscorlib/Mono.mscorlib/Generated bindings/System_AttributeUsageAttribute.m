@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_AttributeUsageAttribute.m
+﻿//++Dubrovnik.CodeGenerator System_AttributeUsageAttribute.m
 //
 // Managed class : AttributeUsageAttribute
 //
@@ -8,6 +7,11 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_AttributeTargets.h"
+#import "System_AttributeUsageAttribute.h"
+#import "System_Boolean.h"
 
 @implementation System_AttributeUsageAttribute
 

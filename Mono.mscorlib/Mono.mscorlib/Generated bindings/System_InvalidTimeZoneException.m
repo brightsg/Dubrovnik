@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_InvalidTimeZoneException.m
+﻿//++Dubrovnik.CodeGenerator System_InvalidTimeZoneException.m
 //
 // Managed class : InvalidTimeZoneException
 //
@@ -8,6 +7,11 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_InvalidTimeZoneException.h"
+#import "System_Runtime_InteropServices__Exception.h"
+#import "System_Runtime_Serialization_ISerializable.h"
 
 @implementation System_InvalidTimeZoneException
 

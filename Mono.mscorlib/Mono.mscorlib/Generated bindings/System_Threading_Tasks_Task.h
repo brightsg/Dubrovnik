@@ -2,6 +2,37 @@
 //
 // Managed class : Task
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Threading_Tasks_Task.__Extra__.h")
+#import "System_Threading_Tasks_Task.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_AggregateException;
+@class System_Boolean;
+@class System_IAsyncResult;
+@class System_IDisposable;
+@class System_Int32;
+@class System_NullableA1;
+@class System_Object;
+@class System_Threading_Tasks_Task;
+@class System_Threading_Tasks_TaskA1;
+@class System_Threading_Tasks_TaskCreationOptions;
+@class System_Threading_Tasks_TaskFactory;
+@class System_Threading_Tasks_TaskStatus;
+@class System_Void;
+
+// Import superclass and adopted protocols
+#import "System_IAsyncResult_Protocol.h"
+#import "System_IDisposable_Protocol.h"
+#import "System_Object.h"
+
 @interface System_Threading_Tasks_Task : System_Object <System_IAsyncResult_, System_IDisposable_>
 
 #pragma mark -

@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator.m
+﻿//++Dubrovnik.CodeGenerator System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator.m
 //
 // Managed struct : Dictionary`2<TKey, TValue>.KeyCollection.Enumerator
 //
@@ -8,6 +7,14 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_Collections_Generic_IEnumeratorA1.h"
+#import "System_Collections_IEnumerator.h"
+#import "System_IDisposable.h"
+#import "System_Object.h"
+#import "System_Void.h"
 
 @implementation System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator
 

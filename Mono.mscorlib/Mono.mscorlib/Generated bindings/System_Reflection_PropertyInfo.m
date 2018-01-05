@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Reflection_PropertyInfo.m
+﻿//++Dubrovnik.CodeGenerator System_Reflection_PropertyInfo.m
 //
 // Managed class : PropertyInfo
 //
@@ -8,6 +7,15 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_Int32.h"
+#import "System_Object.h"
+#import "System_Reflection_MethodInfo.h"
+#import "System_Reflection_PropertyInfo.h"
+#import "System_Type.h"
+#import "System_Void.h"
 
 @implementation System_Reflection_PropertyInfo
 

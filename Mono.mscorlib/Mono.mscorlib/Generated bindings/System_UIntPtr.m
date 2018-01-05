@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_UIntPtr.m
+﻿//++Dubrovnik.CodeGenerator System_UIntPtr.m
 //
 // Managed struct : UIntPtr
 //
@@ -8,6 +7,16 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_Int32.h"
+#import "System_Runtime_Serialization_ISerializable.h"
+#import "System_String.h"
+#import "System_UInt32.h"
+#import "System_UInt64.h"
+#import "System_UIntPtr.h"
+#import "System_Void.h"
 
 @implementation System_UIntPtr
 

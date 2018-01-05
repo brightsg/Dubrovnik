@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_NotFiniteNumberException.m
+﻿//++Dubrovnik.CodeGenerator System_NotFiniteNumberException.m
 //
 // Managed class : NotFiniteNumberException
 //
@@ -8,6 +7,13 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Double.h"
+#import "System_NotFiniteNumberException.h"
+#import "System_Runtime_InteropServices__Exception.h"
+#import "System_Runtime_Serialization_ISerializable.h"
+#import "System_Void.h"
 
 @implementation System_NotFiniteNumberException
 

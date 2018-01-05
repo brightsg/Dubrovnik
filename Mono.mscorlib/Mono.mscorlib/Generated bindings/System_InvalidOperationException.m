@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_InvalidOperationException.m
+﻿//++Dubrovnik.CodeGenerator System_InvalidOperationException.m
 //
 // Managed class : InvalidOperationException
 //
@@ -8,6 +7,11 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_InvalidOperationException.h"
+#import "System_Runtime_InteropServices__Exception.h"
+#import "System_Runtime_Serialization_ISerializable.h"
 
 @implementation System_InvalidOperationException
 

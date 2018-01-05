@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Threading_Tasks_TaskCanceledException.m
+﻿//++Dubrovnik.CodeGenerator System_Threading_Tasks_TaskCanceledException.m
 //
 // Managed class : TaskCanceledException
 //
@@ -8,6 +7,12 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Runtime_InteropServices__Exception.h"
+#import "System_Runtime_Serialization_ISerializable.h"
+#import "System_Threading_Tasks_Task.h"
+#import "System_Threading_Tasks_TaskCanceledException.h"
 
 @implementation System_Threading_Tasks_TaskCanceledException
 

@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_ApplicationIdentity.m
+﻿//++Dubrovnik.CodeGenerator System_ApplicationIdentity.m
 //
 // Managed class : ApplicationIdentity
 //
@@ -8,6 +7,11 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_ApplicationIdentity.h"
+#import "System_Runtime_Serialization_ISerializable.h"
+#import "System_String.h"
 
 @implementation System_ApplicationIdentity
 

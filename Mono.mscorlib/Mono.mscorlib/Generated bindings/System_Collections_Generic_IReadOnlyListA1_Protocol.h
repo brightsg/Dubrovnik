@@ -2,6 +2,29 @@
 //
 // Managed interface : IReadOnlyList`1<T>
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Collections_Generic_IReadOnlyListA1.__Extra__.h")
+#import "System_Collections_Generic_IReadOnlyListA1.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Collections_Generic_IEnumerableA1;
+@class System_Collections_Generic_IReadOnlyCollectionA1;
+@class System_Collections_IEnumerable;
+@class System_Object;
+
+// Import superclass and adopted protocols
+#import "System_Collections_Generic_IEnumerableA1_Protocol.h"
+#import "System_Collections_Generic_IReadOnlyCollectionA1_Protocol.h"
+#import "System_Collections_IEnumerable_Protocol.h"
+#import "System_Object.h"
+
 
 /*
  A managed interface is represented as follows:

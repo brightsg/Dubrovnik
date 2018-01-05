@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_IO_FileInfo.m
+﻿//++Dubrovnik.CodeGenerator System_IO_FileInfo.m
 //
 // Managed class : FileInfo
 //
@@ -8,6 +7,18 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_Int64.h"
+#import "System_IO_DirectoryInfo.h"
+#import "System_IO_FileInfo.h"
+#import "System_IO_FileStream.h"
+#import "System_IO_StreamReader.h"
+#import "System_IO_StreamWriter.h"
+#import "System_Runtime_Serialization_ISerializable.h"
+#import "System_String.h"
+#import "System_Void.h"
 
 @implementation System_IO_FileInfo
 

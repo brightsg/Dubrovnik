@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Convert.m
+﻿//++Dubrovnik.CodeGenerator System_Convert.m
 //
 // Managed class : Convert
 //
@@ -8,6 +7,26 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_Byte.h"
+#import "System_Char.h"
+#import "System_Convert.h"
+#import "System_DateTime.h"
+#import "System_Decimal.h"
+#import "System_Double.h"
+#import "System_Int16.h"
+#import "System_Int32.h"
+#import "System_Int64.h"
+#import "System_Object.h"
+#import "System_SByte.h"
+#import "System_Single.h"
+#import "System_String.h"
+#import "System_TypeCode.h"
+#import "System_UInt16.h"
+#import "System_UInt32.h"
+#import "System_UInt64.h"
 
 @implementation System_Convert
 

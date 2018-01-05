@@ -2,6 +2,30 @@
 //
 // Managed class : EncoderFallbackException
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Text_EncoderFallbackException.__Extra__.h")
+#import "System_Text_EncoderFallbackException.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Boolean;
+@class System_Char;
+@class System_Int32;
+@class System_Runtime_InteropServices__Exception;
+@class System_Runtime_Serialization_ISerializable;
+@class System_Text_EncoderFallbackException;
+
+// Import superclass and adopted protocols
+#import "System_ArgumentException.h"
+#import "System_Runtime_InteropServices__Exception_Protocol.h"
+#import "System_Runtime_Serialization_ISerializable_Protocol.h"
+
 @interface System_Text_EncoderFallbackException : System_ArgumentException <System_Runtime_Serialization_ISerializable_, System_Runtime_InteropServices__Exception_>
 
 #pragma mark -

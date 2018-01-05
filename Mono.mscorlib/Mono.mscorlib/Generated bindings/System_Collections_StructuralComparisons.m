@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Collections_StructuralComparisons.m
+﻿//++Dubrovnik.CodeGenerator System_Collections_StructuralComparisons.m
 //
 // Managed class : StructuralComparisons
 //
@@ -8,6 +7,11 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Collections_IComparer.h"
+#import "System_Collections_IEqualityComparer.h"
+#import "System_Collections_StructuralComparisons.h"
 
 @implementation System_Collections_StructuralComparisons
 

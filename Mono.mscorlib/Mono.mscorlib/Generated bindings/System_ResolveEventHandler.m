@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_ResolveEventHandler.m
+﻿//++Dubrovnik.CodeGenerator System_ResolveEventHandler.m
 //
 // Managed class : ResolveEventHandler
 //
@@ -8,6 +7,13 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_IAsyncResult.h"
+#import "System_ICloneable.h"
+#import "System_Reflection_Assembly.h"
+#import "System_ResolveEventHandler.h"
+#import "System_Runtime_Serialization_ISerializable.h"
 
 @implementation System_ResolveEventHandler
 

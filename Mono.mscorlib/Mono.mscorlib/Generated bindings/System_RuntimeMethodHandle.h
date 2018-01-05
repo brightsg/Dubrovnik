@@ -2,6 +2,29 @@
 //
 // Managed struct : RuntimeMethodHandle
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_RuntimeMethodHandle.__Extra__.h")
+#import "System_RuntimeMethodHandle.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Boolean;
+@class System_Int32;
+@class System_IntPtr;
+@class System_Runtime_Serialization_ISerializable;
+@class System_RuntimeMethodHandle;
+@class System_Void;
+
+// Import superclass and adopted protocols
+#import "System_Runtime_Serialization_ISerializable_Protocol.h"
+#import "System_ValueType.h"
+
 @interface System_RuntimeMethodHandle : DBManagedObject <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -

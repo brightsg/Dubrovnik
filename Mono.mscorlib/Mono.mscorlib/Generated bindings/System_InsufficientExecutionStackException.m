@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_InsufficientExecutionStackException.m
+﻿//++Dubrovnik.CodeGenerator System_InsufficientExecutionStackException.m
 //
 // Managed class : InsufficientExecutionStackException
 //
@@ -8,6 +7,11 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_InsufficientExecutionStackException.h"
+#import "System_Runtime_InteropServices__Exception.h"
+#import "System_Runtime_Serialization_ISerializable.h"
 
 @implementation System_InsufficientExecutionStackException
 

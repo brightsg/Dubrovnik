@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_FlagsAttribute.m
+﻿//++Dubrovnik.CodeGenerator System_FlagsAttribute.m
 //
 // Managed class : FlagsAttribute
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_FlagsAttribute.h"
 
 @implementation System_FlagsAttribute
 

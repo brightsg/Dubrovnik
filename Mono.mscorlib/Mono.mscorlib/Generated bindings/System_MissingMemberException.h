@@ -2,6 +2,29 @@
 //
 // Managed class : MissingMemberException
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_MissingMemberException.__Extra__.h")
+#import "System_MissingMemberException.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_MissingMemberException;
+@class System_Runtime_InteropServices__Exception;
+@class System_Runtime_Serialization_ISerializable;
+@class System_String;
+@class System_Void;
+
+// Import superclass and adopted protocols
+#import "System_MemberAccessException.h"
+#import "System_Runtime_InteropServices__Exception_Protocol.h"
+#import "System_Runtime_Serialization_ISerializable_Protocol.h"
+
 @interface System_MissingMemberException : System_MemberAccessException <System_Runtime_Serialization_ISerializable_, System_Runtime_InteropServices__Exception_>
 
 #pragma mark -

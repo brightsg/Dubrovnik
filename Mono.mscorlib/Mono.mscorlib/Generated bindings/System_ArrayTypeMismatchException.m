@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_ArrayTypeMismatchException.m
+﻿//++Dubrovnik.CodeGenerator System_ArrayTypeMismatchException.m
 //
 // Managed class : ArrayTypeMismatchException
 //
@@ -8,6 +7,11 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_ArrayTypeMismatchException.h"
+#import "System_Runtime_InteropServices__Exception.h"
+#import "System_Runtime_Serialization_ISerializable.h"
 
 @implementation System_ArrayTypeMismatchException
 

@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Text_DecoderFallbackException.m
+﻿//++Dubrovnik.CodeGenerator System_Text_DecoderFallbackException.m
 //
 // Managed class : DecoderFallbackException
 //
@@ -8,6 +7,13 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Byte.h"
+#import "System_Int32.h"
+#import "System_Runtime_InteropServices__Exception.h"
+#import "System_Runtime_Serialization_ISerializable.h"
+#import "System_Text_DecoderFallbackException.h"
 
 @implementation System_Text_DecoderFallbackException
 

@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_LoaderOptimizationAttribute.m
+﻿//++Dubrovnik.CodeGenerator System_LoaderOptimizationAttribute.m
 //
 // Managed class : LoaderOptimizationAttribute
 //
@@ -8,6 +7,10 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_LoaderOptimization.h"
+#import "System_LoaderOptimizationAttribute.h"
 
 @implementation System_LoaderOptimizationAttribute
 

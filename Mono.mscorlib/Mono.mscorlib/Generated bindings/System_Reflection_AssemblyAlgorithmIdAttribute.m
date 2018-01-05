@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Reflection_AssemblyAlgorithmIdAttribute.m
+﻿//++Dubrovnik.CodeGenerator System_Reflection_AssemblyAlgorithmIdAttribute.m
 //
 // Managed class : AssemblyAlgorithmIdAttribute
 //
@@ -8,6 +7,10 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Reflection_AssemblyAlgorithmIdAttribute.h"
+#import "System_UInt32.h"
 
 @implementation System_Reflection_AssemblyAlgorithmIdAttribute
 

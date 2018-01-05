@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Environment__SpecialFolder.m
+﻿//++Dubrovnik.CodeGenerator System_Environment__SpecialFolder.m
 //
 // Managed enumeration : Environment.SpecialFolder
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Environment__SpecialFolder.h"
 
 
 // C enumeration

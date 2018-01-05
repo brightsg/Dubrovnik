@@ -2,6 +2,24 @@
 //
 // Managed interface : ISerializable
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Runtime_Serialization_ISerializable.__Extra__.h")
+#import "System_Runtime_Serialization_ISerializable.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Runtime_Serialization_ISerializable;
+@class System_Void;
+
+// Import superclass and adopted protocols
+#import "System_Object.h"
+
 
 /*
  A managed interface is represented as follows:

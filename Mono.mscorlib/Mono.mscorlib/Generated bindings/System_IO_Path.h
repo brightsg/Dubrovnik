@@ -2,6 +2,26 @@
 //
 // Managed class : Path
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_IO_Path.__Extra__.h")
+#import "System_IO_Path.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Boolean;
+@class System_Char;
+@class System_IO_Path;
+@class System_String;
+
+// Import superclass and adopted protocols
+#import "System_Object.h"
+
 @interface System_IO_Path : System_Object
 
 #pragma mark -

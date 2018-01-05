@@ -67,7 +67,7 @@ namespace Dubrovnik.Tools
                     {
                         string importFileName = Path.GetFileNameWithoutExtension(contentFile) + ".h";
                         string import = String.Format("#import \"{0}\"{1}", importFileName, Environment.NewLine);
-                        output = import + output;
+                        //output = import + output;
                     }
 
                     // export it

@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_String.m
+﻿//++Dubrovnik.CodeGenerator System_String.m
 //
 // Managed class : String
 //
@@ -8,6 +7,23 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_Char.h"
+#import "System_CharEnumerator.h"
+#import "System_Collections_Generic_IEnumerableA1.h"
+#import "System_Collections_IEnumerable.h"
+#import "System_ICloneable.h"
+#import "System_IComparable.h"
+#import "System_IComparableA1.h"
+#import "System_IConvertible.h"
+#import "System_IEquatableA1.h"
+#import "System_Int32.h"
+#import "System_Object.h"
+#import "System_String.h"
+#import "System_TypeCode.h"
+#import "System_Void.h"
 
 @implementation System_String
 

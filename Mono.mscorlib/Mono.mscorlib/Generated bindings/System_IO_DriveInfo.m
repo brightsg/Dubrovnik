@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_IO_DriveInfo.m
+﻿//++Dubrovnik.CodeGenerator System_IO_DriveInfo.m
 //
 // Managed class : DriveInfo
 //
@@ -8,6 +7,15 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_Int64.h"
+#import "System_IO_DirectoryInfo.h"
+#import "System_IO_DriveInfo.h"
+#import "System_IO_DriveType.h"
+#import "System_Runtime_Serialization_ISerializable.h"
+#import "System_String.h"
 
 @implementation System_IO_DriveInfo
 

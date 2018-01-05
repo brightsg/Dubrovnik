@@ -2,6 +2,27 @@
 //
 // Managed interface : IEnumerator`1<T>
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Collections_Generic_IEnumeratorA1.__Extra__.h")
+#import "System_Collections_Generic_IEnumeratorA1.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Collections_IEnumerator;
+@class System_IDisposable;
+@class System_Object;
+
+// Import superclass and adopted protocols
+#import "System_Collections_IEnumerator_Protocol.h"
+#import "System_IDisposable_Protocol.h"
+#import "System_Object.h"
+
 @interface System_Collections_Generic_IEnumeratorA1 : System_Object <System_Collections_Generic_IEnumeratorA1_, System_IDisposable_, System_Collections_IEnumerator_>
 
 #pragma mark -

@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_NonSerializedAttribute.m
+﻿//++Dubrovnik.CodeGenerator System_NonSerializedAttribute.m
 //
 // Managed class : NonSerializedAttribute
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_NonSerializedAttribute.h"
 
 @implementation System_NonSerializedAttribute
 

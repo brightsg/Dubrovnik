@@ -2,6 +2,26 @@
 //
 // Managed struct : Nullable`1<T>
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_NullableA1.__Extra__.h")
+#import "System_NullableA1.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Boolean;
+@class System_Int32;
+@class System_Object;
+@class System_String;
+
+// Import superclass and adopted protocols
+#import "System_ValueType.h"
+
 @interface System_NullableA1 : DBManagedObject
 
 #pragma mark -

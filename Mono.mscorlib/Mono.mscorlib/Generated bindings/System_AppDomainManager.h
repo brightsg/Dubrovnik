@@ -2,6 +2,28 @@
 //
 // Managed class : AppDomainManager
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_AppDomainManager.__Extra__.h")
+#import "System_AppDomainManager.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_AppDomain;
+@class System_AppDomainManager;
+@class System_AppDomainManagerInitializationOptions;
+@class System_Boolean;
+@class System_Reflection_Assembly;
+@class System_Void;
+
+// Import superclass and adopted protocols
+#import "System_MarshalByRefObject.h"
+
 @interface System_AppDomainManager : System_MarshalByRefObject
 
 #pragma mark -

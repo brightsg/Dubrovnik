@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Threading_Tasks_TaskA1.m
+﻿//++Dubrovnik.CodeGenerator System_Threading_Tasks_TaskA1.m
 //
 // Managed class : Task`1<TResult>
 //
@@ -8,6 +7,12 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_IAsyncResult.h"
+#import "System_IDisposable.h"
+#import "System_Object.h"
+#import "System_Threading_Tasks_Task.h"
 
 @implementation System_Threading_Tasks_TaskA1
 

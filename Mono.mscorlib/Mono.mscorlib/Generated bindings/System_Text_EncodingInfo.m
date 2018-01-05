@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Text_EncodingInfo.m
+﻿//++Dubrovnik.CodeGenerator System_Text_EncodingInfo.m
 //
 // Managed class : EncodingInfo
 //
@@ -8,6 +7,13 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_Int32.h"
+#import "System_String.h"
+#import "System_Text_Encoding.h"
+#import "System_Text_EncodingInfo.h"
 
 @implementation System_Text_EncodingInfo
 

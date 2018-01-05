@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_DBNull.m
+﻿//++Dubrovnik.CodeGenerator System_DBNull.m
 //
 // Managed class : DBNull
 //
@@ -8,6 +7,14 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_DBNull.h"
+#import "System_IConvertible.h"
+#import "System_Runtime_Serialization_ISerializable.h"
+#import "System_String.h"
+#import "System_TypeCode.h"
+#import "System_Void.h"
 
 @implementation System_DBNull
 

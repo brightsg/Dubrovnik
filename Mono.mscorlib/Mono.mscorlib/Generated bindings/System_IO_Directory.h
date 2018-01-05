@@ -2,6 +2,29 @@
 //
 // Managed class : Directory
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_IO_Directory.__Extra__.h")
+#import "System_IO_Directory.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Boolean;
+@class System_Collections_Generic_IEnumerableA1;
+@class System_DateTime;
+@class System_IO_Directory;
+@class System_IO_DirectoryInfo;
+@class System_String;
+@class System_Void;
+
+// Import superclass and adopted protocols
+#import "System_Object.h"
+
 @interface System_IO_Directory : System_Object
 
 #pragma mark -

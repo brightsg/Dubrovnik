@@ -2,6 +2,32 @@
 //
 // Managed class : UnmanagedMemoryStream
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_IO_UnmanagedMemoryStream.__Extra__.h")
+#import "System_IO_UnmanagedMemoryStream.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Boolean;
+@class System_Byte;
+@class System_IDisposable;
+@class System_Int32;
+@class System_Int64;
+@class System_IO_UnmanagedMemoryStream;
+@class System_Threading_Tasks_Task;
+@class System_Threading_Tasks_TaskA1;
+@class System_Void;
+
+// Import superclass and adopted protocols
+#import "System_IDisposable_Protocol.h"
+#import "System_IO_Stream.h"
+
 @interface System_IO_UnmanagedMemoryStream : System_IO_Stream <System_IDisposable_>
 
 #pragma mark -

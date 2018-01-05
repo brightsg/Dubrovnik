@@ -2,6 +2,31 @@
 //
 // Managed class : Environment
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Environment.__Extra__.h")
+#import "System_Environment.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Boolean;
+@class System_Collections_IDictionary;
+@class System_Environment;
+@class System_Int32;
+@class System_Int64;
+@class System_OperatingSystem;
+@class System_String;
+@class System_Version;
+@class System_Void;
+
+// Import superclass and adopted protocols
+#import "System_Object.h"
+
 @interface System_Environment : System_Object
 
 #pragma mark -

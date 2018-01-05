@@ -2,6 +2,31 @@
 //
 // Managed class : AggregateException
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_AggregateException.__Extra__.h")
+#import "System_AggregateException.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_AggregateException;
+@class System_Collections_ObjectModel_ReadOnlyCollectionA1;
+@class System_Exception;
+@class System_Runtime_InteropServices__Exception;
+@class System_Runtime_Serialization_ISerializable;
+@class System_String;
+@class System_Void;
+
+// Import superclass and adopted protocols
+#import "System_Exception.h"
+#import "System_Runtime_InteropServices__Exception_Protocol.h"
+#import "System_Runtime_Serialization_ISerializable_Protocol.h"
+
 @interface System_AggregateException : System_Exception <System_Runtime_Serialization_ISerializable_, System_Runtime_InteropServices__Exception_>
 
 #pragma mark -

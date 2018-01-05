@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_IDisposable.m
+﻿//++Dubrovnik.CodeGenerator System_IDisposable.m
 //
 // Managed interface : IDisposable
 //
@@ -8,6 +7,10 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_IDisposable.h"
+#import "System_Void.h"
 
 @implementation System_IDisposable
 

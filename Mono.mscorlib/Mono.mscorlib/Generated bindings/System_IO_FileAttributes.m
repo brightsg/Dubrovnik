@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_IO_FileAttributes.m
+﻿//++Dubrovnik.CodeGenerator System_IO_FileAttributes.m
 //
 // Managed enumeration : FileAttributes
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_IO_FileAttributes.h"
 
 
 // C enumeration

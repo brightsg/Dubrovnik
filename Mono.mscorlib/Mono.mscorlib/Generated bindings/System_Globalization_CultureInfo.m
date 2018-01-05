@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Globalization_CultureInfo.m
+﻿//++Dubrovnik.CodeGenerator System_Globalization_CultureInfo.m
 //
 // Managed class : CultureInfo
 //
@@ -8,6 +7,16 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_Globalization_CultureInfo.h"
+#import "System_ICloneable.h"
+#import "System_IFormatProvider.h"
+#import "System_Int32.h"
+#import "System_Object.h"
+#import "System_String.h"
+#import "System_Void.h"
 
 @implementation System_Globalization_CultureInfo
 

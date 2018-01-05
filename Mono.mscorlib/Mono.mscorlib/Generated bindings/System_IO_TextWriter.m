@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_IO_TextWriter.m
+﻿//++Dubrovnik.CodeGenerator System_IO_TextWriter.m
 //
 // Managed class : TextWriter
 //
@@ -8,6 +7,15 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_IDisposable.h"
+#import "System_IFormatProvider.h"
+#import "System_IO_TextWriter.h"
+#import "System_String.h"
+#import "System_Text_Encoding.h"
+#import "System_Threading_Tasks_Task.h"
+#import "System_Void.h"
 
 @implementation System_IO_TextWriter
 

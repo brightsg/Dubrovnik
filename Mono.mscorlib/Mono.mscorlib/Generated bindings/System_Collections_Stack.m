@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Collections_Stack.m
+﻿//++Dubrovnik.CodeGenerator System_Collections_Stack.m
 //
 // Managed class : Stack
 //
@@ -8,6 +7,17 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_Collections_ICollection.h"
+#import "System_Collections_IEnumerable.h"
+#import "System_Collections_IEnumerator.h"
+#import "System_Collections_Stack.h"
+#import "System_ICloneable.h"
+#import "System_Int32.h"
+#import "System_Object.h"
+#import "System_Void.h"
 
 @implementation System_Collections_Stack
 

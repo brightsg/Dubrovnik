@@ -40,6 +40,7 @@ namespace Dubrovnik.Tools
 			}
 
 			// Base type
+			// The Type from which the current Type directly inherits, or null if the current Type represents the Object class or an interface.
 			Type baseType = type.BaseType;
 			if (baseType != null)
 			{

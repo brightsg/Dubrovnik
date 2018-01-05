@@ -2,6 +2,23 @@
 //
 // Managed struct : RuntimeArgumentHandle
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_RuntimeArgumentHandle.__Extra__.h")
+#import "System_RuntimeArgumentHandle.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_RuntimeArgumentHandle;
+
+// Import superclass and adopted protocols
+#import "System_ValueType.h"
+
 @interface System_RuntimeArgumentHandle : DBManagedObject
 
 #pragma mark -

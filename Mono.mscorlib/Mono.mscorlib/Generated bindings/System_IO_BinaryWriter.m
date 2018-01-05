@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_IO_BinaryWriter.m
+﻿//++Dubrovnik.CodeGenerator System_IO_BinaryWriter.m
 //
 // Managed class : BinaryWriter
 //
@@ -8,6 +7,13 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_IDisposable.h"
+#import "System_Int64.h"
+#import "System_IO_BinaryWriter.h"
+#import "System_IO_Stream.h"
+#import "System_Void.h"
 
 @implementation System_IO_BinaryWriter
 

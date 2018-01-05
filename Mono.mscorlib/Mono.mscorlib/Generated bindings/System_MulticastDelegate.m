@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_MulticastDelegate.m
+﻿//++Dubrovnik.CodeGenerator System_MulticastDelegate.m
 //
 // Managed class : MulticastDelegate
 //
@@ -8,6 +7,15 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_Delegate.h"
+#import "System_ICloneable.h"
+#import "System_Int32.h"
+#import "System_MulticastDelegate.h"
+#import "System_Runtime_Serialization_ISerializable.h"
+#import "System_Void.h"
 
 @implementation System_MulticastDelegate
 

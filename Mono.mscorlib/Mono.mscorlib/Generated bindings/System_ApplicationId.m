@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_ApplicationId.m
+﻿//++Dubrovnik.CodeGenerator System_ApplicationId.m
 //
 // Managed class : ApplicationId
 //
@@ -8,6 +7,14 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_ApplicationId.h"
+#import "System_Boolean.h"
+#import "System_Byte.h"
+#import "System_Int32.h"
+#import "System_String.h"
+#import "System_Version.h"
 
 @implementation System_ApplicationId
 

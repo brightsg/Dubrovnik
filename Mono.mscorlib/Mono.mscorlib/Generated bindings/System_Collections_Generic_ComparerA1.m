@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Collections_Generic_ComparerA1.m
+﻿//++Dubrovnik.CodeGenerator System_Collections_Generic_ComparerA1.m
 //
 // Managed class : Comparer`1<T>
 //
@@ -8,6 +7,12 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Collections_Generic_IComparerA1.h"
+#import "System_Collections_IComparer.h"
+#import "System_Int32.h"
+#import "System_Object.h"
 
 @implementation System_Collections_Generic_ComparerA1
 

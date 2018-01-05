@@ -2,6 +2,24 @@
 //
 // Managed class : AssemblyNameProxy
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Reflection_AssemblyNameProxy.__Extra__.h")
+#import "System_Reflection_AssemblyNameProxy.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Reflection_AssemblyName;
+@class System_Reflection_AssemblyNameProxy;
+
+// Import superclass and adopted protocols
+#import "System_MarshalByRefObject.h"
+
 @interface System_Reflection_AssemblyNameProxy : System_MarshalByRefObject
 
 #pragma mark -

@@ -2,6 +2,26 @@
 //
 // Managed class : SynchronizationContext
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Threading_SynchronizationContext.__Extra__.h")
+#import "System_Threading_SynchronizationContext.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Boolean;
+@class System_Int32;
+@class System_Threading_SynchronizationContext;
+@class System_Void;
+
+// Import superclass and adopted protocols
+#import "System_Object.h"
+
 @interface System_Threading_SynchronizationContext : System_Object
 
 #pragma mark -

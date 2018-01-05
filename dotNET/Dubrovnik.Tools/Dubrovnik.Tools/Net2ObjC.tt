@@ -87,20 +87,53 @@ void WriteFileBanner()
 public void WriteModuleBanner(CodeFacet facet, string module)
 {
 	string outputFile = facet.OutputFileName() + OutputFileSuffix();
-
-	// There is an argument that says - Lets add the date here!
-	// However this leads to what I think are excessively noisey commits.
 #>
-
 //++<#=GenToolName#> <#=outputFile#>
 //
 // Managed <#=module#> : <#=facet.Name#>
 //
-<#+	
-	if (OutputFileType == OutputType.Implementation)
-    {
-		WriteModuleFeatureRequirements();
-    }
+<#+
+	if (OutputFileType == OutputType.Interface)
+	{
+		string optionalImport = facet.ObjCFacet.Type + ".__Extra__.h";
+		string forwardDeclarations = String.Join("\n", ObjCForwardDeclarations(facet));
+		string derivationImportDirectives = String.Join("\n", ObjCDerivationImportDirectives(facet));
+#>
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("<#=optionalImport#>")
+#import "<#=optionalImport#>"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+<#=forwardDeclarations#>
+
+// Import superclass and adopted protocols
+<#=derivationImportDirectives#>
+
+<#+
+	}
+	else 
+	{
+		string importDirectives = String.Join("\n", ObjCImportDirectives(facet));
+#>
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
+// Local assembly imports
+<#=importDirectives#>
+
+<#+
+
+	}
 }
 
 //
@@ -154,38 +187,15 @@ public void WriteInterfaceFilePreliminaries()
 <#+  
 	}
 
-	bool commentOutput = false;
-	foreach (NamespaceFacet @namespace in AssemblyFacet.Namespaces)
-	{
-		// collect facets that render as Obj-C classes
-		IList<CodeFacet> facets = new List<CodeFacet>();
-		facets.AddRange(@namespace.Classes);
-		facets.AddRange(@namespace.Interfaces);
-		facets.AddRange(@namespace.Structs);
-		facets.AddRange(@namespace.Enumerations);
-
-		// write class predeclarations 
-		if (facets.Count() > 0 && !commentOutput) 
-		{
 #>
 
 //
-// Forward class declarations and class aliases
+// Class aliases
 //
 <#+     
-			commentOutput = true;   
-		}
-
-		foreach (CodeFacet facet in facets)
-		{
-		  	if (!Config.GenerateTypeBinding(facet)) {
-				WriteSkippedItem("type", facet.Description());
-			}
-			else 
-			{
-				WriteClassPredeclaration(facet);
-			}
-		}	
+	foreach (CodeFacet facet in AssemblyFacet.AllFacets().OrderBy(f => f.Type))
+	{
+		WriteClassPredeclaration(facet);
 	}	
 }
 
@@ -195,12 +205,14 @@ static List<string> _classDefines = new List<string>();
 //
 public void WriteClassPredeclaration(CodeFacet facet)
 {
+	if (!Config.GenerateTypeBinding(facet)) {
+		WriteSkippedItem("type", facet.Description());
+		return;
+	}
+
 	string namespacePrefix = ObjCAcronymFromManagedIdentifier(facet.TypeNamespace);
 	string classDefine = ObjCIdentifierFromManagedIdentifier(namespacePrefix + facet.Name) + "_";
 	string classObjCType = facet.ObjCFacet.Type;
-#>
-@class <#=classObjCType#>;
-<#+
 
    // collision warning facility can be useful but it's loud when it kicks in!
 	bool warnAboutCollisions = false;
@@ -220,13 +232,11 @@ public void WriteClassPredeclaration(CodeFacet facet)
 			_classDefines.Add(classDefine);
 #>
 #define <#=@classDefine#> <#=@classObjCType#>
-
 <#+
 		}
 		else {
 #>
 //#define <#=@classDefine#> <#=@classObjCType#> // WARNING: duplicate detected in file scope
-
 <#+
 		}	
 	}

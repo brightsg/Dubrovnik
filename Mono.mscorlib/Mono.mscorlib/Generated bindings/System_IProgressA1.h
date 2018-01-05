@@ -2,6 +2,24 @@
 //
 // Managed interface : IProgress`1<T>
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_IProgressA1.__Extra__.h")
+#import "System_IProgressA1.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Object;
+@class System_Void;
+
+// Import superclass and adopted protocols
+#import "System_Object.h"
+
 @interface System_IProgressA1 : System_Object
 
 #pragma mark -

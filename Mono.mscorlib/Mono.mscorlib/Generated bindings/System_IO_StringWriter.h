@@ -2,6 +2,30 @@
 //
 // Managed class : StringWriter
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_IO_StringWriter.__Extra__.h")
+#import "System_IO_StringWriter.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_IDisposable;
+@class System_IO_StringWriter;
+@class System_String;
+@class System_Text_Encoding;
+@class System_Text_StringBuilder;
+@class System_Threading_Tasks_Task;
+@class System_Void;
+
+// Import superclass and adopted protocols
+#import "System_IDisposable_Protocol.h"
+#import "System_IO_TextWriter.h"
+
 @interface System_IO_StringWriter : System_IO_TextWriter <System_IDisposable_>
 
 #pragma mark -

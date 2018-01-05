@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_ResolveEventArgs.m
+﻿//++Dubrovnik.CodeGenerator System_ResolveEventArgs.m
 //
 // Managed class : ResolveEventArgs
 //
@@ -8,6 +7,11 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Reflection_Assembly.h"
+#import "System_ResolveEventArgs.h"
+#import "System_String.h"
 
 @implementation System_ResolveEventArgs
 

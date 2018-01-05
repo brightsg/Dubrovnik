@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_AggregateException.m
+﻿//++Dubrovnik.CodeGenerator System_AggregateException.m
 //
 // Managed class : AggregateException
 //
@@ -8,6 +7,15 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_AggregateException.h"
+#import "System_Collections_ObjectModel_ReadOnlyCollectionA1.h"
+#import "System_Exception.h"
+#import "System_Runtime_InteropServices__Exception.h"
+#import "System_Runtime_Serialization_ISerializable.h"
+#import "System_String.h"
+#import "System_Void.h"
 
 @implementation System_AggregateException
 

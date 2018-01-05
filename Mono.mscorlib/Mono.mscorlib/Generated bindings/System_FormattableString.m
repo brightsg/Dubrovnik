@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_FormattableString.m
+﻿//++Dubrovnik.CodeGenerator System_FormattableString.m
 //
 // Managed class : FormattableString
 //
@@ -8,6 +7,13 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_FormattableString.h"
+#import "System_IFormattable.h"
+#import "System_Int32.h"
+#import "System_Object.h"
+#import "System_String.h"
 
 @implementation System_FormattableString
 

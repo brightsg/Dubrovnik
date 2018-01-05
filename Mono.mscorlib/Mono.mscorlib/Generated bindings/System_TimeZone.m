@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_TimeZone.m
+﻿//++Dubrovnik.CodeGenerator System_TimeZone.m
 //
 // Managed class : TimeZone
 //
@@ -8,6 +7,13 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_DateTime.h"
+#import "System_String.h"
+#import "System_TimeSpan.h"
+#import "System_TimeZone.h"
 
 @implementation System_TimeZone
 

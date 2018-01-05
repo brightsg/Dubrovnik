@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_AppContext.m
+﻿//++Dubrovnik.CodeGenerator System_AppContext.m
 //
 // Managed class : AppContext
 //
@@ -8,6 +7,13 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_AppContext.h"
+#import "System_Boolean.h"
+#import "System_Object.h"
+#import "System_String.h"
+#import "System_Void.h"
 
 @implementation System_AppContext
 

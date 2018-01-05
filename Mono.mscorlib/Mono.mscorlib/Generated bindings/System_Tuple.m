@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Tuple.m
+﻿//++Dubrovnik.CodeGenerator System_Tuple.m
 //
 // Managed class : Tuple
 //
@@ -8,6 +7,10 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Object.h"
+#import "System_Tuple.h"
 
 @implementation System_Tuple
 

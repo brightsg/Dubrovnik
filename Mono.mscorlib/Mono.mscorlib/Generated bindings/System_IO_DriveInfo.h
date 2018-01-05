@@ -2,6 +2,30 @@
 //
 // Managed class : DriveInfo
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_IO_DriveInfo.__Extra__.h")
+#import "System_IO_DriveInfo.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Boolean;
+@class System_Int64;
+@class System_IO_DirectoryInfo;
+@class System_IO_DriveInfo;
+@class System_IO_DriveType;
+@class System_Runtime_Serialization_ISerializable;
+@class System_String;
+
+// Import superclass and adopted protocols
+#import "System_Object.h"
+#import "System_Runtime_Serialization_ISerializable_Protocol.h"
+
 @interface System_IO_DriveInfo : System_Object <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -

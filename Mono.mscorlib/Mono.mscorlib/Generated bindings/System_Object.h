@@ -2,6 +2,27 @@
 //
 // Managed class : Object
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Object.__Extra__.h")
+#import "System_Object.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Boolean;
+@class System_Int32;
+@class System_Object;
+@class System_String;
+@class System_Type;
+
+// Import superclass and adopted protocols
+
+
 @interface System_Object : DBManagedObject
 
 #pragma mark -

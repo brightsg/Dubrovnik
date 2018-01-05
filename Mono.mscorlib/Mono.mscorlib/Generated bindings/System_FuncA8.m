@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_FuncA8.m
+﻿//++Dubrovnik.CodeGenerator System_FuncA8.m
 //
 // Managed class : Func`8
 //
@@ -8,6 +7,12 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_IAsyncResult.h"
+#import "System_ICloneable.h"
+#import "System_Object.h"
+#import "System_Runtime_Serialization_ISerializable.h"
 
 @implementation System_FuncA8
 

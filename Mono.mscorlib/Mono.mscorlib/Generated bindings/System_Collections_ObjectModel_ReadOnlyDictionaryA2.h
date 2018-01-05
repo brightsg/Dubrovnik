@@ -2,6 +2,41 @@
 //
 // Managed class : ReadOnlyDictionary`2<TKey, TValue>
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Collections_ObjectModel_ReadOnlyDictionaryA2.__Extra__.h")
+#import "System_Collections_ObjectModel_ReadOnlyDictionaryA2.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Boolean;
+@class System_Collections_Generic_ICollectionA1;
+@class System_Collections_Generic_IDictionaryA2;
+@class System_Collections_Generic_IEnumerableA1;
+@class System_Collections_Generic_IReadOnlyCollectionA1;
+@class System_Collections_Generic_IReadOnlyDictionaryA2;
+@class System_Collections_ICollection;
+@class System_Collections_IDictionary;
+@class System_Collections_IEnumerable;
+@class System_Int32;
+@class System_Object;
+
+// Import superclass and adopted protocols
+#import "System_Collections_Generic_ICollectionA1_Protocol.h"
+#import "System_Collections_Generic_IDictionaryA2_Protocol.h"
+#import "System_Collections_Generic_IEnumerableA1_Protocol.h"
+#import "System_Collections_Generic_IReadOnlyCollectionA1_Protocol.h"
+#import "System_Collections_Generic_IReadOnlyDictionaryA2_Protocol.h"
+#import "System_Collections_ICollection_Protocol.h"
+#import "System_Collections_IDictionary_Protocol.h"
+#import "System_Collections_IEnumerable_Protocol.h"
+#import "System_Object.h"
+
 @interface System_Collections_ObjectModel_ReadOnlyDictionaryA2 : System_Object <System_Collections_Generic_IDictionaryA2_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_IDictionary_, System_Collections_ICollection_, System_Collections_Generic_IReadOnlyDictionaryA2_, System_Collections_Generic_IReadOnlyCollectionA1_>
 
 #pragma mark -

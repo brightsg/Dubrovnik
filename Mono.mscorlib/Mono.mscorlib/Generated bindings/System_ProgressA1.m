@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_ProgressA1.m
+﻿//++Dubrovnik.CodeGenerator System_ProgressA1.m
 //
 // Managed class : Progress`1<T>
 //
@@ -8,6 +7,10 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_IProgressA1.h"
+#import "System_Object.h"
 
 @implementation System_ProgressA1
 

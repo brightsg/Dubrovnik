@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Exception.m
+﻿//++Dubrovnik.CodeGenerator System_Exception.m
 //
 // Managed class : Exception
 //
@@ -8,6 +7,17 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Collections_IDictionary.h"
+#import "System_Exception.h"
+#import "System_Int32.h"
+#import "System_Reflection_MethodBase.h"
+#import "System_Runtime_InteropServices__Exception.h"
+#import "System_Runtime_Serialization_ISerializable.h"
+#import "System_String.h"
+#import "System_Type.h"
+#import "System_Void.h"
 
 @implementation System_Exception
 

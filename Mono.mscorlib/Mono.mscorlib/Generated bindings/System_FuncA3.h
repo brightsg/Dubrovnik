@@ -2,6 +2,28 @@
 //
 // Managed class : Func`3<T1, T2, TResult>
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_FuncA3.__Extra__.h")
+#import "System_FuncA3.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_IAsyncResult;
+@class System_ICloneable;
+@class System_Object;
+@class System_Runtime_Serialization_ISerializable;
+
+// Import superclass and adopted protocols
+#import "System_ICloneable_Protocol.h"
+#import "System_MulticastDelegate.h"
+#import "System_Runtime_Serialization_ISerializable_Protocol.h"
+
 @interface System_FuncA3 : System_MulticastDelegate <System_ICloneable_, System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -

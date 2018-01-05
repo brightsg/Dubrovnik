@@ -2,6 +2,30 @@
 //
 // Managed interface : _Exception
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Runtime_InteropServices__Exception.__Extra__.h")
+#import "System_Runtime_InteropServices__Exception.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Boolean;
+@class System_Exception;
+@class System_Int32;
+@class System_Reflection_MethodBase;
+@class System_Runtime_InteropServices__Exception;
+@class System_String;
+@class System_Type;
+@class System_Void;
+
+// Import superclass and adopted protocols
+#import "System_Object.h"
+
 @interface System_Runtime_InteropServices__Exception : System_Object
 
 #pragma mark -

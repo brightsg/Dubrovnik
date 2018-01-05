@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Threading_Tasks_TaskCompletionSourceA1.m
+﻿//++Dubrovnik.CodeGenerator System_Threading_Tasks_TaskCompletionSourceA1.m
 //
 // Managed class : TaskCompletionSource`1<TResult>
 //
@@ -8,6 +7,11 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_Object.h"
+#import "System_Void.h"
 
 @implementation System_Threading_Tasks_TaskCompletionSourceA1
 

@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Math.m
+﻿//++Dubrovnik.CodeGenerator System_Math.m
 //
 // Managed class : Math
 //
@@ -8,6 +7,20 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Byte.h"
+#import "System_Decimal.h"
+#import "System_Double.h"
+#import "System_Int16.h"
+#import "System_Int32.h"
+#import "System_Int64.h"
+#import "System_Math.h"
+#import "System_SByte.h"
+#import "System_Single.h"
+#import "System_UInt16.h"
+#import "System_UInt32.h"
+#import "System_UInt64.h"
 
 @implementation System_Math
 

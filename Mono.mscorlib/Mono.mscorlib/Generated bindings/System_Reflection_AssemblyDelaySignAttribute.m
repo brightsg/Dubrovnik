@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Reflection_AssemblyDelaySignAttribute.m
+﻿//++Dubrovnik.CodeGenerator System_Reflection_AssemblyDelaySignAttribute.m
 //
 // Managed class : AssemblyDelaySignAttribute
 //
@@ -8,6 +7,10 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_Reflection_AssemblyDelaySignAttribute.h"
 
 @implementation System_Reflection_AssemblyDelaySignAttribute
 

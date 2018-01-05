@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Collections_IEnumerable.m
+﻿//++Dubrovnik.CodeGenerator System_Collections_IEnumerable.m
 //
 // Managed interface : IEnumerable
 //
@@ -8,6 +7,10 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Collections_IEnumerable.h"
+#import "System_Collections_IEnumerator.h"
 
 @implementation System_Collections_IEnumerable
 

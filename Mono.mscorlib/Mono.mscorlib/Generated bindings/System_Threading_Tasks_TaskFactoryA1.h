@@ -2,6 +2,27 @@
 //
 // Managed class : TaskFactory`1<TResult>
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Threading_Tasks_TaskFactoryA1.__Extra__.h")
+#import "System_Threading_Tasks_TaskFactoryA1.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Object;
+@class System_Threading_CancellationToken;
+@class System_Threading_Tasks_TaskContinuationOptions;
+@class System_Threading_Tasks_TaskCreationOptions;
+@class System_Threading_Tasks_TaskScheduler;
+
+// Import superclass and adopted protocols
+#import "System_Object.h"
+
 @interface System_Threading_Tasks_TaskFactoryA1 : System_Object
 
 #pragma mark -

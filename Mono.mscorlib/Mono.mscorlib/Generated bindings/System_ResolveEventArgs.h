@@ -2,6 +2,25 @@
 //
 // Managed class : ResolveEventArgs
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_ResolveEventArgs.__Extra__.h")
+#import "System_ResolveEventArgs.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Reflection_Assembly;
+@class System_ResolveEventArgs;
+@class System_String;
+
+// Import superclass and adopted protocols
+#import "System_EventArgs.h"
+
 @interface System_ResolveEventArgs : System_EventArgs
 
 #pragma mark -

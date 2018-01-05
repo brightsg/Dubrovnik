@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Collections_ObjectModel_ReadOnlyDictionaryA2.m
+﻿//++Dubrovnik.CodeGenerator System_Collections_ObjectModel_ReadOnlyDictionaryA2.m
 //
 // Managed class : ReadOnlyDictionary`2<TKey, TValue>
 //
@@ -8,6 +7,19 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_Collections_Generic_ICollectionA1.h"
+#import "System_Collections_Generic_IDictionaryA2.h"
+#import "System_Collections_Generic_IEnumerableA1.h"
+#import "System_Collections_Generic_IReadOnlyCollectionA1.h"
+#import "System_Collections_Generic_IReadOnlyDictionaryA2.h"
+#import "System_Collections_ICollection.h"
+#import "System_Collections_IDictionary.h"
+#import "System_Collections_IEnumerable.h"
+#import "System_Int32.h"
+#import "System_Object.h"
 
 @implementation System_Collections_ObjectModel_ReadOnlyDictionaryA2
 

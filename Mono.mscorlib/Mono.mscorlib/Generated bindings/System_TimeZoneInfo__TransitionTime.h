@@ -2,6 +2,32 @@
 //
 // Managed struct : TimeZoneInfo.TransitionTime
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_TimeZoneInfo__TransitionTime.__Extra__.h")
+#import "System_TimeZoneInfo__TransitionTime.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Boolean;
+@class System_DateTime;
+@class System_DayOfWeek;
+@class System_IEquatableA1;
+@class System_Int32;
+@class System_Runtime_Serialization_ISerializable;
+@class System_TimeZoneInfo__TransitionTime;
+
+// Import superclass and adopted protocols
+#import "System_IEquatableA1_Protocol.h"
+#import "System_Runtime_Serialization_IDeserializationCallback_Protocol.h"
+#import "System_Runtime_Serialization_ISerializable_Protocol.h"
+#import "System_ValueType.h"
+
 @interface System_TimeZoneInfo__TransitionTime : DBManagedObject <System_IEquatableA1_, System_Runtime_Serialization_ISerializable_, System_Runtime_Serialization_IDeserializationCallback_>
 
 #pragma mark -

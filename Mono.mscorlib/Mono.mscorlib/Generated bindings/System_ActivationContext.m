@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_ActivationContext.m
+﻿//++Dubrovnik.CodeGenerator System_ActivationContext.m
 //
 // Managed class : ActivationContext
 //
@@ -8,6 +7,15 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_ActivationContext.h"
+#import "System_ActivationContext__ContextForm.h"
+#import "System_ApplicationIdentity.h"
+#import "System_Byte.h"
+#import "System_IDisposable.h"
+#import "System_Runtime_Serialization_ISerializable.h"
+#import "System_Void.h"
 
 @implementation System_ActivationContext
 

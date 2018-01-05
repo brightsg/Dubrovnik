@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_IO_File.m
+﻿//++Dubrovnik.CodeGenerator System_IO_File.m
 //
 // Managed class : File
 //
@@ -8,6 +7,19 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_Byte.h"
+#import "System_Collections_Generic_IEnumerableA1.h"
+#import "System_DateTime.h"
+#import "System_IO_File.h"
+#import "System_IO_FileAttributes.h"
+#import "System_IO_FileStream.h"
+#import "System_IO_StreamReader.h"
+#import "System_IO_StreamWriter.h"
+#import "System_String.h"
+#import "System_Void.h"
 
 @implementation System_IO_File
 

@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Collections_DictionaryBase.m
+﻿//++Dubrovnik.CodeGenerator System_Collections_DictionaryBase.m
 //
 // Managed class : DictionaryBase
 //
@@ -8,6 +7,15 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Collections_DictionaryBase.h"
+#import "System_Collections_ICollection.h"
+#import "System_Collections_IDictionary.h"
+#import "System_Collections_IDictionaryEnumerator.h"
+#import "System_Collections_IEnumerable.h"
+#import "System_Int32.h"
+#import "System_Void.h"
 
 @implementation System_Collections_DictionaryBase
 

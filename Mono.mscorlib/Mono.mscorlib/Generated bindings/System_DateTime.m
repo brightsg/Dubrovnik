@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_DateTime.m
+﻿//++Dubrovnik.CodeGenerator System_DateTime.m
 //
 // Managed struct : DateTime
 //
@@ -8,6 +7,24 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Boolean.h"
+#import "System_DateTime.h"
+#import "System_DateTimeKind.h"
+#import "System_DayOfWeek.h"
+#import "System_Double.h"
+#import "System_IComparable.h"
+#import "System_IComparableA1.h"
+#import "System_IConvertible.h"
+#import "System_IEquatableA1.h"
+#import "System_IFormattable.h"
+#import "System_Int32.h"
+#import "System_Int64.h"
+#import "System_Runtime_Serialization_ISerializable.h"
+#import "System_String.h"
+#import "System_TimeSpan.h"
+#import "System_TypeCode.h"
 
 @implementation System_DateTime
 

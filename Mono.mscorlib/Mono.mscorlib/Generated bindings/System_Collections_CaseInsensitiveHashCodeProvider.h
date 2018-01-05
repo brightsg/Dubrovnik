@@ -2,6 +2,26 @@
 //
 // Managed class : CaseInsensitiveHashCodeProvider
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Collections_CaseInsensitiveHashCodeProvider.__Extra__.h")
+#import "System_Collections_CaseInsensitiveHashCodeProvider.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Collections_CaseInsensitiveHashCodeProvider;
+@class System_Collections_IHashCodeProvider;
+@class System_Int32;
+
+// Import superclass and adopted protocols
+#import "System_Collections_IHashCodeProvider_Protocol.h"
+#import "System_Object.h"
+
 @interface System_Collections_CaseInsensitiveHashCodeProvider : System_Object <System_Collections_IHashCodeProvider_>
 
 #pragma mark -

@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Threading_Tasks_TaskFactory.m
+﻿//++Dubrovnik.CodeGenerator System_Threading_Tasks_TaskFactory.m
 //
 // Managed class : TaskFactory
 //
@@ -8,6 +7,15 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Object.h"
+#import "System_Threading_CancellationToken.h"
+#import "System_Threading_Tasks_Task.h"
+#import "System_Threading_Tasks_TaskContinuationOptions.h"
+#import "System_Threading_Tasks_TaskCreationOptions.h"
+#import "System_Threading_Tasks_TaskFactory.h"
+#import "System_Threading_Tasks_TaskScheduler.h"
 
 @implementation System_Threading_Tasks_TaskFactory
 

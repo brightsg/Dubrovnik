@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_IO_SeekOrigin.m
+﻿//++Dubrovnik.CodeGenerator System_IO_SeekOrigin.m
 //
 // Managed enumeration : SeekOrigin
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_IO_SeekOrigin.h"
 
 
 // C enumeration

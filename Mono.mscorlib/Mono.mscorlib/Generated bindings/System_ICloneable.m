@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_ICloneable.m
+﻿//++Dubrovnik.CodeGenerator System_ICloneable.m
 //
 // Managed interface : ICloneable
 //
@@ -8,6 +7,10 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_ICloneable.h"
+#import "System_Object.h"
 
 @implementation System_ICloneable
 

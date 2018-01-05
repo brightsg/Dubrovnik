@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_IServiceProvider.m
+﻿//++Dubrovnik.CodeGenerator System_IServiceProvider.m
 //
 // Managed interface : IServiceProvider
 //
@@ -8,6 +7,10 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_IServiceProvider.h"
+#import "System_Object.h"
 
 @implementation System_IServiceProvider
 

@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_IAppDomainSetup.m
+﻿//++Dubrovnik.CodeGenerator System_IAppDomainSetup.m
 //
 // Managed interface : IAppDomainSetup
 //
@@ -8,6 +7,10 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_IAppDomainSetup.h"
+#import "System_String.h"
 
 @implementation System_IAppDomainSetup
 

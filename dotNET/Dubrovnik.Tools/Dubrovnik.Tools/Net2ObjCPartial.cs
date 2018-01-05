@@ -55,6 +55,11 @@ namespace Dubrovnik.Tools
         // This method will generate either an interface or an implemenation 
         // depending on the state of OutputType
         //
+		// Note that we initially generate one composite interface or implementation output file
+		// representing the entire assembly with bindings for each type delimited by a separator.
+		// When the generation is complete the composite output file is parsed and individual
+		// files for each representated type are created.
+		//
         void GenerateObjC(string include = "")
         {
             // retrieving the output will clear the cache
@@ -85,11 +90,11 @@ namespace Dubrovnik.Tools
             WriteAssembly();
         }
 
-		public void WriteSkippedItem(string item, string description, int newLinesSuffix = 1) {
+		public void WriteSkippedItem(string item, string description, int newLines = 1) {
 			string s = String.Format("/* Skipped {0} : {1} */", item, description);
-			if (newLinesSuffix > 0) {
+			if (newLines > 0) {
 				WriteLine(s);
-				while (--newLinesSuffix > 0) WriteLine("");
+				while (--newLines > 0) WriteLine("");
 			}
 			else {
 				Write(s);
@@ -102,59 +107,195 @@ namespace Dubrovnik.Tools
         public void WriteAssembly()
         {
 			// TODO: why don't we generate Event reps too?
+            WriteCommentBlock("Assembly type imports");
 
-            //
-            // Order is important here. 
-            // Objective-C types and protocols must be declared before they can be used.
-            // The ordering here helps to ensure that types and protocols are declared before they are referenced.
-            //
+			// get all all assembly facets and order by type
+			List<CodeFacet> facets = AssemblyFacet.AllFacets();
+			var orderedFacets = facets.OrderBy(f => f.Type);
 
-            WriteCommentBlock("Order here is Enumerations, Interface protocols, Structs, Classes, Explicit interface classes");
+			// write the facets
+			foreach (CodeFacet facet in orderedFacets) {
+				WriteFacet(facet);
+			}
+		}
 
-            // Write all enumerations
-			foreach (NamespaceFacet @namespace in AssemblyFacet.Namespaces) {
-				foreach (EnumerationFacet enumeration in @namespace.Enumerations) {
-					this.WriteEnumeration(enumeration);
-                }
-            }
+		/// <summary>
+		/// Returns all ObjC import directives required to fully represent the facet
+		/// </summary>
+		/// <param name="facet"></param>
+		/// <returns></returns>
+		public List<string> ObjCImportDirectives(CodeFacet facet) {
+			List<string> imports = new List<string>();
 
-            // Write all interfaces.
-            // Order by derivation
-            IList<InterfaceFacet> interfaces = AssemblyFacet.InterfacesOrderedByDerivation();
-            foreach (InterfaceFacet @interface in interfaces) {
+			if (!Config.GenerateTypeBinding(facet)) {
+				return imports;
+			}
 
-                // we don't want to overwrite the class header so we append a suffix.
-                @interface.OutputFileNameSuffix = ".Protocol";
-                WriteInterface(@interface);
-                @interface.OutputFileNameSuffix = "";
-            }
+			// objC type
+			string objCType = facet.ObjCFacet.Type;
+			if (string.IsNullOrEmpty(objCType)) {
+				return imports;
+			}
 
-            // Write all structs
-            foreach (NamespaceFacet @namespace in AssemblyFacet.Namespaces)
-            {
-                foreach (StructFacet @struct in @namespace.Structs)
-                {
-                    WriteStruct(@struct);
-                }
-            }
+			// if the type contains generic parameters
+			if (facet.ContainsGenericParameters) {
+				objCType = "System_Object";
+			}
 
-            // Write all classes
-            // Get all classes in assembly ordered by derivation.
-            // This is necessary to ensure that base type interface declarations occur 
-            // before derived type interface Declarations
-            IList<ClassFacet> classes = AssemblyFacet.ClassesOrderedByDerivation();
-            foreach (ClassFacet @class in classes)
-            {
-                WriteClass(@class);
-            }
+			// import objC facet type
+			string import = String.Format("#import \"{0}.h\"", objCType);
+			imports.Add(import);
 
-            // Write all interface classes
-            // This are classes that provide access to the properties and methods of an explicit interface
-            foreach (InterfaceFacet @interface in interfaces)
-            {
-                WriteInterfaceClass(@interface);
-            }
-        }
+			// import objC facet types for all children
+			foreach (CodeFacet child in facet.Children()) {
+				imports.AddRange(ObjCImportDirectives(child));
+			}
+			
+			// return a distinct list to remove duplicates
+			imports = imports.Distinct().ToList();
+			imports.Sort();
+			return imports;
+		}
+
+		/// <summary>
+		/// Returns all ObjC forward declarations required to fully represent the facet
+		/// </summary>
+		/// <param name="facet"></param>
+		/// <returns></returns>
+		public List<string> ObjCForwardDeclarations(CodeFacet facet) {
+			List<string> imports = new List<string>();
+
+			if (!Config.GenerateTypeBinding(facet)) {
+				return imports;
+			}
+
+			// objC type
+			string objCType = facet.ObjCFacet.Type;
+			if (string.IsNullOrEmpty(objCType)) {
+				return imports;
+			}
+
+			// if the type contains generic parameters
+			if (facet.ContainsGenericParameters) {
+				objCType = "System_Object";
+			}
+
+			string import = String.Format("@class {0};", objCType);
+			imports.Add(import);
+
+			// declare objC facet types for all children
+			foreach (CodeFacet child in facet.Children()) {
+				imports.AddRange(ObjCForwardDeclarations(child));
+			}
+
+			// return a distinct list to remove duplicates
+			imports = imports.Distinct().ToList();
+			imports.Sort();
+			return imports;
+		}
+
+		/// <summary>
+		/// Returns all ObjC import directives required to fully derive an ObjC class from its subclass and is adopted protocols.
+		/// These directives constitute the minimum required to define a class in an ObjC interface header file.
+		/// </summary>
+		/// <param name="facet">Facet</param>
+		/// <returns>List of ObjC import directives.</returns>
+		public List<string> ObjCDerivationImportDirectives(CodeFacet facet) 
+		{
+			List<string> imports = new List<string>();
+
+			if (!Config.GenerateTypeBinding(facet)) {
+				return imports;
+			}
+
+			foreach (CodeFacet cursor in facet.Derivation()) {
+				string objCType = null;
+				string import = null;
+
+				if (cursor.Name == "_AppDomain") {
+					int b = 0;
+				}
+
+				// for implemented interface we require to import a protocol
+				if (cursor.GetType() == typeof(ImplementedInterfaceFacet)) {
+					objCType = cursor.ObjCFacet.Type;
+
+					// managed interfaces return null for base type.
+					// see docs for Type.BaseType
+					// https://msdn.microsoft.com/en-us/library/system.type.basetype(v=vs.110).aspx
+					if (string.IsNullOrEmpty(objCType)) {
+						objCType = "System_Object";
+					}
+					import = String.Format("#import \"{0}_Protocol.h\"", objCType);
+				}
+
+				// use the facet itself to derive base info
+				else {
+					objCType = cursor.ObjCFacet.BaseType;
+
+					// empty base type?
+					if (string.IsNullOrEmpty(objCType)) {
+
+						// managed interfaces return null for base type.
+						// see docs for Type.BaseType
+						// https://msdn.microsoft.com/en-us/library/system.type.basetype(v=vs.110).aspx
+						if (cursor.GetType() == typeof(InterfaceFacet)) {
+							objCType = "System_Object";
+						} 
+						else {
+
+							// System.Object has no base type
+							if (cursor.ObjCFacet.Type != "System_Object") {
+								throw new Exception("When forming derived import directives an expected base class was missing.");
+							}
+							continue;
+						}
+					}
+					//else {
+					//	throw new Exception("When forming derived import directives an unexpected code facet was encountered.");
+					//}
+
+					import = String.Format("#import \"{0}.h\"", objCType);
+				}
+
+				imports.Add(import);
+			}
+			
+			// return a distinct list to remove duplicates
+			imports = imports.Distinct().ToList();
+			imports.Sort();
+			return imports;
+		}
+
+		public void WriteFacet(CodeFacet facet) 
+		{
+			Type ft = facet.GetType();
+
+			if (ft == typeof(EnumerationFacet)) 
+			{
+				WriteEnumeration((EnumerationFacet)facet);
+			} 
+			else if (ft == typeof(InterfaceFacet)) 
+			{
+				WriteInterface((InterfaceFacet)facet);
+
+				// provide access to the properties and methods of an explicit interface
+				WriteInterfaceClass((InterfaceFacet)facet);
+
+				// for protocol definitions we don't want to overwrite the class header so we append a suffix.
+				facet.OutputFileNameSuffix = ".Protocol";
+				WriteInterface((InterfaceFacet)facet);
+				facet.OutputFileNameSuffix = "";
+			} 
+			else if (ft == typeof(StructFacet))
+			{
+				WriteStruct((StructFacet)facet);
+			} 
+			else if (ft == typeof(ClassFacet)) 
+			{
+				WriteClass((ClassFacet)facet);
+			}
+		}
 
 		//
 		// WriteEnumeration
@@ -162,7 +303,6 @@ namespace Dubrovnik.Tools
 		public void WriteEnumeration(EnumerationFacet facet) 
 		{
 			if (!Config.GenerateTypeBinding(facet)) {
-				WriteSkippedItem("enumeration", facet.Description());
 				return;
 			}
 
@@ -177,7 +317,6 @@ namespace Dubrovnik.Tools
         public void WriteClass(ClassFacet facet)
         {
 			if (!Config.GenerateTypeBinding(facet)) {
-				WriteSkippedItem("class", facet.Description());
 				return;
 			}
 
@@ -195,7 +334,6 @@ namespace Dubrovnik.Tools
         public void WriteStruct(StructFacet facet)
         {
 			if (!Config.GenerateTypeBinding(facet)) {
-				WriteSkippedItem("structure", facet.Description());
 				return;
 			}
 
@@ -213,7 +351,6 @@ namespace Dubrovnik.Tools
         public void WriteInterface(InterfaceFacet facet)
         {
 			if (!Config.GenerateTypeBinding(facet)) {
-				WriteSkippedItem("interface", facet.Description());
 				return;
 			}
 
@@ -245,7 +382,6 @@ namespace Dubrovnik.Tools
         public void WriteInterfaceClass(InterfaceFacet facet) 
 		{
 			if (!Config.GenerateTypeBinding(facet)) {
-				WriteSkippedItem("interface class", facet.Description());
 				return;
 			}
 

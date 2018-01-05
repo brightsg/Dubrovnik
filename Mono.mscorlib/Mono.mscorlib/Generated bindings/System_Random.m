@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Random.m
+﻿//++Dubrovnik.CodeGenerator System_Random.m
 //
 // Managed class : Random
 //
@@ -8,6 +7,12 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly imports
+#import "System_Double.h"
+#import "System_Int32.h"
+#import "System_Random.h"
+#import "System_Void.h"
 
 @implementation System_Random
 

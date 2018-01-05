@@ -2,6 +2,32 @@
 //
 // Managed class : CultureInfo
 //
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Globalization_CultureInfo.__Extra__.h")
+#import "System_Globalization_CultureInfo.__Extra__.h"
+#endif
+
+// Frameworks
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+// Forward declarations
+@class System_Boolean;
+@class System_Globalization_CultureInfo;
+@class System_ICloneable;
+@class System_IFormatProvider;
+@class System_Int32;
+@class System_Object;
+@class System_String;
+@class System_Void;
+
+// Import superclass and adopted protocols
+#import "System_ICloneable_Protocol.h"
+#import "System_IFormatProvider_Protocol.h"
+#import "System_Object.h"
+
 @interface System_Globalization_CultureInfo : System_Object <System_ICloneable_, System_IFormatProvider_>
 
 #pragma mark -
