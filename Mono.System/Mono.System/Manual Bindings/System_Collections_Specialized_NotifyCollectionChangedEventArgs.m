@@ -45,11 +45,11 @@
 // Managed property name : NewItems
 // Managed property type : System.Collections.IList
 @synthesize db_newItems = _newItems;
-- (DBSystem_Collections_IList *)db_newItems
+- (System_Collections_IList *)db_newItems
 {
     MonoObject *monoObject = [self getMonoProperty:"NewItems"];
     if ([self object:_newItems isEqualToMonoObject:monoObject]) return _newItems;
-    _newItems = [DBSystem_Collections_IList bestObjectWithMonoObject:monoObject];
+    _newItems = [System_Collections_IList bestObjectWithMonoObject:monoObject];
     
     return _newItems;
 }
@@ -68,11 +68,11 @@
 // Managed property name : OldItems
 // Managed property type : System.Collections.IList
 @synthesize oldItems = _oldItems;
-- (DBSystem_Collections_IList *)oldItems
+- (System_Collections_IList *)oldItems
 {
     MonoObject *monoObject = [self getMonoProperty:"OldItems"];
     if ([self object:_oldItems isEqualToMonoObject:monoObject]) return _oldItems;
-    _oldItems = [DBSystem_Collections_IList bestObjectWithMonoObject:monoObject];
+    _oldItems = [System_Collections_IList bestObjectWithMonoObject:monoObject];
     
     return _oldItems;
 }

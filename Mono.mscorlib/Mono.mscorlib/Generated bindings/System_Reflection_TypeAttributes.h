@@ -2,6 +2,29 @@
 //
 // Managed enumeration : TypeAttributes
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Reflection_TypeAttributes.__Extra__.h")
+#import "System_Reflection_TypeAttributes.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Reflection_TypeAttributes;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Enum.h"
+
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
@@ -38,7 +61,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
 	System_Reflection_TypeAttributes_VisibilityMask = 7,
 	System_Reflection_TypeAttributes_WindowsRuntime = 16384,
 };
-@interface System_Reflection_TypeAttributes : DBSystem_Enum
+@interface System_Reflection_TypeAttributes : System_Enum
 
 #pragma mark -
 #pragma mark Setup

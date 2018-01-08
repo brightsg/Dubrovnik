@@ -2,6 +2,46 @@
 //
 // Managed class : Hashtable
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Collections_Hashtable.__Extra__.h")
+#import "System_Collections_Hashtable.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Array;
+@class System_Boolean;
+@class System_Collections_Hashtable;
+@class System_Collections_ICollection;
+@class System_Collections_IDictionary;
+@class System_Collections_IDictionaryEnumerator;
+@class System_Collections_IEnumerable;
+@class System_ICloneable;
+@class System_Int32;
+@class System_Object;
+@class System_Runtime_Serialization_ISerializable;
+@class System_Void;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Collections_ICollection_Protocol.h"
+#import "System_Collections_IDictionary_Protocol.h"
+#import "System_Collections_IEnumerable_Protocol.h"
+#import "System_ICloneable_Protocol.h"
+#import "System_Object.h"
+#import "System_Runtime_Serialization_IDeserializationCallback_Protocol.h"
+#import "System_Runtime_Serialization_ISerializable_Protocol.h"
+
 @interface System_Collections_Hashtable : System_Object <System_Collections_IDictionary_, System_Collections_ICollection_, System_Collections_IEnumerable_, System_Runtime_Serialization_ISerializable_, System_Runtime_Serialization_IDeserializationCallback_, System_ICloneable_>
 
 #pragma mark -
@@ -197,7 +237,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Array, System.Int32
 	 */
-    - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2;
+    - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2;
 
 	/*! 
 		Managed method name : GetEnumerator

@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_UInt64.m
+﻿//++Dubrovnik.CodeGenerator System_UInt64.m
 //
 // Managed struct : UInt64
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_UInt64
 

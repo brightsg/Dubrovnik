@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_IO_StringReader.h
+//++Dubrovnik.CodeGenerator System_IO_StringReader.h
 //
 // Managed class : StringReader
 //
@@ -45,17 +45,17 @@
 	// Managed method name : Read
 	// Managed return type : System.Int32
 	// Managed param types : System.Char[], System.Int32, System.Int32
-    - (int32_t)read_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+    - (int32_t)read_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 	// Managed method name : ReadAsync
 	// Managed return type : System.Threading.Tasks.Task`1<System.Int32>
 	// Managed param types : System.Char[], System.Int32, System.Int32
-    - (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+    - (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 	// Managed method name : ReadBlockAsync
 	// Managed return type : System.Threading.Tasks.Task`1<System.Int32>
 	// Managed param types : System.Char[], System.Int32, System.Int32
-    - (System_Threading_Tasks_TaskA1 *)readBlockAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+    - (System_Threading_Tasks_TaskA1 *)readBlockAsync_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 	// Managed method name : ReadLine
 	// Managed return type : System.String

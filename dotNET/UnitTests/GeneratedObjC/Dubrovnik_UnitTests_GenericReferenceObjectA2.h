@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_GenericReferenceObjectA2.h
+//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_GenericReferenceObjectA2.h
 //
 // Managed class : GenericReferenceObject`2<T, U>
 //
@@ -24,11 +24,11 @@
 
 	// Managed property name : ListOfTypeT
 	// Managed property type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.GenericReferenceObject`2+T>
-    @property (nonatomic, strong) DBSystem_Collections_Generic_ListA1 * listOfTypeT;
+    @property (nonatomic, strong) System_Collections_Generic_ListA1 * listOfTypeT;
 
 	// Managed property name : ListOfTypeU
 	// Managed property type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.GenericReferenceObject`2+U>
-    @property (nonatomic, strong) DBSystem_Collections_Generic_ListA1 * listOfTypeU;
+    @property (nonatomic, strong) System_Collections_Generic_ListA1 * listOfTypeU;
 
 	// Managed property name : Nested
 	// Managed property type : Dubrovnik.UnitTests.GenericReferenceObject`2<Dubrovnik.UnitTests.GenericReferenceObject`2+T, Dubrovnik.UnitTests.GenericReferenceObject`2+U>+NestedClass

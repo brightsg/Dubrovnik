@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Text_StringBuilder.m
+﻿//++Dubrovnik.CodeGenerator System_Text_StringBuilder.m
 //
 // Managed class : StringBuilder
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_Text_StringBuilder
 
@@ -245,7 +247,7 @@
 		Managed return type : System.Text.StringBuilder
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    - (System_Text_StringBuilder *)append_withValue:(DBSystem_Array *)p1 startIndex:(int32_t)p2 charCount:(int32_t)p3
+    - (System_Text_StringBuilder *)append_withValue:(System_Array *)p1 startIndex:(int32_t)p2 charCount:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Append(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
@@ -466,7 +468,7 @@
 		Managed return type : System.Text.StringBuilder
 		Managed param types : System.Char[]
 	 */
-    - (System_Text_StringBuilder *)append_withValueChar:(DBSystem_Array *)p1
+    - (System_Text_StringBuilder *)append_withValueChar:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Append(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -531,7 +533,7 @@
 		Managed return type : System.Text.StringBuilder
 		Managed param types : System.String, System.Object[]
 	 */
-    - (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 args:(DBSystem_Array *)p2
+    - (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 args:(System_Array *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"AppendFormat(string,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -583,7 +585,7 @@
 		Managed return type : System.Text.StringBuilder
 		Managed param types : System.IFormatProvider, System.String, System.Object[]
 	 */
-    - (System_Text_StringBuilder *)appendFormat_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 args:(DBSystem_Array *)p3
+    - (System_Text_StringBuilder *)appendFormat_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 args:(System_Array *)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"AppendFormat(System.IFormatProvider,string,object[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
@@ -635,7 +637,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Int32, System.Char[], System.Int32, System.Int32
 	 */
-    - (void)copyTo_withSourceIndex:(int32_t)p1 destination:(DBSystem_Array *)p2 destinationIndex:(int32_t)p3 count:(int32_t)p4
+    - (void)copyTo_withSourceIndex:(int32_t)p1 destination:(System_Array *)p2 destinationIndex:(int32_t)p3 count:(int32_t)p4
     {
 		
 		[self invokeMonoMethod:"CopyTo(int,char[],int,int)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
@@ -764,7 +766,7 @@
 		Managed return type : System.Text.StringBuilder
 		Managed param types : System.Int32, System.Char[]
 	 */
-    - (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueChar:(DBSystem_Array *)p2
+    - (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueChar:(System_Array *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Insert(int,char[])" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
@@ -777,7 +779,7 @@
 		Managed return type : System.Text.StringBuilder
 		Managed param types : System.Int32, System.Char[], System.Int32, System.Int32
 	 */
-    - (System_Text_StringBuilder *)insert_withIndex:(int32_t)p1 value:(DBSystem_Array *)p2 startIndex:(int32_t)p3 charCount:(int32_t)p4
+    - (System_Text_StringBuilder *)insert_withIndex:(int32_t)p1 value:(System_Array *)p2 startIndex:(int32_t)p3 charCount:(int32_t)p4
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Insert(int,char[],int,int)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];

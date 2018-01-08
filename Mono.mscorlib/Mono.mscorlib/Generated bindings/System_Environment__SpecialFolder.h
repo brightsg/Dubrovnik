@@ -2,6 +2,29 @@
 //
 // Managed enumeration : Environment.SpecialFolder
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Environment__SpecialFolder.__Extra__.h")
+#import "System_Environment__SpecialFolder.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Environment__SpecialFolder;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Enum.h"
+
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumSystem_Environment__SpecialFolder) {
@@ -53,7 +76,7 @@ typedef NS_ENUM(int32_t, enumSystem_Environment__SpecialFolder) {
 	System_Environment__SpecialFolder_UserProfile = 40,
 	System_Environment__SpecialFolder_Windows = 36,
 };
-@interface System_Environment__SpecialFolder : DBSystem_Enum
+@interface System_Environment__SpecialFolder : System_Enum
 
 #pragma mark -
 #pragma mark Setup

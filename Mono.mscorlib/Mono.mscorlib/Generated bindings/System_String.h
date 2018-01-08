@@ -2,6 +2,55 @@
 //
 // Managed class : String
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_String.__Extra__.h")
+#import "System_String.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Char;
+@class System_CharEnumerator;
+@class System_Collections_Generic_IEnumerableA1;
+@class System_Collections_IEnumerable;
+@class System_Globalization_CultureInfo;
+@class System_ICloneable;
+@class System_IComparable;
+@class System_IComparableA1;
+@class System_IConvertible;
+@class System_IEquatableA1;
+@class System_IFormatProvider;
+@class System_Int32;
+@class System_Object;
+@class System_String;
+@class System_StringComparison;
+@class System_StringSplitOptions;
+@class System_Text_NormalizationForm;
+@class System_TypeCode;
+@class System_Void;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Collections_Generic_IEnumerableA1_Protocol.h"
+#import "System_Collections_IEnumerable_Protocol.h"
+#import "System_ICloneable_Protocol.h"
+#import "System_IComparable_Protocol.h"
+#import "System_IComparableA1_Protocol.h"
+#import "System_IConvertible_Protocol.h"
+#import "System_IEquatableA1_Protocol.h"
+#import "System_Object.h"
+
 @interface System_String : System_Object <System_IComparable_, System_ICloneable_, System_IConvertible_, System_Collections_IEnumerable_, System_IComparableA1_, System_Collections_Generic_IEnumerableA1_, System_IEquatableA1_>
 
 #pragma mark -
@@ -54,14 +103,14 @@
 		Managed return type : System.String
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    + (NSString *)new_withValueChar:(DBSystem_Array *)p1 startIndexInt:(int32_t)p2 lengthInt:(int32_t)p3;
+    + (NSString *)new_withValueChar:(System_Array *)p1 startIndexInt:(int32_t)p2 lengthInt:(int32_t)p3;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.String
 		Managed param types : System.Char[]
 	 */
-    + (NSString *)new_withValueChar:(DBSystem_Array *)p1;
+    + (NSString *)new_withValueChar:(System_Array *)p1;
 
 	/*! 
 		Managed method name : .ctor
@@ -217,7 +266,7 @@
 		Managed return type : System.String
 		Managed param types : System.Object[]
 	 */
-    + (NSString *)concat_withArgs:(DBSystem_Array *)p1;
+    + (NSString *)concat_withArgs:(System_Array *)p1;
 
 	/*! 
 		Managed method name : Concat
@@ -260,7 +309,7 @@
 		Managed return type : System.String
 		Managed param types : System.String[]
 	 */
-    + (NSString *)concat_withValuesString:(DBSystem_Array *)p1;
+    + (NSString *)concat_withValuesString:(System_Array *)p1;
 
 	/*! 
 		Managed method name : Contains
@@ -281,7 +330,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Int32, System.Char[], System.Int32, System.Int32
 	 */
-    - (void)copyTo_withSourceIndex:(int32_t)p1 destination:(DBSystem_Array *)p2 destinationIndex:(int32_t)p3 count:(int32_t)p4;
+    - (void)copyTo_withSourceIndex:(int32_t)p1 destination:(System_Array *)p2 destinationIndex:(int32_t)p3 count:(int32_t)p4;
 
 	/*! 
 		Managed method name : EndsWith
@@ -365,7 +414,7 @@
 		Managed return type : System.String
 		Managed param types : System.String, System.Object[]
 	 */
-    + (NSString *)format_withFormat:(NSString *)p1 args:(DBSystem_Array *)p2;
+    + (NSString *)format_withFormat:(NSString *)p1 args:(System_Array *)p2;
 
 	/*! 
 		Managed method name : Format
@@ -393,7 +442,7 @@
 		Managed return type : System.String
 		Managed param types : System.IFormatProvider, System.String, System.Object[]
 	 */
-    + (NSString *)format_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 args:(DBSystem_Array *)p3;
+    + (NSString *)format_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 args:(System_Array *)p3;
 
 	/*! 
 		Managed method name : GetEnumerator
@@ -484,21 +533,21 @@
 		Managed return type : System.Int32
 		Managed param types : System.Char[]
 	 */
-    - (int32_t)indexOfAny_withAnyOf:(DBSystem_Array *)p1;
+    - (int32_t)indexOfAny_withAnyOf:(System_Array *)p1;
 
 	/*! 
 		Managed method name : IndexOfAny
 		Managed return type : System.Int32
 		Managed param types : System.Char[], System.Int32
 	 */
-    - (int32_t)indexOfAny_withAnyOf:(DBSystem_Array *)p1 startIndex:(int32_t)p2;
+    - (int32_t)indexOfAny_withAnyOf:(System_Array *)p1 startIndex:(int32_t)p2;
 
 	/*! 
 		Managed method name : IndexOfAny
 		Managed return type : System.Int32
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    - (int32_t)indexOfAny_withAnyOf:(DBSystem_Array *)p1 startIndex:(int32_t)p2 count:(int32_t)p3;
+    - (int32_t)indexOfAny_withAnyOf:(System_Array *)p1 startIndex:(int32_t)p2 count:(int32_t)p3;
 
 	/*! 
 		Managed method name : Insert
@@ -554,14 +603,14 @@
 		Managed return type : System.String
 		Managed param types : System.String, System.String[]
 	 */
-    + (NSString *)join_withSeparator:(NSString *)p1 value:(DBSystem_Array *)p2;
+    + (NSString *)join_withSeparator:(NSString *)p1 value:(System_Array *)p2;
 
 	/*! 
 		Managed method name : Join
 		Managed return type : System.String
 		Managed param types : System.String, System.Object[]
 	 */
-    + (NSString *)join_withSeparatorString:(NSString *)p1 valuesObject:(DBSystem_Array *)p2;
+    + (NSString *)join_withSeparatorString:(NSString *)p1 valuesObject:(System_Array *)p2;
 
 	/*! 
 		Managed method name : Join
@@ -583,7 +632,7 @@
 		Managed return type : System.String
 		Managed param types : System.String, System.String[], System.Int32, System.Int32
 	 */
-    + (NSString *)join_withSeparator:(NSString *)p1 value:(DBSystem_Array *)p2 startIndex:(int32_t)p3 count:(int32_t)p4;
+    + (NSString *)join_withSeparator:(NSString *)p1 value:(System_Array *)p2 startIndex:(int32_t)p3 count:(int32_t)p4;
 
 	/*! 
 		Managed method name : LastIndexOf
@@ -653,21 +702,21 @@
 		Managed return type : System.Int32
 		Managed param types : System.Char[]
 	 */
-    - (int32_t)lastIndexOfAny_withAnyOf:(DBSystem_Array *)p1;
+    - (int32_t)lastIndexOfAny_withAnyOf:(System_Array *)p1;
 
 	/*! 
 		Managed method name : LastIndexOfAny
 		Managed return type : System.Int32
 		Managed param types : System.Char[], System.Int32
 	 */
-    - (int32_t)lastIndexOfAny_withAnyOf:(DBSystem_Array *)p1 startIndex:(int32_t)p2;
+    - (int32_t)lastIndexOfAny_withAnyOf:(System_Array *)p1 startIndex:(int32_t)p2;
 
 	/*! 
 		Managed method name : LastIndexOfAny
 		Managed return type : System.Int32
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    - (int32_t)lastIndexOfAny_withAnyOf:(DBSystem_Array *)p1 startIndex:(int32_t)p2 count:(int32_t)p3;
+    - (int32_t)lastIndexOfAny_withAnyOf:(System_Array *)p1 startIndex:(int32_t)p2 count:(int32_t)p3;
 
 	/*! 
 		Managed method name : Normalize
@@ -758,42 +807,42 @@
 		Managed return type : System.String[]
 		Managed param types : System.Char[]
 	 */
-    - (DBSystem_Array *)split_withSeparator:(DBSystem_Array *)p1;
+    - (System_Array *)split_withSeparator:(System_Array *)p1;
 
 	/*! 
 		Managed method name : Split
 		Managed return type : System.String[]
 		Managed param types : System.Char[], System.Int32
 	 */
-    - (DBSystem_Array *)split_withSeparator:(DBSystem_Array *)p1 count:(int32_t)p2;
+    - (System_Array *)split_withSeparator:(System_Array *)p1 count:(int32_t)p2;
 
 	/*! 
 		Managed method name : Split
 		Managed return type : System.String[]
 		Managed param types : System.Char[], System.StringSplitOptions
 	 */
-    - (DBSystem_Array *)split_withSeparatorChar:(DBSystem_Array *)p1 optionsStringSplitOptions:(int32_t)p2;
+    - (System_Array *)split_withSeparatorChar:(System_Array *)p1 optionsStringSplitOptions:(int32_t)p2;
 
 	/*! 
 		Managed method name : Split
 		Managed return type : System.String[]
 		Managed param types : System.Char[], System.Int32, System.StringSplitOptions
 	 */
-    - (DBSystem_Array *)split_withSeparatorChar:(DBSystem_Array *)p1 countInt:(int32_t)p2 optionsStringSplitOptions:(int32_t)p3;
+    - (System_Array *)split_withSeparatorChar:(System_Array *)p1 countInt:(int32_t)p2 optionsStringSplitOptions:(int32_t)p3;
 
 	/*! 
 		Managed method name : Split
 		Managed return type : System.String[]
 		Managed param types : System.String[], System.StringSplitOptions
 	 */
-    - (DBSystem_Array *)split_withSeparatorString:(DBSystem_Array *)p1 optionsStringSplitOptions:(int32_t)p2;
+    - (System_Array *)split_withSeparatorString:(System_Array *)p1 optionsStringSplitOptions:(int32_t)p2;
 
 	/*! 
 		Managed method name : Split
 		Managed return type : System.String[]
 		Managed param types : System.String[], System.Int32, System.StringSplitOptions
 	 */
-    - (DBSystem_Array *)split_withSeparatorString:(DBSystem_Array *)p1 countInt:(int32_t)p2 optionsStringSplitOptions:(int32_t)p3;
+    - (System_Array *)split_withSeparatorString:(System_Array *)p1 countInt:(int32_t)p2 optionsStringSplitOptions:(int32_t)p3;
 
 	/*! 
 		Managed method name : StartsWith
@@ -835,14 +884,14 @@
 		Managed return type : System.Char[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)toCharArray;
+    - (System_Array *)toCharArray;
 
 	/*! 
 		Managed method name : ToCharArray
 		Managed return type : System.Char[]
 		Managed param types : System.Int32, System.Int32
 	 */
-    - (DBSystem_Array *)toCharArray_withStartIndex:(int32_t)p1 length:(int32_t)p2;
+    - (System_Array *)toCharArray_withStartIndex:(int32_t)p1 length:(int32_t)p2;
 
 	/*! 
 		Managed method name : ToLower
@@ -905,7 +954,7 @@
 		Managed return type : System.String
 		Managed param types : System.Char[]
 	 */
-    - (NSString *)trim_withTrimChars:(DBSystem_Array *)p1;
+    - (NSString *)trim_withTrimChars:(System_Array *)p1;
 
 	/*! 
 		Managed method name : Trim
@@ -919,13 +968,13 @@
 		Managed return type : System.String
 		Managed param types : System.Char[]
 	 */
-    - (NSString *)trimEnd_withTrimChars:(DBSystem_Array *)p1;
+    - (NSString *)trimEnd_withTrimChars:(System_Array *)p1;
 
 	/*! 
 		Managed method name : TrimStart
 		Managed return type : System.String
 		Managed param types : System.Char[]
 	 */
-    - (NSString *)trimStart_withTrimChars:(DBSystem_Array *)p1;
+    - (NSString *)trimStart_withTrimChars:(System_Array *)p1;
 @end
 //--Dubrovnik.CodeGenerator

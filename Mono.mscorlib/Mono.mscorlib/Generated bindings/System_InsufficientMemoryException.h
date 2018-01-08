@@ -2,6 +2,33 @@
 //
 // Managed class : InsufficientMemoryException
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_InsufficientMemoryException.__Extra__.h")
+#import "System_InsufficientMemoryException.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_InsufficientMemoryException;
+@class System_Runtime_InteropServices__Exception;
+@class System_Runtime_Serialization_ISerializable;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_OutOfMemoryException.h"
+#import "System_Runtime_InteropServices__Exception_Protocol.h"
+#import "System_Runtime_Serialization_ISerializable_Protocol.h"
+
 @interface System_InsufficientMemoryException : System_OutOfMemoryException <System_Runtime_Serialization_ISerializable_, System_Runtime_InteropServices__Exception_>
 
 #pragma mark -

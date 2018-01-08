@@ -20,10 +20,10 @@
 // License along with this library; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
-#import "DBSystem_Array.h"
-#import "DBSystem_Collections_IList.h"
+#import "System_Array.h"
+#import "System_Collections_IList.h"
 
-@implementation DBSystem_Array
+@implementation System_Array
 
 // TODO: the element class for the array can be retrieved with mono_class_get_element_class()
 
@@ -62,7 +62,7 @@
 
 + (id)arrayWithMonoArray:(MonoArray *)monoArray
 {
-	DBSystem_Array *dbArray = [[self alloc] initWithMonoArray:monoArray];
+	System_Array *dbArray = [[self alloc] initWithMonoArray:monoArray];
 	return(dbArray);
 }
 

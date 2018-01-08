@@ -50,7 +50,7 @@
 
 - (void)printMagicMultiple:(int32_t)multiple prefix:(NSString*)prefix;
 
-- (DBSystem_Collections_ArrayList*)getSpecialArray;
+- (System_Collections_ArrayList*)getSpecialArray;
 
 - (void)throwAwesomeException:(NSString*)message;
 

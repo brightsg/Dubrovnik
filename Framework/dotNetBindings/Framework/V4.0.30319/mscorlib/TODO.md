@@ -6,7 +6,7 @@ Progress has been made and with a dozen or so manual tweaks the 10,000 line head
 
 Issues:
 
-1. Helper types such as DBSystem_Array need to be injected into the class hierarchy at the correct point so that they get included in the correct location.
+1. Helper types such as System_Array need to be injected into the class hierarchy at the correct point so that they get included in the correct location.
 
     FIX: Use postflight processing to include the required class headers.
 

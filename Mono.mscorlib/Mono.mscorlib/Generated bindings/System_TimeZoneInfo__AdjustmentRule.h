@@ -2,6 +2,39 @@
 //
 // Managed class : TimeZoneInfo.AdjustmentRule
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_TimeZoneInfo__AdjustmentRule.__Extra__.h")
+#import "System_TimeZoneInfo__AdjustmentRule.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_DateTime;
+@class System_IEquatableA1;
+@class System_Int32;
+@class System_Runtime_Serialization_ISerializable;
+@class System_TimeSpan;
+@class System_TimeZoneInfo__AdjustmentRule;
+@class System_TimeZoneInfo__TransitionTime;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_IEquatableA1_Protocol.h"
+#import "System_Object.h"
+#import "System_Runtime_Serialization_IDeserializationCallback_Protocol.h"
+#import "System_Runtime_Serialization_ISerializable_Protocol.h"
+
 @interface System_TimeZoneInfo__AdjustmentRule : System_Object <System_IEquatableA1_, System_Runtime_Serialization_ISerializable_, System_Runtime_Serialization_IDeserializationCallback_>
 
 #pragma mark -

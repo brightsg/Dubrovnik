@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_IO_Directory.m
+﻿//++Dubrovnik.CodeGenerator System_IO_Directory.m
 //
 // Managed class : Directory
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_IO_Directory
 
@@ -241,12 +243,12 @@
 		Managed return type : System.String[]
 		Managed param types : System.String
 	 */
-    + (DBSystem_Array *)getDirectories_withPath:(NSString *)p1
+    + (System_Array *)getDirectories_withPath:(NSString *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDirectories(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -254,12 +256,12 @@
 		Managed return type : System.String[]
 		Managed param types : System.String, System.String
 	 */
-    + (DBSystem_Array *)getDirectories_withPath:(NSString *)p1 searchPattern:(NSString *)p2
+    + (System_Array *)getDirectories_withPath:(NSString *)p1 searchPattern:(NSString *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDirectories(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -267,12 +269,12 @@
 		Managed return type : System.String[]
 		Managed param types : System.String, System.String, System.IO.SearchOption
 	 */
-    + (DBSystem_Array *)getDirectories_withPath:(NSString *)p1 searchPattern:(NSString *)p2 searchOption:(int32_t)p3
+    + (System_Array *)getDirectories_withPath:(NSString *)p1 searchPattern:(NSString *)p2 searchOption:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDirectories(string,string,System.IO.SearchOption)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -293,12 +295,12 @@
 		Managed return type : System.String[]
 		Managed param types : System.String
 	 */
-    + (DBSystem_Array *)getFiles_withPath:(NSString *)p1
+    + (System_Array *)getFiles_withPath:(NSString *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetFiles(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -306,12 +308,12 @@
 		Managed return type : System.String[]
 		Managed param types : System.String, System.String
 	 */
-    + (DBSystem_Array *)getFiles_withPath:(NSString *)p1 searchPattern:(NSString *)p2
+    + (System_Array *)getFiles_withPath:(NSString *)p1 searchPattern:(NSString *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetFiles(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -319,12 +321,12 @@
 		Managed return type : System.String[]
 		Managed param types : System.String, System.String, System.IO.SearchOption
 	 */
-    + (DBSystem_Array *)getFiles_withPath:(NSString *)p1 searchPattern:(NSString *)p2 searchOption:(int32_t)p3
+    + (System_Array *)getFiles_withPath:(NSString *)p1 searchPattern:(NSString *)p2 searchOption:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetFiles(string,string,System.IO.SearchOption)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -332,12 +334,12 @@
 		Managed return type : System.String[]
 		Managed param types : System.String
 	 */
-    + (DBSystem_Array *)getFileSystemEntries_withPath:(NSString *)p1
+    + (System_Array *)getFileSystemEntries_withPath:(NSString *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetFileSystemEntries(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -345,12 +347,12 @@
 		Managed return type : System.String[]
 		Managed param types : System.String, System.String
 	 */
-    + (DBSystem_Array *)getFileSystemEntries_withPath:(NSString *)p1 searchPattern:(NSString *)p2
+    + (System_Array *)getFileSystemEntries_withPath:(NSString *)p1 searchPattern:(NSString *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetFileSystemEntries(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -358,12 +360,12 @@
 		Managed return type : System.String[]
 		Managed param types : System.String, System.String, System.IO.SearchOption
 	 */
-    + (DBSystem_Array *)getFileSystemEntries_withPath:(NSString *)p1 searchPattern:(NSString *)p2 searchOption:(int32_t)p3
+    + (System_Array *)getFileSystemEntries_withPath:(NSString *)p1 searchPattern:(NSString *)p2 searchOption:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetFileSystemEntries(string,string,System.IO.SearchOption)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -423,12 +425,12 @@
 		Managed return type : System.String[]
 		Managed param types : 
 	 */
-    + (DBSystem_Array *)getLogicalDrives
+    + (System_Array *)getLogicalDrives
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetLogicalDrives()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 

@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Decimal.m
+﻿//++Dubrovnik.CodeGenerator System_Decimal.m
 //
 // Managed struct : Decimal
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_Decimal
 
@@ -110,7 +112,7 @@
 		Managed return type : System.Decimal
 		Managed param types : System.Int32[]
 	 */
-    + (NSDecimalNumber *)new_withBits:(DBSystem_Array *)p1
+    + (NSDecimalNumber *)new_withBits:(System_Array *)p1
     {
 		
 		NSDecimalNumber * object = [[self alloc] initWithSignature:"int[]" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -345,12 +347,12 @@
 		Managed return type : System.Int32[]
 		Managed param types : System.Decimal
 	 */
-    + (DBSystem_Array *)getBits_withD:(NSDecimalNumber *)p1
+    + (System_Array *)getBits_withD:(NSDecimalNumber *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetBits(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 

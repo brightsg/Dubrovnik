@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Threading_CancellationTokenSource.m
+﻿//++Dubrovnik.CodeGenerator System_Threading_CancellationTokenSource.m
 //
 // Managed class : CancellationTokenSource
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_Threading_CancellationTokenSource
 
@@ -168,7 +170,7 @@
 		Managed return type : System.Threading.CancellationTokenSource
 		Managed param types : System.Threading.CancellationToken[]
 	 */
-    + (System_Threading_CancellationTokenSource *)createLinkedTokenSource_withTokens:(DBSystem_Array *)p1
+    + (System_Threading_CancellationTokenSource *)createLinkedTokenSource_withTokens:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateLinkedTokenSource(System.Threading.CancellationToken[])" withNumArgs:1, [p1 monoRTInvokeArg]];

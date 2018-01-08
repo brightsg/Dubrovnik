@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_Data_Entity_Core_Objects_ObjectContext.h
+//++Dubrovnik.CodeGenerator System_Data_Entity_Core_Objects_ObjectContext.h
 //
 // Managed class : ObjectContext
 //
@@ -17,17 +17,17 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Data.Entity.Core.Objects.ObjectContext
 	// Managed param types : System.Data.Entity.Core.EntityClient.EntityConnection
-    + (DBSystem_Data_Entity_Core_Objects_ObjectContext *)new_withConnection:(System_Data_Entity_Core_EntityClient_EntityConnection *)p1;
+    + (System_Data_Entity_Core_Objects_ObjectContext *)new_withConnection:(System_Data_Entity_Core_EntityClient_EntityConnection *)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Data.Entity.Core.Objects.ObjectContext
 	// Managed param types : System.Data.Entity.Core.EntityClient.EntityConnection, System.Boolean
-    + (DBSystem_Data_Entity_Core_Objects_ObjectContext *)new_withConnection:(System_Data_Entity_Core_EntityClient_EntityConnection *)p1 contextOwnsConnection:(BOOL)p2;
+    + (System_Data_Entity_Core_Objects_ObjectContext *)new_withConnection:(System_Data_Entity_Core_EntityClient_EntityConnection *)p1 contextOwnsConnection:(BOOL)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Data.Entity.Core.Objects.ObjectContext
 	// Managed param types : System.String
-    + (DBSystem_Data_Entity_Core_Objects_ObjectContext *)new_withConnectionString:(NSString *)p1;
+    + (System_Data_Entity_Core_Objects_ObjectContext *)new_withConnectionString:(NSString *)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -117,12 +117,12 @@
 	// Managed method name : CreateObjectSet
 	// Managed return type : System.Data.Entity.Core.Objects.ObjectSet`1<TEntity>
 	// Managed param types : 
-    - (DBSystem_Data_Entity_Core_Objects_ObjectSetA1 *)createObjectSet;
+    - (System_Data_Entity_Core_Objects_ObjectSetA1 *)createObjectSet;
 
 	// Managed method name : CreateObjectSet
 	// Managed return type : System.Data.Entity.Core.Objects.ObjectSet`1<TEntity>
 	// Managed param types : System.String
-    - (DBSystem_Data_Entity_Core_Objects_ObjectSetA1 *)createObjectSet_withEntitySetName:(NSString *)p1;
+    - (System_Data_Entity_Core_Objects_ObjectSetA1 *)createObjectSet_withEntitySetName:(NSString *)p1;
 
 	// Managed method name : CreateProxyTypes
 	// Managed return type : System.Void
@@ -132,7 +132,7 @@
 	// Managed method name : CreateQuery
 	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
 	// Managed param types : System.String, System.Data.Entity.Core.Objects.ObjectParameter[]
-    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)createQuery_withQueryString:(NSString *)p1 parameters:(DBSystem_Array *)p2;
+    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)createQuery_withQueryString:(NSString *)p1 parameters:(System_Array *)p2;
 
 	// Managed method name : DatabaseExists
 	// Managed return type : System.Boolean
@@ -167,42 +167,42 @@
 	// Managed method name : ExecuteFunction
 	// Managed return type : System.Data.Entity.Core.Objects.ObjectResult`1<TElement>
 	// Managed param types : System.String, System.Data.Entity.Core.Objects.MergeOption, System.Data.Entity.Core.Objects.ObjectParameter[]
-    - (System_Data_Entity_Core_Objects_ObjectResultA1 *)executeFunction_withFunctionName:(NSString *)p1 mergeOption:(System_Data_Entity_Core_Objects_MergeOption)p2 parameters:(DBSystem_Array *)p3;
+    - (System_Data_Entity_Core_Objects_ObjectResultA1 *)executeFunction_withFunctionName:(NSString *)p1 mergeOption:(System_Data_Entity_Core_Objects_MergeOption)p2 parameters:(System_Array *)p3;
 
 	// Managed method name : ExecuteFunction
 	// Managed return type : System.Data.Entity.Core.Objects.ObjectResult`1<TElement>
 	// Managed param types : System.String, System.Data.Entity.Core.Objects.ExecutionOptions, System.Data.Entity.Core.Objects.ObjectParameter[]
-    - (System_Data_Entity_Core_Objects_ObjectResultA1 *)executeFunction_withFunctionName:(NSString *)p1 executionOptions:(System_Data_Entity_Core_Objects_ExecutionOptions *)p2 parameters:(DBSystem_Array *)p3;
+    - (System_Data_Entity_Core_Objects_ObjectResultA1 *)executeFunction_withFunctionName:(NSString *)p1 executionOptions:(System_Data_Entity_Core_Objects_ExecutionOptions *)p2 parameters:(System_Array *)p3;
 
 	// Managed method name : ExecuteStoreCommand
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.Object[]
-    - (int32_t)executeStoreCommand_withCommandText:(NSString *)p1 parameters:(DBSystem_Array *)p2;
+    - (int32_t)executeStoreCommand_withCommandText:(NSString *)p1 parameters:(System_Array *)p2;
 
 	// Managed method name : ExecuteStoreCommand
 	// Managed return type : System.Int32
 	// Managed param types : System.Data.Entity.TransactionalBehavior, System.String, System.Object[]
-    - (int32_t)executeStoreCommand_withTransactionalBehavior:(System_Data_Entity_TransactionalBehavior)p1 commandText:(NSString *)p2 parameters:(DBSystem_Array *)p3;
+    - (int32_t)executeStoreCommand_withTransactionalBehavior:(System_Data_Entity_TransactionalBehavior)p1 commandText:(NSString *)p2 parameters:(System_Array *)p3;
 
 	// Managed method name : ExecuteStoreQuery
 	// Managed return type : System.Data.Entity.Core.Objects.ObjectResult`1<TElement>
 	// Managed param types : System.String, System.Object[]
-    - (System_Data_Entity_Core_Objects_ObjectResultA1 *)executeStoreQuery_withCommandText:(NSString *)p1 parameters:(DBSystem_Array *)p2;
+    - (System_Data_Entity_Core_Objects_ObjectResultA1 *)executeStoreQuery_withCommandText:(NSString *)p1 parameters:(System_Array *)p2;
 
 	// Managed method name : ExecuteStoreQuery
 	// Managed return type : System.Data.Entity.Core.Objects.ObjectResult`1<TElement>
 	// Managed param types : System.String, System.Data.Entity.Core.Objects.ExecutionOptions, System.Object[]
-    - (System_Data_Entity_Core_Objects_ObjectResultA1 *)executeStoreQuery_withCommandText:(NSString *)p1 executionOptions:(System_Data_Entity_Core_Objects_ExecutionOptions *)p2 parameters:(DBSystem_Array *)p3;
+    - (System_Data_Entity_Core_Objects_ObjectResultA1 *)executeStoreQuery_withCommandText:(NSString *)p1 executionOptions:(System_Data_Entity_Core_Objects_ExecutionOptions *)p2 parameters:(System_Array *)p3;
 
 	// Managed method name : ExecuteStoreQuery
 	// Managed return type : System.Data.Entity.Core.Objects.ObjectResult`1<TElement>
 	// Managed param types : System.String, System.String, System.Data.Entity.Core.Objects.MergeOption, System.Object[]
-    - (System_Data_Entity_Core_Objects_ObjectResultA1 *)executeStoreQuery_withCommandText:(NSString *)p1 entitySetName:(NSString *)p2 mergeOption:(System_Data_Entity_Core_Objects_MergeOption)p3 parameters:(DBSystem_Array *)p4;
+    - (System_Data_Entity_Core_Objects_ObjectResultA1 *)executeStoreQuery_withCommandText:(NSString *)p1 entitySetName:(NSString *)p2 mergeOption:(System_Data_Entity_Core_Objects_MergeOption)p3 parameters:(System_Array *)p4;
 
 	// Managed method name : ExecuteStoreQuery
 	// Managed return type : System.Data.Entity.Core.Objects.ObjectResult`1<TElement>
 	// Managed param types : System.String, System.String, System.Data.Entity.Core.Objects.ExecutionOptions, System.Object[]
-    - (System_Data_Entity_Core_Objects_ObjectResultA1 *)executeStoreQuery_withCommandText:(NSString *)p1 entitySetName:(NSString *)p2 executionOptions:(System_Data_Entity_Core_Objects_ExecutionOptions *)p3 parameters:(DBSystem_Array *)p4;
+    - (System_Data_Entity_Core_Objects_ObjectResultA1 *)executeStoreQuery_withCommandText:(NSString *)p1 entitySetName:(NSString *)p2 executionOptions:(System_Data_Entity_Core_Objects_ExecutionOptions *)p3 parameters:(System_Array *)p4;
 
 	// Managed method name : GetKnownProxyTypes
 	// Managed return type : System.Collections.Generic.IEnumerable`1<System.Type>

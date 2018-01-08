@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Threading_Tasks_Task.m
+﻿//++Dubrovnik.CodeGenerator System_Threading_Tasks_Task.m
 //
 // Managed class : Task
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_Threading_Tasks_Task
 
@@ -957,7 +959,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Threading.Tasks.Task[]
 	 */
-    + (void)waitAll_withTasks:(DBSystem_Array *)p1
+    + (void)waitAll_withTasks:(System_Array *)p1
     {
 		
 		[self invokeMonoClassMethod:"WaitAll(System.Threading.Tasks.Task[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -969,7 +971,7 @@
 		Managed return type : System.Boolean
 		Managed param types : System.Threading.Tasks.Task[], System.TimeSpan
 	 */
-    + (BOOL)waitAll_withTasks:(DBSystem_Array *)p1 timeout:(System_TimeSpan *)p2
+    + (BOOL)waitAll_withTasks:(System_Array *)p1 timeout:(System_TimeSpan *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAll(System.Threading.Tasks.Task[],System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -982,7 +984,7 @@
 		Managed return type : System.Boolean
 		Managed param types : System.Threading.Tasks.Task[], System.Int32
 	 */
-    + (BOOL)waitAll_withTasks:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2
+    + (BOOL)waitAll_withTasks:(System_Array *)p1 millisecondsTimeout:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAll(System.Threading.Tasks.Task[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
@@ -995,7 +997,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Threading.Tasks.Task[], System.Threading.CancellationToken
 	 */
-    + (void)waitAll_withTasks:(DBSystem_Array *)p1 cancellationToken:(System_Threading_CancellationToken *)p2
+    + (void)waitAll_withTasks:(System_Array *)p1 cancellationToken:(System_Threading_CancellationToken *)p2
     {
 		
 		[self invokeMonoClassMethod:"WaitAll(System.Threading.Tasks.Task[],System.Threading.CancellationToken)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -1007,7 +1009,7 @@
 		Managed return type : System.Boolean
 		Managed param types : System.Threading.Tasks.Task[], System.Int32, System.Threading.CancellationToken
 	 */
-    + (BOOL)waitAll_withTasks:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2 cancellationToken:(System_Threading_CancellationToken *)p3
+    + (BOOL)waitAll_withTasks:(System_Array *)p1 millisecondsTimeout:(int32_t)p2 cancellationToken:(System_Threading_CancellationToken *)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAll(System.Threading.Tasks.Task[],int,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
@@ -1020,7 +1022,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.Threading.Tasks.Task[]
 	 */
-    + (int32_t)waitAny_withTasks:(DBSystem_Array *)p1
+    + (int32_t)waitAny_withTasks:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAny(System.Threading.Tasks.Task[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -1033,7 +1035,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.Threading.Tasks.Task[], System.TimeSpan
 	 */
-    + (int32_t)waitAny_withTasks:(DBSystem_Array *)p1 timeout:(System_TimeSpan *)p2
+    + (int32_t)waitAny_withTasks:(System_Array *)p1 timeout:(System_TimeSpan *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAny(System.Threading.Tasks.Task[],System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -1046,7 +1048,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.Threading.Tasks.Task[], System.Threading.CancellationToken
 	 */
-    + (int32_t)waitAny_withTasks:(DBSystem_Array *)p1 cancellationToken:(System_Threading_CancellationToken *)p2
+    + (int32_t)waitAny_withTasks:(System_Array *)p1 cancellationToken:(System_Threading_CancellationToken *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAny(System.Threading.Tasks.Task[],System.Threading.CancellationToken)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -1059,7 +1061,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.Threading.Tasks.Task[], System.Int32
 	 */
-    + (int32_t)waitAny_withTasks:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2
+    + (int32_t)waitAny_withTasks:(System_Array *)p1 millisecondsTimeout:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAny(System.Threading.Tasks.Task[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
@@ -1072,7 +1074,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.Threading.Tasks.Task[], System.Int32, System.Threading.CancellationToken
 	 */
-    + (int32_t)waitAny_withTasks:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2 cancellationToken:(System_Threading_CancellationToken *)p3
+    + (int32_t)waitAny_withTasks:(System_Array *)p1 millisecondsTimeout:(int32_t)p2 cancellationToken:(System_Threading_CancellationToken *)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"WaitAny(System.Threading.Tasks.Task[],int,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
@@ -1098,7 +1100,7 @@
 		Managed return type : System.Threading.Tasks.Task
 		Managed param types : System.Threading.Tasks.Task[]
 	 */
-    + (System_Threading_Tasks_Task *)whenAll_withTasksSTTTask:(DBSystem_Array *)p1
+    + (System_Threading_Tasks_Task *)whenAll_withTasksSTTTask:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"WhenAll(System.Threading.Tasks.Task[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -1126,7 +1128,7 @@
 		Managed param types : Task`1[]
 		Generic method definition type params : <System.Threading.Tasks.Task+TResult>
 	 */
-    + (System_Threading_Tasks_TaskA1 *)whenAll_withTasksTaskA1:(DBSystem_Array *)p1 typeParameter:(id)typeParameter
+    + (System_Threading_Tasks_TaskA1 *)whenAll_withTasksTaskA1:(System_Array *)p1 typeParameter:(id)typeParameter
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"WhenAll(Task`1[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -1139,7 +1141,7 @@
 		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task>
 		Managed param types : System.Threading.Tasks.Task[]
 	 */
-    + (System_Threading_Tasks_TaskA1 *)whenAny_withTasksSTTTask:(DBSystem_Array *)p1
+    + (System_Threading_Tasks_TaskA1 *)whenAny_withTasksSTTTask:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"WhenAny(System.Threading.Tasks.Task[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -1166,7 +1168,7 @@
 		Managed param types : Task`1[]
 		Generic method definition type params : <System.Threading.Tasks.Task+TResult>
 	 */
-    + (System_Threading_Tasks_TaskA1 *)whenAny_withTasksTaskA1:(DBSystem_Array *)p1 typeParameter:(id)typeParameter
+    + (System_Threading_Tasks_TaskA1 *)whenAny_withTasksTaskA1:(System_Array *)p1 typeParameter:(id)typeParameter
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"WhenAny(Task`1[])" withNumArgs:1, [p1 monoRTInvokeArg]];

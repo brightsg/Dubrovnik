@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_IO_DirectoryInfo.m
+﻿//++Dubrovnik.CodeGenerator System_IO_DirectoryInfo.m
 //
 // Managed class : DirectoryInfo
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_IO_DirectoryInfo
 
@@ -330,12 +332,12 @@
 		Managed return type : System.IO.DirectoryInfo[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getDirectories
+    - (System_Array *)getDirectories
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDirectories()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -343,12 +345,12 @@
 		Managed return type : System.IO.DirectoryInfo[]
 		Managed param types : System.String
 	 */
-    - (DBSystem_Array *)getDirectories_withSearchPattern:(NSString *)p1
+    - (System_Array *)getDirectories_withSearchPattern:(NSString *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDirectories(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -356,12 +358,12 @@
 		Managed return type : System.IO.DirectoryInfo[]
 		Managed param types : System.String, System.IO.SearchOption
 	 */
-    - (DBSystem_Array *)getDirectories_withSearchPattern:(NSString *)p1 searchOption:(int32_t)p2
+    - (System_Array *)getDirectories_withSearchPattern:(NSString *)p1 searchOption:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDirectories(string,System.IO.SearchOption)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -369,12 +371,12 @@
 		Managed return type : System.IO.FileInfo[]
 		Managed param types : System.String
 	 */
-    - (DBSystem_Array *)getFiles_withSearchPattern:(NSString *)p1
+    - (System_Array *)getFiles_withSearchPattern:(NSString *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFiles(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -382,12 +384,12 @@
 		Managed return type : System.IO.FileInfo[]
 		Managed param types : System.String, System.IO.SearchOption
 	 */
-    - (DBSystem_Array *)getFiles_withSearchPattern:(NSString *)p1 searchOption:(int32_t)p2
+    - (System_Array *)getFiles_withSearchPattern:(NSString *)p1 searchOption:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFiles(string,System.IO.SearchOption)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -395,12 +397,12 @@
 		Managed return type : System.IO.FileInfo[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getFiles
+    - (System_Array *)getFiles
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFiles()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -408,12 +410,12 @@
 		Managed return type : System.IO.FileSystemInfo[]
 		Managed param types : System.String
 	 */
-    - (DBSystem_Array *)getFileSystemInfos_withSearchPattern:(NSString *)p1
+    - (System_Array *)getFileSystemInfos_withSearchPattern:(NSString *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFileSystemInfos(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -421,12 +423,12 @@
 		Managed return type : System.IO.FileSystemInfo[]
 		Managed param types : System.String, System.IO.SearchOption
 	 */
-    - (DBSystem_Array *)getFileSystemInfos_withSearchPattern:(NSString *)p1 searchOption:(int32_t)p2
+    - (System_Array *)getFileSystemInfos_withSearchPattern:(NSString *)p1 searchOption:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFileSystemInfos(string,System.IO.SearchOption)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -434,12 +436,12 @@
 		Managed return type : System.IO.FileSystemInfo[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getFileSystemInfos
+    - (System_Array *)getFileSystemInfos
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFileSystemInfos()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 

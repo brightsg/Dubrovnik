@@ -23,7 +23,7 @@
 
 // Managed property name : NewItems
 // Managed property type : System.Collections.IList
-@property (nonatomic, strong, readonly) DBSystem_Collections_IList * db_newItems;
+@property (nonatomic, strong, readonly) System_Collections_IList * db_newItems;
 
 // Managed property name : NewStartingIndex
 // Managed property type : System.Int32
@@ -31,7 +31,7 @@
 
 // Managed property name : OldItems
 // Managed property type : System.Collections.IList
-@property (nonatomic, strong, readonly) DBSystem_Collections_IList * oldItems;
+@property (nonatomic, strong, readonly) System_Collections_IList * oldItems;
 
 // Managed property name : OldStartingIndex
 // Managed property type : System.Int32

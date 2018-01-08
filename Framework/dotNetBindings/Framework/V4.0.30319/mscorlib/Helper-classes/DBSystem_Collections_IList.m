@@ -23,9 +23,9 @@
 // review the following list wrapper:
 // https://github.com/richard-fine/mono/blob/MonoListWrapper/contrib/MonoListWrapper/MonoListWrapper.c
 
-#import "DBSystem_Collections_IList.h"
+#import "System_Collections_IList.h"
 
-@implementation DBSystem_Collections_IList
+@implementation System_Collections_IList
 
 // obligatory override
 + (const char *)monoClassName
@@ -40,7 +40,7 @@
 
 + (instancetype)listWithMonoObject:(MonoObject *)monoObject
 {
-	DBSystem_Collections_IList *list = [[[self class] alloc] initWithMonoObject:monoObject];
+	System_Collections_IList *list = [[[self class] alloc] initWithMonoObject:monoObject];
 	return(list);
 }
 

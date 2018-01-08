@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Reflection_PropertyInfo.m
+﻿//++Dubrovnik.CodeGenerator System_Reflection_PropertyInfo.m
 //
 // Managed class : PropertyInfo
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_Reflection_PropertyInfo
 
@@ -179,12 +181,12 @@
 		Managed return type : System.Reflection.MethodInfo[]
 		Managed param types : System.Boolean
 	 */
-    - (DBSystem_Array *)getAccessors_withNonPublic:(BOOL)p1
+    - (System_Array *)getAccessors_withNonPublic:(BOOL)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAccessors(bool)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -192,12 +194,12 @@
 		Managed return type : System.Reflection.MethodInfo[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getAccessors
+    - (System_Array *)getAccessors
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAccessors()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -258,12 +260,12 @@
 		Managed return type : System.Type[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getOptionalCustomModifiers
+    - (System_Array *)getOptionalCustomModifiers
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetOptionalCustomModifiers()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -284,12 +286,12 @@
 		Managed return type : System.Type[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getRequiredCustomModifiers
+    - (System_Array *)getRequiredCustomModifiers
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRequiredCustomModifiers()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -336,7 +338,7 @@
 		Managed return type : System.Object
 		Managed param types : System.Object, System.Object[]
 	 */
-    - (System_Object *)getValue_withObj:(System_Object *)p1 index:(DBSystem_Array *)p2
+    - (System_Object *)getValue_withObj:(System_Object *)p1 index:(System_Array *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetValue(object,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -389,7 +391,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Object, System.Object, System.Object[]
 	 */
-    - (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2 index:(DBSystem_Array *)p3
+    - (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2 index:(System_Array *)p3
     {
 		
 		[self invokeMonoMethod:"SetValue(object,object,object[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];

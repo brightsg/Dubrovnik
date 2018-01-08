@@ -2,6 +2,38 @@
 //
 // Managed class : MulticastDelegate
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_MulticastDelegate.__Extra__.h")
+#import "System_MulticastDelegate.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Delegate;
+@class System_ICloneable;
+@class System_Int32;
+@class System_MulticastDelegate;
+@class System_Object;
+@class System_Runtime_Serialization_ISerializable;
+@class System_Void;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Delegate.h"
+#import "System_ICloneable_Protocol.h"
+#import "System_Runtime_Serialization_ISerializable_Protocol.h"
+
 @interface System_MulticastDelegate : System_Delegate <System_ICloneable_, System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
@@ -33,7 +65,7 @@
 		Managed return type : System.Delegate[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getInvocationList;
+    - (System_Array *)getInvocationList;
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 
 	/*! 

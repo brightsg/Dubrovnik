@@ -2,6 +2,30 @@
 //
 // Managed class : AssemblyLoadEventArgs
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_AssemblyLoadEventArgs.__Extra__.h")
+#import "System_AssemblyLoadEventArgs.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_AssemblyLoadEventArgs;
+@class System_Reflection_Assembly;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_EventArgs.h"
+
 @interface System_AssemblyLoadEventArgs : System_EventArgs
 
 #pragma mark -

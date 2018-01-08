@@ -20,11 +20,11 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBSystem_IO_FileInfo.h"
+#import "System_IO_FileInfo.h"
 
 static MonoClass *_monoClass = NULL;
 
-@implementation DBSystem_IO_FileInfo
+@implementation System_IO_FileInfo
 
 + (MonoClass *)monoClass {
 	if(_monoClass == NULL)
@@ -36,19 +36,19 @@ static MonoClass *_monoClass = NULL;
 #pragma mark -
 
 + (id)fileInfoWithMonoObject:(MonoObject *)monoObject {
-	DBSystem_IO_FileInfo *fileInfo = [[DBSystem_IO_FileInfo alloc] initWithMonoObject:monoObject];
+	System_IO_FileInfo *fileInfo = [[System_IO_FileInfo alloc] initWithMonoObject:monoObject];
 	
 	return(fileInfo);
 }
 
 + (id)fileInfoWithURL:(NSURL *)url {
-	DBSystem_IO_FileInfo *fileInfo = [[DBSystem_IO_FileInfo alloc] initWithURL:url];
+	System_IO_FileInfo *fileInfo = [[System_IO_FileInfo alloc] initWithURL:url];
 	
 	return(fileInfo);
 }
 
 + (id)fileInfoWithPath:(NSString *)path {
-	DBSystem_IO_FileInfo *fileInfo = [[DBSystem_IO_FileInfo alloc] initWithPath:path];
+	System_IO_FileInfo *fileInfo = [[System_IO_FileInfo alloc] initWithPath:path];
 	
 	return(fileInfo);
 }

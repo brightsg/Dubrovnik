@@ -2,6 +2,32 @@
 //
 // Managed class : ObsoleteAttribute
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_ObsoleteAttribute.__Extra__.h")
+#import "System_ObsoleteAttribute.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_ObsoleteAttribute;
+@class System_String;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Attribute.h"
+#import "System_Runtime_InteropServices__Attribute_Protocol.h"
+
 @interface System_ObsoleteAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -

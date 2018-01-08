@@ -2,6 +2,32 @@
 //
 // Managed class : Path
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_IO_Path.__Extra__.h")
+#import "System_IO_Path.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Char;
+@class System_IO_Path;
+@class System_String;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Object.h"
+
 @interface System_IO_Path : System_Object
 
 #pragma mark -
@@ -24,7 +50,7 @@
 
 	// Managed field name : InvalidPathChars
 	// Managed field type : System.Char[]
-    + (DBSystem_Array *)invalidPathChars;
+    + (System_Array *)invalidPathChars;
 
 	// Managed field name : PathSeparator
 	// Managed field type : System.Char
@@ -70,7 +96,7 @@
 		Managed return type : System.String
 		Managed param types : System.String[]
 	 */
-    + (NSString *)combine_withPaths:(DBSystem_Array *)p1;
+    + (NSString *)combine_withPaths:(System_Array *)p1;
 
 	/*! 
 		Managed method name : GetDirectoryName
@@ -112,14 +138,14 @@
 		Managed return type : System.Char[]
 		Managed param types : 
 	 */
-    + (DBSystem_Array *)getInvalidFileNameChars;
+    + (System_Array *)getInvalidFileNameChars;
 
 	/*! 
 		Managed method name : GetInvalidPathChars
 		Managed return type : System.Char[]
 		Managed param types : 
 	 */
-    + (DBSystem_Array *)getInvalidPathChars;
+    + (System_Array *)getInvalidPathChars;
 
 	/*! 
 		Managed method name : GetPathRoot

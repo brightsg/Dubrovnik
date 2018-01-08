@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_UriPartial.h
+//++Dubrovnik.CodeGenerator System_UriPartial.h
 //
 // Managed enumeration : UriPartial
 //
@@ -10,7 +10,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriPartial) {
 	System_UriPartial_Query = 3,
 	System_UriPartial_Scheme = 0,
 };
-@interface System_UriPartial : DBSystem_Enum
+@interface System_UriPartial : System_Enum
 
 #pragma mark -
 #pragma mark Setup

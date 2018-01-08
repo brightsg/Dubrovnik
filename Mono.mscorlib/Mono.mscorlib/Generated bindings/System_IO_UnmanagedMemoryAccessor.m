@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_IO_UnmanagedMemoryAccessor.m
+﻿//++Dubrovnik.CodeGenerator System_IO_UnmanagedMemoryAccessor.m
 //
 // Managed class : UnmanagedMemoryAccessor
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_IO_UnmanagedMemoryAccessor
 
@@ -133,7 +135,7 @@ DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithM
 		Managed param types : System.Int64, T[], System.Int32, System.Int32
 		Generic method definition type params : <System.IO.UnmanagedMemoryAccessor+T>
 	 */
-    - (int32_t)readArray_withPosition:(int64_t)p1 array:(DBSystem_Array *)p2 offset:(int32_t)p3 count:(int32_t)p4 typeParameter:(id)typeParameter
+    - (int32_t)readArray_withPosition:(int64_t)p1 array:(System_Array *)p2 offset:(int32_t)p3 count:(int32_t)p4 typeParameter:(id)typeParameter
     {
 		DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"ReadArray(long,T[],int,int)" typeParameters:typeParameter];
 
@@ -490,7 +492,7 @@ DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithM
 		Managed param types : System.Int64, T[], System.Int32, System.Int32
 		Generic method definition type params : <System.IO.UnmanagedMemoryAccessor+T>
 	 */
-    - (void)writeArray_withPosition:(int64_t)p1 array:(DBSystem_Array *)p2 offset:(int32_t)p3 count:(int32_t)p4 typeParameter:(id)typeParameter
+    - (void)writeArray_withPosition:(int64_t)p1 array:(System_Array *)p2 offset:(int32_t)p3 count:(int32_t)p4 typeParameter:(id)typeParameter
     {
 		DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"WriteArray(long,T[],int,int)" typeParameters:typeParameter];
 

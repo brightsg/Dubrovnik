@@ -1,5 +1,5 @@
 //
-//  DBSystem_Collections_Generic_DictionaryA2+Linq.m
+//  System_Collections_Generic_DictionaryA2+Linq.m
 //  Mono.System.Core
 //
 //  Created by Jonathan Mitchell on 16/04/2014.
@@ -10,11 +10,11 @@
 - (void) setCompareEnforcesTypeMatch;
 @end
 
-#import "DBSystem_Collections_Generic_DictionaryA2+Linq.h"
-#import "DBSystem_Linq.h"
-#import "Mono.mscorlib/DBSystem_Collections_IList.h"
+#import "System_Collections_Generic_DictionaryA2+Linq.h"
+#import "System_Linq.h"
+#import "Mono.mscorlib/System_Collections_IList.h"
 
-@implementation DBSystem_Collections_Generic_DictionaryA2 (Linq)
+@implementation System_Collections_Generic_DictionaryA2 (Linq)
 
 - (NSArray *)allKeys
 {
@@ -22,7 +22,7 @@
     DBManagedObject *object = [[System_Object alloc] initWithMonoObject:monoObject];
     
     // toList defaults to using the first generic type
-    NSArray *keys = [[DBSystem_Linq toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)object] array];
+    NSArray *keys = [[System_Linq toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)object] array];
     
     for (id key in keys) {
         if ([key respondsToSelector:@selector(setCompareEnforcesTypeMatch)]) {
@@ -55,7 +55,7 @@
     DBManagedObject *object = [[System_Object alloc] initWithMonoObject:monoObject];
     
     // obtain a list of objects of the 2nd generic type
-    NSArray *values = [[DBSystem_Linq toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)object genericTypeIndex:1] array];
+    NSArray *values = [[System_Linq toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)object genericTypeIndex:1] array];
     
     return values;
 }
@@ -97,15 +97,15 @@
         for (id key in allKeys) {
             id object = dict[key];
             
-            if ([object isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]]) {
-                dict[key] = [(DBSystem_Collections_Generic_DictionaryA2 *)object dictionary]; // TODO: should go deep
+            if ([object isKindOfClass:[System_Collections_Generic_DictionaryA2 class]]) {
+                dict[key] = [(System_Collections_Generic_DictionaryA2 *)object dictionary]; // TODO: should go deep
             }
             
-            else if ([object isKindOfClass:[DBSystem_Collections_Generic_ListA1 class]]) {
-                dict[key] = [(DBSystem_Collections_Generic_ListA1 *)object mutableArray]; // TODO: should go deep
+            else if ([object isKindOfClass:[System_Collections_Generic_ListA1 class]]) {
+                dict[key] = [(System_Collections_Generic_ListA1 *)object mutableArray]; // TODO: should go deep
                 
-            } else if ([object isKindOfClass:[DBSystem_Array class]]) {
-                dict[key] = [(DBSystem_Array *)object mutableArray]; // TODO: should go deep
+            } else if ([object isKindOfClass:[System_Array class]]) {
+                dict[key] = [(System_Array *)object mutableArray]; // TODO: should go deep
             }
             
         }
@@ -152,15 +152,15 @@
         // make the representation deep
         if (representation == DBObjectRepresentationDeep) {
             
-            if ([value isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]]) {
-                value = [(DBSystem_Collections_Generic_DictionaryA2 *)value orderedDictionary]; // TODO: should go deep
+            if ([value isKindOfClass:[System_Collections_Generic_DictionaryA2 class]]) {
+                value = [(System_Collections_Generic_DictionaryA2 *)value orderedDictionary]; // TODO: should go deep
             }
             
-            else if ([value isKindOfClass:[DBSystem_Collections_Generic_ListA1 class]]) {
-                value = [(DBSystem_Collections_Generic_ListA1 *)value mutableArray]; // TODO: should go deep
+            else if ([value isKindOfClass:[System_Collections_Generic_ListA1 class]]) {
+                value = [(System_Collections_Generic_ListA1 *)value mutableArray]; // TODO: should go deep
                 
-            } else if ([value isKindOfClass:[DBSystem_Array class]]) {
-                value = [(DBSystem_Array *)value mutableArray]; // TODO: should go deep
+            } else if ([value isKindOfClass:[System_Array class]]) {
+                value = [(System_Array *)value mutableArray]; // TODO: should go deep
             }
             
         }
@@ -199,15 +199,15 @@
         // make the representation deep
         if (representation == DBObjectRepresentationDeep) {
             
-            if ([value isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]]) {
-                value = [(DBSystem_Collections_Generic_DictionaryA2 *)value keyValuePairs];
+            if ([value isKindOfClass:[System_Collections_Generic_DictionaryA2 class]]) {
+                value = [(System_Collections_Generic_DictionaryA2 *)value keyValuePairs];
             }
             
-            else if ([value isKindOfClass:[DBSystem_Collections_Generic_ListA1 class]]) {
-                value = [(DBSystem_Collections_Generic_ListA1 *)value mutableArray]; // TODO: should go deep
+            else if ([value isKindOfClass:[System_Collections_Generic_ListA1 class]]) {
+                value = [(System_Collections_Generic_ListA1 *)value mutableArray]; // TODO: should go deep
                 
-            } else if ([value isKindOfClass:[DBSystem_Array class]]) {
-                value = [(DBSystem_Array *)value mutableArray]; // TODO: should go deep
+            } else if ([value isKindOfClass:[System_Array class]]) {
+                value = [(System_Array *)value mutableArray]; // TODO: should go deep
             }
             
         }

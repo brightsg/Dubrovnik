@@ -2,6 +2,39 @@
 //
 // Managed interface : _Exception
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Runtime_InteropServices__Exception.__Extra__.h")
+#import "System_Runtime_InteropServices__Exception.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Exception;
+@class System_Int32;
+@class System_Object;
+@class System_Reflection_MethodBase;
+@class System_Runtime_InteropServices__Exception;
+@class System_String;
+@class System_Type;
+@class System_Void;
+@protocol System_Runtime_InteropServices__Exception;
+@protocol System_Runtime_InteropServices__Exception_;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Object.h"
+
 
 /*
  A managed interface is represented as follows:

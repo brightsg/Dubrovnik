@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Enum.m
+﻿//++Dubrovnik.CodeGenerator System_Enum.m
 //
 // Managed class : Enum
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_Enum
 
@@ -97,12 +99,12 @@
 		Managed return type : System.String[]
 		Managed param types : System.Type
 	 */
-    + (DBSystem_Array *)getNames_withEnumType:(System_Type *)p1
+    + (System_Array *)getNames_withEnumType:(System_Type *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetNames(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -136,12 +138,12 @@
 		Managed return type : System.Array
 		Managed param types : System.Type
 	 */
-    + (DBSystem_Array *)getValues_withEnumType:(System_Type *)p1
+    + (System_Array *)getValues_withEnumType:(System_Type *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetValues(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -149,7 +151,7 @@
 		Managed return type : System.Boolean
 		Managed param types : System.Enum
 	 */
-    - (BOOL)hasFlag_withFlag:(DBSystem_Enum *)p1
+    - (BOOL)hasFlag_withFlag:(System_Enum *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"HasFlag(System.Enum)" withNumArgs:1, [p1 monoRTInvokeArg]];

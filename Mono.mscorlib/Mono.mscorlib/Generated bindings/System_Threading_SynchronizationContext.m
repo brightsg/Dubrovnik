@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Threading_SynchronizationContext.m
+﻿//++Dubrovnik.CodeGenerator System_Threading_SynchronizationContext.m
 //
 // Managed class : SynchronizationContext
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_Threading_SynchronizationContext
 
@@ -143,7 +145,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.IntPtr[], System.Boolean, System.Int32
 	 */
-    - (int32_t)wait_withWaitHandles:(DBSystem_Array *)p1 waitAll:(BOOL)p2 millisecondsTimeout:(int32_t)p3
+    - (int32_t)wait_withWaitHandles:(System_Array *)p1 waitAll:(BOOL)p2 millisecondsTimeout:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Wait(intptr[],bool,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];

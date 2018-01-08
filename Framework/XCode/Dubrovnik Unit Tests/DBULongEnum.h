@@ -6,7 +6,7 @@
 //
 //
 
-#import "Mono.mscorlib/DBSystem_Enum.h"
+#import "Mono.mscorlib/System_Enum.h"
 
 typedef NS_ENUM(int64_t, eDBULongEnum) {
     eDBULongEnum_Val1 = 1,
@@ -15,7 +15,7 @@ typedef NS_ENUM(int64_t, eDBULongEnum) {
     eDBULongEnum_Val4 = 4
 };
 
-@interface DBULongEnum : DBSystem_Enum
+@interface DBULongEnum : System_Enum
 
 + (int64_t)val1;
 + (int64_t)val2;

@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_AppDomainSetup.m
+﻿//++Dubrovnik.CodeGenerator System_AppDomainSetup.m
 //
 // Managed class : AppDomainSetup
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_AppDomainSetup
 
@@ -85,7 +87,7 @@
 	// Managed property name : AppDomainInitializerArguments
 	// Managed property type : System.String[]
     @synthesize appDomainInitializerArguments = _appDomainInitializerArguments;
-    - (DBSystem_Array *)appDomainInitializerArguments
+    - (System_Array *)appDomainInitializerArguments
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -99,11 +101,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_appDomainInitializerArguments isEqualToMonoObject:monoObject]) return _appDomainInitializerArguments;					
-		_appDomainInitializerArguments = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		_appDomainInitializerArguments = [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
 		return _appDomainInitializerArguments;
 	}
-    - (void)setAppDomainInitializerArguments:(DBSystem_Array *)value
+    - (void)setAppDomainInitializerArguments:(System_Array *)value
 	{
 		_appDomainInitializerArguments = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -599,7 +601,7 @@
 	// Managed property name : PartialTrustVisibleAssemblies
 	// Managed property type : System.String[]
     @synthesize partialTrustVisibleAssemblies = _partialTrustVisibleAssemblies;
-    - (DBSystem_Array *)partialTrustVisibleAssemblies
+    - (System_Array *)partialTrustVisibleAssemblies
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -613,11 +615,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_partialTrustVisibleAssemblies isEqualToMonoObject:monoObject]) return _partialTrustVisibleAssemblies;					
-		_partialTrustVisibleAssemblies = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		_partialTrustVisibleAssemblies = [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
 		return _partialTrustVisibleAssemblies;
 	}
-    - (void)setPartialTrustVisibleAssemblies:(DBSystem_Array *)value
+    - (void)setPartialTrustVisibleAssemblies:(System_Array *)value
 	{
 		_partialTrustVisibleAssemblies = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);

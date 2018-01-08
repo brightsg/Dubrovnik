@@ -2,6 +2,44 @@
 //
 // Managed class : TimeZoneInfo
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_TimeZoneInfo.__Extra__.h")
+#import "System_TimeZoneInfo.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Collections_ObjectModel_ReadOnlyCollectionA1;
+@class System_DateTime;
+@class System_DateTimeOffset;
+@class System_IEquatableA1;
+@class System_Int32;
+@class System_Object;
+@class System_Runtime_Serialization_ISerializable;
+@class System_String;
+@class System_TimeSpan;
+@class System_TimeZoneInfo;
+@class System_TimeZoneInfo__AdjustmentRule;
+@class System_Void;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_IEquatableA1_Protocol.h"
+#import "System_Object.h"
+#import "System_Runtime_Serialization_IDeserializationCallback_Protocol.h"
+#import "System_Runtime_Serialization_ISerializable_Protocol.h"
+
 @interface System_TimeZoneInfo : System_Object <System_IEquatableA1_, System_Runtime_Serialization_ISerializable_, System_Runtime_Serialization_IDeserializationCallback_>
 
 #pragma mark -
@@ -131,14 +169,14 @@
 		Managed return type : System.TimeZoneInfo
 		Managed param types : System.String, System.TimeSpan, System.String, System.String, System.String, System.TimeZoneInfo+AdjustmentRule[]
 	 */
-    + (System_TimeZoneInfo *)createCustomTimeZone_withId:(NSString *)p1 baseUtcOffset:(System_TimeSpan *)p2 displayName:(NSString *)p3 standardDisplayName:(NSString *)p4 daylightDisplayName:(NSString *)p5 adjustmentRules:(DBSystem_Array *)p6;
+    + (System_TimeZoneInfo *)createCustomTimeZone_withId:(NSString *)p1 baseUtcOffset:(System_TimeSpan *)p2 displayName:(NSString *)p3 standardDisplayName:(NSString *)p4 daylightDisplayName:(NSString *)p5 adjustmentRules:(System_Array *)p6;
 
 	/*! 
 		Managed method name : CreateCustomTimeZone
 		Managed return type : System.TimeZoneInfo
 		Managed param types : System.String, System.TimeSpan, System.String, System.String, System.String, System.TimeZoneInfo+AdjustmentRule[], System.Boolean
 	 */
-    + (System_TimeZoneInfo *)createCustomTimeZone_withId:(NSString *)p1 baseUtcOffset:(System_TimeSpan *)p2 displayName:(NSString *)p3 standardDisplayName:(NSString *)p4 daylightDisplayName:(NSString *)p5 adjustmentRules:(DBSystem_Array *)p6 disableDaylightSavingTime:(BOOL)p7;
+    + (System_TimeZoneInfo *)createCustomTimeZone_withId:(NSString *)p1 baseUtcOffset:(System_TimeSpan *)p2 displayName:(NSString *)p3 standardDisplayName:(NSString *)p4 daylightDisplayName:(NSString *)p5 adjustmentRules:(System_Array *)p6 disableDaylightSavingTime:(BOOL)p7;
 
 	/*! 
 		Managed method name : Equals
@@ -173,21 +211,21 @@
 		Managed return type : System.TimeZoneInfo+AdjustmentRule[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getAdjustmentRules;
+    - (System_Array *)getAdjustmentRules;
 
 	/*! 
 		Managed method name : GetAmbiguousTimeOffsets
 		Managed return type : System.TimeSpan[]
 		Managed param types : System.DateTimeOffset
 	 */
-    - (DBSystem_Array *)getAmbiguousTimeOffsets_withDateTimeOffset:(System_DateTimeOffset *)p1;
+    - (System_Array *)getAmbiguousTimeOffsets_withDateTimeOffset:(System_DateTimeOffset *)p1;
 
 	/*! 
 		Managed method name : GetAmbiguousTimeOffsets
 		Managed return type : System.TimeSpan[]
 		Managed param types : System.DateTime
 	 */
-    - (DBSystem_Array *)getAmbiguousTimeOffsets_withDateTime:(NSDate *)p1;
+    - (System_Array *)getAmbiguousTimeOffsets_withDateTime:(NSDate *)p1;
 
 	/*! 
 		Managed method name : GetHashCode

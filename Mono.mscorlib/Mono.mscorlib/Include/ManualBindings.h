@@ -80,7 +80,7 @@
 #import "System_Collections_Generic_IEnumerableA1.h"
 #import "System_Collections_Generic_KeyValuePairA2.h"
 
-#import "DBSystem_Collections_IList.h"
+#import "System_Collections_IList.h"
 #import "System_Collections_Generic_IDictionaryA2.h"
 #import "System_Collections_Generic_IEnumerableA1.h"
 #import "System_Collections_Generic_KeyValuePairA2.h"

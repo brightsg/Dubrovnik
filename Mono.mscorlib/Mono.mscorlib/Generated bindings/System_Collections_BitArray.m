@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Collections_BitArray.m
+﻿//++Dubrovnik.CodeGenerator System_Collections_BitArray.m
 //
 // Managed class : BitArray
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_Collections_BitArray
 
@@ -71,7 +73,7 @@
 		Managed return type : System.Collections.BitArray
 		Managed param types : System.Boolean[]
 	 */
-    + (System_Collections_BitArray *)new_withValuesBool:(DBSystem_Array *)p1
+    + (System_Collections_BitArray *)new_withValuesBool:(System_Array *)p1
     {
 		
 		System_Collections_BitArray * object = [[self alloc] initWithSignature:"bool[]" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -84,7 +86,7 @@
 		Managed return type : System.Collections.BitArray
 		Managed param types : System.Int32[]
 	 */
-    + (System_Collections_BitArray *)new_withValuesInt:(DBSystem_Array *)p1
+    + (System_Collections_BitArray *)new_withValuesInt:(System_Array *)p1
     {
 		
 		System_Collections_BitArray * object = [[self alloc] initWithSignature:"int[]" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -299,7 +301,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Array, System.Int32
 	 */
-    - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
+    - (void)copyTo_withArray:(System_Array *)p1 index:(int32_t)p2
     {
 		
 		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];

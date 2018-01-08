@@ -2,6 +2,35 @@
 //
 // Managed interface : IDictionaryEnumerator
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Collections_IDictionaryEnumerator.__Extra__.h")
+#import "System_Collections_IDictionaryEnumerator.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Collections_DictionaryEntry;
+@class System_Collections_IDictionaryEnumerator;
+@class System_Collections_IEnumerator;
+@class System_Object;
+@protocol System_Collections_IDictionaryEnumerator;
+@protocol System_Collections_IDictionaryEnumerator_;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Collections_IEnumerator_Protocol.h"
+#import "System_Object.h"
+
 
 /*
  A managed interface is represented as follows:

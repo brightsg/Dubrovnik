@@ -2,6 +2,44 @@
 //
 // Managed class : AssemblyName
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Reflection_AssemblyName.__Extra__.h")
+#import "System_Reflection_AssemblyName.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Byte;
+@class System_Globalization_CultureInfo;
+@class System_ICloneable;
+@class System_Object;
+@class System_Reflection_AssemblyContentType;
+@class System_Reflection_AssemblyName;
+@class System_Reflection_AssemblyNameFlags;
+@class System_Runtime_Serialization_ISerializable;
+@class System_String;
+@class System_Version;
+@class System_Void;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_ICloneable_Protocol.h"
+#import "System_Object.h"
+#import "System_Runtime_InteropServices__AssemblyName_Protocol.h"
+#import "System_Runtime_Serialization_IDeserializationCallback_Protocol.h"
+#import "System_Runtime_Serialization_ISerializable_Protocol.h"
+
 @interface System_Reflection_AssemblyName : System_Object <System_Runtime_InteropServices__AssemblyName_, System_ICloneable_, System_Runtime_Serialization_ISerializable_, System_Runtime_Serialization_IDeserializationCallback_>
 
 #pragma mark -

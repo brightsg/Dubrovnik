@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_LongEnum.h
+//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_LongEnum.h
 //
 // Managed enumeration : LongEnum
 //
@@ -10,7 +10,7 @@ typedef NS_ENUM(int64_t, enumDubrovnik_UnitTests_LongEnum) {
 	Dubrovnik_UnitTests_LongEnum_val3 = 3,
 	Dubrovnik_UnitTests_LongEnum_val4 = 4,
 };
-@interface Dubrovnik_UnitTests_LongEnum : DBSystem_Enum
+@interface Dubrovnik_UnitTests_LongEnum : System_Enum
 
 #pragma mark -
 #pragma mark Setup

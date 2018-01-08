@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Collections_ObjectModel_ReadOnlyDictionaryA2__ValueCollection.m
+﻿//++Dubrovnik.CodeGenerator System_Collections_ObjectModel_ReadOnlyDictionaryA2__ValueCollection.m
 //
 // Managed class : ReadOnlyDictionary`2<TKey, TValue>.ValueCollection
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_Collections_ObjectModel_ReadOnlyDictionaryA2__ValueCollection
 
@@ -56,7 +58,7 @@
 		Managed return type : System.Void
 		Managed param types : TValue[], System.Int32
 	 */
-    - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2
+    - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2
     {
 		
 		[self invokeMonoMethod:"CopyTo(TValue[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];

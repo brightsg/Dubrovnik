@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Delegate.m
+﻿//++Dubrovnik.CodeGenerator System_Delegate.m
 //
 // Managed class : Delegate
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_Delegate
 
@@ -105,7 +107,7 @@
 		Managed return type : System.Delegate
 		Managed param types : System.Delegate[]
 	 */
-    + (System_Delegate *)combine_withDelegates:(DBSystem_Array *)p1
+    + (System_Delegate *)combine_withDelegates:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Combine(System.Delegate[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -248,7 +250,7 @@
 		Managed return type : System.Object
 		Managed param types : System.Object[]
 	 */
-    - (System_Object *)dynamicInvoke_withArgs:(DBSystem_Array *)p1
+    - (System_Object *)dynamicInvoke_withArgs:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"DynamicInvoke(object[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -287,12 +289,12 @@
 		Managed return type : System.Delegate[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getInvocationList
+    - (System_Array *)getInvocationList
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetInvocationList()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 

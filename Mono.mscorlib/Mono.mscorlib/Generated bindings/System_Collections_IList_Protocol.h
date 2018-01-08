@@ -2,6 +2,39 @@
 //
 // Managed interface : IList
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Collections_IList.__Extra__.h")
+#import "System_Collections_IList.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Collections_ICollection;
+@class System_Collections_IEnumerable;
+@class System_Collections_IList;
+@class System_Int32;
+@class System_Object;
+@class System_Void;
+@protocol System_Collections_IList;
+@protocol System_Collections_IList_;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Collections_ICollection_Protocol.h"
+#import "System_Collections_IEnumerable_Protocol.h"
+#import "System_Object.h"
+
 
 /*
  A managed interface is represented as follows:

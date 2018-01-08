@@ -2,6 +2,37 @@
 //
 // Managed class : CrossAppDomainDelegate
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_CrossAppDomainDelegate.__Extra__.h")
+#import "System_CrossAppDomainDelegate.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_AsyncCallback;
+@class System_CrossAppDomainDelegate;
+@class System_IAsyncResult;
+@class System_ICloneable;
+@class System_Object;
+@class System_Runtime_Serialization_ISerializable;
+@class System_Void;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_ICloneable_Protocol.h"
+#import "System_MulticastDelegate.h"
+#import "System_Runtime_Serialization_ISerializable_Protocol.h"
+
 @interface System_CrossAppDomainDelegate : System_MulticastDelegate <System_ICloneable_, System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -

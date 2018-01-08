@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_Data_Entity_DbContext.h
+//++Dubrovnik.CodeGenerator System_Data_Entity_DbContext.h
 //
 // Managed class : DbContext
 //
@@ -37,7 +37,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Data.Entity.DbContext
 	// Managed param types : System.Data.Entity.Core.Objects.ObjectContext, System.Boolean
-    + (System_Data_Entity_DbContext *)new_withObjectContext:(DBSystem_Data_Entity_Core_Objects_ObjectContext *)p1 dbContextOwnsObjectContext:(BOOL)p2;
+    + (System_Data_Entity_DbContext *)new_withObjectContext:(System_Data_Entity_Core_Objects_ObjectContext *)p1 dbContextOwnsObjectContext:(BOOL)p2;
 
 #pragma mark -
 #pragma mark Properties

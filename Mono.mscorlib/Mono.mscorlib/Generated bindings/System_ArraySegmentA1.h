@@ -2,6 +2,43 @@
 //
 // Managed struct : ArraySegment`1<T>
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_ArraySegmentA1.__Extra__.h")
+#import "System_ArraySegmentA1.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Collections_Generic_ICollectionA1;
+@class System_Collections_Generic_IEnumerableA1;
+@class System_Collections_Generic_IListA1;
+@class System_Collections_Generic_IReadOnlyCollectionA1;
+@class System_Collections_Generic_IReadOnlyListA1;
+@class System_Collections_IEnumerable;
+@class System_Int32;
+@class System_Object;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Collections_Generic_ICollectionA1_Protocol.h"
+#import "System_Collections_Generic_IEnumerableA1_Protocol.h"
+#import "System_Collections_Generic_IListA1_Protocol.h"
+#import "System_Collections_Generic_IReadOnlyCollectionA1_Protocol.h"
+#import "System_Collections_Generic_IReadOnlyListA1_Protocol.h"
+#import "System_Collections_IEnumerable_Protocol.h"
+#import "System_ValueType.h"
+
 @interface System_ArraySegmentA1 : DBManagedObject <System_Collections_Generic_IListA1_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_Generic_IReadOnlyListA1_, System_Collections_Generic_IReadOnlyCollectionA1_>
 
 #pragma mark -
@@ -19,21 +56,21 @@
 		Managed return type : System.ArraySegment`1<System.ArraySegment`1+T>
 		Managed param types : T[]
 	 */
-    + (System_ArraySegmentA1 *)new_withArray:(DBSystem_Array *)p1;
+    + (System_ArraySegmentA1 *)new_withArray:(System_Array *)p1;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.ArraySegment`1<System.ArraySegment`1+T>
 		Managed param types : T[], System.Int32, System.Int32
 	 */
-    + (System_ArraySegmentA1 *)new_withArray:(DBSystem_Array *)p1 offset:(int32_t)p2 count:(int32_t)p3;
+    + (System_ArraySegmentA1 *)new_withArray:(System_Array *)p1 offset:(int32_t)p2 count:(int32_t)p3;
 
 #pragma mark -
 #pragma mark Properties
 
 	// Managed property name : Array
 	// Managed property type : T[]
-    @property (nonatomic, strong, readonly) DBSystem_Array * array;
+    @property (nonatomic, strong, readonly) System_Array * array;
 
 	// Managed property name : Count
 	// Managed property type : System.Int32

@@ -2,6 +2,38 @@
 //
 // Managed class : AggregateException
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_AggregateException.__Extra__.h")
+#import "System_AggregateException.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_AggregateException;
+@class System_Collections_ObjectModel_ReadOnlyCollectionA1;
+@class System_Exception;
+@class System_FuncA2;
+@class System_Runtime_InteropServices__Exception;
+@class System_Runtime_Serialization_ISerializable;
+@class System_String;
+@class System_Void;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Exception.h"
+#import "System_Runtime_InteropServices__Exception_Protocol.h"
+#import "System_Runtime_Serialization_ISerializable_Protocol.h"
+
 @interface System_AggregateException : System_Exception <System_Runtime_Serialization_ISerializable_, System_Runtime_InteropServices__Exception_>
 
 #pragma mark -
@@ -40,7 +72,7 @@
 		Managed return type : System.AggregateException
 		Managed param types : System.Exception[]
 	 */
-    + (System_AggregateException *)new_withInnerExceptionsSException:(DBSystem_Array *)p1;
+    + (System_AggregateException *)new_withInnerExceptionsSException:(System_Array *)p1;
 
 	/*! 
 		Managed method name : .ctor
@@ -54,7 +86,7 @@
 		Managed return type : System.AggregateException
 		Managed param types : System.String, System.Exception[]
 	 */
-    + (System_AggregateException *)new_withMessageString:(NSString *)p1 innerExceptionsSException:(DBSystem_Array *)p2;
+    + (System_AggregateException *)new_withMessageString:(NSString *)p1 innerExceptionsSException:(System_Array *)p2;
 
 #pragma mark -
 #pragma mark Properties

@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_ConverterA2.m
+﻿//++Dubrovnik.CodeGenerator System_ConverterA2.m
 //
 // Managed class : Converter`2<TInput, TOutput>
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_ConverterA2
 

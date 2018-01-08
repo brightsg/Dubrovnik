@@ -10,7 +10,7 @@
 
 @interface System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1 (Dubrovnik)
 
-- (DBSystem_Collections_IList *)list;
+- (System_Collections_IList *)list;
 - (NSMutableArray *)mutableArray;
 - (NSArray *)array;
 

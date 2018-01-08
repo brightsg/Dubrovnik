@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_ModuleHandle.m
+﻿//++Dubrovnik.CodeGenerator System_ModuleHandle.m
 //
 // Managed struct : ModuleHandle
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_ModuleHandle
 
@@ -188,7 +190,7 @@
 		Managed return type : System.RuntimeFieldHandle
 		Managed param types : System.Int32, System.RuntimeTypeHandle[], System.RuntimeTypeHandle[]
 	 */
-    - (System_RuntimeFieldHandle *)resolveFieldHandle_withFieldToken:(int32_t)p1 typeInstantiationContext:(DBSystem_Array *)p2 methodInstantiationContext:(DBSystem_Array *)p3
+    - (System_RuntimeFieldHandle *)resolveFieldHandle_withFieldToken:(int32_t)p1 typeInstantiationContext:(System_Array *)p2 methodInstantiationContext:(System_Array *)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveFieldHandle(int,System.RuntimeTypeHandle[],System.RuntimeTypeHandle[])" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
@@ -214,7 +216,7 @@
 		Managed return type : System.RuntimeMethodHandle
 		Managed param types : System.Int32, System.RuntimeTypeHandle[], System.RuntimeTypeHandle[]
 	 */
-    - (System_RuntimeMethodHandle *)resolveMethodHandle_withMethodToken:(int32_t)p1 typeInstantiationContext:(DBSystem_Array *)p2 methodInstantiationContext:(DBSystem_Array *)p3
+    - (System_RuntimeMethodHandle *)resolveMethodHandle_withMethodToken:(int32_t)p1 typeInstantiationContext:(System_Array *)p2 methodInstantiationContext:(System_Array *)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveMethodHandle(int,System.RuntimeTypeHandle[],System.RuntimeTypeHandle[])" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
@@ -240,7 +242,7 @@
 		Managed return type : System.RuntimeTypeHandle
 		Managed param types : System.Int32, System.RuntimeTypeHandle[], System.RuntimeTypeHandle[]
 	 */
-    - (System_RuntimeTypeHandle *)resolveTypeHandle_withTypeToken:(int32_t)p1 typeInstantiationContext:(DBSystem_Array *)p2 methodInstantiationContext:(DBSystem_Array *)p3
+    - (System_RuntimeTypeHandle *)resolveTypeHandle_withTypeToken:(int32_t)p1 typeInstantiationContext:(System_Array *)p2 methodInstantiationContext:(System_Array *)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ResolveTypeHandle(int,System.RuntimeTypeHandle[],System.RuntimeTypeHandle[])" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];

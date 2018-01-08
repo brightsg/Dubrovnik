@@ -9,15 +9,15 @@
 #import "Mono.System.Core/System_Linq.h"
 
 @class DBManagedObject;
-@class DBSystem_Collections_IList;
+@class System_Collections_IList;
 
 @protocol System_Collections_Generic_IEnumerableA1_;
 
-@interface DBSystem_Linq : System_Linq
+@interface System_Linq : System_Linq
 
-+ (DBSystem_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject typeParameter:(id)typeParameter;
-+ (DBSystem_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject;
-+ (DBSystem_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject genericTypeIndex:(NSUInteger)typeIndex;
++ (System_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject typeParameter:(id)typeParameter;
++ (System_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject;
++ (System_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject genericTypeIndex:(NSUInteger)typeIndex;
 
 + (NSMutableArray *)toMutableArray:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject;
 + (NSArray *)toArray:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject;

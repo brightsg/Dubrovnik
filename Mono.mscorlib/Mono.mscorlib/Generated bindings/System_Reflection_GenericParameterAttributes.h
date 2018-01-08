@@ -2,6 +2,29 @@
 //
 // Managed enumeration : GenericParameterAttributes
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Reflection_GenericParameterAttributes.__Extra__.h")
+#import "System_Reflection_GenericParameterAttributes.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Reflection_GenericParameterAttributes;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Enum.h"
+
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumSystem_Reflection_GenericParameterAttributes) {
@@ -14,7 +37,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_GenericParameterAttributes) {
 	System_Reflection_GenericParameterAttributes_SpecialConstraintMask = 28,
 	System_Reflection_GenericParameterAttributes_VarianceMask = 3,
 };
-@interface System_Reflection_GenericParameterAttributes : DBSystem_Enum
+@interface System_Reflection_GenericParameterAttributes : System_Enum
 
 #pragma mark -
 #pragma mark Setup

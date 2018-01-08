@@ -2,6 +2,57 @@
 //
 // Managed struct : Decimal
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Decimal.__Extra__.h")
+#import "System_Decimal.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Byte;
+@class System_Char;
+@class System_Decimal;
+@class System_Double;
+@class System_IComparable;
+@class System_IComparableA1;
+@class System_IConvertible;
+@class System_IEquatableA1;
+@class System_IFormatProvider;
+@class System_IFormattable;
+@class System_Int16;
+@class System_Int32;
+@class System_Int64;
+@class System_MidpointRounding;
+@class System_Object;
+@class System_SByte;
+@class System_Single;
+@class System_String;
+@class System_TypeCode;
+@class System_UInt16;
+@class System_UInt32;
+@class System_UInt64;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_IComparable_Protocol.h"
+#import "System_IComparableA1_Protocol.h"
+#import "System_IConvertible_Protocol.h"
+#import "System_IEquatableA1_Protocol.h"
+#import "System_IFormattable_Protocol.h"
+#import "System_Runtime_Serialization_IDeserializationCallback_Protocol.h"
+#import "System_ValueType.h"
+
 @interface System_Decimal : DBManagedObject <System_IFormattable_, System_IComparable_, System_IConvertible_, System_Runtime_Serialization_IDeserializationCallback_, System_IComparableA1_, System_IEquatableA1_>
 
 #pragma mark -
@@ -61,7 +112,7 @@
 		Managed return type : System.Decimal
 		Managed param types : System.Int32[]
 	 */
-    + (NSDecimalNumber *)new_withBits:(DBSystem_Array *)p1;
+    + (NSDecimalNumber *)new_withBits:(System_Array *)p1;
 
 	/*! 
 		Managed method name : .ctor
@@ -178,7 +229,7 @@
 		Managed return type : System.Int32[]
 		Managed param types : System.Decimal
 	 */
-    + (DBSystem_Array *)getBits_withD:(NSDecimalNumber *)p1;
+    + (System_Array *)getBits_withD:(NSDecimalNumber *)p1;
 
 	/*! 
 		Managed method name : GetHashCode

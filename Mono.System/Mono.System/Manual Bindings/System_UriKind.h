@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_UriKind.h
+//++Dubrovnik.CodeGenerator System_UriKind.h
 //
 // Managed enumeration : UriKind
 //
@@ -9,7 +9,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriKind) {
 	System_UriKind_Relative = 2,
 	System_UriKind_RelativeOrAbsolute = 0,
 };
-@interface System_UriKind : DBSystem_Enum
+@interface System_UriKind : System_Enum
 
 #pragma mark -
 #pragma mark Setup

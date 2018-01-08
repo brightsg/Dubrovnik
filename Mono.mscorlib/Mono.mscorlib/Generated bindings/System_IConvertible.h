@@ -2,6 +2,50 @@
 //
 // Managed interface : IConvertible
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_IConvertible.__Extra__.h")
+#import "System_IConvertible.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Byte;
+@class System_Char;
+@class System_DateTime;
+@class System_Decimal;
+@class System_Double;
+@class System_IConvertible;
+@class System_IFormatProvider;
+@class System_Int16;
+@class System_Int32;
+@class System_Int64;
+@class System_Object;
+@class System_SByte;
+@class System_Single;
+@class System_String;
+@class System_Type;
+@class System_TypeCode;
+@class System_UInt16;
+@class System_UInt32;
+@class System_UInt64;
+@protocol System_IConvertible;
+@protocol System_IConvertible_;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Object.h"
+
 @interface System_IConvertible : System_Object
 
 #pragma mark -

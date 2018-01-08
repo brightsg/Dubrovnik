@@ -6,19 +6,19 @@
 //  Copyright (c) 2015 Thesaurus Software. All rights reserved.
 //
 #import "System_Collections_Generic_IEnumerableA1+Linq.h"
-#import "DBSystem_Linq.h"
+#import "System_Linq.h"
 
 @implementation System_Collections_Generic_IEnumerableA1 (Linq)
 
 #pragma mark -
 #pragma mark - List representations
 
-- (DBSystem_Collections_IList *)listWithTypeParameter:(id)typeParameter
+- (System_Collections_IList *)listWithTypeParameter:(id)typeParameter
 {
-    return [DBSystem_Linq toList:(id)self typeParameter:typeParameter];
+    return [System_Linq toList:(id)self typeParameter:typeParameter];
 }
 
-- (DBSystem_Collections_IList *)list
+- (System_Collections_IList *)list
 {
     /*
      Note: this method wil use the receivers first generic parameter as the generic parameter for the list.
@@ -26,7 +26,7 @@
      eg: System.Linq.Enumerable+<CreateSelectIterator>c__Iterator10`2[Subcontractor,ISubcontractorPayslipDelegate].
      The above object implements IEnumerableA1 but the required type paramter is NOT the first one.
      */
-    return [DBSystem_Linq toList:(id)self];
+    return [System_Linq toList:(id)self];
 }
 
 #pragma mark -
@@ -71,10 +71,10 @@
 #pragma mark -
 #pragma mark - List representations
 
-- (DBSystem_Collections_IList *)listWithTypeParameter:(id)typeParameter
+- (System_Collections_IList *)listWithTypeParameter:(id)typeParameter
 {
     if ([self conformsToProtocol:@protocol(System_Collections_Generic_IEnumerableA1_)]) {
-        return [DBSystem_Linq toList:(id)self typeParameter:typeParameter];
+        return [System_Linq toList:(id)self typeParameter:typeParameter];
     }
     return nil;
 }

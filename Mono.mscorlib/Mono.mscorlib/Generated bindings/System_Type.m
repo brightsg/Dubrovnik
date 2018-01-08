@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Type.m
+﻿//++Dubrovnik.CodeGenerator System_Type.m
 //
 // Managed class : Type
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_Type
 
@@ -40,12 +42,12 @@
 
 	// Managed field name : EmptyTypes
 	// Managed field type : System.Type[]
-    static DBSystem_Array * m_emptyTypes;
-    + (DBSystem_Array *)emptyTypes
+    static System_Array * m_emptyTypes;
+    + (System_Array *)emptyTypes
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"EmptyTypes"];
 		if ([self object:m_emptyTypes isEqualToMonoObject:monoObject]) return m_emptyTypes;					
-		m_emptyTypes = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		m_emptyTypes = [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
 		return m_emptyTypes;
 	}
@@ -342,7 +344,7 @@
 	// Managed property name : GenericTypeArguments
 	// Managed property type : System.Type[]
     @synthesize genericTypeArguments = _genericTypeArguments;
-    - (DBSystem_Array *)genericTypeArguments
+    - (System_Array *)genericTypeArguments
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -356,7 +358,7 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_genericTypeArguments isEqualToMonoObject:monoObject]) return _genericTypeArguments;					
-		_genericTypeArguments = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		_genericTypeArguments = [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
 		return _genericTypeArguments;
 	}
@@ -1387,7 +1389,7 @@
 		Managed return type : System.Reflection.ConstructorInfo
 		Managed param types : System.Type[]
 	 */
-    - (System_Reflection_ConstructorInfo *)getConstructor_withTypes:(DBSystem_Array *)p1
+    - (System_Reflection_ConstructorInfo *)getConstructor_withTypes:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetConstructor(System.Type[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -1400,12 +1402,12 @@
 		Managed return type : System.Reflection.ConstructorInfo[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getConstructors
+    - (System_Array *)getConstructors
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetConstructors()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 /* Skipped method : System.Reflection.ConstructorInfo[] GetConstructors(System.Reflection.BindingFlags bindingAttr) */
 /* Skipped method : System.Reflection.MemberInfo[] GetDefaultMembers() */
@@ -1441,12 +1443,12 @@
 		Managed return type : System.String[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getEnumNames
+    - (System_Array *)getEnumNames
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumNames()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -1467,12 +1469,12 @@
 		Managed return type : System.Array
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getEnumValues
+    - (System_Array *)getEnumValues
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumValues()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 /* Skipped method : System.Reflection.EventInfo GetEvent(System.String name) */
 /* Skipped method : System.Reflection.EventInfo GetEvent(System.String name, System.Reflection.BindingFlags bindingAttr) */
@@ -1488,12 +1490,12 @@
 		Managed return type : System.Type[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getGenericArguments
+    - (System_Array *)getGenericArguments
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetGenericArguments()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -1501,12 +1503,12 @@
 		Managed return type : System.Type[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getGenericParameterConstraints
+    - (System_Array *)getGenericParameterConstraints
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetGenericParameterConstraints()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -1567,12 +1569,12 @@
 		Managed return type : System.Type[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getInterfaces
+    - (System_Array *)getInterfaces
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetInterfaces()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 /* Skipped method : System.Reflection.MemberInfo[] GetMember(System.String name) */
 /* Skipped method : System.Reflection.MemberInfo[] GetMember(System.String name, System.Reflection.BindingFlags bindingAttr) */
@@ -1588,7 +1590,7 @@
 		Managed return type : System.Reflection.MethodInfo
 		Managed param types : System.String, System.Type[]
 	 */
-    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 types:(DBSystem_Array *)p2
+    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 types:(System_Array *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMethod(string,System.Type[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -1615,12 +1617,12 @@
 		Managed return type : System.Reflection.MethodInfo[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getMethods
+    - (System_Array *)getMethods
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMethods()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 /* Skipped method : System.Reflection.MethodInfo[] GetMethods(System.Reflection.BindingFlags bindingAttr) */
 
@@ -1643,12 +1645,12 @@
 		Managed return type : System.Type[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getNestedTypes
+    - (System_Array *)getNestedTypes
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetNestedTypes()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 /* Skipped method : System.Type[] GetNestedTypes(System.Reflection.BindingFlags bindingAttr) */
 /* Skipped method : System.Reflection.PropertyInfo[] GetProperties(System.Reflection.BindingFlags bindingAttr) */
@@ -1658,12 +1660,12 @@
 		Managed return type : System.Reflection.PropertyInfo[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getProperties
+    - (System_Array *)getProperties
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetProperties()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 /* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type returnType, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 /* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Type returnType, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
@@ -1674,7 +1676,7 @@
 		Managed return type : System.Reflection.PropertyInfo
 		Managed param types : System.String, System.Type, System.Type[]
 	 */
-    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2 types:(DBSystem_Array *)p3
+    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2 types:(System_Array *)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetProperty(string,System.Type,System.Type[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
@@ -1687,7 +1689,7 @@
 		Managed return type : System.Reflection.PropertyInfo
 		Managed param types : System.String, System.Type[]
 	 */
-    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 types:(DBSystem_Array *)p2
+    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 types:(System_Array *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetProperty(string,System.Type[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -1817,12 +1819,12 @@
 		Managed return type : System.Type[]
 		Managed param types : System.Object[]
 	 */
-    + (DBSystem_Array *)getTypeArray_withArgs:(DBSystem_Array *)p1
+    + (System_Array *)getTypeArray_withArgs:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeArray(object[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -2080,7 +2082,7 @@
 		Managed return type : System.Type
 		Managed param types : System.Type[]
 	 */
-    - (System_Type *)makeGenericType_withTypeArguments:(DBSystem_Array *)p1
+    - (System_Type *)makeGenericType_withTypeArguments:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"MakeGenericType(System.Type[])" withNumArgs:1, [p1 monoRTInvokeArg]];

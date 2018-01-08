@@ -2,6 +2,31 @@
 //
 // Managed class : Progress`1<T>
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_ProgressA1.__Extra__.h")
+#import "System_ProgressA1.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_IProgressA1;
+@class System_Object;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_IProgressA1_Protocol.h"
+#import "System_Object.h"
+
 @interface System_ProgressA1 : System_Object <System_IProgressA1_>
 
 #pragma mark -

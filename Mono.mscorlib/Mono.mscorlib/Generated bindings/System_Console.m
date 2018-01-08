@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Console.m
+﻿//++Dubrovnik.CodeGenerator System_Console.m
 //
 // Managed class : Console
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_Console
 
@@ -1182,7 +1184,7 @@
 		Managed return type : System.Void
 		Managed param types : System.String, System.Object[]
 	 */
-    + (void)write_withFormat:(NSString *)p1 arg:(DBSystem_Array *)p2
+    + (void)write_withFormat:(NSString *)p1 arg:(System_Array *)p2
     {
 		
 		[self invokeMonoClassMethod:"Write(string,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -1218,7 +1220,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Char[]
 	 */
-    + (void)write_withBuffer:(DBSystem_Array *)p1
+    + (void)write_withBuffer:(System_Array *)p1
     {
 		
 		[self invokeMonoClassMethod:"Write(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -1230,7 +1232,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    + (void)write_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
+    + (void)write_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		
 		[self invokeMonoClassMethod:"Write(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
@@ -1386,7 +1388,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Char[]
 	 */
-    + (void)writeLine_withBuffer:(DBSystem_Array *)p1
+    + (void)writeLine_withBuffer:(System_Array *)p1
     {
 		
 		[self invokeMonoClassMethod:"WriteLine(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -1398,7 +1400,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    + (void)writeLine_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
+    + (void)writeLine_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		
 		[self invokeMonoClassMethod:"WriteLine(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
@@ -1566,7 +1568,7 @@
 		Managed return type : System.Void
 		Managed param types : System.String, System.Object[]
 	 */
-    + (void)writeLine_withFormat:(NSString *)p1 arg:(DBSystem_Array *)p2
+    + (void)writeLine_withFormat:(NSString *)p1 arg:(System_Array *)p2
     {
 		
 		[self invokeMonoClassMethod:"WriteLine(string,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];

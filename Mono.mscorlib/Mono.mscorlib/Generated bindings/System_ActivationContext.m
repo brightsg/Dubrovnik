@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_ActivationContext.m
+﻿//++Dubrovnik.CodeGenerator System_ActivationContext.m
 //
 // Managed class : ActivationContext
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_ActivationContext
 
@@ -135,7 +137,7 @@
 		Managed return type : System.ActivationContext
 		Managed param types : System.ApplicationIdentity, System.String[]
 	 */
-    + (System_ActivationContext *)createPartialActivationContext_withIdentity:(System_ApplicationIdentity *)p1 manifestPaths:(DBSystem_Array *)p2
+    + (System_ActivationContext *)createPartialActivationContext_withIdentity:(System_ApplicationIdentity *)p1 manifestPaths:(System_Array *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreatePartialActivationContext(System.ApplicationIdentity,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];

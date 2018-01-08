@@ -2,6 +2,29 @@
 //
 // Managed enumeration : FileAccess
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_IO_FileAccess.__Extra__.h")
+#import "System_IO_FileAccess.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_IO_FileAccess;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Enum.h"
+
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumSystem_IO_FileAccess) {
@@ -9,7 +32,7 @@ typedef NS_ENUM(int32_t, enumSystem_IO_FileAccess) {
 	System_IO_FileAccess_ReadWrite = 3,
 	System_IO_FileAccess_Write = 2,
 };
-@interface System_IO_FileAccess : DBSystem_Enum
+@interface System_IO_FileAccess : System_Enum
 
 #pragma mark -
 #pragma mark Setup

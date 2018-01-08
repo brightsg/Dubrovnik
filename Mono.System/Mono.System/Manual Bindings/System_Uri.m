@@ -1,4 +1,4 @@
-﻿
+
 //++Dubrovnik.CodeGenerator System_Uri.m
 //
 // Managed class : Uri
@@ -645,7 +645,7 @@
 	// Managed property name : Segments
 	// Managed property type : System.String[]
     @synthesize segments = _segments;
-    - (DBSystem_Array *)segments
+    - (System_Array *)segments
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -659,7 +659,7 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_segments isEqualToMonoObject:monoObject]) return _segments;					
-		_segments = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		_segments = [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
 		return _segments;
 	}

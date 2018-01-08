@@ -23,7 +23,7 @@
 #import "System_Convert.h"
 #import "Dubrovnik/DBMonoIncludes.h"
 
-@interface DBSystem_Convert : System_Convert {
+@interface System_Convert : System_Convert {
 
 }
 

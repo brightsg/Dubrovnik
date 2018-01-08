@@ -2,6 +2,40 @@
 //
 // Managed class : MethodBase
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Reflection_MethodBase.__Extra__.h")
+#import "System_Reflection_MethodBase.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Globalization_CultureInfo;
+@class System_Int32;
+@class System_Object;
+@class System_Reflection_Binder;
+@class System_Reflection_MethodBase;
+@class System_RuntimeMethodHandle;
+@class System_RuntimeTypeHandle;
+@class System_Type;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Reflection_ICustomAttributeProvider_Protocol.h"
+#import "System_Reflection_MemberInfo.h"
+#import "System_Runtime_InteropServices__MemberInfo_Protocol.h"
+#import "System_Runtime_InteropServices__MethodBase_Protocol.h"
+
 @interface System_Reflection_MethodBase : System_Reflection_MemberInfo <System_Reflection_ICustomAttributeProvider_, System_Runtime_InteropServices__MemberInfo_, System_Runtime_InteropServices__MethodBase_>
 
 #pragma mark -
@@ -119,7 +153,7 @@
 		Managed return type : System.Type[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getGenericArguments;
+    - (System_Array *)getGenericArguments;
 
 	/*! 
 		Managed method name : GetHashCode
@@ -151,7 +185,7 @@
 		Managed return type : System.Object
 		Managed param types : System.Object, System.Object[]
 	 */
-    - (System_Object *)invoke_withObj:(System_Object *)p1 parameters:(DBSystem_Array *)p2;
+    - (System_Object *)invoke_withObj:(System_Object *)p1 parameters:(System_Array *)p2;
 
 	/*! 
 		Managed method name : op_Equality

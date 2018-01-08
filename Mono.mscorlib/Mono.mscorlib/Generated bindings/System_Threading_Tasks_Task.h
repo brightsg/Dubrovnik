@@ -2,6 +2,53 @@
 //
 // Managed class : Task
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Threading_Tasks_Task.__Extra__.h")
+#import "System_Threading_Tasks_Task.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Action;
+@class System_ActionA1;
+@class System_ActionA2;
+@class System_AggregateException;
+@class System_Boolean;
+@class System_Collections_Generic_IEnumerableA1;
+@class System_Exception;
+@class System_FuncA1;
+@class System_IAsyncResult;
+@class System_IDisposable;
+@class System_Int32;
+@class System_NullableA1;
+@class System_Object;
+@class System_Threading_CancellationToken;
+@class System_Threading_Tasks_Task;
+@class System_Threading_Tasks_TaskA1;
+@class System_Threading_Tasks_TaskContinuationOptions;
+@class System_Threading_Tasks_TaskCreationOptions;
+@class System_Threading_Tasks_TaskFactory;
+@class System_Threading_Tasks_TaskScheduler;
+@class System_Threading_Tasks_TaskStatus;
+@class System_TimeSpan;
+@class System_Void;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_IAsyncResult_Protocol.h"
+#import "System_IDisposable_Protocol.h"
+#import "System_Object.h"
+
 @interface System_Threading_Tasks_Task : System_Object <System_IAsyncResult_, System_IDisposable_>
 
 #pragma mark -
@@ -443,70 +490,70 @@
 		Managed return type : System.Void
 		Managed param types : System.Threading.Tasks.Task[]
 	 */
-    + (void)waitAll_withTasks:(DBSystem_Array *)p1;
+    + (void)waitAll_withTasks:(System_Array *)p1;
 
 	/*! 
 		Managed method name : WaitAll
 		Managed return type : System.Boolean
 		Managed param types : System.Threading.Tasks.Task[], System.TimeSpan
 	 */
-    + (BOOL)waitAll_withTasks:(DBSystem_Array *)p1 timeout:(System_TimeSpan *)p2;
+    + (BOOL)waitAll_withTasks:(System_Array *)p1 timeout:(System_TimeSpan *)p2;
 
 	/*! 
 		Managed method name : WaitAll
 		Managed return type : System.Boolean
 		Managed param types : System.Threading.Tasks.Task[], System.Int32
 	 */
-    + (BOOL)waitAll_withTasks:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2;
+    + (BOOL)waitAll_withTasks:(System_Array *)p1 millisecondsTimeout:(int32_t)p2;
 
 	/*! 
 		Managed method name : WaitAll
 		Managed return type : System.Void
 		Managed param types : System.Threading.Tasks.Task[], System.Threading.CancellationToken
 	 */
-    + (void)waitAll_withTasks:(DBSystem_Array *)p1 cancellationToken:(System_Threading_CancellationToken *)p2;
+    + (void)waitAll_withTasks:(System_Array *)p1 cancellationToken:(System_Threading_CancellationToken *)p2;
 
 	/*! 
 		Managed method name : WaitAll
 		Managed return type : System.Boolean
 		Managed param types : System.Threading.Tasks.Task[], System.Int32, System.Threading.CancellationToken
 	 */
-    + (BOOL)waitAll_withTasks:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
+    + (BOOL)waitAll_withTasks:(System_Array *)p1 millisecondsTimeout:(int32_t)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
 
 	/*! 
 		Managed method name : WaitAny
 		Managed return type : System.Int32
 		Managed param types : System.Threading.Tasks.Task[]
 	 */
-    + (int32_t)waitAny_withTasks:(DBSystem_Array *)p1;
+    + (int32_t)waitAny_withTasks:(System_Array *)p1;
 
 	/*! 
 		Managed method name : WaitAny
 		Managed return type : System.Int32
 		Managed param types : System.Threading.Tasks.Task[], System.TimeSpan
 	 */
-    + (int32_t)waitAny_withTasks:(DBSystem_Array *)p1 timeout:(System_TimeSpan *)p2;
+    + (int32_t)waitAny_withTasks:(System_Array *)p1 timeout:(System_TimeSpan *)p2;
 
 	/*! 
 		Managed method name : WaitAny
 		Managed return type : System.Int32
 		Managed param types : System.Threading.Tasks.Task[], System.Threading.CancellationToken
 	 */
-    + (int32_t)waitAny_withTasks:(DBSystem_Array *)p1 cancellationToken:(System_Threading_CancellationToken *)p2;
+    + (int32_t)waitAny_withTasks:(System_Array *)p1 cancellationToken:(System_Threading_CancellationToken *)p2;
 
 	/*! 
 		Managed method name : WaitAny
 		Managed return type : System.Int32
 		Managed param types : System.Threading.Tasks.Task[], System.Int32
 	 */
-    + (int32_t)waitAny_withTasks:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2;
+    + (int32_t)waitAny_withTasks:(System_Array *)p1 millisecondsTimeout:(int32_t)p2;
 
 	/*! 
 		Managed method name : WaitAny
 		Managed return type : System.Int32
 		Managed param types : System.Threading.Tasks.Task[], System.Int32, System.Threading.CancellationToken
 	 */
-    + (int32_t)waitAny_withTasks:(DBSystem_Array *)p1 millisecondsTimeout:(int32_t)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
+    + (int32_t)waitAny_withTasks:(System_Array *)p1 millisecondsTimeout:(int32_t)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
 
 	/*! 
 		Managed method name : WhenAll
@@ -520,7 +567,7 @@
 		Managed return type : System.Threading.Tasks.Task
 		Managed param types : System.Threading.Tasks.Task[]
 	 */
-    + (System_Threading_Tasks_Task *)whenAll_withTasksSTTTask:(DBSystem_Array *)p1;
+    + (System_Threading_Tasks_Task *)whenAll_withTasksSTTTask:(System_Array *)p1;
 
 	/*! 
 		Managed method name : WhenAll
@@ -536,14 +583,14 @@
 		Managed param types : Task`1[]
 		Generic method definition type params : <System.Threading.Tasks.Task+TResult>
 	 */
-    + (System_Threading_Tasks_TaskA1 *)whenAll_withTasksTaskA1:(DBSystem_Array *)p1 typeParameter:(id)typeParameter;
+    + (System_Threading_Tasks_TaskA1 *)whenAll_withTasksTaskA1:(System_Array *)p1 typeParameter:(id)typeParameter;
 
 	/*! 
 		Managed method name : WhenAny
 		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task>
 		Managed param types : System.Threading.Tasks.Task[]
 	 */
-    + (System_Threading_Tasks_TaskA1 *)whenAny_withTasksSTTTask:(DBSystem_Array *)p1;
+    + (System_Threading_Tasks_TaskA1 *)whenAny_withTasksSTTTask:(System_Array *)p1;
 
 	/*! 
 		Managed method name : WhenAny
@@ -558,7 +605,7 @@
 		Managed param types : Task`1[]
 		Generic method definition type params : <System.Threading.Tasks.Task+TResult>
 	 */
-    + (System_Threading_Tasks_TaskA1 *)whenAny_withTasksTaskA1:(DBSystem_Array *)p1 typeParameter:(id)typeParameter;
+    + (System_Threading_Tasks_TaskA1 *)whenAny_withTasksTaskA1:(System_Array *)p1 typeParameter:(id)typeParameter;
 
 	/*! 
 		Managed method name : WhenAny

@@ -2,6 +2,50 @@
 //
 // Managed class : Assembly
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Reflection_Assembly.__Extra__.h")
+#import "System_Reflection_Assembly.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Byte;
+@class System_Collections_Generic_IEnumerableA1;
+@class System_Globalization_CultureInfo;
+@class System_Int32;
+@class System_Int64;
+@class System_IO_FileStream;
+@class System_IO_Stream;
+@class System_Object;
+@class System_Reflection_Assembly;
+@class System_Reflection_AssemblyName;
+@class System_Reflection_Binder;
+@class System_Reflection_MethodInfo;
+@class System_Runtime_Serialization_ISerializable;
+@class System_String;
+@class System_Type;
+@class System_Version;
+@class System_Void;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Object.h"
+#import "System_Reflection_ICustomAttributeProvider_Protocol.h"
+#import "System_Runtime_InteropServices__Assembly_Protocol.h"
+#import "System_Runtime_Serialization_ISerializable_Protocol.h"
+#import "System_Security_IEvidenceFactory_Protocol.h"
+
 @interface System_Reflection_Assembly : System_Object <System_Runtime_InteropServices__Assembly_, System_Security_IEvidenceFactory_, System_Reflection_ICustomAttributeProvider_, System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
@@ -120,14 +164,14 @@
 		Managed return type : System.Object[]
 		Managed param types : System.Boolean
 	 */
-    - (DBSystem_Array *)getCustomAttributes_withInherit:(BOOL)p1;
+    - (System_Array *)getCustomAttributes_withInherit:(BOOL)p1;
 
 	/*! 
 		Managed method name : GetCustomAttributes
 		Managed return type : System.Object[]
 		Managed param types : System.Type, System.Boolean
 	 */
-    - (DBSystem_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2;
+    - (System_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2;
 /* Skipped method : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData> GetCustomAttributesData() */
 
 	/*! 
@@ -149,7 +193,7 @@
 		Managed return type : System.Type[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getExportedTypes;
+    - (System_Array *)getExportedTypes;
 
 	/*! 
 		Managed method name : GetFile
@@ -163,14 +207,14 @@
 		Managed return type : System.IO.FileStream[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getFiles;
+    - (System_Array *)getFiles;
 
 	/*! 
 		Managed method name : GetFiles
 		Managed return type : System.IO.FileStream[]
 		Managed param types : System.Boolean
 	 */
-    - (DBSystem_Array *)getFiles_withGetResourceModules:(BOOL)p1;
+    - (System_Array *)getFiles_withGetResourceModules:(BOOL)p1;
 
 	/*! 
 		Managed method name : GetHashCode
@@ -187,7 +231,7 @@
 		Managed return type : System.String[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getManifestResourceNames;
+    - (System_Array *)getManifestResourceNames;
 
 	/*! 
 		Managed method name : GetManifestResourceStream
@@ -226,7 +270,7 @@
 		Managed return type : System.Reflection.AssemblyName[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getReferencedAssemblies;
+    - (System_Array *)getReferencedAssemblies;
 
 	/*! 
 		Managed method name : GetSatelliteAssembly
@@ -268,7 +312,7 @@
 		Managed return type : System.Type[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getTypes;
+    - (System_Array *)getTypes;
 
 	/*! 
 		Managed method name : IsDefined

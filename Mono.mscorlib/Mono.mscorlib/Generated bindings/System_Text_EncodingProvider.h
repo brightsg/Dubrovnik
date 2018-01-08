@@ -2,6 +2,34 @@
 //
 // Managed class : EncodingProvider
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Text_EncodingProvider.__Extra__.h")
+#import "System_Text_EncodingProvider.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Int32;
+@class System_String;
+@class System_Text_DecoderFallback;
+@class System_Text_EncoderFallback;
+@class System_Text_Encoding;
+@class System_Text_EncodingProvider;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Object.h"
+
 @interface System_Text_EncodingProvider : System_Object
 
 #pragma mark -

@@ -2,6 +2,35 @@
 //
 // Managed class : SynchronizationContext
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Threading_SynchronizationContext.__Extra__.h")
+#import "System_Threading_SynchronizationContext.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Int32;
+@class System_IntPtr;
+@class System_Object;
+@class System_Threading_SendOrPostCallback;
+@class System_Threading_SynchronizationContext;
+@class System_Void;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Object.h"
+
 @interface System_Threading_SynchronizationContext : System_Object
 
 #pragma mark -
@@ -75,6 +104,6 @@
 		Managed return type : System.Int32
 		Managed param types : System.IntPtr[], System.Boolean, System.Int32
 	 */
-    - (int32_t)wait_withWaitHandles:(DBSystem_Array *)p1 waitAll:(BOOL)p2 millisecondsTimeout:(int32_t)p3;
+    - (int32_t)wait_withWaitHandles:(System_Array *)p1 waitAll:(BOOL)p2 millisecondsTimeout:(int32_t)p3;
 @end
 //--Dubrovnik.CodeGenerator

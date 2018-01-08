@@ -2,6 +2,39 @@
 //
 // Managed class : Exception
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Exception.__Extra__.h")
+#import "System_Exception.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Collections_IDictionary;
+@class System_Exception;
+@class System_Int32;
+@class System_Reflection_MethodBase;
+@class System_Runtime_InteropServices__Exception;
+@class System_Runtime_Serialization_ISerializable;
+@class System_String;
+@class System_Type;
+@class System_Void;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Object.h"
+#import "System_Runtime_InteropServices__Exception_Protocol.h"
+#import "System_Runtime_Serialization_ISerializable_Protocol.h"
+
 @interface System_Exception : System_Object <System_Runtime_Serialization_ISerializable_, System_Runtime_InteropServices__Exception_>
 
 #pragma mark -

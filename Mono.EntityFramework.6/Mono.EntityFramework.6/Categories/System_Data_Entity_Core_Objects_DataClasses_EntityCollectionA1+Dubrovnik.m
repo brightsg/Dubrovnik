@@ -13,9 +13,9 @@
 #pragma mark -
 #pragma mark - List and array representations
 
-- (DBSystem_Collections_IList *)list
+- (System_Collections_IList *)list
 {
-    return [DBSystem_Linq toList:(id)self];
+    return [System_Linq toList:(id)self];
 }
 
 - (NSMutableArray *)mutableArray

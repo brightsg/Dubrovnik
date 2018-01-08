@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ReferenceObject__NestedEnum.h
+//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ReferenceObject__NestedEnum.h
 //
 // Managed enumeration : ReferenceObject.NestedEnum
 //
@@ -10,7 +10,7 @@ typedef NS_ENUM(int32_t, enumDubrovnik_UnitTests_ReferenceObject__NestedEnum) {
 	Dubrovnik_UnitTests_ReferenceObject__NestedEnum_val3 = 3,
 	Dubrovnik_UnitTests_ReferenceObject__NestedEnum_val4 = 4,
 };
-@interface Dubrovnik_UnitTests_ReferenceObject__NestedEnum : DBSystem_Enum
+@interface Dubrovnik_UnitTests_ReferenceObject__NestedEnum : System_Enum
 
 #pragma mark -
 #pragma mark Setup

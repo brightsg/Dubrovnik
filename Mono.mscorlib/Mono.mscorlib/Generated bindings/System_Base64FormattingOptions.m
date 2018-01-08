@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Base64FormattingOptions.m
+﻿//++Dubrovnik.CodeGenerator System_Base64FormattingOptions.m
 //
 // Managed enumeration : Base64FormattingOptions
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 
 // C enumeration

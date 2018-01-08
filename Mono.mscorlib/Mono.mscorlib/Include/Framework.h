@@ -7,15 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-@class DBSystem_Collections_ArrayList;
-@class DBSystem_Collections_Generic_DictionaryA2;
-@class DBSystem_Collections_Generic_ListA1;
-@class DBSystem_Collections_IList;
-@class DBSystem_Collections_Generic_IEnumerableA1;
-@class DBSystem_Array;
-@class DBSystem_Convert;
-@class DBSystem_Enum;
-@class DBSystem_IO_FileInfo;
+@class System_Collections_ArrayList;
+@class System_Collections_Generic_DictionaryA2;
+@class System_Collections_Generic_ListA1;
+@class System_Collections_IList;
+@class System_Collections_Generic_IEnumerableA1;
+@class System_Array;
+@class System_Convert;
+@class System_Enum;
+@class System_IO_FileInfo;
 @class DBGenericTypeHelper;
 
 @class System_Type;

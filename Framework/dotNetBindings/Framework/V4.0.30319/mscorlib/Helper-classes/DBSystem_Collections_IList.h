@@ -22,7 +22,7 @@
 
 #import "Dubrovnik/DBManagedObject.h"
 
-@interface DBSystem_Collections_IList : DBManagedObject {
+@interface System_Collections_IList : DBManagedObject {
 	@protected
 }
 

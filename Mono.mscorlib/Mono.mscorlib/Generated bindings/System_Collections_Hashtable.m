@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Collections_Hashtable.m
+﻿//++Dubrovnik.CodeGenerator System_Collections_Hashtable.m
 //
 // Managed class : Hashtable
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_Collections_Hashtable
 
@@ -483,7 +485,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Array, System.Int32
 	 */
-    - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2
+    - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2
     {
 		
 		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];

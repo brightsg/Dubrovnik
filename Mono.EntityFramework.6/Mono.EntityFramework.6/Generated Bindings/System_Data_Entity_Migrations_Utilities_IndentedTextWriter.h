@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_Data_Entity_Migrations_Utilities_IndentedTextWriter.h
+//++Dubrovnik.CodeGenerator System_Data_Entity_Migrations_Utilities_IndentedTextWriter.h
 //
 // Managed class : IndentedTextWriter
 //
@@ -90,12 +90,12 @@
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.Char[]
-    - (void)write_withBuffer:(DBSystem_Array *)p1;
+    - (void)write_withBuffer:(System_Array *)p1;
 
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.Char[], System.Int32, System.Int32
-    - (void)write_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+    - (void)write_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 	// Managed method name : Write
 	// Managed return type : System.Void
@@ -135,7 +135,7 @@
 	// Managed method name : Write
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object[]
-    - (void)write_withFormat:(NSString *)p1 arg:(DBSystem_Array *)p2;
+    - (void)write_withFormat:(NSString *)p1 arg:(System_Array *)p2;
 
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
@@ -160,12 +160,12 @@
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
 	// Managed param types : System.Char[]
-    - (void)writeLine_withBuffer:(DBSystem_Array *)p1;
+    - (void)writeLine_withBuffer:(System_Array *)p1;
 
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
 	// Managed param types : System.Char[], System.Int32, System.Int32
-    - (void)writeLine_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+    - (void)writeLine_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
@@ -205,7 +205,7 @@
 	// Managed method name : WriteLine
 	// Managed return type : System.Void
 	// Managed param types : System.String, System.Object[]
-    - (void)writeLine_withFormat:(NSString *)p1 arg:(DBSystem_Array *)p2;
+    - (void)writeLine_withFormat:(NSString *)p1 arg:(System_Array *)p2;
 
 	// Managed method name : WriteLine
 	// Managed return type : System.Void

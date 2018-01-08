@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Reflection_ConstructorInfo.m
+﻿//++Dubrovnik.CodeGenerator System_Reflection_ConstructorInfo.m
 //
 // Managed class : ConstructorInfo
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_Reflection_ConstructorInfo
 
@@ -90,7 +92,7 @@
 		Managed return type : System.Object
 		Managed param types : System.Object[]
 	 */
-    - (System_Object *)invoke_withParameters:(DBSystem_Array *)p1
+    - (System_Object *)invoke_withParameters:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object[])" withNumArgs:1, [p1 monoRTInvokeArg]];

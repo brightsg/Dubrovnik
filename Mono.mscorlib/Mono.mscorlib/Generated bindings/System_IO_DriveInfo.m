@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_IO_DriveInfo.m
+﻿//++Dubrovnik.CodeGenerator System_IO_DriveInfo.m
 //
 // Managed class : DriveInfo
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_IO_DriveInfo
 
@@ -259,12 +261,12 @@
 		Managed return type : System.IO.DriveInfo[]
 		Managed param types : 
 	 */
-    + (DBSystem_Array *)getDrives
+    + (System_Array *)getDrives
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDrives()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 

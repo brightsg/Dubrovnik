@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_DateTime.m
+﻿//++Dubrovnik.CodeGenerator System_DateTime.m
 //
 // Managed struct : DateTime
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_DateTime
 
@@ -761,12 +763,12 @@
 		Managed return type : System.String[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getDateTimeFormats
+    - (System_Array *)getDateTimeFormats
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDateTimeFormats()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -774,12 +776,12 @@
 		Managed return type : System.String[]
 		Managed param types : System.IFormatProvider
 	 */
-    - (DBSystem_Array *)getDateTimeFormats_withProvider:(id <System_IFormatProvider_>)p1
+    - (System_Array *)getDateTimeFormats_withProvider:(id <System_IFormatProvider_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDateTimeFormats(System.IFormatProvider)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -787,12 +789,12 @@
 		Managed return type : System.String[]
 		Managed param types : System.Char
 	 */
-    - (DBSystem_Array *)getDateTimeFormats_withFormat:(uint16_t)p1
+    - (System_Array *)getDateTimeFormats_withFormat:(uint16_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDateTimeFormats(char)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -800,12 +802,12 @@
 		Managed return type : System.String[]
 		Managed param types : System.Char, System.IFormatProvider
 	 */
-    - (DBSystem_Array *)getDateTimeFormats_withFormat:(uint16_t)p1 provider:(id <System_IFormatProvider_>)p2
+    - (System_Array *)getDateTimeFormats_withFormat:(uint16_t)p1 provider:(id <System_IFormatProvider_>)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDateTimeFormats(char,System.IFormatProvider)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 

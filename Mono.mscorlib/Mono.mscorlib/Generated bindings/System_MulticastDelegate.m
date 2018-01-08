@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_MulticastDelegate.m
+﻿//++Dubrovnik.CodeGenerator System_MulticastDelegate.m
 //
 // Managed class : MulticastDelegate
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_MulticastDelegate
 
@@ -58,12 +60,12 @@
 		Managed return type : System.Delegate[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getInvocationList
+    - (System_Array *)getInvocationList
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetInvocationList()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 

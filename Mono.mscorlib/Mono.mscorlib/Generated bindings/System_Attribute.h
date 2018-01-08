@@ -2,6 +2,35 @@
 //
 // Managed class : Attribute
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Attribute.__Extra__.h")
+#import "System_Attribute.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Attribute;
+@class System_Boolean;
+@class System_Int32;
+@class System_Object;
+@class System_Reflection_Assembly;
+@class System_Type;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Object.h"
+#import "System_Runtime_InteropServices__Attribute_Protocol.h"
+
 @interface System_Attribute : System_Object <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
@@ -65,28 +94,28 @@
 		Managed return type : System.Attribute[]
 		Managed param types : System.Reflection.Assembly, System.Type
 	 */
-    + (DBSystem_Array *)getCustomAttributes_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2;
+    + (System_Array *)getCustomAttributes_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2;
 
 	/*! 
 		Managed method name : GetCustomAttributes
 		Managed return type : System.Attribute[]
 		Managed param types : System.Reflection.Assembly, System.Type, System.Boolean
 	 */
-    + (DBSystem_Array *)getCustomAttributes_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3;
+    + (System_Array *)getCustomAttributes_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3;
 
 	/*! 
 		Managed method name : GetCustomAttributes
 		Managed return type : System.Attribute[]
 		Managed param types : System.Reflection.Assembly
 	 */
-    + (DBSystem_Array *)getCustomAttributes_withElementSRAssembly:(System_Reflection_Assembly *)p1;
+    + (System_Array *)getCustomAttributes_withElementSRAssembly:(System_Reflection_Assembly *)p1;
 
 	/*! 
 		Managed method name : GetCustomAttributes
 		Managed return type : System.Attribute[]
 		Managed param types : System.Reflection.Assembly, System.Boolean
 	 */
-    + (DBSystem_Array *)getCustomAttributes_withElementSRAssembly:(System_Reflection_Assembly *)p1 inheritBool:(BOOL)p2;
+    + (System_Array *)getCustomAttributes_withElementSRAssembly:(System_Reflection_Assembly *)p1 inheritBool:(BOOL)p2;
 
 	/*! 
 		Managed method name : GetHashCode

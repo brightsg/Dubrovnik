@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_Data_Entity_DbSetA1.h
+//++Dubrovnik.CodeGenerator System_Data_Entity_DbSetA1.h
 //
 // Managed class : DbSet`1<TEntity>
 //
@@ -44,7 +44,7 @@
 	// Managed method name : Find
 	// Managed return type : <TEntity>
 	// Managed param types : System.Object[]
-    - (System_Object *)find_withKeyValues:(DBSystem_Array *)p1;
+    - (System_Object *)find_withKeyValues:(System_Array *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32
@@ -74,6 +74,6 @@
 	// Managed method name : SqlQuery
 	// Managed return type : System.Data.Entity.Infrastructure.DbSqlQuery`1<TEntity>
 	// Managed param types : System.String, System.Object[]
-    - (System_Data_Entity_Infrastructure_DbSqlQueryA1 *)sqlQuery_withSql:(NSString *)p1 parameters:(DBSystem_Array *)p2;
+    - (System_Data_Entity_Infrastructure_DbSqlQueryA1 *)sqlQuery_withSql:(NSString *)p1 parameters:(System_Array *)p2;
 @end
 //--Dubrovnik.CodeGenerator

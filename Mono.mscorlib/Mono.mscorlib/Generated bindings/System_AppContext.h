@@ -2,6 +2,33 @@
 //
 // Managed class : AppContext
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_AppContext.__Extra__.h")
+#import "System_AppContext.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_AppContext;
+@class System_Boolean;
+@class System_Object;
+@class System_String;
+@class System_Void;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Object.h"
+
 @interface System_AppContext : System_Object
 
 #pragma mark -

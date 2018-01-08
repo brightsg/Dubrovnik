@@ -2,13 +2,36 @@
 //
 // Managed enumeration : ConsoleSpecialKey
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_ConsoleSpecialKey.__Extra__.h")
+#import "System_ConsoleSpecialKey.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_ConsoleSpecialKey;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Enum.h"
+
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumSystem_ConsoleSpecialKey) {
 	System_ConsoleSpecialKey_ControlBreak = 1,
 	System_ConsoleSpecialKey_ControlC = 0,
 };
-@interface System_ConsoleSpecialKey : DBSystem_Enum
+@interface System_ConsoleSpecialKey : System_Enum
 
 #pragma mark -
 #pragma mark Setup

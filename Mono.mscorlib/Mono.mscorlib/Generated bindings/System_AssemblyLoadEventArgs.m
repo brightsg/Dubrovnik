@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_AssemblyLoadEventArgs.m
+﻿//++Dubrovnik.CodeGenerator System_AssemblyLoadEventArgs.m
 //
 // Managed class : AssemblyLoadEventArgs
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_AssemblyLoadEventArgs
 

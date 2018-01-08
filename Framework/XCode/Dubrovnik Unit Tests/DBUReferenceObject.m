@@ -318,63 +318,63 @@
 #pragma mark -
 #pragma mark Mono array properties
 
-- (DBSystem_Array *)int64Array
+- (System_Array *)int64Array
 {
     MonoObject * monoObject = [self getMonoProperty:"Int64Array"];
-    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject];
+    return [System_Array arrayWithMonoArray:(MonoArray *)monoObject];
 }
-- (void)setInt64Array:(DBSystem_Array *)array
+- (void)setInt64Array:(System_Array *)array
 {
    [self setMonoProperty:"Int64Array" valueObject:[array monoObject]];
 }
 
-- (DBSystem_Array *)int32Array
+- (System_Array *)int32Array
 {
     MonoObject * monoObject = [self getMonoProperty:"Int32Array"];
-    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject ];
+    return [System_Array arrayWithMonoArray:(MonoArray *)monoObject ];
 }
-- (void)setInt32Array:(DBSystem_Array *)array
+- (void)setInt32Array:(System_Array *)array
 {
     [self setMonoProperty:"Int32Array" valueObject:[array monoObject]];
 }
 
-- (DBSystem_Array *)int16Array
+- (System_Array *)int16Array
 {
     MonoObject * monoObject = [self getMonoProperty:"Int16Array"];
-    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject];
+    return [System_Array arrayWithMonoArray:(MonoArray *)monoObject];
 }
 
-- (DBSystem_Array *)floatArray
+- (System_Array *)floatArray
 {
     MonoObject * monoObject = [self getMonoProperty:"FloatArray"];
-    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject];
+    return [System_Array arrayWithMonoArray:(MonoArray *)monoObject];
 }
-- (void)setFloatArray:(DBSystem_Array *)array
+- (void)setFloatArray:(System_Array *)array
 {
     [self setMonoProperty:"FloatArray" valueObject:[array monoObject]];
 }
 
-- (DBSystem_Array *)doubleArray
+- (System_Array *)doubleArray
 {
     MonoObject * monoObject = [self getMonoProperty:"DoubleArray"];
-    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject];
+    return [System_Array arrayWithMonoArray:(MonoArray *)monoObject];
 }
-- (void)setDoubleArray:(DBSystem_Array *)array
+- (void)setDoubleArray:(System_Array *)array
 {
     [self setMonoProperty:"DoubleArray" valueObject:[array monoObject]];
 }
 
-- (DBSystem_Array *)boolArray
+- (System_Array *)boolArray
 {
     MonoObject * monoObject = [self getMonoProperty:"BoolArray"];
-    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject];
+    return [System_Array arrayWithMonoArray:(MonoArray *)monoObject];
 }
-- (DBSystem_Array *)stringArray
+- (System_Array *)stringArray
 {
     MonoObject * monoObject = [self getMonoProperty:"StringArray"];
-    return [DBSystem_Array arrayWithMonoArray:(MonoArray *)monoObject];
+    return [System_Array arrayWithMonoArray:(MonoArray *)monoObject];
 }
-- (void)setStringArray:(DBSystem_Array *)array
+- (void)setStringArray:(System_Array *)array
 {
     [self setMonoProperty:"StringArray" valueObject:[array monoObject]];
 }
@@ -419,10 +419,10 @@
 #pragma mark -
 #pragma mark Mono array list properties
 
-- (DBSystem_Collections_ArrayList *)stringArrayList
+- (System_Collections_ArrayList *)stringArrayList
 {
     MonoObject * monoObject = [self getMonoProperty:"StringArrayList"];
-    return [DBSystem_Collections_ArrayList listWithMonoObject:monoObject];
+    return [System_Collections_ArrayList listWithMonoObject:monoObject];
 }
 
 #pragma mark -
@@ -458,85 +458,85 @@
 #pragma mark -
 #pragma mark Mono List<T> properties
 
-- (DBSystem_Collections_Generic_ListA1 *)stringList
+- (System_Collections_Generic_ListA1 *)stringList
 {
     MonoObject * monoObject = [self getMonoProperty:"StringList"];
-    id object = [DBSystem_Collections_Generic_ListA1 listWithMonoObject:monoObject];
+    id object = [System_Collections_Generic_ListA1 listWithMonoObject:monoObject];
     return object;
 }
 
-- (DBSystem_Collections_Generic_ListA1 *)nestedClassList
+- (System_Collections_Generic_ListA1 *)nestedClassList
 {
     MonoObject * monoObject = [self getMonoProperty:"NestedClassList"];
-    id object = [DBSystem_Collections_Generic_ListA1 listWithMonoObject:monoObject];
+    id object = [System_Collections_Generic_ListA1 listWithMonoObject:monoObject];
     return object;
 }
 
-- (DBSystem_Collections_Generic_ListA1 *)intList
+- (System_Collections_Generic_ListA1 *)intList
 {
     MonoObject * monoObject = [self getMonoProperty:"IntList"];
-    id object = [DBSystem_Collections_Generic_ListA1 listWithMonoObject:monoObject];
+    id object = [System_Collections_Generic_ListA1 listWithMonoObject:monoObject];
     return object;
 }
 
-- (DBSystem_Collections_Generic_ListA1 *)uIntList
+- (System_Collections_Generic_ListA1 *)uIntList
 {
     MonoObject * monoObject = [self getMonoProperty:"UIntList"];
-    id object = [DBSystem_Collections_Generic_ListA1 listWithMonoObject:monoObject];
+    id object = [System_Collections_Generic_ListA1 listWithMonoObject:monoObject];
     return object;
 }
 
-- (DBSystem_Collections_Generic_ListA1 *)floatList
+- (System_Collections_Generic_ListA1 *)floatList
 {
     MonoObject * monoObject = [self getMonoProperty:"FloatList"];
-    id object = [DBSystem_Collections_Generic_ListA1 listWithMonoObject:monoObject];
+    id object = [System_Collections_Generic_ListA1 listWithMonoObject:monoObject];
     return object;
 }
 
-- (DBSystem_Collections_Generic_ListA1 *)doubleList
+- (System_Collections_Generic_ListA1 *)doubleList
 {
     MonoObject * monoObject = [self getMonoProperty:"DoubleList"];
-    id object = [DBSystem_Collections_Generic_ListA1 listWithMonoObject:monoObject];
+    id object = [System_Collections_Generic_ListA1 listWithMonoObject:monoObject];
     return object;
 }
 
 #pragma mark -
 #pragma mark Mono Dictionary<TKey, TValue> properties
 
-- (DBSystem_Collections_Generic_DictionaryA2 *)stringStringDictionary
+- (System_Collections_Generic_DictionaryA2 *)stringStringDictionary
 {
     MonoObject * monoObject = [self getMonoProperty:"StringStringDictionary"];
-    DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject];
+    System_Collections_Generic_DictionaryA2 *dict = [System_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject];
     return dict;
 }
 
-- (DBSystem_Collections_Generic_DictionaryA2 *)intIntDictionary
+- (System_Collections_Generic_DictionaryA2 *)intIntDictionary
 {
     MonoObject * monoObject = [self getMonoProperty:"IntIntDictionary"];
-    DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject];
+    System_Collections_Generic_DictionaryA2 *dict = [System_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject];
     return dict;
 }
 
-- (DBSystem_Collections_Generic_DictionaryA2 *)intIntStringDictionaryDictionary
+- (System_Collections_Generic_DictionaryA2 *)intIntStringDictionaryDictionary
 {
     MonoObject * monoObject = [self getMonoProperty:"IntIntStringDictionaryDictionary"];
-    DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject];
+    System_Collections_Generic_DictionaryA2 *dict = [System_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject];
     return dict;
 }
 
 
 
-- (DBSystem_Collections_Generic_DictionaryA2 *)stringObjectDictionary
+- (System_Collections_Generic_DictionaryA2 *)stringObjectDictionary
 {
     MonoObject * monoObject = [self getMonoProperty:"StringObjectDictionary"];
-    DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject];
+    System_Collections_Generic_DictionaryA2 *dict = [System_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject];
     return dict;
 }
 
-- (DBSystem_Collections_Generic_DictionaryA2 *)objectObjectDictionary
+- (System_Collections_Generic_DictionaryA2 *)objectObjectDictionary
 {
     MonoObject * monoObject = [self getMonoProperty:"ObjectObjectDictionary"];
-    DBSystem_Collections_Generic_DictionaryA2 *dict = [DBSystem_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject];
+    System_Collections_Generic_DictionaryA2 *dict = [System_Collections_Generic_DictionaryA2 dictionaryWithMonoObject:monoObject];
     return dict;
 }
 
@@ -698,43 +698,43 @@
 #pragma mark -
 #pragma mark Array parameter methods
 
-- (int64_t)sum_withInt64Array:(DBSystem_Array *)p1
+- (int64_t)sum_withInt64Array:(System_Array *)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"Sum(long[])" withNumArgs:1, [p1 monoRTInvokeArg]];
     return DB_UNBOX_INT64(monoObject);
 }
 
-- (int32_t)sum_withInt32Array:(DBSystem_Array *)p1
+- (int32_t)sum_withInt32Array:(System_Array *)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"Sum(int[])" withNumArgs:1, [p1 monoRTInvokeArg]];
     return DB_UNBOX_INT32(monoObject);
 }
 
-- (int16_t)sum_withInt16Array:(DBSystem_Array *)p1
+- (int16_t)sum_withInt16Array:(System_Array *)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"Sum(int16[])" withNumArgs:1, [p1 monoRTInvokeArg]];
     return DB_UNBOX_INT32(monoObject);
 }
 
-- (int8_t)sum_withByteArray:(DBSystem_Array *)p1
+- (int8_t)sum_withByteArray:(System_Array *)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"Sum(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
     return DB_UNBOX_INT8(monoObject);
 }
 
-- (float)sum_withFloatArray:(DBSystem_Array *)p1
+- (float)sum_withFloatArray:(System_Array *)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"Sum(single[])" withNumArgs:1, [p1 monoRTInvokeArg]];
     return DB_UNBOX_FLOAT(monoObject);
 }
 
-- (double)sum_withDoubleArray:(DBSystem_Array *)p1
+- (double)sum_withDoubleArray:(System_Array *)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"Sum(double[])" withNumArgs:1, [p1 monoRTInvokeArg]];
     return DB_UNBOX_DOUBLE(monoObject);
 }
 
-- (NSString *)sum_withStringArray:(DBSystem_Array *)p1
+- (NSString *)sum_withStringArray:(System_Array *)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"Sum(string[])" withNumArgs:1, [p1 monoRTInvokeArg]];
     return [NSString stringWithMonoString:DB_STRING(monoObject)];
@@ -809,7 +809,7 @@
 // Managed method name : GenericMethod2
 // Managed return type : System.Collections.Generic.Dictionary`2<Dubrovnik.UnitTests.ReferenceObject+T, Dubrovnik.UnitTests.ReferenceObject+U>
 // Managed param types : <Dubrovnik.UnitTests.ReferenceObject+T>, <Dubrovnik.UnitTests.ReferenceObject+U>
-- (DBSystem_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter
+- (System_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter
 {
     // prepare method
     DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"GenericMethod2(T,U)" typeParameters:typeParameter];
@@ -818,7 +818,7 @@
     MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
     
     // result
-    return [DBSystem_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
+    return [System_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
 }
 
 /*!
@@ -827,7 +827,7 @@
  Managed param types : System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject+T>
  Generic method definition type params : <Dubrovnik.UnitTests.ReferenceObject+T>
  */
-- (System_Object *)genericMethodList1_withValue:(DBSystem_Collections_Generic_ListA1 *)p1 typeParameter:(id)typeParameter
+- (System_Object *)genericMethodList1_withValue:(System_Collections_Generic_ListA1 *)p1 typeParameter:(id)typeParameter
 {
     DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"GenericMethodList1(System.Collections.Generic.List`1<T>)" typeParameters:typeParameter];
     
@@ -839,13 +839,13 @@
 #pragma mark -
 #pragma mark Generic argument methods
 
-- (BOOL)reverseList_withListSCGListA1string:(DBSystem_Collections_Generic_ListA1 *)p1
+- (BOOL)reverseList_withListSCGListA1string:(System_Collections_Generic_ListA1 *)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"ReverseList(System.Collections.Generic.List`1<string>)" withNumArgs:1, [p1 monoRTInvokeArg]];
     return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-- (BOOL)reverseList_withListSCGListA1int:(DBSystem_Collections_Generic_ListA1 *)p1
+- (BOOL)reverseList_withListSCGListA1int:(System_Collections_Generic_ListA1 *)p1
 {
     MonoObject *monoObject = [self invokeMonoMethod:"ReverseList(System.Collections.Generic.List`1<int>)" withNumArgs:1, [p1 monoRTInvokeArg]];
     return DB_UNBOX_BOOLEAN(monoObject);

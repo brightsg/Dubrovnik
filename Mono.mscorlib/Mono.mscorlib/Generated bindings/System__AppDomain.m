@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System__AppDomain.m
+﻿//++Dubrovnik.CodeGenerator System__AppDomain.m
 //
 // Managed interface : _AppDomain
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System__AppDomain
 
@@ -236,12 +238,12 @@
 		Managed return type : System.Reflection.Assembly[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getAssemblies
+    - (System_Array *)getAssemblies
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System._AppDomain.GetAssemblies()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 

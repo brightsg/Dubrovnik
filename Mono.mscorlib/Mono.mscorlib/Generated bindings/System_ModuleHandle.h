@@ -2,6 +2,35 @@
 //
 // Managed struct : ModuleHandle
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_ModuleHandle.__Extra__.h")
+#import "System_ModuleHandle.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Int32;
+@class System_ModuleHandle;
+@class System_Object;
+@class System_RuntimeFieldHandle;
+@class System_RuntimeMethodHandle;
+@class System_RuntimeTypeHandle;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_ValueType.h"
+
 @interface System_ModuleHandle : DBManagedObject
 
 #pragma mark -
@@ -96,7 +125,7 @@
 		Managed return type : System.RuntimeFieldHandle
 		Managed param types : System.Int32, System.RuntimeTypeHandle[], System.RuntimeTypeHandle[]
 	 */
-    - (System_RuntimeFieldHandle *)resolveFieldHandle_withFieldToken:(int32_t)p1 typeInstantiationContext:(DBSystem_Array *)p2 methodInstantiationContext:(DBSystem_Array *)p3;
+    - (System_RuntimeFieldHandle *)resolveFieldHandle_withFieldToken:(int32_t)p1 typeInstantiationContext:(System_Array *)p2 methodInstantiationContext:(System_Array *)p3;
 
 	/*! 
 		Managed method name : ResolveMethodHandle
@@ -110,7 +139,7 @@
 		Managed return type : System.RuntimeMethodHandle
 		Managed param types : System.Int32, System.RuntimeTypeHandle[], System.RuntimeTypeHandle[]
 	 */
-    - (System_RuntimeMethodHandle *)resolveMethodHandle_withMethodToken:(int32_t)p1 typeInstantiationContext:(DBSystem_Array *)p2 methodInstantiationContext:(DBSystem_Array *)p3;
+    - (System_RuntimeMethodHandle *)resolveMethodHandle_withMethodToken:(int32_t)p1 typeInstantiationContext:(System_Array *)p2 methodInstantiationContext:(System_Array *)p3;
 
 	/*! 
 		Managed method name : ResolveTypeHandle
@@ -124,6 +153,6 @@
 		Managed return type : System.RuntimeTypeHandle
 		Managed param types : System.Int32, System.RuntimeTypeHandle[], System.RuntimeTypeHandle[]
 	 */
-    - (System_RuntimeTypeHandle *)resolveTypeHandle_withTypeToken:(int32_t)p1 typeInstantiationContext:(DBSystem_Array *)p2 methodInstantiationContext:(DBSystem_Array *)p3;
+    - (System_RuntimeTypeHandle *)resolveTypeHandle_withTypeToken:(int32_t)p1 typeInstantiationContext:(System_Array *)p2 methodInstantiationContext:(System_Array *)p3;
 @end
 //--Dubrovnik.CodeGenerator

@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_Data_Entity_Core_EntityKey.h
+//++Dubrovnik.CodeGenerator System_Data_Entity_Core_EntityKey.h
 //
 // Managed class : EntityKey
 //
@@ -38,7 +38,7 @@
 
 	// Managed property name : EntityKeyValues
 	// Managed property type : System.Data.Entity.Core.EntityKeyMember[]
-    @property (nonatomic, strong) DBSystem_Array * entityKeyValues;
+    @property (nonatomic, strong) System_Array * entityKeyValues;
 
 	// Managed property name : EntityNotValidKey
 	// Managed property type : System.Data.Entity.Core.EntityKey

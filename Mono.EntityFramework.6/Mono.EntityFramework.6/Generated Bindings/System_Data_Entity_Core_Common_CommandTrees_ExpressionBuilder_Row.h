@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_Data_Entity_Core_Common_CommandTrees_ExpressionBuilder_Row.h
+//++Dubrovnik.CodeGenerator System_Data_Entity_Core_Common_CommandTrees_ExpressionBuilder_Row.h
 //
 // Managed class : Row
 //
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder.Row
 	// Managed param types : System.Collections.Generic.KeyValuePair`2<System.String, System.Data.Entity.Core.Common.CommandTrees.DbExpression>, System.Collections.Generic.KeyValuePair`2
-    + (System_Data_Entity_Core_Common_CommandTrees_ExpressionBuilder_Row *)new_withColumnValue:(System_Collections_Generic_KeyValuePairA2 *)p1 columnValues:(DBSystem_Array *)p2;
+    + (System_Data_Entity_Core_Common_CommandTrees_ExpressionBuilder_Row *)new_withColumnValue:(System_Collections_Generic_KeyValuePairA2 *)p1 columnValues:(System_Array *)p2;
 
 #pragma mark -
 #pragma mark Methods

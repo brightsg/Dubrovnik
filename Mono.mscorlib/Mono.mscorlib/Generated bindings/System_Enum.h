@@ -2,6 +2,50 @@
 //
 // Managed class : Enum
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Enum.__Extra__.h")
+#import "System_Enum.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Array;
+@class System_Boolean;
+@class System_Byte;
+@class System_Enum;
+@class System_IComparable;
+@class System_IConvertible;
+@class System_IFormatProvider;
+@class System_IFormattable;
+@class System_Int16;
+@class System_Int32;
+@class System_Int64;
+@class System_Object;
+@class System_SByte;
+@class System_String;
+@class System_Type;
+@class System_TypeCode;
+@class System_UInt16;
+@class System_UInt32;
+@class System_UInt64;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_IComparable_Protocol.h"
+#import "System_IConvertible_Protocol.h"
+#import "System_IFormattable_Protocol.h"
+#import "System_ValueType.h"
+
 @interface System_Enum : DBManagedObject <System_IComparable_, System_IFormattable_, System_IConvertible_>
 
 #pragma mark -
@@ -54,7 +98,7 @@
 		Managed return type : System.String[]
 		Managed param types : System.Type
 	 */
-    + (DBSystem_Array *)getNames_withEnumType:(System_Type *)p1;
+    + (System_Array *)getNames_withEnumType:(System_Type *)p1;
 
 	/*! 
 		Managed method name : GetTypeCode
@@ -75,14 +119,14 @@
 		Managed return type : System.Array
 		Managed param types : System.Type
 	 */
-    + (DBSystem_Array *)getValues_withEnumType:(System_Type *)p1;
+    + (System_Array *)getValues_withEnumType:(System_Type *)p1;
 
 	/*! 
 		Managed method name : HasFlag
 		Managed return type : System.Boolean
 		Managed param types : System.Enum
 	 */
-    - (BOOL)hasFlag_withFlag:(DBSystem_Enum *)p1;
+    - (BOOL)hasFlag_withFlag:(System_Enum *)p1;
 
 	/*! 
 		Managed method name : IsDefined

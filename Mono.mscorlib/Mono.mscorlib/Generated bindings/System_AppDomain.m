@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_AppDomain.m
+﻿//++Dubrovnik.CodeGenerator System_AppDomain.m
 //
 // Managed class : AppDomain
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_AppDomain
 
@@ -527,7 +529,7 @@
 		Managed return type : System.Object
 		Managed param types : System.String, System.String, System.Object[]
 	 */
-    - (System_Object *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(DBSystem_Array *)p3
+    - (System_Object *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(System_Array *)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateInstanceAndUnwrap(string,string,object[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
@@ -559,7 +561,7 @@
 		Managed return type : System.Object
 		Managed param types : System.String, System.String, System.Object[]
 	 */
-    - (System_Object *)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(DBSystem_Array *)p3
+    - (System_Object *)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(System_Array *)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"CreateInstanceFromAndUnwrap(string,string,object[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
@@ -614,7 +616,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.String, System.String[]
 	 */
-    - (int32_t)executeAssembly_withAssemblyFile:(NSString *)p1 args:(DBSystem_Array *)p2
+    - (int32_t)executeAssembly_withAssemblyFile:(NSString *)p1 args:(System_Array *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ExecuteAssembly(string,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -644,7 +646,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.String, System.String[]
 	 */
-    - (int32_t)executeAssemblyByName_withAssemblyNameString:(NSString *)p1 argsString:(DBSystem_Array *)p2
+    - (int32_t)executeAssemblyByName_withAssemblyNameString:(NSString *)p1 argsString:(System_Array *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ExecuteAssemblyByName(string,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -658,7 +660,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.Reflection.AssemblyName, System.String[]
 	 */
-    - (int32_t)executeAssemblyByName_withAssemblyNameSRAssemblyName:(System_Reflection_AssemblyName *)p1 argsString:(DBSystem_Array *)p2
+    - (int32_t)executeAssemblyByName_withAssemblyNameSRAssemblyName:(System_Reflection_AssemblyName *)p1 argsString:(System_Array *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ExecuteAssemblyByName(System.Reflection.AssemblyName,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -671,12 +673,12 @@
 		Managed return type : System.Reflection.Assembly[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getAssemblies
+    - (System_Array *)getAssemblies
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetAssemblies()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -830,12 +832,12 @@
 		Managed return type : System.Reflection.Assembly[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)reflectionOnlyGetAssemblies
+    - (System_Array *)reflectionOnlyGetAssemblies
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ReflectionOnlyGetAssemblies()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 /* Skipped method : System.Void SetAppDomainPolicy(System.Security.Policy.PolicyLevel domainPolicy) */
 

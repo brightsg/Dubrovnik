@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Collections_ArrayList.m
+﻿//++Dubrovnik.CodeGenerator System_Collections_ArrayList.m
 //
 // Managed class : ArrayList
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_Collections_ArrayList
 
@@ -32,10 +34,10 @@
 		Managed return type : System.Collections.ArrayList
 		Managed param types : System.Int32
 	 */
-    + (DBSystem_Collections_ArrayList *)new_withCapacity:(int32_t)p1
+    + (System_Collections_ArrayList *)new_withCapacity:(int32_t)p1
     {
 		
-		DBSystem_Collections_ArrayList * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+		System_Collections_ArrayList * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
       
       return object;
     }
@@ -45,10 +47,10 @@
 		Managed return type : System.Collections.ArrayList
 		Managed param types : System.Collections.ICollection
 	 */
-    + (DBSystem_Collections_ArrayList *)new_withC:(id <System_Collections_ICollection_>)p1
+    + (System_Collections_ArrayList *)new_withC:(id <System_Collections_ICollection_>)p1
     {
 		
-		DBSystem_Collections_ArrayList * object = [[self alloc] initWithSignature:"System.Collections.ICollection" withNumArgs:1, [p1 monoRTInvokeArg]];
+		System_Collections_ArrayList * object = [[self alloc] initWithSignature:"System.Collections.ICollection" withNumArgs:1, [p1 monoRTInvokeArg]];
       
       return object;
     }
@@ -243,12 +245,12 @@
 		Managed return type : System.Collections.ArrayList
 		Managed param types : System.Collections.IList
 	 */
-    + (DBSystem_Collections_ArrayList *)adapter_withList:(id <System_Collections_IList_>)p1
+    + (System_Collections_ArrayList *)adapter_withList:(id <System_Collections_IList_>)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Adapter(System.Collections.IList)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Collections_ArrayList listWithMonoObject:monoObject];
+		return [System_Collections_ArrayList listWithMonoObject:monoObject];
     }
 
 	/*! 
@@ -358,7 +360,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Array
 	 */
-    - (void)copyTo_withArray:(DBSystem_Array *)p1
+    - (void)copyTo_withArray:(System_Array *)p1
     {
 		
 		[self invokeMonoMethod:"CopyTo(System.Array)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -370,7 +372,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Array, System.Int32
 	 */
-    - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2
+    - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2
     {
 		
 		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
@@ -382,7 +384,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Int32, System.Array, System.Int32, System.Int32
 	 */
-    - (void)copyTo_withIndex:(int32_t)p1 array:(DBSystem_Array *)p2 arrayIndex:(int32_t)p3 count:(int32_t)p4
+    - (void)copyTo_withIndex:(int32_t)p1 array:(System_Array *)p2 arrayIndex:(int32_t)p3 count:(int32_t)p4
     {
 		
 		[self invokeMonoMethod:"CopyTo(int,System.Array,int,int)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
@@ -407,12 +409,12 @@
 		Managed return type : System.Collections.ArrayList
 		Managed param types : System.Collections.ArrayList
 	 */
-    + (DBSystem_Collections_ArrayList *)fixedSize_withListSCArrayList:(DBSystem_Collections_ArrayList *)p1
+    + (System_Collections_ArrayList *)fixedSize_withListSCArrayList:(System_Collections_ArrayList *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"FixedSize(System.Collections.ArrayList)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Collections_ArrayList listWithMonoObject:monoObject];
+		return [System_Collections_ArrayList listWithMonoObject:monoObject];
     }
 
 	/*! 
@@ -446,12 +448,12 @@
 		Managed return type : System.Collections.ArrayList
 		Managed param types : System.Int32, System.Int32
 	 */
-    - (DBSystem_Collections_ArrayList *)getRange_withIndex:(int32_t)p1 count:(int32_t)p2
+    - (System_Collections_ArrayList *)getRange_withIndex:(int32_t)p1 count:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRange(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 		
-		return [DBSystem_Collections_ArrayList listWithMonoObject:monoObject];
+		return [System_Collections_ArrayList listWithMonoObject:monoObject];
     }
 
 	/*! 
@@ -574,12 +576,12 @@
 		Managed return type : System.Collections.ArrayList
 		Managed param types : System.Collections.ArrayList
 	 */
-    + (DBSystem_Collections_ArrayList *)readOnly_withListSCArrayList:(DBSystem_Collections_ArrayList *)p1
+    + (System_Collections_ArrayList *)readOnly_withListSCArrayList:(System_Collections_ArrayList *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Collections.ArrayList)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Collections_ArrayList listWithMonoObject:monoObject];
+		return [System_Collections_ArrayList listWithMonoObject:monoObject];
     }
 
 	/*! 
@@ -623,12 +625,12 @@
 		Managed return type : System.Collections.ArrayList
 		Managed param types : System.Object, System.Int32
 	 */
-    + (DBSystem_Collections_ArrayList *)repeat_withValue:(System_Object *)p1 count:(int32_t)p2
+    + (System_Collections_ArrayList *)repeat_withValue:(System_Object *)p1 count:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Repeat(object,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [DBSystem_Collections_ArrayList listWithMonoObject:monoObject];
+		return [System_Collections_ArrayList listWithMonoObject:monoObject];
     }
 
 	/*! 
@@ -721,12 +723,12 @@
 		Managed return type : System.Collections.ArrayList
 		Managed param types : System.Collections.ArrayList
 	 */
-    + (DBSystem_Collections_ArrayList *)synchronized_withListSCArrayList:(DBSystem_Collections_ArrayList *)p1
+    + (System_Collections_ArrayList *)synchronized_withListSCArrayList:(System_Collections_ArrayList *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Synchronized(System.Collections.ArrayList)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Collections_ArrayList listWithMonoObject:monoObject];
+		return [System_Collections_ArrayList listWithMonoObject:monoObject];
     }
 
 	/*! 
@@ -734,12 +736,12 @@
 		Managed return type : System.Object[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)toArray
+    - (System_Array *)toArray
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToArray()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -747,12 +749,12 @@
 		Managed return type : System.Array
 		Managed param types : System.Type
 	 */
-    - (DBSystem_Array *)toArray_withType:(System_Type *)p1
+    - (System_Array *)toArray_withType:(System_Type *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToArray(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 

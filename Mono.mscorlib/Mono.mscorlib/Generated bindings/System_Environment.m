@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Environment.m
+﻿//++Dubrovnik.CodeGenerator System_Environment.m
 //
 // Managed class : Environment
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_Environment
 
@@ -544,12 +546,12 @@
 		Managed return type : System.String[]
 		Managed param types : 
 	 */
-    + (DBSystem_Array *)getCommandLineArgs
+    + (System_Array *)getCommandLineArgs
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCommandLineArgs()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -635,12 +637,12 @@
 		Managed return type : System.String[]
 		Managed param types : 
 	 */
-    + (DBSystem_Array *)getLogicalDrives
+    + (System_Array *)getLogicalDrives
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetLogicalDrives()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 

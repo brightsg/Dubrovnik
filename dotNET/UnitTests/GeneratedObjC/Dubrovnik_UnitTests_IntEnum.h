@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_IntEnum.h
+//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_IntEnum.h
 //
 // Managed enumeration : IntEnum
 //
@@ -10,7 +10,7 @@ typedef NS_ENUM(int32_t, enumDubrovnik_UnitTests_IntEnum) {
 	Dubrovnik_UnitTests_IntEnum_val3 = 3,
 	Dubrovnik_UnitTests_IntEnum_val4 = 4,
 };
-@interface Dubrovnik_UnitTests_IntEnum : DBSystem_Enum
+@interface Dubrovnik_UnitTests_IntEnum : System_Enum
 
 #pragma mark -
 #pragma mark Setup

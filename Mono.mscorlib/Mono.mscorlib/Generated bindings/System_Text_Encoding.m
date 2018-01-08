@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Text_Encoding.m
+﻿//++Dubrovnik.CodeGenerator System_Text_Encoding.m
 //
 // Managed class : Encoding
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_Text_Encoding
 
@@ -571,7 +573,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.Char[]
 	 */
-    - (int32_t)getByteCount_withChars:(DBSystem_Array *)p1
+    - (int32_t)getByteCount_withChars:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetByteCount(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -597,7 +599,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    - (int32_t)getByteCount_withChars:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
+    - (int32_t)getByteCount_withChars:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetByteCount(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
@@ -623,7 +625,7 @@
 		Managed return type : System.Byte[]
 		Managed param types : System.Char[]
 	 */
-    - (NSData *)getBytes_withChars:(DBSystem_Array *)p1
+    - (NSData *)getBytes_withChars:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -636,7 +638,7 @@
 		Managed return type : System.Byte[]
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    - (NSData *)getBytes_withChars:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
+    - (NSData *)getBytes_withChars:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
@@ -649,7 +651,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.Char[], System.Int32, System.Int32, System.Byte[], System.Int32
 	 */
-    - (int32_t)getBytes_withChars:(DBSystem_Array *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5
+    - (int32_t)getBytes_withChars:(System_Array *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(char[],int,int,byte[],int)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], DB_VALUE(p5)];
@@ -740,12 +742,12 @@
 		Managed return type : System.Char[]
 		Managed param types : System.Byte[]
 	 */
-    - (DBSystem_Array *)getChars_withBytes:(NSData *)p1
+    - (System_Array *)getChars_withBytes:(NSData *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetChars(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -753,12 +755,12 @@
 		Managed return type : System.Char[]
 		Managed param types : System.Byte[], System.Int32, System.Int32
 	 */
-    - (DBSystem_Array *)getChars_withBytes:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3
+    - (System_Array *)getChars_withBytes:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetChars(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -766,7 +768,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.Byte[], System.Int32, System.Int32, System.Char[], System.Int32
 	 */
-    - (int32_t)getChars_withBytes:(NSData *)p1 byteIndex:(int32_t)p2 byteCount:(int32_t)p3 chars:(DBSystem_Array *)p4 charIndex:(int32_t)p5
+    - (int32_t)getChars_withBytes:(NSData *)p1 byteIndex:(int32_t)p2 byteCount:(int32_t)p3 chars:(System_Array *)p4 charIndex:(int32_t)p5
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetChars(byte[],int,int,char[],int)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], DB_VALUE(p5)];
@@ -870,12 +872,12 @@
 		Managed return type : System.Text.EncodingInfo[]
 		Managed param types : 
 	 */
-    + (DBSystem_Array *)getEncodings
+    + (System_Array *)getEncodings
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEncodings()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 

@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_TimeSpan.m
+﻿//++Dubrovnik.CodeGenerator System_TimeSpan.m
 //
 // Managed struct : TimeSpan
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_TimeSpan
 
@@ -792,7 +794,7 @@
 		Managed return type : System.TimeSpan
 		Managed param types : System.String, System.String[], System.IFormatProvider
 	 */
-    + (System_TimeSpan *)parseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(id <System_IFormatProvider_>)p3
+    + (System_TimeSpan *)parseExact_withInput:(NSString *)p1 formats:(System_Array *)p2 formatProvider:(id <System_IFormatProvider_>)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ParseExact(string,string[],System.IFormatProvider)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
@@ -907,7 +909,7 @@
 		Managed return type : System.Boolean
 		Managed param types : System.String, System.String[], System.IFormatProvider, ref System.TimeSpan&
 	 */
-    + (BOOL)tryParseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(id <System_IFormatProvider_>)p3 resultRef:(System_TimeSpan **)p4
+    + (BOOL)tryParseExact_withInput:(NSString *)p1 formats:(System_Array *)p2 formatProvider:(id <System_IFormatProvider_>)p3 resultRef:(System_TimeSpan **)p4
     {
 		void *refPtr4 = [*p4 monoRTInvokeArg];
 

@@ -2,6 +2,30 @@
 //
 // Managed class : TaskScheduler
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Threading_Tasks_TaskScheduler.__Extra__.h")
+#import "System_Threading_Tasks_TaskScheduler.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Int32;
+@class System_Threading_Tasks_TaskScheduler;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Object.h"
+
 @interface System_Threading_Tasks_TaskScheduler : System_Object
 
 #pragma mark -

@@ -1,5 +1,5 @@
 //
-//  DBSystem.Enum.m
+//  System.Enum.m
 //  Dubrovnik
 //
 //  Created by Allan Hsu on 7/28/06.
@@ -19,16 +19,16 @@
 // License along with this library; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
-#import "DBSystem_Enum.h"
+#import "System_Enum.h+mscorlib"
 #import "System_Object+mscorlib.h"
 
 static DBManagedClass *_classRep = nil;
 
-@interface DBSystem_Enum()
+@interface System_Enum()
 + (DBManagedClass *)classRep;
 @end
 
-@implementation DBSystem_Enum
+@implementation System_Enum (mscorlib)
 
 #pragma mark -
 #pragma mark Lifecycle
@@ -59,7 +59,7 @@ static DBManagedClass *_classRep = nil;
 
 + (instancetype)enumWithValue:(NSInteger)value
 {
-    DBSystem_Enum *obj = [[self alloc] initWithValue:value];
+    System_Enum *obj = [[self alloc] initWithValue:value];
     return obj;
 }
 

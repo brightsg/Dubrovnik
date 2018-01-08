@@ -2,6 +2,38 @@
 //
 // Managed class : DirectoryInfo
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_IO_DirectoryInfo.__Extra__.h")
+#import "System_IO_DirectoryInfo.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Collections_Generic_IEnumerableA1;
+@class System_IO_DirectoryInfo;
+@class System_IO_FileInfo;
+@class System_IO_FileSystemInfo;
+@class System_IO_SearchOption;
+@class System_Runtime_Serialization_ISerializable;
+@class System_String;
+@class System_Void;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_IO_FileSystemInfo.h"
+#import "System_Runtime_Serialization_ISerializable_Protocol.h"
+
 @interface System_IO_DirectoryInfo : System_IO_FileSystemInfo <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
@@ -147,63 +179,63 @@
 		Managed return type : System.IO.DirectoryInfo[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getDirectories;
+    - (System_Array *)getDirectories;
 
 	/*! 
 		Managed method name : GetDirectories
 		Managed return type : System.IO.DirectoryInfo[]
 		Managed param types : System.String
 	 */
-    - (DBSystem_Array *)getDirectories_withSearchPattern:(NSString *)p1;
+    - (System_Array *)getDirectories_withSearchPattern:(NSString *)p1;
 
 	/*! 
 		Managed method name : GetDirectories
 		Managed return type : System.IO.DirectoryInfo[]
 		Managed param types : System.String, System.IO.SearchOption
 	 */
-    - (DBSystem_Array *)getDirectories_withSearchPattern:(NSString *)p1 searchOption:(int32_t)p2;
+    - (System_Array *)getDirectories_withSearchPattern:(NSString *)p1 searchOption:(int32_t)p2;
 
 	/*! 
 		Managed method name : GetFiles
 		Managed return type : System.IO.FileInfo[]
 		Managed param types : System.String
 	 */
-    - (DBSystem_Array *)getFiles_withSearchPattern:(NSString *)p1;
+    - (System_Array *)getFiles_withSearchPattern:(NSString *)p1;
 
 	/*! 
 		Managed method name : GetFiles
 		Managed return type : System.IO.FileInfo[]
 		Managed param types : System.String, System.IO.SearchOption
 	 */
-    - (DBSystem_Array *)getFiles_withSearchPattern:(NSString *)p1 searchOption:(int32_t)p2;
+    - (System_Array *)getFiles_withSearchPattern:(NSString *)p1 searchOption:(int32_t)p2;
 
 	/*! 
 		Managed method name : GetFiles
 		Managed return type : System.IO.FileInfo[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getFiles;
+    - (System_Array *)getFiles;
 
 	/*! 
 		Managed method name : GetFileSystemInfos
 		Managed return type : System.IO.FileSystemInfo[]
 		Managed param types : System.String
 	 */
-    - (DBSystem_Array *)getFileSystemInfos_withSearchPattern:(NSString *)p1;
+    - (System_Array *)getFileSystemInfos_withSearchPattern:(NSString *)p1;
 
 	/*! 
 		Managed method name : GetFileSystemInfos
 		Managed return type : System.IO.FileSystemInfo[]
 		Managed param types : System.String, System.IO.SearchOption
 	 */
-    - (DBSystem_Array *)getFileSystemInfos_withSearchPattern:(NSString *)p1 searchOption:(int32_t)p2;
+    - (System_Array *)getFileSystemInfos_withSearchPattern:(NSString *)p1 searchOption:(int32_t)p2;
 
 	/*! 
 		Managed method name : GetFileSystemInfos
 		Managed return type : System.IO.FileSystemInfo[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getFileSystemInfos;
+    - (System_Array *)getFileSystemInfos;
 
 	/*! 
 		Managed method name : MoveTo

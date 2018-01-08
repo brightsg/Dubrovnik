@@ -1,5 +1,5 @@
 //
-//  DBSystem.Collections.IList.h
+//  System.Collections.IList.h
 //  Dubrovnik
 //
 //  Copyright (C) 2013 Thesaurus Software Ltd. All rights reserved.
@@ -23,9 +23,7 @@
 #import "Dubrovnik/DBManagedObject.h"
 #import "System_Collections_IList.h"
 
-@interface DBSystem_Collections_IList : System_Collections_IList {
-	@protected
-}
+@interface System_Collections_IList (mscorlib)
 
 + (id)listWithMonoObject:(MonoObject *)monoObject;
 

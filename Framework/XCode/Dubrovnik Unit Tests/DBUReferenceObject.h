@@ -138,13 +138,13 @@
 - (NSString *)mixedMethod1_withIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(DBUReferenceObject *)p7;
 
 // array parameter methods
-- (int64_t)sum_withInt64Array:(DBSystem_Array *)p1;
-- (int32_t)sum_withInt32Array:(DBSystem_Array *)p1;
-- (int16_t)sum_withInt16Array:(DBSystem_Array *)p1;
-- (int8_t)sum_withByteArray:(DBSystem_Array *)p1;
-- (float)sum_withFloatArray:(DBSystem_Array *)p1;
-- (double)sum_withDoubleArray:(DBSystem_Array *)p1;
-- (NSString *)sum_withStringArray:(DBSystem_Array *)p1;
+- (int64_t)sum_withInt64Array:(System_Array *)p1;
+- (int32_t)sum_withInt32Array:(System_Array *)p1;
+- (int16_t)sum_withInt16Array:(System_Array *)p1;
+- (int8_t)sum_withByteArray:(System_Array *)p1;
+- (float)sum_withFloatArray:(System_Array *)p1;
+- (double)sum_withDoubleArray:(System_Array *)p1;
+- (NSString *)sum_withStringArray:(System_Array *)p1;
 
 // pointer parameter methods
 - (int32_t)sumAndSwitch_withIntPtrX:(int32_t *)p1 intPtrY:(int32_t *)p2;
@@ -156,12 +156,12 @@
 - (System_Object *)genericMethod0_withTypeParameter:(id)typeParameter;
 - (System_Object *)genericMethod02_withTypeParameters:(NSArray<id> *)typeParameter;
 - (System_Object *)genericMethod1_withValue:(System_Object *)p1 typeParameter:(id)typeParameter;
-- (DBSystem_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter;
-- (System_Object *)genericMethodList1_withValue:(DBSystem_Collections_Generic_ListA1 *)p1 typeParameter:(id)typeParameter;
+- (System_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter;
+- (System_Object *)genericMethodList1_withValue:(System_Collections_Generic_ListA1 *)p1 typeParameter:(id)typeParameter;
 
 // generic argument methods
-- (BOOL)reverseList_withListSCGListA1string:(DBSystem_Collections_Generic_ListA1 *)p1;
-- (BOOL)reverseList_withListSCGListA1int:(DBSystem_Collections_Generic_ListA1 *)p1;
+- (BOOL)reverseList_withListSCGListA1string:(System_Collections_Generic_ListA1 *)p1;
+- (BOOL)reverseList_withListSCGListA1int:(System_Collections_Generic_ListA1 *)p1;
 - (NSString *)addIEnumerable_withList:(System_Collections_Generic_IEnumerableA1 *)p1;
 
 // string property implementation
@@ -211,19 +211,19 @@
 - (void)setInt32Pointer:(int32_t *)value;
 
 // array properties
-- (DBSystem_Array *)stringArray;
-- (void)setStringArray:(DBSystem_Array *)array;
-- (DBSystem_Array *)int64Array;
-- (void)setInt64Array:(DBSystem_Array *)array;
-- (DBSystem_Array *)int32Array;
-- (void)setInt32Array:(DBSystem_Array *)array;
-- (DBSystem_Array *)int16Array;
-- (DBSystem_Array *)floatArray;
-- (void)setFloatArray:(DBSystem_Array *)array;
-- (DBSystem_Array *)doubleArray;
-- (void)setDoubleArray:(DBSystem_Array *)array;
-- (DBSystem_Array *)boolArray;
-- (DBSystem_Collections_ArrayList *)stringArrayList;
+- (System_Array *)stringArray;
+- (void)setStringArray:(System_Array *)array;
+- (System_Array *)int64Array;
+- (void)setInt64Array:(System_Array *)array;
+- (System_Array *)int32Array;
+- (void)setInt32Array:(System_Array *)array;
+- (System_Array *)int16Array;
+- (System_Array *)floatArray;
+- (void)setFloatArray:(System_Array *)array;
+- (System_Array *)doubleArray;
+- (void)setDoubleArray:(System_Array *)array;
+- (System_Array *)boolArray;
+- (System_Collections_ArrayList *)stringArrayList;
 
 // managed interface property
 - (DBUIReferenceObject *)minimalReferenceObject;
@@ -244,18 +244,18 @@
 
 // generic type properties
 
-- (DBSystem_Collections_Generic_ListA1 *)stringList;
-- (DBSystem_Collections_Generic_ListA1 *)nestedClassList;
-- (DBSystem_Collections_Generic_ListA1 *)intList;
-- (DBSystem_Collections_Generic_ListA1 *)uIntList;
-- (DBSystem_Collections_Generic_ListA1 *)floatList;
-- (DBSystem_Collections_Generic_ListA1 *)doubleList;
+- (System_Collections_Generic_ListA1 *)stringList;
+- (System_Collections_Generic_ListA1 *)nestedClassList;
+- (System_Collections_Generic_ListA1 *)intList;
+- (System_Collections_Generic_ListA1 *)uIntList;
+- (System_Collections_Generic_ListA1 *)floatList;
+- (System_Collections_Generic_ListA1 *)doubleList;
 
-- (DBSystem_Collections_Generic_DictionaryA2 *)stringStringDictionary;
-- (DBSystem_Collections_Generic_DictionaryA2 *)intIntDictionary;
-- (DBSystem_Collections_Generic_DictionaryA2 *)stringObjectDictionary;
-- (DBSystem_Collections_Generic_DictionaryA2 *)objectObjectDictionary;
-- (DBSystem_Collections_Generic_DictionaryA2 *)intIntStringDictionaryDictionary;
+- (System_Collections_Generic_DictionaryA2 *)stringStringDictionary;
+- (System_Collections_Generic_DictionaryA2 *)intIntDictionary;
+- (System_Collections_Generic_DictionaryA2 *)stringObjectDictionary;
+- (System_Collections_Generic_DictionaryA2 *)objectObjectDictionary;
+- (System_Collections_Generic_DictionaryA2 *)intIntStringDictionaryDictionary;
 
 - (System_NullableA1 *)intNullable;
 - (void)setIntNullable:(System_NullableA1 *)value;

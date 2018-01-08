@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_AggregateException.m
+﻿//++Dubrovnik.CodeGenerator System_AggregateException.m
 //
 // Managed class : AggregateException
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_AggregateException
 
@@ -71,7 +73,7 @@
 		Managed return type : System.AggregateException
 		Managed param types : System.Exception[]
 	 */
-    + (System_AggregateException *)new_withInnerExceptionsSException:(DBSystem_Array *)p1
+    + (System_AggregateException *)new_withInnerExceptionsSException:(System_Array *)p1
     {
 		
 		System_AggregateException * object = [[self alloc] initWithSignature:"System.Exception[]" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -97,7 +99,7 @@
 		Managed return type : System.AggregateException
 		Managed param types : System.String, System.Exception[]
 	 */
-    + (System_AggregateException *)new_withMessageString:(NSString *)p1 innerExceptionsSException:(DBSystem_Array *)p2
+    + (System_AggregateException *)new_withMessageString:(NSString *)p1 innerExceptionsSException:(System_Array *)p2
     {
 		
 		System_AggregateException * object = [[self alloc] initWithSignature:"string,System.Exception[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];

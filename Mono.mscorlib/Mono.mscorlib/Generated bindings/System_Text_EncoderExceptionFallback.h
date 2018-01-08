@@ -2,6 +2,33 @@
 //
 // Managed class : EncoderExceptionFallback
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Text_EncoderExceptionFallback.__Extra__.h")
+#import "System_Text_EncoderExceptionFallback.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Int32;
+@class System_Object;
+@class System_Text_EncoderExceptionFallback;
+@class System_Text_EncoderFallbackBuffer;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Text_EncoderFallback.h"
+
 @interface System_Text_EncoderExceptionFallback : System_Text_EncoderFallback
 
 #pragma mark -

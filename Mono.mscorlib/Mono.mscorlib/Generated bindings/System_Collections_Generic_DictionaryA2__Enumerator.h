@@ -2,6 +2,39 @@
 //
 // Managed struct : Dictionary`2<TKey, TValue>.Enumerator
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Collections_Generic_DictionaryA2__Enumerator.__Extra__.h")
+#import "System_Collections_Generic_DictionaryA2__Enumerator.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Collections_Generic_IEnumeratorA1;
+@class System_Collections_IDictionaryEnumerator;
+@class System_Collections_IEnumerator;
+@class System_IDisposable;
+@class System_Object;
+@class System_Void;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Collections_Generic_IEnumeratorA1_Protocol.h"
+#import "System_Collections_IDictionaryEnumerator_Protocol.h"
+#import "System_Collections_IEnumerator_Protocol.h"
+#import "System_IDisposable_Protocol.h"
+#import "System_ValueType.h"
+
 @interface System_Collections_Generic_DictionaryA2__Enumerator : DBManagedObject <System_Collections_Generic_IEnumeratorA1_, System_IDisposable_, System_Collections_IEnumerator_, System_Collections_IDictionaryEnumerator_>
 
 #pragma mark -

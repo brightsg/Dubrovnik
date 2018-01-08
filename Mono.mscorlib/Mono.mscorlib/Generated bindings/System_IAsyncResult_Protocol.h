@@ -2,6 +2,33 @@
 //
 // Managed interface : IAsyncResult
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_IAsyncResult.__Extra__.h")
+#import "System_IAsyncResult.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_IAsyncResult;
+@class System_Object;
+@protocol System_IAsyncResult;
+@protocol System_IAsyncResult_;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Object.h"
+
 
 /*
  A managed interface is represented as follows:

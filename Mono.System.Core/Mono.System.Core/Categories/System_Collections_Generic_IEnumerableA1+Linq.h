@@ -8,8 +8,8 @@
 @interface System_Collections_Generic_IEnumerableA1 (Linq)
 
 // list representation
-- (DBSystem_Collections_IList *)listWithTypeParameter:(id)typeParameter;
-- (DBSystem_Collections_IList *)list;
+- (System_Collections_IList *)listWithTypeParameter:(id)typeParameter;
+- (System_Collections_IList *)list;
 
 // array representation
 - (NSArray *)arrayWithTypeParameter:(id)typeParameter;
@@ -34,7 +34,7 @@
 @interface NSObject (Linq_IEnumerableA1_conformation)
 
 // list representation
-- (DBSystem_Collections_IList *)listWithTypeParameter:(id)typeParameter;
+- (System_Collections_IList *)listWithTypeParameter:(id)typeParameter;
 
 // array representation
 - (NSMutableArray *)mutableArrayWithTypeParameter:(id)typeParameter;

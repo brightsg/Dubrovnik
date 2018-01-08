@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_Data_Entity_Core_Objects_ObjectParameterCollection.h
+//++Dubrovnik.CodeGenerator System_Data_Entity_Core_Objects_ObjectParameterCollection.h
 //
 // Managed class : ObjectParameterCollection
 //
@@ -48,7 +48,7 @@
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
 	// Managed param types : System.Data.Entity.Core.Objects.ObjectParameter[], System.Int32
-    - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2;
+    - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2;
 
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.Generic.IEnumerator`1<System.Data.Entity.Core.Objects.ObjectParameter>

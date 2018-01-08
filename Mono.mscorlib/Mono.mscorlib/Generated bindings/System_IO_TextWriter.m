@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_IO_TextWriter.m
+﻿//++Dubrovnik.CodeGenerator System_IO_TextWriter.m
 //
 // Managed class : TextWriter
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_IO_TextWriter
 
@@ -205,7 +207,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Char[]
 	 */
-    - (void)write_withBuffer:(DBSystem_Array *)p1
+    - (void)write_withBuffer:(System_Array *)p1
     {
 		
 		[self invokeMonoMethod:"Write(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -217,7 +219,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    - (void)write_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
+    - (void)write_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		
 		[self invokeMonoMethod:"Write(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
@@ -385,7 +387,7 @@
 		Managed return type : System.Void
 		Managed param types : System.String, System.Object[]
 	 */
-    - (void)write_withFormat:(NSString *)p1 arg:(DBSystem_Array *)p2
+    - (void)write_withFormat:(NSString *)p1 arg:(System_Array *)p2
     {
 		
 		[self invokeMonoMethod:"Write(string,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -423,7 +425,7 @@
 		Managed return type : System.Threading.Tasks.Task
 		Managed param types : System.Char[]
 	 */
-    - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(DBSystem_Array *)p1
+    - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -436,7 +438,7 @@
 		Managed return type : System.Threading.Tasks.Task
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
+    - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
@@ -473,7 +475,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Char[]
 	 */
-    - (void)writeLine_withBuffer:(DBSystem_Array *)p1
+    - (void)writeLine_withBuffer:(System_Array *)p1
     {
 		
 		[self invokeMonoMethod:"WriteLine(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -485,7 +487,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    - (void)writeLine_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
+    - (void)writeLine_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		
 		[self invokeMonoMethod:"WriteLine(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
@@ -653,7 +655,7 @@
 		Managed return type : System.Void
 		Managed param types : System.String, System.Object[]
 	 */
-    - (void)writeLine_withFormat:(NSString *)p1 arg:(DBSystem_Array *)p2
+    - (void)writeLine_withFormat:(NSString *)p1 arg:(System_Array *)p2
     {
 		
 		[self invokeMonoMethod:"WriteLine(string,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -691,7 +693,7 @@
 		Managed return type : System.Threading.Tasks.Task
 		Managed param types : System.Char[]
 	 */
-    - (System_Threading_Tasks_Task *)writeLineAsync_withBuffer:(DBSystem_Array *)p1
+    - (System_Threading_Tasks_Task *)writeLineAsync_withBuffer:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -704,7 +706,7 @@
 		Managed return type : System.Threading.Tasks.Task
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    - (System_Threading_Tasks_Task *)writeLineAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
+    - (System_Threading_Tasks_Task *)writeLineAsync_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];

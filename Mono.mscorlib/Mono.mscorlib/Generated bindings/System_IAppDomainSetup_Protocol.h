@@ -2,6 +2,32 @@
 //
 // Managed interface : IAppDomainSetup
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_IAppDomainSetup.__Extra__.h")
+#import "System_IAppDomainSetup.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_IAppDomainSetup;
+@class System_String;
+@protocol System_IAppDomainSetup;
+@protocol System_IAppDomainSetup_;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Object.h"
+
 
 /*
  A managed interface is represented as follows:

@@ -2,6 +2,30 @@
 //
 // Managed class : Tuple
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Tuple.__Extra__.h")
+#import "System_Tuple.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Object;
+@class System_Tuple;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Object.h"
+
 @interface System_Tuple : System_Object
 
 #pragma mark -

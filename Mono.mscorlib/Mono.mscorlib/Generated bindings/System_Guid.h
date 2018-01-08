@@ -2,6 +2,43 @@
 //
 // Managed struct : Guid
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Guid.__Extra__.h")
+#import "System_Guid.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Byte;
+@class System_Guid;
+@class System_IComparable;
+@class System_IComparableA1;
+@class System_IEquatableA1;
+@class System_IFormatProvider;
+@class System_IFormattable;
+@class System_Int32;
+@class System_Object;
+@class System_String;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_IComparable_Protocol.h"
+#import "System_IComparableA1_Protocol.h"
+#import "System_IEquatableA1_Protocol.h"
+#import "System_IFormattable_Protocol.h"
+#import "System_ValueType.h"
+
 @interface System_Guid : DBManagedObject <System_IFormattable_, System_IComparable_, System_IComparableA1_, System_IEquatableA1_>
 
 #pragma mark -

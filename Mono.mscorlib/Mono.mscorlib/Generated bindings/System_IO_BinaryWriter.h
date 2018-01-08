@@ -2,6 +2,48 @@
 //
 // Managed class : BinaryWriter
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_IO_BinaryWriter.__Extra__.h")
+#import "System_IO_BinaryWriter.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Byte;
+@class System_Char;
+@class System_Decimal;
+@class System_Double;
+@class System_IDisposable;
+@class System_Int16;
+@class System_Int32;
+@class System_Int64;
+@class System_IO_BinaryWriter;
+@class System_IO_SeekOrigin;
+@class System_IO_Stream;
+@class System_SByte;
+@class System_Single;
+@class System_String;
+@class System_UInt16;
+@class System_UInt32;
+@class System_UInt64;
+@class System_Void;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_IDisposable_Protocol.h"
+#import "System_Object.h"
+
 @interface System_IO_BinaryWriter : System_Object <System_IDisposable_>
 
 #pragma mark -
@@ -127,14 +169,14 @@
 		Managed return type : System.Void
 		Managed param types : System.Char[]
 	 */
-    - (void)write_withChars:(DBSystem_Array *)p1;
+    - (void)write_withChars:(System_Array *)p1;
 
 	/*! 
 		Managed method name : Write
 		Managed return type : System.Void
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    - (void)write_withChars:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+    - (void)write_withChars:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 	/*! 
 		Managed method name : Write

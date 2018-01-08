@@ -2,6 +2,38 @@
 //
 // Managed class : Task`1<TResult>
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Threading_Tasks_TaskA1.__Extra__.h")
+#import "System_Threading_Tasks_TaskA1.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_IAsyncResult;
+@class System_IDisposable;
+@class System_Object;
+@class System_Threading_CancellationToken;
+@class System_Threading_Tasks_Task;
+@class System_Threading_Tasks_TaskContinuationOptions;
+@class System_Threading_Tasks_TaskScheduler;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_IAsyncResult_Protocol.h"
+#import "System_IDisposable_Protocol.h"
+#import "System_Threading_Tasks_Task.h"
+
 @interface System_Threading_Tasks_TaskA1 : System_Threading_Tasks_Task <System_IAsyncResult_, System_IDisposable_>
 
 #pragma mark -

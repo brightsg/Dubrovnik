@@ -2,6 +2,40 @@
 //
 // Managed class : PropertyInfo
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Reflection_PropertyInfo.__Extra__.h")
+#import "System_Reflection_PropertyInfo.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Globalization_CultureInfo;
+@class System_Int32;
+@class System_Object;
+@class System_Reflection_Binder;
+@class System_Reflection_MethodInfo;
+@class System_Reflection_PropertyInfo;
+@class System_Type;
+@class System_Void;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Reflection_ICustomAttributeProvider_Protocol.h"
+#import "System_Reflection_MemberInfo.h"
+#import "System_Runtime_InteropServices__MemberInfo_Protocol.h"
+#import "System_Runtime_InteropServices__PropertyInfo_Protocol.h"
+
 @interface System_Reflection_PropertyInfo : System_Reflection_MemberInfo <System_Reflection_ICustomAttributeProvider_, System_Runtime_InteropServices__MemberInfo_, System_Runtime_InteropServices__PropertyInfo_>
 
 #pragma mark -
@@ -55,14 +89,14 @@
 		Managed return type : System.Reflection.MethodInfo[]
 		Managed param types : System.Boolean
 	 */
-    - (DBSystem_Array *)getAccessors_withNonPublic:(BOOL)p1;
+    - (System_Array *)getAccessors_withNonPublic:(BOOL)p1;
 
 	/*! 
 		Managed method name : GetAccessors
 		Managed return type : System.Reflection.MethodInfo[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getAccessors;
+    - (System_Array *)getAccessors;
 
 	/*! 
 		Managed method name : GetConstantValue
@@ -98,7 +132,7 @@
 		Managed return type : System.Type[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getOptionalCustomModifiers;
+    - (System_Array *)getOptionalCustomModifiers;
 
 	/*! 
 		Managed method name : GetRawConstantValue
@@ -112,7 +146,7 @@
 		Managed return type : System.Type[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getRequiredCustomModifiers;
+    - (System_Array *)getRequiredCustomModifiers;
 
 	/*! 
 		Managed method name : GetSetMethod
@@ -140,7 +174,7 @@
 		Managed return type : System.Object
 		Managed param types : System.Object, System.Object[]
 	 */
-    - (System_Object *)getValue_withObj:(System_Object *)p1 index:(DBSystem_Array *)p2;
+    - (System_Object *)getValue_withObj:(System_Object *)p1 index:(System_Array *)p2;
 /* Skipped method : System.Object GetValue(System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] index, System.Globalization.CultureInfo culture) */
 
 	/*! 
@@ -170,6 +204,6 @@
 		Managed return type : System.Void
 		Managed param types : System.Object, System.Object, System.Object[]
 	 */
-    - (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2 index:(DBSystem_Array *)p3;
+    - (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2 index:(System_Array *)p3;
 @end
 //--Dubrovnik.CodeGenerator

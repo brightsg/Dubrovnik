@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Collections_Generic_DictionaryA2__KeyCollection.m
+﻿//++Dubrovnik.CodeGenerator System_Collections_Generic_DictionaryA2__KeyCollection.m
 //
 // Managed class : Dictionary`2<TKey, TValue>.KeyCollection
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_Collections_Generic_DictionaryA2__KeyCollection
 
@@ -32,7 +34,7 @@
 		Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+KeyCollection+TKey, System.Collections.Generic.Dictionary`2+KeyCollection+TValue>+KeyCollection
 		Managed param types : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+KeyCollection+TKey, System.Collections.Generic.Dictionary`2+KeyCollection+TValue>
 	 */
-    + (System_Collections_Generic_DictionaryA2__KeyCollection *)new_withDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)p1
+    + (System_Collections_Generic_DictionaryA2__KeyCollection *)new_withDictionary:(System_Collections_Generic_DictionaryA2 *)p1
     {
 		
 		System_Collections_Generic_DictionaryA2__KeyCollection * object = [[self alloc] initWithSignature:"System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2/KeyCollection/TKey, System.Collections.Generic.Dictionary`2/KeyCollection/TValue>" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -72,7 +74,7 @@
 		Managed return type : System.Void
 		Managed param types : TKey[], System.Int32
 	 */
-    - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
+    - (void)copyTo_withArray:(System_Array *)p1 index:(int32_t)p2
     {
 		
 		[self invokeMonoMethod:"CopyTo(TKey[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];

@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_FormattableString.m
+﻿//++Dubrovnik.CodeGenerator System_FormattableString.m
 //
 // Managed class : FormattableString
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_FormattableString
 
@@ -91,12 +93,12 @@
 		Managed return type : System.Object[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getArguments
+    - (System_Array *)getArguments
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetArguments()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 

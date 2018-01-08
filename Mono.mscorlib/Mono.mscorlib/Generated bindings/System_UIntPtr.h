@@ -2,6 +2,38 @@
 //
 // Managed struct : UIntPtr
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_UIntPtr.__Extra__.h")
+#import "System_UIntPtr.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Int32;
+@class System_Object;
+@class System_Runtime_Serialization_ISerializable;
+@class System_String;
+@class System_UInt32;
+@class System_UInt64;
+@class System_UIntPtr;
+@class System_Void;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Runtime_Serialization_ISerializable_Protocol.h"
+#import "System_ValueType.h"
+
 @interface System_UIntPtr : DBManagedObject <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -

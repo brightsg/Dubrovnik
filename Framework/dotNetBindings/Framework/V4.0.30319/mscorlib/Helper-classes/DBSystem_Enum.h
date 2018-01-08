@@ -22,7 +22,7 @@
 //#import "System_Enum.h"
 #import "Dubrovnik/DBMonoIncludes.h"
 
-@interface DBSystem_Enum : System_Enum {
+@interface System_Enum : System_Enum {
 
 }
 

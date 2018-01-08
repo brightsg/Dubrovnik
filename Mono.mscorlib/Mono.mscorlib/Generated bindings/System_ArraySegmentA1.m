@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_ArraySegmentA1.m
+﻿//++Dubrovnik.CodeGenerator System_ArraySegmentA1.m
 //
 // Managed struct : ArraySegment`1<T>
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_ArraySegmentA1
 
@@ -32,7 +34,7 @@
 		Managed return type : System.ArraySegment`1<System.ArraySegment`1+T>
 		Managed param types : T[]
 	 */
-    + (System_ArraySegmentA1 *)new_withArray:(DBSystem_Array *)p1
+    + (System_ArraySegmentA1 *)new_withArray:(System_Array *)p1
     {
 		
 		System_ArraySegmentA1 * object = [[self alloc] initWithSignature:"T[]" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -45,7 +47,7 @@
 		Managed return type : System.ArraySegment`1<System.ArraySegment`1+T>
 		Managed param types : T[], System.Int32, System.Int32
 	 */
-    + (System_ArraySegmentA1 *)new_withArray:(DBSystem_Array *)p1 offset:(int32_t)p2 count:(int32_t)p3
+    + (System_ArraySegmentA1 *)new_withArray:(System_Array *)p1 offset:(int32_t)p2 count:(int32_t)p3
     {
 		
 		System_ArraySegmentA1 * object = [[self alloc] initWithSignature:"T[],int,int" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
@@ -59,7 +61,7 @@
 	// Managed property name : Array
 	// Managed property type : T[]
     @synthesize array = _array;
-    - (DBSystem_Array *)array
+    - (System_Array *)array
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -73,7 +75,7 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_array isEqualToMonoObject:monoObject]) return _array;					
-		_array = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		_array = [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
 		return _array;
 	}

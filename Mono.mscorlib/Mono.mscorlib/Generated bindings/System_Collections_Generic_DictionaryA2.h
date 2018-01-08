@@ -2,6 +2,51 @@
 //
 // Managed class : Dictionary`2<TKey, TValue>
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Collections_Generic_DictionaryA2.__Extra__.h")
+#import "System_Collections_Generic_DictionaryA2.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Collections_Generic_ICollectionA1;
+@class System_Collections_Generic_IDictionaryA2;
+@class System_Collections_Generic_IEnumerableA1;
+@class System_Collections_Generic_IReadOnlyCollectionA1;
+@class System_Collections_Generic_IReadOnlyDictionaryA2;
+@class System_Collections_ICollection;
+@class System_Collections_IDictionary;
+@class System_Collections_IEnumerable;
+@class System_Int32;
+@class System_Object;
+@class System_Runtime_Serialization_ISerializable;
+@class System_Void;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Collections_Generic_ICollectionA1_Protocol.h"
+#import "System_Collections_Generic_IDictionaryA2_Protocol.h"
+#import "System_Collections_Generic_IEnumerableA1_Protocol.h"
+#import "System_Collections_Generic_IReadOnlyCollectionA1_Protocol.h"
+#import "System_Collections_Generic_IReadOnlyDictionaryA2_Protocol.h"
+#import "System_Collections_ICollection_Protocol.h"
+#import "System_Collections_IDictionary_Protocol.h"
+#import "System_Collections_IEnumerable_Protocol.h"
+#import "System_Object.h"
+#import "System_Runtime_Serialization_IDeserializationCallback_Protocol.h"
+#import "System_Runtime_Serialization_ISerializable_Protocol.h"
+
 @interface System_Collections_Generic_DictionaryA2 : System_Object <System_Collections_Generic_IDictionaryA2_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_IDictionary_, System_Collections_ICollection_, System_Collections_Generic_IReadOnlyDictionaryA2_, System_Collections_Generic_IReadOnlyCollectionA1_, System_Runtime_Serialization_ISerializable_, System_Runtime_Serialization_IDeserializationCallback_>
 
 #pragma mark -

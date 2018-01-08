@@ -1,5 +1,5 @@
 //
-//  DBSystem_Collections_Generic_DictionaryA2+Linq.h
+//  System_Collections_Generic_DictionaryA2+Linq.h
 //  Mono.System.Core
 //
 //  Created by Jonathan Mitchell on 16/04/2014.
@@ -14,7 +14,7 @@ typedef NS_ENUM(NSInteger, DBObjectRepresentation) {
 @class DBMutableOrderedDictionary;
 @class DBOrderedDictionary;
 
-@interface DBSystem_Collections_Generic_DictionaryA2 (Linq)
+@interface System_Collections_Generic_DictionaryA2 (Linq)
 - (NSArray *)allKeys;
 - (NSArray *)allValues;
 - (NSDictionary *)dictionary;

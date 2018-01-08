@@ -2,6 +2,35 @@
 //
 // Managed interface : IStructuralEquatable
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Collections_IStructuralEquatable.__Extra__.h")
+#import "System_Collections_IStructuralEquatable.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Collections_IEqualityComparer;
+@class System_Collections_IStructuralEquatable;
+@class System_Int32;
+@class System_Object;
+@protocol System_Collections_IStructuralEquatable;
+@protocol System_Collections_IStructuralEquatable_;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Object.h"
+
 
 /*
  A managed interface is represented as follows:

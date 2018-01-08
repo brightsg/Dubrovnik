@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_AppDomainInitializer.m
+﻿//++Dubrovnik.CodeGenerator System_AppDomainInitializer.m
 //
 // Managed class : AppDomainInitializer
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_AppDomainInitializer
 
@@ -48,7 +50,7 @@
 		Managed return type : System.IAsyncResult
 		Managed param types : System.String[], System.AsyncCallback, System.Object
 	 */
-    - (id <System_IAsyncResult>)beginInvoke_withArgs:(DBSystem_Array *)p1 callback:(System_AsyncCallback *)p2 object:(System_Object *)p3
+    - (id <System_IAsyncResult>)beginInvoke_withArgs:(System_Array *)p1 callback:(System_AsyncCallback *)p2 object:(System_Object *)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(string[],System.AsyncCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
@@ -73,7 +75,7 @@
 		Managed return type : System.Void
 		Managed param types : System.String[]
 	 */
-    - (void)invoke_withArgs:(DBSystem_Array *)p1
+    - (void)invoke_withArgs:(System_Array *)p1
     {
 		
 		[self invokeMonoMethod:"Invoke(string[])" withNumArgs:1, [p1 monoRTInvokeArg]];

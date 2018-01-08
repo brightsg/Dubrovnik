@@ -2,6 +2,39 @@
 //
 // Managed interface : IDictionary
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Collections_IDictionary.__Extra__.h")
+#import "System_Collections_IDictionary.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Collections_ICollection;
+@class System_Collections_IDictionary;
+@class System_Collections_IDictionaryEnumerator;
+@class System_Collections_IEnumerable;
+@class System_Object;
+@class System_Void;
+@protocol System_Collections_IDictionary;
+@protocol System_Collections_IDictionary_;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Collections_ICollection_Protocol.h"
+#import "System_Collections_IEnumerable_Protocol.h"
+#import "System_Object.h"
+
 @interface System_Collections_IDictionary : System_Object <System_Collections_IDictionary_, System_Collections_ICollection_, System_Collections_IEnumerable_>
 
 #pragma mark -

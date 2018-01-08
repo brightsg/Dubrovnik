@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Activator.m
+﻿//++Dubrovnik.CodeGenerator System_Activator.m
 //
 // Managed class : Activator
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_Activator
 
@@ -36,7 +38,7 @@
 		Managed return type : System.Object
 		Managed param types : System.Type, System.Object[]
 	 */
-    + (System_Object *)createInstance_withType:(System_Type *)p1 args:(DBSystem_Array *)p2
+    + (System_Object *)createInstance_withType:(System_Type *)p1 args:(System_Array *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -49,7 +51,7 @@
 		Managed return type : System.Object
 		Managed param types : System.Type, System.Object[], System.Object[]
 	 */
-    + (System_Object *)createInstance_withType:(System_Type *)p1 args:(DBSystem_Array *)p2 activationAttributes:(DBSystem_Array *)p3
+    + (System_Object *)createInstance_withType:(System_Type *)p1 args:(System_Array *)p2 activationAttributes:(System_Array *)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,object[],object[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];

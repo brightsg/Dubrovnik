@@ -83,9 +83,9 @@ extern MonoAssembly* sampleAssembly;
 	[self invokeMonoMethod:"PrintMagicMultiple(int,string)" withNumArgs:2, &multiple, monoString];
 }
 
-- (DBSystem_Collections_ArrayList*)getSpecialArray {
+- (System_Collections_ArrayList*)getSpecialArray {
 	MonoObject* monoArrayList = [self invokeMonoMethod:"GetSpecialArray()" withNumArgs:0];
-	return [DBSystem_Collections_ArrayList listWithMonoObject:monoArrayList];
+	return [System_Collections_ArrayList listWithMonoObject:monoArrayList];
 }
 
 - (void)throwAwesomeException:(NSString*)message {

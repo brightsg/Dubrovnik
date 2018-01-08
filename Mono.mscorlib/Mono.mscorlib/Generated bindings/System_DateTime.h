@@ -2,6 +2,53 @@
 //
 // Managed struct : DateTime
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_DateTime.__Extra__.h")
+#import "System_DateTime.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Char;
+@class System_DateTime;
+@class System_DateTimeKind;
+@class System_DayOfWeek;
+@class System_Double;
+@class System_IComparable;
+@class System_IComparableA1;
+@class System_IConvertible;
+@class System_IEquatableA1;
+@class System_IFormatProvider;
+@class System_IFormattable;
+@class System_Int32;
+@class System_Int64;
+@class System_Object;
+@class System_Runtime_Serialization_ISerializable;
+@class System_String;
+@class System_TimeSpan;
+@class System_TypeCode;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_IComparable_Protocol.h"
+#import "System_IComparableA1_Protocol.h"
+#import "System_IConvertible_Protocol.h"
+#import "System_IEquatableA1_Protocol.h"
+#import "System_IFormattable_Protocol.h"
+#import "System_Runtime_Serialization_ISerializable_Protocol.h"
+#import "System_ValueType.h"
+
 @interface System_DateTime : DBManagedObject <System_IComparable_, System_IFormattable_, System_IConvertible_, System_Runtime_Serialization_ISerializable_, System_IComparableA1_, System_IEquatableA1_>
 
 #pragma mark -
@@ -293,28 +340,28 @@
 		Managed return type : System.String[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getDateTimeFormats;
+    - (System_Array *)getDateTimeFormats;
 
 	/*! 
 		Managed method name : GetDateTimeFormats
 		Managed return type : System.String[]
 		Managed param types : System.IFormatProvider
 	 */
-    - (DBSystem_Array *)getDateTimeFormats_withProvider:(id <System_IFormatProvider_>)p1;
+    - (System_Array *)getDateTimeFormats_withProvider:(id <System_IFormatProvider_>)p1;
 
 	/*! 
 		Managed method name : GetDateTimeFormats
 		Managed return type : System.String[]
 		Managed param types : System.Char
 	 */
-    - (DBSystem_Array *)getDateTimeFormats_withFormat:(uint16_t)p1;
+    - (System_Array *)getDateTimeFormats_withFormat:(uint16_t)p1;
 
 	/*! 
 		Managed method name : GetDateTimeFormats
 		Managed return type : System.String[]
 		Managed param types : System.Char, System.IFormatProvider
 	 */
-    - (DBSystem_Array *)getDateTimeFormats_withFormat:(uint16_t)p1 provider:(id <System_IFormatProvider_>)p2;
+    - (System_Array *)getDateTimeFormats_withFormat:(uint16_t)p1 provider:(id <System_IFormatProvider_>)p2;
 
 	/*! 
 		Managed method name : GetHashCode

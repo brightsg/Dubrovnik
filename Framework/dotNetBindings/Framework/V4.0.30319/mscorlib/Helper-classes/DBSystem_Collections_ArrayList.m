@@ -20,11 +20,11 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBSystem_Collections_ArrayList.h"
+#import "System_Collections_ArrayList.h"
 
 static MonoClass *_monoClass = NULL;
 
-@implementation DBSystem_Collections_ArrayList
+@implementation System_Collections_ArrayList
 
 + (MonoClass *)monoClass {
 	if(_monoClass == NULL)

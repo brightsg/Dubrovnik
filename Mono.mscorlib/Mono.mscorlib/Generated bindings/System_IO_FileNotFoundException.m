@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_IO_FileNotFoundException.m
+﻿//++Dubrovnik.CodeGenerator System_IO_FileNotFoundException.m
 //
 // Managed class : FileNotFoundException
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_IO_FileNotFoundException
 

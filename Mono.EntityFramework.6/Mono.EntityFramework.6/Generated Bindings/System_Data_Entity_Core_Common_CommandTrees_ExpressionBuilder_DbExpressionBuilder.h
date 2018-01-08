@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_Data_Entity_Core_Common_CommandTrees_ExpressionBuilder_DbExpressionBuilder.h
+//++Dubrovnik.CodeGenerator System_Data_Entity_Core_Common_CommandTrees_ExpressionBuilder_DbExpressionBuilder.h
 //
 // Managed class : DbExpressionBuilder
 //
@@ -113,7 +113,7 @@
 	// Managed method name : CreateRef
 	// Managed return type : System.Data.Entity.Core.Common.CommandTrees.DbRefExpression
 	// Managed param types : System.Data.Entity.Core.Metadata.Edm.EntitySet, System.Data.Entity.Core.Common.CommandTrees.DbExpression[]
-    + (System_Data_Entity_Core_Common_CommandTrees_DbRefExpression *)createRef_withEntitySetSDECMEEntitySet:(System_Data_Entity_Core_Metadata_Edm_EntitySet *)p1 keyValuesSArray:(DBSystem_Array *)p2;
+    + (System_Data_Entity_Core_Common_CommandTrees_DbRefExpression *)createRef_withEntitySetSDECMEEntitySet:(System_Data_Entity_Core_Metadata_Edm_EntitySet *)p1 keyValuesSArray:(System_Array *)p2;
 
 	// Managed method name : CreateRef
 	// Managed return type : System.Data.Entity.Core.Common.CommandTrees.DbRefExpression
@@ -123,7 +123,7 @@
 	// Managed method name : CreateRef
 	// Managed return type : System.Data.Entity.Core.Common.CommandTrees.DbRefExpression
 	// Managed param types : System.Data.Entity.Core.Metadata.Edm.EntitySet, System.Data.Entity.Core.Metadata.Edm.EntityType, System.Data.Entity.Core.Common.CommandTrees.DbExpression[]
-    + (System_Data_Entity_Core_Common_CommandTrees_DbRefExpression *)createRef_withEntitySetSDECMEEntitySet:(System_Data_Entity_Core_Metadata_Edm_EntitySet *)p1 entityTypeSDECMEEntityType:(System_Data_Entity_Core_Metadata_Edm_EntityType *)p2 keyValuesSArray:(DBSystem_Array *)p3;
+    + (System_Data_Entity_Core_Common_CommandTrees_DbRefExpression *)createRef_withEntitySetSDECMEEntitySet:(System_Data_Entity_Core_Metadata_Edm_EntitySet *)p1 entityTypeSDECMEEntityType:(System_Data_Entity_Core_Metadata_Edm_EntityType *)p2 keyValuesSArray:(System_Array *)p3;
 
 	// Managed method name : CrossApply
 	// Managed return type : System.Data.Entity.Core.Common.CommandTrees.DbApplyExpression
@@ -258,7 +258,7 @@
 	// Managed method name : Invoke
 	// Managed return type : System.Data.Entity.Core.Common.CommandTrees.DbFunctionExpression
 	// Managed param types : System.Data.Entity.Core.Metadata.Edm.EdmFunction, System.Data.Entity.Core.Common.CommandTrees.DbExpression[]
-    + (System_Data_Entity_Core_Common_CommandTrees_DbFunctionExpression *)invoke_withFunctionSDECMEEdmFunction:(System_Data_Entity_Core_Metadata_Edm_EdmFunction *)p1 argumentsSArray:(DBSystem_Array *)p2;
+    + (System_Data_Entity_Core_Common_CommandTrees_DbFunctionExpression *)invoke_withFunctionSDECMEEdmFunction:(System_Data_Entity_Core_Metadata_Edm_EdmFunction *)p1 argumentsSArray:(System_Array *)p2;
 
 	// Managed method name : Invoke
 	// Managed return type : System.Data.Entity.Core.Common.CommandTrees.DbLambdaExpression
@@ -268,7 +268,7 @@
 	// Managed method name : Invoke
 	// Managed return type : System.Data.Entity.Core.Common.CommandTrees.DbLambdaExpression
 	// Managed param types : System.Data.Entity.Core.Common.CommandTrees.DbLambda, System.Data.Entity.Core.Common.CommandTrees.DbExpression[]
-    + (System_Data_Entity_Core_Common_CommandTrees_DbLambdaExpression *)invoke_withLambdaSDECCCDbLambda:(System_Data_Entity_Core_Common_CommandTrees_DbLambda *)p1 argumentsSArray:(DBSystem_Array *)p2;
+    + (System_Data_Entity_Core_Common_CommandTrees_DbLambdaExpression *)invoke_withLambdaSDECCCDbLambda:(System_Data_Entity_Core_Common_CommandTrees_DbLambda *)p1 argumentsSArray:(System_Array *)p2;
 
 	// Managed method name : IsEmpty
 	// Managed return type : System.Data.Entity.Core.Common.CommandTrees.DbIsEmptyExpression
@@ -308,7 +308,7 @@
 	// Managed method name : Lambda
 	// Managed return type : System.Data.Entity.Core.Common.CommandTrees.DbLambda
 	// Managed param types : System.Data.Entity.Core.Common.CommandTrees.DbExpression, System.Data.Entity.Core.Common.CommandTrees.DbVariableReferenceExpression[]
-    + (System_Data_Entity_Core_Common_CommandTrees_DbLambda *)lambda_withBodySDECCCDbExpression:(System_Data_Entity_Core_Common_CommandTrees_DbExpression *)p1 variablesSArray:(DBSystem_Array *)p2;
+    + (System_Data_Entity_Core_Common_CommandTrees_DbLambda *)lambda_withBodySDECCCDbExpression:(System_Data_Entity_Core_Common_CommandTrees_DbExpression *)p1 variablesSArray:(System_Array *)p2;
 
 	// Managed method name : LeftOuterJoin
 	// Managed return type : System.Data.Entity.Core.Common.CommandTrees.DbJoinExpression
@@ -383,7 +383,7 @@
 	// Managed method name : New
 	// Managed return type : System.Data.Entity.Core.Common.CommandTrees.DbNewInstanceExpression
 	// Managed param types : System.Data.Entity.Core.Metadata.Edm.TypeUsage, System.Data.Entity.Core.Common.CommandTrees.DbExpression[]
-    + (System_Data_Entity_Core_Common_CommandTrees_DbNewInstanceExpression *)new_withInstanceTypeSDECMETypeUsage:(System_Data_Entity_Core_Metadata_Edm_TypeUsage *)p1 argumentsSArray:(DBSystem_Array *)p2;
+    + (System_Data_Entity_Core_Common_CommandTrees_DbNewInstanceExpression *)new_withInstanceTypeSDECMETypeUsage:(System_Data_Entity_Core_Metadata_Edm_TypeUsage *)p1 argumentsSArray:(System_Array *)p2;
 
 	// Managed method name : NewCollection
 	// Managed return type : System.Data.Entity.Core.Common.CommandTrees.DbNewInstanceExpression
@@ -393,7 +393,7 @@
 	// Managed method name : NewCollection
 	// Managed return type : System.Data.Entity.Core.Common.CommandTrees.DbNewInstanceExpression
 	// Managed param types : System.Data.Entity.Core.Common.CommandTrees.DbExpression[]
-    + (System_Data_Entity_Core_Common_CommandTrees_DbNewInstanceExpression *)newCollection_withElementsSArray:(DBSystem_Array *)p1;
+    + (System_Data_Entity_Core_Common_CommandTrees_DbNewInstanceExpression *)newCollection_withElementsSArray:(System_Array *)p1;
 
 	// Managed method name : NewEmptyCollection
 	// Managed return type : System.Data.Entity.Core.Common.CommandTrees.DbNewInstanceExpression

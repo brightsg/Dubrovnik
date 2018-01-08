@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Reflection_MethodBase.m
+﻿//++Dubrovnik.CodeGenerator System_Reflection_MethodBase.m
 //
 // Managed class : MethodBase
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_Reflection_MethodBase
 
@@ -485,12 +487,12 @@
 		Managed return type : System.Type[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getGenericArguments
+    - (System_Array *)getGenericArguments
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetGenericArguments()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -541,7 +543,7 @@
 		Managed return type : System.Object
 		Managed param types : System.Object, System.Object[]
 	 */
-    - (System_Object *)invoke_withObj:(System_Object *)p1 parameters:(DBSystem_Array *)p2
+    - (System_Object *)invoke_withObj:(System_Object *)p1 parameters:(System_Array *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];

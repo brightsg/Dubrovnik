@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_Data_Entity_Core_EntityClient_EntityParameterCollection.h
+//++Dubrovnik.CodeGenerator System_Data_Entity_Core_EntityClient_EntityParameterCollection.h
 //
 // Managed class : EntityParameterCollection
 //
@@ -68,12 +68,12 @@
 	// Managed method name : AddRange
 	// Managed return type : System.Void
 	// Managed param types : System.Array
-    - (void)addRange_withValuesSArray:(DBSystem_Array *)p1;
+    - (void)addRange_withValuesSArray:(System_Array *)p1;
 
 	// Managed method name : AddRange
 	// Managed return type : System.Void
 	// Managed param types : System.Data.Entity.Core.EntityClient.EntityParameter[]
-    - (void)addRange_withValuesSArray:(DBSystem_Array *)p1;
+    - (void)addRange_withValuesSArray:(System_Array *)p1;
 
 	// Managed method name : AddWithValue
 	// Managed return type : System.Data.Entity.Core.EntityClient.EntityParameter
@@ -98,12 +98,12 @@
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
 	// Managed param types : System.Array, System.Int32
-    - (void)copyTo_withArraySArray:(DBSystem_Array *)p1 indexInt:(int32_t)p2;
+    - (void)copyTo_withArraySArray:(System_Array *)p1 indexInt:(int32_t)p2;
 
 	// Managed method name : CopyTo
 	// Managed return type : System.Void
 	// Managed param types : System.Data.Entity.Core.EntityClient.EntityParameter[], System.Int32
-    - (void)copyTo_withArraySArray:(DBSystem_Array *)p1 indexInt:(int32_t)p2;
+    - (void)copyTo_withArraySArray:(System_Array *)p1 indexInt:(int32_t)p2;
 
 	// Managed method name : GetEnumerator
 	// Managed return type : System.Collections.IEnumerator

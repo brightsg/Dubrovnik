@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Collections_IDictionary.m
+﻿//++Dubrovnik.CodeGenerator System_Collections_IDictionary.m
 //
 // Managed interface : IDictionary
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_Collections_IDictionary
 

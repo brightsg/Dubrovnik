@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_Data_Entity_Database.h
+//++Dubrovnik.CodeGenerator System_Data_Entity_Database.h
 //
 // Managed class : Database
 //
@@ -82,12 +82,12 @@
 	// Managed method name : ExecuteSqlCommand
 	// Managed return type : System.Int32
 	// Managed param types : System.String, System.Object[]
-    - (int32_t)executeSqlCommand_withSql:(NSString *)p1 parameters:(DBSystem_Array *)p2;
+    - (int32_t)executeSqlCommand_withSql:(NSString *)p1 parameters:(System_Array *)p2;
 
 	// Managed method name : ExecuteSqlCommand
 	// Managed return type : System.Int32
 	// Managed param types : System.Data.Entity.TransactionalBehavior, System.String, System.Object[]
-    - (int32_t)executeSqlCommand_withTransactionalBehavior:(System_Data_Entity_TransactionalBehavior)p1 sql:(NSString *)p2 parameters:(DBSystem_Array *)p3;
+    - (int32_t)executeSqlCommand_withTransactionalBehavior:(System_Data_Entity_TransactionalBehavior)p1 sql:(NSString *)p2 parameters:(System_Array *)p3;
 
 	// Managed method name : Exists
 	// Managed return type : System.Boolean
@@ -127,12 +127,12 @@
 	// Managed method name : SqlQuery
 	// Managed return type : System.Data.Entity.Infrastructure.DbRawSqlQuery`1<TElement>
 	// Managed param types : System.String, System.Object[]
-    - (System_Data_Entity_Infrastructure_DbRawSqlQueryA1 *)sqlQuery_withSql:(NSString *)p1 parameters:(DBSystem_Array *)p2;
+    - (System_Data_Entity_Infrastructure_DbRawSqlQueryA1 *)sqlQuery_withSql:(NSString *)p1 parameters:(System_Array *)p2;
 
 	// Managed method name : SqlQuery
 	// Managed return type : System.Data.Entity.Infrastructure.DbRawSqlQuery
 	// Managed param types : System.Type, System.String, System.Object[]
-    - (System_Data_Entity_Infrastructure_DbRawSqlQuery *)sqlQuery_withElementType:(System_Type *)p1 sql:(NSString *)p2 parameters:(DBSystem_Array *)p3;
+    - (System_Data_Entity_Infrastructure_DbRawSqlQuery *)sqlQuery_withElementType:(System_Type *)p1 sql:(NSString *)p2 parameters:(System_Array *)p3;
 
 	// Managed method name : ToString
 	// Managed return type : System.String

@@ -6,17 +6,17 @@
 //
 //
 
-#import "DBSystem_Linq.h"
+#import "System_Linq.h"
 #import "Dubrovnik/DBManagedMethod.h"
 #import "Dubrovnik/DBManagedObject.h"
-#import "Mono.mscorlib/DBSystem_Collections_IList.h"
+#import "Mono.mscorlib/System_Collections_IList.h"
 #import "Mono.mscorlib/DBGenericTypeHelper.h"
 #import "Dubrovnik/DBTypeManager.h"
 #import "Dubrovnik/DBMonoIncludes.h"
 
-@implementation DBSystem_Linq
+@implementation System_Linq
 
-+ (DBSystem_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject typeParameter:(id)typeParameter
++ (System_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject typeParameter:(id)typeParameter
 {
     // NOTE: perhaps a C# helper method could achieve this more simply.
     
@@ -38,12 +38,12 @@
     MonoObject *monoListObject = [managedObject invokeMethod:managedMethod withNumArgs:1, [managedObject monoObject]];
     
     // Wrap the list
-    DBSystem_Collections_IList *list = [DBSystem_Collections_IList listWithMonoObject:monoListObject];
+    System_Collections_IList *list = [System_Collections_IList listWithMonoObject:monoListObject];
     
     return list;
 }
 
-+ (DBSystem_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject
++ (System_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject
 {
     /*
      Note: this method wil use the managedObject's first generic parameter as the generic parameter for the list.
@@ -54,7 +54,7 @@
     return [self toList:managedObject genericTypeIndex:0];
 }
 
-+ (DBSystem_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject genericTypeIndex:(NSUInteger)typeIndex
++ (System_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject genericTypeIndex:(NSUInteger)typeIndex
 {
     if (!managedObject) {
         return nil;
@@ -87,7 +87,7 @@
 {
     // we may see a managed array here - https://msdn.microsoft.com/en-us/library/ms228502.aspx
     if (managedObject.db_getType.isArray) {
-        return [[DBSystem_Array arrayWithMonoArray:(MonoArray *)managedObject.monoObject] mutableArray];
+        return [[System_Array arrayWithMonoArray:(MonoArray *)managedObject.monoObject] mutableArray];
     }
 
     return [[self toList:managedObject] mutableArray];
@@ -97,7 +97,7 @@
 {
     // we may see a managed array here - https://msdn.microsoft.com/en-us/library/ms228502.aspx
     if (managedObject.db_getType.isArray) {
-        return [[DBSystem_Array arrayWithMonoArray:(MonoArray *)managedObject.monoObject] array];
+        return [[System_Array arrayWithMonoArray:(MonoArray *)managedObject.monoObject] array];
     }
     
     return [[self toList:managedObject] array];

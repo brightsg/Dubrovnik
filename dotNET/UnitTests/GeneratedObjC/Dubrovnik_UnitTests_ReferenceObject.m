@@ -1,4 +1,4 @@
-﻿#import "Dubrovnik_UnitTests.h"
+#import "Dubrovnik_UnitTests.h"
 //++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ReferenceObject.m
 //
 // Managed class : ReferenceObject
@@ -226,7 +226,7 @@
 	// Managed property name : BoolArray
 	// Managed property type : System.Boolean[]
     @synthesize boolArray = _boolArray;
-    - (DBSystem_Array *)boolArray
+    - (System_Array *)boolArray
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -240,11 +240,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_boolArray isEqualToMonoObject:monoObject]) return _boolArray;					
-		_boolArray = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		_boolArray = [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
 		return _boolArray;
 	}
-    - (void)setBoolArray:(DBSystem_Array *)value
+    - (void)setBoolArray:(System_Array *)value
 	{
 		_boolArray = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -411,7 +411,7 @@
 	// Managed property name : DoubleArray
 	// Managed property type : System.Double[]
     @synthesize doubleArray = _doubleArray;
-    - (DBSystem_Array *)doubleArray
+    - (System_Array *)doubleArray
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -425,11 +425,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_doubleArray isEqualToMonoObject:monoObject]) return _doubleArray;					
-		_doubleArray = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		_doubleArray = [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
 		return _doubleArray;
 	}
-    - (void)setDoubleArray:(DBSystem_Array *)value
+    - (void)setDoubleArray:(System_Array *)value
 	{
 		_doubleArray = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -448,7 +448,7 @@
 	// Managed property name : DoubleList
 	// Managed property type : System.Collections.Generic.List`1<System.Double>
     @synthesize doubleList = _doubleList;
-    - (DBSystem_Collections_Generic_ListA1 *)doubleList
+    - (System_Collections_Generic_ListA1 *)doubleList
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -462,11 +462,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_doubleList isEqualToMonoObject:monoObject]) return _doubleList;					
-		_doubleList = [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
+		_doubleList = [System_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
 
 		return _doubleList;
 	}
-    - (void)setDoubleList:(DBSystem_Collections_Generic_ListA1 *)value
+    - (void)setDoubleList:(System_Collections_Generic_ListA1 *)value
 	{
 		_doubleList = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -521,7 +521,7 @@
 	// Managed property name : FloatArray
 	// Managed property type : System.Single[]
     @synthesize floatArray = _floatArray;
-    - (DBSystem_Array *)floatArray
+    - (System_Array *)floatArray
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -535,11 +535,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_floatArray isEqualToMonoObject:monoObject]) return _floatArray;					
-		_floatArray = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		_floatArray = [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
 		return _floatArray;
 	}
-    - (void)setFloatArray:(DBSystem_Array *)value
+    - (void)setFloatArray:(System_Array *)value
 	{
 		_floatArray = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -558,7 +558,7 @@
 	// Managed property name : FloatList
 	// Managed property type : System.Collections.Generic.List`1<System.Single>
     @synthesize floatList = _floatList;
-    - (DBSystem_Collections_Generic_ListA1 *)floatList
+    - (System_Collections_Generic_ListA1 *)floatList
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -572,11 +572,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_floatList isEqualToMonoObject:monoObject]) return _floatList;					
-		_floatList = [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
+		_floatList = [System_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
 
 		return _floatList;
 	}
-    - (void)setFloatList:(DBSystem_Collections_Generic_ListA1 *)value
+    - (void)setFloatList:(System_Collections_Generic_ListA1 *)value
 	{
 		_floatList = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -668,7 +668,7 @@
 	// Managed property name : Int16Array
 	// Managed property type : System.Int16[]
     @synthesize int16Array = _int16Array;
-    - (DBSystem_Array *)int16Array
+    - (System_Array *)int16Array
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -682,11 +682,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_int16Array isEqualToMonoObject:monoObject]) return _int16Array;					
-		_int16Array = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		_int16Array = [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
 		return _int16Array;
 	}
-    - (void)setInt16Array:(DBSystem_Array *)value
+    - (void)setInt16Array:(System_Array *)value
 	{
 		_int16Array = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -705,7 +705,7 @@
 	// Managed property name : Int32Array
 	// Managed property type : System.Int32[]
     @synthesize int32Array = _int32Array;
-    - (DBSystem_Array *)int32Array
+    - (System_Array *)int32Array
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -719,11 +719,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_int32Array isEqualToMonoObject:monoObject]) return _int32Array;					
-		_int32Array = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		_int32Array = [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
 		return _int32Array;
 	}
-    - (void)setInt32Array:(DBSystem_Array *)value
+    - (void)setInt32Array:(System_Array *)value
 	{
 		_int32Array = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -814,7 +814,7 @@
 	// Managed property name : Int64Array
 	// Managed property type : System.Int64[]
     @synthesize int64Array = _int64Array;
-    - (DBSystem_Array *)int64Array
+    - (System_Array *)int64Array
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -828,11 +828,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_int64Array isEqualToMonoObject:monoObject]) return _int64Array;					
-		_int64Array = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		_int64Array = [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
 		return _int64Array;
 	}
-    - (void)setInt64Array:(DBSystem_Array *)value
+    - (void)setInt64Array:(System_Array *)value
 	{
 		_int64Array = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -960,7 +960,7 @@
 	// Managed property name : IntIntDictionary
 	// Managed property type : System.Collections.Generic.Dictionary`2<System.Int32, System.Int32>
     @synthesize intIntDictionary = _intIntDictionary;
-    - (DBSystem_Collections_Generic_DictionaryA2 *)intIntDictionary
+    - (System_Collections_Generic_DictionaryA2 *)intIntDictionary
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -974,11 +974,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_intIntDictionary isEqualToMonoObject:monoObject]) return _intIntDictionary;					
-		_intIntDictionary = [DBSystem_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
+		_intIntDictionary = [System_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
 
 		return _intIntDictionary;
 	}
-    - (void)setIntIntDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value
+    - (void)setIntIntDictionary:(System_Collections_Generic_DictionaryA2 *)value
 	{
 		_intIntDictionary = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -997,7 +997,7 @@
 	// Managed property name : IntIntStringDictionaryDictionary
 	// Managed property type : System.Collections.Generic.Dictionary`2<System.Int32, System.Collections.Generic.Dictionary`2<System.Int32, System.String>>
     @synthesize intIntStringDictionaryDictionary = _intIntStringDictionaryDictionary;
-    - (DBSystem_Collections_Generic_DictionaryA2 *)intIntStringDictionaryDictionary
+    - (System_Collections_Generic_DictionaryA2 *)intIntStringDictionaryDictionary
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -1011,11 +1011,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_intIntStringDictionaryDictionary isEqualToMonoObject:monoObject]) return _intIntStringDictionaryDictionary;					
-		_intIntStringDictionaryDictionary = [DBSystem_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
+		_intIntStringDictionaryDictionary = [System_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
 
 		return _intIntStringDictionaryDictionary;
 	}
-    - (void)setIntIntStringDictionaryDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value
+    - (void)setIntIntStringDictionaryDictionary:(System_Collections_Generic_DictionaryA2 *)value
 	{
 		_intIntStringDictionaryDictionary = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -1034,7 +1034,7 @@
 	// Managed property name : IntList
 	// Managed property type : System.Collections.Generic.List`1<System.Int32>
     @synthesize intList = _intList;
-    - (DBSystem_Collections_Generic_ListA1 *)intList
+    - (System_Collections_Generic_ListA1 *)intList
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -1048,11 +1048,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_intList isEqualToMonoObject:monoObject]) return _intList;					
-		_intList = [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
+		_intList = [System_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
 
 		return _intList;
 	}
-    - (void)setIntList:(DBSystem_Collections_Generic_ListA1 *)value
+    - (void)setIntList:(System_Collections_Generic_ListA1 *)value
 	{
 		_intList = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -1239,7 +1239,7 @@
 	// Managed property name : NestedClassList
 	// Managed property type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject+NestedClass>
     @synthesize nestedClassList = _nestedClassList;
-    - (DBSystem_Collections_Generic_ListA1 *)nestedClassList
+    - (System_Collections_Generic_ListA1 *)nestedClassList
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -1253,11 +1253,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_nestedClassList isEqualToMonoObject:monoObject]) return _nestedClassList;					
-		_nestedClassList = [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
+		_nestedClassList = [System_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
 
 		return _nestedClassList;
 	}
-    - (void)setNestedClassList:(DBSystem_Collections_Generic_ListA1 *)value
+    - (void)setNestedClassList:(System_Collections_Generic_ListA1 *)value
 	{
 		_nestedClassList = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -1350,7 +1350,7 @@
 	// Managed property name : ObjectObjectDictionary
 	// Managed property type : System.Collections.Generic.Dictionary`2<System.Object, System.Object>
     @synthesize objectObjectDictionary = _objectObjectDictionary;
-    - (DBSystem_Collections_Generic_DictionaryA2 *)objectObjectDictionary
+    - (System_Collections_Generic_DictionaryA2 *)objectObjectDictionary
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -1364,11 +1364,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_objectObjectDictionary isEqualToMonoObject:monoObject]) return _objectObjectDictionary;					
-		_objectObjectDictionary = [DBSystem_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
+		_objectObjectDictionary = [System_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
 
 		return _objectObjectDictionary;
 	}
-    - (void)setObjectObjectDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value
+    - (void)setObjectObjectDictionary:(System_Collections_Generic_DictionaryA2 *)value
 	{
 		_objectObjectDictionary = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -1467,7 +1467,7 @@
 	// Managed property name : ReferenceObjectList
 	// Managed property type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject>
     @synthesize referenceObjectList = _referenceObjectList;
-    - (DBSystem_Collections_Generic_ListA1 *)referenceObjectList
+    - (System_Collections_Generic_ListA1 *)referenceObjectList
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -1481,11 +1481,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_referenceObjectList isEqualToMonoObject:monoObject]) return _referenceObjectList;					
-		_referenceObjectList = [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
+		_referenceObjectList = [System_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
 
 		return _referenceObjectList;
 	}
-    - (void)setReferenceObjectList:(DBSystem_Collections_Generic_ListA1 *)value
+    - (void)setReferenceObjectList:(System_Collections_Generic_ListA1 *)value
 	{
 		_referenceObjectList = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -1541,7 +1541,7 @@
 	// Managed property name : StringArray
 	// Managed property type : System.String[]
     @synthesize stringArray = _stringArray;
-    - (DBSystem_Array *)stringArray
+    - (System_Array *)stringArray
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -1555,11 +1555,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_stringArray isEqualToMonoObject:monoObject]) return _stringArray;					
-		_stringArray = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		_stringArray = [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
 		return _stringArray;
 	}
-    - (void)setStringArray:(DBSystem_Array *)value
+    - (void)setStringArray:(System_Array *)value
 	{
 		_stringArray = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -1578,7 +1578,7 @@
 	// Managed property name : StringArrayList
 	// Managed property type : System.Collections.ArrayList
     @synthesize stringArrayList = _stringArrayList;
-    - (DBSystem_Collections_ArrayList *)stringArrayList
+    - (System_Collections_ArrayList *)stringArrayList
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -1592,11 +1592,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_stringArrayList isEqualToMonoObject:monoObject]) return _stringArrayList;					
-		_stringArrayList = [DBSystem_Collections_ArrayList listWithMonoObject:monoObject];
+		_stringArrayList = [System_Collections_ArrayList listWithMonoObject:monoObject];
 
 		return _stringArrayList;
 	}
-    - (void)setStringArrayList:(DBSystem_Collections_ArrayList *)value
+    - (void)setStringArrayList:(System_Collections_ArrayList *)value
 	{
 		_stringArrayList = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -1615,7 +1615,7 @@
 	// Managed property name : StringList
 	// Managed property type : System.Collections.Generic.List`1<System.String>
     @synthesize stringList = _stringList;
-    - (DBSystem_Collections_Generic_ListA1 *)stringList
+    - (System_Collections_Generic_ListA1 *)stringList
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -1629,11 +1629,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_stringList isEqualToMonoObject:monoObject]) return _stringList;					
-		_stringList = [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
+		_stringList = [System_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
 
 		return _stringList;
 	}
-    - (void)setStringList:(DBSystem_Collections_Generic_ListA1 *)value
+    - (void)setStringList:(System_Collections_Generic_ListA1 *)value
 	{
 		_stringList = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -1652,7 +1652,7 @@
 	// Managed property name : StringObjectDictionary
 	// Managed property type : System.Collections.Generic.Dictionary`2<System.String, System.Object>
     @synthesize stringObjectDictionary = _stringObjectDictionary;
-    - (DBSystem_Collections_Generic_DictionaryA2 *)stringObjectDictionary
+    - (System_Collections_Generic_DictionaryA2 *)stringObjectDictionary
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -1666,11 +1666,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_stringObjectDictionary isEqualToMonoObject:monoObject]) return _stringObjectDictionary;					
-		_stringObjectDictionary = [DBSystem_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
+		_stringObjectDictionary = [System_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
 
 		return _stringObjectDictionary;
 	}
-    - (void)setStringObjectDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value
+    - (void)setStringObjectDictionary:(System_Collections_Generic_DictionaryA2 *)value
 	{
 		_stringObjectDictionary = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -1726,7 +1726,7 @@
 	// Managed property name : StringStringDictionary
 	// Managed property type : System.Collections.Generic.Dictionary`2<System.String, System.String>
     @synthesize stringStringDictionary = _stringStringDictionary;
-    - (DBSystem_Collections_Generic_DictionaryA2 *)stringStringDictionary
+    - (System_Collections_Generic_DictionaryA2 *)stringStringDictionary
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -1740,11 +1740,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_stringStringDictionary isEqualToMonoObject:monoObject]) return _stringStringDictionary;					
-		_stringStringDictionary = [DBSystem_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
+		_stringStringDictionary = [System_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
 
 		return _stringStringDictionary;
 	}
-    - (void)setStringStringDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)value
+    - (void)setStringStringDictionary:(System_Collections_Generic_DictionaryA2 *)value
 	{
 		_stringStringDictionary = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -1800,7 +1800,7 @@
 	// Managed property name : UIntList
 	// Managed property type : System.Collections.Generic.List`1<System.UInt32>
     @synthesize uIntList = _uIntList;
-    - (DBSystem_Collections_Generic_ListA1 *)uIntList
+    - (System_Collections_Generic_ListA1 *)uIntList
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -1814,11 +1814,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_uIntList isEqualToMonoObject:monoObject]) return _uIntList;					
-		_uIntList = [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
+		_uIntList = [System_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
 
 		return _uIntList;
 	}
-    - (void)setUIntList:(DBSystem_Collections_Generic_ListA1 *)value
+    - (void)setUIntList:(System_Collections_Generic_ListA1 *)value
 	{
 		_uIntList = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -1979,13 +1979,13 @@
 		Managed param types : <Dubrovnik.UnitTests.ReferenceObject+T>, <Dubrovnik.UnitTests.ReferenceObject+U>
 		Generic method definition type params : <Dubrovnik.UnitTests.ReferenceObject+T>, <Dubrovnik.UnitTests.ReferenceObject+U>
 	 */
-    - (DBSystem_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter
+    - (System_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter
     {
 		DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"GenericMethod2(T,U)" typeParameters:typeParameter];
 
 		MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [DBSystem_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
+		return [System_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
     }
 
 	/*! 
@@ -1994,7 +1994,7 @@
 		Managed param types : System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject+T>
 		Generic method definition type params : <Dubrovnik.UnitTests.ReferenceObject+T>
 	 */
-    - (System_Object *)genericMethodList1_withValue:(DBSystem_Collections_Generic_ListA1 *)p1 typeParameter:(id)typeParameter
+    - (System_Object *)genericMethodList1_withValue:(System_Collections_Generic_ListA1 *)p1 typeParameter:(id)typeParameter
     {
 		DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"GenericMethodList1(System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject/T>)" typeParameters:typeParameter];
 
@@ -2259,7 +2259,7 @@
 		Managed return type : System.Boolean
 		Managed param types : System.Collections.Generic.List`1<System.String>
 	 */
-    - (BOOL)reverseList_withListSCGListA1string:(DBSystem_Collections_Generic_ListA1 *)p1
+    - (BOOL)reverseList_withListSCGListA1string:(System_Collections_Generic_ListA1 *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ReverseList(System.Collections.Generic.List`1<string>)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -2272,7 +2272,7 @@
 		Managed return type : System.Boolean
 		Managed param types : System.Collections.Generic.List`1<System.Int32>
 	 */
-    - (BOOL)reverseList_withListSCGListA1int:(DBSystem_Collections_Generic_ListA1 *)p1
+    - (BOOL)reverseList_withListSCGListA1int:(System_Collections_Generic_ListA1 *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ReverseList(System.Collections.Generic.List`1<int>)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -2379,7 +2379,7 @@
 		Managed return type : System.Int64
 		Managed param types : System.Int64[]
 	 */
-    - (int64_t)sum_withInt64Array:(DBSystem_Array *)p1
+    - (int64_t)sum_withInt64Array:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Sum(long[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -2392,7 +2392,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.Int32[]
 	 */
-    - (int32_t)sum_withInt32Array:(DBSystem_Array *)p1
+    - (int32_t)sum_withInt32Array:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Sum(int[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -2405,7 +2405,7 @@
 		Managed return type : System.Int16
 		Managed param types : System.Int16[]
 	 */
-    - (int16_t)sum_withInt16Array:(DBSystem_Array *)p1
+    - (int16_t)sum_withInt16Array:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Sum(int16[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -2431,7 +2431,7 @@
 		Managed return type : System.Single
 		Managed param types : System.Single[]
 	 */
-    - (float)sum_withFloatArray:(DBSystem_Array *)p1
+    - (float)sum_withFloatArray:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Sum(single[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -2444,7 +2444,7 @@
 		Managed return type : System.Double
 		Managed param types : System.Double[]
 	 */
-    - (double)sum_withDoubleArray:(DBSystem_Array *)p1
+    - (double)sum_withDoubleArray:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Sum(double[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -2457,7 +2457,7 @@
 		Managed return type : System.String
 		Managed param types : System.String[]
 	 */
-    - (NSString *)sum_withStringArray:(DBSystem_Array *)p1
+    - (NSString *)sum_withStringArray:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Sum(string[])" withNumArgs:1, [p1 monoRTInvokeArg]];

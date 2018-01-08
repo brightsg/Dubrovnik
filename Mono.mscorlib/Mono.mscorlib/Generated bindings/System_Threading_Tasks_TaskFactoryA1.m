@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Threading_Tasks_TaskFactoryA1.m
+﻿//++Dubrovnik.CodeGenerator System_Threading_Tasks_TaskFactoryA1.m
 //
 // Managed class : TaskFactory`1<TResult>
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_Threading_Tasks_TaskFactoryA1
 
@@ -176,7 +178,7 @@
 		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
 		Managed param types : System.Threading.Tasks.Task[], System.Func`2<System.Threading.Tasks.Task[], System.Threading.Tasks.TaskFactory`1+TResult>
 	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWhenAll_withTasksSTTTask:(DBSystem_Array *)p1 continuationFunctionSFTTTTTTaskFactoryA1__TResult:(System_FuncA2 *)p2
+    - (System_Threading_Tasks_TaskA1 *)continueWhenAll_withTasksSTTTask:(System_Array *)p1 continuationFunctionSFTTTTTTaskFactoryA1__TResult:(System_FuncA2 *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAll(System.Threading.Tasks.Task[],System.Func`2<System.Threading.Tasks.Task[], System.Threading.Tasks.TaskFactory`1/TResult>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -189,7 +191,7 @@
 		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
 		Managed param types : System.Threading.Tasks.Task[], System.Func`2<System.Threading.Tasks.Task[], System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.CancellationToken
 	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWhenAll_withTasksSTTTask:(DBSystem_Array *)p1 continuationFunctionSFTTTTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p3
+    - (System_Threading_Tasks_TaskA1 *)continueWhenAll_withTasksSTTTask:(System_Array *)p1 continuationFunctionSFTTTTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAll(System.Threading.Tasks.Task[],System.Func`2<System.Threading.Tasks.Task[], System.Threading.Tasks.TaskFactory`1/TResult>,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
@@ -202,7 +204,7 @@
 		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
 		Managed param types : System.Threading.Tasks.Task[], System.Func`2<System.Threading.Tasks.Task[], System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.Tasks.TaskContinuationOptions
 	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWhenAll_withTasksSTTTask:(DBSystem_Array *)p1 continuationFunctionSFTTTTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 continuationOptionsSTTTaskContinuationOptions:(int32_t)p3
+    - (System_Threading_Tasks_TaskA1 *)continueWhenAll_withTasksSTTTask:(System_Array *)p1 continuationFunctionSFTTTTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 continuationOptionsSTTTaskContinuationOptions:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAll(System.Threading.Tasks.Task[],System.Func`2<System.Threading.Tasks.Task[], System.Threading.Tasks.TaskFactory`1/TResult>,System.Threading.Tasks.TaskContinuationOptions)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
@@ -215,7 +217,7 @@
 		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
 		Managed param types : System.Threading.Tasks.Task[], System.Func`2<System.Threading.Tasks.Task[], System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler
 	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWhenAll_withTasksSTTTask:(DBSystem_Array *)p1 continuationFunctionSFTTTTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p3 continuationOptionsSTTTaskContinuationOptions:(int32_t)p4 schedulerSTTTaskScheduler:(System_Threading_Tasks_TaskScheduler *)p5
+    - (System_Threading_Tasks_TaskA1 *)continueWhenAll_withTasksSTTTask:(System_Array *)p1 continuationFunctionSFTTTTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p3 continuationOptionsSTTTaskContinuationOptions:(int32_t)p4 schedulerSTTTaskScheduler:(System_Threading_Tasks_TaskScheduler *)p5
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAll(System.Threading.Tasks.Task[],System.Func`2<System.Threading.Tasks.Task[], System.Threading.Tasks.TaskFactory`1/TResult>,System.Threading.CancellationToken,System.Threading.Tasks.TaskContinuationOptions,System.Threading.Tasks.TaskScheduler)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), [p5 monoRTInvokeArg]];
@@ -229,7 +231,7 @@
 		Managed param types : Task`1[], System.Func`2<Task`1[], System.Threading.Tasks.TaskFactory`1+TResult>
 		Generic method definition type params : <System.Threading.Tasks.TaskFactory`1+TAntecedentResult>
 	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWhenAll_withTasksTaskA1:(DBSystem_Array *)p1 continuationFunctionSFTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 typeParameter:(id)typeParameter
+    - (System_Threading_Tasks_TaskA1 *)continueWhenAll_withTasksTaskA1:(System_Array *)p1 continuationFunctionSFTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 typeParameter:(id)typeParameter
     {
 		DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"ContinueWhenAll(Task`1[],System.Func`2<Task`1[], System.Threading.Tasks.TaskFactory`1/TResult>)" typeParameters:typeParameter];
 
@@ -244,7 +246,7 @@
 		Managed param types : Task`1[], System.Func`2<Task`1[], System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.CancellationToken
 		Generic method definition type params : <System.Threading.Tasks.TaskFactory`1+TAntecedentResult>
 	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWhenAll_withTasksTaskA1:(DBSystem_Array *)p1 continuationFunctionSFTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p3 typeParameter:(id)typeParameter
+    - (System_Threading_Tasks_TaskA1 *)continueWhenAll_withTasksTaskA1:(System_Array *)p1 continuationFunctionSFTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p3 typeParameter:(id)typeParameter
     {
 		DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"ContinueWhenAll(Task`1[],System.Func`2<Task`1[], System.Threading.Tasks.TaskFactory`1/TResult>,System.Threading.CancellationToken)" typeParameters:typeParameter];
 
@@ -259,7 +261,7 @@
 		Managed param types : Task`1[], System.Func`2<Task`1[], System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.Tasks.TaskContinuationOptions
 		Generic method definition type params : <System.Threading.Tasks.TaskFactory`1+TAntecedentResult>
 	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWhenAll_withTasksTaskA1:(DBSystem_Array *)p1 continuationFunctionSFTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 continuationOptionsSTTTaskContinuationOptions:(int32_t)p3 typeParameter:(id)typeParameter
+    - (System_Threading_Tasks_TaskA1 *)continueWhenAll_withTasksTaskA1:(System_Array *)p1 continuationFunctionSFTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 continuationOptionsSTTTaskContinuationOptions:(int32_t)p3 typeParameter:(id)typeParameter
     {
 		DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"ContinueWhenAll(Task`1[],System.Func`2<Task`1[], System.Threading.Tasks.TaskFactory`1/TResult>,System.Threading.Tasks.TaskContinuationOptions)" typeParameters:typeParameter];
 
@@ -274,7 +276,7 @@
 		Managed param types : Task`1[], System.Func`2<Task`1[], System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler
 		Generic method definition type params : <System.Threading.Tasks.TaskFactory`1+TAntecedentResult>
 	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWhenAll_withTasksTaskA1:(DBSystem_Array *)p1 continuationFunctionSFTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p3 continuationOptionsSTTTaskContinuationOptions:(int32_t)p4 schedulerSTTTaskScheduler:(System_Threading_Tasks_TaskScheduler *)p5 typeParameter:(id)typeParameter
+    - (System_Threading_Tasks_TaskA1 *)continueWhenAll_withTasksTaskA1:(System_Array *)p1 continuationFunctionSFTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p3 continuationOptionsSTTTaskContinuationOptions:(int32_t)p4 schedulerSTTTaskScheduler:(System_Threading_Tasks_TaskScheduler *)p5 typeParameter:(id)typeParameter
     {
 		DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"ContinueWhenAll(Task`1[],System.Func`2<Task`1[], System.Threading.Tasks.TaskFactory`1/TResult>,System.Threading.CancellationToken,System.Threading.Tasks.TaskContinuationOptions,System.Threading.Tasks.TaskScheduler)" typeParameters:typeParameter];
 
@@ -288,7 +290,7 @@
 		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
 		Managed param types : System.Threading.Tasks.Task[], System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.TaskFactory`1+TResult>
 	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWhenAny_withTasksSTTTask:(DBSystem_Array *)p1 continuationFunctionSFTTTTTTaskFactoryA1__TResult:(System_FuncA2 *)p2
+    - (System_Threading_Tasks_TaskA1 *)continueWhenAny_withTasksSTTTask:(System_Array *)p1 continuationFunctionSFTTTTTTaskFactoryA1__TResult:(System_FuncA2 *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAny(System.Threading.Tasks.Task[],System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.TaskFactory`1/TResult>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -301,7 +303,7 @@
 		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
 		Managed param types : System.Threading.Tasks.Task[], System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.CancellationToken
 	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWhenAny_withTasksSTTTask:(DBSystem_Array *)p1 continuationFunctionSFTTTTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p3
+    - (System_Threading_Tasks_TaskA1 *)continueWhenAny_withTasksSTTTask:(System_Array *)p1 continuationFunctionSFTTTTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAny(System.Threading.Tasks.Task[],System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.TaskFactory`1/TResult>,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
@@ -314,7 +316,7 @@
 		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
 		Managed param types : System.Threading.Tasks.Task[], System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.Tasks.TaskContinuationOptions
 	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWhenAny_withTasksSTTTask:(DBSystem_Array *)p1 continuationFunctionSFTTTTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 continuationOptionsSTTTaskContinuationOptions:(int32_t)p3
+    - (System_Threading_Tasks_TaskA1 *)continueWhenAny_withTasksSTTTask:(System_Array *)p1 continuationFunctionSFTTTTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 continuationOptionsSTTTaskContinuationOptions:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAny(System.Threading.Tasks.Task[],System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.TaskFactory`1/TResult>,System.Threading.Tasks.TaskContinuationOptions)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
@@ -327,7 +329,7 @@
 		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TResult>
 		Managed param types : System.Threading.Tasks.Task[], System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler
 	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWhenAny_withTasksSTTTask:(DBSystem_Array *)p1 continuationFunctionSFTTTTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p3 continuationOptionsSTTTaskContinuationOptions:(int32_t)p4 schedulerSTTTaskScheduler:(System_Threading_Tasks_TaskScheduler *)p5
+    - (System_Threading_Tasks_TaskA1 *)continueWhenAny_withTasksSTTTask:(System_Array *)p1 continuationFunctionSFTTTTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p3 continuationOptionsSTTTaskContinuationOptions:(int32_t)p4 schedulerSTTTaskScheduler:(System_Threading_Tasks_TaskScheduler *)p5
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ContinueWhenAny(System.Threading.Tasks.Task[],System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.TaskFactory`1/TResult>,System.Threading.CancellationToken,System.Threading.Tasks.TaskContinuationOptions,System.Threading.Tasks.TaskScheduler)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), [p5 monoRTInvokeArg]];
@@ -341,7 +343,7 @@
 		Managed param types : Task`1[], System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TAntecedentResult>, System.Threading.Tasks.TaskFactory`1+TResult>
 		Generic method definition type params : <System.Threading.Tasks.TaskFactory`1+TAntecedentResult>
 	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWhenAny_withTasksTaskA1:(DBSystem_Array *)p1 continuationFunctionSFTTTTTTTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 typeParameter:(id)typeParameter
+    - (System_Threading_Tasks_TaskA1 *)continueWhenAny_withTasksTaskA1:(System_Array *)p1 continuationFunctionSFTTTTTTTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 typeParameter:(id)typeParameter
     {
 		DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"ContinueWhenAny(Task`1[],System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1/TAntecedentResult>, System.Threading.Tasks.TaskFactory`1/TResult>)" typeParameters:typeParameter];
 
@@ -356,7 +358,7 @@
 		Managed param types : Task`1[], System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TAntecedentResult>, System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.CancellationToken
 		Generic method definition type params : <System.Threading.Tasks.TaskFactory`1+TAntecedentResult>
 	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWhenAny_withTasksTaskA1:(DBSystem_Array *)p1 continuationFunctionSFTTTTTTTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p3 typeParameter:(id)typeParameter
+    - (System_Threading_Tasks_TaskA1 *)continueWhenAny_withTasksTaskA1:(System_Array *)p1 continuationFunctionSFTTTTTTTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p3 typeParameter:(id)typeParameter
     {
 		DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"ContinueWhenAny(Task`1[],System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1/TAntecedentResult>, System.Threading.Tasks.TaskFactory`1/TResult>,System.Threading.CancellationToken)" typeParameters:typeParameter];
 
@@ -371,7 +373,7 @@
 		Managed param types : Task`1[], System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TAntecedentResult>, System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.Tasks.TaskContinuationOptions
 		Generic method definition type params : <System.Threading.Tasks.TaskFactory`1+TAntecedentResult>
 	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWhenAny_withTasksTaskA1:(DBSystem_Array *)p1 continuationFunctionSFTTTTTTTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 continuationOptionsSTTTaskContinuationOptions:(int32_t)p3 typeParameter:(id)typeParameter
+    - (System_Threading_Tasks_TaskA1 *)continueWhenAny_withTasksTaskA1:(System_Array *)p1 continuationFunctionSFTTTTTTTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 continuationOptionsSTTTaskContinuationOptions:(int32_t)p3 typeParameter:(id)typeParameter
     {
 		DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"ContinueWhenAny(Task`1[],System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1/TAntecedentResult>, System.Threading.Tasks.TaskFactory`1/TResult>,System.Threading.Tasks.TaskContinuationOptions)" typeParameters:typeParameter];
 
@@ -386,7 +388,7 @@
 		Managed param types : Task`1[], System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1+TAntecedentResult>, System.Threading.Tasks.TaskFactory`1+TResult>, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler
 		Generic method definition type params : <System.Threading.Tasks.TaskFactory`1+TAntecedentResult>
 	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWhenAny_withTasksTaskA1:(DBSystem_Array *)p1 continuationFunctionSFTTTTTTTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p3 continuationOptionsSTTTaskContinuationOptions:(int32_t)p4 schedulerSTTTaskScheduler:(System_Threading_Tasks_TaskScheduler *)p5 typeParameter:(id)typeParameter
+    - (System_Threading_Tasks_TaskA1 *)continueWhenAny_withTasksTaskA1:(System_Array *)p1 continuationFunctionSFTTTTTTTTTaskFactoryA1__TResult:(System_FuncA2 *)p2 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p3 continuationOptionsSTTTaskContinuationOptions:(int32_t)p4 schedulerSTTTaskScheduler:(System_Threading_Tasks_TaskScheduler *)p5 typeParameter:(id)typeParameter
     {
 		DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"ContinueWhenAny(Task`1[],System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.TaskFactory`1/TAntecedentResult>, System.Threading.Tasks.TaskFactory`1/TResult>,System.Threading.CancellationToken,System.Threading.Tasks.TaskContinuationOptions,System.Threading.Tasks.TaskScheduler)" typeParameters:typeParameter];
 

@@ -524,13 +524,13 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 - (void)doTestGenericConstructors:(Class)testClass
 {
     // allocate core generic types from class
-    DBSystem_Collections_Generic_ListA1 *listA1 = [DBSystem_Collections_Generic_ListA1 newObjectWithGenericTypeParameters:@[[System_Object class]]];
-    DBSystem_Collections_Generic_DictionaryA2 *dictionaryA2 = [DBSystem_Collections_Generic_DictionaryA2 newObjectWithGenericTypeParameters:@[[System_String class], [System_Object class]]];
+    System_Collections_Generic_ListA1 *listA1 = [System_Collections_Generic_ListA1 newObjectWithGenericTypeParameters:@[[System_Object class]]];
+    System_Collections_Generic_DictionaryA2 *dictionaryA2 = [System_Collections_Generic_DictionaryA2 newObjectWithGenericTypeParameters:@[[System_String class], [System_Object class]]];
     System_Collections_Generic_KeyValuePairA2 *keyValuePairA2 = [System_Collections_Generic_KeyValuePairA2 newObjectWithGenericTypeParameters:@[[System_String class], [System_Object class]]];
     
     // allocate core generic types from type name
-    DBSystem_Collections_Generic_ListA1 *listA1_1 = (id)[System_Object newObjectWithGenericTypeDefinition:"System.Collections.Generic.List`1" typeParameters:@[[System_Object class]]];
-    DBSystem_Collections_Generic_DictionaryA2 *dictionaryA2_1 = (id)[System_Object newObjectWithGenericTypeDefinition:"System.Collections.Generic.Dictionary`2" typeParameters:@[[System_String class], [System_Object class]]];
+    System_Collections_Generic_ListA1 *listA1_1 = (id)[System_Object newObjectWithGenericTypeDefinition:"System.Collections.Generic.List`1" typeParameters:@[[System_Object class]]];
+    System_Collections_Generic_DictionaryA2 *dictionaryA2_1 = (id)[System_Object newObjectWithGenericTypeDefinition:"System.Collections.Generic.Dictionary`2" typeParameters:@[[System_String class], [System_Object class]]];
     System_Collections_Generic_KeyValuePairA2 *keyValuePairA2_1 = (id)[System_Object newObjectWithGenericTypeDefinition:"System.Collections.Generic.KeyValuePair`2" typeParameters:@[[System_String class], [System_Object class]]];
     
     // System_Object -description calls .ToString which returns a description including the generic parameter types, hence the string comparisons
@@ -577,7 +577,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     [listA1 add:@"over here".managedString];
     [listA1 add:numInt];
     
-    DBSystem_Collections_IList *iList = [listA1 list];
+    System_Collections_IList *iList = [listA1 list];
     XCTAssertTrue([[iList objectAtIndex:0] isEqualToString:@"bob"], DBUEqualityTestFailed);
     XCTAssertTrue([[iList objectAtIndex:1] isEqualToString:@"over here"], DBUEqualityTestFailed);
     XCTAssertTrue([[iList objectAtIndex:2] intValue] == 51, DBUEqualityTestFailed);
@@ -595,7 +595,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     8 bit type name encoding collisions at work here
     char bool byte
      
-    DBSystem_Collections_Generic_ListA1 *charList = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[DBNumChar(14), DBNumChar(89)]];
+    System_Collections_Generic_ListA1 *charList = [System_Collections_Generic_ListA1 listWithObjects:@[DBNumChar(14), DBNumChar(89)]];
     [charList add:[DBNumChar(24) managedObject]];
     [charList add:[DBNumChar(67) managedObject]];
     STAssertTrue([[charList list] charAtIndex:2] == 24, DBUEqualityTestFailed);
@@ -604,16 +604,16 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
      */
     
     // allocate list<System.Int16> and populate
-    DBSystem_Collections_Generic_ListA1 *int16List = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[DBNumShort(12), DBNumShort(45)]];
+    System_Collections_Generic_ListA1 *int16List = [System_Collections_Generic_ListA1 listWithObjects:@[DBNumShort(12), DBNumShort(45)]];
     [int16List add:[DBNumShort(63) managedObject]];
     [int16List add:[DBNumShort(84) managedObject]];
-    DBSystem_Collections_IList *int16IList = [int16List list];
+    System_Collections_IList *int16IList = [int16List list];
     XCTAssertTrue([int16IList int16AtIndex:2] == 63, DBUEqualityTestFailed);
     XCTAssertTrue([int16IList int16AtIndex:3] == 84, DBUEqualityTestFailed);
     XCTAssertTrue(int16List.count == 4, DBUEqualityTestFailed);
     
     // allocate list<System.Int32> and populate
-    DBSystem_Collections_Generic_ListA1 *int32List = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[DBNumInt(1), DBNumInt(2)]];
+    System_Collections_Generic_ListA1 *int32List = [System_Collections_Generic_ListA1 listWithObjects:@[DBNumInt(1), DBNumInt(2)]];
     [int32List add:[DBNumInt(3) managedObject]];
     [int32List add:[DBNumInt(4) managedObject]];
     XCTAssertTrue([[int32List list] int32AtIndex:2] == 3, DBUEqualityTestFailed);
@@ -622,7 +622,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // allocate list<System.Int64> and populate
     NSArray *int64Array = @[DBNumLongLong(10), DBNumLongLong(20)];
-    DBSystem_Collections_Generic_ListA1 *int64List = [DBSystem_Collections_Generic_ListA1 listWithObjects:int64Array];
+    System_Collections_Generic_ListA1 *int64List = [System_Collections_Generic_ListA1 listWithObjects:int64Array];
     [int64List add:[DBNumLongLong(30) managedObject]];
     [int64List add:[DBNumLongLong(40) managedObject]];
     XCTAssertTrue([[int64List list] int64AtIndex:2] == 30, DBUEqualityTestFailed);
@@ -646,7 +646,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue(int64List.count == 2, DBUEqualityTestFailed);
     
     // allocate list<System.Single> and populate
-    DBSystem_Collections_Generic_ListA1 *floatList = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[DBNumFloat(11), DBNumFloat(12)]];
+    System_Collections_Generic_ListA1 *floatList = [System_Collections_Generic_ListA1 listWithObjects:@[DBNumFloat(11), DBNumFloat(12)]];
     [floatList add:[DBNumFloat(13) managedObject]];
     [floatList add:[DBNumFloat(14) managedObject]];
     XCTAssertTrue([[floatList list] floatAtIndex:2] == 13, DBUEqualityTestFailed);
@@ -654,7 +654,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue(floatList.count == 4, DBUEqualityTestFailed);
     
     // allocate list<System.Double> and populate
-    DBSystem_Collections_Generic_ListA1 *doubleList = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[DBNumDouble(21), DBNumDouble(22)]];
+    System_Collections_Generic_ListA1 *doubleList = [System_Collections_Generic_ListA1 listWithObjects:@[DBNumDouble(21), DBNumDouble(22)]];
     [doubleList add:[DBNumDouble(23) managedObject]];
     [doubleList add:[DBNumDouble(24) managedObject]];
     XCTAssertTrue([[doubleList list] doubleAtIndex:2] == 23, DBUEqualityTestFailed);
@@ -663,7 +663,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
     // allocate list<string> and populate
     NSString *item = @"item 0";
-    DBSystem_Collections_Generic_ListA1 *stringList = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[item, @"item 1"]];
+    System_Collections_Generic_ListA1 *stringList = [System_Collections_Generic_ListA1 listWithObjects:@[item, @"item 1"]];
     [stringList add:[@"item 2" managedString]];
     [stringList add:[@"item 3" managedString]];
     XCTAssertTrue(stringList.count == 4, DBUEqualityTestFailed);
@@ -676,7 +676,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // derive ListA1 from array - the generic type parameter is derived from the first object in the array
     NSArray *stringArray2 = @[@"1", @"10", @"100", @"1000",];
-    DBSystem_Collections_Generic_ListA1 *numbersList = [stringArray2 managedListA1];
+    System_Collections_Generic_ListA1 *numbersList = [stringArray2 managedListA1];
     XCTAssertTrue(numbersList.count == 4, DBUEqualityTestFailed);
 
     // derive ListA1 from array with explicit generic type parameter class
@@ -697,7 +697,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // allocate list<testClass> and populate
     id refObject1 = [testClass new];
     id refObject2 = [testClass new];
-    DBSystem_Collections_Generic_ListA1 *refObjectList = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[refObject1, refObject2]];
+    System_Collections_Generic_ListA1 *refObjectList = [System_Collections_Generic_ListA1 listWithObjects:@[refObject1, refObject2]];
     XCTAssertTrue(refObjectList.count == 2, DBUEqualityTestFailed);
     
     NSArray *refObjectArray = [refObjectList array];
@@ -989,9 +989,9 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult doubleValue] == 101.1, DBUEqualityTestFailed);
         
         // Method<List<string>>(List<string>)
-        DBSystem_Collections_Generic_ListA1 *listA1 = [@[@"A", @"B"] managedListA1];
+        System_Collections_Generic_ListA1 *listA1 = [@[@"A", @"B"] managedListA1];
         genericResult = [refObject genericMethod1_withValue:listA1 typeParameter:[listA1 db_getType]];
-        NSAssert([genericResult isKindOfClass:[DBSystem_Collections_Generic_ListA1 class]], DBUEqualityTestFailed);
+        NSAssert([genericResult isKindOfClass:[System_Collections_Generic_ListA1 class]], DBUEqualityTestFailed);
         
         // Method<List<T>>(List<T>)
         @try {
@@ -1008,50 +1008,50 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         NSAssert([genericResult isKindOfClass:[NSString class]], DBUEqualityTestFailed);
         
         // Method<string,string>(string,string)
-        DBSystem_Collections_Generic_DictionaryA2 *resultA2 = [refObject genericMethod2_withKey:@"key".managedString value:DBUTestString.managedString typeParameters:@[[System_String class], [System_String class]]];
-        NSAssert([resultA2 isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        System_Collections_Generic_DictionaryA2 *resultA2 = [refObject genericMethod2_withKey:@"key".managedString value:DBUTestString.managedString typeParameters:@[[System_String class], [System_String class]]];
+        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
         NSAssert([[resultA2 objectForKey:@"key"] isEqualToString:DBUTestString], DBUEqualityTestFailed);
 
         // Method<int,string>(int,string)
         DBNumber *numberKey = [DBNumber numberWithLong:101];
         resultA2 = [refObject genericMethod2_withKey:numberKey.managedObject value:DBUTestString.managedString typeParameters:@[number, [System_String class]]];
-        NSAssert([resultA2 isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
         NSAssert([[resultA2 objectForKey:numberKey] isEqualToString:DBUTestString], DBUEqualityTestFailed);
         
         // Method<string,int>(string,int)
         number = [DBNumber numberWithLong:101];
         resultA2 = [refObject genericMethod2_withKey:@"key".managedString value:number.managedObject typeParameters:@[[System_String class], number]];
-        NSAssert([resultA2 isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
         NSAssert([[resultA2 objectForKey:@"key"] isEqualTo:number], DBUEqualityTestFailed);
         
         // Method<int,int>(int,int)
         DBNumber *numberValue = [DBNumber numberWithLong:9052];
         resultA2 = [refObject genericMethod2_withKey:numberKey.managedObject value:numberValue.managedObject typeParameters:@[number, numberValue]];
-        NSAssert([resultA2 isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
         NSAssert([[resultA2 objectForKey:numberKey] isEqualTo:numberValue], DBUEqualityTestFailed);
         
         // Method<int,List<string>>(int,List<string>)
         resultA2 = [refObject genericMethod2_withKey:numberKey.managedObject value:listA1 typeParameters:@[number, listA1]];
-        NSAssert([resultA2 isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
-        NSAssert([[resultA2 objectForKey:numberKey] isKindOfClass:[DBSystem_Collections_Generic_ListA1 class]], DBUEqualityTestFailed);
+        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        NSAssert([[resultA2 objectForKey:numberKey] isKindOfClass:[System_Collections_Generic_ListA1 class]], DBUEqualityTestFailed);
     }
     
     //
     // Generic type argument methods
     //
-    DBSystem_Collections_Generic_ListA1 *list = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[@"1", @"2"]];
+    System_Collections_Generic_ListA1 *list = [System_Collections_Generic_ListA1 listWithObjects:@[@"1", @"2"]];
     [refObject reverseList_withListSCGListA1string:list];
     NSArray *revList = [list array];
     NSAssert([revList[0] isEqualToString:@"2"], DBUEqualityTestFailed);
     NSAssert([revList[1] isEqualToString:@"1"], DBUEqualityTestFailed);
  
-    DBSystem_Collections_Generic_ListA1 *intList = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[DBNumInt(1), DBNumInt(2)]];
+    System_Collections_Generic_ListA1 *intList = [System_Collections_Generic_ListA1 listWithObjects:@[DBNumInt(1), DBNumInt(2)]];
     [refObject reverseList_withListSCGListA1int:intList];
     revList = [intList array];
     NSAssert([revList[0] isEqualTo:@(2)], DBUEqualityTestFailed);
     NSAssert([revList[1] isEqualTo:@(1)], DBUEqualityTestFailed);
     
-    DBSystem_Collections_Generic_ListA1 *list1 = [DBSystem_Collections_Generic_ListA1 listWithObjects:@[@"1", @"2"]];
+    System_Collections_Generic_ListA1 *list1 = [System_Collections_Generic_ListA1 listWithObjects:@[@"1", @"2"]];
     NSString *addList = [refObject addIEnumerable_withList:(id)list1];
     NSAssert([addList isEqualToString:@"12"], DBUEqualityTestFailed);
     
@@ -1135,43 +1135,43 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // int 64 array
     NSArray *int64NSArray = @[@0L, @1L, @2L, @4L, @8L, @16L, @32L, @64L, @128L, @256L];
-    DBSystem_Array *int64Array = [int64NSArray managedArrayWithTypeName:DBType_System_Int64];
+    System_Array *int64Array = [int64NSArray managedArrayWithTypeName:DBType_System_Int64];
     int64_t int64Total = [refObject sum_withInt64Array:int64Array];
     XCTAssertTrue(int64Total == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
     
     // int 32 array
     NSArray *int32NSArray = @[@0, @1, @2, @4, @8, @16, @32, @64, @128, @257];
-    DBSystem_Array *int32Array = [int32NSArray managedArrayWithTypeName:DBType_System_Int32];
+    System_Array *int32Array = [int32NSArray managedArrayWithTypeName:DBType_System_Int32];
     int32_t int32Total = [refObject sum_withInt32Array:int32Array];
     XCTAssertTrue(int32Total == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 257, DBUEqualityTestFailed);
     
     // int 16 array
     NSArray *int16NSArray = @[@0, @1, @2, @4, @8, @16, @32, @64, @128, @255];
-    DBSystem_Array *int16Array = [int16NSArray managedArrayWithTypeName:DBType_System_Int16];
+    System_Array *int16Array = [int16NSArray managedArrayWithTypeName:DBType_System_Int16];
     int16_t int16Total = [refObject sum_withInt16Array:int16Array];
     XCTAssertTrue(int16Total == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 255, DBUEqualityTestFailed);
     
     // byte array
     NSArray *byteNSArray = @[@0, @1, @2, @4, @8, @16, @32, @64];
-    DBSystem_Array *byteArray = [byteNSArray managedArrayWithTypeName:DBType_System_Byte];
+    System_Array *byteArray = [byteNSArray managedArrayWithTypeName:DBType_System_Byte];
     int8_t byteTotal = [refObject sum_withByteArray:byteArray];
     XCTAssertTrue(byteTotal == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64, DBUEqualityTestFailed);
     
     // float array
     NSArray *floatNSArray = @[@0.0F, @1.0F, @2.0F, @4.0F, @8.0F, @16.0F, @32.0F, @64.0F, @128.0F, @258.0F];
-    DBSystem_Array *floatArray = [floatNSArray managedArrayWithTypeName:DBType_System_Single];
+    System_Array *floatArray = [floatNSArray managedArrayWithTypeName:DBType_System_Single];
     float floatTotal = [refObject sum_withFloatArray:floatArray];
     XCTAssertTrue(floatTotal == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 258, DBUEqualityTestFailed);
     
     // double array
     NSArray *doubleNSArray = @[@0.0, @1.0, @2.0, @4.0, @8.0, @16.0F, @32.0, @64.0, @128.0, @259.0];
-    DBSystem_Array *doubleArray = [doubleNSArray managedArrayWithTypeName:DBType_System_Double];
+    System_Array *doubleArray = [doubleNSArray managedArrayWithTypeName:DBType_System_Double];
     double doubleTotal = [refObject sum_withDoubleArray:doubleArray];
     XCTAssertTrue(doubleTotal == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 259, DBUEqualityTestFailed);
     
     // string array
     NSArray *stringNSArray = @[DBUTestString, @" 1", @" 2"];
-    DBSystem_Array *stringArray = [stringNSArray managedArrayWithTypeName:DBType_System_String];
+    System_Array *stringArray = [stringNSArray managedArrayWithTypeName:DBType_System_String];
     NSString *stringTotal = [refObject sum_withStringArray:stringArray];
     NSString *stringTest = [NSString stringWithFormat:@"%@ %@ %@", DBUTestString, @"1", @"2"];
     XCTAssertTrue([stringTotal isEqual:stringTest], DBUEqualityTestFailed);
@@ -1220,7 +1220,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 #pragma unused(testClass)
     
     // string array
-    DBSystem_Array *stringArray = [refObject stringArray];
+    System_Array *stringArray = [refObject stringArray];
     XCTAssertTrue([stringArray count] == 3, DBUCountTestFailed);
     
     NSMutableString *ms = [NSMutableString new];
@@ -1244,7 +1244,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([ms dbTestString:DBUTestString], DBUSubstringTestFailed);
     
     // int64 array
-    DBSystem_Array *int64Array = [(DUReferenceObject_ *)refObject int64Array];
+    System_Array *int64Array = [(DUReferenceObject_ *)refObject int64Array];
     XCTAssertTrue([int64Array count] == 10, DBUCountTestFailed);
     
     int64_t n = 0;
@@ -1277,7 +1277,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 128, DBUEqualityTestFailed);
 
     // int32 array
-    DBSystem_Array *int32Array = [(DUReferenceObject_ *)refObject int32Array];
+    System_Array *int32Array = [(DUReferenceObject_ *)refObject int32Array];
     XCTAssertTrue([int32Array count] == 10, DBUCountTestFailed);
     
     n = 0;
@@ -1299,7 +1299,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 120, DBUEqualityTestFailed);
     
     // int16 array
-    DBSystem_Array *int16Array = [(DUReferenceObject_ *)refObject int16Array];
+    System_Array *int16Array = [(DUReferenceObject_ *)refObject int16Array];
     XCTAssertTrue([int16Array count] == 10, DBUCountTestFailed);
     
     n = 0;
@@ -1309,7 +1309,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256, DBUEqualityTestFailed);
     
     // float array
-    DBSystem_Array *floatArray = [(DUReferenceObject_ *)refObject floatArray];
+    System_Array *floatArray = [(DUReferenceObject_ *)refObject floatArray];
     XCTAssertTrue([floatArray count] == 10, DBUCountTestFailed);
     
     float f = 0;
@@ -1331,7 +1331,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 116, DBUEqualityTestFailed);
     
     // double array
-    DBSystem_Array *doubleArray = [(DUReferenceObject_ *)refObject doubleArray];
+    System_Array *doubleArray = [(DUReferenceObject_ *)refObject doubleArray];
     XCTAssertTrue([doubleArray count] == 10, DBUCountTestFailed);
     
     double d = 0;
@@ -1353,7 +1353,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue(n == 0 + 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 110, DBUEqualityTestFailed);
     
     // bool array
-    DBSystem_Array *boolArray = [(DUReferenceObject_ *)refObject boolArray];
+    System_Array *boolArray = [(DUReferenceObject_ *)refObject boolArray];
     XCTAssertTrue([boolArray count] == 10, DBUCountTestFailed);
     
     for (uint32_t i = 0; i < [boolArray count]; i++) {
@@ -1386,7 +1386,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 #warning TODO: add tests for -deepDictionary
     
     // List<string>
-    DBSystem_Collections_Generic_ListA1 *listOfStrings = [refObject stringList];
+    System_Collections_Generic_ListA1 *listOfStrings = [refObject stringList];
     NSArray<NSString *> *arrayOfStrings = [listOfStrings array];
     XCTAssertTrue([arrayOfStrings[0] dbTestString:DBUTestString], DBUSubstringTestFailed);
     XCTAssertTrue([arrayOfStrings[0] dbTestString:@" 1"], DBUSubstringTestFailed);
@@ -1394,7 +1394,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([arrayOfStrings[1] dbTestString:@" 2"], DBUSubstringTestFailed);
     
     // List<NestedClass>
-    DBSystem_Collections_Generic_ListA1 *nestedClassListA1 = [refObject nestedClassList];
+    System_Collections_Generic_ListA1 *nestedClassListA1 = [refObject nestedClassList];
     NSArray<id> *nestedClassArray = [nestedClassListA1 array];
     XCTAssertTrue([[nestedClassArray[0] stringProperty] dbTestString:@"Dubrovnik.UnitTests 1"], DBUSubstringTestFailed);
     XCTAssertTrue([[nestedClassArray[1] stringProperty] dbTestString:@"Dubrovnik.UnitTests 2"], DBUSubstringTestFailed);
@@ -1408,7 +1408,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     (void)sname; // keep the compiler quiet
     
     // List<int>
-    DBSystem_Collections_Generic_ListA1 *listOfInts = [refObject intList];
+    System_Collections_Generic_ListA1 *listOfInts = [refObject intList];
     NSArray *arrayOfInts = [listOfInts array];
     XCTAssertTrue([arrayOfInts count] == 3, DBUCountTestFailed);
     XCTAssertTrue([arrayOfInts[0] intValue] == 1, DBUEqualityTestFailed);
@@ -1416,14 +1416,14 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([arrayOfInts[2] intValue] == 100, DBUEqualityTestFailed);
 
     // List<uint>
-    DBSystem_Collections_Generic_ListA1 *listOfUInts = [refObject uIntList];
+    System_Collections_Generic_ListA1 *listOfUInts = [refObject uIntList];
     NSArray *arrayOfUInts = [listOfUInts array];
     XCTAssertTrue([arrayOfUInts count] == 2, DBUCountTestFailed);
     XCTAssertTrue([arrayOfUInts[0] unsignedIntValue] == 2, DBUEqualityTestFailed);
     XCTAssertTrue([arrayOfUInts[1] unsignedIntValue] == 20, DBUEqualityTestFailed);
 
     // List<float>
-    DBSystem_Collections_Generic_ListA1 *listOfFloats = [refObject floatList];
+    System_Collections_Generic_ListA1 *listOfFloats = [refObject floatList];
     NSArray *arrayOfFloats = [listOfFloats array];
     XCTAssertTrue([arrayOfFloats count] == 3, DBUCountTestFailed);
     XCTAssertTrue([arrayOfFloats[0] floatValue] == 1., DBUEqualityTestFailed);
@@ -1431,7 +1431,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([arrayOfFloats[2] floatValue] == 3., DBUEqualityTestFailed);
     
     // List<double>
-    DBSystem_Collections_Generic_ListA1 *listOfDoubles = [refObject doubleList];
+    System_Collections_Generic_ListA1 *listOfDoubles = [refObject doubleList];
     NSArray *arrayOfDoubles = [listOfDoubles array];
     XCTAssertTrue([arrayOfDoubles count] == 2, DBUCountTestFailed);
     XCTAssertTrue([arrayOfDoubles[0] doubleValue] == 11., DBUEqualityTestFailed);
@@ -1441,7 +1441,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //============================
     // Dictionary<string,string>
     //=============================
-    DBSystem_Collections_Generic_DictionaryA2 *stringStringDictA2 = [refObject stringStringDictionary];
+    System_Collections_Generic_DictionaryA2 *stringStringDictA2 = [refObject stringStringDictionary];
     
     // test all keys
     NSArray *stringStringDictKeys = [stringStringDictA2 allKeys];
@@ -1470,7 +1470,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //============================
     // Dictionary<int,int>
     //=============================
-    DBSystem_Collections_Generic_DictionaryA2 *intIntDictA2 = [refObject intIntDictionary];
+    System_Collections_Generic_DictionaryA2 *intIntDictA2 = [refObject intIntDictionary];
     
     // test all keys
     NSArray *intIntDictKeys = [intIntDictA2 allKeys];
@@ -1525,7 +1525,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //============================
     // Dictionary<string,object>
     //=============================
-    DBSystem_Collections_Generic_DictionaryA2 *stringObjectDictA2 = [refObject stringObjectDictionary];
+    System_Collections_Generic_DictionaryA2 *stringObjectDictA2 = [refObject stringObjectDictionary];
     
     // test all keys
     NSArray *stringObjectDictKeys = [stringObjectDictA2 allKeys];
@@ -1561,22 +1561,22 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
     // ListA1 object
     value = [stringObjectDictA2 objectForKey:@"keyForListA1"];
-    XCTAssertTrue([value isKindOfClass:[DBSystem_Collections_Generic_ListA1 class]], DBUClassEqualityTestFailed);
+    XCTAssertTrue([value isKindOfClass:[System_Collections_Generic_ListA1 class]], DBUClassEqualityTestFailed);
 
-    NSArray *keyListA1Array = [(DBSystem_Collections_Generic_ListA1 *)value array];
+    NSArray *keyListA1Array = [(System_Collections_Generic_ListA1 *)value array];
     XCTAssertTrue([keyListA1Array containsObject:@"Dubrovnik1"], DBUObjectNotFound);
     XCTAssertTrue([keyListA1Array containsObject:@"Dubrovnik2"], DBUObjectNotFound);
 
     // DictionaryA2 object
     value = [stringObjectDictA2 objectForKey:@"keyForDictionaryA2"];
-    XCTAssertTrue([value isKindOfClass:[DBSystem_Collections_Generic_DictionaryA2 class]], DBUClassEqualityTestFailed);
+    XCTAssertTrue([value isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUClassEqualityTestFailed);
 
-    XCTAssertTrue([(DBSystem_Collections_Generic_DictionaryA2 *)value objectForKey:@"subKey1"], DBUObjectNotFound);
-    XCTAssertTrue([(DBSystem_Collections_Generic_DictionaryA2 *)value objectForKey:@"subKey2"], DBUObjectNotFound);
-    XCTAssertFalse([(DBSystem_Collections_Generic_DictionaryA2 *)value objectForKey:@"subKeyN"], DBUDesignedToFailTestPassed);
+    XCTAssertTrue([(System_Collections_Generic_DictionaryA2 *)value objectForKey:@"subKey1"], DBUObjectNotFound);
+    XCTAssertTrue([(System_Collections_Generic_DictionaryA2 *)value objectForKey:@"subKey2"], DBUObjectNotFound);
+    XCTAssertFalse([(System_Collections_Generic_DictionaryA2 *)value objectForKey:@"subKeyN"], DBUDesignedToFailTestPassed);
 
     //  new string[] object
-    DBSystem_Array *subItemDBArray = [stringObjectDictA2 objectForKey:@"keyForStringArray"];
+    System_Array *subItemDBArray = [stringObjectDictA2 objectForKey:@"keyForStringArray"];
     NSArray *subItemArray = [subItemDBArray array];
     XCTAssertTrue([subItemArray containsObject:@"Dubrovnik SubItem1"], DBUObjectNotFound);
     XCTAssertTrue([subItemArray containsObject:@"Dubrovnik SubItem2"], DBUObjectNotFound);
@@ -1585,7 +1585,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //============================
     // Dictionary<object,object>
     //=============================
-    DBSystem_Collections_Generic_DictionaryA2 *objectObjectDictA2 = [refObject objectObjectDictionary];
+    System_Collections_Generic_DictionaryA2 *objectObjectDictA2 = [refObject objectObjectDictionary];
 
     // test all keys
     NSArray *objectObjectDictKeys = [objectObjectDictA2 allKeys];
@@ -1659,7 +1659,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //=======================================
     // Dictionary<int,Dictionary<int,string>>
     //=======================================
-    DBSystem_Collections_Generic_DictionaryA2 *intIntStringDictA2 = [refObject intIntStringDictionaryDictionary];
+    System_Collections_Generic_DictionaryA2 *intIntStringDictA2 = [refObject intIntStringDictionaryDictionary];
     
     // test all keys
     NSArray *intIntStringDictDictKeys = [intIntStringDictA2 allKeys];
@@ -1668,7 +1668,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([intIntStringDictDictKeys containsObject:@1], DBUObjectNotFound);
 
     // sub dict 1
-    DBSystem_Collections_Generic_DictionaryA2 *subDict1 = [intIntStringDictA2 objectForKey:[@0 dbNumberFromIntValue]];
+    System_Collections_Generic_DictionaryA2 *subDict1 = [intIntStringDictA2 objectForKey:[@0 dbNumberFromIntValue]];
     
     // test all keys
     NSArray *subDict1Keys = [subDict1 allKeys];
@@ -1684,7 +1684,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([stringValue isEqualToString:@"string1"], DBUEqualityTestFailed);
     
     // sub dict 2
-    DBSystem_Collections_Generic_DictionaryA2 *subDict2 = [intIntStringDictA2 objectForKey:[@1 dbNumberFromIntValue]];
+    System_Collections_Generic_DictionaryA2 *subDict2 = [intIntStringDictA2 objectForKey:[@1 dbNumberFromIntValue]];
     
     // test all keys
     NSArray *subDict2Keys = [subDict2 allKeys];
@@ -1764,7 +1764,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 {
 #pragma unused(testClass)
     // string array list
-    DBSystem_Collections_ArrayList *stringArrayList = [refObject stringArrayList];
+    System_Collections_ArrayList *stringArrayList = [refObject stringArrayList];
     XCTAssertTrue([stringArrayList count] == 3, DBUCountTestFailed);
     
     NSMutableString *ms = [NSMutableString new];

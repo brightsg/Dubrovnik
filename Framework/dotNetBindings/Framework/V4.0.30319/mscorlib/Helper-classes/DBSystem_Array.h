@@ -22,9 +22,9 @@
 //
 //#import "System_Array.h"
 
-@class DBType, DBSystem_Collections_IList;
+@class DBType, System_Collections_IList;
 
-@interface DBSystem_Array : System_Array {
+@interface System_Array : System_Array {
 	@protected
 	uint32_t _arrayLength;
 }

@@ -23,9 +23,9 @@
 #import "System_Drawing_Size.h"
 #import "Dubrovnik/DBMonoIncludes.h"
 
-@interface DBSystem_Drawing_Size : System_Drawing_Size
+@interface System_Drawing_Size : System_Drawing_Size
 
-+ (DBSystem_Drawing_Size *)sizeWithMonoObject:(MonoObject *)monoObject;
++ (System_Drawing_Size *)sizeWithMonoObject:(MonoObject *)monoObject;
 + (NSSize)convertToNSSize:(MonoObject *)monoObject;
 
 - (int)width;

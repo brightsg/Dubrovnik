@@ -20,29 +20,29 @@
 //
 
 #import "NSArray+mscorlib.h"
-#import "DBSystem_Collections_ArrayList.h"
-#import "DBSystem_Collections_Generic_ListA1.h"
-#import "DBSystem_Array.h"
+#import "System_Collections_ArrayList.h"
+#import "System_Collections_Generic_ListA1.h"
+#import "System_Array.h"
 
 @implementation NSArray (mscorlib)
 
-- (DBSystem_Collections_Generic_ListA1 *)managedListA1WithTypeParameter:(id)typeParameter
+- (System_Collections_Generic_ListA1 *)managedListA1WithTypeParameter:(id)typeParameter
 {
-    DBSystem_Collections_Generic_ListA1 *list = [DBSystem_Collections_Generic_ListA1 listWithObjects:self typeParameter:typeParameter];
+    System_Collections_Generic_ListA1 *list = [System_Collections_Generic_ListA1 listWithObjects:self typeParameter:typeParameter];
     
     return list;
 }
 
-- (DBSystem_Collections_Generic_ListA1 *)managedListA1
+- (System_Collections_Generic_ListA1 *)managedListA1
 {
-    DBSystem_Collections_Generic_ListA1 *list = [DBSystem_Collections_Generic_ListA1 listWithObjects:self];
+    System_Collections_Generic_ListA1 *list = [System_Collections_Generic_ListA1 listWithObjects:self];
     
     return list;
 }
 
-- (DBSystem_Collections_ArrayList *)managedArrayList
+- (System_Collections_ArrayList *)managedArrayList
 {
-	DBSystem_Collections_ArrayList *monoArrayList = [[DBSystem_Collections_ArrayList alloc] init];
+	System_Collections_ArrayList *monoArrayList = [[System_Collections_ArrayList alloc] init];
 	NSEnumerator *enumerator = [self objectEnumerator];
 	id object = nil;
 	
@@ -60,17 +60,17 @@
 	return(monoArrayList);
 }
 
-- (DBSystem_Array *)managedArrayWithTypeName:(NSString *)name
+- (System_Array *)managedArrayWithTypeName:(NSString *)name
 {
     // get the type
     DBType *type = [[DBTypeManager sharedManager] typeForName:name];
     if (!type) return nil;
     
     // create a suitable MonoArray instance
-    MonoArray *monoArray = [DBSystem_Array monoArrayWithType:type length:[self count]];
+    MonoArray *monoArray = [System_Array monoArrayWithType:type length:[self count]];
 
     // create System.Array
-    DBSystem_Array *dbsArray = [DBSystem_Array arrayWithMonoArray:monoArray];
+    System_Array *dbsArray = [System_Array arrayWithMonoArray:monoArray];
     
     if (monoArray && [self count] > 0) {
         

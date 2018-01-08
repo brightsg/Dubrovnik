@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_Reflection_Assembly.m
+﻿//++Dubrovnik.CodeGenerator System_Reflection_Assembly.m
 //
 // Managed class : Assembly
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_Reflection_Assembly
 
@@ -380,12 +382,12 @@
 		Managed return type : System.Object[]
 		Managed param types : System.Boolean
 	 */
-    - (DBSystem_Array *)getCustomAttributes_withInherit:(BOOL)p1
+    - (System_Array *)getCustomAttributes_withInherit:(BOOL)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(bool)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -393,12 +395,12 @@
 		Managed return type : System.Object[]
 		Managed param types : System.Type, System.Boolean
 	 */
-    - (DBSystem_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2
+    - (System_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Type,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 /* Skipped method : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData> GetCustomAttributesData() */
 
@@ -433,12 +435,12 @@
 		Managed return type : System.Type[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getExportedTypes
+    - (System_Array *)getExportedTypes
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetExportedTypes()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -459,12 +461,12 @@
 		Managed return type : System.IO.FileStream[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getFiles
+    - (System_Array *)getFiles
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFiles()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -472,12 +474,12 @@
 		Managed return type : System.IO.FileStream[]
 		Managed param types : System.Boolean
 	 */
-    - (DBSystem_Array *)getFiles_withGetResourceModules:(BOOL)p1
+    - (System_Array *)getFiles_withGetResourceModules:(BOOL)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFiles(bool)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -501,12 +503,12 @@
 		Managed return type : System.String[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getManifestResourceNames
+    - (System_Array *)getManifestResourceNames
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetManifestResourceNames()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -570,12 +572,12 @@
 		Managed return type : System.Reflection.AssemblyName[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getReferencedAssemblies
+    - (System_Array *)getReferencedAssemblies
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetReferencedAssemblies()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -648,12 +650,12 @@
 		Managed return type : System.Type[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getTypes
+    - (System_Array *)getTypes
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetTypes()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 

@@ -2,6 +2,33 @@
 //
 // Managed class : Nullable
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Nullable.__Extra__.h")
+#import "System_Nullable.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Int32;
+@class System_Nullable;
+@class System_Object;
+@class System_Type;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Object.h"
+
 @interface System_Nullable : System_Object
 
 #pragma mark -

@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ShortEnum.h
+//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ShortEnum.h
 //
 // Managed enumeration : ShortEnum
 //
@@ -10,7 +10,7 @@ typedef NS_ENUM(int16_t, enumDubrovnik_UnitTests_ShortEnum) {
 	Dubrovnik_UnitTests_ShortEnum_val3 = 3,
 	Dubrovnik_UnitTests_ShortEnum_val4 = 4,
 };
-@interface Dubrovnik_UnitTests_ShortEnum : DBSystem_Enum
+@interface Dubrovnik_UnitTests_ShortEnum : System_Enum
 
 #pragma mark -
 #pragma mark Setup

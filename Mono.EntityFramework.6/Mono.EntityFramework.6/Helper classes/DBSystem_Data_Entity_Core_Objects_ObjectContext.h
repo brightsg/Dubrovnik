@@ -8,9 +8,9 @@
 #import "System_Data_Entity_Core_Objects_ObjectContext.h"
 #import "System_Data_Entity_Core_Objects_RefreshMode.h"
 
-@class DBSystem_Data_Entity_Core_Objects_ObjectQueryA1, DBSystem_Array;
+@class System_Data_Entity_Core_Objects_ObjectQueryA1, System_Array;
 
-@interface DBSystem_Data_Entity_Core_Objects_ObjectContext : System_Data_Entity_Core_Objects_ObjectContext
+@interface System_Data_Entity_Core_Objects_ObjectContext : System_Data_Entity_Core_Objects_ObjectContext
 
 - (int32_t)saveChanges;
 - (void)deleteObject:(DBManagedObject *)object;
@@ -22,8 +22,8 @@
  Note that the parameters array cannot be NULL.
  
  */
-- (DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 *)createQuery_withQueryString:(NSString *)queryString
-                                                      parameters:(DBSystem_Array *)dbsaParameters
+- (System_Data_Entity_Core_Objects_ObjectQueryA1 *)createQuery_withQueryString:(NSString *)queryString
+                                                      parameters:(System_Array *)dbsaParameters
                                                    monoClassName:(const char *)monoClassName
                                                     assemblyName:(const char *)assemblyName;
 

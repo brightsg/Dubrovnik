@@ -1,18 +1,18 @@
 //
-//  DBSystem_Data_Entity_Core_Objects_ObjectSetA1.m
+//  System_Data_Entity_Core_Objects_ObjectSetA1.m
 //  Dubrovnik
 //
 //  Created by Jonathan on 08/07/2013.
 //
 //
 
-#import "DBSystem_Data_Entity_Core_Objects_ObjectSetA1.h"
+#import "System_Data_Entity_Core_Objects_ObjectSetA1.h"
 
-@interface DBSystem_Data_Entity_Core_Objects_ObjectSetA1()
+@interface System_Data_Entity_Core_Objects_ObjectSetA1()
 
 @end
 
-@implementation DBSystem_Data_Entity_Core_Objects_ObjectSetA1
+@implementation System_Data_Entity_Core_Objects_ObjectSetA1
 
 #pragma mark -
 #pragma mark - Identification

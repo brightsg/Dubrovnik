@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_IO_BinaryReader.m
+﻿//++Dubrovnik.CodeGenerator System_IO_BinaryReader.m
 //
 // Managed class : BinaryReader
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_IO_BinaryReader
 
@@ -149,7 +151,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    - (int32_t)read_withBufferChar:(DBSystem_Array *)p1 indexInt:(int32_t)p2 countInt:(int32_t)p3
+    - (int32_t)read_withBufferChar:(System_Array *)p1 indexInt:(int32_t)p2 countInt:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Read(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
@@ -227,12 +229,12 @@
 		Managed return type : System.Char[]
 		Managed param types : System.Int32
 	 */
-    - (DBSystem_Array *)readChars_withCount:(int32_t)p1
+    - (System_Array *)readChars_withCount:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadChars(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 

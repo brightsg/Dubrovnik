@@ -2,6 +2,54 @@
 //
 // Managed class : Type
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Type.__Extra__.h")
+#import "System_Type.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Array;
+@class System_Boolean;
+@class System_Char;
+@class System_FuncA2;
+@class System_FuncA4;
+@class System_Globalization_CultureInfo;
+@class System_Guid;
+@class System_Int32;
+@class System_Object;
+@class System_Reflection_Assembly;
+@class System_Reflection_Binder;
+@class System_Reflection_ConstructorInfo;
+@class System_Reflection_GenericParameterAttributes;
+@class System_Reflection_MemberFilter;
+@class System_Reflection_MethodBase;
+@class System_Reflection_MethodInfo;
+@class System_Reflection_PropertyInfo;
+@class System_Reflection_TypeAttributes;
+@class System_RuntimeTypeHandle;
+@class System_String;
+@class System_Type;
+@class System_TypeCode;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Reflection_ICustomAttributeProvider_Protocol.h"
+#import "System_Reflection_IReflect_Protocol.h"
+#import "System_Reflection_MemberInfo.h"
+#import "System_Runtime_InteropServices__MemberInfo_Protocol.h"
+#import "System_Runtime_InteropServices__Type_Protocol.h"
+
 @interface System_Type : System_Reflection_MemberInfo <System_Reflection_ICustomAttributeProvider_, System_Runtime_InteropServices__MemberInfo_, System_Runtime_InteropServices__Type_, System_Reflection_IReflect_>
 
 #pragma mark -
@@ -20,7 +68,7 @@
 
 	// Managed field name : EmptyTypes
 	// Managed field type : System.Type[]
-    + (DBSystem_Array *)emptyTypes;
+    + (System_Array *)emptyTypes;
 
 	// Managed field name : FilterAttribute
 	// Managed field type : System.Reflection.MemberFilter
@@ -87,7 +135,7 @@
 
 	// Managed property name : GenericTypeArguments
 	// Managed property type : System.Type[]
-    @property (nonatomic, strong, readonly) DBSystem_Array * genericTypeArguments;
+    @property (nonatomic, strong, readonly) System_Array * genericTypeArguments;
 
 	// Managed property name : GUID
 	// Managed property type : System.Guid
@@ -309,14 +357,14 @@
 		Managed return type : System.Reflection.ConstructorInfo
 		Managed param types : System.Type[]
 	 */
-    - (System_Reflection_ConstructorInfo *)getConstructor_withTypes:(DBSystem_Array *)p1;
+    - (System_Reflection_ConstructorInfo *)getConstructor_withTypes:(System_Array *)p1;
 
 	/*! 
 		Managed method name : GetConstructors
 		Managed return type : System.Reflection.ConstructorInfo[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getConstructors;
+    - (System_Array *)getConstructors;
 /* Skipped method : System.Reflection.ConstructorInfo[] GetConstructors(System.Reflection.BindingFlags bindingAttr) */
 /* Skipped method : System.Reflection.MemberInfo[] GetDefaultMembers() */
 
@@ -339,7 +387,7 @@
 		Managed return type : System.String[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getEnumNames;
+    - (System_Array *)getEnumNames;
 
 	/*! 
 		Managed method name : GetEnumUnderlyingType
@@ -353,7 +401,7 @@
 		Managed return type : System.Array
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getEnumValues;
+    - (System_Array *)getEnumValues;
 /* Skipped method : System.Reflection.EventInfo GetEvent(System.String name) */
 /* Skipped method : System.Reflection.EventInfo GetEvent(System.String name, System.Reflection.BindingFlags bindingAttr) */
 /* Skipped method : System.Reflection.EventInfo[] GetEvents() */
@@ -368,14 +416,14 @@
 		Managed return type : System.Type[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getGenericArguments;
+    - (System_Array *)getGenericArguments;
 
 	/*! 
 		Managed method name : GetGenericParameterConstraints
 		Managed return type : System.Type[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getGenericParameterConstraints;
+    - (System_Array *)getGenericParameterConstraints;
 
 	/*! 
 		Managed method name : GetGenericTypeDefinition
@@ -411,7 +459,7 @@
 		Managed return type : System.Type[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getInterfaces;
+    - (System_Array *)getInterfaces;
 /* Skipped method : System.Reflection.MemberInfo[] GetMember(System.String name) */
 /* Skipped method : System.Reflection.MemberInfo[] GetMember(System.String name, System.Reflection.BindingFlags bindingAttr) */
 /* Skipped method : System.Reflection.MemberInfo[] GetMember(System.String name, System.Reflection.MemberTypes type, System.Reflection.BindingFlags bindingAttr) */
@@ -426,7 +474,7 @@
 		Managed return type : System.Reflection.MethodInfo
 		Managed param types : System.String, System.Type[]
 	 */
-    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 types:(DBSystem_Array *)p2;
+    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 types:(System_Array *)p2;
 /* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr) */
 
 	/*! 
@@ -441,7 +489,7 @@
 		Managed return type : System.Reflection.MethodInfo[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getMethods;
+    - (System_Array *)getMethods;
 /* Skipped method : System.Reflection.MethodInfo[] GetMethods(System.Reflection.BindingFlags bindingAttr) */
 
 	/*! 
@@ -457,7 +505,7 @@
 		Managed return type : System.Type[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getNestedTypes;
+    - (System_Array *)getNestedTypes;
 /* Skipped method : System.Type[] GetNestedTypes(System.Reflection.BindingFlags bindingAttr) */
 /* Skipped method : System.Reflection.PropertyInfo[] GetProperties(System.Reflection.BindingFlags bindingAttr) */
 
@@ -466,7 +514,7 @@
 		Managed return type : System.Reflection.PropertyInfo[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getProperties;
+    - (System_Array *)getProperties;
 /* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type returnType, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 /* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Type returnType, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 /* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Reflection.BindingFlags bindingAttr) */
@@ -476,14 +524,14 @@
 		Managed return type : System.Reflection.PropertyInfo
 		Managed param types : System.String, System.Type, System.Type[]
 	 */
-    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2 types:(DBSystem_Array *)p3;
+    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2 types:(System_Array *)p3;
 
 	/*! 
 		Managed method name : GetProperty
 		Managed return type : System.Reflection.PropertyInfo
 		Managed param types : System.String, System.Type[]
 	 */
-    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 types:(DBSystem_Array *)p2;
+    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 types:(System_Array *)p2;
 
 	/*! 
 		Managed method name : GetProperty
@@ -553,7 +601,7 @@
 		Managed return type : System.Type[]
 		Managed param types : System.Object[]
 	 */
-    + (DBSystem_Array *)getTypeArray_withArgs:(DBSystem_Array *)p1;
+    + (System_Array *)getTypeArray_withArgs:(System_Array *)p1;
 
 	/*! 
 		Managed method name : GetTypeCode
@@ -696,7 +744,7 @@
 		Managed return type : System.Type
 		Managed param types : System.Type[]
 	 */
-    - (System_Type *)makeGenericType_withTypeArguments:(DBSystem_Array *)p1;
+    - (System_Type *)makeGenericType_withTypeArguments:(System_Array *)p1;
 
 	/*! 
 		Managed method name : MakePointerType

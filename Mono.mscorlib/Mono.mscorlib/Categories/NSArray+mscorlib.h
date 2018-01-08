@@ -21,13 +21,13 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class DBSystem_Collections_ArrayList, DBSystem_Array;
+@class System_Collections_ArrayList, System_Array;
 
 @interface NSArray (mscorlib)
 
-- (DBSystem_Collections_Generic_ListA1 *)managedListA1WithTypeParameter:(id)typeParameter;
-- (DBSystem_Collections_Generic_ListA1 *)managedListA1;
-- (DBSystem_Collections_ArrayList *)managedArrayList;
-- (DBSystem_Array *)managedArrayWithTypeName:(NSString *)name;
+- (System_Collections_Generic_ListA1 *)managedListA1WithTypeParameter:(id)typeParameter;
+- (System_Collections_Generic_ListA1 *)managedListA1;
+- (System_Collections_ArrayList *)managedArrayList;
+- (System_Array *)managedArrayWithTypeName:(NSString *)name;
 
 @end

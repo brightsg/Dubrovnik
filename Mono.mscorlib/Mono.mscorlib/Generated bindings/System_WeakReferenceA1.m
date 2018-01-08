@@ -1,5 +1,4 @@
-﻿#import "mscorlib.h"
-//++Dubrovnik.CodeGenerator System_WeakReferenceA1.m
+﻿//++Dubrovnik.CodeGenerator System_WeakReferenceA1.m
 //
 // Managed class : WeakReference`1<T>
 //
@@ -8,6 +7,9 @@
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
 #endif
+
+// Local assembly import
+#import "mscorlib.h"
 
 @implementation System_WeakReferenceA1
 

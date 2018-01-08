@@ -2,6 +2,33 @@
 //
 // Managed class : CaseInsensitiveComparer
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Collections_CaseInsensitiveComparer.__Extra__.h")
+#import "System_Collections_CaseInsensitiveComparer.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Collections_CaseInsensitiveComparer;
+@class System_Collections_IComparer;
+@class System_Int32;
+@class System_Object;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Collections_IComparer_Protocol.h"
+#import "System_Object.h"
+
 @interface System_Collections_CaseInsensitiveComparer : System_Object <System_Collections_IComparer_>
 
 #pragma mark -

@@ -1,5 +1,5 @@
 //
-//  DBSystem.Collections.IList.m
+//  System.Collections.IList.m
 //  Dubrovnik
 //
 //  Copyright (C) 2013 Thesaurus Software Ltd. All rights reserved.
@@ -23,9 +23,9 @@
 // review the following list wrapper:
 // https://github.com/richard-fine/mono/blob/MonoListWrapper/contrib/MonoListWrapper/MonoListWrapper.c
 
-#import "DBSystem_Collections_IList.h"
+#import "System_Collections_IList.h+mscorlib"
 
-@implementation DBSystem_Collections_IList
+@implementation System_Collections_IList (mscorlib)
 
 // obligatory override
 + (const char *)monoClassName
@@ -40,7 +40,7 @@
 
 + (instancetype)listWithMonoObject:(MonoObject *)monoObject
 {
-	DBSystem_Collections_IList *list = [[[self class] alloc] initWithMonoObject:monoObject];
+	System_Collections_IList *list = [[[self class] alloc] initWithMonoObject:monoObject];
 	return(list);
 }
 

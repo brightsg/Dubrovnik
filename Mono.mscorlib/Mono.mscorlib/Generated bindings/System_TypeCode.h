@@ -2,6 +2,29 @@
 //
 // Managed enumeration : TypeCode
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_TypeCode.__Extra__.h")
+#import "System_TypeCode.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_TypeCode;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Enum.h"
+
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumSystem_TypeCode) {
@@ -24,7 +47,7 @@ typedef NS_ENUM(int32_t, enumSystem_TypeCode) {
 	System_TypeCode_UInt32 = 10,
 	System_TypeCode_UInt64 = 12,
 };
-@interface System_TypeCode : DBSystem_Enum
+@interface System_TypeCode : System_Enum
 
 #pragma mark -
 #pragma mark Setup

@@ -2,6 +2,43 @@
 //
 // Managed struct : ValueTuple`6
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_ValueTupleA6.__Extra__.h")
+#import "System_ValueTupleA6.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Boolean;
+@class System_Collections_IStructuralComparable;
+@class System_Collections_IStructuralEquatable;
+@class System_IComparable;
+@class System_IComparableA1;
+@class System_IEquatableA1;
+@class System_Int32;
+@class System_Object;
+@class System_String;
+
+//
+// Import superclass and adopted protocols
+//
+#import "System_Collections_IStructuralComparable_Protocol.h"
+#import "System_Collections_IStructuralEquatable_Protocol.h"
+#import "System_IComparable_Protocol.h"
+#import "System_IComparableA1_Protocol.h"
+#import "System_IEquatableA1_Protocol.h"
+#import "System_Runtime_CompilerServices_ITuple_Protocol.h"
+#import "System_ValueType.h"
+
 @interface System_ValueTupleA6 : DBManagedObject <System_IEquatableA1_, System_Collections_IStructuralEquatable_, System_Collections_IStructuralComparable_, System_IComparable_, System_IComparableA1_, System_Runtime_CompilerServices_ITuple_>
 
 #pragma mark -
