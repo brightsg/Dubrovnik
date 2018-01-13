@@ -1,10 +1,6 @@
 [submodule "Submodules/OrderedDictionary"]
 	path = Submodules/OrderedDictionary
 	url = https://github.com/ThesaurusSoftware/OrderedDictionary
-[submodule "Submodules/Mono"]
-	path = Submodules/Mono
-	url = https://github.com/ThesaurusSoftware/mono
-	ignore = dirty 
 [submodule "Submodules/Mono.Embedding"]
 	path = Submodules/Mono.Embedding
 	url = https://github.com/ThesaurusSoftware/Mono.Embedding
