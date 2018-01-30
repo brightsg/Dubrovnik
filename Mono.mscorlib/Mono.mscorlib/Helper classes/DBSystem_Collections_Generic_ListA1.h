@@ -17,7 +17,18 @@
 @property (assign, nonatomic, readonly) BOOL parameterTypeIsValueType;
 
 + (instancetype)listWithMonoObject:(MonoObject *)monoObject;
-+ (instancetype)listWithObjects:(id)object;
+
+/**
+ Returns a managed list containing the contents of the array parameter. Note that this method
+ should not be preferred over +listWithObjects:typeParameter: as it defaults to using the type
+ of the first object in the array as the list type parameter. If subsequent objects in the array
+ are not compatible with the list type then unpredictable managed exceptions will occur. It is much
+ preferreable to explicitly state the type paramter.
+
+ @param object An array of managed objects or native objects that have managed equivalents.
+ @return A managed list
+ */
++ (instancetype)listWithObjects:(NSArray *)object;
 + (instancetype)listWithObjects:(NSArray<ObjectType> *)objects typeParameter:(id)typeParameter;
 
 - (DBSystem_Collections_IList *)list;
