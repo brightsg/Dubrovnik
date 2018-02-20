@@ -103,6 +103,8 @@
 		AB97228F1E6AD6C500DE0773 /* System_Threading_Tasks_Task.m in Sources */ = {isa = PBXBuildFile; fileRef = AB97228D1E6AD6C500DE0773 /* System_Threading_Tasks_Task.m */; };
 		AB9722921E6AD7D100DE0773 /* System_Threading_CancellationToken.h in Headers */ = {isa = PBXBuildFile; fileRef = AB9722901E6AD7D100DE0773 /* System_Threading_CancellationToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB9722931E6AD7D100DE0773 /* System_Threading_CancellationToken.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9722911E6AD7D100DE0773 /* System_Threading_CancellationToken.m */; };
+		ABA077F3203AEB0D00E31AB2 /* System_Reflection_MemberInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA077F1203AEB0D00E31AB2 /* System_Reflection_MemberInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABA077F4203AEB0D00E31AB2 /* System_Reflection_MemberInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA077F2203AEB0D00E31AB2 /* System_Reflection_MemberInfo.m */; };
 		ABB5CC2A1A9678E20089891A /* System_Collections_IList.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB5CC281A9678E20089891A /* System_Collections_IList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB5CC2B1A9678E20089891A /* System_Collections_IList.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5CC291A9678E20089891A /* System_Collections_IList.m */; };
 		ABB7B6C01EA8D75E0032A7D4 /* System_Collections_Generic_KeyValuePairA2+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB7B6BE1EA8D75E0032A7D4 /* System_Collections_Generic_KeyValuePairA2+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -320,6 +322,8 @@
 		AB97228D1E6AD6C500DE0773 /* System_Threading_Tasks_Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Threading_Tasks_Task.m; sourceTree = "<group>"; };
 		AB9722901E6AD7D100DE0773 /* System_Threading_CancellationToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Threading_CancellationToken.h; sourceTree = "<group>"; };
 		AB9722911E6AD7D100DE0773 /* System_Threading_CancellationToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Threading_CancellationToken.m; sourceTree = "<group>"; };
+		ABA077F1203AEB0D00E31AB2 /* System_Reflection_MemberInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = System_Reflection_MemberInfo.h; sourceTree = "<group>"; };
+		ABA077F2203AEB0D00E31AB2 /* System_Reflection_MemberInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = System_Reflection_MemberInfo.m; sourceTree = "<group>"; };
 		ABB5CC281A9678E20089891A /* System_Collections_IList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_IList.h; sourceTree = "<group>"; };
 		ABB5CC291A9678E20089891A /* System_Collections_IList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Collections_IList.m; sourceTree = "<group>"; };
 		ABB7B6BE1EA8D75E0032A7D4 /* System_Collections_Generic_KeyValuePairA2+mscorlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Collections_Generic_KeyValuePairA2+mscorlib.h"; sourceTree = "<group>"; };
@@ -735,6 +739,8 @@
 				AB80230F1DE46ED40094294A /* System_UnhandledExceptionEventArgs.m */,
 				AB50B5E21AC599360030429C /* System_Version.h */,
 				AB50B5E31AC599360030429C /* System_Version.m */,
+				ABA077F1203AEB0D00E31AB2 /* System_Reflection_MemberInfo.h */,
+				ABA077F2203AEB0D00E31AB2 /* System_Reflection_MemberInfo.m */,
 			);
 			path = "Manual bindings";
 			sourceTree = "<group>";
@@ -860,6 +866,7 @@
 				AB2E745318FFCD420061C63E /* System_IO_StringWriter.h in Headers */,
 				ABB9F2421DC8D4D300A95896 /* NSDate+mscorlib.h in Headers */,
 				AB5EBCAE1ED3019D00A14D47 /* System_Decimal.h in Headers */,
+				ABA077F3203AEB0D00E31AB2 /* System_Reflection_MemberInfo.h in Headers */,
 				AB2E744518FFCD0A0061C63E /* System_Text_Encoding.h in Headers */,
 				AB2E746318FFCD8F0061C63E /* System_Globalization_CultureInfo.h in Headers */,
 				53FDBD731E64846E00DD8BEB /* System_Collections_IEnumerator.h in Headers */,
@@ -1074,6 +1081,7 @@
 				AB50B5E71AC599360030429C /* System_Version.m in Sources */,
 				ABB8A39B18FF09F900213B80 /* DBSystem_Enum.m in Sources */,
 				ABB8A42918FF15B300213B80 /* DBSystem_Collections_Generic_DictionaryA2.m in Sources */,
+				ABA077F4203AEB0D00E31AB2 /* System_Reflection_MemberInfo.m in Sources */,
 				ABB8A40318FF110000213B80 /* System_Collections_Generic_DictionaryA2.m in Sources */,
 				AB2E744218FFCD0A0061C63E /* System_Reflection_MethodInfo.m in Sources */,
 				AB2E744818FFCD0A0061C63E /* System_TimeSpan.m in Sources */,
