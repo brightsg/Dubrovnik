@@ -8,3 +8,4 @@
 
 #import "System_Xml_XmlTextWriter.h"
 #import "System_Xml_Xsl_XsltArgumentList.h"
+#import "System_Xml_XmlDocument.h"

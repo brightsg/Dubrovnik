@@ -27,6 +27,8 @@
 		AB61C16D1F72833F00C1E7AE /* System_UriPartial.m in Sources */ = {isa = PBXBuildFile; fileRef = AB61C1611F72833F00C1E7AE /* System_UriPartial.m */; };
 		AB6245231E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h in Headers */ = {isa = PBXBuildFile; fileRef = AB6245211E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB6245241E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6245221E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m */; };
+		AB6C167C20483DB300D6CC54 /* System_Configuration_SettingsBase.h in Headers */ = {isa = PBXBuildFile; fileRef = AB6C167A20483DB300D6CC54 /* System_Configuration_SettingsBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6C167D20483DB300D6CC54 /* System_Configuration_SettingsBase.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6C167B20483DB300D6CC54 /* System_Configuration_SettingsBase.m */; };
 		AB7DF4BE1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7DF4BC1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB7DF4BF1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7DF4BD1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.m */; };
 		AB7DF4C21A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7DF4C01A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -89,6 +91,8 @@
 		AB61C1611F72833F00C1E7AE /* System_UriPartial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_UriPartial.m; sourceTree = "<group>"; };
 		AB6245211E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Collections_ObjectModel_ObservableCollectionA1+Events.h"; sourceTree = "<group>"; };
 		AB6245221E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Collections_ObjectModel_ObservableCollectionA1+Events.m"; sourceTree = "<group>"; };
+		AB6C167A20483DB300D6CC54 /* System_Configuration_SettingsBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = System_Configuration_SettingsBase.h; sourceTree = "<group>"; };
+		AB6C167B20483DB300D6CC54 /* System_Configuration_SettingsBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = System_Configuration_SettingsBase.m; sourceTree = "<group>"; };
 		AB7DF4BC1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_INotifyPropertyChanged.h; sourceTree = "<group>"; };
 		AB7DF4BD1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_INotifyPropertyChanged.m; sourceTree = "<group>"; };
 		AB7DF4C01A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_INotifyPropertyChanging.h; sourceTree = "<group>"; };
@@ -287,6 +291,8 @@
 				AB7DF4C11A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.m */,
 				ABA6EEE61E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.h */,
 				ABA6EEE71E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.m */,
+				AB6C167A20483DB300D6CC54 /* System_Configuration_SettingsBase.h */,
+				AB6C167B20483DB300D6CC54 /* System_Configuration_SettingsBase.m */,
 			);
 			path = "Manual Bindings";
 			sourceTree = "<group>";
@@ -312,6 +318,7 @@
 				AB61C16C1F72833F00C1E7AE /* System_UriPartial.h in Headers */,
 				AB7DF4BE1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h in Headers */,
 				AB61C16A1F72833F00C1E7AE /* System_UriKind.h in Headers */,
+				AB6C167C20483DB300D6CC54 /* System_Configuration_SettingsBase.h in Headers */,
 				AB61C1661F72833F00C1E7AE /* System_UriFormat.h in Headers */,
 				AB178063199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h in Headers */,
 				AB17805F199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.h in Headers */,
@@ -432,6 +439,7 @@
 				ABDA50E71A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.m in Sources */,
 				AB7DF4BF1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.m in Sources */,
 				AB178060199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m in Sources */,
+				AB6C167D20483DB300D6CC54 /* System_Configuration_SettingsBase.m in Sources */,
 				ABF37D4F1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.m in Sources */,
 				ABA6EEE91E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.m in Sources */,
 				AB61C16B1F72833F00C1E7AE /* System_UriKind.m in Sources */,
