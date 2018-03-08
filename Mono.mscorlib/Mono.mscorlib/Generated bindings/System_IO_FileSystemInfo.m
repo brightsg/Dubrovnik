@@ -8,14 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Boolean.h"
-#import "System_DateTime.h"
-#import "System_IO_FileAttributes.h"
-#import "System_IO_FileSystemInfo.h"
-#import "System_Runtime_Serialization_ISerializable.h"
-#import "System_String.h"
-#import "System_Void.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_IO_FileSystemInfo
 

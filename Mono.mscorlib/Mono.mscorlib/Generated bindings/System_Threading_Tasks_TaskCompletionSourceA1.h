@@ -3,22 +3,36 @@
 // Managed class : TaskCompletionSource`1<TResult>
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Threading_Tasks_TaskCompletionSourceA1.__Extra__.h")
 #import "System_Threading_Tasks_TaskCompletionSourceA1.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_Boolean;
+@class System_Collections_Generic_IEnumerableA1;
+@class System_Exception;
 @class System_Object;
+@class System_Threading_CancellationToken;
+@class System_Threading_Tasks_TaskA1;
+@class System_Threading_Tasks_TaskCompletionSourceA1;
+@class System_Threading_Tasks_TaskCreationOptions;
 @class System_Void;
+@protocol System_Collections_Generic_IEnumerableA1;
+@protocol System_Collections_Generic_IEnumerableA1_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Object.h"
 
 @interface System_Threading_Tasks_TaskCompletionSourceA1 : System_Object

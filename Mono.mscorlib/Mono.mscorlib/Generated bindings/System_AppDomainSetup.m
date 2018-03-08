@@ -8,15 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_AppDomainInitializer.h"
-#import "System_AppDomainSetup.h"
-#import "System_Boolean.h"
-#import "System_Byte.h"
-#import "System_IAppDomainSetup.h"
-#import "System_LoaderOptimization.h"
-#import "System_String.h"
-#import "System_Void.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_AppDomainSetup
 
@@ -94,7 +91,7 @@
 	// Managed property name : AppDomainInitializerArguments
 	// Managed property type : System.String[]
     @synthesize appDomainInitializerArguments = _appDomainInitializerArguments;
-    - (DBSystem_Array *)appDomainInitializerArguments
+    - (System_Array *)appDomainInitializerArguments
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -108,11 +105,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_appDomainInitializerArguments isEqualToMonoObject:monoObject]) return _appDomainInitializerArguments;					
-		_appDomainInitializerArguments = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		_appDomainInitializerArguments = [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
 		return _appDomainInitializerArguments;
 	}
-    - (void)setAppDomainInitializerArguments:(DBSystem_Array *)value
+    - (void)setAppDomainInitializerArguments:(System_Array *)value
 	{
 		_appDomainInitializerArguments = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -608,7 +605,7 @@
 	// Managed property name : PartialTrustVisibleAssemblies
 	// Managed property type : System.String[]
     @synthesize partialTrustVisibleAssemblies = _partialTrustVisibleAssemblies;
-    - (DBSystem_Array *)partialTrustVisibleAssemblies
+    - (System_Array *)partialTrustVisibleAssemblies
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -622,11 +619,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_partialTrustVisibleAssemblies isEqualToMonoObject:monoObject]) return _partialTrustVisibleAssemblies;					
-		_partialTrustVisibleAssemblies = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		_partialTrustVisibleAssemblies = [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
 		return _partialTrustVisibleAssemblies;
 	}
-    - (void)setPartialTrustVisibleAssemblies:(DBSystem_Array *)value
+    - (void)setPartialTrustVisibleAssemblies:(System_Array *)value
 	{
 		_partialTrustVisibleAssemblies = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);

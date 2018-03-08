@@ -3,28 +3,41 @@
 // Managed class : Environment
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Environment.__Extra__.h")
 #import "System_Environment.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_Array;
 @class System_Boolean;
 @class System_Collections_IDictionary;
 @class System_Environment;
+@class System_Environment__SpecialFolder;
+@class System_Environment__SpecialFolderOption;
+@class System_EnvironmentVariableTarget;
+@class System_Exception;
 @class System_Int32;
 @class System_Int64;
 @class System_OperatingSystem;
 @class System_String;
 @class System_Version;
 @class System_Void;
+@protocol System_Collections_IDictionary;
+@protocol System_Collections_IDictionary_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Object.h"
 
 @interface System_Environment : System_Object
@@ -157,7 +170,7 @@
 		Managed return type : System.String[]
 		Managed param types : 
 	 */
-    + (DBSystem_Array *)getCommandLineArgs;
+    + (System_Array *)getCommandLineArgs;
 
 	/*! 
 		Managed method name : GetEnvironmentVariable
@@ -206,7 +219,7 @@
 		Managed return type : System.String[]
 		Managed param types : 
 	 */
-    + (DBSystem_Array *)getLogicalDrives;
+    + (System_Array *)getLogicalDrives;
 
 	/*! 
 		Managed method name : SetEnvironmentVariable

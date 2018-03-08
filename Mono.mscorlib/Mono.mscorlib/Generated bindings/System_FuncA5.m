@@ -8,11 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_IAsyncResult.h"
-#import "System_ICloneable.h"
-#import "System_Object.h"
-#import "System_Runtime_Serialization_ISerializable.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_FuncA5
 

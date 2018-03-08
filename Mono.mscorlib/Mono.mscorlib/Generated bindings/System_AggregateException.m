@@ -8,14 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_AggregateException.h"
-#import "System_Collections_ObjectModel_ReadOnlyCollectionA1.h"
-#import "System_Exception.h"
-#import "System_Runtime_InteropServices__Exception.h"
-#import "System_Runtime_Serialization_ISerializable.h"
-#import "System_String.h"
-#import "System_Void.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_AggregateException
 
@@ -79,7 +77,7 @@
 		Managed return type : System.AggregateException
 		Managed param types : System.Exception[]
 	 */
-    + (System_AggregateException *)new_withInnerExceptionsSException:(DBSystem_Array *)p1
+    + (System_AggregateException *)new_withInnerExceptionsSExceptionArray:(System_Array *)p1
     {
 		
 		System_AggregateException * object = [[self alloc] initWithSignature:"System.Exception[]" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -105,7 +103,7 @@
 		Managed return type : System.AggregateException
 		Managed param types : System.String, System.Exception[]
 	 */
-    + (System_AggregateException *)new_withMessageString:(NSString *)p1 innerExceptionsSException:(DBSystem_Array *)p2
+    + (System_AggregateException *)new_withMessageString:(NSString *)p1 innerExceptionsSExceptionArray:(System_Array *)p2
     {
 		
 		System_AggregateException * object = [[self alloc] initWithSignature:"string,System.Exception[]" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];

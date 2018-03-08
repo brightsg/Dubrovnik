@@ -3,29 +3,39 @@
 // Managed struct : SByte
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_SByte.__Extra__.h")
 #import "System_SByte.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_Boolean;
 @class System_IComparable;
 @class System_IComparableA1;
 @class System_IConvertible;
 @class System_IEquatableA1;
+@class System_IFormatProvider;
 @class System_IFormattable;
 @class System_Int32;
+@class System_Object;
 @class System_SByte;
 @class System_String;
 @class System_TypeCode;
+@protocol System_IFormatProvider;
+@protocol System_IFormatProvider_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_IComparable_Protocol.h"
 #import "System_IComparableA1_Protocol.h"
 #import "System_IConvertible_Protocol.h"
@@ -33,7 +43,7 @@
 #import "System_IFormattable_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_SByte : DBManagedObject <System_IComparable_, System_IFormattable_, System_IConvertible_, System_IComparableA1_, System_IEquatableA1_>
+@interface System_SByte : System_ValueType <System_IComparable_, System_IFormattable_, System_IConvertible_, System_IComparableA1_, System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup

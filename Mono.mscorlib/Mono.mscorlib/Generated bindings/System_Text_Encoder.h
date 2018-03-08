@@ -3,24 +3,34 @@
 // Managed class : Encoder
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Text_Encoder.__Extra__.h")
 #import "System_Text_Encoder.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_Array;
+@class System_Boolean;
+@class System_Byte;
+@class System_Char;
 @class System_Int32;
 @class System_Text_Encoder;
 @class System_Text_EncoderFallback;
 @class System_Text_EncoderFallbackBuffer;
 @class System_Void;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Object.h"
 
 @interface System_Text_Encoder : System_Object
@@ -51,7 +61,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Char[], System.Int32, System.Int32, System.Byte[], System.Int32, System.Int32, System.Boolean, ref System.Int32&, ref System.Int32&, ref System.Boolean&
 	 */
-    - (void)convert_withChars:(DBSystem_Array *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5 byteCount:(int32_t)p6 flush:(BOOL)p7 charsUsedRef:(int32_t*)p8 bytesUsedRef:(int32_t*)p9 completedRef:(BOOL*)p10;
+    - (void)convert_withChars:(System_Array *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5 byteCount:(int32_t)p6 flush:(BOOL)p7 charsUsedRef:(int32_t*)p8 bytesUsedRef:(int32_t*)p9 completedRef:(BOOL*)p10;
 
 	/*! 
 		Managed method name : Convert
@@ -65,7 +75,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.Char[], System.Int32, System.Int32, System.Boolean
 	 */
-    - (int32_t)getByteCount_withChars:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3 flush:(BOOL)p4;
+    - (int32_t)getByteCount_withChars:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3 flush:(BOOL)p4;
 
 	/*! 
 		Managed method name : GetByteCount
@@ -79,7 +89,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.Char[], System.Int32, System.Int32, System.Byte[], System.Int32, System.Boolean
 	 */
-    - (int32_t)getBytes_withChars:(DBSystem_Array *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5 flush:(BOOL)p6;
+    - (int32_t)getBytes_withChars:(System_Array *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5 flush:(BOOL)p6;
 
 	/*! 
 		Managed method name : GetBytes

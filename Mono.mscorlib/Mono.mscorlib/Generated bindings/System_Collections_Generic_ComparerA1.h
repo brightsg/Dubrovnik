@@ -3,23 +3,31 @@
 // Managed class : Comparer`1<T>
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Collections_Generic_ComparerA1.__Extra__.h")
 #import "System_Collections_Generic_ComparerA1.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_Collections_Generic_ComparerA1;
 @class System_Collections_Generic_IComparerA1;
 @class System_Collections_IComparer;
+@class System_ComparisonA1;
 @class System_Int32;
 @class System_Object;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Collections_Generic_IComparerA1_Protocol.h"
 #import "System_Collections_IComparer_Protocol.h"
 #import "System_Object.h"

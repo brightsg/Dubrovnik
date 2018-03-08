@@ -8,25 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Boolean.h"
-#import "System_Byte.h"
-#import "System_Char.h"
-#import "System_Convert.h"
-#import "System_DateTime.h"
-#import "System_Decimal.h"
-#import "System_Double.h"
-#import "System_Int16.h"
-#import "System_Int32.h"
-#import "System_Int64.h"
-#import "System_Object.h"
-#import "System_SByte.h"
-#import "System_Single.h"
-#import "System_String.h"
-#import "System_TypeCode.h"
-#import "System_UInt16.h"
-#import "System_UInt32.h"
-#import "System_UInt64.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_Convert
 
@@ -118,7 +105,7 @@
 		Managed return type : System.Byte[]
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    + (NSData *)fromBase64CharArray_withInArray:(DBSystem_Array *)p1 offset:(int32_t)p2 length:(int32_t)p3
+    + (NSData *)fromBase64CharArray_withInArray:(System_Array *)p1 offset:(int32_t)p2 length:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"FromBase64CharArray(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
@@ -170,7 +157,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.Byte[], System.Int32, System.Int32, System.Char[], System.Int32
 	 */
-    + (int32_t)toBase64CharArray_withInArray:(NSData *)p1 offsetIn:(int32_t)p2 length:(int32_t)p3 outArray:(DBSystem_Array *)p4 offsetOut:(int32_t)p5
+    + (int32_t)toBase64CharArray_withInArray:(NSData *)p1 offsetIn:(int32_t)p2 length:(int32_t)p3 outArray:(System_Array *)p4 offsetOut:(int32_t)p5
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToBase64CharArray(byte[],int,int,char[],int)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], DB_VALUE(p5)];
@@ -183,7 +170,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.Byte[], System.Int32, System.Int32, System.Char[], System.Int32, System.Base64FormattingOptions
 	 */
-    + (int32_t)toBase64CharArray_withInArray:(NSData *)p1 offsetIn:(int32_t)p2 length:(int32_t)p3 outArray:(DBSystem_Array *)p4 offsetOut:(int32_t)p5 options:(int32_t)p6
+    + (int32_t)toBase64CharArray_withInArray:(NSData *)p1 offsetIn:(int32_t)p2 length:(int32_t)p3 outArray:(System_Array *)p4 offsetOut:(int32_t)p5 options:(int32_t)p6
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ToBase64CharArray(byte[],int,int,char[],int,System.Base64FormattingOptions)" withNumArgs:6, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], DB_VALUE(p5), DB_VALUE(p6)];

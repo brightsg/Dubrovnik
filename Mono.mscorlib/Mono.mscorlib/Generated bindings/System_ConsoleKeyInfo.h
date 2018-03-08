@@ -3,28 +3,35 @@
 // Managed struct : ConsoleKeyInfo
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_ConsoleKeyInfo.__Extra__.h")
 #import "System_ConsoleKeyInfo.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_Boolean;
 @class System_Char;
 @class System_ConsoleKey;
 @class System_ConsoleKeyInfo;
 @class System_ConsoleModifiers;
 @class System_Int32;
+@class System_Object;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_ValueType.h"
 
-@interface System_ConsoleKeyInfo : DBManagedObject
+@interface System_ConsoleKeyInfo : System_ValueType
 
 #pragma mark -
 #pragma mark Setup

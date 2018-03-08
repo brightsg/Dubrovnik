@@ -8,15 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Boolean.h"
-#import "System_Delegate.h"
-#import "System_ICloneable.h"
-#import "System_Int32.h"
-#import "System_Object.h"
-#import "System_Reflection_MethodInfo.h"
-#import "System_Runtime_Serialization_ISerializable.h"
-#import "System_Void.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_Delegate
 
@@ -114,7 +111,7 @@
 		Managed return type : System.Delegate
 		Managed param types : System.Delegate[]
 	 */
-    + (System_Delegate *)combine_withDelegates:(DBSystem_Array *)p1
+    + (System_Delegate *)combine_withDelegates:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Combine(System.Delegate[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -257,7 +254,7 @@
 		Managed return type : System.Object
 		Managed param types : System.Object[]
 	 */
-    - (System_Object *)dynamicInvoke_withArgs:(DBSystem_Array *)p1
+    - (System_Object *)dynamicInvoke_withArgs:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"DynamicInvoke(object[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -296,12 +293,12 @@
 		Managed return type : System.Delegate[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getInvocationList
+    - (System_Array *)getInvocationList
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetInvocationList()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 

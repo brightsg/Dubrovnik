@@ -8,13 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Boolean.h"
-#import "System_Char.h"
-#import "System_ConsoleKey.h"
-#import "System_ConsoleKeyInfo.h"
-#import "System_ConsoleModifiers.h"
-#import "System_Int32.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_ConsoleKeyInfo
 

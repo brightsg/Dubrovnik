@@ -8,19 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Boolean.h"
-#import "System_Collections_Generic_ICollectionA1.h"
-#import "System_Collections_Generic_IEnumerableA1.h"
-#import "System_Collections_Generic_IListA1.h"
-#import "System_Collections_Generic_IReadOnlyCollectionA1.h"
-#import "System_Collections_Generic_IReadOnlyListA1.h"
-#import "System_Collections_ICollection.h"
-#import "System_Collections_IEnumerable.h"
-#import "System_Collections_IList.h"
-#import "System_Int32.h"
-#import "System_Object.h"
-#import "System_Void.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_Collections_Generic_ListA1
 
@@ -273,13 +266,13 @@
 		Managed param types : System.Converter`2<System.Collections.Generic.List`1+T, System.Collections.Generic.List`1+TOutput>
 		Generic method definition type params : <System.Collections.Generic.List`1+TOutput>
 	 */
-    - (DBSystem_Collections_Generic_ListA1 *)convertAll_withConverter:(System_ConverterA2 *)p1 typeParameter:(id)typeParameter
+    - (System_Collections_Generic_ListA1 *)convertAll_withConverter:(System_ConverterA2 *)p1 typeParameter:(id)typeParameter
     {
 		DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"ConvertAll(System.Converter`2<System.Collections.Generic.List`1/T, System.Collections.Generic.List`1/TOutput>)" typeParameters:typeParameter];
 
 		MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
+		return [System_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
     }
 
 	/*! 
@@ -287,7 +280,7 @@
 		Managed return type : System.Void
 		Managed param types : T[]
 	 */
-    - (void)copyTo_withArray:(DBSystem_Array *)p1
+    - (void)copyTo_withArray:(System_Array *)p1
     {
 		
 		[self invokeMonoMethod:"CopyTo(T[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -299,7 +292,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Int32, T[], System.Int32, System.Int32
 	 */
-    - (void)copyTo_withIndex:(int32_t)p1 array:(DBSystem_Array *)p2 arrayIndex:(int32_t)p3 count:(int32_t)p4
+    - (void)copyTo_withIndex:(int32_t)p1 array:(System_Array *)p2 arrayIndex:(int32_t)p3 count:(int32_t)p4
     {
 		
 		[self invokeMonoMethod:"CopyTo(int,T[],int,int)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
@@ -311,7 +304,7 @@
 		Managed return type : System.Void
 		Managed param types : T[], System.Int32
 	 */
-    - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2
+    - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2
     {
 		
 		[self invokeMonoMethod:"CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
@@ -349,12 +342,12 @@
 		Managed return type : System.Collections.Generic.List`1<System.Collections.Generic.List`1+T>
 		Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
 	 */
-    - (DBSystem_Collections_Generic_ListA1 *)findAll_withMatch:(System_PredicateA1 *)p1
+    - (System_Collections_Generic_ListA1 *)findAll_withMatch:(System_PredicateA1 *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"FindAll(System.Predicate`1<System.Collections.Generic.List`1/T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
+		return [System_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
     }
 
 	/*! 
@@ -478,12 +471,12 @@
 		Managed return type : System.Collections.Generic.List`1<System.Collections.Generic.List`1+T>
 		Managed param types : System.Int32, System.Int32
 	 */
-    - (DBSystem_Collections_Generic_ListA1 *)getRange_withIndex:(int32_t)p1 count:(int32_t)p2
+    - (System_Collections_Generic_ListA1 *)getRange_withIndex:(int32_t)p1 count:(int32_t)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetRange(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 		
-		return [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
+		return [System_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
     }
 
 	/*! 
@@ -715,12 +708,12 @@
 		Managed return type : T[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)toArray
+    - (System_Array *)toArray
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ToArray()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 

@@ -8,11 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Collections_Generic_IEnumerableA1.h"
-#import "System_Collections_Generic_IReadOnlyCollectionA1.h"
-#import "System_Collections_IEnumerable.h"
-#import "System_Object.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_Collections_Generic_IReadOnlyListA1
 

@@ -3,28 +3,42 @@
 // Managed class : Stream
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_IO_Stream.__Extra__.h")
 #import "System_IO_Stream.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_Array;
+@class System_AsyncCallback;
 @class System_Boolean;
+@class System_Byte;
 @class System_IAsyncResult;
 @class System_IDisposable;
 @class System_Int32;
 @class System_Int64;
+@class System_IO_SeekOrigin;
 @class System_IO_Stream;
+@class System_Object;
+@class System_Threading_CancellationToken;
 @class System_Threading_Tasks_Task;
 @class System_Threading_Tasks_TaskA1;
 @class System_Void;
+@protocol System_IAsyncResult;
+@protocol System_IAsyncResult_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_IDisposable_Protocol.h"
 #import "System_MarshalByRefObject.h"
 

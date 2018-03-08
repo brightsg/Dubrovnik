@@ -3,25 +3,36 @@
 // Managed interface : IDictionary`2<TKey, TValue>
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Collections_Generic_IDictionaryA2.__Extra__.h")
 #import "System_Collections_Generic_IDictionaryA2.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_Boolean;
 @class System_Collections_Generic_ICollectionA1;
+@class System_Collections_Generic_IDictionaryA2;
 @class System_Collections_Generic_IEnumerableA1;
 @class System_Collections_IEnumerable;
 @class System_Object;
 @class System_Void;
+@protocol System_Collections_Generic_ICollectionA1;
+@protocol System_Collections_Generic_ICollectionA1_;
+@protocol System_Collections_Generic_IDictionaryA2;
+@protocol System_Collections_Generic_IDictionaryA2_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Collections_Generic_ICollectionA1_Protocol.h"
 #import "System_Collections_Generic_IEnumerableA1_Protocol.h"
 #import "System_Collections_IEnumerable_Protocol.h"
@@ -80,6 +91,6 @@
 		Managed return type : System.Boolean
 		Managed param types : <System.Collections.Generic.IDictionary`2+TKey>, ref TValue&
 	 */
-    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Collections_Generic_IDictionaryA2__TValue **)p2;
+    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
 @end
 //--Dubrovnik.CodeGenerator

@@ -8,17 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Boolean.h"
-#import "System_ICloneable.h"
-#import "System_IComparable.h"
-#import "System_IComparableA1.h"
-#import "System_IEquatableA1.h"
-#import "System_Int16.h"
-#import "System_Int32.h"
-#import "System_Object.h"
-#import "System_String.h"
-#import "System_Version.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_Version
 

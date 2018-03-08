@@ -3,30 +3,46 @@
 // Managed class : ArrayList
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Collections_ArrayList.__Extra__.h")
 #import "System_Collections_ArrayList.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_Array;
 @class System_Boolean;
 @class System_Collections_ArrayList;
 @class System_Collections_ICollection;
+@class System_Collections_IComparer;
 @class System_Collections_IEnumerable;
 @class System_Collections_IEnumerator;
 @class System_Collections_IList;
 @class System_ICloneable;
 @class System_Int32;
 @class System_Object;
+@class System_Type;
 @class System_Void;
+@protocol System_Collections_ICollection;
+@protocol System_Collections_ICollection_;
+@protocol System_Collections_IComparer;
+@protocol System_Collections_IComparer_;
+@protocol System_Collections_IEnumerator;
+@protocol System_Collections_IEnumerator_;
+@protocol System_Collections_IList;
+@protocol System_Collections_IList_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Collections_ICollection_Protocol.h"
 #import "System_Collections_IEnumerable_Protocol.h"
 #import "System_Collections_IList_Protocol.h"
@@ -50,14 +66,14 @@
 		Managed return type : System.Collections.ArrayList
 		Managed param types : System.Int32
 	 */
-    + (DBSystem_Collections_ArrayList *)new_withCapacity:(int32_t)p1;
+    + (System_Collections_ArrayList *)new_withCapacity:(int32_t)p1;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.Collections.ArrayList
 		Managed param types : System.Collections.ICollection
 	 */
-    + (DBSystem_Collections_ArrayList *)new_withC:(id <System_Collections_ICollection_>)p1;
+    + (System_Collections_ArrayList *)new_withC:(id <System_Collections_ICollection_>)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -98,7 +114,7 @@
 		Managed return type : System.Collections.ArrayList
 		Managed param types : System.Collections.IList
 	 */
-    + (DBSystem_Collections_ArrayList *)adapter_withList:(id <System_Collections_IList_>)p1;
+    + (System_Collections_ArrayList *)adapter_withList:(id <System_Collections_IList_>)p1;
 
 	/*! 
 		Managed method name : Add
@@ -161,21 +177,21 @@
 		Managed return type : System.Void
 		Managed param types : System.Array
 	 */
-    - (void)copyTo_withArray:(DBSystem_Array *)p1;
+    - (void)copyTo_withArray:(System_Array *)p1;
 
 	/*! 
 		Managed method name : CopyTo
 		Managed return type : System.Void
 		Managed param types : System.Array, System.Int32
 	 */
-    - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2;
+    - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2;
 
 	/*! 
 		Managed method name : CopyTo
 		Managed return type : System.Void
 		Managed param types : System.Int32, System.Array, System.Int32, System.Int32
 	 */
-    - (void)copyTo_withIndex:(int32_t)p1 array:(DBSystem_Array *)p2 arrayIndex:(int32_t)p3 count:(int32_t)p4;
+    - (void)copyTo_withIndex:(int32_t)p1 array:(System_Array *)p2 arrayIndex:(int32_t)p3 count:(int32_t)p4;
 
 	/*! 
 		Managed method name : FixedSize
@@ -189,7 +205,7 @@
 		Managed return type : System.Collections.ArrayList
 		Managed param types : System.Collections.ArrayList
 	 */
-    + (DBSystem_Collections_ArrayList *)fixedSize_withListSCArrayList:(DBSystem_Collections_ArrayList *)p1;
+    + (System_Collections_ArrayList *)fixedSize_withListSCArrayList:(System_Collections_ArrayList *)p1;
 
 	/*! 
 		Managed method name : GetEnumerator
@@ -210,7 +226,7 @@
 		Managed return type : System.Collections.ArrayList
 		Managed param types : System.Int32, System.Int32
 	 */
-    - (DBSystem_Collections_ArrayList *)getRange_withIndex:(int32_t)p1 count:(int32_t)p2;
+    - (System_Collections_ArrayList *)getRange_withIndex:(int32_t)p1 count:(int32_t)p2;
 
 	/*! 
 		Managed method name : IndexOf
@@ -280,7 +296,7 @@
 		Managed return type : System.Collections.ArrayList
 		Managed param types : System.Collections.ArrayList
 	 */
-    + (DBSystem_Collections_ArrayList *)readOnly_withListSCArrayList:(DBSystem_Collections_ArrayList *)p1;
+    + (System_Collections_ArrayList *)readOnly_withListSCArrayList:(System_Collections_ArrayList *)p1;
 
 	/*! 
 		Managed method name : Remove
@@ -308,7 +324,7 @@
 		Managed return type : System.Collections.ArrayList
 		Managed param types : System.Object, System.Int32
 	 */
-    + (DBSystem_Collections_ArrayList *)repeat_withValue:(System_Object *)p1 count:(int32_t)p2;
+    + (System_Collections_ArrayList *)repeat_withValue:(System_Object *)p1 count:(int32_t)p2;
 
 	/*! 
 		Managed method name : Reverse
@@ -364,21 +380,21 @@
 		Managed return type : System.Collections.ArrayList
 		Managed param types : System.Collections.ArrayList
 	 */
-    + (DBSystem_Collections_ArrayList *)synchronized_withListSCArrayList:(DBSystem_Collections_ArrayList *)p1;
+    + (System_Collections_ArrayList *)synchronized_withListSCArrayList:(System_Collections_ArrayList *)p1;
 
 	/*! 
 		Managed method name : ToArray
 		Managed return type : System.Object[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)toArray;
+    - (System_Array *)toArray;
 
 	/*! 
 		Managed method name : ToArray
 		Managed return type : System.Array
 		Managed param types : System.Type
 	 */
-    - (DBSystem_Array *)toArray_withType:(System_Type *)p1;
+    - (System_Array *)toArray_withType:(System_Type *)p1;
 
 	/*! 
 		Managed method name : TrimToSize

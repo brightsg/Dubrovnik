@@ -8,23 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Boolean.h"
-#import "System_Byte.h"
-#import "System_Char.h"
-#import "System_Decimal.h"
-#import "System_Double.h"
-#import "System_IDisposable.h"
-#import "System_Int16.h"
-#import "System_Int32.h"
-#import "System_Int64.h"
-#import "System_IO_UnmanagedMemoryAccessor.h"
-#import "System_SByte.h"
-#import "System_Single.h"
-#import "System_UInt16.h"
-#import "System_UInt32.h"
-#import "System_UInt64.h"
-#import "System_Void.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_IO_UnmanagedMemoryAccessor
 
@@ -133,7 +122,7 @@
 		Managed param types : System.Int64, ref T&
 		Generic method definition type params : <System.IO.UnmanagedMemoryAccessor+T>
 	 */
-    - (void)read_withPosition:(int64_t)p1 structureRef:(System_IO_UnmanagedMemoryAccessor__T **)p2 typeParameter:(id)typeParameter
+    - (void)read_withPosition:(int64_t)p1 structureRef:(System_Object **)p2 typeParameter:(id)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"Read(long,System.IO.UnmanagedMemoryAccessor/T&)" typeParameters:typeParameter];
@@ -150,7 +139,7 @@ DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithM
 		Managed param types : System.Int64, T[], System.Int32, System.Int32
 		Generic method definition type params : <System.IO.UnmanagedMemoryAccessor+T>
 	 */
-    - (int32_t)readArray_withPosition:(int64_t)p1 array:(DBSystem_Array *)p2 offset:(int32_t)p3 count:(int32_t)p4 typeParameter:(id)typeParameter
+    - (int32_t)readArray_withPosition:(int64_t)p1 array:(System_Array *)p2 offset:(int32_t)p3 count:(int32_t)p4 typeParameter:(id)typeParameter
     {
 		DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"ReadArray(long,T[],int,int)" typeParameters:typeParameter];
 
@@ -490,7 +479,7 @@ DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithM
 		Managed param types : System.Int64, ref T&
 		Generic method definition type params : <System.IO.UnmanagedMemoryAccessor+T>
 	 */
-    - (void)write_withPosition:(int64_t)p1 structureRef:(System_IO_UnmanagedMemoryAccessor__T **)p2 typeParameter:(id)typeParameter
+    - (void)write_withPosition:(int64_t)p1 structureRef:(System_Object **)p2 typeParameter:(id)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"Write(long,System.IO.UnmanagedMemoryAccessor/T&)" typeParameters:typeParameter];
@@ -507,7 +496,7 @@ DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithM
 		Managed param types : System.Int64, T[], System.Int32, System.Int32
 		Generic method definition type params : <System.IO.UnmanagedMemoryAccessor+T>
 	 */
-    - (void)writeArray_withPosition:(int64_t)p1 array:(DBSystem_Array *)p2 offset:(int32_t)p3 count:(int32_t)p4 typeParameter:(id)typeParameter
+    - (void)writeArray_withPosition:(int64_t)p1 array:(System_Array *)p2 offset:(int32_t)p3 count:(int32_t)p4 typeParameter:(id)typeParameter
     {
 		DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"WriteArray(long,T[],int,int)" typeParameters:typeParameter];
 

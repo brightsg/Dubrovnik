@@ -3,17 +3,23 @@
 // Managed class : Convert
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Convert.__Extra__.h")
 #import "System_Convert.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_Array;
+@class System_Base64FormattingOptions;
 @class System_Boolean;
 @class System_Byte;
 @class System_Char;
@@ -21,6 +27,7 @@
 @class System_DateTime;
 @class System_Decimal;
 @class System_Double;
+@class System_IFormatProvider;
 @class System_Int16;
 @class System_Int32;
 @class System_Int64;
@@ -28,12 +35,17 @@
 @class System_SByte;
 @class System_Single;
 @class System_String;
+@class System_Type;
 @class System_TypeCode;
 @class System_UInt16;
 @class System_UInt32;
 @class System_UInt64;
+@protocol System_IFormatProvider;
+@protocol System_IFormatProvider_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Object.h"
 
 @interface System_Convert : System_Object
@@ -88,7 +100,7 @@
 		Managed return type : System.Byte[]
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    + (NSData *)fromBase64CharArray_withInArray:(DBSystem_Array *)p1 offset:(int32_t)p2 length:(int32_t)p3;
+    + (NSData *)fromBase64CharArray_withInArray:(System_Array *)p1 offset:(int32_t)p2 length:(int32_t)p3;
 
 	/*! 
 		Managed method name : FromBase64String
@@ -116,14 +128,14 @@
 		Managed return type : System.Int32
 		Managed param types : System.Byte[], System.Int32, System.Int32, System.Char[], System.Int32
 	 */
-    + (int32_t)toBase64CharArray_withInArray:(NSData *)p1 offsetIn:(int32_t)p2 length:(int32_t)p3 outArray:(DBSystem_Array *)p4 offsetOut:(int32_t)p5;
+    + (int32_t)toBase64CharArray_withInArray:(NSData *)p1 offsetIn:(int32_t)p2 length:(int32_t)p3 outArray:(System_Array *)p4 offsetOut:(int32_t)p5;
 
 	/*! 
 		Managed method name : ToBase64CharArray
 		Managed return type : System.Int32
 		Managed param types : System.Byte[], System.Int32, System.Int32, System.Char[], System.Int32, System.Base64FormattingOptions
 	 */
-    + (int32_t)toBase64CharArray_withInArray:(NSData *)p1 offsetIn:(int32_t)p2 length:(int32_t)p3 outArray:(DBSystem_Array *)p4 offsetOut:(int32_t)p5 options:(int32_t)p6;
+    + (int32_t)toBase64CharArray_withInArray:(NSData *)p1 offsetIn:(int32_t)p2 length:(int32_t)p3 outArray:(System_Array *)p4 offsetOut:(int32_t)p5 options:(int32_t)p6;
 
 	/*! 
 		Managed method name : ToBase64String

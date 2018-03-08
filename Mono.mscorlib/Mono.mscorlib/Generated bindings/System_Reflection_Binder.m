@@ -8,12 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Object.h"
-#import "System_Reflection_Binder.h"
-#import "System_Reflection_MethodBase.h"
-#import "System_Reflection_PropertyInfo.h"
-#import "System_Void.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_Reflection_Binder
 

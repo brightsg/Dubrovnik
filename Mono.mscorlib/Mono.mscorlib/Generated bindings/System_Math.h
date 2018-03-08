@@ -3,17 +3,21 @@
 // Managed class : Math
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Math.__Extra__.h")
 #import "System_Math.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_Byte;
 @class System_Decimal;
 @class System_Double;
@@ -21,13 +25,16 @@
 @class System_Int32;
 @class System_Int64;
 @class System_Math;
+@class System_MidpointRounding;
 @class System_SByte;
 @class System_Single;
 @class System_UInt16;
 @class System_UInt32;
 @class System_UInt64;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Object.h"
 
 @interface System_Math : System_Object

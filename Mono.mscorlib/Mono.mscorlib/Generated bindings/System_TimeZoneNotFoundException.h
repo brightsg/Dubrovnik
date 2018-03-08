@@ -3,22 +3,30 @@
 // Managed class : TimeZoneNotFoundException
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_TimeZoneNotFoundException.__Extra__.h")
 #import "System_TimeZoneNotFoundException.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_Exception;
 @class System_Runtime_InteropServices__Exception;
 @class System_Runtime_Serialization_ISerializable;
+@class System_String;
 @class System_TimeZoneNotFoundException;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Exception.h"
 #import "System_Runtime_InteropServices__Exception_Protocol.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"

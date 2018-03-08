@@ -8,20 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_BitConverter.h"
-#import "System_Boolean.h"
-#import "System_Byte.h"
-#import "System_Char.h"
-#import "System_Double.h"
-#import "System_Int16.h"
-#import "System_Int32.h"
-#import "System_Int64.h"
-#import "System_Single.h"
-#import "System_String.h"
-#import "System_UInt16.h"
-#import "System_UInt32.h"
-#import "System_UInt64.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_BitConverter
 

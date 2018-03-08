@@ -3,20 +3,26 @@
 // Managed enumeration : AttributeTargets
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_AttributeTargets.__Extra__.h")
 #import "System_AttributeTargets.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_AttributeTargets;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Enum.h"
 
 
@@ -39,7 +45,7 @@ typedef NS_ENUM(int32_t, enumSystem_AttributeTargets) {
 	System_AttributeTargets_ReturnValue = 8192,
 	System_AttributeTargets_Struct = 8,
 };
-@interface System_AttributeTargets : DBSystem_Enum
+@interface System_AttributeTargets : System_Enum
 
 #pragma mark -
 #pragma mark Setup
@@ -61,7 +67,7 @@ typedef NS_ENUM(int32_t, enumSystem_AttributeTargets) {
 
 	// Managed field name : Class
 	// Managed field type : System.AttributeTargets
-    + (int32_t)class;
+    + (int32_t)class_;
 
 	// Managed field name : Constructor
 	// Managed field type : System.AttributeTargets

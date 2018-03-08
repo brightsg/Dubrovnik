@@ -3,27 +3,43 @@
 // Managed interface : _AppDomain
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System__AppDomain.__Extra__.h")
 #import "System__AppDomain.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System__AppDomain;
+@class System_Array;
 @class System_Boolean;
+@class System_Byte;
+@class System_CrossAppDomainDelegate;
+@class System_Guid;
+@class System_Int16;
 @class System_Int32;
+@class System_IntPtr;
 @class System_Object;
 @class System_Reflection_Assembly;
+@class System_Reflection_AssemblyName;
 @class System_String;
 @class System_Type;
+@class System_UInt32;
 @class System_Void;
+@protocol System__AppDomain;
+@protocol System__AppDomain_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Object.h"
 
 
@@ -162,7 +178,7 @@
 		Managed return type : System.Reflection.Assembly[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getAssemblies;
+    - (System_Array *)getAssemblies;
 
 	/*! 
 		Managed method name : GetData
@@ -393,7 +409,7 @@
 		Managed return type : System.Reflection.Assembly[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getAssemblies;
+    - (System_Array *)getAssemblies;
 
 	/*! 
 		Managed method name : GetData

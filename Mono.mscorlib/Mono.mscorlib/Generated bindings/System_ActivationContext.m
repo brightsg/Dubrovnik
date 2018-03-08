@@ -8,14 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_ActivationContext.h"
-#import "System_ActivationContext__ContextForm.h"
-#import "System_ApplicationIdentity.h"
-#import "System_Byte.h"
-#import "System_IDisposable.h"
-#import "System_Runtime_Serialization_ISerializable.h"
-#import "System_Void.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_ActivationContext
 
@@ -143,7 +141,7 @@
 		Managed return type : System.ActivationContext
 		Managed param types : System.ApplicationIdentity, System.String[]
 	 */
-    + (System_ActivationContext *)createPartialActivationContext_withIdentity:(System_ApplicationIdentity *)p1 manifestPaths:(DBSystem_Array *)p2
+    + (System_ActivationContext *)createPartialActivationContext_withIdentity:(System_ApplicationIdentity *)p1 manifestPaths:(System_Array *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreatePartialActivationContext(System.ApplicationIdentity,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];

@@ -8,17 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Boolean.h"
-#import "System_Collections_Generic_ICollectionA1.h"
-#import "System_Collections_Generic_IEnumerableA1.h"
-#import "System_Collections_Generic_IListA1.h"
-#import "System_Collections_Generic_IReadOnlyCollectionA1.h"
-#import "System_Collections_Generic_IReadOnlyListA1.h"
-#import "System_Collections_ICollection.h"
-#import "System_Collections_IEnumerable.h"
-#import "System_Collections_IList.h"
-#import "System_Object.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_Collections_ObjectModel_KeyedCollectionA2
 

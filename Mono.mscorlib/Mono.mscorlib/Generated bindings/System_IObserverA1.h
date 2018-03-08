@@ -3,21 +3,31 @@
 // Managed interface : IObserver`1<T>
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_IObserverA1.__Extra__.h")
 #import "System_IObserverA1.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_Exception;
+@class System_IObserverA1;
 @class System_Object;
 @class System_Void;
+@protocol System_IObserverA1;
+@protocol System_IObserverA1_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Object.h"
 
 @interface System_IObserverA1 : System_Object

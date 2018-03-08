@@ -3,23 +3,30 @@
 // Managed class : WeakReference`1<T>
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_WeakReferenceA1.__Extra__.h")
 #import "System_WeakReferenceA1.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_Boolean;
 @class System_Object;
 @class System_Runtime_Serialization_ISerializable;
 @class System_Void;
+@class System_WeakReferenceA1;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Object.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 
@@ -65,6 +72,6 @@
 		Managed return type : System.Boolean
 		Managed param types : ref T&
 	 */
-    - (BOOL)tryGetTarget_withTargetRef:(System_WeakReferenceA1__T **)p1;
+    - (BOOL)tryGetTarget_withTargetRef:(System_Object **)p1;
 @end
 //--Dubrovnik.CodeGenerator

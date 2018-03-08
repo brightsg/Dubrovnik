@@ -8,15 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Boolean.h"
-#import "System_Int32.h"
-#import "System_Runtime_Serialization_ISerializable.h"
-#import "System_String.h"
-#import "System_UInt32.h"
-#import "System_UInt64.h"
-#import "System_UIntPtr.h"
-#import "System_Void.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_UIntPtr
 
@@ -41,10 +38,10 @@
 		Managed return type : System.UIntPtr
 		Managed param types : System.UInt32
 	 */
-    + (void *)new_withValueUint:(uint32_t)p1
+    + (System_UIntPtr *)new_withValueUint:(uint32_t)p1
     {
 		
-		void * object = [[self alloc] initWithSignature:"uint" withNumArgs:1, DB_VALUE(p1)];
+		System_UIntPtr * object = [[self alloc] initWithSignature:"uint" withNumArgs:1, DB_VALUE(p1)];
       
       return object;
     }
@@ -54,10 +51,10 @@
 		Managed return type : System.UIntPtr
 		Managed param types : System.UInt64
 	 */
-    + (void *)new_withValueUlong:(uint64_t)p1
+    + (System_UIntPtr *)new_withValueUlong:(uint64_t)p1
     {
 		
-		void * object = [[self alloc] initWithSignature:"ulong" withNumArgs:1, DB_VALUE(p1)];
+		System_UIntPtr * object = [[self alloc] initWithSignature:"ulong" withNumArgs:1, DB_VALUE(p1)];
       
       return object;
     }
@@ -67,10 +64,10 @@
 		Managed return type : System.UIntPtr
 		Managed param types : System.Void*
 	 */
-    + (void *)new_withValueVoid:(void*)p1
+    + (System_UIntPtr *)new_withValueVoidPtr:(void*)p1
     {
 		
-		void * object = [[self alloc] initWithSignature:"void*" withNumArgs:1, p1];
+		System_UIntPtr * object = [[self alloc] initWithSignature:"void*" withNumArgs:1, p1];
       
       return object;
     }
@@ -212,7 +209,7 @@
 		Managed return type : System.UIntPtr
 		Managed param types : System.Void*
 	 */
-    + (void *)op_Explicit_withValueVoid:(void*)p1
+    + (void *)op_Explicit_withValueVoidPtr:(void*)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(void*)" withNumArgs:1, p1];

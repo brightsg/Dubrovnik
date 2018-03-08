@@ -3,19 +3,25 @@
 // Managed class : SortedList
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Collections_SortedList.__Extra__.h")
 #import "System_Collections_SortedList.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_Array;
 @class System_Boolean;
 @class System_Collections_ICollection;
+@class System_Collections_IComparer;
 @class System_Collections_IDictionary;
 @class System_Collections_IDictionaryEnumerator;
 @class System_Collections_IEnumerable;
@@ -25,8 +31,20 @@
 @class System_Int32;
 @class System_Object;
 @class System_Void;
+@protocol System_Collections_ICollection;
+@protocol System_Collections_ICollection_;
+@protocol System_Collections_IComparer;
+@protocol System_Collections_IComparer_;
+@protocol System_Collections_IDictionary;
+@protocol System_Collections_IDictionary_;
+@protocol System_Collections_IDictionaryEnumerator;
+@protocol System_Collections_IDictionaryEnumerator_;
+@protocol System_Collections_IList;
+@protocol System_Collections_IList_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Collections_ICollection_Protocol.h"
 #import "System_Collections_IDictionary_Protocol.h"
 #import "System_Collections_IEnumerable_Protocol.h"
@@ -169,7 +187,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Array, System.Int32
 	 */
-    - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2;
+    - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2;
 
 	/*! 
 		Managed method name : GetByIndex

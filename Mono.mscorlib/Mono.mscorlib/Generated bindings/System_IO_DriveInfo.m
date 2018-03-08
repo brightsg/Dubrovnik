@@ -8,14 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Boolean.h"
-#import "System_Int64.h"
-#import "System_IO_DirectoryInfo.h"
-#import "System_IO_DriveInfo.h"
-#import "System_IO_DriveType.h"
-#import "System_Runtime_Serialization_ISerializable.h"
-#import "System_String.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_IO_DriveInfo
 
@@ -267,12 +265,12 @@
 		Managed return type : System.IO.DriveInfo[]
 		Managed param types : 
 	 */
-    + (DBSystem_Array *)getDrives
+    + (System_Array *)getDrives
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetDrives()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 

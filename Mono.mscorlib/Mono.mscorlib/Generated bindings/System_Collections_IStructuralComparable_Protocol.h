@@ -3,21 +3,33 @@
 // Managed interface : IStructuralComparable
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Collections_IStructuralComparable.__Extra__.h")
 #import "System_Collections_IStructuralComparable.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_Collections_IComparer;
 @class System_Collections_IStructuralComparable;
 @class System_Int32;
+@class System_Object;
+@protocol System_Collections_IComparer;
+@protocol System_Collections_IComparer_;
+@protocol System_Collections_IStructuralComparable;
+@protocol System_Collections_IStructuralComparable_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Object.h"
 
 

@@ -8,11 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Boolean.h"
-#import "System_Char.h"
-#import "System_IO_Path.h"
-#import "System_String.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_IO_Path
 
@@ -56,12 +57,12 @@
 
 	// Managed field name : InvalidPathChars
 	// Managed field type : System.Char[]
-    static DBSystem_Array * m_invalidPathChars;
-    + (DBSystem_Array *)invalidPathChars
+    static System_Array * m_invalidPathChars;
+    + (System_Array *)invalidPathChars
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"InvalidPathChars"];
 		if ([self object:m_invalidPathChars isEqualToMonoObject:monoObject]) return m_invalidPathChars;					
-		m_invalidPathChars = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		m_invalidPathChars = [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
 		return m_invalidPathChars;
 	}
@@ -148,7 +149,7 @@
 		Managed return type : System.String
 		Managed param types : System.String[]
 	 */
-    + (NSString *)combine_withPaths:(DBSystem_Array *)p1
+    + (NSString *)combine_withPaths:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"Combine(string[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -226,12 +227,12 @@
 		Managed return type : System.Char[]
 		Managed param types : 
 	 */
-    + (DBSystem_Array *)getInvalidFileNameChars
+    + (System_Array *)getInvalidFileNameChars
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetInvalidFileNameChars()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -239,12 +240,12 @@
 		Managed return type : System.Char[]
 		Managed param types : 
 	 */
-    + (DBSystem_Array *)getInvalidPathChars
+    + (System_Array *)getInvalidPathChars
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetInvalidPathChars()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 

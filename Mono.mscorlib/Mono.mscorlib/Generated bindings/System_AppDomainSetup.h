@@ -3,27 +3,40 @@
 // Managed class : AppDomainSetup
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_AppDomainSetup.__Extra__.h")
 #import "System_AppDomainSetup.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_ActivationContext;
 @class System_AppDomainInitializer;
 @class System_AppDomainSetup;
+@class System_Array;
 @class System_Boolean;
 @class System_Byte;
+@class System_Collections_Generic_IEnumerableA1;
 @class System_IAppDomainSetup;
+@class System_Int32;
+@class System_IntPtr;
 @class System_LoaderOptimization;
 @class System_String;
 @class System_Void;
+@protocol System_Collections_Generic_IEnumerableA1;
+@protocol System_Collections_Generic_IEnumerableA1_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_IAppDomainSetup_Protocol.h"
 #import "System_Object.h"
 
@@ -57,7 +70,7 @@
 
 	// Managed property name : AppDomainInitializerArguments
 	// Managed property type : System.String[]
-    @property (nonatomic, strong) DBSystem_Array * appDomainInitializerArguments;
+    @property (nonatomic, strong) System_Array * appDomainInitializerArguments;
 
 	// Managed property name : AppDomainManagerAssembly
 	// Managed property type : System.String
@@ -114,7 +127,7 @@
 
 	// Managed property name : PartialTrustVisibleAssemblies
 	// Managed property type : System.String[]
-    @property (nonatomic, strong) DBSystem_Array * partialTrustVisibleAssemblies;
+    @property (nonatomic, strong) System_Array * partialTrustVisibleAssemblies;
 
 	// Managed property name : PrivateBinPath
 	// Managed property type : System.String

@@ -3,24 +3,32 @@
 // Managed class : DecoderFallbackBuffer
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Text_DecoderFallbackBuffer.__Extra__.h")
 #import "System_Text_DecoderFallbackBuffer.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_Array;
 @class System_Boolean;
+@class System_Byte;
 @class System_Char;
 @class System_Int32;
 @class System_Text_DecoderFallbackBuffer;
 @class System_Void;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Object.h"
 
 @interface System_Text_DecoderFallbackBuffer : System_Object

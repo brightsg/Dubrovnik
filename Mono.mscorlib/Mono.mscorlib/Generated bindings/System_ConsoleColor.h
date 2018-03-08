@@ -3,20 +3,26 @@
 // Managed enumeration : ConsoleColor
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_ConsoleColor.__Extra__.h")
 #import "System_ConsoleColor.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_ConsoleColor;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Enum.h"
 
 
@@ -39,7 +45,7 @@ typedef NS_ENUM(int32_t, enumSystem_ConsoleColor) {
 	System_ConsoleColor_White = 15,
 	System_ConsoleColor_Yellow = 14,
 };
-@interface System_ConsoleColor : DBSystem_Enum
+@interface System_ConsoleColor : System_Enum
 
 #pragma mark -
 #pragma mark Setup

@@ -8,18 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Array.h"
-#import "System_Boolean.h"
-#import "System_Enum.h"
-#import "System_IComparable.h"
-#import "System_IConvertible.h"
-#import "System_IFormattable.h"
-#import "System_Int32.h"
-#import "System_Object.h"
-#import "System_String.h"
-#import "System_Type.h"
-#import "System_TypeCode.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_Enum
 
@@ -109,12 +103,12 @@
 		Managed return type : System.String[]
 		Managed param types : System.Type
 	 */
-    + (DBSystem_Array *)getNames_withEnumType:(System_Type *)p1
+    + (System_Array *)getNames_withEnumType:(System_Type *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetNames(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -148,12 +142,12 @@
 		Managed return type : System.Array
 		Managed param types : System.Type
 	 */
-    + (DBSystem_Array *)getValues_withEnumType:(System_Type *)p1
+    + (System_Array *)getValues_withEnumType:(System_Type *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetValues(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -161,7 +155,7 @@
 		Managed return type : System.Boolean
 		Managed param types : System.Enum
 	 */
-    - (BOOL)hasFlag_withFlag:(DBSystem_Enum *)p1
+    - (BOOL)hasFlag_withFlag:(System_Enum *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"HasFlag(System.Enum)" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -383,7 +377,7 @@
 		Managed param types : System.String, ref TEnum&
 		Generic method definition type params : <System.Enum+TEnum>
 	 */
-    + (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(System_Enum__TEnum **)p2 typeParameter:(id)typeParameter
+    + (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(System_Object **)p2 typeParameter:(id)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 
@@ -400,7 +394,7 @@
 		Managed param types : System.String, System.Boolean, ref TEnum&
 		Generic method definition type params : <System.Enum+TEnum>
 	 */
-    + (BOOL)tryParse_withValue:(NSString *)p1 ignoreCase:(BOOL)p2 resultRef:(System_Enum__TEnum **)p3 typeParameter:(id)typeParameter
+    + (BOOL)tryParse_withValue:(NSString *)p1 ignoreCase:(BOOL)p2 resultRef:(System_Object **)p3 typeParameter:(id)typeParameter
     {
 		void *refPtr3 = [*p3 monoRTInvokeArg];
 

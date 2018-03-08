@@ -3,17 +3,21 @@
 // Managed class : Version
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Version.__Extra__.h")
 #import "System_Version.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_Boolean;
 @class System_ICloneable;
 @class System_IComparable;
@@ -25,7 +29,9 @@
 @class System_String;
 @class System_Version;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_ICloneable_Protocol.h"
 #import "System_IComparable_Protocol.h"
 #import "System_IComparableA1_Protocol.h"

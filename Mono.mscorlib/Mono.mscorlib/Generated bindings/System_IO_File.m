@@ -8,18 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Boolean.h"
-#import "System_Byte.h"
-#import "System_Collections_Generic_IEnumerableA1.h"
-#import "System_DateTime.h"
-#import "System_IO_File.h"
-#import "System_IO_FileAttributes.h"
-#import "System_IO_FileStream.h"
-#import "System_IO_StreamReader.h"
-#import "System_IO_StreamWriter.h"
-#import "System_String.h"
-#import "System_Void.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_IO_File
 
@@ -427,12 +421,12 @@
 		Managed return type : System.String[]
 		Managed param types : System.String
 	 */
-    + (DBSystem_Array *)readAllLines_withPath:(NSString *)p1
+    + (System_Array *)readAllLines_withPath:(NSString *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadAllLines(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -440,12 +434,12 @@
 		Managed return type : System.String[]
 		Managed param types : System.String, System.Text.Encoding
 	 */
-    + (DBSystem_Array *)readAllLines_withPath:(NSString *)p1 encoding:(System_Text_Encoding *)p2
+    + (System_Array *)readAllLines_withPath:(NSString *)p1 encoding:(System_Text_Encoding *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadAllLines(string,System.Text.Encoding)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -626,7 +620,7 @@
 		Managed return type : System.Void
 		Managed param types : System.String, System.String[]
 	 */
-    + (void)writeAllLines_withPathString:(NSString *)p1 contentsString:(DBSystem_Array *)p2
+    + (void)writeAllLines_withPathString:(NSString *)p1 contentsStringArray:(System_Array *)p2
     {
 		
 		[self invokeMonoClassMethod:"WriteAllLines(string,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -638,7 +632,7 @@
 		Managed return type : System.Void
 		Managed param types : System.String, System.String[], System.Text.Encoding
 	 */
-    + (void)writeAllLines_withPathString:(NSString *)p1 contentsString:(DBSystem_Array *)p2 encodingSTEncoding:(System_Text_Encoding *)p3
+    + (void)writeAllLines_withPathString:(NSString *)p1 contentsStringArray:(System_Array *)p2 encodingSTEncoding:(System_Text_Encoding *)p3
     {
 		
 		[self invokeMonoClassMethod:"WriteAllLines(string,string[],System.Text.Encoding)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];

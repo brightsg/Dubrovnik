@@ -3,21 +3,30 @@
 // Managed interface : IServiceProvider
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_IServiceProvider.__Extra__.h")
 #import "System_IServiceProvider.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_IServiceProvider;
 @class System_Object;
+@class System_Type;
+@protocol System_IServiceProvider;
+@protocol System_IServiceProvider_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Object.h"
 
 @interface System_IServiceProvider : System_Object

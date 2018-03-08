@@ -3,36 +3,47 @@
 // Managed struct : TimeSpan
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_TimeSpan.__Extra__.h")
 #import "System_TimeSpan.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_Array;
 @class System_Boolean;
 @class System_Double;
 @class System_IComparable;
 @class System_IComparableA1;
 @class System_IEquatableA1;
+@class System_IFormatProvider;
 @class System_IFormattable;
 @class System_Int32;
 @class System_Int64;
+@class System_Object;
 @class System_String;
 @class System_TimeSpan;
+@protocol System_IFormatProvider;
+@protocol System_IFormatProvider_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_IComparable_Protocol.h"
 #import "System_IComparableA1_Protocol.h"
 #import "System_IEquatableA1_Protocol.h"
 #import "System_IFormattable_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_TimeSpan : DBManagedObject <System_IComparable_, System_IComparableA1_, System_IEquatableA1_, System_IFormattable_>
+@interface System_TimeSpan : System_ValueType <System_IComparable_, System_IComparableA1_, System_IEquatableA1_, System_IFormattable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -365,7 +376,7 @@
 		Managed return type : System.TimeSpan
 		Managed param types : System.String, System.String[], System.IFormatProvider
 	 */
-    + (System_TimeSpan *)parseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(id <System_IFormatProvider_>)p3;
+    + (System_TimeSpan *)parseExact_withInput:(NSString *)p1 formats:(System_Array *)p2 formatProvider:(id <System_IFormatProvider_>)p3;
 /* Skipped method : System.TimeSpan ParseExact(System.String input, System.String format, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles) */
 /* Skipped method : System.TimeSpan ParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles) */
 
@@ -423,7 +434,7 @@
 		Managed return type : System.Boolean
 		Managed param types : System.String, System.String[], System.IFormatProvider, ref System.TimeSpan&
 	 */
-    + (BOOL)tryParseExact_withInput:(NSString *)p1 formats:(DBSystem_Array *)p2 formatProvider:(id <System_IFormatProvider_>)p3 resultRef:(System_TimeSpan **)p4;
+    + (BOOL)tryParseExact_withInput:(NSString *)p1 formats:(System_Array *)p2 formatProvider:(id <System_IFormatProvider_>)p3 resultRef:(System_TimeSpan **)p4;
 /* Skipped method : System.Boolean TryParseExact(System.String input, System.String format, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles, System.TimeSpan& result) */
 /* Skipped method : System.Boolean TryParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles, System.TimeSpan& result) */
 @end

@@ -3,25 +3,36 @@
 // Managed interface : ICollection`1<T>
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Collections_Generic_ICollectionA1.__Extra__.h")
 #import "System_Collections_Generic_ICollectionA1.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_Array;
 @class System_Boolean;
+@class System_Collections_Generic_ICollectionA1;
 @class System_Collections_Generic_IEnumerableA1;
 @class System_Collections_IEnumerable;
 @class System_Int32;
 @class System_Object;
 @class System_Void;
+@class T;
+@protocol System_Collections_Generic_ICollectionA1;
+@protocol System_Collections_Generic_ICollectionA1_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Collections_Generic_IEnumerableA1_Protocol.h"
 #import "System_Collections_IEnumerable_Protocol.h"
 #import "System_Object.h"
@@ -75,7 +86,7 @@
 		Managed return type : System.Void
 		Managed param types : T[], System.Int32
 	 */
-    - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2;
+    - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2;
 
 	/*! 
 		Managed method name : Remove

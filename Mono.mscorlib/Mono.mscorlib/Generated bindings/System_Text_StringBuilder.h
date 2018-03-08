@@ -3,26 +3,47 @@
 // Managed class : StringBuilder
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Text_StringBuilder.__Extra__.h")
 #import "System_Text_StringBuilder.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_Array;
 @class System_Boolean;
+@class System_Byte;
 @class System_Char;
+@class System_Decimal;
+@class System_Double;
+@class System_IFormatProvider;
+@class System_Int16;
 @class System_Int32;
+@class System_Int64;
+@class System_Object;
 @class System_Runtime_Serialization_ISerializable;
+@class System_SByte;
+@class System_Single;
 @class System_String;
 @class System_Text_StringBuilder;
+@class System_UInt16;
+@class System_UInt32;
+@class System_UInt64;
 @class System_Void;
+@protocol System_IFormatProvider;
+@protocol System_IFormatProvider_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Object.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 
@@ -107,7 +128,7 @@
 		Managed return type : System.Text.StringBuilder
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    - (System_Text_StringBuilder *)append_withValue:(DBSystem_Array *)p1 startIndex:(int32_t)p2 charCount:(int32_t)p3;
+    - (System_Text_StringBuilder *)append_withValue:(System_Array *)p1 startIndex:(int32_t)p2 charCount:(int32_t)p3;
 
 	/*! 
 		Managed method name : Append
@@ -226,7 +247,7 @@
 		Managed return type : System.Text.StringBuilder
 		Managed param types : System.Char[]
 	 */
-    - (System_Text_StringBuilder *)append_withValueChar:(DBSystem_Array *)p1;
+    - (System_Text_StringBuilder *)append_withValueCharArray:(System_Array *)p1;
 
 	/*! 
 		Managed method name : Append
@@ -261,7 +282,7 @@
 		Managed return type : System.Text.StringBuilder
 		Managed param types : System.String, System.Object[]
 	 */
-    - (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 args:(DBSystem_Array *)p2;
+    - (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 args:(System_Array *)p2;
 
 	/*! 
 		Managed method name : AppendFormat
@@ -289,7 +310,7 @@
 		Managed return type : System.Text.StringBuilder
 		Managed param types : System.IFormatProvider, System.String, System.Object[]
 	 */
-    - (System_Text_StringBuilder *)appendFormat_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 args:(DBSystem_Array *)p3;
+    - (System_Text_StringBuilder *)appendFormat_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 args:(System_Array *)p3;
 
 	/*! 
 		Managed method name : AppendLine
@@ -317,7 +338,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Int32, System.Char[], System.Int32, System.Int32
 	 */
-    - (void)copyTo_withSourceIndex:(int32_t)p1 destination:(DBSystem_Array *)p2 destinationIndex:(int32_t)p3 count:(int32_t)p4;
+    - (void)copyTo_withSourceIndex:(int32_t)p1 destination:(System_Array *)p2 destinationIndex:(int32_t)p3 count:(int32_t)p4;
 
 	/*! 
 		Managed method name : EnsureCapacity
@@ -387,14 +408,14 @@
 		Managed return type : System.Text.StringBuilder
 		Managed param types : System.Int32, System.Char[]
 	 */
-    - (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueChar:(DBSystem_Array *)p2;
+    - (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueCharArray:(System_Array *)p2;
 
 	/*! 
 		Managed method name : Insert
 		Managed return type : System.Text.StringBuilder
 		Managed param types : System.Int32, System.Char[], System.Int32, System.Int32
 	 */
-    - (System_Text_StringBuilder *)insert_withIndex:(int32_t)p1 value:(DBSystem_Array *)p2 startIndex:(int32_t)p3 charCount:(int32_t)p4;
+    - (System_Text_StringBuilder *)insert_withIndex:(int32_t)p1 value:(System_Array *)p2 startIndex:(int32_t)p3 charCount:(int32_t)p4;
 
 	/*! 
 		Managed method name : Insert

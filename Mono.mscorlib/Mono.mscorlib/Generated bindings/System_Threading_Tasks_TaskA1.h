@@ -3,23 +3,35 @@
 // Managed class : Task`1<TResult>
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Threading_Tasks_TaskA1.__Extra__.h")
 #import "System_Threading_Tasks_TaskA1.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_IAsyncResult;
 @class System_IDisposable;
 @class System_Object;
+@class System_Threading_CancellationToken;
 @class System_Threading_Tasks_Task;
+@class System_Threading_Tasks_TaskA1;
+@class System_Threading_Tasks_TaskContinuationOptions;
+@class System_Threading_Tasks_TaskCreationOptions;
+@class System_Threading_Tasks_TaskFactoryA1;
+@class System_Threading_Tasks_TaskScheduler;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_IAsyncResult_Protocol.h"
 #import "System_IDisposable_Protocol.h"
 #import "System_Threading_Tasks_Task.h"
@@ -35,62 +47,14 @@
 
 #pragma mark -
 #pragma mark Constructors
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>
-		Managed param types : System.Func`1<System.Threading.Tasks.Task`1+TResult>
-	 */
-    + (System_Threading_Tasks_TaskA1 *)new_withFunction:(System_FuncA1 *)p1;
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>
-		Managed param types : System.Func`1<System.Threading.Tasks.Task`1+TResult>, System.Threading.CancellationToken
-	 */
-    + (System_Threading_Tasks_TaskA1 *)new_withFunction:(System_FuncA1 *)p1 cancellationToken:(System_Threading_CancellationToken *)p2;
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>
-		Managed param types : System.Func`1<System.Threading.Tasks.Task`1+TResult>, System.Threading.Tasks.TaskCreationOptions
-	 */
-    + (System_Threading_Tasks_TaskA1 *)new_withFunction:(System_FuncA1 *)p1 creationOptions:(int32_t)p2;
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>
-		Managed param types : System.Func`1<System.Threading.Tasks.Task`1+TResult>, System.Threading.CancellationToken, System.Threading.Tasks.TaskCreationOptions
-	 */
-    + (System_Threading_Tasks_TaskA1 *)new_withFunction:(System_FuncA1 *)p1 cancellationToken:(System_Threading_CancellationToken *)p2 creationOptions:(int32_t)p3;
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>
-		Managed param types : System.Func`2<System.Object, System.Threading.Tasks.Task`1+TResult>, System.Object
-	 */
-    + (System_Threading_Tasks_TaskA1 *)new_withFunction:(System_FuncA2 *)p1 state:(System_Object *)p2;
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>
-		Managed param types : System.Func`2<System.Object, System.Threading.Tasks.Task`1+TResult>, System.Object, System.Threading.CancellationToken
-	 */
-    + (System_Threading_Tasks_TaskA1 *)new_withFunction:(System_FuncA2 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>
-		Managed param types : System.Func`2<System.Object, System.Threading.Tasks.Task`1+TResult>, System.Object, System.Threading.Tasks.TaskCreationOptions
-	 */
-    + (System_Threading_Tasks_TaskA1 *)new_withFunction:(System_FuncA2 *)p1 state:(System_Object *)p2 creationOptions:(int32_t)p3;
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>
-		Managed param types : System.Func`2<System.Object, System.Threading.Tasks.Task`1+TResult>, System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskCreationOptions
-	 */
-    + (System_Threading_Tasks_TaskA1 *)new_withFunction:(System_FuncA2 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3 creationOptions:(int32_t)p4;
+/* Skipped constructor : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult> (System.Func`1<System.Threading.Tasks.Task`1+TResult> function) */
+/* Skipped constructor : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult> (System.Func`1<System.Threading.Tasks.Task`1+TResult> function, System.Threading.CancellationToken cancellationToken) */
+/* Skipped constructor : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult> (System.Func`1<System.Threading.Tasks.Task`1+TResult> function, System.Threading.Tasks.TaskCreationOptions creationOptions) */
+/* Skipped constructor : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult> (System.Func`1<System.Threading.Tasks.Task`1+TResult> function, System.Threading.CancellationToken cancellationToken, System.Threading.Tasks.TaskCreationOptions creationOptions) */
+/* Skipped constructor : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult> (System.Func`2<System.Object, System.Threading.Tasks.Task`1+TResult> function, System.Object state) */
+/* Skipped constructor : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult> (System.Func`2<System.Object, System.Threading.Tasks.Task`1+TResult> function, System.Object state, System.Threading.CancellationToken cancellationToken) */
+/* Skipped constructor : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult> (System.Func`2<System.Object, System.Threading.Tasks.Task`1+TResult> function, System.Object state, System.Threading.Tasks.TaskCreationOptions creationOptions) */
+/* Skipped constructor : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult> (System.Func`2<System.Object, System.Threading.Tasks.Task`1+TResult> function, System.Object state, System.Threading.CancellationToken cancellationToken, System.Threading.Tasks.TaskCreationOptions creationOptions) */
 
 #pragma mark -
 #pragma mark Properties
@@ -105,169 +69,27 @@
 
 #pragma mark -
 #pragma mark Methods
-
-	/*! 
-		Managed method name : ConfigureAwait
-		Managed return type : System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Threading.Tasks.Task`1+TResult>
-		Managed param types : System.Boolean
-	 */
-    - (System_Runtime_CompilerServices_ConfiguredTaskAwaitableA1 *)configureAwait_withContinueOnCapturedContext:(BOOL)p1;
-
-	/*! 
-		Managed method name : ContinueWith
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.Action`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>>
-	 */
-    - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA1 *)p1;
-
-	/*! 
-		Managed method name : ContinueWith
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.Action`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>>, System.Threading.CancellationToken
-	 */
-    - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA1 *)p1 cancellationToken:(System_Threading_CancellationToken *)p2;
-
-	/*! 
-		Managed method name : ContinueWith
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.Action`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>>, System.Threading.Tasks.TaskScheduler
-	 */
-    - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA1 *)p1 scheduler:(System_Threading_Tasks_TaskScheduler *)p2;
-
-	/*! 
-		Managed method name : ContinueWith
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.Action`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>>, System.Threading.Tasks.TaskContinuationOptions
-	 */
-    - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA1 *)p1 continuationOptions:(int32_t)p2;
-
-	/*! 
-		Managed method name : ContinueWith
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.Action`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>>, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler
-	 */
-    - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA1 *)p1 cancellationToken:(System_Threading_CancellationToken *)p2 continuationOptions:(int32_t)p3 scheduler:(System_Threading_Tasks_TaskScheduler *)p4;
-
-	/*! 
-		Managed method name : ContinueWith
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.Action`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object>, System.Object
-	 */
-    - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA2 *)p1 state:(System_Object *)p2;
-
-	/*! 
-		Managed method name : ContinueWith
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.Action`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object>, System.Object, System.Threading.CancellationToken
-	 */
-    - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA2 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
-
-	/*! 
-		Managed method name : ContinueWith
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.Action`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object>, System.Object, System.Threading.Tasks.TaskScheduler
-	 */
-    - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA2 *)p1 state:(System_Object *)p2 scheduler:(System_Threading_Tasks_TaskScheduler *)p3;
-
-	/*! 
-		Managed method name : ContinueWith
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.Action`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object>, System.Object, System.Threading.Tasks.TaskContinuationOptions
-	 */
-    - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA2 *)p1 state:(System_Object *)p2 continuationOptions:(int32_t)p3;
-
-	/*! 
-		Managed method name : ContinueWith
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.Action`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object>, System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler
-	 */
-    - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA2 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3 continuationOptions:(int32_t)p4 scheduler:(System_Threading_Tasks_TaskScheduler *)p5;
-
-	/*! 
-		Managed method name : ContinueWith
-		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult>
-		Managed param types : System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Threading.Tasks.Task`1+TNewResult>
-		Generic method definition type params : <System.Threading.Tasks.Task`1+TNewResult>
-	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA2 *)p1 typeParameter:(id)typeParameter;
-
-	/*! 
-		Managed method name : ContinueWith
-		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult>
-		Managed param types : System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Threading.Tasks.Task`1+TNewResult>, System.Threading.CancellationToken
-		Generic method definition type params : <System.Threading.Tasks.Task`1+TNewResult>
-	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA2 *)p1 cancellationToken:(System_Threading_CancellationToken *)p2 typeParameter:(id)typeParameter;
-
-	/*! 
-		Managed method name : ContinueWith
-		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult>
-		Managed param types : System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Threading.Tasks.Task`1+TNewResult>, System.Threading.Tasks.TaskScheduler
-		Generic method definition type params : <System.Threading.Tasks.Task`1+TNewResult>
-	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA2 *)p1 scheduler:(System_Threading_Tasks_TaskScheduler *)p2 typeParameter:(id)typeParameter;
-
-	/*! 
-		Managed method name : ContinueWith
-		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult>
-		Managed param types : System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Threading.Tasks.Task`1+TNewResult>, System.Threading.Tasks.TaskContinuationOptions
-		Generic method definition type params : <System.Threading.Tasks.Task`1+TNewResult>
-	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA2 *)p1 continuationOptions:(int32_t)p2 typeParameter:(id)typeParameter;
-
-	/*! 
-		Managed method name : ContinueWith
-		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult>
-		Managed param types : System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Threading.Tasks.Task`1+TNewResult>, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler
-		Generic method definition type params : <System.Threading.Tasks.Task`1+TNewResult>
-	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA2 *)p1 cancellationToken:(System_Threading_CancellationToken *)p2 continuationOptions:(int32_t)p3 scheduler:(System_Threading_Tasks_TaskScheduler *)p4 typeParameter:(id)typeParameter;
-
-	/*! 
-		Managed method name : ContinueWith
-		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult>
-		Managed param types : System.Func`3<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object, System.Threading.Tasks.Task`1+TNewResult>, System.Object
-		Generic method definition type params : <System.Threading.Tasks.Task`1+TNewResult>
-	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(System_Object *)p2 typeParameter:(id)typeParameter;
-
-	/*! 
-		Managed method name : ContinueWith
-		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult>
-		Managed param types : System.Func`3<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object, System.Threading.Tasks.Task`1+TNewResult>, System.Object, System.Threading.CancellationToken
-		Generic method definition type params : <System.Threading.Tasks.Task`1+TNewResult>
-	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3 typeParameter:(id)typeParameter;
-
-	/*! 
-		Managed method name : ContinueWith
-		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult>
-		Managed param types : System.Func`3<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object, System.Threading.Tasks.Task`1+TNewResult>, System.Object, System.Threading.Tasks.TaskScheduler
-		Generic method definition type params : <System.Threading.Tasks.Task`1+TNewResult>
-	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(System_Object *)p2 scheduler:(System_Threading_Tasks_TaskScheduler *)p3 typeParameter:(id)typeParameter;
-
-	/*! 
-		Managed method name : ContinueWith
-		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult>
-		Managed param types : System.Func`3<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object, System.Threading.Tasks.Task`1+TNewResult>, System.Object, System.Threading.Tasks.TaskContinuationOptions
-		Generic method definition type params : <System.Threading.Tasks.Task`1+TNewResult>
-	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(System_Object *)p2 continuationOptions:(int32_t)p3 typeParameter:(id)typeParameter;
-
-	/*! 
-		Managed method name : ContinueWith
-		Managed return type : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult>
-		Managed param types : System.Func`3<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object, System.Threading.Tasks.Task`1+TNewResult>, System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler
-		Generic method definition type params : <System.Threading.Tasks.Task`1+TNewResult>
-	 */
-    - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3 continuationOptions:(int32_t)p4 scheduler:(System_Threading_Tasks_TaskScheduler *)p5 typeParameter:(id)typeParameter;
-
-	/*! 
-		Managed method name : GetAwaiter
-		Managed return type : System.Runtime.CompilerServices.TaskAwaiter`1<System.Threading.Tasks.Task`1+TResult>
-		Managed param types : 
-	 */
-    - (System_Runtime_CompilerServices_TaskAwaiterA1 *)getAwaiter;
+/* Skipped method : System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Threading.Tasks.Task`1+TResult> ConfigureAwait(System.Boolean continueOnCapturedContext) */
+/* Skipped method : System.Threading.Tasks.Task ContinueWith(System.Action`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>> continuationAction) */
+/* Skipped method : System.Threading.Tasks.Task ContinueWith(System.Action`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>> continuationAction, System.Threading.CancellationToken cancellationToken) */
+/* Skipped method : System.Threading.Tasks.Task ContinueWith(System.Action`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>> continuationAction, System.Threading.Tasks.TaskScheduler scheduler) */
+/* Skipped method : System.Threading.Tasks.Task ContinueWith(System.Action`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>> continuationAction, System.Threading.Tasks.TaskContinuationOptions continuationOptions) */
+/* Skipped method : System.Threading.Tasks.Task ContinueWith(System.Action`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>> continuationAction, System.Threading.CancellationToken cancellationToken, System.Threading.Tasks.TaskContinuationOptions continuationOptions, System.Threading.Tasks.TaskScheduler scheduler) */
+/* Skipped method : System.Threading.Tasks.Task ContinueWith(System.Action`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object> continuationAction, System.Object state) */
+/* Skipped method : System.Threading.Tasks.Task ContinueWith(System.Action`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object> continuationAction, System.Object state, System.Threading.CancellationToken cancellationToken) */
+/* Skipped method : System.Threading.Tasks.Task ContinueWith(System.Action`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object> continuationAction, System.Object state, System.Threading.Tasks.TaskScheduler scheduler) */
+/* Skipped method : System.Threading.Tasks.Task ContinueWith(System.Action`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object> continuationAction, System.Object state, System.Threading.Tasks.TaskContinuationOptions continuationOptions) */
+/* Skipped method : System.Threading.Tasks.Task ContinueWith(System.Action`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object> continuationAction, System.Object state, System.Threading.CancellationToken cancellationToken, System.Threading.Tasks.TaskContinuationOptions continuationOptions, System.Threading.Tasks.TaskScheduler scheduler) */
+/* Skipped method : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult> ContinueWith(System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Threading.Tasks.Task`1+TNewResult> continuationFunction) */
+/* Skipped method : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult> ContinueWith(System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Threading.Tasks.Task`1+TNewResult> continuationFunction, System.Threading.CancellationToken cancellationToken) */
+/* Skipped method : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult> ContinueWith(System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Threading.Tasks.Task`1+TNewResult> continuationFunction, System.Threading.Tasks.TaskScheduler scheduler) */
+/* Skipped method : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult> ContinueWith(System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Threading.Tasks.Task`1+TNewResult> continuationFunction, System.Threading.Tasks.TaskContinuationOptions continuationOptions) */
+/* Skipped method : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult> ContinueWith(System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Threading.Tasks.Task`1+TNewResult> continuationFunction, System.Threading.CancellationToken cancellationToken, System.Threading.Tasks.TaskContinuationOptions continuationOptions, System.Threading.Tasks.TaskScheduler scheduler) */
+/* Skipped method : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult> ContinueWith(System.Func`3<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object, System.Threading.Tasks.Task`1+TNewResult> continuationFunction, System.Object state) */
+/* Skipped method : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult> ContinueWith(System.Func`3<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object, System.Threading.Tasks.Task`1+TNewResult> continuationFunction, System.Object state, System.Threading.CancellationToken cancellationToken) */
+/* Skipped method : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult> ContinueWith(System.Func`3<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object, System.Threading.Tasks.Task`1+TNewResult> continuationFunction, System.Object state, System.Threading.Tasks.TaskScheduler scheduler) */
+/* Skipped method : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult> ContinueWith(System.Func`3<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object, System.Threading.Tasks.Task`1+TNewResult> continuationFunction, System.Object state, System.Threading.Tasks.TaskContinuationOptions continuationOptions) */
+/* Skipped method : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult> ContinueWith(System.Func`3<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object, System.Threading.Tasks.Task`1+TNewResult> continuationFunction, System.Object state, System.Threading.CancellationToken cancellationToken, System.Threading.Tasks.TaskContinuationOptions continuationOptions, System.Threading.Tasks.TaskScheduler scheduler) */
+/* Skipped method : System.Runtime.CompilerServices.TaskAwaiter`1<System.Threading.Tasks.Task`1+TResult> GetAwaiter() */
 @end
 //--Dubrovnik.CodeGenerator

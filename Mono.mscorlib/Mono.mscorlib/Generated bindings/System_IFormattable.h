@@ -3,21 +3,32 @@
 // Managed interface : IFormattable
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_IFormattable.__Extra__.h")
 #import "System_IFormattable.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_IFormatProvider;
 @class System_IFormattable;
 @class System_String;
+@protocol System_IFormatProvider;
+@protocol System_IFormatProvider_;
+@protocol System_IFormattable;
+@protocol System_IFormattable_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Object.h"
 
 @interface System_IFormattable : System_Object

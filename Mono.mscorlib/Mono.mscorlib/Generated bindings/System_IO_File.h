@@ -3,30 +3,45 @@
 // Managed class : File
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_IO_File.__Extra__.h")
 #import "System_IO_File.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_Array;
 @class System_Boolean;
 @class System_Byte;
 @class System_Collections_Generic_IEnumerableA1;
 @class System_DateTime;
+@class System_Int32;
 @class System_IO_File;
+@class System_IO_FileAccess;
 @class System_IO_FileAttributes;
+@class System_IO_FileMode;
+@class System_IO_FileOptions;
+@class System_IO_FileShare;
 @class System_IO_FileStream;
 @class System_IO_StreamReader;
 @class System_IO_StreamWriter;
 @class System_String;
+@class System_Text_Encoding;
 @class System_Void;
+@protocol System_Collections_Generic_IEnumerableA1;
+@protocol System_Collections_Generic_IEnumerableA1_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Object.h"
 
 @interface System_IO_File : System_Object
@@ -259,14 +274,14 @@
 		Managed return type : System.String[]
 		Managed param types : System.String
 	 */
-    + (DBSystem_Array *)readAllLines_withPath:(NSString *)p1;
+    + (System_Array *)readAllLines_withPath:(NSString *)p1;
 
 	/*! 
 		Managed method name : ReadAllLines
 		Managed return type : System.String[]
 		Managed param types : System.String, System.Text.Encoding
 	 */
-    + (DBSystem_Array *)readAllLines_withPath:(NSString *)p1 encoding:(System_Text_Encoding *)p2;
+    + (System_Array *)readAllLines_withPath:(NSString *)p1 encoding:(System_Text_Encoding *)p2;
 
 	/*! 
 		Managed method name : ReadAllText
@@ -372,14 +387,14 @@
 		Managed return type : System.Void
 		Managed param types : System.String, System.String[]
 	 */
-    + (void)writeAllLines_withPathString:(NSString *)p1 contentsString:(DBSystem_Array *)p2;
+    + (void)writeAllLines_withPathString:(NSString *)p1 contentsStringArray:(System_Array *)p2;
 
 	/*! 
 		Managed method name : WriteAllLines
 		Managed return type : System.Void
 		Managed param types : System.String, System.String[], System.Text.Encoding
 	 */
-    + (void)writeAllLines_withPathString:(NSString *)p1 contentsString:(DBSystem_Array *)p2 encodingSTEncoding:(System_Text_Encoding *)p3;
+    + (void)writeAllLines_withPathString:(NSString *)p1 contentsStringArray:(System_Array *)p2 encodingSTEncoding:(System_Text_Encoding *)p3;
 
 	/*! 
 		Managed method name : WriteAllLines

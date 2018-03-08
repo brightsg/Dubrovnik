@@ -3,25 +3,36 @@
 // Managed class : Activator
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Activator.__Extra__.h")
 #import "System_Activator.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_Activator;
+@class System_Array;
+@class System_Boolean;
+@class System_Globalization_CultureInfo;
 @class System_Object;
+@class System_Reflection_Binder;
+@class System_String;
+@class System_Type;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Object.h"
-#import "System_Runtime_InteropServices__Activator_Protocol.h"
 
-@interface System_Activator : System_Object <System_Runtime_InteropServices__Activator_>
+@interface System_Activator : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -42,14 +53,14 @@
 		Managed return type : System.Object
 		Managed param types : System.Type, System.Object[]
 	 */
-    + (System_Object *)createInstance_withType:(System_Type *)p1 args:(DBSystem_Array *)p2;
+    + (System_Object *)createInstance_withType:(System_Type *)p1 args:(System_Array *)p2;
 
 	/*! 
 		Managed method name : CreateInstance
 		Managed return type : System.Object
 		Managed param types : System.Type, System.Object[], System.Object[]
 	 */
-    + (System_Object *)createInstance_withType:(System_Type *)p1 args:(DBSystem_Array *)p2 activationAttributes:(DBSystem_Array *)p3;
+    + (System_Object *)createInstance_withType:(System_Type *)p1 args:(System_Array *)p2 activationAttributes:(System_Array *)p3;
 
 	/*! 
 		Managed method name : CreateInstance

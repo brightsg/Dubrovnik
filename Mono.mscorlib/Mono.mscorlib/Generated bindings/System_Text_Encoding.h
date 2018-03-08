@@ -3,17 +3,22 @@
 // Managed class : Encoding
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Text_Encoding.__Extra__.h")
 #import "System_Text_Encoding.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_Array;
 @class System_Boolean;
 @class System_Byte;
 @class System_Char;
@@ -27,9 +32,13 @@
 @class System_Text_EncoderFallback;
 @class System_Text_Encoding;
 @class System_Text_EncodingInfo;
+@class System_Text_EncodingProvider;
+@class System_Text_NormalizationForm;
 @class System_Void;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_ICloneable_Protocol.h"
 #import "System_Object.h"
 
@@ -165,7 +174,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.Char[]
 	 */
-    - (int32_t)getByteCount_withChars:(DBSystem_Array *)p1;
+    - (int32_t)getByteCount_withChars:(System_Array *)p1;
 
 	/*! 
 		Managed method name : GetByteCount
@@ -179,7 +188,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    - (int32_t)getByteCount_withChars:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+    - (int32_t)getByteCount_withChars:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 	/*! 
 		Managed method name : GetByteCount
@@ -193,21 +202,21 @@
 		Managed return type : System.Byte[]
 		Managed param types : System.Char[]
 	 */
-    - (NSData *)getBytes_withChars:(DBSystem_Array *)p1;
+    - (NSData *)getBytes_withChars:(System_Array *)p1;
 
 	/*! 
 		Managed method name : GetBytes
 		Managed return type : System.Byte[]
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    - (NSData *)getBytes_withChars:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+    - (NSData *)getBytes_withChars:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 	/*! 
 		Managed method name : GetBytes
 		Managed return type : System.Int32
 		Managed param types : System.Char[], System.Int32, System.Int32, System.Byte[], System.Int32
 	 */
-    - (int32_t)getBytes_withChars:(DBSystem_Array *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5;
+    - (int32_t)getBytes_withChars:(System_Array *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5;
 
 	/*! 
 		Managed method name : GetBytes
@@ -256,21 +265,21 @@
 		Managed return type : System.Char[]
 		Managed param types : System.Byte[]
 	 */
-    - (DBSystem_Array *)getChars_withBytes:(NSData *)p1;
+    - (System_Array *)getChars_withBytes:(NSData *)p1;
 
 	/*! 
 		Managed method name : GetChars
 		Managed return type : System.Char[]
 		Managed param types : System.Byte[], System.Int32, System.Int32
 	 */
-    - (DBSystem_Array *)getChars_withBytes:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3;
+    - (System_Array *)getChars_withBytes:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 	/*! 
 		Managed method name : GetChars
 		Managed return type : System.Int32
 		Managed param types : System.Byte[], System.Int32, System.Int32, System.Char[], System.Int32
 	 */
-    - (int32_t)getChars_withBytes:(NSData *)p1 byteIndex:(int32_t)p2 byteCount:(int32_t)p3 chars:(DBSystem_Array *)p4 charIndex:(int32_t)p5;
+    - (int32_t)getChars_withBytes:(NSData *)p1 byteIndex:(int32_t)p2 byteCount:(int32_t)p3 chars:(System_Array *)p4 charIndex:(int32_t)p5;
 
 	/*! 
 		Managed method name : GetChars
@@ -326,7 +335,7 @@
 		Managed return type : System.Text.EncodingInfo[]
 		Managed param types : 
 	 */
-    + (DBSystem_Array *)getEncodings;
+    + (System_Array *)getEncodings;
 
 	/*! 
 		Managed method name : GetHashCode

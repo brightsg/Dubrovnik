@@ -8,15 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Collections_Generic_ICollectionA1.h"
-#import "System_Collections_Generic_IEnumerableA1.h"
-#import "System_Collections_Generic_IReadOnlyCollectionA1.h"
-#import "System_Collections_ICollection.h"
-#import "System_Collections_IEnumerable.h"
-#import "System_Int32.h"
-#import "System_Object.h"
-#import "System_Void.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_Collections_Generic_DictionaryA2__ValueCollection
 
@@ -41,7 +38,7 @@
 		Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+ValueCollection+TKey, System.Collections.Generic.Dictionary`2+ValueCollection+TValue>+ValueCollection
 		Managed param types : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+ValueCollection+TKey, System.Collections.Generic.Dictionary`2+ValueCollection+TValue>
 	 */
-    + (System_Collections_Generic_DictionaryA2__ValueCollection *)new_withDictionary:(DBSystem_Collections_Generic_DictionaryA2 *)p1
+    + (System_Collections_Generic_DictionaryA2__ValueCollection *)new_withDictionary:(System_Collections_Generic_DictionaryA2 *)p1
     {
 		
 		System_Collections_Generic_DictionaryA2__ValueCollection * object = [[self alloc] initWithSignature:"System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2/ValueCollection/TKey, System.Collections.Generic.Dictionary`2/ValueCollection/TValue>" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -81,7 +78,7 @@
 		Managed return type : System.Void
 		Managed param types : TValue[], System.Int32
 	 */
-    - (void)copyTo_withArray:(DBSystem_Array *)p1 index:(int32_t)p2
+    - (void)copyTo_withArray:(System_Array *)p1 index:(int32_t)p2
     {
 		
 		[self invokeMonoMethod:"CopyTo(TValue[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];

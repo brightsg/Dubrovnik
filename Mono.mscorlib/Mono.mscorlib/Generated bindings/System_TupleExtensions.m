@@ -8,10 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Object.h"
-#import "System_TupleExtensions.h"
-#import "System_Void.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_TupleExtensions
 
@@ -37,7 +39,7 @@
 		Managed param types : System.Tuple`1<System.TupleExtensions+T1>, ref T1&
 		Generic method definition type params : <System.TupleExtensions+T1>
 	 */
-    + (void)deconstruct_withValue:(System_TupleA1 *)p1 item1Ref:(System_TupleExtensions__T1 **)p2 typeParameter:(id)typeParameter
+    + (void)deconstruct_withValue:(System_TupleA1 *)p1 item1Ref:(System_Object **)p2 typeParameter:(id)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 
@@ -53,7 +55,7 @@
 		Managed param types : System.Tuple`2<System.TupleExtensions+T1, System.TupleExtensions+T2>, ref T1&, ref T2&
 		Generic method definition type params : <System.TupleExtensions+T1>, <System.TupleExtensions+T2>
 	 */
-    + (void)deconstruct_withValue:(System_TupleA2 *)p1 item1Ref:(System_TupleExtensions__T1 **)p2 item2Ref:(System_TupleExtensions__T2 **)p3 typeParameters:(NSArray<id> *)typeParameter
+    + (void)deconstruct_withValue:(System_TupleA2 *)p1 item1Ref:(System_Object **)p2 item2Ref:(System_Object **)p3 typeParameters:(NSArray<id> *)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 void *refPtr3 = [*p3 monoRTInvokeArg];
@@ -71,7 +73,7 @@ void *refPtr3 = [*p3 monoRTInvokeArg];
 		Managed param types : System.Tuple`3<System.TupleExtensions+T1, System.TupleExtensions+T2, System.TupleExtensions+T3>, ref T1&, ref T2&, ref T3&
 		Generic method definition type params : <System.TupleExtensions+T1>, <System.TupleExtensions+T2>, <System.TupleExtensions+T3>
 	 */
-    + (void)deconstruct_withValue:(System_TupleA3 *)p1 item1Ref:(System_TupleExtensions__T1 **)p2 item2Ref:(System_TupleExtensions__T2 **)p3 item3Ref:(System_TupleExtensions__T3 **)p4 typeParameters:(NSArray<id> *)typeParameter
+    + (void)deconstruct_withValue:(System_TupleA3 *)p1 item1Ref:(System_Object **)p2 item2Ref:(System_Object **)p3 item3Ref:(System_Object **)p4 typeParameters:(NSArray<id> *)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 void *refPtr3 = [*p3 monoRTInvokeArg];
@@ -91,7 +93,7 @@ void *refPtr4 = [*p4 monoRTInvokeArg];
 		Managed param types : System.Tuple`4<System.TupleExtensions+T1, System.TupleExtensions+T2, System.TupleExtensions+T3, System.TupleExtensions+T4>, ref T1&, ref T2&, ref T3&, ref T4&
 		Generic method definition type params : <System.TupleExtensions+T1>, <System.TupleExtensions+T2>, <System.TupleExtensions+T3>, <System.TupleExtensions+T4>
 	 */
-    + (void)deconstruct_withValue:(System_TupleA4 *)p1 item1Ref:(System_TupleExtensions__T1 **)p2 item2Ref:(System_TupleExtensions__T2 **)p3 item3Ref:(System_TupleExtensions__T3 **)p4 item4Ref:(System_TupleExtensions__T4 **)p5 typeParameters:(NSArray<id> *)typeParameter
+    + (void)deconstruct_withValue:(System_TupleA4 *)p1 item1Ref:(System_Object **)p2 item2Ref:(System_Object **)p3 item3Ref:(System_Object **)p4 item4Ref:(System_Object **)p5 typeParameters:(NSArray<id> *)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 void *refPtr3 = [*p3 monoRTInvokeArg];
@@ -113,7 +115,7 @@ void *refPtr5 = [*p5 monoRTInvokeArg];
 		Managed param types : System.Tuple`5, ref T1&, ref T2&, ref T3&, ref T4&, ref T5&
 		Generic method definition type params : <System.TupleExtensions+T1>, <System.TupleExtensions+T2>, <System.TupleExtensions+T3>, <System.TupleExtensions+T4>, <System.TupleExtensions+T5>
 	 */
-    + (void)deconstruct_withValue:(System_TupleA5 *)p1 item1Ref:(System_TupleExtensions__T1 **)p2 item2Ref:(System_TupleExtensions__T2 **)p3 item3Ref:(System_TupleExtensions__T3 **)p4 item4Ref:(System_TupleExtensions__T4 **)p5 item5Ref:(System_TupleExtensions__T5 **)p6 typeParameters:(NSArray<id> *)typeParameter
+    + (void)deconstruct_withValue:(System_TupleA5 *)p1 item1Ref:(System_Object **)p2 item2Ref:(System_Object **)p3 item3Ref:(System_Object **)p4 item4Ref:(System_Object **)p5 item5Ref:(System_Object **)p6 typeParameters:(NSArray<id> *)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 void *refPtr3 = [*p3 monoRTInvokeArg];
@@ -137,7 +139,7 @@ void *refPtr6 = [*p6 monoRTInvokeArg];
 		Managed param types : System.Tuple`6, ref T1&, ref T2&, ref T3&, ref T4&, ref T5&, ref T6&
 		Generic method definition type params : <System.TupleExtensions+T1>, <System.TupleExtensions+T2>, <System.TupleExtensions+T3>, <System.TupleExtensions+T4>, <System.TupleExtensions+T5>, <System.TupleExtensions+T6>
 	 */
-    + (void)deconstruct_withValue:(System_TupleA6 *)p1 item1Ref:(System_TupleExtensions__T1 **)p2 item2Ref:(System_TupleExtensions__T2 **)p3 item3Ref:(System_TupleExtensions__T3 **)p4 item4Ref:(System_TupleExtensions__T4 **)p5 item5Ref:(System_TupleExtensions__T5 **)p6 item6Ref:(System_TupleExtensions__T6 **)p7 typeParameters:(NSArray<id> *)typeParameter
+    + (void)deconstruct_withValue:(System_TupleA6 *)p1 item1Ref:(System_Object **)p2 item2Ref:(System_Object **)p3 item3Ref:(System_Object **)p4 item4Ref:(System_Object **)p5 item5Ref:(System_Object **)p6 item6Ref:(System_Object **)p7 typeParameters:(NSArray<id> *)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 void *refPtr3 = [*p3 monoRTInvokeArg];
@@ -163,7 +165,7 @@ void *refPtr7 = [*p7 monoRTInvokeArg];
 		Managed param types : System.Tuple`7, ref T1&, ref T2&, ref T3&, ref T4&, ref T5&, ref T6&, ref T7&
 		Generic method definition type params : <System.TupleExtensions+T1>, <System.TupleExtensions+T2>, <System.TupleExtensions+T3>, <System.TupleExtensions+T4>, <System.TupleExtensions+T5>, <System.TupleExtensions+T6>, <System.TupleExtensions+T7>
 	 */
-    + (void)deconstruct_withValue:(System_TupleA7 *)p1 item1Ref:(System_TupleExtensions__T1 **)p2 item2Ref:(System_TupleExtensions__T2 **)p3 item3Ref:(System_TupleExtensions__T3 **)p4 item4Ref:(System_TupleExtensions__T4 **)p5 item5Ref:(System_TupleExtensions__T5 **)p6 item6Ref:(System_TupleExtensions__T6 **)p7 item7Ref:(System_TupleExtensions__T7 **)p8 typeParameters:(NSArray<id> *)typeParameter
+    + (void)deconstruct_withValue:(System_TupleA7 *)p1 item1Ref:(System_Object **)p2 item2Ref:(System_Object **)p3 item3Ref:(System_Object **)p4 item4Ref:(System_Object **)p5 item5Ref:(System_Object **)p6 item6Ref:(System_Object **)p7 item7Ref:(System_Object **)p8 typeParameters:(NSArray<id> *)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 void *refPtr3 = [*p3 monoRTInvokeArg];
@@ -191,7 +193,7 @@ void *refPtr8 = [*p8 monoRTInvokeArg];
 		Managed param types : System.Tuple`8, ref T1&, ref T2&, ref T3&, ref T4&, ref T5&, ref T6&, ref T7&, ref T8&
 		Generic method definition type params : <System.TupleExtensions+T1>, <System.TupleExtensions+T2>, <System.TupleExtensions+T3>, <System.TupleExtensions+T4>, <System.TupleExtensions+T5>, <System.TupleExtensions+T6>, <System.TupleExtensions+T7>, <System.TupleExtensions+T8>
 	 */
-    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_TupleExtensions__T1 **)p2 item2Ref:(System_TupleExtensions__T2 **)p3 item3Ref:(System_TupleExtensions__T3 **)p4 item4Ref:(System_TupleExtensions__T4 **)p5 item5Ref:(System_TupleExtensions__T5 **)p6 item6Ref:(System_TupleExtensions__T6 **)p7 item7Ref:(System_TupleExtensions__T7 **)p8 item8Ref:(System_TupleExtensions__T8 **)p9 typeParameters:(NSArray<id> *)typeParameter
+    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_Object **)p2 item2Ref:(System_Object **)p3 item3Ref:(System_Object **)p4 item4Ref:(System_Object **)p5 item5Ref:(System_Object **)p6 item6Ref:(System_Object **)p7 item7Ref:(System_Object **)p8 item8Ref:(System_Object **)p9 typeParameters:(NSArray<id> *)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 void *refPtr3 = [*p3 monoRTInvokeArg];
@@ -221,7 +223,7 @@ void *refPtr9 = [*p9 monoRTInvokeArg];
 		Managed param types : System.Tuple`8, ref T1&, ref T2&, ref T3&, ref T4&, ref T5&, ref T6&, ref T7&, ref T8&, ref T9&
 		Generic method definition type params : <System.TupleExtensions+T1>, <System.TupleExtensions+T2>, <System.TupleExtensions+T3>, <System.TupleExtensions+T4>, <System.TupleExtensions+T5>, <System.TupleExtensions+T6>, <System.TupleExtensions+T7>, <System.TupleExtensions+T8>, <System.TupleExtensions+T9>
 	 */
-    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_TupleExtensions__T1 **)p2 item2Ref:(System_TupleExtensions__T2 **)p3 item3Ref:(System_TupleExtensions__T3 **)p4 item4Ref:(System_TupleExtensions__T4 **)p5 item5Ref:(System_TupleExtensions__T5 **)p6 item6Ref:(System_TupleExtensions__T6 **)p7 item7Ref:(System_TupleExtensions__T7 **)p8 item8Ref:(System_TupleExtensions__T8 **)p9 item9Ref:(System_TupleExtensions__T9 **)p10 typeParameters:(NSArray<id> *)typeParameter
+    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_Object **)p2 item2Ref:(System_Object **)p3 item3Ref:(System_Object **)p4 item4Ref:(System_Object **)p5 item5Ref:(System_Object **)p6 item6Ref:(System_Object **)p7 item7Ref:(System_Object **)p8 item8Ref:(System_Object **)p9 item9Ref:(System_Object **)p10 typeParameters:(NSArray<id> *)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 void *refPtr3 = [*p3 monoRTInvokeArg];
@@ -253,7 +255,7 @@ void *refPtr10 = [*p10 monoRTInvokeArg];
 		Managed param types : System.Tuple`8, ref T1&, ref T2&, ref T3&, ref T4&, ref T5&, ref T6&, ref T7&, ref T8&, ref T9&, ref T10&
 		Generic method definition type params : <System.TupleExtensions+T1>, <System.TupleExtensions+T2>, <System.TupleExtensions+T3>, <System.TupleExtensions+T4>, <System.TupleExtensions+T5>, <System.TupleExtensions+T6>, <System.TupleExtensions+T7>, <System.TupleExtensions+T8>, <System.TupleExtensions+T9>, <System.TupleExtensions+T10>
 	 */
-    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_TupleExtensions__T1 **)p2 item2Ref:(System_TupleExtensions__T2 **)p3 item3Ref:(System_TupleExtensions__T3 **)p4 item4Ref:(System_TupleExtensions__T4 **)p5 item5Ref:(System_TupleExtensions__T5 **)p6 item6Ref:(System_TupleExtensions__T6 **)p7 item7Ref:(System_TupleExtensions__T7 **)p8 item8Ref:(System_TupleExtensions__T8 **)p9 item9Ref:(System_TupleExtensions__T9 **)p10 item10Ref:(System_TupleExtensions__T10 **)p11 typeParameters:(NSArray<id> *)typeParameter
+    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_Object **)p2 item2Ref:(System_Object **)p3 item3Ref:(System_Object **)p4 item4Ref:(System_Object **)p5 item5Ref:(System_Object **)p6 item6Ref:(System_Object **)p7 item7Ref:(System_Object **)p8 item8Ref:(System_Object **)p9 item9Ref:(System_Object **)p10 item10Ref:(System_Object **)p11 typeParameters:(NSArray<id> *)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 void *refPtr3 = [*p3 monoRTInvokeArg];
@@ -287,7 +289,7 @@ void *refPtr11 = [*p11 monoRTInvokeArg];
 		Managed param types : System.Tuple`8, ref T1&, ref T2&, ref T3&, ref T4&, ref T5&, ref T6&, ref T7&, ref T8&, ref T9&, ref T10&, ref T11&
 		Generic method definition type params : <System.TupleExtensions+T1>, <System.TupleExtensions+T2>, <System.TupleExtensions+T3>, <System.TupleExtensions+T4>, <System.TupleExtensions+T5>, <System.TupleExtensions+T6>, <System.TupleExtensions+T7>, <System.TupleExtensions+T8>, <System.TupleExtensions+T9>, <System.TupleExtensions+T10>, <System.TupleExtensions+T11>
 	 */
-    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_TupleExtensions__T1 **)p2 item2Ref:(System_TupleExtensions__T2 **)p3 item3Ref:(System_TupleExtensions__T3 **)p4 item4Ref:(System_TupleExtensions__T4 **)p5 item5Ref:(System_TupleExtensions__T5 **)p6 item6Ref:(System_TupleExtensions__T6 **)p7 item7Ref:(System_TupleExtensions__T7 **)p8 item8Ref:(System_TupleExtensions__T8 **)p9 item9Ref:(System_TupleExtensions__T9 **)p10 item10Ref:(System_TupleExtensions__T10 **)p11 item11Ref:(System_TupleExtensions__T11 **)p12 typeParameters:(NSArray<id> *)typeParameter
+    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_Object **)p2 item2Ref:(System_Object **)p3 item3Ref:(System_Object **)p4 item4Ref:(System_Object **)p5 item5Ref:(System_Object **)p6 item6Ref:(System_Object **)p7 item7Ref:(System_Object **)p8 item8Ref:(System_Object **)p9 item9Ref:(System_Object **)p10 item10Ref:(System_Object **)p11 item11Ref:(System_Object **)p12 typeParameters:(NSArray<id> *)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 void *refPtr3 = [*p3 monoRTInvokeArg];
@@ -323,7 +325,7 @@ void *refPtr12 = [*p12 monoRTInvokeArg];
 		Managed param types : System.Tuple`8, ref T1&, ref T2&, ref T3&, ref T4&, ref T5&, ref T6&, ref T7&, ref T8&, ref T9&, ref T10&, ref T11&, ref T12&
 		Generic method definition type params : <System.TupleExtensions+T1>, <System.TupleExtensions+T2>, <System.TupleExtensions+T3>, <System.TupleExtensions+T4>, <System.TupleExtensions+T5>, <System.TupleExtensions+T6>, <System.TupleExtensions+T7>, <System.TupleExtensions+T8>, <System.TupleExtensions+T9>, <System.TupleExtensions+T10>, <System.TupleExtensions+T11>, <System.TupleExtensions+T12>
 	 */
-    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_TupleExtensions__T1 **)p2 item2Ref:(System_TupleExtensions__T2 **)p3 item3Ref:(System_TupleExtensions__T3 **)p4 item4Ref:(System_TupleExtensions__T4 **)p5 item5Ref:(System_TupleExtensions__T5 **)p6 item6Ref:(System_TupleExtensions__T6 **)p7 item7Ref:(System_TupleExtensions__T7 **)p8 item8Ref:(System_TupleExtensions__T8 **)p9 item9Ref:(System_TupleExtensions__T9 **)p10 item10Ref:(System_TupleExtensions__T10 **)p11 item11Ref:(System_TupleExtensions__T11 **)p12 item12Ref:(System_TupleExtensions__T12 **)p13 typeParameters:(NSArray<id> *)typeParameter
+    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_Object **)p2 item2Ref:(System_Object **)p3 item3Ref:(System_Object **)p4 item4Ref:(System_Object **)p5 item5Ref:(System_Object **)p6 item6Ref:(System_Object **)p7 item7Ref:(System_Object **)p8 item8Ref:(System_Object **)p9 item9Ref:(System_Object **)p10 item10Ref:(System_Object **)p11 item11Ref:(System_Object **)p12 item12Ref:(System_Object **)p13 typeParameters:(NSArray<id> *)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 void *refPtr3 = [*p3 monoRTInvokeArg];
@@ -361,7 +363,7 @@ void *refPtr13 = [*p13 monoRTInvokeArg];
 		Managed param types : System.Tuple`8, ref T1&, ref T2&, ref T3&, ref T4&, ref T5&, ref T6&, ref T7&, ref T8&, ref T9&, ref T10&, ref T11&, ref T12&, ref T13&
 		Generic method definition type params : <System.TupleExtensions+T1>, <System.TupleExtensions+T2>, <System.TupleExtensions+T3>, <System.TupleExtensions+T4>, <System.TupleExtensions+T5>, <System.TupleExtensions+T6>, <System.TupleExtensions+T7>, <System.TupleExtensions+T8>, <System.TupleExtensions+T9>, <System.TupleExtensions+T10>, <System.TupleExtensions+T11>, <System.TupleExtensions+T12>, <System.TupleExtensions+T13>
 	 */
-    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_TupleExtensions__T1 **)p2 item2Ref:(System_TupleExtensions__T2 **)p3 item3Ref:(System_TupleExtensions__T3 **)p4 item4Ref:(System_TupleExtensions__T4 **)p5 item5Ref:(System_TupleExtensions__T5 **)p6 item6Ref:(System_TupleExtensions__T6 **)p7 item7Ref:(System_TupleExtensions__T7 **)p8 item8Ref:(System_TupleExtensions__T8 **)p9 item9Ref:(System_TupleExtensions__T9 **)p10 item10Ref:(System_TupleExtensions__T10 **)p11 item11Ref:(System_TupleExtensions__T11 **)p12 item12Ref:(System_TupleExtensions__T12 **)p13 item13Ref:(System_TupleExtensions__T13 **)p14 typeParameters:(NSArray<id> *)typeParameter
+    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_Object **)p2 item2Ref:(System_Object **)p3 item3Ref:(System_Object **)p4 item4Ref:(System_Object **)p5 item5Ref:(System_Object **)p6 item6Ref:(System_Object **)p7 item7Ref:(System_Object **)p8 item8Ref:(System_Object **)p9 item9Ref:(System_Object **)p10 item10Ref:(System_Object **)p11 item11Ref:(System_Object **)p12 item12Ref:(System_Object **)p13 item13Ref:(System_Object **)p14 typeParameters:(NSArray<id> *)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 void *refPtr3 = [*p3 monoRTInvokeArg];
@@ -401,7 +403,7 @@ void *refPtr14 = [*p14 monoRTInvokeArg];
 		Managed param types : System.Tuple`8, ref T1&, ref T2&, ref T3&, ref T4&, ref T5&, ref T6&, ref T7&, ref T8&, ref T9&, ref T10&, ref T11&, ref T12&, ref T13&, ref T14&
 		Generic method definition type params : <System.TupleExtensions+T1>, <System.TupleExtensions+T2>, <System.TupleExtensions+T3>, <System.TupleExtensions+T4>, <System.TupleExtensions+T5>, <System.TupleExtensions+T6>, <System.TupleExtensions+T7>, <System.TupleExtensions+T8>, <System.TupleExtensions+T9>, <System.TupleExtensions+T10>, <System.TupleExtensions+T11>, <System.TupleExtensions+T12>, <System.TupleExtensions+T13>, <System.TupleExtensions+T14>
 	 */
-    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_TupleExtensions__T1 **)p2 item2Ref:(System_TupleExtensions__T2 **)p3 item3Ref:(System_TupleExtensions__T3 **)p4 item4Ref:(System_TupleExtensions__T4 **)p5 item5Ref:(System_TupleExtensions__T5 **)p6 item6Ref:(System_TupleExtensions__T6 **)p7 item7Ref:(System_TupleExtensions__T7 **)p8 item8Ref:(System_TupleExtensions__T8 **)p9 item9Ref:(System_TupleExtensions__T9 **)p10 item10Ref:(System_TupleExtensions__T10 **)p11 item11Ref:(System_TupleExtensions__T11 **)p12 item12Ref:(System_TupleExtensions__T12 **)p13 item13Ref:(System_TupleExtensions__T13 **)p14 item14Ref:(System_TupleExtensions__T14 **)p15 typeParameters:(NSArray<id> *)typeParameter
+    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_Object **)p2 item2Ref:(System_Object **)p3 item3Ref:(System_Object **)p4 item4Ref:(System_Object **)p5 item5Ref:(System_Object **)p6 item6Ref:(System_Object **)p7 item7Ref:(System_Object **)p8 item8Ref:(System_Object **)p9 item9Ref:(System_Object **)p10 item10Ref:(System_Object **)p11 item11Ref:(System_Object **)p12 item12Ref:(System_Object **)p13 item13Ref:(System_Object **)p14 item14Ref:(System_Object **)p15 typeParameters:(NSArray<id> *)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 void *refPtr3 = [*p3 monoRTInvokeArg];
@@ -443,7 +445,7 @@ void *refPtr15 = [*p15 monoRTInvokeArg];
 		Managed param types : System.Tuple`8, ref T1&, ref T2&, ref T3&, ref T4&, ref T5&, ref T6&, ref T7&, ref T8&, ref T9&, ref T10&, ref T11&, ref T12&, ref T13&, ref T14&, ref T15&
 		Generic method definition type params : <System.TupleExtensions+T1>, <System.TupleExtensions+T2>, <System.TupleExtensions+T3>, <System.TupleExtensions+T4>, <System.TupleExtensions+T5>, <System.TupleExtensions+T6>, <System.TupleExtensions+T7>, <System.TupleExtensions+T8>, <System.TupleExtensions+T9>, <System.TupleExtensions+T10>, <System.TupleExtensions+T11>, <System.TupleExtensions+T12>, <System.TupleExtensions+T13>, <System.TupleExtensions+T14>, <System.TupleExtensions+T15>
 	 */
-    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_TupleExtensions__T1 **)p2 item2Ref:(System_TupleExtensions__T2 **)p3 item3Ref:(System_TupleExtensions__T3 **)p4 item4Ref:(System_TupleExtensions__T4 **)p5 item5Ref:(System_TupleExtensions__T5 **)p6 item6Ref:(System_TupleExtensions__T6 **)p7 item7Ref:(System_TupleExtensions__T7 **)p8 item8Ref:(System_TupleExtensions__T8 **)p9 item9Ref:(System_TupleExtensions__T9 **)p10 item10Ref:(System_TupleExtensions__T10 **)p11 item11Ref:(System_TupleExtensions__T11 **)p12 item12Ref:(System_TupleExtensions__T12 **)p13 item13Ref:(System_TupleExtensions__T13 **)p14 item14Ref:(System_TupleExtensions__T14 **)p15 item15Ref:(System_TupleExtensions__T15 **)p16 typeParameters:(NSArray<id> *)typeParameter
+    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_Object **)p2 item2Ref:(System_Object **)p3 item3Ref:(System_Object **)p4 item4Ref:(System_Object **)p5 item5Ref:(System_Object **)p6 item6Ref:(System_Object **)p7 item7Ref:(System_Object **)p8 item8Ref:(System_Object **)p9 item9Ref:(System_Object **)p10 item10Ref:(System_Object **)p11 item11Ref:(System_Object **)p12 item12Ref:(System_Object **)p13 item13Ref:(System_Object **)p14 item14Ref:(System_Object **)p15 item15Ref:(System_Object **)p16 typeParameters:(NSArray<id> *)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 void *refPtr3 = [*p3 monoRTInvokeArg];
@@ -487,7 +489,7 @@ void *refPtr16 = [*p16 monoRTInvokeArg];
 		Managed param types : System.Tuple`8, ref T1&, ref T2&, ref T3&, ref T4&, ref T5&, ref T6&, ref T7&, ref T8&, ref T9&, ref T10&, ref T11&, ref T12&, ref T13&, ref T14&, ref T15&, ref T16&
 		Generic method definition type params : <System.TupleExtensions+T1>, <System.TupleExtensions+T2>, <System.TupleExtensions+T3>, <System.TupleExtensions+T4>, <System.TupleExtensions+T5>, <System.TupleExtensions+T6>, <System.TupleExtensions+T7>, <System.TupleExtensions+T8>, <System.TupleExtensions+T9>, <System.TupleExtensions+T10>, <System.TupleExtensions+T11>, <System.TupleExtensions+T12>, <System.TupleExtensions+T13>, <System.TupleExtensions+T14>, <System.TupleExtensions+T15>, <System.TupleExtensions+T16>
 	 */
-    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_TupleExtensions__T1 **)p2 item2Ref:(System_TupleExtensions__T2 **)p3 item3Ref:(System_TupleExtensions__T3 **)p4 item4Ref:(System_TupleExtensions__T4 **)p5 item5Ref:(System_TupleExtensions__T5 **)p6 item6Ref:(System_TupleExtensions__T6 **)p7 item7Ref:(System_TupleExtensions__T7 **)p8 item8Ref:(System_TupleExtensions__T8 **)p9 item9Ref:(System_TupleExtensions__T9 **)p10 item10Ref:(System_TupleExtensions__T10 **)p11 item11Ref:(System_TupleExtensions__T11 **)p12 item12Ref:(System_TupleExtensions__T12 **)p13 item13Ref:(System_TupleExtensions__T13 **)p14 item14Ref:(System_TupleExtensions__T14 **)p15 item15Ref:(System_TupleExtensions__T15 **)p16 item16Ref:(System_TupleExtensions__T16 **)p17 typeParameters:(NSArray<id> *)typeParameter
+    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_Object **)p2 item2Ref:(System_Object **)p3 item3Ref:(System_Object **)p4 item4Ref:(System_Object **)p5 item5Ref:(System_Object **)p6 item6Ref:(System_Object **)p7 item7Ref:(System_Object **)p8 item8Ref:(System_Object **)p9 item9Ref:(System_Object **)p10 item10Ref:(System_Object **)p11 item11Ref:(System_Object **)p12 item12Ref:(System_Object **)p13 item13Ref:(System_Object **)p14 item14Ref:(System_Object **)p15 item15Ref:(System_Object **)p16 item16Ref:(System_Object **)p17 typeParameters:(NSArray<id> *)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 void *refPtr3 = [*p3 monoRTInvokeArg];
@@ -533,7 +535,7 @@ void *refPtr17 = [*p17 monoRTInvokeArg];
 		Managed param types : System.Tuple`8, ref T1&, ref T2&, ref T3&, ref T4&, ref T5&, ref T6&, ref T7&, ref T8&, ref T9&, ref T10&, ref T11&, ref T12&, ref T13&, ref T14&, ref T15&, ref T16&, ref T17&
 		Generic method definition type params : <System.TupleExtensions+T1>, <System.TupleExtensions+T2>, <System.TupleExtensions+T3>, <System.TupleExtensions+T4>, <System.TupleExtensions+T5>, <System.TupleExtensions+T6>, <System.TupleExtensions+T7>, <System.TupleExtensions+T8>, <System.TupleExtensions+T9>, <System.TupleExtensions+T10>, <System.TupleExtensions+T11>, <System.TupleExtensions+T12>, <System.TupleExtensions+T13>, <System.TupleExtensions+T14>, <System.TupleExtensions+T15>, <System.TupleExtensions+T16>, <System.TupleExtensions+T17>
 	 */
-    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_TupleExtensions__T1 **)p2 item2Ref:(System_TupleExtensions__T2 **)p3 item3Ref:(System_TupleExtensions__T3 **)p4 item4Ref:(System_TupleExtensions__T4 **)p5 item5Ref:(System_TupleExtensions__T5 **)p6 item6Ref:(System_TupleExtensions__T6 **)p7 item7Ref:(System_TupleExtensions__T7 **)p8 item8Ref:(System_TupleExtensions__T8 **)p9 item9Ref:(System_TupleExtensions__T9 **)p10 item10Ref:(System_TupleExtensions__T10 **)p11 item11Ref:(System_TupleExtensions__T11 **)p12 item12Ref:(System_TupleExtensions__T12 **)p13 item13Ref:(System_TupleExtensions__T13 **)p14 item14Ref:(System_TupleExtensions__T14 **)p15 item15Ref:(System_TupleExtensions__T15 **)p16 item16Ref:(System_TupleExtensions__T16 **)p17 item17Ref:(System_TupleExtensions__T17 **)p18 typeParameters:(NSArray<id> *)typeParameter
+    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_Object **)p2 item2Ref:(System_Object **)p3 item3Ref:(System_Object **)p4 item4Ref:(System_Object **)p5 item5Ref:(System_Object **)p6 item6Ref:(System_Object **)p7 item7Ref:(System_Object **)p8 item8Ref:(System_Object **)p9 item9Ref:(System_Object **)p10 item10Ref:(System_Object **)p11 item11Ref:(System_Object **)p12 item12Ref:(System_Object **)p13 item13Ref:(System_Object **)p14 item14Ref:(System_Object **)p15 item15Ref:(System_Object **)p16 item16Ref:(System_Object **)p17 item17Ref:(System_Object **)p18 typeParameters:(NSArray<id> *)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 void *refPtr3 = [*p3 monoRTInvokeArg];
@@ -581,7 +583,7 @@ void *refPtr18 = [*p18 monoRTInvokeArg];
 		Managed param types : System.Tuple`8, ref T1&, ref T2&, ref T3&, ref T4&, ref T5&, ref T6&, ref T7&, ref T8&, ref T9&, ref T10&, ref T11&, ref T12&, ref T13&, ref T14&, ref T15&, ref T16&, ref T17&, ref T18&
 		Generic method definition type params : <System.TupleExtensions+T1>, <System.TupleExtensions+T2>, <System.TupleExtensions+T3>, <System.TupleExtensions+T4>, <System.TupleExtensions+T5>, <System.TupleExtensions+T6>, <System.TupleExtensions+T7>, <System.TupleExtensions+T8>, <System.TupleExtensions+T9>, <System.TupleExtensions+T10>, <System.TupleExtensions+T11>, <System.TupleExtensions+T12>, <System.TupleExtensions+T13>, <System.TupleExtensions+T14>, <System.TupleExtensions+T15>, <System.TupleExtensions+T16>, <System.TupleExtensions+T17>, <System.TupleExtensions+T18>
 	 */
-    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_TupleExtensions__T1 **)p2 item2Ref:(System_TupleExtensions__T2 **)p3 item3Ref:(System_TupleExtensions__T3 **)p4 item4Ref:(System_TupleExtensions__T4 **)p5 item5Ref:(System_TupleExtensions__T5 **)p6 item6Ref:(System_TupleExtensions__T6 **)p7 item7Ref:(System_TupleExtensions__T7 **)p8 item8Ref:(System_TupleExtensions__T8 **)p9 item9Ref:(System_TupleExtensions__T9 **)p10 item10Ref:(System_TupleExtensions__T10 **)p11 item11Ref:(System_TupleExtensions__T11 **)p12 item12Ref:(System_TupleExtensions__T12 **)p13 item13Ref:(System_TupleExtensions__T13 **)p14 item14Ref:(System_TupleExtensions__T14 **)p15 item15Ref:(System_TupleExtensions__T15 **)p16 item16Ref:(System_TupleExtensions__T16 **)p17 item17Ref:(System_TupleExtensions__T17 **)p18 item18Ref:(System_TupleExtensions__T18 **)p19 typeParameters:(NSArray<id> *)typeParameter
+    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_Object **)p2 item2Ref:(System_Object **)p3 item3Ref:(System_Object **)p4 item4Ref:(System_Object **)p5 item5Ref:(System_Object **)p6 item6Ref:(System_Object **)p7 item7Ref:(System_Object **)p8 item8Ref:(System_Object **)p9 item9Ref:(System_Object **)p10 item10Ref:(System_Object **)p11 item11Ref:(System_Object **)p12 item12Ref:(System_Object **)p13 item13Ref:(System_Object **)p14 item14Ref:(System_Object **)p15 item15Ref:(System_Object **)p16 item16Ref:(System_Object **)p17 item17Ref:(System_Object **)p18 item18Ref:(System_Object **)p19 typeParameters:(NSArray<id> *)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 void *refPtr3 = [*p3 monoRTInvokeArg];
@@ -631,7 +633,7 @@ void *refPtr19 = [*p19 monoRTInvokeArg];
 		Managed param types : System.Tuple`8, ref T1&, ref T2&, ref T3&, ref T4&, ref T5&, ref T6&, ref T7&, ref T8&, ref T9&, ref T10&, ref T11&, ref T12&, ref T13&, ref T14&, ref T15&, ref T16&, ref T17&, ref T18&, ref T19&
 		Generic method definition type params : <System.TupleExtensions+T1>, <System.TupleExtensions+T2>, <System.TupleExtensions+T3>, <System.TupleExtensions+T4>, <System.TupleExtensions+T5>, <System.TupleExtensions+T6>, <System.TupleExtensions+T7>, <System.TupleExtensions+T8>, <System.TupleExtensions+T9>, <System.TupleExtensions+T10>, <System.TupleExtensions+T11>, <System.TupleExtensions+T12>, <System.TupleExtensions+T13>, <System.TupleExtensions+T14>, <System.TupleExtensions+T15>, <System.TupleExtensions+T16>, <System.TupleExtensions+T17>, <System.TupleExtensions+T18>, <System.TupleExtensions+T19>
 	 */
-    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_TupleExtensions__T1 **)p2 item2Ref:(System_TupleExtensions__T2 **)p3 item3Ref:(System_TupleExtensions__T3 **)p4 item4Ref:(System_TupleExtensions__T4 **)p5 item5Ref:(System_TupleExtensions__T5 **)p6 item6Ref:(System_TupleExtensions__T6 **)p7 item7Ref:(System_TupleExtensions__T7 **)p8 item8Ref:(System_TupleExtensions__T8 **)p9 item9Ref:(System_TupleExtensions__T9 **)p10 item10Ref:(System_TupleExtensions__T10 **)p11 item11Ref:(System_TupleExtensions__T11 **)p12 item12Ref:(System_TupleExtensions__T12 **)p13 item13Ref:(System_TupleExtensions__T13 **)p14 item14Ref:(System_TupleExtensions__T14 **)p15 item15Ref:(System_TupleExtensions__T15 **)p16 item16Ref:(System_TupleExtensions__T16 **)p17 item17Ref:(System_TupleExtensions__T17 **)p18 item18Ref:(System_TupleExtensions__T18 **)p19 item19Ref:(System_TupleExtensions__T19 **)p20 typeParameters:(NSArray<id> *)typeParameter
+    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_Object **)p2 item2Ref:(System_Object **)p3 item3Ref:(System_Object **)p4 item4Ref:(System_Object **)p5 item5Ref:(System_Object **)p6 item6Ref:(System_Object **)p7 item7Ref:(System_Object **)p8 item8Ref:(System_Object **)p9 item9Ref:(System_Object **)p10 item10Ref:(System_Object **)p11 item11Ref:(System_Object **)p12 item12Ref:(System_Object **)p13 item13Ref:(System_Object **)p14 item14Ref:(System_Object **)p15 item15Ref:(System_Object **)p16 item16Ref:(System_Object **)p17 item17Ref:(System_Object **)p18 item18Ref:(System_Object **)p19 item19Ref:(System_Object **)p20 typeParameters:(NSArray<id> *)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 void *refPtr3 = [*p3 monoRTInvokeArg];
@@ -683,7 +685,7 @@ void *refPtr20 = [*p20 monoRTInvokeArg];
 		Managed param types : System.Tuple`8, ref T1&, ref T2&, ref T3&, ref T4&, ref T5&, ref T6&, ref T7&, ref T8&, ref T9&, ref T10&, ref T11&, ref T12&, ref T13&, ref T14&, ref T15&, ref T16&, ref T17&, ref T18&, ref T19&, ref T20&
 		Generic method definition type params : <System.TupleExtensions+T1>, <System.TupleExtensions+T2>, <System.TupleExtensions+T3>, <System.TupleExtensions+T4>, <System.TupleExtensions+T5>, <System.TupleExtensions+T6>, <System.TupleExtensions+T7>, <System.TupleExtensions+T8>, <System.TupleExtensions+T9>, <System.TupleExtensions+T10>, <System.TupleExtensions+T11>, <System.TupleExtensions+T12>, <System.TupleExtensions+T13>, <System.TupleExtensions+T14>, <System.TupleExtensions+T15>, <System.TupleExtensions+T16>, <System.TupleExtensions+T17>, <System.TupleExtensions+T18>, <System.TupleExtensions+T19>, <System.TupleExtensions+T20>
 	 */
-    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_TupleExtensions__T1 **)p2 item2Ref:(System_TupleExtensions__T2 **)p3 item3Ref:(System_TupleExtensions__T3 **)p4 item4Ref:(System_TupleExtensions__T4 **)p5 item5Ref:(System_TupleExtensions__T5 **)p6 item6Ref:(System_TupleExtensions__T6 **)p7 item7Ref:(System_TupleExtensions__T7 **)p8 item8Ref:(System_TupleExtensions__T8 **)p9 item9Ref:(System_TupleExtensions__T9 **)p10 item10Ref:(System_TupleExtensions__T10 **)p11 item11Ref:(System_TupleExtensions__T11 **)p12 item12Ref:(System_TupleExtensions__T12 **)p13 item13Ref:(System_TupleExtensions__T13 **)p14 item14Ref:(System_TupleExtensions__T14 **)p15 item15Ref:(System_TupleExtensions__T15 **)p16 item16Ref:(System_TupleExtensions__T16 **)p17 item17Ref:(System_TupleExtensions__T17 **)p18 item18Ref:(System_TupleExtensions__T18 **)p19 item19Ref:(System_TupleExtensions__T19 **)p20 item20Ref:(System_TupleExtensions__T20 **)p21 typeParameters:(NSArray<id> *)typeParameter
+    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_Object **)p2 item2Ref:(System_Object **)p3 item3Ref:(System_Object **)p4 item4Ref:(System_Object **)p5 item5Ref:(System_Object **)p6 item6Ref:(System_Object **)p7 item7Ref:(System_Object **)p8 item8Ref:(System_Object **)p9 item9Ref:(System_Object **)p10 item10Ref:(System_Object **)p11 item11Ref:(System_Object **)p12 item12Ref:(System_Object **)p13 item13Ref:(System_Object **)p14 item14Ref:(System_Object **)p15 item15Ref:(System_Object **)p16 item16Ref:(System_Object **)p17 item17Ref:(System_Object **)p18 item18Ref:(System_Object **)p19 item19Ref:(System_Object **)p20 item20Ref:(System_Object **)p21 typeParameters:(NSArray<id> *)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 void *refPtr3 = [*p3 monoRTInvokeArg];
@@ -737,7 +739,7 @@ void *refPtr21 = [*p21 monoRTInvokeArg];
 		Managed param types : System.Tuple`8, ref T1&, ref T2&, ref T3&, ref T4&, ref T5&, ref T6&, ref T7&, ref T8&, ref T9&, ref T10&, ref T11&, ref T12&, ref T13&, ref T14&, ref T15&, ref T16&, ref T17&, ref T18&, ref T19&, ref T20&, ref T21&
 		Generic method definition type params : <System.TupleExtensions+T1>, <System.TupleExtensions+T2>, <System.TupleExtensions+T3>, <System.TupleExtensions+T4>, <System.TupleExtensions+T5>, <System.TupleExtensions+T6>, <System.TupleExtensions+T7>, <System.TupleExtensions+T8>, <System.TupleExtensions+T9>, <System.TupleExtensions+T10>, <System.TupleExtensions+T11>, <System.TupleExtensions+T12>, <System.TupleExtensions+T13>, <System.TupleExtensions+T14>, <System.TupleExtensions+T15>, <System.TupleExtensions+T16>, <System.TupleExtensions+T17>, <System.TupleExtensions+T18>, <System.TupleExtensions+T19>, <System.TupleExtensions+T20>, <System.TupleExtensions+T21>
 	 */
-    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_TupleExtensions__T1 **)p2 item2Ref:(System_TupleExtensions__T2 **)p3 item3Ref:(System_TupleExtensions__T3 **)p4 item4Ref:(System_TupleExtensions__T4 **)p5 item5Ref:(System_TupleExtensions__T5 **)p6 item6Ref:(System_TupleExtensions__T6 **)p7 item7Ref:(System_TupleExtensions__T7 **)p8 item8Ref:(System_TupleExtensions__T8 **)p9 item9Ref:(System_TupleExtensions__T9 **)p10 item10Ref:(System_TupleExtensions__T10 **)p11 item11Ref:(System_TupleExtensions__T11 **)p12 item12Ref:(System_TupleExtensions__T12 **)p13 item13Ref:(System_TupleExtensions__T13 **)p14 item14Ref:(System_TupleExtensions__T14 **)p15 item15Ref:(System_TupleExtensions__T15 **)p16 item16Ref:(System_TupleExtensions__T16 **)p17 item17Ref:(System_TupleExtensions__T17 **)p18 item18Ref:(System_TupleExtensions__T18 **)p19 item19Ref:(System_TupleExtensions__T19 **)p20 item20Ref:(System_TupleExtensions__T20 **)p21 item21Ref:(System_TupleExtensions__T21 **)p22 typeParameters:(NSArray<id> *)typeParameter
+    + (void)deconstruct_withValue:(System_TupleA8 *)p1 item1Ref:(System_Object **)p2 item2Ref:(System_Object **)p3 item3Ref:(System_Object **)p4 item4Ref:(System_Object **)p5 item5Ref:(System_Object **)p6 item6Ref:(System_Object **)p7 item7Ref:(System_Object **)p8 item8Ref:(System_Object **)p9 item9Ref:(System_Object **)p10 item10Ref:(System_Object **)p11 item11Ref:(System_Object **)p12 item12Ref:(System_Object **)p13 item13Ref:(System_Object **)p14 item14Ref:(System_Object **)p15 item15Ref:(System_Object **)p16 item16Ref:(System_Object **)p17 item17Ref:(System_Object **)p18 item18Ref:(System_Object **)p19 item19Ref:(System_Object **)p20 item20Ref:(System_Object **)p21 item21Ref:(System_Object **)p22 typeParameters:(NSArray<id> *)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 void *refPtr3 = [*p3 monoRTInvokeArg];

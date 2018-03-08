@@ -8,9 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Activator.h"
-#import "System_Object.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_Activator
 
@@ -39,7 +42,7 @@
 		Managed return type : System.Object
 		Managed param types : System.Type, System.Object[]
 	 */
-    + (System_Object *)createInstance_withType:(System_Type *)p1 args:(DBSystem_Array *)p2
+    + (System_Object *)createInstance_withType:(System_Type *)p1 args:(System_Array *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -52,7 +55,7 @@
 		Managed return type : System.Object
 		Managed param types : System.Type, System.Object[], System.Object[]
 	 */
-    + (System_Object *)createInstance_withType:(System_Type *)p1 args:(DBSystem_Array *)p2 activationAttributes:(DBSystem_Array *)p3
+    + (System_Object *)createInstance_withType:(System_Type *)p1 args:(System_Array *)p2 activationAttributes:(System_Array *)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,object[],object[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];

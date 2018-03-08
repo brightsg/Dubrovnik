@@ -8,10 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Int32.h"
-#import "System_Text_DecoderFallback.h"
-#import "System_Text_DecoderFallbackBuffer.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_Text_DecoderFallback
 

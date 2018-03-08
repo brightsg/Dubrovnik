@@ -8,18 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Boolean.h"
-#import "System_Console.h"
-#import "System_ConsoleColor.h"
-#import "System_ConsoleKeyInfo.h"
-#import "System_Int32.h"
-#import "System_IO_Stream.h"
-#import "System_IO_TextReader.h"
-#import "System_IO_TextWriter.h"
-#import "System_String.h"
-#import "System_Text_Encoding.h"
-#import "System_Void.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_Console
 
@@ -1194,7 +1188,7 @@
 		Managed return type : System.Void
 		Managed param types : System.String, System.Object[]
 	 */
-    + (void)write_withFormat:(NSString *)p1 arg:(DBSystem_Array *)p2
+    + (void)write_withFormat:(NSString *)p1 arg:(System_Array *)p2
     {
 		
 		[self invokeMonoClassMethod:"Write(string,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -1230,7 +1224,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Char[]
 	 */
-    + (void)write_withBuffer:(DBSystem_Array *)p1
+    + (void)write_withBuffer:(System_Array *)p1
     {
 		
 		[self invokeMonoClassMethod:"Write(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -1242,7 +1236,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    + (void)write_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
+    + (void)write_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		
 		[self invokeMonoClassMethod:"Write(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
@@ -1398,7 +1392,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Char[]
 	 */
-    + (void)writeLine_withBuffer:(DBSystem_Array *)p1
+    + (void)writeLine_withBuffer:(System_Array *)p1
     {
 		
 		[self invokeMonoClassMethod:"WriteLine(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -1410,7 +1404,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    + (void)writeLine_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
+    + (void)writeLine_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
     {
 		
 		[self invokeMonoClassMethod:"WriteLine(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
@@ -1578,7 +1572,7 @@
 		Managed return type : System.Void
 		Managed param types : System.String, System.Object[]
 	 */
-    + (void)writeLine_withFormat:(NSString *)p1 arg:(DBSystem_Array *)p2
+    + (void)writeLine_withFormat:(NSString *)p1 arg:(System_Array *)p2
     {
 		
 		[self invokeMonoClassMethod:"WriteLine(string,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];

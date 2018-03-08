@@ -3,24 +3,34 @@
 // Managed class : FormattableString
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_FormattableString.__Extra__.h")
 #import "System_FormattableString.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_Array;
 @class System_FormattableString;
+@class System_IFormatProvider;
 @class System_IFormattable;
 @class System_Int32;
 @class System_Object;
 @class System_String;
+@protocol System_IFormatProvider;
+@protocol System_IFormatProvider_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_IFormattable_Protocol.h"
 #import "System_Object.h"
 
@@ -59,7 +69,7 @@
 		Managed return type : System.Object[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getArguments;
+    - (System_Array *)getArguments;
 
 	/*! 
 		Managed method name : Invariant

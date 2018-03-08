@@ -3,26 +3,35 @@
 // Managed class : StringComparer
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_StringComparer.__Extra__.h")
 #import "System_StringComparer.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_Boolean;
 @class System_Collections_Generic_IComparerA1;
 @class System_Collections_Generic_IEqualityComparerA1;
 @class System_Collections_IComparer;
 @class System_Collections_IEqualityComparer;
+@class System_Globalization_CultureInfo;
 @class System_Int32;
+@class System_Object;
+@class System_String;
 @class System_StringComparer;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Collections_Generic_IComparerA1_Protocol.h"
 #import "System_Collections_Generic_IEqualityComparerA1_Protocol.h"
 #import "System_Collections_IComparer_Protocol.h"

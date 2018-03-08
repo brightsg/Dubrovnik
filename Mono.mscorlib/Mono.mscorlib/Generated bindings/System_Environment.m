@@ -8,16 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Boolean.h"
-#import "System_Collections_IDictionary.h"
-#import "System_Environment.h"
-#import "System_Int32.h"
-#import "System_Int64.h"
-#import "System_OperatingSystem.h"
-#import "System_String.h"
-#import "System_Version.h"
-#import "System_Void.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_Environment
 
@@ -554,12 +550,12 @@
 		Managed return type : System.String[]
 		Managed param types : 
 	 */
-    + (DBSystem_Array *)getCommandLineArgs
+    + (System_Array *)getCommandLineArgs
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCommandLineArgs()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -645,12 +641,12 @@
 		Managed return type : System.String[]
 		Managed param types : 
 	 */
-    + (DBSystem_Array *)getLogicalDrives
+    + (System_Array *)getLogicalDrives
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetLogicalDrives()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 

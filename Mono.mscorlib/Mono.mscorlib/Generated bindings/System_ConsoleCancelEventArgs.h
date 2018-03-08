@@ -3,22 +3,28 @@
 // Managed class : ConsoleCancelEventArgs
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_ConsoleCancelEventArgs.__Extra__.h")
 #import "System_ConsoleCancelEventArgs.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_Boolean;
 @class System_ConsoleCancelEventArgs;
 @class System_ConsoleSpecialKey;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_EventArgs.h"
 
 @interface System_ConsoleCancelEventArgs : System_EventArgs

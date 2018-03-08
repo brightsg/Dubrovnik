@@ -8,27 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Boolean.h"
-#import "System_Byte.h"
-#import "System_Char.h"
-#import "System_Decimal.h"
-#import "System_Double.h"
-#import "System_IComparable.h"
-#import "System_IComparableA1.h"
-#import "System_IConvertible.h"
-#import "System_IEquatableA1.h"
-#import "System_IFormattable.h"
-#import "System_Int16.h"
-#import "System_Int32.h"
-#import "System_Int64.h"
-#import "System_SByte.h"
-#import "System_Single.h"
-#import "System_String.h"
-#import "System_TypeCode.h"
-#import "System_UInt16.h"
-#import "System_UInt32.h"
-#import "System_UInt64.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_Decimal
 
@@ -53,10 +38,10 @@
 		Managed return type : System.Decimal
 		Managed param types : System.Int32
 	 */
-    + (NSDecimalNumber *)new_withValueInt:(int32_t)p1
+    + (System_Decimal *)new_withValueInt:(int32_t)p1
     {
 		
-		NSDecimalNumber * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+		System_Decimal * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
       
       return object;
     }
@@ -66,10 +51,10 @@
 		Managed return type : System.Decimal
 		Managed param types : System.UInt32
 	 */
-    + (NSDecimalNumber *)new_withValueUint:(uint32_t)p1
+    + (System_Decimal *)new_withValueUint:(uint32_t)p1
     {
 		
-		NSDecimalNumber * object = [[self alloc] initWithSignature:"uint" withNumArgs:1, DB_VALUE(p1)];
+		System_Decimal * object = [[self alloc] initWithSignature:"uint" withNumArgs:1, DB_VALUE(p1)];
       
       return object;
     }
@@ -79,10 +64,10 @@
 		Managed return type : System.Decimal
 		Managed param types : System.Int64
 	 */
-    + (NSDecimalNumber *)new_withValueLong:(int64_t)p1
+    + (System_Decimal *)new_withValueLong:(int64_t)p1
     {
 		
-		NSDecimalNumber * object = [[self alloc] initWithSignature:"long" withNumArgs:1, DB_VALUE(p1)];
+		System_Decimal * object = [[self alloc] initWithSignature:"long" withNumArgs:1, DB_VALUE(p1)];
       
       return object;
     }
@@ -92,10 +77,10 @@
 		Managed return type : System.Decimal
 		Managed param types : System.UInt64
 	 */
-    + (NSDecimalNumber *)new_withValueUlong:(uint64_t)p1
+    + (System_Decimal *)new_withValueUlong:(uint64_t)p1
     {
 		
-		NSDecimalNumber * object = [[self alloc] initWithSignature:"ulong" withNumArgs:1, DB_VALUE(p1)];
+		System_Decimal * object = [[self alloc] initWithSignature:"ulong" withNumArgs:1, DB_VALUE(p1)];
       
       return object;
     }
@@ -105,10 +90,10 @@
 		Managed return type : System.Decimal
 		Managed param types : System.Single
 	 */
-    + (NSDecimalNumber *)new_withValueSingle:(float)p1
+    + (System_Decimal *)new_withValueSingle:(float)p1
     {
 		
-		NSDecimalNumber * object = [[self alloc] initWithSignature:"single" withNumArgs:1, DB_VALUE(p1)];
+		System_Decimal * object = [[self alloc] initWithSignature:"single" withNumArgs:1, DB_VALUE(p1)];
       
       return object;
     }
@@ -118,10 +103,10 @@
 		Managed return type : System.Decimal
 		Managed param types : System.Double
 	 */
-    + (NSDecimalNumber *)new_withValueDouble:(double)p1
+    + (System_Decimal *)new_withValueDouble:(double)p1
     {
 		
-		NSDecimalNumber * object = [[self alloc] initWithSignature:"double" withNumArgs:1, DB_VALUE(p1)];
+		System_Decimal * object = [[self alloc] initWithSignature:"double" withNumArgs:1, DB_VALUE(p1)];
       
       return object;
     }
@@ -131,10 +116,10 @@
 		Managed return type : System.Decimal
 		Managed param types : System.Int32[]
 	 */
-    + (NSDecimalNumber *)new_withBits:(DBSystem_Array *)p1
+    + (System_Decimal *)new_withBits:(System_Array *)p1
     {
 		
-		NSDecimalNumber * object = [[self alloc] initWithSignature:"int[]" withNumArgs:1, [p1 monoRTInvokeArg]];
+		System_Decimal * object = [[self alloc] initWithSignature:"int[]" withNumArgs:1, [p1 monoRTInvokeArg]];
       
       return object;
     }
@@ -144,10 +129,10 @@
 		Managed return type : System.Decimal
 		Managed param types : System.Int32, System.Int32, System.Int32, System.Boolean, System.Byte
 	 */
-    + (NSDecimalNumber *)new_withLo:(int32_t)p1 mid:(int32_t)p2 hi:(int32_t)p3 isNegative:(BOOL)p4 scale:(uint8_t)p5
+    + (System_Decimal *)new_withLo:(int32_t)p1 mid:(int32_t)p2 hi:(int32_t)p3 isNegative:(BOOL)p4 scale:(uint8_t)p5
     {
 		
-		NSDecimalNumber * object = [[self alloc] initWithSignature:"int,int,int,bool,byte" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];
+		System_Decimal * object = [[self alloc] initWithSignature:"int,int,int,bool,byte" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];
       
       return object;
     }
@@ -366,12 +351,12 @@
 		Managed return type : System.Int32[]
 		Managed param types : System.Decimal
 	 */
-    + (DBSystem_Array *)getBits_withD:(NSDecimalNumber *)p1
+    + (System_Array *)getBits_withD:(NSDecimalNumber *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetBits(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 

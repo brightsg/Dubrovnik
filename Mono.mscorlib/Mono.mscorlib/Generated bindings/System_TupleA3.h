@@ -3,17 +3,21 @@
 // Managed class : Tuple`3<T1, T2, T3>
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_TupleA3.__Extra__.h")
 #import "System_TupleA3.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_Boolean;
 @class System_Collections_IStructuralComparable;
 @class System_Collections_IStructuralEquatable;
@@ -21,15 +25,17 @@
 @class System_Int32;
 @class System_Object;
 @class System_String;
+@class System_TupleA3;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Collections_IStructuralComparable_Protocol.h"
 #import "System_Collections_IStructuralEquatable_Protocol.h"
 #import "System_IComparable_Protocol.h"
 #import "System_Object.h"
-#import "System_Runtime_CompilerServices_ITuple_Protocol.h"
 
-@interface System_TupleA3 : System_Object <System_Collections_IStructuralEquatable_, System_Collections_IStructuralComparable_, System_IComparable_, System_Runtime_CompilerServices_ITuple_>
+@interface System_TupleA3 : System_Object <System_Collections_IStructuralEquatable_, System_Collections_IStructuralComparable_, System_IComparable_>
 
 #pragma mark -
 #pragma mark Setup

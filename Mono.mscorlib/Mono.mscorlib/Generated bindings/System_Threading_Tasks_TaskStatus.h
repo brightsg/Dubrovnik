@@ -3,20 +3,26 @@
 // Managed enumeration : TaskStatus
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Threading_Tasks_TaskStatus.__Extra__.h")
 #import "System_Threading_Tasks_TaskStatus.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_Threading_Tasks_TaskStatus;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Enum.h"
 
 
@@ -31,7 +37,7 @@ typedef NS_ENUM(int32_t, enumSystem_Threading_Tasks_TaskStatus) {
 	System_Threading_Tasks_TaskStatus_WaitingForChildrenToComplete = 4,
 	System_Threading_Tasks_TaskStatus_WaitingToRun = 2,
 };
-@interface System_Threading_Tasks_TaskStatus : DBSystem_Enum
+@interface System_Threading_Tasks_TaskStatus : System_Enum
 
 #pragma mark -
 #pragma mark Setup

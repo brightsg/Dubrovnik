@@ -8,11 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Boolean.h"
-#import "System_Int32.h"
-#import "System_Text_EncoderExceptionFallback.h"
-#import "System_Text_EncoderFallbackBuffer.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_Text_EncoderExceptionFallback
 

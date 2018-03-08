@@ -3,26 +3,38 @@
 // Managed class : StringWriter
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_IO_StringWriter.__Extra__.h")
 #import "System_IO_StringWriter.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_Array;
+@class System_Char;
 @class System_IDisposable;
+@class System_IFormatProvider;
+@class System_Int32;
 @class System_IO_StringWriter;
 @class System_String;
 @class System_Text_Encoding;
 @class System_Text_StringBuilder;
 @class System_Threading_Tasks_Task;
 @class System_Void;
+@protocol System_IFormatProvider;
+@protocol System_IFormatProvider_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_IDisposable_Protocol.h"
 #import "System_IO_TextWriter.h"
 
@@ -109,7 +121,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    - (void)write_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+    - (void)write_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 	/*! 
 		Managed method name : Write
@@ -137,7 +149,7 @@
 		Managed return type : System.Threading.Tasks.Task
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+    - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 	/*! 
 		Managed method name : WriteLineAsync
@@ -158,6 +170,6 @@
 		Managed return type : System.Threading.Tasks.Task
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    - (System_Threading_Tasks_Task *)writeLineAsync_withBuffer:(DBSystem_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+    - (System_Threading_Tasks_Task *)writeLineAsync_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 @end
 //--Dubrovnik.CodeGenerator

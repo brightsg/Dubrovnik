@@ -3,21 +3,30 @@
 // Managed interface : IHashCodeProvider
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Collections_IHashCodeProvider.__Extra__.h")
 #import "System_Collections_IHashCodeProvider.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_Collections_IHashCodeProvider;
 @class System_Int32;
+@class System_Object;
+@protocol System_Collections_IHashCodeProvider;
+@protocol System_Collections_IHashCodeProvider_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Object.h"
 
 @interface System_Collections_IHashCodeProvider : System_Object

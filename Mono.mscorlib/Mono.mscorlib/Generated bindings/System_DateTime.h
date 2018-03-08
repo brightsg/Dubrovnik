@@ -3,18 +3,24 @@
 // Managed struct : DateTime
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_DateTime.__Extra__.h")
 #import "System_DateTime.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_Array;
 @class System_Boolean;
+@class System_Char;
 @class System_DateTime;
 @class System_DateTimeKind;
 @class System_DayOfWeek;
@@ -23,15 +29,21 @@
 @class System_IComparableA1;
 @class System_IConvertible;
 @class System_IEquatableA1;
+@class System_IFormatProvider;
 @class System_IFormattable;
 @class System_Int32;
 @class System_Int64;
+@class System_Object;
 @class System_Runtime_Serialization_ISerializable;
 @class System_String;
 @class System_TimeSpan;
 @class System_TypeCode;
+@protocol System_IFormatProvider;
+@protocol System_IFormatProvider_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_IComparable_Protocol.h"
 #import "System_IComparableA1_Protocol.h"
 #import "System_IConvertible_Protocol.h"
@@ -40,7 +52,7 @@
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_DateTime : DBManagedObject <System_IComparable_, System_IFormattable_, System_IConvertible_, System_Runtime_Serialization_ISerializable_, System_IComparableA1_, System_IEquatableA1_>
+@interface System_DateTime : System_ValueType <System_IComparable_, System_IFormattable_, System_IConvertible_, System_Runtime_Serialization_ISerializable_, System_IComparableA1_, System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -57,21 +69,21 @@
 		Managed return type : System.DateTime
 		Managed param types : System.Int64
 	 */
-    + (NSDate *)new_withTicks:(int64_t)p1;
+    + (System_DateTime *)new_withTicks:(int64_t)p1;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.DateTime
 		Managed param types : System.Int64, System.DateTimeKind
 	 */
-    + (NSDate *)new_withTicks:(int64_t)p1 kind:(int32_t)p2;
+    + (System_DateTime *)new_withTicks:(int64_t)p1 kind:(int32_t)p2;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.DateTime
 		Managed param types : System.Int32, System.Int32, System.Int32
 	 */
-    + (NSDate *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3;
+    + (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3;
 /* Skipped constructor : System.DateTime (System.Int32 year, System.Int32 month, System.Int32 day, System.Globalization.Calendar calendar) */
 
 	/*! 
@@ -79,14 +91,14 @@
 		Managed return type : System.DateTime
 		Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32
 	 */
-    + (NSDate *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6;
+    + (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.DateTime
 		Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.DateTimeKind
 	 */
-    + (NSDate *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 kind:(int32_t)p7;
+    + (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 kind:(int32_t)p7;
 /* Skipped constructor : System.DateTime (System.Int32 year, System.Int32 month, System.Int32 day, System.Int32 hour, System.Int32 minute, System.Int32 second, System.Globalization.Calendar calendar) */
 
 	/*! 
@@ -94,14 +106,14 @@
 		Managed return type : System.DateTime
 		Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32
 	 */
-    + (NSDate *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7;
+    + (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.DateTime
 		Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.DateTimeKind
 	 */
-    + (NSDate *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7 kind:(int32_t)p8;
+    + (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7 kind:(int32_t)p8;
 /* Skipped constructor : System.DateTime (System.Int32 year, System.Int32 month, System.Int32 day, System.Int32 hour, System.Int32 minute, System.Int32 second, System.Int32 millisecond, System.Globalization.Calendar calendar) */
 /* Skipped constructor : System.DateTime (System.Int32 year, System.Int32 month, System.Int32 day, System.Int32 hour, System.Int32 minute, System.Int32 second, System.Int32 millisecond, System.Globalization.Calendar calendar, System.DateTimeKind kind) */
 
@@ -331,28 +343,28 @@
 		Managed return type : System.String[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getDateTimeFormats;
+    - (System_Array *)getDateTimeFormats;
 
 	/*! 
 		Managed method name : GetDateTimeFormats
 		Managed return type : System.String[]
 		Managed param types : System.IFormatProvider
 	 */
-    - (DBSystem_Array *)getDateTimeFormats_withProvider:(id <System_IFormatProvider_>)p1;
+    - (System_Array *)getDateTimeFormats_withProvider:(id <System_IFormatProvider_>)p1;
 
 	/*! 
 		Managed method name : GetDateTimeFormats
 		Managed return type : System.String[]
 		Managed param types : System.Char
 	 */
-    - (DBSystem_Array *)getDateTimeFormats_withFormat:(uint16_t)p1;
+    - (System_Array *)getDateTimeFormats_withFormat:(uint16_t)p1;
 
 	/*! 
 		Managed method name : GetDateTimeFormats
 		Managed return type : System.String[]
 		Managed param types : System.Char, System.IFormatProvider
 	 */
-    - (DBSystem_Array *)getDateTimeFormats_withFormat:(uint16_t)p1 provider:(id <System_IFormatProvider_>)p2;
+    - (System_Array *)getDateTimeFormats_withFormat:(uint16_t)p1 provider:(id <System_IFormatProvider_>)p2;
 
 	/*! 
 		Managed method name : GetHashCode

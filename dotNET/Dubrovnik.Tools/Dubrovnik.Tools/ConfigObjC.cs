@@ -85,30 +85,73 @@ namespace Dubrovnik.Tools {
 			bool isWhiteListed = true;
 
 			// is the type to be skipped?
+			// we skip if a matching typename occurs anywhere in the type signature, inlcluding as a generic type parameter.
 			isSkipListed = TypeNameSkipList.Any(e => typename.IndexOf(e) != -1);
 
-			// check for whitelist override
+			// check for whitelist override.
 			if (isSkipListed) {
-				isWhiteListed = TypeNameWhiteList.Any(e => typename.IndexOf(e) != -1);
+
+				isWhiteListed = false;
+
+				foreach (var t in TypeNameWhiteList) {
+					if (typename.IndexOf(t) == 0) {
+						isWhiteListed = true;
+						break;
+					}
+				}
 			}
 
-			if (!isWhiteListed) {
-				//string s = String.Format("Skipping : {0}", typename);
-				//Console.WriteLine(s);
-			}
 			return isWhiteListed;
 		}
 
 		/**
 		 * Returns true if should generate binding for facet
+		 *  
+		 * white list contains System.Threading.Tasks.Task
+		 * black list contains System.Runtime.CompilerServices
+		 * System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Threading.Tasks.Task`1+TResult>
+		 * 
+		 * we need to ensure that every component of the constructed type is valid.
 		 */
 		public bool GenerateTypeBinding(CodeFacet facet) {
-			bool isWhiteListed = GenerateTypeBinding(facet.Type);
-			return isWhiteListed;
+
+			// Name testing for methods, properties and fields.
+			// Using this approach we can skip generation for specific methods etc of a class.
+			// This is especially useful if we have a method with a complex signature that doesn't render correctly and breaks our build.
+			// The following parameter is a case in point.
+			// <Parameter Name="array" Type="T[]&" ElementType="T[]" IsByRef="True" ContainsGenericParameters="True"/>
+			if (facet.GetType() == typeof(MethodFacet) || facet.GetType() == typeof(PropertyFacet) || facet.GetType() == typeof(FieldFacet)) {
+				string accessor = facet.Parent.Type + ":" + facet.Name;
+				if (!GenerateTypeBinding(accessor)) {
+					return false;
+				}
+			}
+
+			// initial type test
+			string type;
+			if (facet.TypeNamespace != null) {
+				type = facet.TypeNamespace + "." + facet.NameFromType;
+			}
+			else {
+				type = facet.NameFromType;
+			}
+			if (!GenerateTypeBinding(type)) {
+				return false;
+			}
+
+			// generic parameter type tests
+			foreach (string t in facet.GenericArgumentTypes) {
+				if (!GenerateTypeBinding(t)) {
+					return false;
+				}
+			}
+
+			return true;
 		}
 
 		/**
 		 * Returns true if should generate binding for method
+		 * 
 		 */
 		public bool GenerateTypeBinding(MethodFacet facet) {
 			bool isWhiteListed = true;
@@ -124,6 +167,7 @@ namespace Dubrovnik.Tools {
 					return false;
 				}
 			}
+
 			return isWhiteListed;
 		}
 		#endregion

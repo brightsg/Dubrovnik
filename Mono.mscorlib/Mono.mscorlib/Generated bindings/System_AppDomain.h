@@ -3,40 +3,52 @@
 // Managed class : AppDomain
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_AppDomain.__Extra__.h")
 #import "System_AppDomain.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System__AppDomain;
 @class System_ActivationContext;
 @class System_AppDomain;
+@class System_AppDomainInitializer;
 @class System_AppDomainManager;
 @class System_AppDomainSetup;
 @class System_ApplicationIdentity;
+@class System_Array;
 @class System_Boolean;
+@class System_Byte;
+@class System_CrossAppDomainDelegate;
+@class System_Globalization_CultureInfo;
 @class System_Int32;
 @class System_Int64;
 @class System_NullableA1;
 @class System_Object;
 @class System_Reflection_Assembly;
+@class System_Reflection_AssemblyName;
+@class System_Reflection_Binder;
 @class System_String;
 @class System_TimeSpan;
 @class System_Type;
 @class System_Void;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System__AppDomain_Protocol.h"
 #import "System_MarshalByRefObject.h"
-#import "System_Security_IEvidenceFactory_Protocol.h"
 
-@interface System_AppDomain : System_MarshalByRefObject <System__AppDomain_, System_Security_IEvidenceFactory_>
+@interface System_AppDomain : System_MarshalByRefObject <System__AppDomain_>
 
 #pragma mark -
 #pragma mark Setup
@@ -185,7 +197,7 @@
 		Managed return type : System.Object
 		Managed param types : System.String, System.String, System.Object[]
 	 */
-    - (System_Object *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(DBSystem_Array *)p3;
+    - (System_Object *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(System_Array *)p3;
 /* Skipped method : System.Object CreateInstanceAndUnwrap(System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes, System.Security.Policy.Evidence securityAttributes) */
 /* Skipped method : System.Object CreateInstanceAndUnwrap(System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstanceFrom(System.String assemblyFile, System.String typeName) */
@@ -205,7 +217,7 @@
 		Managed return type : System.Object
 		Managed param types : System.String, System.String, System.Object[]
 	 */
-    - (System_Object *)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(DBSystem_Array *)p3;
+    - (System_Object *)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(System_Array *)p3;
 /* Skipped method : System.Object CreateInstanceFromAndUnwrap(System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes, System.Security.Policy.Evidence securityAttributes) */
 /* Skipped method : System.Object CreateInstanceFromAndUnwrap(System.String assemblyFile, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access) */
@@ -243,7 +255,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.String, System.String[]
 	 */
-    - (int32_t)executeAssembly_withAssemblyFile:(NSString *)p1 args:(DBSystem_Array *)p2;
+    - (int32_t)executeAssembly_withAssemblyFile:(NSString *)p1 args:(System_Array *)p2;
 /* Skipped method : System.Int32 ExecuteAssembly(System.String assemblyFile, System.Security.Policy.Evidence assemblySecurity, System.String[] args, System.Byte[] hashValue, System.Configuration.Assemblies.AssemblyHashAlgorithm hashAlgorithm) */
 /* Skipped method : System.Int32 ExecuteAssembly(System.String assemblyFile, System.String[] args, System.Byte[] hashValue, System.Configuration.Assemblies.AssemblyHashAlgorithm hashAlgorithm) */
 
@@ -261,7 +273,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.String, System.String[]
 	 */
-    - (int32_t)executeAssemblyByName_withAssemblyNameString:(NSString *)p1 argsString:(DBSystem_Array *)p2;
+    - (int32_t)executeAssemblyByName_withAssemblyNameString:(NSString *)p1 argsStringArray:(System_Array *)p2;
 /* Skipped method : System.Int32 ExecuteAssemblyByName(System.Reflection.AssemblyName assemblyName, System.Security.Policy.Evidence assemblySecurity, System.String[] args) */
 
 	/*! 
@@ -269,14 +281,14 @@
 		Managed return type : System.Int32
 		Managed param types : System.Reflection.AssemblyName, System.String[]
 	 */
-    - (int32_t)executeAssemblyByName_withAssemblyNameSRAssemblyName:(System_Reflection_AssemblyName *)p1 argsString:(DBSystem_Array *)p2;
+    - (int32_t)executeAssemblyByName_withAssemblyNameSRAssemblyName:(System_Reflection_AssemblyName *)p1 argsStringArray:(System_Array *)p2;
 
 	/*! 
 		Managed method name : GetAssemblies
 		Managed return type : System.Reflection.Assembly[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getAssemblies;
+    - (System_Array *)getAssemblies;
 
 	/*! 
 		Managed method name : GetCurrentThreadId
@@ -363,7 +375,7 @@
 		Managed return type : System.Reflection.Assembly[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)reflectionOnlyGetAssemblies;
+    - (System_Array *)reflectionOnlyGetAssemblies;
 /* Skipped method : System.Void SetAppDomainPolicy(System.Security.Policy.PolicyLevel domainPolicy) */
 
 	/*! 

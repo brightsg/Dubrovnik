@@ -8,12 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Collections_Comparer.h"
-#import "System_Collections_IComparer.h"
-#import "System_Int32.h"
-#import "System_Runtime_Serialization_ISerializable.h"
-#import "System_Void.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_Collections_Comparer
 

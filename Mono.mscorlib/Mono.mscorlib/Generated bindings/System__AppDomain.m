@@ -8,15 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System__AppDomain.h"
-#import "System_Boolean.h"
-#import "System_Int32.h"
-#import "System_Object.h"
-#import "System_Reflection_Assembly.h"
-#import "System_String.h"
-#import "System_Type.h"
-#import "System_Void.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System__AppDomain
 
@@ -245,12 +242,12 @@
 		Managed return type : System.Reflection.Assembly[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getAssemblies
+    - (System_Array *)getAssemblies
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System._AppDomain.GetAssemblies()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 

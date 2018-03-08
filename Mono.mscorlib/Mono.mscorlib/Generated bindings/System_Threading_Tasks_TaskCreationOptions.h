@@ -3,20 +3,26 @@
 // Managed enumeration : TaskCreationOptions
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Threading_Tasks_TaskCreationOptions.__Extra__.h")
 #import "System_Threading_Tasks_TaskCreationOptions.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_Threading_Tasks_TaskCreationOptions;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Enum.h"
 
 
@@ -30,7 +36,7 @@ typedef NS_ENUM(int32_t, enumSystem_Threading_Tasks_TaskCreationOptions) {
 	System_Threading_Tasks_TaskCreationOptions_PreferFairness = 1,
 	System_Threading_Tasks_TaskCreationOptions_RunContinuationsAsynchronously = 64,
 };
-@interface System_Threading_Tasks_TaskCreationOptions : DBSystem_Enum
+@interface System_Threading_Tasks_TaskCreationOptions : System_Enum
 
 #pragma mark -
 #pragma mark Setup

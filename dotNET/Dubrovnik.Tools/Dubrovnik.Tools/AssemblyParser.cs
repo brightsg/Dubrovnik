@@ -72,13 +72,15 @@ namespace Dubrovnik.Tools
 
 			// Element types
 			//
-			// Array[], pointer* and by ref types
+			// Array[], pointer* and by ref types all relate to a separate ElementType
 			//
 			if (type.HasElementType)
 			{
 				Type elementType = type.GetElementType();
 				xtw.WriteAttributeString("ElementType", elementType.GetFriendlyFullName());
-
+				if (elementType.IsGenericParameter) {
+					xtw.WriteAttributeString("IsGenericParameterElement", Boolean.TrueString);
+				}
 				// Hmm. we certainly need to know the element generic type info in some situations.
 				// Some more thought perhaps required here.
 				// WriteGenericTypeAttributes(xtw, elementType);
@@ -217,7 +219,6 @@ namespace Dubrovnik.Tools
 							if (type.IsEnum)
 							{
 								xtw.WriteStartElement("Enumeration");
-
 							}
 							else if (type.IsValueType)
 							{
@@ -233,16 +234,18 @@ namespace Dubrovnik.Tools
 							}
 
 							//
-							// write type info
+							// write type attributes to element
 							//
 							xtw.WriteAttributeString("Name", type.GetFriendlyName());
 							WriteTypeAttributes(xtw, type);
 
-
+							//
+							// write generic type elements
+							//
 							WriteGenericTypeElements(xtw, type);
 
 							//
-							// write implemented interfaces
+							// write implemented interface elements
 							//
 							Type[] implementedInterfaces = type.GetInterfaces();
 							if (implementedInterfaces.Length > 0)
@@ -262,7 +265,7 @@ namespace Dubrovnik.Tools
 							}
 
 							//
-							// write fields
+							// write field elements
 							//
 							foreach (FieldInfo fieldInfo in type.GetFields(bindingFlags).Where(e => !e.IsSpecialName).OrderBy(e => e.Name))
 							{
@@ -305,7 +308,7 @@ namespace Dubrovnik.Tools
 							}
 
 							//
-							// write properties
+							// write property elements
 							//
 							foreach (PropertyInfo propertyInfo in type.GetProperties(bindingFlags).OrderBy(e => e.Name))
 							{
@@ -327,7 +330,7 @@ namespace Dubrovnik.Tools
 							}
 
 							//
-							// write constructors
+							// write constructor elements
 							//
 							foreach (ConstructorInfo constructorInfo in type.GetConstructors(bindingFlags).OrderBy(e => e.Name))
 							{
@@ -348,7 +351,7 @@ namespace Dubrovnik.Tools
 							}
 
 							//
-							// write methods
+							// write method elements
 							//
 							foreach (MethodInfo methodInfo in type.GetMethods(bindingFlags).OrderBy(e => e.Name))
 							{
@@ -392,7 +395,7 @@ namespace Dubrovnik.Tools
 							}
 
 							//
-							// write events
+							// write event elements
 							//
 							foreach (EventInfo eventInfo in type.GetEvents(bindingFlags).OrderBy(e => e.Name))
 							{

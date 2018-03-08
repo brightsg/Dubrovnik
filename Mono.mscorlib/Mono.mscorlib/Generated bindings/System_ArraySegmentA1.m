@@ -8,16 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Boolean.h"
-#import "System_Collections_Generic_ICollectionA1.h"
-#import "System_Collections_Generic_IEnumerableA1.h"
-#import "System_Collections_Generic_IListA1.h"
-#import "System_Collections_Generic_IReadOnlyCollectionA1.h"
-#import "System_Collections_Generic_IReadOnlyListA1.h"
-#import "System_Collections_IEnumerable.h"
-#import "System_Int32.h"
-#import "System_Object.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_ArraySegmentA1
 
@@ -42,7 +38,7 @@
 		Managed return type : System.ArraySegment`1<System.ArraySegment`1+T>
 		Managed param types : T[]
 	 */
-    + (System_ArraySegmentA1 *)new_withArray:(DBSystem_Array *)p1
+    + (System_ArraySegmentA1 *)new_withArray:(System_Array *)p1
     {
 		
 		System_ArraySegmentA1 * object = [[self alloc] initWithSignature:"T[]" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -55,7 +51,7 @@
 		Managed return type : System.ArraySegment`1<System.ArraySegment`1+T>
 		Managed param types : T[], System.Int32, System.Int32
 	 */
-    + (System_ArraySegmentA1 *)new_withArray:(DBSystem_Array *)p1 offset:(int32_t)p2 count:(int32_t)p3
+    + (System_ArraySegmentA1 *)new_withArray:(System_Array *)p1 offset:(int32_t)p2 count:(int32_t)p3
     {
 		
 		System_ArraySegmentA1 * object = [[self alloc] initWithSignature:"T[],int,int" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
@@ -69,7 +65,7 @@
 	// Managed property name : Array
 	// Managed property type : T[]
     @synthesize array = _array;
-    - (DBSystem_Array *)array
+    - (System_Array *)array
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -83,7 +79,7 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_array isEqualToMonoObject:monoObject]) return _array;					
-		_array = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		_array = [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
 		return _array;
 	}

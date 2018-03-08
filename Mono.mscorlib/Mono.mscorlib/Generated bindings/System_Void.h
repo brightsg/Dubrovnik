@@ -3,23 +3,29 @@
 // Managed struct : Void
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Void.__Extra__.h")
 #import "System_Void.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_Void;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_ValueType.h"
 
-@interface System_Void : DBManagedObject
+@interface System_Void : System_ValueType
 
 #pragma mark -
 #pragma mark Setup

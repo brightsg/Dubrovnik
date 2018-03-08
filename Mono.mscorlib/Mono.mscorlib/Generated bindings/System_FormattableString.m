@@ -8,12 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_FormattableString.h"
-#import "System_IFormattable.h"
-#import "System_Int32.h"
-#import "System_Object.h"
-#import "System_String.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_FormattableString
 
@@ -97,12 +97,12 @@
 		Managed return type : System.Object[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getArguments
+    - (System_Array *)getArguments
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetArguments()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 

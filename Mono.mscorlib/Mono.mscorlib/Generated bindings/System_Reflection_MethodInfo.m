@@ -8,12 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Boolean.h"
-#import "System_Delegate.h"
-#import "System_Int32.h"
-#import "System_Reflection_MethodInfo.h"
-#import "System_Type.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_Reflection_MethodInfo
 
@@ -118,12 +118,12 @@
 		Managed return type : System.Type[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getGenericArguments
+    - (System_Array *)getGenericArguments
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetGenericArguments()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 
@@ -157,7 +157,7 @@
 		Managed return type : System.Reflection.MethodInfo
 		Managed param types : System.Type[]
 	 */
-    - (System_Reflection_MethodInfo *)makeGenericMethod_withTypeArguments:(DBSystem_Array *)p1
+    - (System_Reflection_MethodInfo *)makeGenericMethod_withTypeArguments:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"MakeGenericMethod(System.Type[])" withNumArgs:1, [p1 monoRTInvokeArg]];

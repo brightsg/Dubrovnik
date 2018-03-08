@@ -8,12 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Boolean.h"
-#import "System_IDisposable.h"
-#import "System_Threading_CancellationToken.h"
-#import "System_Threading_CancellationTokenSource.h"
-#import "System_Void.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_Threading_CancellationTokenSource
 
@@ -174,7 +174,7 @@
 		Managed return type : System.Threading.CancellationTokenSource
 		Managed param types : System.Threading.CancellationToken[]
 	 */
-    + (System_Threading_CancellationTokenSource *)createLinkedTokenSource_withTokens:(DBSystem_Array *)p1
+    + (System_Threading_CancellationTokenSource *)createLinkedTokenSource_withTokens:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateLinkedTokenSource(System.Threading.CancellationToken[])" withNumArgs:1, [p1 monoRTInvokeArg]];

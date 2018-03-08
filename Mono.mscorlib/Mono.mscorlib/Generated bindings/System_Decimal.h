@@ -3,17 +3,22 @@
 // Managed struct : Decimal
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Decimal.__Extra__.h")
 #import "System_Decimal.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_Array;
 @class System_Boolean;
 @class System_Byte;
 @class System_Char;
@@ -23,10 +28,13 @@
 @class System_IComparableA1;
 @class System_IConvertible;
 @class System_IEquatableA1;
+@class System_IFormatProvider;
 @class System_IFormattable;
 @class System_Int16;
 @class System_Int32;
 @class System_Int64;
+@class System_MidpointRounding;
+@class System_Object;
 @class System_SByte;
 @class System_Single;
 @class System_String;
@@ -34,17 +42,20 @@
 @class System_UInt16;
 @class System_UInt32;
 @class System_UInt64;
+@protocol System_IFormatProvider;
+@protocol System_IFormatProvider_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_IComparable_Protocol.h"
 #import "System_IComparableA1_Protocol.h"
 #import "System_IConvertible_Protocol.h"
 #import "System_IEquatableA1_Protocol.h"
 #import "System_IFormattable_Protocol.h"
-#import "System_Runtime_Serialization_IDeserializationCallback_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_Decimal : DBManagedObject <System_IFormattable_, System_IComparable_, System_IConvertible_, System_Runtime_Serialization_IDeserializationCallback_, System_IComparableA1_, System_IEquatableA1_>
+@interface System_Decimal : System_ValueType <System_IFormattable_, System_IComparable_, System_IConvertible_, System_IComparableA1_, System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -61,56 +72,56 @@
 		Managed return type : System.Decimal
 		Managed param types : System.Int32
 	 */
-    + (NSDecimalNumber *)new_withValueInt:(int32_t)p1;
+    + (System_Decimal *)new_withValueInt:(int32_t)p1;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.Decimal
 		Managed param types : System.UInt32
 	 */
-    + (NSDecimalNumber *)new_withValueUint:(uint32_t)p1;
+    + (System_Decimal *)new_withValueUint:(uint32_t)p1;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.Decimal
 		Managed param types : System.Int64
 	 */
-    + (NSDecimalNumber *)new_withValueLong:(int64_t)p1;
+    + (System_Decimal *)new_withValueLong:(int64_t)p1;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.Decimal
 		Managed param types : System.UInt64
 	 */
-    + (NSDecimalNumber *)new_withValueUlong:(uint64_t)p1;
+    + (System_Decimal *)new_withValueUlong:(uint64_t)p1;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.Decimal
 		Managed param types : System.Single
 	 */
-    + (NSDecimalNumber *)new_withValueSingle:(float)p1;
+    + (System_Decimal *)new_withValueSingle:(float)p1;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.Decimal
 		Managed param types : System.Double
 	 */
-    + (NSDecimalNumber *)new_withValueDouble:(double)p1;
+    + (System_Decimal *)new_withValueDouble:(double)p1;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.Decimal
 		Managed param types : System.Int32[]
 	 */
-    + (NSDecimalNumber *)new_withBits:(DBSystem_Array *)p1;
+    + (System_Decimal *)new_withBits:(System_Array *)p1;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.Decimal
 		Managed param types : System.Int32, System.Int32, System.Int32, System.Boolean, System.Byte
 	 */
-    + (NSDecimalNumber *)new_withLo:(int32_t)p1 mid:(int32_t)p2 hi:(int32_t)p3 isNegative:(BOOL)p4 scale:(uint8_t)p5;
+    + (System_Decimal *)new_withLo:(int32_t)p1 mid:(int32_t)p2 hi:(int32_t)p3 isNegative:(BOOL)p4 scale:(uint8_t)p5;
 
 #pragma mark -
 #pragma mark Fields
@@ -220,7 +231,7 @@
 		Managed return type : System.Int32[]
 		Managed param types : System.Decimal
 	 */
-    + (DBSystem_Array *)getBits_withD:(NSDecimalNumber *)p1;
+    + (System_Array *)getBits_withD:(NSDecimalNumber *)p1;
 
 	/*! 
 		Managed method name : GetHashCode

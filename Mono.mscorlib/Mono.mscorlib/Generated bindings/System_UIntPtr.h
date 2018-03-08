@@ -3,19 +3,24 @@
 // Managed struct : UIntPtr
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_UIntPtr.__Extra__.h")
 #import "System_UIntPtr.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_Boolean;
 @class System_Int32;
+@class System_Object;
 @class System_Runtime_Serialization_ISerializable;
 @class System_String;
 @class System_UInt32;
@@ -23,11 +28,13 @@
 @class System_UIntPtr;
 @class System_Void;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_UIntPtr : DBManagedObject <System_Runtime_Serialization_ISerializable_>
+@interface System_UIntPtr : System_ValueType <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -44,21 +51,21 @@
 		Managed return type : System.UIntPtr
 		Managed param types : System.UInt32
 	 */
-    + (void *)new_withValueUint:(uint32_t)p1;
+    + (System_UIntPtr *)new_withValueUint:(uint32_t)p1;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.UIntPtr
 		Managed param types : System.UInt64
 	 */
-    + (void *)new_withValueUlong:(uint64_t)p1;
+    + (System_UIntPtr *)new_withValueUlong:(uint64_t)p1;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.UIntPtr
 		Managed param types : System.Void*
 	 */
-    + (void *)new_withValueVoid:(void*)p1;
+    + (System_UIntPtr *)new_withValueVoidPtr:(void*)p1;
 
 #pragma mark -
 #pragma mark Fields
@@ -131,7 +138,7 @@
 		Managed return type : System.UIntPtr
 		Managed param types : System.Void*
 	 */
-    + (void *)op_Explicit_withValueVoid:(void*)p1;
+    + (void *)op_Explicit_withValueVoidPtr:(void*)p1;
 
 	/*! 
 		Managed method name : op_Inequality

@@ -3,20 +3,26 @@
 // Managed enumeration : DayOfWeek
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_DayOfWeek.__Extra__.h")
 #import "System_DayOfWeek.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_DayOfWeek;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Enum.h"
 
 
@@ -30,7 +36,7 @@ typedef NS_ENUM(int32_t, enumSystem_DayOfWeek) {
 	System_DayOfWeek_Tuesday = 2,
 	System_DayOfWeek_Wednesday = 3,
 };
-@interface System_DayOfWeek : DBSystem_Enum
+@interface System_DayOfWeek : System_Enum
 
 #pragma mark -
 #pragma mark Setup

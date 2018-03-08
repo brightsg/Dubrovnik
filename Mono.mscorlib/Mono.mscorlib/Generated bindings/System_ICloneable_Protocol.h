@@ -3,21 +3,29 @@
 // Managed interface : ICloneable
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_ICloneable.__Extra__.h")
 #import "System_ICloneable.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_ICloneable;
 @class System_Object;
+@protocol System_ICloneable;
+@protocol System_ICloneable_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Object.h"
 
 

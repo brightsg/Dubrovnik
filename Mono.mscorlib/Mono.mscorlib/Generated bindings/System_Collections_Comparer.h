@@ -3,24 +3,32 @@
 // Managed class : Comparer
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Collections_Comparer.__Extra__.h")
 #import "System_Collections_Comparer.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_Collections_Comparer;
 @class System_Collections_IComparer;
+@class System_Globalization_CultureInfo;
 @class System_Int32;
+@class System_Object;
 @class System_Runtime_Serialization_ISerializable;
 @class System_Void;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Collections_IComparer_Protocol.h"
 #import "System_Object.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"

@@ -8,10 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Runtime_InteropServices__Exception.h"
-#import "System_Runtime_Serialization_ISerializable.h"
-#import "System_Threading_Tasks_TaskSchedulerException.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_Threading_Tasks_TaskSchedulerException
 

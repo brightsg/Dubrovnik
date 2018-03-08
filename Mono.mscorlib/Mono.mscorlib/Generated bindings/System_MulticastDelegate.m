@@ -8,14 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Boolean.h"
-#import "System_Delegate.h"
-#import "System_ICloneable.h"
-#import "System_Int32.h"
-#import "System_MulticastDelegate.h"
-#import "System_Runtime_Serialization_ISerializable.h"
-#import "System_Void.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_MulticastDelegate
 
@@ -66,12 +64,12 @@
 		Managed return type : System.Delegate[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getInvocationList
+    - (System_Array *)getInvocationList
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetInvocationList()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 

@@ -8,11 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Boolean.h"
-#import "System_Object.h"
-#import "System_Runtime_Serialization_ISerializable.h"
-#import "System_Void.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_WeakReferenceA1
 
@@ -79,7 +80,7 @@
 		Managed return type : System.Boolean
 		Managed param types : ref T&
 	 */
-    - (BOOL)tryGetTarget_withTargetRef:(System_WeakReferenceA1__T **)p1
+    - (BOOL)tryGetTarget_withTargetRef:(System_Object **)p1
     {
 		void *refPtr1 = [*p1 monoRTInvokeArg];
 

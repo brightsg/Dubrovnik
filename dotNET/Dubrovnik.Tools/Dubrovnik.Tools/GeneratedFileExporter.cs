@@ -14,14 +14,11 @@ namespace Dubrovnik.Tools
         //
         public static void WriteAllText(Net2ObjC.OutputType outputType, string contentFile, string content)
         {
-
-
             // .NET default string encoding is Unicode.
             // Here we choose UTF8 though.
             // TODO: allow choice of encoding
             Encoding encoding = Encoding.UTF8;
             string outputFolder = Path.GetDirectoryName(contentFile);
-
 
             // Content file contains an entire assembly representation
             // Xcode can choke on large single file assemblies.
@@ -70,14 +67,11 @@ namespace Dubrovnik.Tools
                         //output = import + output;
                     }
 
-                    // export it
-						  StreamWriter sw = new StreamWriter(outputFilePath, false, encoding);
-	                 sw.NewLine = "\n";
-						  sw.Write(output);
-	                 sw.Close();
-
-						  // Legacy
-                    //File.WriteAllText(outputFilePath, output, encoding);
+					// export it
+					StreamWriter sw = new StreamWriter(outputFilePath, false, encoding);
+	                sw.NewLine = "\n";
+					sw.Write(output);
+	                sw.Close();
 
                     // move the cursor
                     idxStart = idxEnd;
@@ -110,13 +104,10 @@ namespace Dubrovnik.Tools
             // output the remaining content
             if (content != null)
             {
-					StreamWriter sw = new StreamWriter(contentFile, false, encoding);
-					sw.NewLine = "\n";
-					sw.Write(sb.ToString());
-					sw.Close();
-
-					// Legacy
-               //File.WriteAllText(contentFile, sb.ToString(), encoding);
+				StreamWriter sw = new StreamWriter(contentFile, false, encoding);
+				sw.NewLine = "\n";
+				sw.Write(sb.ToString());
+				sw.Close();
             }
         }
 

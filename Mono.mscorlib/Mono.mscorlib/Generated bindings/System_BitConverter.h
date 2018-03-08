@@ -3,17 +3,22 @@
 // Managed class : BitConverter
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_BitConverter.__Extra__.h")
 #import "System_BitConverter.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_Array;
 @class System_BitConverter;
 @class System_Boolean;
 @class System_Byte;
@@ -28,7 +33,9 @@
 @class System_UInt32;
 @class System_UInt64;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Object.h"
 
 @interface System_BitConverter : System_Object

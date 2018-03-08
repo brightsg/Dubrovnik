@@ -8,25 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Boolean.h"
-#import "System_Byte.h"
-#import "System_Char.h"
-#import "System_Decimal.h"
-#import "System_Double.h"
-#import "System_IDisposable.h"
-#import "System_Int16.h"
-#import "System_Int32.h"
-#import "System_Int64.h"
-#import "System_IO_BinaryReader.h"
-#import "System_IO_Stream.h"
-#import "System_SByte.h"
-#import "System_Single.h"
-#import "System_String.h"
-#import "System_UInt16.h"
-#import "System_UInt32.h"
-#import "System_UInt64.h"
-#import "System_Void.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_IO_BinaryReader
 
@@ -168,7 +155,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    - (int32_t)read_withBufferChar:(DBSystem_Array *)p1 indexInt:(int32_t)p2 countInt:(int32_t)p3
+    - (int32_t)read_withBufferCharArray:(System_Array *)p1 indexInt:(int32_t)p2 countInt:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Read(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
@@ -181,7 +168,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.Byte[], System.Int32, System.Int32
 	 */
-    - (int32_t)read_withBufferByte:(NSData *)p1 indexInt:(int32_t)p2 countInt:(int32_t)p3
+    - (int32_t)read_withBufferByteArray:(NSData *)p1 indexInt:(int32_t)p2 countInt:(int32_t)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Read(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
@@ -246,12 +233,12 @@
 		Managed return type : System.Char[]
 		Managed param types : System.Int32
 	 */
-    - (DBSystem_Array *)readChars_withCount:(int32_t)p1
+    - (System_Array *)readChars_withCount:(int32_t)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ReadChars(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	/*! 

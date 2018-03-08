@@ -3,26 +3,36 @@
 // Managed class : Directory
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_IO_Directory.__Extra__.h")
 #import "System_IO_Directory.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_Array;
 @class System_Boolean;
 @class System_Collections_Generic_IEnumerableA1;
 @class System_DateTime;
 @class System_IO_Directory;
 @class System_IO_DirectoryInfo;
+@class System_IO_SearchOption;
 @class System_String;
 @class System_Void;
+@protocol System_Collections_Generic_IEnumerableA1;
+@protocol System_Collections_Generic_IEnumerableA1_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Object.h"
 
 @interface System_IO_Directory : System_Object
@@ -157,21 +167,21 @@
 		Managed return type : System.String[]
 		Managed param types : System.String
 	 */
-    + (DBSystem_Array *)getDirectories_withPath:(NSString *)p1;
+    + (System_Array *)getDirectories_withPath:(NSString *)p1;
 
 	/*! 
 		Managed method name : GetDirectories
 		Managed return type : System.String[]
 		Managed param types : System.String, System.String
 	 */
-    + (DBSystem_Array *)getDirectories_withPath:(NSString *)p1 searchPattern:(NSString *)p2;
+    + (System_Array *)getDirectories_withPath:(NSString *)p1 searchPattern:(NSString *)p2;
 
 	/*! 
 		Managed method name : GetDirectories
 		Managed return type : System.String[]
 		Managed param types : System.String, System.String, System.IO.SearchOption
 	 */
-    + (DBSystem_Array *)getDirectories_withPath:(NSString *)p1 searchPattern:(NSString *)p2 searchOption:(int32_t)p3;
+    + (System_Array *)getDirectories_withPath:(NSString *)p1 searchPattern:(NSString *)p2 searchOption:(int32_t)p3;
 
 	/*! 
 		Managed method name : GetDirectoryRoot
@@ -185,42 +195,42 @@
 		Managed return type : System.String[]
 		Managed param types : System.String
 	 */
-    + (DBSystem_Array *)getFiles_withPath:(NSString *)p1;
+    + (System_Array *)getFiles_withPath:(NSString *)p1;
 
 	/*! 
 		Managed method name : GetFiles
 		Managed return type : System.String[]
 		Managed param types : System.String, System.String
 	 */
-    + (DBSystem_Array *)getFiles_withPath:(NSString *)p1 searchPattern:(NSString *)p2;
+    + (System_Array *)getFiles_withPath:(NSString *)p1 searchPattern:(NSString *)p2;
 
 	/*! 
 		Managed method name : GetFiles
 		Managed return type : System.String[]
 		Managed param types : System.String, System.String, System.IO.SearchOption
 	 */
-    + (DBSystem_Array *)getFiles_withPath:(NSString *)p1 searchPattern:(NSString *)p2 searchOption:(int32_t)p3;
+    + (System_Array *)getFiles_withPath:(NSString *)p1 searchPattern:(NSString *)p2 searchOption:(int32_t)p3;
 
 	/*! 
 		Managed method name : GetFileSystemEntries
 		Managed return type : System.String[]
 		Managed param types : System.String
 	 */
-    + (DBSystem_Array *)getFileSystemEntries_withPath:(NSString *)p1;
+    + (System_Array *)getFileSystemEntries_withPath:(NSString *)p1;
 
 	/*! 
 		Managed method name : GetFileSystemEntries
 		Managed return type : System.String[]
 		Managed param types : System.String, System.String
 	 */
-    + (DBSystem_Array *)getFileSystemEntries_withPath:(NSString *)p1 searchPattern:(NSString *)p2;
+    + (System_Array *)getFileSystemEntries_withPath:(NSString *)p1 searchPattern:(NSString *)p2;
 
 	/*! 
 		Managed method name : GetFileSystemEntries
 		Managed return type : System.String[]
 		Managed param types : System.String, System.String, System.IO.SearchOption
 	 */
-    + (DBSystem_Array *)getFileSystemEntries_withPath:(NSString *)p1 searchPattern:(NSString *)p2 searchOption:(int32_t)p3;
+    + (System_Array *)getFileSystemEntries_withPath:(NSString *)p1 searchPattern:(NSString *)p2 searchOption:(int32_t)p3;
 
 	/*! 
 		Managed method name : GetLastAccessTime
@@ -255,7 +265,7 @@
 		Managed return type : System.String[]
 		Managed param types : 
 	 */
-    + (DBSystem_Array *)getLogicalDrives;
+    + (System_Array *)getLogicalDrives;
 
 	/*! 
 		Managed method name : GetParent

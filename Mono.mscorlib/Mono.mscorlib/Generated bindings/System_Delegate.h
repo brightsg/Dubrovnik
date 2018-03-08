@@ -3,17 +3,22 @@
 // Managed class : Delegate
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Delegate.__Extra__.h")
 #import "System_Delegate.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_Array;
 @class System_Boolean;
 @class System_Delegate;
 @class System_ICloneable;
@@ -21,9 +26,13 @@
 @class System_Object;
 @class System_Reflection_MethodInfo;
 @class System_Runtime_Serialization_ISerializable;
+@class System_String;
+@class System_Type;
 @class System_Void;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_ICloneable_Protocol.h"
 #import "System_Object.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
@@ -70,7 +79,7 @@
 		Managed return type : System.Delegate
 		Managed param types : System.Delegate[]
 	 */
-    + (System_Delegate *)combine_withDelegates:(DBSystem_Array *)p1;
+    + (System_Delegate *)combine_withDelegates:(System_Array *)p1;
 
 	/*! 
 		Managed method name : CreateDelegate
@@ -147,7 +156,7 @@
 		Managed return type : System.Object
 		Managed param types : System.Object[]
 	 */
-    - (System_Object *)dynamicInvoke_withArgs:(DBSystem_Array *)p1;
+    - (System_Object *)dynamicInvoke_withArgs:(System_Array *)p1;
 
 	/*! 
 		Managed method name : Equals
@@ -168,7 +177,7 @@
 		Managed return type : System.Delegate[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getInvocationList;
+    - (System_Array *)getInvocationList;
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 
 	/*! 

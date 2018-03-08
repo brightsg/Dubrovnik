@@ -3,31 +3,35 @@
 // Managed class : MethodInfo
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Reflection_MethodInfo.__Extra__.h")
 #import "System_Reflection_MethodInfo.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_Array;
 @class System_Boolean;
 @class System_Delegate;
 @class System_Int32;
+@class System_Object;
 @class System_Reflection_MethodInfo;
 @class System_Type;
 
+//
 // Import superclass and adopted protocols
-#import "System_Reflection_ICustomAttributeProvider_Protocol.h"
+//
 #import "System_Reflection_MethodBase.h"
-#import "System_Runtime_InteropServices__MemberInfo_Protocol.h"
-#import "System_Runtime_InteropServices__MethodBase_Protocol.h"
-#import "System_Runtime_InteropServices__MethodInfo_Protocol.h"
 
-@interface System_Reflection_MethodInfo : System_Reflection_MethodBase <System_Reflection_ICustomAttributeProvider_, System_Runtime_InteropServices__MemberInfo_, System_Runtime_InteropServices__MethodBase_, System_Runtime_InteropServices__MethodInfo_>
+@interface System_Reflection_MethodInfo : System_Reflection_MethodBase
 
 #pragma mark -
 #pragma mark Setup
@@ -82,7 +86,7 @@
 		Managed return type : System.Type[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)getGenericArguments;
+    - (System_Array *)getGenericArguments;
 
 	/*! 
 		Managed method name : GetGenericMethodDefinition
@@ -103,7 +107,7 @@
 		Managed return type : System.Reflection.MethodInfo
 		Managed param types : System.Type[]
 	 */
-    - (System_Reflection_MethodInfo *)makeGenericMethod_withTypeArguments:(DBSystem_Array *)p1;
+    - (System_Reflection_MethodInfo *)makeGenericMethod_withTypeArguments:(System_Array *)p1;
 
 	/*! 
 		Managed method name : op_Equality

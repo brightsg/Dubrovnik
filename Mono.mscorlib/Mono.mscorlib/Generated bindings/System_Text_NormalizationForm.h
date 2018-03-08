@@ -3,20 +3,26 @@
 // Managed enumeration : NormalizationForm
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Text_NormalizationForm.__Extra__.h")
 #import "System_Text_NormalizationForm.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
 @class System_Text_NormalizationForm;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Enum.h"
 
 
@@ -27,7 +33,7 @@ typedef NS_ENUM(int32_t, enumSystem_Text_NormalizationForm) {
 	System_Text_NormalizationForm_FormKC = 5,
 	System_Text_NormalizationForm_FormKD = 6,
 };
-@interface System_Text_NormalizationForm : DBSystem_Enum
+@interface System_Text_NormalizationForm : System_Enum
 
 #pragma mark -
 #pragma mark Setup

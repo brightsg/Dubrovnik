@@ -8,18 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Boolean.h"
-#import "System_Collections_Generic_ICollectionA1.h"
-#import "System_Collections_Generic_IDictionaryA2.h"
-#import "System_Collections_Generic_IEnumerableA1.h"
-#import "System_Collections_Generic_IReadOnlyCollectionA1.h"
-#import "System_Collections_Generic_IReadOnlyDictionaryA2.h"
-#import "System_Collections_ICollection.h"
-#import "System_Collections_IDictionary.h"
-#import "System_Collections_IEnumerable.h"
-#import "System_Int32.h"
-#import "System_Object.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_Collections_ObjectModel_ReadOnlyDictionaryA2
 
@@ -176,7 +170,7 @@
 		Managed return type : System.Boolean
 		Managed param types : <System.Collections.ObjectModel.ReadOnlyDictionary`2+TKey>, ref TValue&
 	 */
-    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Collections_ObjectModel_ReadOnlyDictionaryA2__TValue **)p2
+    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 

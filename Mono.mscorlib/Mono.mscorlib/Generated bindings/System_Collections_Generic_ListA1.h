@@ -3,31 +3,51 @@
 // Managed class : List`1<T>
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_Collections_Generic_ListA1.__Extra__.h")
 #import "System_Collections_Generic_ListA1.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_ActionA1;
+@class System_Array;
 @class System_Boolean;
 @class System_Collections_Generic_ICollectionA1;
+@class System_Collections_Generic_IComparerA1;
 @class System_Collections_Generic_IEnumerableA1;
 @class System_Collections_Generic_IListA1;
 @class System_Collections_Generic_IReadOnlyCollectionA1;
 @class System_Collections_Generic_IReadOnlyListA1;
+@class System_Collections_Generic_ListA1;
+@class System_Collections_Generic_ListA1__Enumerator;
 @class System_Collections_ICollection;
 @class System_Collections_IEnumerable;
 @class System_Collections_IList;
+@class System_Collections_ObjectModel_ReadOnlyCollectionA1;
+@class System_ComparisonA1;
+@class System_ConverterA2;
 @class System_Int32;
 @class System_Object;
+@class System_PredicateA1;
 @class System_Void;
+@class T;
+@protocol System_Collections_Generic_IComparerA1;
+@protocol System_Collections_Generic_IComparerA1_;
+@protocol System_Collections_Generic_IEnumerableA1;
+@protocol System_Collections_Generic_IEnumerableA1_;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_Collections_Generic_ICollectionA1_Protocol.h"
 #import "System_Collections_Generic_IEnumerableA1_Protocol.h"
 #import "System_Collections_Generic_IListA1_Protocol.h"
@@ -144,28 +164,28 @@
 		Managed param types : System.Converter`2<System.Collections.Generic.List`1+T, System.Collections.Generic.List`1+TOutput>
 		Generic method definition type params : <System.Collections.Generic.List`1+TOutput>
 	 */
-    - (DBSystem_Collections_Generic_ListA1 *)convertAll_withConverter:(System_ConverterA2 *)p1 typeParameter:(id)typeParameter;
+    - (System_Collections_Generic_ListA1 *)convertAll_withConverter:(System_ConverterA2 *)p1 typeParameter:(id)typeParameter;
 
 	/*! 
 		Managed method name : CopyTo
 		Managed return type : System.Void
 		Managed param types : T[]
 	 */
-    - (void)copyTo_withArray:(DBSystem_Array *)p1;
+    - (void)copyTo_withArray:(System_Array *)p1;
 
 	/*! 
 		Managed method name : CopyTo
 		Managed return type : System.Void
 		Managed param types : System.Int32, T[], System.Int32, System.Int32
 	 */
-    - (void)copyTo_withIndex:(int32_t)p1 array:(DBSystem_Array *)p2 arrayIndex:(int32_t)p3 count:(int32_t)p4;
+    - (void)copyTo_withIndex:(int32_t)p1 array:(System_Array *)p2 arrayIndex:(int32_t)p3 count:(int32_t)p4;
 
 	/*! 
 		Managed method name : CopyTo
 		Managed return type : System.Void
 		Managed param types : T[], System.Int32
 	 */
-    - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2;
+    - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2;
 
 	/*! 
 		Managed method name : Exists
@@ -186,7 +206,7 @@
 		Managed return type : System.Collections.Generic.List`1<System.Collections.Generic.List`1+T>
 		Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
 	 */
-    - (DBSystem_Collections_Generic_ListA1 *)findAll_withMatch:(System_PredicateA1 *)p1;
+    - (System_Collections_Generic_ListA1 *)findAll_withMatch:(System_PredicateA1 *)p1;
 
 	/*! 
 		Managed method name : FindIndex
@@ -256,7 +276,7 @@
 		Managed return type : System.Collections.Generic.List`1<System.Collections.Generic.List`1+T>
 		Managed param types : System.Int32, System.Int32
 	 */
-    - (DBSystem_Collections_Generic_ListA1 *)getRange_withIndex:(int32_t)p1 count:(int32_t)p2;
+    - (System_Collections_Generic_ListA1 *)getRange_withIndex:(int32_t)p1 count:(int32_t)p2;
 
 	/*! 
 		Managed method name : IndexOf
@@ -389,7 +409,7 @@
 		Managed return type : T[]
 		Managed param types : 
 	 */
-    - (DBSystem_Array *)toArray;
+    - (System_Array *)toArray;
 
 	/*! 
 		Managed method name : TrimExcess

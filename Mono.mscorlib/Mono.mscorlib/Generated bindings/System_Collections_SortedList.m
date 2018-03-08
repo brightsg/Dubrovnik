@@ -8,18 +8,12 @@
 #error This file requires ARC. 
 #endif
 
-// Local assembly imports
-#import "System_Boolean.h"
-#import "System_Collections_ICollection.h"
-#import "System_Collections_IDictionary.h"
-#import "System_Collections_IDictionaryEnumerator.h"
-#import "System_Collections_IEnumerable.h"
-#import "System_Collections_IList.h"
-#import "System_Collections_SortedList.h"
-#import "System_ICloneable.h"
-#import "System_Int32.h"
-#import "System_Object.h"
-#import "System_Void.h"
+// Local assembly import
+#import "mscorlib.h"
+
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
 
 @implementation System_Collections_SortedList
 
@@ -414,7 +408,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Array, System.Int32
 	 */
-    - (void)copyTo_withArray:(DBSystem_Array *)p1 arrayIndex:(int32_t)p2
+    - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2
     {
 		
 		[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];

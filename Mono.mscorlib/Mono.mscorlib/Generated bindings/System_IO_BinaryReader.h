@@ -3,17 +3,22 @@
 // Managed class : BinaryReader
 //
 //
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
 // Optional extra import. Not auto generated. Add manually to project only if required.
 //
 #if __has_include("System_IO_BinaryReader.__Extra__.h")
 #import "System_IO_BinaryReader.__Extra__.h"
 #endif
 
-// Frameworks
-#import <Cocoa/Cocoa.h>
-#import <Dubrovnik/Dubrovnik.h>
-
-// Forward declarations
+//
+// Forward class and protocol declarations
+//
+@class System_Array;
 @class System_Boolean;
 @class System_Byte;
 @class System_Char;
@@ -28,12 +33,15 @@
 @class System_SByte;
 @class System_Single;
 @class System_String;
+@class System_Text_Encoding;
 @class System_UInt16;
 @class System_UInt32;
 @class System_UInt64;
 @class System_Void;
 
+//
 // Import superclass and adopted protocols
+//
 #import "System_IDisposable_Protocol.h"
 #import "System_Object.h"
 
@@ -113,14 +121,14 @@
 		Managed return type : System.Int32
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    - (int32_t)read_withBufferChar:(DBSystem_Array *)p1 indexInt:(int32_t)p2 countInt:(int32_t)p3;
+    - (int32_t)read_withBufferCharArray:(System_Array *)p1 indexInt:(int32_t)p2 countInt:(int32_t)p3;
 
 	/*! 
 		Managed method name : Read
 		Managed return type : System.Int32
 		Managed param types : System.Byte[], System.Int32, System.Int32
 	 */
-    - (int32_t)read_withBufferByte:(NSData *)p1 indexInt:(int32_t)p2 countInt:(int32_t)p3;
+    - (int32_t)read_withBufferByteArray:(NSData *)p1 indexInt:(int32_t)p2 countInt:(int32_t)p3;
 
 	/*! 
 		Managed method name : ReadBoolean
@@ -155,7 +163,7 @@
 		Managed return type : System.Char[]
 		Managed param types : System.Int32
 	 */
-    - (DBSystem_Array *)readChars_withCount:(int32_t)p1;
+    - (System_Array *)readChars_withCount:(int32_t)p1;
 
 	/*! 
 		Managed method name : ReadDecimal
