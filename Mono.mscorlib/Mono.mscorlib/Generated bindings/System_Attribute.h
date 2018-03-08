@@ -18,6 +18,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Attribute;
 @class System_Boolean;
 @class System_Int32;
@@ -29,9 +30,8 @@
 // Import superclass and adopted protocols
 //
 #import "System_Object.h"
-#import "System_Runtime_InteropServices__Attribute_Protocol.h"
 
-@interface System_Attribute : System_Object <System_Runtime_InteropServices__Attribute_>
+@interface System_Attribute : System_Object
 
 #pragma mark -
 #pragma mark Setup

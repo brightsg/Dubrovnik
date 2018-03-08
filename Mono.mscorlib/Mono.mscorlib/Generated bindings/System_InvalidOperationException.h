@@ -18,9 +18,11 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Exception;
 @class System_InvalidOperationException;
 @class System_Runtime_InteropServices__Exception;
 @class System_Runtime_Serialization_ISerializable;
+@class System_String;
 
 //
 // Import superclass and adopted protocols

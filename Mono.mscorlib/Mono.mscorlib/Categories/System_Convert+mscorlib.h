@@ -23,7 +23,7 @@
 #import "System_Convert.h"
 #import "Dubrovnik/DBMonoIncludes.h"
 
-@interface System_Convert : System_Convert (mscorlib)
+@interface System_Convert (mscorlib)
 
 + (int8_t)convertMonoObjectToInt8:(MonoObject *)monoObject;
 + (int16_t)convertMonoObjectToInt16:(MonoObject *)monoObject;

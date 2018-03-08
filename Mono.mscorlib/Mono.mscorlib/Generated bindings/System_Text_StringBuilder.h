@@ -18,6 +18,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Boolean;
 @class System_Byte;
 @class System_Char;
@@ -37,6 +38,8 @@
 @class System_UInt32;
 @class System_UInt64;
 @class System_Void;
+@protocol System_IFormatProvider;
+@protocol System_IFormatProvider_;
 
 //
 // Import superclass and adopted protocols
@@ -244,7 +247,7 @@
 		Managed return type : System.Text.StringBuilder
 		Managed param types : System.Char[]
 	 */
-    - (System_Text_StringBuilder *)append_withValueChar:(System_Array *)p1;
+    - (System_Text_StringBuilder *)append_withValueCharArray:(System_Array *)p1;
 
 	/*! 
 		Managed method name : Append
@@ -405,7 +408,7 @@
 		Managed return type : System.Text.StringBuilder
 		Managed param types : System.Int32, System.Char[]
 	 */
-    - (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueChar:(System_Array *)p2;
+    - (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueCharArray:(System_Array *)p2;
 
 	/*! 
 		Managed method name : Insert

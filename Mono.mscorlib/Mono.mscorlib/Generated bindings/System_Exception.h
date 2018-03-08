@@ -27,6 +27,8 @@
 @class System_String;
 @class System_Type;
 @class System_Void;
+@protocol System_Collections_IDictionary;
+@protocol System_Collections_IDictionary_;
 
 //
 // Import superclass and adopted protocols

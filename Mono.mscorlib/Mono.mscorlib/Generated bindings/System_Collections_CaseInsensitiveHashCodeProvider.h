@@ -20,6 +20,7 @@
 //
 @class System_Collections_CaseInsensitiveHashCodeProvider;
 @class System_Collections_IHashCodeProvider;
+@class System_Globalization_CultureInfo;
 @class System_Int32;
 @class System_Object;
 

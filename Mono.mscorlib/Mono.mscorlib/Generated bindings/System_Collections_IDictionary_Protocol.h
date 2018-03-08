@@ -25,8 +25,12 @@
 @class System_Collections_IEnumerable;
 @class System_Object;
 @class System_Void;
+@protocol System_Collections_ICollection;
+@protocol System_Collections_ICollection_;
 @protocol System_Collections_IDictionary;
 @protocol System_Collections_IDictionary_;
+@protocol System_Collections_IDictionaryEnumerator;
+@protocol System_Collections_IDictionaryEnumerator_;
 
 //
 // Import superclass and adopted protocols

@@ -10,18 +10,6 @@
 
 @implementation System_Collections_Generic_DictionaryA2 (mscorlib)
 
-// obligatory override
-+ (const char *)monoClassName
-{
-    return "System.Collections.Generic.Dictionary`2";
-}
-
-// obligatory override
-+ (const char *)monoAssemblyName
-{
-    return "mscorlib";
-}
-
 #pragma mark -
 #pragma mark - Factory
 

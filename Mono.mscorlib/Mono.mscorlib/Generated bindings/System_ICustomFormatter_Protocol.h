@@ -24,6 +24,8 @@
 @class System_String;
 @protocol System_ICustomFormatter;
 @protocol System_ICustomFormatter_;
+@protocol System_IFormatProvider;
+@protocol System_IFormatProvider_;
 
 //
 // Import superclass and adopted protocols

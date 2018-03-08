@@ -23,6 +23,8 @@
 @class System_Collections_IEnumerator;
 @class System_Collections_ReadOnlyCollectionBase;
 @class System_Int32;
+@protocol System_Collections_IEnumerator;
+@protocol System_Collections_IEnumerator_;
 
 //
 // Import superclass and adopted protocols

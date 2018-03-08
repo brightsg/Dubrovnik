@@ -25,6 +25,8 @@
 @class System_String;
 @class System_TypeCode;
 @class System_Void;
+@protocol System_IFormatProvider;
+@protocol System_IFormatProvider_;
 
 //
 // Import superclass and adopted protocols

@@ -33,7 +33,7 @@
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_IntPtr : DBManagedObject <System_Runtime_Serialization_ISerializable_>
+@interface System_IntPtr : System_ValueType <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -50,21 +50,21 @@
 		Managed return type : System.IntPtr
 		Managed param types : System.Int32
 	 */
-    + (void *)new_withValueInt:(int32_t)p1;
+    + (System_IntPtr *)new_withValueInt:(int32_t)p1;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.IntPtr
 		Managed param types : System.Int64
 	 */
-    + (void *)new_withValueLong:(int64_t)p1;
+    + (System_IntPtr *)new_withValueLong:(int64_t)p1;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.IntPtr
 		Managed param types : System.Void*
 	 */
-    + (void *)new_withValueVoid:(void*)p1;
+    + (System_IntPtr *)new_withValueVoidPtr:(void*)p1;
 
 #pragma mark -
 #pragma mark Fields
@@ -137,7 +137,7 @@
 		Managed return type : System.IntPtr
 		Managed param types : System.Void*
 	 */
-    + (void *)op_Explicit_withValueVoid:(void*)p1;
+    + (void *)op_Explicit_withValueVoidPtr:(void*)p1;
 
 	/*! 
 		Managed method name : op_Inequality

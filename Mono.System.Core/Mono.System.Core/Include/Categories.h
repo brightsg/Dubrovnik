@@ -8,3 +8,4 @@
 
 #import "System_Collections_Generic_DictionaryA2+Linq.h"
 #import "System_Collections_Generic_IEnumerableA1+Linq.h"
+#import "System_Linq+core.h"

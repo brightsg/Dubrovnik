@@ -18,10 +18,12 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Boolean;
 @class System_Byte;
 @class System_Char;
 @class System_Int32;
+@class System_Text_DecoderReplacementFallback;
 @class System_Text_DecoderReplacementFallbackBuffer;
 @class System_Void;
 

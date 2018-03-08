@@ -28,6 +28,8 @@
 @class System_Object;
 @class System_String;
 @class System_TypeCode;
+@protocol System_IFormatProvider;
+@protocol System_IFormatProvider_;
 
 //
 // Import superclass and adopted protocols
@@ -38,7 +40,7 @@
 #import "System_IEquatableA1_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_Boolean : DBManagedObject <System_IComparable_, System_IConvertible_, System_IComparableA1_, System_IEquatableA1_>
+@interface System_Boolean : System_ValueType <System_IComparable_, System_IConvertible_, System_IComparableA1_, System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup

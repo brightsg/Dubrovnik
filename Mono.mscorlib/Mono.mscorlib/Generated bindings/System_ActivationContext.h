@@ -21,6 +21,7 @@
 @class System_ActivationContext;
 @class System_ActivationContext__ContextForm;
 @class System_ApplicationIdentity;
+@class System_Array;
 @class System_Byte;
 @class System_IDisposable;
 @class System_Runtime_Serialization_ISerializable;

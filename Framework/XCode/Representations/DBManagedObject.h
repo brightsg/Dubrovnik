@@ -275,8 +275,6 @@ extern char DBCacheSuffixChar;
 + (void)registerObservedKeys:(NSArray *)keys;
 - (void)sendChangeNotificationsForRegisteredObservedKeys;
 
-- (id)db_getType;
-
 /*!
  
  Returns an array of keys that will not generate KVO change notifications.

@@ -19,13 +19,17 @@
 // Forward class and protocol declarations
 //
 @class System_AppDomainInitializer;
+@class System_Array;
 @class System_AsyncCallback;
 @class System_IAsyncResult;
 @class System_ICloneable;
+@class System_IntPtr;
 @class System_Object;
 @class System_Runtime_Serialization_ISerializable;
 @class System_String;
 @class System_Void;
+@protocol System_IAsyncResult;
+@protocol System_IAsyncResult_;
 
 //
 // Import superclass and adopted protocols

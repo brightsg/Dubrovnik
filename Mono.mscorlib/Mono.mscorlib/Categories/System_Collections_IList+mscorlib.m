@@ -23,20 +23,9 @@
 // review the following list wrapper:
 // https://github.com/richard-fine/mono/blob/MonoListWrapper/contrib/MonoListWrapper/MonoListWrapper.c
 
-#import "System_Collections_IList.h+mscorlib"
+#import "System_Collections_IList+mscorlib.h"
 
 @implementation System_Collections_IList (mscorlib)
-
-// obligatory override
-+ (const char *)monoClassName
-{
-    return "System.Collections.IList";
-}
-// obligatory override
-+ (const char *)monoAssemblyName
-{
-    return "mscorlib";
-}
 
 + (instancetype)listWithMonoObject:(MonoObject *)monoObject
 {
@@ -85,10 +74,6 @@
 - (uint32_t)count {
 	MonoObject *retval = [self getMonoProperty:"Count"];
 	return(DB_UNBOX_INT32(retval));
-}
-
-- (void)clear {
-	[self invokeMonoMethod:"Clear" withNumArgs:0];
 }
 
 - (BOOL)containsMonoObject:(MonoObject *)monoObject {

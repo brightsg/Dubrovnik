@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Thesaurus Software. All rights reserved.
 //
 #import "System_Collections_Generic_IEnumerableA1+Linq.h"
-#import "System_Linq.h"
+#import "System_Linq+core.h"
 
 @implementation System_Collections_Generic_IEnumerableA1 (Linq)
 

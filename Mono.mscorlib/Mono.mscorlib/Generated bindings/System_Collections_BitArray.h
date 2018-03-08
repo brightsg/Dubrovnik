@@ -20,6 +20,7 @@
 //
 @class System_Array;
 @class System_Boolean;
+@class System_Byte;
 @class System_Collections_BitArray;
 @class System_Collections_ICollection;
 @class System_Collections_IEnumerable;
@@ -28,6 +29,8 @@
 @class System_Int32;
 @class System_Object;
 @class System_Void;
+@protocol System_Collections_IEnumerator;
+@protocol System_Collections_IEnumerator_;
 
 //
 // Import superclass and adopted protocols
@@ -75,14 +78,14 @@
 		Managed return type : System.Collections.BitArray
 		Managed param types : System.Boolean[]
 	 */
-    + (System_Collections_BitArray *)new_withValuesBool:(System_Array *)p1;
+    + (System_Collections_BitArray *)new_withValuesBoolArray:(System_Array *)p1;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.Collections.BitArray
 		Managed param types : System.Int32[]
 	 */
-    + (System_Collections_BitArray *)new_withValuesInt:(System_Array *)p1;
+    + (System_Collections_BitArray *)new_withValuesIntArray:(System_Array *)p1;
 
 	/*! 
 		Managed method name : .ctor

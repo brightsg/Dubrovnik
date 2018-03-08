@@ -18,12 +18,15 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_FormattableString;
 @class System_IFormatProvider;
 @class System_IFormattable;
 @class System_Int32;
 @class System_Object;
 @class System_String;
+@protocol System_IFormatProvider;
+@protocol System_IFormatProvider_;
 
 //
 // Import superclass and adopted protocols

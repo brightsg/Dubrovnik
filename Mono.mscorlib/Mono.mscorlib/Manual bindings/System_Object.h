@@ -79,14 +79,14 @@
 		Managed return type : System.Int32
 		Managed param types : 
 	 */
-    - (int32_t)getHashCode;
+    - (int32_t)db_getHashCode;
 
 	/*! 
 		Managed method name : GetType
 		Managed return type : System.Type
 		Managed param types : 
 	 */
-    - (System_Type *)getType;
+    - (System_Type *)db_getType;
 
 	/*! 
 		Managed method name : ReferenceEquals

@@ -18,18 +18,32 @@
 //
 // Forward class and protocol declarations
 //
+@class System_ActionA1;
+@class System_Array;
 @class System_Boolean;
 @class System_Collections_Generic_ICollectionA1;
+@class System_Collections_Generic_IComparerA1;
 @class System_Collections_Generic_IEnumerableA1;
 @class System_Collections_Generic_IListA1;
 @class System_Collections_Generic_IReadOnlyCollectionA1;
 @class System_Collections_Generic_IReadOnlyListA1;
+@class System_Collections_Generic_ListA1;
+@class System_Collections_Generic_ListA1__Enumerator;
 @class System_Collections_ICollection;
 @class System_Collections_IEnumerable;
 @class System_Collections_IList;
+@class System_Collections_ObjectModel_ReadOnlyCollectionA1;
+@class System_ComparisonA1;
+@class System_ConverterA2;
 @class System_Int32;
 @class System_Object;
+@class System_PredicateA1;
 @class System_Void;
+@class T;
+@protocol System_Collections_Generic_IComparerA1;
+@protocol System_Collections_Generic_IComparerA1_;
+@protocol System_Collections_Generic_IEnumerableA1;
+@protocol System_Collections_Generic_IEnumerableA1_;
 
 //
 // Import superclass and adopted protocols

@@ -21,6 +21,7 @@
 @class System_Boolean;
 @class System_Int32;
 @class System_Nullable;
+@class System_NullableA1;
 @class System_Object;
 @class System_Type;
 

@@ -25,6 +25,7 @@
 @class System_AppDomainManager;
 @class System_AppDomainSetup;
 @class System_ApplicationIdentity;
+@class System_Array;
 @class System_Boolean;
 @class System_Byte;
 @class System_CrossAppDomainDelegate;
@@ -46,9 +47,8 @@
 //
 #import "System__AppDomain_Protocol.h"
 #import "System_MarshalByRefObject.h"
-#import "System_Security_IEvidenceFactory_Protocol.h"
 
-@interface System_AppDomain : System_MarshalByRefObject <System__AppDomain_, System_Security_IEvidenceFactory_>
+@interface System_AppDomain : System_MarshalByRefObject <System__AppDomain_>
 
 #pragma mark -
 #pragma mark Setup
@@ -273,7 +273,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.String, System.String[]
 	 */
-    - (int32_t)executeAssemblyByName_withAssemblyNameString:(NSString *)p1 argsString:(System_Array *)p2;
+    - (int32_t)executeAssemblyByName_withAssemblyNameString:(NSString *)p1 argsStringArray:(System_Array *)p2;
 /* Skipped method : System.Int32 ExecuteAssemblyByName(System.Reflection.AssemblyName assemblyName, System.Security.Policy.Evidence assemblySecurity, System.String[] args) */
 
 	/*! 
@@ -281,7 +281,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.Reflection.AssemblyName, System.String[]
 	 */
-    - (int32_t)executeAssemblyByName_withAssemblyNameSRAssemblyName:(System_Reflection_AssemblyName *)p1 argsString:(System_Array *)p2;
+    - (int32_t)executeAssemblyByName_withAssemblyNameSRAssemblyName:(System_Reflection_AssemblyName *)p1 argsStringArray:(System_Array *)p2;
 
 	/*! 
 		Managed method name : GetAssemblies

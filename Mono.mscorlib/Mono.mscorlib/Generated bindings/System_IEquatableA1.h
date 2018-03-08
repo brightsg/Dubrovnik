@@ -19,9 +19,10 @@
 // Forward class and protocol declarations
 //
 @class System_Boolean;
+@class System_IEquatableA1;
 @class System_Object;
-@protocol System_Object;
-@protocol System_Object_;
+@protocol System_IEquatableA1;
+@protocol System_IEquatableA1_;
 
 //
 // Import superclass and adopted protocols

@@ -11,6 +11,10 @@
 // Local assembly import
 #import "mscorlib.h"
 
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
+
 @implementation System_Text_StringBuilder
 
 #pragma mark -
@@ -468,7 +472,7 @@
 		Managed return type : System.Text.StringBuilder
 		Managed param types : System.Char[]
 	 */
-    - (System_Text_StringBuilder *)append_withValueChar:(System_Array *)p1
+    - (System_Text_StringBuilder *)append_withValueCharArray:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Append(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -766,7 +770,7 @@
 		Managed return type : System.Text.StringBuilder
 		Managed param types : System.Int32, System.Char[]
 	 */
-    - (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueChar:(System_Array *)p2
+    - (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueCharArray:(System_Array *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Insert(int,char[])" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];

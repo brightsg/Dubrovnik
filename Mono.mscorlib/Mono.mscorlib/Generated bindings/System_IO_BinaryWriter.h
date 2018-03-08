@@ -18,6 +18,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Boolean;
 @class System_Byte;
 @class System_Char;
@@ -33,6 +34,7 @@
 @class System_SByte;
 @class System_Single;
 @class System_String;
+@class System_Text_Encoding;
 @class System_UInt16;
 @class System_UInt32;
 @class System_UInt64;

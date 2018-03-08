@@ -19,9 +19,14 @@
 // Forward class and protocol declarations
 //
 @class System_IDisposable;
-@class System_Object;
-@protocol System_Object;
-@protocol System_Object_;
+@class System_IObservableA1;
+@class System_IObserverA1;
+@protocol System_IDisposable;
+@protocol System_IDisposable_;
+@protocol System_IObservableA1;
+@protocol System_IObservableA1_;
+@protocol System_IObserverA1;
+@protocol System_IObserverA1_;
 
 //
 // Import superclass and adopted protocols

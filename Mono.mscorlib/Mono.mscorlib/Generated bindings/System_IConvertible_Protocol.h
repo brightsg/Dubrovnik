@@ -40,6 +40,8 @@
 @class System_UInt64;
 @protocol System_IConvertible;
 @protocol System_IConvertible_;
+@protocol System_IFormatProvider;
+@protocol System_IFormatProvider_;
 
 //
 // Import superclass and adopted protocols

@@ -71,40 +71,23 @@
 	return [self initWithMonoObject:(MonoObject *)monoArray];
 }
 
-- (id)initWithMonoObject:(MonoObject *)monoObject
-{
-	self = [super initWithMonoObject:(MonoObject *)monoObject];
-	
-	if(self) {
-		_arrayLength = (uint32_t)mono_array_length((MonoArray *)monoObject);
-	}
-	
-	return(self);
-}
-
 - (MonoArray *)monoArray
 {
     return (MonoArray *)[self monoObject];
 }
 
 #pragma mark -
-
-- (uint32_t)count {
-	return(_arrayLength);
-}
-
-#pragma mark -
 #pragma mark Raw MonoObject Access
 
 - (MonoObject *)monoObjectAtIndex:(uint32_t)index {
-	if(index >= _arrayLength)
+	if(index >= self.length)
 		@throw([NSException exceptionWithName:@"DBArrayIndexOutOfBoundsException" reason:@"Array Index Out of Bounds" userInfo:nil]);
 		
 	return(mono_array_get([self monoArray], MonoObject *, index));
 }
 
 - (void)setMonoObject:(MonoObject *)monoObject forIndex:(uint32_t)index {
-	if(index >= _arrayLength)
+	if(index >= self.length)
 		@throw([NSException exceptionWithName:@"DBArrayIndexOutOfBoundsException" reason:@"Array Index Out of Bounds" userInfo:nil]);
 
 	mono_array_set([self monoArray], MonoObject *, index, monoObject);
@@ -127,6 +110,10 @@
 
 #pragma mark -
 #pragma mark Numeric convenience accessors
+
+- (uint32_t)count {
+    return [self length];
+}
 
 //
 // float
@@ -273,7 +260,7 @@
 
 - (NSMutableArray *)mutableArray
 {
-    NSUInteger count = [self count];
+    NSUInteger count = [self length];
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
     for (NSUInteger i = 0; i < count; i++) {
         [array addObject:[self objectAtIndex:i]];
@@ -292,7 +279,7 @@
 
 - (NSArray *)floatArray
 {
-    NSUInteger count = [self count];
+    NSUInteger count = [self length];
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
     for (NSUInteger i = 0; i < count; i++) {
         [array addObject:@([self floatAtIndex:i])];
@@ -302,7 +289,7 @@
 
 - (NSArray *)doubleArray
 {
-    NSUInteger count = [self count];
+    NSUInteger count = [self length];
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
     for (NSUInteger i = 0; i < count; i++) {
         [array addObject:@([self doubleAtIndex:i])];
@@ -312,7 +299,7 @@
 
 - (NSArray *)int64Array
 {
-    NSUInteger count = [self count];
+    NSUInteger count = [self length];
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
     for (NSUInteger i = 0; i < count; i++) {
         [array addObject:@([self int64AtIndex:i])];
@@ -322,7 +309,7 @@
 
 - (NSArray *)int32Array
 {
-    NSUInteger count = [self count];
+    NSUInteger count = [self length];
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
     for (NSUInteger i = 0; i < count; i++) {
         [array addObject:@([self int32AtIndex:i])];
@@ -332,7 +319,7 @@
 
 - (NSArray *)int16Array
 {
-    NSUInteger count = [self count];
+    NSUInteger count = [self length];
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
     for (NSUInteger i = 0; i < count; i++) {
         [array addObject:@([self int16AtIndex:i])];
@@ -342,7 +329,7 @@
 
 - (NSArray *)int8Array
 {
-    NSUInteger count = [self count];
+    NSUInteger count = [self length];
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
     for (NSUInteger i = 0; i < count; i++) {
         [array addObject:@([self int8AtIndex:i])];
@@ -352,7 +339,7 @@
 
 - (NSArray *)uint64Array
 {
-    NSUInteger count = [self count];
+    NSUInteger count = [self length];
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
     for (NSUInteger i = 0; i < count; i++) {
         [array addObject:@([self uint64AtIndex:i])];
@@ -362,7 +349,7 @@
 
 - (NSArray *)uint32Array
 {
-    NSUInteger count = [self count];
+    NSUInteger count = [self length];
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
     for (NSUInteger i = 0; i < count; i++) {
         [array addObject:@([self uint32AtIndex:i])];
@@ -372,7 +359,7 @@
 
 - (NSArray *)uint16Array
 {
-    NSUInteger count = [self count];
+    NSUInteger count = [self length];
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
     for (NSUInteger i = 0; i < count; i++) {
         [array addObject:@([self uint16AtIndex:i])];
@@ -382,7 +369,7 @@
 
 - (NSArray *)uint8Array
 {
-    NSUInteger count = [self count];
+    NSUInteger count = [self length];
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
     for (NSUInteger i = 0; i < count; i++) {
         [array addObject:@([self uint8AtIndex:i])];
@@ -392,7 +379,7 @@
 
 - (NSArray *)boolArray
 {
-    NSUInteger count = [self count];
+    NSUInteger count = [self length];
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
     for (NSUInteger i = 0; i < count; i++) {
         [array addObject:@([self boolAtIndex:i])];

@@ -11,6 +11,10 @@
 // Local assembly import
 #import "mscorlib.h"
 
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
+
 @implementation System_Collections_Generic_IReadOnlyDictionaryA2
 
 #pragma mark -
@@ -116,7 +120,7 @@
 		Managed return type : System.Boolean
 		Managed param types : <System.Collections.Generic.IReadOnlyDictionary`2+TKey>, ref TValue&
 	 */
-    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Collections_Generic_IReadOnlyDictionaryA2__TValue **)p2
+    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 

@@ -6,33 +6,11 @@
 //
 //
 #import "System_Collections_Generic_ListA1+mscorlib.h"
-#import "System_Collections_IList.h"
+#import "System_Collections_IList+mscorlib.h"
 #import "NSString+mscorlib.h"
 #import "System_Object+mscorlib.h"
 
-@interface System_Collections_Generic_ListA1 ()
-
-// primitives
-@property (assign, nonatomic, readwrite) BOOL parameterTypeIsValueType;
-@property (assign) BOOL parameterTypeEstablished;
-@end
-
 @implementation System_Collections_Generic_ListA1 (mscorlib)
-
-#pragma mark -
-#pragma mark Identification
-
-// obligatory override
-+ (const char *)monoClassName
-{
-    return "System.Collections.Generic.List`1";
-}
-
-// obligatory override
-+ (const char *)monoAssemblyName
-{
-    return "mscorlib";
-}
 
 #pragma mark -
 #pragma mark - Factory
@@ -87,13 +65,10 @@
 
 - (BOOL)parameterTypeIsValueType
 {
-    if (!self.parameterTypeEstablished) {
-        MonoType *monoType = [self.managedType monoGenericTypeAtIndex:0];
-        MonoClass *klass = mono_class_from_mono_type(monoType);
-        _parameterTypeIsValueType = mono_class_is_valuetype(klass);
-        self.parameterTypeEstablished = YES;
-    }
-    return _parameterTypeIsValueType;
+    MonoType *monoType = [self.managedType monoGenericTypeAtIndex:0];
+    MonoClass *klass = mono_class_from_mono_type(monoType);
+    BOOL parameterTypeIsValueType = mono_class_is_valuetype(klass);
+    return parameterTypeIsValueType;
 }
 
 #pragma mark -
@@ -163,15 +138,6 @@
     }
     
     [self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, arg];
-}
-
-@synthesize count = _count;
-- (int32_t)count
-{
-    MonoObject *monoObject = [self getMonoProperty:"Count"];
-    _count = DB_UNBOX_INT32(monoObject);
-    
-    return _count;
 }
 
 //

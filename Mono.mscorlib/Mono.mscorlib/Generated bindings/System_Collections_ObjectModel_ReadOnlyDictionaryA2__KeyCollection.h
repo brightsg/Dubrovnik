@@ -18,14 +18,20 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Collections_Generic_ICollectionA1;
 @class System_Collections_Generic_IEnumerableA1;
+@class System_Collections_Generic_IEnumeratorA1;
 @class System_Collections_Generic_IReadOnlyCollectionA1;
 @class System_Collections_ICollection;
 @class System_Collections_IEnumerable;
+@class System_Collections_ObjectModel_ReadOnlyDictionaryA2__KeyCollection;
 @class System_Int32;
 @class System_Object;
 @class System_Void;
+@class TKey;
+@protocol System_Collections_Generic_IEnumeratorA1;
+@protocol System_Collections_Generic_IEnumeratorA1_;
 
 //
 // Import superclass and adopted protocols

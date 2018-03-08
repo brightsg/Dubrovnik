@@ -18,6 +18,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Boolean;
 @class System_Globalization_CultureInfo;
 @class System_Int32;
@@ -31,12 +32,9 @@
 //
 // Import superclass and adopted protocols
 //
-#import "System_Reflection_ICustomAttributeProvider_Protocol.h"
-#import "System_Reflection_MemberInfo.h"
-#import "System_Runtime_InteropServices__MemberInfo_Protocol.h"
-#import "System_Runtime_InteropServices__MethodBase_Protocol.h"
+#import "System_Object.h"
 
-@interface System_Reflection_MethodBase : System_Reflection_MemberInfo <System_Reflection_ICustomAttributeProvider_, System_Runtime_InteropServices__MemberInfo_, System_Runtime_InteropServices__MethodBase_>
+@interface System_Reflection_MethodBase : System_Object
 
 #pragma mark -
 #pragma mark Setup

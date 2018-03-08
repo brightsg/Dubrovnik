@@ -1,4 +1,4 @@
-//++Dubrovnik.CodeGenerator System__AppDomain_Protocol.h
+﻿//++Dubrovnik.CodeGenerator System__AppDomain_Protocol.h
 //
 // Managed interface : _AppDomain
 //
@@ -19,6 +19,7 @@
 // Forward class and protocol declarations
 //
 @class System__AppDomain;
+@class System_Array;
 @class System_Boolean;
 @class System_Byte;
 @class System_CrossAppDomainDelegate;
@@ -33,7 +34,6 @@
 @class System_Type;
 @class System_UInt32;
 @class System_Void;
-@class System_Array;
 @protocol System__AppDomain;
 @protocol System__AppDomain_;
 
@@ -313,7 +313,7 @@
 //
 // Implementation protocol
 //
-@protocol System__AppDomain <System__AppDomain_, System_Object_>
+@protocol System__AppDomain <System__AppDomain_, System_Object>
 
 @optional
 

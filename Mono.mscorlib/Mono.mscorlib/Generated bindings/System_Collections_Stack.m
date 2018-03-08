@@ -11,6 +11,10 @@
 // Local assembly import
 #import "mscorlib.h"
 
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
+
 @implementation System_Collections_Stack
 
 #pragma mark -

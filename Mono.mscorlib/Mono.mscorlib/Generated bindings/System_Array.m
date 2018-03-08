@@ -11,6 +11,10 @@
 // Local assembly import
 #import "mscorlib.h"
 
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
+
 @implementation System_Array
 
 #pragma mark -
@@ -252,7 +256,7 @@
 		Managed param types : T[], <System.Array+T>
 		Generic method definition type params : <System.Array+T>
 	 */
-    + (int32_t)binarySearch_withArrayT:(System_Array *)p1 valueT:(System_Object *)p2 typeParameter:(id)typeParameter
+    + (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 typeParameter:(id)typeParameter
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"BinarySearch(T[],T)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -266,7 +270,7 @@
 		Managed param types : T[], <System.Array+T>, System.Collections.Generic.IComparer`1<System.Array+T>
 		Generic method definition type params : <System.Array+T>
 	 */
-    + (int32_t)binarySearch_withArrayT:(System_Array *)p1 valueT:(System_Object *)p2 comparerSCGIArray__T:(id <System_Collections_Generic_IComparerA1_>)p3 typeParameter:(id)typeParameter
+    + (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 comparerSCGIArray__T:(id <System_Collections_Generic_IComparerA1_>)p3 typeParameter:(id)typeParameter
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"BinarySearch(T[],T,System.Collections.Generic.IComparer`1<System.Array/T>)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
@@ -280,7 +284,7 @@
 		Managed param types : T[], System.Int32, System.Int32, <System.Array+T>
 		Generic method definition type params : <System.Array+T>
 	 */
-    + (int32_t)binarySearch_withArrayT:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueT:(System_Object *)p4 typeParameter:(id)typeParameter
+    + (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueT:(System_Object *)p4 typeParameter:(id)typeParameter
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"BinarySearch(T[],int,int,T)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
@@ -294,7 +298,7 @@
 		Managed param types : T[], System.Int32, System.Int32, <System.Array+T>, System.Collections.Generic.IComparer`1<System.Array+T>
 		Generic method definition type params : <System.Array+T>
 	 */
-    + (int32_t)binarySearch_withArrayT:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueT:(System_Object *)p4 comparerSCGIArray__T:(id <System_Collections_Generic_IComparerA1_>)p5 typeParameter:(id)typeParameter
+    + (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueT:(System_Object *)p4 comparerSCGIArray__T:(id <System_Collections_Generic_IComparerA1_>)p5 typeParameter:(id)typeParameter
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"BinarySearch(T[],int,int,T,System.Collections.Generic.IComparer`1<System.Array/T>)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
@@ -469,7 +473,7 @@
 		Managed return type : System.Array
 		Managed param types : System.Type, System.Int32[]
 	 */
-    + (System_Array *)createInstance_withElementTypeSType:(System_Type *)p1 lengthsInt:(System_Array *)p2
+    + (System_Array *)createInstance_withElementTypeSType:(System_Type *)p1 lengthsIntArray:(System_Array *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,int[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -482,7 +486,7 @@
 		Managed return type : System.Array
 		Managed param types : System.Type, System.Int64[]
 	 */
-    + (System_Array *)createInstance_withElementTypeSType:(System_Type *)p1 lengthsLong:(System_Array *)p2
+    + (System_Array *)createInstance_withElementTypeSType:(System_Type *)p1 lengthsLongArray:(System_Array *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,long[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -740,7 +744,7 @@
 		Managed return type : System.Object
 		Managed param types : System.Int32[]
 	 */
-    - (System_Object *)getValue_withIndicesInt:(System_Array *)p1
+    - (System_Object *)getValue_withIndicesIntArray:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetValue(int[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -831,7 +835,7 @@
 		Managed return type : System.Object
 		Managed param types : System.Int64[]
 	 */
-    - (System_Object *)getValue_withIndicesLong:(System_Array *)p1
+    - (System_Object *)getValue_withIndicesLongArray:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetValue(long[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -884,7 +888,7 @@
 		Managed param types : T[], <System.Array+T>
 		Generic method definition type params : <System.Array+T>
 	 */
-    + (int32_t)indexOf_withArrayT:(System_Array *)p1 valueT:(System_Object *)p2 typeParameter:(id)typeParameter
+    + (int32_t)indexOf_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 typeParameter:(id)typeParameter
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"IndexOf(T[],T)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -898,7 +902,7 @@
 		Managed param types : T[], <System.Array+T>, System.Int32
 		Generic method definition type params : <System.Array+T>
 	 */
-    + (int32_t)indexOf_withArrayT:(System_Array *)p1 valueT:(System_Object *)p2 startIndexInt:(int32_t)p3 typeParameter:(id)typeParameter
+    + (int32_t)indexOf_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 startIndexInt:(int32_t)p3 typeParameter:(id)typeParameter
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"IndexOf(T[],T,int)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
@@ -912,7 +916,7 @@
 		Managed param types : T[], <System.Array+T>, System.Int32, System.Int32
 		Generic method definition type params : <System.Array+T>
 	 */
-    + (int32_t)indexOf_withArrayT:(System_Array *)p1 valueT:(System_Object *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4 typeParameter:(id)typeParameter
+    + (int32_t)indexOf_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4 typeParameter:(id)typeParameter
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"IndexOf(T[],T,int,int)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
@@ -977,7 +981,7 @@
 		Managed param types : T[], <System.Array+T>
 		Generic method definition type params : <System.Array+T>
 	 */
-    + (int32_t)lastIndexOf_withArrayT:(System_Array *)p1 valueT:(System_Object *)p2 typeParameter:(id)typeParameter
+    + (int32_t)lastIndexOf_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 typeParameter:(id)typeParameter
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"LastIndexOf(T[],T)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -991,7 +995,7 @@
 		Managed param types : T[], <System.Array+T>, System.Int32
 		Generic method definition type params : <System.Array+T>
 	 */
-    + (int32_t)lastIndexOf_withArrayT:(System_Array *)p1 valueT:(System_Object *)p2 startIndexInt:(int32_t)p3 typeParameter:(id)typeParameter
+    + (int32_t)lastIndexOf_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 startIndexInt:(int32_t)p3 typeParameter:(id)typeParameter
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"LastIndexOf(T[],T,int)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
@@ -1005,29 +1009,14 @@
 		Managed param types : T[], <System.Array+T>, System.Int32, System.Int32
 		Generic method definition type params : <System.Array+T>
 	 */
-    + (int32_t)lastIndexOf_withArrayT:(System_Array *)p1 valueT:(System_Object *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4 typeParameter:(id)typeParameter
+    + (int32_t)lastIndexOf_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4 typeParameter:(id)typeParameter
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"LastIndexOf(T[],T,int,int)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
 		
 		return DB_UNBOX_INT32(monoObject);
     }
-
-	/*! 
-		Managed method name : Resize
-		Managed return type : System.Void
-		Managed param types : ref T[]&, System.Int32
-		Generic method definition type params : <System.Array+T>
-	 */
-    + (void)resize_withArrayRef:(T **)p1 newSize:(int32_t)p2 typeParameter:(id)typeParameter
-    {
-		void *refPtr1 = [*p1 monoRTInvokeArg];
-
-		[self invokeMonoClassMethod:"Resize(T[]&,int)" withNumArgs:2, &refPtr1, DB_VALUE(p2)];
-
-      *p1 = [System_Object bestObjectWithMonoObject:refPtr1];
-
-    }
+/* Skipped method : System.Void Resize(T[]& array, System.Int32 newSize) */
 
 	/*! 
 		Managed method name : Reverse
@@ -1094,7 +1083,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Object, System.Int32[]
 	 */
-    - (void)setValue_withValueObject:(System_Object *)p1 indicesInt:(System_Array *)p2
+    - (void)setValue_withValueObject:(System_Object *)p1 indicesIntArray:(System_Array *)p2
     {
 		
 		[self invokeMonoMethod:"SetValue(object,int[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -1142,7 +1131,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Object, System.Int64[]
 	 */
-    - (void)setValue_withValueObject:(System_Object *)p1 indicesLong:(System_Array *)p2
+    - (void)setValue_withValueObject:(System_Object *)p1 indicesLongArray:(System_Array *)p2
     {
 		
 		[self invokeMonoMethod:"SetValue(object,long[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -1251,7 +1240,7 @@
 		Managed param types : T[]
 		Generic method definition type params : <System.Array+T>
 	 */
-    + (void)sort_withArrayT:(System_Array *)p1 typeParameter:(id)typeParameter
+    + (void)sort_withArrayTArray:(System_Array *)p1 typeParameter:(id)typeParameter
     {
 		
 		[self invokeMonoClassMethod:"Sort(T[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -1264,7 +1253,7 @@
 		Managed param types : TKey[], TValue[]
 		Generic method definition type params : <System.Array+TKey>, <System.Array+TValue>
 	 */
-    + (void)sort_withKeysTKey:(System_Array *)p1 itemsTValue:(System_Array *)p2 typeParameters:(NSArray<id> *)typeParameter
+    + (void)sort_withKeysTKeyArray:(System_Array *)p1 itemsTValueArray:(System_Array *)p2 typeParameters:(NSArray<id> *)typeParameter
     {
 		
 		[self invokeMonoClassMethod:"Sort(TKey[],TValue[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -1277,7 +1266,7 @@
 		Managed param types : T[], System.Int32, System.Int32
 		Generic method definition type params : <System.Array+T>
 	 */
-    + (void)sort_withArrayT:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 typeParameter:(id)typeParameter
+    + (void)sort_withArrayTArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 typeParameter:(id)typeParameter
     {
 		
 		[self invokeMonoClassMethod:"Sort(T[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
@@ -1290,7 +1279,7 @@
 		Managed param types : TKey[], TValue[], System.Int32, System.Int32
 		Generic method definition type params : <System.Array+TKey>, <System.Array+TValue>
 	 */
-    + (void)sort_withKeysTKey:(System_Array *)p1 itemsTValue:(System_Array *)p2 indexInt:(int32_t)p3 lengthInt:(int32_t)p4 typeParameters:(NSArray<id> *)typeParameter
+    + (void)sort_withKeysTKeyArray:(System_Array *)p1 itemsTValueArray:(System_Array *)p2 indexInt:(int32_t)p3 lengthInt:(int32_t)p4 typeParameters:(NSArray<id> *)typeParameter
     {
 		
 		[self invokeMonoClassMethod:"Sort(TKey[],TValue[],int,int)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
@@ -1303,7 +1292,7 @@
 		Managed param types : T[], System.Collections.Generic.IComparer`1<System.Array+T>
 		Generic method definition type params : <System.Array+T>
 	 */
-    + (void)sort_withArrayT:(System_Array *)p1 comparerSCGIArray__T:(id <System_Collections_Generic_IComparerA1_>)p2 typeParameter:(id)typeParameter
+    + (void)sort_withArrayTArray:(System_Array *)p1 comparerSCGIArray__T:(id <System_Collections_Generic_IComparerA1_>)p2 typeParameter:(id)typeParameter
     {
 		
 		[self invokeMonoClassMethod:"Sort(T[],System.Collections.Generic.IComparer`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -1316,7 +1305,7 @@
 		Managed param types : TKey[], TValue[], System.Collections.Generic.IComparer`1<System.Array+TKey>
 		Generic method definition type params : <System.Array+TKey>, <System.Array+TValue>
 	 */
-    + (void)sort_withKeysTKey:(System_Array *)p1 itemsTValue:(System_Array *)p2 comparerSCGIArray__TKey:(id <System_Collections_Generic_IComparerA1_>)p3 typeParameters:(NSArray<id> *)typeParameter
+    + (void)sort_withKeysTKeyArray:(System_Array *)p1 itemsTValueArray:(System_Array *)p2 comparerSCGIArray__TKey:(id <System_Collections_Generic_IComparerA1_>)p3 typeParameters:(NSArray<id> *)typeParameter
     {
 		
 		[self invokeMonoClassMethod:"Sort(TKey[],TValue[],System.Collections.Generic.IComparer`1<System.Array/TKey>)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
@@ -1329,7 +1318,7 @@
 		Managed param types : T[], System.Int32, System.Int32, System.Collections.Generic.IComparer`1<System.Array+T>
 		Generic method definition type params : <System.Array+T>
 	 */
-    + (void)sort_withArrayT:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 comparerSCGIArray__T:(id <System_Collections_Generic_IComparerA1_>)p4 typeParameter:(id)typeParameter
+    + (void)sort_withArrayTArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 comparerSCGIArray__T:(id <System_Collections_Generic_IComparerA1_>)p4 typeParameter:(id)typeParameter
     {
 		
 		[self invokeMonoClassMethod:"Sort(T[],int,int,System.Collections.Generic.IComparer`1<System.Array/T>)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
@@ -1342,7 +1331,7 @@
 		Managed param types : TKey[], TValue[], System.Int32, System.Int32, System.Collections.Generic.IComparer`1<System.Array+TKey>
 		Generic method definition type params : <System.Array+TKey>, <System.Array+TValue>
 	 */
-    + (void)sort_withKeysTKey:(System_Array *)p1 itemsTValue:(System_Array *)p2 indexInt:(int32_t)p3 lengthInt:(int32_t)p4 comparerSCGIArray__TKey:(id <System_Collections_Generic_IComparerA1_>)p5 typeParameters:(NSArray<id> *)typeParameter
+    + (void)sort_withKeysTKeyArray:(System_Array *)p1 itemsTValueArray:(System_Array *)p2 indexInt:(int32_t)p3 lengthInt:(int32_t)p4 comparerSCGIArray__TKey:(id <System_Collections_Generic_IComparerA1_>)p5 typeParameters:(NSArray<id> *)typeParameter
     {
 		
 		[self invokeMonoClassMethod:"Sort(TKey[],TValue[],int,int,System.Collections.Generic.IComparer`1<System.Array/TKey>)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4), [p5 monoRTInvokeArg]];

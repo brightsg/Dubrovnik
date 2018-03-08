@@ -18,6 +18,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Collections_Generic_KeyValuePairA2;
 @class System_Object;
 @class System_String;
 
@@ -26,7 +27,7 @@
 //
 #import "System_ValueType.h"
 
-@interface System_Collections_Generic_KeyValuePairA2 : DBManagedObject
+@interface System_Collections_Generic_KeyValuePairA2 : System_ValueType
 
 #pragma mark -
 #pragma mark Setup

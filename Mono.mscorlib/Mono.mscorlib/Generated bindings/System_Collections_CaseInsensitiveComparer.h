@@ -20,6 +20,7 @@
 //
 @class System_Collections_CaseInsensitiveComparer;
 @class System_Collections_IComparer;
+@class System_Globalization_CultureInfo;
 @class System_Int32;
 @class System_Object;
 

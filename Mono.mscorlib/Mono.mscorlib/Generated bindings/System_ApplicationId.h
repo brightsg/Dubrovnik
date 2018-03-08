@@ -19,6 +19,7 @@
 // Forward class and protocol declarations
 //
 @class System_ApplicationId;
+@class System_Array;
 @class System_Boolean;
 @class System_Byte;
 @class System_Int32;

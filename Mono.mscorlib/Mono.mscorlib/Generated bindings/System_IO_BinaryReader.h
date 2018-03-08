@@ -18,6 +18,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Boolean;
 @class System_Byte;
 @class System_Char;
@@ -32,6 +33,7 @@
 @class System_SByte;
 @class System_Single;
 @class System_String;
+@class System_Text_Encoding;
 @class System_UInt16;
 @class System_UInt32;
 @class System_UInt64;
@@ -119,14 +121,14 @@
 		Managed return type : System.Int32
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    - (int32_t)read_withBufferChar:(System_Array *)p1 indexInt:(int32_t)p2 countInt:(int32_t)p3;
+    - (int32_t)read_withBufferCharArray:(System_Array *)p1 indexInt:(int32_t)p2 countInt:(int32_t)p3;
 
 	/*! 
 		Managed method name : Read
 		Managed return type : System.Int32
 		Managed param types : System.Byte[], System.Int32, System.Int32
 	 */
-    - (int32_t)read_withBufferByte:(NSData *)p1 indexInt:(int32_t)p2 countInt:(int32_t)p3;
+    - (int32_t)read_withBufferByteArray:(NSData *)p1 indexInt:(int32_t)p2 countInt:(int32_t)p3;
 
 	/*! 
 		Managed method name : ReadBoolean

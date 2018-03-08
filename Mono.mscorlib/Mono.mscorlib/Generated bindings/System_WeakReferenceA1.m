@@ -11,6 +11,10 @@
 // Local assembly import
 #import "mscorlib.h"
 
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
+
 @implementation System_WeakReferenceA1
 
 #pragma mark -
@@ -76,7 +80,7 @@
 		Managed return type : System.Boolean
 		Managed param types : ref T&
 	 */
-    - (BOOL)tryGetTarget_withTargetRef:(System_WeakReferenceA1__T **)p1
+    - (BOOL)tryGetTarget_withTargetRef:(System_Object **)p1
     {
 		void *refPtr1 = [*p1 monoRTInvokeArg];
 

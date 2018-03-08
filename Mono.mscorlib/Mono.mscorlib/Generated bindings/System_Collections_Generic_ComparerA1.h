@@ -18,8 +18,10 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Collections_Generic_ComparerA1;
 @class System_Collections_Generic_IComparerA1;
 @class System_Collections_IComparer;
+@class System_ComparisonA1;
 @class System_Int32;
 @class System_Object;
 

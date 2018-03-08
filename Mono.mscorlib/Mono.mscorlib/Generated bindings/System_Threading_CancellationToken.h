@@ -32,7 +32,7 @@
 //
 #import "System_ValueType.h"
 
-@interface System_Threading_CancellationToken : DBManagedObject
+@interface System_Threading_CancellationToken : System_ValueType
 
 #pragma mark -
 #pragma mark Setup

@@ -25,6 +25,7 @@
 @class System_Int32;
 @class System_Object;
 @class System_String;
+@class System_TupleA5;
 
 //
 // Import superclass and adopted protocols
@@ -33,9 +34,8 @@
 #import "System_Collections_IStructuralEquatable_Protocol.h"
 #import "System_IComparable_Protocol.h"
 #import "System_Object.h"
-#import "System_Runtime_CompilerServices_ITuple_Protocol.h"
 
-@interface System_TupleA5 : System_Object <System_Collections_IStructuralEquatable_, System_Collections_IStructuralComparable_, System_IComparable_, System_Runtime_CompilerServices_ITuple_>
+@interface System_TupleA5 : System_Object <System_Collections_IStructuralEquatable_, System_Collections_IStructuralComparable_, System_IComparable_>
 
 #pragma mark -
 #pragma mark Setup

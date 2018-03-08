@@ -23,6 +23,8 @@
 @class System_Collections_IStructuralEquatable;
 @class System_Int32;
 @class System_Object;
+@protocol System_Collections_IEqualityComparer;
+@protocol System_Collections_IEqualityComparer_;
 @protocol System_Collections_IStructuralEquatable;
 @protocol System_Collections_IStructuralEquatable_;
 

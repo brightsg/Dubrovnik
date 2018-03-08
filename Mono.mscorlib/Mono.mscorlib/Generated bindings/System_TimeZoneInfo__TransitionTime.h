@@ -31,11 +31,10 @@
 // Import superclass and adopted protocols
 //
 #import "System_IEquatableA1_Protocol.h"
-#import "System_Runtime_Serialization_IDeserializationCallback_Protocol.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_TimeZoneInfo__TransitionTime : DBManagedObject <System_IEquatableA1_, System_Runtime_Serialization_ISerializable_, System_Runtime_Serialization_IDeserializationCallback_>
+@interface System_TimeZoneInfo__TransitionTime : System_ValueType <System_IEquatableA1_, System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup

@@ -19,6 +19,7 @@
 // Forward class and protocol declarations
 //
 @class System_Boolean;
+@class System_Collections_Generic_EqualityComparerA1;
 @class System_Collections_Generic_IEqualityComparerA1;
 @class System_Collections_IEqualityComparer;
 @class System_Int32;

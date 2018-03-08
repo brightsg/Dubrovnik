@@ -19,6 +19,8 @@
 // Forward class and protocol declarations
 //
 @class System_Boolean;
+@class System_FuncA1;
+@class System_LazyA1;
 @class System_Object;
 @class System_String;
 

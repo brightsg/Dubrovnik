@@ -28,6 +28,10 @@
 @class System_Int32;
 @class System_Object;
 @class System_Void;
+@protocol System_Collections_ICollection;
+@protocol System_Collections_ICollection_;
+@protocol System_Collections_IEnumerator;
+@protocol System_Collections_IEnumerator_;
 
 //
 // Import superclass and adopted protocols

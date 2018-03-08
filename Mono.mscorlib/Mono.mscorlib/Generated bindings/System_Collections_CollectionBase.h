@@ -25,6 +25,8 @@
 @class System_Collections_IList;
 @class System_Int32;
 @class System_Void;
+@protocol System_Collections_IEnumerator;
+@protocol System_Collections_IEnumerator_;
 
 //
 // Import superclass and adopted protocols

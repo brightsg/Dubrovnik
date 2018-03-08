@@ -11,6 +11,10 @@
 // Local assembly import
 #import "mscorlib.h"
 
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
+
 @implementation System_IntPtr
 
 #pragma mark -
@@ -34,10 +38,10 @@
 		Managed return type : System.IntPtr
 		Managed param types : System.Int32
 	 */
-    + (void *)new_withValueInt:(int32_t)p1
+    + (System_IntPtr *)new_withValueInt:(int32_t)p1
     {
 		
-		void * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+		System_IntPtr * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
       
       return object;
     }
@@ -47,10 +51,10 @@
 		Managed return type : System.IntPtr
 		Managed param types : System.Int64
 	 */
-    + (void *)new_withValueLong:(int64_t)p1
+    + (System_IntPtr *)new_withValueLong:(int64_t)p1
     {
 		
-		void * object = [[self alloc] initWithSignature:"long" withNumArgs:1, DB_VALUE(p1)];
+		System_IntPtr * object = [[self alloc] initWithSignature:"long" withNumArgs:1, DB_VALUE(p1)];
       
       return object;
     }
@@ -60,10 +64,10 @@
 		Managed return type : System.IntPtr
 		Managed param types : System.Void*
 	 */
-    + (void *)new_withValueVoid:(void*)p1
+    + (System_IntPtr *)new_withValueVoidPtr:(void*)p1
     {
 		
-		void * object = [[self alloc] initWithSignature:"void*" withNumArgs:1, p1];
+		System_IntPtr * object = [[self alloc] initWithSignature:"void*" withNumArgs:1, p1];
       
       return object;
     }
@@ -205,7 +209,7 @@
 		Managed return type : System.IntPtr
 		Managed param types : System.Void*
 	 */
-    + (void *)op_Explicit_withValueVoid:(void*)p1
+    + (void *)op_Explicit_withValueVoidPtr:(void*)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(void*)" withNumArgs:1, p1];

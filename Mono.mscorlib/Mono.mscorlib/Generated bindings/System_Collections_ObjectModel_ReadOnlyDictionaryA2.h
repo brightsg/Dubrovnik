@@ -22,13 +22,22 @@
 @class System_Collections_Generic_ICollectionA1;
 @class System_Collections_Generic_IDictionaryA2;
 @class System_Collections_Generic_IEnumerableA1;
+@class System_Collections_Generic_IEnumeratorA1;
 @class System_Collections_Generic_IReadOnlyCollectionA1;
 @class System_Collections_Generic_IReadOnlyDictionaryA2;
+@class System_Collections_Generic_KeyValuePairA2;
 @class System_Collections_ICollection;
 @class System_Collections_IDictionary;
 @class System_Collections_IEnumerable;
+@class System_Collections_ObjectModel_ReadOnlyDictionaryA2;
+@class System_Collections_ObjectModel_ReadOnlyDictionaryA2__KeyCollection;
+@class System_Collections_ObjectModel_ReadOnlyDictionaryA2__ValueCollection;
 @class System_Int32;
 @class System_Object;
+@protocol System_Collections_Generic_IDictionaryA2;
+@protocol System_Collections_Generic_IDictionaryA2_;
+@protocol System_Collections_Generic_IEnumeratorA1;
+@protocol System_Collections_Generic_IEnumeratorA1_;
 
 //
 // Import superclass and adopted protocols
@@ -103,6 +112,6 @@
 		Managed return type : System.Boolean
 		Managed param types : <System.Collections.ObjectModel.ReadOnlyDictionary`2+TKey>, ref TValue&
 	 */
-    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Collections_ObjectModel_ReadOnlyDictionaryA2__TValue **)p2;
+    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
 @end
 //--Dubrovnik.CodeGenerator

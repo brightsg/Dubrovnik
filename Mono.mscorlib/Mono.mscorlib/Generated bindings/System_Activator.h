@@ -19,6 +19,7 @@
 // Forward class and protocol declarations
 //
 @class System_Activator;
+@class System_Array;
 @class System_Boolean;
 @class System_Globalization_CultureInfo;
 @class System_Object;
@@ -30,9 +31,8 @@
 // Import superclass and adopted protocols
 //
 #import "System_Object.h"
-#import "System_Runtime_InteropServices__Activator_Protocol.h"
 
-@interface System_Activator : System_Object <System_Runtime_InteropServices__Activator_>
+@interface System_Activator : System_Object
 
 #pragma mark -
 #pragma mark Setup

@@ -31,7 +31,7 @@
 //
 #import "System_ValueType.h"
 
-@interface System_TypedReference : DBManagedObject
+@interface System_TypedReference : System_ValueType
 
 #pragma mark -
 #pragma mark Setup

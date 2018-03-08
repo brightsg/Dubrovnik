@@ -22,6 +22,7 @@
 @class System_Boolean;
 @class System_Int32;
 @class System_Object;
+@class System_RuntimeArgumentHandle;
 @class System_RuntimeTypeHandle;
 @class System_TypedReference;
 @class System_Void;
@@ -31,7 +32,7 @@
 //
 #import "System_ValueType.h"
 
-@interface System_ArgIterator : DBManagedObject
+@interface System_ArgIterator : System_ValueType
 
 #pragma mark -
 #pragma mark Setup

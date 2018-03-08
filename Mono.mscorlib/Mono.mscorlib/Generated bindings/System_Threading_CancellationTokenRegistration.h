@@ -20,7 +20,6 @@
 //
 @class System_Boolean;
 @class System_IDisposable;
-@class System_IEquatableA1;
 @class System_Int32;
 @class System_Object;
 @class System_Threading_CancellationTokenRegistration;
@@ -30,10 +29,9 @@
 // Import superclass and adopted protocols
 //
 #import "System_IDisposable_Protocol.h"
-#import "System_IEquatableA1_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_Threading_CancellationTokenRegistration : DBManagedObject <System_IEquatableA1_, System_IDisposable_>
+@interface System_Threading_CancellationTokenRegistration : System_ValueType <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

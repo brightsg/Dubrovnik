@@ -20,9 +20,9 @@
 //
 
 #import "NSArray+mscorlib.h"
-#import "System_Collections_ArrayList.h"
-#import "System_Collections_Generic_ListA1.h"
-#import "System_Array.h"
+#import "System_Collections_Generic_ListA1+mscorlib.h"
+#import "System_Collections_ArrayList+mscorlib.h"
+#import "System_Array+mscorlib.h"
 
 @implementation NSArray (mscorlib)
 
@@ -46,18 +46,11 @@
 	NSEnumerator *enumerator = [self objectEnumerator];
 	id object = nil;
 	
-	while(object = [enumerator nextObject]) {
-		MonoObject *monoObject;
-		
-		if([object isKindOfClass:[NSString class]])
-			monoObject = (MonoObject *)[(NSString *)object monoString];
-		else
-			monoObject = [object monoObject];
-		
-		[monoArrayList addMonoObject:monoObject];
+	while (object = [enumerator nextObject]) {
+		[monoArrayList add_withValue:object];
 	}
 	
-	return(monoArrayList);
+	return monoArrayList;
 }
 
 - (System_Array *)managedArrayWithTypeName:(NSString *)name
@@ -67,7 +60,7 @@
     if (!type) return nil;
     
     // create a suitable MonoArray instance
-    MonoArray *monoArray = [System_Array monoArrayWithType:type length:[self count]];
+    MonoArray *monoArray = [System_Array monoArrayWithType:type length:self.count];
 
     // create System.Array
     System_Array *dbsArray = [System_Array arrayWithMonoArray:monoArray];

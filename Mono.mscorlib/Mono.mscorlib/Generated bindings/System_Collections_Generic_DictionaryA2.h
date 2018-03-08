@@ -19,9 +19,14 @@
 // Forward class and protocol declarations
 //
 @class System_Boolean;
+@class System_Collections_Generic_DictionaryA2;
+@class System_Collections_Generic_DictionaryA2__Enumerator;
+@class System_Collections_Generic_DictionaryA2__KeyCollection;
+@class System_Collections_Generic_DictionaryA2__ValueCollection;
 @class System_Collections_Generic_ICollectionA1;
 @class System_Collections_Generic_IDictionaryA2;
 @class System_Collections_Generic_IEnumerableA1;
+@class System_Collections_Generic_IEqualityComparerA1;
 @class System_Collections_Generic_IReadOnlyCollectionA1;
 @class System_Collections_Generic_IReadOnlyDictionaryA2;
 @class System_Collections_ICollection;
@@ -31,6 +36,10 @@
 @class System_Object;
 @class System_Runtime_Serialization_ISerializable;
 @class System_Void;
+@protocol System_Collections_Generic_IDictionaryA2;
+@protocol System_Collections_Generic_IDictionaryA2_;
+@protocol System_Collections_Generic_IEqualityComparerA1;
+@protocol System_Collections_Generic_IEqualityComparerA1_;
 
 //
 // Import superclass and adopted protocols
@@ -44,10 +53,9 @@
 #import "System_Collections_IDictionary_Protocol.h"
 #import "System_Collections_IEnumerable_Protocol.h"
 #import "System_Object.h"
-#import "System_Runtime_Serialization_IDeserializationCallback_Protocol.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 
-@interface System_Collections_Generic_DictionaryA2 : System_Object <System_Collections_Generic_IDictionaryA2_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_IDictionary_, System_Collections_ICollection_, System_Collections_Generic_IReadOnlyDictionaryA2_, System_Collections_Generic_IReadOnlyCollectionA1_, System_Runtime_Serialization_ISerializable_, System_Runtime_Serialization_IDeserializationCallback_>
+@interface System_Collections_Generic_DictionaryA2 : System_Object <System_Collections_Generic_IDictionaryA2_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_IDictionary_, System_Collections_ICollection_, System_Collections_Generic_IReadOnlyDictionaryA2_, System_Collections_Generic_IReadOnlyCollectionA1_, System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -175,6 +183,6 @@
 		Managed return type : System.Boolean
 		Managed param types : <System.Collections.Generic.Dictionary`2+TKey>, ref TValue&
 	 */
-    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Collections_Generic_DictionaryA2__TValue **)p2;
+    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
 @end
 //--Dubrovnik.CodeGenerator

@@ -20,6 +20,7 @@
 //
 @class System_Boolean;
 @class System_Int32;
+@class System_NullableA1;
 @class System_Object;
 @class System_String;
 
@@ -28,7 +29,7 @@
 //
 #import "System_ValueType.h"
 
-@interface System_NullableA1 : DBManagedObject
+@interface System_NullableA1 : System_ValueType
 
 #pragma mark -
 #pragma mark Setup

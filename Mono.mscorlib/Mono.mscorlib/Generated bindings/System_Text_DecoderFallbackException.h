@@ -18,10 +18,13 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Byte;
+@class System_Exception;
 @class System_Int32;
 @class System_Runtime_InteropServices__Exception;
 @class System_Runtime_Serialization_ISerializable;
+@class System_String;
 @class System_Text_DecoderFallbackException;
 
 //

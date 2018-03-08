@@ -32,10 +32,9 @@
 //
 #import "System_IEquatableA1_Protocol.h"
 #import "System_Object.h"
-#import "System_Runtime_Serialization_IDeserializationCallback_Protocol.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 
-@interface System_TimeZoneInfo__AdjustmentRule : System_Object <System_IEquatableA1_, System_Runtime_Serialization_ISerializable_, System_Runtime_Serialization_IDeserializationCallback_>
+@interface System_TimeZoneInfo__AdjustmentRule : System_Object <System_IEquatableA1_, System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup

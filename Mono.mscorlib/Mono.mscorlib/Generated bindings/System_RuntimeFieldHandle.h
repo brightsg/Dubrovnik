@@ -32,7 +32,7 @@
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_RuntimeFieldHandle : DBManagedObject <System_Runtime_Serialization_ISerializable_>
+@interface System_RuntimeFieldHandle : System_ValueType <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup

@@ -18,6 +18,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Boolean;
 @class System_DateTime;
 @class System_DateTimeOffset;
@@ -34,6 +35,8 @@
 @class System_Runtime_Serialization_ISerializable;
 @class System_String;
 @class System_TimeSpan;
+@protocol System_IFormatProvider;
+@protocol System_IFormatProvider_;
 
 //
 // Import superclass and adopted protocols
@@ -42,11 +45,10 @@
 #import "System_IComparableA1_Protocol.h"
 #import "System_IEquatableA1_Protocol.h"
 #import "System_IFormattable_Protocol.h"
-#import "System_Runtime_Serialization_IDeserializationCallback_Protocol.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_DateTimeOffset : DBManagedObject <System_IComparable_, System_IFormattable_, System_Runtime_Serialization_ISerializable_, System_Runtime_Serialization_IDeserializationCallback_, System_IComparableA1_, System_IEquatableA1_>
+@interface System_DateTimeOffset : System_ValueType <System_IComparable_, System_IFormattable_, System_Runtime_Serialization_ISerializable_, System_IComparableA1_, System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup

@@ -11,6 +11,10 @@
 // Local assembly import
 #import "mscorlib.h"
 
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
+
 @implementation System_Buffer
 
 #pragma mark -
@@ -72,7 +76,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Void*, System.Void*, System.Int64, System.Int64
 	 */
-    + (void)memoryCopy_withSourceVoid:(void*)p1 destinationVoid:(void*)p2 destinationSizeInBytesLong:(int64_t)p3 sourceBytesToCopyLong:(int64_t)p4
+    + (void)memoryCopy_withSourceVoidPtr:(void*)p1 destinationVoidPtr:(void*)p2 destinationSizeInBytesLong:(int64_t)p3 sourceBytesToCopyLong:(int64_t)p4
     {
 		
 		[self invokeMonoClassMethod:"MemoryCopy(void*,void*,long,long)" withNumArgs:4, p1, p2, DB_VALUE(p3), DB_VALUE(p4)];
@@ -84,7 +88,7 @@
 		Managed return type : System.Void
 		Managed param types : System.Void*, System.Void*, System.UInt64, System.UInt64
 	 */
-    + (void)memoryCopy_withSourceVoid:(void*)p1 destinationVoid:(void*)p2 destinationSizeInBytesUlong:(uint64_t)p3 sourceBytesToCopyUlong:(uint64_t)p4
+    + (void)memoryCopy_withSourceVoidPtr:(void*)p1 destinationVoidPtr:(void*)p2 destinationSizeInBytesUlong:(uint64_t)p3 sourceBytesToCopyUlong:(uint64_t)p4
     {
 		
 		[self invokeMonoClassMethod:"MemoryCopy(void*,void*,ulong,ulong)" withNumArgs:4, p1, p2, DB_VALUE(p3), DB_VALUE(p4)];

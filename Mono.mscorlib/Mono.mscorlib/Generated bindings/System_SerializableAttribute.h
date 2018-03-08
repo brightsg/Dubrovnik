@@ -24,9 +24,8 @@
 // Import superclass and adopted protocols
 //
 #import "System_Attribute.h"
-#import "System_Runtime_InteropServices__Attribute_Protocol.h"
 
-@interface System_SerializableAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
+@interface System_SerializableAttribute : System_Attribute
 
 #pragma mark -
 #pragma mark Setup

@@ -18,10 +18,11 @@
 //
 // Forward class and protocol declarations
 //
+@class System_IComparableA1;
 @class System_Int32;
 @class System_Object;
-@protocol System_Object;
-@protocol System_Object_;
+@protocol System_IComparableA1;
+@protocol System_IComparableA1_;
 
 //
 // Import superclass and adopted protocols

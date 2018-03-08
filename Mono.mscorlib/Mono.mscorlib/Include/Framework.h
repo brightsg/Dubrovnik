@@ -7,17 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-@class System_Collections_ArrayList;
-@class System_Collections_Generic_DictionaryA2;
-@class System_Collections_Generic_ListA1;
-@class System_Collections_IList;
-@class System_Collections_Generic_IEnumerableA1;
-@class System_Array;
-@class System_Convert;
-@class System_Enum;
-@class System_IO_FileInfo;
-@class DBGenericTypeHelper;
 
+@class System_Object;
 @class System_Type;
 
 //
@@ -25,7 +16,6 @@
 //
 @protocol System_Object_ <NSObject, DBManagedObject>
 @end
-
 
 //
 // Implementation protocol
@@ -42,9 +32,8 @@
 
 @end
 
-#import "GeneratedBindings.h"
-#import "ManualBindings.h"
-#import "HelperClasses.h"
+#import "mscorlib.h"
 #import "Categories.h"
+#import "HelperClasses.h"
 #import "ValueTransformers.h"
 

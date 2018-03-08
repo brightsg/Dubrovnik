@@ -24,10 +24,7 @@
 
 @class DBType, System_Collections_IList;
 
-@interface System_Array (mscorlib) {
-	@protected
-	uint32_t _arrayLength;
-}
+@interface System_Array (mscorlib)
 
 + (MonoArray *)monoArrayWithNoObjects;
 + (MonoArray *)monoArrayWithTypeName:(NSString *)name length:(uintptr_t)length;
@@ -38,7 +35,6 @@
 
 - (id)initWithMonoArray:(MonoArray *)monoArray;
 
-- (uint32_t)count;
 - (MonoArray *)monoArray;
 
 //Access
@@ -48,6 +44,8 @@
 //Wrapped Access
 - (id)objectAtIndex:(NSUInteger)index;
 - (void)setObjectAtIndex:(uint32_t)index object:(DBManagedObject *)object;
+
+- (uint32_t)count;
 
 //
 // Numeric convenience accessors

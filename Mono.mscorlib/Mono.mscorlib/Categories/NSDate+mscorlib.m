@@ -10,6 +10,7 @@
 #import "System_Object.h"
 #import "System_NullableA1.h"
 #import "System_DateTime.h"
+#import "System_NullableA1+mscorlib.h"
 
 @implementation NSDate (mscorlib)
 

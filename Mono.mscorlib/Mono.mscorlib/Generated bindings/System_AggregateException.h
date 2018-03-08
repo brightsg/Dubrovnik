@@ -19,6 +19,8 @@
 // Forward class and protocol declarations
 //
 @class System_AggregateException;
+@class System_Array;
+@class System_Collections_Generic_IEnumerableA1;
 @class System_Collections_ObjectModel_ReadOnlyCollectionA1;
 @class System_Exception;
 @class System_FuncA2;
@@ -26,6 +28,8 @@
 @class System_Runtime_Serialization_ISerializable;
 @class System_String;
 @class System_Void;
+@protocol System_Collections_Generic_IEnumerableA1;
+@protocol System_Collections_Generic_IEnumerableA1_;
 
 //
 // Import superclass and adopted protocols
@@ -72,7 +76,7 @@
 		Managed return type : System.AggregateException
 		Managed param types : System.Exception[]
 	 */
-    + (System_AggregateException *)new_withInnerExceptionsSException:(System_Array *)p1;
+    + (System_AggregateException *)new_withInnerExceptionsSExceptionArray:(System_Array *)p1;
 
 	/*! 
 		Managed method name : .ctor
@@ -86,7 +90,7 @@
 		Managed return type : System.AggregateException
 		Managed param types : System.String, System.Exception[]
 	 */
-    + (System_AggregateException *)new_withMessageString:(NSString *)p1 innerExceptionsSException:(System_Array *)p2;
+    + (System_AggregateException *)new_withMessageString:(NSString *)p1 innerExceptionsSExceptionArray:(System_Array *)p2;
 
 #pragma mark -
 #pragma mark Properties

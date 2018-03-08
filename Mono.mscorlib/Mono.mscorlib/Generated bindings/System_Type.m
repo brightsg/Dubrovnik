@@ -11,6 +11,10 @@
 // Local assembly import
 #import "mscorlib.h"
 
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
+
 @implementation System_Type
 
 #pragma mark -
@@ -1761,45 +1765,9 @@
 		
 		return [System_Type bestObjectWithMonoObject:monoObject];
     }
-
-	/*! 
-		Managed method name : GetType
-		Managed return type : System.Type
-		Managed param types : System.String, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type>
-	 */
-    + (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_FuncA2 *)p2 typeResolver:(System_FuncA4 *)p3
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetType(string,System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>,System.Func`4<System.Reflection.Assembly, string, bool, System.Type>)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
-		
-		return [System_Type bestObjectWithMonoObject:monoObject];
-    }
-
-	/*! 
-		Managed method name : GetType
-		Managed return type : System.Type
-		Managed param types : System.String, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type>, System.Boolean
-	 */
-    + (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_FuncA2 *)p2 typeResolver:(System_FuncA4 *)p3 throwOnError:(BOOL)p4
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetType(string,System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>,System.Func`4<System.Reflection.Assembly, string, bool, System.Type>,bool)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
-		
-		return [System_Type bestObjectWithMonoObject:monoObject];
-    }
-
-	/*! 
-		Managed method name : GetType
-		Managed return type : System.Type
-		Managed param types : System.String, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type>, System.Boolean, System.Boolean
-	 */
-    + (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_FuncA2 *)p2 typeResolver:(System_FuncA4 *)p3 throwOnError:(BOOL)p4 ignoreCase:(BOOL)p5
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetType(string,System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>,System.Func`4<System.Reflection.Assembly, string, bool, System.Type>,bool,bool)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
-		
-		return [System_Type bestObjectWithMonoObject:monoObject];
-    }
+/* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type> typeResolver) */
+/* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type> typeResolver, System.Boolean throwOnError) */
+/* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type> typeResolver, System.Boolean throwOnError, System.Boolean ignoreCase) */
 
 	/*! 
 		Managed method name : GetType

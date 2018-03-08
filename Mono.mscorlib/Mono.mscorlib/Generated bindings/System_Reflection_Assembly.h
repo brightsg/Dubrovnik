@@ -18,6 +18,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Boolean;
 @class System_Byte;
 @class System_Collections_Generic_IEnumerableA1;
@@ -36,17 +37,16 @@
 @class System_Type;
 @class System_Version;
 @class System_Void;
+@protocol System_Collections_Generic_IEnumerableA1;
+@protocol System_Collections_Generic_IEnumerableA1_;
 
 //
 // Import superclass and adopted protocols
 //
 #import "System_Object.h"
-#import "System_Reflection_ICustomAttributeProvider_Protocol.h"
-#import "System_Runtime_InteropServices__Assembly_Protocol.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
-#import "System_Security_IEvidenceFactory_Protocol.h"
 
-@interface System_Reflection_Assembly : System_Object <System_Runtime_InteropServices__Assembly_, System_Security_IEvidenceFactory_, System_Reflection_ICustomAttributeProvider_, System_Runtime_Serialization_ISerializable_>
+@interface System_Reflection_Assembly : System_Object <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup

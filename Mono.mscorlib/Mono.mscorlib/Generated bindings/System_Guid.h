@@ -18,6 +18,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Boolean;
 @class System_Byte;
 @class System_Guid;
@@ -26,9 +27,14 @@
 @class System_IEquatableA1;
 @class System_IFormatProvider;
 @class System_IFormattable;
+@class System_Int16;
 @class System_Int32;
 @class System_Object;
 @class System_String;
+@class System_UInt16;
+@class System_UInt32;
+@protocol System_IFormatProvider;
+@protocol System_IFormatProvider_;
 
 //
 // Import superclass and adopted protocols
@@ -39,7 +45,7 @@
 #import "System_IFormattable_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_Guid : DBManagedObject <System_IFormattable_, System_IComparable_, System_IComparableA1_, System_IEquatableA1_>
+@interface System_Guid : System_ValueType <System_IFormattable_, System_IComparable_, System_IComparableA1_, System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup

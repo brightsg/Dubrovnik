@@ -18,10 +18,11 @@
 //
 // Forward class and protocol declarations
 //
+@class System_IProgressA1;
 @class System_Object;
 @class System_Void;
-@protocol System_Object;
-@protocol System_Object_;
+@protocol System_IProgressA1;
+@protocol System_IProgressA1_;
 
 //
 // Import superclass and adopted protocols

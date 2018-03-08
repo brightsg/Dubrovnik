@@ -18,6 +18,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Boolean;
 @class System_Byte;
 @class System_Char;
@@ -79,14 +80,14 @@
 		Managed return type : System.Int32
 		Managed param types : System.String, System.Int32, System.Int32, System.Byte[], System.Int32
 	 */
-    - (int32_t)getBytes_withCharsString:(NSString *)p1 charIndexInt:(int32_t)p2 charCountInt:(int32_t)p3 bytesByte:(NSData *)p4 byteIndexInt:(int32_t)p5;
+    - (int32_t)getBytes_withCharsString:(NSString *)p1 charIndexInt:(int32_t)p2 charCountInt:(int32_t)p3 bytesByteArray:(NSData *)p4 byteIndexInt:(int32_t)p5;
 
 	/*! 
 		Managed method name : GetBytes
 		Managed return type : System.Int32
 		Managed param types : System.Char[], System.Int32, System.Int32, System.Byte[], System.Int32
 	 */
-    - (int32_t)getBytes_withCharsChar:(System_Array *)p1 charIndexInt:(int32_t)p2 charCountInt:(int32_t)p3 bytesByte:(NSData *)p4 byteIndexInt:(int32_t)p5;
+    - (int32_t)getBytes_withCharsCharArray:(System_Array *)p1 charIndexInt:(int32_t)p2 charCountInt:(int32_t)p3 bytesByteArray:(NSData *)p4 byteIndexInt:(int32_t)p5;
 
 	/*! 
 		Managed method name : GetBytes

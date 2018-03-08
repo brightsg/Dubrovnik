@@ -18,11 +18,13 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Boolean;
 @class System_Byte;
 @class System_IDisposable;
 @class System_Int32;
 @class System_Int64;
+@class System_IO_FileAccess;
 @class System_IO_SeekOrigin;
 @class System_IO_UnmanagedMemoryStream;
 @class System_Threading_CancellationToken;

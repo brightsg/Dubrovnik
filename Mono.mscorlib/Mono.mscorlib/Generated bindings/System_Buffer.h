@@ -69,14 +69,14 @@
 		Managed return type : System.Void
 		Managed param types : System.Void*, System.Void*, System.Int64, System.Int64
 	 */
-    + (void)memoryCopy_withSourceVoid:(void*)p1 destinationVoid:(void*)p2 destinationSizeInBytesLong:(int64_t)p3 sourceBytesToCopyLong:(int64_t)p4;
+    + (void)memoryCopy_withSourceVoidPtr:(void*)p1 destinationVoidPtr:(void*)p2 destinationSizeInBytesLong:(int64_t)p3 sourceBytesToCopyLong:(int64_t)p4;
 
 	/*! 
 		Managed method name : MemoryCopy
 		Managed return type : System.Void
 		Managed param types : System.Void*, System.Void*, System.UInt64, System.UInt64
 	 */
-    + (void)memoryCopy_withSourceVoid:(void*)p1 destinationVoid:(void*)p2 destinationSizeInBytesUlong:(uint64_t)p3 sourceBytesToCopyUlong:(uint64_t)p4;
+    + (void)memoryCopy_withSourceVoidPtr:(void*)p1 destinationVoidPtr:(void*)p2 destinationSizeInBytesUlong:(uint64_t)p3 sourceBytesToCopyUlong:(uint64_t)p4;
 
 	/*! 
 		Managed method name : SetByte

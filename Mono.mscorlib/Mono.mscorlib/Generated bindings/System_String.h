@@ -18,6 +18,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Boolean;
 @class System_Char;
 @class System_CharEnumerator;
@@ -32,12 +33,18 @@
 @class System_IFormatProvider;
 @class System_Int32;
 @class System_Object;
+@class System_SByte;
 @class System_String;
 @class System_StringComparison;
 @class System_StringSplitOptions;
+@class System_Text_Encoding;
 @class System_Text_NormalizationForm;
 @class System_TypeCode;
 @class System_Void;
+@protocol System_Collections_Generic_IEnumerableA1;
+@protocol System_Collections_Generic_IEnumerableA1_;
+@protocol System_IFormatProvider;
+@protocol System_IFormatProvider_;
 
 //
 // Import superclass and adopted protocols
@@ -68,56 +75,56 @@
 		Managed return type : System.String
 		Managed param types : System.Char*
 	 */
-    + (NSString *)new_withValueChar:(uint16_t*)p1;
+    + (System_String *)new_withValueCharPtr:(uint16_t*)p1;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.String
 		Managed param types : System.Char*, System.Int32, System.Int32
 	 */
-    + (NSString *)new_withValueChar:(uint16_t*)p1 startIndexInt:(int32_t)p2 lengthInt:(int32_t)p3;
+    + (System_String *)new_withValueCharPtr:(uint16_t*)p1 startIndexInt:(int32_t)p2 lengthInt:(int32_t)p3;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.String
 		Managed param types : System.SByte*
 	 */
-    + (NSString *)new_withValueSbyte:(int8_t*)p1;
+    + (System_String *)new_withValueSbytePtr:(int8_t*)p1;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.String
 		Managed param types : System.SByte*, System.Int32, System.Int32
 	 */
-    + (NSString *)new_withValueSbyte:(int8_t*)p1 startIndexInt:(int32_t)p2 lengthInt:(int32_t)p3;
+    + (System_String *)new_withValueSbytePtr:(int8_t*)p1 startIndexInt:(int32_t)p2 lengthInt:(int32_t)p3;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.String
 		Managed param types : System.SByte*, System.Int32, System.Int32, System.Text.Encoding
 	 */
-    + (NSString *)new_withValue:(int8_t*)p1 startIndex:(int32_t)p2 length:(int32_t)p3 enc:(System_Text_Encoding *)p4;
+    + (System_String *)new_withValue:(int8_t*)p1 startIndex:(int32_t)p2 length:(int32_t)p3 enc:(System_Text_Encoding *)p4;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.String
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
-    + (NSString *)new_withValueChar:(System_Array *)p1 startIndexInt:(int32_t)p2 lengthInt:(int32_t)p3;
+    + (System_String *)new_withValueCharArray:(System_Array *)p1 startIndexInt:(int32_t)p2 lengthInt:(int32_t)p3;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.String
 		Managed param types : System.Char[]
 	 */
-    + (NSString *)new_withValueChar:(System_Array *)p1;
+    + (System_String *)new_withValueCharArray:(System_Array *)p1;
 
 	/*! 
 		Managed method name : .ctor
 		Managed return type : System.String
 		Managed param types : System.Char, System.Int32
 	 */
-    + (NSString *)new_withC:(uint16_t)p1 count:(int32_t)p2;
+    + (System_String *)new_withC:(uint16_t)p1 count:(int32_t)p2;
 
 #pragma mark -
 #pragma mark Fields
@@ -309,7 +316,7 @@
 		Managed return type : System.String
 		Managed param types : System.String[]
 	 */
-    + (NSString *)concat_withValuesString:(System_Array *)p1;
+    + (NSString *)concat_withValuesStringArray:(System_Array *)p1;
 
 	/*! 
 		Managed method name : Contains
@@ -610,7 +617,7 @@
 		Managed return type : System.String
 		Managed param types : System.String, System.Object[]
 	 */
-    + (NSString *)join_withSeparatorString:(NSString *)p1 valuesObject:(System_Array *)p2;
+    + (NSString *)join_withSeparatorString:(NSString *)p1 valuesObjectArray:(System_Array *)p2;
 
 	/*! 
 		Managed method name : Join
@@ -821,28 +828,28 @@
 		Managed return type : System.String[]
 		Managed param types : System.Char[], System.StringSplitOptions
 	 */
-    - (System_Array *)split_withSeparatorChar:(System_Array *)p1 optionsStringSplitOptions:(int32_t)p2;
+    - (System_Array *)split_withSeparatorCharArray:(System_Array *)p1 optionsStringSplitOptions:(int32_t)p2;
 
 	/*! 
 		Managed method name : Split
 		Managed return type : System.String[]
 		Managed param types : System.Char[], System.Int32, System.StringSplitOptions
 	 */
-    - (System_Array *)split_withSeparatorChar:(System_Array *)p1 countInt:(int32_t)p2 optionsStringSplitOptions:(int32_t)p3;
+    - (System_Array *)split_withSeparatorCharArray:(System_Array *)p1 countInt:(int32_t)p2 optionsStringSplitOptions:(int32_t)p3;
 
 	/*! 
 		Managed method name : Split
 		Managed return type : System.String[]
 		Managed param types : System.String[], System.StringSplitOptions
 	 */
-    - (System_Array *)split_withSeparatorString:(System_Array *)p1 optionsStringSplitOptions:(int32_t)p2;
+    - (System_Array *)split_withSeparatorStringArray:(System_Array *)p1 optionsStringSplitOptions:(int32_t)p2;
 
 	/*! 
 		Managed method name : Split
 		Managed return type : System.String[]
 		Managed param types : System.String[], System.Int32, System.StringSplitOptions
 	 */
-    - (System_Array *)split_withSeparatorString:(System_Array *)p1 countInt:(int32_t)p2 optionsStringSplitOptions:(int32_t)p3;
+    - (System_Array *)split_withSeparatorStringArray:(System_Array *)p1 countInt:(int32_t)p2 optionsStringSplitOptions:(int32_t)p3;
 
 	/*! 
 		Managed method name : StartsWith

@@ -28,6 +28,14 @@
 @class System_Object;
 @class System_String;
 @class System_ValueTuple;
+@class System_ValueTupleA1;
+@class System_ValueTupleA2;
+@class System_ValueTupleA3;
+@class System_ValueTupleA4;
+@class System_ValueTupleA5;
+@class System_ValueTupleA6;
+@class System_ValueTupleA7;
+@class System_ValueTupleA8;
 
 //
 // Import superclass and adopted protocols
@@ -37,10 +45,9 @@
 #import "System_IComparable_Protocol.h"
 #import "System_IComparableA1_Protocol.h"
 #import "System_IEquatableA1_Protocol.h"
-#import "System_Runtime_CompilerServices_ITuple_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_ValueTuple : DBManagedObject <System_IEquatableA1_, System_Collections_IStructuralEquatable_, System_Collections_IStructuralComparable_, System_IComparable_, System_IComparableA1_, System_Runtime_CompilerServices_ITuple_>
+@interface System_ValueTuple : System_ValueType <System_IEquatableA1_, System_Collections_IStructuralEquatable_, System_Collections_IStructuralComparable_, System_IComparable_, System_IComparableA1_>
 
 #pragma mark -
 #pragma mark Setup

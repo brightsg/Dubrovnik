@@ -18,6 +18,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Boolean;
 @class System_Int32;
 @class System_ModuleHandle;
@@ -31,7 +32,7 @@
 //
 #import "System_ValueType.h"
 
-@interface System_ModuleHandle : DBManagedObject
+@interface System_ModuleHandle : System_ValueType
 
 #pragma mark -
 #pragma mark Setup

@@ -19,6 +19,7 @@
 // Forward class and protocol declarations
 //
 @class System__AppDomain;
+@class System_Array;
 @class System_Boolean;
 @class System_Byte;
 @class System_CrossAppDomainDelegate;

@@ -31,7 +31,7 @@
 //
 #import "System_ValueType.h"
 
-@interface System_ConsoleKeyInfo : DBManagedObject
+@interface System_ConsoleKeyInfo : System_ValueType
 
 #pragma mark -
 #pragma mark Setup

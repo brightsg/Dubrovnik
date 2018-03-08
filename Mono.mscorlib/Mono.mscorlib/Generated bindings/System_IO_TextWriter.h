@@ -18,6 +18,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Boolean;
 @class System_Char;
 @class System_Decimal;
@@ -35,6 +36,8 @@
 @class System_UInt32;
 @class System_UInt64;
 @class System_Void;
+@protocol System_IFormatProvider;
+@protocol System_IFormatProvider_;
 
 //
 // Import superclass and adopted protocols

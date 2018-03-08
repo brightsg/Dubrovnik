@@ -18,6 +18,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_AsyncCallback;
 @class System_Boolean;
 @class System_Byte;
@@ -26,6 +27,10 @@
 @class System_Int32;
 @class System_Int64;
 @class System_IntPtr;
+@class System_IO_FileAccess;
+@class System_IO_FileMode;
+@class System_IO_FileOptions;
+@class System_IO_FileShare;
 @class System_IO_FileStream;
 @class System_IO_SeekOrigin;
 @class System_Object;
@@ -34,6 +39,8 @@
 @class System_Threading_Tasks_Task;
 @class System_Threading_Tasks_TaskA1;
 @class System_Void;
+@protocol System_IAsyncResult;
+@protocol System_IAsyncResult_;
 
 //
 // Import superclass and adopted protocols

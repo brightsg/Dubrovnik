@@ -26,7 +26,7 @@
 //
 #import "System_ValueType.h"
 
-@interface System_Collections_DictionaryEntry : DBManagedObject
+@interface System_Collections_DictionaryEntry : System_ValueType
 
 #pragma mark -
 #pragma mark Setup

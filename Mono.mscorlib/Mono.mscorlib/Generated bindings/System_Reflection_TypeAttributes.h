@@ -95,7 +95,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
 
 	// Managed field name : Class
 	// Managed field type : System.Reflection.TypeAttributes
-    + (int32_t)class;
+    + (int32_t)class_;
 
 	// Managed field name : ClassSemanticsMask
 	// Managed field type : System.Reflection.TypeAttributes

@@ -37,6 +37,8 @@
 @class System_UInt16;
 @class System_UInt32;
 @class System_UInt64;
+@protocol System_IFormatProvider;
+@protocol System_IFormatProvider_;
 
 //
 // Import superclass and adopted protocols
@@ -46,7 +48,7 @@
 #import "System_IFormattable_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_Enum : DBManagedObject <System_IComparable_, System_IFormattable_, System_IConvertible_>
+@interface System_Enum : System_ValueType <System_IComparable_, System_IFormattable_, System_IConvertible_>
 
 #pragma mark -
 #pragma mark Setup
@@ -246,7 +248,7 @@
 		Managed param types : System.String, ref TEnum&
 		Generic method definition type params : <System.Enum+TEnum>
 	 */
-    + (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(System_Enum__TEnum **)p2 typeParameter:(id)typeParameter;
+    + (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(System_Object **)p2 typeParameter:(id)typeParameter;
 
 	/*! 
 		Managed method name : TryParse
@@ -254,6 +256,6 @@
 		Managed param types : System.String, System.Boolean, ref TEnum&
 		Generic method definition type params : <System.Enum+TEnum>
 	 */
-    + (BOOL)tryParse_withValue:(NSString *)p1 ignoreCase:(BOOL)p2 resultRef:(System_Enum__TEnum **)p3 typeParameter:(id)typeParameter;
+    + (BOOL)tryParse_withValue:(NSString *)p1 ignoreCase:(BOOL)p2 resultRef:(System_Object **)p3 typeParameter:(id)typeParameter;
 @end
 //--Dubrovnik.CodeGenerator

@@ -18,6 +18,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_BitConverter;
 @class System_Boolean;
 @class System_Byte;

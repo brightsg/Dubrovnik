@@ -22,6 +22,8 @@
 @class System_Collections_IEnumerator;
 @protocol System_Collections_IEnumerable;
 @protocol System_Collections_IEnumerable_;
+@protocol System_Collections_IEnumerator;
+@protocol System_Collections_IEnumerator_;
 
 //
 // Import superclass and adopted protocols

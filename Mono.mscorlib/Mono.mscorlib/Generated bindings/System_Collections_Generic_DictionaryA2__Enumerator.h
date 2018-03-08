@@ -19,11 +19,12 @@
 // Forward class and protocol declarations
 //
 @class System_Boolean;
+@class System_Collections_Generic_DictionaryA2__Enumerator;
 @class System_Collections_Generic_IEnumeratorA1;
+@class System_Collections_Generic_KeyValuePairA2;
 @class System_Collections_IDictionaryEnumerator;
 @class System_Collections_IEnumerator;
 @class System_IDisposable;
-@class System_Object;
 @class System_Void;
 
 //
@@ -35,7 +36,7 @@
 #import "System_IDisposable_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_Collections_Generic_DictionaryA2__Enumerator : DBManagedObject <System_Collections_Generic_IEnumeratorA1_, System_IDisposable_, System_Collections_IEnumerator_, System_Collections_IDictionaryEnumerator_>
+@interface System_Collections_Generic_DictionaryA2__Enumerator : System_ValueType <System_Collections_Generic_IEnumeratorA1_, System_IDisposable_, System_Collections_IEnumerator_, System_Collections_IDictionaryEnumerator_>
 
 #pragma mark -
 #pragma mark Setup

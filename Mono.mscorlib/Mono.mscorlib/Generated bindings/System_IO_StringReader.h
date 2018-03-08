@@ -18,6 +18,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Char;
 @class System_IDisposable;
 @class System_Int32;

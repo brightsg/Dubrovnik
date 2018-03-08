@@ -18,6 +18,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Boolean;
 @class System_Collections_IDictionary;
 @class System_Environment;
@@ -31,6 +32,8 @@
 @class System_String;
 @class System_Version;
 @class System_Void;
+@protocol System_Collections_IDictionary;
+@protocol System_Collections_IDictionary_;
 
 //
 // Import superclass and adopted protocols

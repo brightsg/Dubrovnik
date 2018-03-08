@@ -11,6 +11,10 @@
 // Local assembly import
 #import "mscorlib.h"
 
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
+
 @implementation System_Collections_BitArray
 
 #pragma mark -
@@ -73,7 +77,7 @@
 		Managed return type : System.Collections.BitArray
 		Managed param types : System.Boolean[]
 	 */
-    + (System_Collections_BitArray *)new_withValuesBool:(System_Array *)p1
+    + (System_Collections_BitArray *)new_withValuesBoolArray:(System_Array *)p1
     {
 		
 		System_Collections_BitArray * object = [[self alloc] initWithSignature:"bool[]" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -86,7 +90,7 @@
 		Managed return type : System.Collections.BitArray
 		Managed param types : System.Int32[]
 	 */
-    + (System_Collections_BitArray *)new_withValuesInt:(System_Array *)p1
+    + (System_Collections_BitArray *)new_withValuesIntArray:(System_Array *)p1
     {
 		
 		System_Collections_BitArray * object = [[self alloc] initWithSignature:"int[]" withNumArgs:1, [p1 monoRTInvokeArg]];

@@ -18,6 +18,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Boolean;
 @class System_Byte;
 @class System_Char;
@@ -27,6 +28,7 @@
 @class System_Int16;
 @class System_Int32;
 @class System_Int64;
+@class System_IO_FileAccess;
 @class System_IO_UnmanagedMemoryAccessor;
 @class System_Object;
 @class System_SByte;
@@ -35,6 +37,7 @@
 @class System_UInt32;
 @class System_UInt64;
 @class System_Void;
+@class T;
 
 //
 // Import superclass and adopted protocols
@@ -87,7 +90,7 @@
 		Managed param types : System.Int64, ref T&
 		Generic method definition type params : <System.IO.UnmanagedMemoryAccessor+T>
 	 */
-    - (void)read_withPosition:(int64_t)p1 structureRef:(System_IO_UnmanagedMemoryAccessor__T **)p2 typeParameter:(id)typeParameter;
+    - (void)read_withPosition:(int64_t)p1 structureRef:(System_Object **)p2 typeParameter:(id)typeParameter;
 
 	/*! 
 		Managed method name : ReadArray
@@ -285,7 +288,7 @@
 		Managed param types : System.Int64, ref T&
 		Generic method definition type params : <System.IO.UnmanagedMemoryAccessor+T>
 	 */
-    - (void)write_withPosition:(int64_t)p1 structureRef:(System_IO_UnmanagedMemoryAccessor__T **)p2 typeParameter:(id)typeParameter;
+    - (void)write_withPosition:(int64_t)p1 structureRef:(System_Object **)p2 typeParameter:(id)typeParameter;
 
 	/*! 
 		Managed method name : WriteArray

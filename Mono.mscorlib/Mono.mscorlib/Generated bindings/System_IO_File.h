@@ -18,6 +18,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Boolean;
 @class System_Byte;
 @class System_Collections_Generic_IEnumerableA1;
@@ -35,6 +36,8 @@
 @class System_String;
 @class System_Text_Encoding;
 @class System_Void;
+@protocol System_Collections_Generic_IEnumerableA1;
+@protocol System_Collections_Generic_IEnumerableA1_;
 
 //
 // Import superclass and adopted protocols
@@ -384,14 +387,14 @@
 		Managed return type : System.Void
 		Managed param types : System.String, System.String[]
 	 */
-    + (void)writeAllLines_withPathString:(NSString *)p1 contentsString:(System_Array *)p2;
+    + (void)writeAllLines_withPathString:(NSString *)p1 contentsStringArray:(System_Array *)p2;
 
 	/*! 
 		Managed method name : WriteAllLines
 		Managed return type : System.Void
 		Managed param types : System.String, System.String[], System.Text.Encoding
 	 */
-    + (void)writeAllLines_withPathString:(NSString *)p1 contentsString:(System_Array *)p2 encodingSTEncoding:(System_Text_Encoding *)p3;
+    + (void)writeAllLines_withPathString:(NSString *)p1 contentsStringArray:(System_Array *)p2 encodingSTEncoding:(System_Text_Encoding *)p3;
 
 	/*! 
 		Managed method name : WriteAllLines

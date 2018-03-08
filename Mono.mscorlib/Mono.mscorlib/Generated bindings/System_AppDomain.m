@@ -11,6 +11,10 @@
 // Local assembly import
 #import "mscorlib.h"
 
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
+
 @implementation System_AppDomain
 
 #pragma mark -
@@ -646,7 +650,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.String, System.String[]
 	 */
-    - (int32_t)executeAssemblyByName_withAssemblyNameString:(NSString *)p1 argsString:(System_Array *)p2
+    - (int32_t)executeAssemblyByName_withAssemblyNameString:(NSString *)p1 argsStringArray:(System_Array *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ExecuteAssemblyByName(string,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -660,7 +664,7 @@
 		Managed return type : System.Int32
 		Managed param types : System.Reflection.AssemblyName, System.String[]
 	 */
-    - (int32_t)executeAssemblyByName_withAssemblyNameSRAssemblyName:(System_Reflection_AssemblyName *)p1 argsString:(System_Array *)p2
+    - (int32_t)executeAssemblyByName_withAssemblyNameSRAssemblyName:(System_Reflection_AssemblyName *)p1 argsStringArray:(System_Array *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"ExecuteAssemblyByName(System.Reflection.AssemblyName,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];

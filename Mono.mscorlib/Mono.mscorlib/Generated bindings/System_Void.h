@@ -25,7 +25,7 @@
 //
 #import "System_ValueType.h"
 
-@interface System_Void : DBManagedObject
+@interface System_Void : System_ValueType
 
 #pragma mark -
 #pragma mark Setup

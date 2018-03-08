@@ -19,10 +19,14 @@
 // Forward class and protocol declarations
 //
 @class System_AsyncCallback;
+@class System_FuncA6;
 @class System_IAsyncResult;
 @class System_ICloneable;
+@class System_IntPtr;
 @class System_Object;
 @class System_Runtime_Serialization_ISerializable;
+@protocol System_IAsyncResult;
+@protocol System_IAsyncResult_;
 
 //
 // Import superclass and adopted protocols

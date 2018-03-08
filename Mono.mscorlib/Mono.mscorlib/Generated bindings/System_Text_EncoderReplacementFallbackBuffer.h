@@ -21,6 +21,7 @@
 @class System_Boolean;
 @class System_Char;
 @class System_Int32;
+@class System_Text_EncoderReplacementFallback;
 @class System_Text_EncoderReplacementFallbackBuffer;
 @class System_Void;
 

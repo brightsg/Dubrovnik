@@ -22,6 +22,8 @@
 @class System_Collections_IStructuralComparable;
 @class System_Int32;
 @class System_Object;
+@protocol System_Collections_IComparer;
+@protocol System_Collections_IComparer_;
 @protocol System_Collections_IStructuralComparable;
 @protocol System_Collections_IStructuralComparable_;
 

@@ -18,10 +18,14 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Collections_Generic_IEnumerableA1;
+@class System_Collections_Generic_IEnumeratorA1;
 @class System_Collections_IEnumerable;
 @class System_Object;
-@protocol System_Object;
-@protocol System_Object_;
+@protocol System_Collections_Generic_IEnumerableA1;
+@protocol System_Collections_Generic_IEnumerableA1_;
+@protocol System_Collections_Generic_IEnumeratorA1;
+@protocol System_Collections_Generic_IEnumeratorA1_;
 
 //
 // Import superclass and adopted protocols

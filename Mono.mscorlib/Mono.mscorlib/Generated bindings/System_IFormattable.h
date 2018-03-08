@@ -21,6 +21,8 @@
 @class System_IFormatProvider;
 @class System_IFormattable;
 @class System_String;
+@protocol System_IFormatProvider;
+@protocol System_IFormatProvider_;
 @protocol System_IFormattable;
 @protocol System_IFormattable_;
 

@@ -18,8 +18,10 @@
 //
 // Forward class and protocol declarations
 //
+@class System_ActivationContext;
 @class System_AppDomainInitializer;
 @class System_AppDomainSetup;
+@class System_Array;
 @class System_Boolean;
 @class System_Byte;
 @class System_Collections_Generic_IEnumerableA1;
@@ -29,6 +31,8 @@
 @class System_LoaderOptimization;
 @class System_String;
 @class System_Void;
+@protocol System_Collections_Generic_IEnumerableA1;
+@protocol System_Collections_Generic_IEnumerableA1_;
 
 //
 // Import superclass and adopted protocols

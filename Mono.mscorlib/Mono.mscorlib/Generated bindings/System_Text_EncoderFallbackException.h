@@ -20,9 +20,11 @@
 //
 @class System_Boolean;
 @class System_Char;
+@class System_Exception;
 @class System_Int32;
 @class System_Runtime_InteropServices__Exception;
 @class System_Runtime_Serialization_ISerializable;
+@class System_String;
 @class System_Text_EncoderFallbackException;
 
 //

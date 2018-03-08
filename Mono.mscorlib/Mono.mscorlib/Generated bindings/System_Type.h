@@ -21,8 +21,6 @@
 @class System_Array;
 @class System_Boolean;
 @class System_Char;
-@class System_FuncA2;
-@class System_FuncA4;
 @class System_Globalization_CultureInfo;
 @class System_Guid;
 @class System_Int32;
@@ -44,13 +42,9 @@
 //
 // Import superclass and adopted protocols
 //
-#import "System_Reflection_ICustomAttributeProvider_Protocol.h"
-#import "System_Reflection_IReflect_Protocol.h"
-#import "System_Reflection_MemberInfo.h"
-#import "System_Runtime_InteropServices__MemberInfo_Protocol.h"
-#import "System_Runtime_InteropServices__Type_Protocol.h"
+#import "System_Object.h"
 
-@interface System_Type : System_Reflection_MemberInfo <System_Reflection_ICustomAttributeProvider_, System_Runtime_InteropServices__MemberInfo_, System_Runtime_InteropServices__Type_, System_Reflection_IReflect_>
+@interface System_Type : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -567,27 +561,9 @@
 		Managed param types : System.String
 	 */
     + (System_Type *)getType_withTypeName:(NSString *)p1;
-
-	/*! 
-		Managed method name : GetType
-		Managed return type : System.Type
-		Managed param types : System.String, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type>
-	 */
-    + (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_FuncA2 *)p2 typeResolver:(System_FuncA4 *)p3;
-
-	/*! 
-		Managed method name : GetType
-		Managed return type : System.Type
-		Managed param types : System.String, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type>, System.Boolean
-	 */
-    + (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_FuncA2 *)p2 typeResolver:(System_FuncA4 *)p3 throwOnError:(BOOL)p4;
-
-	/*! 
-		Managed method name : GetType
-		Managed return type : System.Type
-		Managed param types : System.String, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type>, System.Boolean, System.Boolean
-	 */
-    + (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_FuncA2 *)p2 typeResolver:(System_FuncA4 *)p3 throwOnError:(BOOL)p4 ignoreCase:(BOOL)p5;
+/* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type> typeResolver) */
+/* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type> typeResolver, System.Boolean throwOnError) */
+/* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type> typeResolver, System.Boolean throwOnError, System.Boolean ignoreCase) */
 
 	/*! 
 		Managed method name : GetType

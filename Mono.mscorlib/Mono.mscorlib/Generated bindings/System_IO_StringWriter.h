@@ -18,8 +18,10 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Char;
 @class System_IDisposable;
+@class System_IFormatProvider;
 @class System_Int32;
 @class System_IO_StringWriter;
 @class System_String;
@@ -27,6 +29,8 @@
 @class System_Text_StringBuilder;
 @class System_Threading_Tasks_Task;
 @class System_Void;
+@protocol System_IFormatProvider;
+@protocol System_IFormatProvider_;
 
 //
 // Import superclass and adopted protocols

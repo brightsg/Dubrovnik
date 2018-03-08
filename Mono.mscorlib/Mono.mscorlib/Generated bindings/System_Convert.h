@@ -18,6 +18,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Base64FormattingOptions;
 @class System_Boolean;
 @class System_Byte;
@@ -39,6 +40,8 @@
 @class System_UInt16;
 @class System_UInt32;
 @class System_UInt64;
+@protocol System_IFormatProvider;
+@protocol System_IFormatProvider_;
 
 //
 // Import superclass and adopted protocols

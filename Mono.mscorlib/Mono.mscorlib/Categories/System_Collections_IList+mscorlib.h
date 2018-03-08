@@ -41,7 +41,6 @@
 
 //methods
 - (int)addMonoObject:(MonoObject *)monoObject;
-- (void)clear;
 - (BOOL)containsMonoObject:(MonoObject *)monoObject;
 - (int)indexOfMonoObject:(MonoObject *)monoObject;
 - (void)insertMonoObject:(MonoObject *)monoObject atIndex:(int)index;

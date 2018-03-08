@@ -11,6 +11,10 @@
 // Local assembly import
 #import "mscorlib.h"
 
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
+
 
 // C enumeration
 @implementation System_AttributeTargets
@@ -55,13 +59,13 @@
 
 	// Managed field name : Class
 	// Managed field type : System.AttributeTargets
-    static int32_t m_class;
-    + (int32_t)class
+    static int32_t m_class_;
+    + (int32_t)class_
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Class"];
-		m_class = DB_UNBOX_INT32(monoObject);
+		m_class_ = DB_UNBOX_INT32(monoObject);
 
-		return m_class;
+		return m_class_;
 	}
 
 	// Managed field name : Constructor

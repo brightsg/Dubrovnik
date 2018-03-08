@@ -18,6 +18,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Boolean;
 @class System_Double;
 @class System_IComparable;
@@ -30,6 +31,8 @@
 @class System_Object;
 @class System_String;
 @class System_TimeSpan;
+@protocol System_IFormatProvider;
+@protocol System_IFormatProvider_;
 
 //
 // Import superclass and adopted protocols
@@ -40,7 +43,7 @@
 #import "System_IFormattable_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_TimeSpan : DBManagedObject <System_IComparable_, System_IComparableA1_, System_IEquatableA1_, System_IFormattable_>
+@interface System_TimeSpan : System_ValueType <System_IComparable_, System_IComparableA1_, System_IEquatableA1_, System_IFormattable_>
 
 #pragma mark -
 #pragma mark Setup

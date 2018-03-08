@@ -20,6 +20,14 @@
 //
 @class System_Object;
 @class System_Tuple;
+@class System_TupleA1;
+@class System_TupleA2;
+@class System_TupleA3;
+@class System_TupleA4;
+@class System_TupleA5;
+@class System_TupleA6;
+@class System_TupleA7;
+@class System_TupleA8;
 
 //
 // Import superclass and adopted protocols

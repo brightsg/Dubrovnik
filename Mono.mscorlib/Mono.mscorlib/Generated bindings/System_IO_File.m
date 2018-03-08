@@ -11,6 +11,10 @@
 // Local assembly import
 #import "mscorlib.h"
 
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
+
 @implementation System_IO_File
 
 #pragma mark -
@@ -616,7 +620,7 @@
 		Managed return type : System.Void
 		Managed param types : System.String, System.String[]
 	 */
-    + (void)writeAllLines_withPathString:(NSString *)p1 contentsString:(System_Array *)p2
+    + (void)writeAllLines_withPathString:(NSString *)p1 contentsStringArray:(System_Array *)p2
     {
 		
 		[self invokeMonoClassMethod:"WriteAllLines(string,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -628,7 +632,7 @@
 		Managed return type : System.Void
 		Managed param types : System.String, System.String[], System.Text.Encoding
 	 */
-    + (void)writeAllLines_withPathString:(NSString *)p1 contentsString:(System_Array *)p2 encodingSTEncoding:(System_Text_Encoding *)p3
+    + (void)writeAllLines_withPathString:(NSString *)p1 contentsStringArray:(System_Array *)p2 encodingSTEncoding:(System_Text_Encoding *)p3
     {
 		
 		[self invokeMonoClassMethod:"WriteAllLines(string,string[],System.Text.Encoding)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];

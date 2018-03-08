@@ -18,6 +18,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Globalization_CultureInfo;
 @class System_Object;
 @class System_Reflection_Binder;

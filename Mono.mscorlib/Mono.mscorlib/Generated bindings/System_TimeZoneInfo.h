@@ -18,6 +18,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Boolean;
 @class System_Collections_ObjectModel_ReadOnlyCollectionA1;
 @class System_DateTime;
@@ -37,10 +38,9 @@
 //
 #import "System_IEquatableA1_Protocol.h"
 #import "System_Object.h"
-#import "System_Runtime_Serialization_IDeserializationCallback_Protocol.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 
-@interface System_TimeZoneInfo : System_Object <System_IEquatableA1_, System_Runtime_Serialization_ISerializable_, System_Runtime_Serialization_IDeserializationCallback_>
+@interface System_TimeZoneInfo : System_Object <System_IEquatableA1_, System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup

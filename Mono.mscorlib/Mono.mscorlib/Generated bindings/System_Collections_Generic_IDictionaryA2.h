@@ -20,12 +20,15 @@
 //
 @class System_Boolean;
 @class System_Collections_Generic_ICollectionA1;
+@class System_Collections_Generic_IDictionaryA2;
 @class System_Collections_Generic_IEnumerableA1;
 @class System_Collections_IEnumerable;
 @class System_Object;
 @class System_Void;
-@protocol System_Object;
-@protocol System_Object_;
+@protocol System_Collections_Generic_ICollectionA1;
+@protocol System_Collections_Generic_ICollectionA1_;
+@protocol System_Collections_Generic_IDictionaryA2;
+@protocol System_Collections_Generic_IDictionaryA2_;
 
 //
 // Import superclass and adopted protocols
@@ -88,6 +91,6 @@
 		Managed return type : System.Boolean
 		Managed param types : <System.Collections.Generic.IDictionary`2+TKey>, ref TValue&
 	 */
-    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Collections_Generic_IDictionaryA2__TValue **)p2;
+    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
 @end
 //--Dubrovnik.CodeGenerator

@@ -18,6 +18,8 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
+@class System_ArraySegmentA1;
 @class System_Boolean;
 @class System_Collections_Generic_ICollectionA1;
 @class System_Collections_Generic_IEnumerableA1;
@@ -27,6 +29,7 @@
 @class System_Collections_IEnumerable;
 @class System_Int32;
 @class System_Object;
+@class T;
 
 //
 // Import superclass and adopted protocols
@@ -39,7 +42,7 @@
 #import "System_Collections_IEnumerable_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_ArraySegmentA1 : DBManagedObject <System_Collections_Generic_IListA1_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_Generic_IReadOnlyListA1_, System_Collections_Generic_IReadOnlyCollectionA1_>
+@interface System_ArraySegmentA1 : System_ValueType <System_Collections_Generic_IListA1_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_Generic_IReadOnlyListA1_, System_Collections_Generic_IReadOnlyCollectionA1_>
 
 #pragma mark -
 #pragma mark Setup

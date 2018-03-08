@@ -17,6 +17,7 @@
 {
     return "System.Data.Entity.Core.Objects.DataClasses.EntityObject";
 }
+
 // obligatory override
 + (const char *)monoAssemblyName
 {

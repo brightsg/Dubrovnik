@@ -22,7 +22,8 @@
 #import <Cocoa/Cocoa.h>
 #import "Dubrovnik/DBMonoIncludes.h"
 
-@class System_String, System_Object;
+@class System_String;
+@class System_Object;
 
 @interface NSString (mscorlib)
 

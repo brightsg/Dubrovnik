@@ -11,6 +11,10 @@
 // Local assembly import
 #import "mscorlib.h"
 
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
+
 @implementation System_IO_UnmanagedMemoryAccessor
 
 #pragma mark -
@@ -118,7 +122,7 @@
 		Managed param types : System.Int64, ref T&
 		Generic method definition type params : <System.IO.UnmanagedMemoryAccessor+T>
 	 */
-    - (void)read_withPosition:(int64_t)p1 structureRef:(System_IO_UnmanagedMemoryAccessor__T **)p2 typeParameter:(id)typeParameter
+    - (void)read_withPosition:(int64_t)p1 structureRef:(System_Object **)p2 typeParameter:(id)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"Read(long,System.IO.UnmanagedMemoryAccessor/T&)" typeParameters:typeParameter];
@@ -475,7 +479,7 @@ DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithM
 		Managed param types : System.Int64, ref T&
 		Generic method definition type params : <System.IO.UnmanagedMemoryAccessor+T>
 	 */
-    - (void)write_withPosition:(int64_t)p1 structureRef:(System_IO_UnmanagedMemoryAccessor__T **)p2 typeParameter:(id)typeParameter
+    - (void)write_withPosition:(int64_t)p1 structureRef:(System_Object **)p2 typeParameter:(id)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"Write(long,System.IO.UnmanagedMemoryAccessor/T&)" typeParameters:typeParameter];

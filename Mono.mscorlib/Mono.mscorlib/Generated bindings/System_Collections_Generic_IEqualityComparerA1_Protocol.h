@@ -19,10 +19,11 @@
 // Forward class and protocol declarations
 //
 @class System_Boolean;
+@class System_Collections_Generic_IEqualityComparerA1;
 @class System_Int32;
 @class System_Object;
-@protocol System_Object;
-@protocol System_Object_;
+@protocol System_Collections_Generic_IEqualityComparerA1;
+@protocol System_Collections_Generic_IEqualityComparerA1_;
 
 //
 // Import superclass and adopted protocols

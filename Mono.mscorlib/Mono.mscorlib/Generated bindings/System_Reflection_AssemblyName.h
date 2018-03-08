@@ -18,6 +18,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Boolean;
 @class System_Byte;
 @class System_Globalization_CultureInfo;
@@ -36,11 +37,9 @@
 //
 #import "System_ICloneable_Protocol.h"
 #import "System_Object.h"
-#import "System_Runtime_InteropServices__AssemblyName_Protocol.h"
-#import "System_Runtime_Serialization_IDeserializationCallback_Protocol.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 
-@interface System_Reflection_AssemblyName : System_Object <System_Runtime_InteropServices__AssemblyName_, System_ICloneable_, System_Runtime_Serialization_ISerializable_, System_Runtime_Serialization_IDeserializationCallback_>
+@interface System_Reflection_AssemblyName : System_Object <System_ICloneable_, System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup

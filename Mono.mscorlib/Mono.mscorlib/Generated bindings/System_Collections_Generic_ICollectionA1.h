@@ -18,14 +18,17 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Boolean;
+@class System_Collections_Generic_ICollectionA1;
 @class System_Collections_Generic_IEnumerableA1;
 @class System_Collections_IEnumerable;
 @class System_Int32;
 @class System_Object;
 @class System_Void;
-@protocol System_Object;
-@protocol System_Object_;
+@class T;
+@protocol System_Collections_Generic_ICollectionA1;
+@protocol System_Collections_Generic_ICollectionA1_;
 
 //
 // Import superclass and adopted protocols

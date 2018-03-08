@@ -22,14 +22,30 @@
 @class System_Boolean;
 @class System_Collections_Hashtable;
 @class System_Collections_ICollection;
+@class System_Collections_IComparer;
 @class System_Collections_IDictionary;
 @class System_Collections_IDictionaryEnumerator;
 @class System_Collections_IEnumerable;
+@class System_Collections_IEqualityComparer;
+@class System_Collections_IHashCodeProvider;
 @class System_ICloneable;
 @class System_Int32;
 @class System_Object;
 @class System_Runtime_Serialization_ISerializable;
+@class System_Single;
 @class System_Void;
+@protocol System_Collections_ICollection;
+@protocol System_Collections_ICollection_;
+@protocol System_Collections_IComparer;
+@protocol System_Collections_IComparer_;
+@protocol System_Collections_IDictionary;
+@protocol System_Collections_IDictionary_;
+@protocol System_Collections_IDictionaryEnumerator;
+@protocol System_Collections_IDictionaryEnumerator_;
+@protocol System_Collections_IEqualityComparer;
+@protocol System_Collections_IEqualityComparer_;
+@protocol System_Collections_IHashCodeProvider;
+@protocol System_Collections_IHashCodeProvider_;
 
 //
 // Import superclass and adopted protocols
@@ -39,10 +55,9 @@
 #import "System_Collections_IEnumerable_Protocol.h"
 #import "System_ICloneable_Protocol.h"
 #import "System_Object.h"
-#import "System_Runtime_Serialization_IDeserializationCallback_Protocol.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 
-@interface System_Collections_Hashtable : System_Object <System_Collections_IDictionary_, System_Collections_ICollection_, System_Collections_IEnumerable_, System_Runtime_Serialization_ISerializable_, System_Runtime_Serialization_IDeserializationCallback_, System_ICloneable_>
+@interface System_Collections_Hashtable : System_Object <System_Collections_IDictionary_, System_Collections_ICollection_, System_Collections_IEnumerable_, System_Runtime_Serialization_ISerializable_, System_ICloneable_>
 
 #pragma mark -
 #pragma mark Setup

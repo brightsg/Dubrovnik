@@ -7,7 +7,8 @@
 //
 
 #import "DBNullableDateTransformer.h"
-#import "System_NullableA1.h"
+#import "mscorlib.h"
+#import "System_NullableA1+mscorlib.h"
 
 @implementation DBNullableDateTransformer
 

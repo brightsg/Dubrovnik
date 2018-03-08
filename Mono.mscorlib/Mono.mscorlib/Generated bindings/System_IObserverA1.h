@@ -19,10 +19,11 @@
 // Forward class and protocol declarations
 //
 @class System_Exception;
+@class System_IObserverA1;
 @class System_Object;
 @class System_Void;
-@protocol System_Object;
-@protocol System_Object_;
+@protocol System_IObserverA1;
+@protocol System_IObserverA1_;
 
 //
 // Import superclass and adopted protocols

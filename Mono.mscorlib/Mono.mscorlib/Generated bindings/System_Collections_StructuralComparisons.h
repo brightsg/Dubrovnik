@@ -21,6 +21,10 @@
 @class System_Collections_IComparer;
 @class System_Collections_IEqualityComparer;
 @class System_Collections_StructuralComparisons;
+@protocol System_Collections_IComparer;
+@protocol System_Collections_IComparer_;
+@protocol System_Collections_IEqualityComparer;
+@protocol System_Collections_IEqualityComparer_;
 
 //
 // Import superclass and adopted protocols

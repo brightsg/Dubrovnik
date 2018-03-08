@@ -22,6 +22,7 @@
 @class System_Object;
 @class System_Runtime_Serialization_ISerializable;
 @class System_Void;
+@class System_WeakReferenceA1;
 
 //
 // Import superclass and adopted protocols
@@ -71,6 +72,6 @@
 		Managed return type : System.Boolean
 		Managed param types : ref T&
 	 */
-    - (BOOL)tryGetTarget_withTargetRef:(System_WeakReferenceA1__T **)p1;
+    - (BOOL)tryGetTarget_withTargetRef:(System_Object **)p1;
 @end
 //--Dubrovnik.CodeGenerator

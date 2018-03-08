@@ -23,7 +23,12 @@
 @class System_Exception;
 @class System_Object;
 @class System_Threading_CancellationToken;
+@class System_Threading_Tasks_TaskA1;
+@class System_Threading_Tasks_TaskCompletionSourceA1;
+@class System_Threading_Tasks_TaskCreationOptions;
 @class System_Void;
+@protocol System_Collections_Generic_IEnumerableA1;
+@protocol System_Collections_Generic_IEnumerableA1_;
 
 //
 // Import superclass and adopted protocols

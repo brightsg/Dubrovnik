@@ -31,6 +31,14 @@
 @class System_Object;
 @class System_Type;
 @class System_Void;
+@protocol System_Collections_ICollection;
+@protocol System_Collections_ICollection_;
+@protocol System_Collections_IComparer;
+@protocol System_Collections_IComparer_;
+@protocol System_Collections_IEnumerator;
+@protocol System_Collections_IEnumerator_;
+@protocol System_Collections_IList;
+@protocol System_Collections_IList_;
 
 //
 // Import superclass and adopted protocols

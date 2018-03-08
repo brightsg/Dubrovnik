@@ -7,11 +7,10 @@
 //
 
 #import "DBGenericTypeHelper.h"
-#import "System_Array.h"
-#import "NSArray+mscorlib.h"
 #import <objc/runtime.h>
 #import "System_Type.h"
 #import "NSArray+mscorlib.h"
+#import "System_Array+mscorlib.h"
 
 @implementation DBGenericTypeHelper
 

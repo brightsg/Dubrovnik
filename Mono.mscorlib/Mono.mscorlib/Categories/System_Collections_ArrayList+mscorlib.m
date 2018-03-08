@@ -21,20 +21,32 @@
 //
 #import "System_Collections_ArrayList+mscorlib.h"
 
-static MonoClass *_monoClass = NULL;
-
 @implementation System_Collections_ArrayList (mscorlib)
-
-+ (MonoClass *)monoClass {
-	if(_monoClass == NULL)
-		_monoClass = [DBManagedEnvironment corlibMonoClassWithName:"System.Collections.ArrayList"];
-	
-	return(_monoClass);
-}
 
 - (void)sort:(DBManagedObject *)comparer {
 	[self invokeMonoMethod:"Sort(IComparer)" withNumArgs:1, [comparer monoObject]];
 }
 
++ (instancetype)listWithMonoObject:(MonoObject *)monoObject
+{
+    System_Collections_ArrayList *list = [[[self class] alloc] initWithMonoObject:monoObject];
+    return list;
+}
 
+//
+//Wrapped Indexer Access
+//
+- (id)objectAtIndex:(NSUInteger)index {
+    
+    NSObject *object = nil;
+    
+    MonoObject *monoObject = [self monoObjectForIndexObject:&index];
+    object = [[DBTypeManager sharedManager] objectWithMonoObject:monoObject];
+    
+    return object;
+}
+
+- (void)setObjectAtIndex:(int)index object:(DBManagedObject *)object {
+    [self setMonoObject:[object monoObject] forIndexObject:&index];
+}
 @end

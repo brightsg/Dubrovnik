@@ -67,7 +67,7 @@ typedef NS_ENUM(int32_t, enumSystem_AttributeTargets) {
 
 	// Managed field name : Class
 	// Managed field type : System.AttributeTargets
-    + (int32_t)class;
+    + (int32_t)class_;
 
 	// Managed field name : Constructor
 	// Managed field type : System.AttributeTargets

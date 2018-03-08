@@ -11,6 +11,10 @@
 // Local assembly import
 #import "mscorlib.h"
 
+#if __has_include("mscorlib.private.h")
+#import "mscorlib.private.h"    // Not auto generated. Add manually to project.
+#endif
+
 @implementation System_Enum
 
 #pragma mark -
@@ -373,7 +377,7 @@
 		Managed param types : System.String, ref TEnum&
 		Generic method definition type params : <System.Enum+TEnum>
 	 */
-    + (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(System_Enum__TEnum **)p2 typeParameter:(id)typeParameter
+    + (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(System_Object **)p2 typeParameter:(id)typeParameter
     {
 		void *refPtr2 = [*p2 monoRTInvokeArg];
 
@@ -390,7 +394,7 @@
 		Managed param types : System.String, System.Boolean, ref TEnum&
 		Generic method definition type params : <System.Enum+TEnum>
 	 */
-    + (BOOL)tryParse_withValue:(NSString *)p1 ignoreCase:(BOOL)p2 resultRef:(System_Enum__TEnum **)p3 typeParameter:(id)typeParameter
+    + (BOOL)tryParse_withValue:(NSString *)p1 ignoreCase:(BOOL)p2 resultRef:(System_Object **)p3 typeParameter:(id)typeParameter
     {
 		void *refPtr3 = [*p3 monoRTInvokeArg];
 

@@ -1768,7 +1768,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([stringArrayList count] == 3, DBUCountTestFailed);
     
     NSMutableString *ms = [NSMutableString new];
-    for (uint32_t i = 0; i < [stringArrayList count]; i++) {
+    for (int32_t i = 0; i < [stringArrayList count]; i++) {
         NSString * s = [stringArrayList objectAtIndex:i];
         [ms appendFormat:@"%@ ", s];
     }
