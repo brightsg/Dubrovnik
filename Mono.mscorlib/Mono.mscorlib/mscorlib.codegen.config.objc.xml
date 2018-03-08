@@ -2,6 +2,7 @@
 <ConfigObjC xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<FilterSystemInterfaces>false</FilterSystemInterfaces>
 	<TypeNameSkipList>
+		<string>System.Array:Resize</string>
 		<string>Microsoft.Win32.</string>
 		<string>System.IO.IsolatedStorage.</string>
 		<string>System.Collections.Concurrent.</string>

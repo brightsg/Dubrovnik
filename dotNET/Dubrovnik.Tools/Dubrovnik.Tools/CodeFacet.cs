@@ -10,14 +10,17 @@ using System.Text.RegularExpressions;
 
 namespace Dubrovnik.Tools
 {
-
-    /*
-     * CodeFacet
-     */
+	/// <summary>
+	/// Represents the type information and related relationships for a managed code element.
+	/// </summary>
     public class CodeFacet : Object
     {
         private string _type;
 
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="facet">Facet</param>
         public CodeFacet(CodeFacet facet)
         {
             Name = ObjCIdentifierFromManagedIdentifier(facet.Name);
@@ -25,11 +28,14 @@ namespace Dubrovnik.Tools
             BaseName = ObjCIdentifierFromManagedIdentifier(facet.BaseName);
             BaseType = ObjCIdentifierFromManagedIdentifier(facet.BaseType);
             UnderlyingType = ObjCIdentifierFromManagedIdentifier(facet.UnderlyingType);
-        }
+		}
 
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="xelement">XML element root node to load</param>
         public CodeFacet(XElement xelement)
         {
-
             Name = XElementAttributeValue(xelement, "Name");
             FullName = XElementAttributeValue(xelement, "FullName");
             Type = XElementAttributeValue(xelement, "Type");
@@ -39,8 +45,8 @@ namespace Dubrovnik.Tools
             IsValueType = XElementAttributeBool(xelement, "IsValueType");
             IsByRef = XElementAttributeBool(xelement, "IsByRef");
             IsInterface = XElementAttributeBool(xelement, "IsInterface");
-				IsDelegate = XElementAttributeBool(xelement, "IsDelegate");
-				IsNested = XElementAttributeBool(xelement, "IsNested");
+			IsDelegate = XElementAttributeBool(xelement, "IsDelegate");
+			IsNested = XElementAttributeBool(xelement, "IsNested");
             IsPrimitive = XElementAttributeBool(xelement, "IsPrimitive");
             IsPointer = XElementAttributeBool(xelement, "IsPointer");
             IsArray = XElementAttributeBool(xelement, "IsArray");
@@ -59,15 +65,17 @@ namespace Dubrovnik.Tools
             IsGenericType = XElementAttributeBool(xelement, "IsGenericType");
             IsGenericTypeDefinition = XElementAttributeBool(xelement, "IsGenericTypeDefinition");
             IsGenericParameter = XElementAttributeBool(xelement, "IsGenericParameter");
-            ContainsGenericParameters = XElementAttributeBool(xelement, "ContainsGenericParameters");
+			IsGenericParameterElement = XElementAttributeBool(xelement, "IsGenericParameterElement");
+			ContainsGenericParameters = XElementAttributeBool(xelement, "ContainsGenericParameters");
             GenericParameterPosition = Convert.ToInt32(XElementAttributeValue(xelement, "GenericParameterPosition"));
 			DeclaredByMethod = XElementAttributeBool(xelement, "DeclaredByMethod");
 
 			// define ObjC code facet
 			ObjCFacet = new CodeFacet(this);
-        }
+		}
 
-        public CodeFacet Output { get; private set; }
+		public CodeFacet Parent { get; internal set; }
+		public CodeFacet Output { get; private set; }
         public string Name { get; internal set; }
         public string FullName { get; private set; }
         public bool IsReadable { get; private set; }
@@ -85,7 +93,8 @@ namespace Dubrovnik.Tools
         public bool IsGenericType { get; private set; }
         public bool IsGenericTypeDefinition { get; private set; }
         public bool IsGenericParameter { get; private set; }
-        public bool ContainsGenericParameters { get; private set; }
+		public bool IsGenericParameterElement { get; private set; } // element type is generic
+		public bool ContainsGenericParameters { get; private set; }
         public Int32 GenericParameterPosition { get; private set; }
         public string[] GenericArgumentTypes { get; private set; }
 		public bool DeclaredByMethod { get; private set; }
@@ -97,27 +106,53 @@ namespace Dubrovnik.Tools
 		public bool IsDelegate { get; private set; }
 		public bool IsNested { get; private set; }
         public string BaseName { get; private set; }
-        public string BaseType { get; private set; }
-        public string UnderlyingType { get; private set; }
+
         public bool IsStatic { get; private set; }
         public CodeFacet ObjCFacet { get; private set; }
 
         public string TypeNamespace { get; private set; }
         public string NameFromType { get; private set; }
         public string ConstantValue { get; private set; }
-        public string ElementType { get; private set; }
+
         public Int32 ArrayRank { get; private set; }
 
-        public string OutputFileNameSuffix { get; set; }
-    
-        public bool IsStruct {
+		/// <summary>
+		/// Gets the type from which the current Type directly inherits.
+		/// </summary>
+		public string BaseType { get; private set; }
+
+		/// <summary>
+		/// Returns the underlying type of the current enumeration type.
+		/// </summary>
+		public string UnderlyingType { get; private set; }
+
+		/// <summary>
+		/// Returns the type encompassed or referred to by array, pointer or reference type.
+		/// </summary>
+		public string ElementType { get; private set; }
+
+		public string OutputFileNameSuffix { get; set; }
+
+		public bool IsStruct {
             get
             {
-					// note that a pointer is not a value type
-					return IsValueType && !IsEnum && !IsPrimitive;
+				// note that a pointer is not a value type
+				return IsValueType && !IsEnum && !IsPrimitive;
             }
         }
 
+		/// <summary>
+		/// Returns true if IsGenericParameter is true or if a pointed to or referenced type
+		/// (ElementType) is a generic parameter.
+		/// </summary>
+		/// <returns></returns>
+		public bool IsGenericParameterOrRef()
+		{
+			return this.IsGenericParameter || (this.IsGenericParameterElement && !this.IsArray);
+		}
+		/// <summary>
+		/// Facet type including namespace
+		/// </summary>
         public string Type {
             get
             {
@@ -139,16 +174,16 @@ namespace Dubrovnik.Tools
                         GenericArgumentTypes = parts.Skip(1).ToArray();
                     }
 
-						  /* When seeking the namespace we first need to trim the type to the nearest nested type or arity char.
-							* Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2<Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2+T,Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2+U>
-							*/
-						  // get the namespace
-						  string baseValue = typeValue;
-						  char[] delims = {'+', '`'};
-						  int pos = baseValue.IndexOfAny(delims);
-						  if (pos >= 0) {
-							  baseValue = baseValue.Substring(0, pos);
-						  }
+					/* When seeking the namespace we first need to trim the type to the nearest nested type or arity char.
+					* Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2<Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2+T,Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2+U>
+					*/
+					// get the namespace
+					string baseValue = typeValue;
+					char[] delims = {'+', '`'};
+					int pos = baseValue.IndexOfAny(delims);
+					if (pos >= 0) {
+						baseValue = baseValue.Substring(0, pos);
+					}
                     pos = baseValue.LastIndexOf('.');
                     if (pos >= 0)
                     {
@@ -163,7 +198,33 @@ namespace Dubrovnik.Tools
             }
         }
 
-        protected string XElementAttributeValue(XElement xelement, string attributeName)
+		/// <summary>
+		/// Returns child facets.
+		/// </summary>
+		/// <returns>List of facets</returns>
+		public virtual List<CodeFacet> Children() 
+		{
+			List<CodeFacet> facets = new List<CodeFacet>();
+			return facets;
+		}
+
+		/// <summary>
+		/// Returns facets which define base and other attributes from which this facet is derived.
+		/// </summary>
+		/// <returns>List of facets</returns>
+		public virtual List<CodeFacet> Derivation() {
+			List<CodeFacet> facets = new List<CodeFacet>();
+			facets.Add(this);
+			return facets;
+		}
+
+		/// <summary>
+		/// Returns attribute value as a string from an XML element. 
+		/// </summary>
+		/// <param name="xelement">XML element to parse.</param>
+		/// <param name="attributeName">Name of attribute to parse.</param>
+		/// <returns>String value.</returns>
+		protected string XElementAttributeValue(XElement xelement, string attributeName)
         {
             string attributeValue = null;
             IEnumerable<XAttribute> attList = xelement.Attributes(attributeName);
@@ -174,7 +235,13 @@ namespace Dubrovnik.Tools
             return attributeValue;
         }
 
-        protected bool XElementAttributeBool(XElement xelement, string attributeName)
+		/// <summary>
+		/// Returns attribute value as a bool from an XML element. 
+		/// </summary>
+		/// <param name="xelement">XML element to parse.</param>
+		/// <param name="attributeName">Name of attribute to parse.</param>
+		/// <returns>Bool value.</returns>
+		protected bool XElementAttributeBool(XElement xelement, string attributeName)
         {
             string value = XElementAttributeValue(xelement, attributeName);
             return Convert.ToBoolean(value);
@@ -492,6 +559,10 @@ namespace Dubrovnik.Tools
             BaseType = "System.Object";
         }
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public virtual string Description() {
 			return String.Format("{0} {1}", Type, Name);
 		}
@@ -507,31 +578,94 @@ namespace Dubrovnik.Tools
         public IList<NamespaceFacet> Namespaces { get; set; }
         public string Path { get; set; }
 
+		/// <summary>
+		/// Constructor.
+		/// </summary>
+		/// <param name="xelement">XML root element</param>
         public AssemblyFacet(XElement xelement) 
             : base(xelement)
         {
-            Namespaces = new FacetList<NamespaceFacet>(xelement, "Namespace");
-            References = new FacetList<CodeFacet>(xelement, "Reference");
+            Namespaces = new FacetList<NamespaceFacet>(xelement, "Namespace", this);
+            References = new FacetList<CodeFacet>(xelement, "Reference", this);
             Path = XElementAttributeValue(xelement, "Path");
         }
 
-        /*
-         *  Order classes so that derived types occur after their base type.
-        */
-        public IList<ClassFacet> Classes()
+		/// <summary>
+		/// Returns all class facets in all namespaces.
+		/// </summary>
+		/// <returns>List of classes.</returns>
+        public List<ClassFacet> Classes()
         {
-            IList<ClassFacet> classes = new List<ClassFacet>();
-            foreach (NamespaceFacet @namespace in Namespaces)
+            List<ClassFacet> facets = new List<ClassFacet>();
+            foreach (NamespaceFacet facet in Namespaces)
             {
-                classes.AddRange(@namespace.Classes);
+				facets.AddRange(facet.Classes);
             }
-            return classes;
-        }
 
-        /*
+			return facets;
+		}
+
+		/// <summary>
+		/// Returns all interface facets in all namespaces.
+		/// </summary>
+		/// <returns>List of interfaces.</returns>
+		public List<InterfaceFacet> Interfaces() 
+		{
+			var facets = new List<InterfaceFacet>();
+			foreach (NamespaceFacet facet in Namespaces) 
+			{
+				facets.AddRange(facet.Interfaces);
+			}
+
+			return facets;
+		}
+
+		/// <summary>
+		/// Returns all enumeration facets in all namespaces.
+		/// </summary>
+		/// <returns>List of all enumerations.</returns>
+		public List<EnumerationFacet> Enumerations() 
+		{
+			var facets = new List<EnumerationFacet>();
+			foreach (NamespaceFacet facet in Namespaces) {
+				facets.AddRange(facet.Enumerations);
+			}
+
+			return facets;
+		}
+
+		/// <summary>
+		/// Returns all struct facets in all namespaces.
+		/// </summary>
+		/// <returns>List of all structs.</returns>
+		public List<StructFacet> Structs() 
+		{
+			var facets = new List<StructFacet>();
+			foreach (NamespaceFacet facet in Namespaces) {
+				facets.AddRange(facet.Structs);
+			}
+
+			return facets;
+		}
+
+		/// <summary>
+		/// Returns all facets in all namespaces.
+		/// </summary>
+		/// <returns>List of all facets.</returns>
+		public List<CodeFacet> AllFacets() {
+			var facets = new List<CodeFacet>();
+			facets.AddRange(Classes());
+			facets.AddRange(Interfaces());
+			facets.AddRange(Enumerations());
+			facets.AddRange(Structs());
+
+			return facets;
+		}
+
+		/*
          *  Order classes so that derived types occur after their base type.
          */
-        public IList<ClassFacet> ClassesOrderedByDerivation()
+		public IList<ClassFacet> ClassesOrderedByDerivation()
         {
             // We are concerned with the types derived in this assembly.
             // There may be multiple namepaces and types in one namespace may derive
@@ -571,10 +705,10 @@ namespace Dubrovnik.Tools
         public NamespaceFacet(XElement xelement)
             : base(xelement)
         {
-            Classes = new FacetList<ClassFacet>(xelement, "Class");
-            Interfaces = new FacetList<InterfaceFacet>(xelement, "Interface");
-            Enumerations = new FacetList<EnumerationFacet>(xelement, "Enumeration");
-            Structs = new FacetList<StructFacet>(xelement, "Struct");
+            Classes = new FacetList<ClassFacet>(xelement, "Class", this);
+            Interfaces = new FacetList<InterfaceFacet>(xelement, "Interface", this);
+            Enumerations = new FacetList<EnumerationFacet>(xelement, "Enumeration", this);
+            Structs = new FacetList<StructFacet>(xelement, "Struct", this);
 
             // Managed interfaces do not derive from a base type
             // but we want to treat them like an object that does
@@ -589,17 +723,21 @@ namespace Dubrovnik.Tools
         public IList<StructFacet> Structs { get; set; }
     }
 
-    /*
-     * InterfaceFacet
-     */
+	/// <summary>
+	/// Represents a managed interface.
+	/// </summary>
     public class InterfaceFacet : CodeFacet
     {
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
+		/// <param name="xelement"></param>
         public InterfaceFacet(XElement xelement)
             : base(xelement)
         {
-            Properties = new FacetList<PropertyFacet>(xelement, "Property");
-            ImplementedInterfaces = new FacetList<ImplementedInterfaceFacet>(xelement, "ImplementedInterface");
-            Methods = new FacetList<MethodFacet>(xelement, "Method");
+            Properties = new FacetList<PropertyFacet>(xelement, "Property", this);
+            ImplementedInterfaces = new FacetList<ImplementedInterfaceFacet>(xelement, "ImplementedInterface", this);
+            Methods = new FacetList<MethodFacet>(xelement, "Method", this);
             ParseMethodsForOverrides(Methods);
         }
 
@@ -608,10 +746,34 @@ namespace Dubrovnik.Tools
         public IList<MethodFacet> Methods { get; set; }
         public IList<ImplementedInterfaceFacet> ImplementedInterfaces { get; set; }
 
-        //
-        // ParseMethodsForOverrides
-        //
-        protected void ParseMethodsForOverrides(IList<MethodFacet> methods)
+		/// <summary>
+		/// Returns list of child facets.
+		/// </summary>
+		public override List<CodeFacet> Children() {
+			List<CodeFacet> facets = new List<CodeFacet>();
+			facets.AddRange(base.Children());
+			facets.AddRange(Properties);
+			facets.AddRange(ImplementedInterfaces);
+			facets.AddRange(Methods);
+
+			return facets;
+		}
+
+		/// <summary>
+		/// Returns facets which define base and other attributes from which this facet is derived.
+		/// </summary>
+		/// <returns>List of facets</returns>
+		public override List<CodeFacet> Derivation() {
+			List<CodeFacet> facets = base.Derivation();
+			facets.AddRange(ImplementedInterfaces);
+			return facets;
+		}
+
+		/// <summary>
+		/// Parse methods for overrides
+		/// </summary>
+		/// <param name="methods">List of methods to parse.</param>
+		protected void ParseMethodsForOverrides(IList<MethodFacet> methods)
         {
             for (int i = 0; i < methods.Count(); i++)
             {
@@ -624,16 +786,20 @@ namespace Dubrovnik.Tools
         }
     }
 
-    /*
-     * ClassFacet
-     */
+	/// <summary>
+	/// Managed interface facet
+	/// </summary>
     public class ClassFacet : InterfaceFacet
     {
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="xelement"></param>
         public ClassFacet(XElement xelement)
             : base(xelement)
         {
-            Fields = new FacetList<FieldFacet>(xelement, "Field"); 
-            Constructors = new FacetList<MethodFacet>(xelement, "Constructor");
+            Fields = new FacetList<FieldFacet>(xelement, "Field", this); 
+            Constructors = new FacetList<MethodFacet>(xelement, "Constructor", this);
 
             // process the constructors
             foreach (MethodFacet facet in Constructors)
@@ -647,11 +813,23 @@ namespace Dubrovnik.Tools
         // TODO: add destructors, constants, operators, delegates, structs
         public IList<FieldFacet> Fields { get; set; }
         public IList<MethodFacet> Constructors { get; set; }
-    }
 
-    /*
-     * StructFacet
-     */
+		/// <summary>
+		/// Returns child facets.
+		/// </summary>
+		/// <returns></returns>
+		public override List<CodeFacet> Children() {
+			List<CodeFacet> facets = new List<CodeFacet>();
+			facets.AddRange(base.Children());
+			facets.AddRange(Constructors);
+			facets.AddRange(Fields);
+			return facets;
+		}
+	}
+
+	/// <summary>
+	/// Managed struct facet 
+	/// </summary>
     public class StructFacet : ClassFacet
     {
         public StructFacet(XElement xelement)
@@ -659,18 +837,30 @@ namespace Dubrovnik.Tools
         {
         }
     }
-    /*
-     * EnumerationFacet
-     */
+
+	/// <summary>
+	/// Enumeration facet
+	/// </summary>
     public class EnumerationFacet : CodeFacet
     {
         public EnumerationFacet(XElement xelement)
             : base(xelement)
         {
-            Fields = new FacetList<FieldFacet>(xelement, "Field"); 
+            Fields = new FacetList<FieldFacet>(xelement, "Field", this); 
         }
         public IList<FieldFacet> Fields { get; set; }
-    }
+
+		/// <summary>
+		/// Returns child facets.
+		/// </summary>
+		/// <returns></returns>
+		public override List<CodeFacet> Children() {
+			List<CodeFacet> facets = new List<CodeFacet>();
+			facets.AddRange(base.Children());
+			facets.AddRange(Fields);
+			return facets;
+		}
+	}
 
     /*
      * PropertyFacet
@@ -691,7 +881,7 @@ namespace Dubrovnik.Tools
         public ImplementedInterfaceFacet(XElement xelement)
             : base(xelement)
         {
-            GenericTypeParameters = new FacetList<ParameterFacet>(xelement, "GenericTypeParameter");
+            GenericTypeParameters = new FacetList<ParameterFacet>(xelement, "GenericTypeParameter", this);
         }
         public IList<ParameterFacet> GenericTypeParameters { get; set; }        
     }
@@ -712,12 +902,16 @@ namespace Dubrovnik.Tools
      */
     public class MethodFacet : CodeFacet
     {
+		/// <summary>
+		/// Constructor.
+		/// </summary>
+		/// <param name="xelement">Root XML element.</param>
         public MethodFacet(XElement xelement)
             : base(xelement)
         {
-            Parameters = new FacetList<ParameterFacet>(xelement, "Parameter");
-			GenericTypeArguments = new FacetList<CodeFacet>(xelement, "GenericTypeArgument");
-			GenericMethodDefinitionGenericTypeArguments = new FacetList<CodeFacet>(xelement, "GenericMethodDefinitionGenericTypeArgument");
+            Parameters = new FacetList<ParameterFacet>(xelement, "Parameter", this);
+			GenericTypeArguments = new FacetList<CodeFacet>(xelement, "GenericTypeArgument", this);
+			GenericMethodDefinitionGenericTypeArguments = new FacetList<CodeFacet>(xelement, "GenericMethodDefinitionGenericTypeArgument", this);
 			IsGenericMethod = XElementAttributeBool(xelement, "IsGenericMethod");
             IsGenericMethodDefinition = XElementAttributeBool(xelement, "IsGenericMethodDefinition");
             ContainsGenericMethodParameters = XElementAttributeBool(xelement, "ContainsGenericMethodParameters");
@@ -734,10 +928,23 @@ namespace Dubrovnik.Tools
         public bool IsOverloadedSignatureMethod { get; private set; }
         public bool IsDuplicateSignatureMethod { get; private set; }
 
-        //
-        // ParseMethodForOverride
-        //
-        public void ParseMethodForOverride(MethodFacet facet)
+		/// <summary>
+		/// Returns list of child facets.
+		/// </summary>
+		public override List<CodeFacet> Children() {
+			List<CodeFacet> facets = new List<CodeFacet>();
+			facets.AddRange(base.Children());
+			facets.AddRange(Parameters);
+			facets.AddRange(GenericTypeArguments);
+			facets.AddRange(GenericMethodDefinitionGenericTypeArguments);
+
+			return facets;
+		}
+
+		//
+		// ParseMethodForOverride
+		//
+		public void ParseMethodForOverride(MethodFacet facet)
         {
 
             if (!facet.IsOverloadedNameMethod)
@@ -889,13 +1096,13 @@ namespace Dubrovnik.Tools
     /*
      * FacetList<TFacet>
      */
-    public class FacetList<TFacet> : List<TFacet>
+    public class FacetList<TFacet> : List<TFacet> where TFacet : CodeFacet
     {
         public FacetList()
             : base()
         {
         }
-        public  FacetList(XElement parent, string childname)
+        public  FacetList(XElement parent, string childname, CodeFacet Parent)
             : base()
         {
             IEnumerable<XElement> query = from element in parent.Elements(childname) select element;
@@ -905,6 +1112,7 @@ namespace Dubrovnik.Tools
                 // TFacet facet = new TFacet(element)
                 TFacet facet = (TFacet)Activator.CreateInstance(typeof(TFacet), new object[] { element });
                 Add(facet);
+				facet.Parent = Parent;
             }
         }
     }

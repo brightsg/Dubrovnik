@@ -9,25 +9,25 @@ using Dubrovnik.Tools;
 
 namespace Dubrovnik.Tools
 {
-    // The solution must contain a t4 file named Net2Objc.tt.
-    // Set the custom tool property to TextTemplatingFilePreprocessor.
-    // VS will compile the template into a class named Net2ObjC.
-    public partial class Net2ObjC
-    {
+	// The solution must contain a t4 file named Net2Objc.tt.
+	// Set the custom tool property to TextTemplatingFilePreprocessor.
+	// VS will compile the template into a class named Net2ObjC.
+	public partial class Net2ObjC {
 		public const string ManagedVariableName = "monoObject";
 		public const string ObjCVariableName = "value";
 
 		public static string GenToolName = "Dubrovnik.CodeGenerator";
-        public static string GenericTypePlaceholder = "<_T_{0}>";
+		public static string GenericTypePlaceholder = "<_T_{0}>";
 
-        public string InterfaceOutput { get; private set; }
-        public string ImplementationOutput { get; private set; }
-        public string XMLFilePath { get; set; }
-        public bool ImplementEnumerationsAsClasses { get; private set; }
-        public bool AppendFirstArgSignatureToMethodName { get; private set; }
-        public string TimeStamp { get; private set; }
-        public IList<String> StaticObjectPropertyStorageNames { get; set; }
-        public ConfigObjC Config { get; private set; }
+		public string InterfaceOutput { get; private set; }
+		public string ImplementationOutput { get; private set; }
+		public string XMLFilePath { get; set; }
+		public bool ImplementEnumerationsAsClasses { get; private set; }
+		public bool AppendFirstArgSignatureToMethodName { get; private set; }
+		public string TimeStamp { get; private set; }
+		public IList<String> StaticObjectPropertyStorageNames { get; set; }
+		public ConfigObjC Config { get; private set; }
+		public string ObjCAssemblyName { get; private set; }
 		public string InterfaceFile { get; private set; }
 		public string ImplementationFile { get; private set; }
 		public OutputType OutputFileType { get; private set; }
@@ -37,132 +37,282 @@ namespace Dubrovnik.Tools
 		private Dictionary<string, ObjCTypeAssociation> ObjCTypeAssociations { get; set; }
 		private Dictionary<string, ManagedTypeAssociation> ManagedTypeAssociations { get; set; }
 
-		public Net2ObjC() : base ()
-        {
-            // build associations between Managed and ObjC types
-            BuildTypeAssociations();
+		public Net2ObjC() : base() {
+			// build associations between Managed and ObjC types
+			BuildTypeAssociations();
 
-            // assign property defaults
-            OutputFileType = OutputType.Interface;
-            ImplementEnumerationsAsClasses = false;
-            AppendFirstArgSignatureToMethodName = true;
-            TimeStamp = DateTime.Now.ToString();
-        }
+			// assign property defaults
+			OutputFileType = OutputType.Interface;
+			ImplementEnumerationsAsClasses = false;
+			AppendFirstArgSignatureToMethodName = true;
+			TimeStamp = DateTime.Now.ToString();
+		}
 
-        //
-        // GenerateObjC
-        //
-        // This method will generate either an interface or an implemenation 
-        // depending on the state of OutputType
-        //
-        void GenerateObjC(string include = "")
-        {
-            // retrieving the output will clear the cache
-            Output();
+		//
+		// GenerateObjC
+		//
+		// This method will generate either an interface or an implemenation 
+		// depending on the state of OutputType
+		//
+		// Note that we initially generate one composite interface or implementation output file
+		// representing the entire assembly with bindings for each type delimited by a separator.
+		// When the generation is complete the composite output file is parsed and individual
+		// files for each representated type are created.
+		//
+		void GenerateObjC(string include = "") {
+			// retrieving the output will clear the cache
+			Output();
 
-            // write the file banner
-            WriteFileBanner();
+			// write the file banner
+			WriteFileBanner();
 
-            // write initial interface
-            if (OutputFileType == OutputType.Interface)
-            {
-                WriteInterfaceFilePreliminaries();
-            }
-
-            // write include file
-            if (include != null)
-            {
-                WriteLine(include);
-            }
-
-            // write initial implementation
-            if (OutputFileType == OutputType.Implementation)
-            {
-                WriteImplementationFilePreliminaries();
-            }
-
-            // write the assembly
-            WriteAssembly();
-        }
-
-		public void WriteSkippedItem(string item, string description, int newLinesSuffix = 1) {
-			string s = String.Format("/* Skipped {0} : {1} */", item, description);
-			if (newLinesSuffix > 0) {
-				WriteLine(s);
-				while (--newLinesSuffix > 0) WriteLine("");
+			// write initial interface
+			if (OutputFileType == OutputType.Interface) {
+				WriteInterfaceFilePreliminaries();
 			}
-			else {
+
+			// write include file
+			if (include != null) {
+				WriteLine(include);
+			}
+
+			// write initial implementation
+			if (OutputFileType == OutputType.Implementation) {
+				WriteImplementationFilePreliminaries();
+			}
+
+			// write the assembly
+			WriteAssembly();
+		}
+
+		public void WriteSkippedItem(string item, string description, int newLines = 1) {
+			string s = String.Format("/* Skipped {0} : {1} */", item, description);
+			if (newLines > 0) {
+				WriteLine(s);
+				while (--newLines > 0) WriteLine("");
+			} else {
 				Write(s);
 			}
 		}
 
-        //
-        // WriteAssembly
-        //
-        public void WriteAssembly()
-        {
+		//
+		// WriteAssembly
+		//
+		public void WriteAssembly() {
 			// TODO: why don't we generate Event reps too?
+			WriteCommentBlock("Assembly type imports");
 
-            //
-            // Order is important here. 
-            // Objective-C types and protocols must be declared before they can be used.
-            // The ordering here helps to ensure that types and protocols are declared before they are referenced.
-            //
+			// get all all assembly facets and order by type
+			List<CodeFacet> facets = AssemblyFacet.AllFacets();
+			var orderedFacets = facets.OrderBy(f => f.Type);
 
-            WriteCommentBlock("Order here is Enumerations, Interface protocols, Structs, Classes, Explicit interface classes");
+			// write the facets
+			foreach (CodeFacet facet in orderedFacets) {
+				WriteFacet(facet);
+			}
+		}
 
-            // Write all enumerations
-			foreach (NamespaceFacet @namespace in AssemblyFacet.Namespaces) {
-				foreach (EnumerationFacet enumeration in @namespace.Enumerations) {
-					this.WriteEnumeration(enumeration);
-                }
-            }
+		/// <summary>
+		/// Returns all ObjC import directives required to fully represent the facet
+		/// </summary>
+		/// <param name="facet"></param>
+		/// <returns></returns>
+		/*
+		public List<string> ObjCImportDirectives(CodeFacet facet) {
+			List<string> imports = new List<string>();
 
-            // Write all interfaces.
-            // Order by derivation
-            IList<InterfaceFacet> interfaces = AssemblyFacet.InterfacesOrderedByDerivation();
-            foreach (InterfaceFacet @interface in interfaces) {
+			if (!Config.GenerateTypeBinding(facet)) {
+				return imports;
+			}
 
-                // we don't want to overwrite the class header so we append a suffix.
-                @interface.OutputFileNameSuffix = ".Protocol";
-                WriteInterface(@interface);
-                @interface.OutputFileNameSuffix = "";
-            }
+			// objC type
+			string objCType = facet.ObjCFacet.Type;
+			if (string.IsNullOrEmpty(objCType)) {
+				return imports;
+			}
 
-            // Write all structs
-            foreach (NamespaceFacet @namespace in AssemblyFacet.Namespaces)
-            {
-                foreach (StructFacet @struct in @namespace.Structs)
-                {
-                    WriteStruct(@struct);
-                }
-            }
+			// if the type contains generic parameters
+			if (facet.ContainsGenericParameters) {
+				objCType = "System_Object";
+			}
 
-            // Write all classes
-            // Get all classes in assembly ordered by derivation.
-            // This is necessary to ensure that base type interface declarations occur 
-            // before derived type interface Declarations
-            IList<ClassFacet> classes = AssemblyFacet.ClassesOrderedByDerivation();
-            foreach (ClassFacet @class in classes)
-            {
-                WriteClass(@class);
-            }
+			// import objC facet type
+			string import = String.Format("#import \"{0}.h\"", objCType);
+			imports.Add(import);
 
-            // Write all interface classes
-            // This are classes that provide access to the properties and methods of an explicit interface
-            foreach (InterfaceFacet @interface in interfaces)
-            {
-                WriteInterfaceClass(@interface);
-            }
-        }
+			// import objC facet types for all children
+			List<CodeFacet> children = facet.Children();
+			foreach (CodeFacet child in children) {
+				imports.AddRange(ObjCImportDirectives(child));
+			}
+
+
+				// return a distinct list to remove duplicates
+				imports = imports.Distinct().ToList();
+			imports.Sort();
+			return imports;
+		}
+		*/
+
+		/// <summary>
+		/// Returns all ObjC forward class and protocol declarations required to fully represent the facet.
+		/// </summary>
+		/// <param name="facet"></param>
+		/// <returns></returns>
+		public List<string> ObjCForwardDeclarations(CodeFacet facet) {
+			List<string> imports = new List<string>();
+
+			if (!Config.GenerateTypeBinding(facet)) {
+				return imports;
+			}
+
+			// objC type
+			// note that a constructor has no return type
+			string objCType = facet.ObjCFacet.Type;
+			if (!string.IsNullOrEmpty(objCType)) {
+
+				// if the type is a generic parameter
+				if (facet.IsGenericParameterOrRef()) {
+					objCType = "System_Object";
+				}
+
+				string import = String.Format("@class {0};", objCType);
+				imports.Add(import);
+
+				if (facet.IsArray == true) {
+					import = String.Format("@class {0};", facet.ObjCFacet.BaseType);
+					imports.Add(import);
+				}
+
+				if (facet.GetType() == typeof(InterfaceFacet) || facet.IsInterface) {
+					import = String.Format("@protocol {0}_;", objCType);
+					imports.Add(import);
+
+					import = String.Format("@protocol {0};", objCType);
+					imports.Add(import);
+				}
+			}
+
+			// forward declare objC facet types for all children
+			List<CodeFacet> children = facet.Children();
+			foreach (CodeFacet child in children) {
+				imports.AddRange(ObjCForwardDeclarations(child));
+			}
+
+			// return a distinct list to remove duplicates
+			imports = imports.Distinct().ToList();
+			imports.Sort();
+			return imports;
+		}
+
+		/// <summary>
+		/// Returns all ObjC import directives required to fully derive an ObjC class from its subclass and is adopted protocols.
+		/// These directives constitute the minimum required to define a class in an ObjC interface header file.
+		/// </summary>
+		/// <param name="facet">Facet</param>
+		/// <returns>List of ObjC import directives.</returns>
+		public List<string> ObjCDerivationImportDirectives(CodeFacet facet) {
+			List<string> imports = new List<string>();
+
+			if (!Config.GenerateTypeBinding(facet)) {
+				return imports;
+			}
+
+			foreach (CodeFacet cursor in facet.Derivation()) {
+				string objCType = null;
+				string import = null;
+
+				// for implemented interface we require to import a protocol
+				if (cursor.GetType() == typeof(ImplementedInterfaceFacet)) {
+
+					// if this interface type is not required then just skip it.
+					// this means that some of the interface methods etc may be represented
+					// and others may not depending on the type exclusion settings
+					if (!Config.GenerateTypeBinding(cursor)) {
+						continue;
+					}
+
+					objCType = cursor.ObjCFacet.Type;
+
+					// managed interfaces return null for base type.
+					// see docs for Type.BaseType
+					// https://msdn.microsoft.com/en-us/library/system.type.basetype(v=vs.110).aspx
+					if (string.IsNullOrEmpty(objCType)) {
+						objCType = "System_Object";
+					}
+					import = String.Format("#import \"{0}_Protocol.h\"", objCType);
+				}
+
+				// use the facet itself to derive base info
+				else {
+
+					// detect if base type is excluded from type generation
+					if (cursor.BaseType != null && !Config.GenerateTypeBinding(cursor.BaseType)) {
+						objCType = "System_Object";
+					} else {
+						objCType = cursor.ObjCFacet.BaseType;
+					}
+
+					// empty base type?
+					if (string.IsNullOrEmpty(objCType)) {
+
+						// managed interfaces return null for base type.
+						// see docs for Type.BaseType
+						// https://msdn.microsoft.com/en-us/library/system.type.basetype(v=vs.110).aspx
+						if (cursor.GetType() == typeof(InterfaceFacet)) {
+							objCType = "System_Object";
+						} else {
+
+							// System.Object has no base type
+							if (cursor.ObjCFacet.Type != "System_Object") {
+								throw new Exception("When forming derived import directives an expected base class was missing.");
+							}
+							continue;
+						}
+					}
+					//else {
+					//	throw new Exception("When forming derived import directives an unexpected code facet was encountered.");
+					//}
+
+					import = String.Format("#import \"{0}.h\"", objCType);
+				}
+
+				imports.Add(import);
+			}
+
+			// return a distinct list to remove duplicates
+			imports = imports.Distinct().ToList();
+			imports.Sort();
+			return imports;
+		}
+
+		public void WriteFacet(CodeFacet facet) {
+			Type ft = facet.GetType();
+
+			if (ft == typeof(EnumerationFacet)) {
+				WriteEnumeration((EnumerationFacet)facet);
+			} else if (ft == typeof(InterfaceFacet)) {
+				WriteInterface((InterfaceFacet)facet);
+
+				// provide access to the properties and methods of an explicit interface
+				WriteInterfaceClass((InterfaceFacet)facet);
+
+				// for protocol definitions we don't want to overwrite the class header so we append a suffix.
+				facet.OutputFileNameSuffix = ".Protocol";
+				WriteInterface((InterfaceFacet)facet);
+				facet.OutputFileNameSuffix = "";
+			} else if (ft == typeof(StructFacet)) {
+				WriteStruct((StructFacet)facet);
+			} else if (ft == typeof(ClassFacet)) {
+				WriteClass((ClassFacet)facet);
+			}
+		}
 
 		//
 		// WriteEnumeration
 		//
-		public void WriteEnumeration(EnumerationFacet facet) 
-		{
+		public void WriteEnumeration(EnumerationFacet facet) {
 			if (!Config.GenerateTypeBinding(facet)) {
-				WriteSkippedItem("enumeration", facet.Description());
 				return;
 			}
 
@@ -171,377 +321,368 @@ namespace Dubrovnik.Tools
 			WriteClassEnd(facet);
 		}
 
-        //
-        // WriteClass
-        //
-        public void WriteClass(ClassFacet facet)
-        {
+		//
+		// WriteClass
+		//
+		public void WriteClass(ClassFacet facet) {
 			if (!Config.GenerateTypeBinding(facet)) {
-				WriteSkippedItem("class", facet.Description());
 				return;
 			}
 
-            WriteClassStart(facet, "class");
-            WriteConstructors(facet.Constructors);
-            WriteFields(facet.Fields);
-            WriteProperties(facet.Properties);
-            WriteMethods(facet.Methods);
-            WriteClassEnd(facet);
-        }
+			WriteClassStart(facet, "class");
+			WriteConstructors(facet.Constructors);
+			WriteFields(facet.Fields);
+			WriteProperties(facet.Properties);
+			WriteMethods(facet.Methods);
+			WriteClassEnd(facet);
+		}
 
-        //
-        // WriteStruct
-        //
-        public void WriteStruct(StructFacet facet)
-        {
+		//
+		// WriteStruct
+		//
+		public void WriteStruct(StructFacet facet) {
 			if (!Config.GenerateTypeBinding(facet)) {
-				WriteSkippedItem("structure", facet.Description());
 				return;
 			}
 
 			WriteClassStart(facet, "struct");
-            WriteConstructors(facet.Constructors);
-            WriteFields(facet.Fields);
-            WriteProperties(facet.Properties);
-            WriteMethods(facet.Methods);
-            WriteClassEnd(facet);
-        }
+			WriteConstructors(facet.Constructors);
+			WriteFields(facet.Fields);
+			WriteProperties(facet.Properties);
+			WriteMethods(facet.Methods);
+			WriteClassEnd(facet);
+		}
 
-        //
-        // WriteInterface
-        //
-        public void WriteInterface(InterfaceFacet facet)
-        {
+		//
+		// WriteInterface
+		//
+		public void WriteInterface(InterfaceFacet facet) {
 			if (!Config.GenerateTypeBinding(facet)) {
-				WriteSkippedItem("interface", facet.Description());
 				return;
 			}
 
-			if (OutputFileType == OutputType.Interface)
-            {
-                // write interface as protocol
-                // this will be used to test for ObjC protocol conformance with
-                // Class -conformsToProtocol while still permitting
-                // the expression of explicit managed interfaces.
-                // accessor foward declarations are omitted from the protocol by default.
-                WriteProtocolStart(facet, "interface");
-                WriteProperties(facet.Properties);
-                WriteMethods(facet.Methods);
+			if (OutputFileType == OutputType.Interface) {
+				// write interface as protocol
+				// this will be used to test for ObjC protocol conformance with
+				// Class -conformsToProtocol while still permitting
+				// the expression of explicit managed interfaces.
+				// accessor foward declarations are omitted from the protocol by default.
+				WriteProtocolStart(facet, "interface");
+				WriteProperties(facet.Properties);
+				WriteMethods(facet.Methods);
 				WriteProtocolEnd(facet);
 
-                // write interface as auxiliary protocol
-                // this can be used in expressions such as id <protocol>
-                // where it is helpful if the accessors are predeclared in the protocol
+				// write interface as auxiliary protocol
+				// this can be used in expressions such as id <protocol>
+				// where it is helpful if the accessors are predeclared in the protocol
 				WriteProtocolStart(facet, "interface", true);
-                WriteProperties(facet.Properties);
-                WriteMethods(facet.Methods);
+				WriteProperties(facet.Properties);
+				WriteMethods(facet.Methods);
 				WriteProtocolEnd(facet, true);
-            }
-        }
+			}
+		}
 
-        //
-        // WriteInterfaceClass
-        //
-        public void WriteInterfaceClass(InterfaceFacet facet) 
-		{
+		//
+		// WriteInterfaceClass
+		//
+		public void WriteInterfaceClass(InterfaceFacet facet) {
 			if (!Config.GenerateTypeBinding(facet)) {
-				WriteSkippedItem("interface class", facet.Description());
 				return;
 			}
 
 			if (OutputFileType == OutputType.Interface) {
 
-                // write interface as class interface
-                // this will expose a managed interface as a bound ObjC class
-                WriteClassStart(facet, "interface");
-                WriteProperties(facet.Properties);
-                WriteMethods(facet.Methods);
-                WriteClassEnd(facet);
-            } else {
-                // implementation
-                var options = new Dictionary<string, object> { { "cAPIMethodPrefix", facet.Type + "." } };
-                WriteClassStart(facet, "interface");
-                WriteProperties(facet.Properties, options);
-                WriteMethods(facet.Methods, options);
-                WriteClassEnd(facet);
-            }
-        }
+				// write interface as class interface
+				// this will expose a managed interface as a bound ObjC class
+				WriteClassStart(facet, "interface");
+				WriteProperties(facet.Properties);
+				WriteMethods(facet.Methods);
+				WriteClassEnd(facet);
+			} else {
+				// implementation
+				var options = new Dictionary<string, object> { { "cAPIMethodPrefix", facet.Type + "." } };
+				WriteClassStart(facet, "interface");
+				WriteProperties(facet.Properties, options);
+				WriteMethods(facet.Methods, options);
+				WriteClassEnd(facet);
+			}
+		}
 
-        //
-        // WriteFields
-        //
-        public void WriteFields(IList<FieldFacet> fields)
-        {
-            if (fields.Any())
-            {
-                WritePragmaMark("Fields");
+		//
+		// WriteFields
+		//
+		public void WriteFields(IList<FieldFacet> fields) {
+			if (fields.Any()) {
+				WritePragmaMark("Fields");
 
-                foreach (CodeFacet facet in fields)
-                {
+				foreach (CodeFacet facet in fields) {
 					if (!Config.GenerateTypeBinding(facet)) {
 						WriteSkippedItem("field", facet.Description());
 						continue;
 					}
 
 					WriteFacetAsAccessor(facet);
-                }
-            }
-        }
+				}
+			}
+		}
 
-        //
-        // WriteProperties
-        //
-        public void WriteProperties(IList<PropertyFacet> properties,  Dictionary<string, object> options = null)
-        {
-            if (properties.Any())
-            {
-                WritePragmaMark("Properties");
+		//
+		// WriteProperties
+		//
+		public void WriteProperties(IList<PropertyFacet> properties, Dictionary<string, object> options = null) {
+			if (properties.Any()) {
+				WritePragmaMark("Properties");
 
-                foreach (PropertyFacet facet in properties)
-                {
+				foreach (PropertyFacet facet in properties) {
 					if (!Config.GenerateTypeBinding(facet)) {
 						WriteSkippedItem("property", facet.Description());
 						continue;
 					}
 
 					WriteFacetAsAccessor(facet, options);
-                }
-            }
-        }
+				}
+			}
+		}
 
-        //
-        // WriteMethods
-        //
-        public void WriteMethods(IList<MethodFacet> methods, Dictionary<string, object> options = null)
-        {
-            if (methods.Any())
-            {
-                WritePragmaMark("Methods");
+		//
+		// WriteMethods
+		//
+		public void WriteMethods(IList<MethodFacet> methods, Dictionary<string, object> options = null) {
+			if (methods.Any()) {
+				WritePragmaMark("Methods");
 
-                foreach (MethodFacet facet in methods)
-                {
+				foreach (MethodFacet facet in methods) {
+
 					if (!Config.GenerateTypeBinding(facet)) {
 						WriteSkippedItem("method", facet.Description());
 						continue;
 					}
 
 					WriteFacetAsMethod(facet, options);
-                }
-            }
-        }
+				}
+			}
+		}
 
 
-        //
-        // WriteConstructors
-        //
-        public void WriteConstructors(IList<MethodFacet> methods)
-        {
-            if (methods.Any())
-            {
-                WritePragmaMark("Constructors");
+		//
+		// WriteConstructors
+		//
+		public void WriteConstructors(IList<MethodFacet> methods) {
+			if (methods.Any()) {
+				WritePragmaMark("Constructors");
 
-                foreach (MethodFacet facet in methods)
-                {
+				foreach (MethodFacet facet in methods) {
 					if (!Config.GenerateTypeBinding(facet)) {
 						WriteSkippedItem("constructor", facet.Description());
 						continue;
 					}
 
 					WriteFacetAsMethod(facet);
-                }
-            }
-        }
+				}
+			}
+		}
 
-        public AssemblyFacet AssemblyFacet 
-        {
-            get { return _AssemblyFacet; }
-            set 
-            {
-                _AssemblyFacet = value;
-                string fileName = CodeFacet.ObjCIdentifierFromManagedIdentifier(AssemblyFacet.Name);
-                InterfaceFile = fileName + ".h";
-                ImplementationFile = fileName + ".m";
-            }
-        }
+		public AssemblyFacet AssemblyFacet
+		{
+			get { return _AssemblyFacet; }
+			set
+			{
+				_AssemblyFacet = value;
+				ObjCAssemblyName = CodeFacet.ObjCIdentifierFromManagedIdentifier(AssemblyFacet.Name);
+				InterfaceFile = ObjCAssemblyName + ".h";
+				ImplementationFile = ObjCAssemblyName + ".m";
+			}
+		}
 
-        private void _TransformText()
-        {
-            // build an operation log
-            StringBuilder log = new StringBuilder();
+		private void _TransformText() {
+			// build an operation log
+			StringBuilder log = new StringBuilder();
 
-            // get configuration info for the assembly
-            Config = ConfigObjC.ConfigObjCForAssembly(XMLFilePath);
+			// get configuration info for the assembly
+			Config = ConfigObjC.ConfigObjCForAssembly(XMLFilePath);
 
-            // generate the interface
-            log.AppendFormat("Generating interface file {0}...\n", this.InterfaceFile);
-            OutputFileType = OutputType.Interface;
-            GenerateObjC(null);
-            InterfaceOutput = Output();
-            log.AppendFormat("Interface file {0} done\n", this.InterfaceFile);
+			// generate the interface
+			log.AppendFormat("Generating interface file {0}...\n", this.InterfaceFile);
+			OutputFileType = OutputType.Interface;
+			GenerateObjC(null);
+			InterfaceOutput = Output();
+			log.AppendFormat("Interface file {0} done\n", this.InterfaceFile);
 
-            // generate the implementation 
-            string include = string.Format("#import \"{0}\"", this.InterfaceFile);
-            log.AppendFormat("Generating implementation file {0}...\n", this.ImplementationFile);
-            OutputFileType = OutputType.Implementation;
-            GenerateObjC(include);
-            ImplementationOutput = Output();
-            log.AppendFormat("Implementation file {0} done\n", this.ImplementationFile);
+			// generate the implementation 
+			string include = string.Format("#import \"{0}\"", this.InterfaceFile);
+			log.AppendFormat("Generating implementation file {0}...\n", this.ImplementationFile);
+			OutputFileType = OutputType.Implementation;
+			GenerateObjC(include);
+			ImplementationOutput = Output();
+			log.AppendFormat("Implementation file {0} done\n", this.ImplementationFile);
 
-            // get configuration info for the assembly
-            PostflightObjC postflight = PostflightObjC.PostflightObjCForAssembly(XMLFilePath);
+			// get configuration info for the assembly
+			PostflightObjC postflight = PostflightObjC.PostflightObjCForAssembly(XMLFilePath);
 
-            // write the log string as the final output of this template
-            WriteLine(log.ToString());
-        }
+			// write the log string as the final output of this template
+			WriteLine(log.ToString());
+		}
 
-        //
-        // ManagedTypeAssociation
-        //
-        private class ManagedTypeAssociation
-        {
-            private string _ManagedTypeInvoke;
+		//
+		// ManagedTypeAssociation
+		//
+		private class ManagedTypeAssociation {
+			private string _ManagedTypeInvoke;
 
-            // Full type name 
-            // eg: System.Int32
-            public string ManagedType { get; set; }
+			// Full type name 
+			// eg: System.Int32
+			public string ManagedType { get; set; }
 
-            // Type alias 
-            // eg: int
-            public string ManagedTypeAlias { get; set; }
+			// Type alias 
+			// eg: int
+			public string ManagedTypeAlias { get; set; }
 
-            // Invoke type alias 
-            // Used when invoking runtime methods
-            // eg: System.Single, alias = float, invoke = single
-            public string ManagedTypeInvoke
-            {
-                get
-                {
-                    if (_ManagedTypeInvoke == null)
-                    {
-                        if (ManagedTypeAlias != null)
-                        {
-                            return ManagedTypeAlias;
-                        }
+			// Invoke type alias 
+			// Used when invoking runtime methods
+			// eg: System.Single, alias = float, invoke = single
+			public string ManagedTypeInvoke
+			{
+				get
+				{
+					if (_ManagedTypeInvoke == null) {
+						if (ManagedTypeAlias != null) {
+							return ManagedTypeAlias;
+						}
 
-                        return ManagedType;
-                    }
+						return ManagedType;
+					}
 
-                    return _ManagedTypeInvoke;
-                }
+					return _ManagedTypeInvoke;
+				}
 
-                set
-                {
-                    _ManagedTypeInvoke = value;
-                }
-            }
-        }
+				set
+				{
+					_ManagedTypeInvoke = value;
+				}
+			}
+		}
 
-        //
-        // ObjCTypeAssociation
-        //
-        private class ObjCTypeAssociation
-        {
-            private string _SetterFormat = null;
-            private string[] _NumericTypes = {  "void",
-                                                "char", "unichar",
-                                                "int8_t", "int16_t", "int32_t", "int64_t", 
-                                                "uint8_t", "uint16_t", "uint32_t", "uint64_t",
-                                                "short", "long",
-                                                "double", "float", 
-                                                "BOOL", 
-                                             };
-            public ManagedTypeAssociation ManagedTypeAssociate { get; set; }
-            public string ObjCType { get; set; }
-            public string GetterFormat { get; set; }
-            public string GetterMethod { get; set; }
-            public bool IsNSObject
-            {
-                get
-                {
-                    // get element type for pointers
-                    string elementType = ObjCType.Replace("*", "");
-                    elementType = elementType.Replace(" ", "");
+		//
+		// ObjCTypeAssociation
+		//
+		private class ObjCTypeAssociation {
+			private string _SetterFormat = null;
+			private string[] _NumericTypes = {  "void",
+												"char", "unichar",
+												"int8_t", "int16_t", "int32_t", "int64_t",
+												"uint8_t", "uint16_t", "uint32_t", "uint64_t",
+												"short", "long",
+												"double", "float",
+												"BOOL",
+											 };
+			public ManagedTypeAssociation ManagedTypeAssociate { get; set; }
+			public string ObjCType { get; set; }
+			public string GetterFormat { get; set; }
+			public string GetterMethod { get; set; }
+			public bool IsNSObject
+			{
+				get
+				{
+					// get element type for pointers
+					string elementType = ObjCType.Replace("*", "");
+					elementType = elementType.Replace(" ", "");
 
-                    return !(_NumericTypes.Contains<string>(elementType));
-                }
-            }
+					return !(_NumericTypes.Contains<string>(elementType));
+				}
+			}
 
-            public static string UniqueTypeName(string objCDecl, string managedType)
-            {
-                return objCDecl + "+" + managedType;
-            }
+			public static string UniqueTypeName(string objCDecl, string managedType) {
+				return objCDecl + "+" + managedType;
+			}
 
-            public string UniqueTypeNameForManagedType(string managedType)
-            {
-                return ObjCTypeAssociation.UniqueTypeName(this.ObjCTypeDecl, managedType);
-            }
+			public string UniqueTypeNameForManagedType(string managedType) {
+				return ObjCTypeAssociation.UniqueTypeName(this.ObjCTypeDecl, managedType);
+			}
 
-            public string ObjCTypeDecl
-            {
-                get
-                {
-                    string value = ObjCType;
-                    if (IsNSObject)
-                    {
-                        value += " *";
-                    }
-                    return value;
-                }
-            }
+			public string ObjCTypeDecl
+			{
+				get
+				{
+					string value = ObjCType;
+					if (IsNSObject) {
+						value += " *";
+					}
+					return value;
+				}
+			}
 
-            public string SetterFormat
-            {
-                get
-                {
-                    string value = _SetterFormat;
+			public string SetterFormat
+			{
+				get
+				{
+					string value = _SetterFormat;
 
-                    if (value == null)
-                    {
-                        if (IsNSObject)
-                        {
-                            // Default setter formatter for types represented by an NSObject instance.
-                            // Note that some Managed value types such as DateTime are represented by NSObject instances.
-                            // Managed numeric types are represented by primitive numeric types in Obj-C.
-									value = "[{0} monoRTInvokeArg]";
-                        }
-                        else
-                        {
-                            // Default setter formatter for Obj-C numeric type
-                            value = "DB_VALUE({0})";
-                        }
-                    }
-                    return value;
-                }
-                set
-                {
-                    _SetterFormat = value;
-                }
-            }
-            public string SetterMethod { get; set; }
-        }
+					if (value == null) {
+						if (IsNSObject) {
+							// Default setter formatter for types represented by an NSObject instance.
+							// Note that some Managed value types such as DateTime are represented by NSObject instances.
+							// Managed numeric types are represented by primitive numeric types in Obj-C.
+							value = "[{0} monoRTInvokeArg]";
+						} else {
+							// Default setter formatter for Obj-C numeric type
+							value = "DB_VALUE({0})";
+						}
+					}
+					return value;
+				}
+				set
+				{
+					_SetterFormat = value;
+				}
+			}
+			public string SetterMethod { get; set; }
+		}
 
-        //
-        // ObjCNonAssociatedTypeIsNSObject
-        //
-        //public static bool ObjCNonAssociatedTypeIsNSObject(CodeFacet facet)
-        //{
-            // This assessment is only valid for non associated types.
-            // ie: System.String will fail this test even though its ObjC rep is NSString.
-            // Only call this method if associated type info cannot be found.
-            // TODO: determine if association can be tested for in this method.
-            // Logic :
-            // Managed structs are value types, ObjC rep is an NSObject
-          //  return (!facet.IsValueType || facet.IsStruct);
-        //}
+		List<string> UnsafeObjCClassMethodNames() { 
+			return new List<string> {
+									"load",	// +load will get called when the unmanaged framework loads. The managed code will likely not expect this.
+									"initialize",
+									"alloc",
+									"new",
+									"class",
+									"superclass"
+									};
+			}
 
-        //
-        // ObjCTypeNameFromManagedTypeName
-        //
-        string ObjCTypeNameFromManagedTypeName(string managedType)
+		List<string> UnsafeObjCMethodNames() {
+			return new List<string> {
+									"init" // methods beginning with init are expected to return a type related to the receiver
+			};
+		}
+
+		//
+		// ObjCNonAssociatedTypeIsNSObject
+		//
+		//public static bool ObjCNonAssociatedTypeIsNSObject(CodeFacet facet)
+		//{
+		// This assessment is only valid for non associated types.
+		// ie: System.String will fail this test even though its ObjC rep is NSString.
+		// Only call this method if associated type info cannot be found.
+		// TODO: determine if association can be tested for in this method.
+		// Logic :
+		// Managed structs are value types, ObjC rep is an NSObject
+		//  return (!facet.IsValueType || facet.IsStruct);
+		//}
+
+		//
+		// ObjCTypeNameFromManagedTypeName
+		//
+		string ObjCTypeNameFromManagedTypeName(string managedType)
         {
             string value = managedType;
 
             if (managedType == null) return "DBManagedObject";
+
+			// there are situations where we can encounter an excluded type
+			// (such as the base class for a whitelisted type)
+			if (!Config.GenerateTypeBinding(managedType)) {
+				return "System_Object";
+			}
 
             if (ObjCTypeAssociations.ContainsKey(managedType) && ObjCTypeAssociations[managedType].ObjCType != null)
             {
@@ -554,32 +695,36 @@ namespace Dubrovnik.Tools
         //
         // ObjCTypeDeclFromManagedFacet()
         //
-        string ObjCTypeDeclFromManagedFacet(CodeFacet managedFacet)
-        {
-            string decl = "";
-            string managedType = ManagedTypeForAssociation(managedFacet);
+        string ObjCTypeDeclFromManagedFacet(CodeFacet managedFacet, bool allowObjCTypeAssociation = true) 
+		{
+			string decl = "";
 
+			// if the facet represents a generic parameter (or ref) then we
+			// won't know the actual type until runtime, so we default to the System_Object;
+			if (managedFacet.IsGenericParameterOrRef()) {
+				decl = "System_Object *";
+				return decl;
+			}
+
+            string managedType = ManagedTypeForAssociation(managedFacet);
             if (managedType == null) return "????";
 
-            if (!ObjCTypeAssociations.ContainsKey(managedType))
-            {
-                // If no explicit type found then return a canonical type name.
-                decl = ObjCIdentifierFromManagedIdentifier(managedType);
+            if (allowObjCTypeAssociation && ObjCTypeAssociations.ContainsKey(managedType)) {
+				decl = ObjCTypeAssociations[managedType].ObjCTypeDecl;
 
-                // if ObjC rep is NSObject or pointer then append deref operator.
-                if (ObjCRepresentationIsObject(managedFacet) || managedFacet.IsPointer) {
-                    decl += " *";
-                }
+				if (managedFacet.IsPointer) {
+					decl += " *";
+				}
             }
-            else
-            {
-                decl = ObjCTypeAssociations[managedType].ObjCTypeDecl;
+            else {
+				// canonical type name.
+				decl = ObjCIdentifierFromManagedIdentifier(managedType);
 
-                if (managedFacet.IsPointer)
-                {
-                    decl += " *";
-                }
-            }
+				// if ObjC rep is NSObject or pointer then append deref operator.
+				//if (ObjCRepresentationIsObject(managedFacet) || managedFacet.IsPointer) {
+					decl += " *";
+				//}
+			}
 			   
             return decl;
         }
@@ -716,10 +861,13 @@ namespace Dubrovnik.Tools
                 // class or interface facet
                 if (facet is InterfaceFacet)
                 {
-                    var interfaceFacet = (InterfaceFacet)facet;
+					var interfaceFacet = (InterfaceFacet)facet;
                     IList<ImplementedInterfaceFacet> implementedInterfaces = interfaceFacet.ImplementedInterfaces;
 
-                    if (implementedInterfaces.Count > 0)
+					// heed required type binding
+					implementedInterfaces = implementedInterfaces.Where(f => Config.GenerateTypeBinding(f)).ToList();
+
+					if (implementedInterfaces.Count > 0)
                     {
                         // we may wish to naively filter out system interfaces while full
                         // system code generation is pending.
@@ -727,14 +875,12 @@ namespace Dubrovnik.Tools
                         if (Config.FilterSystemInterfaces)
                         {
                             var interfaces = new List<ImplementedInterfaceFacet>();
-                            foreach (
-                                ImplementedInterfaceFacet implementedInterfaceFacet in implementedInterfaces)
+                            foreach (ImplementedInterfaceFacet implementedInterfaceFacet in implementedInterfaces)
                             {
                                 string interfaceType = implementedInterfaceFacet.Type;
-                                bool isNaiveSystemType = interfaceType.StartsWith("System.",
-                                    StringComparison.OrdinalIgnoreCase);
+                                bool isNativeSystemType = interfaceType.StartsWith("System.", StringComparison.OrdinalIgnoreCase);
 
-                                if (!isNaiveSystemType)
+                                if (!isNativeSystemType)
                                 {
                                     interfaces.Add(implementedInterfaceFacet);
                                 }
@@ -754,7 +900,6 @@ namespace Dubrovnik.Tools
                                 // that will be used to define a class representing the interface
                                 codeFacets.Insert(0, facet);
                             }
-
 
                             value = " <";
                             int i = 0;
@@ -1138,22 +1283,22 @@ namespace Dubrovnik.Tools
 
             // System.Array
             manTA = new ManagedTypeAssociation { ManagedType = "System.Array"};
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Array", GetterFormat = "[DBSystem_Array arrayWithMonoArray:DB_ARRAY({0})]" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "System_Array", GetterFormat = "[System_Array arrayWithMonoArray:DB_ARRAY({0})]" };
             AssociateTypes(manTA, objcTA);
 
             // System.Collections.ArrayList
             manTA = new ManagedTypeAssociation { ManagedType = "System.Collections.ArrayList" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Collections_ArrayList", GetterFormat = "[DBSystem_Collections_ArrayList listWithMonoObject:{0}]" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "System_Collections_ArrayList", GetterFormat = "[System_Collections_ArrayList listWithMonoObject:{0}]" };
             AssociateTypes(manTA, objcTA);
 
             // System.Collections.Generic.List
             manTA = new ManagedTypeAssociation { ManagedType = "System.Collections.Generic.List`1" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Collections_Generic_ListA1" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "System_Collections_Generic_ListA1" };
             AssociateTypes(manTA, objcTA);
 
             // System.Collections.Generic.Dictionary
             manTA = new ManagedTypeAssociation { ManagedType = "System.Collections.Generic.Dictionary`2" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Collections_Generic_DictionaryA2" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "System_Collections_Generic_DictionaryA2" };
             AssociateTypes(manTA, objcTA);
 
             // System.Byte[]
@@ -1163,12 +1308,12 @@ namespace Dubrovnik.Tools
 
             // ObjectSet
             manTA = new ManagedTypeAssociation { ManagedType = "System.Data.Entity.Core.Objects.ObjectSet`1"};
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Data_Entity_Core_Objects_ObjectSetA1", GetterFormat = "[DBSystem_Data_Entity_Core_Objects_ObjectSetA1 objectSetWithMonoObject:{0}]" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "System_Data_Entity_Core_Objects_ObjectSetA1", GetterFormat = "[System_Data_Entity_Core_Objects_ObjectSetA1 objectSetWithMonoObject:{0}]" };
             AssociateTypes(manTA, objcTA);
 
             // ObjectContext
             manTA = new ManagedTypeAssociation { ManagedType = "System.Data.Entity.Core.Objects.ObjectContext" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Data_Entity_Core_Objects_ObjectContext" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "System_Data_Entity_Core_Objects_ObjectContext" };
             AssociateTypes(manTA, objcTA);
 
             //===============================================================================================
@@ -1176,9 +1321,9 @@ namespace Dubrovnik.Tools
             //===============================================================================================
 
             // System.ValueType - struct
-            manTA = new ManagedTypeAssociation { ManagedType = "System.ValueType" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBManagedObject", GetterFormat = "[DBManagedObject objectWithMonoObject:{0}]" };
-            AssociateTypes(manTA, objcTA);
+            //manTA = new ManagedTypeAssociation { ManagedType = "System.ValueType" };
+            //objcTA = new ObjCTypeAssociation { ObjCType = "DBManagedObject", GetterFormat = "[DBManagedObject objectWithMonoObject:{0}]" };
+            //AssociateTypes(manTA, objcTA);
 
             // System.Void
             manTA = new ManagedTypeAssociation { ManagedType = "System.Void", ManagedTypeAlias = "void"};
@@ -1267,7 +1412,7 @@ namespace Dubrovnik.Tools
 
             // System.Enum
             manTA = new ManagedTypeAssociation { ManagedType = "System.Enum" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "DBSystem_Enum", GetterFormat = "[DBSystem_Enum objectWithMonoObject:{0}]" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "System_Enum", GetterFormat = "[System_Enum objectWithMonoObject:{0}]" };
             AssociateTypes(manTA, objcTA);
         }
 

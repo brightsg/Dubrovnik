@@ -87,20 +87,64 @@ void WriteFileBanner()
 public void WriteModuleBanner(CodeFacet facet, string module)
 {
 	string outputFile = facet.OutputFileName() + OutputFileSuffix();
-
-	// There is an argument that says - Lets add the date here!
-	// However this leads to what I think are excessively noisey commits.
 #>
-
 //++<#=GenToolName#> <#=outputFile#>
 //
 // Managed <#=module#> : <#=facet.Name#>
 //
-<#+	
-	if (OutputFileType == OutputType.Implementation)
-    {
-		WriteModuleFeatureRequirements();
-    }
+<#+
+	if (OutputFileType == OutputType.Interface)
+	{
+		// ObjC interface
+		string optionalImport = facet.ObjCFacet.Type + ".__Extra__.h";
+		List<string> declarations =  ObjCForwardDeclarations(facet);
+		string forwardDeclarations = String.Join("\n", declarations);
+		string derivationImportDirectives = String.Join("\n", ObjCDerivationImportDirectives(facet));
+#>
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("<#=optionalImport#>")
+#import "<#=optionalImport#>"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+<#=forwardDeclarations#>
+
+//
+// Import superclass and adopted protocols
+//
+<#=derivationImportDirectives#>
+
+<#+
+	}
+	else 
+	{
+		string optionalImport = ObjCAssemblyName + ".private.h";
+#>
+
+// ARC is required
+#if  ! __has_feature(objc_arc)
+#error This file requires ARC. 
+#endif
+
+// Local assembly import
+#import "<#=InterfaceFile#>"
+
+#if __has_include("<#=optionalImport#>")
+#import "<#=optionalImport#>"    // Not auto generated. Add manually to project.
+#endif
+
+<#+
+	}
 }
 
 //
@@ -154,38 +198,15 @@ public void WriteInterfaceFilePreliminaries()
 <#+  
 	}
 
-	bool commentOutput = false;
-	foreach (NamespaceFacet @namespace in AssemblyFacet.Namespaces)
-	{
-		// collect facets that render as Obj-C classes
-		IList<CodeFacet> facets = new List<CodeFacet>();
-		facets.AddRange(@namespace.Classes);
-		facets.AddRange(@namespace.Interfaces);
-		facets.AddRange(@namespace.Structs);
-		facets.AddRange(@namespace.Enumerations);
-
-		// write class predeclarations 
-		if (facets.Count() > 0 && !commentOutput) 
-		{
 #>
 
 //
-// Forward class declarations and class aliases
+// Class aliases
 //
 <#+     
-			commentOutput = true;   
-		}
-
-		foreach (CodeFacet facet in facets)
-		{
-		  	if (!Config.GenerateTypeBinding(facet)) {
-				WriteSkippedItem("type", facet.Description());
-			}
-			else 
-			{
-				WriteClassPredeclaration(facet);
-			}
-		}	
+	foreach (CodeFacet facet in AssemblyFacet.AllFacets().OrderBy(f => f.Type))
+	{
+		WriteClassPredeclaration(facet);
 	}	
 }
 
@@ -195,12 +216,14 @@ static List<string> _classDefines = new List<string>();
 //
 public void WriteClassPredeclaration(CodeFacet facet)
 {
+	if (!Config.GenerateTypeBinding(facet)) {
+		WriteSkippedItem("type", facet.Description());
+		return;
+	}
+
 	string namespacePrefix = ObjCAcronymFromManagedIdentifier(facet.TypeNamespace);
 	string classDefine = ObjCIdentifierFromManagedIdentifier(namespacePrefix + facet.Name) + "_";
 	string classObjCType = facet.ObjCFacet.Type;
-#>
-@class <#=classObjCType#>;
-<#+
 
    // collision warning facility can be useful but it's loud when it kicks in!
 	bool warnAboutCollisions = false;
@@ -220,13 +243,11 @@ public void WriteClassPredeclaration(CodeFacet facet)
 			_classDefines.Add(classDefine);
 #>
 #define <#=@classDefine#> <#=@classObjCType#>
-
 <#+
 		}
 		else {
 #>
 //#define <#=@classDefine#> <#=@classObjCType#> // WARNING: duplicate detected in file scope
-
 <#+
 		}	
 	}
@@ -545,16 +566,32 @@ typedef NS_ENUM(<#=objCEnumType#>, enum<#=objCType#>) {
 // 
 public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> options = null)
 {
-	// define getters and setters
+	// setup the accessor
 	string accessorName = facet.Name;
 	string accessorDescription = facet is PropertyFacet ? "property" : "field";
+
+	// define getters and setters
 	string getterName = accessorName.FirstCharacterToLower();
 	string setterName = "set" + accessorName.FirstCharacterToUpper();
+	string objCMethodType = null; // character denoting whether the method is defined on the class or the instance
+	if (facet.IsStatic) {
+		objCMethodType = "+";
+
+		// decorate class accessor method names known to be unsafe
+		if (UnsafeObjCClassMethodNames().Contains(getterName))	{
+			getterName += "_";
+			setterName += "_";
+		}
+	}
+	else  {
+		objCMethodType = "-";
+	}
+
 	string accessorType = facet.Type;
 	string objCTypeDecl = ObjCTypeDeclFromManagedFacet(facet);
 	bool isObjectProperty = ObjCRepresentationIsObject(facet);
-	string monoObjectPtr = "MonoObject *";
-	
+	string monoObjectPtr = "MonoObject *";	
+
 	// some NSObject properties need a bit of TLC
 	List<string> baseProperties = new List<string> {"description"};
 
@@ -592,7 +629,6 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
 	string managedValueToObjC = ManagedValueToObjc(ManagedVariableName, facet);
 	string objCValueToMono = ObjCValueToManaged(ObjCVariableName, objCTypeDecl, facet);
 	ObjCTypeAssociation objCTypeAssociate = ObjCTypeAssociate(facet);
-	string objCMethodType = !facet.IsStatic ? "-" : "+";
 
 	// form mono method invocation name.
 	// a prefix may be required, for instance when calling explicit interface properties.
@@ -823,7 +859,7 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
 // WriteFacetAsMethod
 //
 public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> options = null)
-{
+{	
 	// In order to ensure compilation of an assembly and its references 
 	// the generated code must resolve all types.
 	//
@@ -855,49 +891,38 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 	string objCMethodType = null;
 
 	// Method name. We do some rudimentary processing to prevent troublesome behaviour.
-	// We may have to prefix certian method names to conform to ARC's semantics
+	// We may have to prefix certain method names to conform to ARC's semantics
 	// see https://stackoverflow.com/questions/22529454/simple-rules-for-naming-methods-compatible-with-arc-naming-conventions
 	string monoMethodName = facet.Name;
 	string objCMethodName = monoMethodName.FirstCharacterToLower();
-	List<string> unsafeObjCMethodNames = null;
-	List<string> unsafeObjCInitMethodNamesStartingWith = null;
 	if (facet.IsStatic || isConstructorMethod) 
 	{
 		objCMethodType = "+";
 		if (facet.Parameters.Count == 0) 
 		{
-			unsafeObjCMethodNames = new List<string> {
-												"load",	// +load will get called when the unmanaged framework loads. The managed code will likely not expect this.
-												"initialize",	
-												"alloc",
-												"new",
-												"class",
-												"superclass"
-											};
+			// decorate class method names known to be unsafe
+			if (UnsafeObjCClassMethodNames().Contains(objCMethodName))	{
+				objCMethodName += "_";
+			}
 		}
 	}
 	else 
 	{
-		unsafeObjCInitMethodNamesStartingWith = new List<string> {
-												"init" 
-		};
 		objCMethodType = "-";
-	}
-	if (unsafeObjCMethodNames != null && unsafeObjCMethodNames.Contains(objCMethodName))
-	{
-		objCMethodName += "_";
-	}
-
-	// methods beginning with init are expected to return a type related to the receiver
-	if (unsafeObjCInitMethodNamesStartingWith != null && 
-		facet.Type != "System.Void" &&
-		unsafeObjCInitMethodNamesStartingWith.Any(p => objCMethodName.StartsWith(p, false, null)))
-	{
-			objCMethodName = "db_" + objCMethodName;
+		
+		// decorate instance method names known to be unsafe
+		if (facet.Type != "System.Void" && UnsafeObjCMethodNames().Any(p => objCMethodName.StartsWith(p, false, null))) {
+				objCMethodName = "db_" + objCMethodName;
+		}
 	}
 
-	// return type
-	string objCTypeDecl = ObjCTypeDeclFromManagedFacet(facet);
+	// Get ObjC declaration for method return type.
+	// In general we want to allow the type association mechanism to substitute
+	// native objC types for managed types where appropriate.
+	// For example: a managed method that returns a System_DateTime results in an native method that returns an NSDate *.
+	// However, when defining a constructor we don't want to permit this association to occur as the constructor
+	// won't then contruct a managed instance at all.
+	string objCTypeDecl = ObjCTypeDeclFromManagedFacet(facet, !isConstructorMethod);
 	if (facet.IsInterface) 
 	{
 		objCTypeDecl = ObjCConformingTypeFromObjCTypeDecl(objCTypeDecl, true);
@@ -951,6 +976,13 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 	int idx = 0;
 	foreach (ParameterFacet parameter in facet.Parameters) 
 	{
+		// Known issues:
+		//
+		// 1. Rendering of T[]& fails as in System.Array:Resize<T>(ref T[], int)
+		// <Parameter Name="array" Type="T[]&" ElementType="T[]" IsByRef="True" ContainsGenericParameters="True"/>
+		// Issue : T[]& renders as T**
+		// Workaround: exclude in config.objc.xml like so <string>System.Array:Resize</string>
+		// Suggested fix: provide a separate Element xml element to detail the ElementType more fully.
 
 		// if the mono parameters is passed by ref then strip
 		// the suffix to enable type association
@@ -1115,11 +1147,22 @@ public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> opt
 			// to minimize the parameter length.
 			// Time will tell how it flies.
 			objCParamOverloadSuffix = ObjCMinimalIdentifierFromManagedIdentifier(monoParameterTypeInvoke);
+
+			if (parameter.IsArray) 
+			{
+				objCParamOverloadSuffix += "Array";
+			}
+
+			if (parameter.IsPointer) 
+			{
+				objCParamOverloadSuffix += "Ptr";
+			}
       }
 		if (parameter.IsByRef) 
 		{
 			objCParamOverloadSuffix += "Ref";
-        }
+      }
+
 		if (objCParamOverloadSuffix.Length > 0) 
 		{
 			objCParamName += objCParamOverloadSuffix.FirstCharacterToUpper();
