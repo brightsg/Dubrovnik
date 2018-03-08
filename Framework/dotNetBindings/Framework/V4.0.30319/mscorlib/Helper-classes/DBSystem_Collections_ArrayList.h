@@ -20,9 +20,9 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBSystem_Collections_IList.h"
+#import "System_Collections_IList.h"
 
-@interface DBSystem_Collections_ArrayList : DBSystem_Collections_IList {
+@interface System_Collections_ArrayList : System_Collections_IList {
 
 }
 

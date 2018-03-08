@@ -19,18 +19,18 @@
 // License along with this library; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
-#import "DBSystem_Drawing_Size.h"
+#import "System_Drawing_Size.h"
 
-@implementation DBSystem_Drawing_Size
+@implementation System_Drawing_Size
 
-+ (DBSystem_Drawing_Size *)sizeWithMonoObject:(MonoObject *)monoObject {
-	DBSystem_Drawing_Size *size = [[[self class] alloc] initWithMonoObject:monoObject];
++ (System_Drawing_Size *)sizeWithMonoObject:(MonoObject *)monoObject {
+	System_Drawing_Size *size = [[[self class] alloc] initWithMonoObject:monoObject];
 	
 	return(size);
 }
 
 + (NSSize)convertToNSSize:(MonoObject *)monoObject {
-	DBSystem_Drawing_Size *monoSize = [[DBSystem_Drawing_Size alloc] initWithMonoObject:monoObject];
+	System_Drawing_Size *monoSize = [[System_Drawing_Size alloc] initWithMonoObject:monoObject];
 	NSSize size = NSMakeSize((float)[monoSize width],(float)[monoSize height]);
 	
 	

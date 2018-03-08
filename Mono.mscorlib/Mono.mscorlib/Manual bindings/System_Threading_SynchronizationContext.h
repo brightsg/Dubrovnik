@@ -1,4 +1,4 @@
-﻿#import "System_Threading_SendOrPostCallback.h"
+#import "System_Threading_SendOrPostCallback.h"
 //++Dubrovnik.CodeGenerator System_Threading_SynchronizationContext.h
 //
 // Managed class : SynchronizationContext
@@ -60,6 +60,6 @@
 	// Managed method name : Wait
 	// Managed return type : System.Int32
 	// Managed param types : System.IntPtr[], System.Boolean, System.Int32
-    - (int32_t)wait_withWaitHandles:(DBSystem_Array *)p1 waitAll:(BOOL)p2 millisecondsTimeout:(int32_t)p3;
+    - (int32_t)wait_withWaitHandles:(System_Array *)p1 waitAll:(BOOL)p2 millisecondsTimeout:(int32_t)p3;
 @end
 //--Dubrovnik.CodeGenerator

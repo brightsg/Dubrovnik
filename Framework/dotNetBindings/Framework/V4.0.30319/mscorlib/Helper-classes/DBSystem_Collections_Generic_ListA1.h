@@ -10,14 +10,14 @@
 //#import "Interface_IList.h"
 //#import "Interface_IEnumerable_T.h"
 
-@class DBSystem_Collections_IList;
+@class System_Collections_IList;
 
-@interface DBSystem_Collections_Generic_ListA1 : System_Collections_Generic_ListA1
+@interface System_Collections_Generic_ListA1 : System_Collections_Generic_ListA1
 
 + (instancetype)listWithMonoObject:(MonoObject *)monoObject;
 + (instancetype)listWithObjects:(id)object;
 
-- (DBSystem_Collections_IList *)list;
+- (System_Collections_IList *)list;
 - (NSMutableArray *)mutableArray;
 - (NSArray *)array;
 - (void)add:(System_Object *)object;

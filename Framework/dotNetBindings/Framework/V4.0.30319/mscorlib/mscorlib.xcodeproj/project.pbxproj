@@ -10,7 +10,6 @@
 		AB58212617CBD71A00599DBB /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
 		AB952C3517F1B17100E604D3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		ABA3A5FE18ECA9AF006756AA /* mscorlib.__Extra__.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mscorlib.__Extra__.h; sourceTree = "<group>"; };
-		ABB375C21986B5D300EE7517 /* Generated-bindings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Generated-bindings"; sourceTree = "<group>"; };
 		ABB375C41986B5E300EE7517 /* DBSystem_Array.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBSystem_Array.h; sourceTree = "<group>"; };
 		ABB375C51986B5E300EE7517 /* DBSystem_Array.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Array.m; sourceTree = "<group>"; };
 		ABB375C61986B5E300EE7517 /* DBSystem_Collections_ArrayList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBSystem_Collections_ArrayList.h; sourceTree = "<group>"; };
@@ -38,7 +37,6 @@
 			isa = PBXGroup;
 			children = (
 				ABB375D71986B66400EE7517 /* Code generator XML */,
-				ABB375C21986B5D300EE7517 /* Generated-bindings */,
 				ABB375C31986B5E300EE7517 /* Helper-classes */,
 				ABA3A5FD18ECA9AF006756AA /* include */,
 				AB58212617CBD71A00599DBB /* makefile */,

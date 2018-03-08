@@ -22,7 +22,7 @@
 
 #import "System_IO_FileInfo.h"
 
-@interface DBSystem_IO_FileInfo : System_IO_FileInfo {
+@interface System_IO_FileInfo : System_IO_FileInfo {
 
 }
 

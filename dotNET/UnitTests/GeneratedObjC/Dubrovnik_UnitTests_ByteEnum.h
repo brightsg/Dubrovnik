@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ByteEnum.h
+//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ByteEnum.h
 //
 // Managed enumeration : ByteEnum
 //
@@ -10,7 +10,7 @@ typedef NS_ENUM(uint8_t, enumDubrovnik_UnitTests_ByteEnum) {
 	Dubrovnik_UnitTests_ByteEnum_val3 = 3,
 	Dubrovnik_UnitTests_ByteEnum_val4 = 4,
 };
-@interface Dubrovnik_UnitTests_ByteEnum : DBSystem_Enum
+@interface Dubrovnik_UnitTests_ByteEnum : System_Enum
 
 #pragma mark -
 #pragma mark Setup

@@ -8,7 +8,7 @@
 
 //#import "System_Collections_Generic_DictionaryA2.h"
 
-@interface DBSystem_Collections_Generic_DictionaryA2 : System_Collections_Generic_DictionaryA2
+@interface System_Collections_Generic_DictionaryA2 : System_Collections_Generic_DictionaryA2
 + (instancetype)dictionaryWithMonoObject:(MonoObject *)monoObject;
 - (id)objectForKey:(id)key;
 - (id)valueForKey:(id)key;

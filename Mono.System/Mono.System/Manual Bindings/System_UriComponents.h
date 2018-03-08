@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_UriComponents.h
+//++Dubrovnik.CodeGenerator System_UriComponents.h
 //
 // Managed enumeration : UriComponents
 //
@@ -23,7 +23,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriComponents) {
 	System_UriComponents_StrongPort = 128,
 	System_UriComponents_UserInfo = 2,
 };
-@interface System_UriComponents : DBSystem_Enum
+@interface System_UriComponents : System_Enum
 
 #pragma mark -
 #pragma mark Setup

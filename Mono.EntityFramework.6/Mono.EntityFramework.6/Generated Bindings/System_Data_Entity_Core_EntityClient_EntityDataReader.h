@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_Data_Entity_Core_EntityClient_EntityDataReader.h
+//++Dubrovnik.CodeGenerator System_Data_Entity_Core_EntityClient_EntityDataReader.h
 //
 // Managed class : EntityDataReader
 //
@@ -81,7 +81,7 @@
 	// Managed method name : GetChars
 	// Managed return type : System.Int64
 	// Managed param types : System.Int32, System.Int64, System.Char[], System.Int32, System.Int32
-    - (int64_t)getChars_withOrdinal:(int32_t)p1 dataOffset:(int64_t)p2 buffer:(DBSystem_Array *)p3 bufferOffset:(int32_t)p4 length:(int32_t)p5;
+    - (int64_t)getChars_withOrdinal:(int32_t)p1 dataOffset:(int64_t)p2 buffer:(System_Array *)p3 bufferOffset:(int32_t)p4 length:(int32_t)p5;
 
 	// Managed method name : GetDataReader
 	// Managed return type : System.Data.Common.DbDataReader
@@ -171,7 +171,7 @@
 	// Managed method name : GetProviderSpecificValues
 	// Managed return type : System.Int32
 	// Managed param types : System.Object[]
-    - (int32_t)getProviderSpecificValues_withValues:(DBSystem_Array *)p1;
+    - (int32_t)getProviderSpecificValues_withValues:(System_Array *)p1;
 
 	// Managed method name : GetSchemaTable
 	// Managed return type : System.Data.DataTable
@@ -191,7 +191,7 @@
 	// Managed method name : GetValues
 	// Managed return type : System.Int32
 	// Managed param types : System.Object[]
-    - (int32_t)getValues_withValues:(DBSystem_Array *)p1;
+    - (int32_t)getValues_withValues:(System_Array *)p1;
 
 	// Managed method name : IsDBNull
 	// Managed return type : System.Boolean

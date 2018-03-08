@@ -7,14 +7,14 @@
 //
 #import "System_Data_Entity_Core_Objects_ObjectQueryA1.h"
 
-@class DBSystem_Collections_IList;
+@class System_Collections_IList;
 
-#define SDECOObjectQueryA1_ DBSystem_Data_Entity_Core_Objects_ObjectQueryA1
-@interface DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 : System_Data_Entity_Core_Objects_ObjectQueryA1 <System_Collections_Generic_IEnumerableA1_>
+#define SDECOObjectQueryA1_ System_Data_Entity_Core_Objects_ObjectQueryA1
+@interface System_Data_Entity_Core_Objects_ObjectQueryA1 : System_Data_Entity_Core_Objects_ObjectQueryA1 <System_Collections_Generic_IEnumerableA1_>
 
 + (instancetype)objectQueryWithMonoObject:(MonoObject *)monoObject;
 
-- (DBSystem_Collections_IList *)list;
+- (System_Collections_IList *)list;
 
 - (NSMutableArray *)mutableArray;
 - (NSArray *)array;

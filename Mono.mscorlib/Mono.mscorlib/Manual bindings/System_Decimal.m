@@ -1,4 +1,4 @@
-﻿#import "System_Decimal.h"
+#import "System_Decimal.h"
 //++Dubrovnik.CodeGenerator System_Decimal.m
 //
 // Managed struct : Decimal
@@ -96,7 +96,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Decimal
 	// Managed param types : System.Int32[]
-    + (NSDecimalNumber *)new_withBits:(DBSystem_Array *)p1
+    + (NSDecimalNumber *)new_withBits:(System_Array *)p1
     {
 		
 		NSDecimalNumber * object = [[self alloc] initWithSignature:"int[]" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -305,12 +305,12 @@
 	// Managed method name : GetBits
 	// Managed return type : System.Int32[]
 	// Managed param types : System.Decimal
-    + (DBSystem_Array *)getBits_withD:(NSDecimalNumber *)p1
+    + (System_Array *)getBits_withD:(NSDecimalNumber *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetBits(System.Decimal)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetHashCode

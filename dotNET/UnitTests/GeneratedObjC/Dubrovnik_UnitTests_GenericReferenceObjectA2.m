@@ -1,4 +1,4 @@
-﻿#import "Dubrovnik_UnitTests.h"
+#import "Dubrovnik_UnitTests.h"
 //++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_GenericReferenceObjectA2.m
 //
 // Managed class : GenericReferenceObject`2<T, U>
@@ -104,7 +104,7 @@
 	// Managed property name : ListOfTypeT
 	// Managed property type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.GenericReferenceObject`2+T>
     @synthesize listOfTypeT = _listOfTypeT;
-    - (DBSystem_Collections_Generic_ListA1 *)listOfTypeT
+    - (System_Collections_Generic_ListA1 *)listOfTypeT
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -118,11 +118,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_listOfTypeT isEqualToMonoObject:monoObject]) return _listOfTypeT;					
-		_listOfTypeT = [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
+		_listOfTypeT = [System_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
 
 		return _listOfTypeT;
 	}
-    - (void)setListOfTypeT:(DBSystem_Collections_Generic_ListA1 *)value
+    - (void)setListOfTypeT:(System_Collections_Generic_ListA1 *)value
 	{
 		_listOfTypeT = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -141,7 +141,7 @@
 	// Managed property name : ListOfTypeU
 	// Managed property type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.GenericReferenceObject`2+U>
     @synthesize listOfTypeU = _listOfTypeU;
-    - (DBSystem_Collections_Generic_ListA1 *)listOfTypeU
+    - (System_Collections_Generic_ListA1 *)listOfTypeU
     {
 		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 		static Thunk thunk;
@@ -155,11 +155,11 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_listOfTypeU isEqualToMonoObject:monoObject]) return _listOfTypeU;					
-		_listOfTypeU = [DBSystem_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
+		_listOfTypeU = [System_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
 
 		return _listOfTypeU;
 	}
-    - (void)setListOfTypeU:(DBSystem_Collections_Generic_ListA1 *)value
+    - (void)setListOfTypeU:(System_Collections_Generic_ListA1 *)value
 	{
 		_listOfTypeU = value;
 		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);

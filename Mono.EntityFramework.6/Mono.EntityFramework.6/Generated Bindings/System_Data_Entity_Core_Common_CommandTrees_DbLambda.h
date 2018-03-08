@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_Data_Entity_Core_Common_CommandTrees_DbLambda.h
+//++Dubrovnik.CodeGenerator System_Data_Entity_Core_Common_CommandTrees_DbLambda.h
 //
 // Managed class : DbLambda
 //
@@ -33,7 +33,7 @@
 	// Managed method name : Create
 	// Managed return type : System.Data.Entity.Core.Common.CommandTrees.DbLambda
 	// Managed param types : System.Data.Entity.Core.Common.CommandTrees.DbExpression, System.Data.Entity.Core.Common.CommandTrees.DbVariableReferenceExpression[]
-    + (System_Data_Entity_Core_Common_CommandTrees_DbLambda *)create_withBodySDECCCDbExpression:(System_Data_Entity_Core_Common_CommandTrees_DbExpression *)p1 variablesSArray:(DBSystem_Array *)p2;
+    + (System_Data_Entity_Core_Common_CommandTrees_DbLambda *)create_withBodySDECCCDbExpression:(System_Data_Entity_Core_Common_CommandTrees_DbExpression *)p1 variablesSArray:(System_Array *)p2;
 
 	// Managed method name : Create
 	// Managed return type : System.Data.Entity.Core.Common.CommandTrees.DbLambda

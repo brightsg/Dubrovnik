@@ -48,7 +48,7 @@ static MonoObject *UniversalDelegateServices_NativeHandler_DelegateInfoContext(v
         
         // get parameters array
         if (paramCount > 0) {
-            parameters = [[DBSystem_Array arrayWithMonoArray:DB_ARRAY(params)] array];
+            parameters = [[System_Array arrayWithMonoArray:DB_ARRAY(params)] array];
         }
         
         // execute block

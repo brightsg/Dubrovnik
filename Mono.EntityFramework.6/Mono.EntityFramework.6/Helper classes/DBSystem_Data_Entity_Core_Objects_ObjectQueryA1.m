@@ -5,12 +5,12 @@
 //  Created by Jonathan Mitchell on 01/11/2013.
 //
 //
-#import "DBSystem_Data_Entity_Core_Objects_ObjectQueryA1.h"
+#import "System_Data_Entity_Core_Objects_ObjectQueryA1.h"
 
-@interface DBSystem_Data_Entity_Core_Objects_ObjectQueryA1()
+@interface System_Data_Entity_Core_Objects_ObjectQueryA1()
 @end
 
-@implementation DBSystem_Data_Entity_Core_Objects_ObjectQueryA1
+@implementation System_Data_Entity_Core_Objects_ObjectQueryA1
 
 #pragma mark -
 #pragma mark - Identification
@@ -39,9 +39,9 @@
 #pragma mark -
 #pragma mark - List and array representations
 
-- (DBSystem_Collections_IList *)list
+- (System_Collections_IList *)list
 {
-    return [DBSystem_Linq toList:self];
+    return [System_Linq toList:self];
 }
 
 - (NSMutableArray *)mutableArray

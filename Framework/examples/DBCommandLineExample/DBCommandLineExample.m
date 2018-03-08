@@ -83,7 +83,7 @@ int main (int argc, char * argv[]) {
 	NSLog(@"Done calling PrintMagicMultiple");
 
 	NSLog(@"Calling GetSpecialArray()...");
-	DBSystem_Collections_ArrayList* arrayList = [sampleObject getSpecialArray];
+	System_Collections_ArrayList* arrayList = [sampleObject getSpecialArray];
 	int i;
 	for (i = 0; i < [arrayList count]; i++) { 
 		id item = [arrayList objectAtIndex:i];

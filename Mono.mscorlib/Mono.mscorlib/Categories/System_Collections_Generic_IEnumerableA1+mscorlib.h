@@ -1,5 +1,5 @@
 //
-//  DBSystem_Collections_Generic_IEnumerableA1.h
+//  System_Collections_Generic_IEnumerableA1.h
 //  Mono.mscorlib
 //
 //  Created by Jonathan Mitchell on 05/03/2015.
@@ -9,6 +9,6 @@
 #import "Dubrovnik/DBManagedObject.h"
 #import "System_Collections_Generic_IEnumerableA1.h"
 
-@interface DBSystem_Collections_Generic_IEnumerableA1 : System_Collections_Generic_IEnumerableA1
+@interface System_Collections_Generic_IEnumerableA1 (mscorlib)
 
 @end

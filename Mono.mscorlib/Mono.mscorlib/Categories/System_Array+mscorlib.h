@@ -1,5 +1,5 @@
 //
-//  DBSystem.Array.h
+//  System.Array.h
 //  Dubrovnik
 //
 //  Created by Allan Hsu on 4/13/06.
@@ -22,9 +22,9 @@
 //
 #import "System_Array.h"
 
-@class DBType, DBSystem_Collections_IList;
+@class DBType, System_Collections_IList;
 
-@interface DBSystem_Array : System_Array {
+@interface System_Array (mscorlib) {
 	@protected
 	uint32_t _arrayLength;
 }

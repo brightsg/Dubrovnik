@@ -41,13 +41,13 @@
 
 	// Managed field name : EmptyTypes
 	// Managed field type : System.Type[]
-    static DBSystem_Array * m_emptyTypes;
-    + (DBSystem_Array *)emptyTypes
+    static System_Array * m_emptyTypes;
+    + (System_Array *)emptyTypes
     {
 		MonoObject * monoObject;
 		[[self class] getMonoClassField:"EmptyTypes" valuePtr:DB_PTR(monoObject)];
 		if ([self object:m_emptyTypes isEqualToMonoObject:monoObject]) return m_emptyTypes;					
-		m_emptyTypes = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		m_emptyTypes = [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 		return m_emptyTypes;
 	}
 
@@ -233,11 +233,11 @@
 	// Managed property name : GenericTypeArguments
 	// Managed property type : System.Type[]
     @synthesize genericTypeArguments = _genericTypeArguments;
-    - (DBSystem_Array *)genericTypeArguments
+    - (System_Array *)genericTypeArguments
     {
 		MonoObject *monoObject = [self getMonoProperty:"GenericTypeArguments"];
 		if ([self object:_genericTypeArguments isEqualToMonoObject:monoObject]) return _genericTypeArguments;					
-		_genericTypeArguments = [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		_genericTypeArguments = [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 
 		return _genericTypeArguments;
 	}
@@ -817,23 +817,23 @@
 	// Managed method name : FindInterfaces
 	// Managed return type : System.Type[]
 	// Managed param types : System.Reflection.TypeFilter, System.Object
-    - (DBSystem_Array *)findInterfaces_withFilter:(System_Reflection_TypeFilter *)p1 filterCriteria:(System_Object *)p2
+    - (System_Array *)findInterfaces_withFilter:(System_Reflection_TypeFilter *)p1 filterCriteria:(System_Object *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"FindInterfaces(System.Reflection.TypeFilter,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : FindMembers
 	// Managed return type : System.Reflection.MemberInfo[]
 	// Managed param types : System.Reflection.MemberTypes, System.Reflection.BindingFlags, System.Reflection.MemberFilter, System.Object
-    - (DBSystem_Array *)findMembers_withMemberType:(System_Reflection_MemberTypes)p1 bindingAttr:(System_Reflection_BindingFlags)p2 filter:(System_Reflection_MemberFilter *)p3 filterCriteria:(System_Object *)p4
+    - (System_Array *)findMembers_withMemberType:(System_Reflection_MemberTypes)p1 bindingAttr:(System_Reflection_BindingFlags)p2 filter:(System_Reflection_MemberFilter *)p3 filterCriteria:(System_Object *)p4
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"FindMembers(System.Reflection.MemberTypes,System.Reflection.BindingFlags,System.Reflection.MemberFilter,object)" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetArrayRank
@@ -850,7 +850,7 @@
 	// Managed method name : GetConstructor
 	// Managed return type : System.Reflection.ConstructorInfo
 	// Managed param types : System.Reflection.BindingFlags, System.Reflection.Binder, System.Reflection.CallingConventions, System.Type[], System.Reflection.ParameterModifier[]
-    - (System_Reflection_ConstructorInfo *)getConstructor_withBindingAttr:(System_Reflection_BindingFlags)p1 binder:(System_Reflection_Binder *)p2 callConvention:(System_Reflection_CallingConventions)p3 types:(DBSystem_Array *)p4 modifiers:(DBSystem_Array *)p5
+    - (System_Reflection_ConstructorInfo *)getConstructor_withBindingAttr:(System_Reflection_BindingFlags)p1 binder:(System_Reflection_Binder *)p2 callConvention:(System_Reflection_CallingConventions)p3 types:(System_Array *)p4 modifiers:(System_Array *)p5
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetConstructor(System.Reflection.BindingFlags,System.Reflection.Binder,System.Reflection.CallingConventions,System.Array[],System.Array[])" withNumArgs:5, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
@@ -861,7 +861,7 @@
 	// Managed method name : GetConstructor
 	// Managed return type : System.Reflection.ConstructorInfo
 	// Managed param types : System.Reflection.BindingFlags, System.Reflection.Binder, System.Type[], System.Reflection.ParameterModifier[]
-    - (System_Reflection_ConstructorInfo *)getConstructor_withBindingAttr:(System_Reflection_BindingFlags)p1 binder:(System_Reflection_Binder *)p2 types:(DBSystem_Array *)p3 modifiers:(DBSystem_Array *)p4
+    - (System_Reflection_ConstructorInfo *)getConstructor_withBindingAttr:(System_Reflection_BindingFlags)p1 binder:(System_Reflection_Binder *)p2 types:(System_Array *)p3 modifiers:(System_Array *)p4
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetConstructor(System.Reflection.BindingFlags,System.Reflection.Binder,System.Array[],System.Array[])" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
@@ -872,7 +872,7 @@
 	// Managed method name : GetConstructor
 	// Managed return type : System.Reflection.ConstructorInfo
 	// Managed param types : System.Type[]
-    - (System_Reflection_ConstructorInfo *)getConstructor_withTypes:(DBSystem_Array *)p1
+    - (System_Reflection_ConstructorInfo *)getConstructor_withTypes:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetConstructor(System.Type[])" withNumArgs:1, [p1 monoRTInvokeArg]];
@@ -883,34 +883,34 @@
 	// Managed method name : GetConstructors
 	// Managed return type : System.Reflection.ConstructorInfo[]
 	// Managed param types : 
-    - (DBSystem_Array *)getConstructors
+    - (System_Array *)getConstructors
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetConstructors()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetConstructors
 	// Managed return type : System.Reflection.ConstructorInfo[]
 	// Managed param types : System.Reflection.BindingFlags
-    - (DBSystem_Array *)getConstructors_withBindingAttr:(System_Reflection_BindingFlags)p1
+    - (System_Array *)getConstructors_withBindingAttr:(System_Reflection_BindingFlags)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetConstructors(System.Reflection.BindingFlags)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetDefaultMembers
 	// Managed return type : System.Reflection.MemberInfo[]
 	// Managed param types : 
-    - (DBSystem_Array *)getDefaultMembers
+    - (System_Array *)getDefaultMembers
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetDefaultMembers()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 */
 	// Managed method name : GetElementType
@@ -938,12 +938,12 @@
 	// Managed method name : GetEnumNames
 	// Managed return type : System.String[]
 	// Managed param types : 
-    - (DBSystem_Array *)db_getEnumNames
+    - (System_Array *)db_getEnumNames
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumNames()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetEnumUnderlyingType
@@ -960,12 +960,12 @@
 	// Managed method name : GetEnumValues
 	// Managed return type : System.Array
 	// Managed param types : 
-    - (DBSystem_Array *)db_getEnumValues
+    - (System_Array *)db_getEnumValues
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumValues()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 /*
 	// Managed method name : GetEvent
@@ -993,23 +993,23 @@
 	// Managed method name : GetEvents
 	// Managed return type : System.Reflection.EventInfo[]
 	// Managed param types : 
-    - (DBSystem_Array *)getEvents
+    - (System_Array *)getEvents
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEvents()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetEvents
 	// Managed return type : System.Reflection.EventInfo[]
 	// Managed param types : System.Reflection.BindingFlags
-    - (DBSystem_Array *)getEvents_withBindingAttr:(System_Reflection_BindingFlags)p1
+    - (System_Array *)getEvents_withBindingAttr:(System_Reflection_BindingFlags)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetEvents(System.Reflection.BindingFlags)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetField
@@ -1037,45 +1037,45 @@
 	// Managed method name : GetFields
 	// Managed return type : System.Reflection.FieldInfo[]
 	// Managed param types : 
-    - (DBSystem_Array *)getFields
+    - (System_Array *)getFields
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFields()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetFields
 	// Managed return type : System.Reflection.FieldInfo[]
 	// Managed param types : System.Reflection.BindingFlags
-    - (DBSystem_Array *)getFields_withBindingAttr:(System_Reflection_BindingFlags)p1
+    - (System_Array *)getFields_withBindingAttr:(System_Reflection_BindingFlags)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetFields(System.Reflection.BindingFlags)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 */
 	// Managed method name : GetGenericArguments
 	// Managed return type : System.Type[]
 	// Managed param types : 
-    - (DBSystem_Array *)db_getGenericArguments
+    - (System_Array *)db_getGenericArguments
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetGenericArguments()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetGenericParameterConstraints
 	// Managed return type : System.Type[]
 	// Managed param types : 
-    - (DBSystem_Array *)db_getGenericParameterConstraints
+    - (System_Array *)db_getGenericParameterConstraints
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetGenericParameterConstraints()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetGenericTypeDefinition
@@ -1136,73 +1136,73 @@
 	// Managed method name : GetInterfaces
 	// Managed return type : System.Type[]
 	// Managed param types : 
-    - (DBSystem_Array *)getInterfaces
+    - (System_Array *)getInterfaces
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetInterfaces()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetMember
 	// Managed return type : System.Reflection.MemberInfo[]
 	// Managed param types : System.String
-    - (DBSystem_Array *)getMember_withName:(NSString *)p1
+    - (System_Array *)getMember_withName:(NSString *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMember(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetMember
 	// Managed return type : System.Reflection.MemberInfo[]
 	// Managed param types : System.String, System.Reflection.BindingFlags
-    - (DBSystem_Array *)getMember_withName:(NSString *)p1 bindingAttr:(System_Reflection_BindingFlags)p2
+    - (System_Array *)getMember_withName:(NSString *)p1 bindingAttr:(System_Reflection_BindingFlags)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMember(string,System.Reflection.BindingFlags)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetMember
 	// Managed return type : System.Reflection.MemberInfo[]
 	// Managed param types : System.String, System.Reflection.MemberTypes, System.Reflection.BindingFlags
-    - (DBSystem_Array *)getMember_withName:(NSString *)p1 type:(System_Reflection_MemberTypes)p2 bindingAttr:(System_Reflection_BindingFlags)p3
+    - (System_Array *)getMember_withName:(NSString *)p1 type:(System_Reflection_MemberTypes)p2 bindingAttr:(System_Reflection_BindingFlags)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMember(string,System.Reflection.MemberTypes,System.Reflection.BindingFlags)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetMembers
 	// Managed return type : System.Reflection.MemberInfo[]
 	// Managed param types : 
-    - (DBSystem_Array *)getMembers
+    - (System_Array *)getMembers
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMembers()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetMembers
 	// Managed return type : System.Reflection.MemberInfo[]
 	// Managed param types : System.Reflection.BindingFlags
-    - (DBSystem_Array *)getMembers_withBindingAttr:(System_Reflection_BindingFlags)p1
+    - (System_Array *)getMembers_withBindingAttr:(System_Reflection_BindingFlags)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMembers(System.Reflection.BindingFlags)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetMethod
 	// Managed return type : System.Reflection.MethodInfo
 	// Managed param types : System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Reflection.CallingConventions, System.Type[], System.Reflection.ParameterModifier[]
-    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 bindingAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 callConvention:(System_Reflection_CallingConventions)p4 types:(DBSystem_Array *)p5 modifiers:(DBSystem_Array *)p6
+    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 bindingAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 callConvention:(System_Reflection_CallingConventions)p4 types:(System_Array *)p5 modifiers:(System_Array *)p6
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMethod(string,System.Reflection.BindingFlags,System.Reflection.Binder,System.Reflection.CallingConventions,System.Array[],System.Array[])" withNumArgs:6, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], DB_VALUE(p4), [p5 monoRTInvokeArg], [p6 monoRTInvokeArg]];
@@ -1213,7 +1213,7 @@
 	// Managed method name : GetMethod
 	// Managed return type : System.Reflection.MethodInfo
 	// Managed param types : System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Type[], System.Reflection.ParameterModifier[]
-    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 bindingAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 types:(DBSystem_Array *)p4 modifiers:(DBSystem_Array *)p5
+    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 bindingAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 types:(System_Array *)p4 modifiers:(System_Array *)p5
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMethod(string,System.Reflection.BindingFlags,System.Reflection.Binder,System.Array[],System.Array[])" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
@@ -1224,7 +1224,7 @@
 	// Managed method name : GetMethod
 	// Managed return type : System.Reflection.MethodInfo
 	// Managed param types : System.String, System.Type[], System.Reflection.ParameterModifier[]
-    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 types:(DBSystem_Array *)p2 modifiers:(DBSystem_Array *)p3
+    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 types:(System_Array *)p2 modifiers:(System_Array *)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMethod(string,System.Array[],System.Array[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
@@ -1235,7 +1235,7 @@
 	// Managed method name : GetMethod
 	// Managed return type : System.Reflection.MethodInfo
 	// Managed param types : System.String, System.Type[]
-    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 types:(DBSystem_Array *)p2
+    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 types:(System_Array *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMethod(string,System.Array[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -1268,23 +1268,23 @@
 	// Managed method name : GetMethods
 	// Managed return type : System.Reflection.MethodInfo[]
 	// Managed param types : 
-    - (DBSystem_Array *)getMethods
+    - (System_Array *)getMethods
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMethods()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetMethods
 	// Managed return type : System.Reflection.MethodInfo[]
 	// Managed param types : System.Reflection.BindingFlags
-    - (DBSystem_Array *)getMethods_withBindingAttr:(System_Reflection_BindingFlags)p1
+    - (System_Array *)getMethods_withBindingAttr:(System_Reflection_BindingFlags)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetMethods(System.Reflection.BindingFlags)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetNestedType
@@ -1312,51 +1312,51 @@
 	// Managed method name : GetNestedTypes
 	// Managed return type : System.Type[]
 	// Managed param types : 
-    - (DBSystem_Array *)getNestedTypes
+    - (System_Array *)getNestedTypes
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetNestedTypes()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetNestedTypes
 	// Managed return type : System.Type[]
 	// Managed param types : System.Reflection.BindingFlags
-    - (DBSystem_Array *)getNestedTypes_withBindingAttr:(System_Reflection_BindingFlags)p1
+    - (System_Array *)getNestedTypes_withBindingAttr:(System_Reflection_BindingFlags)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetNestedTypes(System.Reflection.BindingFlags)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetProperties
 	// Managed return type : System.Reflection.PropertyInfo[]
 	// Managed param types : System.Reflection.BindingFlags
-    - (DBSystem_Array *)getProperties_withBindingAttr:(System_Reflection_BindingFlags)p1
+    - (System_Array *)getProperties_withBindingAttr:(System_Reflection_BindingFlags)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetProperties(System.Reflection.BindingFlags)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetProperties
 	// Managed return type : System.Reflection.PropertyInfo[]
 	// Managed param types : 
-    - (DBSystem_Array *)getProperties
+    - (System_Array *)getProperties
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetProperties()" withNumArgs:0];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetProperty
 	// Managed return type : System.Reflection.PropertyInfo
 	// Managed param types : System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Type, System.Type[], System.Reflection.ParameterModifier[]
-    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 bindingAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 returnType:(System_Type *)p4 types:(DBSystem_Array *)p5 modifiers:(DBSystem_Array *)p6
+    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 bindingAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 returnType:(System_Type *)p4 types:(System_Array *)p5 modifiers:(System_Array *)p6
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetProperty(string,System.Reflection.BindingFlags,System.Reflection.Binder,System.Type,System.Array[],System.Array[])" withNumArgs:6, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg]];
@@ -1367,7 +1367,7 @@
 	// Managed method name : GetProperty
 	// Managed return type : System.Reflection.PropertyInfo
 	// Managed param types : System.String, System.Type, System.Type[], System.Reflection.ParameterModifier[]
-    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2 types:(DBSystem_Array *)p3 modifiers:(DBSystem_Array *)p4
+    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2 types:(System_Array *)p3 modifiers:(System_Array *)p4
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetProperty(string,System.Type,System.Array[],System.Array[])" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
@@ -1389,7 +1389,7 @@
 	// Managed method name : GetProperty
 	// Managed return type : System.Reflection.PropertyInfo
 	// Managed param types : System.String, System.Type, System.Type[]
-    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2 types:(DBSystem_Array *)p3
+    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2 types:(System_Array *)p3
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetProperty(string,System.Type,System.Array[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
@@ -1400,7 +1400,7 @@
 	// Managed method name : GetProperty
 	// Managed return type : System.Reflection.PropertyInfo
 	// Managed param types : System.String, System.Type[]
-    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 types:(DBSystem_Array *)p2
+    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 types:(System_Array *)p2
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetProperty(string,System.Array[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
@@ -1511,12 +1511,12 @@
 	// Managed method name : GetTypeArray
 	// Managed return type : System.Type[]
 	// Managed param types : System.Object[]
-    + (DBSystem_Array *)getTypeArray_withArgs:(DBSystem_Array *)p1
+    + (System_Array *)getTypeArray_withArgs:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeArray(object[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [DBSystem_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 
 	// Managed method name : GetTypeCode
@@ -1643,7 +1643,7 @@
 	// Managed method name : InvokeMember
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object, System.Object[], System.Reflection.ParameterModifier[], System.Globalization.CultureInfo, System.String[]
-    - (System_Object *)invokeMember_withName:(NSString *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 target:(System_Object *)p4 args:(DBSystem_Array *)p5 modifiers:(DBSystem_Array *)p6 culture:(System_Globalization_CultureInfo *)p7 namedParameters:(DBSystem_Array *)p8
+    - (System_Object *)invokeMember_withName:(NSString *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 target:(System_Object *)p4 args:(System_Array *)p5 modifiers:(System_Array *)p6 culture:(System_Globalization_CultureInfo *)p7 namedParameters:(System_Array *)p8
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"InvokeMember(string,System.Reflection.BindingFlags,System.Reflection.Binder,object,object[],System.Array[],System.Globalization.CultureInfo,string[])" withNumArgs:8, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg], [p7 monoRTInvokeArg], [p8 monoRTInvokeArg]];
@@ -1654,7 +1654,7 @@
 	// Managed method name : InvokeMember
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object, System.Object[], System.Globalization.CultureInfo
-    - (System_Object *)invokeMember_withName:(NSString *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 target:(System_Object *)p4 args:(DBSystem_Array *)p5 culture:(System_Globalization_CultureInfo *)p6
+    - (System_Object *)invokeMember_withName:(NSString *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 target:(System_Object *)p4 args:(System_Array *)p5 culture:(System_Globalization_CultureInfo *)p6
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"InvokeMember(string,System.Reflection.BindingFlags,System.Reflection.Binder,object,object[],System.Globalization.CultureInfo)" withNumArgs:6, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg]];
@@ -1665,7 +1665,7 @@
 	// Managed method name : InvokeMember
 	// Managed return type : System.Object
 	// Managed param types : System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object, System.Object[]
-    - (System_Object *)invokeMember_withName:(NSString *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 target:(System_Object *)p4 args:(DBSystem_Array *)p5
+    - (System_Object *)invokeMember_withName:(NSString *)p1 invokeAttr:(System_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 target:(System_Object *)p4 args:(System_Array *)p5
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"InvokeMember(string,System.Reflection.BindingFlags,System.Reflection.Binder,object,object[])" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
@@ -1764,7 +1764,7 @@
 	// Managed method name : MakeGenericType
 	// Managed return type : System.Type
 	// Managed param types : System.Type[]
-    - (System_Type *)makeGenericType_withTypeArguments:(DBSystem_Array *)p1
+    - (System_Type *)makeGenericType_withTypeArguments:(System_Array *)p1
     {
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"MakeGenericType(System.Array[])" withNumArgs:1, [p1 monoRTInvokeArg]];

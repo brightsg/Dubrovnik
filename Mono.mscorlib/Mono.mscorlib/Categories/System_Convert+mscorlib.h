@@ -1,5 +1,5 @@
 //
-//  DBSystem.Convert.h
+//  System.Convert.h
 //  Dubrovnik
 //
 //  Created by Allan Hsu on 7/28/06.
@@ -23,9 +23,7 @@
 #import "System_Convert.h"
 #import "Dubrovnik/DBMonoIncludes.h"
 
-@interface DBSystem_Convert : System_Convert {
-
-}
+@interface System_Convert : System_Convert (mscorlib)
 
 + (int8_t)convertMonoObjectToInt8:(MonoObject *)monoObject;
 + (int16_t)convertMonoObjectToInt16:(MonoObject *)monoObject;

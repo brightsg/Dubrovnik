@@ -19,15 +19,15 @@
 // License along with this library; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
-#import "DBSystem_Enum.h"
+#import "System_Enum.h"
 
 static DBManagedClass *_classRep = nil;
 
-@interface DBSystem_Enum()
+@interface System_Enum()
 + (DBManagedClass *)classRep;
 @end
 
-@implementation DBSystem_Enum
+@implementation System_Enum
 
 + (void)initialize {
     // Do not perform any mono initialization here as this method may be called
@@ -43,7 +43,7 @@ static DBManagedClass *_classRep = nil;
 }
 
 + (MonoReflectionType *)monoReflectionType {
-	[NSException raise:@"No monoReflectionType override" format:@"This class must override +[DBSystem_Enum monoReflectionType]"];
+	[NSException raise:@"No monoReflectionType override" format:@"This class must override +[System_Enum monoReflectionType]"];
 	
 	return(nil);
 }

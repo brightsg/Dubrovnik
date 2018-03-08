@@ -6,5 +6,5 @@
 //  Copyright (c) 2014 Thesaurus Software. All rights reserved.
 //
 
-#import "DBSystem_Collections_Generic_DictionaryA2+Linq.h"
+#import "System_Collections_Generic_DictionaryA2+Linq.h"
 #import "System_Collections_Generic_IEnumerableA1+Linq.h"

@@ -19,12 +19,11 @@
 // License along with this library; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
-
-#import "DBSystem_Collections_ArrayList.h"
+#import "System_Collections_ArrayList+mscorlib.h"
 
 static MonoClass *_monoClass = NULL;
 
-@implementation DBSystem_Collections_ArrayList
+@implementation System_Collections_ArrayList (mscorlib)
 
 + (MonoClass *)monoClass {
 	if(_monoClass == NULL)
@@ -36,5 +35,6 @@ static MonoClass *_monoClass = NULL;
 - (void)sort:(DBManagedObject *)comparer {
 	[self invokeMonoMethod:"Sort(IComparer)" withNumArgs:1, [comparer monoObject]];
 }
+
 
 @end

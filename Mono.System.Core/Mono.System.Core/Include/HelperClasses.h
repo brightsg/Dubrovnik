@@ -6,5 +6,5 @@
 //  Copyright (c) 2014 Thesaurus Software. All rights reserved.
 //
 
-#import "DBSystem_Linq.h"
+#import "System_Linq.h"
 

@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ReferenceObject.h
+//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ReferenceObject.h
 //
 // Managed class : ReferenceObject
 //
@@ -79,7 +79,7 @@
 
 	// Managed property name : BoolArray
 	// Managed property type : System.Boolean[]
-    @property (nonatomic, strong) DBSystem_Array * boolArray;
+    @property (nonatomic, strong) System_Array * boolArray;
 
 	// Managed property name : ClassDateProperty
 	// Managed property type : System.DateTime
@@ -101,11 +101,11 @@
 
 	// Managed property name : DoubleArray
 	// Managed property type : System.Double[]
-    @property (nonatomic, strong) DBSystem_Array * doubleArray;
+    @property (nonatomic, strong) System_Array * doubleArray;
 
 	// Managed property name : DoubleList
 	// Managed property type : System.Collections.Generic.List`1<System.Double>
-    @property (nonatomic, strong) DBSystem_Collections_Generic_ListA1 * doubleList;
+    @property (nonatomic, strong) System_Collections_Generic_ListA1 * doubleList;
 
 	// Managed property name : ExIntTestProperty
 	// Managed property type : System.Boolean
@@ -113,11 +113,11 @@
 
 	// Managed property name : FloatArray
 	// Managed property type : System.Single[]
-    @property (nonatomic, strong) DBSystem_Array * floatArray;
+    @property (nonatomic, strong) System_Array * floatArray;
 
 	// Managed property name : FloatList
 	// Managed property type : System.Collections.Generic.List`1<System.Single>
-    @property (nonatomic, strong) DBSystem_Collections_Generic_ListA1 * floatList;
+    @property (nonatomic, strong) System_Collections_Generic_ListA1 * floatList;
 
 	// Managed property name : FloatNullable
 	// Managed property type : System.Nullable`1<System.Single>
@@ -129,11 +129,11 @@
 
 	// Managed property name : Int16Array
 	// Managed property type : System.Int16[]
-    @property (nonatomic, strong) DBSystem_Array * int16Array;
+    @property (nonatomic, strong) System_Array * int16Array;
 
 	// Managed property name : Int32Array
 	// Managed property type : System.Int32[]
-    @property (nonatomic, strong) DBSystem_Array * int32Array;
+    @property (nonatomic, strong) System_Array * int32Array;
 
 	// Managed property name : Int32Number
 	// Managed property type : System.Int32
@@ -145,7 +145,7 @@
 
 	// Managed property name : Int64Array
 	// Managed property type : System.Int64[]
-    @property (nonatomic, strong) DBSystem_Array * int64Array;
+    @property (nonatomic, strong) System_Array * int64Array;
 
 	// Managed property name : Int64Number
 	// Managed property type : System.Int64
@@ -161,15 +161,15 @@
 
 	// Managed property name : IntIntDictionary
 	// Managed property type : System.Collections.Generic.Dictionary`2<System.Int32, System.Int32>
-    @property (nonatomic, strong) DBSystem_Collections_Generic_DictionaryA2 * intIntDictionary;
+    @property (nonatomic, strong) System_Collections_Generic_DictionaryA2 * intIntDictionary;
 
 	// Managed property name : IntIntStringDictionaryDictionary
 	// Managed property type : System.Collections.Generic.Dictionary`2<System.Int32, System.Collections.Generic.Dictionary`2<System.Int32, System.String>>
-    @property (nonatomic, strong) DBSystem_Collections_Generic_DictionaryA2 * intIntStringDictionaryDictionary;
+    @property (nonatomic, strong) System_Collections_Generic_DictionaryA2 * intIntStringDictionaryDictionary;
 
 	// Managed property name : IntList
 	// Managed property type : System.Collections.Generic.List`1<System.Int32>
-    @property (nonatomic, strong) DBSystem_Collections_Generic_ListA1 * intList;
+    @property (nonatomic, strong) System_Collections_Generic_ListA1 * intList;
 
 	// Managed property name : IntNullable
 	// Managed property type : System.Nullable`1<System.Int32>
@@ -193,7 +193,7 @@
 
 	// Managed property name : NestedClassList
 	// Managed property type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject+NestedClass>
-    @property (nonatomic, strong) DBSystem_Collections_Generic_ListA1 * nestedClassList;
+    @property (nonatomic, strong) System_Collections_Generic_ListA1 * nestedClassList;
 
 	// Managed property name : NotifyingProperty1
 	// Managed property type : System.String
@@ -205,7 +205,7 @@
 
 	// Managed property name : ObjectObjectDictionary
 	// Managed property type : System.Collections.Generic.Dictionary`2<System.Object, System.Object>
-    @property (nonatomic, strong) DBSystem_Collections_Generic_DictionaryA2 * objectObjectDictionary;
+    @property (nonatomic, strong) System_Collections_Generic_DictionaryA2 * objectObjectDictionary;
 
 	// Managed property name : Pointer
 	// Managed property type : System.IntPtr
@@ -221,7 +221,7 @@
 
 	// Managed property name : ReferenceObjectList
 	// Managed property type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject>
-    @property (nonatomic, strong) DBSystem_Collections_Generic_ListA1 * referenceObjectList;
+    @property (nonatomic, strong) System_Collections_Generic_ListA1 * referenceObjectList;
 
 	// Managed property name : ReferenceObjectRelative
 	// Managed property type : Dubrovnik.UnitTests.ReferenceObject
@@ -229,19 +229,19 @@
 
 	// Managed property name : StringArray
 	// Managed property type : System.String[]
-    @property (nonatomic, strong) DBSystem_Array * stringArray;
+    @property (nonatomic, strong) System_Array * stringArray;
 
 	// Managed property name : StringArrayList
 	// Managed property type : System.Collections.ArrayList
-    @property (nonatomic, strong) DBSystem_Collections_ArrayList * stringArrayList;
+    @property (nonatomic, strong) System_Collections_ArrayList * stringArrayList;
 
 	// Managed property name : StringList
 	// Managed property type : System.Collections.Generic.List`1<System.String>
-    @property (nonatomic, strong) DBSystem_Collections_Generic_ListA1 * stringList;
+    @property (nonatomic, strong) System_Collections_Generic_ListA1 * stringList;
 
 	// Managed property name : StringObjectDictionary
 	// Managed property type : System.Collections.Generic.Dictionary`2<System.String, System.Object>
-    @property (nonatomic, strong) DBSystem_Collections_Generic_DictionaryA2 * stringObjectDictionary;
+    @property (nonatomic, strong) System_Collections_Generic_DictionaryA2 * stringObjectDictionary;
 
 	// Managed property name : StringProperty
 	// Managed property type : System.String
@@ -249,7 +249,7 @@
 
 	// Managed property name : StringStringDictionary
 	// Managed property type : System.Collections.Generic.Dictionary`2<System.String, System.String>
-    @property (nonatomic, strong) DBSystem_Collections_Generic_DictionaryA2 * stringStringDictionary;
+    @property (nonatomic, strong) System_Collections_Generic_DictionaryA2 * stringStringDictionary;
 
 	// Managed property name : StringStringGenericReferenceObject
 	// Managed property type : Dubrovnik.UnitTests.GenericReferenceObject`2<System.String, System.String>
@@ -257,7 +257,7 @@
 
 	// Managed property name : UIntList
 	// Managed property type : System.Collections.Generic.List`1<System.UInt32>
-    @property (nonatomic, strong) DBSystem_Collections_Generic_ListA1 * uIntList;
+    @property (nonatomic, strong) System_Collections_Generic_ListA1 * uIntList;
 
 #pragma mark -
 #pragma mark Methods
@@ -341,7 +341,7 @@
 		Managed param types : <Dubrovnik.UnitTests.ReferenceObject+T>, <Dubrovnik.UnitTests.ReferenceObject+U>
 		Generic method definition type params : <Dubrovnik.UnitTests.ReferenceObject+T>, <Dubrovnik.UnitTests.ReferenceObject+U>
 	 */
-    - (DBSystem_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter;
+    - (System_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter;
 
 	/*! 
 		Managed method name : GenericMethodList1
@@ -349,7 +349,7 @@
 		Managed param types : System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject+T>
 		Generic method definition type params : <Dubrovnik.UnitTests.ReferenceObject+T>
 	 */
-    - (System_Object *)genericMethodList1_withValue:(DBSystem_Collections_Generic_ListA1 *)p1 typeParameter:(id)typeParameter;
+    - (System_Object *)genericMethodList1_withValue:(System_Collections_Generic_ListA1 *)p1 typeParameter:(id)typeParameter;
 
 	/*! 
 		Managed method name : GetHashCode
@@ -496,14 +496,14 @@
 		Managed return type : System.Boolean
 		Managed param types : System.Collections.Generic.List`1<System.String>
 	 */
-    - (BOOL)reverseList_withListSCGListA1string:(DBSystem_Collections_Generic_ListA1 *)p1;
+    - (BOOL)reverseList_withListSCGListA1string:(System_Collections_Generic_ListA1 *)p1;
 
 	/*! 
 		Managed method name : ReverseList
 		Managed return type : System.Boolean
 		Managed param types : System.Collections.Generic.List`1<System.Int32>
 	 */
-    - (BOOL)reverseList_withListSCGListA1int:(DBSystem_Collections_Generic_ListA1 *)p1;
+    - (BOOL)reverseList_withListSCGListA1int:(System_Collections_Generic_ListA1 *)p1;
 
 	/*! 
 		Managed method name : StringMethod
@@ -559,21 +559,21 @@
 		Managed return type : System.Int64
 		Managed param types : System.Int64[]
 	 */
-    - (int64_t)sum_withInt64Array:(DBSystem_Array *)p1;
+    - (int64_t)sum_withInt64Array:(System_Array *)p1;
 
 	/*! 
 		Managed method name : Sum
 		Managed return type : System.Int32
 		Managed param types : System.Int32[]
 	 */
-    - (int32_t)sum_withInt32Array:(DBSystem_Array *)p1;
+    - (int32_t)sum_withInt32Array:(System_Array *)p1;
 
 	/*! 
 		Managed method name : Sum
 		Managed return type : System.Int16
 		Managed param types : System.Int16[]
 	 */
-    - (int16_t)sum_withInt16Array:(DBSystem_Array *)p1;
+    - (int16_t)sum_withInt16Array:(System_Array *)p1;
 
 	/*! 
 		Managed method name : Sum
@@ -587,21 +587,21 @@
 		Managed return type : System.Single
 		Managed param types : System.Single[]
 	 */
-    - (float)sum_withFloatArray:(DBSystem_Array *)p1;
+    - (float)sum_withFloatArray:(System_Array *)p1;
 
 	/*! 
 		Managed method name : Sum
 		Managed return type : System.Double
 		Managed param types : System.Double[]
 	 */
-    - (double)sum_withDoubleArray:(DBSystem_Array *)p1;
+    - (double)sum_withDoubleArray:(System_Array *)p1;
 
 	/*! 
 		Managed method name : Sum
 		Managed return type : System.String
 		Managed param types : System.String[]
 	 */
-    - (NSString *)sum_withStringArray:(DBSystem_Array *)p1;
+    - (NSString *)sum_withStringArray:(System_Array *)p1;
 
 	/*! 
 		Managed method name : SumAndSwitch

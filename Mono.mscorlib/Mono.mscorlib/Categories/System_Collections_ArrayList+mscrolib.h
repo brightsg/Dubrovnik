@@ -1,7 +1,7 @@
-
+//
+//  System.Collections.ArrayList.h
 //  Dubrovnik
-//  DBSystem.Drawing.Size.h
-//  Created by Dustin Mierau on 2/27/06
+//
 //  Copyright (C) 2013 Thesaurus Software Ltd. All rights reserved.
 //  Copyright (C) 2005, 2006 imeem, inc. All rights reserved.
 //
@@ -20,17 +20,10 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "System_Drawing_Size.h"
-#import "Dubrovnik/DBMonoIncludes.h"
+#import "System_Collections_ArrayList"
 
-@interface System_Drawing_Size : System_Drawing_Size
+@interface System_Collections_ArrayList (mscorlib)
 
-+ (System_Drawing_Size *)sizeWithMonoObject:(MonoObject *)monoObject;
-+ (NSSize)convertToNSSize:(MonoObject *)monoObject;
-
-- (int)width;
-- (int)height;
-
-- (BOOL)isEmpty;
+- (void)sort:(DBManagedObject *)comparer;
 
 @end

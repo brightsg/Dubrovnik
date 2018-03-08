@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_Data_Entity_Core_Objects_ObjectQueryA1.h
+//++Dubrovnik.CodeGenerator System_Data_Entity_Core_Objects_ObjectQueryA1.h
 //
 // Managed class : ObjectQuery`1<T>
 //
@@ -17,12 +17,12 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
 	// Managed param types : System.String, System.Data.Entity.Core.Objects.ObjectContext
-    + (System_Data_Entity_Core_Objects_ObjectQueryA1 *)new_withCommandText:(NSString *)p1 context:(DBSystem_Data_Entity_Core_Objects_ObjectContext *)p2;
+    + (System_Data_Entity_Core_Objects_ObjectQueryA1 *)new_withCommandText:(NSString *)p1 context:(System_Data_Entity_Core_Objects_ObjectContext *)p2;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
 	// Managed param types : System.String, System.Data.Entity.Core.Objects.ObjectContext, System.Data.Entity.Core.Objects.MergeOption
-    + (System_Data_Entity_Core_Objects_ObjectQueryA1 *)new_withCommandText:(NSString *)p1 context:(DBSystem_Data_Entity_Core_Objects_ObjectContext *)p2 mergeOption:(System_Data_Entity_Core_Objects_MergeOption)p3;
+    + (System_Data_Entity_Core_Objects_ObjectQueryA1 *)new_withCommandText:(NSString *)p1 context:(System_Data_Entity_Core_Objects_ObjectContext *)p2 mergeOption:(System_Data_Entity_Core_Objects_MergeOption)p3;
 
 #pragma mark -
 #pragma mark Properties
@@ -52,7 +52,7 @@
 	// Managed method name : GroupBy
 	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Common.DbDataRecord>
 	// Managed param types : System.String, System.String, System.Data.Entity.Core.Objects.ObjectParameter[]
-    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)groupBy_withKeys:(NSString *)p1 projection:(NSString *)p2 parameters:(DBSystem_Array *)p3;
+    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)groupBy_withKeys:(NSString *)p1 projection:(NSString *)p2 parameters:(System_Array *)p3;
 
 	// Managed method name : Include
 	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
@@ -72,27 +72,27 @@
 	// Managed method name : OrderBy
 	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
 	// Managed param types : System.String, System.Data.Entity.Core.Objects.ObjectParameter[]
-    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)orderBy_withKeys:(NSString *)p1 parameters:(DBSystem_Array *)p2;
+    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)orderBy_withKeys:(NSString *)p1 parameters:(System_Array *)p2;
 
 	// Managed method name : Select
 	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Common.DbDataRecord>
 	// Managed param types : System.String, System.Data.Entity.Core.Objects.ObjectParameter[]
-    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)select_withProjection:(NSString *)p1 parameters:(DBSystem_Array *)p2;
+    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)select_withProjection:(NSString *)p1 parameters:(System_Array *)p2;
 
 	// Managed method name : SelectValue
 	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<TResultType>
 	// Managed param types : System.String, System.Data.Entity.Core.Objects.ObjectParameter[]
-    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)selectValue_withProjection:(NSString *)p1 parameters:(DBSystem_Array *)p2;
+    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)selectValue_withProjection:(NSString *)p1 parameters:(System_Array *)p2;
 
 	// Managed method name : Skip
 	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
 	// Managed param types : System.String, System.String, System.Data.Entity.Core.Objects.ObjectParameter[]
-    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)skip_withKeys:(NSString *)p1 count:(NSString *)p2 parameters:(DBSystem_Array *)p3;
+    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)skip_withKeys:(NSString *)p1 count:(NSString *)p2 parameters:(System_Array *)p3;
 
 	// Managed method name : Top
 	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
 	// Managed param types : System.String, System.Data.Entity.Core.Objects.ObjectParameter[]
-    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)top_withCount:(NSString *)p1 parameters:(DBSystem_Array *)p2;
+    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)top_withCount:(NSString *)p1 parameters:(System_Array *)p2;
 
 	// Managed method name : Union
 	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
@@ -107,6 +107,6 @@
 	// Managed method name : Where
 	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
 	// Managed param types : System.String, System.Data.Entity.Core.Objects.ObjectParameter[]
-    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)where_withPredicate:(NSString *)p1 parameters:(DBSystem_Array *)p2;
+    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)where_withPredicate:(NSString *)p1 parameters:(System_Array *)p2;
 @end
 //--Dubrovnik.CodeGenerator

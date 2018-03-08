@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_Decimal.h
+//++Dubrovnik.CodeGenerator System_Decimal.h
 //
 // Managed struct : Decimal
 //
@@ -47,7 +47,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Decimal
 	// Managed param types : System.Int32[]
-    + (NSDecimalNumber *)new_withBits:(DBSystem_Array *)p1;
+    + (NSDecimalNumber *)new_withBits:(System_Array *)p1;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Decimal
@@ -138,7 +138,7 @@
 	// Managed method name : GetBits
 	// Managed return type : System.Int32[]
 	// Managed param types : System.Decimal
-    + (DBSystem_Array *)getBits_withD:(NSDecimalNumber *)p1;
+    + (System_Array *)getBits_withD:(NSDecimalNumber *)p1;
 
 	// Managed method name : GetHashCode
 	// Managed return type : System.Int32

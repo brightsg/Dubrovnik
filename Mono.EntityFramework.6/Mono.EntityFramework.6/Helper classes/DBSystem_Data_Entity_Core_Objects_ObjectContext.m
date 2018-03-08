@@ -5,10 +5,10 @@
 //  Created by Jonathan on 08/07/2013.
 //
 //
-#import "DBSystem_Data_Entity_Core_Objects_ObjectContext.h"
-#import "DBSystem_Data_Entity_Core_Objects_ObjectQueryA1.h"
+#import "System_Data_Entity_Core_Objects_ObjectContext.h"
+#import "System_Data_Entity_Core_Objects_ObjectQueryA1.h"
 
-@implementation DBSystem_Data_Entity_Core_Objects_ObjectContext
+@implementation System_Data_Entity_Core_Objects_ObjectContext
 
 // obligatory override
 + (const char *)monoClassName
@@ -34,8 +34,8 @@
 }
 
 
-- (DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 *)createQuery_withQueryString:(NSString *)queryString
-                                                                      parameters:(DBSystem_Array *)dbsaParameters
+- (System_Data_Entity_Core_Objects_ObjectQueryA1 *)createQuery_withQueryString:(NSString *)queryString
+                                                                      parameters:(System_Array *)dbsaParameters
                                                                    monoClassName:(const char *)monoClassName
                                                                     assemblyName:(const char *)assemblyName
 {
@@ -55,7 +55,7 @@
     MonoObject *monoQueryObject = [self invokeMethod:methodRep withNumArgs:2, [queryString monoString], [dbsaParameters monoArray] ];
     
     // Wrap the query
-    DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 *objectQuery = [DBSystem_Data_Entity_Core_Objects_ObjectQueryA1 objectQueryWithMonoObject:monoQueryObject];
+    System_Data_Entity_Core_Objects_ObjectQueryA1 *objectQuery = [System_Data_Entity_Core_Objects_ObjectQueryA1 objectQueryWithMonoObject:monoQueryObject];
     return objectQuery;
 }
 

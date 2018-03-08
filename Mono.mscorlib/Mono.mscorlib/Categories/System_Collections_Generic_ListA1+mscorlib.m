@@ -1,23 +1,23 @@
 //
-//  DBSystem.Collections.Generic.ListA1.m
+//  System.Collections.Generic.ListA1.m
 //  Dubrovnik
 //
 //  Created by Jonathan on 09/09/2013.
 //
 //
-#import "DBSystem_Collections_Generic_ListA1.h"
-#import "DBSystem_Collections_IList.h"
+#import "System_Collections_Generic_ListA1+mscorlib.h"
+#import "System_Collections_IList.h"
 #import "NSString+mscorlib.h"
 #import "System_Object+mscorlib.h"
 
-@interface DBSystem_Collections_Generic_ListA1 ()
+@interface System_Collections_Generic_ListA1 ()
 
 // primitives
 @property (assign, nonatomic, readwrite) BOOL parameterTypeIsValueType;
 @property (assign) BOOL parameterTypeEstablished;
 @end
 
-@implementation DBSystem_Collections_Generic_ListA1
+@implementation System_Collections_Generic_ListA1 (mscorlib)
 
 #pragma mark -
 #pragma mark Identification
@@ -39,13 +39,13 @@
 
 + (instancetype)listWithMonoObject:(MonoObject *)monoObject
 {
-	DBSystem_Collections_Generic_ListA1 *list = [[[self class] alloc] initWithMonoObject:monoObject];
+	System_Collections_Generic_ListA1 *list = [[[self class] alloc] initWithMonoObject:monoObject];
 	return list;
 }
 
 + (instancetype)listWithObjects:(NSArray *)objects typeParameter:(id)typeParameter
 {
-    DBSystem_Collections_Generic_ListA1 *list = [[self class] newObjectWithGenericTypeParameters:@[typeParameter]];
+    System_Collections_Generic_ListA1 *list = [[self class] newObjectWithGenericTypeParameters:@[typeParameter]];
     
     // add objects
     for (id object in objects) {
@@ -76,7 +76,7 @@
     
     // the list generic type parameter will match the type of itemObject
     id itemObject = objects[0];
-    DBSystem_Collections_Generic_ListA1 *list = [[self class] listWithObjects:objects typeParameter:itemObject];
+    System_Collections_Generic_ListA1 *list = [[self class] listWithObjects:objects typeParameter:itemObject];
     
     return list;
 }
@@ -99,20 +99,20 @@
 #pragma mark -
 #pragma mark List and array representations
 
-- (DBSystem_Collections_IList *)list
+- (System_Collections_IList *)list
 {
-    DBSystem_Collections_IList *list = nil;
+    System_Collections_IList *list = nil;
     
     BOOL useLinq = NO;
     
     if (useLinq) {
         
         // construct a new IList via linq
-        //list = [DBSystem_Linq toList:self];
+        //list = [System_Linq toList:self];
     } else {
         
         // However List<T> itself implements IList so we can act on it directly
-        list = [DBSystem_Collections_IList listWithMonoObject:[self monoObject]];
+        list = [System_Collections_IList listWithMonoObject:[self monoObject]];
     }
     
     return list;

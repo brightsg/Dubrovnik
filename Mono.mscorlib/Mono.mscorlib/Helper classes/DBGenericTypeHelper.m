@@ -7,7 +7,7 @@
 //
 
 #import "DBGenericTypeHelper.h"
-#import "DBSystem_Array.h"
+#import "System_Array.h"
 #import "NSArray+mscorlib.h"
 #import <objc/runtime.h>
 #import "System_Type.h"
@@ -47,7 +47,7 @@
     
     // get array of System.Type
     NSArray <System_Type *> *systemTypes = [self systemTypesForTypeParameters:typeParameters];
-    DBSystem_Array *systemTypesManaged = [systemTypes managedArrayWithTypeName:[System_Type managedTypeName]];
+    System_Array *systemTypesManaged = [systemTypes managedArrayWithTypeName:[System_Type managedTypeName]];
     
     // get the generic type definition
     //

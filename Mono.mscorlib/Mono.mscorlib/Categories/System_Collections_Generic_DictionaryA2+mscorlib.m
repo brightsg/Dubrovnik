@@ -1,14 +1,14 @@
 //
-//  DBSystem.Collections.Generic.DictionaryA2.m
+//  System.Collections.Generic.DictionaryA2.m
 //  Dubrovnik
 //
 //  Created by Jonathan on 09/09/2013.
 //
 //
-#import "DBSystem_Collections_Generic_DictionaryA2.h"
-#import "DBSystem_Collections_IList.h"
+#import "System_Collections_Generic_DictionaryA2+mscorlib.h"
+#import "System_Collections_IList.h"
 
-@implementation DBSystem_Collections_Generic_DictionaryA2
+@implementation System_Collections_Generic_DictionaryA2 (mscorlib)
 
 // obligatory override
 + (const char *)monoClassName
@@ -27,7 +27,7 @@
 
 + (instancetype)dictionaryWithMonoObject:(MonoObject *)monoObject
 {
-	DBSystem_Collections_Generic_DictionaryA2 *dict = [[[self class] alloc] initWithMonoObject:monoObject];
+	System_Collections_Generic_DictionaryA2 *dict = [[[self class] alloc] initWithMonoObject:monoObject];
 	return(dict);
 }
 

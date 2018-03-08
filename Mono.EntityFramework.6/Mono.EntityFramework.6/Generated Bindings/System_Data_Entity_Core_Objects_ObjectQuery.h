@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_Data_Entity_Core_Objects_ObjectQuery.h
+//++Dubrovnik.CodeGenerator System_Data_Entity_Core_Objects_ObjectQuery.h
 //
 // Managed class : ObjectQuery
 //
@@ -20,7 +20,7 @@
 
 	// Managed property name : Context
 	// Managed property type : System.Data.Entity.Core.Objects.ObjectContext
-    @property (nonatomic, strong, readonly) DBSystem_Data_Entity_Core_Objects_ObjectContext * context;
+    @property (nonatomic, strong, readonly) System_Data_Entity_Core_Objects_ObjectContext * context;
 
 	// Managed property name : EnablePlanCaching
 	// Managed property type : System.Boolean

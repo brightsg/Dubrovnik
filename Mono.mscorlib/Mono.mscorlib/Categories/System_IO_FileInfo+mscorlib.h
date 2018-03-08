@@ -1,5 +1,5 @@
 //
-//  DBSystem.Collections.ArrayList.h
+//  System.IO.FileInfo.h
 //  Dubrovnik
 //
 //  Copyright (C) 2013 Thesaurus Software Ltd. All rights reserved.
@@ -20,12 +20,19 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBSystem_Collections_IList.h"
+#import "System_IO_FileInfo.h"
 
-@interface DBSystem_Collections_ArrayList : DBSystem_Collections_IList {
+@interface System_IO_FileInfo (mscorlib)
 
-}
++ (id)fileInfoWithMonoObject:(MonoObject *)monoObject;
++ (id)fileInfoWithURL:(NSURL *)url;
++ (id)fileInfoWithPath:(NSString *)path;
 
-- (void)sort:(DBManagedObject *)comparer;
+- (id)initWithURL:(NSURL *)url;
+- (id)initWithPath:(NSString *)path;
+
+- (NSString *)fullFilePath;
+- (NSString *)filename;
+- (NSString *)fileExtension;
 
 @end

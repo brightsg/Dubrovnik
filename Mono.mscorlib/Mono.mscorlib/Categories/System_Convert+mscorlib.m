@@ -1,5 +1,5 @@
 //
-//  DBSystem.Convert.m
+//  System.Convert.m
 //  Dubrovnik
 //
 //  Created by Allan Hsu on 7/28/06.
@@ -20,15 +20,15 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 
-#import "DBSystem_Convert.h"
+#import "System_Convert+mscorlib.h"
 
 static DBManagedClass *_classRep = nil;
 
-@interface DBSystem_Convert()
+@interface System_Convert()
 + (DBManagedClass *)classRep;
 @end
 
-@implementation DBSystem_Convert
+@implementation System_Convert (mscorlib)
 
 + (void)initialize {
     // Do not perform any mono initialization here as this method may be called

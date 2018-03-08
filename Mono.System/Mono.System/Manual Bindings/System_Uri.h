@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_Uri.h
+//++Dubrovnik.CodeGenerator System_Uri.h
 //
 // Managed class : Uri
 //
@@ -172,7 +172,7 @@
 
 	// Managed property name : Segments
 	// Managed property type : System.String[]
-    @property (nonatomic, strong, readonly) DBSystem_Array * segments;
+    @property (nonatomic, strong, readonly) System_Array * segments;
 
 	// Managed property name : UserEscaped
 	// Managed property type : System.Boolean

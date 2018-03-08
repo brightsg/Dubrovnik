@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_Data_Entity_Core_Metadata_Edm_StoreItemCollection.h
+//++Dubrovnik.CodeGenerator System_Data_Entity_Core_Metadata_Edm_StoreItemCollection.h
 //
 // Managed class : StoreItemCollection
 //
@@ -27,7 +27,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Data.Entity.Core.Metadata.Edm.StoreItemCollection
 	// Managed param types : System.String[]
-    + (System_Data_Entity_Core_Metadata_Edm_StoreItemCollection *)new_withFilePaths:(DBSystem_Array *)p1;
+    + (System_Data_Entity_Core_Metadata_Edm_StoreItemCollection *)new_withFilePaths:(System_Array *)p1;
 
 #pragma mark -
 #pragma mark Properties

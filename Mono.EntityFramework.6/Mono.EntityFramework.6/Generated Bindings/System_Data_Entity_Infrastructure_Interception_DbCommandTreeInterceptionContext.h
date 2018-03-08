@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_Data_Entity_Infrastructure_Interception_DbCommandTreeInterceptionContext.h
+//++Dubrovnik.CodeGenerator System_Data_Entity_Infrastructure_Interception_DbCommandTreeInterceptionContext.h
 //
 // Managed class : DbCommandTreeInterceptionContext
 //
@@ -66,6 +66,6 @@
 	// Managed method name : WithObjectContext
 	// Managed return type : System.Data.Entity.Infrastructure.Interception.DbCommandTreeInterceptionContext
 	// Managed param types : System.Data.Entity.Core.Objects.ObjectContext
-    - (System_Data_Entity_Infrastructure_Interception_DbCommandTreeInterceptionContext *)withObjectContext_withContext:(DBSystem_Data_Entity_Core_Objects_ObjectContext *)p1;
+    - (System_Data_Entity_Infrastructure_Interception_DbCommandTreeInterceptionContext *)withObjectContext_withContext:(System_Data_Entity_Core_Objects_ObjectContext *)p1;
 @end
 //--Dubrovnik.CodeGenerator

@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_Data_Entity_Core_Mapping_StorageMappingItemCollection.h
+//++Dubrovnik.CodeGenerator System_Data_Entity_Core_Mapping_StorageMappingItemCollection.h
 //
 // Managed class : StorageMappingItemCollection
 //
@@ -17,7 +17,7 @@
 	// Managed method name : .ctor
 	// Managed return type : System.Data.Entity.Core.Mapping.StorageMappingItemCollection
 	// Managed param types : System.Data.Entity.Core.Metadata.Edm.EdmItemCollection, System.Data.Entity.Core.Metadata.Edm.StoreItemCollection, System.String[]
-    + (System_Data_Entity_Core_Mapping_StorageMappingItemCollection *)new_withEdmCollection:(System_Data_Entity_Core_Metadata_Edm_EdmItemCollection *)p1 storeCollection:(System_Data_Entity_Core_Metadata_Edm_StoreItemCollection *)p2 filePaths:(DBSystem_Array *)p3;
+    + (System_Data_Entity_Core_Mapping_StorageMappingItemCollection *)new_withEdmCollection:(System_Data_Entity_Core_Metadata_Edm_EdmItemCollection *)p1 storeCollection:(System_Data_Entity_Core_Metadata_Edm_StoreItemCollection *)p2 filePaths:(System_Array *)p3;
 
 	// Managed method name : .ctor
 	// Managed return type : System.Data.Entity.Core.Mapping.StorageMappingItemCollection
@@ -56,11 +56,11 @@
 	// Managed method name : GenerateViews
 	// Managed return type : System.Collections.Generic.Dictionary`2<System.Data.Entity.Core.Metadata.Edm.EntitySetBase, System.Data.Entity.Infrastructure.MappingViews.DbMappingView>
 	// Managed param types : System.String, System.String, System.Collections.Generic.IList`1<System.Data.Entity.Core.Metadata.Edm.EdmSchemaError>
-    - (DBSystem_Collections_Generic_DictionaryA2 *)generateViews_withConceptualModelContainerName:(NSString *)p1 storeModelContainerName:(NSString *)p2 errors:(System_Collections_Generic_IListA1 *)p3;
+    - (System_Collections_Generic_DictionaryA2 *)generateViews_withConceptualModelContainerName:(NSString *)p1 storeModelContainerName:(NSString *)p2 errors:(System_Collections_Generic_IListA1 *)p3;
 
 	// Managed method name : GenerateViews
 	// Managed return type : System.Collections.Generic.Dictionary`2<System.Data.Entity.Core.Metadata.Edm.EntitySetBase, System.Data.Entity.Infrastructure.MappingViews.DbMappingView>
 	// Managed param types : System.Collections.Generic.IList`1<System.Data.Entity.Core.Metadata.Edm.EdmSchemaError>
-    - (DBSystem_Collections_Generic_DictionaryA2 *)generateViews_withErrors:(System_Collections_Generic_IListA1 *)p1;
+    - (System_Collections_Generic_DictionaryA2 *)generateViews_withErrors:(System_Collections_Generic_IListA1 *)p1;
 @end
 //--Dubrovnik.CodeGenerator

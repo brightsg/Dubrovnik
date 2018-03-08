@@ -6,10 +6,10 @@
 //
 //
 
-#import "Mono.mscorlib/DBSystem_Enum.h"
+#import "Mono.mscorlib/System_Enum.h"
 typedef int32_t eDBUIntEnum;
 
-@interface DBUIntEnum : DBSystem_Enum
+@interface DBUIntEnum : System_Enum
 
 + (eDBUIntEnum)val1;
 + (eDBUIntEnum)val2;
