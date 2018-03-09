@@ -24,3 +24,4 @@
 #import "System_ComponentModel_RunWorkerCompletedEventArgs.h"
 #import "System_Collections_Specialized_NotifyCollectionChangedAction.h"
 #import "System_Collections_Specialized_NotifyCollectionChangedEventArgs.h"
+#import "System_Configuration_SettingsBase.h"

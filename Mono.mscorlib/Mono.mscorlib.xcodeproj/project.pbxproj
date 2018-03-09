@@ -845,6 +845,8 @@
 		AB4CE24A1FFC00B10096326D /* System_Threading_Tasks_TaskFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CE22A1FFC00B10096326D /* System_Threading_Tasks_TaskFactory.m */; };
 		AB4CE24B1FFC00B10096326D /* System_Threading_Tasks_TaskFactoryA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CE22B1FFC00B10096326D /* System_Threading_Tasks_TaskFactoryA1.m */; };
 		AB4CE24C1FFC00B10096326D /* System_Threading_SendOrPostCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CE22C1FFC00B10096326D /* System_Threading_SendOrPostCallback.m */; };
+		AB54281E2051FAC9007485C8 /* System_Reflection_MemberInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = AB54281C2051FAC9007485C8 /* System_Reflection_MemberInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB54281F2051FAC9007485C8 /* System_Reflection_MemberInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AB54281D2051FAC9007485C8 /* System_Reflection_MemberInfo.m */; };
 		AB57FDE91C96DC94003D00E8 /* DBNullableInt32Transformer.h in Headers */ = {isa = PBXBuildFile; fileRef = AB57FDE71C96DC94003D00E8 /* DBNullableInt32Transformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB57FDEA1C96DC94003D00E8 /* DBNullableInt32Transformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB57FDE81C96DC94003D00E8 /* DBNullableInt32Transformer.m */; };
 		AB5F417D1CE280FB00026E36 /* DBGenericTypeHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5F417B1CE280FB00026E36 /* DBGenericTypeHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1752,6 +1754,8 @@
 		AB4CE22A1FFC00B10096326D /* System_Threading_Tasks_TaskFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Threading_Tasks_TaskFactory.m; sourceTree = "<group>"; };
 		AB4CE22B1FFC00B10096326D /* System_Threading_Tasks_TaskFactoryA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Threading_Tasks_TaskFactoryA1.m; sourceTree = "<group>"; };
 		AB4CE22C1FFC00B10096326D /* System_Threading_SendOrPostCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Threading_SendOrPostCallback.m; sourceTree = "<group>"; };
+		AB54281C2051FAC9007485C8 /* System_Reflection_MemberInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = System_Reflection_MemberInfo.h; sourceTree = "<group>"; };
+		AB54281D2051FAC9007485C8 /* System_Reflection_MemberInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = System_Reflection_MemberInfo.m; sourceTree = "<group>"; };
 		AB57FDE71C96DC94003D00E8 /* DBNullableInt32Transformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableInt32Transformer.h; sourceTree = "<group>"; };
 		AB57FDE81C96DC94003D00E8 /* DBNullableInt32Transformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableInt32Transformer.m; sourceTree = "<group>"; };
 		AB5F417B1CE280FB00026E36 /* DBGenericTypeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBGenericTypeHelper.h; path = "Helper classes/DBGenericTypeHelper.h"; sourceTree = "<group>"; };
@@ -2696,6 +2700,8 @@
 				AB4CDDF81FFBF4FF0096326D /* System_WeakReference.m */,
 				AB4CDE771FFBF4FF0096326D /* System_WeakReferenceA1.h */,
 				AB4CDD181FFBF4FE0096326D /* System_WeakReferenceA1.m */,
+				AB54281C2051FAC9007485C8 /* System_Reflection_MemberInfo.h */,
+				AB54281D2051FAC9007485C8 /* System_Reflection_MemberInfo.m */,
 			);
 			path = "Generated bindings";
 			sourceTree = "<group>";
@@ -3048,6 +3054,7 @@
 				AB4CE12F1FFBF5010096326D /* System_IO_PathTooLongException.h in Headers */,
 				AB4CDF151FFBF5000096326D /* System_IO_FileMode.h in Headers */,
 				AB4CE0431FFBF5000096326D /* System_Byte.h in Headers */,
+				AB54281E2051FAC9007485C8 /* System_Reflection_MemberInfo.h in Headers */,
 				AB4CDF4E1FFBF5000096326D /* System_RankException.h in Headers */,
 				AB4CE0671FFBF5000096326D /* System_MulticastDelegate.h in Headers */,
 				ABCAE54A1AA893C90006453A /* System_Collections_Generic_IEnumerableA1+mscorlib.h in Headers */,
@@ -3587,6 +3594,7 @@
 				AB4CE0871FFBF5000096326D /* System_Collections_IStructuralEquatable.m in Sources */,
 				AB4CE1DE1FFC00740096326D /* System_Reflection_AssemblyNameProxy.m in Sources */,
 				AB4CE0551FFBF5000096326D /* System_ValueTupleA7.m in Sources */,
+				AB54281F2051FAC9007485C8 /* System_Reflection_MemberInfo.m in Sources */,
 				AB4CE0C71FFBF5000096326D /* System_Collections_Generic_ComparerA1.m in Sources */,
 				AB4CDEEE1FFBF5000096326D /* System_Collections_ObjectModel_ReadOnlyDictionaryA2__KeyCollection.m in Sources */,
 				AB4CDFBB1FFBF5000096326D /* System_ValueTupleA6.m in Sources */,

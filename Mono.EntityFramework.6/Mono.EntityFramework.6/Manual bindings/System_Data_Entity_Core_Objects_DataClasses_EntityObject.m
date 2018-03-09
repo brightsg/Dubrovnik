@@ -28,10 +28,10 @@
 #pragma mark Properties
 
 // Managed type : System.Data.Entity.EntityState
-- (System_Data_Entity_EntityState)entityState
+- (enumSystem_Data_Entity_EntityState)entityState
 {
     MonoObject * monoObject = [self getMonoProperty:"EntityState"];
-    System_Data_Entity_EntityState result = DB_UNBOX_INT32(monoObject);
+    enumSystem_Data_Entity_EntityState result = DB_UNBOX_INT32(monoObject);
     return result;
 }
 

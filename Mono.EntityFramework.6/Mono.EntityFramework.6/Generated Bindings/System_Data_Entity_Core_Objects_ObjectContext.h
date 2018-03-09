@@ -262,7 +262,7 @@
 	// Managed method name : SaveChanges
 	// Managed return type : System.Int32
 	// Managed param types : System.Data.Entity.Core.Objects.SaveOptions
-    - (int32_t)saveChanges_withOptions:(System_Data_Entity_Core_Objects_SaveOptions)p1;
+    - (int32_t)saveChanges_withOptions:(enumSystem_Data_Entity_Core_Objects_SaveOptions)p1;
 
 	// Managed method name : Translate
 	// Managed return type : System.Data.Entity.Core.Objects.ObjectResult`1<TElement>

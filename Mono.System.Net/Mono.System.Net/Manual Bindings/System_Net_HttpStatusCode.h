@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Thesaurus Software. All rights reserved.
 //
 
-typedef NS_ENUM(int32_t, System_Net_HttpStatusCode) {
+typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
     System_Net_HttpStatusCode_accepted,
     
 };

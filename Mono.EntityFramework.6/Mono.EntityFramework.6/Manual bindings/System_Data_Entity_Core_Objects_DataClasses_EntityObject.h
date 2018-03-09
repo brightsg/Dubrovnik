@@ -21,6 +21,6 @@
 #pragma mark Properties
 
 // Managed type : System.Data.Entity.EntityState
-- (System_Data_Entity_EntityState)entityState;
+- (enumSystem_Data_Entity_EntityState)entityState;
 
 @end

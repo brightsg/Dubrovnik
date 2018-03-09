@@ -6,6 +6,7 @@
 //  Copyright © 2018 Thesaurus Software. All rights reserved.
 //
 
-@interface System_Data_Entity_Core_Objects_ObjectSetA1 : System_Object
+#import "System_Data_Entity_Core_Objects_ObjectQueryA1.h"
+@interface System_Data_Entity_Core_Objects_ObjectSetA1 : System_Data_Entity_Core_Objects_ObjectQueryA1
 
 @end
