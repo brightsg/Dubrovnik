@@ -582,7 +582,7 @@ namespace Dubrovnik.Tools
 		/// Constructor.
 		/// </summary>
 		/// <param name="xelement">XML root element</param>
-        public AssemblyFacet(XElement xelement) 
+		public AssemblyFacet(XElement xelement) 
             : base(xelement)
         {
             Namespaces = new FacetList<NamespaceFacet>(xelement, "Namespace", this);
@@ -694,6 +694,22 @@ namespace Dubrovnik.Tools
 
             return orderedFacets;
         }
+
+		private Dictionary<string, CodeFacet> _TypeHash;
+		public Dictionary<string, CodeFacet> TypeHash {
+			get
+			{
+				if (_TypeHash == null) {
+					_TypeHash = AllFacets().ToDictionary(f => f.Type);
+				}
+				return _TypeHash;
+			}
+		}
+
+
+		public bool DefinesFacetType(string typeName) {
+			return TypeHash.ContainsKey(typeName);
+		}
 
     }
 

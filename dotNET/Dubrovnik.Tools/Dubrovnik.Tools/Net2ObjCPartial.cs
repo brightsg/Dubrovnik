@@ -206,7 +206,7 @@ namespace Dubrovnik.Tools
 		}
 
 		/// <summary>
-		/// Returns all ObjC import directives required to fully derive an ObjC class from its subclass and is adopted protocols.
+		/// Returns all ObjC import directives required to fully derive an ObjC class from its subclass and its adopted protocols.
 		/// These directives constitute the minimum required to define a class in an ObjC interface header file.
 		/// </summary>
 		/// <param name="facet">Facet</param>
@@ -214,16 +214,31 @@ namespace Dubrovnik.Tools
 		public List<string> ObjCDerivationImportDirectives(CodeFacet facet) {
 			List<string> imports = new List<string>();
 
-			if (!Config.GenerateTypeBinding(facet)) {
-				return imports;
+			if (facet.Name.Contains("IAdoptionLeave")) {
+				int b = 0;
 			}
 
-			foreach (CodeFacet cursor in facet.Derivation()) {
+			// iterate over the sub facets required to derive the native representation
+			List<CodeFacet> derivation = facet.Derivation();
+			foreach (CodeFacet cursor in derivation) {
 				string objCType = null;
-				string import = null;
 
-				// for implemented interface we require to import a protocol
-				if (cursor.GetType() == typeof(ImplementedInterfaceFacet)) {
+				// Managed interfaces don't derive from a base type but from other interfaces (see GetInterfaces)
+				// https://msdn.microsoft.com/en-us/library/system.type.basetype(v=vs.110).aspx
+				// However, our native implementation of the managed interface is a class of System.Object.
+				if (cursor.GetType() == typeof(InterfaceFacet)) {
+					if (AssemblyFacet.DefinesFacetType("System.Object")) {
+						objCType = "System_Object";
+						imports.Add($"#import \"{objCType}.h\"");
+					}
+				}
+
+				// for all interfaces we require to import a protocol
+				if (cursor.GetType() == typeof(ImplementedInterfaceFacet) || cursor.GetType() == typeof(InterfaceFacet)) {
+
+					if (!AssemblyFacet.DefinesFacetType(cursor.Type)) {
+						continue;
+					}
 
 					// if this interface type is not required then just skip it.
 					// this means that some of the interface methods etc may be represented
@@ -233,51 +248,33 @@ namespace Dubrovnik.Tools
 					}
 
 					objCType = cursor.ObjCFacet.Type;
-
-					// managed interfaces return null for base type.
-					// see docs for Type.BaseType
-					// https://msdn.microsoft.com/en-us/library/system.type.basetype(v=vs.110).aspx
-					if (string.IsNullOrEmpty(objCType)) {
-						objCType = "System_Object";
-					}
-					import = String.Format("#import \"{0}_Protocol.h\"", objCType);
-				}
-
-				// use the facet itself to derive base info
+					imports.Add($"#import \"{objCType}_Protocol.h\"");
+				} 
+			
+				// use base type
 				else {
+					string baseType = cursor.BaseType;
 
-					// detect if base type is excluded from type generation
-					if (cursor.BaseType != null && !Config.GenerateTypeBinding(cursor.BaseType)) {
-						objCType = "System_Object";
-					} else {
-						objCType = cursor.ObjCFacet.BaseType;
+					// System.Object has no base type
+					if (baseType == null) {
+						continue;
 					}
 
-					// empty base type?
-					if (string.IsNullOrEmpty(objCType)) {
-
-						// managed interfaces return null for base type.
-						// see docs for Type.BaseType
-						// https://msdn.microsoft.com/en-us/library/system.type.basetype(v=vs.110).aspx
-						if (cursor.GetType() == typeof(InterfaceFacet)) {
-							objCType = "System_Object";
-						} else {
-
-							// System.Object has no base type
-							if (cursor.ObjCFacet.Type != "System_Object") {
-								throw new Exception("When forming derived import directives an expected base class was missing.");
-							}
-							continue;
-						}
+					// Derived import directives will only be required for types
+					// defined in the target assembly. If this is not the case
+					// then the required import will have to be defined elsewhere,
+					// most likely in a framework header.
+					if (!AssemblyFacet.DefinesFacetType(baseType)) {
+						continue;
 					}
-					//else {
-					//	throw new Exception("When forming derived import directives an unexpected code facet was encountered.");
-					//}
 
-					import = String.Format("#import \"{0}.h\"", objCType);
+					if (!Config.GenerateTypeBinding(cursor)) {
+						continue;
+					}
+
+					objCType = cursor.ObjCFacet.BaseType;
+					imports.Add($"#import \"{objCType}.h\"");
 				}
-
-				imports.Add(import);
 			}
 
 			// return a distinct list to remove duplicates
