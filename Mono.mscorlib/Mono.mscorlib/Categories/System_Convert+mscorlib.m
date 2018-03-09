@@ -24,10 +24,6 @@
 
 static DBManagedClass *_classRep = nil;
 
-@interface System_Convert()
-+ (DBManagedClass *)classRep;
-@end
-
 @implementation System_Convert (mscorlib)
 
 + (void)initialize {

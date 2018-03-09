@@ -10,4 +10,19 @@
 
 @implementation System_Data_Entity_Core_Objects_ObjectQueryA1
 
+#pragma mark -
+#pragma mark - Identification
+
+// obligatory override
++ (const char *)monoClassName
+{
+    return "System.Data.Entity.Core.Objects.ObjectQuery`1";
+}
+
+// obligatory override
++ (const char *)monoAssemblyName
+{
+    return "EntityFramework";
+}
+
 @end

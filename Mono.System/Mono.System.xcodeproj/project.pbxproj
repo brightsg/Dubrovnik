@@ -13,6 +13,8 @@
 		AB178064199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = AB178062199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m */; };
 		AB17A02A1F6BEDEC00FED930 /* System_Collections_Specialized_NotifyCollectionChangedAction.h in Headers */ = {isa = PBXBuildFile; fileRef = AB17A0291F6BEDEC00FED930 /* System_Collections_Specialized_NotifyCollectionChangedAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB26E0AD1E4A15C0004876FE /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB26E0AC1E4A15C0004876FE /* Mono.framework */; };
+		AB5428222051FC51007485C8 /* System_Configuration_SettingsBase.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5428202051FC51007485C8 /* System_Configuration_SettingsBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB5428232051FC51007485C8 /* System_Configuration_SettingsBase.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428212051FC51007485C8 /* System_Configuration_SettingsBase.m */; };
 		AB61C1621F72833F00C1E7AE /* System_Uri.h in Headers */ = {isa = PBXBuildFile; fileRef = AB61C1561F72833F00C1E7AE /* System_Uri.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB61C1631F72833F00C1E7AE /* System_Uri.m in Sources */ = {isa = PBXBuildFile; fileRef = AB61C1571F72833F00C1E7AE /* System_Uri.m */; };
 		AB61C1641F72833F00C1E7AE /* System_UriComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = AB61C1581F72833F00C1E7AE /* System_UriComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -75,6 +77,8 @@
 		AB178062199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_PropertyChangingEventArgs.m; sourceTree = "<group>"; };
 		AB17A0291F6BEDEC00FED930 /* System_Collections_Specialized_NotifyCollectionChangedAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_Specialized_NotifyCollectionChangedAction.h; sourceTree = "<group>"; };
 		AB26E0AC1E4A15C0004876FE /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.System/../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
+		AB5428202051FC51007485C8 /* System_Configuration_SettingsBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = System_Configuration_SettingsBase.h; sourceTree = "<group>"; };
+		AB5428212051FC51007485C8 /* System_Configuration_SettingsBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = System_Configuration_SettingsBase.m; sourceTree = "<group>"; };
 		AB61C1561F72833F00C1E7AE /* System_Uri.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Uri.h; sourceTree = "<group>"; };
 		AB61C1571F72833F00C1E7AE /* System_Uri.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Uri.m; sourceTree = "<group>"; };
 		AB61C1581F72833F00C1E7AE /* System_UriComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_UriComponents.h; sourceTree = "<group>"; };
@@ -287,6 +291,8 @@
 				AB7DF4C11A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.m */,
 				ABA6EEE61E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.h */,
 				ABA6EEE71E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.m */,
+				AB5428202051FC51007485C8 /* System_Configuration_SettingsBase.h */,
+				AB5428212051FC51007485C8 /* System_Configuration_SettingsBase.m */,
 			);
 			path = "Manual Bindings";
 			sourceTree = "<group>";
@@ -312,6 +318,7 @@
 				AB61C16C1F72833F00C1E7AE /* System_UriPartial.h in Headers */,
 				AB7DF4BE1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h in Headers */,
 				AB61C16A1F72833F00C1E7AE /* System_UriKind.h in Headers */,
+				AB5428222051FC51007485C8 /* System_Configuration_SettingsBase.h in Headers */,
 				AB61C1661F72833F00C1E7AE /* System_UriFormat.h in Headers */,
 				AB178063199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h in Headers */,
 				AB17805F199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.h in Headers */,
@@ -432,6 +439,7 @@
 				ABDA50E71A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.m in Sources */,
 				AB7DF4BF1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.m in Sources */,
 				AB178060199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m in Sources */,
+				AB5428232051FC51007485C8 /* System_Configuration_SettingsBase.m in Sources */,
 				ABF37D4F1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.m in Sources */,
 				ABA6EEE91E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.m in Sources */,
 				AB61C16B1F72833F00C1E7AE /* System_UriKind.m in Sources */,

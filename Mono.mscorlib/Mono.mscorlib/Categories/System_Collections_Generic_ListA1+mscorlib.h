@@ -11,14 +11,13 @@
 
 @class System_Collections_IList;
 
-@interface System_Collections_Generic_ListA1<ObjectType: System_Object *> (mscorlib)
+@interface System_Collections_Generic_ListA1 (mscorlib)
 
-@property (assign, nonatomic, readonly) int32_t count;
 @property (assign, nonatomic, readonly) BOOL parameterTypeIsValueType;
 
 + (instancetype)listWithMonoObject:(MonoObject *)monoObject;
 + (instancetype)listWithObjects:(id)object;
-+ (instancetype)listWithObjects:(NSArray<ObjectType> *)objects typeParameter:(id)typeParameter;
++ (instancetype)listWithObjects:(NSArray *)objects typeParameter:(id)typeParameter;
 
 - (System_Collections_IList *)list;
 - (NSMutableArray *)mutableArray;
@@ -27,7 +26,7 @@
 - (NSArray<id> *)array; // generic parameter is id as native objects may be returned eg: NSString
 - (NSArray<id> *)array:(Class)klass;
 - (NSArray<id> *)arrayExcludingNulls; // generic parameter is id as native objects mat be returned eg: NSString
-- (void)add:(ObjectType)object;
+- (void)add:object;
 - (id)objectAtIndex:(NSUInteger)index;
 - (void)setObjectAtIndex:(int)index object:(DBManagedObject *)object;
 @end

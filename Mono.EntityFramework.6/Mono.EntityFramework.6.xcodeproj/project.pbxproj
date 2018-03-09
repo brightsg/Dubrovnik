@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AB26E0A71E4A14DE004876FE /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB26E0A61E4A14DE004876FE /* Mono.framework */; };
+		AB27342B204C3A7F00383E30 /* System_Data_Entity_Core_Objects_ObjectSetA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB273429204C3A7F00383E30 /* System_Data_Entity_Core_Objects_ObjectSetA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB27342C204C3A8000383E30 /* System_Data_Entity_Core_Objects_ObjectSetA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB27342A204C3A7F00383E30 /* System_Data_Entity_Core_Objects_ObjectSetA1.m */; };
 		AB2E748A18FFD2160061C63E /* System_Data_Entity_EntityState.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E747E18FFD2160061C63E /* System_Data_Entity_EntityState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E748B18FFD2160061C63E /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E747F18FFD2160061C63E /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E748C18FFD2160061C63E /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E748018FFD2160061C63E /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1.m */; };
@@ -33,12 +35,12 @@
 		ABB8A35718FEFFD100213B80 /* Mono.EntityFramework.6.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A33A18FEFFD000213B80 /* Mono.EntityFramework.6.framework */; };
 		ABB8A35D18FEFFD100213B80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABB8A35B18FEFFD100213B80 /* InfoPlist.strings */; };
 		ABB8A35F18FEFFD100213B80 /* Mono_EntityFramework_6Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A35E18FEFFD100213B80 /* Mono_EntityFramework_6Tests.m */; };
-		ABB8A38A18FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectContext.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A38418FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABB8A38B18FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A38518FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectContext.m */; };
-		ABB8A38C18FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectQueryA1.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A38618FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectQueryA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABB8A38D18FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectQueryA1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A38718FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectQueryA1.m */; };
-		ABB8A38E18FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectSetA1.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A38818FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectSetA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABB8A38F18FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectSetA1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A38918FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectSetA1.m */; };
+		ABB8A38A18FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectContext+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A38418FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectContext+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A38B18FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectContext+Dubrovnik.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A38518FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectContext+Dubrovnik.m */; };
+		ABB8A38C18FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A38618FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A38D18FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1+Dubrovnik.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A38718FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1+Dubrovnik.m */; };
+		ABB8A38E18FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectSetA1+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A38818FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectSetA1+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A38F18FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectSetA1+Dubrovnik.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A38918FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectSetA1+Dubrovnik.m */; };
 		ABB8A45118FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectContext.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A44D18FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A45218FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A44E18FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectContext.m */; };
 		ABB8A45318FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A44F18FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -67,6 +69,8 @@
 
 /* Begin PBXFileReference section */
 		AB26E0A61E4A14DE004876FE /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.EntityFramework.6/../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
+		AB273429204C3A7F00383E30 /* System_Data_Entity_Core_Objects_ObjectSetA1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = System_Data_Entity_Core_Objects_ObjectSetA1.h; sourceTree = "<group>"; };
+		AB27342A204C3A7F00383E30 /* System_Data_Entity_Core_Objects_ObjectSetA1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = System_Data_Entity_Core_Objects_ObjectSetA1.m; sourceTree = "<group>"; };
 		AB2E747E18FFD2160061C63E /* System_Data_Entity_EntityState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_Entity_EntityState.h; sourceTree = "<group>"; };
 		AB2E747F18FFD2160061C63E /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1.h; sourceTree = "<group>"; };
 		AB2E748018FFD2160061C63E /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1.m; sourceTree = "<group>"; };
@@ -99,12 +103,12 @@
 		ABB8A35C18FEFFD100213B80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABB8A35E18FEFFD100213B80 /* Mono_EntityFramework_6Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mono_EntityFramework_6Tests.m; sourceTree = "<group>"; };
 		ABB8A36918FF03F300213B80 /* Generated bindings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Generated bindings"; sourceTree = "<group>"; };
-		ABB8A38418FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_Data_Entity_Core_Objects_ObjectContext.h; sourceTree = "<group>"; };
-		ABB8A38518FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Data_Entity_Core_Objects_ObjectContext.m; sourceTree = "<group>"; };
-		ABB8A38618FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectQueryA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_Data_Entity_Core_Objects_ObjectQueryA1.h; sourceTree = "<group>"; };
-		ABB8A38718FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectQueryA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Data_Entity_Core_Objects_ObjectQueryA1.m; sourceTree = "<group>"; };
-		ABB8A38818FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectSetA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_Data_Entity_Core_Objects_ObjectSetA1.h; sourceTree = "<group>"; };
-		ABB8A38918FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectSetA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Data_Entity_Core_Objects_ObjectSetA1.m; sourceTree = "<group>"; };
+		ABB8A38418FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectContext+Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Data_Entity_Core_Objects_ObjectContext+Dubrovnik.h"; sourceTree = "<group>"; };
+		ABB8A38518FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectContext+Dubrovnik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Data_Entity_Core_Objects_ObjectContext+Dubrovnik.m"; sourceTree = "<group>"; };
+		ABB8A38618FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1+Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Data_Entity_Core_Objects_ObjectQueryA1+Dubrovnik.h"; sourceTree = "<group>"; };
+		ABB8A38718FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1+Dubrovnik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Data_Entity_Core_Objects_ObjectQueryA1+Dubrovnik.m"; sourceTree = "<group>"; };
+		ABB8A38818FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectSetA1+Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Data_Entity_Core_Objects_ObjectSetA1+Dubrovnik.h"; sourceTree = "<group>"; };
+		ABB8A38918FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectSetA1+Dubrovnik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Data_Entity_Core_Objects_ObjectSetA1+Dubrovnik.m"; sourceTree = "<group>"; };
 		ABB8A44D18FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_Entity_Core_Objects_ObjectContext.h; sourceTree = "<group>"; };
 		ABB8A44E18FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_Entity_Core_Objects_ObjectContext.m; sourceTree = "<group>"; };
 		ABB8A44F18FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_Entity_Core_Objects_ObjectQueryA1.h; sourceTree = "<group>"; };
@@ -161,6 +165,12 @@
 		ABB009941B00E0A500EF538F /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				ABB8A38418FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectContext+Dubrovnik.h */,
+				ABB8A38518FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectContext+Dubrovnik.m */,
+				ABB8A38618FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1+Dubrovnik.h */,
+				ABB8A38718FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1+Dubrovnik.m */,
+				ABB8A38818FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectSetA1+Dubrovnik.h */,
+				ABB8A38918FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectSetA1+Dubrovnik.m */,
 				ABB009951B00E0BD00EF538F /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1+Dubrovnik.h */,
 				ABB009961B00E0BD00EF538F /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1+Dubrovnik.m */,
 			);
@@ -253,12 +263,6 @@
 		ABB8A38318FF098B00213B80 /* Helper classes */ = {
 			isa = PBXGroup;
 			children = (
-				ABB8A38418FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectContext.h */,
-				ABB8A38518FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectContext.m */,
-				ABB8A38618FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectQueryA1.h */,
-				ABB8A38718FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectQueryA1.m */,
-				ABB8A38818FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectSetA1.h */,
-				ABB8A38918FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectSetA1.m */,
 			);
 			path = "Helper classes";
 			sourceTree = "<group>";
@@ -267,6 +271,8 @@
 			isa = PBXGroup;
 			children = (
 				ABBAF83F19223ACE0070DA79 /* System_Data_Entity_Core_Objects_RefreshMode.h */,
+				AB273429204C3A7F00383E30 /* System_Data_Entity_Core_Objects_ObjectSetA1.h */,
+				AB27342A204C3A7F00383E30 /* System_Data_Entity_Core_Objects_ObjectSetA1.m */,
 				AB2E747E18FFD2160061C63E /* System_Data_Entity_EntityState.h */,
 				AB2E747F18FFD2160061C63E /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1.h */,
 				AB2E748018FFD2160061C63E /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1.m */,
@@ -312,14 +318,15 @@
 				AB2E749318FFD2160061C63E /* System_Data_Entity_Core_Objects_SaveOptions.h in Headers */,
 				AB2E74A918FFD49A0061C63E /* HelperClasses.h in Headers */,
 				AB2E749118FFD2160061C63E /* System_Data_Entity_Core_EntityClient_EntityConnection.h in Headers */,
-				ABB8A38A18FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectContext.h in Headers */,
+				ABB8A38A18FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectContext+Dubrovnik.h in Headers */,
 				AB2E749418FFD2160061C63E /* System_Data_Entity_Core_Objects_DataClasses_EntityReferenceA1.h in Headers */,
 				AB2E74AA18FFD49A0061C63E /* ManualBindings.h in Headers */,
 				AB2E74A618FFD49A0061C63E /* Categories.h in Headers */,
-				ABB8A38E18FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectSetA1.h in Headers */,
+				AB27342B204C3A7F00383E30 /* System_Data_Entity_Core_Objects_ObjectSetA1.h in Headers */,
+				ABB8A38E18FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectSetA1+Dubrovnik.h in Headers */,
 				ABB8A45118FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectContext.h in Headers */,
 				AB2E74A718FFD49A0061C63E /* Framework.h in Headers */,
-				ABB8A38C18FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectQueryA1.h in Headers */,
+				ABB8A38C18FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1+Dubrovnik.h in Headers */,
 				ABB8A45318FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1.h in Headers */,
 				AB2E748D18FFD2160061C63E /* System_Data_Entity_Core_Objects_DataClasses_EntityObject.h in Headers */,
 			);
@@ -424,13 +431,14 @@
 				ABFDABA91C764070005230C0 /* System_Data_Entity_DbContext.m in Sources */,
 				AB2E748C18FFD2160061C63E /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1.m in Sources */,
 				ABB8A45418FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1.m in Sources */,
+				AB27342C204C3A8000383E30 /* System_Data_Entity_Core_Objects_ObjectSetA1.m in Sources */,
 				AB2E749218FFD2160061C63E /* System_Data_Entity_Core_EntityClient_EntityConnection.m in Sources */,
 				AB2E749518FFD2160061C63E /* System_Data_Entity_Core_Objects_DataClasses_EntityReferenceA1.m in Sources */,
-				ABB8A38B18FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectContext.m in Sources */,
+				ABB8A38B18FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectContext+Dubrovnik.m in Sources */,
 				ABB8A45218FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectContext.m in Sources */,
 				AB2E749018FFD2160061C63E /* System_Data_Entity_Core_Objects_ObjectStateEntry.m in Sources */,
-				ABB8A38F18FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectSetA1.m in Sources */,
-				ABB8A38D18FF098B00213B80 /* DBSystem_Data_Entity_Core_Objects_ObjectQueryA1.m in Sources */,
+				ABB8A38F18FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectSetA1+Dubrovnik.m in Sources */,
+				ABB8A38D18FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1+Dubrovnik.m in Sources */,
 				AB2E748E18FFD2160061C63E /* System_Data_Entity_Core_Objects_DataClasses_EntityObject.m in Sources */,
 				ABB009981B00E0BD00EF538F /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1+Dubrovnik.m in Sources */,
 				ABFDABA51C763E91005230C0 /* System_Data_Entity_Infrastructure_IObjectContextAdapter.m in Sources */,

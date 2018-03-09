@@ -7,7 +7,7 @@
 //
 
 #import "System_Object+mscorlib.h"
-#import "System_Convert.h"
+#import "System_Convert+mscorlib.h"
 #import "DBGenericTypeHelper.h"
 
 @implementation System_Object (mscorlib)

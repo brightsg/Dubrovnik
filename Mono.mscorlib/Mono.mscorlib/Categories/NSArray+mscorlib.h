@@ -20,8 +20,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
-@class System_Collections_ArrayList, System_Array;
+#import "mscorlib.h"
 
 @interface NSArray (mscorlib)
 

@@ -18,8 +18,10 @@
 {
     // for static managed event handlers we target the managed System.Type
     NSAssert([managedClass isSubclassOfClass:[DBManagedObject class]], @"managed class required");
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
     DBManagedObject *type = [managedClass performSelector:@selector(db_getType)];
-    
+#pragma clang diagnostic pop
     [self addManagedEventHandlerForObject:type
                                 eventName:eventName
                         handlerMethodName:eventName];
@@ -70,8 +72,10 @@
 {
     // for static managed event handlers we target the managed System.Type
     NSAssert([managedClass isSubclassOfClass:[DBManagedObject class]], @"managed class required");
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
     DBManagedObject *type = [managedClass performSelector:@selector(db_getType)];
-    
+#pragma clang diagnostic pop
     [self removeManagedEventHandlerForObject:type
                                 eventName:eventName
                         handlerMethodName:eventName];

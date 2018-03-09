@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Thesaurus Software. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 // categories
 #import "NSArray+mscorlib.h"
 #import "NSString+mscorlib.h"
@@ -19,10 +17,10 @@
 #import "System_Collections_ArrayList+mscorlib.h"
 #import "System_Collections_Generic_DictionaryA2+mscorlib.h"
 #import "System_Collections_Generic_ListA1+mscorlib.h"
-#import "System_Collections_IList.h+mscorlib"
+#import "System_Collections_IList+mscorlib.h"
 #import "System_Array+mscorlib.h"
 #import "System_Convert+mscorlib.h"
-#import "System_Enum.h+mscorlib"
+#import "System_Enum+mscorlib.h"
 #import "System_IO_FileInfo+mscorlib.h"
 #import "System_Collections_Generic_IEnumerableA1+mscorlib.h"
 #import "System_NullableA1+mscorlib.h"

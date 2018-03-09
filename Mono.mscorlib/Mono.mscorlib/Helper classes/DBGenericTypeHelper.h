@@ -7,6 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Dubrovnik/Dubrovnik.h"
+
+@class System_Object;
+@class System_Type;
 
 @interface DBGenericTypeHelper : NSObject
 

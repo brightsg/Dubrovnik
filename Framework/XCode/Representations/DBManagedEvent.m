@@ -295,7 +295,10 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
     // in the case of a static event the registered sender will be the sender's type
     DBManagedObject *registeredSender = nil;
     if (options[@"staticSender"]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
         registeredSender = [[sender class] performSelector:@selector(db_getType)];
+#pragma clang diagnostic pop
     }
     else {
         registeredSender = sender;

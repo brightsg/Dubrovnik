@@ -30,10 +30,10 @@
 		ABB8A31E18FEFED700213B80 /* Mono_System_CoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A31D18FEFED700213B80 /* Mono_System_CoreTests.m */; };
 		ABB8A37018FF061200213B80 /* System_Linq.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A36E18FF061200213B80 /* System_Linq.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A37118FF061200213B80 /* System_Linq.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A36F18FF061200213B80 /* System_Linq.m */; };
-		ABB8A43918FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A43718FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABB8A43A18FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A43818FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.m */; };
-		ABB8A43F18FF246000213B80 /* DBSystem_Linq.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A43D18FF246000213B80 /* DBSystem_Linq.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABB8A44018FF246000213B80 /* DBSystem_Linq.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A43E18FF246000213B80 /* DBSystem_Linq.m */; };
+		ABB8A43918FF21AA00213B80 /* System_Collections_Generic_DictionaryA2+Linq.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A43718FF21AA00213B80 /* System_Collections_Generic_DictionaryA2+Linq.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A43A18FF21AA00213B80 /* System_Collections_Generic_DictionaryA2+Linq.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A43818FF21AA00213B80 /* System_Collections_Generic_DictionaryA2+Linq.m */; };
+		ABB8A43F18FF246000213B80 /* System_Linq+core.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A43D18FF246000213B80 /* System_Linq+core.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8A44018FF246000213B80 /* System_Linq+core.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A43E18FF246000213B80 /* System_Linq+core.m */; };
 		ABF5D275190C577200E9CFBD /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D273190C577200E9CFBD /* Dubrovnik.framework */; };
 		ABF5D276190C577200E9CFBD /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D274190C577200E9CFBD /* Mono.mscorlib.framework */; };
 /* End PBXBuildFile section */
@@ -79,10 +79,10 @@
 		ABB8A36C18FF04E100213B80 /* Generated bindings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Generated bindings"; sourceTree = "<group>"; };
 		ABB8A36E18FF061200213B80 /* System_Linq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Linq.h; sourceTree = "<group>"; };
 		ABB8A36F18FF061200213B80 /* System_Linq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Linq.m; sourceTree = "<group>"; };
-		ABB8A43718FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DBSystem_Collections_Generic_DictionaryA2+Linq.h"; sourceTree = "<group>"; };
-		ABB8A43818FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DBSystem_Collections_Generic_DictionaryA2+Linq.m"; sourceTree = "<group>"; };
-		ABB8A43D18FF246000213B80 /* DBSystem_Linq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_Linq.h; sourceTree = "<group>"; };
-		ABB8A43E18FF246000213B80 /* DBSystem_Linq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Linq.m; sourceTree = "<group>"; };
+		ABB8A43718FF21AA00213B80 /* System_Collections_Generic_DictionaryA2+Linq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Collections_Generic_DictionaryA2+Linq.h"; sourceTree = "<group>"; };
+		ABB8A43818FF21AA00213B80 /* System_Collections_Generic_DictionaryA2+Linq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Collections_Generic_DictionaryA2+Linq.m"; sourceTree = "<group>"; };
+		ABB8A43D18FF246000213B80 /* System_Linq+core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Linq+core.h"; sourceTree = "<group>"; };
+		ABB8A43E18FF246000213B80 /* System_Linq+core.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Linq+core.m"; sourceTree = "<group>"; };
 		ABF5D273190C577200E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D274190C577200E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -223,8 +223,10 @@
 		ABB8A43518FF216700213B80 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				ABB8A43718FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.h */,
-				ABB8A43818FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.m */,
+				ABB8A43D18FF246000213B80 /* System_Linq+core.h */,
+				ABB8A43E18FF246000213B80 /* System_Linq+core.m */,
+				ABB8A43718FF21AA00213B80 /* System_Collections_Generic_DictionaryA2+Linq.h */,
+				ABB8A43818FF21AA00213B80 /* System_Collections_Generic_DictionaryA2+Linq.m */,
 				ABB009A01B00F9DD00EF538F /* System_Collections_Generic_IEnumerableA1+Linq.h */,
 				ABB009A11B00F9DD00EF538F /* System_Collections_Generic_IEnumerableA1+Linq.m */,
 			);
@@ -234,8 +236,6 @@
 		ABB8A43618FF218700213B80 /* Helper classes */ = {
 			isa = PBXGroup;
 			children = (
-				ABB8A43D18FF246000213B80 /* DBSystem_Linq.h */,
-				ABB8A43E18FF246000213B80 /* DBSystem_Linq.m */,
 			);
 			path = "Helper classes";
 			sourceTree = "<group>";
@@ -257,8 +257,8 @@
 				AB2E747B18FFCFCB0061C63E /* System_Linq_IQueryableA1.h in Headers */,
 				AB2E747918FFCFCB0061C63E /* IQueryableA1.h in Headers */,
 				AB2E746B18FFCF730061C63E /* System_Linq_IOrderedQueryableA1.h in Headers */,
-				ABB8A43918FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.h in Headers */,
-				ABB8A43F18FF246000213B80 /* DBSystem_Linq.h in Headers */,
+				ABB8A43918FF21AA00213B80 /* System_Collections_Generic_DictionaryA2+Linq.h in Headers */,
+				ABB8A43F18FF246000213B80 /* System_Linq+core.h in Headers */,
 				ABB8A37018FF061200213B80 /* System_Linq.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,10 +359,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABB8A37118FF061200213B80 /* System_Linq.m in Sources */,
-				ABB8A43A18FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.m in Sources */,
+				ABB8A43A18FF21AA00213B80 /* System_Collections_Generic_DictionaryA2+Linq.m in Sources */,
 				ABB009A31B00F9DD00EF538F /* System_Collections_Generic_IEnumerableA1+Linq.m in Sources */,
 				AB2E747A18FFCFCB0061C63E /* IQueryableA1.m in Sources */,
-				ABB8A44018FF246000213B80 /* DBSystem_Linq.m in Sources */,
+				ABB8A44018FF246000213B80 /* System_Linq+core.m in Sources */,
 				AB2E747C18FFCFCB0061C63E /* System_Linq_IQueryableA1.m in Sources */,
 				AB2E746C18FFCF730061C63E /* System_Linq_IOrderedQueryableA1.m in Sources */,
 				AB2E747818FFCFCB0061C63E /* IOrderedQueryableA1.m in Sources */,

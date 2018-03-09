@@ -417,15 +417,6 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 }
 
 #pragma mark -
-#pragma mark System.Object backing methods
-
-- (id)db_getType
-{
-    // no-op - subclasses must override
-    return nil;
-}
-
-#pragma mark -
 #pragma mark Field access
 
 + (void)getMonoClassField:(const char *)fieldName valuePtr:(void *)valuePtr {

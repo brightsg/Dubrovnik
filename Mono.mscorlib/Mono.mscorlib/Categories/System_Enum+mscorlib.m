@@ -19,14 +19,10 @@
 // License along with this library; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
-#import "System_Enum.h+mscorlib"
+#import "System_Enum+mscorlib.h"
 #import "System_Object+mscorlib.h"
 
 static DBManagedClass *_classRep = nil;
-
-@interface System_Enum()
-+ (DBManagedClass *)classRep;
-@end
 
 @implementation System_Enum (mscorlib)
 

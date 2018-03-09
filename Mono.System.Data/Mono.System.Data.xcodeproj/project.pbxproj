@@ -18,6 +18,8 @@
 		AB3FD5071C76335D0037899F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3FD5061C76335D0037899F /* Cocoa.framework */; };
 		AB3FD50D1C7635150037899F /* System_Data_IDbConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3FD50B1C7635150037899F /* System_Data_IDbConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB3FD50E1C7635150037899F /* System_Data_IDbConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3FD50C1C7635150037899F /* System_Data_IDbConnection.m */; };
+		AB5428162051F8AB007485C8 /* System_Data_Common_DbConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5428142051F8AB007485C8 /* System_Data_Common_DbConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB5428172051F8AB007485C8 /* System_Data_Common_DbConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428152051F8AB007485C8 /* System_Data_Common_DbConnection.m */; };
 		ABFDAB941C7639D7005230C0 /* System_Data_IDataReader.h in Headers */ = {isa = PBXBuildFile; fileRef = ABFDAB921C7639D7005230C0 /* System_Data_IDataReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABFDAB951C7639D7005230C0 /* System_Data_IDataReader.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFDAB931C7639D7005230C0 /* System_Data_IDataReader.m */; };
 /* End PBXBuildFile section */
@@ -37,6 +39,8 @@
 		AB3FD50B1C7635150037899F /* System_Data_IDbConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_IDbConnection.h; sourceTree = "<group>"; };
 		AB3FD50C1C7635150037899F /* System_Data_IDbConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_IDbConnection.m; sourceTree = "<group>"; };
 		AB3FD50F1C7635570037899F /* Mono.System.Data-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mono.System.Data-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		AB5428142051F8AB007485C8 /* System_Data_Common_DbConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = System_Data_Common_DbConnection.h; sourceTree = "<group>"; };
+		AB5428152051F8AB007485C8 /* System_Data_Common_DbConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = System_Data_Common_DbConnection.m; sourceTree = "<group>"; };
 		ABFDAB921C7639D7005230C0 /* System_Data_IDataReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_IDataReader.h; sourceTree = "<group>"; };
 		ABFDAB931C7639D7005230C0 /* System_Data_IDataReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_IDataReader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +114,8 @@
 				AB3FD50C1C7635150037899F /* System_Data_IDbConnection.m */,
 				ABFDAB921C7639D7005230C0 /* System_Data_IDataReader.h */,
 				ABFDAB931C7639D7005230C0 /* System_Data_IDataReader.m */,
+				AB5428142051F8AB007485C8 /* System_Data_Common_DbConnection.h */,
+				AB5428152051F8AB007485C8 /* System_Data_Common_DbConnection.m */,
 			);
 			path = "Manual Bindings";
 			sourceTree = "<group>";
@@ -147,6 +153,7 @@
 				AB3FD4EA1C7606AA0037899F /* Categories.h in Headers */,
 				AB3FD4EB1C7606AA0037899F /* Framework.h in Headers */,
 				AB3FD4EC1C7606AA0037899F /* GeneratedBindings.h in Headers */,
+				AB5428162051F8AB007485C8 /* System_Data_Common_DbConnection.h in Headers */,
 				AB3FD4ED1C7606AA0037899F /* HelperClasses.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB5428172051F8AB007485C8 /* System_Data_Common_DbConnection.m in Sources */,
 				AB3FD50E1C7635150037899F /* System_Data_IDbConnection.m in Sources */,
 				ABFDAB951C7639D7005230C0 /* System_Data_IDataReader.m in Sources */,
 			);

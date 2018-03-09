@@ -9,6 +9,7 @@
 #import "System_Delegate+mscorlib.h"
 #import "System_Object+mscorlib.h"
 #import "System_Type.h"
+#import "System_Array+mscorlib.h"
 #import "System_IntPtr.h"
 #import <objc/runtime.h>
 
