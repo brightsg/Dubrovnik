@@ -1774,7 +1774,6 @@
 		ABB8A28C18FEFB0700213B80 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		ABB8A28F18FEFB0700213B80 /* Mono.mscorlib-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mono.mscorlib-Info.plist"; sourceTree = "<group>"; };
 		ABB8A29118FEFB0700213B80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		ABB8A29318FEFB0700213B80 /* Mono.mscorlib-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mono.mscorlib-Prefix.pch"; sourceTree = "<group>"; };
 		ABB8A29B18FEFB0700213B80 /* Mono.mscorlibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mono.mscorlibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB8A2A418FEFB0700213B80 /* Mono.mscorlibTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mono.mscorlibTests-Info.plist"; sourceTree = "<group>"; };
 		ABB8A2A618FEFB0700213B80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -2783,7 +2782,6 @@
 			children = (
 				ABB8A28F18FEFB0700213B80 /* Mono.mscorlib-Info.plist */,
 				ABB8A29018FEFB0700213B80 /* InfoPlist.strings */,
-				ABB8A29318FEFB0700213B80 /* Mono.mscorlib-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -4032,7 +4030,6 @@
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Mono.mscorlib/Mono.mscorlib-Prefix.pch";
 				INFOPLIST_FILE = "Mono.mscorlib/Mono.mscorlib-Info.plist";
 				INSTALL_PATH = "@rpath";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thesaurussoftware.${PRODUCT_NAME:rfc1034identifier}";
@@ -4053,7 +4050,6 @@
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Mono.mscorlib/Mono.mscorlib-Prefix.pch";
 				INFOPLIST_FILE = "Mono.mscorlib/Mono.mscorlib-Info.plist";
 				INSTALL_PATH = "@rpath";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thesaurussoftware.${PRODUCT_NAME:rfc1034identifier}";
