@@ -28,6 +28,7 @@
 //
 // Import superclass and adopted protocols
 //
+#import "System_Collections_Generic_IEnumeratorA1_Protocol.h"
 #import "System_Collections_IEnumerator_Protocol.h"
 #import "System_IDisposable_Protocol.h"
 #import "System_Object.h"

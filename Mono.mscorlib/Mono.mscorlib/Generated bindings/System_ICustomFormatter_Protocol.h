@@ -30,6 +30,7 @@
 //
 // Import superclass and adopted protocols
 //
+#import "System_ICustomFormatter_Protocol.h"
 #import "System_Object.h"
 
 

@@ -26,6 +26,7 @@
 //
 // Import superclass and adopted protocols
 //
+#import "System_IDisposable_Protocol.h"
 #import "System_Object.h"
 
 @interface System_IDisposable : System_Object

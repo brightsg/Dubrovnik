@@ -24,6 +24,7 @@
 @class System_Int32;
 @class System_Object;
 @class System_Reflection_Assembly;
+@class System_Reflection_MemberInfo;
 @class System_Type;
 
 //
@@ -56,8 +57,20 @@
 		Managed param types : System.Object
 	 */
     - (BOOL)equals_withObj:(System_Object *)p1;
-/* Skipped method : System.Attribute GetCustomAttribute(System.Reflection.MemberInfo element, System.Type attributeType) */
-/* Skipped method : System.Attribute GetCustomAttribute(System.Reflection.MemberInfo element, System.Type attributeType, System.Boolean inherit) */
+
+	/*! 
+		Managed method name : GetCustomAttribute
+		Managed return type : System.Attribute
+		Managed param types : System.Reflection.MemberInfo, System.Type
+	 */
+    + (System_Attribute *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2;
+
+	/*! 
+		Managed method name : GetCustomAttribute
+		Managed return type : System.Attribute
+		Managed param types : System.Reflection.MemberInfo, System.Type, System.Boolean
+	 */
+    + (System_Attribute *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3;
 /* Skipped method : System.Attribute GetCustomAttribute(System.Reflection.ParameterInfo element, System.Type attributeType) */
 /* Skipped method : System.Attribute GetCustomAttribute(System.Reflection.ParameterInfo element, System.Type attributeType, System.Boolean inherit) */
 /* Skipped method : System.Attribute GetCustomAttribute(System.Reflection.Module element, System.Type attributeType) */
@@ -76,10 +89,34 @@
 		Managed param types : System.Reflection.Assembly, System.Type, System.Boolean
 	 */
     + (System_Attribute *)getCustomAttribute_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3;
-/* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.MemberInfo element, System.Type type) */
-/* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.MemberInfo element, System.Type type, System.Boolean inherit) */
-/* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.MemberInfo element) */
-/* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.MemberInfo element, System.Boolean inherit) */
+
+	/*! 
+		Managed method name : GetCustomAttributes
+		Managed return type : System.Attribute[]
+		Managed param types : System.Reflection.MemberInfo, System.Type
+	 */
+    + (System_Array *)getCustomAttributes_withElement:(System_Reflection_MemberInfo *)p1 type:(System_Type *)p2;
+
+	/*! 
+		Managed method name : GetCustomAttributes
+		Managed return type : System.Attribute[]
+		Managed param types : System.Reflection.MemberInfo, System.Type, System.Boolean
+	 */
+    + (System_Array *)getCustomAttributes_withElement:(System_Reflection_MemberInfo *)p1 type:(System_Type *)p2 inherit:(BOOL)p3;
+
+	/*! 
+		Managed method name : GetCustomAttributes
+		Managed return type : System.Attribute[]
+		Managed param types : System.Reflection.MemberInfo
+	 */
+    + (System_Array *)getCustomAttributes_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1;
+
+	/*! 
+		Managed method name : GetCustomAttributes
+		Managed return type : System.Attribute[]
+		Managed param types : System.Reflection.MemberInfo, System.Boolean
+	 */
+    + (System_Array *)getCustomAttributes_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 inheritBool:(BOOL)p2;
 /* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.ParameterInfo element) */
 /* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.ParameterInfo element, System.Type attributeType) */
 /* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.ParameterInfo element, System.Type attributeType, System.Boolean inherit) */
@@ -130,8 +167,20 @@
 		Managed param types : 
 	 */
     - (BOOL)isDefaultAttribute;
-/* Skipped method : System.Boolean IsDefined(System.Reflection.MemberInfo element, System.Type attributeType) */
-/* Skipped method : System.Boolean IsDefined(System.Reflection.MemberInfo element, System.Type attributeType, System.Boolean inherit) */
+
+	/*! 
+		Managed method name : IsDefined
+		Managed return type : System.Boolean
+		Managed param types : System.Reflection.MemberInfo, System.Type
+	 */
+    + (BOOL)isDefined_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2;
+
+	/*! 
+		Managed method name : IsDefined
+		Managed return type : System.Boolean
+		Managed param types : System.Reflection.MemberInfo, System.Type, System.Boolean
+	 */
+    + (BOOL)isDefined_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3;
 /* Skipped method : System.Boolean IsDefined(System.Reflection.ParameterInfo element, System.Type attributeType) */
 /* Skipped method : System.Boolean IsDefined(System.Reflection.ParameterInfo element, System.Type attributeType, System.Boolean inherit) */
 /* Skipped method : System.Boolean IsDefined(System.Reflection.Module element, System.Type attributeType) */

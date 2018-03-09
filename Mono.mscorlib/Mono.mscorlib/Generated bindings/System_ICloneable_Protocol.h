@@ -26,6 +26,7 @@
 //
 // Import superclass and adopted protocols
 //
+#import "System_ICloneable_Protocol.h"
 #import "System_Object.h"
 
 

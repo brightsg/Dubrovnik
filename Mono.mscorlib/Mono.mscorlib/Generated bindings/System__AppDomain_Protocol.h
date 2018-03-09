@@ -40,6 +40,7 @@
 //
 // Import superclass and adopted protocols
 //
+#import "System__AppDomain_Protocol.h"
 #import "System_Object.h"
 
 

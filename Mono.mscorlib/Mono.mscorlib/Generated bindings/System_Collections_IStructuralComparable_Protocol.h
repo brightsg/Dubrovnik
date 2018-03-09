@@ -30,6 +30,7 @@
 //
 // Import superclass and adopted protocols
 //
+#import "System_Collections_IStructuralComparable_Protocol.h"
 #import "System_Object.h"
 
 

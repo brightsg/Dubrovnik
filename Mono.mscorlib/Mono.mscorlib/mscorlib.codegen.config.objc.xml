@@ -28,6 +28,7 @@
 		<string>System.Reflection.MemberFilter</string>
 		<string>System.Reflection.MethodBase</string>
 		<string>System.Reflection.MethodInfo</string>
+		<string>System.Reflection.MemberInfo</string>
 		<string>System.Reflection.PropertyInfo</string>
 		<string>System.Reflection.TypeAttributes</string>
 		<string>System.Runtime.InteropServices._Exception</string>

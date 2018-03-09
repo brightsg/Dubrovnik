@@ -48,7 +48,19 @@
 
 #pragma mark -
 #pragma mark Methods
-/* Skipped method : System.IAsyncResult BeginInvoke(System.Reflection.MemberInfo m, System.Object filterCriteria, System.AsyncCallback callback, System.Object object) */
+
+	/*! 
+		Managed method name : BeginInvoke
+		Managed return type : System.IAsyncResult
+		Managed param types : System.Reflection.MemberInfo, System.Object, System.AsyncCallback, System.Object
+	 */
+    - (id <System_IAsyncResult>)beginInvoke_withM:(System_Reflection_MemberInfo *)p1 filterCriteria:(System_Object *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(System.Reflection.MemberInfo,object,System.AsyncCallback,object)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
+		
+		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
+    }
 
 	/*! 
 		Managed method name : EndInvoke
@@ -62,7 +74,19 @@
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
-/* Skipped method : System.Boolean Invoke(System.Reflection.MemberInfo m, System.Object filterCriteria) */
+
+	/*! 
+		Managed method name : Invoke
+		Managed return type : System.Boolean
+		Managed param types : System.Reflection.MemberInfo, System.Object
+	 */
+    - (BOOL)invoke_withM:(System_Reflection_MemberInfo *)p1 filterCriteria:(System_Object *)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(System.Reflection.MemberInfo,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		
+		return DB_UNBOX_BOOLEAN(monoObject);
+    }
 
 #pragma mark -
 #pragma mark Teardown

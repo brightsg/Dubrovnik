@@ -32,9 +32,9 @@
 //
 // Import superclass and adopted protocols
 //
-#import "System_Object.h"
+#import "System_Reflection_MemberInfo.h"
 
-@interface System_Reflection_PropertyInfo : System_Object
+@interface System_Reflection_PropertyInfo : System_Reflection_MemberInfo
 
 #pragma mark -
 #pragma mark Setup

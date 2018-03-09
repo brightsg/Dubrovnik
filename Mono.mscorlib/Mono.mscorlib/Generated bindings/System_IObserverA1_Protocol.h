@@ -28,6 +28,7 @@
 //
 // Import superclass and adopted protocols
 //
+#import "System_IObserverA1_Protocol.h"
 #import "System_Object.h"
 
 

@@ -34,6 +34,7 @@
 // Import superclass and adopted protocols
 //
 #import "System_Object.h"
+#import "System_Runtime_InteropServices__Exception_Protocol.h"
 
 
 /*

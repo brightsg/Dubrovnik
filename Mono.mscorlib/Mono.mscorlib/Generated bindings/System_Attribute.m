@@ -70,8 +70,32 @@
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
-/* Skipped method : System.Attribute GetCustomAttribute(System.Reflection.MemberInfo element, System.Type attributeType) */
-/* Skipped method : System.Attribute GetCustomAttribute(System.Reflection.MemberInfo element, System.Type attributeType, System.Boolean inherit) */
+
+	/*! 
+		Managed method name : GetCustomAttribute
+		Managed return type : System.Attribute
+		Managed param types : System.Reflection.MemberInfo, System.Type
+	 */
+    + (System_Attribute *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttribute(System.Reflection.MemberInfo,System.Type)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		
+		return [System_Attribute bestObjectWithMonoObject:monoObject];
+    }
+
+	/*! 
+		Managed method name : GetCustomAttribute
+		Managed return type : System.Attribute
+		Managed param types : System.Reflection.MemberInfo, System.Type, System.Boolean
+	 */
+    + (System_Attribute *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttribute(System.Reflection.MemberInfo,System.Type,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+		
+		return [System_Attribute bestObjectWithMonoObject:monoObject];
+    }
 /* Skipped method : System.Attribute GetCustomAttribute(System.Reflection.ParameterInfo element, System.Type attributeType) */
 /* Skipped method : System.Attribute GetCustomAttribute(System.Reflection.ParameterInfo element, System.Type attributeType, System.Boolean inherit) */
 /* Skipped method : System.Attribute GetCustomAttribute(System.Reflection.Module element, System.Type attributeType) */
@@ -102,10 +126,58 @@
 		
 		return [System_Attribute bestObjectWithMonoObject:monoObject];
     }
-/* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.MemberInfo element, System.Type type) */
-/* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.MemberInfo element, System.Type type, System.Boolean inherit) */
-/* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.MemberInfo element) */
-/* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.MemberInfo element, System.Boolean inherit) */
+
+	/*! 
+		Managed method name : GetCustomAttributes
+		Managed return type : System.Attribute[]
+		Managed param types : System.Reflection.MemberInfo, System.Type
+	 */
+    + (System_Array *)getCustomAttributes_withElement:(System_Reflection_MemberInfo *)p1 type:(System_Type *)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttributes(System.Reflection.MemberInfo,System.Type)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+    }
+
+	/*! 
+		Managed method name : GetCustomAttributes
+		Managed return type : System.Attribute[]
+		Managed param types : System.Reflection.MemberInfo, System.Type, System.Boolean
+	 */
+    + (System_Array *)getCustomAttributes_withElement:(System_Reflection_MemberInfo *)p1 type:(System_Type *)p2 inherit:(BOOL)p3
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttributes(System.Reflection.MemberInfo,System.Type,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+		
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+    }
+
+	/*! 
+		Managed method name : GetCustomAttributes
+		Managed return type : System.Attribute[]
+		Managed param types : System.Reflection.MemberInfo
+	 */
+    + (System_Array *)getCustomAttributes_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttributes(System.Reflection.MemberInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+    }
+
+	/*! 
+		Managed method name : GetCustomAttributes
+		Managed return type : System.Attribute[]
+		Managed param types : System.Reflection.MemberInfo, System.Boolean
+	 */
+    + (System_Array *)getCustomAttributes_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 inheritBool:(BOOL)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCustomAttributes(System.Reflection.MemberInfo,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+		
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+    }
 /* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.ParameterInfo element) */
 /* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.ParameterInfo element, System.Type attributeType) */
 /* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.ParameterInfo element, System.Type attributeType, System.Boolean inherit) */
@@ -192,8 +264,32 @@
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
-/* Skipped method : System.Boolean IsDefined(System.Reflection.MemberInfo element, System.Type attributeType) */
-/* Skipped method : System.Boolean IsDefined(System.Reflection.MemberInfo element, System.Type attributeType, System.Boolean inherit) */
+
+	/*! 
+		Managed method name : IsDefined
+		Managed return type : System.Boolean
+		Managed param types : System.Reflection.MemberInfo, System.Type
+	 */
+    + (BOOL)isDefined_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsDefined(System.Reflection.MemberInfo,System.Type)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+		
+		return DB_UNBOX_BOOLEAN(monoObject);
+    }
+
+	/*! 
+		Managed method name : IsDefined
+		Managed return type : System.Boolean
+		Managed param types : System.Reflection.MemberInfo, System.Type, System.Boolean
+	 */
+    + (BOOL)isDefined_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3
+    {
+		
+		MonoObject *monoObject = [self invokeMonoClassMethod:"IsDefined(System.Reflection.MemberInfo,System.Type,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+		
+		return DB_UNBOX_BOOLEAN(monoObject);
+    }
 /* Skipped method : System.Boolean IsDefined(System.Reflection.ParameterInfo element, System.Type attributeType) */
 /* Skipped method : System.Boolean IsDefined(System.Reflection.ParameterInfo element, System.Type attributeType, System.Boolean inherit) */
 /* Skipped method : System.Boolean IsDefined(System.Reflection.Module element, System.Type attributeType) */

@@ -29,6 +29,7 @@
 //
 // Import superclass and adopted protocols
 //
+#import "System_IFormattable_Protocol.h"
 #import "System_Object.h"
 
 @interface System_IFormattable : System_Object

@@ -1414,7 +1414,19 @@
 		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
 /* Skipped method : System.Reflection.ConstructorInfo[] GetConstructors(System.Reflection.BindingFlags bindingAttr) */
-/* Skipped method : System.Reflection.MemberInfo[] GetDefaultMembers() */
+
+	/*! 
+		Managed method name : GetDefaultMembers
+		Managed return type : System.Reflection.MemberInfo[]
+		Managed param types : 
+	 */
+    - (System_Array *)getDefaultMembers
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"GetDefaultMembers()" withNumArgs:0];
+		
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+    }
 
 	/*! 
 		Managed method name : GetElementType
@@ -1580,10 +1592,34 @@
 		
 		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
-/* Skipped method : System.Reflection.MemberInfo[] GetMember(System.String name) */
+
+	/*! 
+		Managed method name : GetMember
+		Managed return type : System.Reflection.MemberInfo[]
+		Managed param types : System.String
+	 */
+    - (System_Array *)getMember_withName:(NSString *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"GetMember(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+    }
 /* Skipped method : System.Reflection.MemberInfo[] GetMember(System.String name, System.Reflection.BindingFlags bindingAttr) */
 /* Skipped method : System.Reflection.MemberInfo[] GetMember(System.String name, System.Reflection.MemberTypes type, System.Reflection.BindingFlags bindingAttr) */
-/* Skipped method : System.Reflection.MemberInfo[] GetMembers() */
+
+	/*! 
+		Managed method name : GetMembers
+		Managed return type : System.Reflection.MemberInfo[]
+		Managed param types : 
+	 */
+    - (System_Array *)getMembers
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"GetMembers()" withNumArgs:0];
+		
+		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+    }
 /* Skipped method : System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags bindingAttr) */
 /* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConvention, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 /* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */

@@ -34,6 +34,7 @@
 //
 #import "System_Collections_Generic_IEnumerableA1_Protocol.h"
 #import "System_Collections_Generic_IReadOnlyCollectionA1_Protocol.h"
+#import "System_Collections_Generic_IReadOnlyDictionaryA2_Protocol.h"
 #import "System_Collections_IEnumerable_Protocol.h"
 #import "System_Object.h"
 

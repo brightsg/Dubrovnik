@@ -33,6 +33,7 @@
 //
 #import "System_Collections_Generic_ICollectionA1_Protocol.h"
 #import "System_Collections_Generic_IEnumerableA1_Protocol.h"
+#import "System_Collections_Generic_IListA1_Protocol.h"
 #import "System_Collections_IEnumerable_Protocol.h"
 #import "System_Object.h"
 

@@ -214,7 +214,7 @@ namespace Dubrovnik.Tools
 		public List<string> ObjCDerivationImportDirectives(CodeFacet facet) {
 			List<string> imports = new List<string>();
 
-			if (facet.Name.Contains("IAdoptionLeave")) {
+			if (facet.Name.Contains("ArraySegment")) {
 				int b = 0;
 			}
 

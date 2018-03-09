@@ -27,6 +27,7 @@
 // Import superclass and adopted protocols
 //
 #import "System_Object.h"
+#import "System_Runtime_Serialization_ISerializable_Protocol.h"
 
 @interface System_Runtime_Serialization_ISerializable : System_Object
 

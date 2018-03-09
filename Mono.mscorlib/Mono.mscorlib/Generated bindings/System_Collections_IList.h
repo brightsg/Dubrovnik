@@ -33,6 +33,7 @@
 //
 #import "System_Collections_ICollection_Protocol.h"
 #import "System_Collections_IEnumerable_Protocol.h"
+#import "System_Collections_IList_Protocol.h"
 #import "System_Object.h"
 
 @interface System_Collections_IList : System_Object <System_Collections_IList_, System_Collections_ICollection_, System_Collections_IEnumerable_>

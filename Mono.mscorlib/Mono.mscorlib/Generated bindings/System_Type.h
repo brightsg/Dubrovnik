@@ -30,6 +30,7 @@
 @class System_Reflection_ConstructorInfo;
 @class System_Reflection_GenericParameterAttributes;
 @class System_Reflection_MemberFilter;
+@class System_Reflection_MemberInfo;
 @class System_Reflection_MethodBase;
 @class System_Reflection_MethodInfo;
 @class System_Reflection_PropertyInfo;
@@ -42,9 +43,9 @@
 //
 // Import superclass and adopted protocols
 //
-#import "System_Object.h"
+#import "System_Reflection_MemberInfo.h"
 
-@interface System_Type : System_Object
+@interface System_Type : System_Reflection_MemberInfo
 
 #pragma mark -
 #pragma mark Setup
@@ -360,7 +361,13 @@
 	 */
     - (System_Array *)getConstructors;
 /* Skipped method : System.Reflection.ConstructorInfo[] GetConstructors(System.Reflection.BindingFlags bindingAttr) */
-/* Skipped method : System.Reflection.MemberInfo[] GetDefaultMembers() */
+
+	/*! 
+		Managed method name : GetDefaultMembers
+		Managed return type : System.Reflection.MemberInfo[]
+		Managed param types : 
+	 */
+    - (System_Array *)getDefaultMembers;
 
 	/*! 
 		Managed method name : GetElementType
@@ -454,10 +461,22 @@
 		Managed param types : 
 	 */
     - (System_Array *)getInterfaces;
-/* Skipped method : System.Reflection.MemberInfo[] GetMember(System.String name) */
+
+	/*! 
+		Managed method name : GetMember
+		Managed return type : System.Reflection.MemberInfo[]
+		Managed param types : System.String
+	 */
+    - (System_Array *)getMember_withName:(NSString *)p1;
 /* Skipped method : System.Reflection.MemberInfo[] GetMember(System.String name, System.Reflection.BindingFlags bindingAttr) */
 /* Skipped method : System.Reflection.MemberInfo[] GetMember(System.String name, System.Reflection.MemberTypes type, System.Reflection.BindingFlags bindingAttr) */
-/* Skipped method : System.Reflection.MemberInfo[] GetMembers() */
+
+	/*! 
+		Managed method name : GetMembers
+		Managed return type : System.Reflection.MemberInfo[]
+		Managed param types : 
+	 */
+    - (System_Array *)getMembers;
 /* Skipped method : System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags bindingAttr) */
 /* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConvention, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 /* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */

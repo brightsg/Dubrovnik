@@ -27,6 +27,7 @@
 //
 // Import superclass and adopted protocols
 //
+#import "System_IAsyncResult_Protocol.h"
 #import "System_Object.h"
 
 @interface System_IAsyncResult : System_Object

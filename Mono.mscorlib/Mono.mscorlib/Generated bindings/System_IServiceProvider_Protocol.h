@@ -27,6 +27,7 @@
 //
 // Import superclass and adopted protocols
 //
+#import "System_IServiceProvider_Protocol.h"
 #import "System_Object.h"
 
 

@@ -28,6 +28,7 @@
 //
 // Import superclass and adopted protocols
 //
+#import "System_Collections_IEqualityComparer_Protocol.h"
 #import "System_Object.h"
 
 

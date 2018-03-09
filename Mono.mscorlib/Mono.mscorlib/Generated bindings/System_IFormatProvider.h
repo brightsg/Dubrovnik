@@ -27,6 +27,7 @@
 //
 // Import superclass and adopted protocols
 //
+#import "System_IFormatProvider_Protocol.h"
 #import "System_Object.h"
 
 @interface System_IFormatProvider : System_Object

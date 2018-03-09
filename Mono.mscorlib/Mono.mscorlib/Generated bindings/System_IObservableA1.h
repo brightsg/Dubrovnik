@@ -31,6 +31,7 @@
 //
 // Import superclass and adopted protocols
 //
+#import "System_IObservableA1_Protocol.h"
 #import "System_Object.h"
 
 @interface System_IObservableA1 : System_Object

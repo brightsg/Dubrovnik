@@ -150,8 +150,24 @@ namespace Dubrovnik.Tools
 		{
 			return this.IsGenericParameter || (this.IsGenericParameterElement && !this.IsArray);
 		}
+
 		/// <summary>
-		/// Facet type including namespace
+		/// For a non generic type the RootType is a synonym for the Type.
+		/// For a generic type RootType returns Type sans the <...> generic type parameters.
+		/// </summary>
+		/// <returns></returns>
+		public static string RootType(string type) {
+			string RootType = type;
+			string[] tags = new string[] { "<", ",", ">" };
+			string[] parts = type.Split(tags, StringSplitOptions.RemoveEmptyEntries);
+			if (parts != null && parts.Count() > 0) {
+				RootType = parts[0];
+			}
+			return RootType;
+		} 
+
+		/// <summary>
+		/// Facet type including namespace and generic type parameters where appropriate.
 		/// </summary>
         public string Type {
             get
@@ -695,20 +711,31 @@ namespace Dubrovnik.Tools
             return orderedFacets;
         }
 
+		/// <summary>
+		/// A hash of all types defined in the assembly.
+		/// </summary>
 		private Dictionary<string, CodeFacet> _TypeHash;
 		public Dictionary<string, CodeFacet> TypeHash {
 			get
 			{
 				if (_TypeHash == null) {
-					_TypeHash = AllFacets().ToDictionary(f => f.Type);
+					_TypeHash = new Dictionary<string, CodeFacet>();
+					foreach (CodeFacet facet in AllFacets()) {
+						// key is Type sans generic parameter info
+						string rootType = RootType(facet.Type);
+						if (rootType != null && !_TypeHash.ContainsKey(rootType)) {
+							_TypeHash.Add(rootType, facet);
+						}
+					}
 				}
 				return _TypeHash;
 			}
 		}
 
 
-		public bool DefinesFacetType(string typeName) {
-			return TypeHash.ContainsKey(typeName);
+		public bool DefinesFacetType(string type) {
+			string rootType = RootType(type);
+			return TypeHash.ContainsKey(rootType);
 		}
 
     }

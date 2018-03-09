@@ -27,6 +27,7 @@
 //
 // Import superclass and adopted protocols
 //
+#import "System_IComparableA1_Protocol.h"
 #import "System_Object.h"
 
 @interface System_IComparableA1 : System_Object
