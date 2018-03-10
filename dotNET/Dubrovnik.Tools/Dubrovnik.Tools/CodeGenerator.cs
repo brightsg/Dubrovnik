@@ -43,38 +43,16 @@ namespace Dubrovnik.Tools
 			string interfaceFile = Path.Combine(outputPath, N2ObjC.InterfaceFile);
 			string implementationFile = Path.Combine(outputPath, N2ObjC.ImplementationFile);
 
-			const bool outputMonolithicInterface = false;
-			const bool outputMonolithicImplementation = false;
-
 			// output interface
-			if (outputMonolithicInterface)
-			{
-				File.WriteAllText(interfaceFile, this.N2ObjC.InterfaceOutput, Encoding.UTF8);
-			}
-			else
-			{
-				GeneratedFileExporter.WriteAllText(Net2ObjC.OutputType.Interface, interfaceFile,
+			GeneratedFileExporter.WriteAllText(Net2ObjC.OutputType.Interface, interfaceFile,
 					this.N2ObjC.InterfaceOutput);
-			}
 
 			// output implementation
-			if (outputMonolithicImplementation)
-			{
-				File.WriteAllText(implementationFile, this.N2ObjC.ImplementationOutput, Encoding.UTF8);
-			}
-			else
-			{
-				GeneratedFileExporter.WriteAllText(Net2ObjC.OutputType.Implementation, implementationFile,
+			GeneratedFileExporter.WriteAllText(Net2ObjC.OutputType.Implementation, implementationFile,
 					this.N2ObjC.ImplementationOutput);
-			}
 
-			// do post flight processing
-			PostflightObjC postflight = PostflightObjC.PostflightObjCForAssembly(this.N2ObjC.XMLFilePath);
-			if (!postflight.Process())
-			{
-				throw new Exception(String.Format("The code was exported to {0} but problems occurred during the postflight processing.", outputPath));
-			}
-
+			// do post processing
+			N2ObjC.Config.DoGenerationPostProcessing(outputPath);
 	    }
 
         public void GenerateAssemblyCodeFromTemplate(AssemblyFacet assemblyFacet)

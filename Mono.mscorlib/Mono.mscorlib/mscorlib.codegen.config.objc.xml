@@ -36,4 +36,8 @@
 		<string>System.Threading.SendOrPostCallback</string>
 		<string>System.Threading.SynchronizationContext</string>
 	</TypeNameWhiteList>
+	<OutputFileDeleteList>
+		<string>System_Object.h</string>
+		<string>System_Object.m</string>
+	</OutputFileDeleteList>
 </ConfigObjC>

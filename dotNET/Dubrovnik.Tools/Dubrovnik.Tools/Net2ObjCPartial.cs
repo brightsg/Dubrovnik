@@ -113,48 +113,6 @@ namespace Dubrovnik.Tools
 		}
 
 		/// <summary>
-		/// Returns all ObjC import directives required to fully represent the facet
-		/// </summary>
-		/// <param name="facet"></param>
-		/// <returns></returns>
-		/*
-		public List<string> ObjCImportDirectives(CodeFacet facet) {
-			List<string> imports = new List<string>();
-
-			if (!Config.GenerateTypeBinding(facet)) {
-				return imports;
-			}
-
-			// objC type
-			string objCType = facet.ObjCFacet.Type;
-			if (string.IsNullOrEmpty(objCType)) {
-				return imports;
-			}
-
-			// if the type contains generic parameters
-			if (facet.ContainsGenericParameters) {
-				objCType = "System_Object";
-			}
-
-			// import objC facet type
-			string import = String.Format("#import \"{0}.h\"", objCType);
-			imports.Add(import);
-
-			// import objC facet types for all children
-			List<CodeFacet> children = facet.Children();
-			foreach (CodeFacet child in children) {
-				imports.AddRange(ObjCImportDirectives(child));
-			}
-
-
-				// return a distinct list to remove duplicates
-				imports = imports.Distinct().ToList();
-			imports.Sort();
-			return imports;
-		}
-		*/
-
-		/// <summary>
 		/// Returns all ObjC forward class and protocol declarations required to fully represent the facet.
 		/// </summary>
 		/// <param name="facet"></param>
@@ -213,10 +171,6 @@ namespace Dubrovnik.Tools
 		/// <returns>List of ObjC import directives.</returns>
 		public List<string> ObjCDerivationImportDirectives(CodeFacet facet) {
 			List<string> imports = new List<string>();
-
-			if (facet.Name.Contains("ArraySegment")) {
-				int b = 0;
-			}
 
 			// iterate over the sub facets required to derive the native representation
 			List<CodeFacet> derivation = facet.Derivation();
@@ -512,9 +466,6 @@ namespace Dubrovnik.Tools
 			GenerateObjC(include);
 			ImplementationOutput = Output();
 			log.AppendFormat("Implementation file {0} done\n", this.ImplementationFile);
-
-			// get configuration info for the assembly
-			PostflightObjC postflight = PostflightObjC.PostflightObjCForAssembly(XMLFilePath);
 
 			// write the log string as the final output of this template
 			WriteLine(log.ToString());

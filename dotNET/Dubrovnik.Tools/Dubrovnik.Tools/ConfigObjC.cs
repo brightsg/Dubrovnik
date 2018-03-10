@@ -48,6 +48,7 @@ namespace Dubrovnik.Tools {
 			FilterSystemInterfaces = false;
 			TypeNameSkipList = new List<string>();
 			TypeNameWhiteList = new List<string>();
+			OutputFileDeleteList = new List<string>();
 		}
 
 		private static void Persist(ConfigObjC config, string path) {
@@ -59,14 +60,29 @@ namespace Dubrovnik.Tools {
 
 		#endregion
 
-		// filter system interfaces from generated outout
+		/// <summary>
+		/// Filter system interfaces from generated outout
+		/// </summary>
 		public bool FilterSystemInterfaces { get; set; }
 
-		// type names to omit from output
+		/// <summary>
+		/// Type names to omit from output.
+		/// Matching types will be omitted along with method, field and property definitions
+		/// in all classes that include the macthing type as part of their signature.
+		/// </summary>
 		public List<string> TypeNameSkipList { get; set; }
 
-		// type names to include in output, overridding the skip list
+		/// <summary>
+		/// Type names to include in output, overridding the skip list.
+		/// </summary>
 		public List<string> TypeNameWhiteList { get; set; }
+
+		/// <summary>
+		/// File names to be deleted from the output path.
+		/// This may be desirable when replacing a generated file with a custom
+		/// manual generated file.
+		/// </summary>
+		public List<string> OutputFileDeleteList { get; set; }
 
 		#region Binding generation
 
@@ -169,6 +185,24 @@ namespace Dubrovnik.Tools {
 			}
 
 			return isWhiteListed;
+		}
+
+		/// <summary>
+		/// Output file generation post processing.
+		/// </summary>
+		public void DoGenerationPostProcessing(string outputPath) {
+
+			// delete listed output files.
+			// we most likely provide a manually created custom replacement on another file path.
+			foreach (string name in OutputFileDeleteList) {
+				string file = null;
+				try {
+					file = Path.Combine(outputPath, name);
+					File.Delete(file);
+				} catch (Exception e) {
+					Console.WriteLine($"Could not delete output file : {file}");
+				}
+			} 
 		}
 		#endregion
 	}
