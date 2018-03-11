@@ -251,7 +251,8 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 {
     // ************************************************************
     // This is the preferred factory method
-    // It will produce the best NSObject instance for the argument.
+    // It will produce the best NSObject instance for the argument
+    // or a DBManagedObject subclass.
     // It may or may not return an instance of the receiver.
     // ************************************************************
     return [[DBTypeManager sharedManager] objectWithMonoObject:obj defaultClass:self];

@@ -577,12 +577,18 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     [listA1 add:@"over here".managedString];
     [listA1 add:numInt];
     
+    // indexing with objectAtIndex:
     System_Collections_IList *iList = [listA1 list];
     XCTAssertTrue([[iList objectAtIndex:0] isEqualToString:@"bob"], DBUEqualityTestFailed);
     XCTAssertTrue([[iList objectAtIndex:1] isEqualToString:@"over here"], DBUEqualityTestFailed);
     XCTAssertTrue([[iList objectAtIndex:2] intValue] == 51, DBUEqualityTestFailed);
     XCTAssertTrue([iList int32AtIndex:2] == 51, DBUEqualityTestFailed);
     
+    // indexing with managed indexer exposed as get_Item_withIndex:
+    XCTAssertTrue([[iList get_Item_withIndex:0].toString isEqualToString:@"bob"], DBUEqualityTestFailed);
+    XCTAssertTrue([[iList get_Item_withIndex:1].toString isEqualToString:@"over here"], DBUEqualityTestFailed);
+    XCTAssertTrue([[iList get_Item_withIndex:2] int32Value] == 51, DBUEqualityTestFailed);
+
     // convert to NSArray
     NSArray <NSString *> *list = [listA1 array];
     XCTAssertTrue([(NSString *)list[0] isEqualToString:@"bob"], DBUEqualityTestFailed);
@@ -1462,6 +1468,12 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     key = stringStringDictKeys[1];
     XCTAssertTrue([[stringStringDictA2 objectForKey:key] dbTestString:@"2"], DBUSubstringTestFailed);
     
+    // test keys and values using managed indexer exposed as get_Item_withKey
+    value = [stringStringDictA2 get_Item_withKey:[@"keyForString1" managedString]];
+    XCTAssertTrue([value dbTestString:@"1"], DBUSubstringTestFailed);
+    value = [stringStringDictA2 get_Item_withKey:[@"keyForString2" managedString]];
+    XCTAssertTrue([value dbTestString:@"2"], DBUSubstringTestFailed);
+    
     // test NSDictionary representation
     NSDictionary *stringStringDict = [stringStringDictA2 dictionary];
     XCTAssertTrue([stringStringDict[@"keyForString1"] dbTestString:@"Dubrovnik.UnitTests 1"], DBUSubstringTestFailed);
@@ -1489,6 +1501,11 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     value = [intIntDictA2 objectForKey:key];
     XCTAssertTrue([value intValue] == 2, DBUEqualityTestFailed);
 
+    // test using managed indexer exposed as get_Item_withKey:
+#warning need to look at this. it calls - (id)bestObjectWithMonoObject: so we have a method advertised as System_Object returning a DBNumber as -bestObjectWithMonoObject: prefers to package managed numerics as an NSNumber subclass as opposed to say a System_Int.
+    DBNumber *valNumber = (DBNumber *)[intIntDictA2 get_Item_withKey:[[DBNumber numberWithInt:3] managedObject]];
+    XCTAssertTrue([valNumber intValue] == 6, DBUEqualityTestFailed);
+    
     // key is a DBManagedObject containing a boxed int
     int intKey = [intIntDictKeys[1] intValue];
     value = [intIntDictA2 objectForKey:[DBManagedObject objectWithMonoObject:DB_BOX_INT32(intKey)]];
@@ -1498,7 +1515,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     value = [intIntDictA2 objectForKey:[DBNumber numberWithInt:intKey]];
     XCTAssertTrue([value intValue] == 6, DBUEqualityTestFailed);
     
-    // object for key requires a type that represnts a mono type
+    // object for key requires a type that represents a mono type
     BOOL numberTypeExceptionRaised = NO;
     @try {
         value = [intIntDictA2 objectForKey:@(intKey)];
@@ -1767,9 +1784,18 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     System_Collections_ArrayList *stringArrayList = [refObject stringArrayList];
     XCTAssertTrue([stringArrayList count] == 3, DBUCountTestFailed);
     
+    // index using objectAtIndex:
     NSMutableString *ms = [NSMutableString new];
     for (int32_t i = 0; i < [stringArrayList count]; i++) {
         NSString * s = [stringArrayList objectAtIndex:i];
+        [ms appendFormat:@"%@ ", s];
+    }
+    XCTAssertTrue([ms dbTestString:DBUTestString], DBUSubstringTestFailed);
+    
+    // index using managed indexer get_Item_withIndex:
+    ms = [NSMutableString new];
+    for (int32_t i = 0; i < [stringArrayList count]; i++) {
+        NSString * s = [[stringArrayList get_Item_withIndex:i] toString];
         [ms appendFormat:@"%@ ", s];
     }
     XCTAssertTrue([ms dbTestString:DBUTestString], DBUSubstringTestFailed);
