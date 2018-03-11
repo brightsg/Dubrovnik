@@ -177,42 +177,6 @@
 		return _isSynchronized;
 	}
 
-	// Managed property name : Item
-	// Managed property type : System.Boolean
-    @synthesize item = _item;
-    - (BOOL)item
-    {
-		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		BOOL monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_item = monoObject;
-
-		return _item;
-	}
-    - (void)setItem:(BOOL)value
-	{
-		_item = value;
-		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Item");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject *monoException = NULL;
-		thunk(self.monoObject, value, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-	}
-
 	// Managed property name : Length
 	// Managed property type : System.Int32
     @synthesize length = _length;
@@ -273,6 +237,31 @@
 
 #pragma mark -
 #pragma mark Methods
+
+	/*! 
+		Managed method name : get_Item
+		Managed return type : System.Boolean
+		Managed param types : System.Int32
+	 */
+    - (BOOL)get_Item_withIndex:(int32_t)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"get_Item(int)" withNumArgs:1, DB_VALUE(p1)];
+		
+		return DB_UNBOX_BOOLEAN(monoObject);
+    }
+
+	/*! 
+		Managed method name : set_Item
+		Managed return type : System.Void
+		Managed param types : System.Int32, System.Boolean
+	 */
+    - (void)set_Item_withIndex:(int32_t)p1 value:(BOOL)p2
+    {
+		
+		[self invokeMonoMethod:"set_Item(int,bool)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+      
+    }
 
 	/*! 
 		Managed method name : And

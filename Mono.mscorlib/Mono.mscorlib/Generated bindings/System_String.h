@@ -136,16 +136,19 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Chars
-	// Managed property type : System.Char
-    @property (nonatomic, readonly) uint16_t chars;
-
 	// Managed property name : Length
 	// Managed property type : System.Int32
     @property (nonatomic, readonly) int32_t length;
 
 #pragma mark -
 #pragma mark Methods
+
+	/*! 
+		Managed method name : get_Chars
+		Managed return type : System.Char
+		Managed param types : System.Int32
+	 */
+    - (uint16_t)get_Chars_withIndex:(int32_t)p1;
 
 	/*! 
 		Managed method name : Clone

@@ -95,12 +95,22 @@
 	// Managed property type : System.Int32
     @property (nonatomic, readonly) int32_t count;
 
-	// Managed property name : Item
-	// Managed property type : <System.Collections.Generic.List`1+T>
-    @property (nonatomic, strong) System_Object * item;
-
 #pragma mark -
 #pragma mark Methods
+
+	/*! 
+		Managed method name : get_Item
+		Managed return type : <System.Collections.Generic.List`1+T>
+		Managed param types : System.Int32
+	 */
+    - (System_Object *)get_Item_withIndex:(int32_t)p1;
+
+	/*! 
+		Managed method name : set_Item
+		Managed return type : System.Void
+		Managed param types : System.Int32, <System.Collections.Generic.List`1+T>
+	 */
+    - (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2;
 
 	/*! 
 		Managed method name : Add

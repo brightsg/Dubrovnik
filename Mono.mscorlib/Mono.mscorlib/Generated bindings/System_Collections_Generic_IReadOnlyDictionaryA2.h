@@ -50,10 +50,6 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Item
-	// Managed property type : <System.Collections.Generic.IReadOnlyDictionary`2+TValue>
-    @property (nonatomic, strong, readonly) System_Object * item;
-
 	// Managed property name : Keys
 	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Collections.Generic.IReadOnlyDictionary`2+TKey>
     @property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerableA1 * keys;
@@ -64,6 +60,13 @@
 
 #pragma mark -
 #pragma mark Methods
+
+	/*! 
+		Managed method name : get_Item
+		Managed return type : <System.Collections.Generic.IReadOnlyDictionary`2+TValue>
+		Managed param types : <System.Collections.Generic.IReadOnlyDictionary`2+TKey>
+	 */
+    - (System_Object *)get_Item_withKey:(System_Object *)p1;
 
 	/*! 
 		Managed method name : ContainsKey

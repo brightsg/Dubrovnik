@@ -67,8 +67,8 @@ namespace Dubrovnik.Tools {
 
 		/// <summary>
 		/// Type names to omit from output.
-		/// Matching types will be omitted along with method, field and property definitions
-		/// in all classes that include the macthing type as part of their signature.
+		/// Matching types will be omitted entirely along with any member (method, property or field)
+		/// in any class that includes the matching type as part of their signature.
 		/// </summary>
 		public List<string> TypeNameSkipList { get; set; }
 

@@ -55,30 +55,21 @@
 		return _comparer;
 	}
 
-	// Managed property name : Item
-	// Managed property type : <System.Collections.ObjectModel.KeyedCollection`2+TItem>
-    @synthesize item = _item;
-    - (System_Object *)item
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
-		_item = [System_Object bestObjectWithMonoObject:monoObject];
-
-		return _item;
-	}
-
 #pragma mark -
 #pragma mark Methods
+
+	/*! 
+		Managed method name : get_Item
+		Managed return type : <System.Collections.ObjectModel.KeyedCollection`2+TItem>
+		Managed param types : <System.Collections.ObjectModel.KeyedCollection`2+TKey>
+	 */
+    - (System_Object *)get_Item_withKey:(System_Object *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"get_Item(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return [System_Object bestObjectWithMonoObject:monoObject];
+    }
 
 	/*! 
 		Managed method name : Contains

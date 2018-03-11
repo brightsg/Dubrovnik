@@ -62,12 +62,15 @@
 	// Managed property type : System.Collections.Generic.IEqualityComparer`1<System.Collections.ObjectModel.KeyedCollection`2+TKey>
     @property (nonatomic, strong, readonly) System_Collections_Generic_IEqualityComparerA1 * comparer;
 
-	// Managed property name : Item
-	// Managed property type : <System.Collections.ObjectModel.KeyedCollection`2+TItem>
-    @property (nonatomic, strong, readonly) System_Object * item;
-
 #pragma mark -
 #pragma mark Methods
+
+	/*! 
+		Managed method name : get_Item
+		Managed return type : <System.Collections.ObjectModel.KeyedCollection`2+TItem>
+		Managed param types : <System.Collections.ObjectModel.KeyedCollection`2+TKey>
+	 */
+    - (System_Object *)get_Item_withKey:(System_Object *)p1;
 
 	/*! 
 		Managed method name : Contains

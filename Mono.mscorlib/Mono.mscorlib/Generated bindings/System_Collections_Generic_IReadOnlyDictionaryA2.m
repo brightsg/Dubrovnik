@@ -33,28 +33,6 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Item
-	// Managed property type : <System.Collections.Generic.IReadOnlyDictionary`2+TValue>
-    @synthesize item = _item;
-    - (System_Object *)item
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey, System.Collections.Generic.IReadOnlyDictionary`2+TValue>.Item");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
-		_item = [System_Object bestObjectWithMonoObject:monoObject];
-
-		return _item;
-	}
-
 	// Managed property name : Keys
 	// Managed property type : System.Collections.Generic.IEnumerable`1<System.Collections.Generic.IReadOnlyDictionary`2+TKey>
     @synthesize keys = _keys;
@@ -101,6 +79,19 @@
 
 #pragma mark -
 #pragma mark Methods
+
+	/*! 
+		Managed method name : get_Item
+		Managed return type : <System.Collections.Generic.IReadOnlyDictionary`2+TValue>
+		Managed param types : <System.Collections.Generic.IReadOnlyDictionary`2+TKey>
+	 */
+    - (System_Object *)get_Item_withKey:(System_Object *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey, System.Collections.Generic.IReadOnlyDictionary`2+TValue>.get_Item(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return [System_Object bestObjectWithMonoObject:monoObject];
+    }
 
 	/*! 
 		Managed method name : ContainsKey

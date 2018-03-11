@@ -70,45 +70,33 @@
 		return _count;
 	}
 
-	// Managed property name : Item
-	// Managed property type : <System.Collections.ObjectModel.Collection`1+T>
-    @synthesize item = _item;
-    - (System_Object *)item
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Item");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
-		_item = [System_Object bestObjectWithMonoObject:monoObject];
-
-		return _item;
-	}
-    - (void)setItem:(System_Object *)value
-	{
-		_item = value;
-		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Item");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject *monoException = NULL;
-		thunk(self.monoObject, [value monoObject], &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-	}
-
 #pragma mark -
 #pragma mark Methods
+
+	/*! 
+		Managed method name : get_Item
+		Managed return type : <System.Collections.ObjectModel.Collection`1+T>
+		Managed param types : System.Int32
+	 */
+    - (System_Object *)get_Item_withIndex:(int32_t)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"get_Item(int)" withNumArgs:1, DB_VALUE(p1)];
+		
+		return [System_Object bestObjectWithMonoObject:monoObject];
+    }
+
+	/*! 
+		Managed method name : set_Item
+		Managed return type : System.Void
+		Managed param types : System.Int32, <System.Collections.ObjectModel.Collection`1+T>
+	 */
+    - (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2
+    {
+		
+		[self invokeMonoMethod:"set_Item(int,<_T_0>)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+      
+    }
 
 	/*! 
 		Managed method name : Add

@@ -186,10 +186,6 @@
 	// Managed property type : System.Boolean
     @property (nonatomic, readonly) BOOL isSynchronized;
 
-	// Managed property name : Item
-	// Managed property type : System.Object
-    @property (nonatomic, strong) System_Object * item;
-
 	// Managed property name : Keys
 	// Managed property type : System.Collections.ICollection
     @property (nonatomic, strong, readonly) System_Collections_ICollection * keys;
@@ -204,6 +200,20 @@
 
 #pragma mark -
 #pragma mark Methods
+
+	/*! 
+		Managed method name : get_Item
+		Managed return type : System.Object
+		Managed param types : System.Object
+	 */
+    - (System_Object *)get_Item_withKey:(System_Object *)p1;
+
+	/*! 
+		Managed method name : set_Item
+		Managed return type : System.Void
+		Managed param types : System.Object, System.Object
+	 */
+    - (void)set_Item_withKey:(System_Object *)p1 value:(System_Object *)p2;
 
 	/*! 
 		Managed method name : Add

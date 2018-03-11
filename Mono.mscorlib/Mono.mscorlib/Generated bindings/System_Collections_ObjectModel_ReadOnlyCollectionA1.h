@@ -78,12 +78,15 @@
 	// Managed property type : System.Int32
     @property (nonatomic, readonly) int32_t count;
 
-	// Managed property name : Item
-	// Managed property type : <System.Collections.ObjectModel.ReadOnlyCollection`1+T>
-    @property (nonatomic, strong, readonly) System_Object * item;
-
 #pragma mark -
 #pragma mark Methods
+
+	/*! 
+		Managed method name : get_Item
+		Managed return type : <System.Collections.ObjectModel.ReadOnlyCollection`1+T>
+		Managed param types : System.Int32
+	 */
+    - (System_Object *)get_Item_withIndex:(int32_t)p1;
 
 	/*! 
 		Managed method name : Contains

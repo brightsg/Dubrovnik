@@ -113,10 +113,6 @@
 	// Managed property type : System.Int32
     @property (nonatomic, readonly) int32_t count;
 
-	// Managed property name : Item
-	// Managed property type : <System.Collections.Generic.Dictionary`2+TValue>
-    @property (nonatomic, strong) System_Object * item;
-
 	// Managed property name : Keys
 	// Managed property type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>+KeyCollection
     @property (nonatomic, strong, readonly) System_Collections_Generic_DictionaryA2__KeyCollection * keys;
@@ -127,6 +123,20 @@
 
 #pragma mark -
 #pragma mark Methods
+
+	/*! 
+		Managed method name : get_Item
+		Managed return type : <System.Collections.Generic.Dictionary`2+TValue>
+		Managed param types : <System.Collections.Generic.Dictionary`2+TKey>
+	 */
+    - (System_Object *)get_Item_withKey:(System_Object *)p1;
+
+	/*! 
+		Managed method name : set_Item
+		Managed return type : System.Void
+		Managed param types : <System.Collections.Generic.Dictionary`2+TKey>, <System.Collections.Generic.Dictionary`2+TValue>
+	 */
+    - (void)set_Item_withKey:(System_Object *)p1 value:(System_Object *)p2;
 
 	/*! 
 		Managed method name : Add

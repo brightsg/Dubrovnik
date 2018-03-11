@@ -109,10 +109,6 @@
 	// Managed property type : System.Boolean
     @property (nonatomic, readonly) BOOL isSynchronized;
 
-	// Managed property name : Item
-	// Managed property type : System.Boolean
-    @property (nonatomic) BOOL item;
-
 	// Managed property name : Length
 	// Managed property type : System.Int32
     @property (nonatomic) int32_t length;
@@ -123,6 +119,20 @@
 
 #pragma mark -
 #pragma mark Methods
+
+	/*! 
+		Managed method name : get_Item
+		Managed return type : System.Boolean
+		Managed param types : System.Int32
+	 */
+    - (BOOL)get_Item_withIndex:(int32_t)p1;
+
+	/*! 
+		Managed method name : set_Item
+		Managed return type : System.Void
+		Managed param types : System.Int32, System.Boolean
+	 */
+    - (void)set_Item_withIndex:(int32_t)p1 value:(BOOL)p2;
 
 	/*! 
 		Managed method name : And

@@ -91,6 +91,46 @@ namespace Dubrovnik.Tools
 		}
 
 		//
+		// WriteMethodInfo
+		//
+		private void WriteMethodInfo(XmlTextWriter xtw, MethodInfo methodInfo) {
+
+			xtw.WriteStartElement("Method");
+			xtw.WriteAttributeString("Name", methodInfo.Name);
+
+			// write return type
+			WriteTypeAttributes(xtw, methodInfo.ReturnType);
+			if (methodInfo.IsStatic) xtw.WriteAttributeString("IsStatic", Boolean.TrueString);
+
+			// See the Remarks section here http://msdn.microsoft.com/en-us/library/system.reflection.methodinfo.isgenericmethod(v=vs.85).aspx
+			if (methodInfo.IsGenericMethod) xtw.WriteAttributeString("IsGenericMethod", Boolean.TrueString);
+			if (methodInfo.IsGenericMethodDefinition)
+				xtw.WriteAttributeString("IsGenericMethodDefinition", Boolean.TrueString);
+			if (methodInfo.ContainsGenericParameters)
+				xtw.WriteAttributeString("ContainsGenericMethodParameters", Boolean.TrueString);
+
+			// write generic return type info
+			WriteGenericTypeElements(xtw, methodInfo.ReturnType);
+
+			// write types defined by generic method definition eg: Method<T,U>();
+			if (methodInfo.IsGenericMethodDefinition) {
+				foreach (Type argument in methodInfo.GetGenericArguments()) {
+					xtw.WriteStartElement("GenericMethodDefinitionGenericTypeArgument");
+					WriteTypeAttributes(xtw, argument);
+					xtw.WriteEndElement();
+				}
+			}
+
+			// write parameter elements
+			foreach (var parameterInfo in methodInfo.GetParameters()) {
+				WriteParameterInfoElement(xtw, parameterInfo);
+			}
+
+			xtw.WriteEndElement();
+		}
+
+
+		//
 		// WriteGenericTypeAttributes
 		//
 		private void WriteGenericTypeAttributes(XmlTextWriter xtw, Type type)
@@ -210,26 +250,18 @@ namespace Dubrovnik.Tools
 						xtw.WriteStartElement("Namespace");
 						xtw.WriteAttributeString("Name", @namespace);
 
-						foreach (var type in types.Where(e => e.Namespace == @namespace).OrderBy(e => e.GetFriendlyName()))
-						{
+						foreach (var type in types.Where(e => e.Namespace == @namespace).OrderBy(e => e.GetFriendlyName())) {
 
 							//
 							// write start element
 							//
-							if (type.IsEnum)
-							{
+							if (type.IsEnum) {
 								xtw.WriteStartElement("Enumeration");
-							}
-							else if (type.IsValueType)
-							{
+							} else if (type.IsValueType) {
 								xtw.WriteStartElement("Struct");
-							}
-							else if (type.IsInterface)
-							{
+							} else if (type.IsInterface) {
 								xtw.WriteStartElement("Interface");
-							}
-							else
-							{
+							} else {
 								xtw.WriteStartElement("Class");
 							}
 
@@ -248,13 +280,10 @@ namespace Dubrovnik.Tools
 							// write implemented interface elements
 							//
 							Type[] implementedInterfaces = type.GetInterfaces();
-							if (implementedInterfaces.Length > 0)
-							{
-								foreach (Type interfaceType in implementedInterfaces)
-								{
+							if (implementedInterfaces.Length > 0) {
+								foreach (Type interfaceType in implementedInterfaces) {
 									// IsVisible helps to exclude internal interfaces
-									if (interfaceType.IsPublic && interfaceType.IsVisible)
-									{
+									if (interfaceType.IsPublic && interfaceType.IsVisible) {
 										xtw.WriteStartElement("ImplementedInterface");
 										xtw.WriteAttributeString("Type", interfaceType.GetFriendlyFullName());
 										xtw.WriteEndElement();
@@ -264,18 +293,29 @@ namespace Dubrovnik.Tools
 
 							}
 
+							// write members
+							// https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/members
+							// Fields,
+							// Constants, 
+							// Properties, 
+							// Methods, 
+							// Events, 
+							// Operators, 
+							// Indexers, 
+							// Constructors, 
+							// Finalizers
+							// Nested Types
+
 							//
-							// write field elements
+							// write field members
 							//
-							foreach (FieldInfo fieldInfo in type.GetFields(bindingFlags).Where(e => !e.IsSpecialName).OrderBy(e => e.Name))
-							{
+							foreach (FieldInfo fieldInfo in type.GetFields(bindingFlags).Where(e => !e.IsSpecialName).OrderBy(e => e.Name)) {
 								xtw.WriteStartElement("Field");
 								xtw.WriteAttributeString("Name", fieldInfo.Name);
 								WriteTypeAttributes(xtw, fieldInfo.FieldType);
 								xtw.WriteAttributeString("IsReadable", Boolean.TrueString);
 								if (fieldInfo.IsStatic) xtw.WriteAttributeString("IsStatic", Boolean.TrueString);
-								if (fieldInfo.IsLiteral)
-								{
+								if (fieldInfo.IsLiteral) {
 									xtw.WriteAttributeString("IsConstant", Boolean.TrueString);
 
 									// Get the actual constant value
@@ -283,8 +323,7 @@ namespace Dubrovnik.Tools
 
 									// Fields define enum values.
 									// We require the underlying enum type.
-									if (type.IsEnum)
-									{
+									if (type.IsEnum) {
 										Type undertype = Enum.GetUnderlyingType(type);
 										constantValue = Convert.ChangeType(constantValue, undertype);
 									}
@@ -292,15 +331,13 @@ namespace Dubrovnik.Tools
 									// xFFFE, and xFFFF are invalid xml characters
 									// System.Char.ToString() can render these invalid characters
 									// so pre-emptively use int representation
-									if (constantValue is System.Char)
-									{
+									if (constantValue is System.Char) {
 										constantValue = Convert.ToInt32(constantValue);
 									}
 
 									xtw.WriteAttributeString("ConstantValue", constantValue.ToString());
-								}
-								else if (!fieldInfo.IsInitOnly) // is field marked readonly
-								{
+								} else if (!fieldInfo.IsInitOnly) // is field marked readonly
+								  {
 									xtw.WriteAttributeString("IsWritable", Boolean.TrueString);
 								}
 								xtw.WriteEndElement();
@@ -308,18 +345,24 @@ namespace Dubrovnik.Tools
 							}
 
 							//
-							// write property elements
+							// write property members
 							//
-							foreach (PropertyInfo propertyInfo in type.GetProperties(bindingFlags).OrderBy(e => e.Name))
-							{
+							List<PropertyInfo> indexerProperties = new List<PropertyInfo>();
+							foreach (PropertyInfo propertyInfo in type.GetProperties(bindingFlags).OrderBy(e => e.Name)) {
+								// filter out indexers
+								ParameterInfo[] paramInfo = propertyInfo.GetIndexParameters();
+								if (paramInfo != null && paramInfo.Count() > 0) {
+									indexerProperties.Add(propertyInfo);
+									continue;
+								}
+
 								xtw.WriteStartElement("Property");
 								xtw.WriteAttributeString("Name", propertyInfo.Name);
 								WriteTypeAttributes(xtw, propertyInfo.PropertyType);
 								if (propertyInfo.CanRead) xtw.WriteAttributeString("IsReadable", Boolean.TrueString);
 								if (propertyInfo.CanWrite) xtw.WriteAttributeString("IsWritable", Boolean.TrueString);
 								MethodInfo methodInfo = propertyInfo.GetGetMethod();
-								if (methodInfo != null && methodInfo.IsStatic)
-								{
+								if (methodInfo != null && methodInfo.IsStatic) {
 									xtw.WriteAttributeString("IsStatic", Boolean.TrueString);
 								}
 
@@ -330,10 +373,24 @@ namespace Dubrovnik.Tools
 							}
 
 							//
-							// write constructor elements
+							// write indexer members
 							//
-							foreach (ConstructorInfo constructorInfo in type.GetConstructors(bindingFlags).OrderBy(e => e.Name))
-							{
+							foreach (PropertyInfo propertyInfo in indexerProperties.OrderBy(e => e.Name)) {
+								MethodInfo methInfo = null;
+								if (propertyInfo.CanRead) {
+									methInfo = propertyInfo.GetGetMethod();
+									WriteMethodInfo(xtw, methInfo);
+								}
+								if (propertyInfo.CanWrite) {
+									methInfo = propertyInfo.GetSetMethod();
+									WriteMethodInfo(xtw, methInfo);
+								}
+							}
+
+							//
+							// write constructor members
+							//
+							foreach (ConstructorInfo constructorInfo in type.GetConstructors(bindingFlags).OrderBy(e => e.Name)) {
 
 								// omit the default constructor
 								if (constructorInfo.GetParameters().Count() == 0) continue;
@@ -351,51 +408,20 @@ namespace Dubrovnik.Tools
 							}
 
 							//
-							// write method elements
+							// write method members
 							//
 							foreach (MethodInfo methodInfo in type.GetMethods(bindingFlags).OrderBy(e => e.Name))
 							{
+								// filter out property getters and setters which also showup here.
 								if (methodInfo.IsSpecialName &&
 								    (methodInfo.Name.StartsWith("set_") || methodInfo.Name.StartsWith("get_") ||
 								     methodInfo.Name.StartsWith("add_") || methodInfo.Name.StartsWith("remove_"))) continue;
 
-								xtw.WriteStartElement("Method");
-								xtw.WriteAttributeString("Name", methodInfo.Name);
-
-								// write return type
-								WriteTypeAttributes(xtw, methodInfo.ReturnType);
-								if (methodInfo.IsStatic) xtw.WriteAttributeString("IsStatic", Boolean.TrueString);
-
-								// See the Remarks section here http://msdn.microsoft.com/en-us/library/system.reflection.methodinfo.isgenericmethod(v=vs.85).aspx
-								if (methodInfo.IsGenericMethod) xtw.WriteAttributeString("IsGenericMethod", Boolean.TrueString);
-								if (methodInfo.IsGenericMethodDefinition)
-									xtw.WriteAttributeString("IsGenericMethodDefinition", Boolean.TrueString);
-								if (methodInfo.ContainsGenericParameters)
-									xtw.WriteAttributeString("ContainsGenericMethodParameters", Boolean.TrueString);
-
-								// write generic return type info
-								WriteGenericTypeElements(xtw, methodInfo.ReturnType);
-
-								// write types defined by generic method definition eg: Method<T,U>();
-								if (methodInfo.IsGenericMethodDefinition) {
-									foreach (Type argument in methodInfo.GetGenericArguments()) {
-										xtw.WriteStartElement("GenericMethodDefinitionGenericTypeArgument");
-										WriteTypeAttributes(xtw, argument);
-										xtw.WriteEndElement();
-									}
-								}
-
-								// write parameter elements
-								foreach (var parameterInfo in methodInfo.GetParameters())
-								{
-									WriteParameterInfoElement(xtw, parameterInfo);
-								}
-
-								xtw.WriteEndElement();
+								WriteMethodInfo(xtw, methodInfo);
 							}
 
 							//
-							// write event elements
+							// write event members
 							//
 							foreach (EventInfo eventInfo in type.GetEvents(bindingFlags).OrderBy(e => e.Name))
 							{

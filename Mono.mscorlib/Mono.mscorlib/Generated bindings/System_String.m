@@ -155,27 +155,6 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Chars
-	// Managed property type : System.Char
-    @synthesize chars = _chars;
-    - (uint16_t)chars
-    {
-		typedef uint16_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Chars");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		uint16_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_chars = monoObject;
-
-		return _chars;
-	}
-
 	// Managed property name : Length
 	// Managed property type : System.Int32
     @synthesize length = _length;
@@ -199,6 +178,19 @@
 
 #pragma mark -
 #pragma mark Methods
+
+	/*! 
+		Managed method name : get_Chars
+		Managed return type : System.Char
+		Managed param types : System.Int32
+	 */
+    - (uint16_t)get_Chars_withIndex:(int32_t)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"get_Chars(int)" withNumArgs:1, DB_VALUE(p1)];
+		
+		return DB_UNBOX_UINT16(monoObject);
+    }
 
 	/*! 
 		Managed method name : Clone

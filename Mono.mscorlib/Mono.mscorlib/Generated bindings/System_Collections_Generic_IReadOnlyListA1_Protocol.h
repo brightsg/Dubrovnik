@@ -22,6 +22,7 @@
 @class System_Collections_Generic_IReadOnlyCollectionA1;
 @class System_Collections_Generic_IReadOnlyListA1;
 @class System_Collections_IEnumerable;
+@class System_Int32;
 @class System_Object;
 @protocol System_Collections_Generic_IReadOnlyListA1;
 @protocol System_Collections_Generic_IReadOnlyListA1_;
@@ -81,11 +82,14 @@
 #ifdef  DEF_P_AND_M_SYSTEM_COLLECTIONS_GENERIC_IREADONLYLISTA1_
 
 #pragma mark -
-#pragma mark Properties
+#pragma mark Methods
 
-	// Managed property name : Item
-	// Managed property type : <System.Collections.Generic.IReadOnlyList`1+T>
-    @property (nonatomic, strong, readonly) System_Object * item;
+	/*! 
+		Managed method name : get_Item
+		Managed return type : <System.Collections.Generic.IReadOnlyList`1+T>
+		Managed param types : System.Int32
+	 */
+    - (System_Object *)get_Item_withIndex:(int32_t)p1;
 #endif
 
 
@@ -101,11 +105,14 @@
 
 
 #pragma mark -
-#pragma mark Properties
+#pragma mark Methods
 
-	// Managed property name : Item
-	// Managed property type : <System.Collections.Generic.IReadOnlyList`1+T>
-    @property (nonatomic, strong, readonly) System_Object * item;
+	/*! 
+		Managed method name : get_Item
+		Managed return type : <System.Collections.Generic.IReadOnlyList`1+T>
+		Managed param types : System.Int32
+	 */
+    - (System_Object *)get_Item_withIndex:(int32_t)p1;
 
 @end
 

@@ -83,14 +83,21 @@
 #ifdef  DEF_P_AND_M_SYSTEM_COLLECTIONS_GENERIC_ILISTA1_
 
 #pragma mark -
-#pragma mark Properties
-
-	// Managed property name : Item
-	// Managed property type : <System.Collections.Generic.IList`1+T>
-    @property (nonatomic, strong) System_Object * item;
-
-#pragma mark -
 #pragma mark Methods
+
+	/*! 
+		Managed method name : get_Item
+		Managed return type : <System.Collections.Generic.IList`1+T>
+		Managed param types : System.Int32
+	 */
+    - (System_Object *)get_Item_withIndex:(int32_t)p1;
+
+	/*! 
+		Managed method name : set_Item
+		Managed return type : System.Void
+		Managed param types : System.Int32, <System.Collections.Generic.IList`1+T>
+	 */
+    - (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2;
 
 	/*! 
 		Managed method name : IndexOf
@@ -127,14 +134,21 @@
 
 
 #pragma mark -
-#pragma mark Properties
-
-	// Managed property name : Item
-	// Managed property type : <System.Collections.Generic.IList`1+T>
-    @property (nonatomic, strong) System_Object * item;
-
-#pragma mark -
 #pragma mark Methods
+
+	/*! 
+		Managed method name : get_Item
+		Managed return type : <System.Collections.Generic.IList`1+T>
+		Managed param types : System.Int32
+	 */
+    - (System_Object *)get_Item_withIndex:(int32_t)p1;
+
+	/*! 
+		Managed method name : set_Item
+		Managed return type : System.Void
+		Managed param types : System.Int32, <System.Collections.Generic.IList`1+T>
+	 */
+    - (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2;
 
 	/*! 
 		Managed method name : IndexOf

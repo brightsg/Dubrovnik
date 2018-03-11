@@ -92,12 +92,22 @@
 	// Managed property type : System.Boolean
     @property (nonatomic, readonly) BOOL isReadOnly;
 
-	// Managed property name : Item
-	// Managed property type : System.Object
-    @property (nonatomic, strong) System_Object * item;
-
 #pragma mark -
 #pragma mark Methods
+
+	/*! 
+		Managed method name : get_Item
+		Managed return type : System.Object
+		Managed param types : System.Int32
+	 */
+    - (System_Object *)get_Item_withIndex:(int32_t)p1;
+
+	/*! 
+		Managed method name : set_Item
+		Managed return type : System.Void
+		Managed param types : System.Int32, System.Object
+	 */
+    - (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2;
 
 	/*! 
 		Managed method name : Add
@@ -172,12 +182,22 @@
 	// Managed property type : System.Boolean
     @property (nonatomic, readonly) BOOL isReadOnly;
 
-	// Managed property name : Item
-	// Managed property type : System.Object
-    @property (nonatomic, strong) System_Object * item;
-
 #pragma mark -
 #pragma mark Methods
+
+	/*! 
+		Managed method name : get_Item
+		Managed return type : System.Object
+		Managed param types : System.Int32
+	 */
+    - (System_Object *)get_Item_withIndex:(int32_t)p1;
+
+	/*! 
+		Managed method name : set_Item
+		Managed return type : System.Void
+		Managed param types : System.Int32, System.Object
+	 */
+    - (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2;
 
 	/*! 
 		Managed method name : Add

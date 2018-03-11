@@ -75,43 +75,6 @@
 		return _isReadOnly;
 	}
 
-	// Managed property name : Item
-	// Managed property type : System.Object
-    @synthesize item = _item;
-    - (System_Object *)item
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Collections.IDictionary.Item");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_item isEqualToMonoObject:monoObject]) return _item;					
-		_item = [System_Object objectWithMonoObject:monoObject];
-
-		return _item;
-	}
-    - (void)setItem:(System_Object *)value
-	{
-		_item = value;
-		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "System.Collections.IDictionary.Item");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject *monoException = NULL;
-		thunk(self.monoObject, [value monoObject], &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-	}
-
 	// Managed property name : Keys
 	// Managed property type : System.Collections.ICollection
     @synthesize keys = _keys;
@@ -158,6 +121,31 @@
 
 #pragma mark -
 #pragma mark Methods
+
+	/*! 
+		Managed method name : get_Item
+		Managed return type : System.Object
+		Managed param types : System.Object
+	 */
+    - (System_Object *)get_Item_withKey:(System_Object *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IDictionary.get_Item(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return [System_Object objectWithMonoObject:monoObject];
+    }
+
+	/*! 
+		Managed method name : set_Item
+		Managed return type : System.Void
+		Managed param types : System.Object, System.Object
+	 */
+    - (void)set_Item_withKey:(System_Object *)p1 value:(System_Object *)p2
+    {
+		
+		[self invokeMonoMethod:"System.Collections.IDictionary.set_Item(object,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+      
+    }
 
 	/*! 
 		Managed method name : Add
