@@ -585,9 +585,9 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([iList int32AtIndex:2] == 51, DBUEqualityTestFailed);
     
     // indexing with managed indexer exposed as get_Item_withIndex:
-    XCTAssertTrue([[iList get_Item_withIndex:0].toString isEqualToString:@"bob"], DBUEqualityTestFailed);
-    XCTAssertTrue([[iList get_Item_withIndex:1].toString isEqualToString:@"over here"], DBUEqualityTestFailed);
-    XCTAssertTrue([[iList get_Item_withIndex:2] int32Value] == 51, DBUEqualityTestFailed);
+    XCTAssertTrue([(NSString *)[iList get_Item_withIndex:0] isEqualToString:@"bob"], DBUEqualityTestFailed);
+    XCTAssertTrue([(NSString *)[iList get_Item_withIndex:1] isEqualToString:@"over here"], DBUEqualityTestFailed);
+    XCTAssertTrue([(NSNumber *)[iList get_Item_withIndex:2] intValue] == 51, DBUEqualityTestFailed);
 
     // convert to NSArray
     NSArray <NSString *> *list = [listA1 array];
@@ -1795,7 +1795,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     // index using managed indexer get_Item_withIndex:
     ms = [NSMutableString new];
     for (int32_t i = 0; i < [stringArrayList count]; i++) {
-        NSString * s = [[stringArrayList get_Item_withIndex:i] toString];
+        NSString *s = (NSString *)[stringArrayList get_Item_withIndex:i];
         [ms appendFormat:@"%@ ", s];
     }
     XCTAssertTrue([ms dbTestString:DBUTestString], DBUSubstringTestFailed);
