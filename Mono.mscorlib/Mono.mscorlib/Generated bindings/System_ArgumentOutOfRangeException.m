@@ -105,7 +105,7 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_actualValue isEqualToMonoObject:monoObject]) return _actualValue;					
-		_actualValue = [System_Object objectWithMonoObject:monoObject];
+		_actualValue = [System_Object bestObjectWithMonoObject:monoObject];
 
 		return _actualValue;
 	}

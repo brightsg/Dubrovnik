@@ -99,7 +99,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"Missing"];
 		if ([self object:m_missing isEqualToMonoObject:monoObject]) return m_missing;					
-		m_missing = [System_Object objectWithMonoObject:monoObject];
+		m_missing = [System_Object bestObjectWithMonoObject:monoObject];
 
 		return m_missing;
 	}

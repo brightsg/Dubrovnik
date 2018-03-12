@@ -552,7 +552,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Object objectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	/*! 

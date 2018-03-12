@@ -72,7 +72,7 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_key isEqualToMonoObject:monoObject]) return _key;					
-		_key = [System_Object objectWithMonoObject:monoObject];
+		_key = [System_Object bestObjectWithMonoObject:monoObject];
 
 		return _key;
 	}
@@ -94,7 +94,7 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_value isEqualToMonoObject:monoObject]) return _value;					
-		_value = [System_Object objectWithMonoObject:monoObject];
+		_value = [System_Object bestObjectWithMonoObject:monoObject];
 
 		return _value;
 	}

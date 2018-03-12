@@ -132,7 +132,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IDictionary.get_Item(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Object objectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	/*! 

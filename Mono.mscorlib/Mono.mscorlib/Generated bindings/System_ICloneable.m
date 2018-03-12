@@ -43,7 +43,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.ICloneable.Clone()" withNumArgs:0];
 		
-		return [System_Object objectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

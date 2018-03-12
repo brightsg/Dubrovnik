@@ -44,7 +44,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetLifetimeService()" withNumArgs:0];
 		
-		return [System_Object objectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	/*! 
@@ -57,7 +57,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"InitializeLifetimeService()" withNumArgs:0];
 		
-		return [System_Object objectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 #pragma mark -

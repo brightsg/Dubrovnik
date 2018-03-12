@@ -50,7 +50,7 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_typeId isEqualToMonoObject:monoObject]) return _typeId;					
-		_typeId = [System_Object objectWithMonoObject:monoObject];
+		_typeId = [System_Object bestObjectWithMonoObject:monoObject];
 
 		return _typeId;
 	}

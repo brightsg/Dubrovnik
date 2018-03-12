@@ -40,7 +40,7 @@
     {
 		MonoObject *monoObject = [[self class] getMonoClassField:"DBNull"];
 		if ([self object:m_dBNull isEqualToMonoObject:monoObject]) return m_dBNull;					
-		m_dBNull = [System_Object objectWithMonoObject:monoObject];
+		m_dBNull = [System_Object bestObjectWithMonoObject:monoObject];
 
 		return m_dBNull;
 	}
@@ -58,7 +58,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ChangeType(object,System.TypeCode)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 		
-		return [System_Object objectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	/*! 
@@ -71,7 +71,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ChangeType(object,System.TypeCode,System.IFormatProvider)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
 		
-		return [System_Object objectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	/*! 
@@ -84,7 +84,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ChangeType(object,System.Type)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 		
-		return [System_Object objectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	/*! 
@@ -97,7 +97,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"ChangeType(object,System.Type,System.IFormatProvider)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 		
-		return [System_Object objectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	/*! 

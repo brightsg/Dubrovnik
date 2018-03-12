@@ -50,7 +50,7 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_asyncState isEqualToMonoObject:monoObject]) return _asyncState;					
-		_asyncState = [System_Object objectWithMonoObject:monoObject];
+		_asyncState = [System_Object bestObjectWithMonoObject:monoObject];
 
 		return _asyncState;
 	}

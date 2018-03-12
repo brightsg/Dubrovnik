@@ -88,7 +88,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.get_Item(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Object objectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	/*! 

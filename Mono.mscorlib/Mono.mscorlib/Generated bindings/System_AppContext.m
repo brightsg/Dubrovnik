@@ -90,7 +90,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoClassMethod:"GetData(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Object objectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	/*! 

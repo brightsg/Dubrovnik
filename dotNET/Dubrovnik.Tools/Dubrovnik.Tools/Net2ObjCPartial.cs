@@ -1221,7 +1221,7 @@ namespace Dubrovnik.Tools
 
             // System.Object
             manTA = new ManagedTypeAssociation { ManagedType = "System.Object", ManagedTypeAlias = "object" };
-            objcTA = new ObjCTypeAssociation { ObjCType = "System_Object", GetterFormat = "[System_Object objectWithMonoObject:{0}]" };
+            objcTA = new ObjCTypeAssociation { ObjCType = "System_Object", GetterFormat = "[System_Object bestObjectWithMonoObject:{0}]" };
             AssociateTypes(manTA, objcTA);
 
             // System.String

@@ -260,7 +260,7 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_syncRoot isEqualToMonoObject:monoObject]) return _syncRoot;					
-		_syncRoot = [System_Object objectWithMonoObject:monoObject];
+		_syncRoot = [System_Object bestObjectWithMonoObject:monoObject];
 
 		return _syncRoot;
 	}
@@ -300,7 +300,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"get_Item(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 		
-		return [System_Object objectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	/*! 
@@ -349,7 +349,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
 		
-		return [System_Object objectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	/*! 
@@ -413,7 +413,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetByIndex(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Object objectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	/*! 
@@ -439,7 +439,7 @@
 		
 		MonoObject *monoObject = [self invokeMonoMethod:"GetKey(int)" withNumArgs:1, DB_VALUE(p1)];
 		
-		return [System_Object objectWithMonoObject:monoObject];
+		return [System_Object bestObjectWithMonoObject:monoObject];
     }
 
 	/*! 

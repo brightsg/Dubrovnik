@@ -92,7 +92,7 @@
 		MonoObject * monoObject = thunk(self.monoObject, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 		if ([self object:_syncRoot isEqualToMonoObject:monoObject]) return _syncRoot;					
-		_syncRoot = [System_Object objectWithMonoObject:monoObject];
+		_syncRoot = [System_Object bestObjectWithMonoObject:monoObject];
 
 		return _syncRoot;
 	}
