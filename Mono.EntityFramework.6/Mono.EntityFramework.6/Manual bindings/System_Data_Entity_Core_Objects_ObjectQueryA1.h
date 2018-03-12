@@ -6,6 +6,6 @@
 //
 //
 
-@interface System_Data_Entity_Core_Objects_ObjectQueryA1 : System_Object
+@interface System_Data_Entity_Core_Objects_ObjectQueryA1 : System_Object <System_Collections_IEnumerable>
 
 @end

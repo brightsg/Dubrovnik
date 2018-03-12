@@ -7,6 +7,7 @@
 //
 
 #import "System_Data_Entity_Core_Objects_ObjectQueryA1.h"
-@interface System_Data_Entity_Core_Objects_ObjectSetA1 : System_Data_Entity_Core_Objects_ObjectQueryA1
+
+@interface System_Data_Entity_Core_Objects_ObjectSetA1 : System_Data_Entity_Core_Objects_ObjectQueryA1 <System_Collections_Generic_IEnumerableA1_>
 
 @end
