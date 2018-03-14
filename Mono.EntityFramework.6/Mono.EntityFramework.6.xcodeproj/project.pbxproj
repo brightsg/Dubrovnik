@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB0DC25920596EE800F185B7 /* System_Data_Entity_Core_Objects_DataClasses_EntityObject+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB0DC25720596EE800F185B7 /* System_Data_Entity_Core_Objects_DataClasses_EntityObject+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB0DC25A20596EE800F185B7 /* System_Data_Entity_Core_Objects_DataClasses_EntityObject+Dubrovnik.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0DC25820596EE800F185B7 /* System_Data_Entity_Core_Objects_DataClasses_EntityObject+Dubrovnik.m */; };
 		AB26E0A71E4A14DE004876FE /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB26E0A61E4A14DE004876FE /* Mono.framework */; };
 		AB27342B204C3A7F00383E30 /* System_Data_Entity_Core_Objects_ObjectSetA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB273429204C3A7F00383E30 /* System_Data_Entity_Core_Objects_ObjectSetA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB27342C204C3A8000383E30 /* System_Data_Entity_Core_Objects_ObjectSetA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB27342A204C3A7F00383E30 /* System_Data_Entity_Core_Objects_ObjectSetA1.m */; };
@@ -68,6 +70,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AB0DC25720596EE800F185B7 /* System_Data_Entity_Core_Objects_DataClasses_EntityObject+Dubrovnik.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "System_Data_Entity_Core_Objects_DataClasses_EntityObject+Dubrovnik.h"; sourceTree = "<group>"; };
+		AB0DC25820596EE800F185B7 /* System_Data_Entity_Core_Objects_DataClasses_EntityObject+Dubrovnik.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "System_Data_Entity_Core_Objects_DataClasses_EntityObject+Dubrovnik.m"; sourceTree = "<group>"; };
 		AB26E0A61E4A14DE004876FE /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.EntityFramework.6/../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
 		AB273429204C3A7F00383E30 /* System_Data_Entity_Core_Objects_ObjectSetA1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = System_Data_Entity_Core_Objects_ObjectSetA1.h; sourceTree = "<group>"; };
 		AB27342A204C3A7F00383E30 /* System_Data_Entity_Core_Objects_ObjectSetA1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = System_Data_Entity_Core_Objects_ObjectSetA1.m; sourceTree = "<group>"; };
@@ -166,6 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				ABB8A38418FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectContext+Dubrovnik.h */,
+				AB0DC25720596EE800F185B7 /* System_Data_Entity_Core_Objects_DataClasses_EntityObject+Dubrovnik.h */,
+				AB0DC25820596EE800F185B7 /* System_Data_Entity_Core_Objects_DataClasses_EntityObject+Dubrovnik.m */,
 				ABB8A38518FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectContext+Dubrovnik.m */,
 				ABB8A38618FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1+Dubrovnik.h */,
 				ABB8A38718FF098B00213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1+Dubrovnik.m */,
@@ -312,6 +318,7 @@
 				ABB009971B00E0BD00EF538F /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1+Dubrovnik.h in Headers */,
 				ABBAF84019223ACE0070DA79 /* System_Data_Entity_Core_Objects_RefreshMode.h in Headers */,
 				AB2E748B18FFD2160061C63E /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1.h in Headers */,
+				AB0DC25920596EE800F185B7 /* System_Data_Entity_Core_Objects_DataClasses_EntityObject+Dubrovnik.h in Headers */,
 				AB2E74A818FFD49A0061C63E /* GeneratedBindings.h in Headers */,
 				AB2E748A18FFD2160061C63E /* System_Data_Entity_EntityState.h in Headers */,
 				AB2E748F18FFD2160061C63E /* System_Data_Entity_Core_Objects_ObjectStateEntry.h in Headers */,
@@ -430,6 +437,7 @@
 				ABFDABAD1C764203005230C0 /* System_Data_Entity_DbSetA1.m in Sources */,
 				ABFDABA91C764070005230C0 /* System_Data_Entity_DbContext.m in Sources */,
 				AB2E748C18FFD2160061C63E /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1.m in Sources */,
+				AB0DC25A20596EE800F185B7 /* System_Data_Entity_Core_Objects_DataClasses_EntityObject+Dubrovnik.m in Sources */,
 				ABB8A45418FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1.m in Sources */,
 				AB27342C204C3A8000383E30 /* System_Data_Entity_Core_Objects_ObjectSetA1.m in Sources */,
 				AB2E749218FFD2160061C63E /* System_Data_Entity_Core_EntityClient_EntityConnection.m in Sources */,
