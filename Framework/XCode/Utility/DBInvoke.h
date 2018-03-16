@@ -32,7 +32,6 @@
 
 //Globalvariables
 extern void (^DBOnManagedExceptionWillRaise)(MonoObject *);
-extern BOOL DBUseLegacyMethodCache;
 
 //Cache Debugging
 void DBInvokeLogCache(BOOL freeContents);

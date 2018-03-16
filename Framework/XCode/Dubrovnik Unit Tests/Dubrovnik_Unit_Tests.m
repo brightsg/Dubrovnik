@@ -113,8 +113,6 @@ static MonoAssembly *monoAssembly;
 {
     if (_setup) return;
     
-    DBUseLegacyMethodCache = NO;
-    
     _setup = YES;
     _verbose = YES;
     
