@@ -45,7 +45,6 @@
 		AB2CD2FD178D77910075CF6A /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */; };
 		AB3451DE190A96F500A6F47B /* DBMonoIncludes.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3451DC190A96F500A6F47B /* DBMonoIncludes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB3451DF190A96F500A6F47B /* Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3451DD190A96F500A6F47B /* Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB3FB5C717F08B3D003E5304 /* libJudy.README.txt in Resources */ = {isa = PBXBuildFile; fileRef = AB3FB5C517F08B3D003E5304 /* libJudy.README.txt */; };
 		AB3FF5FC1D9A7A8400A6E6B8 /* Dubrovnik_UnitTests_IntEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3FF5FA1D9A7A8400A6E6B8 /* Dubrovnik_UnitTests_IntEnum.m */; };
 		AB3FF5FD1D9A7A8400A6E6B8 /* Dubrovnik_UnitTests_LongEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3FF5FB1D9A7A8400A6E6B8 /* Dubrovnik_UnitTests_LongEnum.m */; };
 		AB4759761D7083D100C3319C /* DBManagedObject+Logging.h in Headers */ = {isa = PBXBuildFile; fileRef = AB4759741D7083D100C3319C /* DBManagedObject+Logging.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -108,7 +107,6 @@
 		ABBF10B417B3D2E1006F6E93 /* DBULongEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF10AB17B3D2E1006F6E93 /* DBULongEnum.m */; };
 		ABBF10B617B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBF10AF17B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.m */; };
 		ABBF10B717B3D2E1006F6E93 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABBF10B017B3D2E1006F6E93 /* InfoPlist.strings */; };
-		ABC6F96917F1C3D800506A44 /* libJudy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3FB5C417F08B3D003E5304 /* libJudy.a */; };
 		ABCF4AB8199ABD44009BE714 /* DBManagedApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = ABCF4AB6199ABD44009BE714 /* DBManagedApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABCF4AB9199ABD44009BE714 /* DBManagedApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCF4AB7199ABD44009BE714 /* DBManagedApplication.m */; };
 		ABD1CC2219A905FC0072F538 /* NSPointerArray+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = ABD1CC2019A905FC0072F538 /* NSPointerArray+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -214,8 +212,6 @@
 		AB3451DD190A96F500A6F47B /* Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik.h; sourceTree = SOURCE_ROOT; };
 		AB3D373E1BBEE1D400622D9C /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = Readme.md; path = ../../Readme.md; sourceTree = "<group>"; };
 		AB3D373F1BBF0FAD00622D9C /* make-mono64-bundle.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = "make-mono64-bundle.sh"; path = "../../Scripts/make-mono64-bundle.sh"; sourceTree = "<group>"; };
-		AB3FB5C417F08B3D003E5304 /* libJudy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libJudy.a; sourceTree = "<group>"; };
-		AB3FB5C517F08B3D003E5304 /* libJudy.README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libJudy.README.txt; sourceTree = "<group>"; };
 		AB3FF5FA1D9A7A8400A6E6B8 /* Dubrovnik_UnitTests_IntEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik_UnitTests_IntEnum.m; sourceTree = "<group>"; };
 		AB3FF5FB1D9A7A8400A6E6B8 /* Dubrovnik_UnitTests_LongEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik_UnitTests_LongEnum.m; sourceTree = "<group>"; };
 		AB4759741D7083D100C3319C /* DBManagedObject+Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DBManagedObject+Logging.h"; sourceTree = "<group>"; };
@@ -360,7 +356,6 @@
 			files = (
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
 				AB26E09C1E49F8F4004876FE /* Mono.framework in Frameworks */,
-				ABC6F96917F1C3D800506A44 /* libJudy.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,7 +403,6 @@
 		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				AB3FB5C317F08B3D003E5304 /* Libraries */,
 				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
 				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
 			);
@@ -584,15 +578,6 @@
 				AB3D373F1BBF0FAD00622D9C /* make-mono64-bundle.sh */,
 			);
 			name = Scripts;
-			sourceTree = "<group>";
-		};
-		AB3FB5C317F08B3D003E5304 /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				AB3FB5C417F08B3D003E5304 /* libJudy.a */,
-				AB3FB5C517F08B3D003E5304 /* libJudy.README.txt */,
-			);
-			path = Libraries;
 			sourceTree = "<group>";
 		};
 		AB588DC3178308000000AAC1 /* Frameworks */ = {
@@ -915,7 +900,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */,
-				AB3FB5C717F08B3D003E5304 /* libJudy.README.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1079,10 +1063,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@rpath";
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/Libraries",
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Dubrovnik;
 				PRODUCT_NAME = Dubrovnik;
@@ -1109,10 +1090,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@rpath";
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/Libraries",
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Dubrovnik;
 				PRODUCT_NAME = Dubrovnik;
@@ -1161,7 +1139,6 @@
 					"-Wall",
 					"-DDEBUG",
 					"-Winline",
-					"-DJUDYERROR_NOTEST",
 					"-D_THREAD_SAFE",
 				);
 				OTHER_LDFLAGS = "-lpthread";
@@ -1203,7 +1180,6 @@
 				OTHER_CFLAGS = (
 					"-Wextra",
 					"-Wall",
-					"-DJUDYERROR_NOTEST",
 					"-D_THREAD_SAFE",
 				);
 				OTHER_LDFLAGS = "-lpthread";

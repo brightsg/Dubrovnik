@@ -141,14 +141,8 @@ The framework requires `/Library/Frameworks/Mono.framework` to be present before
 
 There are are a number of dependencies that ship pre-built in order to support easier building. These are:
 
-1. The Judy library binary.
-2. The managed Dubrovnik.FrameworkHelper.dll.
-3. The managed Dubrovnik.UnitTests.exe. 
-
-Judy 32/64 can be rebuilt on demand using the supplied Xcode projects and shell scripts. VS solution files are provided for the managed projects.
-
-Judy works but it is complex
-http://www.nothings.org/computer/judy/
+1. The managed Dubrovnik.FrameworkHelper.dll.
+2. The managed Dubrovnik.UnitTests.exe.
 
 Linking to It
 =============
@@ -398,7 +392,7 @@ The unit test bundle `- (void)setUp` method illustrates how to load and call a m
 Licence
 =======
 
-Dubrovnik inherits the original Dumbarton LGPL licence.
+Dubrovnik inherits the [Mono licence](https://github.com/mono/mono/blob/master/LICENSE).
 
 Contributors
 ============

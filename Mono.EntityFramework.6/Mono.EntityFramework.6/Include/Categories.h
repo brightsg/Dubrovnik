@@ -10,5 +10,6 @@
 #import "System_Data_Entity_Core_Objects_ObjectContext+Dubrovnik.h"
 #import "System_Data_Entity_Core_Objects_ObjectQueryA1+Dubrovnik.h"
 #import "System_Data_Entity_Core_Objects_ObjectSetA1+Dubrovnik.h"
+#import "System_Data_Entity_Core_Objects_DataClasses_EntityObject+Dubrovnik.h"
 
 
