@@ -392,7 +392,7 @@ The unit test bundle `- (void)setUp` method illustrates how to load and call a m
 Licence
 =======
 
-Dubrovnik inherits the original Dumbarton LGPL licence.
+Dubrovnik inherits the [Mono licence](https://github.com/mono/mono/blob/master/LICENSE).
 
 Contributors
 ============
