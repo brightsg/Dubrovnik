@@ -102,6 +102,11 @@ NSString * const DBNoteManagedApplicationLoaded = @"DBNoteManagedApplicationLoad
 #pragma mark -
 #pragma mark Accessors
 
++ (BOOL)isDebuggerAttached
+{
+    return AmIBeingDebugged();
+}
+
 - (BOOL)isDebuggerAttached
 {
     return AmIBeingDebugged();
