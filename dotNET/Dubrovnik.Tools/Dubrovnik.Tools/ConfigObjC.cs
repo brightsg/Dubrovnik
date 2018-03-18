@@ -18,15 +18,20 @@ namespace Dubrovnik.Tools {
 			string path = null;
 
 			if (assemblyXmlPath != null) {
+
 				// get the config path
 				path = Path.ChangeExtension(assemblyXmlPath, "codegen.config.objc.xml");
 
+				// load the config xml
 				if (File.Exists(path)) {
 					XmlSerializer deserializer = new XmlSerializer(typeof(ConfigObjC));
 					try {
 						using (XmlReader reader = XmlReader.Create(path)) {
 							config = (ConfigObjC)deserializer.Deserialize(reader);
 						}
+
+						config.Startup(path);
+
 					} catch (Exception e) {
 						throw e;
 					}
@@ -49,6 +54,7 @@ namespace Dubrovnik.Tools {
 			TypeNameSkipList = new List<string>();
 			TypeNameWhiteList = new List<string>();
 			OutputFileDeleteList = new List<string>();
+			ReferenceList = new List<string>();
 		}
 
 		private static void Persist(ConfigObjC config, string path) {
@@ -59,6 +65,11 @@ namespace Dubrovnik.Tools {
 		}
 
 		#endregion
+
+		/// <summary>
+		/// Target assembly folder
+		/// </summary>
+		public string AssemblyFolder { get; set; }
 
 		/// <summary>
 		/// Filter system interfaces from generated outout
@@ -84,18 +95,64 @@ namespace Dubrovnik.Tools {
 		/// </summary>
 		public List<string> OutputFileDeleteList { get; set; }
 
+		/// <summary>
+		/// Other xml config data to be merged into the current configuration.
+		/// This process educates the current object about the types in 
+		/// referenced assemblies eg: type skipping info.
+		/// </summary>
+		public List<string> ReferenceList { get; set; }
+
+		/// <summary>
+		/// Object startup.
+		/// </summary>
+		private void Startup(string xmlPath) {
+
+			AssemblyFolder = System.IO.Path.GetDirectoryName(xmlPath);
+
+			// Process the reference list
+			// and load other xml config data to be merged into the current configuration.
+			// This process educates the current object about the types in 
+			// referenced assemblies eg: type skipping info.
+			foreach (string refPath in ReferenceList) {
+				string path = refPath;
+				// fix up relative reference path
+				if (!Path.IsPathRooted(refPath)) {
+					path = Path.Combine(AssemblyFolder, refPath);
+				}
+				ConfigObjC config = ConfigObjCForAssembly(path);
+				Merge(config);
+			}
+		}
+
+		/// <summary>
+		/// Merge another object representing a dependency into this object.
+		/// </summary>
+		/// <param name="config">Object to merge in.</param>
+		private void Merge(ConfigObjC config) {
+			foreach (string name in config.TypeNameSkipList) {
+				if (!TypeNameSkipList.Contains(name)) {
+					TypeNameSkipList.Add(name);
+				}
+			}
+			foreach (string name in config.TypeNameWhiteList) {
+				if (!TypeNameWhiteList.Contains(name)) {
+					TypeNameWhiteList.Add(name);
+				}
+			}
+		}
+
 		#region Binding generation
 
-		/**
-		 * Returns true if should generate binding for type
-		 *
-		 * Use the skip and white lists to control binding generation for individual types.
-		 * If a type is skipped then no binding will occur for any code element 
-		 * ie: class, property, method, parameter etc that uses the skipped type.
-		 * 
-		 * For simple binding scenarios type skipping will likely not be required but for more
-		 * complex situations it can greatly reduce the size and complexity of the generated bindings.
-		 */
+			/**
+			 * Returns true if should generate binding for type
+			 *
+			 * Use the skip and white lists to control binding generation for individual types.
+			 * If a type is skipped then no binding will occur for any code element 
+			 * ie: class, property, method, parameter etc that uses the skipped type.
+			 * 
+			 * For simple binding scenarios type skipping will likely not be required but for more
+			 * complex situations it can greatly reduce the size and complexity of the generated bindings.
+			 */
 		public bool GenerateTypeBinding(string typename) {
 			bool isSkipListed = false;
 			bool isWhiteListed = true;

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ConfigObjC xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<TypeNameSkipList>
+		<string>Microsoft.Win32.</string>
+		<string>System.CodeDom.</string>
+		<string>System.Diagnostics.</string>
+		<string>System.Collections.Concurrent.</string>
+		<string>System.Media.</string>
+		<string>System.Net.NetworkInformation.</string>
+		<string>System.Net.WebSockets.</string>
+		<string>System.Reflection.</string>
+		<string>System.Runtime.</string>
+		<string>System.Security.</string>
+		<string>System.Web.</string>
+		<string>System.Windows.</string>
+	</TypeNameSkipList>
+	<TypeNameWhiteList>
+	</TypeNameWhiteList>
+	<OutputFileDeleteList>
+	</OutputFileDeleteList>
+	<ReferenceList>
+		<string>..\..\Mono.mscorlib\Mono.mscorlib\mscorlib</string>
+	</ReferenceList>
+</ConfigObjC>
