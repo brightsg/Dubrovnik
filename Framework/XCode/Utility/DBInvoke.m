@@ -88,13 +88,18 @@ void NSRaiseExceptionFromMonoException(MonoObject *monoException, NSDictionary *
 
 NSException *NSExceptionFromMonoException(MonoObject *monoException, NSDictionary *info)
 {
-    // run the configurable callback
+    // run the configurable callback unless specifically disabled
     BOOL runWillRaiseCallback = YES;
     if (info[@"runWillRaiseCallback"]) {
         runWillRaiseCallback = [info[@"runWillRaiseCallback"] boolValue];
     }
     if (DBOnManagedExceptionWillRaise && runWillRaiseCallback) {
-        DBOnManagedExceptionWillRaise(monoException);
+        if ([NSThread currentThread] == [NSThread mainThread]) {
+            DBOnManagedExceptionWillRaise(monoException);
+        }
+        else {
+            dispatch_sync(dispatch_get_main_queue(), ^{DBOnManagedExceptionWillRaise(monoException);});
+        }
     }
     
     id managedException = [[DBTypeManager sharedManager] objectWithNonValueTypeMonoObject:monoException];
