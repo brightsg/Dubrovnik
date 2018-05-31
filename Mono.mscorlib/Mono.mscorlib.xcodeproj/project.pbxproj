@@ -900,6 +900,8 @@
 		ABE13552192AB0C5000689BC /* DBNullableInt64Transformer.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE13550192AB0C5000689BC /* DBNullableInt64Transformer.m */; };
 		ABE229371FD026560096A875 /* NSNull+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE229351FD026560096A875 /* NSNull+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABE229381FD026560096A875 /* NSNull+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE229361FD026560096A875 /* NSNull+mscorlib.m */; };
+		ABE7D81020C0063400BDDA24 /* System_Type+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE7D80E20C0063400BDDA24 /* System_Type+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABE7D81120C0063400BDDA24 /* System_Type+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7D80F20C0063400BDDA24 /* System_Type+mscorlib.m */; };
 		ABF5D272190C570000E9CFBD /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D271190C570000E9CFBD /* Dubrovnik.framework */; };
 		ABF9707E1D7369D400B836A0 /* System_Delegate+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF9707C1D7369D400B836A0 /* System_Delegate+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABF9707F1D7369D400B836A0 /* System_Delegate+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9707D1D7369D400B836A0 /* System_Delegate+mscorlib.m */; };
@@ -1815,6 +1817,8 @@
 		ABE13550192AB0C5000689BC /* DBNullableInt64Transformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableInt64Transformer.m; sourceTree = "<group>"; };
 		ABE229351FD026560096A875 /* NSNull+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSNull+mscorlib.h"; path = "Categories/NSNull+mscorlib.h"; sourceTree = "<group>"; };
 		ABE229361FD026560096A875 /* NSNull+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSNull+mscorlib.m"; path = "Categories/NSNull+mscorlib.m"; sourceTree = "<group>"; };
+		ABE7D80E20C0063400BDDA24 /* System_Type+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "System_Type+mscorlib.h"; sourceTree = "<group>"; };
+		ABE7D80F20C0063400BDDA24 /* System_Type+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "System_Type+mscorlib.m"; sourceTree = "<group>"; };
 		ABF5D271190C570000E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF9707C1D7369D400B836A0 /* System_Delegate+mscorlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Delegate+mscorlib.h"; sourceTree = "<group>"; };
 		ABF9707D1D7369D400B836A0 /* System_Delegate+mscorlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Delegate+mscorlib.m"; sourceTree = "<group>"; };
@@ -2844,6 +2848,8 @@
 				ABD682C41E69E9DF00D11963 /* System_NullableA1+mscorlib.m */,
 				ABB8A41618FF113800213B80 /* System_Object+mscorlib.h */,
 				ABB8A41718FF113800213B80 /* System_Object+mscorlib.m */,
+				ABE7D80E20C0063400BDDA24 /* System_Type+mscorlib.h */,
+				ABE7D80F20C0063400BDDA24 /* System_Type+mscorlib.m */,
 			);
 			name = "Categories - Managed";
 			path = Categories;
@@ -3336,6 +3342,7 @@
 				AB4CE15E1FFBF5010096326D /* System_FormatException.h in Headers */,
 				AB4CDF5A1FFBF5000096326D /* System_IO_BufferedStream.h in Headers */,
 				AB4CDEF61FFBF5000096326D /* System_BitConverter.h in Headers */,
+				ABE7D81020C0063400BDDA24 /* System_Type+mscorlib.h in Headers */,
 				AB4CE07D1FFBF5000096326D /* System_RuntimeArgumentHandle.h in Headers */,
 				AB4CDF1C1FFBF5000096326D /* System_Collections_IEnumerable_Protocol.h in Headers */,
 			);
@@ -3714,6 +3721,7 @@
 				AB4CE0E41FFBF5010096326D /* System_FuncA4.m in Sources */,
 				AB4CE16A1FFBF5010096326D /* System_LoaderOptimization.m in Sources */,
 				AB4CE0B01FFBF5000096326D /* System_CharEnumerator.m in Sources */,
+				ABE7D81120C0063400BDDA24 /* System_Type+mscorlib.m in Sources */,
 				AB4CE1471FFBF5010096326D /* System_RuntimeFieldHandle.m in Sources */,
 				AB4CDED11FFBF5000096326D /* System_ICustomFormatter.m in Sources */,
 				ABF9707F1D7369D400B836A0 /* System_Delegate+mscorlib.m in Sources */,

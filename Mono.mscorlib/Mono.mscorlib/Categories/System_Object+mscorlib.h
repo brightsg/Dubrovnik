@@ -77,6 +77,9 @@
  */
 + (id)newObjectWithGenericTypeDefinition:(char *)genericTypeDefinitionName typeParameters:(NSArray <id> *)typeParameters;
 
++ (System_Type *)constructCoreTypeWithGenericTypeParameters:(NSArray <id> *)typeParameters;
++ (System_Type *)constructTypeWithGenericTypeParameters:(NSArray <id> *)typeParameters monoImage:(MonoImage *)monoImage;
+
 //System.IConvertible convenience
 - (int8_t)int8Value;
 - (int16_t)int16Value;

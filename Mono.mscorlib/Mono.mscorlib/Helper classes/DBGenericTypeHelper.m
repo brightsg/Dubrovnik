@@ -37,40 +37,33 @@
                                         typeParameters:typeParameters];
 }
 
-- (System_Object *)createInstanceOfGenericTypeDefinition:(char *)genericTypeDefinitionName monoImage:(MonoImage *)monoImage typeParameters:(NSArray <id> *)typeParameters
+- (System_Object *)createInstanceOfGenericTypeDefinition:(char *)typeName monoImage:(MonoImage *)monoImage typeParameters:(NSArray <id> *)typeParameters
 {
-    /*
-     The Mono runtime doesn't expose enough of its internal workings via the enbedded API, hence the need for helper methods.
-     See: http://www.mono-project.com/docs/advanced/runtime/docs/generics/
-     */
+    System_Type *constructedType = [self constructGenericType:typeName monoImage:monoImage typeParameters:typeParameters];
+    id object = [System_Activator createInstance_withType:constructedType];
     
-    // get array of System.Type
+    return object;
+}
+
+- (System_Type *)constructCoreGenericType:(char *)typeName typeParameters:(NSArray<id> *)typeParameters {
+    return [self constructGenericType:typeName monoImage:mono_get_corlib() typeParameters:typeParameters];
+}
+
+- (System_Type *)constructGenericType:(char *)typeName monoImage:(MonoImage *)monoImage typeParameters:(NSArray<id> *)typeParameters
+{
+    // get System.Array of System.Type
     NSArray <System_Type *> *systemTypes = [self systemTypesForTypeParameters:typeParameters];
     System_Array *systemTypesManaged = [systemTypes managedArrayWithTypeName:[System_Type managedTypeName]];
     
-    // get the generic type definition
-    //
-    // Retrieves a MonoType from given name. If the name is not fully qualified,
-    // it defaults to get the type from the image or, if image is NULL or loading
-    // from it fails, uses corlib.
-    // This is the embedded equivalent of System.Type.GetType();
-    MonoType *monoGenericTypeDefinition = mono_reflection_type_from_name(genericTypeDefinitionName, monoImage);
+    // get type representing type definition
+    MonoType *monoType = mono_reflection_type_from_name(typeName, monoImage);
+    MonoReflectionType *monoReflectionType = mono_type_get_object([DBManagedEnvironment currentDomain], monoType);
+    System_Type *type = [System_Type objectWithMonoObject:(MonoObject *)monoReflectionType];
     
-    // create instance using helper method
-    MonoMethod *helperMethod = [DBManagedEnvironment dubrovnikMonoMethodWithName:"CreateInstanceOfGenericType" className:"Dubrovnik.FrameworkHelper.GenericHelper" argCount:2];
-    void *hargs[2];
-    hargs[0] = mono_type_get_object([DBManagedEnvironment currentDomain], monoGenericTypeDefinition);
-    hargs[1] = [systemTypesManaged monoArray];
+    // construct the type
+    System_Type *constructedType = [type makeGenericType_withTypeArguments:systemTypesManaged];
     
-    // invoke the helper
-    MonoObject *monoException = NULL;
-    MonoObject *monoObject = mono_runtime_invoke(helperMethod, NULL, hargs, &monoException);
-    if (monoException) NSRaiseExceptionFromMonoException(monoException, @{});
-    
-    // get unmanaged representation of result
-    id object = [System_Object bestObjectWithMonoObject:monoObject];
-    
-    return object;
+    return constructedType;
 }
 
 #pragma mark -

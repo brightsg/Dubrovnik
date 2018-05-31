@@ -44,6 +44,20 @@
 
 /**
  
+ Construct a generic type using the given name, image and type parameters.
+ 
+ */
+- (System_Type *)constructGenericType:(char *)typeName monoImage:(MonoImage *)monoImage typeParameters:(NSArray<id> *)typeParameters;
+
+/**
+ 
+ Construct a core generic type using the given name and type parameters.
+ 
+ */
+- (System_Type *)constructCoreGenericType:(char *)typeName typeParameters:(NSArray<id> *)typeParameters;
+
+/**
+ 
  Returns a MonoType * for a given generic type parameter.
  
  A type parameter is of type id.

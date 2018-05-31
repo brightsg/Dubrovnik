@@ -39,4 +39,6 @@ typedef MonoObject *(*DBUniversalDelegateInternalCallFunc)(void * context, MonoA
  
  */
 + (instancetype)db_universalDelegateWithBlock:(DBUniversalDelegateBlock)block;
+
++ (instancetype)db_universalDelegate:(System_Type *)delegateType withBlock:(DBUniversalDelegateBlock)block;
 @end

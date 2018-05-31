@@ -2374,7 +2374,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     #pragma unused(testClass)
 
     // configure the managed universal delegate to call back to the given static native handler.
-    // the univseral manged delegate is designed in such a way that all universal callbacks
+    // the universal managed delegate is designed in such a way that all universal callbacks
     // use the same internal call. the delegate context passed during the callback is used to
     // determine the onward routing.
     [System_Delegate db_registerUniversalDelegate];
@@ -2386,7 +2386,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // simple
     delegateBlock = ^System_Object *(NSArray * parameters) {
-        NSAssert(parameters.count == 0, @"invalid paramaters");
+        NSAssert(parameters.count == 0, @"invalid parameters");
         return NULL;
     };
     DUReferenceObject_SimpleDelegate_ *simpleDelegate = [DUReferenceObject_SimpleDelegate_ db_universalDelegateWithBlock:delegateBlock];
@@ -2396,17 +2396,42 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // action
     delegateBlock = ^System_Object *(NSArray * parameters) {
-        NSAssert(parameters.count == 1 && [parameters[0] isEqualToString:@"Bingo"], @"invalid paramaters");
+        NSAssert(parameters.count == 1 && [parameters[0] isEqualToString:@"Bingo"], @"invalid parameters");
         return NULL;
     };
     DUReferenceObject_ActionDelegate_ *actionDelegate = [DUReferenceObject_ActionDelegate_ db_universalDelegateWithBlock:delegateBlock];
-    delegateBlock = nil;
+    //delegateBlock = nil;
     [actionDelegate invoke_withMessage:@"Bingo"]; // direct invoke
-    [refObject invokeActionDelegate_withAction:actionDelegate];
+    [refObject invokeActionDelegate_withActionDUReferenceObject__ActionDelegate:actionDelegate];
+    
+    // Generic System.Action<T>
+    // in this case we need to construct the type of our delegate
+    System_Type *constructedType = [System_ActionA1 constructCoreTypeWithGenericTypeParameters:@[[System_String class]]];
+    System_ActionA1 *actionDelegateA1 = [System_ActionA1 db_universalDelegate:constructedType withBlock:delegateBlock];
+    [actionDelegateA1 invoke_withObj:[@"Bingo" managedString]];
+    [refObject invokeActionDelegate_withActionSActionA1string:actionDelegateA1];
+      
+    // Generic System.Action<T1,T2>
+    // in this case we need to construct the type of our delegate
+    delegateBlock = ^System_Object *(NSArray * parameters) {
+        NSAssert(parameters.count == 2 && [parameters[0] isEqualToString:@"Bingo"] && [parameters[1] isEqualToString:@"More"], @"invalid parameters");
+        return NULL;
+    };
+    constructedType = [System_ActionA2 constructCoreTypeWithGenericTypeParameters:@[[System_String class], [System_Object class]]];
+    System_ActionA2 *actionDelegateA2 = [System_ActionA2 db_universalDelegate:constructedType withBlock:delegateBlock];
+    [actionDelegateA2 invoke_withArg1:@"Bingo".managedString arg2:@"More".managedString];
+    
+    // unit test call passes integer
+    delegateBlock = ^System_Object *(NSArray * parameters) {
+        NSAssert(parameters.count == 2 && [parameters[0] isEqualToString:@"Bingo"] && ((DBNumber *)parameters[1]).integerValue == 101 , @"invalid parameters");
+        return NULL;
+    };
+    actionDelegateA2 = [System_ActionA2 db_universalDelegate:constructedType withBlock:delegateBlock];
+    [refObject  invokeActionDelegate_withActionSActionA2string_object:actionDelegateA2];
     
     // func 1
     delegateBlock = ^System_Object *(NSArray * parameters) {
-        NSAssert(parameters.count == 1 && [parameters[0] isEqualToString:@"Bullseye"], @"invalid paramaters");
+        NSAssert(parameters.count == 1 && [parameters[0] isEqualToString:@"Bullseye"], @"invalid parameters");
         return [DBNumber numberWithInt:10245].managedObject;
     };
     DUReferenceObject_FunctionDelegate1_ *functionDelegate1 = [DUReferenceObject_FunctionDelegate1_ db_universalDelegateWithBlock:delegateBlock];
@@ -2417,7 +2442,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // func 2
     delegateBlock = ^System_Object *(NSArray * parameters) {
-        NSAssert(parameters.count == 2 && [parameters[0] isEqual:@(101)] && [parameters[1] isEqualToString:@"Birdshot"], @"invalid paramaters");
+        NSAssert(parameters.count == 2 && [parameters[0] isEqual:@(101)] && [parameters[1] isEqualToString:@"Birdshot"], @"invalid parameters");
         return [DBNumber numberWithInt:17654].managedObject;
     };
     DUReferenceObject_FunctionDelegate2_ *functionDelegate2 = [DUReferenceObject_FunctionDelegate2_ db_universalDelegateWithBlock:delegateBlock];
@@ -2425,6 +2450,39 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     int32_t intResult2 = [functionDelegate2 invoke_withValue:101 message:@"Birdshot"]; // direct invoke
     XCTAssertTrue(intResult2 == 17654, DBUEqualityTestFailed);
     [refObject invokeFunctionDelegate2_withFunc:functionDelegate2];
+    
+    // System_FuncA1<TResult>
+    // in this case we need to construct the type of our delegate
+     delegateBlock = ^System_Object *(NSArray * parameters) {
+         NSAssert(parameters.count == 0, @"invalid parameters");
+         return DBNumInt(182767).managedObject;
+     };
+    constructedType = [System_FuncA1 constructCoreTypeWithGenericTypeParameters:@[[System_Int32 class]]];
+    System_FuncA1 *funcDelegateA1 = [System_FuncA1 db_universalDelegate:constructedType withBlock:delegateBlock];
+    int32_t intResultA1 = [refObject invokeFunctionA1_withFunc:funcDelegateA1];
+    XCTAssertTrue(intResultA1 == 182767, DBUEqualityTestFailed);
+    
+    // System_FuncA2<TResult>
+    // in this case we need to construct the type of our delegate
+    delegateBlock = ^System_Object *(NSArray * parameters) {
+        NSAssert(parameters.count == 1 && ((DBNumber *)parameters[0]).integerValue == 104, @"invalid parameters");
+        return @"Klepto".managedObject;
+    };
+    constructedType = [System_FuncA2 constructCoreTypeWithGenericTypeParameters:@[[System_Int32 class], [System_String class]]];
+    System_FuncA2 *funcDelegateA2 = [System_FuncA2 db_universalDelegate:constructedType withBlock:delegateBlock];
+    NSString *resultFuncA2 = [refObject invokeFunctionA2_withFunc:funcDelegateA2];
+    XCTAssertTrue([resultFuncA2 isEqualToString:@"Klepto"], DBUEqualityTestFailed);
+    
+    // System_FuncA3<TResult>
+    // in this case we need to construct the type of our delegate
+    delegateBlock = ^System_Object *(NSArray * parameters) {
+        NSAssert(parameters.count == 2 && ((DBNumber *)parameters[0]).integerValue == 104 && ((DBNumber *)parameters[1]).doubleValue == 202.2, @"invalid parameters");
+        return @"Battery".managedObject;
+    };
+    constructedType = [System_FuncA3 constructCoreTypeWithGenericTypeParameters:@[[System_Int32 class], [System_Double class], [System_String class]]];
+    System_FuncA3 *funcDelegateA3 = [System_FuncA3 db_universalDelegate:constructedType withBlock:delegateBlock];
+    NSString *resultFuncA3 = [refObject invokeFunctionA3_withFunc:funcDelegateA3];
+    XCTAssertTrue([resultFuncA3 isEqualToString:@"Battery"], DBUEqualityTestFailed);
 }
 
 #pragma mark -

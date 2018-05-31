@@ -12,6 +12,7 @@
 #import "NSDate+mscorlib.h"
 #import "NSNull+mscorlib.h"
 #import "System_Object+mscorlib.h"
+#import "System_Type+mscorlib.h"
 #import "System_Delegate+mscorlib.h"
 #import "System_Collections_Generic_KeyValuePairA2+mscorlib.h"
 #import "System_Collections_ArrayList+mscorlib.h"

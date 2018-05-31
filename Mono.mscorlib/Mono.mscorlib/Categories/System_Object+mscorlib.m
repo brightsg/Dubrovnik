@@ -8,6 +8,7 @@
 
 #import "System_Object+mscorlib.h"
 #import "System_Convert+mscorlib.h"
+#import "System_Type+mscorlib.h"
 #import "DBGenericTypeHelper.h"
 
 @implementation System_Object (mscorlib)
@@ -49,6 +50,19 @@
     return [[DBGenericTypeHelper sharedHelper] createInstanceOfGenericTypeDefinition:genericTypeDefinitionName
                                                                          monoImage:monoImage
                                                                     typeParameters:typeParameters];
+}
+
+#pragma mark -
+#pragma mark Type construction
+
++ (System_Type *)constructCoreTypeWithGenericTypeParameters:(NSArray <id> *)typeParameters
+{
+    return [System_Type constructCoreGenericType:[self monoTypeName] typeParameters:typeParameters];
+}
+
++ (System_Type *)constructTypeWithGenericTypeParameters:(NSArray <id> *)typeParameters monoImage:(MonoImage *)monoImage
+{
+    return [System_Type constructGenericType:[self monoTypeName] monoImage:monoImage typeParameters:typeParameters];
 }
 
 #pragma mark -

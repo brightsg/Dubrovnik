@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_ActionA2.m
+//++Dubrovnik.CodeGenerator System_ActionA2.m
 //
 // Managed class : Action`2<T1, T2>
 //

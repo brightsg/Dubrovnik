@@ -98,8 +98,13 @@ static MonoObject *UniversalDelegateServices_NativeHandler_DelegateInfoContext(v
 + (instancetype)db_universalDelegateWithBlock:(DBUniversalDelegateBlock)block
 {
     // get delegate type
-    System_Type *delegateType= [self.class db_getType];
+    System_Type *delegateType = [self.class db_getType]; // in a class method self.class === self
 
+    return [self db_universalDelegate:delegateType withBlock:block];
+}
+
++ (instancetype)db_universalDelegate:(System_Type *)delegateType withBlock:(DBUniversalDelegateBlock)block
+{
     // create delegate info
     DBDelegateInfo *info = [[DBDelegateInfo alloc] init];
     info.block = block;
@@ -108,7 +113,7 @@ static MonoObject *UniversalDelegateServices_NativeHandler_DelegateInfoContext(v
     void *context = (__bridge void *)(info);
     System_IntPtr *contextPtr = [System_IntPtr new_withValueLong:(int64_t)context];
     NSAssert((int64_t)context == contextPtr.toInt64, @"invalid context");
-     
+    
     // Invoke CreateWrapper
     MonoMethod *method = [DBManagedEnvironment dubrovnikMonoMethodWithName:"CreateWrapper" className:"Mono.Embedding.UniversalDelegateServices" argCount:2];
     MonoObject *monoResult = DBMonoClassInvokeMethod(method, 2, delegateType.monoObject, [contextPtr monoRTInvokeArg]);
