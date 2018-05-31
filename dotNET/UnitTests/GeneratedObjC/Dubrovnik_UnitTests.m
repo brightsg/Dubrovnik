@@ -9,10 +9,10 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     01/01/2018 00:50:17
+// Date:     31/05/2018 14:53:54
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.6575.1507, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.6725.26816, Culture=neutral, PublicKeyToken=null
 // Path:     C:\Users\Jonathan\Documents\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.2.9200.0
@@ -45,37 +45,36 @@
 
 /*
 
-Order here is Enumerations, Interface protocols, Structs, Classes, Explicit interface classes
+Assembly type imports
 
 */
-
-// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_ByteEnum.m
-// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_IntEnum.m
-// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_LongEnum.m
-// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_ReferenceObject__NestedEnum.m
-// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_ShortEnum.m
-// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_ReferenceStruct.m
 // Dubrovnik.CodeGenerator made Dubrovnik_ClientApplication_EventHelper.m
+// Dubrovnik.CodeGenerator made Dubrovnik_ClientApplication_IEventHelper.m
+// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_BaseObject.m
+// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_BaseObjectOne.m
 // Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_BaseObjectThree.m
 // Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_BaseObjectTwo.m
-// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_BaseObjectOne.m
-// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_BaseObject.m
-// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_GenericReferenceObjectA2.m
+// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_ByteEnum.m
+// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_Extensions_ReferenceObjectExtensions.m
 // Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass.m
+// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_GenericReferenceObjectA2.m
+// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_IMinimalReferenceObject.m
+// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_IntEnum.m
+// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_IReferenceObject1.m
+// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_IReferenceObject2.m
+// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_IReferenceObject3.m
+// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_IReferenceObjectBase.m
+// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_IReferenceObjectBase1.m
+// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_ITestProperty.m
+// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_LongEnum.m
 // Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_ReferenceObject.m
 // Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_ReferenceObject__ActionDelegate.m
 // Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1.m
 // Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2.m
 // Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_ReferenceObject__NestedClass.m
+// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_ReferenceObject__NestedEnum.m
 // Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2.m
 // Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate.m
+// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_ReferenceStruct.m
+// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_ShortEnum.m
 // Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_TestObject.m
-// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_Extensions_ReferenceObjectExtensions.m
-// Dubrovnik.CodeGenerator made Dubrovnik_ClientApplication_IEventHelper.m
-// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_IMinimalReferenceObject.m
-// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_IReferenceObjectBase.m
-// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_IReferenceObject1.m
-// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_IReferenceObject2.m
-// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_IReferenceObjectBase1.m
-// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_IReferenceObject3.m
-// Dubrovnik.CodeGenerator made Dubrovnik_UnitTests_ITestProperty.m

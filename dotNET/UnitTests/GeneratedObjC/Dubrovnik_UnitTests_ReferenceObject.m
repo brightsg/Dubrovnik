@@ -1,5 +1,4 @@
-#import "Dubrovnik_UnitTests.h"
-//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ReferenceObject.m
+﻿//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ReferenceObject.m
 //
 // Managed class : ReferenceObject
 //
@@ -7,6 +6,13 @@
 // ARC is required
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
+#endif
+
+// Local assembly import
+#import "Dubrovnik_UnitTests.h"
+
+#if __has_include("Dubrovnik_UnitTests.private.h")
+#import "Dubrovnik_UnitTests.private.h"    // Not auto generated. Add manually to project.
 #endif
 
 @implementation Dubrovnik_UnitTests_ReferenceObject
@@ -2034,10 +2040,34 @@
 		Managed return type : System.Void
 		Managed param types : Dubrovnik.UnitTests.ReferenceObject+ActionDelegate
 	 */
-    - (void)invokeActionDelegate_withAction:(Dubrovnik_UnitTests_ReferenceObject__ActionDelegate *)p1
+    - (void)invokeActionDelegate_withActionDUReferenceObject__ActionDelegate:(Dubrovnik_UnitTests_ReferenceObject__ActionDelegate *)p1
     {
 		
 		[self invokeMonoMethod:"InvokeActionDelegate(Dubrovnik.UnitTests.ReferenceObject/ActionDelegate)" withNumArgs:1, [p1 monoRTInvokeArg]];
+      
+    }
+
+	/*! 
+		Managed method name : InvokeActionDelegate
+		Managed return type : System.Void
+		Managed param types : System.Action`1<System.String>
+	 */
+    - (void)invokeActionDelegate_withActionSActionA1string:(System_ActionA1 *)p1
+    {
+		
+		[self invokeMonoMethod:"InvokeActionDelegate(System.Action`1<string>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+      
+    }
+
+	/*! 
+		Managed method name : InvokeActionDelegate
+		Managed return type : System.Void
+		Managed param types : System.Action`2<System.String, System.Object>
+	 */
+    - (void)invokeActionDelegate_withActionSActionA2string_object:(System_ActionA2 *)p1
+    {
+		
+		[self invokeMonoMethod:"InvokeActionDelegate(System.Action`2<string, object>)" withNumArgs:1, [p1 monoRTInvokeArg]];
       
     }
 

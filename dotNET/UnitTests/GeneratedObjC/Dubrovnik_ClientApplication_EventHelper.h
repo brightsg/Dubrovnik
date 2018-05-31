@@ -2,6 +2,36 @@
 //
 // Managed class : EventHelper
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("Dubrovnik_ClientApplication_EventHelper.__Extra__.h")
+#import "Dubrovnik_ClientApplication_EventHelper.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class Dubrovnik_ClientApplication_EventHelper;
+@class Dubrovnik_ClientApplication_IEventHelper;
+@class System_Boolean;
+@class System_EventArgs;
+@class System_Object;
+@class System_String;
+@class System_UnhandledExceptionEventArgs;
+@class System_Void;
+
+//
+// Import superclass and adopted protocols
+//
+#import "Dubrovnik_ClientApplication_IEventHelper_Protocol.h"
+
 @interface Dubrovnik_ClientApplication_EventHelper : System_Object <Dubrovnik_ClientApplication_IEventHelper_>
 
 #pragma mark -

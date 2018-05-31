@@ -1,7 +1,30 @@
-//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ShortEnum.h
+﻿//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ShortEnum.h
 //
 // Managed enumeration : ShortEnum
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("Dubrovnik_UnitTests_ShortEnum.__Extra__.h")
+#import "Dubrovnik_UnitTests_ShortEnum.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class Dubrovnik_UnitTests_ShortEnum;
+
+//
+// Import superclass and adopted protocols
+//
+
+
 
 // C enumeration
 typedef NS_ENUM(int16_t, enumDubrovnik_UnitTests_ShortEnum) {

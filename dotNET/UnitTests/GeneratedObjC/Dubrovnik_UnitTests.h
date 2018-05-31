@@ -9,10 +9,10 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     01/01/2018 00:50:17
+// Date:     31/05/2018 14:53:54
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.6575.1507, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.6725.26816, Culture=neutral, PublicKeyToken=null
 // Path:     C:\Users\Jonathan\Documents\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.2.9200.0
@@ -63,140 +63,87 @@
 
 
 //
-// Forward class declarations and class aliases
+// Class aliases
 //
-@class Dubrovnik_ClientApplication_EventHelper;
 #define DCEventHelper_ Dubrovnik_ClientApplication_EventHelper
-
-@class Dubrovnik_ClientApplication_IEventHelper;
 #define DCIEventHelper_ Dubrovnik_ClientApplication_IEventHelper
-
-@class Dubrovnik_UnitTests_BaseObject;
 #define DUBaseObject_ Dubrovnik_UnitTests_BaseObject
-
-@class Dubrovnik_UnitTests_BaseObjectOne;
 #define DUBaseObjectOne_ Dubrovnik_UnitTests_BaseObjectOne
-
-@class Dubrovnik_UnitTests_BaseObjectThree;
 #define DUBaseObjectThree_ Dubrovnik_UnitTests_BaseObjectThree
-
-@class Dubrovnik_UnitTests_BaseObjectTwo;
 #define DUBaseObjectTwo_ Dubrovnik_UnitTests_BaseObjectTwo
-
-@class Dubrovnik_UnitTests_GenericReferenceObjectA2;
-#define DUGenericReferenceObjectA2_ Dubrovnik_UnitTests_GenericReferenceObjectA2
-
-@class Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass;
-#define DUGenericReferenceObjectA2_NestedClass_ Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass
-
-@class Dubrovnik_UnitTests_ReferenceObject;
-#define DUReferenceObject_ Dubrovnik_UnitTests_ReferenceObject
-
-@class Dubrovnik_UnitTests_ReferenceObject__ActionDelegate;
-#define DUReferenceObject_ActionDelegate_ Dubrovnik_UnitTests_ReferenceObject__ActionDelegate
-
-@class Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1;
-#define DUReferenceObject_FunctionDelegate1_ Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1
-
-@class Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2;
-#define DUReferenceObject_FunctionDelegate2_ Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2
-
-@class Dubrovnik_UnitTests_ReferenceObject__NestedClass;
-#define DUReferenceObject_NestedClass_ Dubrovnik_UnitTests_ReferenceObject__NestedClass
-
-@class Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2;
-#define DUReferenceObject_NestedGenericClassA2_ Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2
-
-@class Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate;
-#define DUReferenceObject_SimpleDelegate_ Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate
-
-@class Dubrovnik_UnitTests_TestObject;
-#define DUTestObject_ Dubrovnik_UnitTests_TestObject
-
-@class Dubrovnik_UnitTests_IMinimalReferenceObject;
-#define DUIMinimalReferenceObject_ Dubrovnik_UnitTests_IMinimalReferenceObject
-
-@class Dubrovnik_UnitTests_IReferenceObject1;
-#define DUIReferenceObject1_ Dubrovnik_UnitTests_IReferenceObject1
-
-@class Dubrovnik_UnitTests_IReferenceObject2;
-#define DUIReferenceObject2_ Dubrovnik_UnitTests_IReferenceObject2
-
-@class Dubrovnik_UnitTests_IReferenceObject3;
-#define DUIReferenceObject3_ Dubrovnik_UnitTests_IReferenceObject3
-
-@class Dubrovnik_UnitTests_IReferenceObjectBase;
-#define DUIReferenceObjectBase_ Dubrovnik_UnitTests_IReferenceObjectBase
-
-@class Dubrovnik_UnitTests_IReferenceObjectBase1;
-#define DUIReferenceObjectBase1_ Dubrovnik_UnitTests_IReferenceObjectBase1
-
-@class Dubrovnik_UnitTests_ITestProperty;
-#define DUITestProperty_ Dubrovnik_UnitTests_ITestProperty
-
-@class Dubrovnik_UnitTests_ReferenceStruct;
-#define DUReferenceStruct_ Dubrovnik_UnitTests_ReferenceStruct
-
-@class Dubrovnik_UnitTests_ByteEnum;
 #define DUByteEnum_ Dubrovnik_UnitTests_ByteEnum
-
-@class Dubrovnik_UnitTests_IntEnum;
-#define DUIntEnum_ Dubrovnik_UnitTests_IntEnum
-
-@class Dubrovnik_UnitTests_LongEnum;
-#define DULongEnum_ Dubrovnik_UnitTests_LongEnum
-
-@class Dubrovnik_UnitTests_ReferenceObject__NestedEnum;
-#define DUReferenceObject_NestedEnum_ Dubrovnik_UnitTests_ReferenceObject__NestedEnum
-
-@class Dubrovnik_UnitTests_ShortEnum;
-#define DUShortEnum_ Dubrovnik_UnitTests_ShortEnum
-
-@class Dubrovnik_UnitTests_Extensions_ReferenceObjectExtensions;
 #define DUEReferenceObjectExtensions_ Dubrovnik_UnitTests_Extensions_ReferenceObjectExtensions
-
+#define DUGenericReferenceObjectA2_NestedClass_ Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass
+#define DUGenericReferenceObjectA2_ Dubrovnik_UnitTests_GenericReferenceObjectA2
+#define DUIMinimalReferenceObject_ Dubrovnik_UnitTests_IMinimalReferenceObject
+#define DUIntEnum_ Dubrovnik_UnitTests_IntEnum
+#define DUIReferenceObject1_ Dubrovnik_UnitTests_IReferenceObject1
+#define DUIReferenceObject2_ Dubrovnik_UnitTests_IReferenceObject2
+#define DUIReferenceObject3_ Dubrovnik_UnitTests_IReferenceObject3
+#define DUIReferenceObjectBase_ Dubrovnik_UnitTests_IReferenceObjectBase
+#define DUIReferenceObjectBase1_ Dubrovnik_UnitTests_IReferenceObjectBase1
+#define DUITestProperty_ Dubrovnik_UnitTests_ITestProperty
+#define DULongEnum_ Dubrovnik_UnitTests_LongEnum
+#define DUReferenceObject_ Dubrovnik_UnitTests_ReferenceObject
+#define DUReferenceObject_ActionDelegate_ Dubrovnik_UnitTests_ReferenceObject__ActionDelegate
+#define DUReferenceObject_FunctionDelegate1_ Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1
+#define DUReferenceObject_FunctionDelegate2_ Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2
+#define DUReferenceObject_NestedClass_ Dubrovnik_UnitTests_ReferenceObject__NestedClass
+#define DUReferenceObject_NestedEnum_ Dubrovnik_UnitTests_ReferenceObject__NestedEnum
+#define DUReferenceObject_NestedGenericClassA2_ Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2
+#define DUReferenceObject_SimpleDelegate_ Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate
+#define DUReferenceStruct_ Dubrovnik_UnitTests_ReferenceStruct
+#define DUShortEnum_ Dubrovnik_UnitTests_ShortEnum
+#define DUTestObject_ Dubrovnik_UnitTests_TestObject
 
 /*
 
-Order here is Enumerations, Interface protocols, Structs, Classes, Explicit interface classes
+Assembly type imports
 
 */
-
-#import "Dubrovnik_UnitTests_ByteEnum.h"
-#import "Dubrovnik_UnitTests_IntEnum.h"
-#import "Dubrovnik_UnitTests_LongEnum.h"
-#import "Dubrovnik_UnitTests_ReferenceObject__NestedEnum.h"
-#import "Dubrovnik_UnitTests_ShortEnum.h"
-#import "Dubrovnik_ClientApplication_IEventHelper_Protocol.h"
-#import "Dubrovnik_UnitTests_IMinimalReferenceObject_Protocol.h"
-#import "Dubrovnik_UnitTests_IReferenceObjectBase_Protocol.h"
-#import "Dubrovnik_UnitTests_IReferenceObject1_Protocol.h"
-#import "Dubrovnik_UnitTests_IReferenceObject2_Protocol.h"
-#import "Dubrovnik_UnitTests_IReferenceObjectBase1_Protocol.h"
-#import "Dubrovnik_UnitTests_IReferenceObject3_Protocol.h"
-#import "Dubrovnik_UnitTests_ITestProperty_Protocol.h"
-#import "Dubrovnik_UnitTests_ReferenceStruct.h"
 #import "Dubrovnik_ClientApplication_EventHelper.h"
+#import "Dubrovnik_ClientApplication_IEventHelper.h"
+#import "Dubrovnik_ClientApplication_IEventHelper.h"
+#import "Dubrovnik_ClientApplication_IEventHelper_Protocol.h"
+#import "Dubrovnik_UnitTests_BaseObject.h"
+#import "Dubrovnik_UnitTests_BaseObjectOne.h"
 #import "Dubrovnik_UnitTests_BaseObjectThree.h"
 #import "Dubrovnik_UnitTests_BaseObjectTwo.h"
-#import "Dubrovnik_UnitTests_BaseObjectOne.h"
-#import "Dubrovnik_UnitTests_BaseObject.h"
-#import "Dubrovnik_UnitTests_GenericReferenceObjectA2.h"
+#import "Dubrovnik_UnitTests_ByteEnum.h"
+#import "Dubrovnik_UnitTests_Extensions_ReferenceObjectExtensions.h"
 #import "Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass.h"
+#import "Dubrovnik_UnitTests_GenericReferenceObjectA2.h"
+#import "Dubrovnik_UnitTests_IMinimalReferenceObject.h"
+#import "Dubrovnik_UnitTests_IMinimalReferenceObject.h"
+#import "Dubrovnik_UnitTests_IMinimalReferenceObject_Protocol.h"
+#import "Dubrovnik_UnitTests_IntEnum.h"
+#import "Dubrovnik_UnitTests_IReferenceObject1.h"
+#import "Dubrovnik_UnitTests_IReferenceObject1.h"
+#import "Dubrovnik_UnitTests_IReferenceObject1_Protocol.h"
+#import "Dubrovnik_UnitTests_IReferenceObject2.h"
+#import "Dubrovnik_UnitTests_IReferenceObject2.h"
+#import "Dubrovnik_UnitTests_IReferenceObject2_Protocol.h"
+#import "Dubrovnik_UnitTests_IReferenceObject3.h"
+#import "Dubrovnik_UnitTests_IReferenceObject3.h"
+#import "Dubrovnik_UnitTests_IReferenceObject3_Protocol.h"
+#import "Dubrovnik_UnitTests_IReferenceObjectBase.h"
+#import "Dubrovnik_UnitTests_IReferenceObjectBase.h"
+#import "Dubrovnik_UnitTests_IReferenceObjectBase_Protocol.h"
+#import "Dubrovnik_UnitTests_IReferenceObjectBase1.h"
+#import "Dubrovnik_UnitTests_IReferenceObjectBase1.h"
+#import "Dubrovnik_UnitTests_IReferenceObjectBase1_Protocol.h"
+#import "Dubrovnik_UnitTests_ITestProperty.h"
+#import "Dubrovnik_UnitTests_ITestProperty.h"
+#import "Dubrovnik_UnitTests_ITestProperty_Protocol.h"
+#import "Dubrovnik_UnitTests_LongEnum.h"
 #import "Dubrovnik_UnitTests_ReferenceObject.h"
 #import "Dubrovnik_UnitTests_ReferenceObject__ActionDelegate.h"
 #import "Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1.h"
 #import "Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2.h"
 #import "Dubrovnik_UnitTests_ReferenceObject__NestedClass.h"
+#import "Dubrovnik_UnitTests_ReferenceObject__NestedEnum.h"
 #import "Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2.h"
 #import "Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate.h"
+#import "Dubrovnik_UnitTests_ReferenceStruct.h"
+#import "Dubrovnik_UnitTests_ShortEnum.h"
 #import "Dubrovnik_UnitTests_TestObject.h"
-#import "Dubrovnik_UnitTests_Extensions_ReferenceObjectExtensions.h"
-#import "Dubrovnik_ClientApplication_IEventHelper.h"
-#import "Dubrovnik_UnitTests_IMinimalReferenceObject.h"
-#import "Dubrovnik_UnitTests_IReferenceObjectBase.h"
-#import "Dubrovnik_UnitTests_IReferenceObject1.h"
-#import "Dubrovnik_UnitTests_IReferenceObject2.h"
-#import "Dubrovnik_UnitTests_IReferenceObjectBase1.h"
-#import "Dubrovnik_UnitTests_IReferenceObject3.h"
-#import "Dubrovnik_UnitTests_ITestProperty.h"

@@ -697,6 +697,14 @@ namespace Dubrovnik.UnitTests {
 			action("Bingo");
 		}
 
+		public void InvokeActionDelegate(Action<string> action) {
+			action("Bingo");
+		}
+
+		public void InvokeActionDelegate(Action<string, object> action) {
+			action("Bingo", 101);
+		}
+
 		public void InvokeFunctionDelegate1(FunctionDelegate1 func) {
 			int result = func("Bullseye");
 			Debug.Assert(result == 10245);

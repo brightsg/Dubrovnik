@@ -2,7 +2,32 @@
 //
 // Managed struct : ReferenceStruct
 //
-@interface Dubrovnik_UnitTests_ReferenceStruct : DBManagedObject
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("Dubrovnik_UnitTests_ReferenceStruct.__Extra__.h")
+#import "Dubrovnik_UnitTests_ReferenceStruct.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class Dubrovnik_UnitTests_ReferenceStruct;
+@class System_Int32;
+@class System_String;
+
+//
+// Import superclass and adopted protocols
+//
+
+
+@interface Dubrovnik_UnitTests_ReferenceStruct : System_ValueType
 
 #pragma mark -
 #pragma mark Setup

@@ -2,6 +2,39 @@
 //
 // Managed class : ReferenceObject.ActionDelegate
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("Dubrovnik_UnitTests_ReferenceObject__ActionDelegate.__Extra__.h")
+#import "Dubrovnik_UnitTests_ReferenceObject__ActionDelegate.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class Dubrovnik_UnitTests_ReferenceObject__ActionDelegate;
+@class System_AsyncCallback;
+@class System_IAsyncResult;
+@class System_ICloneable;
+@class System_IntPtr;
+@class System_Object;
+@class System_Runtime_Serialization_ISerializable;
+@class System_String;
+@class System_Void;
+@protocol System_IAsyncResult;
+@protocol System_IAsyncResult_;
+
+//
+// Import superclass and adopted protocols
+//
+
+
 @interface Dubrovnik_UnitTests_ReferenceObject__ActionDelegate : System_MulticastDelegate
 
 #pragma mark -

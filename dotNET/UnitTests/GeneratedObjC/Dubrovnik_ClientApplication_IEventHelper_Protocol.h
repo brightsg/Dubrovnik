@@ -2,6 +2,35 @@
 //
 // Managed interface : IEventHelper
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("Dubrovnik_ClientApplication_IEventHelper.__Extra__.h")
+#import "Dubrovnik_ClientApplication_IEventHelper.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class Dubrovnik_ClientApplication_IEventHelper;
+@class System_Boolean;
+@class System_Object;
+@class System_String;
+@class System_Void;
+@protocol Dubrovnik_ClientApplication_IEventHelper;
+@protocol Dubrovnik_ClientApplication_IEventHelper_;
+
+//
+// Import superclass and adopted protocols
+//
+#import "Dubrovnik_ClientApplication_IEventHelper_Protocol.h"
+
 
 /*
  A managed interface is represented as follows:

@@ -1,7 +1,30 @@
-//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_IntEnum.h
+﻿//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_IntEnum.h
 //
 // Managed enumeration : IntEnum
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("Dubrovnik_UnitTests_IntEnum.__Extra__.h")
+#import "Dubrovnik_UnitTests_IntEnum.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class Dubrovnik_UnitTests_IntEnum;
+
+//
+// Import superclass and adopted protocols
+//
+
+
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumDubrovnik_UnitTests_IntEnum) {

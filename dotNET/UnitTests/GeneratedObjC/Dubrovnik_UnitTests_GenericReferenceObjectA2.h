@@ -1,7 +1,33 @@
-//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_GenericReferenceObjectA2.h
+﻿//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_GenericReferenceObjectA2.h
 //
 // Managed class : GenericReferenceObject`2<T, U>
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("Dubrovnik_UnitTests_GenericReferenceObjectA2.__Extra__.h")
+#import "Dubrovnik_UnitTests_GenericReferenceObjectA2.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class Dubrovnik_UnitTests_GenericReferenceObjectA2;
+@class Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass;
+@class System_Collections_Generic_ListA1;
+@class System_Object;
+
+//
+// Import superclass and adopted protocols
+//
+
+
 @interface Dubrovnik_UnitTests_GenericReferenceObjectA2 : System_Object
 
 #pragma mark -

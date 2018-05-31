@@ -2,6 +2,33 @@
 //
 // Managed interface : IMinimalReferenceObject
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("Dubrovnik_UnitTests_IMinimalReferenceObject.__Extra__.h")
+#import "Dubrovnik_UnitTests_IMinimalReferenceObject.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class Dubrovnik_UnitTests_IMinimalReferenceObject;
+@class System_Int32;
+@class System_String;
+@protocol Dubrovnik_UnitTests_IMinimalReferenceObject;
+@protocol Dubrovnik_UnitTests_IMinimalReferenceObject_;
+
+//
+// Import superclass and adopted protocols
+//
+#import "Dubrovnik_UnitTests_IMinimalReferenceObject_Protocol.h"
+
 
 /*
  A managed interface is represented as follows:

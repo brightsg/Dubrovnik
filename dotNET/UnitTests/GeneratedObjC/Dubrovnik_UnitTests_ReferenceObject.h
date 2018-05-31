@@ -1,7 +1,82 @@
-//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ReferenceObject.h
+﻿//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ReferenceObject.h
 //
 // Managed class : ReferenceObject
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("Dubrovnik_UnitTests_ReferenceObject.__Extra__.h")
+#import "Dubrovnik_UnitTests_ReferenceObject.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class Dubrovnik_UnitTests_GenericReferenceObjectA2;
+@class Dubrovnik_UnitTests_IMinimalReferenceObject;
+@class Dubrovnik_UnitTests_IntEnum;
+@class Dubrovnik_UnitTests_IReferenceObject1;
+@class Dubrovnik_UnitTests_IReferenceObject2;
+@class Dubrovnik_UnitTests_IReferenceObjectBase;
+@class Dubrovnik_UnitTests_ITestProperty;
+@class Dubrovnik_UnitTests_LongEnum;
+@class Dubrovnik_UnitTests_ReferenceObject;
+@class Dubrovnik_UnitTests_ReferenceObject__ActionDelegate;
+@class Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1;
+@class Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2;
+@class Dubrovnik_UnitTests_ReferenceObject__NestedClass;
+@class Dubrovnik_UnitTests_ReferenceObject__NestedEnum;
+@class Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2;
+@class Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate;
+@class Dubrovnik_UnitTests_ReferenceStruct;
+@class System_ActionA1;
+@class System_ActionA2;
+@class System_Array;
+@class System_Boolean;
+@class System_Byte;
+@class System_Collections_ArrayList;
+@class System_Collections_Generic_DictionaryA2;
+@class System_Collections_Generic_IEnumerableA1;
+@class System_Collections_Generic_ListA1;
+@class System_ComponentModel_INotifyPropertyChanged;
+@class System_ComponentModel_INotifyPropertyChanging;
+@class System_DateTime;
+@class System_Decimal;
+@class System_Double;
+@class System_Int16;
+@class System_Int32;
+@class System_Int64;
+@class System_IntPtr;
+@class System_NullableA1;
+@class System_Object;
+@class System_Single;
+@class System_String;
+@class System_Void;
+@protocol Dubrovnik_UnitTests_IMinimalReferenceObject;
+@protocol Dubrovnik_UnitTests_IMinimalReferenceObject_;
+@protocol Dubrovnik_UnitTests_IReferenceObject1;
+@protocol Dubrovnik_UnitTests_IReferenceObject1_;
+@protocol Dubrovnik_UnitTests_IReferenceObject2;
+@protocol Dubrovnik_UnitTests_IReferenceObject2_;
+@protocol Dubrovnik_UnitTests_ITestProperty;
+@protocol Dubrovnik_UnitTests_ITestProperty_;
+@protocol System_Collections_Generic_IEnumerableA1;
+@protocol System_Collections_Generic_IEnumerableA1_;
+
+//
+// Import superclass and adopted protocols
+//
+#import "Dubrovnik_UnitTests_IMinimalReferenceObject_Protocol.h"
+#import "Dubrovnik_UnitTests_IReferenceObject1_Protocol.h"
+#import "Dubrovnik_UnitTests_IReferenceObject2_Protocol.h"
+#import "Dubrovnik_UnitTests_IReferenceObjectBase_Protocol.h"
+
 @interface Dubrovnik_UnitTests_ReferenceObject : System_Object <Dubrovnik_UnitTests_IMinimalReferenceObject_, Dubrovnik_UnitTests_IReferenceObject1_, Dubrovnik_UnitTests_IReferenceObjectBase_, Dubrovnik_UnitTests_IReferenceObject2_>
 
 #pragma mark -
@@ -370,7 +445,21 @@
 		Managed return type : System.Void
 		Managed param types : Dubrovnik.UnitTests.ReferenceObject+ActionDelegate
 	 */
-    - (void)invokeActionDelegate_withAction:(Dubrovnik_UnitTests_ReferenceObject__ActionDelegate *)p1;
+    - (void)invokeActionDelegate_withActionDUReferenceObject__ActionDelegate:(Dubrovnik_UnitTests_ReferenceObject__ActionDelegate *)p1;
+
+	/*! 
+		Managed method name : InvokeActionDelegate
+		Managed return type : System.Void
+		Managed param types : System.Action`1<System.String>
+	 */
+    - (void)invokeActionDelegate_withActionSActionA1string:(System_ActionA1 *)p1;
+
+	/*! 
+		Managed method name : InvokeActionDelegate
+		Managed return type : System.Void
+		Managed param types : System.Action`2<System.String, System.Object>
+	 */
+    - (void)invokeActionDelegate_withActionSActionA2string_object:(System_ActionA2 *)p1;
 
 	/*! 
 		Managed method name : InvokeFunctionDelegate1

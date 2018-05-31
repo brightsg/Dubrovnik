@@ -1,7 +1,30 @@
-//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ReferenceObject__NestedEnum.h
+﻿//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ReferenceObject__NestedEnum.h
 //
 // Managed enumeration : ReferenceObject.NestedEnum
 //
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("Dubrovnik_UnitTests_ReferenceObject__NestedEnum.__Extra__.h")
+#import "Dubrovnik_UnitTests_ReferenceObject__NestedEnum.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class Dubrovnik_UnitTests_ReferenceObject__NestedEnum;
+
+//
+// Import superclass and adopted protocols
+//
+
+
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumDubrovnik_UnitTests_ReferenceObject__NestedEnum) {

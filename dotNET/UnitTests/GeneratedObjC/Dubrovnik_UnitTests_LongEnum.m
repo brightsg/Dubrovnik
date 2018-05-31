@@ -1,5 +1,4 @@
-﻿#import "Dubrovnik_UnitTests.h"
-//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_LongEnum.m
+﻿//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_LongEnum.m
 //
 // Managed enumeration : LongEnum
 //
@@ -7,6 +6,13 @@
 // ARC is required
 #if  ! __has_feature(objc_arc)
 #error This file requires ARC. 
+#endif
+
+// Local assembly import
+#import "Dubrovnik_UnitTests.h"
+
+#if __has_include("Dubrovnik_UnitTests.private.h")
+#import "Dubrovnik_UnitTests.private.h"    // Not auto generated. Add manually to project.
 #endif
 
 
