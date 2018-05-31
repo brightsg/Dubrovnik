@@ -49,6 +49,9 @@
 @class System_DateTime;
 @class System_Decimal;
 @class System_Double;
+@class System_FuncA1;
+@class System_FuncA2;
+@class System_FuncA3;
 @class System_Int16;
 @class System_Int32;
 @class System_Int64;
@@ -460,6 +463,27 @@
 		Managed param types : System.Action`2<System.String, System.Object>
 	 */
     - (void)invokeActionDelegate_withActionSActionA2string_object:(System_ActionA2 *)p1;
+
+	/*! 
+		Managed method name : InvokeFunctionA1
+		Managed return type : System.Int32
+		Managed param types : System.Func`1<System.Int32>
+	 */
+    - (int32_t)invokeFunctionA1_withFunc:(System_FuncA1 *)p1;
+
+	/*! 
+		Managed method name : InvokeFunctionA2
+		Managed return type : System.String
+		Managed param types : System.Func`2<System.Int32, System.String>
+	 */
+    - (NSString *)invokeFunctionA2_withFunc:(System_FuncA2 *)p1;
+
+	/*! 
+		Managed method name : InvokeFunctionA3
+		Managed return type : System.String
+		Managed param types : System.Func`3<System.Int32, System.Double, System.String>
+	 */
+    - (NSString *)invokeFunctionA3_withFunc:(System_FuncA3 *)p1;
 
 	/*! 
 		Managed method name : InvokeFunctionDelegate1

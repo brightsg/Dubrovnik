@@ -2072,6 +2072,45 @@
     }
 
 	/*! 
+		Managed method name : InvokeFunctionA1
+		Managed return type : System.Int32
+		Managed param types : System.Func`1<System.Int32>
+	 */
+    - (int32_t)invokeFunctionA1_withFunc:(System_FuncA1 *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"InvokeFunctionA1(System.Func`1<int>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return DB_UNBOX_INT32(monoObject);
+    }
+
+	/*! 
+		Managed method name : InvokeFunctionA2
+		Managed return type : System.String
+		Managed param types : System.Func`2<System.Int32, System.String>
+	 */
+    - (NSString *)invokeFunctionA2_withFunc:(System_FuncA2 *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"InvokeFunctionA2(System.Func`2<int, string>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+    }
+
+	/*! 
+		Managed method name : InvokeFunctionA3
+		Managed return type : System.String
+		Managed param types : System.Func`3<System.Int32, System.Double, System.String>
+	 */
+    - (NSString *)invokeFunctionA3_withFunc:(System_FuncA3 *)p1
+    {
+		
+		MonoObject *monoObject = [self invokeMonoMethod:"InvokeFunctionA3(System.Func`3<int, double, string>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+		
+		return [NSString stringWithMonoString:DB_STRING(monoObject)];
+    }
+
+	/*! 
 		Managed method name : InvokeFunctionDelegate1
 		Managed return type : System.Void
 		Managed param types : Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate1

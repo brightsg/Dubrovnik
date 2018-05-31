@@ -715,6 +715,18 @@ namespace Dubrovnik.UnitTests {
 			Debug.Assert(result == 17654);
 		}
 
+		public int InvokeFunctionA1(Func<int> func) {
+			return func();
+		}
+
+		public string InvokeFunctionA2(Func<int, string> func) {
+			return func(104);
+		}
+
+		public string InvokeFunctionA3(Func<int, double, string> func) {
+			return func(104, 202.2);
+		}
+
 		//=========================
 		// Event generation
 		//=========================
