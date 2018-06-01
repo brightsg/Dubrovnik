@@ -23,7 +23,7 @@
 
 + (instancetype)listWithObjects:(NSArray *)objects typeParameter:(id)typeParameter
 {
-    System_Collections_Generic_ListA1 *list = [[self class] newObjectWithGenericTypeParameters:@[typeParameter]];
+    System_Collections_Generic_ListA1 *list = [[self class] newWithTypeParameters:@[typeParameter]];
     
     // add objects
     for (id object in objects) {

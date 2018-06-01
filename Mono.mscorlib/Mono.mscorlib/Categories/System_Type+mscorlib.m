@@ -11,14 +11,14 @@
 
 @implementation System_Type (mscorlib)
 
-+ (instancetype)constructCoreGenericType:(char *)typeName typeParameters:(NSArray<id> *)typeParameters
++ (instancetype)constructCoreType:(char *)typeName typeParameters:(NSArray<id> *)typeParameters
 {
-    return [[DBGenericTypeHelper sharedHelper] constructGenericType:typeName monoImage:mono_get_corlib() typeParameters:typeParameters];
+    return [[DBGenericTypeHelper sharedHelper] constructType:typeName monoImage:mono_get_corlib() typeParameters:typeParameters];
 }
 
-+ (instancetype)constructGenericType:(char *)typeName monoImage:(MonoImage *)monoImage typeParameters:(NSArray<id> *)typeParameters
++ (instancetype)constructType:(char *)typeName monoImage:(MonoImage *)monoImage typeParameters:(NSArray<id> *)typeParameters
 {
-    return [[DBGenericTypeHelper sharedHelper] constructGenericType:typeName monoImage:monoImage typeParameters:typeParameters];
+    return [[DBGenericTypeHelper sharedHelper] constructType:typeName monoImage:monoImage typeParameters:typeParameters];
 }
 
 @end

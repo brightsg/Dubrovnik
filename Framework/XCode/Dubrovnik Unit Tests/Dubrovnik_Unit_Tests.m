@@ -522,9 +522,9 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 - (void)doTestGenericConstructors:(Class)testClass
 {
     // allocate core generic types from class
-    System_Collections_Generic_ListA1 *listA1 = [System_Collections_Generic_ListA1 newObjectWithGenericTypeParameters:@[[System_Object class]]];
-    System_Collections_Generic_DictionaryA2 *dictionaryA2 = [System_Collections_Generic_DictionaryA2 newObjectWithGenericTypeParameters:@[[System_String class], [System_Object class]]];
-    System_Collections_Generic_KeyValuePairA2 *keyValuePairA2 = [System_Collections_Generic_KeyValuePairA2 newObjectWithGenericTypeParameters:@[[System_String class], [System_Object class]]];
+    System_Collections_Generic_ListA1 *listA1 = [System_Collections_Generic_ListA1 newWithTypeParameters:@[[System_Object class]]];
+    System_Collections_Generic_DictionaryA2 *dictionaryA2 = [System_Collections_Generic_DictionaryA2 newWithTypeParameters:@[[System_String class], [System_Object class]]];
+    System_Collections_Generic_KeyValuePairA2 *keyValuePairA2 = [System_Collections_Generic_KeyValuePairA2 newWithTypeParameters:@[[System_String class], [System_Object class]]];
     
     // allocate core generic types from type name
     System_Collections_Generic_ListA1 *listA1_1 = (id)[System_Object newObjectWithGenericTypeDefinition:"System.Collections.Generic.List`1" typeParameters:@[[System_Object class]]];
@@ -1078,10 +1078,10 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         
         // and again, this time with generic types
         MonoImage *image = mono_assembly_get_image(monoAssembly);
-        id nestedGenericClassA2 = [Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 newObjectWithGenericTypeParameters:@[[System_String class], [System_Int32 class]] monoImage:image];
+        id nestedGenericClassA2 = [Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 newWithTypeParameters:@[[System_String class], [System_Int32 class]] monoImage:image];
         [refObject nestedTypeParameters_withPDUReferenceObject__NestedGenericClassA2string_int:nestedGenericClassA2];
         
-        nestedGenericClassA2 = [Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 newObjectWithGenericTypeParameters:@[[System_Int32 class], [System_String class]] monoImage:image];
+        nestedGenericClassA2 = [Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 newWithTypeParameters:@[[System_Int32 class], [System_String class]] monoImage:image];
         [refObject nestedTypeParameters_withPDUReferenceObject__NestedGenericClassA2int_string:nestedGenericClassA2];
     }
 #endif
@@ -2401,7 +2401,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // Generic System.Action<T>
     // in this case we need to construct the type of our delegate
-    System_Type *constructedType = [System_ActionA1 constructCoreTypeWithGenericTypeParameters:@[[System_String class]]];
+    System_Type *constructedType = [System_ActionA1 constructCoreTypeWithParameters:@[[System_String class]]];
     System_ActionA1 *actionDelegateA1 = [System_ActionA1 universalDelegateWithConstructedType:constructedType block:delegateBlock];
     [actionDelegateA1 invoke_withObj:[@"Bingo" managedString]];
     [refObject invokeActionDelegate_withActionSActionA1string:actionDelegateA1];
@@ -2412,7 +2412,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         NSAssert(parameters.count == 2 && [parameters[0] isEqualToString:@"Bingo"] && [parameters[1] isEqualToString:@"More"], @"invalid parameters");
         return NULL;
     };
-    constructedType = [System_ActionA2 constructCoreTypeWithGenericTypeParameters:@[[System_String class], [System_Object class]]];
+    constructedType = [System_ActionA2 constructCoreTypeWithParameters:@[[System_String class], [System_Object class]]];
     System_ActionA2 *actionDelegateA2 = [System_ActionA2 universalDelegateWithConstructedType:constructedType block:delegateBlock];
     [actionDelegateA2 invoke_withArg1:@"Bingo".managedString arg2:@"More".managedString];
     
@@ -2452,7 +2452,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
          NSAssert(parameters.count == 0, @"invalid parameters");
          return DBNumInt(182767).managedObject;
      };
-    constructedType = [System_FuncA1 constructCoreTypeWithGenericTypeParameters:@[[System_Int32 class]]];
+    constructedType = [System_FuncA1 constructCoreTypeWithParameters:@[[System_Int32 class]]];
     System_FuncA1 *funcDelegateA1 = [System_FuncA1 universalDelegateWithConstructedType:constructedType block:delegateBlock];
     int32_t intResultA1 = [refObject invokeFunctionA1_withFunc:funcDelegateA1];
     XCTAssertTrue(intResultA1 == 182767, DBUEqualityTestFailed);
@@ -2463,7 +2463,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         NSAssert(parameters.count == 1 && ((DBNumber *)parameters[0]).integerValue == 104, @"invalid parameters");
         return @"Klepto".managedObject;
     };
-    constructedType = [System_FuncA2 constructCoreTypeWithGenericTypeParameters:@[[System_Int32 class], [System_String class]]];
+    constructedType = [System_FuncA2 constructCoreTypeWithParameters:@[[System_Int32 class], [System_String class]]];
     System_FuncA2 *funcDelegateA2 = [System_FuncA2 universalDelegateWithConstructedType:constructedType block:delegateBlock];
     NSString *resultFuncA2 = [refObject invokeFunctionA2_withFunc:funcDelegateA2];
     XCTAssertTrue([resultFuncA2 isEqualToString:@"Klepto"], DBUEqualityTestFailed);
@@ -2474,7 +2474,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         NSAssert(parameters.count == 2 && ((DBNumber *)parameters[0]).integerValue == 104 && ((DBNumber *)parameters[1]).doubleValue == 202.2, @"invalid parameters");
         return @"Battery".managedObject;
     };
-    constructedType = [System_FuncA3 constructCoreTypeWithGenericTypeParameters:@[[System_Int32 class], [System_Double class], [System_String class]]];
+    constructedType = [System_FuncA3 constructCoreTypeWithParameters:@[[System_Int32 class], [System_Double class], [System_String class]]];
     System_FuncA3 *funcDelegateA3 = [System_FuncA3 universalDelegateWithConstructedType:constructedType block:delegateBlock];
     NSString *resultFuncA3 = [refObject invokeFunctionA3_withFunc:funcDelegateA3];
     XCTAssertTrue([resultFuncA3 isEqualToString:@"Battery"], DBUEqualityTestFailed);

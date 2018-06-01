@@ -29,7 +29,7 @@
  3. NSValue containing MonoType pointer
  
  */
-+ (id)newObjectWithGenericTypeParameters:(NSArray <id> *)typeParameters;
++ (id)newWithTypeParameters:(NSArray <id> *)typeParameters;
 
 /**
  
@@ -42,7 +42,7 @@
  3. NSValue containing MonoType pointer
  
  */
-+ (id)newObjectWithGenericTypeParameters:(NSArray <id> *)typeParameters monoImage:(MonoImage *)monoImage;
++ (id)newWithTypeParameters:(NSArray <id> *)typeParameters monoImage:(MonoImage *)monoImage;
 
 /**
  
@@ -77,8 +77,8 @@
  */
 + (id)newObjectWithGenericTypeDefinition:(char *)genericTypeDefinitionName typeParameters:(NSArray <id> *)typeParameters;
 
-+ (System_Type *)constructCoreTypeWithGenericTypeParameters:(NSArray <id> *)typeParameters;
-+ (System_Type *)constructTypeWithGenericTypeParameters:(NSArray <id> *)typeParameters monoImage:(MonoImage *)monoImage;
++ (System_Type *)constructCoreTypeWithParameters:(NSArray <id> *)typeParameters;
++ (System_Type *)constructTypeWithParameters:(NSArray <id> *)typeParameters monoImage:(MonoImage *)monoImage;
 
 //System.IConvertible convenience
 - (int8_t)int8Value;

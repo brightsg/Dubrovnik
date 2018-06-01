@@ -26,43 +26,41 @@
 #pragma mark -
 #pragma mark Generic factory convenience methods
 
-+ (id)newObjectWithGenericTypeParameters:(NSArray <id> *)typeParameters
++ (id)newWithTypeParameters:(NSArray <id> *)typeParameters
 {
-    return [[DBGenericTypeHelper sharedHelper] createInstanceOfCoreGenericTypeDefinition:(char *)[self monoClassName]
-                                                                        typeParameters:typeParameters];
+    return [[DBGenericTypeHelper sharedHelper] newWithCoreTypeName:(char *)[self monoClassName] typeParameters:typeParameters];
 }
 
-+ (id)newObjectWithGenericTypeParameters:(NSArray <id> *)typeParameters monoImage:(MonoImage *)monoImage
++ (id)newWithTypeParameters:(NSArray <id> *)typeParameters monoImage:(MonoImage *)monoImage
 {
-    return [[DBGenericTypeHelper sharedHelper] createInstanceOfGenericTypeDefinition:(char *)[self monoClassName]
-                                                                         monoImage:monoImage
-                                                                    typeParameters:typeParameters];
+    return [[DBGenericTypeHelper sharedHelper] newWithTypeName:(char *)[self monoClassName]
+                                                     monoImage:monoImage
+                                                typeParameters:typeParameters];
 }
 
 + (id)newObjectWithGenericTypeDefinition:(char *)genericTypeDefinitionName typeParameters:(NSArray <id> *)typeParameters
 {
-    return [[DBGenericTypeHelper sharedHelper] createInstanceOfCoreGenericTypeDefinition:genericTypeDefinitionName
-                                                                        typeParameters:typeParameters];
+    return [[DBGenericTypeHelper sharedHelper] newWithCoreTypeName:genericTypeDefinitionName typeParameters:typeParameters];
 }
 
 + (id)newObjectWithGenericTypeDefinition:(char *)genericTypeDefinitionName monoImage:(MonoImage *)monoImage typeParameters:(NSArray <id> *)typeParameters
 {
-    return [[DBGenericTypeHelper sharedHelper] createInstanceOfGenericTypeDefinition:genericTypeDefinitionName
-                                                                         monoImage:monoImage
-                                                                    typeParameters:typeParameters];
+    return [[DBGenericTypeHelper sharedHelper] newWithTypeName:genericTypeDefinitionName
+                                                     monoImage:monoImage
+                                                typeParameters:typeParameters];
 }
 
 #pragma mark -
 #pragma mark Type construction
 
-+ (System_Type *)constructCoreTypeWithGenericTypeParameters:(NSArray <id> *)typeParameters
++ (System_Type *)constructCoreTypeWithParameters:(NSArray <id> *)typeParameters
 {
-    return [System_Type constructCoreGenericType:[self monoTypeName] typeParameters:typeParameters];
+    return [System_Type constructCoreType:[self monoTypeName] typeParameters:typeParameters];
 }
 
-+ (System_Type *)constructTypeWithGenericTypeParameters:(NSArray <id> *)typeParameters monoImage:(MonoImage *)monoImage
++ (System_Type *)constructTypeWithParameters:(NSArray <id> *)typeParameters monoImage:(MonoImage *)monoImage
 {
-    return [System_Type constructGenericType:[self monoTypeName] monoImage:monoImage typeParameters:typeParameters];
+    return [System_Type constructType:[self monoTypeName] monoImage:monoImage typeParameters:typeParameters];
 }
 
 #pragma mark -

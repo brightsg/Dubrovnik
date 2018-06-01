@@ -30,26 +30,26 @@
 #pragma mark -
 #pragma mark Factory methods
 
-- (System_Object *)createInstanceOfCoreGenericTypeDefinition:(char *)genericTypeDefinitionName typeParameters:(NSArray <id> *)typeParameters
+- (System_Object *)newWithCoreTypeName:(char *)genericTypeDefinitionName typeParameters:(NSArray <id> *)typeParameters
 {
-    return [self createInstanceOfGenericTypeDefinition:genericTypeDefinitionName
+    return [self newWithTypeName:genericTypeDefinitionName
                                              monoImage:mono_get_corlib()
                                         typeParameters:typeParameters];
 }
 
-- (System_Object *)createInstanceOfGenericTypeDefinition:(char *)typeName monoImage:(MonoImage *)monoImage typeParameters:(NSArray <id> *)typeParameters
+- (System_Object *)newWithTypeName:(char *)typeName monoImage:(MonoImage *)monoImage typeParameters:(NSArray <id> *)typeParameters
 {
-    System_Type *constructedType = [self constructGenericType:typeName monoImage:monoImage typeParameters:typeParameters];
+    System_Type *constructedType = [self constructType:typeName monoImage:monoImage typeParameters:typeParameters];
     id object = [System_Activator createInstance_withType:constructedType];
     
     return object;
 }
 
-- (System_Type *)constructCoreGenericType:(char *)typeName typeParameters:(NSArray<id> *)typeParameters {
-    return [self constructGenericType:typeName monoImage:mono_get_corlib() typeParameters:typeParameters];
+- (System_Type *)constructCoreType:(char *)typeName typeParameters:(NSArray<id> *)typeParameters {
+    return [self constructType:typeName monoImage:mono_get_corlib() typeParameters:typeParameters];
 }
 
-- (System_Type *)constructGenericType:(char *)typeName monoImage:(MonoImage *)monoImage typeParameters:(NSArray<id> *)typeParameters
+- (System_Type *)constructType:(char *)typeName monoImage:(MonoImage *)monoImage typeParameters:(NSArray<id> *)typeParameters
 {
     // get System.Array of System.Type
     NSArray <System_Type *> *systemTypes = [self systemTypesForTypeParameters:typeParameters];
