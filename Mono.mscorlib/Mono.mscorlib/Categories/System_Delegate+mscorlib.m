@@ -13,6 +13,15 @@
 #import "System_IntPtr.h"
 #import <objc/runtime.h>
 
+/*!
+ 
+ Universal delegate internal call function typedef.
+ 
+ */
+typedef MonoObject *(*DBUniversalDelegateInternalCallFunc)(void * context, MonoArray *params);
+
+static BOOL m_universalDelegateRegistered = NO;
+
 @interface  DBDelegateInfo : NSObject
 @property (strong) DBUniversalDelegateBlock block;
 @property (assign) BOOL executeBlockOnMainThread;
@@ -75,17 +84,25 @@ static MonoObject *UniversalDelegateServices_NativeHandler_DelegateInfoContext(v
 #pragma mark -
 #pragma mark Managed delegate services
 
-+ (void)db_registerUniversalDelegate
+// configure the managed universal delegate to call back to the given static native handler.
+// the universal managed delegate is designed in such a way that all universal callbacks
+// use the same internal call. the delegate context passed during the callback is used to
+// determine the onward routing.
++ (void)registerUniversalDelegate
 {
-    [System_Delegate db_registerUniversalDelegate:&UniversalDelegateServices_NativeHandler_DelegateInfoContext];
+    [System_Delegate registerUniversalDelegate:&UniversalDelegateServices_NativeHandler_DelegateInfoContext];
 }
 
 // see:
 // http://mono.1490590.n4.nabble.com/Embedded-API-delegate-type-building-td4667556.html
 // https://github.com/robert-j/Mono.Embedding
 
-+ (void)db_registerUniversalDelegate:(DBUniversalDelegateInternalCallFunc)iCallFuncPtr
++ (void)registerUniversalDelegate:(DBUniversalDelegateInternalCallFunc)iCallFuncPtr
 {
+    if (m_universalDelegateRegistered) {
+        return;
+    }
+    
     // Get internal call name - this identifies the managed static method that will call through to our iCall
     MonoMethod *method = [DBManagedEnvironment dubrovnikMonoMethodWithName:"GetInternalCallName" className:"Mono.Embedding.UniversalDelegateServices" argCount:0];
     MonoObject *monoResult = DBMonoClassInvokeMethod(method, 0);
@@ -93,18 +110,24 @@ static MonoObject *UniversalDelegateServices_NativeHandler_DelegateInfoContext(v
     
     // add internal call
     mono_add_internal_call(callName.UTF8String, iCallFuncPtr);
+    
+    m_universalDelegateRegistered = YES;
 }
 
-+ (instancetype)db_universalDelegateWithBlock:(DBUniversalDelegateBlock)block
++ (instancetype)universalDelegateWithBlock:(DBUniversalDelegateBlock)block
 {
     // get delegate type
     System_Type *delegateType = [self.class db_getType]; // in a class method self.class === self
 
-    return [self db_universalDelegate:delegateType withBlock:block];
+    return [self universalDelegateWithConstructedType:delegateType block:block];
 }
 
-+ (instancetype)db_universalDelegate:(System_Type *)delegateType withBlock:(DBUniversalDelegateBlock)block
++ (instancetype)universalDelegateWithConstructedType:(System_Type *)delegateType block:(DBUniversalDelegateBlock)block
 {
+    if (!m_universalDelegateRegistered) {
+        [self registerUniversalDelegate];
+    }
+    
     // create delegate info
     DBDelegateInfo *info = [[DBDelegateInfo alloc] init];
     info.block = block;
