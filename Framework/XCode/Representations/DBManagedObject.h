@@ -97,6 +97,31 @@ extern char DBCacheSuffixChar;
 @property (strong, nonatomic) NSMutableDictionary *managedEventMap;
 @property (assign, nonatomic) BOOL automaticallyNotifiesObserversOfManagedPropertyChanges;
 
+
+/**
+ Managed events are routed through the Dubrovnik.ClientApplication.EventHelper.
+ This object defines functions to be hooked up to managed events.
+ The EventHelper functions are mapped to static native functions, thus routing managed
+ events back into native code.
+ 
+ By default the EventHelper functions are named after the event that invokes them.
+ This method provides the option to prefix a classes events with a known prefix,
+ which generally will be derived from the namespace and class name.
+ 
+ @return Returns method name prefix.
+ */
++ (NSString *)eventHelperMethodNamePrefix;
+
+
+/**
+ Registers the named event so that when the event is invoked the native handler function is called.
+ The handler function is responsible for forwarding the event notification to the native receiver.
+ 
+ @param eventName Name of managed event to register.
+ @param handlerFunction Pointer to native event handler function
+ */
++ (void)registerEvent:(NSString *)eventName unmanagedHandler:(void *)handlerFunction;
+
 // Subclasses must override these
 + (const char *)monoAssemblyName;
 + (const char *)monoClassName;

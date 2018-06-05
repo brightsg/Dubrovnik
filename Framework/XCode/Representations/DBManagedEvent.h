@@ -88,6 +88,9 @@ do { \
 
 + (void)registerManagedEventHandler:(NSString *)managedHandlerName unmanagedHandler:(void *)handlerFunction;
 
++ (NSString *)eventHelperMethodName:(Class)managedClass
+                          eventName:(NSString *)eventName;
+
 + (void)dispatchEventFromMonoSender:(MonoObject *)monoSender
                           eventArgs:(MonoObject *)monoEventArgs
                           eventName:(NSString *)eventName

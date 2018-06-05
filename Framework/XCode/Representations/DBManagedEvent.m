@@ -206,7 +206,24 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
 + (void)registerManagedEventHandler:(NSString *)managedHandlerName unmanagedHandler:(void *)handlerFunction
 {
     NSString *managedName = [NSString stringWithFormat:@"%@::%@", [self managedEventHelperClassName], managedHandlerName];
+    
+    // note that there is no error behaviour if the menaged name does not map to a known class::method.
     mono_add_internal_call ([managedName UTF8String], handlerFunction);
+}
+
++ (NSString *)eventHelperMethodName:(Class)managedClass
+                          eventName:(NSString *)eventName
+{
+    // we are going to map a Dubrovnik.ClientApplication.EventHelper method (M) to the native handlerFunction.
+    // by default the name of M will equal the event name.
+    NSString *managedHandlerName = eventName;
+    
+    // if a prefix exists then apply it
+    if ([managedClass eventHelperMethodNamePrefix]) {
+        managedHandlerName = [NSString stringWithFormat:@"%@_%@", [managedClass eventHelperMethodNamePrefix], eventName];
+    }
+    
+    return managedHandlerName;
 }
 
 #pragma mark -

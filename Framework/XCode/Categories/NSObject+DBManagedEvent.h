@@ -29,7 +29,16 @@
  static managed event.
  */
 - (void)addManagedEventHandlerForClass:(Class)managedClass
+                             eventName:(NSString *)eventName
+                     handlerMethodName:(NSString *)handlerMethodName;
+
+- (void)addManagedEventHandlerForClass:(Class)managedClass
                              eventName:(NSString *)eventName;
+
+- (void)removeManagedEventHandlerForClass:(Class)managedClass
+                                eventName:(NSString *)eventName
+                        handlerMethodName:(NSString *)handlerMethodName;
+
 - (void)removeManagedEventHandlerForClass:(Class)managedClass
                                 eventName:(NSString *)eventName;
 

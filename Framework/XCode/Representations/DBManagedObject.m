@@ -1197,6 +1197,21 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 #pragma mark -
 #pragma mark Managed event handling
 
++ (NSString *)eventHelperMethodNamePrefix
+{
+    return nil;
+}
+
++ (void)registerEvent:(NSString *)eventName unmanagedHandler:(void *)handlerFunction
+{
+    // we are going to map a Dubrovnik.ClientApplication.EventHelper method (M) to the native handlerFunction.
+    // by default the name of M will equal the event name.
+    NSString *managedHandlerName = [DBManagedEvent eventHelperMethodName:self eventName:eventName];
+    
+    // register the event handler
+    [DBManagedEvent registerManagedEventHandler:managedHandlerName unmanagedHandler:handlerFunction];
+}
+
 - (NSMutableDictionary *)managedEventMap
 {
     if (!_managedEventMap) {

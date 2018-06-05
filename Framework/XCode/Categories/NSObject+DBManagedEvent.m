@@ -13,8 +13,17 @@
 
 @implementation NSObject (DBManagedEvent)
 
+
 - (void)addManagedEventHandlerForClass:(Class)managedClass
                               eventName:(NSString *)eventName
+{
+    NSString *handlerMethodName = [DBManagedEvent eventHelperMethodName:managedClass eventName:eventName];
+    [self addManagedEventHandlerForClass:managedClass eventName:eventName handlerMethodName:handlerMethodName];
+}
+
+- (void)addManagedEventHandlerForClass:(Class)managedClass
+                             eventName:(NSString *)eventName
+                     handlerMethodName:(NSString *)handlerMethodName
 {
     // for static managed event handlers we target the managed System.Type
     NSAssert([managedClass isSubclassOfClass:[DBManagedObject class]], @"managed class required");
@@ -24,15 +33,16 @@
 #pragma clang diagnostic pop
     [self addManagedEventHandlerForObject:type
                                 eventName:eventName
-                        handlerMethodName:eventName];
+                        handlerMethodName:handlerMethodName];
 }
 
 - (void)addManagedEventHandlerForObject:(DBManagedObject *)managedObject
                               eventName:(NSString *)eventName
 {
+    NSString *handlerMethodName = [DBManagedEvent eventHelperMethodName:managedObject.class eventName:eventName];
     [self addManagedEventHandlerForObject:managedObject
                                 eventName:eventName
-                        handlerMethodName:eventName];
+                        handlerMethodName:handlerMethodName];
 }
 
 - (void)addManagedEventHandlerForObject:(DBManagedObject *)managedObject
@@ -49,9 +59,10 @@
 - (void)removeManagedEventHandlerForObject:(DBManagedObject *)managedObject
                                  eventName:(NSString *)eventName
 {
+    NSString *handlerMethodName = [DBManagedEvent eventHelperMethodName:managedObject.class eventName:eventName];
     [self removeManagedEventHandlerForObject:managedObject
                                    eventName:eventName
-                           handlerMethodName:eventName];
+                           handlerMethodName:handlerMethodName];
 }
 
 - (void)removeManagedEventHandlerForObject:(DBManagedObject *)managedObject
@@ -70,6 +81,16 @@
 - (void)removeManagedEventHandlerForClass:(Class)managedClass
                                 eventName:(NSString *)eventName
 {
+    NSString *handlerMethodName = [DBManagedEvent eventHelperMethodName:managedClass eventName:eventName];
+    [self removeManagedEventHandlerForClass:managedClass
+                                  eventName:eventName
+                          handlerMethodName:handlerMethodName];
+}
+
+- (void)removeManagedEventHandlerForClass:(Class)managedClass
+                                eventName:(NSString *)eventName
+                        handlerMethodName:(NSString *)handlerMethodName
+{
     // for static managed event handlers we target the managed System.Type
     NSAssert([managedClass isSubclassOfClass:[DBManagedObject class]], @"managed class required");
 #pragma clang diagnostic push
@@ -78,6 +99,6 @@
 #pragma clang diagnostic pop
     [self removeManagedEventHandlerForObject:type
                                 eventName:eventName
-                        handlerMethodName:eventName];
+                        handlerMethodName:handlerMethodName];
 }
 @end
