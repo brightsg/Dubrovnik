@@ -1024,5 +1024,24 @@
 	</OutputFileDeleteList>
 	<ReferenceList>
 		<string>..\..\Mono.mscorlib\Mono.mscorlib\mscorlib</string>
+    <!-- System.dll also references:
+    
+    System.Configuration.dll
+    System.XML.dll
+
+    If we generate bindings that include types defined in either of the above then we will need to
+    update our reference list accordingly.
+
+    Note that there are circular references between
+
+      System.dll and System.Xml.dll
+      System.dll and System.Configuration.dll
+      System.Xml.dll and System.Configuration.dll
+
+    This may limit our ability to construct bindings for certain circulary defined types.
+
+    https://stackoverflow.com/questions/1316518/how-did-microsoft-create-assemblies-that-have-circular-references
+
+    -->
 	</ReferenceList>
 </ConfigObjC>

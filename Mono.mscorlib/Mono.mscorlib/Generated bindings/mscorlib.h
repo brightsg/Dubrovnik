@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     13/06/2018 11:36:51
+// Date:     13/06/2018 15:25:27
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -155,7 +155,7 @@
 #define SCIList_ System_Collections_IList
 /* Skipped type : System.Collections.IStructuralComparable IStructuralComparable */
 /* Skipped type : System.Collections.IStructuralEquatable IStructuralEquatable */
-/* Skipped type : System.Collections.ObjectModel.Collection`1<System.Collections.ObjectModel.Collection`1+T> Collection`1<T> */
+#define SCOCollectionA1_ System_Collections_ObjectModel_CollectionA1
 /* Skipped type : System.Collections.ObjectModel.KeyedCollection`2<System.Collections.ObjectModel.KeyedCollection`2+TKey,System.Collections.ObjectModel.KeyedCollection`2+TItem> KeyedCollection`2<TKey,TItem> */
 /* Skipped type : System.Collections.ObjectModel.ReadOnlyCollection`1<System.Collections.ObjectModel.ReadOnlyCollection`1+T> ReadOnlyCollection`1<T> */
 /* Skipped type : System.Collections.ObjectModel.ReadOnlyDictionary`2<System.Collections.ObjectModel.ReadOnlyDictionary`2+KeyCollection+TKey,System.Collections.ObjectModel.ReadOnlyDictionary`2+KeyCollection+TValue>+KeyCollection ReadOnlyDictionary`2<TKey,TValue>.KeyCollection */
@@ -1636,6 +1636,7 @@ Assembly type imports
 #import "System_Collections_IList.h"
 #import "System_Collections_IList.h"
 #import "System_Collections_IList_Protocol.h"
+#import "System_Collections_ObjectModel_CollectionA1.h"
 #import "System_Convert.h"
 #import "System_DateTime.h"
 #import "System_DateTimeKind.h"

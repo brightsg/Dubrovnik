@@ -1564,6 +1564,7 @@
 		<string>System.Collections.IEnumerable</string>
 		<string>System.Collections.IEnumerator</string>
 		<string>System.Collections.IList</string>
+		<string>System.Collections.ObjectModel.Collection`1</string>
 		<string>System.Convert</string>
 		<string>System.DateTime</string>
 		<string>System.DateTimeKind</string>
