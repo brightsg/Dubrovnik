@@ -18,3 +18,4 @@ xcuserdata
 
 Framework/examples/DBCocoaExample/DBCocoaExample/DBCocoaExample/bin/
 Framework/examples/DBCocoaExample/DBCocoaExample/DBCocoaExample/obj/
+*.zip
