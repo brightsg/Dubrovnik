@@ -66,6 +66,8 @@ REM
 if exist "%GEN_OUTPUT_PATH%\" (
     echo Deleting existing content of %GEN_OUTPUT_PATH%\
     del "%GEN_OUTPUT_PATH%\*.*" /q
+) else (
+    md "%GEN_OUTPUT_PATH%"
 )
 
 REM
