@@ -69,15 +69,21 @@ namespace Dubrovnik.Reflector {
 				AssemblyParser assemblyParser = new AssemblyParser();
 				var xml = assemblyParser.ParseAssembly(assembly, inputFileName, bindingFlags);
 
-				// output file name 
+				// <assembly name>.xml file name 
 				string xmlFileName = Path.GetFileNameWithoutExtension(inputFileName) + ".xml";
 				string outputFileName = Path.Combine(options.OutputPath, xmlFileName);
 
-				// Write xml output overwriting existing files
+				// Write assembly xml output overwriting existing files
 				// .NET default string encoding is Unicode
 				File.WriteAllText(outputFileName, xml, Encoding.Unicode);
-			}
-			catch (Exception e)
+
+				// parsed type names are written to <assembly name>.types.xml file name 
+				xml = assemblyParser.ParsedTypeNames();
+				xmlFileName = Path.GetFileNameWithoutExtension(inputFileName) + ".types.xml";
+				outputFileName = Path.Combine(options.OutputPath, xmlFileName);
+				File.WriteAllText(outputFileName, xml, Encoding.Unicode);
+
+			} catch (Exception e)
 			{
 				Console.WriteLine("ERROR: An Exception Occurred : {0}", e.ToString());
 				return -1;

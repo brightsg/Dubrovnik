@@ -1,6 +1,6 @@
 ﻿//++Dubrovnik.CodeGenerator System_Collections_Generic_DictionaryA2__Enumerator.m
 //
-// Managed struct : Dictionary`2<TKey, TValue>.Enumerator
+// Managed struct : Dictionary`2<TKey,TValue>.Enumerator
 //
 
 // ARC is required
@@ -34,7 +34,7 @@
 #pragma mark Properties
 
 	// Managed property name : Current
-	// Managed property type : System.Collections.Generic.KeyValuePair`2<System.Collections.Generic.Dictionary`2+Enumerator+TKey, System.Collections.Generic.Dictionary`2+Enumerator+TValue>
+	// Managed property type : System.Collections.Generic.KeyValuePair`2<System.Collections.Generic.Dictionary`2+Enumerator+TKey,System.Collections.Generic.Dictionary`2+Enumerator+TValue>
     @synthesize current = _current;
     - (System_Collections_Generic_KeyValuePairA2 *)current
     {

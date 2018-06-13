@@ -45,19 +45,7 @@
       
       return object;
     }
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Collections.ArrayList
-		Managed param types : System.Collections.ICollection
-	 */
-    + (System_Collections_ArrayList *)new_withC:(id <System_Collections_ICollection_>)p1
-    {
-		
-		System_Collections_ArrayList * object = [[self alloc] initWithSignature:"System.Collections.ICollection" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-      return object;
-    }
+/* Skipped constructor : System.Collections.ArrayList (System.Collections.ICollection c) */
 
 #pragma mark -
 #pragma mark Properties
@@ -257,31 +245,8 @@
 		
 		return DB_UNBOX_INT32(monoObject);
     }
-
-	/*! 
-		Managed method name : AddRange
-		Managed return type : System.Void
-		Managed param types : System.Collections.ICollection
-	 */
-    - (void)addRange_withC:(id <System_Collections_ICollection_>)p1
-    {
-		
-		[self invokeMonoMethod:"AddRange(System.Collections.ICollection)" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-    }
-
-	/*! 
-		Managed method name : BinarySearch
-		Managed return type : System.Int32
-		Managed param types : System.Int32, System.Int32, System.Object, System.Collections.IComparer
-	 */
-    - (int32_t)binarySearch_withIndex:(int32_t)p1 count:(int32_t)p2 value:(System_Object *)p3 comparer:(id <System_Collections_IComparer_>)p4
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"BinarySearch(int,int,object,System.Collections.IComparer)" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+/* Skipped method : System.Void AddRange(System.Collections.ICollection c) */
+/* Skipped method : System.Int32 BinarySearch(System.Int32 index, System.Int32 count, System.Object value, System.Collections.IComparer comparer) */
 
 	/*! 
 		Managed method name : BinarySearch
@@ -295,19 +260,7 @@
 		
 		return DB_UNBOX_INT32(monoObject);
     }
-
-	/*! 
-		Managed method name : BinarySearch
-		Managed return type : System.Int32
-		Managed param types : System.Object, System.Collections.IComparer
-	 */
-    - (int32_t)binarySearch_withValue:(System_Object *)p1 comparer:(id <System_Collections_IComparer_>)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"BinarySearch(object,System.Collections.IComparer)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+/* Skipped method : System.Int32 BinarySearch(System.Object value, System.Collections.IComparer comparer) */
 
 	/*! 
 		Managed method name : Clear
@@ -498,18 +451,7 @@
 		[self invokeMonoMethod:"Insert(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
       
     }
-
-	/*! 
-		Managed method name : InsertRange
-		Managed return type : System.Void
-		Managed param types : System.Int32, System.Collections.ICollection
-	 */
-    - (void)insertRange_withIndex:(int32_t)p1 c:(id <System_Collections_ICollection_>)p2
-    {
-		
-		[self invokeMonoMethod:"InsertRange(int,System.Collections.ICollection)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
-      
-    }
+/* Skipped method : System.Void InsertRange(System.Int32 index, System.Collections.ICollection c) */
 
 	/*! 
 		Managed method name : LastIndexOf
@@ -648,18 +590,7 @@
 		[self invokeMonoMethod:"Reverse(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
       
     }
-
-	/*! 
-		Managed method name : SetRange
-		Managed return type : System.Void
-		Managed param types : System.Int32, System.Collections.ICollection
-	 */
-    - (void)setRange_withIndex:(int32_t)p1 c:(id <System_Collections_ICollection_>)p2
-    {
-		
-		[self invokeMonoMethod:"SetRange(int,System.Collections.ICollection)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
-      
-    }
+/* Skipped method : System.Void SetRange(System.Int32 index, System.Collections.ICollection c) */
 
 	/*! 
 		Managed method name : Sort
@@ -672,30 +603,8 @@
 		[self invokeMonoMethod:"Sort()" withNumArgs:0];
       
     }
-
-	/*! 
-		Managed method name : Sort
-		Managed return type : System.Void
-		Managed param types : System.Collections.IComparer
-	 */
-    - (void)sort_withComparer:(id <System_Collections_IComparer_>)p1
-    {
-		
-		[self invokeMonoMethod:"Sort(System.Collections.IComparer)" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-    }
-
-	/*! 
-		Managed method name : Sort
-		Managed return type : System.Void
-		Managed param types : System.Int32, System.Int32, System.Collections.IComparer
-	 */
-    - (void)sort_withIndex:(int32_t)p1 count:(int32_t)p2 comparer:(id <System_Collections_IComparer_>)p3
-    {
-		
-		[self invokeMonoMethod:"Sort(int,int,System.Collections.IComparer)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
-      
-    }
+/* Skipped method : System.Void Sort(System.Collections.IComparer comparer) */
+/* Skipped method : System.Void Sort(System.Int32 index, System.Int32 count, System.Collections.IComparer comparer) */
 
 	/*! 
 		Managed method name : Synchronized

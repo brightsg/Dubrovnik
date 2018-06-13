@@ -766,45 +766,9 @@
 		
 		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
     }
-
-	/*! 
-		Managed method name : Parse
-		Managed return type : System.TimeSpan
-		Managed param types : System.String, System.IFormatProvider
-	 */
-    + (System_TimeSpan *)parse_withInput:(NSString *)p1 formatProvider:(id <System_IFormatProvider_>)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
-    }
-
-	/*! 
-		Managed method name : ParseExact
-		Managed return type : System.TimeSpan
-		Managed param types : System.String, System.String, System.IFormatProvider
-	 */
-    + (System_TimeSpan *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(id <System_IFormatProvider_>)p3
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ParseExact(string,string,System.IFormatProvider)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
-		
-		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
-    }
-
-	/*! 
-		Managed method name : ParseExact
-		Managed return type : System.TimeSpan
-		Managed param types : System.String, System.String[], System.IFormatProvider
-	 */
-    + (System_TimeSpan *)parseExact_withInput:(NSString *)p1 formats:(System_Array *)p2 formatProvider:(id <System_IFormatProvider_>)p3
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ParseExact(string,string[],System.IFormatProvider)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
-		
-		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
-    }
+/* Skipped method : System.TimeSpan Parse(System.String input, System.IFormatProvider formatProvider) */
+/* Skipped method : System.TimeSpan ParseExact(System.String input, System.String format, System.IFormatProvider formatProvider) */
+/* Skipped method : System.TimeSpan ParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider) */
 /* Skipped method : System.TimeSpan ParseExact(System.String input, System.String format, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles) */
 /* Skipped method : System.TimeSpan ParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles) */
 
@@ -846,19 +810,7 @@
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.String, System.IFormatProvider
-	 */
-    - (NSString *)toString_withFormat:(NSString *)p1 formatProvider:(id <System_IFormatProvider_>)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToString(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
+/* Skipped method : System.String ToString(System.String format, System.IFormatProvider formatProvider) */
 
 	/*! 
 		Managed method name : TryParse
@@ -875,54 +827,9 @@
 
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
-
-	/*! 
-		Managed method name : TryParse
-		Managed return type : System.Boolean
-		Managed param types : System.String, System.IFormatProvider, ref System.TimeSpan&
-	 */
-    + (BOOL)tryParse_withInput:(NSString *)p1 formatProvider:(id <System_IFormatProvider_>)p2 resultRef:(System_TimeSpan **)p3
-    {
-		void *refPtr3 = [*p3 monoRTInvokeArg];
-
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.IFormatProvider,System.TimeSpan&)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], &refPtr3];
-
-		*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
-
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
-
-	/*! 
-		Managed method name : TryParseExact
-		Managed return type : System.Boolean
-		Managed param types : System.String, System.String, System.IFormatProvider, ref System.TimeSpan&
-	 */
-    + (BOOL)tryParseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(id <System_IFormatProvider_>)p3 resultRef:(System_TimeSpan **)p4
-    {
-		void *refPtr4 = [*p4 monoRTInvokeArg];
-
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParseExact(string,string,System.IFormatProvider,System.TimeSpan&)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], &refPtr4];
-
-		*p4 = [System_Object bestObjectWithMonoObject:refPtr4];
-
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
-
-	/*! 
-		Managed method name : TryParseExact
-		Managed return type : System.Boolean
-		Managed param types : System.String, System.String[], System.IFormatProvider, ref System.TimeSpan&
-	 */
-    + (BOOL)tryParseExact_withInput:(NSString *)p1 formats:(System_Array *)p2 formatProvider:(id <System_IFormatProvider_>)p3 resultRef:(System_TimeSpan **)p4
-    {
-		void *refPtr4 = [*p4 monoRTInvokeArg];
-
-		MonoObject *monoObject = [self invokeMonoClassMethod:"TryParseExact(string,string[],System.IFormatProvider,System.TimeSpan&)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], &refPtr4];
-
-		*p4 = [System_Object bestObjectWithMonoObject:refPtr4];
-
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
+/* Skipped method : System.Boolean TryParse(System.String input, System.IFormatProvider formatProvider, System.TimeSpan& result) */
+/* Skipped method : System.Boolean TryParseExact(System.String input, System.String format, System.IFormatProvider formatProvider, System.TimeSpan& result) */
+/* Skipped method : System.Boolean TryParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider, System.TimeSpan& result) */
 /* Skipped method : System.Boolean TryParseExact(System.String input, System.String format, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles, System.TimeSpan& result) */
 /* Skipped method : System.Boolean TryParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles, System.TimeSpan& result) */
 

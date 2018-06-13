@@ -25,8 +25,6 @@
 @class System_Object;
 @class System_Reflection_Binder;
 @class System_Reflection_MethodBase;
-@class System_RuntimeMethodHandle;
-@class System_RuntimeTypeHandle;
 @class System_Type;
 
 //
@@ -123,10 +121,7 @@
 	// Managed property name : IsVirtual
 	// Managed property type : System.Boolean
     @property (nonatomic, readonly) BOOL isVirtual;
-
-	// Managed property name : MethodHandle
-	// Managed property type : System.RuntimeMethodHandle
-    @property (nonatomic, strong, readonly) System_RuntimeMethodHandle * methodHandle;
+/* Skipped property : System.RuntimeMethodHandle MethodHandle */
 /* Skipped property : System.Reflection.MethodImplAttributes MethodImplementationFlags */
 
 #pragma mark -
@@ -160,20 +155,8 @@
 	 */
     - (int32_t)getHashCode;
 /* Skipped method : System.Reflection.MethodBody GetMethodBody() */
-
-	/*! 
-		Managed method name : GetMethodFromHandle
-		Managed return type : System.Reflection.MethodBase
-		Managed param types : System.RuntimeMethodHandle
-	 */
-    + (System_Reflection_MethodBase *)getMethodFromHandle_withHandle:(System_RuntimeMethodHandle *)p1;
-
-	/*! 
-		Managed method name : GetMethodFromHandle
-		Managed return type : System.Reflection.MethodBase
-		Managed param types : System.RuntimeMethodHandle, System.RuntimeTypeHandle
-	 */
-    + (System_Reflection_MethodBase *)getMethodFromHandle_withHandle:(System_RuntimeMethodHandle *)p1 declaringType:(System_RuntimeTypeHandle *)p2;
+/* Skipped method : System.Reflection.MethodBase GetMethodFromHandle(System.RuntimeMethodHandle handle) */
+/* Skipped method : System.Reflection.MethodBase GetMethodFromHandle(System.RuntimeMethodHandle handle, System.RuntimeTypeHandle declaringType) */
 /* Skipped method : System.Reflection.MethodImplAttributes GetMethodImplementationFlags() */
 /* Skipped method : System.Reflection.ParameterInfo[] GetParameters() */
 /* Skipped method : System.Object Invoke(System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) */

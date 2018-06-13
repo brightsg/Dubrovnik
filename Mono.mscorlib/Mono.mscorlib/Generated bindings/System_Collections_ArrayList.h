@@ -21,8 +21,6 @@
 @class System_Array;
 @class System_Boolean;
 @class System_Collections_ArrayList;
-@class System_Collections_ICollection;
-@class System_Collections_IComparer;
 @class System_Collections_IEnumerable;
 @class System_Collections_IEnumerator;
 @class System_Collections_IList;
@@ -31,10 +29,6 @@
 @class System_Object;
 @class System_Type;
 @class System_Void;
-@protocol System_Collections_ICollection;
-@protocol System_Collections_ICollection_;
-@protocol System_Collections_IComparer;
-@protocol System_Collections_IComparer_;
 @protocol System_Collections_IEnumerator;
 @protocol System_Collections_IEnumerator_;
 @protocol System_Collections_IList;
@@ -43,13 +37,12 @@
 //
 // Import superclass and adopted protocols
 //
-#import "System_Collections_ICollection_Protocol.h"
 #import "System_Collections_IEnumerable_Protocol.h"
 #import "System_Collections_IList_Protocol.h"
 #import "System_ICloneable_Protocol.h"
 #import "System_Object.h"
 
-@interface System_Collections_ArrayList : System_Object <System_Collections_IList_, System_Collections_ICollection_, System_Collections_IEnumerable_, System_ICloneable_>
+@interface System_Collections_ArrayList : System_Object <System_Collections_IList_, System_Collections_IEnumerable_, System_ICloneable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -67,13 +60,7 @@
 		Managed param types : System.Int32
 	 */
     + (System_Collections_ArrayList *)new_withCapacity:(int32_t)p1;
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Collections.ArrayList
-		Managed param types : System.Collections.ICollection
-	 */
-    + (System_Collections_ArrayList *)new_withC:(id <System_Collections_ICollection_>)p1;
+/* Skipped constructor : System.Collections.ArrayList (System.Collections.ICollection c) */
 
 #pragma mark -
 #pragma mark Properties
@@ -132,20 +119,8 @@
 		Managed param types : System.Object
 	 */
     - (int32_t)add_withValue:(System_Object *)p1;
-
-	/*! 
-		Managed method name : AddRange
-		Managed return type : System.Void
-		Managed param types : System.Collections.ICollection
-	 */
-    - (void)addRange_withC:(id <System_Collections_ICollection_>)p1;
-
-	/*! 
-		Managed method name : BinarySearch
-		Managed return type : System.Int32
-		Managed param types : System.Int32, System.Int32, System.Object, System.Collections.IComparer
-	 */
-    - (int32_t)binarySearch_withIndex:(int32_t)p1 count:(int32_t)p2 value:(System_Object *)p3 comparer:(id <System_Collections_IComparer_>)p4;
+/* Skipped method : System.Void AddRange(System.Collections.ICollection c) */
+/* Skipped method : System.Int32 BinarySearch(System.Int32 index, System.Int32 count, System.Object value, System.Collections.IComparer comparer) */
 
 	/*! 
 		Managed method name : BinarySearch
@@ -153,13 +128,7 @@
 		Managed param types : System.Object
 	 */
     - (int32_t)binarySearch_withValue:(System_Object *)p1;
-
-	/*! 
-		Managed method name : BinarySearch
-		Managed return type : System.Int32
-		Managed param types : System.Object, System.Collections.IComparer
-	 */
-    - (int32_t)binarySearch_withValue:(System_Object *)p1 comparer:(id <System_Collections_IComparer_>)p2;
+/* Skipped method : System.Int32 BinarySearch(System.Object value, System.Collections.IComparer comparer) */
 
 	/*! 
 		Managed method name : Clear
@@ -265,13 +234,7 @@
 		Managed param types : System.Int32, System.Object
 	 */
     - (void)insert_withIndex:(int32_t)p1 value:(System_Object *)p2;
-
-	/*! 
-		Managed method name : InsertRange
-		Managed return type : System.Void
-		Managed param types : System.Int32, System.Collections.ICollection
-	 */
-    - (void)insertRange_withIndex:(int32_t)p1 c:(id <System_Collections_ICollection_>)p2;
+/* Skipped method : System.Void InsertRange(System.Int32 index, System.Collections.ICollection c) */
 
 	/*! 
 		Managed method name : LastIndexOf
@@ -349,13 +312,7 @@
 		Managed param types : System.Int32, System.Int32
 	 */
     - (void)reverse_withIndex:(int32_t)p1 count:(int32_t)p2;
-
-	/*! 
-		Managed method name : SetRange
-		Managed return type : System.Void
-		Managed param types : System.Int32, System.Collections.ICollection
-	 */
-    - (void)setRange_withIndex:(int32_t)p1 c:(id <System_Collections_ICollection_>)p2;
+/* Skipped method : System.Void SetRange(System.Int32 index, System.Collections.ICollection c) */
 
 	/*! 
 		Managed method name : Sort
@@ -363,20 +320,8 @@
 		Managed param types : 
 	 */
     - (void)sort;
-
-	/*! 
-		Managed method name : Sort
-		Managed return type : System.Void
-		Managed param types : System.Collections.IComparer
-	 */
-    - (void)sort_withComparer:(id <System_Collections_IComparer_>)p1;
-
-	/*! 
-		Managed method name : Sort
-		Managed return type : System.Void
-		Managed param types : System.Int32, System.Int32, System.Collections.IComparer
-	 */
-    - (void)sort_withIndex:(int32_t)p1 count:(int32_t)p2 comparer:(id <System_Collections_IComparer_>)p3;
+/* Skipped method : System.Void Sort(System.Collections.IComparer comparer) */
+/* Skipped method : System.Void Sort(System.Int32 index, System.Int32 count, System.Collections.IComparer comparer) */
 
 	/*! 
 		Managed method name : Synchronized

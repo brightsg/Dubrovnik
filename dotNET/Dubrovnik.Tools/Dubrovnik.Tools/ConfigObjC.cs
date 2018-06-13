@@ -51,6 +51,7 @@ namespace Dubrovnik.Tools {
 
 		private void DefaultConfig() {
 			FilterSystemInterfaces = false;
+			MemberNameSkipList = new List<string>();
 			TypeNameSkipList = new List<string>();
 			TypeNameWhiteList = new List<string>();
 			OutputFileDeleteList = new List<string>();
@@ -75,6 +76,13 @@ namespace Dubrovnik.Tools {
 		/// Filter system interfaces from generated outout
 		/// </summary>
 		public bool FilterSystemInterfaces { get; set; }
+
+		/// <summary>
+		/// Member names to omit from output.
+		/// Matching accessors will be omitted.
+		/// Member must be of the form typename:property name | field name | method name
+		/// </summary>
+		public List<string> MemberNameSkipList { get; set; }
 
 		/// <summary>
 		/// Type names to omit from output.
@@ -143,6 +151,17 @@ namespace Dubrovnik.Tools {
 
 		#region Binding generation
 
+		// Name testing for methods, properties and fields.
+		// Using this approach we can skip generation for specific methods etc of a class.
+		// This is especially useful if we have a method with a complex signature that doesn't render correctly and breaks our build.
+		// The following parameter is a case in point.
+		// <Parameter Name="array" Type="T[]&" ElementType="T[]" IsByRef="True" ContainsGenericParameters="True"/>
+		public bool GenerateMemberBinding(string memberName) {
+			bool isSkipListed = false;
+
+			isSkipListed = MemberNameSkipList.Any(e => memberName.IndexOf(e) != -1);
+			return !isSkipListed;
+		}
 			/**
 			 * Returns true if should generate binding for type
 			 *
@@ -157,22 +176,92 @@ namespace Dubrovnik.Tools {
 			bool isSkipListed = false;
 			bool isWhiteListed = true;
 
+			// a type name will be delimited either by the end of the string
+			// or by the occurence of any of the type name delimiter characters
+			string typeNameDelimiters = ",<>[]& ";
+
 			// is the type to be skipped?
-			// we skip if a matching typename occurs anywhere in the type signature, inlcluding as a generic type parameter.
+			// we potentially skip if a matching typename occurs anywhere in the type signature, including as a generic type parameter.
 			isSkipListed = TypeNameSkipList.Any(e => typename.IndexOf(e) != -1);
 
+			// if type is not skip listed then use default whitelist state
+			if (!isSkipListed) {
+				return isWhiteListed;
+			}
+
 			// check for whitelist override.
-			if (isSkipListed) {
+			isWhiteListed = false;
 
-				isWhiteListed = false;
+			StringBuilder sbTypeName = new StringBuilder(typename);
+			foreach (var whiteTypeName in TypeNameWhiteList) {
+				// replace each instance of white listed type with ?...
+				int idx = 0;
 
-				foreach (var t in TypeNameWhiteList) {
-					if (typename.IndexOf(t) == 0) {
-						isWhiteListed = true;
+				// note that some types, esp generics, may have the same type name repeated multiple times
+				// so we need to scan the entire type name
+				while (idx < sbTypeName.Length) {
+
+					// look for any match
+					idx = sbTypeName.ToString().IndexOf(whiteTypeName, idx);
+					if (idx == -1) {
 						break;
 					}
+
+					// we have a match but it may be a partial one:
+					// e.g. System.Threading.Tasks.Task will match System.Threading.Tasks.TaskFactory
+					// so we try and determine if our match is a full one.
+					int idxEnd = idx + whiteTypeName.Length - 1;
+					if (idxEnd + 1 < sbTypeName.Length) {
+							
+						// we can test the next character to see if indicates that the matched type
+						// is part of a constructed type.
+						string cursor = sbTypeName[idxEnd + 1].ToString();
+
+						// we need to match nested types in order to support
+						// generic type definitions
+						// e.g. System.Nullable`1<System.Nullable+T>
+						if (cursor == "+") {
+							// advance the end index to before next type delimiter
+							idxEnd++;
+							while (idxEnd + 1 < sbTypeName.Length) {
+								cursor = sbTypeName[idxEnd + 1].ToString();
+								if (typeNameDelimiters.Contains(cursor)) {
+									break;
+								}
+								idxEnd++;
+							}
+						}
+
+						// if the next char is not a delimiter then we have a partial match 
+						// e.g. matching System.Action within System.Action`1
+						// and should continue our search after the current type
+						else if (!typeNameDelimiters.Contains(cursor)) {
+
+							// advance the index to the next type delimiter
+							idx = idxEnd + 1;
+							while (idx + 1 < sbTypeName.Length) {
+								idx++;
+								cursor = sbTypeName[idx].ToString();
+								if (typeNameDelimiters.Contains(cursor)) {
+									break;
+								}
+							}
+							continue;
+						}
+					}
+
+					// replace all characters of match with a type neutral character
+					for (; idx <= idxEnd; idx++) {
+						sbTypeName[idx] = '?'; 
+					}
+					idx++;
 				}
 			}
+
+			// any white listed types have been neutralised.
+			// if any  skip listed types remain then the whitelisting has failed
+			isSkipListed = TypeNameSkipList.Any(e => sbTypeName.ToString().IndexOf(e) != -1);
+			isWhiteListed = !isSkipListed;
 
 			return isWhiteListed;
 		}
@@ -186,16 +275,14 @@ namespace Dubrovnik.Tools {
 		 * 
 		 * we need to ensure that every component of the constructed type is valid.
 		 */
-		public bool GenerateTypeBinding(CodeFacet facet) {
+		public bool GenerateFacetBinding(CodeFacet facet) {
 
-			// Name testing for methods, properties and fields.
-			// Using this approach we can skip generation for specific methods etc of a class.
-			// This is especially useful if we have a method with a complex signature that doesn't render correctly and breaks our build.
-			// The following parameter is a case in point.
-			// <Parameter Name="array" Type="T[]&" ElementType="T[]" IsByRef="True" ContainsGenericParameters="True"/>
+			// confirm member binding
 			if (facet.GetType() == typeof(MethodFacet) || facet.GetType() == typeof(PropertyFacet) || facet.GetType() == typeof(FieldFacet)) {
-				string accessor = facet.Parent.Type + ":" + facet.Name;
-				if (!GenerateTypeBinding(accessor)) {
+
+				// the accessor form for generic types requires that we use the RootType
+				string accessor = CodeFacet.RootType(facet.Parent.Type) + ":" + facet.Name;
+				if (!GenerateMemberBinding(accessor)) {
 					return false;
 				}
 			}
@@ -207,6 +294,11 @@ namespace Dubrovnik.Tools {
 			}
 			else {
 				type = facet.NameFromType;
+			}
+
+			// hmm... would not be clearer to reference facet.Type in the above
+			if (facet.Type != type) {
+				Console.WriteLine($"Warning: facet.Type {facet.Type} != {type}");
 			}
 			if (!GenerateTypeBinding(type)) {
 				return false;
@@ -226,17 +318,17 @@ namespace Dubrovnik.Tools {
 		 * Returns true if should generate binding for method
 		 * 
 		 */
-		public bool GenerateTypeBinding(MethodFacet facet) {
+		public bool GenerateFacetBinding(MethodFacet facet) {
 			bool isWhiteListed = true;
 
 			// validate method return type
-			if (!GenerateTypeBinding((CodeFacet)facet)) {
+			if (!GenerateFacetBinding((CodeFacet)facet)) {
 				return false;
 			}
 
 			// validate method parameters
 			foreach (ParameterFacet paramFacet in facet.Parameters) {
-				if (!GenerateTypeBinding(paramFacet)) {
+				if (!GenerateFacetBinding(paramFacet)) {
 					return false;
 				}
 			}

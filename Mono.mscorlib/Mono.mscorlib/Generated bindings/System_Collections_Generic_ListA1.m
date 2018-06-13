@@ -170,19 +170,7 @@
 		[self invokeMonoMethod:"AddRange(System.Collections.Generic.IEnumerable`1<System.Collections.Generic.List`1/T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
       
     }
-
-	/*! 
-		Managed method name : AsReadOnly
-		Managed return type : System.Collections.ObjectModel.ReadOnlyCollection`1<System.Collections.Generic.List`1+T>
-		Managed param types : 
-	 */
-    - (System_Collections_ObjectModel_ReadOnlyCollectionA1 *)asReadOnly
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"AsReadOnly()" withNumArgs:0];
-		
-		return [System_Collections_ObjectModel_ReadOnlyCollectionA1 bestObjectWithMonoObject:monoObject];
-    }
+/* Skipped method : System.Collections.ObjectModel.ReadOnlyCollection`1<System.Collections.Generic.List`1+T> AsReadOnly() */
 
 	/*! 
 		Managed method name : BinarySearch
@@ -247,21 +235,7 @@
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
-
-	/*! 
-		Managed method name : ConvertAll
-		Managed return type : System.Collections.Generic.List`1<System.Collections.Generic.List`1+TOutput>
-		Managed param types : System.Converter`2<System.Collections.Generic.List`1+T, System.Collections.Generic.List`1+TOutput>
-		Generic method definition type params : <System.Collections.Generic.List`1+TOutput>
-	 */
-    - (System_Collections_Generic_ListA1 *)convertAll_withConverter:(System_ConverterA2 *)p1 typeParameter:(id)typeParameter
-    {
-		DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"ConvertAll(System.Converter`2<System.Collections.Generic.List`1/T, System.Collections.Generic.List`1/TOutput>)" typeParameters:typeParameter];
-
-		MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
-    }
+/* Skipped method : System.Collections.Generic.List`1<System.Collections.Generic.List`1+TOutput> ConvertAll(System.Converter`2<System.Collections.Generic.List`1+T,System.Collections.Generic.List`1+TOutput> converter) */
 
 	/*! 
 		Managed method name : CopyTo
@@ -298,136 +272,16 @@
 		[self invokeMonoMethod:"CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
       
     }
-
-	/*! 
-		Managed method name : Exists
-		Managed return type : System.Boolean
-		Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
-	 */
-    - (BOOL)exists_withMatch:(System_PredicateA1 *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Exists(System.Predicate`1<System.Collections.Generic.List`1/T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
-
-	/*! 
-		Managed method name : Find
-		Managed return type : <System.Collections.Generic.List`1+T>
-		Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
-	 */
-    - (System_Object *)find_withMatch:(System_PredicateA1 *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Find(System.Predicate`1<System.Collections.Generic.List`1/T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Object bestObjectWithMonoObject:monoObject];
-    }
-
-	/*! 
-		Managed method name : FindAll
-		Managed return type : System.Collections.Generic.List`1<System.Collections.Generic.List`1+T>
-		Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
-	 */
-    - (System_Collections_Generic_ListA1 *)findAll_withMatch:(System_PredicateA1 *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"FindAll(System.Predicate`1<System.Collections.Generic.List`1/T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
-    }
-
-	/*! 
-		Managed method name : FindIndex
-		Managed return type : System.Int32
-		Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
-	 */
-    - (int32_t)findIndex_withMatch:(System_PredicateA1 *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"FindIndex(System.Predicate`1<System.Collections.Generic.List`1/T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
-
-	/*! 
-		Managed method name : FindIndex
-		Managed return type : System.Int32
-		Managed param types : System.Int32, System.Int32, System.Predicate`1<System.Collections.Generic.List`1+T>
-	 */
-    - (int32_t)findIndex_withStartIndex:(int32_t)p1 count:(int32_t)p2 match:(System_PredicateA1 *)p3
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"FindIndex(int,int,System.Predicate`1<System.Collections.Generic.List`1/T>)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
-
-	/*! 
-		Managed method name : FindIndex
-		Managed return type : System.Int32
-		Managed param types : System.Int32, System.Predicate`1<System.Collections.Generic.List`1+T>
-	 */
-    - (int32_t)findIndex_withStartIndex:(int32_t)p1 match:(System_PredicateA1 *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"FindIndex(int,System.Predicate`1<System.Collections.Generic.List`1/T>)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
-
-	/*! 
-		Managed method name : FindLast
-		Managed return type : <System.Collections.Generic.List`1+T>
-		Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
-	 */
-    - (System_Object *)findLast_withMatch:(System_PredicateA1 *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"FindLast(System.Predicate`1<System.Collections.Generic.List`1/T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Object bestObjectWithMonoObject:monoObject];
-    }
-
-	/*! 
-		Managed method name : FindLastIndex
-		Managed return type : System.Int32
-		Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
-	 */
-    - (int32_t)findLastIndex_withMatch:(System_PredicateA1 *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"FindLastIndex(System.Predicate`1<System.Collections.Generic.List`1/T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
-
-	/*! 
-		Managed method name : FindLastIndex
-		Managed return type : System.Int32
-		Managed param types : System.Int32, System.Predicate`1<System.Collections.Generic.List`1+T>
-	 */
-    - (int32_t)findLastIndex_withStartIndex:(int32_t)p1 match:(System_PredicateA1 *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"FindLastIndex(int,System.Predicate`1<System.Collections.Generic.List`1/T>)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
-
-	/*! 
-		Managed method name : FindLastIndex
-		Managed return type : System.Int32
-		Managed param types : System.Int32, System.Int32, System.Predicate`1<System.Collections.Generic.List`1+T>
-	 */
-    - (int32_t)findLastIndex_withStartIndex:(int32_t)p1 count:(int32_t)p2 match:(System_PredicateA1 *)p3
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"FindLastIndex(int,int,System.Predicate`1<System.Collections.Generic.List`1/T>)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+/* Skipped method : System.Boolean Exists(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/* Skipped method : System.Collections.Generic.List`1+T Find(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/* Skipped method : System.Collections.Generic.List`1<System.Collections.Generic.List`1+T> FindAll(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/* Skipped method : System.Int32 FindIndex(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/* Skipped method : System.Int32 FindIndex(System.Int32 startIndex, System.Int32 count, System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/* Skipped method : System.Int32 FindIndex(System.Int32 startIndex, System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/* Skipped method : System.Collections.Generic.List`1+T FindLast(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/* Skipped method : System.Int32 FindLastIndex(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/* Skipped method : System.Int32 FindLastIndex(System.Int32 startIndex, System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/* Skipped method : System.Int32 FindLastIndex(System.Int32 startIndex, System.Int32 count, System.Predicate`1<System.Collections.Generic.List`1+T> match) */
 
 	/*! 
 		Managed method name : ForEach
@@ -581,19 +435,7 @@
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
-
-	/*! 
-		Managed method name : RemoveAll
-		Managed return type : System.Int32
-		Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
-	 */
-    - (int32_t)removeAll_withMatch:(System_PredicateA1 *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"RemoveAll(System.Predicate`1<System.Collections.Generic.List`1/T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+/* Skipped method : System.Int32 RemoveAll(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
 
 	/*! 
 		Managed method name : RemoveAt
@@ -678,18 +520,7 @@
 		[self invokeMonoMethod:"Sort(int,int,System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1/T>)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
       
     }
-
-	/*! 
-		Managed method name : Sort
-		Managed return type : System.Void
-		Managed param types : System.Comparison`1<System.Collections.Generic.List`1+T>
-	 */
-    - (void)sort_withComparison:(System_ComparisonA1 *)p1
-    {
-		
-		[self invokeMonoMethod:"Sort(System.Comparison`1<System.Collections.Generic.List`1/T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-    }
+/* Skipped method : System.Void Sort(System.Comparison`1<System.Collections.Generic.List`1+T> comparison) */
 
 	/*! 
 		Managed method name : ToArray
@@ -715,19 +546,7 @@
 		[self invokeMonoMethod:"TrimExcess()" withNumArgs:0];
       
     }
-
-	/*! 
-		Managed method name : TrueForAll
-		Managed return type : System.Boolean
-		Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
-	 */
-    - (BOOL)trueForAll_withMatch:(System_PredicateA1 *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"TrueForAll(System.Predicate`1<System.Collections.Generic.List`1/T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
+/* Skipped method : System.Boolean TrueForAll(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
 
 #pragma mark -
 #pragma mark Teardown

@@ -1,6 +1,6 @@
 ﻿//++Dubrovnik.CodeGenerator System_FuncA3.h
 //
-// Managed class : Func`3<T1, T2, TResult>
+// Managed class : Func`3<T1,T2,TResult>
 //
 //
 // Frameworks
@@ -49,7 +49,7 @@
 
 	/*! 
 		Managed method name : .ctor
-		Managed return type : System.Func`3<System.Func`3+T1, System.Func`3+T2, System.Func`3+TResult>
+		Managed return type : System.Func`3<System.Func`3+T1,System.Func`3+T2,System.Func`3+TResult>
 		Managed param types : System.Object, System.IntPtr
 	 */
     + (System_FuncA3 *)new_withObject:(System_Object *)p1 method:(void *)p2;

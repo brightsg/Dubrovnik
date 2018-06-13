@@ -222,19 +222,7 @@
 		[self invokeMonoClassMethod:"ClearCachedData()" withNumArgs:0];
       
     }
-
-	/*! 
-		Managed method name : ConvertTime
-		Managed return type : System.DateTimeOffset
-		Managed param types : System.DateTimeOffset, System.TimeZoneInfo
-	 */
-    + (System_DateTimeOffset *)convertTime_withDateTimeOffset:(System_DateTimeOffset *)p1 destinationTimeZone:(System_TimeZoneInfo *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTime(System.DateTimeOffset,System.TimeZoneInfo)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return [System_DateTimeOffset bestObjectWithMonoObject:monoObject];
-    }
+/* Skipped method : System.DateTimeOffset ConvertTime(System.DateTimeOffset dateTimeOffset, System.TimeZoneInfo destinationTimeZone) */
 
 	/*! 
 		Managed method name : ConvertTime
@@ -261,19 +249,7 @@
 		
 		return [NSDate dateWithMonoDateTime:monoObject];
     }
-
-	/*! 
-		Managed method name : ConvertTimeBySystemTimeZoneId
-		Managed return type : System.DateTimeOffset
-		Managed param types : System.DateTimeOffset, System.String
-	 */
-    + (System_DateTimeOffset *)convertTimeBySystemTimeZoneId_withDateTimeOffset:(System_DateTimeOffset *)p1 destinationTimeZoneId:(NSString *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTimeBySystemTimeZoneId(System.DateTimeOffset,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return [System_DateTimeOffset bestObjectWithMonoObject:monoObject];
-    }
+/* Skipped method : System.DateTimeOffset ConvertTimeBySystemTimeZoneId(System.DateTimeOffset dateTimeOffset, System.String destinationTimeZoneId) */
 
 	/*! 
 		Managed method name : ConvertTimeBySystemTimeZoneId
@@ -443,19 +419,7 @@
 		
 		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
-
-	/*! 
-		Managed method name : GetAmbiguousTimeOffsets
-		Managed return type : System.TimeSpan[]
-		Managed param types : System.DateTimeOffset
-	 */
-    - (System_Array *)getAmbiguousTimeOffsets_withDateTimeOffset:(System_DateTimeOffset *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetAmbiguousTimeOffsets(System.DateTimeOffset)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
-    }
+/* Skipped method : System.TimeSpan[] GetAmbiguousTimeOffsets(System.DateTimeOffset dateTimeOffset) */
 
 	/*! 
 		Managed method name : GetAmbiguousTimeOffsets
@@ -482,32 +446,8 @@
 		
 		return DB_UNBOX_INT32(monoObject);
     }
-
-	/*! 
-		Managed method name : GetSystemTimeZones
-		Managed return type : System.Collections.ObjectModel.ReadOnlyCollection`1<System.TimeZoneInfo>
-		Managed param types : 
-	 */
-    + (System_Collections_ObjectModel_ReadOnlyCollectionA1 *)getSystemTimeZones
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetSystemTimeZones()" withNumArgs:0];
-		
-		return [System_Collections_ObjectModel_ReadOnlyCollectionA1 bestObjectWithMonoObject:monoObject];
-    }
-
-	/*! 
-		Managed method name : GetUtcOffset
-		Managed return type : System.TimeSpan
-		Managed param types : System.DateTimeOffset
-	 */
-    - (System_TimeSpan *)getUtcOffset_withDateTimeOffset:(System_DateTimeOffset *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetUtcOffset(System.DateTimeOffset)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_TimeSpan bestObjectWithMonoObject:monoObject];
-    }
+/* Skipped method : System.Collections.ObjectModel.ReadOnlyCollection`1<System.TimeZoneInfo> GetSystemTimeZones() */
+/* Skipped method : System.TimeSpan GetUtcOffset(System.DateTimeOffset dateTimeOffset) */
 
 	/*! 
 		Managed method name : GetUtcOffset
@@ -534,19 +474,7 @@
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
-
-	/*! 
-		Managed method name : IsAmbiguousTime
-		Managed return type : System.Boolean
-		Managed param types : System.DateTimeOffset
-	 */
-    - (BOOL)isAmbiguousTime_withDateTimeOffset:(System_DateTimeOffset *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsAmbiguousTime(System.DateTimeOffset)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
+/* Skipped method : System.Boolean IsAmbiguousTime(System.DateTimeOffset dateTimeOffset) */
 
 	/*! 
 		Managed method name : IsAmbiguousTime
@@ -560,19 +488,7 @@
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
-
-	/*! 
-		Managed method name : IsDaylightSavingTime
-		Managed return type : System.Boolean
-		Managed param types : System.DateTimeOffset
-	 */
-    - (BOOL)isDaylightSavingTime_withDateTimeOffset:(System_DateTimeOffset *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsDaylightSavingTime(System.DateTimeOffset)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
+/* Skipped method : System.Boolean IsDaylightSavingTime(System.DateTimeOffset dateTimeOffset) */
 
 	/*! 
 		Managed method name : IsDaylightSavingTime

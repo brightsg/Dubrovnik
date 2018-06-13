@@ -18,17 +18,10 @@
 //
 // Forward class and protocol declarations
 //
-@class System__AppDomain;
-@class System_ActivationContext;
 @class System_AppDomain;
-@class System_AppDomainInitializer;
-@class System_AppDomainManager;
-@class System_AppDomainSetup;
-@class System_ApplicationIdentity;
 @class System_Array;
 @class System_Boolean;
 @class System_Byte;
-@class System_CrossAppDomainDelegate;
 @class System_Globalization_CultureInfo;
 @class System_Int32;
 @class System_Int64;
@@ -45,10 +38,9 @@
 //
 // Import superclass and adopted protocols
 //
-#import "System__AppDomain_Protocol.h"
-#import "System_MarshalByRefObject.h"
+//#import "System_MarshalByRefObject.h" // class base defaults to System.Object
 
-@interface System_AppDomain : System_MarshalByRefObject <System__AppDomain_>
+@interface System_AppDomain : System_Object
 
 #pragma mark -
 #pragma mark Setup
@@ -59,14 +51,8 @@
 
 #pragma mark -
 #pragma mark Properties
-
-	// Managed property name : ActivationContext
-	// Managed property type : System.ActivationContext
-    @property (nonatomic, strong, readonly) System_ActivationContext * activationContext;
-
-	// Managed property name : ApplicationIdentity
-	// Managed property type : System.ApplicationIdentity
-    @property (nonatomic, strong, readonly) System_ApplicationIdentity * applicationIdentity;
+/* Skipped property : System.ActivationContext ActivationContext */
+/* Skipped property : System.ApplicationIdentity ApplicationIdentity */
 /* Skipped property : System.Security.Policy.ApplicationTrust ApplicationTrust */
 
 	// Managed property name : BaseDirectory
@@ -76,10 +62,7 @@
 	// Managed property name : CurrentDomain
 	// Managed property type : System.AppDomain
     + (System_AppDomain *)currentDomain;
-
-	// Managed property name : DomainManager
-	// Managed property type : System.AppDomainManager
-    @property (nonatomic, strong, readonly) System_AppDomainManager * domainManager;
+/* Skipped property : System.AppDomainManager DomainManager */
 
 	// Managed property name : DynamicDirectory
 	// Managed property type : System.String
@@ -127,10 +110,7 @@
 	// Managed property name : RelativeSearchPath
 	// Managed property type : System.String
     @property (nonatomic, strong, readonly) NSString * relativeSearchPath;
-
-	// Managed property name : SetupInformation
-	// Managed property type : System.AppDomainSetup
-    @property (nonatomic, strong, readonly) System_AppDomainSetup * setupInformation;
+/* Skipped property : System.AppDomainSetup SetupInformation */
 
 	// Managed property name : ShadowCopyFiles
 	// Managed property type : System.Boolean
@@ -233,13 +213,7 @@
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.String dir, System.Security.Policy.Evidence evidence, System.Security.PermissionSet requiredPermissions, System.Security.PermissionSet optionalPermissions, System.Security.PermissionSet refusedPermissions, System.Boolean isSynchronized) */
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.String dir, System.Security.Policy.Evidence evidence, System.Security.PermissionSet requiredPermissions, System.Security.PermissionSet optionalPermissions, System.Security.PermissionSet refusedPermissions, System.Boolean isSynchronized, System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder> assemblyAttributes) */
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.String dir, System.Boolean isSynchronized, System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder> assemblyAttributes) */
-
-	/*! 
-		Managed method name : DoCallBack
-		Managed return type : System.Void
-		Managed param types : System.CrossAppDomainDelegate
-	 */
-    - (void)doCallBack_withCallBackDelegate:(System_CrossAppDomainDelegate *)p1;
+/* Skipped method : System.Void DoCallBack(System.CrossAppDomainDelegate callBackDelegate) */
 
 	/*! 
 		Managed method name : ExecuteAssembly

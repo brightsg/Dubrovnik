@@ -32,50 +32,8 @@
 
 #pragma mark -
 #pragma mark Properties
-
-	// Managed property name : ActivationContext
-	// Managed property type : System.ActivationContext
-    @synthesize activationContext = _activationContext;
-    - (System_ActivationContext *)activationContext
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ActivationContext");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_activationContext isEqualToMonoObject:monoObject]) return _activationContext;					
-		_activationContext = [System_ActivationContext bestObjectWithMonoObject:monoObject];
-
-		return _activationContext;
-	}
-
-	// Managed property name : ApplicationIdentity
-	// Managed property type : System.ApplicationIdentity
-    @synthesize applicationIdentity = _applicationIdentity;
-    - (System_ApplicationIdentity *)applicationIdentity
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ApplicationIdentity");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_applicationIdentity isEqualToMonoObject:monoObject]) return _applicationIdentity;					
-		_applicationIdentity = [System_ApplicationIdentity bestObjectWithMonoObject:monoObject];
-
-		return _applicationIdentity;
-	}
+/* Skipped property : System.ActivationContext ActivationContext */
+/* Skipped property : System.ApplicationIdentity ApplicationIdentity */
 /* Skipped property : System.Security.Policy.ApplicationTrust ApplicationTrust */
 
 	// Managed property name : BaseDirectory
@@ -121,28 +79,7 @@
 
 		return m_currentDomain;
 	}
-
-	// Managed property name : DomainManager
-	// Managed property type : System.AppDomainManager
-    @synthesize domainManager = _domainManager;
-    - (System_AppDomainManager *)domainManager
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DomainManager");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_domainManager isEqualToMonoObject:monoObject]) return _domainManager;					
-		_domainManager = [System_AppDomainManager bestObjectWithMonoObject:monoObject];
-
-		return _domainManager;
-	}
+/* Skipped property : System.AppDomainManager DomainManager */
 
 	// Managed property name : DynamicDirectory
 	// Managed property type : System.String
@@ -395,28 +332,7 @@
 
 		return _relativeSearchPath;
 	}
-
-	// Managed property name : SetupInformation
-	// Managed property type : System.AppDomainSetup
-    @synthesize setupInformation = _setupInformation;
-    - (System_AppDomainSetup *)setupInformation
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SetupInformation");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_setupInformation isEqualToMonoObject:monoObject]) return _setupInformation;					
-		_setupInformation = [System_AppDomainSetup bestObjectWithMonoObject:monoObject];
-
-		return _setupInformation;
-	}
+/* Skipped property : System.AppDomainSetup SetupInformation */
 
 	// Managed property name : ShadowCopyFiles
 	// Managed property type : System.Boolean
@@ -587,18 +503,7 @@
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.String dir, System.Security.Policy.Evidence evidence, System.Security.PermissionSet requiredPermissions, System.Security.PermissionSet optionalPermissions, System.Security.PermissionSet refusedPermissions, System.Boolean isSynchronized) */
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.String dir, System.Security.Policy.Evidence evidence, System.Security.PermissionSet requiredPermissions, System.Security.PermissionSet optionalPermissions, System.Security.PermissionSet refusedPermissions, System.Boolean isSynchronized, System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder> assemblyAttributes) */
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.String dir, System.Boolean isSynchronized, System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder> assemblyAttributes) */
-
-	/*! 
-		Managed method name : DoCallBack
-		Managed return type : System.Void
-		Managed param types : System.CrossAppDomainDelegate
-	 */
-    - (void)doCallBack_withCallBackDelegate:(System_CrossAppDomainDelegate *)p1
-    {
-		
-		[self invokeMonoMethod:"DoCallBack(System.CrossAppDomainDelegate)" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-    }
+/* Skipped method : System.Void DoCallBack(System.CrossAppDomainDelegate callBackDelegate) */
 
 	/*! 
 		Managed method name : ExecuteAssembly

@@ -26,7 +26,6 @@
 @class System_UInt32;
 @class System_UInt64;
 @class System_UIntPtr;
-@class System_Void;
 
 //
 // Import superclass and adopted protocols
@@ -59,13 +58,7 @@
 		Managed param types : System.UInt64
 	 */
     + (System_UIntPtr *)new_withValueUlong:(uint64_t)p1;
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.UIntPtr
-		Managed param types : System.Void*
-	 */
-    + (System_UIntPtr *)new_withValueVoidPtr:(void*)p1;
+/* Skipped constructor : System.UIntPtr (System.Void* value) */
 
 #pragma mark -
 #pragma mark Fields
@@ -132,13 +125,8 @@
 		Managed param types : System.UInt64
 	 */
     + (void *)op_Explicit_withValueUlong:(uint64_t)p1;
-
-	/*! 
-		Managed method name : op_Explicit
-		Managed return type : System.UIntPtr
-		Managed param types : System.Void*
-	 */
-    + (void *)op_Explicit_withValueVoidPtr:(void*)p1;
+/* Skipped method : System.UIntPtr op_Explicit(System.Void* value) */
+/* Skipped method : System.Void* op_Explicit(System.UIntPtr value) */
 
 	/*! 
 		Managed method name : op_Inequality
@@ -160,13 +148,7 @@
 		Managed param types : System.UIntPtr, System.Int32
 	 */
     + (void *)subtract_withPointer:(void *)p1 offset:(int32_t)p2;
-
-	/*! 
-		Managed method name : ToPointer
-		Managed return type : System.Void*
-		Managed param types : 
-	 */
-    - (void *)toPointer;
+/* Skipped method : System.Void* ToPointer() */
 
 	/*! 
 		Managed method name : ToString

@@ -22,6 +22,15 @@ namespace Dubrovnik.Tools
 
 		private static readonly Regex regexInvalidXMLChars = new Regex(invalidXMLMatch);
 
+		public HashSet<String> TypeNames {
+			get; private set;
+		}
+
+		public AssemblyParser()
+		{
+			TypeNames = new HashSet<String>();
+		}
+
 		//
 		// WriteTypeAttributes()
 		//
@@ -29,7 +38,9 @@ namespace Dubrovnik.Tools
 		{
 			// In order to reduce the XML size only output boolean attributes
 			// that evaluate to true.
-			xtw.WriteAttributeString("Type", type.GetFriendlyFullName());
+			string typeName = type.GetFriendlyFullName();
+			xtw.WriteAttributeString("Type", typeName);
+
 			if (type.IsValueType) xtw.WriteAttributeString("IsValueType", Boolean.TrueString);
 			if (type.IsPrimitive) xtw.WriteAttributeString("IsPrimitive", Boolean.TrueString);
 			if (type.IsEnum)
@@ -204,6 +215,16 @@ namespace Dubrovnik.Tools
 			xtw.WriteEndElement();
 		}
 
+		private void AddTypeName(Type type) 
+		{
+			string typeName = type.GetFriendlyFullName();
+			int idx = typeName.IndexOf('<');
+			if (idx != -1) {
+				typeName = typeName.Substring(0, idx);
+			}
+			this.TypeNames.Add(typeName);
+		}
+
 		//
 		// ParseAssembly
 		//
@@ -270,6 +291,7 @@ namespace Dubrovnik.Tools
 							//
 							xtw.WriteAttributeString("Name", type.GetFriendlyName());
 							WriteTypeAttributes(xtw, type);
+							AddTypeName(type);
 
 							//
 							// write generic type elements
@@ -442,6 +464,40 @@ namespace Dubrovnik.Tools
 					xtw.WriteEndDocument(); // document
 				}
 				
+				xml = sw.ToString();
+
+				// Validate the XML
+				xml = regexInvalidXMLChars.Replace(xml, "??");
+			}
+
+			return xml;
+
+		}
+
+		//
+		// ParsedTypes
+		//
+		public string ParsedTypeNames() {
+			string xml;
+
+			// StringWriter
+			using (StringWriter sw = new StringWriter()) {
+				// TextWriter
+				using (XmlTextWriter xtw = new XmlTextWriter(sw)) {
+					xtw.Formatting = Formatting.Indented;
+					xtw.WriteStartDocument();
+					xtw.WriteStartElement("TypeNameList");
+
+					List<string> typeNames = TypeNames.ToList();
+					typeNames.Sort();
+					foreach (string typeName in typeNames) {
+						xtw.WriteElementString("string", $"{typeName}");
+					}
+
+					xtw.WriteEndElement(); // types
+					xtw.WriteEndDocument(); // document
+				}
+
 				xml = sw.ToString();
 
 				// Validate the XML

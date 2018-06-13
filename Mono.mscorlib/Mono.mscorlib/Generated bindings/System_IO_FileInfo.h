@@ -20,14 +20,7 @@
 //
 @class System_Boolean;
 @class System_Int64;
-@class System_IO_DirectoryInfo;
-@class System_IO_FileAccess;
 @class System_IO_FileInfo;
-@class System_IO_FileMode;
-@class System_IO_FileShare;
-@class System_IO_FileStream;
-@class System_IO_StreamReader;
-@class System_IO_StreamWriter;
 @class System_Runtime_Serialization_ISerializable;
 @class System_String;
 @class System_Void;
@@ -35,10 +28,10 @@
 //
 // Import superclass and adopted protocols
 //
-#import "System_IO_FileSystemInfo.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
+//#import "System_IO_FileSystemInfo.h" // class base defaults to System.Object
 
-@interface System_IO_FileInfo : System_IO_FileSystemInfo <System_Runtime_Serialization_ISerializable_>
+@interface System_IO_FileInfo : System_Object <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -59,10 +52,7 @@
 
 #pragma mark -
 #pragma mark Properties
-
-	// Managed property name : Directory
-	// Managed property type : System.IO.DirectoryInfo
-    @property (nonatomic, strong, readonly) System_IO_DirectoryInfo * directory;
+/* Skipped property : System.IO.DirectoryInfo Directory */
 
 	// Managed property name : DirectoryName
 	// Managed property type : System.String
@@ -86,13 +76,7 @@
 
 #pragma mark -
 #pragma mark Methods
-
-	/*! 
-		Managed method name : AppendText
-		Managed return type : System.IO.StreamWriter
-		Managed param types : 
-	 */
-    - (System_IO_StreamWriter *)appendText;
+/* Skipped method : System.IO.StreamWriter AppendText() */
 
 	/*! 
 		Managed method name : CopyTo
@@ -107,20 +91,8 @@
 		Managed param types : System.String, System.Boolean
 	 */
     - (System_IO_FileInfo *)copyTo_withDestFileName:(NSString *)p1 overwrite:(BOOL)p2;
-
-	/*! 
-		Managed method name : Create
-		Managed return type : System.IO.FileStream
-		Managed param types : 
-	 */
-    - (System_IO_FileStream *)create;
-
-	/*! 
-		Managed method name : CreateText
-		Managed return type : System.IO.StreamWriter
-		Managed param types : 
-	 */
-    - (System_IO_StreamWriter *)createText;
+/* Skipped method : System.IO.FileStream Create() */
+/* Skipped method : System.IO.StreamWriter CreateText() */
 
 	/*! 
 		Managed method name : Decrypt
@@ -151,48 +123,12 @@
 		Managed param types : System.String
 	 */
     - (void)moveTo_withDestFileName:(NSString *)p1;
-
-	/*! 
-		Managed method name : Open
-		Managed return type : System.IO.FileStream
-		Managed param types : System.IO.FileMode
-	 */
-    - (System_IO_FileStream *)open_withMode:(int32_t)p1;
-
-	/*! 
-		Managed method name : Open
-		Managed return type : System.IO.FileStream
-		Managed param types : System.IO.FileMode, System.IO.FileAccess
-	 */
-    - (System_IO_FileStream *)open_withMode:(int32_t)p1 access:(int32_t)p2;
-
-	/*! 
-		Managed method name : Open
-		Managed return type : System.IO.FileStream
-		Managed param types : System.IO.FileMode, System.IO.FileAccess, System.IO.FileShare
-	 */
-    - (System_IO_FileStream *)open_withMode:(int32_t)p1 access:(int32_t)p2 share:(int32_t)p3;
-
-	/*! 
-		Managed method name : OpenRead
-		Managed return type : System.IO.FileStream
-		Managed param types : 
-	 */
-    - (System_IO_FileStream *)openRead;
-
-	/*! 
-		Managed method name : OpenText
-		Managed return type : System.IO.StreamReader
-		Managed param types : 
-	 */
-    - (System_IO_StreamReader *)openText;
-
-	/*! 
-		Managed method name : OpenWrite
-		Managed return type : System.IO.FileStream
-		Managed param types : 
-	 */
-    - (System_IO_FileStream *)openWrite;
+/* Skipped method : System.IO.FileStream Open(System.IO.FileMode mode) */
+/* Skipped method : System.IO.FileStream Open(System.IO.FileMode mode, System.IO.FileAccess access) */
+/* Skipped method : System.IO.FileStream Open(System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share) */
+/* Skipped method : System.IO.FileStream OpenRead() */
+/* Skipped method : System.IO.StreamReader OpenText() */
+/* Skipped method : System.IO.FileStream OpenWrite() */
 
 	/*! 
 		Managed method name : Replace

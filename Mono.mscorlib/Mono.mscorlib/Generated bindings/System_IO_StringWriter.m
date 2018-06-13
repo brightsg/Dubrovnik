@@ -32,19 +32,7 @@
 
 #pragma mark -
 #pragma mark Constructors
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.IO.StringWriter
-		Managed param types : System.IFormatProvider
-	 */
-    + (System_IO_StringWriter *)new_withFormatProvider:(id <System_IFormatProvider_>)p1
-    {
-		
-		System_IO_StringWriter * object = [[self alloc] initWithSignature:"System.IFormatProvider" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-      return object;
-    }
+/* Skipped constructor : System.IO.StringWriter (System.IFormatProvider formatProvider) */
 
 	/*! 
 		Managed method name : .ctor
@@ -58,19 +46,7 @@
       
       return object;
     }
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.IO.StringWriter
-		Managed param types : System.Text.StringBuilder, System.IFormatProvider
-	 */
-    + (System_IO_StringWriter *)new_withSb:(System_Text_StringBuilder *)p1 formatProvider:(id <System_IFormatProvider_>)p2
-    {
-		
-		System_IO_StringWriter * object = [[self alloc] initWithSignature:"System.Text.StringBuilder,System.IFormatProvider" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-      
-      return object;
-    }
+/* Skipped constructor : System.IO.StringWriter (System.Text.StringBuilder sb, System.IFormatProvider formatProvider) */
 
 #pragma mark -
 #pragma mark Properties

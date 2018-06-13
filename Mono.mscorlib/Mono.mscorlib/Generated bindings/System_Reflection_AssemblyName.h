@@ -24,9 +24,7 @@
 @class System_Globalization_CultureInfo;
 @class System_ICloneable;
 @class System_Object;
-@class System_Reflection_AssemblyContentType;
 @class System_Reflection_AssemblyName;
-@class System_Reflection_AssemblyNameFlags;
 @class System_Runtime_Serialization_ISerializable;
 @class System_String;
 @class System_Version;
@@ -64,10 +62,7 @@
 	// Managed property name : CodeBase
 	// Managed property type : System.String
     @property (nonatomic, strong) NSString * codeBase;
-
-	// Managed property name : ContentType
-	// Managed property type : System.Reflection.AssemblyContentType
-    @property (nonatomic) int32_t contentType;
+/* Skipped property : System.Reflection.AssemblyContentType ContentType */
 
 	// Managed property name : CultureInfo
 	// Managed property type : System.Globalization.CultureInfo
@@ -80,10 +75,7 @@
 	// Managed property name : EscapedCodeBase
 	// Managed property type : System.String
     @property (nonatomic, strong, readonly) NSString * escapedCodeBase;
-
-	// Managed property name : Flags
-	// Managed property type : System.Reflection.AssemblyNameFlags
-    @property (nonatomic) int32_t flags;
+/* Skipped property : System.Reflection.AssemblyNameFlags Flags */
 
 	// Managed property name : FullName
 	// Managed property type : System.String

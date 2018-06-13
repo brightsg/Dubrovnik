@@ -1275,28 +1275,7 @@
 		return _reflectedType;
 	}
 /* Skipped property : System.Runtime.InteropServices.StructLayoutAttribute StructLayoutAttribute */
-
-	// Managed property name : TypeHandle
-	// Managed property type : System.RuntimeTypeHandle
-    @synthesize typeHandle = _typeHandle;
-    - (System_RuntimeTypeHandle *)typeHandle
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TypeHandle");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_typeHandle isEqualToMonoObject:monoObject]) return _typeHandle;					
-		_typeHandle = [System_RuntimeTypeHandle bestObjectWithMonoObject:monoObject];
-
-		return _typeHandle;
-	}
+/* Skipped property : System.RuntimeTypeHandle TypeHandle */
 
 	// Managed property name : TypeInitializer
 	// Managed property type : System.Reflection.ConstructorInfo
@@ -1801,9 +1780,9 @@
 		
 		return [System_Type bestObjectWithMonoObject:monoObject];
     }
-/* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type> typeResolver) */
-/* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type> typeResolver, System.Boolean throwOnError) */
-/* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type> typeResolver, System.Boolean throwOnError, System.Boolean ignoreCase) */
+/* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName,System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly,System.String,System.Boolean,System.Type> typeResolver) */
+/* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName,System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly,System.String,System.Boolean,System.Type> typeResolver, System.Boolean throwOnError) */
+/* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName,System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly,System.String,System.Boolean,System.Type> typeResolver, System.Boolean throwOnError, System.Boolean ignoreCase) */
 
 	/*! 
 		Managed method name : GetType
@@ -1830,19 +1809,7 @@
 		
 		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
-
-	/*! 
-		Managed method name : GetTypeCode
-		Managed return type : System.TypeCode
-		Managed param types : System.Type
-	 */
-    + (int32_t)getTypeCode_withType:(System_Type *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeCode(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+/* Skipped method : System.TypeCode GetTypeCode(System.Type type) */
 
 	/*! 
 		Managed method name : GetTypeFromCLSID
@@ -1895,19 +1862,7 @@
 		
 		return [System_Type bestObjectWithMonoObject:monoObject];
     }
-
-	/*! 
-		Managed method name : GetTypeFromHandle
-		Managed return type : System.Type
-		Managed param types : System.RuntimeTypeHandle
-	 */
-    + (System_Type *)getTypeFromHandle_withHandle:(System_RuntimeTypeHandle *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeFromHandle(System.RuntimeTypeHandle)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Type bestObjectWithMonoObject:monoObject];
-    }
+/* Skipped method : System.Type GetTypeFromHandle(System.RuntimeTypeHandle handle) */
 
 	/*! 
 		Managed method name : GetTypeFromProgID
@@ -1960,19 +1915,7 @@
 		
 		return [System_Type bestObjectWithMonoObject:monoObject];
     }
-
-	/*! 
-		Managed method name : GetTypeHandle
-		Managed return type : System.RuntimeTypeHandle
-		Managed param types : System.Object
-	 */
-    + (System_RuntimeTypeHandle *)getTypeHandle_withO:(System_Object *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetTypeHandle(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_RuntimeTypeHandle bestObjectWithMonoObject:monoObject];
-    }
+/* Skipped method : System.RuntimeTypeHandle GetTypeHandle(System.Object o) */
 /* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args, System.Reflection.ParameterModifier[] modifiers, System.Globalization.CultureInfo culture, System.String[] namedParameters) */
 /* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args, System.Globalization.CultureInfo culture) */
 /* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args) */

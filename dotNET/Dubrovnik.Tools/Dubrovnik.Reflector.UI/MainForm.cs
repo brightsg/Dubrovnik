@@ -17,6 +17,7 @@ namespace Dubrovnik.Reflector.UI
 		private string _assemblyFileName;
 		private Assembly _assembly;
 		private string _xml;
+		private AssemblyParser _assemblyParser;
 
 		public MainForm()
 		{
@@ -71,8 +72,8 @@ namespace Dubrovnik.Reflector.UI
 			var bindingFlags = ShowInheritiedMembersCheckBox.Checked ? AssemblyParser.BindingFlagsWithHierarchy : AssemblyParser.BindingFlagsDeclaredOnly;
 
 			// parse the assembly via reflection into XML
-			AssemblyParser assemblyParser = new AssemblyParser();
-			_xml = assemblyParser.ParseAssembly(_assembly, _assemblyFileName, bindingFlags);
+			_assemblyParser = new AssemblyParser();
+			_xml = _assemblyParser.ParseAssembly(_assembly, _assemblyFileName, bindingFlags);
 
 			// load xml into xdoc
 			XDocument codeDoc = XDocument.Parse(_xml);
@@ -176,6 +177,12 @@ namespace Dubrovnik.Reflector.UI
 
 			// .NET default string encoding is Unicode
 			File.WriteAllText(dialog.FileName, _xml, Encoding.Unicode);
+
+			// parsed type names are written to <assembly name>.types.xml file name 
+			string xmlTypeNames = _assemblyParser.ParsedTypeNames();
+			string xmlFileName = Path.GetFileNameWithoutExtension(dialog.FileName) + ".types.xml";
+			string xmlFilePath = Path.Combine(Path.GetDirectoryName(dialog.FileName), xmlFileName);
+			File.WriteAllText(xmlFilePath, xmlTypeNames, Encoding.Unicode);
 
 			MessageBox.Show(string.Format("The XML file was successfully saved to {0}.", dialog.FileName));
 		}

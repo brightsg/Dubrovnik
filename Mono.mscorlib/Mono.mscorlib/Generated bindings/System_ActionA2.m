@@ -1,6 +1,6 @@
-//++Dubrovnik.CodeGenerator System_ActionA2.m
+﻿//++Dubrovnik.CodeGenerator System_ActionA2.m
 //
-// Managed class : Action`2<T1, T2>
+// Managed class : Action`2<T1,T2>
 //
 
 // ARC is required
@@ -35,7 +35,7 @@
 
 	/*! 
 		Managed method name : .ctor
-		Managed return type : System.Action`2<System.Action`2+T1, System.Action`2+T2>
+		Managed return type : System.Action`2<System.Action`2+T1,System.Action`2+T2>
 		Managed param types : System.Object, System.IntPtr
 	 */
     + (System_ActionA2 *)new_withObject:(System_Object *)p1 method:(void *)p2

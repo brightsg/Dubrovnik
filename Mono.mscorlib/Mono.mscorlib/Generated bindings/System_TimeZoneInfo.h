@@ -20,9 +20,7 @@
 //
 @class System_Array;
 @class System_Boolean;
-@class System_Collections_ObjectModel_ReadOnlyCollectionA1;
 @class System_DateTime;
-@class System_DateTimeOffset;
 @class System_IEquatableA1;
 @class System_Int32;
 @class System_Object;
@@ -93,13 +91,7 @@
 		Managed param types : 
 	 */
     + (void)clearCachedData;
-
-	/*! 
-		Managed method name : ConvertTime
-		Managed return type : System.DateTimeOffset
-		Managed param types : System.DateTimeOffset, System.TimeZoneInfo
-	 */
-    + (System_DateTimeOffset *)convertTime_withDateTimeOffset:(System_DateTimeOffset *)p1 destinationTimeZone:(System_TimeZoneInfo *)p2;
+/* Skipped method : System.DateTimeOffset ConvertTime(System.DateTimeOffset dateTimeOffset, System.TimeZoneInfo destinationTimeZone) */
 
 	/*! 
 		Managed method name : ConvertTime
@@ -114,13 +106,7 @@
 		Managed param types : System.DateTime, System.TimeZoneInfo, System.TimeZoneInfo
 	 */
     + (NSDate *)convertTime_withDateTime:(NSDate *)p1 sourceTimeZone:(System_TimeZoneInfo *)p2 destinationTimeZone:(System_TimeZoneInfo *)p3;
-
-	/*! 
-		Managed method name : ConvertTimeBySystemTimeZoneId
-		Managed return type : System.DateTimeOffset
-		Managed param types : System.DateTimeOffset, System.String
-	 */
-    + (System_DateTimeOffset *)convertTimeBySystemTimeZoneId_withDateTimeOffset:(System_DateTimeOffset *)p1 destinationTimeZoneId:(NSString *)p2;
+/* Skipped method : System.DateTimeOffset ConvertTimeBySystemTimeZoneId(System.DateTimeOffset dateTimeOffset, System.String destinationTimeZoneId) */
 
 	/*! 
 		Managed method name : ConvertTimeBySystemTimeZoneId
@@ -212,13 +198,7 @@
 		Managed param types : 
 	 */
     - (System_Array *)getAdjustmentRules;
-
-	/*! 
-		Managed method name : GetAmbiguousTimeOffsets
-		Managed return type : System.TimeSpan[]
-		Managed param types : System.DateTimeOffset
-	 */
-    - (System_Array *)getAmbiguousTimeOffsets_withDateTimeOffset:(System_DateTimeOffset *)p1;
+/* Skipped method : System.TimeSpan[] GetAmbiguousTimeOffsets(System.DateTimeOffset dateTimeOffset) */
 
 	/*! 
 		Managed method name : GetAmbiguousTimeOffsets
@@ -233,20 +213,8 @@
 		Managed param types : 
 	 */
     - (int32_t)getHashCode;
-
-	/*! 
-		Managed method name : GetSystemTimeZones
-		Managed return type : System.Collections.ObjectModel.ReadOnlyCollection`1<System.TimeZoneInfo>
-		Managed param types : 
-	 */
-    + (System_Collections_ObjectModel_ReadOnlyCollectionA1 *)getSystemTimeZones;
-
-	/*! 
-		Managed method name : GetUtcOffset
-		Managed return type : System.TimeSpan
-		Managed param types : System.DateTimeOffset
-	 */
-    - (System_TimeSpan *)getUtcOffset_withDateTimeOffset:(System_DateTimeOffset *)p1;
+/* Skipped method : System.Collections.ObjectModel.ReadOnlyCollection`1<System.TimeZoneInfo> GetSystemTimeZones() */
+/* Skipped method : System.TimeSpan GetUtcOffset(System.DateTimeOffset dateTimeOffset) */
 
 	/*! 
 		Managed method name : GetUtcOffset
@@ -261,13 +229,7 @@
 		Managed param types : System.TimeZoneInfo
 	 */
     - (BOOL)hasSameRules_withOther:(System_TimeZoneInfo *)p1;
-
-	/*! 
-		Managed method name : IsAmbiguousTime
-		Managed return type : System.Boolean
-		Managed param types : System.DateTimeOffset
-	 */
-    - (BOOL)isAmbiguousTime_withDateTimeOffset:(System_DateTimeOffset *)p1;
+/* Skipped method : System.Boolean IsAmbiguousTime(System.DateTimeOffset dateTimeOffset) */
 
 	/*! 
 		Managed method name : IsAmbiguousTime
@@ -275,13 +237,7 @@
 		Managed param types : System.DateTime
 	 */
     - (BOOL)isAmbiguousTime_withDateTime:(NSDate *)p1;
-
-	/*! 
-		Managed method name : IsDaylightSavingTime
-		Managed return type : System.Boolean
-		Managed param types : System.DateTimeOffset
-	 */
-    - (BOOL)isDaylightSavingTime_withDateTimeOffset:(System_DateTimeOffset *)p1;
+/* Skipped method : System.Boolean IsDaylightSavingTime(System.DateTimeOffset dateTimeOffset) */
 
 	/*! 
 		Managed method name : IsDaylightSavingTime

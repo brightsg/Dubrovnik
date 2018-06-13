@@ -32,71 +32,11 @@
 
 #pragma mark -
 #pragma mark Constructors
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.String
-		Managed param types : System.Char*
-	 */
-    + (System_String *)new_withValueCharPtr:(uint16_t*)p1
-    {
-		
-		System_String * object = [[self alloc] initWithSignature:"char*" withNumArgs:1, p1];
-      
-      return object;
-    }
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.String
-		Managed param types : System.Char*, System.Int32, System.Int32
-	 */
-    + (System_String *)new_withValueCharPtr:(uint16_t*)p1 startIndexInt:(int32_t)p2 lengthInt:(int32_t)p3
-    {
-		
-		System_String * object = [[self alloc] initWithSignature:"char*,int,int" withNumArgs:3, p1, DB_VALUE(p2), DB_VALUE(p3)];
-      
-      return object;
-    }
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.String
-		Managed param types : System.SByte*
-	 */
-    + (System_String *)new_withValueSbytePtr:(int8_t*)p1
-    {
-		
-		System_String * object = [[self alloc] initWithSignature:"sbyte*" withNumArgs:1, p1];
-      
-      return object;
-    }
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.String
-		Managed param types : System.SByte*, System.Int32, System.Int32
-	 */
-    + (System_String *)new_withValueSbytePtr:(int8_t*)p1 startIndexInt:(int32_t)p2 lengthInt:(int32_t)p3
-    {
-		
-		System_String * object = [[self alloc] initWithSignature:"sbyte*,int,int" withNumArgs:3, p1, DB_VALUE(p2), DB_VALUE(p3)];
-      
-      return object;
-    }
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.String
-		Managed param types : System.SByte*, System.Int32, System.Int32, System.Text.Encoding
-	 */
-    + (System_String *)new_withValue:(int8_t*)p1 startIndex:(int32_t)p2 length:(int32_t)p3 enc:(System_Text_Encoding *)p4
-    {
-		
-		System_String * object = [[self alloc] initWithSignature:"sbyte*,int,int,System.Text.Encoding" withNumArgs:4, p1, DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
-      
-      return object;
-    }
+/* Skipped constructor : System.String (System.Char* value) */
+/* Skipped constructor : System.String (System.Char* value, System.Int32 startIndex, System.Int32 length) */
+/* Skipped constructor : System.String (System.SByte* value) */
+/* Skipped constructor : System.String (System.SByte* value, System.Int32 startIndex, System.Int32 length) */
+/* Skipped constructor : System.String (System.SByte* value, System.Int32 startIndex, System.Int32 length, System.Text.Encoding enc) */
 
 	/*! 
 		Managed method name : .ctor
@@ -700,71 +640,11 @@
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
-
-	/*! 
-		Managed method name : Format
-		Managed return type : System.String
-		Managed param types : System.IFormatProvider, System.String, System.Object
-	 */
-    + (NSString *)format_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 arg0:(System_Object *)p3
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Format(System.IFormatProvider,string,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
-		
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
-
-	/*! 
-		Managed method name : Format
-		Managed return type : System.String
-		Managed param types : System.IFormatProvider, System.String, System.Object, System.Object
-	 */
-    + (NSString *)format_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 arg0:(System_Object *)p3 arg1:(System_Object *)p4
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Format(System.IFormatProvider,string,object,object)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
-		
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
-
-	/*! 
-		Managed method name : Format
-		Managed return type : System.String
-		Managed param types : System.IFormatProvider, System.String, System.Object, System.Object, System.Object
-	 */
-    + (NSString *)format_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 arg0:(System_Object *)p3 arg1:(System_Object *)p4 arg2:(System_Object *)p5
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Format(System.IFormatProvider,string,object,object,object)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
-		
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
-
-	/*! 
-		Managed method name : Format
-		Managed return type : System.String
-		Managed param types : System.IFormatProvider, System.String, System.Object[]
-	 */
-    + (NSString *)format_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 args:(System_Array *)p3
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Format(System.IFormatProvider,string,object[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
-		
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
-
-	/*! 
-		Managed method name : GetEnumerator
-		Managed return type : System.CharEnumerator
-		Managed param types : 
-	 */
-    - (System_CharEnumerator *)getEnumerator
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
-		
-		return [System_CharEnumerator bestObjectWithMonoObject:monoObject];
-    }
+/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object arg0) */
+/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1) */
+/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1, System.Object arg2) */
+/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object[] args) */
+/* Skipped method : System.CharEnumerator GetEnumerator() */
 
 	/*! 
 		Managed method name : GetHashCode
@@ -778,19 +658,7 @@
 		
 		return DB_UNBOX_INT32(monoObject);
     }
-
-	/*! 
-		Managed method name : GetTypeCode
-		Managed return type : System.TypeCode
-		Managed param types : 
-	 */
-    - (int32_t)getTypeCode
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeCode()" withNumArgs:0];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+/* Skipped method : System.TypeCode GetTypeCode() */
 
 	/*! 
 		Managed method name : IndexOf
@@ -999,19 +867,7 @@
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
-
-	/*! 
-		Managed method name : IsNormalized
-		Managed return type : System.Boolean
-		Managed param types : System.Text.NormalizationForm
-	 */
-    - (BOOL)isNormalized_withNormalizationForm:(int32_t)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsNormalized(System.Text.NormalizationForm)" withNumArgs:1, DB_VALUE(p1)];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
+/* Skipped method : System.Boolean IsNormalized(System.Text.NormalizationForm normalizationForm) */
 
 	/*! 
 		Managed method name : IsNullOrEmpty
@@ -1273,19 +1129,7 @@
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
-
-	/*! 
-		Managed method name : Normalize
-		Managed return type : System.String
-		Managed param types : System.Text.NormalizationForm
-	 */
-    - (NSString *)normalize_withNormalizationForm:(int32_t)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Normalize(System.Text.NormalizationForm)" withNumArgs:1, DB_VALUE(p1)];
-		
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
+/* Skipped method : System.String Normalize(System.Text.NormalizationForm normalizationForm) */
 
 	/*! 
 		Managed method name : op_Equality
@@ -1442,58 +1286,10 @@
 		
 		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
-
-	/*! 
-		Managed method name : Split
-		Managed return type : System.String[]
-		Managed param types : System.Char[], System.StringSplitOptions
-	 */
-    - (System_Array *)split_withSeparatorCharArray:(System_Array *)p1 optionsStringSplitOptions:(int32_t)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Split(char[],stringSplitOptions)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-		
-		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
-    }
-
-	/*! 
-		Managed method name : Split
-		Managed return type : System.String[]
-		Managed param types : System.Char[], System.Int32, System.StringSplitOptions
-	 */
-    - (System_Array *)split_withSeparatorCharArray:(System_Array *)p1 countInt:(int32_t)p2 optionsStringSplitOptions:(int32_t)p3
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Split(char[],int,stringSplitOptions)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
-		
-		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
-    }
-
-	/*! 
-		Managed method name : Split
-		Managed return type : System.String[]
-		Managed param types : System.String[], System.StringSplitOptions
-	 */
-    - (System_Array *)split_withSeparatorStringArray:(System_Array *)p1 optionsStringSplitOptions:(int32_t)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Split(string[],stringSplitOptions)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-		
-		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
-    }
-
-	/*! 
-		Managed method name : Split
-		Managed return type : System.String[]
-		Managed param types : System.String[], System.Int32, System.StringSplitOptions
-	 */
-    - (System_Array *)split_withSeparatorStringArray:(System_Array *)p1 countInt:(int32_t)p2 optionsStringSplitOptions:(int32_t)p3
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Split(string[],int,stringSplitOptions)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
-		
-		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
-    }
+/* Skipped method : System.String[] Split(System.Char[] separator, System.StringSplitOptions options) */
+/* Skipped method : System.String[] Split(System.Char[] separator, System.Int32 count, System.StringSplitOptions options) */
+/* Skipped method : System.String[] Split(System.String[] separator, System.StringSplitOptions options) */
+/* Skipped method : System.String[] Split(System.String[] separator, System.Int32 count, System.StringSplitOptions options) */
 
 	/*! 
 		Managed method name : StartsWith
@@ -1637,19 +1433,7 @@
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.IFormatProvider
-	 */
-    - (NSString *)toString_withProvider:(id <System_IFormatProvider_>)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToString(System.IFormatProvider)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
+/* Skipped method : System.String ToString(System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToUpper

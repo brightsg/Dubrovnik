@@ -1,6 +1,6 @@
 ﻿//++Dubrovnik.CodeGenerator System_Collections_Generic_DictionaryA2__ValueCollection.h
 //
-// Managed class : Dictionary`2<TKey, TValue>.ValueCollection
+// Managed class : Dictionary`2<TKey,TValue>.ValueCollection
 //
 //
 // Frameworks
@@ -24,8 +24,6 @@
 @class System_Collections_Generic_DictionaryA2__ValueCollection__Enumerator;
 @class System_Collections_Generic_ICollectionA1;
 @class System_Collections_Generic_IEnumerableA1;
-@class System_Collections_Generic_IReadOnlyCollectionA1;
-@class System_Collections_ICollection;
 @class System_Collections_IEnumerable;
 @class System_Int32;
 @class System_Object;
@@ -37,12 +35,10 @@
 //
 #import "System_Collections_Generic_ICollectionA1_Protocol.h"
 #import "System_Collections_Generic_IEnumerableA1_Protocol.h"
-#import "System_Collections_Generic_IReadOnlyCollectionA1_Protocol.h"
-#import "System_Collections_ICollection_Protocol.h"
 #import "System_Collections_IEnumerable_Protocol.h"
 #import "System_Object.h"
 
-@interface System_Collections_Generic_DictionaryA2__ValueCollection : System_Object <System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_ICollection_, System_Collections_Generic_IReadOnlyCollectionA1_>
+@interface System_Collections_Generic_DictionaryA2__ValueCollection : System_Object <System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -56,8 +52,8 @@
 
 	/*! 
 		Managed method name : .ctor
-		Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+ValueCollection+TKey, System.Collections.Generic.Dictionary`2+ValueCollection+TValue>+ValueCollection
-		Managed param types : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+ValueCollection+TKey, System.Collections.Generic.Dictionary`2+ValueCollection+TValue>
+		Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+ValueCollection+TKey,System.Collections.Generic.Dictionary`2+ValueCollection+TValue>+ValueCollection
+		Managed param types : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+ValueCollection+TKey,System.Collections.Generic.Dictionary`2+ValueCollection+TValue>
 	 */
     + (System_Collections_Generic_DictionaryA2__ValueCollection *)new_withDictionary:(System_Collections_Generic_DictionaryA2 *)p1;
 
@@ -80,7 +76,7 @@
 
 	/*! 
 		Managed method name : GetEnumerator
-		Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+ValueCollection+TKey, System.Collections.Generic.Dictionary`2+ValueCollection+TValue>+ValueCollection+Enumerator
+		Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+ValueCollection+TKey,System.Collections.Generic.Dictionary`2+ValueCollection+TValue>+ValueCollection+Enumerator
 		Managed param types : 
 	 */
     - (System_Collections_Generic_DictionaryA2__ValueCollection__Enumerator *)getEnumerator;

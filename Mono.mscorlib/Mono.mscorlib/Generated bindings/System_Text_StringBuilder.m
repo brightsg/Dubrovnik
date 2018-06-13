@@ -468,19 +468,7 @@
 		
 		return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
     }
-
-	/*! 
-		Managed method name : Append
-		Managed return type : System.Text.StringBuilder
-		Managed param types : System.Char*, System.Int32
-	 */
-    - (System_Text_StringBuilder *)append_withValue:(uint16_t*)p1 valueCount:(int32_t)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Append(char*,int)" withNumArgs:2, p1, DB_VALUE(p2)];
-		
-		return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
-    }
+/* Skipped method : System.Text.StringBuilder Append(System.Char* value, System.Int32 valueCount) */
 
 	/*! 
 		Managed method name : AppendFormat
@@ -533,58 +521,10 @@
 		
 		return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
     }
-
-	/*! 
-		Managed method name : AppendFormat
-		Managed return type : System.Text.StringBuilder
-		Managed param types : System.IFormatProvider, System.String, System.Object
-	 */
-    - (System_Text_StringBuilder *)appendFormat_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 arg0:(System_Object *)p3
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"AppendFormat(System.IFormatProvider,string,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
-		
-		return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
-    }
-
-	/*! 
-		Managed method name : AppendFormat
-		Managed return type : System.Text.StringBuilder
-		Managed param types : System.IFormatProvider, System.String, System.Object, System.Object
-	 */
-    - (System_Text_StringBuilder *)appendFormat_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 arg0:(System_Object *)p3 arg1:(System_Object *)p4
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"AppendFormat(System.IFormatProvider,string,object,object)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
-		
-		return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
-    }
-
-	/*! 
-		Managed method name : AppendFormat
-		Managed return type : System.Text.StringBuilder
-		Managed param types : System.IFormatProvider, System.String, System.Object, System.Object, System.Object
-	 */
-    - (System_Text_StringBuilder *)appendFormat_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 arg0:(System_Object *)p3 arg1:(System_Object *)p4 arg2:(System_Object *)p5
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"AppendFormat(System.IFormatProvider,string,object,object,object)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
-		
-		return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
-    }
-
-	/*! 
-		Managed method name : AppendFormat
-		Managed return type : System.Text.StringBuilder
-		Managed param types : System.IFormatProvider, System.String, System.Object[]
-	 */
-    - (System_Text_StringBuilder *)appendFormat_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 args:(System_Array *)p3
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"AppendFormat(System.IFormatProvider,string,object[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
-		
-		return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
-    }
+/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0) */
+/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1) */
+/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1, System.Object arg2) */
+/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object[] args) */
 
 	/*! 
 		Managed method name : AppendLine

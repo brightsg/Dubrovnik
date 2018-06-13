@@ -48,28 +48,7 @@
 
 #pragma mark -
 #pragma mark Properties
-
-	// Managed property name : Directory
-	// Managed property type : System.IO.DirectoryInfo
-    @synthesize directory = _directory;
-    - (System_IO_DirectoryInfo *)directory
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Directory");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_directory isEqualToMonoObject:monoObject]) return _directory;					
-		_directory = [System_IO_DirectoryInfo bestObjectWithMonoObject:monoObject];
-
-		return _directory;
-	}
+/* Skipped property : System.IO.DirectoryInfo Directory */
 
 	// Managed property name : DirectoryName
 	// Managed property type : System.String
@@ -195,19 +174,7 @@
 
 #pragma mark -
 #pragma mark Methods
-
-	/*! 
-		Managed method name : AppendText
-		Managed return type : System.IO.StreamWriter
-		Managed param types : 
-	 */
-    - (System_IO_StreamWriter *)appendText
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"AppendText()" withNumArgs:0];
-		
-		return [System_IO_StreamWriter bestObjectWithMonoObject:monoObject];
-    }
+/* Skipped method : System.IO.StreamWriter AppendText() */
 
 	/*! 
 		Managed method name : CopyTo
@@ -234,32 +201,8 @@
 		
 		return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
     }
-
-	/*! 
-		Managed method name : Create
-		Managed return type : System.IO.FileStream
-		Managed param types : 
-	 */
-    - (System_IO_FileStream *)create
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Create()" withNumArgs:0];
-		
-		return [System_IO_FileStream bestObjectWithMonoObject:monoObject];
-    }
-
-	/*! 
-		Managed method name : CreateText
-		Managed return type : System.IO.StreamWriter
-		Managed param types : 
-	 */
-    - (System_IO_StreamWriter *)createText
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateText()" withNumArgs:0];
-		
-		return [System_IO_StreamWriter bestObjectWithMonoObject:monoObject];
-    }
+/* Skipped method : System.IO.FileStream Create() */
+/* Skipped method : System.IO.StreamWriter CreateText() */
 
 	/*! 
 		Managed method name : Decrypt
@@ -310,84 +253,12 @@
 		[self invokeMonoMethod:"MoveTo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
       
     }
-
-	/*! 
-		Managed method name : Open
-		Managed return type : System.IO.FileStream
-		Managed param types : System.IO.FileMode
-	 */
-    - (System_IO_FileStream *)open_withMode:(int32_t)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Open(System.IO.FileMode)" withNumArgs:1, DB_VALUE(p1)];
-		
-		return [System_IO_FileStream bestObjectWithMonoObject:monoObject];
-    }
-
-	/*! 
-		Managed method name : Open
-		Managed return type : System.IO.FileStream
-		Managed param types : System.IO.FileMode, System.IO.FileAccess
-	 */
-    - (System_IO_FileStream *)open_withMode:(int32_t)p1 access:(int32_t)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Open(System.IO.FileMode,System.IO.FileAccess)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
-		
-		return [System_IO_FileStream bestObjectWithMonoObject:monoObject];
-    }
-
-	/*! 
-		Managed method name : Open
-		Managed return type : System.IO.FileStream
-		Managed param types : System.IO.FileMode, System.IO.FileAccess, System.IO.FileShare
-	 */
-    - (System_IO_FileStream *)open_withMode:(int32_t)p1 access:(int32_t)p2 share:(int32_t)p3
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Open(System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
-		
-		return [System_IO_FileStream bestObjectWithMonoObject:monoObject];
-    }
-
-	/*! 
-		Managed method name : OpenRead
-		Managed return type : System.IO.FileStream
-		Managed param types : 
-	 */
-    - (System_IO_FileStream *)openRead
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"OpenRead()" withNumArgs:0];
-		
-		return [System_IO_FileStream bestObjectWithMonoObject:monoObject];
-    }
-
-	/*! 
-		Managed method name : OpenText
-		Managed return type : System.IO.StreamReader
-		Managed param types : 
-	 */
-    - (System_IO_StreamReader *)openText
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"OpenText()" withNumArgs:0];
-		
-		return [System_IO_StreamReader bestObjectWithMonoObject:monoObject];
-    }
-
-	/*! 
-		Managed method name : OpenWrite
-		Managed return type : System.IO.FileStream
-		Managed param types : 
-	 */
-    - (System_IO_FileStream *)openWrite
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"OpenWrite()" withNumArgs:0];
-		
-		return [System_IO_FileStream bestObjectWithMonoObject:monoObject];
-    }
+/* Skipped method : System.IO.FileStream Open(System.IO.FileMode mode) */
+/* Skipped method : System.IO.FileStream Open(System.IO.FileMode mode, System.IO.FileAccess access) */
+/* Skipped method : System.IO.FileStream Open(System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share) */
+/* Skipped method : System.IO.FileStream OpenRead() */
+/* Skipped method : System.IO.StreamReader OpenText() */
+/* Skipped method : System.IO.FileStream OpenWrite() */
 
 	/*! 
 		Managed method name : Replace

@@ -1,6 +1,6 @@
 ﻿//++Dubrovnik.CodeGenerator System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator.m
 //
-// Managed struct : Dictionary`2<TKey, TValue>.KeyCollection.Enumerator
+// Managed struct : Dictionary`2<TKey,TValue>.KeyCollection.Enumerator
 //
 
 // ARC is required

@@ -21,7 +21,6 @@
 @class System_Array;
 @class System_Char;
 @class System_IDisposable;
-@class System_IFormatProvider;
 @class System_Int32;
 @class System_IO_StringWriter;
 @class System_String;
@@ -29,16 +28,14 @@
 @class System_Text_StringBuilder;
 @class System_Threading_Tasks_Task;
 @class System_Void;
-@protocol System_IFormatProvider;
-@protocol System_IFormatProvider_;
 
 //
 // Import superclass and adopted protocols
 //
 #import "System_IDisposable_Protocol.h"
-#import "System_IO_TextWriter.h"
+//#import "System_IO_TextWriter.h" // class base defaults to System.Object
 
-@interface System_IO_StringWriter : System_IO_TextWriter <System_IDisposable_>
+@interface System_IO_StringWriter : System_Object <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -49,13 +46,7 @@
 
 #pragma mark -
 #pragma mark Constructors
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.IO.StringWriter
-		Managed param types : System.IFormatProvider
-	 */
-    + (System_IO_StringWriter *)new_withFormatProvider:(id <System_IFormatProvider_>)p1;
+/* Skipped constructor : System.IO.StringWriter (System.IFormatProvider formatProvider) */
 
 	/*! 
 		Managed method name : .ctor
@@ -63,13 +54,7 @@
 		Managed param types : System.Text.StringBuilder
 	 */
     + (System_IO_StringWriter *)new_withSb:(System_Text_StringBuilder *)p1;
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.IO.StringWriter
-		Managed param types : System.Text.StringBuilder, System.IFormatProvider
-	 */
-    + (System_IO_StringWriter *)new_withSb:(System_Text_StringBuilder *)p1 formatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped constructor : System.IO.StringWriter (System.Text.StringBuilder sb, System.IFormatProvider formatProvider) */
 
 #pragma mark -
 #pragma mark Properties

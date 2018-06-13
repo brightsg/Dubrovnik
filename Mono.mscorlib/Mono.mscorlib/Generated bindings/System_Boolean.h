@@ -19,28 +19,18 @@
 // Forward class and protocol declarations
 //
 @class System_Boolean;
-@class System_IComparable;
-@class System_IComparableA1;
-@class System_IConvertible;
 @class System_IEquatableA1;
-@class System_IFormatProvider;
 @class System_Int32;
 @class System_Object;
 @class System_String;
-@class System_TypeCode;
-@protocol System_IFormatProvider;
-@protocol System_IFormatProvider_;
 
 //
 // Import superclass and adopted protocols
 //
-#import "System_IComparable_Protocol.h"
-#import "System_IComparableA1_Protocol.h"
-#import "System_IConvertible_Protocol.h"
 #import "System_IEquatableA1_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_Boolean : System_ValueType <System_IComparable_, System_IConvertible_, System_IComparableA1_, System_IEquatableA1_>
+@interface System_Boolean : System_ValueType <System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -97,13 +87,7 @@
 		Managed param types : 
 	 */
     - (int32_t)getHashCode;
-
-	/*! 
-		Managed method name : GetTypeCode
-		Managed return type : System.TypeCode
-		Managed param types : 
-	 */
-    - (int32_t)getTypeCode;
+/* Skipped method : System.TypeCode GetTypeCode() */
 
 	/*! 
 		Managed method name : Parse
@@ -118,13 +102,7 @@
 		Managed param types : 
 	 */
     - (NSString *)toString;
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.IFormatProvider
-	 */
-    - (NSString *)toString_withProvider:(id <System_IFormatProvider_>)p1;
+/* Skipped method : System.String ToString(System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : TryParse

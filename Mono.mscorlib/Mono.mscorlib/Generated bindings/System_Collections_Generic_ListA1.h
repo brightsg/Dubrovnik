@@ -24,20 +24,12 @@
 @class System_Collections_Generic_ICollectionA1;
 @class System_Collections_Generic_IComparerA1;
 @class System_Collections_Generic_IEnumerableA1;
-@class System_Collections_Generic_IListA1;
-@class System_Collections_Generic_IReadOnlyCollectionA1;
-@class System_Collections_Generic_IReadOnlyListA1;
 @class System_Collections_Generic_ListA1;
 @class System_Collections_Generic_ListA1__Enumerator;
-@class System_Collections_ICollection;
 @class System_Collections_IEnumerable;
 @class System_Collections_IList;
-@class System_Collections_ObjectModel_ReadOnlyCollectionA1;
-@class System_ComparisonA1;
-@class System_ConverterA2;
 @class System_Int32;
 @class System_Object;
-@class System_PredicateA1;
 @class System_Void;
 @class T;
 @protocol System_Collections_Generic_IComparerA1;
@@ -50,15 +42,11 @@
 //
 #import "System_Collections_Generic_ICollectionA1_Protocol.h"
 #import "System_Collections_Generic_IEnumerableA1_Protocol.h"
-#import "System_Collections_Generic_IListA1_Protocol.h"
-#import "System_Collections_Generic_IReadOnlyCollectionA1_Protocol.h"
-#import "System_Collections_Generic_IReadOnlyListA1_Protocol.h"
-#import "System_Collections_ICollection_Protocol.h"
 #import "System_Collections_IEnumerable_Protocol.h"
 #import "System_Collections_IList_Protocol.h"
 #import "System_Object.h"
 
-@interface System_Collections_Generic_ListA1 : System_Object <System_Collections_Generic_IListA1_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_IList_, System_Collections_ICollection_, System_Collections_Generic_IReadOnlyListA1_, System_Collections_Generic_IReadOnlyCollectionA1_>
+@interface System_Collections_Generic_ListA1 : System_Object <System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_IList_>
 
 #pragma mark -
 #pragma mark Setup
@@ -125,13 +113,7 @@
 		Managed param types : System.Collections.Generic.IEnumerable`1<System.Collections.Generic.List`1+T>
 	 */
     - (void)addRange_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1;
-
-	/*! 
-		Managed method name : AsReadOnly
-		Managed return type : System.Collections.ObjectModel.ReadOnlyCollection`1<System.Collections.Generic.List`1+T>
-		Managed param types : 
-	 */
-    - (System_Collections_ObjectModel_ReadOnlyCollectionA1 *)asReadOnly;
+/* Skipped method : System.Collections.ObjectModel.ReadOnlyCollection`1<System.Collections.Generic.List`1+T> AsReadOnly() */
 
 	/*! 
 		Managed method name : BinarySearch
@@ -167,14 +149,7 @@
 		Managed param types : <System.Collections.Generic.List`1+T>
 	 */
     - (BOOL)contains_withItem:(System_Object *)p1;
-
-	/*! 
-		Managed method name : ConvertAll
-		Managed return type : System.Collections.Generic.List`1<System.Collections.Generic.List`1+TOutput>
-		Managed param types : System.Converter`2<System.Collections.Generic.List`1+T, System.Collections.Generic.List`1+TOutput>
-		Generic method definition type params : <System.Collections.Generic.List`1+TOutput>
-	 */
-    - (System_Collections_Generic_ListA1 *)convertAll_withConverter:(System_ConverterA2 *)p1 typeParameter:(id)typeParameter;
+/* Skipped method : System.Collections.Generic.List`1<System.Collections.Generic.List`1+TOutput> ConvertAll(System.Converter`2<System.Collections.Generic.List`1+T,System.Collections.Generic.List`1+TOutput> converter) */
 
 	/*! 
 		Managed method name : CopyTo
@@ -196,76 +171,16 @@
 		Managed param types : T[], System.Int32
 	 */
     - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2;
-
-	/*! 
-		Managed method name : Exists
-		Managed return type : System.Boolean
-		Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
-	 */
-    - (BOOL)exists_withMatch:(System_PredicateA1 *)p1;
-
-	/*! 
-		Managed method name : Find
-		Managed return type : <System.Collections.Generic.List`1+T>
-		Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
-	 */
-    - (System_Object *)find_withMatch:(System_PredicateA1 *)p1;
-
-	/*! 
-		Managed method name : FindAll
-		Managed return type : System.Collections.Generic.List`1<System.Collections.Generic.List`1+T>
-		Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
-	 */
-    - (System_Collections_Generic_ListA1 *)findAll_withMatch:(System_PredicateA1 *)p1;
-
-	/*! 
-		Managed method name : FindIndex
-		Managed return type : System.Int32
-		Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
-	 */
-    - (int32_t)findIndex_withMatch:(System_PredicateA1 *)p1;
-
-	/*! 
-		Managed method name : FindIndex
-		Managed return type : System.Int32
-		Managed param types : System.Int32, System.Int32, System.Predicate`1<System.Collections.Generic.List`1+T>
-	 */
-    - (int32_t)findIndex_withStartIndex:(int32_t)p1 count:(int32_t)p2 match:(System_PredicateA1 *)p3;
-
-	/*! 
-		Managed method name : FindIndex
-		Managed return type : System.Int32
-		Managed param types : System.Int32, System.Predicate`1<System.Collections.Generic.List`1+T>
-	 */
-    - (int32_t)findIndex_withStartIndex:(int32_t)p1 match:(System_PredicateA1 *)p2;
-
-	/*! 
-		Managed method name : FindLast
-		Managed return type : <System.Collections.Generic.List`1+T>
-		Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
-	 */
-    - (System_Object *)findLast_withMatch:(System_PredicateA1 *)p1;
-
-	/*! 
-		Managed method name : FindLastIndex
-		Managed return type : System.Int32
-		Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
-	 */
-    - (int32_t)findLastIndex_withMatch:(System_PredicateA1 *)p1;
-
-	/*! 
-		Managed method name : FindLastIndex
-		Managed return type : System.Int32
-		Managed param types : System.Int32, System.Predicate`1<System.Collections.Generic.List`1+T>
-	 */
-    - (int32_t)findLastIndex_withStartIndex:(int32_t)p1 match:(System_PredicateA1 *)p2;
-
-	/*! 
-		Managed method name : FindLastIndex
-		Managed return type : System.Int32
-		Managed param types : System.Int32, System.Int32, System.Predicate`1<System.Collections.Generic.List`1+T>
-	 */
-    - (int32_t)findLastIndex_withStartIndex:(int32_t)p1 count:(int32_t)p2 match:(System_PredicateA1 *)p3;
+/* Skipped method : System.Boolean Exists(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/* Skipped method : System.Collections.Generic.List`1+T Find(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/* Skipped method : System.Collections.Generic.List`1<System.Collections.Generic.List`1+T> FindAll(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/* Skipped method : System.Int32 FindIndex(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/* Skipped method : System.Int32 FindIndex(System.Int32 startIndex, System.Int32 count, System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/* Skipped method : System.Int32 FindIndex(System.Int32 startIndex, System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/* Skipped method : System.Collections.Generic.List`1+T FindLast(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/* Skipped method : System.Int32 FindLastIndex(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/* Skipped method : System.Int32 FindLastIndex(System.Int32 startIndex, System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/* Skipped method : System.Int32 FindLastIndex(System.Int32 startIndex, System.Int32 count, System.Predicate`1<System.Collections.Generic.List`1+T> match) */
 
 	/*! 
 		Managed method name : ForEach
@@ -350,13 +265,7 @@
 		Managed param types : <System.Collections.Generic.List`1+T>
 	 */
     - (BOOL)remove_withItem:(System_Object *)p1;
-
-	/*! 
-		Managed method name : RemoveAll
-		Managed return type : System.Int32
-		Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
-	 */
-    - (int32_t)removeAll_withMatch:(System_PredicateA1 *)p1;
+/* Skipped method : System.Int32 RemoveAll(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
 
 	/*! 
 		Managed method name : RemoveAt
@@ -406,13 +315,7 @@
 		Managed param types : System.Int32, System.Int32, System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>
 	 */
     - (void)sort_withIndex:(int32_t)p1 count:(int32_t)p2 comparer:(id <System_Collections_Generic_IComparerA1_>)p3;
-
-	/*! 
-		Managed method name : Sort
-		Managed return type : System.Void
-		Managed param types : System.Comparison`1<System.Collections.Generic.List`1+T>
-	 */
-    - (void)sort_withComparison:(System_ComparisonA1 *)p1;
+/* Skipped method : System.Void Sort(System.Comparison`1<System.Collections.Generic.List`1+T> comparison) */
 
 	/*! 
 		Managed method name : ToArray
@@ -427,12 +330,6 @@
 		Managed param types : 
 	 */
     - (void)trimExcess;
-
-	/*! 
-		Managed method name : TrueForAll
-		Managed return type : System.Boolean
-		Managed param types : System.Predicate`1<System.Collections.Generic.List`1+T>
-	 */
-    - (BOOL)trueForAll_withMatch:(System_PredicateA1 *)p1;
+/* Skipped method : System.Boolean TrueForAll(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
 @end
 //--Dubrovnik.CodeGenerator

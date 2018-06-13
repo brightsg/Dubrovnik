@@ -284,19 +284,7 @@
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.String, System.IFormatProvider
-	 */
-    - (NSString *)toString_withFormat:(NSString *)p1 provider:(id <System_IFormatProvider_>)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToString(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
+/* Skipped method : System.String ToString(System.String format, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : TryParse

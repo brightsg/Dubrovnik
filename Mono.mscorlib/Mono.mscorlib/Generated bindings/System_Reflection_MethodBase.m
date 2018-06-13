@@ -433,28 +433,7 @@
 
 		return _isVirtual;
 	}
-
-	// Managed property name : MethodHandle
-	// Managed property type : System.RuntimeMethodHandle
-    @synthesize methodHandle = _methodHandle;
-    - (System_RuntimeMethodHandle *)methodHandle
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MethodHandle");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_methodHandle isEqualToMonoObject:monoObject]) return _methodHandle;					
-		_methodHandle = [System_RuntimeMethodHandle bestObjectWithMonoObject:monoObject];
-
-		return _methodHandle;
-	}
+/* Skipped property : System.RuntimeMethodHandle MethodHandle */
 /* Skipped property : System.Reflection.MethodImplAttributes MethodImplementationFlags */
 
 #pragma mark -
@@ -512,32 +491,8 @@
 		return DB_UNBOX_INT32(monoObject);
     }
 /* Skipped method : System.Reflection.MethodBody GetMethodBody() */
-
-	/*! 
-		Managed method name : GetMethodFromHandle
-		Managed return type : System.Reflection.MethodBase
-		Managed param types : System.RuntimeMethodHandle
-	 */
-    + (System_Reflection_MethodBase *)getMethodFromHandle_withHandle:(System_RuntimeMethodHandle *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetMethodFromHandle(System.RuntimeMethodHandle)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Reflection_MethodBase bestObjectWithMonoObject:monoObject];
-    }
-
-	/*! 
-		Managed method name : GetMethodFromHandle
-		Managed return type : System.Reflection.MethodBase
-		Managed param types : System.RuntimeMethodHandle, System.RuntimeTypeHandle
-	 */
-    + (System_Reflection_MethodBase *)getMethodFromHandle_withHandle:(System_RuntimeMethodHandle *)p1 declaringType:(System_RuntimeTypeHandle *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetMethodFromHandle(System.RuntimeMethodHandle,System.RuntimeTypeHandle)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return [System_Reflection_MethodBase bestObjectWithMonoObject:monoObject];
-    }
+/* Skipped method : System.Reflection.MethodBase GetMethodFromHandle(System.RuntimeMethodHandle handle) */
+/* Skipped method : System.Reflection.MethodBase GetMethodFromHandle(System.RuntimeMethodHandle handle, System.RuntimeTypeHandle declaringType) */
 /* Skipped method : System.Reflection.MethodImplAttributes GetMethodImplementationFlags() */
 /* Skipped method : System.Reflection.ParameterInfo[] GetParameters() */
 /* Skipped method : System.Object Invoke(System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) */

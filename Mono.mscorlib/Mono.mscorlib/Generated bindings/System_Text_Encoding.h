@@ -26,14 +26,7 @@
 @class System_Int32;
 @class System_Object;
 @class System_String;
-@class System_Text_Decoder;
-@class System_Text_DecoderFallback;
-@class System_Text_Encoder;
-@class System_Text_EncoderFallback;
 @class System_Text_Encoding;
-@class System_Text_EncodingInfo;
-@class System_Text_EncodingProvider;
-@class System_Text_NormalizationForm;
 @class System_Void;
 
 //
@@ -69,18 +62,12 @@
 	// Managed property name : CodePage
 	// Managed property type : System.Int32
     @property (nonatomic, readonly) int32_t codePage;
-
-	// Managed property name : DecoderFallback
-	// Managed property type : System.Text.DecoderFallback
-    @property (nonatomic, strong) System_Text_DecoderFallback * decoderFallback;
+/* Skipped property : System.Text.DecoderFallback DecoderFallback */
 
 	// Managed property name : Default
 	// Managed property type : System.Text.Encoding
     + (System_Text_Encoding *)default;
-
-	// Managed property name : EncoderFallback
-	// Managed property type : System.Text.EncoderFallback
-    @property (nonatomic, strong) System_Text_EncoderFallback * encoderFallback;
+/* Skipped property : System.Text.EncoderFallback EncoderFallback */
 
 	// Managed property name : EncodingName
 	// Managed property type : System.String
@@ -189,13 +176,7 @@
 		Managed param types : System.Char[], System.Int32, System.Int32
 	 */
     - (int32_t)getByteCount_withChars:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
-
-	/*! 
-		Managed method name : GetByteCount
-		Managed return type : System.Int32
-		Managed param types : System.Char*, System.Int32
-	 */
-    - (int32_t)getByteCount_withChars:(uint16_t*)p1 count:(int32_t)p2;
+/* Skipped method : System.Int32 GetByteCount(System.Char* chars, System.Int32 count) */
 
 	/*! 
 		Managed method name : GetBytes
@@ -231,13 +212,7 @@
 		Managed param types : System.String, System.Int32, System.Int32, System.Byte[], System.Int32
 	 */
     - (int32_t)getBytes_withS:(NSString *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5;
-
-	/*! 
-		Managed method name : GetBytes
-		Managed return type : System.Int32
-		Managed param types : System.Char*, System.Int32, System.Byte*, System.Int32
-	 */
-    - (int32_t)getBytes_withChars:(uint16_t*)p1 charCount:(int32_t)p2 bytes:(uint8_t*)p3 byteCount:(int32_t)p4;
+/* Skipped method : System.Int32 GetBytes(System.Char* chars, System.Int32 charCount, System.Byte* bytes, System.Int32 byteCount) */
 
 	/*! 
 		Managed method name : GetCharCount
@@ -252,13 +227,7 @@
 		Managed param types : System.Byte[], System.Int32, System.Int32
 	 */
     - (int32_t)getCharCount_withBytes:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3;
-
-	/*! 
-		Managed method name : GetCharCount
-		Managed return type : System.Int32
-		Managed param types : System.Byte*, System.Int32
-	 */
-    - (int32_t)getCharCount_withBytes:(uint8_t*)p1 count:(int32_t)p2;
+/* Skipped method : System.Int32 GetCharCount(System.Byte* bytes, System.Int32 count) */
 
 	/*! 
 		Managed method name : GetChars
@@ -280,27 +249,9 @@
 		Managed param types : System.Byte[], System.Int32, System.Int32, System.Char[], System.Int32
 	 */
     - (int32_t)getChars_withBytes:(NSData *)p1 byteIndex:(int32_t)p2 byteCount:(int32_t)p3 chars:(System_Array *)p4 charIndex:(int32_t)p5;
-
-	/*! 
-		Managed method name : GetChars
-		Managed return type : System.Int32
-		Managed param types : System.Byte*, System.Int32, System.Char*, System.Int32
-	 */
-    - (int32_t)getChars_withBytes:(uint8_t*)p1 byteCount:(int32_t)p2 chars:(uint16_t*)p3 charCount:(int32_t)p4;
-
-	/*! 
-		Managed method name : GetDecoder
-		Managed return type : System.Text.Decoder
-		Managed param types : 
-	 */
-    - (System_Text_Decoder *)getDecoder;
-
-	/*! 
-		Managed method name : GetEncoder
-		Managed return type : System.Text.Encoder
-		Managed param types : 
-	 */
-    - (System_Text_Encoder *)getEncoder;
+/* Skipped method : System.Int32 GetChars(System.Byte* bytes, System.Int32 byteCount, System.Char* chars, System.Int32 charCount) */
+/* Skipped method : System.Text.Decoder GetDecoder() */
+/* Skipped method : System.Text.Encoder GetEncoder() */
 
 	/*! 
 		Managed method name : GetEncoding
@@ -308,13 +259,7 @@
 		Managed param types : System.Int32
 	 */
     + (System_Text_Encoding *)getEncoding_withCodepage:(int32_t)p1;
-
-	/*! 
-		Managed method name : GetEncoding
-		Managed return type : System.Text.Encoding
-		Managed param types : System.Int32, System.Text.EncoderFallback, System.Text.DecoderFallback
-	 */
-    + (System_Text_Encoding *)getEncoding_withCodepage:(int32_t)p1 encoderFallback:(System_Text_EncoderFallback *)p2 decoderFallback:(System_Text_DecoderFallback *)p3;
+/* Skipped method : System.Text.Encoding GetEncoding(System.Int32 codepage, System.Text.EncoderFallback encoderFallback, System.Text.DecoderFallback decoderFallback) */
 
 	/*! 
 		Managed method name : GetEncoding
@@ -322,20 +267,8 @@
 		Managed param types : System.String
 	 */
     + (System_Text_Encoding *)getEncoding_withName:(NSString *)p1;
-
-	/*! 
-		Managed method name : GetEncoding
-		Managed return type : System.Text.Encoding
-		Managed param types : System.String, System.Text.EncoderFallback, System.Text.DecoderFallback
-	 */
-    + (System_Text_Encoding *)getEncoding_withName:(NSString *)p1 encoderFallback:(System_Text_EncoderFallback *)p2 decoderFallback:(System_Text_DecoderFallback *)p3;
-
-	/*! 
-		Managed method name : GetEncodings
-		Managed return type : System.Text.EncodingInfo[]
-		Managed param types : 
-	 */
-    + (System_Array *)getEncodings;
+/* Skipped method : System.Text.Encoding GetEncoding(System.String name, System.Text.EncoderFallback encoderFallback, System.Text.DecoderFallback decoderFallback) */
+/* Skipped method : System.Text.EncodingInfo[] GetEncodings() */
 
 	/*! 
 		Managed method name : GetHashCode
@@ -364,13 +297,7 @@
 		Managed param types : 
 	 */
     - (NSData *)getPreamble;
-
-	/*! 
-		Managed method name : GetString
-		Managed return type : System.String
-		Managed param types : System.Byte*, System.Int32
-	 */
-    - (NSString *)getString_withBytes:(uint8_t*)p1 byteCount:(int32_t)p2;
+/* Skipped method : System.String GetString(System.Byte* bytes, System.Int32 byteCount) */
 
 	/*! 
 		Managed method name : GetString
@@ -392,19 +319,7 @@
 		Managed param types : 
 	 */
     - (BOOL)isAlwaysNormalized;
-
-	/*! 
-		Managed method name : IsAlwaysNormalized
-		Managed return type : System.Boolean
-		Managed param types : System.Text.NormalizationForm
-	 */
-    - (BOOL)isAlwaysNormalized_withForm:(int32_t)p1;
-
-	/*! 
-		Managed method name : RegisterProvider
-		Managed return type : System.Void
-		Managed param types : System.Text.EncodingProvider
-	 */
-    + (void)registerProvider_withProvider:(System_Text_EncodingProvider *)p1;
+/* Skipped method : System.Boolean IsAlwaysNormalized(System.Text.NormalizationForm form) */
+/* Skipped method : System.Void RegisterProvider(System.Text.EncodingProvider provider) */
 @end
 //--Dubrovnik.CodeGenerator

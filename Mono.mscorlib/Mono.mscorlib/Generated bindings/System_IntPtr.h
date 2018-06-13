@@ -25,7 +25,6 @@
 @class System_Object;
 @class System_Runtime_Serialization_ISerializable;
 @class System_String;
-@class System_Void;
 
 //
 // Import superclass and adopted protocols
@@ -58,13 +57,7 @@
 		Managed param types : System.Int64
 	 */
     + (System_IntPtr *)new_withValueLong:(int64_t)p1;
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.IntPtr
-		Managed param types : System.Void*
-	 */
-    + (System_IntPtr *)new_withValueVoidPtr:(void*)p1;
+/* Skipped constructor : System.IntPtr (System.Void* value) */
 
 #pragma mark -
 #pragma mark Fields
@@ -131,13 +124,8 @@
 		Managed param types : System.Int64
 	 */
     + (void *)op_Explicit_withValueLong:(int64_t)p1;
-
-	/*! 
-		Managed method name : op_Explicit
-		Managed return type : System.IntPtr
-		Managed param types : System.Void*
-	 */
-    + (void *)op_Explicit_withValueVoidPtr:(void*)p1;
+/* Skipped method : System.IntPtr op_Explicit(System.Void* value) */
+/* Skipped method : System.Void* op_Explicit(System.IntPtr value) */
 
 	/*! 
 		Managed method name : op_Inequality
@@ -173,13 +161,7 @@
 		Managed param types : 
 	 */
     - (int64_t)toInt64;
-
-	/*! 
-		Managed method name : ToPointer
-		Managed return type : System.Void*
-		Managed param types : 
-	 */
-    - (void *)toPointer;
+/* Skipped method : System.Void* ToPointer() */
 
 	/*! 
 		Managed method name : ToString

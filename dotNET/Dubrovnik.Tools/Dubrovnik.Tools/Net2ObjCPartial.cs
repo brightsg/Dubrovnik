@@ -120,7 +120,7 @@ namespace Dubrovnik.Tools
 		public List<string> ObjCForwardDeclarations(CodeFacet facet) {
 			List<string> imports = new List<string>();
 
-			if (!Config.GenerateTypeBinding(facet)) {
+			if (!Config.GenerateFacetBinding(facet)) {
 				return imports;
 			}
 
@@ -197,7 +197,7 @@ namespace Dubrovnik.Tools
 					// if this interface type is not required then just skip it.
 					// this means that some of the interface methods etc may be represented
 					// and others may not depending on the type exclusion settings
-					if (!Config.GenerateTypeBinding(cursor)) {
+					if (!Config.GenerateFacetBinding(cursor)) {
 						continue;
 					}
 
@@ -222,12 +222,18 @@ namespace Dubrovnik.Tools
 						continue;
 					}
 
-					if (!Config.GenerateTypeBinding(cursor)) {
-						continue;
+
+					// if we are not generating bindings for the given type then
+					// a header file won't be available
+					string importPrefix = "";
+					string importSuffix = "";
+					if (!Config.GenerateTypeBinding(baseType)) {
+						importPrefix = "//";
+						importSuffix = " // class base defaults to System.Object";
 					}
 
 					objCType = cursor.ObjCFacet.BaseType;
-					imports.Add($"#import \"{objCType}.h\"");
+					imports.Add($"{importPrefix}#import \"{objCType}.h\"{importSuffix}");
 				}
 			}
 
@@ -263,7 +269,7 @@ namespace Dubrovnik.Tools
 		// WriteEnumeration
 		//
 		public void WriteEnumeration(EnumerationFacet facet) {
-			if (!Config.GenerateTypeBinding(facet)) {
+			if (!Config.GenerateFacetBinding(facet)) {
 				return;
 			}
 
@@ -276,7 +282,7 @@ namespace Dubrovnik.Tools
 		// WriteClass
 		//
 		public void WriteClass(ClassFacet facet) {
-			if (!Config.GenerateTypeBinding(facet)) {
+			if (!Config.GenerateFacetBinding(facet)) {
 				return;
 			}
 
@@ -292,7 +298,7 @@ namespace Dubrovnik.Tools
 		// WriteStruct
 		//
 		public void WriteStruct(StructFacet facet) {
-			if (!Config.GenerateTypeBinding(facet)) {
+			if (!Config.GenerateFacetBinding(facet)) {
 				return;
 			}
 
@@ -308,7 +314,7 @@ namespace Dubrovnik.Tools
 		// WriteInterface
 		//
 		public void WriteInterface(InterfaceFacet facet) {
-			if (!Config.GenerateTypeBinding(facet)) {
+			if (!Config.GenerateFacetBinding(facet)) {
 				return;
 			}
 
@@ -337,7 +343,7 @@ namespace Dubrovnik.Tools
 		// WriteInterfaceClass
 		//
 		public void WriteInterfaceClass(InterfaceFacet facet) {
-			if (!Config.GenerateTypeBinding(facet)) {
+			if (!Config.GenerateFacetBinding(facet)) {
 				return;
 			}
 
@@ -367,7 +373,7 @@ namespace Dubrovnik.Tools
 				WritePragmaMark("Fields");
 
 				foreach (CodeFacet facet in fields) {
-					if (!Config.GenerateTypeBinding(facet)) {
+					if (!Config.GenerateFacetBinding(facet)) {
 						WriteSkippedItem("field", facet.Description());
 						continue;
 					}
@@ -385,7 +391,7 @@ namespace Dubrovnik.Tools
 				WritePragmaMark("Properties");
 
 				foreach (PropertyFacet facet in properties) {
-					if (!Config.GenerateTypeBinding(facet)) {
+					if (!Config.GenerateFacetBinding(facet)) {
 						WriteSkippedItem("property", facet.Description());
 						continue;
 					}
@@ -404,7 +410,7 @@ namespace Dubrovnik.Tools
 
 				foreach (MethodFacet facet in methods) {
 
-					if (!Config.GenerateTypeBinding(facet)) {
+					if (!Config.GenerateFacetBinding(facet)) {
 						WriteSkippedItem("method", facet.Description());
 						continue;
 					}
@@ -423,7 +429,7 @@ namespace Dubrovnik.Tools
 				WritePragmaMark("Constructors");
 
 				foreach (MethodFacet facet in methods) {
-					if (!Config.GenerateTypeBinding(facet)) {
+					if (!Config.GenerateFacetBinding(facet)) {
 						WriteSkippedItem("constructor", facet.Description());
 						continue;
 					}
@@ -813,7 +819,7 @@ namespace Dubrovnik.Tools
                     IList<ImplementedInterfaceFacet> implementedInterfaces = interfaceFacet.ImplementedInterfaces;
 
 					// heed required type binding
-					implementedInterfaces = implementedInterfaces.Where(f => Config.GenerateTypeBinding(f)).ToList();
+					implementedInterfaces = implementedInterfaces.Where(f => Config.GenerateFacetBinding(f)).ToList();
 
 					if (implementedInterfaces.Count > 0)
                     {

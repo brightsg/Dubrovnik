@@ -371,19 +371,7 @@
 		
 		return DB_UNBOX_INT32(monoObject);
     }
-
-	/*! 
-		Managed method name : GetTypeCode
-		Managed return type : System.TypeCode
-		Managed param types : 
-	 */
-    - (int32_t)getTypeCode
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetTypeCode()" withNumArgs:0];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+/* Skipped method : System.TypeCode GetTypeCode() */
 
 	/*! 
 		Managed method name : Multiply
@@ -762,19 +750,7 @@
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
 /* Skipped method : System.Decimal Parse(System.String s, System.Globalization.NumberStyles style) */
-
-	/*! 
-		Managed method name : Parse
-		Managed return type : System.Decimal
-		Managed param types : System.String, System.IFormatProvider
-	 */
-    + (NSDecimalNumber *)parse_withS:(NSString *)p1 provider:(id <System_IFormatProvider_>)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
-    }
+/* Skipped method : System.Decimal Parse(System.String s, System.IFormatProvider provider) */
 /* Skipped method : System.Decimal Parse(System.String s, System.Globalization.NumberStyles style, System.IFormatProvider provider) */
 
 	/*! 
@@ -815,32 +791,8 @@
 		
 		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
     }
-
-	/*! 
-		Managed method name : Round
-		Managed return type : System.Decimal
-		Managed param types : System.Decimal, System.MidpointRounding
-	 */
-    + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1 mode:(int32_t)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(System.Decimal,System.MidpointRounding)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-		
-		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
-    }
-
-	/*! 
-		Managed method name : Round
-		Managed return type : System.Decimal
-		Managed param types : System.Decimal, System.Int32, System.MidpointRounding
-	 */
-    + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1 decimals:(int32_t)p2 mode:(int32_t)p3
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Round(System.Decimal,int,System.MidpointRounding)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
-		
-		return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
-    }
+/* Skipped method : System.Decimal Round(System.Decimal d, System.MidpointRounding mode) */
+/* Skipped method : System.Decimal Round(System.Decimal d, System.Int32 decimals, System.MidpointRounding mode) */
 
 	/*! 
 		Managed method name : Subtract
@@ -984,32 +936,8 @@
 		
 		return [NSString stringWithMonoString:DB_STRING(monoObject)];
     }
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.IFormatProvider
-	 */
-    - (NSString *)toString_withProvider:(id <System_IFormatProvider_>)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToString(System.IFormatProvider)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.String, System.IFormatProvider
-	 */
-    - (NSString *)toString_withFormat:(NSString *)p1 provider:(id <System_IFormatProvider_>)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToString(string,System.IFormatProvider)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
+/* Skipped method : System.String ToString(System.IFormatProvider provider) */
+/* Skipped method : System.String ToString(System.String format, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToUInt16

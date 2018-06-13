@@ -119,43 +119,7 @@
 
 		return _codePage;
 	}
-
-	// Managed property name : DecoderFallback
-	// Managed property type : System.Text.DecoderFallback
-    @synthesize decoderFallback = _decoderFallback;
-    - (System_Text_DecoderFallback *)decoderFallback
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DecoderFallback");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_decoderFallback isEqualToMonoObject:monoObject]) return _decoderFallback;					
-		_decoderFallback = [System_Text_DecoderFallback bestObjectWithMonoObject:monoObject];
-
-		return _decoderFallback;
-	}
-    - (void)setDecoderFallback:(System_Text_DecoderFallback *)value
-	{
-		_decoderFallback = value;
-		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "DecoderFallback");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject *monoException = NULL;
-		thunk(self.monoObject, [value monoObject], &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-	}
+/* Skipped property : System.Text.DecoderFallback DecoderFallback */
 
 	// Managed property name : Default
 	// Managed property type : System.Text.Encoding
@@ -178,43 +142,7 @@
 
 		return m_default;
 	}
-
-	// Managed property name : EncoderFallback
-	// Managed property type : System.Text.EncoderFallback
-    @synthesize encoderFallback = _encoderFallback;
-    - (System_Text_EncoderFallback *)encoderFallback
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EncoderFallback");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_encoderFallback isEqualToMonoObject:monoObject]) return _encoderFallback;					
-		_encoderFallback = [System_Text_EncoderFallback bestObjectWithMonoObject:monoObject];
-
-		return _encoderFallback;
-	}
-    - (void)setEncoderFallback:(System_Text_EncoderFallback *)value
-	{
-		_encoderFallback = value;
-		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "EncoderFallback");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject *monoException = NULL;
-		thunk(self.monoObject, [value monoObject], &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-	}
+/* Skipped property : System.Text.EncoderFallback EncoderFallback */
 
 	// Managed property name : EncodingName
 	// Managed property type : System.String
@@ -610,19 +538,7 @@
 		
 		return DB_UNBOX_INT32(monoObject);
     }
-
-	/*! 
-		Managed method name : GetByteCount
-		Managed return type : System.Int32
-		Managed param types : System.Char*, System.Int32
-	 */
-    - (int32_t)getByteCount_withChars:(uint16_t*)p1 count:(int32_t)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetByteCount(char*,int)" withNumArgs:2, p1, DB_VALUE(p2)];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+/* Skipped method : System.Int32 GetByteCount(System.Char* chars, System.Int32 count) */
 
 	/*! 
 		Managed method name : GetBytes
@@ -688,19 +604,7 @@
 		
 		return DB_UNBOX_INT32(monoObject);
     }
-
-	/*! 
-		Managed method name : GetBytes
-		Managed return type : System.Int32
-		Managed param types : System.Char*, System.Int32, System.Byte*, System.Int32
-	 */
-    - (int32_t)getBytes_withChars:(uint16_t*)p1 charCount:(int32_t)p2 bytes:(uint8_t*)p3 byteCount:(int32_t)p4
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(char*,int,byte*,int)" withNumArgs:4, p1, DB_VALUE(p2), p3, DB_VALUE(p4)];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+/* Skipped method : System.Int32 GetBytes(System.Char* chars, System.Int32 charCount, System.Byte* bytes, System.Int32 byteCount) */
 
 	/*! 
 		Managed method name : GetCharCount
@@ -727,19 +631,7 @@
 		
 		return DB_UNBOX_INT32(monoObject);
     }
-
-	/*! 
-		Managed method name : GetCharCount
-		Managed return type : System.Int32
-		Managed param types : System.Byte*, System.Int32
-	 */
-    - (int32_t)getCharCount_withBytes:(uint8_t*)p1 count:(int32_t)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCharCount(byte*,int)" withNumArgs:2, p1, DB_VALUE(p2)];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+/* Skipped method : System.Int32 GetCharCount(System.Byte* bytes, System.Int32 count) */
 
 	/*! 
 		Managed method name : GetChars
@@ -779,45 +671,9 @@
 		
 		return DB_UNBOX_INT32(monoObject);
     }
-
-	/*! 
-		Managed method name : GetChars
-		Managed return type : System.Int32
-		Managed param types : System.Byte*, System.Int32, System.Char*, System.Int32
-	 */
-    - (int32_t)getChars_withBytes:(uint8_t*)p1 byteCount:(int32_t)p2 chars:(uint16_t*)p3 charCount:(int32_t)p4
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetChars(byte*,int,char*,int)" withNumArgs:4, p1, DB_VALUE(p2), p3, DB_VALUE(p4)];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
-
-	/*! 
-		Managed method name : GetDecoder
-		Managed return type : System.Text.Decoder
-		Managed param types : 
-	 */
-    - (System_Text_Decoder *)getDecoder
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetDecoder()" withNumArgs:0];
-		
-		return [System_Text_Decoder bestObjectWithMonoObject:monoObject];
-    }
-
-	/*! 
-		Managed method name : GetEncoder
-		Managed return type : System.Text.Encoder
-		Managed param types : 
-	 */
-    - (System_Text_Encoder *)getEncoder
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetEncoder()" withNumArgs:0];
-		
-		return [System_Text_Encoder bestObjectWithMonoObject:monoObject];
-    }
+/* Skipped method : System.Int32 GetChars(System.Byte* bytes, System.Int32 byteCount, System.Char* chars, System.Int32 charCount) */
+/* Skipped method : System.Text.Decoder GetDecoder() */
+/* Skipped method : System.Text.Encoder GetEncoder() */
 
 	/*! 
 		Managed method name : GetEncoding
@@ -831,19 +687,7 @@
 		
 		return [System_Text_Encoding bestObjectWithMonoObject:monoObject];
     }
-
-	/*! 
-		Managed method name : GetEncoding
-		Managed return type : System.Text.Encoding
-		Managed param types : System.Int32, System.Text.EncoderFallback, System.Text.DecoderFallback
-	 */
-    + (System_Text_Encoding *)getEncoding_withCodepage:(int32_t)p1 encoderFallback:(System_Text_EncoderFallback *)p2 decoderFallback:(System_Text_DecoderFallback *)p3
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEncoding(int,System.Text.EncoderFallback,System.Text.DecoderFallback)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
-		
-		return [System_Text_Encoding bestObjectWithMonoObject:monoObject];
-    }
+/* Skipped method : System.Text.Encoding GetEncoding(System.Int32 codepage, System.Text.EncoderFallback encoderFallback, System.Text.DecoderFallback decoderFallback) */
 
 	/*! 
 		Managed method name : GetEncoding
@@ -857,32 +701,8 @@
 		
 		return [System_Text_Encoding bestObjectWithMonoObject:monoObject];
     }
-
-	/*! 
-		Managed method name : GetEncoding
-		Managed return type : System.Text.Encoding
-		Managed param types : System.String, System.Text.EncoderFallback, System.Text.DecoderFallback
-	 */
-    + (System_Text_Encoding *)getEncoding_withName:(NSString *)p1 encoderFallback:(System_Text_EncoderFallback *)p2 decoderFallback:(System_Text_DecoderFallback *)p3
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEncoding(string,System.Text.EncoderFallback,System.Text.DecoderFallback)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
-		
-		return [System_Text_Encoding bestObjectWithMonoObject:monoObject];
-    }
-
-	/*! 
-		Managed method name : GetEncodings
-		Managed return type : System.Text.EncodingInfo[]
-		Managed param types : 
-	 */
-    + (System_Array *)getEncodings
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEncodings()" withNumArgs:0];
-		
-		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
-    }
+/* Skipped method : System.Text.Encoding GetEncoding(System.String name, System.Text.EncoderFallback encoderFallback, System.Text.DecoderFallback decoderFallback) */
+/* Skipped method : System.Text.EncodingInfo[] GetEncodings() */
 
 	/*! 
 		Managed method name : GetHashCode
@@ -935,19 +755,7 @@
 		
 		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
     }
-
-	/*! 
-		Managed method name : GetString
-		Managed return type : System.String
-		Managed param types : System.Byte*, System.Int32
-	 */
-    - (NSString *)getString_withBytes:(uint8_t*)p1 byteCount:(int32_t)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetString(byte*,int)" withNumArgs:2, p1, DB_VALUE(p2)];
-		
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
+/* Skipped method : System.String GetString(System.Byte* bytes, System.Int32 byteCount) */
 
 	/*! 
 		Managed method name : GetString
@@ -987,31 +795,8 @@
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
-
-	/*! 
-		Managed method name : IsAlwaysNormalized
-		Managed return type : System.Boolean
-		Managed param types : System.Text.NormalizationForm
-	 */
-    - (BOOL)isAlwaysNormalized_withForm:(int32_t)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsAlwaysNormalized(System.Text.NormalizationForm)" withNumArgs:1, DB_VALUE(p1)];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
-
-	/*! 
-		Managed method name : RegisterProvider
-		Managed return type : System.Void
-		Managed param types : System.Text.EncodingProvider
-	 */
-    + (void)registerProvider_withProvider:(System_Text_EncodingProvider *)p1
-    {
-		
-		[self invokeMonoClassMethod:"RegisterProvider(System.Text.EncodingProvider)" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-    }
+/* Skipped method : System.Boolean IsAlwaysNormalized(System.Text.NormalizationForm form) */
+/* Skipped method : System.Void RegisterProvider(System.Text.EncodingProvider provider) */
 
 #pragma mark -
 #pragma mark Teardown

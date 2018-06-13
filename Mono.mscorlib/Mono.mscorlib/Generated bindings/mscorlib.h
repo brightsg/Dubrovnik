@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     12/03/2018 10:59:07
+// Date:     13/06/2018 11:36:51
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -56,62 +56,62 @@
 /* Skipped type : Microsoft.Win32.SafeHandles.SafeHandleZeroOrMinusOneIsInvalid SafeHandleZeroOrMinusOneIsInvalid */
 /* Skipped type : Microsoft.Win32.SafeHandles.SafeRegistryHandle SafeRegistryHandle */
 /* Skipped type : Microsoft.Win32.SafeHandles.SafeWaitHandle SafeWaitHandle */
-#define S_AppDomain_ System__AppDomain
-#define SAccessViolationException_ System_AccessViolationException
+/* Skipped type : System._AppDomain _AppDomain */
+/* Skipped type : System.AccessViolationException AccessViolationException */
 #define SAction_ System_Action
 #define SActionA1_ System_ActionA1
 #define SActionA2_ System_ActionA2
-#define SActionA3_ System_ActionA3
-#define SActionA4_ System_ActionA4
-#define SActionA5_ System_ActionA5
-#define SActionA6_ System_ActionA6
-#define SActionA7_ System_ActionA7
-#define SActionA8_ System_ActionA8
-#define SActivationContext_ System_ActivationContext
-#define SActivationContext_ContextForm_ System_ActivationContext__ContextForm
+/* Skipped type : System.Action`3<System.Action`3+T1,System.Action`3+T2,System.Action`3+T3> Action`3<T1,T2,T3> */
+/* Skipped type : System.Action`4<System.Action`4+T1,System.Action`4+T2,System.Action`4+T3,System.Action`4+T4> Action`4<T1,T2,T3,T4> */
+/* Skipped type : System.Action`5 Action`5 */
+/* Skipped type : System.Action`6 Action`6 */
+/* Skipped type : System.Action`7 Action`7 */
+/* Skipped type : System.Action`8 Action`8 */
+/* Skipped type : System.ActivationContext ActivationContext */
+/* Skipped type : System.ActivationContext+ContextForm ActivationContext.ContextForm */
 #define SActivator_ System_Activator
-#define SAggregateException_ System_AggregateException
-#define SAppContext_ System_AppContext
+/* Skipped type : System.AggregateException AggregateException */
+/* Skipped type : System.AppContext AppContext */
 #define SAppDomain_ System_AppDomain
-#define SAppDomainInitializer_ System_AppDomainInitializer
-#define SAppDomainManager_ System_AppDomainManager
-#define SAppDomainManagerInitializationOptions_ System_AppDomainManagerInitializationOptions
-#define SAppDomainSetup_ System_AppDomainSetup
-#define SAppDomainUnloadedException_ System_AppDomainUnloadedException
-#define SApplicationException_ System_ApplicationException
-#define SApplicationId_ System_ApplicationId
-#define SApplicationIdentity_ System_ApplicationIdentity
-#define SArgIterator_ System_ArgIterator
-#define SArgumentException_ System_ArgumentException
-#define SArgumentNullException_ System_ArgumentNullException
-#define SArgumentOutOfRangeException_ System_ArgumentOutOfRangeException
-#define SArithmeticException_ System_ArithmeticException
+/* Skipped type : System.AppDomainInitializer AppDomainInitializer */
+/* Skipped type : System.AppDomainManager AppDomainManager */
+/* Skipped type : System.AppDomainManagerInitializationOptions AppDomainManagerInitializationOptions */
+/* Skipped type : System.AppDomainSetup AppDomainSetup */
+/* Skipped type : System.AppDomainUnloadedException AppDomainUnloadedException */
+/* Skipped type : System.ApplicationException ApplicationException */
+/* Skipped type : System.ApplicationId ApplicationId */
+/* Skipped type : System.ApplicationIdentity ApplicationIdentity */
+/* Skipped type : System.ArgIterator ArgIterator */
+/* Skipped type : System.ArgumentException ArgumentException */
+/* Skipped type : System.ArgumentNullException ArgumentNullException */
+/* Skipped type : System.ArgumentOutOfRangeException ArgumentOutOfRangeException */
+/* Skipped type : System.ArithmeticException ArithmeticException */
 #define SArray_ System_Array
-#define SArraySegmentA1_ System_ArraySegmentA1
-#define SArrayTypeMismatchException_ System_ArrayTypeMismatchException
-#define SAssemblyLoadEventArgs_ System_AssemblyLoadEventArgs
-#define SAssemblyLoadEventHandler_ System_AssemblyLoadEventHandler
+/* Skipped type : System.ArraySegment`1<System.ArraySegment`1+T> ArraySegment`1<T> */
+/* Skipped type : System.ArrayTypeMismatchException ArrayTypeMismatchException */
+/* Skipped type : System.AssemblyLoadEventArgs AssemblyLoadEventArgs */
+/* Skipped type : System.AssemblyLoadEventHandler AssemblyLoadEventHandler */
 #define SAsyncCallback_ System_AsyncCallback
 #define SAttribute_ System_Attribute
-#define SAttributeTargets_ System_AttributeTargets
-#define SAttributeUsageAttribute_ System_AttributeUsageAttribute
-#define SBadImageFormatException_ System_BadImageFormatException
-#define SBase64FormattingOptions_ System_Base64FormattingOptions
-#define SBitConverter_ System_BitConverter
+/* Skipped type : System.AttributeTargets AttributeTargets */
+/* Skipped type : System.AttributeUsageAttribute AttributeUsageAttribute */
+/* Skipped type : System.BadImageFormatException BadImageFormatException */
+/* Skipped type : System.Base64FormattingOptions Base64FormattingOptions */
+/* Skipped type : System.BitConverter BitConverter */
 #define SBoolean_ System_Boolean
-#define SBuffer_ System_Buffer
+/* Skipped type : System.Buffer Buffer */
 #define SByte_ System_Byte
-#define SCannotUnloadAppDomainException_ System_CannotUnloadAppDomainException
+/* Skipped type : System.CannotUnloadAppDomainException CannotUnloadAppDomainException */
 #define SChar_ System_Char
-#define SCharEnumerator_ System_CharEnumerator
-#define SCLSCompliantAttribute_ System_CLSCompliantAttribute
+/* Skipped type : System.CharEnumerator CharEnumerator */
+/* Skipped type : System.CLSCompliantAttribute CLSCompliantAttribute */
 #define SCArrayList_ System_Collections_ArrayList
-#define SCBitArray_ System_Collections_BitArray
-#define SCCaseInsensitiveComparer_ System_Collections_CaseInsensitiveComparer
-#define SCCaseInsensitiveHashCodeProvider_ System_Collections_CaseInsensitiveHashCodeProvider
-#define SCCollectionBase_ System_Collections_CollectionBase
-#define SCComparer_ System_Collections_Comparer
-/* Skipped type : System.Collections.Concurrent.ConcurrentDictionary`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue> ConcurrentDictionary`2<TKey, TValue> */
+/* Skipped type : System.Collections.BitArray BitArray */
+/* Skipped type : System.Collections.CaseInsensitiveComparer CaseInsensitiveComparer */
+/* Skipped type : System.Collections.CaseInsensitiveHashCodeProvider CaseInsensitiveHashCodeProvider */
+/* Skipped type : System.Collections.CollectionBase CollectionBase */
+/* Skipped type : System.Collections.Comparer Comparer */
+/* Skipped type : System.Collections.Concurrent.ConcurrentDictionary`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey,System.Collections.Concurrent.ConcurrentDictionary`2+TValue> ConcurrentDictionary`2<TKey,TValue> */
 /* Skipped type : System.Collections.Concurrent.ConcurrentQueue`1<System.Collections.Concurrent.ConcurrentQueue`1+T> ConcurrentQueue`1<T> */
 /* Skipped type : System.Collections.Concurrent.ConcurrentStack`1<System.Collections.Concurrent.ConcurrentStack`1+T> ConcurrentStack`1<T> */
 /* Skipped type : System.Collections.Concurrent.EnumerablePartitionerOptions EnumerablePartitionerOptions */
@@ -119,75 +119,75 @@
 /* Skipped type : System.Collections.Concurrent.OrderablePartitioner`1<System.Collections.Concurrent.OrderablePartitioner`1+TSource> OrderablePartitioner`1<TSource> */
 /* Skipped type : System.Collections.Concurrent.Partitioner Partitioner */
 /* Skipped type : System.Collections.Concurrent.Partitioner`1<System.Collections.Concurrent.Partitioner`1+TSource> Partitioner`1<TSource> */
-#define SCDictionaryBase_ System_Collections_DictionaryBase
-#define SCDictionaryEntry_ System_Collections_DictionaryEntry
-#define SCGComparerA1_ System_Collections_Generic_ComparerA1
+/* Skipped type : System.Collections.DictionaryBase DictionaryBase */
+/* Skipped type : System.Collections.DictionaryEntry DictionaryEntry */
+/* Skipped type : System.Collections.Generic.Comparer`1<System.Collections.Generic.Comparer`1+T> Comparer`1<T> */
 #define SCGDictionaryA2_Enumerator_ System_Collections_Generic_DictionaryA2__Enumerator
 #define SCGDictionaryA2_KeyCollection_Enumerator_ System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator
 #define SCGDictionaryA2_KeyCollection_ System_Collections_Generic_DictionaryA2__KeyCollection
 #define SCGDictionaryA2_ System_Collections_Generic_DictionaryA2
 #define SCGDictionaryA2_ValueCollection_Enumerator_ System_Collections_Generic_DictionaryA2__ValueCollection__Enumerator
 #define SCGDictionaryA2_ValueCollection_ System_Collections_Generic_DictionaryA2__ValueCollection
-#define SCGEqualityComparerA1_ System_Collections_Generic_EqualityComparerA1
+/* Skipped type : System.Collections.Generic.EqualityComparer`1<System.Collections.Generic.EqualityComparer`1+T> EqualityComparer`1<T> */
 #define SCGICollectionA1_ System_Collections_Generic_ICollectionA1
 #define SCGIComparerA1_ System_Collections_Generic_IComparerA1
 #define SCGIDictionaryA2_ System_Collections_Generic_IDictionaryA2
 #define SCGIEnumerableA1_ System_Collections_Generic_IEnumerableA1
 #define SCGIEnumeratorA1_ System_Collections_Generic_IEnumeratorA1
-#define SCGIEqualityComparerA1_ System_Collections_Generic_IEqualityComparerA1
-#define SCGIListA1_ System_Collections_Generic_IListA1
-#define SCGIReadOnlyCollectionA1_ System_Collections_Generic_IReadOnlyCollectionA1
-#define SCGIReadOnlyDictionaryA2_ System_Collections_Generic_IReadOnlyDictionaryA2
-#define SCGIReadOnlyListA1_ System_Collections_Generic_IReadOnlyListA1
-#define SCGKeyNotFoundException_ System_Collections_Generic_KeyNotFoundException
+/* Skipped type : System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.IEqualityComparer`1+T> IEqualityComparer`1<T> */
+/* Skipped type : System.Collections.Generic.IList`1<System.Collections.Generic.IList`1+T> IList`1<T> */
+/* Skipped type : System.Collections.Generic.IReadOnlyCollection`1<System.Collections.Generic.IReadOnlyCollection`1+T> IReadOnlyCollection`1<T> */
+/* Skipped type : System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey,System.Collections.Generic.IReadOnlyDictionary`2+TValue> IReadOnlyDictionary`2<TKey,TValue> */
+/* Skipped type : System.Collections.Generic.IReadOnlyList`1<System.Collections.Generic.IReadOnlyList`1+T> IReadOnlyList`1<T> */
+/* Skipped type : System.Collections.Generic.KeyNotFoundException KeyNotFoundException */
 #define SCGKeyValuePairA2_ System_Collections_Generic_KeyValuePairA2
 #define SCGListA1_Enumerator_ System_Collections_Generic_ListA1__Enumerator
 #define SCGListA1_ System_Collections_Generic_ListA1
-#define SCHashtable_ System_Collections_Hashtable
-#define SCICollection_ System_Collections_ICollection
-#define SCIComparer_ System_Collections_IComparer
-#define SCIDictionary_ System_Collections_IDictionary
-#define SCIDictionaryEnumerator_ System_Collections_IDictionaryEnumerator
+/* Skipped type : System.Collections.Hashtable Hashtable */
+/* Skipped type : System.Collections.ICollection ICollection */
+/* Skipped type : System.Collections.IComparer IComparer */
+/* Skipped type : System.Collections.IDictionary IDictionary */
+/* Skipped type : System.Collections.IDictionaryEnumerator IDictionaryEnumerator */
 #define SCIEnumerable_ System_Collections_IEnumerable
 #define SCIEnumerator_ System_Collections_IEnumerator
-#define SCIEqualityComparer_ System_Collections_IEqualityComparer
-#define SCIHashCodeProvider_ System_Collections_IHashCodeProvider
+/* Skipped type : System.Collections.IEqualityComparer IEqualityComparer */
+/* Skipped type : System.Collections.IHashCodeProvider IHashCodeProvider */
 #define SCIList_ System_Collections_IList
-#define SCIStructuralComparable_ System_Collections_IStructuralComparable
-#define SCIStructuralEquatable_ System_Collections_IStructuralEquatable
-#define SCOCollectionA1_ System_Collections_ObjectModel_CollectionA1
-#define SCOKeyedCollectionA2_ System_Collections_ObjectModel_KeyedCollectionA2
-#define SCOReadOnlyCollectionA1_ System_Collections_ObjectModel_ReadOnlyCollectionA1
-#define SCOReadOnlyDictionaryA2_KeyCollection_ System_Collections_ObjectModel_ReadOnlyDictionaryA2__KeyCollection
-#define SCOReadOnlyDictionaryA2_ System_Collections_ObjectModel_ReadOnlyDictionaryA2
-#define SCOReadOnlyDictionaryA2_ValueCollection_ System_Collections_ObjectModel_ReadOnlyDictionaryA2__ValueCollection
-#define SCQueue_ System_Collections_Queue
-#define SCReadOnlyCollectionBase_ System_Collections_ReadOnlyCollectionBase
-#define SCSortedList_ System_Collections_SortedList
-#define SCStack_ System_Collections_Stack
-#define SCStructuralComparisons_ System_Collections_StructuralComparisons
-#define SComparisonA1_ System_ComparisonA1
+/* Skipped type : System.Collections.IStructuralComparable IStructuralComparable */
+/* Skipped type : System.Collections.IStructuralEquatable IStructuralEquatable */
+/* Skipped type : System.Collections.ObjectModel.Collection`1<System.Collections.ObjectModel.Collection`1+T> Collection`1<T> */
+/* Skipped type : System.Collections.ObjectModel.KeyedCollection`2<System.Collections.ObjectModel.KeyedCollection`2+TKey,System.Collections.ObjectModel.KeyedCollection`2+TItem> KeyedCollection`2<TKey,TItem> */
+/* Skipped type : System.Collections.ObjectModel.ReadOnlyCollection`1<System.Collections.ObjectModel.ReadOnlyCollection`1+T> ReadOnlyCollection`1<T> */
+/* Skipped type : System.Collections.ObjectModel.ReadOnlyDictionary`2<System.Collections.ObjectModel.ReadOnlyDictionary`2+KeyCollection+TKey,System.Collections.ObjectModel.ReadOnlyDictionary`2+KeyCollection+TValue>+KeyCollection ReadOnlyDictionary`2<TKey,TValue>.KeyCollection */
+/* Skipped type : System.Collections.ObjectModel.ReadOnlyDictionary`2<System.Collections.ObjectModel.ReadOnlyDictionary`2+TKey,System.Collections.ObjectModel.ReadOnlyDictionary`2+TValue> ReadOnlyDictionary`2<TKey,TValue> */
+/* Skipped type : System.Collections.ObjectModel.ReadOnlyDictionary`2<System.Collections.ObjectModel.ReadOnlyDictionary`2+ValueCollection+TKey,System.Collections.ObjectModel.ReadOnlyDictionary`2+ValueCollection+TValue>+ValueCollection ReadOnlyDictionary`2<TKey,TValue>.ValueCollection */
+/* Skipped type : System.Collections.Queue Queue */
+/* Skipped type : System.Collections.ReadOnlyCollectionBase ReadOnlyCollectionBase */
+/* Skipped type : System.Collections.SortedList SortedList */
+/* Skipped type : System.Collections.Stack Stack */
+/* Skipped type : System.Collections.StructuralComparisons StructuralComparisons */
+/* Skipped type : System.Comparison`1<System.Comparison`1+T> Comparison`1<T> */
 /* Skipped type : System.Configuration.Assemblies.AssemblyHash AssemblyHash */
 /* Skipped type : System.Configuration.Assemblies.AssemblyHashAlgorithm AssemblyHashAlgorithm */
 /* Skipped type : System.Configuration.Assemblies.AssemblyVersionCompatibility AssemblyVersionCompatibility */
-#define SConsole_ System_Console
-#define SConsoleCancelEventArgs_ System_ConsoleCancelEventArgs
-#define SConsoleCancelEventHandler_ System_ConsoleCancelEventHandler
-#define SConsoleColor_ System_ConsoleColor
-#define SConsoleKey_ System_ConsoleKey
-#define SConsoleKeyInfo_ System_ConsoleKeyInfo
-#define SConsoleModifiers_ System_ConsoleModifiers
-#define SConsoleSpecialKey_ System_ConsoleSpecialKey
-#define SContextBoundObject_ System_ContextBoundObject
-#define SContextMarshalException_ System_ContextMarshalException
-#define SContextStaticAttribute_ System_ContextStaticAttribute
+/* Skipped type : System.Console Console */
+/* Skipped type : System.ConsoleCancelEventArgs ConsoleCancelEventArgs */
+/* Skipped type : System.ConsoleCancelEventHandler ConsoleCancelEventHandler */
+/* Skipped type : System.ConsoleColor ConsoleColor */
+/* Skipped type : System.ConsoleKey ConsoleKey */
+/* Skipped type : System.ConsoleKeyInfo ConsoleKeyInfo */
+/* Skipped type : System.ConsoleModifiers ConsoleModifiers */
+/* Skipped type : System.ConsoleSpecialKey ConsoleSpecialKey */
+/* Skipped type : System.ContextBoundObject ContextBoundObject */
+/* Skipped type : System.ContextMarshalException ContextMarshalException */
+/* Skipped type : System.ContextStaticAttribute ContextStaticAttribute */
 #define SConvert_ System_Convert
-#define SConverterA2_ System_ConverterA2
-#define SCrossAppDomainDelegate_ System_CrossAppDomainDelegate
-#define SDataMisalignedException_ System_DataMisalignedException
+/* Skipped type : System.Converter`2<System.Converter`2+TInput,System.Converter`2+TOutput> Converter`2<TInput,TOutput> */
+/* Skipped type : System.CrossAppDomainDelegate CrossAppDomainDelegate */
+/* Skipped type : System.DataMisalignedException DataMisalignedException */
 #define SDateTime_ System_DateTime
 #define SDateTimeKind_ System_DateTimeKind
-#define SDateTimeOffset_ System_DateTimeOffset
+/* Skipped type : System.DateTimeOffset DateTimeOffset */
 #define SDayOfWeek_ System_DayOfWeek
 #define SDBNull_ System_DBNull
 #define SDecimal_ System_Decimal
@@ -265,37 +265,37 @@
 /* Skipped type : System.Diagnostics.Tracing.EventTask EventTask */
 /* Skipped type : System.Diagnostics.Tracing.EventWrittenEventArgs EventWrittenEventArgs */
 /* Skipped type : System.Diagnostics.Tracing.NonEventAttribute NonEventAttribute */
-#define SDivideByZeroException_ System_DivideByZeroException
-#define SDllNotFoundException_ System_DllNotFoundException
+/* Skipped type : System.DivideByZeroException DivideByZeroException */
+/* Skipped type : System.DllNotFoundException DllNotFoundException */
 #define SDouble_ System_Double
-#define SDuplicateWaitObjectException_ System_DuplicateWaitObjectException
-#define SEntryPointNotFoundException_ System_EntryPointNotFoundException
+/* Skipped type : System.DuplicateWaitObjectException DuplicateWaitObjectException */
+/* Skipped type : System.EntryPointNotFoundException EntryPointNotFoundException */
 #define SEnum_ System_Enum
-#define SEnvironment_ System_Environment
-#define SEnvironment_SpecialFolder_ System_Environment__SpecialFolder
-#define SEnvironment_SpecialFolderOption_ System_Environment__SpecialFolderOption
-#define SEnvironmentVariableTarget_ System_EnvironmentVariableTarget
+/* Skipped type : System.Environment Environment */
+/* Skipped type : System.Environment+SpecialFolder Environment.SpecialFolder */
+/* Skipped type : System.Environment+SpecialFolderOption Environment.SpecialFolderOption */
+/* Skipped type : System.EnvironmentVariableTarget EnvironmentVariableTarget */
 #define SEventArgs_ System_EventArgs
-#define SEventHandler_ System_EventHandler
-#define SEventHandlerA1_ System_EventHandlerA1
+/* Skipped type : System.EventHandler EventHandler */
+/* Skipped type : System.EventHandler`1<System.EventHandler`1+TEventArgs> EventHandler`1<TEventArgs> */
 #define SException_ System_Exception
-#define SExecutionEngineException_ System_ExecutionEngineException
-#define SFieldAccessException_ System_FieldAccessException
-#define SFlagsAttribute_ System_FlagsAttribute
-#define SFormatException_ System_FormatException
-#define SFormattableString_ System_FormattableString
+/* Skipped type : System.ExecutionEngineException ExecutionEngineException */
+/* Skipped type : System.FieldAccessException FieldAccessException */
+/* Skipped type : System.FlagsAttribute FlagsAttribute */
+/* Skipped type : System.FormatException FormatException */
+/* Skipped type : System.FormattableString FormattableString */
 #define SFuncA1_ System_FuncA1
 #define SFuncA2_ System_FuncA2
 #define SFuncA3_ System_FuncA3
-#define SFuncA4_ System_FuncA4
-#define SFuncA5_ System_FuncA5
-#define SFuncA6_ System_FuncA6
-#define SFuncA7_ System_FuncA7
-#define SFuncA8_ System_FuncA8
-#define SFuncA9_ System_FuncA9
-#define SGC_ System_GC
-#define SGCCollectionMode_ System_GCCollectionMode
-#define SGCNotificationStatus_ System_GCNotificationStatus
+/* Skipped type : System.Func`4<System.Func`4+T1,System.Func`4+T2,System.Func`4+T3,System.Func`4+TResult> Func`4<T1,T2,T3,TResult> */
+/* Skipped type : System.Func`5 Func`5 */
+/* Skipped type : System.Func`6 Func`6 */
+/* Skipped type : System.Func`7 Func`7 */
+/* Skipped type : System.Func`8 Func`8 */
+/* Skipped type : System.Func`9 Func`9 */
+/* Skipped type : System.GC GC */
+/* Skipped type : System.GCCollectionMode GCCollectionMode */
+/* Skipped type : System.GCNotificationStatus GCNotificationStatus */
 /* Skipped type : System.Globalization.Calendar Calendar */
 /* Skipped type : System.Globalization.CalendarAlgorithmType CalendarAlgorithmType */
 /* Skipped type : System.Globalization.CalendarWeekRule CalendarWeekRule */
@@ -338,50 +338,50 @@
 /* Skipped type : System.Globalization.UmAlQuraCalendar UmAlQuraCalendar */
 /* Skipped type : System.Globalization.UnicodeCategory UnicodeCategory */
 #define SGuid_ System_Guid
-#define SIAppDomainSetup_ System_IAppDomainSetup
+/* Skipped type : System.IAppDomainSetup IAppDomainSetup */
 #define SIAsyncResult_ System_IAsyncResult
 #define SICloneable_ System_ICloneable
-#define SIComparable_ System_IComparable
-#define SIComparableA1_ System_IComparableA1
-#define SIConvertible_ System_IConvertible
-#define SICustomFormatter_ System_ICustomFormatter
+/* Skipped type : System.IComparable IComparable */
+/* Skipped type : System.IComparable`1<System.IComparable`1+T> IComparable`1<T> */
+/* Skipped type : System.IConvertible IConvertible */
+/* Skipped type : System.ICustomFormatter ICustomFormatter */
 #define SIDisposable_ System_IDisposable
 #define SIEquatableA1_ System_IEquatableA1
-#define SIFormatProvider_ System_IFormatProvider
-#define SIFormattable_ System_IFormattable
-#define SIndexOutOfRangeException_ System_IndexOutOfRangeException
-#define SInsufficientExecutionStackException_ System_InsufficientExecutionStackException
-#define SInsufficientMemoryException_ System_InsufficientMemoryException
+/* Skipped type : System.IFormatProvider IFormatProvider */
+/* Skipped type : System.IFormattable IFormattable */
+/* Skipped type : System.IndexOutOfRangeException IndexOutOfRangeException */
+/* Skipped type : System.InsufficientExecutionStackException InsufficientExecutionStackException */
+/* Skipped type : System.InsufficientMemoryException InsufficientMemoryException */
 #define SInt16_ System_Int16
 #define SInt32_ System_Int32
 #define SInt64_ System_Int64
 #define SIntPtr_ System_IntPtr
-#define SInvalidCastException_ System_InvalidCastException
-#define SInvalidOperationException_ System_InvalidOperationException
-#define SInvalidProgramException_ System_InvalidProgramException
-#define SInvalidTimeZoneException_ System_InvalidTimeZoneException
-#define SIBinaryReader_ System_IO_BinaryReader
-#define SIBinaryWriter_ System_IO_BinaryWriter
-#define SIBufferedStream_ System_IO_BufferedStream
-#define SIDirectory_ System_IO_Directory
-#define SIDirectoryInfo_ System_IO_DirectoryInfo
-#define SIDirectoryNotFoundException_ System_IO_DirectoryNotFoundException
-#define SIDriveInfo_ System_IO_DriveInfo
-#define SIDriveNotFoundException_ System_IO_DriveNotFoundException
-#define SIDriveType_ System_IO_DriveType
-#define SIEndOfStreamException_ System_IO_EndOfStreamException
-#define SIFile_ System_IO_File
-#define SIFileAccess_ System_IO_FileAccess
+/* Skipped type : System.InvalidCastException InvalidCastException */
+/* Skipped type : System.InvalidOperationException InvalidOperationException */
+/* Skipped type : System.InvalidProgramException InvalidProgramException */
+/* Skipped type : System.InvalidTimeZoneException InvalidTimeZoneException */
+/* Skipped type : System.IO.BinaryReader BinaryReader */
+/* Skipped type : System.IO.BinaryWriter BinaryWriter */
+/* Skipped type : System.IO.BufferedStream BufferedStream */
+/* Skipped type : System.IO.Directory Directory */
+/* Skipped type : System.IO.DirectoryInfo DirectoryInfo */
+/* Skipped type : System.IO.DirectoryNotFoundException DirectoryNotFoundException */
+/* Skipped type : System.IO.DriveInfo DriveInfo */
+/* Skipped type : System.IO.DriveNotFoundException DriveNotFoundException */
+/* Skipped type : System.IO.DriveType DriveType */
+/* Skipped type : System.IO.EndOfStreamException EndOfStreamException */
+/* Skipped type : System.IO.File File */
+/* Skipped type : System.IO.FileAccess FileAccess */
 #define SIFileAttributes_ System_IO_FileAttributes
 #define SIFileInfo_ System_IO_FileInfo
-#define SIFileLoadException_ System_IO_FileLoadException
-#define SIFileMode_ System_IO_FileMode
-#define SIFileNotFoundException_ System_IO_FileNotFoundException
-#define SIFileOptions_ System_IO_FileOptions
-#define SIFileShare_ System_IO_FileShare
-#define SIFileStream_ System_IO_FileStream
-#define SIFileSystemInfo_ System_IO_FileSystemInfo
-#define SIIOException_ System_IO_IOException
+/* Skipped type : System.IO.FileLoadException FileLoadException */
+/* Skipped type : System.IO.FileMode FileMode */
+/* Skipped type : System.IO.FileNotFoundException FileNotFoundException */
+/* Skipped type : System.IO.FileOptions FileOptions */
+/* Skipped type : System.IO.FileShare FileShare */
+/* Skipped type : System.IO.FileStream FileStream */
+/* Skipped type : System.IO.FileSystemInfo FileSystemInfo */
+/* Skipped type : System.IO.IOException IOException */
 /* Skipped type : System.IO.IsolatedStorage.INormalizeForIsolatedStorage INormalizeForIsolatedStorage */
 /* Skipped type : System.IO.IsolatedStorage.IsolatedStorage IsolatedStorage */
 /* Skipped type : System.IO.IsolatedStorage.IsolatedStorageException IsolatedStorageException */
@@ -390,86 +390,86 @@
 /* Skipped type : System.IO.IsolatedStorage.IsolatedStorageScope IsolatedStorageScope */
 /* Skipped type : System.IO.IsolatedStorage.IsolatedStorageSecurityOptions IsolatedStorageSecurityOptions */
 /* Skipped type : System.IO.IsolatedStorage.IsolatedStorageSecurityState IsolatedStorageSecurityState */
-#define SIMemoryStream_ System_IO_MemoryStream
-#define SIPath_ System_IO_Path
-#define SIPathTooLongException_ System_IO_PathTooLongException
-#define SISearchOption_ System_IO_SearchOption
-#define SISeekOrigin_ System_IO_SeekOrigin
+/* Skipped type : System.IO.MemoryStream MemoryStream */
+/* Skipped type : System.IO.Path Path */
+/* Skipped type : System.IO.PathTooLongException PathTooLongException */
+/* Skipped type : System.IO.SearchOption SearchOption */
+/* Skipped type : System.IO.SeekOrigin SeekOrigin */
 #define SIStream_ System_IO_Stream
-#define SIStreamReader_ System_IO_StreamReader
-#define SIStreamWriter_ System_IO_StreamWriter
+/* Skipped type : System.IO.StreamReader StreamReader */
+/* Skipped type : System.IO.StreamWriter StreamWriter */
 #define SIStringReader_ System_IO_StringReader
 #define SIStringWriter_ System_IO_StringWriter
 #define SITextReader_ System_IO_TextReader
-#define SITextWriter_ System_IO_TextWriter
-#define SIUnmanagedMemoryAccessor_ System_IO_UnmanagedMemoryAccessor
-#define SIUnmanagedMemoryStream_ System_IO_UnmanagedMemoryStream
-#define SIObservableA1_ System_IObservableA1
-#define SIObserverA1_ System_IObserverA1
-#define SIProgressA1_ System_IProgressA1
-#define SIServiceProvider_ System_IServiceProvider
-#define SLazyA1_ System_LazyA1
-#define SLoaderOptimization_ System_LoaderOptimization
-#define SLoaderOptimizationAttribute_ System_LoaderOptimizationAttribute
-#define SLocalDataStoreSlot_ System_LocalDataStoreSlot
-#define SMarshalByRefObject_ System_MarshalByRefObject
-#define SMath_ System_Math
-#define SMemberAccessException_ System_MemberAccessException
-#define SMethodAccessException_ System_MethodAccessException
-#define SMidpointRounding_ System_MidpointRounding
-#define SMissingFieldException_ System_MissingFieldException
-#define SMissingMemberException_ System_MissingMemberException
-#define SMissingMethodException_ System_MissingMethodException
-#define SModuleHandle_ System_ModuleHandle
-#define SMTAThreadAttribute_ System_MTAThreadAttribute
+/* Skipped type : System.IO.TextWriter TextWriter */
+/* Skipped type : System.IO.UnmanagedMemoryAccessor UnmanagedMemoryAccessor */
+/* Skipped type : System.IO.UnmanagedMemoryStream UnmanagedMemoryStream */
+/* Skipped type : System.IObservable`1<System.IObservable`1+T> IObservable`1<T> */
+/* Skipped type : System.IObserver`1<System.IObserver`1+T> IObserver`1<T> */
+/* Skipped type : System.IProgress`1<System.IProgress`1+T> IProgress`1<T> */
+/* Skipped type : System.IServiceProvider IServiceProvider */
+/* Skipped type : System.Lazy`1<System.Lazy`1+T> Lazy`1<T> */
+/* Skipped type : System.LoaderOptimization LoaderOptimization */
+/* Skipped type : System.LoaderOptimizationAttribute LoaderOptimizationAttribute */
+/* Skipped type : System.LocalDataStoreSlot LocalDataStoreSlot */
+/* Skipped type : System.MarshalByRefObject MarshalByRefObject */
+/* Skipped type : System.Math Math */
+/* Skipped type : System.MemberAccessException MemberAccessException */
+/* Skipped type : System.MethodAccessException MethodAccessException */
+/* Skipped type : System.MidpointRounding MidpointRounding */
+/* Skipped type : System.MissingFieldException MissingFieldException */
+/* Skipped type : System.MissingMemberException MissingMemberException */
+/* Skipped type : System.MissingMethodException MissingMethodException */
+/* Skipped type : System.ModuleHandle ModuleHandle */
+/* Skipped type : System.MTAThreadAttribute MTAThreadAttribute */
 #define SMulticastDelegate_ System_MulticastDelegate
-#define SMulticastNotSupportedException_ System_MulticastNotSupportedException
-#define SNonSerializedAttribute_ System_NonSerializedAttribute
-#define SNotFiniteNumberException_ System_NotFiniteNumberException
-#define SNotImplementedException_ System_NotImplementedException
-#define SNotSupportedException_ System_NotSupportedException
-#define SNullable_ System_Nullable
+/* Skipped type : System.MulticastNotSupportedException MulticastNotSupportedException */
+/* Skipped type : System.NonSerializedAttribute NonSerializedAttribute */
+/* Skipped type : System.NotFiniteNumberException NotFiniteNumberException */
+/* Skipped type : System.NotImplementedException NotImplementedException */
+/* Skipped type : System.NotSupportedException NotSupportedException */
+/* Skipped type : System.Nullable Nullable */
 #define SNullableA1_ System_NullableA1
-#define SNullReferenceException_ System_NullReferenceException
+/* Skipped type : System.NullReferenceException NullReferenceException */
 #define SObject_ System_Object
-#define SObjectDisposedException_ System_ObjectDisposedException
-#define SObsoleteAttribute_ System_ObsoleteAttribute
-#define SOperatingSystem_ System_OperatingSystem
-#define SOperationCanceledException_ System_OperationCanceledException
-#define SOutOfMemoryException_ System_OutOfMemoryException
-#define SOverflowException_ System_OverflowException
-#define SParamArrayAttribute_ System_ParamArrayAttribute
-#define SPlatformID_ System_PlatformID
-#define SPlatformNotSupportedException_ System_PlatformNotSupportedException
-#define SPredicateA1_ System_PredicateA1
-#define SProgressA1_ System_ProgressA1
-#define SRandom_ System_Random
-#define SRankException_ System_RankException
+/* Skipped type : System.ObjectDisposedException ObjectDisposedException */
+/* Skipped type : System.ObsoleteAttribute ObsoleteAttribute */
+/* Skipped type : System.OperatingSystem OperatingSystem */
+/* Skipped type : System.OperationCanceledException OperationCanceledException */
+/* Skipped type : System.OutOfMemoryException OutOfMemoryException */
+/* Skipped type : System.OverflowException OverflowException */
+/* Skipped type : System.ParamArrayAttribute ParamArrayAttribute */
+/* Skipped type : System.PlatformID PlatformID */
+/* Skipped type : System.PlatformNotSupportedException PlatformNotSupportedException */
+/* Skipped type : System.Predicate`1<System.Predicate`1+T> Predicate`1<T> */
+/* Skipped type : System.Progress`1<System.Progress`1+T> Progress`1<T> */
+/* Skipped type : System.Random Random */
+/* Skipped type : System.RankException RankException */
 /* Skipped type : System.Reflection.AmbiguousMatchException AmbiguousMatchException */
 #define SRAssembly_ System_Reflection_Assembly
-#define SRAssemblyAlgorithmIdAttribute_ System_Reflection_AssemblyAlgorithmIdAttribute
-#define SRAssemblyCompanyAttribute_ System_Reflection_AssemblyCompanyAttribute
-#define SRAssemblyConfigurationAttribute_ System_Reflection_AssemblyConfigurationAttribute
-#define SRAssemblyContentType_ System_Reflection_AssemblyContentType
-#define SRAssemblyCopyrightAttribute_ System_Reflection_AssemblyCopyrightAttribute
-#define SRAssemblyCultureAttribute_ System_Reflection_AssemblyCultureAttribute
-#define SRAssemblyDefaultAliasAttribute_ System_Reflection_AssemblyDefaultAliasAttribute
-#define SRAssemblyDelaySignAttribute_ System_Reflection_AssemblyDelaySignAttribute
-#define SRAssemblyDescriptionAttribute_ System_Reflection_AssemblyDescriptionAttribute
-#define SRAssemblyFileVersionAttribute_ System_Reflection_AssemblyFileVersionAttribute
-#define SRAssemblyFlagsAttribute_ System_Reflection_AssemblyFlagsAttribute
-#define SRAssemblyInformationalVersionAttribute_ System_Reflection_AssemblyInformationalVersionAttribute
-#define SRAssemblyKeyFileAttribute_ System_Reflection_AssemblyKeyFileAttribute
-#define SRAssemblyKeyNameAttribute_ System_Reflection_AssemblyKeyNameAttribute
-#define SRAssemblyMetadataAttribute_ System_Reflection_AssemblyMetadataAttribute
+/* Skipped type : System.Reflection.AssemblyAlgorithmIdAttribute AssemblyAlgorithmIdAttribute */
+/* Skipped type : System.Reflection.AssemblyCompanyAttribute AssemblyCompanyAttribute */
+/* Skipped type : System.Reflection.AssemblyConfigurationAttribute AssemblyConfigurationAttribute */
+/* Skipped type : System.Reflection.AssemblyContentType AssemblyContentType */
+/* Skipped type : System.Reflection.AssemblyCopyrightAttribute AssemblyCopyrightAttribute */
+/* Skipped type : System.Reflection.AssemblyCultureAttribute AssemblyCultureAttribute */
+/* Skipped type : System.Reflection.AssemblyDefaultAliasAttribute AssemblyDefaultAliasAttribute */
+/* Skipped type : System.Reflection.AssemblyDelaySignAttribute AssemblyDelaySignAttribute */
+/* Skipped type : System.Reflection.AssemblyDescriptionAttribute AssemblyDescriptionAttribute */
+/* Skipped type : System.Reflection.AssemblyFileVersionAttribute AssemblyFileVersionAttribute */
+/* Skipped type : System.Reflection.AssemblyFlagsAttribute AssemblyFlagsAttribute */
+/* Skipped type : System.Reflection.AssemblyInformationalVersionAttribute AssemblyInformationalVersionAttribute */
+/* Skipped type : System.Reflection.AssemblyKeyFileAttribute AssemblyKeyFileAttribute */
+/* Skipped type : System.Reflection.AssemblyKeyNameAttribute AssemblyKeyNameAttribute */
+/* Skipped type : System.Reflection.AssemblyMetadataAttribute AssemblyMetadataAttribute */
 #define SRAssemblyName_ System_Reflection_AssemblyName
-#define SRAssemblyNameFlags_ System_Reflection_AssemblyNameFlags
-#define SRAssemblyNameProxy_ System_Reflection_AssemblyNameProxy
-#define SRAssemblyProductAttribute_ System_Reflection_AssemblyProductAttribute
-#define SRAssemblySignatureKeyAttribute_ System_Reflection_AssemblySignatureKeyAttribute
-#define SRAssemblyTitleAttribute_ System_Reflection_AssemblyTitleAttribute
-#define SRAssemblyTrademarkAttribute_ System_Reflection_AssemblyTrademarkAttribute
-#define SRAssemblyVersionAttribute_ System_Reflection_AssemblyVersionAttribute
+/* Skipped type : System.Reflection.AssemblyNameFlags AssemblyNameFlags */
+/* Skipped type : System.Reflection.AssemblyNameProxy AssemblyNameProxy */
+/* Skipped type : System.Reflection.AssemblyProductAttribute AssemblyProductAttribute */
+/* Skipped type : System.Reflection.AssemblySignatureKeyAttribute AssemblySignatureKeyAttribute */
+/* Skipped type : System.Reflection.AssemblyTitleAttribute AssemblyTitleAttribute */
+/* Skipped type : System.Reflection.AssemblyTrademarkAttribute AssemblyTrademarkAttribute */
+/* Skipped type : System.Reflection.AssemblyVersionAttribute AssemblyVersionAttribute */
 #define SRBinder_ System_Reflection_Binder
 /* Skipped type : System.Reflection.BindingFlags BindingFlags */
 /* Skipped type : System.Reflection.CallingConventions CallingConventions */
@@ -568,8 +568,8 @@
 /* Skipped type : System.Reflection.TypeDelegator TypeDelegator */
 /* Skipped type : System.Reflection.TypeFilter TypeFilter */
 /* Skipped type : System.Reflection.TypeInfo TypeInfo */
-#define SResolveEventArgs_ System_ResolveEventArgs
-#define SResolveEventHandler_ System_ResolveEventHandler
+/* Skipped type : System.ResolveEventArgs ResolveEventArgs */
+/* Skipped type : System.ResolveEventHandler ResolveEventHandler */
 /* Skipped type : System.Resources.IResourceReader IResourceReader */
 /* Skipped type : System.Resources.IResourceWriter IResourceWriter */
 /* Skipped type : System.Resources.MissingManifestResourceException MissingManifestResourceException */
@@ -599,8 +599,8 @@
 /* Skipped type : System.Runtime.CompilerServices.CompilerGeneratedAttribute CompilerGeneratedAttribute */
 /* Skipped type : System.Runtime.CompilerServices.CompilerGlobalScopeAttribute CompilerGlobalScopeAttribute */
 /* Skipped type : System.Runtime.CompilerServices.CompilerMarshalOverride CompilerMarshalOverride */
-/* Skipped type : System.Runtime.CompilerServices.ConditionalWeakTable`2<System.Runtime.CompilerServices.ConditionalWeakTable`2+CreateValueCallback+TKey, System.Runtime.CompilerServices.ConditionalWeakTable`2+CreateValueCallback+TValue>+CreateValueCallback ConditionalWeakTable`2<TKey, TValue>.CreateValueCallback */
-/* Skipped type : System.Runtime.CompilerServices.ConditionalWeakTable`2<System.Runtime.CompilerServices.ConditionalWeakTable`2+TKey, System.Runtime.CompilerServices.ConditionalWeakTable`2+TValue> ConditionalWeakTable`2<TKey, TValue> */
+/* Skipped type : System.Runtime.CompilerServices.ConditionalWeakTable`2<System.Runtime.CompilerServices.ConditionalWeakTable`2+CreateValueCallback+TKey,System.Runtime.CompilerServices.ConditionalWeakTable`2+CreateValueCallback+TValue>+CreateValueCallback ConditionalWeakTable`2<TKey,TValue>.CreateValueCallback */
+/* Skipped type : System.Runtime.CompilerServices.ConditionalWeakTable`2<System.Runtime.CompilerServices.ConditionalWeakTable`2+TKey,System.Runtime.CompilerServices.ConditionalWeakTable`2+TValue> ConditionalWeakTable`2<TKey,TValue> */
 /* Skipped type : System.Runtime.CompilerServices.ConfiguredTaskAwaitable ConfiguredTaskAwaitable */
 /* Skipped type : System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1+ConfiguredTaskAwaiter+TResult>+ConfiguredTaskAwaiter ConfiguredTaskAwaitable`1<TResult>.ConfiguredTaskAwaiter */
 /* Skipped type : System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1+TResult> ConfiguredTaskAwaitable`1<TResult> */
@@ -1114,10 +1114,10 @@
 /* Skipped type : System.Runtime.Versioning.ResourceScope ResourceScope */
 /* Skipped type : System.Runtime.Versioning.TargetFrameworkAttribute TargetFrameworkAttribute */
 /* Skipped type : System.Runtime.Versioning.VersioningHelper VersioningHelper */
-#define SRuntimeArgumentHandle_ System_RuntimeArgumentHandle
-#define SRuntimeFieldHandle_ System_RuntimeFieldHandle
-#define SRuntimeMethodHandle_ System_RuntimeMethodHandle
-#define SRuntimeTypeHandle_ System_RuntimeTypeHandle
+/* Skipped type : System.RuntimeArgumentHandle RuntimeArgumentHandle */
+/* Skipped type : System.RuntimeFieldHandle RuntimeFieldHandle */
+/* Skipped type : System.RuntimeMethodHandle RuntimeMethodHandle */
+/* Skipped type : System.RuntimeTypeHandle RuntimeTypeHandle */
 #define SSByte_ System_SByte
 /* Skipped type : System.Security.AccessControl.AccessControlActions AccessControlActions */
 /* Skipped type : System.Security.AccessControl.AccessControlModification AccessControlModification */
@@ -1427,41 +1427,41 @@
 /* Skipped type : System.Security.UnverifiableCodeAttribute UnverifiableCodeAttribute */
 /* Skipped type : System.Security.VerificationException VerificationException */
 /* Skipped type : System.Security.XmlSyntaxException XmlSyntaxException */
-#define SSerializableAttribute_ System_SerializableAttribute
+/* Skipped type : System.SerializableAttribute SerializableAttribute */
 #define SSingle_ System_Single
-#define SStackOverflowException_ System_StackOverflowException
-#define SSTAThreadAttribute_ System_STAThreadAttribute
+/* Skipped type : System.StackOverflowException StackOverflowException */
+/* Skipped type : System.STAThreadAttribute STAThreadAttribute */
 #define SString_ System_String
-#define SStringComparer_ System_StringComparer
+/* Skipped type : System.StringComparer StringComparer */
 #define SStringComparison_ System_StringComparison
-#define SStringSplitOptions_ System_StringSplitOptions
-#define SSystemException_ System_SystemException
-#define STASCIIEncoding_ System_Text_ASCIIEncoding
-#define STDecoder_ System_Text_Decoder
-#define STDecoderExceptionFallback_ System_Text_DecoderExceptionFallback
-#define STDecoderExceptionFallbackBuffer_ System_Text_DecoderExceptionFallbackBuffer
-#define STDecoderFallback_ System_Text_DecoderFallback
-#define STDecoderFallbackBuffer_ System_Text_DecoderFallbackBuffer
-#define STDecoderFallbackException_ System_Text_DecoderFallbackException
-#define STDecoderReplacementFallback_ System_Text_DecoderReplacementFallback
-#define STDecoderReplacementFallbackBuffer_ System_Text_DecoderReplacementFallbackBuffer
-#define STEncoder_ System_Text_Encoder
-#define STEncoderExceptionFallback_ System_Text_EncoderExceptionFallback
-#define STEncoderExceptionFallbackBuffer_ System_Text_EncoderExceptionFallbackBuffer
-#define STEncoderFallback_ System_Text_EncoderFallback
-#define STEncoderFallbackBuffer_ System_Text_EncoderFallbackBuffer
-#define STEncoderFallbackException_ System_Text_EncoderFallbackException
-#define STEncoderReplacementFallback_ System_Text_EncoderReplacementFallback
-#define STEncoderReplacementFallbackBuffer_ System_Text_EncoderReplacementFallbackBuffer
+/* Skipped type : System.StringSplitOptions StringSplitOptions */
+/* Skipped type : System.SystemException SystemException */
+/* Skipped type : System.Text.ASCIIEncoding ASCIIEncoding */
+/* Skipped type : System.Text.Decoder Decoder */
+/* Skipped type : System.Text.DecoderExceptionFallback DecoderExceptionFallback */
+/* Skipped type : System.Text.DecoderExceptionFallbackBuffer DecoderExceptionFallbackBuffer */
+/* Skipped type : System.Text.DecoderFallback DecoderFallback */
+/* Skipped type : System.Text.DecoderFallbackBuffer DecoderFallbackBuffer */
+/* Skipped type : System.Text.DecoderFallbackException DecoderFallbackException */
+/* Skipped type : System.Text.DecoderReplacementFallback DecoderReplacementFallback */
+/* Skipped type : System.Text.DecoderReplacementFallbackBuffer DecoderReplacementFallbackBuffer */
+/* Skipped type : System.Text.Encoder Encoder */
+/* Skipped type : System.Text.EncoderExceptionFallback EncoderExceptionFallback */
+/* Skipped type : System.Text.EncoderExceptionFallbackBuffer EncoderExceptionFallbackBuffer */
+/* Skipped type : System.Text.EncoderFallback EncoderFallback */
+/* Skipped type : System.Text.EncoderFallbackBuffer EncoderFallbackBuffer */
+/* Skipped type : System.Text.EncoderFallbackException EncoderFallbackException */
+/* Skipped type : System.Text.EncoderReplacementFallback EncoderReplacementFallback */
+/* Skipped type : System.Text.EncoderReplacementFallbackBuffer EncoderReplacementFallbackBuffer */
 #define STEncoding_ System_Text_Encoding
-#define STEncodingInfo_ System_Text_EncodingInfo
-#define STEncodingProvider_ System_Text_EncodingProvider
-#define STNormalizationForm_ System_Text_NormalizationForm
+/* Skipped type : System.Text.EncodingInfo EncodingInfo */
+/* Skipped type : System.Text.EncodingProvider EncodingProvider */
+/* Skipped type : System.Text.NormalizationForm NormalizationForm */
 #define STStringBuilder_ System_Text_StringBuilder
-#define STUnicodeEncoding_ System_Text_UnicodeEncoding
-#define STUTF32Encoding_ System_Text_UTF32Encoding
-#define STUTF7Encoding_ System_Text_UTF7Encoding
-#define STUTF8Encoding_ System_Text_UTF8Encoding
+/* Skipped type : System.Text.UnicodeEncoding UnicodeEncoding */
+/* Skipped type : System.Text.UTF32Encoding UTF32Encoding */
+/* Skipped type : System.Text.UTF7Encoding UTF7Encoding */
+/* Skipped type : System.Text.UTF8Encoding UTF8Encoding */
 /* Skipped type : System.Threading.AbandonedMutexException AbandonedMutexException */
 /* Skipped type : System.Threading.ApartmentState ApartmentState */
 /* Skipped type : System.Threading.AsyncFlowControl AsyncFlowControl */
@@ -1469,8 +1469,8 @@
 /* Skipped type : System.Threading.AsyncLocalValueChangedArgs`1<System.Threading.AsyncLocalValueChangedArgs`1+T> AsyncLocalValueChangedArgs`1<T> */
 /* Skipped type : System.Threading.AutoResetEvent AutoResetEvent */
 #define STCancellationToken_ System_Threading_CancellationToken
-#define STCancellationTokenRegistration_ System_Threading_CancellationTokenRegistration
-#define STCancellationTokenSource_ System_Threading_CancellationTokenSource
+/* Skipped type : System.Threading.CancellationTokenRegistration CancellationTokenRegistration */
+/* Skipped type : System.Threading.CancellationTokenSource CancellationTokenSource */
 /* Skipped type : System.Threading.CompressedStack CompressedStack */
 /* Skipped type : System.Threading.ContextCallback ContextCallback */
 /* Skipped type : System.Threading.CountdownEvent CountdownEvent */
@@ -1509,15 +1509,15 @@
 /* Skipped type : System.Threading.Tasks.ParallelOptions ParallelOptions */
 #define STTTask_ System_Threading_Tasks_Task
 #define STTTaskA1_ System_Threading_Tasks_TaskA1
-#define STTTaskCanceledException_ System_Threading_Tasks_TaskCanceledException
-#define STTTaskCompletionSourceA1_ System_Threading_Tasks_TaskCompletionSourceA1
-#define STTTaskContinuationOptions_ System_Threading_Tasks_TaskContinuationOptions
-#define STTTaskCreationOptions_ System_Threading_Tasks_TaskCreationOptions
-#define STTTaskFactory_ System_Threading_Tasks_TaskFactory
-#define STTTaskFactoryA1_ System_Threading_Tasks_TaskFactoryA1
-#define STTTaskScheduler_ System_Threading_Tasks_TaskScheduler
-#define STTTaskSchedulerException_ System_Threading_Tasks_TaskSchedulerException
-#define STTTaskStatus_ System_Threading_Tasks_TaskStatus
+/* Skipped type : System.Threading.Tasks.TaskCanceledException TaskCanceledException */
+/* Skipped type : System.Threading.Tasks.TaskCompletionSource`1<System.Threading.Tasks.TaskCompletionSource`1+TResult> TaskCompletionSource`1<TResult> */
+/* Skipped type : System.Threading.Tasks.TaskContinuationOptions TaskContinuationOptions */
+/* Skipped type : System.Threading.Tasks.TaskCreationOptions TaskCreationOptions */
+/* Skipped type : System.Threading.Tasks.TaskFactory TaskFactory */
+/* Skipped type : System.Threading.Tasks.TaskFactory`1<System.Threading.Tasks.TaskFactory`1+TResult> TaskFactory`1<TResult> */
+/* Skipped type : System.Threading.Tasks.TaskScheduler TaskScheduler */
+/* Skipped type : System.Threading.Tasks.TaskSchedulerException TaskSchedulerException */
+/* Skipped type : System.Threading.Tasks.TaskStatus TaskStatus */
 /* Skipped type : System.Threading.Tasks.UnobservedTaskExceptionEventArgs UnobservedTaskExceptionEventArgs */
 /* Skipped type : System.Threading.Thread Thread */
 /* Skipped type : System.Threading.ThreadAbortException ThreadAbortException */
@@ -1539,125 +1539,76 @@
 /* Skipped type : System.Threading.WaitHandleCannotBeOpenedException WaitHandleCannotBeOpenedException */
 /* Skipped type : System.Threading.WaitHandleExtensions WaitHandleExtensions */
 /* Skipped type : System.Threading.WaitOrTimerCallback WaitOrTimerCallback */
-#define SThreadStaticAttribute_ System_ThreadStaticAttribute
-#define STimeoutException_ System_TimeoutException
+/* Skipped type : System.ThreadStaticAttribute ThreadStaticAttribute */
+/* Skipped type : System.TimeoutException TimeoutException */
 #define STimeSpan_ System_TimeSpan
-#define STimeZone_ System_TimeZone
+/* Skipped type : System.TimeZone TimeZone */
 #define STimeZoneInfo_ System_TimeZoneInfo
 #define STimeZoneInfo_AdjustmentRule_ System_TimeZoneInfo__AdjustmentRule
 #define STimeZoneInfo_TransitionTime_ System_TimeZoneInfo__TransitionTime
-#define STimeZoneNotFoundException_ System_TimeZoneNotFoundException
-#define STuple_ System_Tuple
-#define STupleA1_ System_TupleA1
-#define STupleA2_ System_TupleA2
-#define STupleA3_ System_TupleA3
-#define STupleA4_ System_TupleA4
-#define STupleA5_ System_TupleA5
-#define STupleA6_ System_TupleA6
-#define STupleA7_ System_TupleA7
-#define STupleA8_ System_TupleA8
-#define STupleExtensions_ System_TupleExtensions
+/* Skipped type : System.TimeZoneNotFoundException TimeZoneNotFoundException */
+/* Skipped type : System.Tuple Tuple */
+/* Skipped type : System.Tuple`1<System.Tuple`1+T1> Tuple`1<T1> */
+/* Skipped type : System.Tuple`2<System.Tuple`2+T1,System.Tuple`2+T2> Tuple`2<T1,T2> */
+/* Skipped type : System.Tuple`3<System.Tuple`3+T1,System.Tuple`3+T2,System.Tuple`3+T3> Tuple`3<T1,T2,T3> */
+/* Skipped type : System.Tuple`4<System.Tuple`4+T1,System.Tuple`4+T2,System.Tuple`4+T3,System.Tuple`4+T4> Tuple`4<T1,T2,T3,T4> */
+/* Skipped type : System.Tuple`5 Tuple`5 */
+/* Skipped type : System.Tuple`6 Tuple`6 */
+/* Skipped type : System.Tuple`7 Tuple`7 */
+/* Skipped type : System.Tuple`8 Tuple`8 */
+/* Skipped type : System.TupleExtensions TupleExtensions */
 #define SType_ System_Type
-#define STypeAccessException_ System_TypeAccessException
-#define STypeCode_ System_TypeCode
-#define STypedReference_ System_TypedReference
-#define STypeInitializationException_ System_TypeInitializationException
-#define STypeLoadException_ System_TypeLoadException
-#define STypeUnloadedException_ System_TypeUnloadedException
+/* Skipped type : System.TypeAccessException TypeAccessException */
+/* Skipped type : System.TypeCode TypeCode */
+/* Skipped type : System.TypedReference TypedReference */
+/* Skipped type : System.TypeInitializationException TypeInitializationException */
+/* Skipped type : System.TypeLoadException TypeLoadException */
+/* Skipped type : System.TypeUnloadedException TypeUnloadedException */
 #define SUInt16_ System_UInt16
 #define SUInt32_ System_UInt32
 #define SUInt64_ System_UInt64
 #define SUIntPtr_ System_UIntPtr
-#define SUnauthorizedAccessException_ System_UnauthorizedAccessException
+/* Skipped type : System.UnauthorizedAccessException UnauthorizedAccessException */
 #define SUnhandledExceptionEventArgs_ System_UnhandledExceptionEventArgs
 #define SUnhandledExceptionEventHandler_ System_UnhandledExceptionEventHandler
-#define SValueTuple_ System_ValueTuple
-#define SValueTupleA1_ System_ValueTupleA1
-#define SValueTupleA2_ System_ValueTupleA2
-#define SValueTupleA3_ System_ValueTupleA3
-#define SValueTupleA4_ System_ValueTupleA4
-#define SValueTupleA5_ System_ValueTupleA5
-#define SValueTupleA6_ System_ValueTupleA6
-#define SValueTupleA7_ System_ValueTupleA7
-#define SValueTupleA8_ System_ValueTupleA8
+/* Skipped type : System.ValueTuple ValueTuple */
+/* Skipped type : System.ValueTuple`1<System.ValueTuple`1+T1> ValueTuple`1<T1> */
+/* Skipped type : System.ValueTuple`2<System.ValueTuple`2+T1,System.ValueTuple`2+T2> ValueTuple`2<T1,T2> */
+/* Skipped type : System.ValueTuple`3<System.ValueTuple`3+T1,System.ValueTuple`3+T2,System.ValueTuple`3+T3> ValueTuple`3<T1,T2,T3> */
+/* Skipped type : System.ValueTuple`4<System.ValueTuple`4+T1,System.ValueTuple`4+T2,System.ValueTuple`4+T3,System.ValueTuple`4+T4> ValueTuple`4<T1,T2,T3,T4> */
+/* Skipped type : System.ValueTuple`5 ValueTuple`5 */
+/* Skipped type : System.ValueTuple`6 ValueTuple`6 */
+/* Skipped type : System.ValueTuple`7 ValueTuple`7 */
+/* Skipped type : System.ValueTuple`8 ValueTuple`8 */
 #define SValueType_ System_ValueType
 #define SVersion_ System_Version
 #define SVoid_ System_Void
-#define SWeakReference_ System_WeakReference
-#define SWeakReferenceA1_ System_WeakReferenceA1
+/* Skipped type : System.WeakReference WeakReference */
+/* Skipped type : System.WeakReference`1<System.WeakReference`1+T> WeakReference`1<T> */
 
 /*
 
 Assembly type imports
 
 */
-#import "System__AppDomain.h"
-#import "System__AppDomain.h"
-#import "System__AppDomain_Protocol.h"
-#import "System_AccessViolationException.h"
 #import "System_Action.h"
 #import "System_ActionA1.h"
 #import "System_ActionA2.h"
-#import "System_ActionA3.h"
-#import "System_ActionA4.h"
-#import "System_ActionA5.h"
-#import "System_ActionA6.h"
-#import "System_ActionA7.h"
-#import "System_ActionA8.h"
-#import "System_ActivationContext.h"
-#import "System_ActivationContext__ContextForm.h"
 #import "System_Activator.h"
-#import "System_AggregateException.h"
-#import "System_AppContext.h"
 #import "System_AppDomain.h"
-#import "System_AppDomainInitializer.h"
-#import "System_AppDomainManager.h"
-#import "System_AppDomainManagerInitializationOptions.h"
-#import "System_AppDomainSetup.h"
-#import "System_AppDomainUnloadedException.h"
-#import "System_ApplicationException.h"
-#import "System_ApplicationId.h"
-#import "System_ApplicationIdentity.h"
-#import "System_ArgIterator.h"
-#import "System_ArgumentException.h"
-#import "System_ArgumentNullException.h"
-#import "System_ArgumentOutOfRangeException.h"
-#import "System_ArithmeticException.h"
 #import "System_Array.h"
-#import "System_ArraySegmentA1.h"
-#import "System_ArrayTypeMismatchException.h"
-#import "System_AssemblyLoadEventArgs.h"
-#import "System_AssemblyLoadEventHandler.h"
 #import "System_AsyncCallback.h"
 #import "System_Attribute.h"
-#import "System_AttributeTargets.h"
-#import "System_AttributeUsageAttribute.h"
-#import "System_BadImageFormatException.h"
-#import "System_Base64FormattingOptions.h"
-#import "System_BitConverter.h"
 #import "System_Boolean.h"
-#import "System_Buffer.h"
 #import "System_Byte.h"
-#import "System_CannotUnloadAppDomainException.h"
 #import "System_Char.h"
-#import "System_CharEnumerator.h"
-#import "System_CLSCompliantAttribute.h"
 #import "System_Collections_ArrayList.h"
-#import "System_Collections_BitArray.h"
-#import "System_Collections_CaseInsensitiveComparer.h"
-#import "System_Collections_CaseInsensitiveHashCodeProvider.h"
-#import "System_Collections_CollectionBase.h"
-#import "System_Collections_Comparer.h"
-#import "System_Collections_DictionaryBase.h"
-#import "System_Collections_DictionaryEntry.h"
-#import "System_Collections_Generic_ComparerA1.h"
 #import "System_Collections_Generic_DictionaryA2__Enumerator.h"
 #import "System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator.h"
 #import "System_Collections_Generic_DictionaryA2__KeyCollection.h"
 #import "System_Collections_Generic_DictionaryA2.h"
 #import "System_Collections_Generic_DictionaryA2__ValueCollection__Enumerator.h"
 #import "System_Collections_Generic_DictionaryA2__ValueCollection.h"
-#import "System_Collections_Generic_EqualityComparerA1.h"
 #import "System_Collections_Generic_ICollectionA1.h"
 #import "System_Collections_Generic_ICollectionA1.h"
 #import "System_Collections_Generic_ICollectionA1_Protocol.h"
@@ -1673,279 +1624,61 @@ Assembly type imports
 #import "System_Collections_Generic_IEnumeratorA1.h"
 #import "System_Collections_Generic_IEnumeratorA1.h"
 #import "System_Collections_Generic_IEnumeratorA1_Protocol.h"
-#import "System_Collections_Generic_IEqualityComparerA1.h"
-#import "System_Collections_Generic_IEqualityComparerA1.h"
-#import "System_Collections_Generic_IEqualityComparerA1_Protocol.h"
-#import "System_Collections_Generic_IListA1.h"
-#import "System_Collections_Generic_IListA1.h"
-#import "System_Collections_Generic_IListA1_Protocol.h"
-#import "System_Collections_Generic_IReadOnlyCollectionA1.h"
-#import "System_Collections_Generic_IReadOnlyCollectionA1.h"
-#import "System_Collections_Generic_IReadOnlyCollectionA1_Protocol.h"
-#import "System_Collections_Generic_IReadOnlyDictionaryA2.h"
-#import "System_Collections_Generic_IReadOnlyDictionaryA2.h"
-#import "System_Collections_Generic_IReadOnlyDictionaryA2_Protocol.h"
-#import "System_Collections_Generic_IReadOnlyListA1.h"
-#import "System_Collections_Generic_IReadOnlyListA1.h"
-#import "System_Collections_Generic_IReadOnlyListA1_Protocol.h"
-#import "System_Collections_Generic_KeyNotFoundException.h"
 #import "System_Collections_Generic_KeyValuePairA2.h"
 #import "System_Collections_Generic_ListA1__Enumerator.h"
 #import "System_Collections_Generic_ListA1.h"
-#import "System_Collections_Hashtable.h"
-#import "System_Collections_ICollection.h"
-#import "System_Collections_ICollection.h"
-#import "System_Collections_ICollection_Protocol.h"
-#import "System_Collections_IComparer.h"
-#import "System_Collections_IComparer.h"
-#import "System_Collections_IComparer_Protocol.h"
-#import "System_Collections_IDictionary.h"
-#import "System_Collections_IDictionary.h"
-#import "System_Collections_IDictionary_Protocol.h"
-#import "System_Collections_IDictionaryEnumerator.h"
-#import "System_Collections_IDictionaryEnumerator.h"
-#import "System_Collections_IDictionaryEnumerator_Protocol.h"
 #import "System_Collections_IEnumerable.h"
 #import "System_Collections_IEnumerable.h"
 #import "System_Collections_IEnumerable_Protocol.h"
 #import "System_Collections_IEnumerator.h"
 #import "System_Collections_IEnumerator.h"
 #import "System_Collections_IEnumerator_Protocol.h"
-#import "System_Collections_IEqualityComparer.h"
-#import "System_Collections_IEqualityComparer.h"
-#import "System_Collections_IEqualityComparer_Protocol.h"
-#import "System_Collections_IHashCodeProvider.h"
-#import "System_Collections_IHashCodeProvider.h"
-#import "System_Collections_IHashCodeProvider_Protocol.h"
 #import "System_Collections_IList.h"
 #import "System_Collections_IList.h"
 #import "System_Collections_IList_Protocol.h"
-#import "System_Collections_IStructuralComparable.h"
-#import "System_Collections_IStructuralComparable.h"
-#import "System_Collections_IStructuralComparable_Protocol.h"
-#import "System_Collections_IStructuralEquatable.h"
-#import "System_Collections_IStructuralEquatable.h"
-#import "System_Collections_IStructuralEquatable_Protocol.h"
-#import "System_Collections_ObjectModel_CollectionA1.h"
-#import "System_Collections_ObjectModel_KeyedCollectionA2.h"
-#import "System_Collections_ObjectModel_ReadOnlyCollectionA1.h"
-#import "System_Collections_ObjectModel_ReadOnlyDictionaryA2__KeyCollection.h"
-#import "System_Collections_ObjectModel_ReadOnlyDictionaryA2.h"
-#import "System_Collections_ObjectModel_ReadOnlyDictionaryA2__ValueCollection.h"
-#import "System_Collections_Queue.h"
-#import "System_Collections_ReadOnlyCollectionBase.h"
-#import "System_Collections_SortedList.h"
-#import "System_Collections_Stack.h"
-#import "System_Collections_StructuralComparisons.h"
-#import "System_ComparisonA1.h"
-#import "System_Console.h"
-#import "System_ConsoleCancelEventArgs.h"
-#import "System_ConsoleCancelEventHandler.h"
-#import "System_ConsoleColor.h"
-#import "System_ConsoleKey.h"
-#import "System_ConsoleKeyInfo.h"
-#import "System_ConsoleModifiers.h"
-#import "System_ConsoleSpecialKey.h"
-#import "System_ContextBoundObject.h"
-#import "System_ContextMarshalException.h"
-#import "System_ContextStaticAttribute.h"
 #import "System_Convert.h"
-#import "System_ConverterA2.h"
-#import "System_CrossAppDomainDelegate.h"
-#import "System_DataMisalignedException.h"
 #import "System_DateTime.h"
 #import "System_DateTimeKind.h"
-#import "System_DateTimeOffset.h"
 #import "System_DayOfWeek.h"
 #import "System_DBNull.h"
 #import "System_Decimal.h"
 #import "System_Delegate.h"
-#import "System_DivideByZeroException.h"
-#import "System_DllNotFoundException.h"
 #import "System_Double.h"
-#import "System_DuplicateWaitObjectException.h"
-#import "System_EntryPointNotFoundException.h"
 #import "System_Enum.h"
-#import "System_Environment.h"
-#import "System_Environment__SpecialFolder.h"
-#import "System_Environment__SpecialFolderOption.h"
-#import "System_EnvironmentVariableTarget.h"
 #import "System_EventArgs.h"
-#import "System_EventHandler.h"
-#import "System_EventHandlerA1.h"
 #import "System_Exception.h"
-#import "System_ExecutionEngineException.h"
-#import "System_FieldAccessException.h"
-#import "System_FlagsAttribute.h"
-#import "System_FormatException.h"
-#import "System_FormattableString.h"
 #import "System_FuncA1.h"
 #import "System_FuncA2.h"
 #import "System_FuncA3.h"
-#import "System_FuncA4.h"
-#import "System_FuncA5.h"
-#import "System_FuncA6.h"
-#import "System_FuncA7.h"
-#import "System_FuncA8.h"
-#import "System_FuncA9.h"
-#import "System_GC.h"
-#import "System_GCCollectionMode.h"
-#import "System_GCNotificationStatus.h"
 #import "System_Globalization_CultureInfo.h"
 #import "System_Guid.h"
-#import "System_IAppDomainSetup.h"
-#import "System_IAppDomainSetup.h"
-#import "System_IAppDomainSetup_Protocol.h"
 #import "System_IAsyncResult.h"
 #import "System_IAsyncResult.h"
 #import "System_IAsyncResult_Protocol.h"
 #import "System_ICloneable.h"
 #import "System_ICloneable.h"
 #import "System_ICloneable_Protocol.h"
-#import "System_IComparable.h"
-#import "System_IComparable.h"
-#import "System_IComparable_Protocol.h"
-#import "System_IComparableA1.h"
-#import "System_IComparableA1.h"
-#import "System_IComparableA1_Protocol.h"
-#import "System_IConvertible.h"
-#import "System_IConvertible.h"
-#import "System_IConvertible_Protocol.h"
-#import "System_ICustomFormatter.h"
-#import "System_ICustomFormatter.h"
-#import "System_ICustomFormatter_Protocol.h"
 #import "System_IDisposable.h"
 #import "System_IDisposable.h"
 #import "System_IDisposable_Protocol.h"
 #import "System_IEquatableA1.h"
 #import "System_IEquatableA1.h"
 #import "System_IEquatableA1_Protocol.h"
-#import "System_IFormatProvider.h"
-#import "System_IFormatProvider.h"
-#import "System_IFormatProvider_Protocol.h"
-#import "System_IFormattable.h"
-#import "System_IFormattable.h"
-#import "System_IFormattable_Protocol.h"
-#import "System_IndexOutOfRangeException.h"
-#import "System_InsufficientExecutionStackException.h"
-#import "System_InsufficientMemoryException.h"
 #import "System_Int16.h"
 #import "System_Int32.h"
 #import "System_Int64.h"
 #import "System_IntPtr.h"
-#import "System_InvalidCastException.h"
-#import "System_InvalidOperationException.h"
-#import "System_InvalidProgramException.h"
-#import "System_InvalidTimeZoneException.h"
-#import "System_IO_BinaryReader.h"
-#import "System_IO_BinaryWriter.h"
-#import "System_IO_BufferedStream.h"
-#import "System_IO_Directory.h"
-#import "System_IO_DirectoryInfo.h"
-#import "System_IO_DirectoryNotFoundException.h"
-#import "System_IO_DriveInfo.h"
-#import "System_IO_DriveNotFoundException.h"
-#import "System_IO_DriveType.h"
-#import "System_IO_EndOfStreamException.h"
-#import "System_IO_File.h"
-#import "System_IO_FileAccess.h"
 #import "System_IO_FileAttributes.h"
 #import "System_IO_FileInfo.h"
-#import "System_IO_FileLoadException.h"
-#import "System_IO_FileMode.h"
-#import "System_IO_FileNotFoundException.h"
-#import "System_IO_FileOptions.h"
-#import "System_IO_FileShare.h"
-#import "System_IO_FileStream.h"
-#import "System_IO_FileSystemInfo.h"
-#import "System_IO_IOException.h"
-#import "System_IO_MemoryStream.h"
-#import "System_IO_Path.h"
-#import "System_IO_PathTooLongException.h"
-#import "System_IO_SearchOption.h"
-#import "System_IO_SeekOrigin.h"
 #import "System_IO_Stream.h"
-#import "System_IO_StreamReader.h"
-#import "System_IO_StreamWriter.h"
 #import "System_IO_StringReader.h"
 #import "System_IO_StringWriter.h"
 #import "System_IO_TextReader.h"
-#import "System_IO_TextWriter.h"
-#import "System_IO_UnmanagedMemoryAccessor.h"
-#import "System_IO_UnmanagedMemoryStream.h"
-#import "System_IObservableA1.h"
-#import "System_IObservableA1.h"
-#import "System_IObservableA1_Protocol.h"
-#import "System_IObserverA1.h"
-#import "System_IObserverA1.h"
-#import "System_IObserverA1_Protocol.h"
-#import "System_IProgressA1.h"
-#import "System_IProgressA1.h"
-#import "System_IProgressA1_Protocol.h"
-#import "System_IServiceProvider.h"
-#import "System_IServiceProvider.h"
-#import "System_IServiceProvider_Protocol.h"
-#import "System_LazyA1.h"
-#import "System_LoaderOptimization.h"
-#import "System_LoaderOptimizationAttribute.h"
-#import "System_LocalDataStoreSlot.h"
-#import "System_MarshalByRefObject.h"
-#import "System_Math.h"
-#import "System_MemberAccessException.h"
-#import "System_MethodAccessException.h"
-#import "System_MidpointRounding.h"
-#import "System_MissingFieldException.h"
-#import "System_MissingMemberException.h"
-#import "System_MissingMethodException.h"
-#import "System_ModuleHandle.h"
-#import "System_MTAThreadAttribute.h"
 #import "System_MulticastDelegate.h"
-#import "System_MulticastNotSupportedException.h"
-#import "System_NonSerializedAttribute.h"
-#import "System_NotFiniteNumberException.h"
-#import "System_NotImplementedException.h"
-#import "System_NotSupportedException.h"
-#import "System_Nullable.h"
 #import "System_NullableA1.h"
-#import "System_NullReferenceException.h"
 #import "System_Object.h"
-#import "System_ObjectDisposedException.h"
-#import "System_ObsoleteAttribute.h"
-#import "System_OperatingSystem.h"
-#import "System_OperationCanceledException.h"
-#import "System_OutOfMemoryException.h"
-#import "System_OverflowException.h"
-#import "System_ParamArrayAttribute.h"
-#import "System_PlatformID.h"
-#import "System_PlatformNotSupportedException.h"
-#import "System_PredicateA1.h"
-#import "System_ProgressA1.h"
-#import "System_Random.h"
-#import "System_RankException.h"
 #import "System_Reflection_Assembly.h"
-#import "System_Reflection_AssemblyAlgorithmIdAttribute.h"
-#import "System_Reflection_AssemblyCompanyAttribute.h"
-#import "System_Reflection_AssemblyConfigurationAttribute.h"
-#import "System_Reflection_AssemblyContentType.h"
-#import "System_Reflection_AssemblyCopyrightAttribute.h"
-#import "System_Reflection_AssemblyCultureAttribute.h"
-#import "System_Reflection_AssemblyDefaultAliasAttribute.h"
-#import "System_Reflection_AssemblyDelaySignAttribute.h"
-#import "System_Reflection_AssemblyDescriptionAttribute.h"
-#import "System_Reflection_AssemblyFileVersionAttribute.h"
-#import "System_Reflection_AssemblyFlagsAttribute.h"
-#import "System_Reflection_AssemblyInformationalVersionAttribute.h"
-#import "System_Reflection_AssemblyKeyFileAttribute.h"
-#import "System_Reflection_AssemblyKeyNameAttribute.h"
-#import "System_Reflection_AssemblyMetadataAttribute.h"
 #import "System_Reflection_AssemblyName.h"
-#import "System_Reflection_AssemblyNameFlags.h"
-#import "System_Reflection_AssemblyNameProxy.h"
-#import "System_Reflection_AssemblyProductAttribute.h"
-#import "System_Reflection_AssemblySignatureKeyAttribute.h"
-#import "System_Reflection_AssemblyTitleAttribute.h"
-#import "System_Reflection_AssemblyTrademarkAttribute.h"
-#import "System_Reflection_AssemblyVersionAttribute.h"
 #import "System_Reflection_Binder.h"
 #import "System_Reflection_ConstructorInfo.h"
 #import "System_Reflection_GenericParameterAttributes.h"
@@ -1955,113 +1688,34 @@ Assembly type imports
 #import "System_Reflection_MethodInfo.h"
 #import "System_Reflection_PropertyInfo.h"
 #import "System_Reflection_TypeAttributes.h"
-#import "System_ResolveEventArgs.h"
-#import "System_ResolveEventHandler.h"
 #import "System_Runtime_InteropServices__Exception.h"
 #import "System_Runtime_InteropServices__Exception.h"
 #import "System_Runtime_InteropServices__Exception_Protocol.h"
 #import "System_Runtime_Serialization_ISerializable.h"
 #import "System_Runtime_Serialization_ISerializable.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
-#import "System_RuntimeArgumentHandle.h"
-#import "System_RuntimeFieldHandle.h"
-#import "System_RuntimeMethodHandle.h"
-#import "System_RuntimeTypeHandle.h"
 #import "System_SByte.h"
-#import "System_SerializableAttribute.h"
 #import "System_Single.h"
-#import "System_StackOverflowException.h"
-#import "System_STAThreadAttribute.h"
 #import "System_String.h"
-#import "System_StringComparer.h"
 #import "System_StringComparison.h"
-#import "System_StringSplitOptions.h"
-#import "System_SystemException.h"
-#import "System_Text_ASCIIEncoding.h"
-#import "System_Text_Decoder.h"
-#import "System_Text_DecoderExceptionFallback.h"
-#import "System_Text_DecoderExceptionFallbackBuffer.h"
-#import "System_Text_DecoderFallback.h"
-#import "System_Text_DecoderFallbackBuffer.h"
-#import "System_Text_DecoderFallbackException.h"
-#import "System_Text_DecoderReplacementFallback.h"
-#import "System_Text_DecoderReplacementFallbackBuffer.h"
-#import "System_Text_Encoder.h"
-#import "System_Text_EncoderExceptionFallback.h"
-#import "System_Text_EncoderExceptionFallbackBuffer.h"
-#import "System_Text_EncoderFallback.h"
-#import "System_Text_EncoderFallbackBuffer.h"
-#import "System_Text_EncoderFallbackException.h"
-#import "System_Text_EncoderReplacementFallback.h"
-#import "System_Text_EncoderReplacementFallbackBuffer.h"
 #import "System_Text_Encoding.h"
-#import "System_Text_EncodingInfo.h"
-#import "System_Text_EncodingProvider.h"
-#import "System_Text_NormalizationForm.h"
 #import "System_Text_StringBuilder.h"
-#import "System_Text_UnicodeEncoding.h"
-#import "System_Text_UTF32Encoding.h"
-#import "System_Text_UTF7Encoding.h"
-#import "System_Text_UTF8Encoding.h"
 #import "System_Threading_CancellationToken.h"
-#import "System_Threading_CancellationTokenRegistration.h"
-#import "System_Threading_CancellationTokenSource.h"
 #import "System_Threading_SendOrPostCallback.h"
 #import "System_Threading_SynchronizationContext.h"
 #import "System_Threading_Tasks_Task.h"
 #import "System_Threading_Tasks_TaskA1.h"
-#import "System_Threading_Tasks_TaskCanceledException.h"
-#import "System_Threading_Tasks_TaskCompletionSourceA1.h"
-#import "System_Threading_Tasks_TaskContinuationOptions.h"
-#import "System_Threading_Tasks_TaskCreationOptions.h"
-#import "System_Threading_Tasks_TaskFactory.h"
-#import "System_Threading_Tasks_TaskFactoryA1.h"
-#import "System_Threading_Tasks_TaskScheduler.h"
-#import "System_Threading_Tasks_TaskSchedulerException.h"
-#import "System_Threading_Tasks_TaskStatus.h"
-#import "System_ThreadStaticAttribute.h"
-#import "System_TimeoutException.h"
 #import "System_TimeSpan.h"
-#import "System_TimeZone.h"
 #import "System_TimeZoneInfo.h"
 #import "System_TimeZoneInfo__AdjustmentRule.h"
 #import "System_TimeZoneInfo__TransitionTime.h"
-#import "System_TimeZoneNotFoundException.h"
-#import "System_Tuple.h"
-#import "System_TupleA1.h"
-#import "System_TupleA2.h"
-#import "System_TupleA3.h"
-#import "System_TupleA4.h"
-#import "System_TupleA5.h"
-#import "System_TupleA6.h"
-#import "System_TupleA7.h"
-#import "System_TupleA8.h"
-#import "System_TupleExtensions.h"
 #import "System_Type.h"
-#import "System_TypeAccessException.h"
-#import "System_TypeCode.h"
-#import "System_TypedReference.h"
-#import "System_TypeInitializationException.h"
-#import "System_TypeLoadException.h"
-#import "System_TypeUnloadedException.h"
 #import "System_UInt16.h"
 #import "System_UInt32.h"
 #import "System_UInt64.h"
 #import "System_UIntPtr.h"
-#import "System_UnauthorizedAccessException.h"
 #import "System_UnhandledExceptionEventArgs.h"
 #import "System_UnhandledExceptionEventHandler.h"
-#import "System_ValueTuple.h"
-#import "System_ValueTupleA1.h"
-#import "System_ValueTupleA2.h"
-#import "System_ValueTupleA3.h"
-#import "System_ValueTupleA4.h"
-#import "System_ValueTupleA5.h"
-#import "System_ValueTupleA6.h"
-#import "System_ValueTupleA7.h"
-#import "System_ValueTupleA8.h"
 #import "System_ValueType.h"
 #import "System_Version.h"
 #import "System_Void.h"
-#import "System_WeakReference.h"
-#import "System_WeakReferenceA1.h"

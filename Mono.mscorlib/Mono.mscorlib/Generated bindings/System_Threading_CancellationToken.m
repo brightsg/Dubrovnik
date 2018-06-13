@@ -181,58 +181,10 @@
 		
 		return DB_UNBOX_BOOLEAN(monoObject);
     }
-
-	/*! 
-		Managed method name : Register
-		Managed return type : System.Threading.CancellationTokenRegistration
-		Managed param types : System.Action
-	 */
-    - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_Action *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Register(System.Action)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Threading_CancellationTokenRegistration bestObjectWithMonoObject:monoObject];
-    }
-
-	/*! 
-		Managed method name : Register
-		Managed return type : System.Threading.CancellationTokenRegistration
-		Managed param types : System.Action, System.Boolean
-	 */
-    - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_Action *)p1 useSynchronizationContext:(BOOL)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Register(System.Action,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-		
-		return [System_Threading_CancellationTokenRegistration bestObjectWithMonoObject:monoObject];
-    }
-
-	/*! 
-		Managed method name : Register
-		Managed return type : System.Threading.CancellationTokenRegistration
-		Managed param types : System.Action`1<System.Object>, System.Object
-	 */
-    - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_ActionA1 *)p1 state:(System_Object *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Register(System.Action`1<object>,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return [System_Threading_CancellationTokenRegistration bestObjectWithMonoObject:monoObject];
-    }
-
-	/*! 
-		Managed method name : Register
-		Managed return type : System.Threading.CancellationTokenRegistration
-		Managed param types : System.Action`1<System.Object>, System.Object, System.Boolean
-	 */
-    - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_ActionA1 *)p1 state:(System_Object *)p2 useSynchronizationContext:(BOOL)p3
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Register(System.Action`1<object>,object,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
-		
-		return [System_Threading_CancellationTokenRegistration bestObjectWithMonoObject:monoObject];
-    }
+/* Skipped method : System.Threading.CancellationTokenRegistration Register(System.Action callback) */
+/* Skipped method : System.Threading.CancellationTokenRegistration Register(System.Action callback, System.Boolean useSynchronizationContext) */
+/* Skipped method : System.Threading.CancellationTokenRegistration Register(System.Action`1<System.Object> callback, System.Object state) */
+/* Skipped method : System.Threading.CancellationTokenRegistration Register(System.Action`1<System.Object> callback, System.Object state, System.Boolean useSynchronizationContext) */
 
 	/*! 
 		Managed method name : ThrowIfCancellationRequested

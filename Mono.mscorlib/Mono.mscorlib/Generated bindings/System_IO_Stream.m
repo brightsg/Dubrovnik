@@ -491,19 +491,7 @@
 		
 		return DB_UNBOX_INT32(monoObject);
     }
-
-	/*! 
-		Managed method name : Seek
-		Managed return type : System.Int64
-		Managed param types : System.Int64, System.IO.SeekOrigin
-	 */
-    - (int64_t)seek_withOffset:(int64_t)p1 origin:(int32_t)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Seek(long,System.IO.SeekOrigin)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
-		
-		return DB_UNBOX_INT64(monoObject);
-    }
+/* Skipped method : System.Int64 Seek(System.Int64 offset, System.IO.SeekOrigin origin) */
 
 	/*! 
 		Managed method name : SetLength

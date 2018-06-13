@@ -22,21 +22,13 @@
 @class System_Array;
 @class System_Boolean;
 @class System_Collections_Generic_IComparerA1;
-@class System_Collections_ICollection;
-@class System_Collections_IComparer;
 @class System_Collections_IEnumerable;
 @class System_Collections_IEnumerator;
 @class System_Collections_IList;
-@class System_Collections_IStructuralComparable;
-@class System_Collections_IStructuralEquatable;
-@class System_Collections_ObjectModel_ReadOnlyCollectionA1;
-@class System_ComparisonA1;
-@class System_ConverterA2;
 @class System_ICloneable;
 @class System_Int32;
 @class System_Int64;
 @class System_Object;
-@class System_PredicateA1;
 @class System_Type;
 @class System_Void;
 @class T;
@@ -46,23 +38,18 @@
 @class TValue;
 @protocol System_Collections_Generic_IComparerA1;
 @protocol System_Collections_Generic_IComparerA1_;
-@protocol System_Collections_IComparer;
-@protocol System_Collections_IComparer_;
 @protocol System_Collections_IEnumerator;
 @protocol System_Collections_IEnumerator_;
 
 //
 // Import superclass and adopted protocols
 //
-#import "System_Collections_ICollection_Protocol.h"
 #import "System_Collections_IEnumerable_Protocol.h"
 #import "System_Collections_IList_Protocol.h"
-#import "System_Collections_IStructuralComparable_Protocol.h"
-#import "System_Collections_IStructuralEquatable_Protocol.h"
 #import "System_ICloneable_Protocol.h"
 #import "System_Object.h"
 
-@interface System_Array : System_Object <System_ICloneable_, System_Collections_IList_, System_Collections_ICollection_, System_Collections_IEnumerable_, System_Collections_IStructuralComparable_, System_Collections_IStructuralEquatable_>
+@interface System_Array : System_Object <System_ICloneable_, System_Collections_IList_, System_Collections_IEnumerable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -104,14 +91,7 @@
 
 #pragma mark -
 #pragma mark Methods
-
-	/*! 
-		Managed method name : AsReadOnly
-		Managed return type : System.Collections.ObjectModel.ReadOnlyCollection`1<System.Array+T>
-		Managed param types : T[]
-		Generic method definition type params : <System.Array+T>
-	 */
-    + (System_Collections_ObjectModel_ReadOnlyCollectionA1 *)asReadOnly_withArray:(System_Array *)p1 typeParameter:(id)typeParameter;
+/* Skipped method : System.Collections.ObjectModel.ReadOnlyCollection`1<System.Array+T> AsReadOnly(T[] array) */
 
 	/*! 
 		Managed method name : BinarySearch
@@ -126,20 +106,8 @@
 		Managed param types : System.Array, System.Int32, System.Int32, System.Object
 	 */
     + (int32_t)binarySearch_withArraySArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueObject:(System_Object *)p4;
-
-	/*! 
-		Managed method name : BinarySearch
-		Managed return type : System.Int32
-		Managed param types : System.Array, System.Object, System.Collections.IComparer
-	 */
-    + (int32_t)binarySearch_withArraySArray:(System_Array *)p1 valueObject:(System_Object *)p2 comparerSCIComparer:(id <System_Collections_IComparer_>)p3;
-
-	/*! 
-		Managed method name : BinarySearch
-		Managed return type : System.Int32
-		Managed param types : System.Array, System.Int32, System.Int32, System.Object, System.Collections.IComparer
-	 */
-    + (int32_t)binarySearch_withArraySArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueObject:(System_Object *)p4 comparerSCIComparer:(id <System_Collections_IComparer_>)p5;
+/* Skipped method : System.Int32 BinarySearch(System.Array array, System.Object value, System.Collections.IComparer comparer) */
+/* Skipped method : System.Int32 BinarySearch(System.Array array, System.Int32 index, System.Int32 length, System.Object value, System.Collections.IComparer comparer) */
 
 	/*! 
 		Managed method name : BinarySearch
@@ -193,14 +161,7 @@
 		Managed param types : System.Array, System.Int32, System.Array, System.Int32, System.Int32
 	 */
     + (void)constrainedCopy_withSourceArray:(System_Array *)p1 sourceIndex:(int32_t)p2 destinationArray:(System_Array *)p3 destinationIndex:(int32_t)p4 length:(int32_t)p5;
-
-	/*! 
-		Managed method name : ConvertAll
-		Managed return type : TOutput[]
-		Managed param types : TInput[], System.Converter`2<System.Array+TInput, System.Array+TOutput>
-		Generic method definition type params : <System.Array+TInput>, <System.Array+TOutput>
-	 */
-    + (System_Array *)convertAll_withArray:(System_Array *)p1 converter:(System_ConverterA2 *)p2 typeParameters:(NSArray<id> *)typeParameter;
+/* Skipped method : TOutput[] ConvertAll(TInput[] array, System.Converter`2<System.Array+TInput,System.Array+TOutput> converter) */
 
 	/*! 
 		Managed method name : Copy
@@ -293,86 +254,16 @@
 		Generic method definition type params : <System.Array+T>
 	 */
     + (System_Array *)empty_withTypeParameter:(id)typeParameter;
-
-	/*! 
-		Managed method name : Exists
-		Managed return type : System.Boolean
-		Managed param types : T[], System.Predicate`1<System.Array+T>
-		Generic method definition type params : <System.Array+T>
-	 */
-    + (BOOL)exists_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter;
-
-	/*! 
-		Managed method name : Find
-		Managed return type : <System.Array+T>
-		Managed param types : T[], System.Predicate`1<System.Array+T>
-		Generic method definition type params : <System.Array+T>
-	 */
-    + (System_Object *)find_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter;
-
-	/*! 
-		Managed method name : FindAll
-		Managed return type : T[]
-		Managed param types : T[], System.Predicate`1<System.Array+T>
-		Generic method definition type params : <System.Array+T>
-	 */
-    + (System_Array *)findAll_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter;
-
-	/*! 
-		Managed method name : FindIndex
-		Managed return type : System.Int32
-		Managed param types : T[], System.Predicate`1<System.Array+T>
-		Generic method definition type params : <System.Array+T>
-	 */
-    + (int32_t)findIndex_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter;
-
-	/*! 
-		Managed method name : FindIndex
-		Managed return type : System.Int32
-		Managed param types : T[], System.Int32, System.Predicate`1<System.Array+T>
-		Generic method definition type params : <System.Array+T>
-	 */
-    + (int32_t)findIndex_withArray:(System_Array *)p1 startIndex:(int32_t)p2 match:(System_PredicateA1 *)p3 typeParameter:(id)typeParameter;
-
-	/*! 
-		Managed method name : FindIndex
-		Managed return type : System.Int32
-		Managed param types : T[], System.Int32, System.Int32, System.Predicate`1<System.Array+T>
-		Generic method definition type params : <System.Array+T>
-	 */
-    + (int32_t)findIndex_withArray:(System_Array *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 match:(System_PredicateA1 *)p4 typeParameter:(id)typeParameter;
-
-	/*! 
-		Managed method name : FindLast
-		Managed return type : <System.Array+T>
-		Managed param types : T[], System.Predicate`1<System.Array+T>
-		Generic method definition type params : <System.Array+T>
-	 */
-    + (System_Object *)findLast_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter;
-
-	/*! 
-		Managed method name : FindLastIndex
-		Managed return type : System.Int32
-		Managed param types : T[], System.Predicate`1<System.Array+T>
-		Generic method definition type params : <System.Array+T>
-	 */
-    + (int32_t)findLastIndex_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter;
-
-	/*! 
-		Managed method name : FindLastIndex
-		Managed return type : System.Int32
-		Managed param types : T[], System.Int32, System.Predicate`1<System.Array+T>
-		Generic method definition type params : <System.Array+T>
-	 */
-    + (int32_t)findLastIndex_withArray:(System_Array *)p1 startIndex:(int32_t)p2 match:(System_PredicateA1 *)p3 typeParameter:(id)typeParameter;
-
-	/*! 
-		Managed method name : FindLastIndex
-		Managed return type : System.Int32
-		Managed param types : T[], System.Int32, System.Int32, System.Predicate`1<System.Array+T>
-		Generic method definition type params : <System.Array+T>
-	 */
-    + (int32_t)findLastIndex_withArray:(System_Array *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 match:(System_PredicateA1 *)p4 typeParameter:(id)typeParameter;
+/* Skipped method : System.Boolean Exists(T[] array, System.Predicate`1<System.Array+T> match) */
+/* Skipped method : System.Array+T Find(T[] array, System.Predicate`1<System.Array+T> match) */
+/* Skipped method : T[] FindAll(T[] array, System.Predicate`1<System.Array+T> match) */
+/* Skipped method : System.Int32 FindIndex(T[] array, System.Predicate`1<System.Array+T> match) */
+/* Skipped method : System.Int32 FindIndex(T[] array, System.Int32 startIndex, System.Predicate`1<System.Array+T> match) */
+/* Skipped method : System.Int32 FindIndex(T[] array, System.Int32 startIndex, System.Int32 count, System.Predicate`1<System.Array+T> match) */
+/* Skipped method : System.Array+T FindLast(T[] array, System.Predicate`1<System.Array+T> match) */
+/* Skipped method : System.Int32 FindLastIndex(T[] array, System.Predicate`1<System.Array+T> match) */
+/* Skipped method : System.Int32 FindLastIndex(T[] array, System.Int32 startIndex, System.Predicate`1<System.Array+T> match) */
+/* Skipped method : System.Int32 FindLastIndex(T[] array, System.Int32 startIndex, System.Int32 count, System.Predicate`1<System.Array+T> match) */
 
 	/*! 
 		Managed method name : ForEach
@@ -668,34 +559,10 @@
 		Managed param types : System.Array, System.Array, System.Int32, System.Int32
 	 */
     + (void)sort_withKeysSArray:(System_Array *)p1 itemsSArray:(System_Array *)p2 indexInt:(int32_t)p3 lengthInt:(int32_t)p4;
-
-	/*! 
-		Managed method name : Sort
-		Managed return type : System.Void
-		Managed param types : System.Array, System.Collections.IComparer
-	 */
-    + (void)sort_withArraySArray:(System_Array *)p1 comparerSCIComparer:(id <System_Collections_IComparer_>)p2;
-
-	/*! 
-		Managed method name : Sort
-		Managed return type : System.Void
-		Managed param types : System.Array, System.Array, System.Collections.IComparer
-	 */
-    + (void)sort_withKeysSArray:(System_Array *)p1 itemsSArray:(System_Array *)p2 comparerSCIComparer:(id <System_Collections_IComparer_>)p3;
-
-	/*! 
-		Managed method name : Sort
-		Managed return type : System.Void
-		Managed param types : System.Array, System.Int32, System.Int32, System.Collections.IComparer
-	 */
-    + (void)sort_withArraySArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 comparerSCIComparer:(id <System_Collections_IComparer_>)p4;
-
-	/*! 
-		Managed method name : Sort
-		Managed return type : System.Void
-		Managed param types : System.Array, System.Array, System.Int32, System.Int32, System.Collections.IComparer
-	 */
-    + (void)sort_withKeysSArray:(System_Array *)p1 itemsSArray:(System_Array *)p2 indexInt:(int32_t)p3 lengthInt:(int32_t)p4 comparerSCIComparer:(id <System_Collections_IComparer_>)p5;
+/* Skipped method : System.Void Sort(System.Array array, System.Collections.IComparer comparer) */
+/* Skipped method : System.Void Sort(System.Array keys, System.Array items, System.Collections.IComparer comparer) */
+/* Skipped method : System.Void Sort(System.Array array, System.Int32 index, System.Int32 length, System.Collections.IComparer comparer) */
+/* Skipped method : System.Void Sort(System.Array keys, System.Array items, System.Int32 index, System.Int32 length, System.Collections.IComparer comparer) */
 
 	/*! 
 		Managed method name : Sort
@@ -760,21 +627,7 @@
 		Generic method definition type params : <System.Array+TKey>, <System.Array+TValue>
 	 */
     + (void)sort_withKeysTKeyArray:(System_Array *)p1 itemsTValueArray:(System_Array *)p2 indexInt:(int32_t)p3 lengthInt:(int32_t)p4 comparerSCGIArray__TKey:(id <System_Collections_Generic_IComparerA1_>)p5 typeParameters:(NSArray<id> *)typeParameter;
-
-	/*! 
-		Managed method name : Sort
-		Managed return type : System.Void
-		Managed param types : T[], System.Comparison`1<System.Array+T>
-		Generic method definition type params : <System.Array+T>
-	 */
-    + (void)sort_withArray:(System_Array *)p1 comparison:(System_ComparisonA1 *)p2 typeParameter:(id)typeParameter;
-
-	/*! 
-		Managed method name : TrueForAll
-		Managed return type : System.Boolean
-		Managed param types : T[], System.Predicate`1<System.Array+T>
-		Generic method definition type params : <System.Array+T>
-	 */
-    + (BOOL)trueForAll_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter;
+/* Skipped method : System.Void Sort(T[] array, System.Comparison`1<System.Array+T> comparison) */
+/* Skipped method : System.Boolean TrueForAll(T[] array, System.Predicate`1<System.Array+T> match) */
 @end
 //--Dubrovnik.CodeGenerator

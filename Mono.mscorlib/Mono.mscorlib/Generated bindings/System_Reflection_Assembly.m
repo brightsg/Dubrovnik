@@ -446,45 +446,9 @@
 		
 		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
     }
-
-	/*! 
-		Managed method name : GetFile
-		Managed return type : System.IO.FileStream
-		Managed param types : System.String
-	 */
-    - (System_IO_FileStream *)getFile_withName:(NSString *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetFile(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_IO_FileStream bestObjectWithMonoObject:monoObject];
-    }
-
-	/*! 
-		Managed method name : GetFiles
-		Managed return type : System.IO.FileStream[]
-		Managed param types : 
-	 */
-    - (System_Array *)getFiles
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetFiles()" withNumArgs:0];
-		
-		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
-    }
-
-	/*! 
-		Managed method name : GetFiles
-		Managed return type : System.IO.FileStream[]
-		Managed param types : System.Boolean
-	 */
-    - (System_Array *)getFiles_withGetResourceModules:(BOOL)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetFiles(bool)" withNumArgs:1, DB_VALUE(p1)];
-		
-		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
-    }
+/* Skipped method : System.IO.FileStream GetFile(System.String name) */
+/* Skipped method : System.IO.FileStream[] GetFiles() */
+/* Skipped method : System.IO.FileStream[] GetFiles(System.Boolean getResourceModules) */
 
 	/*! 
 		Managed method name : GetHashCode

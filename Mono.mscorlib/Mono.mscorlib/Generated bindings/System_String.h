@@ -21,30 +21,19 @@
 @class System_Array;
 @class System_Boolean;
 @class System_Char;
-@class System_CharEnumerator;
 @class System_Collections_Generic_IEnumerableA1;
 @class System_Collections_IEnumerable;
 @class System_Globalization_CultureInfo;
 @class System_ICloneable;
-@class System_IComparable;
-@class System_IComparableA1;
-@class System_IConvertible;
 @class System_IEquatableA1;
-@class System_IFormatProvider;
 @class System_Int32;
 @class System_Object;
-@class System_SByte;
 @class System_String;
 @class System_StringComparison;
-@class System_StringSplitOptions;
 @class System_Text_Encoding;
-@class System_Text_NormalizationForm;
-@class System_TypeCode;
 @class System_Void;
 @protocol System_Collections_Generic_IEnumerableA1;
 @protocol System_Collections_Generic_IEnumerableA1_;
-@protocol System_IFormatProvider;
-@protocol System_IFormatProvider_;
 
 //
 // Import superclass and adopted protocols
@@ -52,13 +41,10 @@
 #import "System_Collections_Generic_IEnumerableA1_Protocol.h"
 #import "System_Collections_IEnumerable_Protocol.h"
 #import "System_ICloneable_Protocol.h"
-#import "System_IComparable_Protocol.h"
-#import "System_IComparableA1_Protocol.h"
-#import "System_IConvertible_Protocol.h"
 #import "System_IEquatableA1_Protocol.h"
 #import "System_Object.h"
 
-@interface System_String : System_Object <System_IComparable_, System_ICloneable_, System_IConvertible_, System_Collections_IEnumerable_, System_IComparableA1_, System_Collections_Generic_IEnumerableA1_, System_IEquatableA1_>
+@interface System_String : System_Object <System_ICloneable_, System_Collections_IEnumerable_, System_Collections_Generic_IEnumerableA1_, System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -69,41 +55,11 @@
 
 #pragma mark -
 #pragma mark Constructors
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.String
-		Managed param types : System.Char*
-	 */
-    + (System_String *)new_withValueCharPtr:(uint16_t*)p1;
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.String
-		Managed param types : System.Char*, System.Int32, System.Int32
-	 */
-    + (System_String *)new_withValueCharPtr:(uint16_t*)p1 startIndexInt:(int32_t)p2 lengthInt:(int32_t)p3;
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.String
-		Managed param types : System.SByte*
-	 */
-    + (System_String *)new_withValueSbytePtr:(int8_t*)p1;
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.String
-		Managed param types : System.SByte*, System.Int32, System.Int32
-	 */
-    + (System_String *)new_withValueSbytePtr:(int8_t*)p1 startIndexInt:(int32_t)p2 lengthInt:(int32_t)p3;
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.String
-		Managed param types : System.SByte*, System.Int32, System.Int32, System.Text.Encoding
-	 */
-    + (System_String *)new_withValue:(int8_t*)p1 startIndex:(int32_t)p2 length:(int32_t)p3 enc:(System_Text_Encoding *)p4;
+/* Skipped constructor : System.String (System.Char* value) */
+/* Skipped constructor : System.String (System.Char* value, System.Int32 startIndex, System.Int32 length) */
+/* Skipped constructor : System.String (System.SByte* value) */
+/* Skipped constructor : System.String (System.SByte* value, System.Int32 startIndex, System.Int32 length) */
+/* Skipped constructor : System.String (System.SByte* value, System.Int32 startIndex, System.Int32 length, System.Text.Encoding enc) */
 
 	/*! 
 		Managed method name : .ctor
@@ -425,41 +381,11 @@
 		Managed param types : System.String, System.Object[]
 	 */
     + (NSString *)format_withFormat:(NSString *)p1 args:(System_Array *)p2;
-
-	/*! 
-		Managed method name : Format
-		Managed return type : System.String
-		Managed param types : System.IFormatProvider, System.String, System.Object
-	 */
-    + (NSString *)format_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 arg0:(System_Object *)p3;
-
-	/*! 
-		Managed method name : Format
-		Managed return type : System.String
-		Managed param types : System.IFormatProvider, System.String, System.Object, System.Object
-	 */
-    + (NSString *)format_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 arg0:(System_Object *)p3 arg1:(System_Object *)p4;
-
-	/*! 
-		Managed method name : Format
-		Managed return type : System.String
-		Managed param types : System.IFormatProvider, System.String, System.Object, System.Object, System.Object
-	 */
-    + (NSString *)format_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 arg0:(System_Object *)p3 arg1:(System_Object *)p4 arg2:(System_Object *)p5;
-
-	/*! 
-		Managed method name : Format
-		Managed return type : System.String
-		Managed param types : System.IFormatProvider, System.String, System.Object[]
-	 */
-    + (NSString *)format_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 args:(System_Array *)p3;
-
-	/*! 
-		Managed method name : GetEnumerator
-		Managed return type : System.CharEnumerator
-		Managed param types : 
-	 */
-    - (System_CharEnumerator *)getEnumerator;
+/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object arg0) */
+/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1) */
+/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1, System.Object arg2) */
+/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object[] args) */
+/* Skipped method : System.CharEnumerator GetEnumerator() */
 
 	/*! 
 		Managed method name : GetHashCode
@@ -467,13 +393,7 @@
 		Managed param types : 
 	 */
     - (int32_t)getHashCode;
-
-	/*! 
-		Managed method name : GetTypeCode
-		Managed return type : System.TypeCode
-		Managed param types : 
-	 */
-    - (int32_t)getTypeCode;
+/* Skipped method : System.TypeCode GetTypeCode() */
 
 	/*! 
 		Managed method name : IndexOf
@@ -586,13 +506,7 @@
 		Managed param types : 
 	 */
     - (BOOL)isNormalized;
-
-	/*! 
-		Managed method name : IsNormalized
-		Managed return type : System.Boolean
-		Managed param types : System.Text.NormalizationForm
-	 */
-    - (BOOL)isNormalized_withNormalizationForm:(int32_t)p1;
+/* Skipped method : System.Boolean IsNormalized(System.Text.NormalizationForm normalizationForm) */
 
 	/*! 
 		Managed method name : IsNullOrEmpty
@@ -734,13 +648,7 @@
 		Managed param types : 
 	 */
     - (NSString *)normalize;
-
-	/*! 
-		Managed method name : Normalize
-		Managed return type : System.String
-		Managed param types : System.Text.NormalizationForm
-	 */
-    - (NSString *)normalize_withNormalizationForm:(int32_t)p1;
+/* Skipped method : System.String Normalize(System.Text.NormalizationForm normalizationForm) */
 
 	/*! 
 		Managed method name : op_Equality
@@ -825,34 +733,10 @@
 		Managed param types : System.Char[], System.Int32
 	 */
     - (System_Array *)split_withSeparator:(System_Array *)p1 count:(int32_t)p2;
-
-	/*! 
-		Managed method name : Split
-		Managed return type : System.String[]
-		Managed param types : System.Char[], System.StringSplitOptions
-	 */
-    - (System_Array *)split_withSeparatorCharArray:(System_Array *)p1 optionsStringSplitOptions:(int32_t)p2;
-
-	/*! 
-		Managed method name : Split
-		Managed return type : System.String[]
-		Managed param types : System.Char[], System.Int32, System.StringSplitOptions
-	 */
-    - (System_Array *)split_withSeparatorCharArray:(System_Array *)p1 countInt:(int32_t)p2 optionsStringSplitOptions:(int32_t)p3;
-
-	/*! 
-		Managed method name : Split
-		Managed return type : System.String[]
-		Managed param types : System.String[], System.StringSplitOptions
-	 */
-    - (System_Array *)split_withSeparatorStringArray:(System_Array *)p1 optionsStringSplitOptions:(int32_t)p2;
-
-	/*! 
-		Managed method name : Split
-		Managed return type : System.String[]
-		Managed param types : System.String[], System.Int32, System.StringSplitOptions
-	 */
-    - (System_Array *)split_withSeparatorStringArray:(System_Array *)p1 countInt:(int32_t)p2 optionsStringSplitOptions:(int32_t)p3;
+/* Skipped method : System.String[] Split(System.Char[] separator, System.StringSplitOptions options) */
+/* Skipped method : System.String[] Split(System.Char[] separator, System.Int32 count, System.StringSplitOptions options) */
+/* Skipped method : System.String[] Split(System.String[] separator, System.StringSplitOptions options) */
+/* Skipped method : System.String[] Split(System.String[] separator, System.Int32 count, System.StringSplitOptions options) */
 
 	/*! 
 		Managed method name : StartsWith
@@ -930,13 +814,7 @@
 		Managed param types : 
 	 */
     - (NSString *)toString;
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.IFormatProvider
-	 */
-    - (NSString *)toString_withProvider:(id <System_IFormatProvider_>)p1;
+/* Skipped method : System.String ToString(System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToUpper

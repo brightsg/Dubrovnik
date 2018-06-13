@@ -19,23 +19,17 @@
 // Forward class and protocol declarations
 //
 @class System_DBNull;
-@class System_IConvertible;
-@class System_IFormatProvider;
 @class System_Runtime_Serialization_ISerializable;
 @class System_String;
-@class System_TypeCode;
 @class System_Void;
-@protocol System_IFormatProvider;
-@protocol System_IFormatProvider_;
 
 //
 // Import superclass and adopted protocols
 //
-#import "System_IConvertible_Protocol.h"
 #import "System_Object.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 
-@interface System_DBNull : System_Object <System_Runtime_Serialization_ISerializable_, System_IConvertible_>
+@interface System_DBNull : System_Object <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -54,13 +48,7 @@
 #pragma mark -
 #pragma mark Methods
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
-
-	/*! 
-		Managed method name : GetTypeCode
-		Managed return type : System.TypeCode
-		Managed param types : 
-	 */
-    - (int32_t)getTypeCode;
+/* Skipped method : System.TypeCode GetTypeCode() */
 
 	/*! 
 		Managed method name : ToString
@@ -68,12 +56,6 @@
 		Managed param types : 
 	 */
     - (NSString *)toString;
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.IFormatProvider
-	 */
-    - (NSString *)toString_withProvider:(id <System_IFormatProvider_>)p1;
+/* Skipped method : System.String ToString(System.IFormatProvider provider) */
 @end
 //--Dubrovnik.CodeGenerator

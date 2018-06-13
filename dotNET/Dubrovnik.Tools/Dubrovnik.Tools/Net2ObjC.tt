@@ -216,7 +216,7 @@ static List<string> _classDefines = new List<string>();
 //
 public void WriteClassPredeclaration(CodeFacet facet)
 {
-	if (!Config.GenerateTypeBinding(facet)) {
+	if (!Config.GenerateFacetBinding(facet)) {
 		WriteSkippedItem("type", facet.Description());
 		return;
 	}
@@ -324,8 +324,13 @@ public void WriteProtocolStart(InterfaceFacet facet, string module, bool writeIm
 		// build list of base protocols 
 		string baseProtocols = baseProtocol + protocolSuffix;
 		foreach (ImplementedInterfaceFacet interfaceFacet in facet.ImplementedInterfaces) {
-			baseProtocols += ", ";
-			baseProtocols += (interfaceFacet.ObjCFacet.Type + protocolSuffix);
+			string interfaceName = interfaceFacet.ObjCFacet.Type + protocolSuffix;
+			if (Config.GenerateFacetBinding(interfaceFacet)) {
+				baseProtocols += (", " + interfaceName);
+		   }
+			else {
+				baseProtocols += (" /*, " + interfaceName + "*/ ");
+			}
 		}
 
 #>
@@ -383,8 +388,13 @@ public void WriteProtocolStart(InterfaceFacet facet, string module, bool writeIm
 		// build list of base protocols 
 		string baseProtocols = adoptionProtocolName + ", " + baseProtocol;
 		foreach (ImplementedInterfaceFacet interfaceFacet in facet.ImplementedInterfaces) {
-			baseProtocols += ", ";
-			baseProtocols += (interfaceFacet.ObjCFacet.Type + protocolSuffix);
+		  string interfaceName = interfaceFacet.ObjCFacet.Type + protocolSuffix;
+		   if (Config.GenerateFacetBinding(interfaceFacet)) {
+				baseProtocols += (", " + interfaceName);
+		   }
+			else {
+				baseProtocols += (" /*, " + interfaceName + "*/ ");
+			}
 		}
 #>
 

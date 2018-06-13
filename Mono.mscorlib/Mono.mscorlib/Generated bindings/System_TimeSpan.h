@@ -21,29 +21,20 @@
 @class System_Array;
 @class System_Boolean;
 @class System_Double;
-@class System_IComparable;
-@class System_IComparableA1;
 @class System_IEquatableA1;
-@class System_IFormatProvider;
-@class System_IFormattable;
 @class System_Int32;
 @class System_Int64;
 @class System_Object;
 @class System_String;
 @class System_TimeSpan;
-@protocol System_IFormatProvider;
-@protocol System_IFormatProvider_;
 
 //
 // Import superclass and adopted protocols
 //
-#import "System_IComparable_Protocol.h"
-#import "System_IComparableA1_Protocol.h"
 #import "System_IEquatableA1_Protocol.h"
-#import "System_IFormattable_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_TimeSpan : System_ValueType <System_IComparable_, System_IComparableA1_, System_IEquatableA1_, System_IFormattable_>
+@interface System_TimeSpan : System_ValueType <System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -356,27 +347,9 @@
 		Managed param types : System.String
 	 */
     + (System_TimeSpan *)parse_withS:(NSString *)p1;
-
-	/*! 
-		Managed method name : Parse
-		Managed return type : System.TimeSpan
-		Managed param types : System.String, System.IFormatProvider
-	 */
-    + (System_TimeSpan *)parse_withInput:(NSString *)p1 formatProvider:(id <System_IFormatProvider_>)p2;
-
-	/*! 
-		Managed method name : ParseExact
-		Managed return type : System.TimeSpan
-		Managed param types : System.String, System.String, System.IFormatProvider
-	 */
-    + (System_TimeSpan *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(id <System_IFormatProvider_>)p3;
-
-	/*! 
-		Managed method name : ParseExact
-		Managed return type : System.TimeSpan
-		Managed param types : System.String, System.String[], System.IFormatProvider
-	 */
-    + (System_TimeSpan *)parseExact_withInput:(NSString *)p1 formats:(System_Array *)p2 formatProvider:(id <System_IFormatProvider_>)p3;
+/* Skipped method : System.TimeSpan Parse(System.String input, System.IFormatProvider formatProvider) */
+/* Skipped method : System.TimeSpan ParseExact(System.String input, System.String format, System.IFormatProvider formatProvider) */
+/* Skipped method : System.TimeSpan ParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider) */
 /* Skipped method : System.TimeSpan ParseExact(System.String input, System.String format, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles) */
 /* Skipped method : System.TimeSpan ParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles) */
 
@@ -400,13 +373,7 @@
 		Managed param types : System.String
 	 */
     - (NSString *)toString_withFormat:(NSString *)p1;
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.String, System.IFormatProvider
-	 */
-    - (NSString *)toString_withFormat:(NSString *)p1 formatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.String ToString(System.String format, System.IFormatProvider formatProvider) */
 
 	/*! 
 		Managed method name : TryParse
@@ -414,27 +381,9 @@
 		Managed param types : System.String, ref System.TimeSpan&
 	 */
     + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(System_TimeSpan **)p2;
-
-	/*! 
-		Managed method name : TryParse
-		Managed return type : System.Boolean
-		Managed param types : System.String, System.IFormatProvider, ref System.TimeSpan&
-	 */
-    + (BOOL)tryParse_withInput:(NSString *)p1 formatProvider:(id <System_IFormatProvider_>)p2 resultRef:(System_TimeSpan **)p3;
-
-	/*! 
-		Managed method name : TryParseExact
-		Managed return type : System.Boolean
-		Managed param types : System.String, System.String, System.IFormatProvider, ref System.TimeSpan&
-	 */
-    + (BOOL)tryParseExact_withInput:(NSString *)p1 format:(NSString *)p2 formatProvider:(id <System_IFormatProvider_>)p3 resultRef:(System_TimeSpan **)p4;
-
-	/*! 
-		Managed method name : TryParseExact
-		Managed return type : System.Boolean
-		Managed param types : System.String, System.String[], System.IFormatProvider, ref System.TimeSpan&
-	 */
-    + (BOOL)tryParseExact_withInput:(NSString *)p1 formats:(System_Array *)p2 formatProvider:(id <System_IFormatProvider_>)p3 resultRef:(System_TimeSpan **)p4;
+/* Skipped method : System.Boolean TryParse(System.String input, System.IFormatProvider formatProvider, System.TimeSpan& result) */
+/* Skipped method : System.Boolean TryParseExact(System.String input, System.String format, System.IFormatProvider formatProvider, System.TimeSpan& result) */
+/* Skipped method : System.Boolean TryParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider, System.TimeSpan& result) */
 /* Skipped method : System.Boolean TryParseExact(System.String input, System.String format, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles, System.TimeSpan& result) */
 /* Skipped method : System.Boolean TryParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles, System.TimeSpan& result) */
 @end

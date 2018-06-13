@@ -18,13 +18,10 @@
 //
 // Forward class and protocol declarations
 //
-@class System_Action;
-@class System_ActionA1;
 @class System_Boolean;
 @class System_Int32;
 @class System_Object;
 @class System_Threading_CancellationToken;
-@class System_Threading_CancellationTokenRegistration;
 @class System_Void;
 
 //
@@ -104,34 +101,10 @@
 		Managed param types : System.Threading.CancellationToken, System.Threading.CancellationToken
 	 */
     + (BOOL)op_Inequality_withLeft:(System_Threading_CancellationToken *)p1 right:(System_Threading_CancellationToken *)p2;
-
-	/*! 
-		Managed method name : Register
-		Managed return type : System.Threading.CancellationTokenRegistration
-		Managed param types : System.Action
-	 */
-    - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_Action *)p1;
-
-	/*! 
-		Managed method name : Register
-		Managed return type : System.Threading.CancellationTokenRegistration
-		Managed param types : System.Action, System.Boolean
-	 */
-    - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_Action *)p1 useSynchronizationContext:(BOOL)p2;
-
-	/*! 
-		Managed method name : Register
-		Managed return type : System.Threading.CancellationTokenRegistration
-		Managed param types : System.Action`1<System.Object>, System.Object
-	 */
-    - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_ActionA1 *)p1 state:(System_Object *)p2;
-
-	/*! 
-		Managed method name : Register
-		Managed return type : System.Threading.CancellationTokenRegistration
-		Managed param types : System.Action`1<System.Object>, System.Object, System.Boolean
-	 */
-    - (System_Threading_CancellationTokenRegistration *)register_withCallback:(System_ActionA1 *)p1 state:(System_Object *)p2 useSynchronizationContext:(BOOL)p3;
+/* Skipped method : System.Threading.CancellationTokenRegistration Register(System.Action callback) */
+/* Skipped method : System.Threading.CancellationTokenRegistration Register(System.Action callback, System.Boolean useSynchronizationContext) */
+/* Skipped method : System.Threading.CancellationTokenRegistration Register(System.Action`1<System.Object> callback, System.Object state) */
+/* Skipped method : System.Threading.CancellationTokenRegistration Register(System.Action`1<System.Object> callback, System.Object state, System.Boolean useSynchronizationContext) */
 
 	/*! 
 		Managed method name : ThrowIfCancellationRequested

@@ -58,19 +58,7 @@
       
       return object;
     }
-
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.IntPtr
-		Managed param types : System.Void*
-	 */
-    + (System_IntPtr *)new_withValueVoidPtr:(void*)p1
-    {
-		
-		System_IntPtr * object = [[self alloc] initWithSignature:"void*" withNumArgs:1, p1];
-      
-      return object;
-    }
+/* Skipped constructor : System.IntPtr (System.Void* value) */
 
 #pragma mark -
 #pragma mark Fields
@@ -203,19 +191,8 @@
 		
 		return DB_UNBOX_PTR(monoObject);
     }
-
-	/*! 
-		Managed method name : op_Explicit
-		Managed return type : System.IntPtr
-		Managed param types : System.Void*
-	 */
-    + (void *)op_Explicit_withValueVoidPtr:(void*)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(void*)" withNumArgs:1, p1];
-		
-		return DB_UNBOX_PTR(monoObject);
-    }
+/* Skipped method : System.IntPtr op_Explicit(System.Void* value) */
+/* Skipped method : System.Void* op_Explicit(System.IntPtr value) */
 
 	/*! 
 		Managed method name : op_Inequality
@@ -281,19 +258,7 @@
 		
 		return DB_UNBOX_INT64(monoObject);
     }
-
-	/*! 
-		Managed method name : ToPointer
-		Managed return type : System.Void*
-		Managed param types : 
-	 */
-    - (void *)toPointer
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToPointer()" withNumArgs:0];
-		
-		return DB_UNBOX_PTR(monoObject);
-    }
+/* Skipped method : System.Void* ToPointer() */
 
 	/*! 
 		Managed method name : ToString

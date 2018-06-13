@@ -19,7 +19,6 @@
 // Forward class and protocol declarations
 //
 @class System_Array;
-@class System_Base64FormattingOptions;
 @class System_Boolean;
 @class System_Byte;
 @class System_Char;
@@ -27,7 +26,6 @@
 @class System_DateTime;
 @class System_Decimal;
 @class System_Double;
-@class System_IFormatProvider;
 @class System_Int16;
 @class System_Int32;
 @class System_Int64;
@@ -36,12 +34,9 @@
 @class System_Single;
 @class System_String;
 @class System_Type;
-@class System_TypeCode;
 @class System_UInt16;
 @class System_UInt32;
 @class System_UInt64;
-@protocol System_IFormatProvider;
-@protocol System_IFormatProvider_;
 
 //
 // Import superclass and adopted protocols
@@ -66,20 +61,8 @@
 
 #pragma mark -
 #pragma mark Methods
-
-	/*! 
-		Managed method name : ChangeType
-		Managed return type : System.Object
-		Managed param types : System.Object, System.TypeCode
-	 */
-    + (System_Object *)changeType_withValue:(System_Object *)p1 typeCode:(int32_t)p2;
-
-	/*! 
-		Managed method name : ChangeType
-		Managed return type : System.Object
-		Managed param types : System.Object, System.TypeCode, System.IFormatProvider
-	 */
-    + (System_Object *)changeType_withValue:(System_Object *)p1 typeCode:(int32_t)p2 provider:(id <System_IFormatProvider_>)p3;
+/* Skipped method : System.Object ChangeType(System.Object value, System.TypeCode typeCode) */
+/* Skipped method : System.Object ChangeType(System.Object value, System.TypeCode typeCode, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ChangeType
@@ -87,13 +70,7 @@
 		Managed param types : System.Object, System.Type
 	 */
     + (System_Object *)changeType_withValue:(System_Object *)p1 conversionType:(System_Type *)p2;
-
-	/*! 
-		Managed method name : ChangeType
-		Managed return type : System.Object
-		Managed param types : System.Object, System.Type, System.IFormatProvider
-	 */
-    + (System_Object *)changeType_withValue:(System_Object *)p1 conversionType:(System_Type *)p2 provider:(id <System_IFormatProvider_>)p3;
+/* Skipped method : System.Object ChangeType(System.Object value, System.Type conversionType, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : FromBase64CharArray
@@ -108,13 +85,7 @@
 		Managed param types : System.String
 	 */
     + (NSData *)fromBase64String_withS:(NSString *)p1;
-
-	/*! 
-		Managed method name : GetTypeCode
-		Managed return type : System.TypeCode
-		Managed param types : System.Object
-	 */
-    + (int32_t)getTypeCode_withValue:(System_Object *)p1;
+/* Skipped method : System.TypeCode GetTypeCode(System.Object value) */
 
 	/*! 
 		Managed method name : IsDBNull
@@ -129,13 +100,7 @@
 		Managed param types : System.Byte[], System.Int32, System.Int32, System.Char[], System.Int32
 	 */
     + (int32_t)toBase64CharArray_withInArray:(NSData *)p1 offsetIn:(int32_t)p2 length:(int32_t)p3 outArray:(System_Array *)p4 offsetOut:(int32_t)p5;
-
-	/*! 
-		Managed method name : ToBase64CharArray
-		Managed return type : System.Int32
-		Managed param types : System.Byte[], System.Int32, System.Int32, System.Char[], System.Int32, System.Base64FormattingOptions
-	 */
-    + (int32_t)toBase64CharArray_withInArray:(NSData *)p1 offsetIn:(int32_t)p2 length:(int32_t)p3 outArray:(System_Array *)p4 offsetOut:(int32_t)p5 options:(int32_t)p6;
+/* Skipped method : System.Int32 ToBase64CharArray(System.Byte[] inArray, System.Int32 offsetIn, System.Int32 length, System.Char[] outArray, System.Int32 offsetOut, System.Base64FormattingOptions options) */
 
 	/*! 
 		Managed method name : ToBase64String
@@ -143,13 +108,7 @@
 		Managed param types : System.Byte[]
 	 */
     + (NSString *)toBase64String_withInArray:(NSData *)p1;
-
-	/*! 
-		Managed method name : ToBase64String
-		Managed return type : System.String
-		Managed param types : System.Byte[], System.Base64FormattingOptions
-	 */
-    + (NSString *)toBase64String_withInArray:(NSData *)p1 options:(int32_t)p2;
+/* Skipped method : System.String ToBase64String(System.Byte[] inArray, System.Base64FormattingOptions options) */
 
 	/*! 
 		Managed method name : ToBase64String
@@ -157,13 +116,7 @@
 		Managed param types : System.Byte[], System.Int32, System.Int32
 	 */
     + (NSString *)toBase64String_withInArray:(NSData *)p1 offset:(int32_t)p2 length:(int32_t)p3;
-
-	/*! 
-		Managed method name : ToBase64String
-		Managed return type : System.String
-		Managed param types : System.Byte[], System.Int32, System.Int32, System.Base64FormattingOptions
-	 */
-    + (NSString *)toBase64String_withInArray:(NSData *)p1 offset:(int32_t)p2 length:(int32_t)p3 options:(int32_t)p4;
+/* Skipped method : System.String ToBase64String(System.Byte[] inArray, System.Int32 offset, System.Int32 length, System.Base64FormattingOptions options) */
 
 	/*! 
 		Managed method name : ToBoolean
@@ -171,13 +124,7 @@
 		Managed param types : System.Object
 	 */
     + (BOOL)toBoolean_withValueObject:(System_Object *)p1;
-
-	/*! 
-		Managed method name : ToBoolean
-		Managed return type : System.Boolean
-		Managed param types : System.Object, System.IFormatProvider
-	 */
-    + (BOOL)toBoolean_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.Boolean ToBoolean(System.Object value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToBoolean
@@ -255,13 +202,7 @@
 		Managed param types : System.String
 	 */
     + (BOOL)toBoolean_withValueString:(NSString *)p1;
-
-	/*! 
-		Managed method name : ToBoolean
-		Managed return type : System.Boolean
-		Managed param types : System.String, System.IFormatProvider
-	 */
-    + (BOOL)toBoolean_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.Boolean ToBoolean(System.String value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToBoolean
@@ -297,13 +238,7 @@
 		Managed param types : System.Object
 	 */
     + (uint8_t)toByte_withValueObject:(System_Object *)p1;
-
-	/*! 
-		Managed method name : ToByte
-		Managed return type : System.Byte
-		Managed param types : System.Object, System.IFormatProvider
-	 */
-    + (uint8_t)toByte_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.Byte ToByte(System.Object value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToByte
@@ -402,13 +337,7 @@
 		Managed param types : System.String
 	 */
     + (uint8_t)toByte_withValueString:(NSString *)p1;
-
-	/*! 
-		Managed method name : ToByte
-		Managed return type : System.Byte
-		Managed param types : System.String, System.IFormatProvider
-	 */
-    + (uint8_t)toByte_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.Byte ToByte(System.String value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToByte
@@ -430,13 +359,7 @@
 		Managed param types : System.Object
 	 */
     + (uint16_t)toChar_withValueObject:(System_Object *)p1;
-
-	/*! 
-		Managed method name : ToChar
-		Managed return type : System.Char
-		Managed param types : System.Object, System.IFormatProvider
-	 */
-    + (uint16_t)toChar_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.Char ToChar(System.Object value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToChar
@@ -514,13 +437,7 @@
 		Managed param types : System.String
 	 */
     + (uint16_t)toChar_withValueString:(NSString *)p1;
-
-	/*! 
-		Managed method name : ToChar
-		Managed return type : System.Char
-		Managed param types : System.String, System.IFormatProvider
-	 */
-    + (uint16_t)toChar_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.Char ToChar(System.String value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToChar
@@ -563,13 +480,7 @@
 		Managed param types : System.Object
 	 */
     + (NSDate *)toDateTime_withValueObject:(System_Object *)p1;
-
-	/*! 
-		Managed method name : ToDateTime
-		Managed return type : System.DateTime
-		Managed param types : System.Object, System.IFormatProvider
-	 */
-    + (NSDate *)toDateTime_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.DateTime ToDateTime(System.Object value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToDateTime
@@ -577,13 +488,7 @@
 		Managed param types : System.String
 	 */
     + (NSDate *)toDateTime_withValueString:(NSString *)p1;
-
-	/*! 
-		Managed method name : ToDateTime
-		Managed return type : System.DateTime
-		Managed param types : System.String, System.IFormatProvider
-	 */
-    + (NSDate *)toDateTime_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.DateTime ToDateTime(System.String value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToDateTime
@@ -682,13 +587,7 @@
 		Managed param types : System.Object
 	 */
     + (NSDecimalNumber *)toDecimal_withValueObject:(System_Object *)p1;
-
-	/*! 
-		Managed method name : ToDecimal
-		Managed return type : System.Decimal
-		Managed param types : System.Object, System.IFormatProvider
-	 */
-    + (NSDecimalNumber *)toDecimal_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.Decimal ToDecimal(System.Object value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToDecimal
@@ -773,13 +672,7 @@
 		Managed param types : System.String
 	 */
     + (NSDecimalNumber *)toDecimal_withValueString:(NSString *)p1;
-
-	/*! 
-		Managed method name : ToDecimal
-		Managed return type : System.Decimal
-		Managed param types : System.String, System.IFormatProvider
-	 */
-    + (NSDecimalNumber *)toDecimal_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.Decimal ToDecimal(System.String value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToDecimal
@@ -808,13 +701,7 @@
 		Managed param types : System.Object
 	 */
     + (double)toDouble_withValueObject:(System_Object *)p1;
-
-	/*! 
-		Managed method name : ToDouble
-		Managed return type : System.Double
-		Managed param types : System.Object, System.IFormatProvider
-	 */
-    + (double)toDouble_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.Double ToDouble(System.Object value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToDouble
@@ -906,13 +793,7 @@
 		Managed param types : System.String
 	 */
     + (double)toDouble_withValueString:(NSString *)p1;
-
-	/*! 
-		Managed method name : ToDouble
-		Managed return type : System.Double
-		Managed param types : System.String, System.IFormatProvider
-	 */
-    + (double)toDouble_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.Double ToDouble(System.String value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToDouble
@@ -934,13 +815,7 @@
 		Managed param types : System.Object
 	 */
     + (int16_t)toInt16_withValueObject:(System_Object *)p1;
-
-	/*! 
-		Managed method name : ToInt16
-		Managed return type : System.Int16
-		Managed param types : System.Object, System.IFormatProvider
-	 */
-    + (int16_t)toInt16_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.Int16 ToInt16(System.Object value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToInt16
@@ -1039,13 +914,7 @@
 		Managed param types : System.String
 	 */
     + (int16_t)toInt16_withValueString:(NSString *)p1;
-
-	/*! 
-		Managed method name : ToInt16
-		Managed return type : System.Int16
-		Managed param types : System.String, System.IFormatProvider
-	 */
-    + (int16_t)toInt16_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.Int16 ToInt16(System.String value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToInt16
@@ -1067,13 +936,7 @@
 		Managed param types : System.Object
 	 */
     + (int32_t)toInt32_withValueObject:(System_Object *)p1;
-
-	/*! 
-		Managed method name : ToInt32
-		Managed return type : System.Int32
-		Managed param types : System.Object, System.IFormatProvider
-	 */
-    + (int32_t)toInt32_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.Int32 ToInt32(System.Object value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToInt32
@@ -1172,13 +1035,7 @@
 		Managed param types : System.String
 	 */
     + (int32_t)toInt32_withValueString:(NSString *)p1;
-
-	/*! 
-		Managed method name : ToInt32
-		Managed return type : System.Int32
-		Managed param types : System.String, System.IFormatProvider
-	 */
-    + (int32_t)toInt32_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.Int32 ToInt32(System.String value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToInt32
@@ -1200,13 +1057,7 @@
 		Managed param types : System.Object
 	 */
     + (int64_t)toInt64_withValueObject:(System_Object *)p1;
-
-	/*! 
-		Managed method name : ToInt64
-		Managed return type : System.Int64
-		Managed param types : System.Object, System.IFormatProvider
-	 */
-    + (int64_t)toInt64_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.Int64 ToInt64(System.Object value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToInt64
@@ -1305,13 +1156,7 @@
 		Managed param types : System.String
 	 */
     + (int64_t)toInt64_withValueString:(NSString *)p1;
-
-	/*! 
-		Managed method name : ToInt64
-		Managed return type : System.Int64
-		Managed param types : System.String, System.IFormatProvider
-	 */
-    + (int64_t)toInt64_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.Int64 ToInt64(System.String value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToInt64
@@ -1333,13 +1178,7 @@
 		Managed param types : System.Object
 	 */
     + (int8_t)toSByte_withValueObject:(System_Object *)p1;
-
-	/*! 
-		Managed method name : ToSByte
-		Managed return type : System.SByte
-		Managed param types : System.Object, System.IFormatProvider
-	 */
-    + (int8_t)toSByte_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.SByte ToSByte(System.Object value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToSByte
@@ -1438,13 +1277,7 @@
 		Managed param types : System.String
 	 */
     + (int8_t)toSByte_withValueString:(NSString *)p1;
-
-	/*! 
-		Managed method name : ToSByte
-		Managed return type : System.SByte
-		Managed param types : System.String, System.IFormatProvider
-	 */
-    + (int8_t)toSByte_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.SByte ToSByte(System.String value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToSByte
@@ -1466,13 +1299,7 @@
 		Managed param types : System.Object
 	 */
     + (float)toSingle_withValueObject:(System_Object *)p1;
-
-	/*! 
-		Managed method name : ToSingle
-		Managed return type : System.Single
-		Managed param types : System.Object, System.IFormatProvider
-	 */
-    + (float)toSingle_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.Single ToSingle(System.Object value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToSingle
@@ -1564,13 +1391,7 @@
 		Managed param types : System.String
 	 */
     + (float)toSingle_withValueString:(NSString *)p1;
-
-	/*! 
-		Managed method name : ToSingle
-		Managed return type : System.Single
-		Managed param types : System.String, System.IFormatProvider
-	 */
-    + (float)toSingle_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.Single ToSingle(System.String value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToSingle
@@ -1592,13 +1413,7 @@
 		Managed param types : System.Object
 	 */
     + (NSString *)toString_withValueObject:(System_Object *)p1;
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.Object, System.IFormatProvider
-	 */
-    + (NSString *)toString_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.String ToString(System.Object value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToString
@@ -1606,13 +1421,7 @@
 		Managed param types : System.Boolean
 	 */
     + (NSString *)toString_withValueBool:(BOOL)p1;
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.Boolean, System.IFormatProvider
-	 */
-    + (NSString *)toString_withValueBool:(BOOL)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.String ToString(System.Boolean value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToString
@@ -1620,13 +1429,7 @@
 		Managed param types : System.Char
 	 */
     + (NSString *)toString_withValueChar:(uint16_t)p1;
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.Char, System.IFormatProvider
-	 */
-    + (NSString *)toString_withValueChar:(uint16_t)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.String ToString(System.Char value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToString
@@ -1634,13 +1437,7 @@
 		Managed param types : System.SByte
 	 */
     + (NSString *)toString_withValueSbyte:(int8_t)p1;
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.SByte, System.IFormatProvider
-	 */
-    + (NSString *)toString_withValueSbyte:(int8_t)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.String ToString(System.SByte value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToString
@@ -1648,13 +1445,7 @@
 		Managed param types : System.Byte
 	 */
     + (NSString *)toString_withValueByte:(uint8_t)p1;
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.Byte, System.IFormatProvider
-	 */
-    + (NSString *)toString_withValueByte:(uint8_t)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.String ToString(System.Byte value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToString
@@ -1662,13 +1453,7 @@
 		Managed param types : System.Int16
 	 */
     + (NSString *)toString_withValueInt16:(int16_t)p1;
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.Int16, System.IFormatProvider
-	 */
-    + (NSString *)toString_withValueInt16:(int16_t)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.String ToString(System.Int16 value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToString
@@ -1676,13 +1461,7 @@
 		Managed param types : System.UInt16
 	 */
     + (NSString *)toString_withValueUint16:(uint16_t)p1;
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.UInt16, System.IFormatProvider
-	 */
-    + (NSString *)toString_withValueUint16:(uint16_t)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.String ToString(System.UInt16 value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToString
@@ -1690,13 +1469,7 @@
 		Managed param types : System.Int32
 	 */
     + (NSString *)toString_withValueInt:(int32_t)p1;
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.Int32, System.IFormatProvider
-	 */
-    + (NSString *)toString_withValueInt:(int32_t)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.String ToString(System.Int32 value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToString
@@ -1704,13 +1477,7 @@
 		Managed param types : System.UInt32
 	 */
     + (NSString *)toString_withValueUint:(uint32_t)p1;
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.UInt32, System.IFormatProvider
-	 */
-    + (NSString *)toString_withValueUint:(uint32_t)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.String ToString(System.UInt32 value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToString
@@ -1718,13 +1485,7 @@
 		Managed param types : System.Int64
 	 */
     + (NSString *)toString_withValueLong:(int64_t)p1;
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.Int64, System.IFormatProvider
-	 */
-    + (NSString *)toString_withValueLong:(int64_t)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.String ToString(System.Int64 value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToString
@@ -1732,13 +1493,7 @@
 		Managed param types : System.UInt64
 	 */
     + (NSString *)toString_withValueUlong:(uint64_t)p1;
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.UInt64, System.IFormatProvider
-	 */
-    + (NSString *)toString_withValueUlong:(uint64_t)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.String ToString(System.UInt64 value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToString
@@ -1746,13 +1501,7 @@
 		Managed param types : System.Single
 	 */
     + (NSString *)toString_withValueSingle:(float)p1;
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.Single, System.IFormatProvider
-	 */
-    + (NSString *)toString_withValueSingle:(float)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.String ToString(System.Single value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToString
@@ -1760,13 +1509,7 @@
 		Managed param types : System.Double
 	 */
     + (NSString *)toString_withValueDouble:(double)p1;
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.Double, System.IFormatProvider
-	 */
-    + (NSString *)toString_withValueDouble:(double)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.String ToString(System.Double value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToString
@@ -1774,13 +1517,7 @@
 		Managed param types : System.Decimal
 	 */
     + (NSString *)toString_withValueSDecimal:(NSDecimalNumber *)p1;
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.Decimal, System.IFormatProvider
-	 */
-    + (NSString *)toString_withValueSDecimal:(NSDecimalNumber *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.String ToString(System.Decimal value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToString
@@ -1788,13 +1525,7 @@
 		Managed param types : System.DateTime
 	 */
     + (NSString *)toString_withValueSDateTime:(NSDate *)p1;
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.DateTime, System.IFormatProvider
-	 */
-    + (NSString *)toString_withValueSDateTime:(NSDate *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.String ToString(System.DateTime value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToString
@@ -1802,13 +1533,7 @@
 		Managed param types : System.String
 	 */
     + (NSString *)toString_withValueString:(NSString *)p1;
-
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.String, System.IFormatProvider
-	 */
-    + (NSString *)toString_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.String ToString(System.String value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToString
@@ -1844,13 +1569,7 @@
 		Managed param types : System.Object
 	 */
     + (uint16_t)toUInt16_withValueObject:(System_Object *)p1;
-
-	/*! 
-		Managed method name : ToUInt16
-		Managed return type : System.UInt16
-		Managed param types : System.Object, System.IFormatProvider
-	 */
-    + (uint16_t)toUInt16_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.UInt16 ToUInt16(System.Object value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToUInt16
@@ -1949,13 +1668,7 @@
 		Managed param types : System.String
 	 */
     + (uint16_t)toUInt16_withValueString:(NSString *)p1;
-
-	/*! 
-		Managed method name : ToUInt16
-		Managed return type : System.UInt16
-		Managed param types : System.String, System.IFormatProvider
-	 */
-    + (uint16_t)toUInt16_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.UInt16 ToUInt16(System.String value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToUInt16
@@ -1977,13 +1690,7 @@
 		Managed param types : System.Object
 	 */
     + (uint32_t)toUInt32_withValueObject:(System_Object *)p1;
-
-	/*! 
-		Managed method name : ToUInt32
-		Managed return type : System.UInt32
-		Managed param types : System.Object, System.IFormatProvider
-	 */
-    + (uint32_t)toUInt32_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.UInt32 ToUInt32(System.Object value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToUInt32
@@ -2082,13 +1789,7 @@
 		Managed param types : System.String
 	 */
     + (uint32_t)toUInt32_withValueString:(NSString *)p1;
-
-	/*! 
-		Managed method name : ToUInt32
-		Managed return type : System.UInt32
-		Managed param types : System.String, System.IFormatProvider
-	 */
-    + (uint32_t)toUInt32_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.UInt32 ToUInt32(System.String value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToUInt32
@@ -2110,13 +1811,7 @@
 		Managed param types : System.Object
 	 */
     + (uint64_t)toUInt64_withValueObject:(System_Object *)p1;
-
-	/*! 
-		Managed method name : ToUInt64
-		Managed return type : System.UInt64
-		Managed param types : System.Object, System.IFormatProvider
-	 */
-    + (uint64_t)toUInt64_withValueObject:(System_Object *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.UInt64 ToUInt64(System.Object value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToUInt64
@@ -2215,13 +1910,7 @@
 		Managed param types : System.String
 	 */
     + (uint64_t)toUInt64_withValueString:(NSString *)p1;
-
-	/*! 
-		Managed method name : ToUInt64
-		Managed return type : System.UInt64
-		Managed param types : System.String, System.IFormatProvider
-	 */
-    + (uint64_t)toUInt64_withValueString:(NSString *)p1 providerSIFormatProvider:(id <System_IFormatProvider_>)p2;
+/* Skipped method : System.UInt64 ToUInt64(System.String value, System.IFormatProvider provider) */
 
 	/*! 
 		Managed method name : ToUInt64

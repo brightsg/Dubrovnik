@@ -24,7 +24,6 @@
 @class System_Char;
 @class System_Decimal;
 @class System_Double;
-@class System_IFormatProvider;
 @class System_Int16;
 @class System_Int32;
 @class System_Int64;
@@ -38,8 +37,6 @@
 @class System_UInt32;
 @class System_UInt64;
 @class System_Void;
-@protocol System_IFormatProvider;
-@protocol System_IFormatProvider_;
 
 //
 // Import superclass and adopted protocols
@@ -258,13 +255,7 @@
 		Managed param types : System.Char[]
 	 */
     - (System_Text_StringBuilder *)append_withValueCharArray:(System_Array *)p1;
-
-	/*! 
-		Managed method name : Append
-		Managed return type : System.Text.StringBuilder
-		Managed param types : System.Char*, System.Int32
-	 */
-    - (System_Text_StringBuilder *)append_withValue:(uint16_t*)p1 valueCount:(int32_t)p2;
+/* Skipped method : System.Text.StringBuilder Append(System.Char* value, System.Int32 valueCount) */
 
 	/*! 
 		Managed method name : AppendFormat
@@ -293,34 +284,10 @@
 		Managed param types : System.String, System.Object[]
 	 */
     - (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 args:(System_Array *)p2;
-
-	/*! 
-		Managed method name : AppendFormat
-		Managed return type : System.Text.StringBuilder
-		Managed param types : System.IFormatProvider, System.String, System.Object
-	 */
-    - (System_Text_StringBuilder *)appendFormat_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 arg0:(System_Object *)p3;
-
-	/*! 
-		Managed method name : AppendFormat
-		Managed return type : System.Text.StringBuilder
-		Managed param types : System.IFormatProvider, System.String, System.Object, System.Object
-	 */
-    - (System_Text_StringBuilder *)appendFormat_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 arg0:(System_Object *)p3 arg1:(System_Object *)p4;
-
-	/*! 
-		Managed method name : AppendFormat
-		Managed return type : System.Text.StringBuilder
-		Managed param types : System.IFormatProvider, System.String, System.Object, System.Object, System.Object
-	 */
-    - (System_Text_StringBuilder *)appendFormat_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 arg0:(System_Object *)p3 arg1:(System_Object *)p4 arg2:(System_Object *)p5;
-
-	/*! 
-		Managed method name : AppendFormat
-		Managed return type : System.Text.StringBuilder
-		Managed param types : System.IFormatProvider, System.String, System.Object[]
-	 */
-    - (System_Text_StringBuilder *)appendFormat_withProvider:(id <System_IFormatProvider_>)p1 format:(NSString *)p2 args:(System_Array *)p3;
+/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0) */
+/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1) */
+/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1, System.Object arg2) */
+/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object[] args) */
 
 	/*! 
 		Managed method name : AppendLine

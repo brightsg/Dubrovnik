@@ -21,6 +21,7 @@
 @class System_Array;
 @class System_Boolean;
 @class System_Char;
+@class System_FuncA2;
 @class System_Globalization_CultureInfo;
 @class System_Guid;
 @class System_Int32;
@@ -35,10 +36,8 @@
 @class System_Reflection_MethodInfo;
 @class System_Reflection_PropertyInfo;
 @class System_Reflection_TypeAttributes;
-@class System_RuntimeTypeHandle;
 @class System_String;
 @class System_Type;
-@class System_TypeCode;
 
 //
 // Import superclass and adopted protocols
@@ -306,10 +305,7 @@
 	// Managed property type : System.Type
     @property (nonatomic, strong, readonly) System_Type * reflectedType;
 /* Skipped property : System.Runtime.InteropServices.StructLayoutAttribute StructLayoutAttribute */
-
-	// Managed property name : TypeHandle
-	// Managed property type : System.RuntimeTypeHandle
-    @property (nonatomic, strong, readonly) System_RuntimeTypeHandle * typeHandle;
+/* Skipped property : System.RuntimeTypeHandle TypeHandle */
 
 	// Managed property name : TypeInitializer
 	// Managed property type : System.Reflection.ConstructorInfo
@@ -580,9 +576,9 @@
 		Managed param types : System.String
 	 */
     + (System_Type *)getType_withTypeName:(NSString *)p1;
-/* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type> typeResolver) */
-/* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type> typeResolver, System.Boolean throwOnError) */
-/* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type> typeResolver, System.Boolean throwOnError, System.Boolean ignoreCase) */
+/* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName,System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly,System.String,System.Boolean,System.Type> typeResolver) */
+/* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName,System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly,System.String,System.Boolean,System.Type> typeResolver, System.Boolean throwOnError) */
+/* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName,System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly,System.String,System.Boolean,System.Type> typeResolver, System.Boolean throwOnError, System.Boolean ignoreCase) */
 
 	/*! 
 		Managed method name : GetType
@@ -597,13 +593,7 @@
 		Managed param types : System.Object[]
 	 */
     + (System_Array *)getTypeArray_withArgs:(System_Array *)p1;
-
-	/*! 
-		Managed method name : GetTypeCode
-		Managed return type : System.TypeCode
-		Managed param types : System.Type
-	 */
-    + (int32_t)getTypeCode_withType:(System_Type *)p1;
+/* Skipped method : System.TypeCode GetTypeCode(System.Type type) */
 
 	/*! 
 		Managed method name : GetTypeFromCLSID
@@ -632,13 +622,7 @@
 		Managed param types : System.Guid, System.String, System.Boolean
 	 */
     + (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1 server:(NSString *)p2 throwOnError:(BOOL)p3;
-
-	/*! 
-		Managed method name : GetTypeFromHandle
-		Managed return type : System.Type
-		Managed param types : System.RuntimeTypeHandle
-	 */
-    + (System_Type *)getTypeFromHandle_withHandle:(System_RuntimeTypeHandle *)p1;
+/* Skipped method : System.Type GetTypeFromHandle(System.RuntimeTypeHandle handle) */
 
 	/*! 
 		Managed method name : GetTypeFromProgID
@@ -667,13 +651,7 @@
 		Managed param types : System.String, System.String, System.Boolean
 	 */
     + (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1 server:(NSString *)p2 throwOnError:(BOOL)p3;
-
-	/*! 
-		Managed method name : GetTypeHandle
-		Managed return type : System.RuntimeTypeHandle
-		Managed param types : System.Object
-	 */
-    + (System_RuntimeTypeHandle *)getTypeHandle_withO:(System_Object *)p1;
+/* Skipped method : System.RuntimeTypeHandle GetTypeHandle(System.Object o) */
 /* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args, System.Reflection.ParameterModifier[] modifiers, System.Globalization.CultureInfo culture, System.String[] namedParameters) */
 /* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args, System.Globalization.CultureInfo culture) */
 /* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args) */

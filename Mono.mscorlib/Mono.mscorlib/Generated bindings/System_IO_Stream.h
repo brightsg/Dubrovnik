@@ -26,7 +26,6 @@
 @class System_IDisposable;
 @class System_Int32;
 @class System_Int64;
-@class System_IO_SeekOrigin;
 @class System_IO_Stream;
 @class System_Object;
 @class System_Threading_CancellationToken;
@@ -40,9 +39,9 @@
 // Import superclass and adopted protocols
 //
 #import "System_IDisposable_Protocol.h"
-#import "System_MarshalByRefObject.h"
+//#import "System_MarshalByRefObject.h" // class base defaults to System.Object
 
-@interface System_IO_Stream : System_MarshalByRefObject <System_IDisposable_>
+@interface System_IO_Stream : System_Object <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -221,13 +220,7 @@
 		Managed param types : 
 	 */
     - (int32_t)readByte;
-
-	/*! 
-		Managed method name : Seek
-		Managed return type : System.Int64
-		Managed param types : System.Int64, System.IO.SeekOrigin
-	 */
-    - (int64_t)seek_withOffset:(int64_t)p1 origin:(int32_t)p2;
+/* Skipped method : System.Int64 Seek(System.Int64 offset, System.IO.SeekOrigin origin) */
 
 	/*! 
 		Managed method name : SetLength
