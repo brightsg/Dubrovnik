@@ -1023,13 +1023,13 @@
 	<OutputFileDeleteList>
 	</OutputFileDeleteList>
 	<ReferenceList>
-		<string>..\..\Mono.mscorlib\Mono.mscorlib\mscorlib</string>
+		<string>..\..\Mono.mscorlib\Mono.mscorlib\mscorlib.xml</string>
     <!-- System.dll also references:
     
     System.Configuration.dll
-    System.XML.dll
+    System.Xml.dll
 
-    If we generate bindings that include types defined in either of the above then we will need to
+    If we generate bindings that include types defined in either of the above then we may need to
     update our reference list accordingly.
 
     Note that there are circular references between

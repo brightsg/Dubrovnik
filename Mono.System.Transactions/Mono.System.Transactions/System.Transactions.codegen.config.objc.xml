@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ConfigObjC xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--
+
+-->
+	<TypeNameSkipList>
+                <string>System.Transactions.CommittableTransaction</string>
+                <string>System.Transactions.Configuration.DefaultSettingsSection</string>
+                <string>System.Transactions.Configuration.MachineSettingsSection</string>
+                <string>System.Transactions.Configuration.TransactionsSectionGroup</string>
+                <string>System.Transactions.DependentCloneOption</string>
+                <string>System.Transactions.DependentTransaction</string>
+                <string>System.Transactions.DistributedTransactionPermission</string>
+                <string>System.Transactions.DistributedTransactionPermissionAttribute</string>
+                <string>System.Transactions.Enlistment</string>
+                <string>System.Transactions.EnlistmentOptions</string>
+                <string>System.Transactions.EnterpriseServicesInteropOption</string>
+                <string>System.Transactions.HostCurrentTransactionCallback</string>
+                <string>System.Transactions.IDtcTransaction</string>
+                <string>System.Transactions.IEnlistmentNotification</string>
+                <string>System.Transactions.IPromotableSinglePhaseNotification</string>
+                <string>System.Transactions.ISimpleTransactionSuperior</string>
+                <string>System.Transactions.ISinglePhaseNotification</string>
+                <string>System.Transactions.IsolationLevel</string>
+                <string>System.Transactions.ITransactionPromoter</string>
+                <string>System.Transactions.PreparingEnlistment</string>
+                <string>System.Transactions.SinglePhaseEnlistment</string>
+                <string>System.Transactions.SubordinateTransaction</string>
+                <string>System.Transactions.Transaction</string>
+                <string>System.Transactions.TransactionAbortedException</string>
+                <string>System.Transactions.TransactionCompletedEventHandler</string>
+                <string>System.Transactions.TransactionEventArgs</string>
+                <string>System.Transactions.TransactionException</string>
+                <string>System.Transactions.TransactionInDoubtException</string>
+                <string>System.Transactions.TransactionInformation</string>
+                <string>System.Transactions.TransactionInterop</string>
+                <string>System.Transactions.TransactionManager</string>
+                <string>System.Transactions.TransactionManagerCommunicationException</string>
+                <string>System.Transactions.TransactionOptions</string>
+                <string>System.Transactions.TransactionPromotionException</string>
+                <string>System.Transactions.TransactionScope</string>
+                <string>System.Transactions.TransactionScopeAsyncFlowOption</string>
+                <string>System.Transactions.TransactionScopeOption</string>
+                <string>System.Transactions.TransactionStartedEventHandler</string>
+                <string>System.Transactions.TransactionStatus</string>
+	</TypeNameSkipList>
+	<TypeNameWhiteList>
+	</TypeNameWhiteList>
+	<OutputFileDeleteList>
+	</OutputFileDeleteList>
+	<ReferenceList>
+		<string>..\..\Mono.mscorlib\Mono.mscorlib\mscorlib.xml</string>
+                <string>..\..\Mono.System\Mono.System\System.xml</string>
+	</ReferenceList>
+</ConfigObjC>

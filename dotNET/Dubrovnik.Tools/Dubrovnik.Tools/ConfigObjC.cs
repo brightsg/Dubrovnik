@@ -20,6 +20,9 @@ namespace Dubrovnik.Tools {
 			if (assemblyXmlPath != null) {
 
 				// get the config path
+				if (Path.GetExtension(assemblyXmlPath).ToLower() != ".xml") {
+					throw new ArgumentException($"Assembly XML file path does not have .xml extension : {assemblyXmlPath}");
+				}
 				path = Path.ChangeExtension(assemblyXmlPath, "codegen.config.objc.xml");
 
 				// load the config xml
@@ -35,6 +38,9 @@ namespace Dubrovnik.Tools {
 					} catch (Exception e) {
 						throw e;
 					}
+				}
+				else {
+					throw new FileNotFoundException($"Assembly configuration file not found : {path}");
 				}
 			}
 

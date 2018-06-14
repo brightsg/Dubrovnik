@@ -279,7 +279,7 @@
 	<OutputFileDeleteList>
 	</OutputFileDeleteList>
 	<ReferenceList>
-		<string>..\..\Mono.mscorlib\Mono.mscorlib\mscorlib</string>
-        <string>..\..\Mono.System\Mono.System\System</string>
+	        <string>..\..\Mono.mscorlib\Mono.mscorlib\mscorlib.xml</string>
+                <string>..\..\Mono.System\Mono.System\System.xml</string>
 	</ReferenceList>
 </ConfigObjC>
