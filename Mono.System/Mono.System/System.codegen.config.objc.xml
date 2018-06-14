@@ -1010,6 +1010,11 @@
 		<string>System.ComponentModel.PropertyChangingEventArgs</string>
 		<string>System.ComponentModel.RunWorkerCompletedEventArgs</string>
 		<string>System.Configuration.SettingsBase</string>
+    <string>System.Net.HttpStatusCode</string>
+    <string>System.Net.HttpWebRequest</string>
+    <string>System.Net.HttpWebResponse</string>
+    <string>System.Net.WebRequest</string>
+    <string>System.Net.WebResponse</string>
 		<string>System.IO.ErrorEventArgs</string>
 		<string>System.Text.RegularExpressions.Regex</string>
 		<string>System.Text.RegularExpressions.Options</string>

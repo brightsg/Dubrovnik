@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     14/06/2018 15:19:22
+// Date:     14/06/2018 21:58:55
 //
 // Assembly: System
 // Fullname: System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -59,6 +59,11 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_ComponentModel_RunWorkerCompletedEventArgs.m
 // Dubrovnik.CodeGenerator made System_Configuration_SettingsBase.m
 // Dubrovnik.CodeGenerator made System_IO_ErrorEventArgs.m
+// Dubrovnik.CodeGenerator made System_Net_HttpStatusCode.m
+// Dubrovnik.CodeGenerator made System_Net_HttpWebRequest.m
+// Dubrovnik.CodeGenerator made System_Net_HttpWebResponse.m
+// Dubrovnik.CodeGenerator made System_Net_WebRequest.m
+// Dubrovnik.CodeGenerator made System_Net_WebResponse.m
 // Dubrovnik.CodeGenerator made System_Text_RegularExpressions_Regex.m
 // Dubrovnik.CodeGenerator made System_Uri.m
 // Dubrovnik.CodeGenerator made System_UriComponents.m

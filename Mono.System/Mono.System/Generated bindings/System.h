@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     14/06/2018 15:19:22
+// Date:     14/06/2018 21:58:55
 //
 // Assembly: System
 // Fullname: System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -750,10 +750,10 @@
 /* Skipped type : System.Net.HttpListenerTimeoutManager HttpListenerTimeoutManager */
 /* Skipped type : System.Net.HttpRequestHeader HttpRequestHeader */
 /* Skipped type : System.Net.HttpResponseHeader HttpResponseHeader */
-/* Skipped type : System.Net.HttpStatusCode HttpStatusCode */
+#define SNHttpStatusCode_ System_Net_HttpStatusCode
 /* Skipped type : System.Net.HttpVersion HttpVersion */
-/* Skipped type : System.Net.HttpWebRequest HttpWebRequest */
-/* Skipped type : System.Net.HttpWebResponse HttpWebResponse */
+#define SNHttpWebRequest_ System_Net_HttpWebRequest
+#define SNHttpWebResponse_ System_Net_HttpWebResponse
 /* Skipped type : System.Net.IAuthenticationModule IAuthenticationModule */
 /* Skipped type : System.Net.ICertificatePolicy ICertificatePolicy */
 /* Skipped type : System.Net.ICredentialPolicy ICredentialPolicy */
@@ -917,12 +917,12 @@
 /* Skipped type : System.Net.WebPermission WebPermission */
 /* Skipped type : System.Net.WebPermissionAttribute WebPermissionAttribute */
 /* Skipped type : System.Net.WebProxy WebProxy */
-/* Skipped type : System.Net.WebRequest WebRequest */
+#define SNWebRequest_ System_Net_WebRequest
 /* Skipped type : System.Net.WebRequestMethods WebRequestMethods */
 /* Skipped type : System.Net.WebRequestMethods+File WebRequestMethods.File */
 /* Skipped type : System.Net.WebRequestMethods+Ftp WebRequestMethods.Ftp */
 /* Skipped type : System.Net.WebRequestMethods+Http WebRequestMethods.Http */
-/* Skipped type : System.Net.WebResponse WebResponse */
+#define SNWebResponse_ System_Net_WebResponse
 /* Skipped type : System.Net.WebSockets.ClientWebSocket ClientWebSocket */
 /* Skipped type : System.Net.WebSockets.ClientWebSocketOptions ClientWebSocketOptions */
 /* Skipped type : System.Net.WebSockets.HttpListenerWebSocketContext HttpListenerWebSocketContext */
@@ -1089,6 +1089,11 @@ Assembly type imports
 #import "System_ComponentModel_RunWorkerCompletedEventArgs.h"
 #import "System_Configuration_SettingsBase.h"
 #import "System_IO_ErrorEventArgs.h"
+#import "System_Net_HttpStatusCode.h"
+#import "System_Net_HttpWebRequest.h"
+#import "System_Net_HttpWebResponse.h"
+#import "System_Net_WebRequest.h"
+#import "System_Net_WebResponse.h"
 #import "System_Text_RegularExpressions_Regex.h"
 #import "System_Uri.h"
 #import "System_UriComponents.h"

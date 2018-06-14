@@ -80,8 +80,14 @@ namespace Dubrovnik.Tools
 
             } while (idxStart != -1);
 
-            // truncate the content to before the first tag
-            string truncatedContent = content.Substring(0, idxLimit);
+			// truncate the content to before the first tag
+			string truncatedContent;
+			if (idxLimit != -1) {
+				truncatedContent = content.Substring(0, idxLimit);
+			}
+			else {
+				truncatedContent = content;
+			}
             StringBuilder sb = new StringBuilder( truncatedContent );
             string outputFormat = "";
 

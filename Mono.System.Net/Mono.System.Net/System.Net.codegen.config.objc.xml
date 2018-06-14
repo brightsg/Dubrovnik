@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ConfigObjC xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--
+
+-->
+    <TypeNameSkipList>
+        <string>System.Net.INetworkProgress</string>
+        <string>System.Net.IPEndPointCollection</string>
+        <string>System.Net.IUnsafeWebRequestCreate</string>
+        <string>System.Net.NetworkProgressChangedEventArgs</string>
+        <string>System.Net.PeerToPeer.Cloud</string>
+        <string>System.Net.PeerToPeer.CloudCollection</string>
+        <string>System.Net.PeerToPeer.Collaboration.ApplicationChangedEventArgs</string>
+        <string>System.Net.PeerToPeer.Collaboration.ContactManager</string>
+        <string>System.Net.PeerToPeer.Collaboration.CreateContactCompletedEventArgs</string>
+        <string>System.Net.PeerToPeer.Collaboration.InviteCompletedEventArgs</string>
+        <string>System.Net.PeerToPeer.Collaboration.NameChangedEventArgs</string>
+        <string>System.Net.PeerToPeer.Collaboration.ObjectChangedEventArgs</string>
+        <string>System.Net.PeerToPeer.Collaboration.Peer</string>
+        <string>System.Net.PeerToPeer.Collaboration.PeerApplication</string>
+        <string>System.Net.PeerToPeer.Collaboration.PeerApplicationCollection</string>
+        <string>System.Net.PeerToPeer.Collaboration.PeerApplicationLaunchInfo</string>
+        <string>System.Net.PeerToPeer.Collaboration.PeerApplicationRegistrationType</string>
+        <string>System.Net.PeerToPeer.Collaboration.PeerChangeType</string>
+        <string>System.Net.PeerToPeer.Collaboration.PeerCollaboration</string>
+        <string>System.Net.PeerToPeer.Collaboration.PeerCollaborationPermission</string>
+        <string>System.Net.PeerToPeer.Collaboration.PeerCollaborationPermissionAttribute</string>
+        <string>System.Net.PeerToPeer.Collaboration.PeerContact</string>
+        <string>System.Net.PeerToPeer.Collaboration.PeerContactCollection</string>
+        <string>System.Net.PeerToPeer.Collaboration.PeerEndPoint</string>
+        <string>System.Net.PeerToPeer.Collaboration.PeerEndPointCollection</string>
+        <string>System.Net.PeerToPeer.Collaboration.PeerInvitationResponse</string>
+        <string>System.Net.PeerToPeer.Collaboration.PeerInvitationResponseType</string>
+        <string>System.Net.PeerToPeer.Collaboration.PeerNearMe</string>
+        <string>System.Net.PeerToPeer.Collaboration.PeerNearMeChangedEventArgs</string>
+        <string>System.Net.PeerToPeer.Collaboration.PeerNearMeCollection</string>
+        <string>System.Net.PeerToPeer.Collaboration.PeerObject</string>
+        <string>System.Net.PeerToPeer.Collaboration.PeerObjectCollection</string>
+        <string>System.Net.PeerToPeer.Collaboration.PeerPresenceInfo</string>
+        <string>System.Net.PeerToPeer.Collaboration.PeerPresenceStatus</string>
+        <string>System.Net.PeerToPeer.Collaboration.PeerScope</string>
+        <string>System.Net.PeerToPeer.Collaboration.PresenceChangedEventArgs</string>
+        <string>System.Net.PeerToPeer.Collaboration.RefreshDataCompletedEventArgs</string>
+        <string>System.Net.PeerToPeer.Collaboration.SubscribeCompletedEventArgs</string>
+        <string>System.Net.PeerToPeer.Collaboration.SubscriptionListChangedEventArgs</string>
+        <string>System.Net.PeerToPeer.Collaboration.SubscriptionType</string>
+        <string>System.Net.PeerToPeer.PeerName</string>
+        <string>System.Net.PeerToPeer.PeerNameRecord</string>
+        <string>System.Net.PeerToPeer.PeerNameRecordCollection</string>
+        <string>System.Net.PeerToPeer.PeerNameRegistration</string>
+        <string>System.Net.PeerToPeer.PeerNameResolver</string>
+        <string>System.Net.PeerToPeer.PeerNameType</string>
+        <string>System.Net.PeerToPeer.PeerToPeerException</string>
+        <string>System.Net.PeerToPeer.PnrpPermission</string>
+        <string>System.Net.PeerToPeer.PnrpPermissionAttribute</string>
+        <string>System.Net.PeerToPeer.PnrpScope</string>
+        <string>System.Net.PeerToPeer.ResolveCompletedEventArgs</string>
+        <string>System.Net.PeerToPeer.ResolveProgressChangedEventArgs</string>
+        <string>System.Net.Sockets.HttpPolicyDownloaderProtocol</string>
+        <string>System.Net.Sockets.SecurityCriticalAction</string>
+        <string>System.Net.Sockets.SocketPolicy</string>
+        <string>System.Net.Sockets.UdpAnySourceMulticastClient</string>
+        <string>System.Net.Sockets.UdpSingleSourceMulticastClient</string>
+        <string>System.Net.UiSynchronizationContext</string>
+    </TypeNameSkipList>
+    <TypeNameWhiteList>
+    </TypeNameWhiteList>
+	<OutputFileDeleteList>
+	</OutputFileDeleteList>
+	<ReferenceList>
+		<string>..\..\Mono.mscorlib\Mono.mscorlib\mscorlib.xml</string>
+        <string>..\..\Mono.System\Mono.System\System.xml</string>
+	</ReferenceList>
+</ConfigObjC>
