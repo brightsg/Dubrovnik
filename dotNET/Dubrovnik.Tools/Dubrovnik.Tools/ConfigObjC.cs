@@ -40,7 +40,7 @@ namespace Dubrovnik.Tools {
 					}
 				}
 				else {
-					throw new FileNotFoundException($"Assembly configuration file not found : {path}");
+					Console.WriteLine($"WARNING: Assembly configuration file not found at : {path}");
 				}
 			}
 
