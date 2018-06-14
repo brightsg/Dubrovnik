@@ -7,12 +7,19 @@ REM
 REM mscorlib.dll
 REM
 pushd .\Mono.mscorlib\Mono.mscorlib
-call make.bat
+call generate.bat
 popd
 
 REM
 REM System.dll
 REM
 pushd .\Mono.System\Mono.System
-call make.bat
+call generate.bat
+popd
+
+REM
+REM System.Core.dll
+REM
+pushd .\Mono.System.Core\Mono.System.Core
+call generate.bat
 popd
