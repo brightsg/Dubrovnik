@@ -238,6 +238,8 @@ namespace Dubrovnik.Tools
 				// TextWriter
 				using (XmlTextWriter xtw = new XmlTextWriter(sw))
 				{
+					xtw.Formatting = Formatting.Indented;
+
 					xtw.WriteStartDocument();
 					//xtw.WriteProcessingInstruction("xml", "version=\"1.0\" encoding=\"utf-16\"");
 					xtw.WriteStartElement("Assembly");
