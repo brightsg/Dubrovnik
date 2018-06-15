@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Thesaurus Software. All rights reserved.
 //
 
-#import "GeneratedBindings.h"
+#import "System.h"
 #import "ManualBindings.h"
 #import "HelperClasses.h"
 #import "Categories.h"

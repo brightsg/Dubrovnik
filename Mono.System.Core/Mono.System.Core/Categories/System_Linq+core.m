@@ -6,7 +6,8 @@
 //
 //
 
-#import "System_Linq.h"
+#import "System_Linq+core.h"
+
 #import "Dubrovnik/DBManagedMethod.h"
 #import "Dubrovnik/DBManagedObject.h"
 #import "Mono.mscorlib/System_Collections_IList.h"
@@ -14,7 +15,7 @@
 #import "Dubrovnik/DBTypeManager.h"
 #import "Dubrovnik/DBMonoIncludes.h"
 
-@implementation System_Linq (core)
+@implementation DBLinq
 
 + (System_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject typeParameter:(id)typeParameter
 {

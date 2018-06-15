@@ -23,7 +23,7 @@
 
 - (System_Collections_IList *)list
 {
-    return [System_Linq toList:self];
+    return [DBLinq toList:self];
 }
 
 - (NSMutableArray *)mutableArray

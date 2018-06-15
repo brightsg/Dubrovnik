@@ -7,26 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB2E64E320D310FA00582990 /* System_Net.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E64E120D310FA00582990 /* System_Net.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E64E420D310FA00582990 /* System_Net.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E64E220D310FA00582990 /* System_Net.m */; };
 		ABBD3B8D190013E800DB59AF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3B8C190013E800DB59AF /* Cocoa.framework */; };
 		ABBD3B97190013E800DB59AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABBD3B95190013E800DB59AF /* InfoPlist.strings */; };
 		ABBD3BA3190013E900DB59AF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3B8C190013E800DB59AF /* Cocoa.framework */; };
 		ABBD3BA6190013E900DB59AF /* Mono.System.Net.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3B89190013E800DB59AF /* Mono.System.Net.framework */; };
 		ABBD3BAC190013E900DB59AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABBD3BAA190013E900DB59AF /* InfoPlist.strings */; };
 		ABBD3BAE190013E900DB59AF /* Mono_System_NetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBD3BAD190013E900DB59AF /* Mono_System_NetTests.m */; };
-		ABBD3BFB1900157B00DB59AF /* System_Net_WebRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3BF91900157B00DB59AF /* System_Net_WebRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABBD3BFC1900157B00DB59AF /* System_Net_WebRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBD3BFA1900157B00DB59AF /* System_Net_WebRequest.m */; };
 		ABBD3C06190015B800DB59AF /* Categories.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C01190015B800DB59AF /* Categories.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABBD3C07190015B800DB59AF /* Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C02190015B800DB59AF /* Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABBD3C08190015B800DB59AF /* GeneratedBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C03190015B800DB59AF /* GeneratedBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABBD3C09190015B800DB59AF /* HelperClasses.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C04190015B800DB59AF /* HelperClasses.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABBD3C0A190015B800DB59AF /* ManualBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C05190015B800DB59AF /* ManualBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABDDCC4F1BB1F7BB00953E4A /* System_Net_HttpStatusCode.h in Headers */ = {isa = PBXBuildFile; fileRef = ABDDCC4E1BB1F7BB00953E4A /* System_Net_HttpStatusCode.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABDF3CAA1BF0BD800039C3A8 /* System_Net_HttpWebRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = ABDF3CA81BF0BD800039C3A8 /* System_Net_HttpWebRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABDF3CAB1BF0BD800039C3A8 /* System_Net_HttpWebRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDF3CA91BF0BD800039C3A8 /* System_Net_HttpWebRequest.m */; };
-		ABDF3CAE1BF0BE710039C3A8 /* System_Net_WebResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = ABDF3CAC1BF0BE710039C3A8 /* System_Net_WebResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABDF3CAF1BF0BE710039C3A8 /* System_Net_WebResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDF3CAD1BF0BE710039C3A8 /* System_Net_WebResponse.m */; };
-		ABDF3CB21BF0BEC40039C3A8 /* System_Net_HttpWebResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = ABDF3CB01BF0BEC40039C3A8 /* System_Net_HttpWebResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABDF3CB31BF0BEC40039C3A8 /* System_Net_HttpWebResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDF3CB11BF0BEC40039C3A8 /* System_Net_HttpWebResponse.m */; };
 		ABF5D288190C589700E9CFBD /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D285190C589700E9CFBD /* Dubrovnik.framework */; };
 		ABF5D289190C589700E9CFBD /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D286190C589700E9CFBD /* Mono.mscorlib.framework */; };
 		ABF5D28A190C589700E9CFBD /* Mono.System.Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D287190C589700E9CFBD /* Mono.System.Core.framework */; };
@@ -43,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AB2E64E120D310FA00582990 /* System_Net.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System_Net.h; path = "Generated Bindings/System_Net.h"; sourceTree = "<group>"; };
+		AB2E64E220D310FA00582990 /* System_Net.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System_Net.m; path = "Generated Bindings/System_Net.m"; sourceTree = "<group>"; };
 		ABBD3B89190013E800DB59AF /* Mono.System.Net.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.System.Net.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABBD3B8C190013E800DB59AF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		ABBD3B8F190013E800DB59AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -55,21 +50,11 @@
 		ABBD3BA9190013E900DB59AF /* Mono.System.NetTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mono.System.NetTests-Info.plist"; sourceTree = "<group>"; };
 		ABBD3BAB190013E900DB59AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABBD3BAD190013E900DB59AF /* Mono_System_NetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mono_System_NetTests.m; sourceTree = "<group>"; };
-		ABBD3BF3190014EC00DB59AF /* Generated Bindings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Generated Bindings"; sourceTree = "<group>"; };
-		ABBD3BF91900157B00DB59AF /* System_Net_WebRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Net_WebRequest.h; sourceTree = "<group>"; };
-		ABBD3BFA1900157B00DB59AF /* System_Net_WebRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Net_WebRequest.m; sourceTree = "<group>"; };
 		ABBD3C01190015B800DB59AF /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		ABBD3C02190015B800DB59AF /* Framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Framework.h; sourceTree = "<group>"; };
 		ABBD3C03190015B800DB59AF /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
 		ABBD3C04190015B800DB59AF /* HelperClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClasses.h; sourceTree = "<group>"; };
 		ABBD3C05190015B800DB59AF /* ManualBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualBindings.h; sourceTree = "<group>"; };
-		ABDDCC4E1BB1F7BB00953E4A /* System_Net_HttpStatusCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Net_HttpStatusCode.h; sourceTree = "<group>"; };
-		ABDF3CA81BF0BD800039C3A8 /* System_Net_HttpWebRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Net_HttpWebRequest.h; sourceTree = "<group>"; };
-		ABDF3CA91BF0BD800039C3A8 /* System_Net_HttpWebRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Net_HttpWebRequest.m; sourceTree = "<group>"; };
-		ABDF3CAC1BF0BE710039C3A8 /* System_Net_WebResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Net_WebResponse.h; sourceTree = "<group>"; };
-		ABDF3CAD1BF0BE710039C3A8 /* System_Net_WebResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Net_WebResponse.m; sourceTree = "<group>"; };
-		ABDF3CB01BF0BEC40039C3A8 /* System_Net_HttpWebResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Net_HttpWebResponse.h; sourceTree = "<group>"; };
-		ABDF3CB11BF0BEC40039C3A8 /* System_Net_HttpWebResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Net_HttpWebResponse.m; sourceTree = "<group>"; };
 		ABF5D285190C589700E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D286190C589700E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D287190C589700E9CFBD /* Mono.System.Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.System.Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,11 +128,9 @@
 		ABBD3B92190013E800DB59AF /* Mono.System.Net */ = {
 			isa = PBXGroup;
 			children = (
-				ABBD3BEF190014D300DB59AF /* Categories */,
-				ABBD3BF3190014EC00DB59AF /* Generated Bindings */,
-				ABBD3BF0190014D300DB59AF /* Helper Classes */,
+				AB2E64E120D310FA00582990 /* System_Net.h */,
+				AB2E64E220D310FA00582990 /* System_Net.m */,
 				ABBD3BF1190014D300DB59AF /* Include */,
-				ABBD3BF2190014D300DB59AF /* Manual Bindings */,
 				ABBD3B93190013E800DB59AF /* Supporting Files */,
 			);
 			path = Mono.System.Net;
@@ -181,20 +164,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		ABBD3BEF190014D300DB59AF /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
-		ABBD3BF0190014D300DB59AF /* Helper Classes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Helper Classes";
-			sourceTree = "<group>";
-		};
 		ABBD3BF1190014D300DB59AF /* Include */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,22 +176,6 @@
 			path = Include;
 			sourceTree = "<group>";
 		};
-		ABBD3BF2190014D300DB59AF /* Manual Bindings */ = {
-			isa = PBXGroup;
-			children = (
-				ABBD3BF91900157B00DB59AF /* System_Net_WebRequest.h */,
-				ABDF3CB01BF0BEC40039C3A8 /* System_Net_HttpWebResponse.h */,
-				ABDF3CB11BF0BEC40039C3A8 /* System_Net_HttpWebResponse.m */,
-				ABBD3BFA1900157B00DB59AF /* System_Net_WebRequest.m */,
-				ABDDCC4E1BB1F7BB00953E4A /* System_Net_HttpStatusCode.h */,
-				ABDF3CA81BF0BD800039C3A8 /* System_Net_HttpWebRequest.h */,
-				ABDF3CA91BF0BD800039C3A8 /* System_Net_HttpWebRequest.m */,
-				ABDF3CAC1BF0BE710039C3A8 /* System_Net_WebResponse.h */,
-				ABDF3CAD1BF0BE710039C3A8 /* System_Net_WebResponse.m */,
-			);
-			path = "Manual Bindings";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -230,16 +183,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB2E64E320D310FA00582990 /* System_Net.h in Headers */,
 				ABBD3C0A190015B800DB59AF /* ManualBindings.h in Headers */,
 				ABBD3C07190015B800DB59AF /* Framework.h in Headers */,
 				ABBD3C06190015B800DB59AF /* Categories.h in Headers */,
 				ABBD3C08190015B800DB59AF /* GeneratedBindings.h in Headers */,
 				ABBD3C09190015B800DB59AF /* HelperClasses.h in Headers */,
-				ABDF3CAA1BF0BD800039C3A8 /* System_Net_HttpWebRequest.h in Headers */,
-				ABDF3CAE1BF0BE710039C3A8 /* System_Net_WebResponse.h in Headers */,
-				ABDF3CB21BF0BEC40039C3A8 /* System_Net_HttpWebResponse.h in Headers */,
-				ABDDCC4F1BB1F7BB00953E4A /* System_Net_HttpStatusCode.h in Headers */,
-				ABBD3BFB1900157B00DB59AF /* System_Net_WebRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,10 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABBD3BFC1900157B00DB59AF /* System_Net_WebRequest.m in Sources */,
-				ABDF3CAB1BF0BD800039C3A8 /* System_Net_HttpWebRequest.m in Sources */,
-				ABDF3CB31BF0BEC40039C3A8 /* System_Net_HttpWebResponse.m in Sources */,
-				ABDF3CAF1BF0BE710039C3A8 /* System_Net_WebResponse.m in Sources */,
+				AB2E64E420D310FA00582990 /* System_Net.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

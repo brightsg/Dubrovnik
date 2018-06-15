@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB05397A20D2B5EF005B7E66 /* System_Drawing_Size.h in Headers */ = {isa = PBXBuildFile; fileRef = AB05397620D2B5EF005B7E66 /* System_Drawing_Size.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB05397B20D2B5EF005B7E66 /* System_Drawing.m in Sources */ = {isa = PBXBuildFile; fileRef = AB05397720D2B5EF005B7E66 /* System_Drawing.m */; };
+		AB05397C20D2B5EF005B7E66 /* System_Drawing_Size.m in Sources */ = {isa = PBXBuildFile; fileRef = AB05397820D2B5EF005B7E66 /* System_Drawing_Size.m */; };
+		AB05397D20D2B5EF005B7E66 /* System_Drawing.h in Headers */ = {isa = PBXBuildFile; fileRef = AB05397920D2B5EF005B7E66 /* System_Drawing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB26E0AB1E4A1547004876FE /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB26E0AA1E4A1547004876FE /* Mono.framework */; };
 		AB2E74B118FFD6C90061C63E /* Categories.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74AC18FFD6C90061C63E /* Categories.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74B218FFD6C90061C63E /* Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74AD18FFD6C90061C63E /* Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -21,8 +25,6 @@
 		ABB8A3CB18FF0B4A00213B80 /* Mono_System_DrawingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3CA18FF0B4A00213B80 /* Mono_System_DrawingTests.m */; };
 		ABB8A3DA18FF0C4100213B80 /* System_Drawing_Size+drawing.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A3D818FF0C4100213B80 /* System_Drawing_Size+drawing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A3DB18FF0C4100213B80 /* System_Drawing_Size+drawing.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3D918FF0C4100213B80 /* System_Drawing_Size+drawing.m */; };
-		ABB8A46118FF28A600213B80 /* System_Drawing_Size.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A45F18FF28A600213B80 /* System_Drawing_Size.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABB8A46218FF28A600213B80 /* System_Drawing_Size.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A46018FF28A600213B80 /* System_Drawing_Size.m */; };
 		ABF5D279190C57A400E9CFBD /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D277190C57A400E9CFBD /* Dubrovnik.framework */; };
 		ABF5D27A190C57A400E9CFBD /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D278190C57A400E9CFBD /* Mono.mscorlib.framework */; };
 /* End PBXBuildFile section */
@@ -38,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AB05397620D2B5EF005B7E66 /* System_Drawing_Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Drawing_Size.h; sourceTree = "<group>"; };
+		AB05397720D2B5EF005B7E66 /* System_Drawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Drawing.m; sourceTree = "<group>"; };
+		AB05397820D2B5EF005B7E66 /* System_Drawing_Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Drawing_Size.m; sourceTree = "<group>"; };
+		AB05397920D2B5EF005B7E66 /* System_Drawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Drawing.h; sourceTree = "<group>"; };
 		AB26E0AA1E4A1547004876FE /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.System.Drawing/../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
 		AB2E74AC18FFD6C90061C63E /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		AB2E74AD18FFD6C90061C63E /* Framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Framework.h; sourceTree = "<group>"; };
@@ -58,8 +64,6 @@
 		ABB8A3CA18FF0B4A00213B80 /* Mono_System_DrawingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mono_System_DrawingTests.m; sourceTree = "<group>"; };
 		ABB8A3D818FF0C4100213B80 /* System_Drawing_Size+drawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Drawing_Size+drawing.h"; sourceTree = "<group>"; };
 		ABB8A3D918FF0C4100213B80 /* System_Drawing_Size+drawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Drawing_Size+drawing.m"; sourceTree = "<group>"; };
-		ABB8A45F18FF28A600213B80 /* System_Drawing_Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Drawing_Size.h; sourceTree = "<group>"; };
-		ABB8A46018FF28A600213B80 /* System_Drawing_Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Drawing_Size.m; sourceTree = "<group>"; };
 		ABF5D277190C57A400E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D278190C57A400E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -88,6 +92,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB05397520D2B5EF005B7E66 /* Generated Bindings */ = {
+			isa = PBXGroup;
+			children = (
+				AB05397620D2B5EF005B7E66 /* System_Drawing_Size.h */,
+				AB05397720D2B5EF005B7E66 /* System_Drawing.m */,
+				AB05397820D2B5EF005B7E66 /* System_Drawing_Size.m */,
+				AB05397920D2B5EF005B7E66 /* System_Drawing.h */,
+			);
+			path = "Generated Bindings";
+			sourceTree = "<group>";
+		};
 		AB2E74AB18FFD6C90061C63E /* Include */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,9 +159,9 @@
 		ABB8A3AF18FF0B4900213B80 /* Mono.System.Drawing */ = {
 			isa = PBXGroup;
 			children = (
+				AB05397520D2B5EF005B7E66 /* Generated Bindings */,
 				ABB8A3D618FF0BE900213B80 /* Categories */,
 				AB2E74AB18FFD6C90061C63E /* Include */,
-				ABB8A3D518FF0BE300213B80 /* Manual Bindings */,
 				ABB8A3B018FF0B4900213B80 /* Supporting Files */,
 			);
 			path = Mono.System.Drawing;
@@ -180,15 +195,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		ABB8A3D518FF0BE300213B80 /* Manual Bindings */ = {
-			isa = PBXGroup;
-			children = (
-				ABB8A45F18FF28A600213B80 /* System_Drawing_Size.h */,
-				ABB8A46018FF28A600213B80 /* System_Drawing_Size.m */,
-			);
-			path = "Manual Bindings";
-			sourceTree = "<group>";
-		};
 		ABB8A3D618FF0BE900213B80 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,9 +211,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB05397A20D2B5EF005B7E66 /* System_Drawing_Size.h in Headers */,
+				AB05397D20D2B5EF005B7E66 /* System_Drawing.h in Headers */,
 				AB2E74B118FFD6C90061C63E /* Categories.h in Headers */,
 				ABB8A3DA18FF0C4100213B80 /* System_Drawing_Size+drawing.h in Headers */,
-				ABB8A46118FF28A600213B80 /* System_Drawing_Size.h in Headers */,
 				AB2E74B418FFD6C90061C63E /* HelperClasses.h in Headers */,
 				AB2E74B518FFD6C90061C63E /* ManualBindings.h in Headers */,
 				AB2E74B318FFD6C90061C63E /* GeneratedBindings.h in Headers */,
@@ -310,8 +317,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABB8A46218FF28A600213B80 /* System_Drawing_Size.m in Sources */,
+				AB05397C20D2B5EF005B7E66 /* System_Drawing_Size.m in Sources */,
 				ABB8A3DB18FF0C4100213B80 /* System_Drawing_Size+drawing.m in Sources */,
+				AB05397B20D2B5EF005B7E66 /* System_Drawing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

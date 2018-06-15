@@ -7,6 +7,7 @@
 //
 
 #import "System_Data_Entity_Core_Objects_DataClasses_EntityObject+Dubrovnik.h"
+#import "System_Data_Entity_EntityState.h"
 
 @implementation System_Data_Entity_Core_Objects_DataClasses_EntityObject (Dubrovnik)
 

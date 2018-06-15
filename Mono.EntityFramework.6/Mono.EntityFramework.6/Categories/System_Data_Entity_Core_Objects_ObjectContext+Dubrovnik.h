@@ -12,7 +12,6 @@
 
 @interface System_Data_Entity_Core_Objects_ObjectContext (Dubrovnik)
 
-- (int32_t)saveChanges;
 - (void)deleteObject:(DBManagedObject *)object;
 
 /*!
@@ -28,6 +27,6 @@
                                                     assemblyName:(const char *)assemblyName;
 
 
-- (void)refresh_withRefreshMode:(System_Data_Entity_Core_Objects_RefreshMode)refreshMode object:(System_Object *)object;
+- (void)refresh_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)refreshMode object:(System_Object *)object;
 - (void)refreshObjectFromStore:(System_Object *)object;
 @end

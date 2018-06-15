@@ -15,7 +15,7 @@
 
 - (System_Collections_IList *)listWithTypeParameter:(id)typeParameter
 {
-    return [System_Linq toList:(id)self typeParameter:typeParameter];
+    return [DBLinq toList:(id)self typeParameter:typeParameter];
 }
 
 - (System_Collections_IList *)list
@@ -26,7 +26,7 @@
      eg: System.Linq.Enumerable+<CreateSelectIterator>c__Iterator10`2[Subcontractor,ISubcontractorPayslipDelegate].
      The above object implements IEnumerableA1 but the required type paramter is NOT the first one.
      */
-    return [System_Linq toList:(id)self];
+    return [DBLinq toList:(id)self];
 }
 
 #pragma mark -
@@ -74,7 +74,7 @@
 - (System_Collections_IList *)listWithTypeParameter:(id)typeParameter
 {
     if ([self conformsToProtocol:@protocol(System_Collections_Generic_IEnumerableA1_)]) {
-        return [System_Linq toList:(id)self typeParameter:typeParameter];
+        return [DBLinq toList:(id)self typeParameter:typeParameter];
     }
     return nil;
 }

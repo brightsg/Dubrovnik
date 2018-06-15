@@ -6,14 +6,12 @@
 //
 //
 
-#import "Mono.System.Core/System_Linq.h"
-
 @class DBManagedObject;
 @class System_Collections_IList;
 
 @protocol System_Collections_Generic_IEnumerableA1_;
 
-@interface System_Linq (core)
+@interface DBLinq : NSObject
 
 + (System_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject typeParameter:(id)typeParameter;
 + (System_Collections_IList *)toList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)managedObject;

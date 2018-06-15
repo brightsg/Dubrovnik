@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ReferenceObject.m
+//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ReferenceObject.m
 //
 // Managed class : ReferenceObject
 //

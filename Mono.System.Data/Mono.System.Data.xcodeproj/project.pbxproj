@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB05396B20D28CCA005B7E66 /* System_Data_Common_DbConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = AB05396120D28CC9005B7E66 /* System_Data_Common_DbConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB05396C20D28CCA005B7E66 /* System_Data_IDataReader.h in Headers */ = {isa = PBXBuildFile; fileRef = AB05396220D28CC9005B7E66 /* System_Data_IDataReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB05396D20D28CCA005B7E66 /* System_Data.h in Headers */ = {isa = PBXBuildFile; fileRef = AB05396320D28CC9005B7E66 /* System_Data.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB05396E20D28CCA005B7E66 /* System_Data_IDbConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = AB05396420D28CC9005B7E66 /* System_Data_IDbConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB05396F20D28CCA005B7E66 /* System_Data_Common_DbConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = AB05396520D28CC9005B7E66 /* System_Data_Common_DbConnection.m */; };
+		AB05397020D28CCA005B7E66 /* System_Data.m in Sources */ = {isa = PBXBuildFile; fileRef = AB05396620D28CC9005B7E66 /* System_Data.m */; };
+		AB05397120D28CCA005B7E66 /* System_Data_IDataReader.m in Sources */ = {isa = PBXBuildFile; fileRef = AB05396720D28CC9005B7E66 /* System_Data_IDataReader.m */; };
+		AB05397220D28CCA005B7E66 /* System_Data_IDbConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = AB05396820D28CC9005B7E66 /* System_Data_IDbConnection.m */; };
+		AB05397320D28CCA005B7E66 /* System_Data_IDbConnection_Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = AB05396920D28CC9005B7E66 /* System_Data_IDbConnection_Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB05397420D28CCA005B7E66 /* System_Data_IDataReader_Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = AB05396A20D28CC9005B7E66 /* System_Data_IDataReader_Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB26E0A91E4A151A004876FE /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB26E0A81E4A151A004876FE /* Mono.framework */; };
 		AB3FD4EA1C7606AA0037899F /* Categories.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3FD4E51C7606AA0037899F /* Categories.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB3FD4EB1C7606AA0037899F /* Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3FD4E61C7606AA0037899F /* Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -16,15 +26,19 @@
 		AB3FD5031C76331F0037899F /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3FD5021C76331F0037899F /* Dubrovnik.framework */; };
 		AB3FD5051C76334D0037899F /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3FD5041C76334D0037899F /* Mono.mscorlib.framework */; };
 		AB3FD5071C76335D0037899F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3FD5061C76335D0037899F /* Cocoa.framework */; };
-		AB3FD50D1C7635150037899F /* System_Data_IDbConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3FD50B1C7635150037899F /* System_Data_IDbConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB3FD50E1C7635150037899F /* System_Data_IDbConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3FD50C1C7635150037899F /* System_Data_IDbConnection.m */; };
-		AB5428162051F8AB007485C8 /* System_Data_Common_DbConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5428142051F8AB007485C8 /* System_Data_Common_DbConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB5428172051F8AB007485C8 /* System_Data_Common_DbConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428152051F8AB007485C8 /* System_Data_Common_DbConnection.m */; };
-		ABFDAB941C7639D7005230C0 /* System_Data_IDataReader.h in Headers */ = {isa = PBXBuildFile; fileRef = ABFDAB921C7639D7005230C0 /* System_Data_IDataReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABFDAB951C7639D7005230C0 /* System_Data_IDataReader.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFDAB931C7639D7005230C0 /* System_Data_IDataReader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB05396120D28CC9005B7E66 /* System_Data_Common_DbConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_Common_DbConnection.h; sourceTree = "<group>"; };
+		AB05396220D28CC9005B7E66 /* System_Data_IDataReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_IDataReader.h; sourceTree = "<group>"; };
+		AB05396320D28CC9005B7E66 /* System_Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data.h; sourceTree = "<group>"; };
+		AB05396420D28CC9005B7E66 /* System_Data_IDbConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_IDbConnection.h; sourceTree = "<group>"; };
+		AB05396520D28CC9005B7E66 /* System_Data_Common_DbConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_Common_DbConnection.m; sourceTree = "<group>"; };
+		AB05396620D28CC9005B7E66 /* System_Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data.m; sourceTree = "<group>"; };
+		AB05396720D28CC9005B7E66 /* System_Data_IDataReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_IDataReader.m; sourceTree = "<group>"; };
+		AB05396820D28CC9005B7E66 /* System_Data_IDbConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_IDbConnection.m; sourceTree = "<group>"; };
+		AB05396920D28CC9005B7E66 /* System_Data_IDbConnection_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_IDbConnection_Protocol.h; sourceTree = "<group>"; };
+		AB05396A20D28CC9005B7E66 /* System_Data_IDataReader_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_IDataReader_Protocol.h; sourceTree = "<group>"; };
 		AB26E0A81E4A151A004876FE /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.System.Data/../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
 		AB3FD4D81C7605740037899F /* Mono.System.Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.System.Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB3FD4DD1C7605740037899F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -36,13 +50,7 @@
 		AB3FD5021C76331F0037899F /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB3FD5041C76334D0037899F /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB3FD5061C76335D0037899F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		AB3FD50B1C7635150037899F /* System_Data_IDbConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_IDbConnection.h; sourceTree = "<group>"; };
-		AB3FD50C1C7635150037899F /* System_Data_IDbConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_IDbConnection.m; sourceTree = "<group>"; };
 		AB3FD50F1C7635570037899F /* Mono.System.Data-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mono.System.Data-Prefix.pch"; sourceTree = SOURCE_ROOT; };
-		AB5428142051F8AB007485C8 /* System_Data_Common_DbConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = System_Data_Common_DbConnection.h; sourceTree = "<group>"; };
-		AB5428152051F8AB007485C8 /* System_Data_Common_DbConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = System_Data_Common_DbConnection.m; sourceTree = "<group>"; };
-		ABFDAB921C7639D7005230C0 /* System_Data_IDataReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_IDataReader.h; sourceTree = "<group>"; };
-		ABFDAB931C7639D7005230C0 /* System_Data_IDataReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_IDataReader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB05396020D28CC9005B7E66 /* Generated Bindings */ = {
+			isa = PBXGroup;
+			children = (
+				AB05396120D28CC9005B7E66 /* System_Data_Common_DbConnection.h */,
+				AB05396220D28CC9005B7E66 /* System_Data_IDataReader.h */,
+				AB05396320D28CC9005B7E66 /* System_Data.h */,
+				AB05396420D28CC9005B7E66 /* System_Data_IDbConnection.h */,
+				AB05396520D28CC9005B7E66 /* System_Data_Common_DbConnection.m */,
+				AB05396620D28CC9005B7E66 /* System_Data.m */,
+				AB05396720D28CC9005B7E66 /* System_Data_IDataReader.m */,
+				AB05396820D28CC9005B7E66 /* System_Data_IDbConnection.m */,
+				AB05396920D28CC9005B7E66 /* System_Data_IDbConnection_Protocol.h */,
+				AB05396A20D28CC9005B7E66 /* System_Data_IDataReader_Protocol.h */,
+			);
+			path = "Generated Bindings";
+			sourceTree = "<group>";
+		};
 		AB3FD4CE1C7605740037899F = {
 			isa = PBXGroup;
 			children = (
@@ -80,8 +105,8 @@
 		AB3FD4DA1C7605740037899F /* Mono.System.Data */ = {
 			isa = PBXGroup;
 			children = (
+				AB05396020D28CC9005B7E66 /* Generated Bindings */,
 				AB3FD5101C76359A0037899F /* Supporting Files */,
-				AB3FD4EF1C7606AF0037899F /* Manual Bindings */,
 				AB3FD4E41C7606AA0037899F /* Include */,
 				AB3FD4E31C7606A30037899F /* Helper classes */,
 			);
@@ -105,19 +130,6 @@
 				AB3FD4E91C7606AA0037899F /* ManualBindings.h */,
 			);
 			path = Include;
-			sourceTree = "<group>";
-		};
-		AB3FD4EF1C7606AF0037899F /* Manual Bindings */ = {
-			isa = PBXGroup;
-			children = (
-				AB3FD50B1C7635150037899F /* System_Data_IDbConnection.h */,
-				AB3FD50C1C7635150037899F /* System_Data_IDbConnection.m */,
-				ABFDAB921C7639D7005230C0 /* System_Data_IDataReader.h */,
-				ABFDAB931C7639D7005230C0 /* System_Data_IDataReader.m */,
-				AB5428142051F8AB007485C8 /* System_Data_Common_DbConnection.h */,
-				AB5428152051F8AB007485C8 /* System_Data_Common_DbConnection.m */,
-			);
-			path = "Manual Bindings";
 			sourceTree = "<group>";
 		};
 		AB3FD50A1C7634C80037899F /* Frameworks */ = {
@@ -147,13 +159,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABFDAB941C7639D7005230C0 /* System_Data_IDataReader.h in Headers */,
-				AB3FD50D1C7635150037899F /* System_Data_IDbConnection.h in Headers */,
+				AB05396B20D28CCA005B7E66 /* System_Data_Common_DbConnection.h in Headers */,
+				AB05396E20D28CCA005B7E66 /* System_Data_IDbConnection.h in Headers */,
+				AB05397420D28CCA005B7E66 /* System_Data_IDataReader_Protocol.h in Headers */,
+				AB05396D20D28CCA005B7E66 /* System_Data.h in Headers */,
+				AB05396C20D28CCA005B7E66 /* System_Data_IDataReader.h in Headers */,
+				AB05397320D28CCA005B7E66 /* System_Data_IDbConnection_Protocol.h in Headers */,
 				AB3FD4EE1C7606AA0037899F /* ManualBindings.h in Headers */,
 				AB3FD4EA1C7606AA0037899F /* Categories.h in Headers */,
 				AB3FD4EB1C7606AA0037899F /* Framework.h in Headers */,
 				AB3FD4EC1C7606AA0037899F /* GeneratedBindings.h in Headers */,
-				AB5428162051F8AB007485C8 /* System_Data_Common_DbConnection.h in Headers */,
 				AB3FD4ED1C7606AA0037899F /* HelperClasses.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,9 +240,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB5428172051F8AB007485C8 /* System_Data_Common_DbConnection.m in Sources */,
-				AB3FD50E1C7635150037899F /* System_Data_IDbConnection.m in Sources */,
-				ABFDAB951C7639D7005230C0 /* System_Data_IDataReader.m in Sources */,
+				AB05397020D28CCA005B7E66 /* System_Data.m in Sources */,
+				AB05397120D28CCA005B7E66 /* System_Data_IDataReader.m in Sources */,
+				AB05397220D28CCA005B7E66 /* System_Data_IDbConnection.m in Sources */,
+				AB05396F20D28CCA005B7E66 /* System_Data_Common_DbConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +301,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"/Library/Frameworks/Mono.framework/headers/mono-2.0",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -339,7 +355,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"/Library/Frameworks/Mono.framework/headers/mono-2.0",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				VERSIONING_SYSTEM = "apple-generic";

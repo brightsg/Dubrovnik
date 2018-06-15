@@ -25,24 +25,4 @@
 	return(size);
 }
 
-#pragma mark -
-
-- (int)width {
-	MonoObject *width = [self getMonoProperty:"Width"];
-	return(DB_UNBOX_INT32(width));
-}
-
-- (int)height {
-	MonoObject *height = [self getMonoProperty:"Height"];
-	return(DB_UNBOX_INT32(height));
-}
-
-#pragma mark -
-
-- (BOOL)isEmpty
-{
-	MonoObject *isempty = [self getMonoProperty:"IsEmpty"];
-	return(DB_UNBOX_BOOLEAN(isempty));
-}
-
 @end

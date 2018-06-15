@@ -7,18 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AB3E67D61C73E3F800043440 /* System_Xml_Xsl_XsltArgumentList.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3E67D41C73E3F800043440 /* System_Xml_Xsl_XsltArgumentList.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB3E67D71C73E3F800043440 /* System_Xml_Xsl_XsltArgumentList.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3E67D51C73E3F800043440 /* System_Xml_Xsl_XsltArgumentList.m */; };
-		AB54281A2051F94D007485C8 /* System_Xml_XmlDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5428182051F94D007485C8 /* System_Xml_XmlDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB54281B2051F94D007485C8 /* System_Xml_XmlDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428192051F94D007485C8 /* System_Xml_XmlDocument.m */; };
+		AB05395620D28465005B7E66 /* System_Xml.h in Headers */ = {isa = PBXBuildFile; fileRef = AB05394E20D28465005B7E66 /* System_Xml.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB05395720D28465005B7E66 /* System_Xml_XmlTextWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB05394F20D28465005B7E66 /* System_Xml_XmlTextWriter.m */; };
+		AB05395820D28465005B7E66 /* System_Xml_XmlDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = AB05395020D28465005B7E66 /* System_Xml_XmlDocument.m */; };
+		AB05395920D28465005B7E66 /* System_Xml_Xsl_XsltArgumentList.m in Sources */ = {isa = PBXBuildFile; fileRef = AB05395120D28465005B7E66 /* System_Xml_Xsl_XsltArgumentList.m */; };
+		AB05395A20D28465005B7E66 /* System_Xml.m in Sources */ = {isa = PBXBuildFile; fileRef = AB05395220D28465005B7E66 /* System_Xml.m */; };
+		AB05395B20D28465005B7E66 /* System_Xml_XmlTextWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = AB05395320D28465005B7E66 /* System_Xml_XmlTextWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB05395C20D28465005B7E66 /* System_Xml_Xsl_XsltArgumentList.h in Headers */ = {isa = PBXBuildFile; fileRef = AB05395420D28465005B7E66 /* System_Xml_Xsl_XsltArgumentList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB05395D20D28465005B7E66 /* System_Xml_XmlDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = AB05395520D28465005B7E66 /* System_Xml_XmlDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB05395F20D284F3005B7E66 /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB05395E20D284F3005B7E66 /* Mono.framework */; };
 		ABBD3BC51900141000DB59AF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3BC41900141000DB59AF /* Cocoa.framework */; };
 		ABBD3BCF1900141000DB59AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABBD3BCD1900141000DB59AF /* InfoPlist.strings */; };
 		ABBD3BDB1900141000DB59AF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3BC41900141000DB59AF /* Cocoa.framework */; };
 		ABBD3BDE1900141000DB59AF /* Mono.System.Xml.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBD3BC11900141000DB59AF /* Mono.System.Xml.framework */; };
 		ABBD3BE41900141000DB59AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABBD3BE21900141000DB59AF /* InfoPlist.strings */; };
 		ABBD3BE61900141000DB59AF /* Mono_System_XmlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBD3BE51900141000DB59AF /* Mono_System_XmlTests.m */; };
-		ABBD3BFF1900158B00DB59AF /* System_Xml_XmlTextWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3BFD1900158B00DB59AF /* System_Xml_XmlTextWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABBD3C001900158B00DB59AF /* System_Xml_XmlTextWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBD3BFE1900158B00DB59AF /* System_Xml_XmlTextWriter.m */; };
 		ABBD3C10190015C000DB59AF /* Categories.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C0B190015C000DB59AF /* Categories.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABBD3C11190015C000DB59AF /* Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C0C190015C000DB59AF /* Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABBD3C12190015C000DB59AF /* GeneratedBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C0D190015C000DB59AF /* GeneratedBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -39,10 +42,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AB3E67D41C73E3F800043440 /* System_Xml_Xsl_XsltArgumentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Xml_Xsl_XsltArgumentList.h; sourceTree = "<group>"; };
-		AB3E67D51C73E3F800043440 /* System_Xml_Xsl_XsltArgumentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Xml_Xsl_XsltArgumentList.m; sourceTree = "<group>"; };
-		AB5428182051F94D007485C8 /* System_Xml_XmlDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = System_Xml_XmlDocument.h; sourceTree = "<group>"; };
-		AB5428192051F94D007485C8 /* System_Xml_XmlDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = System_Xml_XmlDocument.m; sourceTree = "<group>"; };
+		AB05394E20D28465005B7E66 /* System_Xml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Xml.h; sourceTree = "<group>"; };
+		AB05394F20D28465005B7E66 /* System_Xml_XmlTextWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Xml_XmlTextWriter.m; sourceTree = "<group>"; };
+		AB05395020D28465005B7E66 /* System_Xml_XmlDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Xml_XmlDocument.m; sourceTree = "<group>"; };
+		AB05395120D28465005B7E66 /* System_Xml_Xsl_XsltArgumentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Xml_Xsl_XsltArgumentList.m; sourceTree = "<group>"; };
+		AB05395220D28465005B7E66 /* System_Xml.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Xml.m; sourceTree = "<group>"; };
+		AB05395320D28465005B7E66 /* System_Xml_XmlTextWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Xml_XmlTextWriter.h; sourceTree = "<group>"; };
+		AB05395420D28465005B7E66 /* System_Xml_Xsl_XsltArgumentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Xml_Xsl_XsltArgumentList.h; sourceTree = "<group>"; };
+		AB05395520D28465005B7E66 /* System_Xml_XmlDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Xml_XmlDocument.h; sourceTree = "<group>"; };
+		AB05395E20D284F3005B7E66 /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/BrightPay/../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
 		ABBD3BC11900141000DB59AF /* Mono.System.Xml.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.System.Xml.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABBD3BC41900141000DB59AF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		ABBD3BC71900141000DB59AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -55,8 +63,6 @@
 		ABBD3BE11900141000DB59AF /* Mono.System.XmlTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mono.System.XmlTests-Info.plist"; sourceTree = "<group>"; };
 		ABBD3BE31900141000DB59AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABBD3BE51900141000DB59AF /* Mono_System_XmlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mono_System_XmlTests.m; sourceTree = "<group>"; };
-		ABBD3BFD1900158B00DB59AF /* System_Xml_XmlTextWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Xml_XmlTextWriter.h; sourceTree = "<group>"; };
-		ABBD3BFE1900158B00DB59AF /* System_Xml_XmlTextWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Xml_XmlTextWriter.m; sourceTree = "<group>"; };
 		ABBD3C0B190015C000DB59AF /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		ABBD3C0C190015C000DB59AF /* Framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Framework.h; sourceTree = "<group>"; };
 		ABBD3C0D190015C000DB59AF /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
@@ -71,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB05395F20D284F3005B7E66 /* Mono.framework in Frameworks */,
 				ABF5D283190C584C00E9CFBD /* Dubrovnik.framework in Frameworks */,
 				ABF5D284190C584C00E9CFBD /* Mono.mscorlib.framework in Frameworks */,
 				ABBD3BC51900141000DB59AF /* Cocoa.framework in Frameworks */,
@@ -89,6 +96,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB05394D20D28465005B7E66 /* Generated bindings */ = {
+			isa = PBXGroup;
+			children = (
+				AB05394E20D28465005B7E66 /* System_Xml.h */,
+				AB05394F20D28465005B7E66 /* System_Xml_XmlTextWriter.m */,
+				AB05395020D28465005B7E66 /* System_Xml_XmlDocument.m */,
+				AB05395120D28465005B7E66 /* System_Xml_Xsl_XsltArgumentList.m */,
+				AB05395220D28465005B7E66 /* System_Xml.m */,
+				AB05395320D28465005B7E66 /* System_Xml_XmlTextWriter.h */,
+				AB05395420D28465005B7E66 /* System_Xml_Xsl_XsltArgumentList.h */,
+				AB05395520D28465005B7E66 /* System_Xml_XmlDocument.h */,
+			);
+			path = "Generated bindings";
+			sourceTree = "<group>";
+		};
 		ABBD3BB71900141000DB59AF = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +133,7 @@
 		ABBD3BC31900141000DB59AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB05395E20D284F3005B7E66 /* Mono.framework */,
 				ABF5D281190C584C00E9CFBD /* Dubrovnik.framework */,
 				ABF5D282190C584C00E9CFBD /* Mono.mscorlib.framework */,
 				ABBD3BC41900141000DB59AF /* Cocoa.framework */,
@@ -132,10 +155,8 @@
 		ABBD3BCA1900141000DB59AF /* Mono.System.Xml */ = {
 			isa = PBXGroup;
 			children = (
-				ABBD3BF41900150400DB59AF /* Categories */,
-				ABBD3BF51900150400DB59AF /* Helper Classes */,
+				AB05394D20D28465005B7E66 /* Generated bindings */,
 				ABBD3BF61900150400DB59AF /* Include */,
-				ABBD3BF71900150400DB59AF /* Manual Bindings */,
 				ABBD3BCB1900141000DB59AF /* Supporting Files */,
 			);
 			path = Mono.System.Xml;
@@ -169,20 +190,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		ABBD3BF41900150400DB59AF /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
-		ABBD3BF51900150400DB59AF /* Helper Classes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Helper Classes";
-			sourceTree = "<group>";
-		};
 		ABBD3BF61900150400DB59AF /* Include */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,19 +202,6 @@
 			path = Include;
 			sourceTree = "<group>";
 		};
-		ABBD3BF71900150400DB59AF /* Manual Bindings */ = {
-			isa = PBXGroup;
-			children = (
-				ABBD3BFD1900158B00DB59AF /* System_Xml_XmlTextWriter.h */,
-				ABBD3BFE1900158B00DB59AF /* System_Xml_XmlTextWriter.m */,
-				AB3E67D41C73E3F800043440 /* System_Xml_Xsl_XsltArgumentList.h */,
-				AB3E67D51C73E3F800043440 /* System_Xml_Xsl_XsltArgumentList.m */,
-				AB5428182051F94D007485C8 /* System_Xml_XmlDocument.h */,
-				AB5428192051F94D007485C8 /* System_Xml_XmlDocument.m */,
-			);
-			path = "Manual Bindings";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -215,14 +209,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB3E67D61C73E3F800043440 /* System_Xml_Xsl_XsltArgumentList.h in Headers */,
+				AB05395C20D28465005B7E66 /* System_Xml_Xsl_XsltArgumentList.h in Headers */,
+				AB05395620D28465005B7E66 /* System_Xml.h in Headers */,
+				AB05395B20D28465005B7E66 /* System_Xml_XmlTextWriter.h in Headers */,
+				AB05395D20D28465005B7E66 /* System_Xml_XmlDocument.h in Headers */,
 				ABBD3C14190015C000DB59AF /* ManualBindings.h in Headers */,
-				AB54281A2051F94D007485C8 /* System_Xml_XmlDocument.h in Headers */,
 				ABBD3C11190015C000DB59AF /* Framework.h in Headers */,
 				ABBD3C10190015C000DB59AF /* Categories.h in Headers */,
 				ABBD3C12190015C000DB59AF /* GeneratedBindings.h in Headers */,
 				ABBD3C13190015C000DB59AF /* HelperClasses.h in Headers */,
-				ABBD3BFF1900158B00DB59AF /* System_Xml_XmlTextWriter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,9 +316,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB3E67D71C73E3F800043440 /* System_Xml_Xsl_XsltArgumentList.m in Sources */,
-				ABBD3C001900158B00DB59AF /* System_Xml_XmlTextWriter.m in Sources */,
-				AB54281B2051F94D007485C8 /* System_Xml_XmlDocument.m in Sources */,
+				AB05395A20D28465005B7E66 /* System_Xml.m in Sources */,
+				AB05395720D28465005B7E66 /* System_Xml_XmlTextWriter.m in Sources */,
+				AB05395920D28465005B7E66 /* System_Xml_Xsl_XsltArgumentList.m in Sources */,
+				AB05395820D28465005B7E66 /* System_Xml_XmlDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,7 +474,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mono.System.Xml/Mono.System.Xml-Prefix.pch";
@@ -496,7 +495,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mono.System.Xml/Mono.System.Xml-Prefix.pch";

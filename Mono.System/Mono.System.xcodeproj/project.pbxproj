@@ -7,34 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AB144E2720C540B200517DCA /* System_IO_ErrorEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = AB144E2520C540B200517DCA /* System_IO_ErrorEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB144E2820C540B200517DCA /* System_IO_ErrorEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = AB144E2620C540B200517DCA /* System_IO_ErrorEventArgs.m */; };
-		AB17805F199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = AB17805D199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB178060199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = AB17805E199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m */; };
-		AB178063199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = AB178061199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB178064199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = AB178062199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m */; };
-		AB17A02A1F6BEDEC00FED930 /* System_Collections_Specialized_NotifyCollectionChangedAction.h in Headers */ = {isa = PBXBuildFile; fileRef = AB17A0291F6BEDEC00FED930 /* System_Collections_Specialized_NotifyCollectionChangedAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB26E0AD1E4A15C0004876FE /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB26E0AC1E4A15C0004876FE /* Mono.framework */; };
-		AB5428222051FC51007485C8 /* System_Configuration_SettingsBase.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5428202051FC51007485C8 /* System_Configuration_SettingsBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB5428232051FC51007485C8 /* System_Configuration_SettingsBase.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428212051FC51007485C8 /* System_Configuration_SettingsBase.m */; };
-		AB61C1621F72833F00C1E7AE /* System_Uri.h in Headers */ = {isa = PBXBuildFile; fileRef = AB61C1561F72833F00C1E7AE /* System_Uri.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB61C1631F72833F00C1E7AE /* System_Uri.m in Sources */ = {isa = PBXBuildFile; fileRef = AB61C1571F72833F00C1E7AE /* System_Uri.m */; };
-		AB61C1641F72833F00C1E7AE /* System_UriComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = AB61C1581F72833F00C1E7AE /* System_UriComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB61C1651F72833F00C1E7AE /* System_UriComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = AB61C1591F72833F00C1E7AE /* System_UriComponents.m */; };
-		AB61C1661F72833F00C1E7AE /* System_UriFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = AB61C15A1F72833F00C1E7AE /* System_UriFormat.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB61C1671F72833F00C1E7AE /* System_UriFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = AB61C15B1F72833F00C1E7AE /* System_UriFormat.m */; };
-		AB61C1681F72833F00C1E7AE /* System_UriHostNameType.h in Headers */ = {isa = PBXBuildFile; fileRef = AB61C15C1F72833F00C1E7AE /* System_UriHostNameType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB61C1691F72833F00C1E7AE /* System_UriHostNameType.m in Sources */ = {isa = PBXBuildFile; fileRef = AB61C15D1F72833F00C1E7AE /* System_UriHostNameType.m */; };
-		AB61C16A1F72833F00C1E7AE /* System_UriKind.h in Headers */ = {isa = PBXBuildFile; fileRef = AB61C15E1F72833F00C1E7AE /* System_UriKind.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB61C16B1F72833F00C1E7AE /* System_UriKind.m in Sources */ = {isa = PBXBuildFile; fileRef = AB61C15F1F72833F00C1E7AE /* System_UriKind.m */; };
-		AB61C16C1F72833F00C1E7AE /* System_UriPartial.h in Headers */ = {isa = PBXBuildFile; fileRef = AB61C1601F72833F00C1E7AE /* System_UriPartial.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB61C16D1F72833F00C1E7AE /* System_UriPartial.m in Sources */ = {isa = PBXBuildFile; fileRef = AB61C1611F72833F00C1E7AE /* System_UriPartial.m */; };
+		AB2E64EF20D311AB00582990 /* System_Net_WebResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E64E520D311A900582990 /* System_Net_WebResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E64F020D311AB00582990 /* System_Net_WebResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E64E620D311A900582990 /* System_Net_WebResponse.m */; };
+		AB2E64F120D311AB00582990 /* System_Net_WebRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E64E720D311A900582990 /* System_Net_WebRequest.m */; };
+		AB2E64F220D311AB00582990 /* System_Net_HttpWebRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E64E820D311A900582990 /* System_Net_HttpWebRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E64F320D311AB00582990 /* System_Net_WebRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E64E920D311A900582990 /* System_Net_WebRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E64F420D311AB00582990 /* System_Net_HttpStatusCode.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E64EA20D311A900582990 /* System_Net_HttpStatusCode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E64F520D311AB00582990 /* System_Net_HttpStatusCode.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E64EB20D311AA00582990 /* System_Net_HttpStatusCode.m */; };
+		AB2E64F620D311AB00582990 /* System_Net_HttpWebRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E64EC20D311AA00582990 /* System_Net_HttpWebRequest.m */; };
+		AB2E64F720D311AB00582990 /* System_Net_HttpWebResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E64ED20D311AA00582990 /* System_Net_HttpWebResponse.m */; };
+		AB2E64F820D311AB00582990 /* System_Net_HttpWebResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E64EE20D311AA00582990 /* System_Net_HttpWebResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2E64FC20D31E9800582990 /* System_Net_HttpWebResponse.__Extra__.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E64FB20D31E9800582990 /* System_Net_HttpWebResponse.__Extra__.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB6245231E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h in Headers */ = {isa = PBXBuildFile; fileRef = AB6245211E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB6245241E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6245221E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m */; };
-		AB7DF4BE1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7DF4BC1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB7DF4BF1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7DF4BD1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.m */; };
-		AB7DF4C21A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7DF4C01A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB7DF4C31A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7DF4C11A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.m */; };
 		ABA397121906BA6300D5CA6E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA397111906BA6300D5CA6E /* Cocoa.framework */; };
 		ABA3971C1906BA6300D5CA6E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABA3971A1906BA6300D5CA6E /* InfoPlist.strings */; };
 		ABA397281906BA6300D5CA6E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA397111906BA6300D5CA6E /* Cocoa.framework */; };
@@ -45,19 +31,48 @@
 		ABA397471906BAE600D5CA6E /* GeneratedBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA397421906BAE600D5CA6E /* GeneratedBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABA397481906BAE600D5CA6E /* HelperClasses.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA397431906BAE600D5CA6E /* HelperClasses.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABA397491906BAE600D5CA6E /* ManualBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA397441906BAE600D5CA6E /* ManualBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABA3975E1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA3975D1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABA397611906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA3975F1906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABA397621906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA397601906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m */; };
-		ABA6EEE81E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA6EEE61E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABA6EEE91E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA6EEE71E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.m */; };
 		ABAAE7211E26409F00CC81F1 /* Mono_System_Assembly.h in Headers */ = {isa = PBXBuildFile; fileRef = ABAAE71F1E26409F00CC81F1 /* Mono_System_Assembly.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABAAE7221E26409F00CC81F1 /* Mono_System_Assembly.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAAE7201E26409F00CC81F1 /* Mono_System_Assembly.m */; };
-		ABDA50E41A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = ABDA50E01A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABDA50E51A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDA50E11A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.m */; };
-		ABDA50E61A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = ABDA50E21A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABDA50E71A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDA50E31A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.m */; };
-		ABF37D4E1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF37D4C1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABF37D4F1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF37D4D1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.m */; };
+		ABB813E420D15AE900623A23 /* System_ComponentModel_PropertyChangingEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB813BC20D15AE600623A23 /* System_ComponentModel_PropertyChangingEventArgs.m */; };
+		ABB813E520D15AE900623A23 /* System_UriHostNameType.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB813BD20D15AE600623A23 /* System_UriHostNameType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB813E620D15AE900623A23 /* System_UriKind.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB813BE20D15AE600623A23 /* System_UriKind.m */; };
+		ABB813E720D15AE900623A23 /* System_ComponentModel_PropertyChangedEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB813BF20D15AE600623A23 /* System_ComponentModel_PropertyChangedEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB813E820D15AE900623A23 /* System_Uri.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB813C020D15AE600623A23 /* System_Uri.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB813E920D15AE900623A23 /* System_Collections_Specialized_NotifyCollectionChangedAction.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB813C120D15AE600623A23 /* System_Collections_Specialized_NotifyCollectionChangedAction.m */; };
+		ABB813EA20D15AE900623A23 /* System_ComponentModel_RunWorkerCompletedEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB813C220D15AE600623A23 /* System_ComponentModel_RunWorkerCompletedEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB813EB20D15AE900623A23 /* System_ComponentModel_PropertyChangedEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB813C320D15AE600623A23 /* System_ComponentModel_PropertyChangedEventArgs.m */; };
+		ABB813EC20D15AE900623A23 /* System_ComponentModel_AsyncCompletedEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB813C420D15AE600623A23 /* System_ComponentModel_AsyncCompletedEventArgs.m */; };
+		ABB813ED20D15AE900623A23 /* System_Uri.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB813C520D15AE600623A23 /* System_Uri.m */; };
+		ABB813EE20D15AE900623A23 /* System.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB813C620D15AE600623A23 /* System.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB813EF20D15AE900623A23 /* System_IO_ErrorEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB813C720D15AE600623A23 /* System_IO_ErrorEventArgs.m */; };
+		ABB813F020D15AE900623A23 /* System.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB813C820D15AE700623A23 /* System.m */; };
+		ABB813F120D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanging_Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB813C920D15AE700623A23 /* System_ComponentModel_INotifyPropertyChanging_Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB813F220D15AE900623A23 /* System_UriPartial.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB813CA20D15AE700623A23 /* System_UriPartial.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB813F320D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanged.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB813CB20D15AE700623A23 /* System_ComponentModel_INotifyPropertyChanged.m */; };
+		ABB813F420D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanged.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB813CC20D15AE700623A23 /* System_ComponentModel_INotifyPropertyChanged.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB813F520D15AE900623A23 /* System_ComponentModel_PropertyChangingEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB813CD20D15AE700623A23 /* System_ComponentModel_PropertyChangingEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB813F620D15AE900623A23 /* System_IO_ErrorEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB813CE20D15AE700623A23 /* System_IO_ErrorEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB813F720D15AE900623A23 /* System_Configuration_SettingsBase.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB813CF20D15AE700623A23 /* System_Configuration_SettingsBase.m */; };
+		ABB813F820D15AE900623A23 /* System_Collections_Specialized_NotifyCollectionChangedAction.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB813D020D15AE700623A23 /* System_Collections_Specialized_NotifyCollectionChangedAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB813F920D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanging.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB813D120D15AE700623A23 /* System_ComponentModel_INotifyPropertyChanging.m */; };
+		ABB813FA20D15AE900623A23 /* System_ComponentModel_AsyncCompletedEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB813D220D15AE700623A23 /* System_ComponentModel_AsyncCompletedEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB813FB20D15AE900623A23 /* System_UriComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB813D320D15AE700623A23 /* System_UriComponents.m */; };
+		ABB813FC20D15AE900623A23 /* System_UriHostNameType.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB813D420D15AE800623A23 /* System_UriHostNameType.m */; };
+		ABB813FD20D15AE900623A23 /* System_UriComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB813D520D15AE800623A23 /* System_UriComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB813FE20D15AE900623A23 /* System_Collections_ObjectModel_ObservableCollectionA1.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB813D620D15AE800623A23 /* System_Collections_ObjectModel_ObservableCollectionA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB813FF20D15AE900623A23 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB813D720D15AE800623A23 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.m */; };
+		ABB8140020D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanging.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB813D820D15AE800623A23 /* System_ComponentModel_INotifyPropertyChanging.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8140120D15AE900623A23 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB813D920D15AE800623A23 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8140220D15AE900623A23 /* System_UriFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB813DA20D15AE800623A23 /* System_UriFormat.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8140320D15AE900623A23 /* System_UriFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB813DB20D15AE800623A23 /* System_UriFormat.m */; };
+		ABB8140420D15AE900623A23 /* System_UriKind.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB813DC20D15AE800623A23 /* System_UriKind.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8140520D15AE900623A23 /* System_Text_RegularExpressions_Regex.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB813DD20D15AE800623A23 /* System_Text_RegularExpressions_Regex.m */; };
+		ABB8140620D15AE900623A23 /* System_Text_RegularExpressions_Regex.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB813DE20D15AE800623A23 /* System_Text_RegularExpressions_Regex.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8140720D15AE900623A23 /* System_ComponentModel_RunWorkerCompletedEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB813DF20D15AE900623A23 /* System_ComponentModel_RunWorkerCompletedEventArgs.m */; };
+		ABB8140820D15AE900623A23 /* System_Configuration_SettingsBase.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB813E020D15AE900623A23 /* System_Configuration_SettingsBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB8140920D15AE900623A23 /* System_UriPartial.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB813E120D15AE900623A23 /* System_UriPartial.m */; };
+		ABB8140A20D15AE900623A23 /* System_Collections_ObjectModel_ObservableCollectionA1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB813E220D15AE900623A23 /* System_Collections_ObjectModel_ObservableCollectionA1.m */; };
+		ABB8140B20D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanged_Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB813E320D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanged_Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABF5D28D190C58A900E9CFBD /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D28B190C58A900E9CFBD /* Dubrovnik.framework */; };
 		ABF5D28E190C58A900E9CFBD /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D28C190C58A900E9CFBD /* Mono.mscorlib.framework */; };
 /* End PBXBuildFile section */
@@ -73,34 +88,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AB144E2520C540B200517DCA /* System_IO_ErrorEventArgs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = System_IO_ErrorEventArgs.h; sourceTree = "<group>"; };
-		AB144E2620C540B200517DCA /* System_IO_ErrorEventArgs.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = System_IO_ErrorEventArgs.m; sourceTree = "<group>"; };
-		AB17805D199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_PropertyChangedEventArgs.h; sourceTree = "<group>"; };
-		AB17805E199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_PropertyChangedEventArgs.m; sourceTree = "<group>"; };
-		AB178061199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_PropertyChangingEventArgs.h; sourceTree = "<group>"; };
-		AB178062199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_PropertyChangingEventArgs.m; sourceTree = "<group>"; };
-		AB17A0291F6BEDEC00FED930 /* System_Collections_Specialized_NotifyCollectionChangedAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_Specialized_NotifyCollectionChangedAction.h; sourceTree = "<group>"; };
 		AB26E0AC1E4A15C0004876FE /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.System/../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
-		AB5428202051FC51007485C8 /* System_Configuration_SettingsBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = System_Configuration_SettingsBase.h; sourceTree = "<group>"; };
-		AB5428212051FC51007485C8 /* System_Configuration_SettingsBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = System_Configuration_SettingsBase.m; sourceTree = "<group>"; };
-		AB61C1561F72833F00C1E7AE /* System_Uri.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Uri.h; sourceTree = "<group>"; };
-		AB61C1571F72833F00C1E7AE /* System_Uri.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Uri.m; sourceTree = "<group>"; };
-		AB61C1581F72833F00C1E7AE /* System_UriComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_UriComponents.h; sourceTree = "<group>"; };
-		AB61C1591F72833F00C1E7AE /* System_UriComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_UriComponents.m; sourceTree = "<group>"; };
-		AB61C15A1F72833F00C1E7AE /* System_UriFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_UriFormat.h; sourceTree = "<group>"; };
-		AB61C15B1F72833F00C1E7AE /* System_UriFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_UriFormat.m; sourceTree = "<group>"; };
-		AB61C15C1F72833F00C1E7AE /* System_UriHostNameType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_UriHostNameType.h; sourceTree = "<group>"; };
-		AB61C15D1F72833F00C1E7AE /* System_UriHostNameType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_UriHostNameType.m; sourceTree = "<group>"; };
-		AB61C15E1F72833F00C1E7AE /* System_UriKind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_UriKind.h; sourceTree = "<group>"; };
-		AB61C15F1F72833F00C1E7AE /* System_UriKind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_UriKind.m; sourceTree = "<group>"; };
-		AB61C1601F72833F00C1E7AE /* System_UriPartial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_UriPartial.h; sourceTree = "<group>"; };
-		AB61C1611F72833F00C1E7AE /* System_UriPartial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_UriPartial.m; sourceTree = "<group>"; };
+		AB2E64E520D311A900582990 /* System_Net_WebResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Net_WebResponse.h; sourceTree = "<group>"; };
+		AB2E64E620D311A900582990 /* System_Net_WebResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Net_WebResponse.m; sourceTree = "<group>"; };
+		AB2E64E720D311A900582990 /* System_Net_WebRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Net_WebRequest.m; sourceTree = "<group>"; };
+		AB2E64E820D311A900582990 /* System_Net_HttpWebRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Net_HttpWebRequest.h; sourceTree = "<group>"; };
+		AB2E64E920D311A900582990 /* System_Net_WebRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Net_WebRequest.h; sourceTree = "<group>"; };
+		AB2E64EA20D311A900582990 /* System_Net_HttpStatusCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Net_HttpStatusCode.h; sourceTree = "<group>"; };
+		AB2E64EB20D311AA00582990 /* System_Net_HttpStatusCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Net_HttpStatusCode.m; sourceTree = "<group>"; };
+		AB2E64EC20D311AA00582990 /* System_Net_HttpWebRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Net_HttpWebRequest.m; sourceTree = "<group>"; };
+		AB2E64ED20D311AA00582990 /* System_Net_HttpWebResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Net_HttpWebResponse.m; sourceTree = "<group>"; };
+		AB2E64EE20D311AA00582990 /* System_Net_HttpWebResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Net_HttpWebResponse.h; sourceTree = "<group>"; };
+		AB2E64FB20D31E9800582990 /* System_Net_HttpWebResponse.__Extra__.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = System_Net_HttpWebResponse.__Extra__.h; sourceTree = "<group>"; };
 		AB6245211E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Collections_ObjectModel_ObservableCollectionA1+Events.h"; sourceTree = "<group>"; };
 		AB6245221E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Collections_ObjectModel_ObservableCollectionA1+Events.m"; sourceTree = "<group>"; };
-		AB7DF4BC1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_INotifyPropertyChanged.h; sourceTree = "<group>"; };
-		AB7DF4BD1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_INotifyPropertyChanged.m; sourceTree = "<group>"; };
-		AB7DF4C01A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_INotifyPropertyChanging.h; sourceTree = "<group>"; };
-		AB7DF4C11A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_INotifyPropertyChanging.m; sourceTree = "<group>"; };
 		ABA3970E1906BA6300D5CA6E /* Mono.System.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.System.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABA397111906BA6300D5CA6E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		ABA397141906BA6300D5CA6E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -118,19 +119,48 @@
 		ABA397421906BAE600D5CA6E /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
 		ABA397431906BAE600D5CA6E /* HelperClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClasses.h; sourceTree = "<group>"; };
 		ABA397441906BAE600D5CA6E /* ManualBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualBindings.h; sourceTree = "<group>"; };
-		ABA3975D1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Text_RegularExpressions_RegexOptions.h; sourceTree = "<group>"; };
-		ABA3975F1906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Text_RegularExpressions_Regex.h; sourceTree = "<group>"; };
-		ABA397601906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Text_RegularExpressions_Regex.m; sourceTree = "<group>"; };
-		ABA6EEE61E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_Specialized_NotifyCollectionChangedEventArgs.h; sourceTree = "<group>"; };
-		ABA6EEE71E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Collections_Specialized_NotifyCollectionChangedEventArgs.m; sourceTree = "<group>"; };
 		ABAAE71F1E26409F00CC81F1 /* Mono_System_Assembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mono_System_Assembly.h; sourceTree = "<group>"; };
 		ABAAE7201E26409F00CC81F1 /* Mono_System_Assembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mono_System_Assembly.m; sourceTree = "<group>"; };
-		ABDA50E01A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_AsyncCompletedEventArgs.h; sourceTree = "<group>"; };
-		ABDA50E11A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_AsyncCompletedEventArgs.m; sourceTree = "<group>"; };
-		ABDA50E21A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_RunWorkerCompletedEventArgs.h; sourceTree = "<group>"; };
-		ABDA50E31A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_RunWorkerCompletedEventArgs.m; sourceTree = "<group>"; };
-		ABF37D4C1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_ObjectModel_ObservableCollectionA1.h; sourceTree = "<group>"; };
-		ABF37D4D1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Collections_ObjectModel_ObservableCollectionA1.m; sourceTree = "<group>"; };
+		ABB813BC20D15AE600623A23 /* System_ComponentModel_PropertyChangingEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System_ComponentModel_PropertyChangingEventArgs.m; path = "Mono.System/Generated bindings/System_ComponentModel_PropertyChangingEventArgs.m"; sourceTree = SOURCE_ROOT; };
+		ABB813BD20D15AE600623A23 /* System_UriHostNameType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System_UriHostNameType.h; path = "Mono.System/Generated bindings/System_UriHostNameType.h"; sourceTree = SOURCE_ROOT; };
+		ABB813BE20D15AE600623A23 /* System_UriKind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System_UriKind.m; path = "Mono.System/Generated bindings/System_UriKind.m"; sourceTree = SOURCE_ROOT; };
+		ABB813BF20D15AE600623A23 /* System_ComponentModel_PropertyChangedEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System_ComponentModel_PropertyChangedEventArgs.h; path = "Mono.System/Generated bindings/System_ComponentModel_PropertyChangedEventArgs.h"; sourceTree = SOURCE_ROOT; };
+		ABB813C020D15AE600623A23 /* System_Uri.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System_Uri.h; path = "Mono.System/Generated bindings/System_Uri.h"; sourceTree = SOURCE_ROOT; };
+		ABB813C120D15AE600623A23 /* System_Collections_Specialized_NotifyCollectionChangedAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System_Collections_Specialized_NotifyCollectionChangedAction.m; path = "Mono.System/Generated bindings/System_Collections_Specialized_NotifyCollectionChangedAction.m"; sourceTree = SOURCE_ROOT; };
+		ABB813C220D15AE600623A23 /* System_ComponentModel_RunWorkerCompletedEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System_ComponentModel_RunWorkerCompletedEventArgs.h; path = "Mono.System/Generated bindings/System_ComponentModel_RunWorkerCompletedEventArgs.h"; sourceTree = SOURCE_ROOT; };
+		ABB813C320D15AE600623A23 /* System_ComponentModel_PropertyChangedEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System_ComponentModel_PropertyChangedEventArgs.m; path = "Mono.System/Generated bindings/System_ComponentModel_PropertyChangedEventArgs.m"; sourceTree = SOURCE_ROOT; };
+		ABB813C420D15AE600623A23 /* System_ComponentModel_AsyncCompletedEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System_ComponentModel_AsyncCompletedEventArgs.m; path = "Mono.System/Generated bindings/System_ComponentModel_AsyncCompletedEventArgs.m"; sourceTree = SOURCE_ROOT; };
+		ABB813C520D15AE600623A23 /* System_Uri.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System_Uri.m; path = "Mono.System/Generated bindings/System_Uri.m"; sourceTree = SOURCE_ROOT; };
+		ABB813C620D15AE600623A23 /* System.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System.h; path = "Mono.System/Generated bindings/System.h"; sourceTree = SOURCE_ROOT; };
+		ABB813C720D15AE600623A23 /* System_IO_ErrorEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System_IO_ErrorEventArgs.m; path = "Mono.System/Generated bindings/System_IO_ErrorEventArgs.m"; sourceTree = SOURCE_ROOT; };
+		ABB813C820D15AE700623A23 /* System.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System.m; path = "Mono.System/Generated bindings/System.m"; sourceTree = SOURCE_ROOT; };
+		ABB813C920D15AE700623A23 /* System_ComponentModel_INotifyPropertyChanging_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System_ComponentModel_INotifyPropertyChanging_Protocol.h; path = "Mono.System/Generated bindings/System_ComponentModel_INotifyPropertyChanging_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		ABB813CA20D15AE700623A23 /* System_UriPartial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System_UriPartial.h; path = "Mono.System/Generated bindings/System_UriPartial.h"; sourceTree = SOURCE_ROOT; };
+		ABB813CB20D15AE700623A23 /* System_ComponentModel_INotifyPropertyChanged.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System_ComponentModel_INotifyPropertyChanged.m; path = "Mono.System/Generated bindings/System_ComponentModel_INotifyPropertyChanged.m"; sourceTree = SOURCE_ROOT; };
+		ABB813CC20D15AE700623A23 /* System_ComponentModel_INotifyPropertyChanged.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System_ComponentModel_INotifyPropertyChanged.h; path = "Mono.System/Generated bindings/System_ComponentModel_INotifyPropertyChanged.h"; sourceTree = SOURCE_ROOT; };
+		ABB813CD20D15AE700623A23 /* System_ComponentModel_PropertyChangingEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System_ComponentModel_PropertyChangingEventArgs.h; path = "Mono.System/Generated bindings/System_ComponentModel_PropertyChangingEventArgs.h"; sourceTree = SOURCE_ROOT; };
+		ABB813CE20D15AE700623A23 /* System_IO_ErrorEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System_IO_ErrorEventArgs.h; path = "Mono.System/Generated bindings/System_IO_ErrorEventArgs.h"; sourceTree = SOURCE_ROOT; };
+		ABB813CF20D15AE700623A23 /* System_Configuration_SettingsBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System_Configuration_SettingsBase.m; path = "Mono.System/Generated bindings/System_Configuration_SettingsBase.m"; sourceTree = SOURCE_ROOT; };
+		ABB813D020D15AE700623A23 /* System_Collections_Specialized_NotifyCollectionChangedAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System_Collections_Specialized_NotifyCollectionChangedAction.h; path = "Mono.System/Generated bindings/System_Collections_Specialized_NotifyCollectionChangedAction.h"; sourceTree = SOURCE_ROOT; };
+		ABB813D120D15AE700623A23 /* System_ComponentModel_INotifyPropertyChanging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System_ComponentModel_INotifyPropertyChanging.m; path = "Mono.System/Generated bindings/System_ComponentModel_INotifyPropertyChanging.m"; sourceTree = SOURCE_ROOT; };
+		ABB813D220D15AE700623A23 /* System_ComponentModel_AsyncCompletedEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System_ComponentModel_AsyncCompletedEventArgs.h; path = "Mono.System/Generated bindings/System_ComponentModel_AsyncCompletedEventArgs.h"; sourceTree = SOURCE_ROOT; };
+		ABB813D320D15AE700623A23 /* System_UriComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System_UriComponents.m; path = "Mono.System/Generated bindings/System_UriComponents.m"; sourceTree = SOURCE_ROOT; };
+		ABB813D420D15AE800623A23 /* System_UriHostNameType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System_UriHostNameType.m; path = "Mono.System/Generated bindings/System_UriHostNameType.m"; sourceTree = SOURCE_ROOT; };
+		ABB813D520D15AE800623A23 /* System_UriComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System_UriComponents.h; path = "Mono.System/Generated bindings/System_UriComponents.h"; sourceTree = SOURCE_ROOT; };
+		ABB813D620D15AE800623A23 /* System_Collections_ObjectModel_ObservableCollectionA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System_Collections_ObjectModel_ObservableCollectionA1.h; path = "Mono.System/Generated bindings/System_Collections_ObjectModel_ObservableCollectionA1.h"; sourceTree = SOURCE_ROOT; };
+		ABB813D720D15AE800623A23 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System_Collections_Specialized_NotifyCollectionChangedEventArgs.m; path = "Mono.System/Generated bindings/System_Collections_Specialized_NotifyCollectionChangedEventArgs.m"; sourceTree = SOURCE_ROOT; };
+		ABB813D820D15AE800623A23 /* System_ComponentModel_INotifyPropertyChanging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System_ComponentModel_INotifyPropertyChanging.h; path = "Mono.System/Generated bindings/System_ComponentModel_INotifyPropertyChanging.h"; sourceTree = SOURCE_ROOT; };
+		ABB813D920D15AE800623A23 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System_Collections_Specialized_NotifyCollectionChangedEventArgs.h; path = "Mono.System/Generated bindings/System_Collections_Specialized_NotifyCollectionChangedEventArgs.h"; sourceTree = SOURCE_ROOT; };
+		ABB813DA20D15AE800623A23 /* System_UriFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System_UriFormat.h; path = "Mono.System/Generated bindings/System_UriFormat.h"; sourceTree = SOURCE_ROOT; };
+		ABB813DB20D15AE800623A23 /* System_UriFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System_UriFormat.m; path = "Mono.System/Generated bindings/System_UriFormat.m"; sourceTree = SOURCE_ROOT; };
+		ABB813DC20D15AE800623A23 /* System_UriKind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System_UriKind.h; path = "Mono.System/Generated bindings/System_UriKind.h"; sourceTree = SOURCE_ROOT; };
+		ABB813DD20D15AE800623A23 /* System_Text_RegularExpressions_Regex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System_Text_RegularExpressions_Regex.m; path = "Mono.System/Generated bindings/System_Text_RegularExpressions_Regex.m"; sourceTree = SOURCE_ROOT; };
+		ABB813DE20D15AE800623A23 /* System_Text_RegularExpressions_Regex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System_Text_RegularExpressions_Regex.h; path = "Mono.System/Generated bindings/System_Text_RegularExpressions_Regex.h"; sourceTree = SOURCE_ROOT; };
+		ABB813DF20D15AE900623A23 /* System_ComponentModel_RunWorkerCompletedEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System_ComponentModel_RunWorkerCompletedEventArgs.m; path = "Mono.System/Generated bindings/System_ComponentModel_RunWorkerCompletedEventArgs.m"; sourceTree = SOURCE_ROOT; };
+		ABB813E020D15AE900623A23 /* System_Configuration_SettingsBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System_Configuration_SettingsBase.h; path = "Mono.System/Generated bindings/System_Configuration_SettingsBase.h"; sourceTree = SOURCE_ROOT; };
+		ABB813E120D15AE900623A23 /* System_UriPartial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System_UriPartial.m; path = "Mono.System/Generated bindings/System_UriPartial.m"; sourceTree = SOURCE_ROOT; };
+		ABB813E220D15AE900623A23 /* System_Collections_ObjectModel_ObservableCollectionA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System_Collections_ObjectModel_ObservableCollectionA1.m; path = "Mono.System/Generated bindings/System_Collections_ObjectModel_ObservableCollectionA1.m"; sourceTree = SOURCE_ROOT; };
+		ABB813E320D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanged_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System_ComponentModel_INotifyPropertyChanged_Protocol.h; path = "Mono.System/Generated bindings/System_ComponentModel_INotifyPropertyChanged_Protocol.h"; sourceTree = SOURCE_ROOT; };
 		ABF5D28B190C58A900E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dubrovnik.framework; path = "../../../../BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug/Dubrovnik.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D28C190C58A900E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.mscorlib.framework; path = "../../../../BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug/Mono.mscorlib.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -211,10 +241,10 @@
 		ABA397171906BA6300D5CA6E /* Mono.System */ = {
 			isa = PBXGroup;
 			children = (
+				ABB813BB20D15AB700623A23 /* Generated bindings */,
 				AB6245201E25292D00FE5316 /* Categories */,
 				ABAAE71E1E26402900CC81F1 /* Helper classes */,
 				ABA3973F1906BAE600D5CA6E /* Include */,
-				ABA3975C1906BFA700D5CA6E /* Manual Bindings */,
 				ABA397181906BA6300D5CA6E /* Supporting Files */,
 			);
 			path = Mono.System;
@@ -256,51 +286,9 @@
 				ABA397421906BAE600D5CA6E /* GeneratedBindings.h */,
 				ABA397431906BAE600D5CA6E /* HelperClasses.h */,
 				ABA397441906BAE600D5CA6E /* ManualBindings.h */,
+				AB2E64FB20D31E9800582990 /* System_Net_HttpWebResponse.__Extra__.h */,
 			);
 			path = Include;
-			sourceTree = "<group>";
-		};
-		ABA3975C1906BFA700D5CA6E /* Manual Bindings */ = {
-			isa = PBXGroup;
-			children = (
-				AB61C1561F72833F00C1E7AE /* System_Uri.h */,
-				AB144E2520C540B200517DCA /* System_IO_ErrorEventArgs.h */,
-				AB144E2620C540B200517DCA /* System_IO_ErrorEventArgs.m */,
-				AB61C1571F72833F00C1E7AE /* System_Uri.m */,
-				AB61C1581F72833F00C1E7AE /* System_UriComponents.h */,
-				AB61C1591F72833F00C1E7AE /* System_UriComponents.m */,
-				AB61C15A1F72833F00C1E7AE /* System_UriFormat.h */,
-				AB61C15B1F72833F00C1E7AE /* System_UriFormat.m */,
-				AB61C15C1F72833F00C1E7AE /* System_UriHostNameType.h */,
-				AB61C15D1F72833F00C1E7AE /* System_UriHostNameType.m */,
-				AB61C15E1F72833F00C1E7AE /* System_UriKind.h */,
-				AB61C15F1F72833F00C1E7AE /* System_UriKind.m */,
-				AB61C1601F72833F00C1E7AE /* System_UriPartial.h */,
-				AB61C1611F72833F00C1E7AE /* System_UriPartial.m */,
-				ABDA50E01A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.h */,
-				ABDA50E11A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.m */,
-				ABDA50E21A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.h */,
-				AB17A0291F6BEDEC00FED930 /* System_Collections_Specialized_NotifyCollectionChangedAction.h */,
-				ABDA50E31A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.m */,
-				AB178061199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h */,
-				AB178062199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m */,
-				AB17805D199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.h */,
-				AB17805E199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m */,
-				ABF37D4C1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.h */,
-				ABF37D4D1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.m */,
-				ABA3975D1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h */,
-				ABA3975F1906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.h */,
-				ABA397601906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m */,
-				AB7DF4BC1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h */,
-				AB7DF4BD1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.m */,
-				AB7DF4C01A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.h */,
-				AB7DF4C11A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.m */,
-				ABA6EEE61E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.h */,
-				ABA6EEE71E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.m */,
-				AB5428202051FC51007485C8 /* System_Configuration_SettingsBase.h */,
-				AB5428212051FC51007485C8 /* System_Configuration_SettingsBase.m */,
-			);
-			path = "Manual Bindings";
 			sourceTree = "<group>";
 		};
 		ABAAE71E1E26402900CC81F1 /* Helper classes */ = {
@@ -312,6 +300,63 @@
 			path = "Helper classes";
 			sourceTree = "<group>";
 		};
+		ABB813BB20D15AB700623A23 /* Generated bindings */ = {
+			isa = PBXGroup;
+			children = (
+				AB2E64EA20D311A900582990 /* System_Net_HttpStatusCode.h */,
+				AB2E64EB20D311AA00582990 /* System_Net_HttpStatusCode.m */,
+				AB2E64E820D311A900582990 /* System_Net_HttpWebRequest.h */,
+				AB2E64EC20D311AA00582990 /* System_Net_HttpWebRequest.m */,
+				AB2E64EE20D311AA00582990 /* System_Net_HttpWebResponse.h */,
+				AB2E64ED20D311AA00582990 /* System_Net_HttpWebResponse.m */,
+				AB2E64E920D311A900582990 /* System_Net_WebRequest.h */,
+				AB2E64E720D311A900582990 /* System_Net_WebRequest.m */,
+				AB2E64E520D311A900582990 /* System_Net_WebResponse.h */,
+				AB2E64E620D311A900582990 /* System_Net_WebResponse.m */,
+				ABB813D620D15AE800623A23 /* System_Collections_ObjectModel_ObservableCollectionA1.h */,
+				ABB813E220D15AE900623A23 /* System_Collections_ObjectModel_ObservableCollectionA1.m */,
+				ABB813D020D15AE700623A23 /* System_Collections_Specialized_NotifyCollectionChangedAction.h */,
+				ABB813C120D15AE600623A23 /* System_Collections_Specialized_NotifyCollectionChangedAction.m */,
+				ABB813D920D15AE800623A23 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.h */,
+				ABB813D720D15AE800623A23 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.m */,
+				ABB813D220D15AE700623A23 /* System_ComponentModel_AsyncCompletedEventArgs.h */,
+				ABB813C420D15AE600623A23 /* System_ComponentModel_AsyncCompletedEventArgs.m */,
+				ABB813E320D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanged_Protocol.h */,
+				ABB813CC20D15AE700623A23 /* System_ComponentModel_INotifyPropertyChanged.h */,
+				ABB813CB20D15AE700623A23 /* System_ComponentModel_INotifyPropertyChanged.m */,
+				ABB813C920D15AE700623A23 /* System_ComponentModel_INotifyPropertyChanging_Protocol.h */,
+				ABB813D820D15AE800623A23 /* System_ComponentModel_INotifyPropertyChanging.h */,
+				ABB813D120D15AE700623A23 /* System_ComponentModel_INotifyPropertyChanging.m */,
+				ABB813BF20D15AE600623A23 /* System_ComponentModel_PropertyChangedEventArgs.h */,
+				ABB813C320D15AE600623A23 /* System_ComponentModel_PropertyChangedEventArgs.m */,
+				ABB813CD20D15AE700623A23 /* System_ComponentModel_PropertyChangingEventArgs.h */,
+				ABB813BC20D15AE600623A23 /* System_ComponentModel_PropertyChangingEventArgs.m */,
+				ABB813C220D15AE600623A23 /* System_ComponentModel_RunWorkerCompletedEventArgs.h */,
+				ABB813DF20D15AE900623A23 /* System_ComponentModel_RunWorkerCompletedEventArgs.m */,
+				ABB813E020D15AE900623A23 /* System_Configuration_SettingsBase.h */,
+				ABB813CF20D15AE700623A23 /* System_Configuration_SettingsBase.m */,
+				ABB813CE20D15AE700623A23 /* System_IO_ErrorEventArgs.h */,
+				ABB813C720D15AE600623A23 /* System_IO_ErrorEventArgs.m */,
+				ABB813DE20D15AE800623A23 /* System_Text_RegularExpressions_Regex.h */,
+				ABB813DD20D15AE800623A23 /* System_Text_RegularExpressions_Regex.m */,
+				ABB813C020D15AE600623A23 /* System_Uri.h */,
+				ABB813C520D15AE600623A23 /* System_Uri.m */,
+				ABB813D520D15AE800623A23 /* System_UriComponents.h */,
+				ABB813D320D15AE700623A23 /* System_UriComponents.m */,
+				ABB813DA20D15AE800623A23 /* System_UriFormat.h */,
+				ABB813DB20D15AE800623A23 /* System_UriFormat.m */,
+				ABB813BD20D15AE600623A23 /* System_UriHostNameType.h */,
+				ABB813D420D15AE800623A23 /* System_UriHostNameType.m */,
+				ABB813DC20D15AE800623A23 /* System_UriKind.h */,
+				ABB813BE20D15AE600623A23 /* System_UriKind.m */,
+				ABB813CA20D15AE700623A23 /* System_UriPartial.h */,
+				ABB813E120D15AE900623A23 /* System_UriPartial.m */,
+				ABB813C620D15AE600623A23 /* System.h */,
+				ABB813C820D15AE700623A23 /* System.m */,
+			);
+			path = "Generated bindings";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -319,29 +364,37 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB61C1621F72833F00C1E7AE /* System_Uri.h in Headers */,
-				AB7DF4C21A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.h in Headers */,
-				AB61C16C1F72833F00C1E7AE /* System_UriPartial.h in Headers */,
-				AB7DF4BE1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h in Headers */,
-				AB61C16A1F72833F00C1E7AE /* System_UriKind.h in Headers */,
-				AB5428222051FC51007485C8 /* System_Configuration_SettingsBase.h in Headers */,
-				AB61C1661F72833F00C1E7AE /* System_UriFormat.h in Headers */,
-				AB178063199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h in Headers */,
-				AB17805F199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.h in Headers */,
-				ABF37D4E1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.h in Headers */,
-				AB144E2720C540B200517DCA /* System_IO_ErrorEventArgs.h in Headers */,
-				AB61C1681F72833F00C1E7AE /* System_UriHostNameType.h in Headers */,
-				AB17A02A1F6BEDEC00FED930 /* System_Collections_Specialized_NotifyCollectionChangedAction.h in Headers */,
-				ABA3975E1906BFA700D5CA6E /* System_Text_RegularExpressions_RegexOptions.h in Headers */,
+				AB2E64F220D311AB00582990 /* System_Net_HttpWebRequest.h in Headers */,
+				AB2E64F820D311AB00582990 /* System_Net_HttpWebResponse.h in Headers */,
+				AB2E64EF20D311AB00582990 /* System_Net_WebResponse.h in Headers */,
+				AB2E64F320D311AB00582990 /* System_Net_WebRequest.h in Headers */,
+				AB2E64F420D311AB00582990 /* System_Net_HttpStatusCode.h in Headers */,
+				ABB8140420D15AE900623A23 /* System_UriKind.h in Headers */,
+				ABB813F520D15AE900623A23 /* System_ComponentModel_PropertyChangingEventArgs.h in Headers */,
+				ABB8140820D15AE900623A23 /* System_Configuration_SettingsBase.h in Headers */,
+				ABB8140120D15AE900623A23 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.h in Headers */,
+				ABB8140020D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanging.h in Headers */,
+				ABB813FA20D15AE900623A23 /* System_ComponentModel_AsyncCompletedEventArgs.h in Headers */,
+				ABB813F620D15AE900623A23 /* System_IO_ErrorEventArgs.h in Headers */,
+				ABB813E820D15AE900623A23 /* System_Uri.h in Headers */,
+				ABB813F820D15AE900623A23 /* System_Collections_Specialized_NotifyCollectionChangedAction.h in Headers */,
+				ABB8140620D15AE900623A23 /* System_Text_RegularExpressions_Regex.h in Headers */,
+				ABB813E520D15AE900623A23 /* System_UriHostNameType.h in Headers */,
+				ABB813FD20D15AE900623A23 /* System_UriComponents.h in Headers */,
+				ABB813E720D15AE900623A23 /* System_ComponentModel_PropertyChangedEventArgs.h in Headers */,
+				ABB813F420D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanged.h in Headers */,
+				ABB813EA20D15AE900623A23 /* System_ComponentModel_RunWorkerCompletedEventArgs.h in Headers */,
+				ABB813EE20D15AE900623A23 /* System.h in Headers */,
+				ABB813F220D15AE900623A23 /* System_UriPartial.h in Headers */,
+				ABB8140220D15AE900623A23 /* System_UriFormat.h in Headers */,
+				ABB813F120D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanging_Protocol.h in Headers */,
+				ABB8140B20D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanged_Protocol.h in Headers */,
+				ABB813FE20D15AE900623A23 /* System_Collections_ObjectModel_ObservableCollectionA1.h in Headers */,
 				AB6245231E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h in Headers */,
 				ABA397491906BAE600D5CA6E /* ManualBindings.h in Headers */,
-				AB61C1641F72833F00C1E7AE /* System_UriComponents.h in Headers */,
 				ABAAE7211E26409F00CC81F1 /* Mono_System_Assembly.h in Headers */,
+				AB2E64FC20D31E9800582990 /* System_Net_HttpWebResponse.__Extra__.h in Headers */,
 				ABA397451906BAE600D5CA6E /* Categories.h in Headers */,
-				ABA6EEE81E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.h in Headers */,
-				ABDA50E41A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.h in Headers */,
-				ABDA50E61A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.h in Headers */,
-				ABA397611906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.h in Headers */,
 				ABA397461906BAE600D5CA6E /* Framework.h in Headers */,
 				ABA397471906BAE600D5CA6E /* GeneratedBindings.h in Headers */,
 				ABA397481906BAE600D5CA6E /* HelperClasses.h in Headers */,
@@ -443,25 +496,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABDA50E71A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.m in Sources */,
-				AB7DF4BF1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.m in Sources */,
-				AB178060199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m in Sources */,
-				AB5428232051FC51007485C8 /* System_Configuration_SettingsBase.m in Sources */,
-				ABF37D4F1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.m in Sources */,
-				ABA6EEE91E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.m in Sources */,
-				AB61C16B1F72833F00C1E7AE /* System_UriKind.m in Sources */,
-				AB7DF4C31A2E291300C9DE72 /* System_ComponentModel_INotifyPropertyChanging.m in Sources */,
-				AB61C1671F72833F00C1E7AE /* System_UriFormat.m in Sources */,
-				AB178064199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m in Sources */,
-				AB61C1631F72833F00C1E7AE /* System_Uri.m in Sources */,
-				ABA397621906BFE200D5CA6E /* System_Text_RegularExpressions_Regex.m in Sources */,
+				ABB8140520D15AE900623A23 /* System_Text_RegularExpressions_Regex.m in Sources */,
+				ABB813EB20D15AE900623A23 /* System_ComponentModel_PropertyChangedEventArgs.m in Sources */,
 				AB6245241E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m in Sources */,
-				ABDA50E51A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.m in Sources */,
-				AB61C1651F72833F00C1E7AE /* System_UriComponents.m in Sources */,
-				AB61C16D1F72833F00C1E7AE /* System_UriPartial.m in Sources */,
-				AB61C1691F72833F00C1E7AE /* System_UriHostNameType.m in Sources */,
+				ABB813F320D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanged.m in Sources */,
+				AB2E64F020D311AB00582990 /* System_Net_WebResponse.m in Sources */,
+				ABB8140720D15AE900623A23 /* System_ComponentModel_RunWorkerCompletedEventArgs.m in Sources */,
+				ABB813E920D15AE900623A23 /* System_Collections_Specialized_NotifyCollectionChangedAction.m in Sources */,
+				AB2E64F520D311AB00582990 /* System_Net_HttpStatusCode.m in Sources */,
+				ABB813ED20D15AE900623A23 /* System_Uri.m in Sources */,
+				ABB8140920D15AE900623A23 /* System_UriPartial.m in Sources */,
+				ABB813F920D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanging.m in Sources */,
+				ABB813F020D15AE900623A23 /* System.m in Sources */,
+				ABB8140320D15AE900623A23 /* System_UriFormat.m in Sources */,
+				AB2E64F120D311AB00582990 /* System_Net_WebRequest.m in Sources */,
+				AB2E64F720D311AB00582990 /* System_Net_HttpWebResponse.m in Sources */,
+				ABB813E620D15AE900623A23 /* System_UriKind.m in Sources */,
+				ABB813FF20D15AE900623A23 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.m in Sources */,
+				AB2E64F620D311AB00582990 /* System_Net_HttpWebRequest.m in Sources */,
+				ABB813E420D15AE900623A23 /* System_ComponentModel_PropertyChangingEventArgs.m in Sources */,
+				ABB813FB20D15AE900623A23 /* System_UriComponents.m in Sources */,
 				ABAAE7221E26409F00CC81F1 /* Mono_System_Assembly.m in Sources */,
-				AB144E2820C540B200517DCA /* System_IO_ErrorEventArgs.m in Sources */,
+				ABB813F720D15AE900623A23 /* System_Configuration_SettingsBase.m in Sources */,
+				ABB8140A20D15AE900623A23 /* System_Collections_ObjectModel_ObservableCollectionA1.m in Sources */,
+				ABB813EC20D15AE900623A23 /* System_ComponentModel_AsyncCompletedEventArgs.m in Sources */,
+				ABB813FC20D15AE900623A23 /* System_UriHostNameType.m in Sources */,
+				ABB813EF20D15AE900623A23 /* System_IO_ErrorEventArgs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +616,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -606,6 +667,7 @@
 					"/Library/Frameworks/Mono.framework/headers/mono-2.0",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				OTHER_CFLAGS = "";
 				SDKROOT = macosx;
 			};
 			name = Release;

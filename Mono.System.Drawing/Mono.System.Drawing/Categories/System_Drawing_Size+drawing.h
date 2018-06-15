@@ -16,9 +16,4 @@
 + (System_Drawing_Size *)sizeWithMonoObject:(MonoObject *)monoObject;
 + (NSSize)convertToNSSize:(MonoObject *)monoObject;
 
-- (int)width;
-- (int)height;
-
-- (BOOL)isEmpty;
-
 @end

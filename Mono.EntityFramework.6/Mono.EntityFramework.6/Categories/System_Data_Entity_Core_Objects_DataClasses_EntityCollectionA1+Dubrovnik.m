@@ -15,7 +15,7 @@
 
 - (System_Collections_IList *)list
 {
-    return [System_Linq toList:(id)self];
+    return [DBLinq toList:(id)self];
 }
 
 - (NSMutableArray *)mutableArray

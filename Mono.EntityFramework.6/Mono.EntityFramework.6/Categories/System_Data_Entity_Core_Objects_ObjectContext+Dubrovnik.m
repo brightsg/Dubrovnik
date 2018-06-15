@@ -15,14 +15,6 @@
     [self invokeMonoMethod:"DeleteObject(object)" withNumArgs:1, [object monoObject]];
 }
 
-- (int32_t)saveChanges
-{
-    MonoObject *monoObject = [self invokeMonoMethod:"SaveChanges()" withNumArgs:0];
-    int32_t result = DB_UNBOX_INT32(monoObject);
-    return result;
-}
-
-
 - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)createQuery_withQueryString:(NSString *)queryString
                                                                       parameters:(System_Array *)dbsaParameters
                                                                    monoClassName:(const char *)monoClassName
@@ -48,7 +40,7 @@
     return objectQuery;
 }
 
-- (void)refresh_withRefreshMode:(System_Data_Entity_Core_Objects_RefreshMode)refreshMode object:(System_Object *)object
+- (void)refresh_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)refreshMode object:(System_Object *)object
 {
     [self invokeMonoMethod:"Refresh(System.Data.Entity.Core.Objects.RefreshMode,object)" withNumArgs:2, DB_VALUE(refreshMode), [object monoRTInvokeArg]];
 }

@@ -7,19 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AB2E746B18FFCF730061C63E /* System_Linq_IOrderedQueryableA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E746918FFCF730061C63E /* System_Linq_IOrderedQueryableA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB2E746C18FFCF730061C63E /* System_Linq_IOrderedQueryableA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E746A18FFCF730061C63E /* System_Linq_IOrderedQueryableA1.m */; };
-		AB2E747718FFCFCB0061C63E /* IOrderedQueryableA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E747118FFCFCB0061C63E /* IOrderedQueryableA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB2E747818FFCFCB0061C63E /* IOrderedQueryableA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E747218FFCFCB0061C63E /* IOrderedQueryableA1.m */; };
-		AB2E747918FFCFCB0061C63E /* IQueryableA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E747318FFCFCB0061C63E /* IQueryableA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB2E747A18FFCFCB0061C63E /* IQueryableA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E747418FFCFCB0061C63E /* IQueryableA1.m */; };
-		AB2E747B18FFCFCB0061C63E /* System_Linq_IQueryableA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E747518FFCFCB0061C63E /* System_Linq_IQueryableA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB2E747C18FFCFCB0061C63E /* System_Linq_IQueryableA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E747618FFCFCB0061C63E /* System_Linq_IQueryableA1.m */; };
+		AB09BE5620D1CB17005432CE /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB63A0B420D1C86300F697CE /* Mono.framework */; };
 		AB2E74BC18FFD8630061C63E /* Categories.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74B718FFD8630061C63E /* Categories.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74BD18FFD8630061C63E /* Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74B818FFD8630061C63E /* Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74BE18FFD8630061C63E /* GeneratedBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74B918FFD8630061C63E /* GeneratedBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74BF18FFD8630061C63E /* HelperClasses.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74BA18FFD8630061C63E /* HelperClasses.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74C018FFD8630061C63E /* ManualBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74BB18FFD8630061C63E /* ManualBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB63A09C20D1C57900F697CE /* System_Linq_IOrderedEnumerableA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB63A08620D1C57800F697CE /* System_Linq_IOrderedEnumerableA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB63A09D20D1C57900F697CE /* System_Linq_IOrderedQueryableA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB63A08720D1C57800F697CE /* System_Linq_IOrderedQueryableA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB63A09E20D1C57900F697CE /* System_Linq_IQueryable.m in Sources */ = {isa = PBXBuildFile; fileRef = AB63A08820D1C57800F697CE /* System_Linq_IQueryable.m */; };
+		AB63A09F20D1C57900F697CE /* System_Linq_IQueryableA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB63A08920D1C57800F697CE /* System_Linq_IQueryableA1.m */; };
+		AB63A0A020D1C57900F697CE /* System_Linq_IOrderedQueryableA1_Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = AB63A08A20D1C57800F697CE /* System_Linq_IOrderedQueryableA1_Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB63A0A120D1C57900F697CE /* System_Linq_IOrderedEnumerableA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB63A08B20D1C57800F697CE /* System_Linq_IOrderedEnumerableA1.m */; };
+		AB63A0A220D1C57900F697CE /* System_Linq_IOrderedQueryable.m in Sources */ = {isa = PBXBuildFile; fileRef = AB63A08C20D1C57800F697CE /* System_Linq_IOrderedQueryable.m */; };
+		AB63A0A320D1C57900F697CE /* System_Linq_IQueryable.h in Headers */ = {isa = PBXBuildFile; fileRef = AB63A08D20D1C57800F697CE /* System_Linq_IQueryable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB63A0A420D1C57900F697CE /* System_Linq_IOrderedEnumerableA1_Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = AB63A08E20D1C57800F697CE /* System_Linq_IOrderedEnumerableA1_Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB63A0A520D1C57900F697CE /* System_Linq_IQueryableA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB63A08F20D1C57800F697CE /* System_Linq_IQueryableA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB63A0A620D1C57900F697CE /* System_Linq_IQueryProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = AB63A09020D1C57800F697CE /* System_Linq_IQueryProvider.m */; };
+		AB63A0A720D1C57900F697CE /* System_Core.h in Headers */ = {isa = PBXBuildFile; fileRef = AB63A09120D1C57800F697CE /* System_Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB63A0A820D1C57900F697CE /* System_Linq_IOrderedQueryable_Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = AB63A09220D1C57800F697CE /* System_Linq_IOrderedQueryable_Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB63A0A920D1C57900F697CE /* System_Linq_IQueryProvider_Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = AB63A09320D1C57800F697CE /* System_Linq_IQueryProvider_Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB63A0AA20D1C57900F697CE /* System_Linq_Queryable.h in Headers */ = {isa = PBXBuildFile; fileRef = AB63A09420D1C57800F697CE /* System_Linq_Queryable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB63A0AB20D1C57900F697CE /* System_Linq_IQueryProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = AB63A09520D1C57900F697CE /* System_Linq_IQueryProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB63A0AC20D1C57900F697CE /* System_Linq_Queryable.m in Sources */ = {isa = PBXBuildFile; fileRef = AB63A09620D1C57900F697CE /* System_Linq_Queryable.m */; };
+		AB63A0AD20D1C57900F697CE /* System_Linq_IOrderedQueryable.h in Headers */ = {isa = PBXBuildFile; fileRef = AB63A09720D1C57900F697CE /* System_Linq_IOrderedQueryable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB63A0AE20D1C57900F697CE /* System_Linq_IQueryable_Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = AB63A09820D1C57900F697CE /* System_Linq_IQueryable_Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB63A0AF20D1C57900F697CE /* System_Linq_IQueryableA1_Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = AB63A09920D1C57900F697CE /* System_Linq_IQueryableA1_Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB63A0B020D1C57900F697CE /* System_Linq_IOrderedQueryableA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB63A09A20D1C57900F697CE /* System_Linq_IOrderedQueryableA1.m */; };
+		AB63A0B120D1C57900F697CE /* System_Core.m in Sources */ = {isa = PBXBuildFile; fileRef = AB63A09B20D1C57900F697CE /* System_Core.m */; };
 		ABB009A21B00F9DD00EF538F /* System_Collections_Generic_IEnumerableA1+Linq.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB009A01B00F9DD00EF538F /* System_Collections_Generic_IEnumerableA1+Linq.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB009A31B00F9DD00EF538F /* System_Collections_Generic_IEnumerableA1+Linq.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB009A11B00F9DD00EF538F /* System_Collections_Generic_IEnumerableA1+Linq.m */; };
 		ABB8A2FD18FEFED700213B80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A2FC18FEFED700213B80 /* Cocoa.framework */; };
@@ -28,8 +43,6 @@
 		ABB8A31618FEFED700213B80 /* Mono.System.Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A2F918FEFED700213B80 /* Mono.System.Core.framework */; };
 		ABB8A31C18FEFED700213B80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABB8A31A18FEFED700213B80 /* InfoPlist.strings */; };
 		ABB8A31E18FEFED700213B80 /* Mono_System_CoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A31D18FEFED700213B80 /* Mono_System_CoreTests.m */; };
-		ABB8A37018FF061200213B80 /* System_Linq.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A36E18FF061200213B80 /* System_Linq.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABB8A37118FF061200213B80 /* System_Linq.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A36F18FF061200213B80 /* System_Linq.m */; };
 		ABB8A43918FF21AA00213B80 /* System_Collections_Generic_DictionaryA2+Linq.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A43718FF21AA00213B80 /* System_Collections_Generic_DictionaryA2+Linq.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A43A18FF21AA00213B80 /* System_Collections_Generic_DictionaryA2+Linq.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A43818FF21AA00213B80 /* System_Collections_Generic_DictionaryA2+Linq.m */; };
 		ABB8A43F18FF246000213B80 /* System_Linq+core.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A43D18FF246000213B80 /* System_Linq+core.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -49,19 +62,36 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AB2E746918FFCF730061C63E /* System_Linq_IOrderedQueryableA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Linq_IOrderedQueryableA1.h; sourceTree = "<group>"; };
-		AB2E746A18FFCF730061C63E /* System_Linq_IOrderedQueryableA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Linq_IOrderedQueryableA1.m; sourceTree = "<group>"; };
-		AB2E747118FFCFCB0061C63E /* IOrderedQueryableA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOrderedQueryableA1.h; sourceTree = "<group>"; };
-		AB2E747218FFCFCB0061C63E /* IOrderedQueryableA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOrderedQueryableA1.m; sourceTree = "<group>"; };
-		AB2E747318FFCFCB0061C63E /* IQueryableA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQueryableA1.h; sourceTree = "<group>"; };
-		AB2E747418FFCFCB0061C63E /* IQueryableA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQueryableA1.m; sourceTree = "<group>"; };
-		AB2E747518FFCFCB0061C63E /* System_Linq_IQueryableA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Linq_IQueryableA1.h; sourceTree = "<group>"; };
-		AB2E747618FFCFCB0061C63E /* System_Linq_IQueryableA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Linq_IQueryableA1.m; sourceTree = "<group>"; };
+		AB09BE5420D1C9AB005432CE /* Mono.System.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Mono.System.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB2E74B718FFD8630061C63E /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		AB2E74B818FFD8630061C63E /* Framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Framework.h; sourceTree = "<group>"; };
 		AB2E74B918FFD8630061C63E /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
 		AB2E74BA18FFD8630061C63E /* HelperClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClasses.h; sourceTree = "<group>"; };
 		AB2E74BB18FFD8630061C63E /* ManualBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualBindings.h; sourceTree = "<group>"; };
+		AB63A08620D1C57800F697CE /* System_Linq_IOrderedEnumerableA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Linq_IOrderedEnumerableA1.h; sourceTree = "<group>"; };
+		AB63A08720D1C57800F697CE /* System_Linq_IOrderedQueryableA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Linq_IOrderedQueryableA1.h; sourceTree = "<group>"; };
+		AB63A08820D1C57800F697CE /* System_Linq_IQueryable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Linq_IQueryable.m; sourceTree = "<group>"; };
+		AB63A08920D1C57800F697CE /* System_Linq_IQueryableA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Linq_IQueryableA1.m; sourceTree = "<group>"; };
+		AB63A08A20D1C57800F697CE /* System_Linq_IOrderedQueryableA1_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Linq_IOrderedQueryableA1_Protocol.h; sourceTree = "<group>"; };
+		AB63A08B20D1C57800F697CE /* System_Linq_IOrderedEnumerableA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Linq_IOrderedEnumerableA1.m; sourceTree = "<group>"; };
+		AB63A08C20D1C57800F697CE /* System_Linq_IOrderedQueryable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Linq_IOrderedQueryable.m; sourceTree = "<group>"; };
+		AB63A08D20D1C57800F697CE /* System_Linq_IQueryable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Linq_IQueryable.h; sourceTree = "<group>"; };
+		AB63A08E20D1C57800F697CE /* System_Linq_IOrderedEnumerableA1_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Linq_IOrderedEnumerableA1_Protocol.h; sourceTree = "<group>"; };
+		AB63A08F20D1C57800F697CE /* System_Linq_IQueryableA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Linq_IQueryableA1.h; sourceTree = "<group>"; };
+		AB63A09020D1C57800F697CE /* System_Linq_IQueryProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Linq_IQueryProvider.m; sourceTree = "<group>"; };
+		AB63A09120D1C57800F697CE /* System_Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Core.h; sourceTree = "<group>"; };
+		AB63A09220D1C57800F697CE /* System_Linq_IOrderedQueryable_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Linq_IOrderedQueryable_Protocol.h; sourceTree = "<group>"; };
+		AB63A09320D1C57800F697CE /* System_Linq_IQueryProvider_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Linq_IQueryProvider_Protocol.h; sourceTree = "<group>"; };
+		AB63A09420D1C57800F697CE /* System_Linq_Queryable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Linq_Queryable.h; sourceTree = "<group>"; };
+		AB63A09520D1C57900F697CE /* System_Linq_IQueryProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Linq_IQueryProvider.h; sourceTree = "<group>"; };
+		AB63A09620D1C57900F697CE /* System_Linq_Queryable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Linq_Queryable.m; sourceTree = "<group>"; };
+		AB63A09720D1C57900F697CE /* System_Linq_IOrderedQueryable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Linq_IOrderedQueryable.h; sourceTree = "<group>"; };
+		AB63A09820D1C57900F697CE /* System_Linq_IQueryable_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Linq_IQueryable_Protocol.h; sourceTree = "<group>"; };
+		AB63A09920D1C57900F697CE /* System_Linq_IQueryableA1_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Linq_IQueryableA1_Protocol.h; sourceTree = "<group>"; };
+		AB63A09A20D1C57900F697CE /* System_Linq_IOrderedQueryableA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Linq_IOrderedQueryableA1.m; sourceTree = "<group>"; };
+		AB63A09B20D1C57900F697CE /* System_Core.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Core.m; sourceTree = "<group>"; };
+		AB63A0B220D1C81000F697CE /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = ../../Frameworks/Mono.framework; sourceTree = "<group>"; };
+		AB63A0B420D1C86300F697CE /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/BrightPay/../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
 		ABB009A01B00F9DD00EF538F /* System_Collections_Generic_IEnumerableA1+Linq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Collections_Generic_IEnumerableA1+Linq.h"; sourceTree = "<group>"; };
 		ABB009A11B00F9DD00EF538F /* System_Collections_Generic_IEnumerableA1+Linq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Collections_Generic_IEnumerableA1+Linq.m"; sourceTree = "<group>"; };
 		ABB8A2F918FEFED700213B80 /* Mono.System.Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.System.Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,9 +106,6 @@
 		ABB8A31918FEFED700213B80 /* Mono.System.CoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mono.System.CoreTests-Info.plist"; sourceTree = "<group>"; };
 		ABB8A31B18FEFED700213B80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABB8A31D18FEFED700213B80 /* Mono_System_CoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mono_System_CoreTests.m; sourceTree = "<group>"; };
-		ABB8A36C18FF04E100213B80 /* Generated bindings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Generated bindings"; sourceTree = "<group>"; };
-		ABB8A36E18FF061200213B80 /* System_Linq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Linq.h; sourceTree = "<group>"; };
-		ABB8A36F18FF061200213B80 /* System_Linq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Linq.m; sourceTree = "<group>"; };
 		ABB8A43718FF21AA00213B80 /* System_Collections_Generic_DictionaryA2+Linq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Collections_Generic_DictionaryA2+Linq.h"; sourceTree = "<group>"; };
 		ABB8A43818FF21AA00213B80 /* System_Collections_Generic_DictionaryA2+Linq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Collections_Generic_DictionaryA2+Linq.m"; sourceTree = "<group>"; };
 		ABB8A43D18FF246000213B80 /* System_Linq+core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Linq+core.h"; sourceTree = "<group>"; };
@@ -92,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB09BE5620D1CB17005432CE /* Mono.framework in Frameworks */,
 				ABF5D275190C577200E9CFBD /* Dubrovnik.framework in Frameworks */,
 				ABF5D276190C577200E9CFBD /* Mono.mscorlib.framework in Frameworks */,
 				ABB8A2FD18FEFED700213B80 /* Cocoa.framework in Frameworks */,
@@ -122,6 +150,35 @@
 			path = Include;
 			sourceTree = "<group>";
 		};
+		AB41D60820D1C485009B8274 /* Generated Bindings */ = {
+			isa = PBXGroup;
+			children = (
+				AB63A09120D1C57800F697CE /* System_Core.h */,
+				AB63A09B20D1C57900F697CE /* System_Core.m */,
+				AB63A08E20D1C57800F697CE /* System_Linq_IOrderedEnumerableA1_Protocol.h */,
+				AB63A08620D1C57800F697CE /* System_Linq_IOrderedEnumerableA1.h */,
+				AB63A08B20D1C57800F697CE /* System_Linq_IOrderedEnumerableA1.m */,
+				AB63A09220D1C57800F697CE /* System_Linq_IOrderedQueryable_Protocol.h */,
+				AB63A09720D1C57900F697CE /* System_Linq_IOrderedQueryable.h */,
+				AB63A08C20D1C57800F697CE /* System_Linq_IOrderedQueryable.m */,
+				AB63A08A20D1C57800F697CE /* System_Linq_IOrderedQueryableA1_Protocol.h */,
+				AB63A08720D1C57800F697CE /* System_Linq_IOrderedQueryableA1.h */,
+				AB63A09A20D1C57900F697CE /* System_Linq_IOrderedQueryableA1.m */,
+				AB63A09820D1C57900F697CE /* System_Linq_IQueryable_Protocol.h */,
+				AB63A08D20D1C57800F697CE /* System_Linq_IQueryable.h */,
+				AB63A08820D1C57800F697CE /* System_Linq_IQueryable.m */,
+				AB63A09920D1C57900F697CE /* System_Linq_IQueryableA1_Protocol.h */,
+				AB63A08F20D1C57800F697CE /* System_Linq_IQueryableA1.h */,
+				AB63A08920D1C57800F697CE /* System_Linq_IQueryableA1.m */,
+				AB63A09320D1C57800F697CE /* System_Linq_IQueryProvider_Protocol.h */,
+				AB63A09520D1C57900F697CE /* System_Linq_IQueryProvider.h */,
+				AB63A09020D1C57800F697CE /* System_Linq_IQueryProvider.m */,
+				AB63A09420D1C57800F697CE /* System_Linq_Queryable.h */,
+				AB63A09620D1C57900F697CE /* System_Linq_Queryable.m */,
+			);
+			path = "Generated Bindings";
+			sourceTree = "<group>";
+		};
 		ABB8A2EF18FEFED700213B80 = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +201,9 @@
 		ABB8A2FB18FEFED700213B80 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB09BE5420D1C9AB005432CE /* Mono.System.framework */,
+				AB63A0B420D1C86300F697CE /* Mono.framework */,
+				AB63A0B220D1C81000F697CE /* Mono.framework */,
 				ABF5D273190C577200E9CFBD /* Dubrovnik.framework */,
 				ABF5D274190C577200E9CFBD /* Mono.mscorlib.framework */,
 				ABB8A2FC18FEFED700213B80 /* Cocoa.framework */,
@@ -165,11 +225,10 @@
 		ABB8A30218FEFED700213B80 /* Mono.System.Core */ = {
 			isa = PBXGroup;
 			children = (
+				AB41D60820D1C485009B8274 /* Generated Bindings */,
 				AB2E74B618FFD8630061C63E /* Include */,
 				ABB8A43618FF218700213B80 /* Helper classes */,
 				ABB8A43518FF216700213B80 /* Categories */,
-				ABB8A36C18FF04E100213B80 /* Generated bindings */,
-				ABB8A36D18FF04E900213B80 /* Manual bindings */,
 				ABB8A30318FEFED700213B80 /* Supporting Files */,
 			);
 			path = Mono.System.Core;
@@ -203,23 +262,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		ABB8A36D18FF04E900213B80 /* Manual bindings */ = {
-			isa = PBXGroup;
-			children = (
-				AB2E747118FFCFCB0061C63E /* IOrderedQueryableA1.h */,
-				AB2E747218FFCFCB0061C63E /* IOrderedQueryableA1.m */,
-				AB2E747318FFCFCB0061C63E /* IQueryableA1.h */,
-				AB2E747418FFCFCB0061C63E /* IQueryableA1.m */,
-				AB2E747518FFCFCB0061C63E /* System_Linq_IQueryableA1.h */,
-				AB2E747618FFCFCB0061C63E /* System_Linq_IQueryableA1.m */,
-				AB2E746918FFCF730061C63E /* System_Linq_IOrderedQueryableA1.h */,
-				AB2E746A18FFCF730061C63E /* System_Linq_IOrderedQueryableA1.m */,
-				ABB8A36E18FF061200213B80 /* System_Linq.h */,
-				ABB8A36F18FF061200213B80 /* System_Linq.m */,
-			);
-			path = "Manual bindings";
-			sourceTree = "<group>";
-		};
 		ABB8A43518FF216700213B80 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,19 +289,28 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB63A0AB20D1C57900F697CE /* System_Linq_IQueryProvider.h in Headers */,
+				AB63A0A920D1C57900F697CE /* System_Linq_IQueryProvider_Protocol.h in Headers */,
+				AB63A0AF20D1C57900F697CE /* System_Linq_IQueryableA1_Protocol.h in Headers */,
+				AB63A0A420D1C57900F697CE /* System_Linq_IOrderedEnumerableA1_Protocol.h in Headers */,
+				AB63A0A320D1C57900F697CE /* System_Linq_IQueryable.h in Headers */,
+				AB63A0A020D1C57900F697CE /* System_Linq_IOrderedQueryableA1_Protocol.h in Headers */,
+				AB63A09C20D1C57900F697CE /* System_Linq_IOrderedEnumerableA1.h in Headers */,
+				AB63A0A520D1C57900F697CE /* System_Linq_IQueryableA1.h in Headers */,
+				AB63A0AD20D1C57900F697CE /* System_Linq_IOrderedQueryable.h in Headers */,
+				AB63A09D20D1C57900F697CE /* System_Linq_IOrderedQueryableA1.h in Headers */,
+				AB63A0AA20D1C57900F697CE /* System_Linq_Queryable.h in Headers */,
+				AB63A0A720D1C57900F697CE /* System_Core.h in Headers */,
+				AB63A0AE20D1C57900F697CE /* System_Linq_IQueryable_Protocol.h in Headers */,
+				AB63A0A820D1C57900F697CE /* System_Linq_IOrderedQueryable_Protocol.h in Headers */,
 				ABB009A21B00F9DD00EF538F /* System_Collections_Generic_IEnumerableA1+Linq.h in Headers */,
 				AB2E74BC18FFD8630061C63E /* Categories.h in Headers */,
 				AB2E74BF18FFD8630061C63E /* HelperClasses.h in Headers */,
 				AB2E74C018FFD8630061C63E /* ManualBindings.h in Headers */,
 				AB2E74BE18FFD8630061C63E /* GeneratedBindings.h in Headers */,
 				AB2E74BD18FFD8630061C63E /* Framework.h in Headers */,
-				AB2E747718FFCFCB0061C63E /* IOrderedQueryableA1.h in Headers */,
-				AB2E747B18FFCFCB0061C63E /* System_Linq_IQueryableA1.h in Headers */,
-				AB2E747918FFCFCB0061C63E /* IQueryableA1.h in Headers */,
-				AB2E746B18FFCF730061C63E /* System_Linq_IOrderedQueryableA1.h in Headers */,
 				ABB8A43918FF21AA00213B80 /* System_Collections_Generic_DictionaryA2+Linq.h in Headers */,
 				ABB8A43F18FF246000213B80 /* System_Linq+core.h in Headers */,
-				ABB8A37018FF061200213B80 /* System_Linq.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,14 +409,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABB8A37118FF061200213B80 /* System_Linq.m in Sources */,
+				AB63A0A620D1C57900F697CE /* System_Linq_IQueryProvider.m in Sources */,
+				AB63A0B020D1C57900F697CE /* System_Linq_IOrderedQueryableA1.m in Sources */,
 				ABB8A43A18FF21AA00213B80 /* System_Collections_Generic_DictionaryA2+Linq.m in Sources */,
+				AB63A09E20D1C57900F697CE /* System_Linq_IQueryable.m in Sources */,
+				AB63A0A120D1C57900F697CE /* System_Linq_IOrderedEnumerableA1.m in Sources */,
 				ABB009A31B00F9DD00EF538F /* System_Collections_Generic_IEnumerableA1+Linq.m in Sources */,
-				AB2E747A18FFCFCB0061C63E /* IQueryableA1.m in Sources */,
+				AB63A09F20D1C57900F697CE /* System_Linq_IQueryableA1.m in Sources */,
+				AB63A0AC20D1C57900F697CE /* System_Linq_Queryable.m in Sources */,
 				ABB8A44018FF246000213B80 /* System_Linq+core.m in Sources */,
-				AB2E747C18FFCFCB0061C63E /* System_Linq_IQueryableA1.m in Sources */,
-				AB2E746C18FFCF730061C63E /* System_Linq_IOrderedQueryableA1.m in Sources */,
-				AB2E747818FFCFCB0061C63E /* IOrderedQueryableA1.m in Sources */,
+				AB63A0B120D1C57900F697CE /* System_Core.m in Sources */,
+				AB63A0A220D1C57900F697CE /* System_Linq_IOrderedQueryable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,7 +574,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mono.System.Core/Mono.System.Core-Prefix.pch";
@@ -538,7 +595,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mono.System.Core/Mono.System.Core-Prefix.pch";
