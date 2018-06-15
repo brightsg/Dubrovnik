@@ -13,16 +13,20 @@ IF "%~1"=="" (
 set "ASSEMBLY=%1"
 
 REM
+REM Set assembly root path
+REM
+IF "%~2"=="" (
+    set "ASM_PATH=C:\Windows\Microsoft.NET\Framework\v4.0.30319"
+) else (
+    set "ASM_PATH=%~2"
+)
+
+REM
 REM Welcome
 REM
 echo XML and bindings will be generated in the current directory.
 set "MY_PATH=%cd%"
 echo Current directory = %cd%
-
-REM
-REM Set path to target .NET version
-REM
-set "NET_PATH=C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
 REM
 REM Set Dubrovnik tool exe relative paths
@@ -33,7 +37,7 @@ set "GENERATOR_EXE=.\..\..\dotNET\Dubrovnik.Tools\Dubrovnik.Generator\bin\Debug\
 REM
 REM Generate assembly reflection XML file using the Dubrovnik reflector tool
 REM
-set "REF_INPUT_FILE=%NET_PATH%\%ASSEMBLY%.dll"
+set "REF_INPUT_FILE=%ASM_PATH%\%ASSEMBLY%.dll"
 set "REF_OUTPUT_FILE=%MY_PATH%\%ASSEMBLY%.xml"
 echo.
 echo Generating reflection XML file 

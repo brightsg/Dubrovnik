@@ -2,7 +2,33 @@
 //
 // Managed class : EntityObject
 //
-@interface System_Data_Entity_Core_Objects_DataClasses_EntityObject : System_Data_Entity_Core_Objects_DataClasses_StructuralObject
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Data_Entity_Core_Objects_DataClasses_EntityObject.__Extra__.h")
+#import "System_Data_Entity_Core_Objects_DataClasses_EntityObject.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_ComponentModel_INotifyPropertyChanged;
+@class System_ComponentModel_INotifyPropertyChanging;
+@class System_Data_Entity_Core_Objects_DataClasses_EntityObject;
+@class System_Data_Entity_EntityState;
+
+//
+// Import superclass and adopted protocols
+//
+//#import "System_Data_Entity_Core_Objects_DataClasses_StructuralObject.h" // class base defaults to System.Object
+
+@interface System_Data_Entity_Core_Objects_DataClasses_EntityObject : System_Object <System_ComponentModel_INotifyPropertyChanging_, System_ComponentModel_INotifyPropertyChanged_>
 
 #pragma mark -
 #pragma mark Setup
@@ -13,13 +39,10 @@
 
 #pragma mark -
 #pragma mark Properties
-
-	// Managed property name : EntityKey
-	// Managed property type : System.Data.Entity.Core.EntityKey
-    @property (nonatomic, strong) System_Data_Entity_Core_EntityKey * entityKey;
+/* Skipped property : System.Data.Entity.Core.EntityKey EntityKey */
 
 	// Managed property name : EntityState
 	// Managed property type : System.Data.Entity.EntityState
-    @property (nonatomic, readonly) System_Data_Entity_EntityState entityState;
+    @property (nonatomic, readonly) int32_t entityState;
 @end
 //--Dubrovnik.CodeGenerator

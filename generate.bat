@@ -10,6 +10,7 @@ set PATHS=%PATHS%;.\Mono.System.Data\Mono.System.Data
 set PATHS=%PATHS%;.\Mono.System.Drawing\Mono.System.Drawing
 set PATHS=%PATHS%;.\Mono.System.Net\Mono.System.Net
 set PATHS=%PATHS%;.\Mono.System.Transactions\Mono.System.Transactions
+set PATHS=%PATHS%;.\Mono.EntityFramework.6\Mono.EntityFramework.6
 
 for %%P in (%PATHS%) do (
     REM need to use call here or we terminate when child batch file ends

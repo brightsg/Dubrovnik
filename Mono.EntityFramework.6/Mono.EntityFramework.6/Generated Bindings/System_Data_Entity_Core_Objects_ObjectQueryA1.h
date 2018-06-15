@@ -1,8 +1,40 @@
-//++Dubrovnik.CodeGenerator System_Data_Entity_Core_Objects_ObjectQueryA1.h
+﻿//++Dubrovnik.CodeGenerator System_Data_Entity_Core_Objects_ObjectQueryA1.h
 //
 // Managed class : ObjectQuery`1<T>
 //
-@interface System_Data_Entity_Core_Objects_ObjectQueryA1 : System_Data_Entity_Core_Objects_ObjectQuery
+//
+// Frameworks
+//
+#import <Cocoa/Cocoa.h>
+#import <Dubrovnik/Dubrovnik.h>
+
+//
+// Optional extra import. Not auto generated. Add manually to project only if required.
+//
+#if __has_include("System_Data_Entity_Core_Objects_ObjectQueryA1.__Extra__.h")
+#import "System_Data_Entity_Core_Objects_ObjectQueryA1.__Extra__.h"
+#endif
+
+//
+// Forward class and protocol declarations
+//
+@class System_Collections_Generic_IEnumerableA1;
+@class System_Collections_IEnumerable;
+@class System_Data_Entity_Core_Objects_ObjectContext;
+@class System_Data_Entity_Core_Objects_ObjectQueryA1;
+@class System_Linq_IOrderedQueryable;
+@class System_Linq_IOrderedQueryableA1;
+@class System_Linq_IQueryable;
+@class System_Linq_IQueryableA1;
+@class System_Object;
+@class System_String;
+
+//
+// Import superclass and adopted protocols
+//
+//#import "System_Data_Entity_Core_Objects_ObjectQuery.h" // class base defaults to System.Object
+
+@interface System_Data_Entity_Core_Objects_ObjectQueryA1 : System_Object <System_Linq_IOrderedQueryable_, System_Linq_IQueryable_, System_Collections_IEnumerable_, System_Linq_IOrderedQueryableA1_, System_Linq_IQueryableA1_, System_Collections_Generic_IEnumerableA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -14,15 +46,13 @@
 #pragma mark -
 #pragma mark Constructors
 
-	// Managed method name : .ctor
-	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
-	// Managed param types : System.String, System.Data.Entity.Core.Objects.ObjectContext
+	/*! 
+		Managed method name : .ctor
+		Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
+		Managed param types : System.String, System.Data.Entity.Core.Objects.ObjectContext
+	 */
     + (System_Data_Entity_Core_Objects_ObjectQueryA1 *)new_withCommandText:(NSString *)p1 context:(System_Data_Entity_Core_Objects_ObjectContext *)p2;
-
-	// Managed method name : .ctor
-	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
-	// Managed param types : System.String, System.Data.Entity.Core.Objects.ObjectContext, System.Data.Entity.Core.Objects.MergeOption
-    + (System_Data_Entity_Core_Objects_ObjectQueryA1 *)new_withCommandText:(NSString *)p1 context:(System_Data_Entity_Core_Objects_ObjectContext *)p2 mergeOption:(System_Data_Entity_Core_Objects_MergeOption)p3;
+/* Skipped constructor : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T> (System.String commandText, System.Data.Entity.Core.Objects.ObjectContext context, System.Data.Entity.Core.Objects.MergeOption mergeOption) */
 
 #pragma mark -
 #pragma mark Properties
@@ -34,79 +64,64 @@
 #pragma mark -
 #pragma mark Methods
 
-	// Managed method name : Distinct
-	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
-	// Managed param types : 
+	/*! 
+		Managed method name : Distinct
+		Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
+		Managed param types : 
+	 */
     - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)distinct;
 
-	// Managed method name : Except
-	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
-	// Managed param types : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
+	/*! 
+		Managed method name : Except
+		Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
+		Managed param types : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
+	 */
     - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)except_withQuery:(System_Data_Entity_Core_Objects_ObjectQueryA1 *)p1;
+/* Skipped method : System.Data.Entity.Core.Objects.ObjectResult`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T> Execute(System.Data.Entity.Core.Objects.MergeOption mergeOption) */
+/* Skipped method : System.Threading.Tasks.Task`1<System.Data.Entity.Core.Objects.ObjectResult`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>> ExecuteAsync(System.Data.Entity.Core.Objects.MergeOption mergeOption) */
+/* Skipped method : System.Threading.Tasks.Task`1<System.Data.Entity.Core.Objects.ObjectResult`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>> ExecuteAsync(System.Data.Entity.Core.Objects.MergeOption mergeOption, System.Threading.CancellationToken cancellationToken) */
+/* Skipped method : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Common.DbDataRecord> GroupBy(System.String keys, System.String projection, System.Data.Entity.Core.Objects.ObjectParameter[] parameters) */
 
-	// Managed method name : Execute
-	// Managed return type : System.Data.Entity.Core.Objects.ObjectResult`1<T>
-	// Managed param types : System.Data.Entity.Core.Objects.MergeOption
-    - (System_Data_Entity_Core_Objects_ObjectResultA1 *)execute_withMergeOption:(System_Data_Entity_Core_Objects_MergeOption)p1;
-
-	// Managed method name : GroupBy
-	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Common.DbDataRecord>
-	// Managed param types : System.String, System.String, System.Data.Entity.Core.Objects.ObjectParameter[]
-    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)groupBy_withKeys:(NSString *)p1 projection:(NSString *)p2 parameters:(System_Array *)p3;
-
-	// Managed method name : Include
-	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
-	// Managed param types : System.String
+	/*! 
+		Managed method name : Include
+		Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
+		Managed param types : System.String
+	 */
     - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)include_withPath:(NSString *)p1;
 
-	// Managed method name : Intersect
-	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
-	// Managed param types : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
+	/*! 
+		Managed method name : Intersect
+		Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
+		Managed param types : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
+	 */
     - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)intersect_withQuery:(System_Data_Entity_Core_Objects_ObjectQueryA1 *)p1;
 
-	// Managed method name : OfType
-	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<TResultType>
-	// Managed param types : 
-    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)ofType;
+	/*! 
+		Managed method name : OfType
+		Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+TResultType>
+		Managed param types : 
+		Generic method definition type params : <System.Data.Entity.Core.Objects.ObjectQuery`1+TResultType>
+	 */
+    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)ofType_withTypeParameter:(id)typeParameter;
+/* Skipped method : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T> OrderBy(System.String keys, System.Data.Entity.Core.Objects.ObjectParameter[] parameters) */
+/* Skipped method : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Common.DbDataRecord> Select(System.String projection, System.Data.Entity.Core.Objects.ObjectParameter[] parameters) */
+/* Skipped method : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+TResultType> SelectValue(System.String projection, System.Data.Entity.Core.Objects.ObjectParameter[] parameters) */
+/* Skipped method : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T> Skip(System.String keys, System.String count, System.Data.Entity.Core.Objects.ObjectParameter[] parameters) */
+/* Skipped method : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T> Top(System.String count, System.Data.Entity.Core.Objects.ObjectParameter[] parameters) */
 
-	// Managed method name : OrderBy
-	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
-	// Managed param types : System.String, System.Data.Entity.Core.Objects.ObjectParameter[]
-    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)orderBy_withKeys:(NSString *)p1 parameters:(System_Array *)p2;
-
-	// Managed method name : Select
-	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Common.DbDataRecord>
-	// Managed param types : System.String, System.Data.Entity.Core.Objects.ObjectParameter[]
-    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)select_withProjection:(NSString *)p1 parameters:(System_Array *)p2;
-
-	// Managed method name : SelectValue
-	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<TResultType>
-	// Managed param types : System.String, System.Data.Entity.Core.Objects.ObjectParameter[]
-    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)selectValue_withProjection:(NSString *)p1 parameters:(System_Array *)p2;
-
-	// Managed method name : Skip
-	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
-	// Managed param types : System.String, System.String, System.Data.Entity.Core.Objects.ObjectParameter[]
-    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)skip_withKeys:(NSString *)p1 count:(NSString *)p2 parameters:(System_Array *)p3;
-
-	// Managed method name : Top
-	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
-	// Managed param types : System.String, System.Data.Entity.Core.Objects.ObjectParameter[]
-    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)top_withCount:(NSString *)p1 parameters:(System_Array *)p2;
-
-	// Managed method name : Union
-	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
-	// Managed param types : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
+	/*! 
+		Managed method name : Union
+		Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
+		Managed param types : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
+	 */
     - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)union_withQuery:(System_Data_Entity_Core_Objects_ObjectQueryA1 *)p1;
 
-	// Managed method name : UnionAll
-	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
-	// Managed param types : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
+	/*! 
+		Managed method name : UnionAll
+		Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
+		Managed param types : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
+	 */
     - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)unionAll_withQuery:(System_Data_Entity_Core_Objects_ObjectQueryA1 *)p1;
-
-	// Managed method name : Where
-	// Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<T>
-	// Managed param types : System.String, System.Data.Entity.Core.Objects.ObjectParameter[]
-    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)where_withPredicate:(NSString *)p1 parameters:(System_Array *)p2;
+/* Skipped method : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T> Where(System.String predicate, System.Data.Entity.Core.Objects.ObjectParameter[] parameters) */
 @end
 //--Dubrovnik.CodeGenerator

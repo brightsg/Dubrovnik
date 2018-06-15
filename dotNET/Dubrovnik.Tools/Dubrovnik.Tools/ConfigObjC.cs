@@ -121,6 +121,8 @@ namespace Dubrovnik.Tools {
 		/// </summary>
 		private void Startup(string xmlPath) {
 
+			xmlPath = Path.GetFullPath(xmlPath);
+
 			AssemblyFolder = System.IO.Path.GetDirectoryName(xmlPath);
 
 			// Process the reference list
@@ -132,6 +134,7 @@ namespace Dubrovnik.Tools {
 				// fix up relative reference path
 				if (!Path.IsPathRooted(refPath)) {
 					path = Path.Combine(AssemblyFolder, refPath);
+					path = Path.GetFullPath(path);
 				}
 				ConfigObjC config = ConfigObjCForAssembly(path);
 				Merge(config);
