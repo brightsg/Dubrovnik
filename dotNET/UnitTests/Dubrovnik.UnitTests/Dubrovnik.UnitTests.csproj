@@ -69,11 +69,14 @@ REM delete previously generated bindings
 del "%25GEN_OUTPUT_PATH%25\*.*" /q
 
 REM Set Dubrovnik tool exe paths. Failure will occur if these have not been pre-built.
-set "REFLECTOR_EXE=$(SolutionDir)..\Dubrovnik.Tools\Dubrovnik.Reflector\bin\Debug\Dubrovnik.Reflector.exe"
-set "GENERATOR_EXE=$(SolutionDir)..\Dubrovnik.Tools\Dubrovnik.Generator\bin\Debug\Dubrovnik.Generator.exe"
+set "REFLECTOR_EXE=$(SolutionDir)..\..\Dubrovnik.Tools\Dubrovnik.Reflector\bin\Debug\Dubrovnik.Reflector.exe"
+set "GENERATOR_EXE=$(SolutionDir)..\..\Dubrovnik.Tools\Dubrovnik.Generator\bin\Debug\Dubrovnik.Generator.exe"
 
 echo.
 echo Generating reflection XML file
+echo "%25REFLECTOR_EXE%25"
+echo Input path %25REF_INPUT_FILE%25
+echo Output path %25REF_OUTPUT_PATH%25
 "%25REFLECTOR_EXE%25" -i "%25REF_INPUT_FILE%25" -o "%25REF_OUTPUT_PATH%25" -v true
   
 echo.
