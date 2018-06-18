@@ -9,17 +9,17 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     12/2/2014 9:55:48 PM
+// Date:     18/06/2018 17:46:26
 //
 // Assembly: DBCocoaExample
 // Fullname: DBCocoaExample, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// Path:     C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\Framework\examples\DBCocoaExample\DBCocoaExample\DBCocoaExample\bin\Debug\DBCocoaExample.dll
+// Path:     C:\Users\Jonathan\Documents\Dubrovnik\Framework\examples\DBCocoaExample\DBCocoaExample\DBCocoaExample\bin\Debug\DBCocoaExample.dll
 //
-// Platform: Microsoft Windows NT 6.1.7601 Service Pack 1
+// Platform: Microsoft Windows NT 6.2.9200.0
 // OS Arch:  64 bit
 // Process:  32 bit
 // Target:   mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-// Runtime:  4.0.30319.18444
+// Runtime:  4.0.30319.42000
 //
 // Asm Ref:  mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -38,7 +38,7 @@
 //
 // Extra include
 //
-#ifdef INCLUDE_DBCOCOAEXAMPLE_EXTRA
+#if __has_include("DBCocoaExample.__Extra__.h")
 #import "DBCocoaExample.__Extra__.h"	// Not auto generated. Add manually to project.
 #endif
 
@@ -56,37 +56,19 @@
 
 
 //
-// Forward class declarations and class aliases
+// Class aliases
 //
-@class DBCocoaExample_CurrencyConverter;
-#ifdef DCurrencyConverter_
-#warning DCurrencyConverter_ class name collision.
-#else
 #define DCurrencyConverter_ DBCocoaExample_CurrencyConverter
-#endif
-
-@class Dubrovnik_ClientApplication_EventHelper;
-#ifdef DCEventHelper_
-#warning DCEventHelper_ class name collision.
-#else
 #define DCEventHelper_ Dubrovnik_ClientApplication_EventHelper
-#endif
-
-@class Dubrovnik_ClientApplication_IEventHelper;
-#ifdef DCIEventHelper_
-#warning DCIEventHelper_ class name collision.
-#else
 #define DCIEventHelper_ Dubrovnik_ClientApplication_IEventHelper
-#endif
-
 
 /*
 
-Order here is Enumerations, Interface protocols, Structs, Classes, Explicit interface classes
+Assembly type imports
 
 */
-
-#import "Dubrovnik_ClientApplication_IEventHelper_Protocol.h"
 #import "DBCocoaExample_CurrencyConverter.h"
 #import "Dubrovnik_ClientApplication_EventHelper.h"
 #import "Dubrovnik_ClientApplication_IEventHelper.h"
+#import "Dubrovnik_ClientApplication_IEventHelper.h"
+#import "Dubrovnik_ClientApplication_IEventHelper_Protocol.h"

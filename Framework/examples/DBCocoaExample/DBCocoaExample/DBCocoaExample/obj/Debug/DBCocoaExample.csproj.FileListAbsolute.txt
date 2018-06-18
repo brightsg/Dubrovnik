@@ -1,5 +1,0 @@
-C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\Framework\examples\DBCocoaExample\DBCocoaExample\DBCocoaExample\bin\Debug\DBCocoaExample.dll
-C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\Framework\examples\DBCocoaExample\DBCocoaExample\DBCocoaExample\bin\Debug\DBCocoaExample.pdb
-C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\Framework\examples\DBCocoaExample\DBCocoaExample\DBCocoaExample\obj\Debug\DBCocoaExample.csprojResolveAssemblyReference.cache
-C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\Framework\examples\DBCocoaExample\DBCocoaExample\DBCocoaExample\obj\Debug\DBCocoaExample.dll
-C:\Users\jonathan\Documents\Thesaurus\Development\Dubrovnik\Framework\examples\DBCocoaExample\DBCocoaExample\DBCocoaExample\obj\Debug\DBCocoaExample.pdb
