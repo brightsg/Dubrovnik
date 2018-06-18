@@ -19,11 +19,11 @@ namespace Dubrovnik.Tools {
 					if (arguments.Length == 1) {
 						s = s.Replace("`1", string.Concat("`1<", arguments[0].GetFriendlyName(), ">"));
 					} else if (arguments.Length == 2) {
-						s = s.Replace("`2", string.Concat("`2<", arguments[0].GetFriendlyName(), ",", arguments[1].GetFriendlyName(), ">"));
+						s = s.Replace("`2", string.Concat("`2<", arguments[0].GetFriendlyName(), ", ", arguments[1].GetFriendlyName(), ">"));
 					} else if (arguments.Length == 3) {
-						s = s.Replace("`3", string.Concat("`3<", arguments[0].GetFriendlyName(), ",", arguments[1].GetFriendlyName(), ",", arguments[2].GetFriendlyName(), ">"));
+						s = s.Replace("`3", string.Concat("`3<", arguments[0].GetFriendlyName(), ", ", arguments[1].GetFriendlyName(), ", ", arguments[2].GetFriendlyName(), ">"));
 					} else if (arguments.Length == 4) {
-						s = s.Replace("`4", string.Concat("`4<", arguments[0].GetFriendlyName(), ",", arguments[1].GetFriendlyName(), ",", arguments[2].GetFriendlyName(), ",", arguments[3].GetFriendlyName(), ">"));
+						s = s.Replace("`4", string.Concat("`4<", arguments[0].GetFriendlyName(), ", ", arguments[1].GetFriendlyName(), ", ", arguments[2].GetFriendlyName(), ", ", arguments[3].GetFriendlyName(), ">"));
 					}
 				}
 
@@ -71,11 +71,11 @@ namespace Dubrovnik.Tools {
 					if (arguments.Length == 1) {
 						s = s.Replace("`1", string.Concat("`1<", arguments[0].GetFriendlyFullName(), ">"));
 					} else if (arguments.Length == 2) {
-						s = s.Replace("`2", string.Concat("`2<", arguments[0].GetFriendlyFullName(), ",", arguments[1].GetFriendlyFullName(), ">"));
+						s = s.Replace("`2", string.Concat("`2<", arguments[0].GetFriendlyFullName(), ", ", arguments[1].GetFriendlyFullName(), ">"));
 					} else if (arguments.Length == 3) {
-						s = s.Replace("`3", string.Concat("`3<", arguments[0].GetFriendlyFullName(), ",", arguments[1].GetFriendlyFullName(), ",", arguments[2].GetFriendlyFullName(), ">"));
+						s = s.Replace("`3", string.Concat("`3<", arguments[0].GetFriendlyFullName(), ", ", arguments[1].GetFriendlyFullName(), ", ", arguments[2].GetFriendlyFullName(), ">"));
 					} else if (arguments.Length == 4) {
-						s = s.Replace("`4", string.Concat("`4<", arguments[0].GetFriendlyFullName(), ",", arguments[1].GetFriendlyFullName(), ",", arguments[2].GetFriendlyFullName(), ",", arguments[3].GetFriendlyFullName(), ">"));
+						s = s.Replace("`4", string.Concat("`4<", arguments[0].GetFriendlyFullName(), ", ", arguments[1].GetFriendlyFullName(), ", ", arguments[2].GetFriendlyFullName(), ", ", arguments[3].GetFriendlyFullName(), ">"));
 					}
 				}
 
