@@ -1,17 +1,19 @@
 Overview
 ======== 
 
-The Dubrovnik project that provides a series of bindings between Obj-C and the [Mono](https://www.mono-project.com) open source implementation of .NET. Functionally, it works like an Objective-C to C# language bridge. 
+The Dubrovnik project provides a series of bindings between Obj-C and the [Mono](https://www.mono-project.com) open source implementation of .NET. Functionally, it works like an Objective-C to C# language bridge. 
 
-Dubrovnik is intended to provide a means of interfacing a Cocoa to a .NET backend assembly or assemblies. The Dubrovnik code generator can be used to automate the generation of Obj-C bindings to those assemblies. This greatly simplifies interfacing .NET to Obj-C.
+Dubrovnik is intended to provide a means of interfacing a Cocoa app to a .NET backend assembly or assemblies. The Dubrovnik code generator can be used to automate the generation of Obj-C bindings to those assemblies. This greatly simplifies interfacing .NET to Obj-C.
 
-The code generator includes type skipping features that enable Obj-C bindings to be generated for a subset of types defined by an assembly. This feature can greatly reduce the size and complexity of the generated bindings.
+The code generator includes type skipping features that enable Obj-C bindings to be generated for a subset of types defined by an assembly. This feature effectively reduces the size and complexity of the generated bindings.
 
 A number of minimal Obj-C framework bindings are provided for a number of core .NET assembles. These bindings represent a working set used by Thesaurus. However, these bindings can be easily customised by editing the relevant `ASSEMBLY.codegen.config.objc.xml`.
 
 The assembly reflector and code generator are designed to run on Windows (in our case a VM) because that suits our workflow. However, the command line versions of these tools should be runable on macOS. 
 
 Obviously you will need to have [Mono](https://www.mono-project.com) installed on macOS in order to execute your managed code.
+
+Check out the unit test [Objective-C reference object](https://github.com/ThesaurusSoftware/Dubrovnik/blob/master/dotNET/UnitTests/GeneratedObjC/Dubrovnik_UnitTests_ReferenceObject.m) to see what calling the bound code looks like.
 
 TLDR
 ====
@@ -22,7 +24,7 @@ TLDR
 
 - Conversion (and re-throwing) of managed .NET exceptions to Objective-C exceptions.
 
-- A .NET assembly reflector and a t4 template powered code generator.
+- A .NET assembly reflector and a t4 template powered code generator with targeted type generation features.
 
 - Unit tests for both manually and automatically generated bindings.
 
@@ -31,6 +33,86 @@ Status
 ======
 
 Version: 1.0.0
+
+
+Creating a new project
+======================
+
+To setup a new XCode project using Dubrovnik:
+
+- Create an empty project normally, make sure it builds
+
+- Add Mono.Framework and Dubrovnik.Framework as to your project
+
+- Add /Library/Frameworks to "Framework Search Paths"
+
+- enabled Objective C exceptions in your project build settings. Dubrovnik
+  catches managed exceptions and rethrows them as ObjC exceptions.
+
+- Add generated Obj-C representations of the managed target assemblies (ie.: the output of the code generator) .
+
+- Add compiled managed target assemblies as bundle resources.
+
+The unit test bundle `- (void)setUp` method illustrates how to load and call a managed assembly from a bundle.
+
+
+Generating Binding Code
+===============
+
+The binding generator code will attempt to generate Obj-C bindings from a .NET managed exe or dll. The XML generator and code generator are both .NET apps and run under Windows. Remember to install the Microsoft Visual Studio 2012 (or later) SDK.
+
+Both GUI and command line versions of the Reflector and Generator tools are included. The UI versions of the tools have a UI suffix.
+
+Windows Explorer may obfuscate browsing of the .NET assembly caches. If so, [help is at hand](http://geekswithblogs.net/pavelka/archive/2006/05/05/WindowsExplorerAndTheGlobalAssemblyCache.aspx).
+
+To generate bindings automatically:
+
+* Fire up (typically) a Windows VM
+
+* With Visual Studio build solution `dotNet/Dubrovnik.Tools/Dubrovnik.Tools.sln`
+
+* Using `Dubrovnik.Reflector.UI` select a target .NET assembly and export it to XML. Or use the Dubrovnik.Reflector command line version.
+
+* Using `Dubrovnik.Generator.UI` select the exported XML and generate Obj-C bindings. Or use the Dubrovnik.Generator command line version.
+
+The reflector tool will generate two files for a given ASSEMBLY. `ASSEMBLY.xml` will contain type information to be processed by the generator. `ASSEMBLY.types.xml' contains a list of type names suitable for using in `ASSEMBLY.codegen.config.objc.xml` if required. 
+
+The code generator will generate Obj-C declarations for all managed public types defined within the target assembly by processing the reflection assembly XML file. References to managed objects not defined within the target assembly must have valid Obj-C declarations defined either by the Dubrovnik framework itself or in other linked files. Dependencies between multiple assemblies established using references can be resolved by auto generating bindings for each assembly and linking the resultant Obj-C representations.
+
+By default the code generator will output bindings for all public types found in the assembly. To limit the type binding to a subset of types see the type skipping features described below.
+
+The .NET code may build with Xamarin Studio but the t4 template code has only been tested within Visual Studio.
+
+Customising the Binding Code
+============================
+
+The code generation process is controlled by an `ASSEMBLY.codegen.config.objc.xml` file that lives in the same folder as the reflection output file `ASSEMBLY.xml`
+
+The `codegen.config.objc.xml` file supports the following elements:
+
+* `TypeNameSkipList` : a list of managed type names to be skipped. Code generation will not occur for any member function that includes a matching skipped type anywhere in its signature. If a skipped type is declared as a base type for a derived type then the derived type is generated but the base type is represented as a System.Object. For a given assembly use values available in `ASSEMBLY.types.xml'.
+
+* `TypeNameWhiteList` : a list of managed type names for whom full class and member function bindings should be generated. Overrides matching entries in the `TypeNameSkipList`. 
+
+* `MemberNameSkipList` : a list of `typeName:memberName` (e.g `System.Array:Resize`) entries indicating individual member functions to be omitted from the generated bindings. This is useful if the code generator has issues with a particular member function signature.
+
+* `OutputFileDeleteList` : a list of generated files to be deleted when the binding process concludes. Useful if providing a manual implementation for a particular type (`mscorlib` does this for `System.Object`).
+
+* `ReferenceList` : a list of paths to referenced 'ASSEMBLY.xml' files. See the Dealing with References section below.
+
+Dealing with References
+============================
+
+If we define a type in the config file for say `mscorlib` as skipped then we need to ensure that other assemblies that reference `mscorlib`, say `System.dll`, know about the skipped type. We do this by including the path to 
+`mscorlib.codegen.config.objc.xml` in the `ReferenceList` for `System.codegen.config.objc.xml`. The same applies for all referenced assemblies that use type skipping.
+
+The code generator only produces output for non skipped types that are declared public or appear in public member function signatures.
+
+So if assembly `Foo.dll` references `Bar.dll` but does not expose any types defined in `Bar.dll` then the Obj-C bindings for `Bar.dll` will not be required. If the converse is true then a binding for `Bar.dll` may be required.
+
+In some case we may have member functions that use types from `Bar.dll` but which we do not need to call from native code. In this case we can use the `MemberNameSkipList` to skip particular members that use `Bar.dll` types or create a `Bar.codegen.config.objc.xml` file (and no Obj-C binding) that excludes all `Bar` types and include that in our `ReferenceList`.
+
+The generated Obj-C code can be compiled directly into a native application or composed into a framework. The normal linkage rules apply here for frameworks so the `Mono.System.framework` needs to be linked to `Mono.mscorlib.framework` as `System.dll` references `mscorlib.dll` and the native `System` framework uses non skipped types defined by 'mscorlib`.
 
 
  Examples
@@ -102,9 +184,7 @@ Project Map
 
 * Dubrovnik.xcworkspace : the workspace provides access to the Objective-C framework and unit tests.
 
-* [Framework](Framework) : Objective-C sources 
-
-    * docs: docs from the original Dumbarton project
+* [Framework](Framework) : Objective-C Dubrovnik framework sources 
 
     * examples : example code samples
 
@@ -112,11 +192,18 @@ Project Map
 
 * [dotNET](dotNET) : Managed code sources
 
-    * Dubrovnik.Tools : UI and command line versions of the reflector and code generator tools.
+    * Dubrovnik.Tools : UI and command line versions of the reflector and code generator tools. 
 
-    * FrameworkHelper : the Dubrovnik framework helper
+    * FrameworkHelper : the managed Dubrovnik framework helper
 
     * UnitTests : unit test target assembly and generated Obj-C bindings.
+
+The root folder also includes minimal Obj-C bindings for a number of common assemblies including:
+
+* mscorlib.dll
+* System.dll
+* System.Core.dll
+* System.Xml.dll
 
 Mono Documentation
 ==================
@@ -183,33 +270,87 @@ Two sets of bindings are referenced by the tests and both should pass:
 
 The manual bindings are used during development to establish a pattern to be used for auto generation. This has been found to be the best way of extending the auto binding support.
 
-How Do I Use It?
-===============
+It's not magic
+============
 
-Check out the provided examples and the framework unit tests. The unit tests exercise all supported bindings and therefore should be considered definitive.
+While Dubrovnik is much easier to use than the raw Mono C embedding API, it is
+not magic. Writing code against Dubrovnik still requires that you understand how
+your code will interact with the managed runtime.
 
-Generating Binding Code
-===============
+Dubrovnik provides two main classes: `DBMonoObject` and
+`DBMonoClass`. They can be thought of as wrappers around C# objects
+and classes. `DBMonoObject` serves as the base class for `System_Object`, our native warpper to `System.Object`.
 
-The binding generator code will attempt to generate Obj-C bindings from a .NET managed exe or dll. The XML generator and code generator are both .NET apps and run under Windows. Remember to install the Microsoft Visual Studio 2012 (or later) SDK.
+So to call a method with this managed signature:
 
-Both GUI and command line versions of the Reflector and Generator tools are included. The UI versions of the tools have a UI suffix.
+`public string Blargle(string someString);`
 
-Windows Explorer may obfuscate browsing of the .NET assembly caches. If so, [help is at hand](http://geekswithblogs.net/pavelka/archive/2006/05/05/WindowsExplorerAndTheGlobalAssemblyCache.aspx).
+from native code using Dubrovnik you could do something this:
 
-To generate bindings automatically:
+	MonoObject *monoObject = <an object you got from somewhere>;
+	DBMonoObject *someObject = [DBMonoObject representationWithMonoObject:monoObject];
+	MonoString *monoString = [someObject invokeMethod:"Blargle(string)" withNumArgs:1, [someString monoString]];
+	NSString *blargleString = [NSString stringWithMonoString:monoString];
 
-* Fire up (typically) a Windows VM
+However, in general it is much nicer to subclass `DBMonoObject` and in your subclass write a method like so:
 
-* With Visual Studio build solution `dotNet/Dubrovnik.Tools/Dubrovnik.Tools.sln`
+	- (NSString *)blargle:(NSString *)someString {
+		MonoString *monoString = [self invokeMethod:"Blargle(string)" withNumArgs:1, [someString monoString]];
 
-* Using `Dubrovnik.Reflector.UI` select a target .NET assembly and export it to XML. Or use the Dubrovnik.Reflector command line version.
+		return([NSString stringWithMonoString:monoString]);
+	}
 
-* Using `Dubrovnik.Generator.UI` select the exported XML and generate Obj-C bindings. Or use the Dubrovnik.Generator command line version.
+Then, in your native code that accesses the managed object, it would be no different than calling any other ObjC method:
 
-The code generator will generate Obj-C declarations for all managed objects defined within the target assembly. References to managed objects not defined within the target assembly must have valid Obj-C declarations defined either by the Dubrovnik framework itself or in other linked files. Dependencies between multiple assemblies established using references can be resolved by auto generating bindings for each assembly and linking the resultant Obj-C representations.
+	NSString *blargleString = [someObject blargle:@"this is a string"];
 
-The .NET code may build with Xamarin Studio but the t4 template code has only been tested within Visual Studio.
+The Dubrovnik copde generator automates the production of `DBMonoObject` subclasses.
+
+Calling Conventions
+===================
+
+The calling conventions of invokeMethod: are so:
+
+1. All arguments are pointers. MonoObject* objects (and any unions of
+MonoObject* such as MonoArray* and MonoString*) are passed normally.
+Value types, however, are passed by reference. The only exception to this rule
+is when a method takes a generic object type, but you are passing a value type.
+In this case, you need to box the value. The Dubrovnik boxing macros are found
+in DBBoxing.h.
+
+Example:
+int32_t integerValue = 5;
+MonoString *monoString = [@"blargle!" monoString];
+[self invokeMethod:"SomeMethod(int,string)" withNumArgs:2, &integerValue, monoString];
+
+MonoObject *boxedInt = DB_BOX_INT32(integerValue);
+[self invokeMethod:"ObjectMethod(object)" withNumArgs:1, boxedInt];
+
+2. All return values are MonoObject* objects of some sort. If a managed method
+returns any kind of value type (including struct), it will be boxed. You need
+to take this into account if you plan on doing anything with the value in
+native code. Again, boxing macros are provided in DBBoxing.h.
+
+Example:
+MonoObject *boxedInt = [self invokeMethod:"GiveMeANumber()" withNumArgs:0];
+int32_t unboxedInt = DB_UNBOX_INT32(boxedInt);
+
+3. Arguments marked with the "out" keyword will need be marked with with a
+trailing ampersand in the signature specification in your invokeMethod:
+call (ie: a native "out string" becomes "string&"). MonoObject* types will need to be passed by reference (ie: MonoObject**); value types are still passed by
+reference as before.
+
+There Be Dragons Here
+=====================
+
+Watch out for these issues:
+
+1. Mono internally represents the "float" type as "single". That means that
+calls to invokeMethod: will need to specify "single" instead of "float" where
+appropriate.
+
+2. "long" and "int" are currently the same size on macOS. It is better to use the more explicit intXX_t types (int32_t, int64_t, etc) to specify the types for
+values coming in and out of managed code in order to prevent any surprises.
 
 Generated Code Output
 ======================
@@ -273,7 +414,6 @@ Generic Type Handling
 
 Generic types include the number of generic parameters (or arity) as part of their managed name. The arity is represented by an appended back tick (`) followed by the number of generic parameters. It is necessary to retain the arity representation in order to ensure type uniqueness.
 
-
 Obj-C generated types represent the generic arity as an appended A (for arity) followed by the number of generic parameters.
 
     // Managed type name
@@ -292,41 +432,13 @@ The simple solution is use the code generator to target the referenced assembly 
 Resolving System Types
 ===============
 
-Assume that a target assembly returns a reference to a system type, say `System.DayOfWeek`. This needs to be resolved. However, `System.DayOfWeek` is defined in mscorlib.dll. That means we need to auto generate code for mscorlib.
+Assume that a target assembly returns a reference to a system type, say `System.DayOfWeek`. This needs to be resolved. However, `System.DayOfWeek` is defined in mscorlib.dll. That means we need to provide binding code for mscorlib.
 
-At present the code generator cannot produce a 100% functional Obj-C representation for mscorlib.dll (though this is a project goal). However the code generator does produce valid type representations for many of the types defined within mscorlib and the generator does run to completion. So individual types can be utilised even if the entire assembly is not as yet fully represented.
+A minimal binding for mscorlib is provided in `Mono.mscorlib` as are minimal bindings are also supplied for several other FCL assemblies. Customise the associated `ASSEMBLY.codegen.config.objc.xml` to add or removes types as required.
 
-The current Obj-C representation of mscorlib is included in the project at `Framework\dotNetBindings\Framework\V4.0.30319\mscorlib\mscorlib`. Browsing this for `System.DayOfWeek.h` reveals:
+Bindings can be re-generated using the windows cmd.exe `generate.bat` file in the assembly folder.
 
-    //++Dubrovnik.CodeGenerator System.DayOfWeek.h
-
-    //
-
-    // Managed enumeration : DayOfWeek
-
-    //
-
-    typedef NS_ENUM(int32_t, System_DayOfWeek) {
-
-	    System_DayOfWeek_Friday = 5,
-
-	    System_DayOfWeek_Monday = 1,
-
-	    System_DayOfWeek_Saturday = 6,
-
-	    System_DayOfWeek_Sunday = 0,
-
-	    System_DayOfWeek_Thursday = 4,
-
-	    System_DayOfWeek_Tuesday = 2,
-
-	    System_DayOfWeek_Wednesday = 3,
-
-    };
-
-    //--Dubrovnik.CodeGenerator
-
-This can be included in our project.
+Bindings for other FCL assemblies can be produced by using one of the existing assembly bindings as a guide.
 
 Managed Interface Representation
 ======================
@@ -338,7 +450,7 @@ Managed Event Handling
 
 Managed events can be routed to any Objective-C object via a defined selector. An example of this can be seen in the unit test module.
 
-By default, if a managed object supports the PropertyChanging or PropertyChanged events then corresponding -willChangeValueForKey: and -didChangeValueForKey: KVO notifications will be sent. This means that managed objects can be observed or bound to in a more or less transparent fashion.
+By default, if a managed object supports the `PropertyChanging` or `PropertyChanged` events then corresponding `-willChangeValueForKey:` and `-didChangeValueForKey:` KVO notifications will be sent. This means that managed objects can be observed or bound to in a more or less transparent fashion.
 
 DateTime Handling
 =================
@@ -369,27 +481,6 @@ Any thread that calls into managed code must pre-attach itself to the Mono envir
             [self openFileName:fileName];
         });
     });
-
-
-Creating a new project
-======================
-
-To setup a new XCode project using Dubrovnik:
-
-- Create an empty project normally, make sure it builds
-
-- Add Mono.Framework and Dubrovnik.Framework as to your project
-
-- Add /Library/Frameworks to "Framework Search Paths"
-
-- enabled Objective C exceptions in your project build settings. Dubrovnik
-  catches managed exceptions and rethrows them as ObjC exceptions.
-
-- Add generated Obj-C representations of the managed target assemblies (ie.: the output of the code generator) .
-
-- Add compiled managed target assemblies as bundle resources.
-
-The unit test bundle `- (void)setUp` method illustrates how to load and call a managed assembly from a bundle.
 
 Licence
 =======
