@@ -309,8 +309,10 @@ namespace Dubrovnik.Tools {
 
 			// hmm... would not be clearer to reference facet.Type in the above
 			if (facet.Type != type) {
-				Console.WriteLine($"Warning: facet.Type {facet.Type} != {type}");
+				// we do see warnings here so a bit more investigation is required
+				//Console.WriteLine($"Warning: facet.Type {facet.Type} != {type}");
 			}
+
 			if (!GenerateTypeBinding(type)) {
 				return false;
 			}
