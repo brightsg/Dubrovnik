@@ -13,7 +13,8 @@ The assembly reflector and code generator are designed to run on Windows (in our
 
 Obviously you will need to have [Mono](https://www.mono-project.com) installed on macOS in order to execute your managed code.
 
-Check out the unit test [Objective-C reference object](https://github.com/ThesaurusSoftware/Dubrovnik/blob/master/dotNET/UnitTests/GeneratedObjC/Dubrovnik_UnitTests_ReferenceObject.m) to see what calling the bound code looks like.
+Check out the unit test [Objective-C reference object](https://github.com/ThesaurusSoftware/Dubrovnik/blob/master/dotNET/UnitTests/GeneratedObjC/Dubrovnik_UnitTests_ReferenceObject.m) to see what generated code looks like.
+
 
 TLDR
 ====
@@ -33,6 +34,55 @@ Status
 ======
 
 Version: 1.0.0
+
+**Accomplished Project Goals**
+
+1. Obj-C code generation based on binary .NET assembly reflection.
+1. 64 bit ARC support linking to standard Mono OS X release v4.4.0 and above.
+1. Generic method calling.
+1. Obj-C property support in generated code.
+1. Managed event handling.
+1. Managed delegate callbacks into native code.
+1. Automatic KVO notifications for managed objects that implement PropertyChanging and PropertyChanged events.
+1. Managed interface representation.
+1. Explicit interface property and method invocation.
+1. Support for SGEN and moveable memory.
+1. Automatic support for indexers.
+1. BInding support for all types in mscorlib.dll. 
+
+**Outstanding Project Goals**
+
+The following project goals are outstanding:
+
+1. Automatic generic method support in generated code. This is largely complete but a few issues remain.
+2. Automatic generation of managed event support code.
+
+
+Project Map
+================
+
+* Dubrovnik.xcworkspace : the workspace provides access to the Objective-C framework and unit tests.
+
+* [Framework](Framework) : Objective-C Dubrovnik framework sources 
+
+    * examples : example code samples
+
+    * XCode : contains the Dubrovnik.xcodeproj file
+
+* [dotNET](dotNET) : Managed code sources
+
+    * Dubrovnik.Tools : UI and command line versions of the reflector and code generator tools. 
+
+    * FrameworkHelper : the managed Dubrovnik framework helper
+
+    * UnitTests : unit test target assembly and generated Obj-C bindings.
+
+The root folder also includes minimal Obj-C bindings for a number of common assemblies including:
+
+* mscorlib.dll
+* System.dll
+* System.Core.dll
+* System.Xml.dll
 
 
 Creating a new project
@@ -75,7 +125,7 @@ To generate bindings automatically:
 
 * Using `Dubrovnik.Generator.UI` select the exported XML and generate Obj-C bindings. Or use the Dubrovnik.Generator command line version.
 
-The reflector tool will generate two files for a given ASSEMBLY. `ASSEMBLY.xml` will contain type information to be processed by the generator. `ASSEMBLY.types.xml' contains a list of type names suitable for using in `ASSEMBLY.codegen.config.objc.xml` if required. 
+The reflector tool will generate two files for a given ASSEMBLY. `ASSEMBLY.xml` will contain type information to be processed by the generator. `ASSEMBLY.types.xml` contains a list of type names suitable for using in `ASSEMBLY.codegen.config.objc.xml` if required. 
 
 The code generator will generate Obj-C declarations for all managed public types defined within the target assembly by processing the reflection assembly XML file. References to managed objects not defined within the target assembly must have valid Obj-C declarations defined either by the Dubrovnik framework itself or in other linked files. Dependencies between multiple assemblies established using references can be resolved by auto generating bindings for each assembly and linking the resultant Obj-C representations.
 
@@ -98,7 +148,7 @@ The `codegen.config.objc.xml` file supports the following elements:
 
 * `OutputFileDeleteList` : a list of generated files to be deleted when the binding process concludes. Useful if providing a manual implementation for a particular type (`mscorlib` does this for `System.Object`).
 
-* `ReferenceList` : a list of paths to referenced 'ASSEMBLY.xml' files. See the Dealing with References section below.
+* `ReferenceList` : a list of paths to referenced `ASSEMBLY.xml` files. See the Dealing with References section below.
 
 Dealing with References
 ============================
@@ -154,56 +204,7 @@ The Dubrovnik code generator operates on a compiled .NET assembly and emits Obje
 
 The unit test setup function illustrates how simple it is to load up a managed assembly and make it accessible within a Cocoa environment.
 
-Accomplished Project Goals
-==========================
 
-1. Obj-C code generation based on binary .NET assembly reflection.
-1. 64 bit ARC support linking to standard Mono OS X release v4.4.0 and above.
-1. Generic method calling.
-1. Obj-C property support in generated code.
-1. Managed event handling.
-1. Managed delegate callbacks into native code.
-1. Automatic KVO notifications for managed objects that implement PropertyChanging and PropertyChanged events.
-1. Managed interface representation.
-1. Explicit interface property and method invocation.
-1. Support for SGEN and moveable memory.
-1. Automatic support for indexers.
-1. BInding support for all types in mscorlib.dll. 
-
-Outstanding Project Goals
-=============
-
-The following project goals are outstanding:
-
-1. Automatic generic method support in generated code. This is largely complete but a few issues remain.
-2. Automatic generation of managed event support code.
-
-
-Project Map
-================
-
-* Dubrovnik.xcworkspace : the workspace provides access to the Objective-C framework and unit tests.
-
-* [Framework](Framework) : Objective-C Dubrovnik framework sources 
-
-    * examples : example code samples
-
-    * XCode : contains the Dubrovnik.xcodeproj file
-
-* [dotNET](dotNET) : Managed code sources
-
-    * Dubrovnik.Tools : UI and command line versions of the reflector and code generator tools. 
-
-    * FrameworkHelper : the managed Dubrovnik framework helper
-
-    * UnitTests : unit test target assembly and generated Obj-C bindings.
-
-The root folder also includes minimal Obj-C bindings for a number of common assemblies including:
-
-* mscorlib.dll
-* System.dll
-* System.Core.dll
-* System.Xml.dll
 
 Mono Documentation
 ==================
@@ -269,88 +270,6 @@ Two sets of bindings are referenced by the tests and both should pass:
 2. Auto generated.
 
 The manual bindings are used during development to establish a pattern to be used for auto generation. This has been found to be the best way of extending the auto binding support.
-
-It's not magic
-============
-
-While Dubrovnik is much easier to use than the raw Mono C embedding API, it is
-not magic. Writing code against Dubrovnik still requires that you understand how
-your code will interact with the managed runtime.
-
-Dubrovnik provides two main classes: `DBMonoObject` and
-`DBMonoClass`. They can be thought of as wrappers around C# objects
-and classes. `DBMonoObject` serves as the base class for `System_Object`, our native warpper to `System.Object`.
-
-So to call a method with this managed signature:
-
-`public string Blargle(string someString);`
-
-from native code using Dubrovnik you could do something this:
-
-	MonoObject *monoObject = <an object you got from somewhere>;
-	DBMonoObject *someObject = [DBMonoObject representationWithMonoObject:monoObject];
-	MonoString *monoString = [someObject invokeMethod:"Blargle(string)" withNumArgs:1, [someString monoString]];
-	NSString *blargleString = [NSString stringWithMonoString:monoString];
-
-However, in general it is much nicer to subclass `DBMonoObject` and in your subclass write a method like so:
-
-	- (NSString *)blargle:(NSString *)someString {
-		MonoString *monoString = [self invokeMethod:"Blargle(string)" withNumArgs:1, [someString monoString]];
-
-		return([NSString stringWithMonoString:monoString]);
-	}
-
-Then, in your native code that accesses the managed object, it would be no different than calling any other ObjC method:
-
-	NSString *blargleString = [someObject blargle:@"this is a string"];
-
-The Dubrovnik copde generator automates the production of `DBMonoObject` subclasses.
-
-Calling Conventions
-===================
-
-The calling conventions of invokeMethod: are so:
-
-1. All arguments are pointers. MonoObject* objects (and any unions of
-MonoObject* such as MonoArray* and MonoString*) are passed normally.
-Value types, however, are passed by reference. The only exception to this rule
-is when a method takes a generic object type, but you are passing a value type.
-In this case, you need to box the value. The Dubrovnik boxing macros are found
-in DBBoxing.h.
-
-Example:
-int32_t integerValue = 5;
-MonoString *monoString = [@"blargle!" monoString];
-[self invokeMethod:"SomeMethod(int,string)" withNumArgs:2, &integerValue, monoString];
-
-MonoObject *boxedInt = DB_BOX_INT32(integerValue);
-[self invokeMethod:"ObjectMethod(object)" withNumArgs:1, boxedInt];
-
-2. All return values are MonoObject* objects of some sort. If a managed method
-returns any kind of value type (including struct), it will be boxed. You need
-to take this into account if you plan on doing anything with the value in
-native code. Again, boxing macros are provided in DBBoxing.h.
-
-Example:
-MonoObject *boxedInt = [self invokeMethod:"GiveMeANumber()" withNumArgs:0];
-int32_t unboxedInt = DB_UNBOX_INT32(boxedInt);
-
-3. Arguments marked with the "out" keyword will need be marked with with a
-trailing ampersand in the signature specification in your invokeMethod:
-call (ie: a native "out string" becomes "string&"). MonoObject* types will need to be passed by reference (ie: MonoObject**); value types are still passed by
-reference as before.
-
-There Be Dragons Here
-=====================
-
-Watch out for these issues:
-
-1. Mono internally represents the "float" type as "single". That means that
-calls to invokeMethod: will need to specify "single" instead of "float" where
-appropriate.
-
-2. "long" and "int" are currently the same size on macOS. It is better to use the more explicit intXX_t types (int32_t, int64_t, etc) to specify the types for
-values coming in and out of managed code in order to prevent any surprises.
 
 Generated Code Output
 ======================
@@ -481,6 +400,88 @@ Any thread that calls into managed code must pre-attach itself to the Mono envir
             [self openFileName:fileName];
         });
     });
+
+It's not magic
+============
+
+While Dubrovnik is much easier to use than the raw Mono C embedding API, it is
+not magic. Writing code against Dubrovnik still requires that you understand how
+your code will interact with the managed runtime.
+
+Dubrovnik provides two main classes: `DBMonoObject` and
+`DBMonoClass`. They can be thought of as wrappers around C# objects
+and classes. `DBMonoObject` serves as the base class for `System_Object`, our native warpper to `System.Object`.
+
+So to call a method with this managed signature:
+
+`public string Blargle(string someString);`
+
+from native code using Dubrovnik you could do something this:
+
+	MonoObject *monoObject = <an object you got from somewhere>;
+	DBMonoObject *someObject = [DBMonoObject representationWithMonoObject:monoObject];
+	MonoString *monoString = [someObject invokeMethod:"Blargle(string)" withNumArgs:1, [someString monoString]];
+	NSString *blargleString = [NSString stringWithMonoString:monoString];
+
+However, in general it is much nicer to subclass `DBMonoObject` and in your subclass write a method like so:
+
+	- (NSString *)blargle:(NSString *)someString {
+		MonoString *monoString = [self invokeMethod:"Blargle(string)" withNumArgs:1, [someString monoString]];
+
+		return([NSString stringWithMonoString:monoString]);
+	}
+
+Then, in your native code that accesses the managed object, it would be no different than calling any other ObjC method:
+
+	NSString *blargleString = [someObject blargle:@"this is a string"];
+
+The Dubrovnik copde generator automates the production of `DBMonoObject` subclasses.
+
+Calling Conventions
+===================
+
+The calling conventions of invokeMethod: are so:
+
+1. All arguments are pointers. MonoObject* objects (and any unions of
+MonoObject* such as MonoArray* and MonoString*) are passed normally.
+Value types, however, are passed by reference. The only exception to this rule
+is when a method takes a generic object type, but you are passing a value type.
+In this case, you need to box the value. The Dubrovnik boxing macros are found
+in DBBoxing.h.
+
+Example:
+int32_t integerValue = 5;
+MonoString *monoString = [@"blargle!" monoString];
+[self invokeMethod:"SomeMethod(int,string)" withNumArgs:2, &integerValue, monoString];
+
+MonoObject *boxedInt = DB_BOX_INT32(integerValue);
+[self invokeMethod:"ObjectMethod(object)" withNumArgs:1, boxedInt];
+
+2. All return values are MonoObject* objects of some sort. If a managed method
+returns any kind of value type (including struct), it will be boxed. You need
+to take this into account if you plan on doing anything with the value in
+native code. Again, boxing macros are provided in DBBoxing.h.
+
+Example:
+MonoObject *boxedInt = [self invokeMethod:"GiveMeANumber()" withNumArgs:0];
+int32_t unboxedInt = DB_UNBOX_INT32(boxedInt);
+
+3. Arguments marked with the "out" keyword will need be marked with with a
+trailing ampersand in the signature specification in your invokeMethod:
+call (ie: a native "out string" becomes "string&"). MonoObject* types will need to be passed by reference (ie: MonoObject**); value types are still passed by
+reference as before.
+
+There Be Dragons Here
+=====================
+
+Watch out for these issues:
+
+1. Mono internally represents the "float" type as "single". That means that
+calls to invokeMethod: will need to specify "single" instead of "float" where
+appropriate.
+
+2. "long" and "int" are currently the same size on macOS. It is better to use the more explicit intXX_t types (int32_t, int64_t, etc) to specify the types for
+values coming in and out of managed code in order to prevent any surprises.
 
 Licence
 =======
