@@ -121,6 +121,8 @@ namespace Dubrovnik.Tools {
 		/// </summary>
 		private void Startup(string xmlPath) {
 
+			// we want to remove relative path information in this method as its quite easy to
+			// trigger PathTooLongException when iterating over the reference list
 			xmlPath = Path.GetFullPath(xmlPath);
 
 			AssemblyFolder = System.IO.Path.GetDirectoryName(xmlPath);
