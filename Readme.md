@@ -1,35 +1,39 @@
 Overview
-========
-Dubrovnik is an Objective-C framework that provides a series of bindings between Obj-C and the Mono open source implementation of .NET. Functionally, it works like an Objective-C to C# language bridge. 
+======== 
 
-Dubrovnik is intended to provide a means of interfacing a Cocoa GUI to a .NET backend assembly or assemblies. The Dubrovnik code generator can be used to automate the generation of Obj-C bindings to those assemblies. This greatly simplifies interfacing .NET to Obj-C.
+The Dubrovnik project that provides a series of bindings between Obj-C and the [Mono](https://www.mono-project.com) open source implementation of .NET. Functionally, it works like an Objective-C to C# language bridge. 
 
-Dubrovnik is a fork of [Dumbarton](https://github.com/mono/Dumbarton). Dubrovnik utilises an extended Dumbarton core and links to the modern Obj-C runtime.
+Dubrovnik is intended to provide a means of interfacing a Cocoa to a .NET backend assembly or assemblies. The Dubrovnik code generator can be used to automate the generation of Obj-C bindings to those assemblies. This greatly simplifies interfacing .NET to Obj-C.
 
-3 Step Quick Look
-=======
+The code generator includes type skipping features that enable Obj-C bindings to be generated for a subset of types defined by an assembly. This feature can greatly reduce the size and complexity of the generated bindings.
 
-The Dubrovnik code generator operates on a compiled .NET assembly and emits Objective-C source code. so:
+A number of minimal Obj-C framework bindings are provided for a number of core .NET assembles. These bindings represent a working set used by Thesaurus. However, these bindings can be easily customised by editing the relevant `ASSEMBLY.codegen.config.objc.xml`.
 
-1. Dubrovnik includes a 
-[C# managed reference object](https://github.com/ThesaurusSoftware/Dubrovnik/blob/master/dotNET/UnitTests/Dubrovnik.UnitTests/ReferenceObject.cs). This object expresses all the managed language features that we want to be able to access from Objective-C.
+The assembly reflector and code generator are designed to run on Windows (in our case a VM) because that suits our workflow. However, the command line versions of these tools should be runable on macOS. 
 
-2. From the above we generate an
-[Objective-C reference object](https://github.com/ThesaurusSoftware/Dubrovnik/blob/master/dotNET/UnitTests/GeneratedObjC/Dubrovnik_UnitTests_ReferenceObject.m) using the Dubrovnik code generator. This object provides Obj-C level access to our reference managed object. Each type in an assembly is rendered separately and referenced in the [assembly header](https://github.com/ThesaurusSoftware/Dubrovnik/blob/master/dotNET/UnitTests/GeneratedObjC/Dubrovnik_UnitTests.h). The code generator strives to import everything in the correct sequence! The assembly header can be extensive in the case of a [core system assembly](https://github.com/ThesaurusSoftware/Dubrovnik/blob/master/Framework/dotNetBindings/Framework/V4.0.30319/mscorlib/Generated-bindings/mscorlib.h).
+Obviously you will need to have [Mono](https://www.mono-project.com) installed on macOS in order to execute your managed code.
 
-3. The binding between the managed reference object and its unmanaged Obj-C representation is exercised by the numerous
-[unit tests](https://github.com/ThesaurusSoftware/Dubrovnik/blob/master/Framework/XCode/Dubrovnik%20Unit%20Tests/Dubrovnik_Unit_Tests.m).
+TLDR
+====
 
-The unit test setup function illustrates how simple it is to load up a managed assembly and make it accessible within a Cocoa environment.
+- A competent bridge between Objective-C and the Mono .NET implementation that provides Obj-C wrappers for managed classes.
+
+- A set of ObjC categories to facilitate easy conversion between Application Kit objects and their C# equivalents e.g. System.String -> NSString *.
+
+- Conversion (and re-throwing) of managed .NET exceptions to Objective-C exceptions.
+
+- A .NET assembly reflector and a t4 template powered code generator.
+
+- Unit tests for both manually and automatically generated bindings.
+
 
 Status
 ======
 
-Version: 0.0.5 Alpha
+Version: 1.0.0
 
-Production ready: No. But we are actively using and developing Dubrovnik as part of own software development process. In particular, we have had considerable success in generating a complete Obj-C representation of a complex EntityFramework 6 model.
 
-Provided examples
+ Examples
 =================
 
 [DBCocoaExample](https://github.com/ThesaurusSoftware/Dubrovnik/tree/master/Framework/examples/DBCocoaExample) is the classic Currency Converter application; it demonstrates a simple Cocoa front end that uses mono for its backend. It demonstrates:
@@ -52,6 +56,22 @@ Provided examples
 
 - Exception handling.
 
+Unit Tests
+=======
+
+The Dubrovnik code generator operates on a compiled .NET assembly and emits Objective-C source code. The unit tests target a managed ReferenceObject via its generated Obj-C bindings.
+
+1. Dubrovnik includes a 
+[C# managed reference object](https://github.com/ThesaurusSoftware/Dubrovnik/blob/master/dotNET/UnitTests/Dubrovnik.UnitTests/ReferenceObject.cs). This object expresses all the managed language features that we want to be able to access from Objective-C.
+
+2. From the above we generate an
+[Objective-C reference object](https://github.com/ThesaurusSoftware/Dubrovnik/blob/master/dotNET/UnitTests/GeneratedObjC/Dubrovnik_UnitTests_ReferenceObject.m) using the Dubrovnik code generator. This object provides Obj-C level access to our reference managed object. Each type in an assembly is rendered separately and referenced in the [assembly header](https://github.com/ThesaurusSoftware/Dubrovnik/blob/master/dotNET/UnitTests/GeneratedObjC/Dubrovnik_UnitTests.h). The code generator strives to import everything in the correct sequence! The assembly header can be extensive in the case of a [core system assembly](https://github.com/ThesaurusSoftware/Dubrovnik/blob/master/Framework/dotNetBindings/Framework/V4.0.30319/mscorlib/Generated-bindings/mscorlib.h).
+
+3. The binding between the managed reference object and its unmanaged Obj-C representation is exercised by the numerous
+[unit tests](https://github.com/ThesaurusSoftware/Dubrovnik/blob/master/Framework/XCode/Dubrovnik%20Unit%20Tests/Dubrovnik_Unit_Tests.m).
+
+The unit test setup function illustrates how simple it is to load up a managed assembly and make it accessible within a Cocoa environment.
+
 Accomplished Project Goals
 ==========================
 
@@ -65,32 +85,17 @@ Accomplished Project Goals
 1. Managed interface representation.
 1. Explicit interface property and method invocation.
 1. Support for SGEN and moveable memory.
+1. Automatic support for indexers.
+1. BInding support for all types in mscorlib.dll. 
 
 Outstanding Project Goals
 =============
 
 The following project goals are outstanding:
 
-1. Automatic support for indexers.
-1. Generate automatic bindings for all types in mscorlib.dll. This is pretty well advanced. Some fixes to the core codegen are required. Some issues will be resolved by the postflight processor.
-1. Automatic generic method support in generated code.
+1. Automatic generic method support in generated code. This is largely complete but a few issues remain.
+2. Automatic generation of managed event support code.
 
-What's in the Bag?
-================
-
-Dubrovnik provides:
-
-- A competent bridge between Objective-C and the Mono .NET implementation.
-
-- A set of ObjC categories to facilitate easy conversion between Application Kit objects and their C# equivalents. 
-
-- Conversion (and re-throwing) of managed .NET exceptions to Objective-C exceptions.
-
-- Initial support for Microsoft's open source [EntityFramework](http://msdn.microsoft.com/en-gb/data/ef.aspx).
-
-- A .NET assembly reflector and a t4 template powered code generator.
-
-- Unit tests for both manually and automatically generated bindings.
 
 Project Map
 ================
@@ -101,23 +106,17 @@ Project Map
 
     * docs: docs from the original Dumbarton project
 
-	* dotNetBindings : pre generated ObjC -> dotNet bindings for some system frameworks
-
     * examples : example code samples
-
-	* products : pre built products
 
     * XCode : contains the Dubrovnik.xcodeproj file
 
 * [dotNET](dotNET) : Managed code sources
 
-    * Dubrovnik.Tools : Reflector : generates the reflection XML that is parsed by the code generator 
-
-    * Dubrovnik.Tools : CodeGenerator : a runtime t4 template powered Obj-C code generator.
+    * Dubrovnik.Tools : UI and command line versions of the reflector and code generator tools.
 
     * FrameworkHelper : the Dubrovnik framework helper
 
-    * UnitTests : unit test target assembly
+    * UnitTests : unit test target assembly and generated Obj-C bindings.
 
 Mono Documentation
 ==================
@@ -133,6 +132,9 @@ Prerequisites
 - [Mono Framework](http://www.mono-project.com/Downloads) 4.4.0 or higher 64 bit compatible MDK. Make sure to download the MDK framework source version as this supplies the necessary embedded mono headers in `/Library/Frameworks/Mono.framework/headers/mono-2.0`.
 
 - The code generator requires the Microsoft.VisualStudio.TextTemplating assembly. This ships as part of the optional MS VisualStudio SDK. The correct SDK must be installed for the version of Visual Studio being used. The version of the TextTemplating assembly may change with the SDK version so it may be necessary to adjust the TextTemplating assembly reference. For Visual Studio 2013 (Version 12) the required text templating assemblies can be found in C:\Program Files (x86)\Microsoft Visual Studio 12.0\VSSDK\VisualStudioIntegration\Common\Assemblies\v4.0. Note that references to Interface assemblies for previous TextTemplating versions will likely be required.
+
+- Some of the provided assembly bindings require the Windows commandline [nuget.exe](https://www.nuget.org/downloads) to be available on the PATH.
+
 
 Building It
 ===========
@@ -221,7 +223,7 @@ The code generator will output the following for each target assembly, in this c
 For each type defined in the target assembly the generator will output a .m and .h file. So if `Work.Data.dll` defines a class named `Work.Data.Utility.Analyser` then the generated output will include:
 	
 	// Work.Data.Utility.Analyser.h
-    @interface Work_Data_Utility_Analyser : DBObject
+    @interface Work_Data_Utility_Analyser : DBManagedObject
 		// interface definition 
     @end
 
@@ -285,7 +287,7 @@ Resolving Types
 
 The code generator will try and output a unique Obj-C type for each managed type in a target assembly. So, if the public API for the target assembly only references types defined within that assembly then the binding should be complete. If, however, the API references a type defined in another assembly then an Obj-C representation for that type will be required. This applies to all types, regardless of whether they are user or system defined.
 
-The simple solution is use the code generator to target the referenced assembly and generate the required Obj-C type representation. Repeat as necessary until all type references are resolved. If a type representation cannot be generated automatically then a simple manual representation or stub can be produced by subclassing `DBObject.m`.  
+The simple solution is use the code generator to target the referenced assembly and generate the required Obj-C type representation. Repeat as necessary until all type references are resolved. If a type representation cannot be generated automatically then a simple manual representation or stub can be produced by subclassing `DBManagedObject.m`.  
 
 Resolving System Types
 ===============
@@ -401,8 +403,8 @@ Contributors
 ============
 * Jonathan Mitchell : Thesaurus Software Ltd
 * Ross Webster : Thesaurus Software Ltd
-* Allan Hsu : imeem, inc
-* Bryan Berg : imeem, inc
+* Allan Hsu 
+* Bryan Berg 
 
 
 
