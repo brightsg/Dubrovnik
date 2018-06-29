@@ -12,7 +12,7 @@
  Universal delegate invocation block. Whenever the managed delegate is invoked the native block gets called.
 
  @param parameters Array of parameters passed to the delegate.
- @return Delegate return value. If the managed delegate reurn type is void the native block should return nil.
+ @return Delegate return value. If the managed delegate return type is void the native block should return nil.
  */
 typedef System_Object *(^DBUniversalDelegateBlock)(NSArray *parameters);
 
