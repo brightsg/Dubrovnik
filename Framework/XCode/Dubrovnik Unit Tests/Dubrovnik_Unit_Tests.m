@@ -2073,6 +2073,16 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         
         [self doTestGenericConstructors:testClass];
 
+        
+        // boxing and unboxing
+        System_Object *boxed = [System_Boolean objectWithBool:YES];
+        // TODO:System_Convert method failing
+        //XCTAssertTrue([System_Convert toBoolean_withValueObject:boxed] == YES, DBUEqualityTestFailed);
+
+        boxed = [System_Boolean objectWithBool:NO];
+        //XCTAssertTrue([System_Convert toBoolean_withValueObject:boxed] == NO, DBUEqualityTestFailed);
+        
+        
         //===================================
         // events
         //===================================

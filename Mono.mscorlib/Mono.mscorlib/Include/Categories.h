@@ -25,4 +25,5 @@
 #import "System_IO_FileInfo+mscorlib.h"
 #import "System_Collections_Generic_IEnumerableA1+mscorlib.h"
 #import "System_NullableA1+mscorlib.h"
+#import "System_Boolean+mscorlib.h"
 
