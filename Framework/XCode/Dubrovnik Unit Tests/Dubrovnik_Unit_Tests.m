@@ -2085,15 +2085,69 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         
         [self doTestGenericConstructors:testClass];
 
+        //==================================
+        //
         // boxing and unboxing
         // note that when passing boxed value types to a System_Object parameter
         // we need to use the wrapper provided by System_ValueType -objectArg in order to prevent auto unboxing of the value type.
         // TODO: refactor the method calling API to query the method signature so that auto unboxing of value types
         // only occurs when appropriate.
-        System_Boolean *boxed = [System_Boolean objectWithBool:YES];
-        XCTAssertTrue([System_Convert toBoolean_withValueObject:boxed.objectArg] == YES, DBUEqualityTestFailed);
-        boxed = [System_Boolean objectWithBool:NO];
-        XCTAssertTrue([System_Convert toBoolean_withValueObject:boxed.objectArg] == NO, DBUEqualityTestFailed);
+        //==================================
+        // System.Bool
+        System_Boolean *boxedBool = [System_Boolean objectWithBool:YES];
+        XCTAssertTrue([System_Convert toBoolean_withValueObject:boxedBool.objectArg] == YES, DBUEqualityTestFailed);
+        boxedBool = [System_Boolean objectWithBool:NO];
+        XCTAssertTrue([System_Convert toBoolean_withValueObject:boxedBool.objectArg] == NO, DBUEqualityTestFailed);
+        
+        // System.Byte
+        System_Byte *boxedByte = [System_Byte objectWithUInt8:233];
+        XCTAssertTrue([System_Convert toByte_withValueObject:boxedByte.objectArg] == 233, DBUEqualityTestFailed);
+
+        // System.SByte
+        System_SByte *boxedSByte = [System_SByte objectWithInt8:-56];
+        XCTAssertTrue([System_Convert toSByte_withValueObject:boxedSByte.objectArg] == -56, DBUEqualityTestFailed);
+
+        // System.Char
+        System_Char *boxedChar = [System_Char objectWithUInt16:12567];
+        XCTAssertTrue([System_Convert toChar_withValueObject:boxedChar.objectArg] == 12567, DBUEqualityTestFailed);
+
+        // System.Decimal
+        NSDecimalNumber *decimalValue = [NSDecimalNumber decimalNumberWithString:@"17645"];
+        System_Decimal *boxedDecimal = [System_Decimal objectWithDecimal:decimalValue];
+        XCTAssertTrue([[System_Convert toDecimal_withValueObject:boxedDecimal.objectArg] isEqual:decimalValue], DBUEqualityTestFailed);
+
+        // System.Double
+        System_Double *boxedDouble = [System_Double objectWithDouble:13.2245];
+        XCTAssertTrue([System_Convert toDouble_withValueObject:boxedDouble.objectArg] == 13.2245, DBUEqualityTestFailed);
+
+        // System.Single
+        System_Single *boxedSingle = [System_Single objectWithFloat:13567];
+        float resultFloat = [System_Convert toSingle_withValueObject:boxedSingle.objectArg];
+        XCTAssertTrue(resultFloat == 13567, DBUEqualityTestFailed);
+        
+        // System.Int32
+        System_Int32 *boxedInt32 = [System_Int32 objectWithInt32:-11234];
+        XCTAssertTrue([System_Convert toInt32_withValueObject:boxedInt32.objectArg] == -11234, DBUEqualityTestFailed);
+        
+        // System.UInt32
+        System_UInt32 *boxedUInt32 = [System_UInt32 objectWithUInt32:11234];
+        XCTAssertTrue([System_Convert toUInt32_withValueObject:boxedUInt32.objectArg] == 11234, DBUEqualityTestFailed);
+
+        // System.Int64
+        System_Int64 *boxedInt64 = [System_Int64 objectWithInt64:-112343748];
+        XCTAssertTrue([System_Convert toInt64_withValueObject:boxedInt64.objectArg] == -112343748, DBUEqualityTestFailed);
+
+        // System.UInt64
+        System_UInt64 *boxedUInt64 = [System_UInt64 objectWithUInt64:112343778];
+        XCTAssertTrue([System_Convert toUInt64_withValueObject:boxedUInt64.objectArg] == 112343778, DBUEqualityTestFailed);
+        
+        // System.Int16
+        System_Int16 *boxedInt16 = [System_Int16 objectWithInt16:-7897];
+        XCTAssertTrue([System_Convert toInt16_withValueObject:boxedInt16.objectArg] == -7897, DBUEqualityTestFailed);
+
+        // System.UInt16
+        System_UInt16 *boxedUInt16 = [System_UInt16 objectWithUInt16:7895];
+        XCTAssertTrue([System_Convert toUInt16_withValueObject:boxedUInt16.objectArg] == 7895, DBUEqualityTestFailed);
         
         //===================================
         // events

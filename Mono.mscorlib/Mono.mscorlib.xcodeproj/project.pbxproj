@@ -7,6 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB24600720F4F62D00D1C09E /* System_Byte+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = AB24600520F4F62D00D1C09E /* System_Byte+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB24600820F4F62D00D1C09E /* System_Byte+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = AB24600620F4F62D00D1C09E /* System_Byte+mscorlib.m */; };
+		AB24600B20F4F82100D1C09E /* System_SByte+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = AB24600920F4F82100D1C09E /* System_SByte+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB24600C20F4F82100D1C09E /* System_SByte+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = AB24600A20F4F82100D1C09E /* System_SByte+mscorlib.m */; };
+		AB24600F20F4F86C00D1C09E /* System_Char+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = AB24600D20F4F86C00D1C09E /* System_Char+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB24601020F4F86C00D1C09E /* System_Char+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = AB24600E20F4F86C00D1C09E /* System_Char+mscorlib.m */; };
+		AB24601320F4F8DE00D1C09E /* System_Decimal+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = AB24601120F4F8DE00D1C09E /* System_Decimal+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB24601420F4F8DE00D1C09E /* System_Decimal+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = AB24601220F4F8DE00D1C09E /* System_Decimal+mscorlib.m */; };
+		AB24601720F4F94100D1C09E /* System_Double+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = AB24601520F4F94100D1C09E /* System_Double+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB24601820F4F94100D1C09E /* System_Double+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = AB24601620F4F94100D1C09E /* System_Double+mscorlib.m */; };
+		AB24601B20F4F97500D1C09E /* System_Single+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = AB24601920F4F97500D1C09E /* System_Single+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB24601C20F4F97500D1C09E /* System_Single+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = AB24601A20F4F97500D1C09E /* System_Single+mscorlib.m */; };
+		AB24601F20F4FA1D00D1C09E /* System_Int32+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = AB24601D20F4FA1D00D1C09E /* System_Int32+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB24602020F4FA1D00D1C09E /* System_Int32+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = AB24601E20F4FA1D00D1C09E /* System_Int32+mscorlib.m */; };
+		AB24602320F4FAB400D1C09E /* System_UInt32+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = AB24602120F4FAB400D1C09E /* System_UInt32+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB24602420F4FAB400D1C09E /* System_UInt32+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = AB24602220F4FAB400D1C09E /* System_UInt32+mscorlib.m */; };
+		AB24602720F4FB1000D1C09E /* System_Int64+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = AB24602520F4FB1000D1C09E /* System_Int64+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB24602820F4FB1000D1C09E /* System_Int64+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = AB24602620F4FB1000D1C09E /* System_Int64+mscorlib.m */; };
+		AB24602B20F4FB3C00D1C09E /* System_UInt64+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = AB24602920F4FB3C00D1C09E /* System_UInt64+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB24602C20F4FB3C00D1C09E /* System_UInt64+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = AB24602A20F4FB3C00D1C09E /* System_UInt64+mscorlib.m */; };
+		AB24602F20F4FBD800D1C09E /* System_Int16+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = AB24602D20F4FBD800D1C09E /* System_Int16+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB24603020F4FBD800D1C09E /* System_Int16+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = AB24602E20F4FBD800D1C09E /* System_Int16+mscorlib.m */; };
+		AB24603320F4FC0E00D1C09E /* System_UInt16+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = AB24603120F4FC0E00D1C09E /* System_UInt16+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB24603420F4FC0E00D1C09E /* System_UInt16+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = AB24603220F4FC0E00D1C09E /* System_UInt16+mscorlib.m */; };
+		AB24603620F4FDD200D1C09E /* System_Single.__Extra__.h in Headers */ = {isa = PBXBuildFile; fileRef = AB24603520F4FDC300D1C09E /* System_Single.__Extra__.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2654861E265E7800422E35 /* Mono_Mscorlib_Assembly.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2654841E265E7800422E35 /* Mono_Mscorlib_Assembly.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2654871E265E7800422E35 /* Mono_Mscorlib_Assembly.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2654851E265E7800422E35 /* Mono_Mscorlib_Assembly.m */; };
 		AB26E09F1E4A0040004876FE /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB26E09E1E4A0040004876FE /* Mono.framework */; };
@@ -309,6 +334,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AB24600520F4F62D00D1C09E /* System_Byte+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "System_Byte+mscorlib.h"; sourceTree = "<group>"; };
+		AB24600620F4F62D00D1C09E /* System_Byte+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "System_Byte+mscorlib.m"; sourceTree = "<group>"; };
+		AB24600920F4F82100D1C09E /* System_SByte+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "System_SByte+mscorlib.h"; sourceTree = "<group>"; };
+		AB24600A20F4F82100D1C09E /* System_SByte+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "System_SByte+mscorlib.m"; sourceTree = "<group>"; };
+		AB24600D20F4F86C00D1C09E /* System_Char+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "System_Char+mscorlib.h"; sourceTree = "<group>"; };
+		AB24600E20F4F86C00D1C09E /* System_Char+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "System_Char+mscorlib.m"; sourceTree = "<group>"; };
+		AB24601120F4F8DE00D1C09E /* System_Decimal+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "System_Decimal+mscorlib.h"; sourceTree = "<group>"; };
+		AB24601220F4F8DE00D1C09E /* System_Decimal+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "System_Decimal+mscorlib.m"; sourceTree = "<group>"; };
+		AB24601520F4F94100D1C09E /* System_Double+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "System_Double+mscorlib.h"; sourceTree = "<group>"; };
+		AB24601620F4F94100D1C09E /* System_Double+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "System_Double+mscorlib.m"; sourceTree = "<group>"; };
+		AB24601920F4F97500D1C09E /* System_Single+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "System_Single+mscorlib.h"; sourceTree = "<group>"; };
+		AB24601A20F4F97500D1C09E /* System_Single+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "System_Single+mscorlib.m"; sourceTree = "<group>"; };
+		AB24601D20F4FA1D00D1C09E /* System_Int32+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "System_Int32+mscorlib.h"; sourceTree = "<group>"; };
+		AB24601E20F4FA1D00D1C09E /* System_Int32+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "System_Int32+mscorlib.m"; sourceTree = "<group>"; };
+		AB24602120F4FAB400D1C09E /* System_UInt32+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "System_UInt32+mscorlib.h"; sourceTree = "<group>"; };
+		AB24602220F4FAB400D1C09E /* System_UInt32+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "System_UInt32+mscorlib.m"; sourceTree = "<group>"; };
+		AB24602520F4FB1000D1C09E /* System_Int64+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "System_Int64+mscorlib.h"; sourceTree = "<group>"; };
+		AB24602620F4FB1000D1C09E /* System_Int64+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "System_Int64+mscorlib.m"; sourceTree = "<group>"; };
+		AB24602920F4FB3C00D1C09E /* System_UInt64+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "System_UInt64+mscorlib.h"; sourceTree = "<group>"; };
+		AB24602A20F4FB3C00D1C09E /* System_UInt64+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "System_UInt64+mscorlib.m"; sourceTree = "<group>"; };
+		AB24602D20F4FBD800D1C09E /* System_Int16+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "System_Int16+mscorlib.h"; sourceTree = "<group>"; };
+		AB24602E20F4FBD800D1C09E /* System_Int16+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "System_Int16+mscorlib.m"; sourceTree = "<group>"; };
+		AB24603120F4FC0E00D1C09E /* System_UInt16+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "System_UInt16+mscorlib.h"; sourceTree = "<group>"; };
+		AB24603220F4FC0E00D1C09E /* System_UInt16+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "System_UInt16+mscorlib.m"; sourceTree = "<group>"; };
+		AB24603520F4FDC300D1C09E /* System_Single.__Extra__.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = System_Single.__Extra__.h; sourceTree = "<group>"; };
 		AB2654841E265E7800422E35 /* Mono_Mscorlib_Assembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mono_Mscorlib_Assembly.h; sourceTree = "<group>"; };
 		AB2654851E265E7800422E35 /* Mono_Mscorlib_Assembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mono_Mscorlib_Assembly.m; sourceTree = "<group>"; };
 		AB26E09E1E4A0040004876FE /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.mscorlib/../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
@@ -649,6 +699,7 @@
 				AB950DEA192AA6C10035ABC6 /* ValueTransformers.h */,
 				AB2926F720165C8500478AF4 /* System_Double.__Extra__.h */,
 				ABD2EB15202630BE00594010 /* mscorlib.private.h */,
+				AB24603520F4FDC300D1C09E /* System_Single.__Extra__.h */,
 			);
 			path = Include;
 			sourceTree = "<group>";
@@ -993,8 +1044,14 @@
 				AB2654851E265E7800422E35 /* Mono_Mscorlib_Assembly.m */,
 				ABB8A39018FF09F900213B80 /* System_Array+mscorlib.h */,
 				ABB8A39118FF09F900213B80 /* System_Array+mscorlib.m */,
-				ABB8A41F18FF15B300213B80 /* System_Collections_ArrayList+mscorlib.m */,
+				AB342C0D20E67A0700CA1659 /* System_Boolean+mscorlib.h */,
+				AB342C0E20E67A0700CA1659 /* System_Boolean+mscorlib.m */,
+				AB24600520F4F62D00D1C09E /* System_Byte+mscorlib.h */,
+				AB24600620F4F62D00D1C09E /* System_Byte+mscorlib.m */,
+				AB24600D20F4F86C00D1C09E /* System_Char+mscorlib.h */,
+				AB24600E20F4F86C00D1C09E /* System_Char+mscorlib.m */,
 				ABB8A41E18FF15B300213B80 /* System_Collections_ArrayList+mscorlib.h */,
+				ABB8A41F18FF15B300213B80 /* System_Collections_ArrayList+mscorlib.m */,
 				ABB8A42018FF15B300213B80 /* System_Collections_Generic_DictionaryA2+mscorlib.h */,
 				ABB8A42118FF15B300213B80 /* System_Collections_Generic_DictionaryA2+mscorlib.m */,
 				ABCAE5481AA893C90006453A /* System_Collections_Generic_IEnumerableA1+mscorlib.h */,
@@ -1007,6 +1064,8 @@
 				ABB8A42518FF15B300213B80 /* System_Collections_IList+mscorlib.m */,
 				ABB8A39218FF09F900213B80 /* System_Convert+mscorlib.h */,
 				ABB8A39318FF09F900213B80 /* System_Convert+mscorlib.m */,
+				AB24601120F4F8DE00D1C09E /* System_Decimal+mscorlib.h */,
+				AB24601220F4F8DE00D1C09E /* System_Decimal+mscorlib.m */,
 				ABF9707C1D7369D400B836A0 /* System_Delegate+mscorlib.h */,
 				ABF9707D1D7369D400B836A0 /* System_Delegate+mscorlib.m */,
 				ABB8A39418FF09F900213B80 /* System_Enum+mscorlib.h */,
@@ -1017,12 +1076,28 @@
 				ABD682C41E69E9DF00D11963 /* System_NullableA1+mscorlib.m */,
 				ABB8A41618FF113800213B80 /* System_Object+mscorlib.h */,
 				ABB8A41718FF113800213B80 /* System_Object+mscorlib.m */,
-				AB342C0D20E67A0700CA1659 /* System_Boolean+mscorlib.h */,
-				AB342C0E20E67A0700CA1659 /* System_Boolean+mscorlib.m */,
+				AB24600920F4F82100D1C09E /* System_SByte+mscorlib.h */,
+				AB24600A20F4F82100D1C09E /* System_SByte+mscorlib.m */,
 				ABE7D80E20C0063400BDDA24 /* System_Type+mscorlib.h */,
 				ABE7D80F20C0063400BDDA24 /* System_Type+mscorlib.m */,
 				AB6752C620F40F840040CAEF /* System_ValueType+mscorlib.h */,
 				AB6752C720F40F840040CAEF /* System_ValueType+mscorlib.m */,
+				AB24601520F4F94100D1C09E /* System_Double+mscorlib.h */,
+				AB24601620F4F94100D1C09E /* System_Double+mscorlib.m */,
+				AB24601920F4F97500D1C09E /* System_Single+mscorlib.h */,
+				AB24601A20F4F97500D1C09E /* System_Single+mscorlib.m */,
+				AB24601D20F4FA1D00D1C09E /* System_Int32+mscorlib.h */,
+				AB24601E20F4FA1D00D1C09E /* System_Int32+mscorlib.m */,
+				AB24602120F4FAB400D1C09E /* System_UInt32+mscorlib.h */,
+				AB24602220F4FAB400D1C09E /* System_UInt32+mscorlib.m */,
+				AB24602520F4FB1000D1C09E /* System_Int64+mscorlib.h */,
+				AB24602620F4FB1000D1C09E /* System_Int64+mscorlib.m */,
+				AB24602920F4FB3C00D1C09E /* System_UInt64+mscorlib.h */,
+				AB24602A20F4FB3C00D1C09E /* System_UInt64+mscorlib.m */,
+				AB24602D20F4FBD800D1C09E /* System_Int16+mscorlib.h */,
+				AB24602E20F4FBD800D1C09E /* System_Int16+mscorlib.m */,
+				AB24603120F4FC0E00D1C09E /* System_UInt16+mscorlib.h */,
+				AB24603220F4FC0E00D1C09E /* System_UInt16+mscorlib.m */,
 			);
 			name = "Categories - Managed";
 			path = Categories;
@@ -1058,12 +1133,15 @@
 				AB512B9620D062510078F747 /* System_Collections_IList.h in Headers */,
 				AB512B7720D062510078F747 /* System_Text_Encoding.h in Headers */,
 				AB512B7020D062510078F747 /* System_Reflection_GenericParameterAttributes.h in Headers */,
+				AB24602320F4FAB400D1C09E /* System_UInt32+mscorlib.h in Headers */,
 				AB512BCD20D062510078F747 /* System_Reflection_Assembly.h in Headers */,
 				AB512BA520D062510078F747 /* System_Array.h in Headers */,
 				AB512B5520D062510078F747 /* System_DateTimeKind.h in Headers */,
 				AB512BA420D062510078F747 /* System_Threading_SynchronizationContext.h in Headers */,
 				AB512B1020D062510078F747 /* System_DayOfWeek.h in Headers */,
 				AB512B1720D062510078F747 /* System_FuncA2.h in Headers */,
+				AB24600F20F4F86C00D1C09E /* System_Char+mscorlib.h in Headers */,
+				AB24601F20F4FA1D00D1C09E /* System_Int32+mscorlib.h in Headers */,
 				AB512B4520D062510078F747 /* mscorlib.h in Headers */,
 				AB512BBA20D062510078F747 /* System_ActionA2.h in Headers */,
 				AB512B6820D062510078F747 /* System_Runtime_Serialization_ISerializable.h in Headers */,
@@ -1096,16 +1174,19 @@
 				AB512BB320D062510078F747 /* System_IAsyncResult.h in Headers */,
 				AB512B5220D062510078F747 /* System_Double.h in Headers */,
 				AB512B1820D062510078F747 /* System_ICloneable.h in Headers */,
+				AB24602F20F4FBD800D1C09E /* System_Int16+mscorlib.h in Headers */,
 				AB512B8220D062510078F747 /* System_Collections_Generic_DictionaryA2__KeyCollection.h in Headers */,
 				AB512B5E20D062510078F747 /* System_TimeZoneInfo__TransitionTime.h in Headers */,
 				AB512B5420D062510078F747 /* System_Int32.h in Headers */,
 				AB512BAE20D062510078F747 /* System_Collections_IList_Protocol.h in Headers */,
+				AB24601720F4F94100D1C09E /* System_Double+mscorlib.h in Headers */,
 				AB512B4720D062510078F747 /* System_Collections_IEnumerator_Protocol.h in Headers */,
 				AB512B7A20D062510078F747 /* System_UInt32.h in Headers */,
 				AB512B5720D062510078F747 /* System_Collections_Generic_IEnumerableA1.h in Headers */,
 				AB512BCF20D062510078F747 /* System_DBNull.h in Headers */,
 				AB512B5B20D062510078F747 /* System_IO_Stream.h in Headers */,
 				AB512B2320D062510078F747 /* System_Threading_CancellationToken.h in Headers */,
+				AB24600B20F4F82100D1C09E /* System_SByte+mscorlib.h in Headers */,
 				AB512BA220D062510078F747 /* System_AppDomain.h in Headers */,
 				AB512BCA20D062510078F747 /* System_Activator.h in Headers */,
 				AB512B1F20D062510078F747 /* System_Collections_Generic_DictionaryA2__ValueCollection.h in Headers */,
@@ -1121,7 +1202,9 @@
 				AB512B9420D062510078F747 /* System_UIntPtr.h in Headers */,
 				AB512B6D20D062510078F747 /* System_IEquatableA1.h in Headers */,
 				AB512BA320D062510078F747 /* System_TimeZoneInfo__AdjustmentRule.h in Headers */,
+				AB24602720F4FB1000D1C09E /* System_Int64+mscorlib.h in Headers */,
 				AB512B7120D062510078F747 /* System_NullableA1.h in Headers */,
+				AB24603620F4FDD200D1C09E /* System_Single.__Extra__.h in Headers */,
 				AB512BCE20D062510078F747 /* System_Boolean.h in Headers */,
 				AB512BCC20D062510078F747 /* System_IAsyncResult_Protocol.h in Headers */,
 				AB512BB820D062510078F747 /* System_IO_FileInfo.h in Headers */,
@@ -1144,6 +1227,7 @@
 				AB512B7620D062510078F747 /* System_Text_StringBuilder.h in Headers */,
 				AB512BC920D062510078F747 /* System_Collections_Generic_ListA1__Enumerator.h in Headers */,
 				AB512B2920D062510078F747 /* System_Version.h in Headers */,
+				AB24601320F4F8DE00D1C09E /* System_Decimal+mscorlib.h in Headers */,
 				AB512BBF20D062510078F747 /* System_Threading_SendOrPostCallback.h in Headers */,
 				AB512BA020D062510078F747 /* System_Collections_Generic_IComparerA1.h in Headers */,
 				AB512B4E20D062510078F747 /* System_IO_FileAttributes.h in Headers */,
@@ -1156,6 +1240,7 @@
 				AB512BD720D062510078F747 /* System_Collections_ArrayList.h in Headers */,
 				AB512BAA20D062510078F747 /* System_IntPtr.h in Headers */,
 				AB512B5920D062510078F747 /* System_IEquatableA1_Protocol.h in Headers */,
+				AB24600720F4F62D00D1C09E /* System_Byte+mscorlib.h in Headers */,
 				AB512B8620D062510078F747 /* System_Decimal.h in Headers */,
 				AB512B5F20D062510078F747 /* System_SByte.h in Headers */,
 				AB512B8C20D062510078F747 /* System_Threading_Tasks_TaskA1.h in Headers */,
@@ -1171,6 +1256,7 @@
 				ABD682C51E69E9DF00D11963 /* System_NullableA1+mscorlib.h in Headers */,
 				AB3884B7204B837A00F35C45 /* System_Double.__Extra__.h in Headers */,
 				AB57FDE91C96DC94003D00E8 /* DBNullableInt32Transformer.h in Headers */,
+				AB24602B20F4FB3C00D1C09E /* System_UInt64+mscorlib.h in Headers */,
 				ABB7B6C01EA8D75E0032A7D4 /* System_Collections_Generic_KeyValuePairA2+mscorlib.h in Headers */,
 				ABF9707E1D7369D400B836A0 /* System_Delegate+mscorlib.h in Headers */,
 				ABCAE54A1AA893C90006453A /* System_Collections_Generic_IEnumerableA1+mscorlib.h in Headers */,
@@ -1192,7 +1278,9 @@
 				ABB8A41818FF113800213B80 /* System_Object+mscorlib.h in Headers */,
 				ABB8A42C18FF15B300213B80 /* System_Collections_IList+mscorlib.h in Headers */,
 				ABA4F3E32002BEBF00D6597A /* System_Object.h in Headers */,
+				AB24603320F4FC0E00D1C09E /* System_UInt16+mscorlib.h in Headers */,
 				ABB8A42618FF15B300213B80 /* System_Collections_ArrayList+mscorlib.h in Headers */,
+				AB24601B20F4F97500D1C09E /* System_Single+mscorlib.h in Headers */,
 				ABB8A42A18FF15B300213B80 /* System_Collections_Generic_ListA1+mscorlib.h in Headers */,
 				ABB8A3E218FF0FE800213B80 /* NSArray+mscorlib.h in Headers */,
 				ABB8A39A18FF09F900213B80 /* System_Enum+mscorlib.h in Headers */,
@@ -1342,6 +1430,7 @@
 				AB512BE920D0730E0078F747 /* System_Reflection_MemberInfo.m in Sources */,
 				AB512B6420D062510078F747 /* System_Collections_Generic_ListA1__Enumerator.m in Sources */,
 				ABB8A39918FF09F900213B80 /* System_Convert+mscorlib.m in Sources */,
+				AB24603420F4FC0E00D1C09E /* System_UInt16+mscorlib.m in Sources */,
 				AB512B2020D062510078F747 /* System_DateTimeKind.m in Sources */,
 				AB512BE120D062520078F747 /* System_Int64.m in Sources */,
 				AB512BD420D062510078F747 /* System_NullableA1.m in Sources */,
@@ -1350,21 +1439,27 @@
 				AB512BC320D062510078F747 /* System_AsyncCallback.m in Sources */,
 				AB512BCB20D062510078F747 /* System_Text_StringBuilder.m in Sources */,
 				AB512B2E20D062510078F747 /* System_Collections_Generic_DictionaryA2__ValueCollection.m in Sources */,
+				AB24603020F4FBD800D1C09E /* System_Int16+mscorlib.m in Sources */,
 				AB512B6320D062510078F747 /* System_Collections_IEnumerator.m in Sources */,
 				AB512BB520D062510078F747 /* System_Collections_Generic_DictionaryA2.m in Sources */,
 				AB512BAD20D062510078F747 /* System_Collections_Generic_ICollectionA1.m in Sources */,
 				ABB8A38118FF092400213B80 /* System_IO_FileInfo+mscorlib.m in Sources */,
 				AB512BA920D062510078F747 /* System_DateTime.m in Sources */,
+				AB24601C20F4F97500D1C09E /* System_Single+mscorlib.m in Sources */,
 				AB512B9520D062510078F747 /* System_UnhandledExceptionEventHandler.m in Sources */,
+				AB24602820F4FB1000D1C09E /* System_Int64+mscorlib.m in Sources */,
 				AB41D60720D1BA9F009B8274 /* System_Collections_ObjectModel_CollectionA1.m in Sources */,
 				AB512B3D20D062510078F747 /* System_Globalization_CultureInfo.m in Sources */,
 				AB512BDD20D062520078F747 /* System_Runtime_Serialization_ISerializable.m in Sources */,
 				AB512B6920D062510078F747 /* System_FuncA1.m in Sources */,
+				AB24600820F4F62D00D1C09E /* System_Byte+mscorlib.m in Sources */,
 				AB512BC120D062510078F747 /* System_IEquatableA1.m in Sources */,
 				AB512BC620D062510078F747 /* System_Reflection_MemberFilter.m in Sources */,
+				AB24600C20F4F82100D1C09E /* System_SByte+mscorlib.m in Sources */,
 				AB512B6120D062510078F747 /* System_IO_StringReader.m in Sources */,
 				AB512B8820D062510078F747 /* System_Single.m in Sources */,
 				AB512BAC20D062510078F747 /* System_EventArgs.m in Sources */,
+				AB24601420F4F8DE00D1C09E /* System_Decimal+mscorlib.m in Sources */,
 				AB512B2720D062510078F747 /* System_TimeZoneInfo.m in Sources */,
 				AB5F417E1CE280FB00026E36 /* DBGenericTypeHelper.m in Sources */,
 				ABD682C61E69E9DF00D11963 /* System_NullableA1+mscorlib.m in Sources */,
@@ -1379,6 +1474,7 @@
 				AB512B6020D062510078F747 /* System_Action.m in Sources */,
 				AB2654871E265E7800422E35 /* Mono_Mscorlib_Assembly.m in Sources */,
 				AB512B1D20D062510078F747 /* System_Collections_Generic_DictionaryA2__Enumerator.m in Sources */,
+				AB24602020F4FA1D00D1C09E /* System_Int32+mscorlib.m in Sources */,
 				AB512B6C20D062510078F747 /* System_IDisposable.m in Sources */,
 				AB512B3220D062510078F747 /* System_Collections_IList.m in Sources */,
 				ABB9F2431DC8D4D300A95896 /* NSDate+mscorlib.m in Sources */,
@@ -1401,6 +1497,7 @@
 				AB512B4420D062510078F747 /* System_IO_TextReader.m in Sources */,
 				AB512B8120D062510078F747 /* System_FuncA2.m in Sources */,
 				AB512B3920D062510078F747 /* System_UnhandledExceptionEventArgs.m in Sources */,
+				AB24602420F4FAB400D1C09E /* System_UInt32+mscorlib.m in Sources */,
 				AB512B4820D062510078F747 /* System_Delegate.m in Sources */,
 				AB512B2C20D062510078F747 /* System_Threading_SynchronizationContext.m in Sources */,
 				AB512B1420D062510078F747 /* System_StringComparison.m in Sources */,
@@ -1413,6 +1510,7 @@
 				AB512BDB20D062510078F747 /* System_Collections_Generic_DictionaryA2__ValueCollection__Enumerator.m in Sources */,
 				AB512B9F20D062510078F747 /* System_Version.m in Sources */,
 				AB342C1020E67A0700CA1659 /* System_Boolean+mscorlib.m in Sources */,
+				AB24601020F4F86C00D1C09E /* System_Char+mscorlib.m in Sources */,
 				AB512BB720D062510078F747 /* System_Attribute.m in Sources */,
 				AB512BBE20D062510078F747 /* System_Activator.m in Sources */,
 				AB512B1920D062510078F747 /* System_Reflection_ConstructorInfo.m in Sources */,
@@ -1436,6 +1534,7 @@
 				AB512B6520D062510078F747 /* System_Collections_Generic_DictionaryA2__KeyCollection.m in Sources */,
 				AB512B3820D062510078F747 /* System_Enum.m in Sources */,
 				AB512B3420D062510078F747 /* System_Collections_IEnumerable.m in Sources */,
+				AB24601820F4F94100D1C09E /* System_Double+mscorlib.m in Sources */,
 				AB512BA720D062510078F747 /* System_Convert.m in Sources */,
 				AB512BB420D062510078F747 /* System_Boolean.m in Sources */,
 				AB512B5320D062510078F747 /* System_Reflection_MethodInfo.m in Sources */,
@@ -1446,6 +1545,7 @@
 				AB512B6720D062510078F747 /* System_Guid.m in Sources */,
 				AB57FDEA1C96DC94003D00E8 /* DBNullableInt32Transformer.m in Sources */,
 				ABB8A39718FF09F900213B80 /* System_Array+mscorlib.m in Sources */,
+				AB24602C20F4FB3C00D1C09E /* System_UInt64+mscorlib.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
