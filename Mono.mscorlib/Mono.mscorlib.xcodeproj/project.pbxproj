@@ -238,6 +238,10 @@
 		AB57FDEA1C96DC94003D00E8 /* DBNullableInt32Transformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB57FDE81C96DC94003D00E8 /* DBNullableInt32Transformer.m */; };
 		AB5F417D1CE280FB00026E36 /* DBGenericTypeHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5F417B1CE280FB00026E36 /* DBGenericTypeHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB5F417E1CE280FB00026E36 /* DBGenericTypeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5F417C1CE280FB00026E36 /* DBGenericTypeHelper.m */; };
+		AB6752C420F40CC20040CAEF /* System_ValueType_ObjectArg__.h in Headers */ = {isa = PBXBuildFile; fileRef = AB6752C220F40CC20040CAEF /* System_ValueType_ObjectArg__.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6752C520F40CC20040CAEF /* System_ValueType_ObjectArg__.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6752C320F40CC20040CAEF /* System_ValueType_ObjectArg__.m */; };
+		AB6752C820F40F840040CAEF /* System_ValueType+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = AB6752C620F40F840040CAEF /* System_ValueType+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6752C920F40F840040CAEF /* System_ValueType+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6752C720F40F840040CAEF /* System_ValueType+mscorlib.m */; };
 		AB92F2DE1AA4F0E700BA9B9E /* DBNullableBoolTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = AB92F2DC1AA4F0E700BA9B9E /* DBNullableBoolTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB92F2DF1AA4F0E700BA9B9E /* DBNullableBoolTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB92F2DD1AA4F0E700BA9B9E /* DBNullableBoolTransformer.m */; };
 		AB950DE8192AA6720035ABC6 /* DBNullableDateTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = AB950DE6192AA6720035ABC6 /* DBNullableDateTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -536,6 +540,10 @@
 		AB57FDE81C96DC94003D00E8 /* DBNullableInt32Transformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableInt32Transformer.m; sourceTree = "<group>"; };
 		AB5F417B1CE280FB00026E36 /* DBGenericTypeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBGenericTypeHelper.h; path = "Helper classes/DBGenericTypeHelper.h"; sourceTree = "<group>"; };
 		AB5F417C1CE280FB00026E36 /* DBGenericTypeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBGenericTypeHelper.m; path = "Helper classes/DBGenericTypeHelper.m"; sourceTree = "<group>"; };
+		AB6752C220F40CC20040CAEF /* System_ValueType_ObjectArg__.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = System_ValueType_ObjectArg__.h; sourceTree = "<group>"; };
+		AB6752C320F40CC20040CAEF /* System_ValueType_ObjectArg__.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = System_ValueType_ObjectArg__.m; sourceTree = "<group>"; };
+		AB6752C620F40F840040CAEF /* System_ValueType+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "System_ValueType+mscorlib.h"; sourceTree = "<group>"; };
+		AB6752C720F40F840040CAEF /* System_ValueType+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "System_ValueType+mscorlib.m"; sourceTree = "<group>"; };
 		AB92F2DC1AA4F0E700BA9B9E /* DBNullableBoolTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableBoolTransformer.h; sourceTree = "<group>"; };
 		AB92F2DD1AA4F0E700BA9B9E /* DBNullableBoolTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableBoolTransformer.m; sourceTree = "<group>"; };
 		AB950DE6192AA6720035ABC6 /* DBNullableDateTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableDateTransformer.h; sourceTree = "<group>"; };
@@ -972,6 +980,8 @@
 			children = (
 				ABB8A3F918FF110000213B80 /* System_Object.h */,
 				ABB8A3FA18FF110000213B80 /* System_Object.m */,
+				AB6752C220F40CC20040CAEF /* System_ValueType_ObjectArg__.h */,
+				AB6752C320F40CC20040CAEF /* System_ValueType_ObjectArg__.m */,
 			);
 			path = "Manual bindings";
 			sourceTree = "<group>";
@@ -1011,6 +1021,8 @@
 				AB342C0E20E67A0700CA1659 /* System_Boolean+mscorlib.m */,
 				ABE7D80E20C0063400BDDA24 /* System_Type+mscorlib.h */,
 				ABE7D80F20C0063400BDDA24 /* System_Type+mscorlib.m */,
+				AB6752C620F40F840040CAEF /* System_ValueType+mscorlib.h */,
+				AB6752C720F40F840040CAEF /* System_ValueType+mscorlib.m */,
 			);
 			name = "Categories - Managed";
 			path = Categories;
@@ -1041,6 +1053,7 @@
 				AB512BE420D070860078F747 /* System_FuncA3.h in Headers */,
 				AB512B4B20D062510078F747 /* System_UInt16.h in Headers */,
 				AB41D60620D1BA9F009B8274 /* System_Collections_ObjectModel_CollectionA1.h in Headers */,
+				AB6752C420F40CC20040CAEF /* System_ValueType_ObjectArg__.h in Headers */,
 				AB512BA820D062510078F747 /* System_Collections_Generic_IEnumeratorA1.h in Headers */,
 				AB512B9620D062510078F747 /* System_Collections_IList.h in Headers */,
 				AB512B7720D062510078F747 /* System_Text_Encoding.h in Headers */,
@@ -1074,6 +1087,7 @@
 				AB342C0F20E67A0700CA1659 /* System_Boolean+mscorlib.h in Headers */,
 				AB512B4620D062510078F747 /* System_Collections_Generic_ICollectionA1_Protocol.h in Headers */,
 				AB512B1220D062510078F747 /* System_Globalization_CultureInfo.h in Headers */,
+				AB6752C820F40F840040CAEF /* System_ValueType+mscorlib.h in Headers */,
 				AB512B1C20D062510078F747 /* System_ICloneable_Protocol.h in Headers */,
 				AB512BDC20D062510078F747 /* System_Collections_IEnumerable.h in Headers */,
 				AB512B2F20D062510078F747 /* System_Action.h in Headers */,
@@ -1369,8 +1383,10 @@
 				AB512B3220D062510078F747 /* System_Collections_IList.m in Sources */,
 				ABB9F2431DC8D4D300A95896 /* NSDate+mscorlib.m in Sources */,
 				AB512B8B20D062510078F747 /* System_Collections_Generic_IComparerA1.m in Sources */,
+				AB6752C920F40F840040CAEF /* System_ValueType+mscorlib.m in Sources */,
 				AB512BB220D062510078F747 /* System_ActionA2.m in Sources */,
 				AB512B2520D062510078F747 /* System_Collections_Generic_KeyValuePairA2.m in Sources */,
+				AB6752C520F40CC20040CAEF /* System_ValueType_ObjectArg__.m in Sources */,
 				ABE7D81120C0063400BDDA24 /* System_Type+mscorlib.m in Sources */,
 				AB512BC720D062510078F747 /* System_UInt32.m in Sources */,
 				AB512BBD20D062510078F747 /* System_Runtime_InteropServices__Exception.m in Sources */,

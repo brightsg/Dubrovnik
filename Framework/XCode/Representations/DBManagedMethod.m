@@ -58,4 +58,36 @@
 {
     return (MonoArray *)[(id)self.typeParameters monoObject];
 }
+
+/*
+
+ In future we may want to query the method signature types.
+ This could be achieved via the managed MethodInfo or the native mono_method_signature() see below:
+ 
+ Ideally we would :
+ 
+ 1. query the method for its signature:
+ 2. unbox or not value types depending on the parameter type.
+ 3. the above needs to take account of generic methods too.
+ 
+MonoType *DBMonoMethodSignatureParams(MonoMethod *meth, uint32_t *paramCount)
+{
+    void *paramTypes = NULL;
+    
+    MonoMethodSignature *signature = mono_method_signature(meth);
+    *paramCount = mono_signature_get_param_count(signature);
+    if (*paramCount > 0) {
+        paramTypes = malloc(sizeof(void *) * *paramCount);
+        void *iter = NULL;
+        MonoType *methArgType = NULL;
+        int paramIdx = -1;
+        while (YES) {
+            methArgType = mono_signature_get_params(signature, &iter);
+            if (methArgType == NULL) break;
+        }
+    }
+    return paramTypes;
+}
+*/
+
 @end

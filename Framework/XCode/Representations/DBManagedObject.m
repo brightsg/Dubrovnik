@@ -30,6 +30,7 @@
 // static
 static NSMutableArray *m_boundKeys;
 static NSMutableDictionary<NSString *, DBManagedObject *> *m_systemTypes;
+static Class m_objectArgClass;
 
 //#define DB_TRACE_KVO
 //#define DB_TRACE_MONO_OBJECT_ADDRESS
@@ -99,6 +100,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 + (void)initialize
 {
     // be considerate here as we can can cause issues with the managed runtime
+    m_objectArgClass = NSClassFromString(@"System_ValueType_ObjectArg__");
 }
 
 + (BOOL)automaticallyNotifiesObserversForKey:(NSString *)key
@@ -857,7 +859,11 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     // but in such cases the obj-C class must override this method as appropriate.
     MonoClass *klass = mono_object_get_class(monoObject);
     if (mono_class_is_valuetype(klass)) {
-        return mono_object_unbox(monoObject);
+        
+        // do not unbox value types whose wrapper indictaes that it is to be passed as an object
+        if (![self isKindOfClass:m_objectArgClass]) {
+            return mono_object_unbox(monoObject);
+        }
     }
     return monoObject;
 }

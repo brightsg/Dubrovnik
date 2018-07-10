@@ -557,25 +557,32 @@ MonoObject *DBMonoClassInvoke(MonoClass *monoClass, const char *methodName, int 
 	return(retval);	
 }
 
-MonoObject *DBMonoObjectInvoke(MonoObject *monoObject, const char *methodName, int numArgs, va_list va_args) {
-	MonoObject *monoException = NULL;
-	MonoObject *retval = NULL;
-	MonoClass *klass = mono_object_get_class(monoObject);
+MonoObject *DBMonoObjectInvoke(MonoObject *monoObject, const char *methodName, int numArgs, va_list va_args)
+{
+    // get the runtime method
 	MonoMethod *meth = GetMonoObjectMethod(monoObject, methodName, YES);
-
-	if(meth != NULL) {
-		void *invokeObj = mono_class_is_valuetype(klass) ? mono_object_unbox(monoObject) : monoObject;
-		void *monoArgs[numArgs];
-		DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);
-		
-		retval = mono_runtime_invoke(meth, invokeObj, monoArgs, &monoException);
-	}
+    if (!meth) {
+        [NSException raise:@"DBMethodNotFoundException" format:@"Managed object method not found: %s", methodName];
+    }
+    
+    // build the argument list
+    void *monoArgs[numArgs];
+    DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);
+    
+    // if invoking method on a reference type object then unbox it
+    MonoClass *klass = mono_object_get_class(monoObject);
+    void *invokeObj = mono_class_is_valuetype(klass) ? mono_object_unbox(monoObject) : monoObject;
+    
+    // invoke the method
+    MonoObject *monoException = NULL;
+    MonoObject *retval = mono_runtime_invoke(meth, invokeObj, monoArgs, &monoException);
 	
+    // handle managed exception
     if (monoException != NULL) {
         @throw(NSExceptionFromMonoException(monoException, @{@"DBObjectInvokeException" : @(methodName)}));
     }
     
-	return(retval);	
+	return retval;
 }
 
 void *DBMonoObjectValue(MonoObject *monoObject)

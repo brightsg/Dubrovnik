@@ -955,6 +955,17 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         genericResult = [refObject genericMethod0_withTypeParameter:[System_String db_getType]];
         NSAssert([genericResult isKindOfClass:[NSString class]], DBUEqualityTestFailed);
 
+        // Method<object>(object)
+        // we define the generic method as <object>genericMethod1(<object>) and pass in a value type.
+        // this is a crucial test when it comes to determing how value type arguments are passed in to the managed runtime
+        // as the value type must remain boxed in this scenario.
+        // At present the API unboxes all value types.
+        // To override this behaviour when passing a boxed value type as System_Object we use the wrapper provided by
+        // System_Value objectArg
+        System_Boolean *boolObj = [System_Boolean objectWithBool:YES];
+        genericResult = [refObject genericMethod1_withValue:boolObj.objectArg typeParameter:[System_Object class]];
+        NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult boolValue] == YES, DBUEqualityTestFailed);
+        
         // Method<string>(string)
         genericResult = [refObject genericMethod1_withValue:[DBUTestString managedObject] typeParameter:[System_String class]];
         NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:DBUTestString], DBUEqualityTestFailed);
@@ -970,6 +981,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:DBUTestString], DBUEqualityTestFailed);
         
         // Method<int>(int)
+        // value types will have to be unboxed for this invocation
         DBNumber *number = [DBNumber numberWithInt:101];
         genericResult = [refObject genericMethod1_withValue:number.managedObject typeParameter:[System_Int32 class]]; // explicit type parameter class
         NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult integerValue] == 101, DBUEqualityTestFailed);
@@ -2073,15 +2085,15 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         
         [self doTestGenericConstructors:testClass];
 
-        
         // boxing and unboxing
-        System_Object *boxed = [System_Boolean objectWithBool:YES];
-        // TODO:System_Convert method failing
-        //XCTAssertTrue([System_Convert toBoolean_withValueObject:boxed] == YES, DBUEqualityTestFailed);
-
+        // note that when passing boxed value types to a System_Object parameter
+        // we need to use the wrapper provided by System_ValueType -objectArg in order to prevent auto unboxing of the value type.
+        // TODO: refactor the method calling API to query the method signature so that auto unboxing of value types
+        // only occurs when appropriate.
+        System_Boolean *boxed = [System_Boolean objectWithBool:YES];
+        XCTAssertTrue([System_Convert toBoolean_withValueObject:boxed.objectArg] == YES, DBUEqualityTestFailed);
         boxed = [System_Boolean objectWithBool:NO];
-        //XCTAssertTrue([System_Convert toBoolean_withValueObject:boxed] == NO, DBUEqualityTestFailed);
-        
+        XCTAssertTrue([System_Convert toBoolean_withValueObject:boxed.objectArg] == NO, DBUEqualityTestFailed);
         
         //===================================
         // events
