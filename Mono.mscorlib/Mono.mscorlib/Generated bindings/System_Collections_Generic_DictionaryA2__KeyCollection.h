@@ -1,6 +1,6 @@
 ﻿//++Dubrovnik.CodeGenerator System_Collections_Generic_DictionaryA2__KeyCollection.h
 //
-// Managed class : Dictionary`2<TKey,TValue>.KeyCollection
+// Managed class : Dictionary`2<TKey, TValue>.KeyCollection
 //
 //
 // Frameworks
@@ -52,8 +52,8 @@
 
 	/*! 
 		Managed method name : .ctor
-		Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+KeyCollection+TKey,System.Collections.Generic.Dictionary`2+KeyCollection+TValue>+KeyCollection
-		Managed param types : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+KeyCollection+TKey,System.Collections.Generic.Dictionary`2+KeyCollection+TValue>
+		Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+KeyCollection+TKey, System.Collections.Generic.Dictionary`2+KeyCollection+TValue>+KeyCollection
+		Managed param types : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+KeyCollection+TKey, System.Collections.Generic.Dictionary`2+KeyCollection+TValue>
 	 */
     + (System_Collections_Generic_DictionaryA2__KeyCollection *)new_withDictionary:(System_Collections_Generic_DictionaryA2 *)p1;
 
@@ -76,7 +76,7 @@
 
 	/*! 
 		Managed method name : GetEnumerator
-		Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+KeyCollection+TKey,System.Collections.Generic.Dictionary`2+KeyCollection+TValue>+KeyCollection+Enumerator
+		Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+KeyCollection+TKey, System.Collections.Generic.Dictionary`2+KeyCollection+TValue>+KeyCollection+Enumerator
 		Managed param types : 
 	 */
     - (System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator *)getEnumerator;

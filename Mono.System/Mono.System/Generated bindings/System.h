@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     15/06/2018 15:53:18
+// Date:     12/07/2018 22:16:31
 //
 // Assembly: System
 // Fullname: System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -202,13 +202,13 @@
 /* Skipped type : System.Collections.Generic.LinkedListNode`1<System.Collections.Generic.LinkedListNode`1+T> LinkedListNode`1<T> */
 /* Skipped type : System.Collections.Generic.Queue`1<System.Collections.Generic.Queue`1+Enumerator+T>+Enumerator Queue`1<T>.Enumerator */
 /* Skipped type : System.Collections.Generic.Queue`1<System.Collections.Generic.Queue`1+T> Queue`1<T> */
-/* Skipped type : System.Collections.Generic.SortedDictionary`2<System.Collections.Generic.SortedDictionary`2+Enumerator+TKey,System.Collections.Generic.SortedDictionary`2+Enumerator+TValue>+Enumerator SortedDictionary`2<TKey,TValue>.Enumerator */
-/* Skipped type : System.Collections.Generic.SortedDictionary`2<System.Collections.Generic.SortedDictionary`2+KeyCollection+Enumerator+TKey,System.Collections.Generic.SortedDictionary`2+KeyCollection+Enumerator+TValue>+KeyCollection+Enumerator SortedDictionary`2<TKey,TValue>.KeyCollection.Enumerator */
-/* Skipped type : System.Collections.Generic.SortedDictionary`2<System.Collections.Generic.SortedDictionary`2+KeyCollection+TKey,System.Collections.Generic.SortedDictionary`2+KeyCollection+TValue>+KeyCollection SortedDictionary`2<TKey,TValue>.KeyCollection */
-/* Skipped type : System.Collections.Generic.SortedDictionary`2<System.Collections.Generic.SortedDictionary`2+TKey,System.Collections.Generic.SortedDictionary`2+TValue> SortedDictionary`2<TKey,TValue> */
-/* Skipped type : System.Collections.Generic.SortedDictionary`2<System.Collections.Generic.SortedDictionary`2+ValueCollection+Enumerator+TKey,System.Collections.Generic.SortedDictionary`2+ValueCollection+Enumerator+TValue>+ValueCollection+Enumerator SortedDictionary`2<TKey,TValue>.ValueCollection.Enumerator */
-/* Skipped type : System.Collections.Generic.SortedDictionary`2<System.Collections.Generic.SortedDictionary`2+ValueCollection+TKey,System.Collections.Generic.SortedDictionary`2+ValueCollection+TValue>+ValueCollection SortedDictionary`2<TKey,TValue>.ValueCollection */
-/* Skipped type : System.Collections.Generic.SortedList`2<System.Collections.Generic.SortedList`2+TKey,System.Collections.Generic.SortedList`2+TValue> SortedList`2<TKey,TValue> */
+/* Skipped type : System.Collections.Generic.SortedDictionary`2<System.Collections.Generic.SortedDictionary`2+Enumerator+TKey, System.Collections.Generic.SortedDictionary`2+Enumerator+TValue>+Enumerator SortedDictionary`2<TKey, TValue>.Enumerator */
+/* Skipped type : System.Collections.Generic.SortedDictionary`2<System.Collections.Generic.SortedDictionary`2+KeyCollection+Enumerator+TKey, System.Collections.Generic.SortedDictionary`2+KeyCollection+Enumerator+TValue>+KeyCollection+Enumerator SortedDictionary`2<TKey, TValue>.KeyCollection.Enumerator */
+/* Skipped type : System.Collections.Generic.SortedDictionary`2<System.Collections.Generic.SortedDictionary`2+KeyCollection+TKey, System.Collections.Generic.SortedDictionary`2+KeyCollection+TValue>+KeyCollection SortedDictionary`2<TKey, TValue>.KeyCollection */
+/* Skipped type : System.Collections.Generic.SortedDictionary`2<System.Collections.Generic.SortedDictionary`2+TKey, System.Collections.Generic.SortedDictionary`2+TValue> SortedDictionary`2<TKey, TValue> */
+/* Skipped type : System.Collections.Generic.SortedDictionary`2<System.Collections.Generic.SortedDictionary`2+ValueCollection+Enumerator+TKey, System.Collections.Generic.SortedDictionary`2+ValueCollection+Enumerator+TValue>+ValueCollection+Enumerator SortedDictionary`2<TKey, TValue>.ValueCollection.Enumerator */
+/* Skipped type : System.Collections.Generic.SortedDictionary`2<System.Collections.Generic.SortedDictionary`2+ValueCollection+TKey, System.Collections.Generic.SortedDictionary`2+ValueCollection+TValue>+ValueCollection SortedDictionary`2<TKey, TValue>.ValueCollection */
+/* Skipped type : System.Collections.Generic.SortedList`2<System.Collections.Generic.SortedList`2+TKey, System.Collections.Generic.SortedList`2+TValue> SortedList`2<TKey, TValue> */
 /* Skipped type : System.Collections.Generic.SortedSet`1<System.Collections.Generic.SortedSet`1+Enumerator+T>+Enumerator SortedSet`1<T>.Enumerator */
 /* Skipped type : System.Collections.Generic.SortedSet`1<System.Collections.Generic.SortedSet`1+T> SortedSet`1<T> */
 /* Skipped type : System.Collections.Generic.Stack`1<System.Collections.Generic.Stack`1+Enumerator+T>+Enumerator Stack`1<T>.Enumerator */

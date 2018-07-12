@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     15/06/2018 15:53:24
+// Date:     12/07/2018 22:16:37
 //
 // Assembly: System.Core
 // Fullname: System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -240,15 +240,15 @@
 /* Skipped type : System.Linq.Expressions.TryExpression TryExpression */
 /* Skipped type : System.Linq.Expressions.TypeBinaryExpression TypeBinaryExpression */
 /* Skipped type : System.Linq.Expressions.UnaryExpression UnaryExpression */
-/* Skipped type : System.Linq.IGrouping`2<System.Linq.IGrouping`2+TKey,System.Linq.IGrouping`2+TElement> IGrouping`2<TKey,TElement> */
-/* Skipped type : System.Linq.ILookup`2<System.Linq.ILookup`2+TKey,System.Linq.ILookup`2+TElement> ILookup`2<TKey,TElement> */
+/* Skipped type : System.Linq.IGrouping`2<System.Linq.IGrouping`2+TKey, System.Linq.IGrouping`2+TElement> IGrouping`2<TKey, TElement> */
+/* Skipped type : System.Linq.ILookup`2<System.Linq.ILookup`2+TKey, System.Linq.ILookup`2+TElement> ILookup`2<TKey, TElement> */
 #define SLIOrderedEnumerableA1_ System_Linq_IOrderedEnumerableA1
 #define SLIOrderedQueryable_ System_Linq_IOrderedQueryable
 #define SLIOrderedQueryableA1_ System_Linq_IOrderedQueryableA1
 #define SLIQueryable_ System_Linq_IQueryable
 #define SLIQueryableA1_ System_Linq_IQueryableA1
 #define SLIQueryProvider_ System_Linq_IQueryProvider
-/* Skipped type : System.Linq.Lookup`2<System.Linq.Lookup`2+TKey,System.Linq.Lookup`2+TElement> Lookup`2<TKey,TElement> */
+/* Skipped type : System.Linq.Lookup`2<System.Linq.Lookup`2+TKey, System.Linq.Lookup`2+TElement> Lookup`2<TKey, TElement> */
 /* Skipped type : System.Linq.OrderedParallelQuery`1<System.Linq.OrderedParallelQuery`1+TSource> OrderedParallelQuery`1<TSource> */
 /* Skipped type : System.Linq.ParallelEnumerable ParallelEnumerable */
 /* Skipped type : System.Linq.ParallelExecutionMode ParallelExecutionMode */

@@ -1,6 +1,6 @@
 ﻿//++Dubrovnik.CodeGenerator System_Collections_Generic_DictionaryA2__ValueCollection__Enumerator.h
 //
-// Managed struct : Dictionary`2<TKey,TValue>.ValueCollection.Enumerator
+// Managed struct : Dictionary`2<TKey, TValue>.ValueCollection.Enumerator
 //
 //
 // Frameworks

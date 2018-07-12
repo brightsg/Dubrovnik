@@ -149,7 +149,7 @@
 		Managed param types : <System.Collections.Generic.List`1+T>
 	 */
     - (BOOL)contains_withItem:(System_Object *)p1;
-/* Skipped method : System.Collections.Generic.List`1<System.Collections.Generic.List`1+TOutput> ConvertAll(System.Converter`2<System.Collections.Generic.List`1+T,System.Collections.Generic.List`1+TOutput> converter) */
+/* Skipped method : System.Collections.Generic.List`1<System.Collections.Generic.List`1+TOutput> ConvertAll(System.Converter`2<System.Collections.Generic.List`1+T, System.Collections.Generic.List`1+TOutput> converter) */
 
 	/*! 
 		Managed method name : CopyTo

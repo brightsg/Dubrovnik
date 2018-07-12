@@ -305,7 +305,7 @@
 		[self invokeMonoClassMethod:"ConstrainedCopy(System.Array,int,System.Array,int,int)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
       
     }
-/* Skipped method : TOutput[] ConvertAll(TInput[] array, System.Converter`2<System.Array+TInput,System.Array+TOutput> converter) */
+/* Skipped method : TOutput[] ConvertAll(TInput[] array, System.Converter`2<System.Array+TInput, System.Array+TOutput> converter) */
 
 	/*! 
 		Managed method name : Copy

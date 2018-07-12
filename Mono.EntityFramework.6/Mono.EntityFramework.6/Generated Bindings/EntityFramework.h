@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     15/06/2018 15:53:39
+// Date:     12/07/2018 22:16:49
 //
 // Assembly: EntityFramework
 // Fullname: EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -410,10 +410,10 @@
 /* Skipped type : System.Data.Entity.Infrastructure.CommitFailureHandler CommitFailureHandler */
 /* Skipped type : System.Data.Entity.Infrastructure.DbChangeTracker DbChangeTracker */
 /* Skipped type : System.Data.Entity.Infrastructure.DbCollectionEntry DbCollectionEntry */
-/* Skipped type : System.Data.Entity.Infrastructure.DbCollectionEntry`2<System.Data.Entity.Infrastructure.DbCollectionEntry`2+TEntity,System.Data.Entity.Infrastructure.DbCollectionEntry`2+TElement> DbCollectionEntry`2<TEntity,TElement> */
+/* Skipped type : System.Data.Entity.Infrastructure.DbCollectionEntry`2<System.Data.Entity.Infrastructure.DbCollectionEntry`2+TEntity, System.Data.Entity.Infrastructure.DbCollectionEntry`2+TElement> DbCollectionEntry`2<TEntity, TElement> */
 /* Skipped type : System.Data.Entity.Infrastructure.DbCompiledModel DbCompiledModel */
 /* Skipped type : System.Data.Entity.Infrastructure.DbComplexPropertyEntry DbComplexPropertyEntry */
-/* Skipped type : System.Data.Entity.Infrastructure.DbComplexPropertyEntry`2<System.Data.Entity.Infrastructure.DbComplexPropertyEntry`2+TEntity,System.Data.Entity.Infrastructure.DbComplexPropertyEntry`2+TComplexProperty> DbComplexPropertyEntry`2<TEntity,TComplexProperty> */
+/* Skipped type : System.Data.Entity.Infrastructure.DbComplexPropertyEntry`2<System.Data.Entity.Infrastructure.DbComplexPropertyEntry`2+TEntity, System.Data.Entity.Infrastructure.DbComplexPropertyEntry`2+TComplexProperty> DbComplexPropertyEntry`2<TEntity, TComplexProperty> */
 /* Skipped type : System.Data.Entity.Infrastructure.DbConnectionInfo DbConnectionInfo */
 /* Skipped type : System.Data.Entity.Infrastructure.DbConnectionStringOrigin DbConnectionStringOrigin */
 /* Skipped type : System.Data.Entity.Infrastructure.DbContextConfiguration DbContextConfiguration */
@@ -422,10 +422,10 @@
 /* Skipped type : System.Data.Entity.Infrastructure.DbEntityEntry`1<System.Data.Entity.Infrastructure.DbEntityEntry`1+TEntity> DbEntityEntry`1<TEntity> */
 /* Skipped type : System.Data.Entity.Infrastructure.DbExecutionStrategy DbExecutionStrategy */
 /* Skipped type : System.Data.Entity.Infrastructure.DbMemberEntry DbMemberEntry */
-/* Skipped type : System.Data.Entity.Infrastructure.DbMemberEntry`2<System.Data.Entity.Infrastructure.DbMemberEntry`2+TEntity,System.Data.Entity.Infrastructure.DbMemberEntry`2+TProperty> DbMemberEntry`2<TEntity,TProperty> */
+/* Skipped type : System.Data.Entity.Infrastructure.DbMemberEntry`2<System.Data.Entity.Infrastructure.DbMemberEntry`2+TEntity, System.Data.Entity.Infrastructure.DbMemberEntry`2+TProperty> DbMemberEntry`2<TEntity, TProperty> */
 /* Skipped type : System.Data.Entity.Infrastructure.DbModel DbModel */
 /* Skipped type : System.Data.Entity.Infrastructure.DbPropertyEntry DbPropertyEntry */
-/* Skipped type : System.Data.Entity.Infrastructure.DbPropertyEntry`2<System.Data.Entity.Infrastructure.DbPropertyEntry`2+TEntity,System.Data.Entity.Infrastructure.DbPropertyEntry`2+TProperty> DbPropertyEntry`2<TEntity,TProperty> */
+/* Skipped type : System.Data.Entity.Infrastructure.DbPropertyEntry`2<System.Data.Entity.Infrastructure.DbPropertyEntry`2+TEntity, System.Data.Entity.Infrastructure.DbPropertyEntry`2+TProperty> DbPropertyEntry`2<TEntity, TProperty> */
 /* Skipped type : System.Data.Entity.Infrastructure.DbPropertyValues DbPropertyValues */
 /* Skipped type : System.Data.Entity.Infrastructure.DbProviderInfo DbProviderInfo */
 /* Skipped type : System.Data.Entity.Infrastructure.DbQuery DbQuery */
@@ -433,7 +433,7 @@
 /* Skipped type : System.Data.Entity.Infrastructure.DbRawSqlQuery DbRawSqlQuery */
 /* Skipped type : System.Data.Entity.Infrastructure.DbRawSqlQuery`1<System.Data.Entity.Infrastructure.DbRawSqlQuery`1+TElement> DbRawSqlQuery`1<TElement> */
 /* Skipped type : System.Data.Entity.Infrastructure.DbReferenceEntry DbReferenceEntry */
-/* Skipped type : System.Data.Entity.Infrastructure.DbReferenceEntry`2<System.Data.Entity.Infrastructure.DbReferenceEntry`2+TEntity,System.Data.Entity.Infrastructure.DbReferenceEntry`2+TProperty> DbReferenceEntry`2<TEntity,TProperty> */
+/* Skipped type : System.Data.Entity.Infrastructure.DbReferenceEntry`2<System.Data.Entity.Infrastructure.DbReferenceEntry`2+TEntity, System.Data.Entity.Infrastructure.DbReferenceEntry`2+TProperty> DbReferenceEntry`2<TEntity, TProperty> */
 /* Skipped type : System.Data.Entity.Infrastructure.DbSqlQuery DbSqlQuery */
 /* Skipped type : System.Data.Entity.Infrastructure.DbSqlQuery`1<System.Data.Entity.Infrastructure.DbSqlQuery`1+TEntity> DbSqlQuery`1<TEntity> */
 /* Skipped type : System.Data.Entity.Infrastructure.DbUpdateConcurrencyException DbUpdateConcurrencyException */
@@ -516,7 +516,7 @@
 /* Skipped type : System.Data.Entity.Infrastructure.TransactionHandler TransactionHandler */
 /* Skipped type : System.Data.Entity.Infrastructure.TransactionRow TransactionRow */
 /* Skipped type : System.Data.Entity.Infrastructure.UnintentionalCodeFirstException UnintentionalCodeFirstException */
-/* Skipped type : System.Data.Entity.MigrateDatabaseToLatestVersion`2<System.Data.Entity.MigrateDatabaseToLatestVersion`2+TContext,System.Data.Entity.MigrateDatabaseToLatestVersion`2+TMigrationsConfiguration> MigrateDatabaseToLatestVersion`2<TContext,TMigrationsConfiguration> */
+/* Skipped type : System.Data.Entity.MigrateDatabaseToLatestVersion`2<System.Data.Entity.MigrateDatabaseToLatestVersion`2+TContext, System.Data.Entity.MigrateDatabaseToLatestVersion`2+TMigrationsConfiguration> MigrateDatabaseToLatestVersion`2<TContext, TMigrationsConfiguration> */
 /* Skipped type : System.Data.Entity.Migrations.Builders.ColumnBuilder ColumnBuilder */
 /* Skipped type : System.Data.Entity.Migrations.Builders.ParameterBuilder ParameterBuilder */
 /* Skipped type : System.Data.Entity.Migrations.Builders.TableBuilder`1<System.Data.Entity.Migrations.Builders.TableBuilder`1+TColumns> TableBuilder`1<TColumns> */
@@ -605,33 +605,33 @@
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.InsertModificationStoredProcedureConfiguration`1<System.Data.Entity.ModelConfiguration.Configuration.InsertModificationStoredProcedureConfiguration`1+TEntityType> InsertModificationStoredProcedureConfiguration`1<TEntityType> */
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.LengthColumnConfiguration LengthColumnConfiguration */
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.LengthPropertyConfiguration LengthPropertyConfiguration */
-/* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ManyNavigationPropertyConfiguration`2<System.Data.Entity.ModelConfiguration.Configuration.ManyNavigationPropertyConfiguration`2+TEntityType,System.Data.Entity.ModelConfiguration.Configuration.ManyNavigationPropertyConfiguration`2+TTargetEntityType> ManyNavigationPropertyConfiguration`2<TEntityType,TTargetEntityType> */
+/* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ManyNavigationPropertyConfiguration`2<System.Data.Entity.ModelConfiguration.Configuration.ManyNavigationPropertyConfiguration`2+TEntityType, System.Data.Entity.ModelConfiguration.Configuration.ManyNavigationPropertyConfiguration`2+TTargetEntityType> ManyNavigationPropertyConfiguration`2<TEntityType, TTargetEntityType> */
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ManyToManyAssociationMappingConfiguration ManyToManyAssociationMappingConfiguration */
-/* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ManyToManyModificationStoredProcedureConfiguration`2<System.Data.Entity.ModelConfiguration.Configuration.ManyToManyModificationStoredProcedureConfiguration`2+TEntityType,System.Data.Entity.ModelConfiguration.Configuration.ManyToManyModificationStoredProcedureConfiguration`2+TTargetEntityType> ManyToManyModificationStoredProcedureConfiguration`2<TEntityType,TTargetEntityType> */
-/* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ManyToManyModificationStoredProceduresConfiguration`2<System.Data.Entity.ModelConfiguration.Configuration.ManyToManyModificationStoredProceduresConfiguration`2+TEntityType,System.Data.Entity.ModelConfiguration.Configuration.ManyToManyModificationStoredProceduresConfiguration`2+TTargetEntityType> ManyToManyModificationStoredProceduresConfiguration`2<TEntityType,TTargetEntityType> */
-/* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ManyToManyNavigationPropertyConfiguration`2<System.Data.Entity.ModelConfiguration.Configuration.ManyToManyNavigationPropertyConfiguration`2+TEntityType,System.Data.Entity.ModelConfiguration.Configuration.ManyToManyNavigationPropertyConfiguration`2+TTargetEntityType> ManyToManyNavigationPropertyConfiguration`2<TEntityType,TTargetEntityType> */
+/* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ManyToManyModificationStoredProcedureConfiguration`2<System.Data.Entity.ModelConfiguration.Configuration.ManyToManyModificationStoredProcedureConfiguration`2+TEntityType, System.Data.Entity.ModelConfiguration.Configuration.ManyToManyModificationStoredProcedureConfiguration`2+TTargetEntityType> ManyToManyModificationStoredProcedureConfiguration`2<TEntityType, TTargetEntityType> */
+/* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ManyToManyModificationStoredProceduresConfiguration`2<System.Data.Entity.ModelConfiguration.Configuration.ManyToManyModificationStoredProceduresConfiguration`2+TEntityType, System.Data.Entity.ModelConfiguration.Configuration.ManyToManyModificationStoredProceduresConfiguration`2+TTargetEntityType> ManyToManyModificationStoredProceduresConfiguration`2<TEntityType, TTargetEntityType> */
+/* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ManyToManyNavigationPropertyConfiguration`2<System.Data.Entity.ModelConfiguration.Configuration.ManyToManyNavigationPropertyConfiguration`2+TEntityType, System.Data.Entity.ModelConfiguration.Configuration.ManyToManyNavigationPropertyConfiguration`2+TTargetEntityType> ManyToManyNavigationPropertyConfiguration`2<TEntityType, TTargetEntityType> */
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ModificationStoredProcedureConfigurationBase ModificationStoredProcedureConfigurationBase */
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ModificationStoredProceduresConfiguration`1<System.Data.Entity.ModelConfiguration.Configuration.ModificationStoredProceduresConfiguration`1+TEntityType> ModificationStoredProceduresConfiguration`1<TEntityType> */
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.NotNullConditionConfiguration NotNullConditionConfiguration */
-/* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.OptionalNavigationPropertyConfiguration`2<System.Data.Entity.ModelConfiguration.Configuration.OptionalNavigationPropertyConfiguration`2+TEntityType,System.Data.Entity.ModelConfiguration.Configuration.OptionalNavigationPropertyConfiguration`2+TTargetEntityType> OptionalNavigationPropertyConfiguration`2<TEntityType,TTargetEntityType> */
+/* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.OptionalNavigationPropertyConfiguration`2<System.Data.Entity.ModelConfiguration.Configuration.OptionalNavigationPropertyConfiguration`2+TEntityType, System.Data.Entity.ModelConfiguration.Configuration.OptionalNavigationPropertyConfiguration`2+TTargetEntityType> OptionalNavigationPropertyConfiguration`2<TEntityType, TTargetEntityType> */
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.PrimitiveColumnConfiguration PrimitiveColumnConfiguration */
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.PrimitivePropertyConfiguration PrimitivePropertyConfiguration */
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.PropertyConventionConfiguration PropertyConventionConfiguration */
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.PropertyConventionWithHavingConfiguration`1<System.Data.Entity.ModelConfiguration.Configuration.PropertyConventionWithHavingConfiguration`1+T> PropertyConventionWithHavingConfiguration`1<T> */
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.PropertyMappingConfiguration PropertyMappingConfiguration */
-/* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.RequiredNavigationPropertyConfiguration`2<System.Data.Entity.ModelConfiguration.Configuration.RequiredNavigationPropertyConfiguration`2+TEntityType,System.Data.Entity.ModelConfiguration.Configuration.RequiredNavigationPropertyConfiguration`2+TTargetEntityType> RequiredNavigationPropertyConfiguration`2<TEntityType,TTargetEntityType> */
+/* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.RequiredNavigationPropertyConfiguration`2<System.Data.Entity.ModelConfiguration.Configuration.RequiredNavigationPropertyConfiguration`2+TEntityType, System.Data.Entity.ModelConfiguration.Configuration.RequiredNavigationPropertyConfiguration`2+TTargetEntityType> RequiredNavigationPropertyConfiguration`2<TEntityType, TTargetEntityType> */
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.StringColumnConfiguration StringColumnConfiguration */
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.StringPropertyConfiguration StringPropertyConfiguration */
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.StructuralTypeConfiguration`1<System.Data.Entity.ModelConfiguration.Configuration.StructuralTypeConfiguration`1+TStructuralType> StructuralTypeConfiguration`1<TStructuralType> */
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.TypeConventionConfiguration TypeConventionConfiguration */
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.TypeConventionConfiguration`1<System.Data.Entity.ModelConfiguration.Configuration.TypeConventionConfiguration`1+T> TypeConventionConfiguration`1<T> */
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.TypeConventionWithHavingConfiguration`1<System.Data.Entity.ModelConfiguration.Configuration.TypeConventionWithHavingConfiguration`1+T> TypeConventionWithHavingConfiguration`1<T> */
-/* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.TypeConventionWithHavingConfiguration`2<System.Data.Entity.ModelConfiguration.Configuration.TypeConventionWithHavingConfiguration`2+T,System.Data.Entity.ModelConfiguration.Configuration.TypeConventionWithHavingConfiguration`2+TValue> TypeConventionWithHavingConfiguration`2<T,TValue> */
+/* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.TypeConventionWithHavingConfiguration`2<System.Data.Entity.ModelConfiguration.Configuration.TypeConventionWithHavingConfiguration`2+T, System.Data.Entity.ModelConfiguration.Configuration.TypeConventionWithHavingConfiguration`2+TValue> TypeConventionWithHavingConfiguration`2<T, TValue> */
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.UpdateModificationStoredProcedureConfiguration`1<System.Data.Entity.ModelConfiguration.Configuration.UpdateModificationStoredProcedureConfiguration`1+TEntityType> UpdateModificationStoredProcedureConfiguration`1<TEntityType> */
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ValueConditionConfiguration ValueConditionConfiguration */
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.AssociationInverseDiscoveryConvention AssociationInverseDiscoveryConvention */
-/* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.AttributeToColumnAnnotationConvention`2<System.Data.Entity.ModelConfiguration.Conventions.AttributeToColumnAnnotationConvention`2+TAttribute,System.Data.Entity.ModelConfiguration.Conventions.AttributeToColumnAnnotationConvention`2+TAnnotation> AttributeToColumnAnnotationConvention`2<TAttribute,TAnnotation> */
-/* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.AttributeToTableAnnotationConvention`2<System.Data.Entity.ModelConfiguration.Conventions.AttributeToTableAnnotationConvention`2+TAttribute,System.Data.Entity.ModelConfiguration.Conventions.AttributeToTableAnnotationConvention`2+TAnnotation> AttributeToTableAnnotationConvention`2<TAttribute,TAnnotation> */
+/* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.AttributeToColumnAnnotationConvention`2<System.Data.Entity.ModelConfiguration.Conventions.AttributeToColumnAnnotationConvention`2+TAttribute, System.Data.Entity.ModelConfiguration.Conventions.AttributeToColumnAnnotationConvention`2+TAnnotation> AttributeToColumnAnnotationConvention`2<TAttribute, TAnnotation> */
+/* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.AttributeToTableAnnotationConvention`2<System.Data.Entity.ModelConfiguration.Conventions.AttributeToTableAnnotationConvention`2+TAttribute, System.Data.Entity.ModelConfiguration.Conventions.AttributeToTableAnnotationConvention`2+TAnnotation> AttributeToTableAnnotationConvention`2<TAttribute, TAnnotation> */
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.ColumnAttributeConvention ColumnAttributeConvention */
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.ColumnOrderingConvention ColumnOrderingConvention */
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.ColumnOrderingConventionStrict ColumnOrderingConventionStrict */

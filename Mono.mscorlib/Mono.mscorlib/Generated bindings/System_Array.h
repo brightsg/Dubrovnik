@@ -161,7 +161,7 @@
 		Managed param types : System.Array, System.Int32, System.Array, System.Int32, System.Int32
 	 */
     + (void)constrainedCopy_withSourceArray:(System_Array *)p1 sourceIndex:(int32_t)p2 destinationArray:(System_Array *)p3 destinationIndex:(int32_t)p4 length:(int32_t)p5;
-/* Skipped method : TOutput[] ConvertAll(TInput[] array, System.Converter`2<System.Array+TInput,System.Array+TOutput> converter) */
+/* Skipped method : TOutput[] ConvertAll(TInput[] array, System.Converter`2<System.Array+TInput, System.Array+TOutput> converter) */
 
 	/*! 
 		Managed method name : Copy

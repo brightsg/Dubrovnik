@@ -301,7 +301,6 @@ namespace Dubrovnik.Tools.Facets
                 do
                 {
                     string genericParameters = null;
-                    bool hasGenericSubtype = false;
 
                     // get generic <
                     string cursor = "<";
@@ -322,10 +321,6 @@ namespace Dubrovnik.Tools.Facets
                         {
                             case "<":
                                 stack.Push(cursor);
-
-                                // type includes another generic type
-                                hasGenericSubtype = true;
-
                                 break;
 
                             case ">":

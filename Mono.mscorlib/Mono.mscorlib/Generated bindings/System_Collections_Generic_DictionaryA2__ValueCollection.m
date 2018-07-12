@@ -1,6 +1,6 @@
 ﻿//++Dubrovnik.CodeGenerator System_Collections_Generic_DictionaryA2__ValueCollection.m
 //
-// Managed class : Dictionary`2<TKey,TValue>.ValueCollection
+// Managed class : Dictionary`2<TKey, TValue>.ValueCollection
 //
 
 // ARC is required
@@ -35,13 +35,13 @@
 
 	/*! 
 		Managed method name : .ctor
-		Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+ValueCollection+TKey,System.Collections.Generic.Dictionary`2+ValueCollection+TValue>+ValueCollection
-		Managed param types : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+ValueCollection+TKey,System.Collections.Generic.Dictionary`2+ValueCollection+TValue>
+		Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+ValueCollection+TKey, System.Collections.Generic.Dictionary`2+ValueCollection+TValue>+ValueCollection
+		Managed param types : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+ValueCollection+TKey, System.Collections.Generic.Dictionary`2+ValueCollection+TValue>
 	 */
     + (System_Collections_Generic_DictionaryA2__ValueCollection *)new_withDictionary:(System_Collections_Generic_DictionaryA2 *)p1
     {
 		
-		System_Collections_Generic_DictionaryA2__ValueCollection * object = [[self alloc] initWithSignature:"System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2/ValueCollection/TKey,System.Collections.Generic.Dictionary`2/ValueCollection/TValue>" withNumArgs:1, [p1 monoRTInvokeArg]];
+		System_Collections_Generic_DictionaryA2__ValueCollection * object = [[self alloc] initWithSignature:"System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2/ValueCollection/TKey, System.Collections.Generic.Dictionary`2/ValueCollection/TValue>" withNumArgs:1, [p1 monoRTInvokeArg]];
       
       return object;
     }
@@ -87,7 +87,7 @@
 
 	/*! 
 		Managed method name : GetEnumerator
-		Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+ValueCollection+TKey,System.Collections.Generic.Dictionary`2+ValueCollection+TValue>+ValueCollection+Enumerator
+		Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+ValueCollection+TKey, System.Collections.Generic.Dictionary`2+ValueCollection+TValue>+ValueCollection+Enumerator
 		Managed param types : 
 	 */
     - (System_Collections_Generic_DictionaryA2__ValueCollection__Enumerator *)getEnumerator

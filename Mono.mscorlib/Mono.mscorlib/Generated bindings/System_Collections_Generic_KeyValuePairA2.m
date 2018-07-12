@@ -1,6 +1,6 @@
 ﻿//++Dubrovnik.CodeGenerator System_Collections_Generic_KeyValuePairA2.m
 //
-// Managed struct : KeyValuePair`2<TKey,TValue>
+// Managed struct : KeyValuePair`2<TKey, TValue>
 //
 
 // ARC is required
@@ -35,7 +35,7 @@
 
 	/*! 
 		Managed method name : .ctor
-		Managed return type : System.Collections.Generic.KeyValuePair`2<System.Collections.Generic.KeyValuePair`2+TKey,System.Collections.Generic.KeyValuePair`2+TValue>
+		Managed return type : System.Collections.Generic.KeyValuePair`2<System.Collections.Generic.KeyValuePair`2+TKey, System.Collections.Generic.KeyValuePair`2+TValue>
 		Managed param types : <System.Collections.Generic.KeyValuePair`2+TKey>, <System.Collections.Generic.KeyValuePair`2+TValue>
 	 */
     + (System_Collections_Generic_KeyValuePairA2 *)new_withKey:(System_Object *)p1 value:(System_Object *)p2

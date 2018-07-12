@@ -1,6 +1,6 @@
 ﻿//++Dubrovnik.CodeGenerator System_Collections_Generic_IDictionaryA2.h
 //
-// Managed interface : IDictionary`2<TKey,TValue>
+// Managed interface : IDictionary`2<TKey, TValue>
 //
 //
 // Frameworks

@@ -1,6 +1,6 @@
 ﻿//++Dubrovnik.CodeGenerator System_FuncA2.m
 //
-// Managed class : Func`2<T,TResult>
+// Managed class : Func`2<T, TResult>
 //
 
 // ARC is required
@@ -35,7 +35,7 @@
 
 	/*! 
 		Managed method name : .ctor
-		Managed return type : System.Func`2<System.Func`2+T,System.Func`2+TResult>
+		Managed return type : System.Func`2<System.Func`2+T, System.Func`2+TResult>
 		Managed param types : System.Object, System.IntPtr
 	 */
     + (System_FuncA2 *)new_withObject:(System_Object *)p1 method:(void *)p2
