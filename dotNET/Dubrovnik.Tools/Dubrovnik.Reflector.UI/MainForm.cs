@@ -5,10 +5,9 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
-using System.Xml;
-using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using Dubrovnik.Tools;
+using Dubrovnik.Tools.Facets;
 
 namespace Dubrovnik.Reflector.UI
 {

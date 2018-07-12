@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 //using Microsoft.VisualStudio.TextTemplating;
 using System.CodeDom.Compiler;
 using System.Reflection;
-using  Dubrovnik.Tools;
+using Dubrovnik.Tools.Facets;
 
 namespace Dubrovnik.Tools
 {

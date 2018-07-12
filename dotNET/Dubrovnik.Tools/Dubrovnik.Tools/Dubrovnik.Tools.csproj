@@ -58,10 +58,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyParser.cs" />
-    <Compile Include="CodeFacet.cs" />
+    <Compile Include="Facets\AssemblyFacet.cs" />
+    <Compile Include="Facets\ClassFacet.cs" />
+    <Compile Include="Facets\CodeFacet.cs" />
     <Compile Include="CodeGenerator.cs" />
     <Compile Include="ConfigObjC.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="Facets\EnumerationFacet.cs" />
+    <Compile Include="Facets\FacetList.cs" />
+    <Compile Include="Facets\FieldFacet.cs" />
+    <Compile Include="Facets\ImplementedInterfaceFacet.cs" />
+    <Compile Include="Facets\InterfaceFacet.cs" />
+    <Compile Include="Facets\MethodFacet.cs" />
+    <Compile Include="Facets\NamespaceFacet.cs" />
+    <Compile Include="Facets\ParameterFacet.cs" />
+    <Compile Include="Facets\PropertyFacet.cs" />
+    <Compile Include="Facets\StructFacet.cs" />
     <Compile Include="GeneratedFileExporter.cs" />
     <Compile Include="Net2ObjC.cs">
       <AutoGen>True</AutoGen>

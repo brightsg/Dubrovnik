@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.Xml;
+using Dubrovnik.Tools.Facets;
 
 namespace Dubrovnik.Tools {
 	public class ConfigObjC {

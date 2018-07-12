@@ -7,6 +7,7 @@
 <#@ import namespace="System.Linq"#>
 <#@ import namespace="System.Reflection"#>
 <#@ import namespace="Dubrovnik.Tools"#>
+<#@ import namespace="Dubrovnik.Tools.Facets"#>
 
 <#
 //     .Net to Objective-C code generator
