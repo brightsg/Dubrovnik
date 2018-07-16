@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Reflection.ConstructorInfo";
+  return "System.Reflection.ConstructorInfo";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -
@@ -101,8 +102,8 @@
 
 - (void)dealloc
 {
-	m_constructorName = nil;
-	m_typeConstructorName = nil;
+  m_constructorName = nil;
+  m_typeConstructorName = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

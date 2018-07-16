@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Xml.XmlDocument";
+  return "System.Xml.XmlDocument";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "System.Xml";
+  return "System.Xml";
 }
 
 #pragma mark -

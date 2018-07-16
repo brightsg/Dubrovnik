@@ -15,8 +15,6 @@
 #import "System.private.h"    // Not auto generated. Add manually to project.
 #endif
 
-
-// C enumeration
 @implementation System_Net_HttpStatusCode
 
 #pragma mark -
@@ -24,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Net.HttpStatusCode";
+  return "System.Net.HttpStatusCode";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "System";
+  return "System";
 }
 
 #pragma mark -

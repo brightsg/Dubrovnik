@@ -76,6 +76,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
 	System_Net_HttpStatusCode_UpgradeRequired = 426,
 	System_Net_HttpStatusCode_UseProxy = 305,
 };
+
 @interface System_Net_HttpStatusCode : System_Enum
 
 #pragma mark -

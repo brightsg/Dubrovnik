@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Runtime.InteropServices._Exception";
+  return "System.Runtime.InteropServices._Exception";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -

@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Text.Encoding";
+  return "System.Text.Encoding";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -
@@ -634,13 +635,13 @@
 
 - (void)dealloc
 {
-	m_aSCII = nil;
-	m_bigEndianUnicode = nil;
-	m_default = nil;
-	m_unicode = nil;
-	m_uTF32 = nil;
-	m_uTF7 = nil;
-	m_uTF8 = nil;
+  m_aSCII = nil;
+  m_bigEndianUnicode = nil;
+  m_default = nil;
+  m_unicode = nil;
+  m_uTF32 = nil;
+  m_uTF7 = nil;
+  m_uTF8 = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

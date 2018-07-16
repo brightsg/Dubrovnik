@@ -37,6 +37,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_GenericParameterAttributes) {
 	System_Reflection_GenericParameterAttributes_SpecialConstraintMask = 28,
 	System_Reflection_GenericParameterAttributes_VarianceMask = 3,
 };
+
 @interface System_Reflection_GenericParameterAttributes : System_Enum
 
 #pragma mark -

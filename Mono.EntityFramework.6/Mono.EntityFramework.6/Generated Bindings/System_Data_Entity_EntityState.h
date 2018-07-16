@@ -34,6 +34,7 @@ typedef NS_ENUM(int32_t, enumSystem_Data_Entity_EntityState) {
 	System_Data_Entity_EntityState_Modified = 16,
 	System_Data_Entity_EntityState_Unchanged = 2,
 };
+
 @interface System_Data_Entity_EntityState : System_Enum
 
 #pragma mark -

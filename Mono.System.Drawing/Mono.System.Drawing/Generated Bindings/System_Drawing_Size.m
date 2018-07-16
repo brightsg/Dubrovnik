@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Drawing.Size";
+  return "System.Drawing.Size";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "System.Drawing";
+  return "System.Drawing";
 }
 
 #pragma mark -
@@ -223,7 +224,7 @@
 
 - (void)dealloc
 {
-	m_empty = nil;
+  m_empty = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

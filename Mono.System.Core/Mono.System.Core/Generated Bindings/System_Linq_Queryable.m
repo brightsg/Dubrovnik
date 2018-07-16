@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Linq.Queryable";
+  return "System.Linq.Queryable";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "System.Core";
+  return "System.Core";
 }
 
 #pragma mark -

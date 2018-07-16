@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.IAsyncResult";
+  return "System.IAsyncResult";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -

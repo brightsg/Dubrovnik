@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Decimal";
+  return "System.Decimal";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -
@@ -537,11 +538,11 @@
 
 - (void)dealloc
 {
-	m_maxValue = nil;
-	m_minusOne = nil;
-	m_minValue = nil;
-	m_one = nil;
-	m_zero = nil;
+  m_maxValue = nil;
+  m_minusOne = nil;
+  m_minValue = nil;
+  m_one = nil;
+  m_zero = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

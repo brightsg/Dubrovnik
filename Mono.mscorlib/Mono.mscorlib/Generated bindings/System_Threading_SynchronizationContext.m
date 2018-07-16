@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Threading.SynchronizationContext";
+  return "System.Threading.SynchronizationContext";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -
@@ -105,7 +106,7 @@
 
 - (void)dealloc
 {
-	m_current = nil;
+  m_current = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

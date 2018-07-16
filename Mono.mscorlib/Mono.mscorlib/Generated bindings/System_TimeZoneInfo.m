@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.TimeZoneInfo";
+  return "System.TimeZoneInfo";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -
@@ -378,8 +379,8 @@
 
 - (void)dealloc
 {
-	m_local = nil;
-	m_utc = nil;
+  m_local = nil;
+  m_utc = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

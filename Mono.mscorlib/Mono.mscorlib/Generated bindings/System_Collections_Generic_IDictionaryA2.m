@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Collections.Generic.IDictionary`2";
+  return "System.Collections.Generic.IDictionary`2";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -

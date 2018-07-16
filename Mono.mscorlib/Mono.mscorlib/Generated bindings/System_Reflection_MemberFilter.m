@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Reflection.MemberFilter";
+  return "System.Reflection.MemberFilter";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -

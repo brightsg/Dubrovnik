@@ -15,8 +15,6 @@
 #import "System.private.h"    // Not auto generated. Add manually to project.
 #endif
 
-
-// C enumeration
 @implementation System_UriPartial
 
 #pragma mark -
@@ -24,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.UriPartial";
+  return "System.UriPartial";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "System";
+  return "System";
 }
 
 #pragma mark -

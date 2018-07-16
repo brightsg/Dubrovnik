@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Threading.Tasks.Task";
+  return "System.Threading.Tasks.Task";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -
@@ -546,8 +547,8 @@
 
 - (void)dealloc
 {
-	m_completedTask = nil;
-	m_currentId = nil;
+  m_completedTask = nil;
+  m_currentId = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

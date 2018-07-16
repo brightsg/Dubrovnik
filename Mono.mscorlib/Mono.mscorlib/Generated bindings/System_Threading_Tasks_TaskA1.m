@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Threading.Tasks.Task`1";
+  return "System.Threading.Tasks.Task`1";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -

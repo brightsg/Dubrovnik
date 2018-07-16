@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.UnhandledExceptionEventArgs";
+  return "System.UnhandledExceptionEventArgs";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -

@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Linq.IOrderedEnumerable`1";
+  return "System.Linq.IOrderedEnumerable`1";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "System.Core";
+  return "System.Core";
 }
 
 #pragma mark -

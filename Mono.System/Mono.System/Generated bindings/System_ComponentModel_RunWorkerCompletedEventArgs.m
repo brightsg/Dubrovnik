@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.ComponentModel.RunWorkerCompletedEventArgs";
+  return "System.ComponentModel.RunWorkerCompletedEventArgs";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "System";
+  return "System";
 }
 
 #pragma mark -

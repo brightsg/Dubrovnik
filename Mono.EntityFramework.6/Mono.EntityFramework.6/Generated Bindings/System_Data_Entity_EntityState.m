@@ -15,8 +15,6 @@
 #import "EntityFramework.private.h"    // Not auto generated. Add manually to project.
 #endif
 
-
-// C enumeration
 @implementation System_Data_Entity_EntityState
 
 #pragma mark -
@@ -24,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Data.Entity.EntityState";
+  return "System.Data.Entity.EntityState";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "EntityFramework";
+  return "EntityFramework";
 }
 
 #pragma mark -

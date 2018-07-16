@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Uri";
+  return "System.Uri";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "System";
+  return "System";
 }
 
 #pragma mark -
@@ -852,17 +853,17 @@
 
 - (void)dealloc
 {
-	m_schemeDelimiter = nil;
-	m_uriSchemeFile = nil;
-	m_uriSchemeFtp = nil;
-	m_uriSchemeGopher = nil;
-	m_uriSchemeHttp = nil;
-	m_uriSchemeHttps = nil;
-	m_uriSchemeMailto = nil;
-	m_uriSchemeNetPipe = nil;
-	m_uriSchemeNetTcp = nil;
-	m_uriSchemeNews = nil;
-	m_uriSchemeNntp = nil;
+  m_schemeDelimiter = nil;
+  m_uriSchemeFile = nil;
+  m_uriSchemeFtp = nil;
+  m_uriSchemeGopher = nil;
+  m_uriSchemeHttp = nil;
+  m_uriSchemeHttps = nil;
+  m_uriSchemeMailto = nil;
+  m_uriSchemeNetPipe = nil;
+  m_uriSchemeNetTcp = nil;
+  m_uriSchemeNews = nil;
+  m_uriSchemeNntp = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

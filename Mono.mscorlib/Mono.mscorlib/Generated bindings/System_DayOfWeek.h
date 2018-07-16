@@ -36,6 +36,7 @@ typedef NS_ENUM(int32_t, enumSystem_DayOfWeek) {
 	System_DayOfWeek_Tuesday = 2,
 	System_DayOfWeek_Wednesday = 3,
 };
+
 @interface System_DayOfWeek : System_Enum
 
 #pragma mark -

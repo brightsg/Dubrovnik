@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Configuration.SettingsBase";
+  return "System.Configuration.SettingsBase";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "System";
+  return "System";
 }
 
 #pragma mark -

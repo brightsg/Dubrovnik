@@ -34,6 +34,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriHostNameType) {
 	System_UriHostNameType_IPv6 = 4,
 	System_UriHostNameType_Unknown = 0,
 };
+
 @interface System_UriHostNameType : System_Enum
 
 #pragma mark -

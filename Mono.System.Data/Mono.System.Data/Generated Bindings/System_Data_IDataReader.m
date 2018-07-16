@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Data.IDataReader";
+  return "System.Data.IDataReader";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "System.Data";
+  return "System.Data";
 }
 
 #pragma mark -

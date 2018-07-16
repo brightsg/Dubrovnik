@@ -32,6 +32,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriKind) {
 	System_UriKind_Relative = 2,
 	System_UriKind_RelativeOrAbsolute = 0,
 };
+
 @interface System_UriKind : System_Enum
 
 #pragma mark -

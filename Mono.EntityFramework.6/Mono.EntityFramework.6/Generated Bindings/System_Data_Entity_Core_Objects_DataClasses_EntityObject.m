@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Data.Entity.Core.Objects.DataClasses.EntityObject";
+  return "System.Data.Entity.Core.Objects.DataClasses.EntityObject";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "EntityFramework";
+  return "EntityFramework";
 }
 
 #pragma mark -

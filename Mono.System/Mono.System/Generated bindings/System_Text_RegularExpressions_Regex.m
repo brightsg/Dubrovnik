@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Text.RegularExpressions.Regex";
+  return "System.Text.RegularExpressions.Regex";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "System";
+  return "System";
 }
 
 #pragma mark -
@@ -309,7 +310,7 @@
 
 - (void)dealloc
 {
-	m_infiniteMatchTimeout = nil;
+  m_infiniteMatchTimeout = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

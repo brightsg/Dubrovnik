@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.IO.Stream";
+  return "System.IO.Stream";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -
@@ -405,7 +406,7 @@
 
 - (void)dealloc
 {
-	m_null = nil;
+  m_null = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

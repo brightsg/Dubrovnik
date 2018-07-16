@@ -32,6 +32,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriFormat) {
 	System_UriFormat_Unescaped = 2,
 	System_UriFormat_UriEscaped = 1,
 };
+
 @interface System_UriFormat : System_Enum
 
 #pragma mark -

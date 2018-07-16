@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Threading.SendOrPostCallback";
+  return "System.Threading.SendOrPostCallback";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -

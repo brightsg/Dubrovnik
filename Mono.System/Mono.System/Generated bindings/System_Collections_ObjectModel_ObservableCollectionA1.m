@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Collections.ObjectModel.ObservableCollection`1";
+  return "System.Collections.ObjectModel.ObservableCollection`1";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "System";
+  return "System";
 }
 
 #pragma mark -

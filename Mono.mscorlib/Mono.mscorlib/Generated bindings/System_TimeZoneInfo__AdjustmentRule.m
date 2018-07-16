@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.TimeZoneInfo+AdjustmentRule";
+  return "System.TimeZoneInfo+AdjustmentRule";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -

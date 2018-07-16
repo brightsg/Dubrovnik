@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.IO.ErrorEventArgs";
+  return "System.IO.ErrorEventArgs";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "System";
+  return "System";
 }
 
 #pragma mark -

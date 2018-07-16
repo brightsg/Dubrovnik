@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Runtime.Serialization.ISerializable";
+  return "System.Runtime.Serialization.ISerializable";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -

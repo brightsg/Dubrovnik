@@ -15,8 +15,6 @@
 #import "EntityFramework.private.h"    // Not auto generated. Add manually to project.
 #endif
 
-
-// C enumeration
 @implementation System_Data_Entity_Core_Objects_RefreshMode
 
 #pragma mark -
@@ -24,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Data.Entity.Core.Objects.RefreshMode";
+  return "System.Data.Entity.Core.Objects.RefreshMode";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "EntityFramework";
+  return "EntityFramework";
 }
 
 #pragma mark -

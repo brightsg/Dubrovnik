@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.DateTime";
+  return "System.DateTime";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -
@@ -795,11 +796,11 @@
 
 - (void)dealloc
 {
-	m_maxValue = nil;
-	m_minValue = nil;
-	m_now = nil;
-	m_today = nil;
-	m_utcNow = nil;
+  m_maxValue = nil;
+  m_minValue = nil;
+  m_now = nil;
+  m_today = nil;
+  m_utcNow = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

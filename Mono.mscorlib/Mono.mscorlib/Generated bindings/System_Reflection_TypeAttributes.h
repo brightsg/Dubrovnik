@@ -61,6 +61,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
 	System_Reflection_TypeAttributes_VisibilityMask = 7,
 	System_Reflection_TypeAttributes_WindowsRuntime = 16384,
 };
+
 @interface System_Reflection_TypeAttributes : System_Enum
 
 #pragma mark -

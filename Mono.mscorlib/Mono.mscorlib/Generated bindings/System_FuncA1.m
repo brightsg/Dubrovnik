@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Func`1";
+  return "System.Func`1";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -

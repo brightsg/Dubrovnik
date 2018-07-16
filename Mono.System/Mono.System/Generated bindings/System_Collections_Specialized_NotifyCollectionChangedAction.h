@@ -34,6 +34,7 @@ typedef NS_ENUM(int32_t, enumSystem_Collections_Specialized_NotifyCollectionChan
 	System_Collections_Specialized_NotifyCollectionChangedAction_Replace = 2,
 	System_Collections_Specialized_NotifyCollectionChangedAction_Reset = 4,
 };
+
 @interface System_Collections_Specialized_NotifyCollectionChangedAction : System_Enum
 
 #pragma mark -

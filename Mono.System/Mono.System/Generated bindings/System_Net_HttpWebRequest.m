@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Net.HttpWebRequest";
+  return "System.Net.HttpWebRequest";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "System";
+  return "System";
 }
 
 #pragma mark -

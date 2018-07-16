@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Collections.Specialized.NotifyCollectionChangedEventArgs";
+  return "System.Collections.Specialized.NotifyCollectionChangedEventArgs";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "System";
+  return "System";
 }
 
 #pragma mark -

@@ -32,6 +32,7 @@ typedef NS_ENUM(int32_t, enumSystem_DateTimeKind) {
 	System_DateTimeKind_Unspecified = 0,
 	System_DateTimeKind_Utc = 1,
 };
+
 @interface System_DateTimeKind : System_Enum
 
 #pragma mark -

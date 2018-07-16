@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.TimeSpan";
+  return "System.TimeSpan";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -
@@ -602,9 +603,9 @@
 
 - (void)dealloc
 {
-	m_maxValue = nil;
-	m_minValue = nil;
-	m_zero = nil;
+  m_maxValue = nil;
+  m_minValue = nil;
+  m_zero = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

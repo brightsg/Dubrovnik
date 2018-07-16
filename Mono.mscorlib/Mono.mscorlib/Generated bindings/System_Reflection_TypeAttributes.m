@@ -15,8 +15,6 @@
 #import "mscorlib.private.h"    // Not auto generated. Add manually to project.
 #endif
 
-
-// C enumeration
 @implementation System_Reflection_TypeAttributes
 
 #pragma mark -
@@ -24,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Reflection.TypeAttributes";
+  return "System.Reflection.TypeAttributes";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -

@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Threading.CancellationToken";
+  return "System.Threading.CancellationToken";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -
@@ -158,7 +159,7 @@
 
 - (void)dealloc
 {
-	m_none = nil;
+  m_none = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

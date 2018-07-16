@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Globalization.CultureInfo";
+  return "System.Globalization.CultureInfo";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -
@@ -655,12 +656,12 @@
 
 - (void)dealloc
 {
-	m_currentCulture = nil;
-	m_currentUICulture = nil;
-	m_defaultThreadCurrentCulture = nil;
-	m_defaultThreadCurrentUICulture = nil;
-	m_installedUICulture = nil;
-	m_invariantCulture = nil;
+  m_currentCulture = nil;
+  m_currentUICulture = nil;
+  m_defaultThreadCurrentCulture = nil;
+  m_defaultThreadCurrentUICulture = nil;
+  m_installedUICulture = nil;
+  m_invariantCulture = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.DBNull";
+  return "System.DBNull";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -
@@ -64,7 +65,7 @@
 
 - (void)dealloc
 {
-	m_value = nil;
+  m_value = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

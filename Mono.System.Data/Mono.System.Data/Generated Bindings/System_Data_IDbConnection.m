@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Data.IDbConnection";
+  return "System.Data.IDbConnection";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "System.Data";
+  return "System.Data";
 }
 
 #pragma mark -

@@ -76,6 +76,7 @@
     <Compile Include="Facets\StructFacet.cs" />
     <Compile Include="GeneratedFileExporter.cs" />
     <Compile Include="Net2ObjC.Accessor.cs" />
+    <Compile Include="Net2ObjC.Class.cs" />
     <Compile Include="Net2ObjC.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

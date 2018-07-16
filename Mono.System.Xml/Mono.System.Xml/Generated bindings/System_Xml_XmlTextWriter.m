@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Xml.XmlTextWriter";
+  return "System.Xml.XmlTextWriter";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "System.Xml";
+  return "System.Xml";
 }
 
 #pragma mark -

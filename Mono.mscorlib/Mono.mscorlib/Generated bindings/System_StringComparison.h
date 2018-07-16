@@ -35,6 +35,7 @@ typedef NS_ENUM(int32_t, enumSystem_StringComparison) {
 	System_StringComparison_Ordinal = 4,
 	System_StringComparison_OrdinalIgnoreCase = 5,
 };
+
 @interface System_StringComparison : System_Enum
 
 #pragma mark -

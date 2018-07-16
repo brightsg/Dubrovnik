@@ -32,6 +32,7 @@ typedef NS_ENUM(int32_t, enumSystem_Data_Entity_Core_Objects_SaveOptions) {
 	System_Data_Entity_Core_Objects_SaveOptions_DetectChangesBeforeSave = 2,
 	System_Data_Entity_Core_Objects_SaveOptions_None = 0,
 };
+
 @interface System_Data_Entity_Core_Objects_SaveOptions : System_Enum
 
 #pragma mark -

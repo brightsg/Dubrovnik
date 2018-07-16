@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.AppDomain";
+  return "System.AppDomain";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -
@@ -658,7 +659,7 @@
 
 - (void)dealloc
 {
-	m_currentDomain = nil;
+  m_currentDomain = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.ComponentModel.PropertyChangingEventArgs";
+  return "System.ComponentModel.PropertyChangingEventArgs";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "System";
+  return "System";
 }
 
 #pragma mark -

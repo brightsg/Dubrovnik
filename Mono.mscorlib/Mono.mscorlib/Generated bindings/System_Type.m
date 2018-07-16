@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Type";
+  return "System.Type";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -
@@ -1748,12 +1749,12 @@
 
 - (void)dealloc
 {
-	m_emptyTypes = nil;
-	m_filterAttribute = nil;
-	m_filterName = nil;
-	m_filterNameIgnoreCase = nil;
-	m_missing = nil;
-	m_defaultBinder = nil;
+  m_emptyTypes = nil;
+  m_filterAttribute = nil;
+  m_filterName = nil;
+  m_filterNameIgnoreCase = nil;
+  m_missing = nil;
+  m_defaultBinder = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

@@ -45,6 +45,7 @@ typedef NS_ENUM(int32_t, enumSystem_IO_FileAttributes) {
 	System_IO_FileAttributes_System = 4,
 	System_IO_FileAttributes_Temporary = 256,
 };
+
 @interface System_IO_FileAttributes : System_Enum
 
 #pragma mark -

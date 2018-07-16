@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.Boolean";
+  return "System.Boolean";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -
@@ -116,8 +117,8 @@
 
 - (void)dealloc
 {
-	m_falseString = nil;
-	m_trueString = nil;
+  m_falseString = nil;
+  m_trueString = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

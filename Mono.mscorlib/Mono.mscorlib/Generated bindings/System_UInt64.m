@@ -22,11 +22,12 @@
 
 + (const char *)monoClassName
 {
-	return "System.UInt64";
+  return "System.UInt64";
 }
+
 + (const char *)monoAssemblyName
 {
-	return "mscorlib";
+  return "mscorlib";
 }
 
 #pragma mark -
