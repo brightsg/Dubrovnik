@@ -48,10 +48,9 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Fields
@@ -294,7 +293,9 @@
 	// Managed property name : IsVisible
 	// Managed property type : System.Boolean
     @property (nonatomic, readonly) BOOL isVisible;
+
 /* Skipped property : System.Reflection.MemberTypes MemberType */
+
 /* Skipped property : System.Reflection.Module Module */
 
 	// Managed property name : Namespace
@@ -304,7 +305,9 @@
 	// Managed property name : ReflectedType
 	// Managed property type : System.Type
     @property (nonatomic, strong, readonly) System_Type * reflectedType;
+
 /* Skipped property : System.Runtime.InteropServices.StructLayoutAttribute StructLayoutAttribute */
+
 /* Skipped property : System.RuntimeTypeHandle TypeHandle */
 
 	// Managed property name : TypeInitializer
@@ -318,440 +321,954 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withOObject:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Type
-	 */
-    - (BOOL)equals_withOSType:(System_Type *)p1;
+ Params
+   System.Object
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withOObject:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
+
+ Params
+   System.Type
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withOSType:(System_Type *)p1;
+
 /* Skipped method : System.Type[] FindInterfaces(System.Reflection.TypeFilter filter, System.Object filterCriteria) */
+
 /* Skipped method : System.Reflection.MemberInfo[] FindMembers(System.Reflection.MemberTypes memberType, System.Reflection.BindingFlags bindingAttr, System.Reflection.MemberFilter filter, System.Object filterCriteria) */
 
-	/*! 
-		Managed method name : GetArrayRank
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getArrayRank;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetArrayRank
+
+ Params
+   (none)
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getArrayRank;
+
 /* Skipped method : System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConvention, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+
 /* Skipped method : System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 
-	/*! 
-		Managed method name : GetConstructor
-		Managed return type : System.Reflection.ConstructorInfo
-		Managed param types : System.Type[]
-	 */
-    - (System_Reflection_ConstructorInfo *)getConstructor_withTypes:(System_Array *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetConstructor
 
-	/*! 
-		Managed method name : GetConstructors
-		Managed return type : System.Reflection.ConstructorInfo[]
-		Managed param types : 
-	 */
-    - (System_Array *)getConstructors;
+ Params
+   System.Type[]
+
+ Return
+   System.Reflection.ConstructorInfo
+ @/textblock
+*/
+- (System_Reflection_ConstructorInfo *)getConstructor_withTypes:(System_Array *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetConstructors
+
+ Params
+   (none)
+
+ Return
+   System.Reflection.ConstructorInfo[]
+ @/textblock
+*/
+- (System_Array *)getConstructors;
+
 /* Skipped method : System.Reflection.ConstructorInfo[] GetConstructors(System.Reflection.BindingFlags bindingAttr) */
 
-	/*! 
-		Managed method name : GetDefaultMembers
-		Managed return type : System.Reflection.MemberInfo[]
-		Managed param types : 
-	 */
-    - (System_Array *)getDefaultMembers;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetDefaultMembers
 
-	/*! 
-		Managed method name : GetElementType
-		Managed return type : System.Type
-		Managed param types : 
-	 */
-    - (System_Type *)getElementType;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : GetEnumName
-		Managed return type : System.String
-		Managed param types : System.Object
-	 */
-    - (NSString *)getEnumName_withValue:(System_Object *)p1;
+ Return
+   System.Reflection.MemberInfo[]
+ @/textblock
+*/
+- (System_Array *)getDefaultMembers;
 
-	/*! 
-		Managed method name : GetEnumNames
-		Managed return type : System.String[]
-		Managed param types : 
-	 */
-    - (System_Array *)getEnumNames;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetElementType
 
-	/*! 
-		Managed method name : GetEnumUnderlyingType
-		Managed return type : System.Type
-		Managed param types : 
-	 */
-    - (System_Type *)getEnumUnderlyingType;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : GetEnumValues
-		Managed return type : System.Array
-		Managed param types : 
-	 */
-    - (System_Array *)getEnumValues;
+ Return
+   System.Type
+ @/textblock
+*/
+- (System_Type *)getElementType;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetEnumName
+
+ Params
+   System.Object
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)getEnumName_withValue:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetEnumNames
+
+ Params
+   (none)
+
+ Return
+   System.String[]
+ @/textblock
+*/
+- (System_Array *)getEnumNames;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetEnumUnderlyingType
+
+ Params
+   (none)
+
+ Return
+   System.Type
+ @/textblock
+*/
+- (System_Type *)getEnumUnderlyingType;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetEnumValues
+
+ Params
+   (none)
+
+ Return
+   System.Array
+ @/textblock
+*/
+- (System_Array *)getEnumValues;
+
 /* Skipped method : System.Reflection.EventInfo GetEvent(System.String name) */
+
 /* Skipped method : System.Reflection.EventInfo GetEvent(System.String name, System.Reflection.BindingFlags bindingAttr) */
+
 /* Skipped method : System.Reflection.EventInfo[] GetEvents() */
+
 /* Skipped method : System.Reflection.EventInfo[] GetEvents(System.Reflection.BindingFlags bindingAttr) */
+
 /* Skipped method : System.Reflection.FieldInfo GetField(System.String name, System.Reflection.BindingFlags bindingAttr) */
+
 /* Skipped method : System.Reflection.FieldInfo GetField(System.String name) */
+
 /* Skipped method : System.Reflection.FieldInfo[] GetFields() */
+
 /* Skipped method : System.Reflection.FieldInfo[] GetFields(System.Reflection.BindingFlags bindingAttr) */
 
-	/*! 
-		Managed method name : GetGenericArguments
-		Managed return type : System.Type[]
-		Managed param types : 
-	 */
-    - (System_Array *)getGenericArguments;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetGenericArguments
 
-	/*! 
-		Managed method name : GetGenericParameterConstraints
-		Managed return type : System.Type[]
-		Managed param types : 
-	 */
-    - (System_Array *)getGenericParameterConstraints;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : GetGenericTypeDefinition
-		Managed return type : System.Type
-		Managed param types : 
-	 */
-    - (System_Type *)getGenericTypeDefinition;
+ Return
+   System.Type[]
+ @/textblock
+*/
+- (System_Array *)getGenericArguments;
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetGenericParameterConstraints
 
-	/*! 
-		Managed method name : GetInterface
-		Managed return type : System.Type
-		Managed param types : System.String
-	 */
-    - (System_Type *)getInterface_withName:(NSString *)p1;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : GetInterface
-		Managed return type : System.Type
-		Managed param types : System.String, System.Boolean
-	 */
-    - (System_Type *)getInterface_withName:(NSString *)p1 ignoreCase:(BOOL)p2;
+ Return
+   System.Type[]
+ @/textblock
+*/
+- (System_Array *)getGenericParameterConstraints;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetGenericTypeDefinition
+
+ Params
+   (none)
+
+ Return
+   System.Type
+ @/textblock
+*/
+- (System_Type *)getGenericTypeDefinition;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
+
+ Params
+   (none)
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getHashCode;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetInterface
+
+ Params
+   System.String
+
+ Return
+   System.Type
+ @/textblock
+*/
+- (System_Type *)getInterface_withName:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetInterface
+
+ Params
+   System.String
+   System.Boolean
+
+ Return
+   System.Type
+ @/textblock
+*/
+- (System_Type *)getInterface_withName:(NSString *)p1 ignoreCase:(BOOL)p2;
+
 /* Skipped method : System.Reflection.InterfaceMapping GetInterfaceMap(System.Type interfaceType) */
 
-	/*! 
-		Managed method name : GetInterfaces
-		Managed return type : System.Type[]
-		Managed param types : 
-	 */
-    - (System_Array *)getInterfaces;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetInterfaces
 
-	/*! 
-		Managed method name : GetMember
-		Managed return type : System.Reflection.MemberInfo[]
-		Managed param types : System.String
-	 */
-    - (System_Array *)getMember_withName:(NSString *)p1;
+ Params
+   (none)
+
+ Return
+   System.Type[]
+ @/textblock
+*/
+- (System_Array *)getInterfaces;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetMember
+
+ Params
+   System.String
+
+ Return
+   System.Reflection.MemberInfo[]
+ @/textblock
+*/
+- (System_Array *)getMember_withName:(NSString *)p1;
+
 /* Skipped method : System.Reflection.MemberInfo[] GetMember(System.String name, System.Reflection.BindingFlags bindingAttr) */
+
 /* Skipped method : System.Reflection.MemberInfo[] GetMember(System.String name, System.Reflection.MemberTypes type, System.Reflection.BindingFlags bindingAttr) */
 
-	/*! 
-		Managed method name : GetMembers
-		Managed return type : System.Reflection.MemberInfo[]
-		Managed param types : 
-	 */
-    - (System_Array *)getMembers;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetMembers
+
+ Params
+   (none)
+
+ Return
+   System.Reflection.MemberInfo[]
+ @/textblock
+*/
+- (System_Array *)getMembers;
+
 /* Skipped method : System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags bindingAttr) */
+
 /* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConvention, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+
 /* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+
 /* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 
-	/*! 
-		Managed method name : GetMethod
-		Managed return type : System.Reflection.MethodInfo
-		Managed param types : System.String, System.Type[]
-	 */
-    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 types:(System_Array *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetMethod
+
+ Params
+   System.String
+   System.Type[]
+
+ Return
+   System.Reflection.MethodInfo
+ @/textblock
+*/
+- (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 types:(System_Array *)p2;
+
 /* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr) */
 
-	/*! 
-		Managed method name : GetMethod
-		Managed return type : System.Reflection.MethodInfo
-		Managed param types : System.String
-	 */
-    - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetMethod
 
-	/*! 
-		Managed method name : GetMethods
-		Managed return type : System.Reflection.MethodInfo[]
-		Managed param types : 
-	 */
-    - (System_Array *)getMethods;
+ Params
+   System.String
+
+ Return
+   System.Reflection.MethodInfo
+ @/textblock
+*/
+- (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetMethods
+
+ Params
+   (none)
+
+ Return
+   System.Reflection.MethodInfo[]
+ @/textblock
+*/
+- (System_Array *)getMethods;
+
 /* Skipped method : System.Reflection.MethodInfo[] GetMethods(System.Reflection.BindingFlags bindingAttr) */
 
-	/*! 
-		Managed method name : GetNestedType
-		Managed return type : System.Type
-		Managed param types : System.String
-	 */
-    - (System_Type *)getNestedType_withName:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetNestedType
+
+ Params
+   System.String
+
+ Return
+   System.Type
+ @/textblock
+*/
+- (System_Type *)getNestedType_withName:(NSString *)p1;
+
 /* Skipped method : System.Type GetNestedType(System.String name, System.Reflection.BindingFlags bindingAttr) */
 
-	/*! 
-		Managed method name : GetNestedTypes
-		Managed return type : System.Type[]
-		Managed param types : 
-	 */
-    - (System_Array *)getNestedTypes;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetNestedTypes
+
+ Params
+   (none)
+
+ Return
+   System.Type[]
+ @/textblock
+*/
+- (System_Array *)getNestedTypes;
+
 /* Skipped method : System.Type[] GetNestedTypes(System.Reflection.BindingFlags bindingAttr) */
+
 /* Skipped method : System.Reflection.PropertyInfo[] GetProperties(System.Reflection.BindingFlags bindingAttr) */
 
-	/*! 
-		Managed method name : GetProperties
-		Managed return type : System.Reflection.PropertyInfo[]
-		Managed param types : 
-	 */
-    - (System_Array *)getProperties;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetProperties
+
+ Params
+   (none)
+
+ Return
+   System.Reflection.PropertyInfo[]
+ @/textblock
+*/
+- (System_Array *)getProperties;
+
 /* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type returnType, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+
 /* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Type returnType, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+
 /* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Reflection.BindingFlags bindingAttr) */
 
-	/*! 
-		Managed method name : GetProperty
-		Managed return type : System.Reflection.PropertyInfo
-		Managed param types : System.String, System.Type, System.Type[]
-	 */
-    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2 types:(System_Array *)p3;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetProperty
 
-	/*! 
-		Managed method name : GetProperty
-		Managed return type : System.Reflection.PropertyInfo
-		Managed param types : System.String, System.Type[]
-	 */
-    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 types:(System_Array *)p2;
+ Params
+   System.String
+   System.Type
+   System.Type[]
 
-	/*! 
-		Managed method name : GetProperty
-		Managed return type : System.Reflection.PropertyInfo
-		Managed param types : System.String, System.Type
-	 */
-    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2;
+ Return
+   System.Reflection.PropertyInfo
+ @/textblock
+*/
+- (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2 types:(System_Array *)p3;
 
-	/*! 
-		Managed method name : GetProperty
-		Managed return type : System.Reflection.PropertyInfo
-		Managed param types : System.String
-	 */
-    - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetProperty
 
-	/*! 
-		Managed method name : GetType
-		Managed return type : System.Type
-		Managed param types : System.String, System.Boolean, System.Boolean
-	 */
-    + (System_Type *)getType_withTypeName:(NSString *)p1 throwOnError:(BOOL)p2 ignoreCase:(BOOL)p3;
+ Params
+   System.String
+   System.Type[]
 
-	/*! 
-		Managed method name : GetType
-		Managed return type : System.Type
-		Managed param types : System.String, System.Boolean
-	 */
-    + (System_Type *)getType_withTypeName:(NSString *)p1 throwOnError:(BOOL)p2;
+ Return
+   System.Reflection.PropertyInfo
+ @/textblock
+*/
+- (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 types:(System_Array *)p2;
 
-	/*! 
-		Managed method name : GetType
-		Managed return type : System.Type
-		Managed param types : System.String
-	 */
-    + (System_Type *)getType_withTypeName:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetProperty
+
+ Params
+   System.String
+   System.Type
+
+ Return
+   System.Reflection.PropertyInfo
+ @/textblock
+*/
+- (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetProperty
+
+ Params
+   System.String
+
+ Return
+   System.Reflection.PropertyInfo
+ @/textblock
+*/
+- (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetType
+
+ Params
+   System.String
+   System.Boolean
+   System.Boolean
+
+ Return
+   System.Type
+ @/textblock
+*/
++ (System_Type *)getType_withTypeName:(NSString *)p1 throwOnError:(BOOL)p2 ignoreCase:(BOOL)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetType
+
+ Params
+   System.String
+   System.Boolean
+
+ Return
+   System.Type
+ @/textblock
+*/
++ (System_Type *)getType_withTypeName:(NSString *)p1 throwOnError:(BOOL)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetType
+
+ Params
+   System.String
+
+ Return
+   System.Type
+ @/textblock
+*/
++ (System_Type *)getType_withTypeName:(NSString *)p1;
+
 /* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type> typeResolver) */
+
 /* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type> typeResolver, System.Boolean throwOnError) */
+
 /* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type> typeResolver, System.Boolean throwOnError, System.Boolean ignoreCase) */
 
-	/*! 
-		Managed method name : GetType
-		Managed return type : System.Type
-		Managed param types : 
-	 */
-    - (System_Type *)getType;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetType
 
-	/*! 
-		Managed method name : GetTypeArray
-		Managed return type : System.Type[]
-		Managed param types : System.Object[]
-	 */
-    + (System_Array *)getTypeArray_withArgs:(System_Array *)p1;
+ Params
+   (none)
+
+ Return
+   System.Type
+ @/textblock
+*/
+- (System_Type *)getType;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetTypeArray
+
+ Params
+   System.Object[]
+
+ Return
+   System.Type[]
+ @/textblock
+*/
++ (System_Array *)getTypeArray_withArgs:(System_Array *)p1;
+
 /* Skipped method : System.TypeCode GetTypeCode(System.Type type) */
 
-	/*! 
-		Managed method name : GetTypeFromCLSID
-		Managed return type : System.Type
-		Managed param types : System.Guid
-	 */
-    + (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetTypeFromCLSID
 
-	/*! 
-		Managed method name : GetTypeFromCLSID
-		Managed return type : System.Type
-		Managed param types : System.Guid, System.Boolean
-	 */
-    + (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1 throwOnError:(BOOL)p2;
+ Params
+   System.Guid
 
-	/*! 
-		Managed method name : GetTypeFromCLSID
-		Managed return type : System.Type
-		Managed param types : System.Guid, System.String
-	 */
-    + (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1 server:(NSString *)p2;
+ Return
+   System.Type
+ @/textblock
+*/
++ (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1;
 
-	/*! 
-		Managed method name : GetTypeFromCLSID
-		Managed return type : System.Type
-		Managed param types : System.Guid, System.String, System.Boolean
-	 */
-    + (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1 server:(NSString *)p2 throwOnError:(BOOL)p3;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetTypeFromCLSID
+
+ Params
+   System.Guid
+   System.Boolean
+
+ Return
+   System.Type
+ @/textblock
+*/
++ (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1 throwOnError:(BOOL)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetTypeFromCLSID
+
+ Params
+   System.Guid
+   System.String
+
+ Return
+   System.Type
+ @/textblock
+*/
++ (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1 server:(NSString *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetTypeFromCLSID
+
+ Params
+   System.Guid
+   System.String
+   System.Boolean
+
+ Return
+   System.Type
+ @/textblock
+*/
++ (System_Type *)getTypeFromCLSID_withClsid:(System_Guid *)p1 server:(NSString *)p2 throwOnError:(BOOL)p3;
+
 /* Skipped method : System.Type GetTypeFromHandle(System.RuntimeTypeHandle handle) */
 
-	/*! 
-		Managed method name : GetTypeFromProgID
-		Managed return type : System.Type
-		Managed param types : System.String
-	 */
-    + (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetTypeFromProgID
 
-	/*! 
-		Managed method name : GetTypeFromProgID
-		Managed return type : System.Type
-		Managed param types : System.String, System.Boolean
-	 */
-    + (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1 throwOnError:(BOOL)p2;
+ Params
+   System.String
 
-	/*! 
-		Managed method name : GetTypeFromProgID
-		Managed return type : System.Type
-		Managed param types : System.String, System.String
-	 */
-    + (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1 server:(NSString *)p2;
+ Return
+   System.Type
+ @/textblock
+*/
++ (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1;
 
-	/*! 
-		Managed method name : GetTypeFromProgID
-		Managed return type : System.Type
-		Managed param types : System.String, System.String, System.Boolean
-	 */
-    + (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1 server:(NSString *)p2 throwOnError:(BOOL)p3;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetTypeFromProgID
+
+ Params
+   System.String
+   System.Boolean
+
+ Return
+   System.Type
+ @/textblock
+*/
++ (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1 throwOnError:(BOOL)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetTypeFromProgID
+
+ Params
+   System.String
+   System.String
+
+ Return
+   System.Type
+ @/textblock
+*/
++ (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1 server:(NSString *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetTypeFromProgID
+
+ Params
+   System.String
+   System.String
+   System.Boolean
+
+ Return
+   System.Type
+ @/textblock
+*/
++ (System_Type *)getTypeFromProgID_withProgID:(NSString *)p1 server:(NSString *)p2 throwOnError:(BOOL)p3;
+
 /* Skipped method : System.RuntimeTypeHandle GetTypeHandle(System.Object o) */
+
 /* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args, System.Reflection.ParameterModifier[] modifiers, System.Globalization.CultureInfo culture, System.String[] namedParameters) */
+
 /* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args, System.Globalization.CultureInfo culture) */
+
 /* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args) */
 
-	/*! 
-		Managed method name : IsAssignableFrom
-		Managed return type : System.Boolean
-		Managed param types : System.Type
-	 */
-    - (BOOL)isAssignableFrom_withC:(System_Type *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   IsAssignableFrom
 
-	/*! 
-		Managed method name : IsEnumDefined
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)isEnumDefined_withValue:(System_Object *)p1;
+ Params
+   System.Type
 
-	/*! 
-		Managed method name : IsEquivalentTo
-		Managed return type : System.Boolean
-		Managed param types : System.Type
-	 */
-    - (BOOL)isEquivalentTo_withOther:(System_Type *)p1;
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)isAssignableFrom_withC:(System_Type *)p1;
 
-	/*! 
-		Managed method name : IsInstanceOfType
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)isInstanceOfType_withO:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   IsEnumDefined
 
-	/*! 
-		Managed method name : IsSubclassOf
-		Managed return type : System.Boolean
-		Managed param types : System.Type
-	 */
-    - (BOOL)isSubclassOf_withC:(System_Type *)p1;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : MakeArrayType
-		Managed return type : System.Type
-		Managed param types : 
-	 */
-    - (System_Type *)makeArrayType;
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)isEnumDefined_withValue:(System_Object *)p1;
 
-	/*! 
-		Managed method name : MakeArrayType
-		Managed return type : System.Type
-		Managed param types : System.Int32
-	 */
-    - (System_Type *)makeArrayType_withRank:(int32_t)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   IsEquivalentTo
 
-	/*! 
-		Managed method name : MakeByRefType
-		Managed return type : System.Type
-		Managed param types : 
-	 */
-    - (System_Type *)makeByRefType;
+ Params
+   System.Type
 
-	/*! 
-		Managed method name : MakeGenericType
-		Managed return type : System.Type
-		Managed param types : System.Type[]
-	 */
-    - (System_Type *)makeGenericType_withTypeArguments:(System_Array *)p1;
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)isEquivalentTo_withOther:(System_Type *)p1;
 
-	/*! 
-		Managed method name : MakePointerType
-		Managed return type : System.Type
-		Managed param types : 
-	 */
-    - (System_Type *)makePointerType;
+/**
+ Managed method.
+ @textblock
+ Name
+   IsInstanceOfType
 
-	/*! 
-		Managed method name : op_Equality
-		Managed return type : System.Boolean
-		Managed param types : System.Type, System.Type
-	 */
-    + (BOOL)op_Equality_withLeft:(System_Type *)p1 right:(System_Type *)p2;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : op_Inequality
-		Managed return type : System.Boolean
-		Managed param types : System.Type, System.Type
-	 */
-    + (BOOL)op_Inequality_withLeft:(System_Type *)p1 right:(System_Type *)p2;
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)isInstanceOfType_withO:(System_Object *)p1;
 
-	/*! 
-		Managed method name : ReflectionOnlyGetType
-		Managed return type : System.Type
-		Managed param types : System.String, System.Boolean, System.Boolean
-	 */
-    + (System_Type *)reflectionOnlyGetType_withTypeName:(NSString *)p1 throwIfNotFound:(BOOL)p2 ignoreCase:(BOOL)p3;
+/**
+ Managed method.
+ @textblock
+ Name
+   IsSubclassOf
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString;
+ Params
+   System.Type
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)isSubclassOf_withC:(System_Type *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   MakeArrayType
+
+ Params
+   (none)
+
+ Return
+   System.Type
+ @/textblock
+*/
+- (System_Type *)makeArrayType;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   MakeArrayType
+
+ Params
+   System.Int32
+
+ Return
+   System.Type
+ @/textblock
+*/
+- (System_Type *)makeArrayType_withRank:(int32_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   MakeByRefType
+
+ Params
+   (none)
+
+ Return
+   System.Type
+ @/textblock
+*/
+- (System_Type *)makeByRefType;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   MakeGenericType
+
+ Params
+   System.Type[]
+
+ Return
+   System.Type
+ @/textblock
+*/
+- (System_Type *)makeGenericType_withTypeArguments:(System_Array *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   MakePointerType
+
+ Params
+   (none)
+
+ Return
+   System.Type
+ @/textblock
+*/
+- (System_Type *)makePointerType;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Equality
+
+ Params
+   System.Type
+   System.Type
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_Equality_withLeft:(System_Type *)p1 right:(System_Type *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Inequality
+
+ Params
+   System.Type
+   System.Type
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_Inequality_withLeft:(System_Type *)p1 right:(System_Type *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ReflectionOnlyGetType
+
+ Params
+   System.String
+   System.Boolean
+   System.Boolean
+
+ Return
+   System.Type
+ @/textblock
+*/
++ (System_Type *)reflectionOnlyGetType_withTypeName:(NSString *)p1 throwIfNotFound:(BOOL)p2 ignoreCase:(BOOL)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString;
 @end
 //--Dubrovnik.CodeGenerator

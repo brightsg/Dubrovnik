@@ -19,76 +19,50 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Globalization.CultureInfo";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "mscorlib";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Globalization.CultureInfo";
+}
++ (const char *)monoAssemblyName
+{
+	return "mscorlib";
+}
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Globalization.CultureInfo
-		Managed param types : System.String
-	 */
-    + (System_Globalization_CultureInfo *)new_withName:(NSString *)p1
-    {
-		
-		System_Globalization_CultureInfo * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-      return object;
-    }
++ (System_Globalization_CultureInfo *)new_withName:(NSString *)p1
+{
+  System_Globalization_CultureInfo * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return object;
+}
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Globalization.CultureInfo
-		Managed param types : System.String, System.Boolean
-	 */
-    + (System_Globalization_CultureInfo *)new_withName:(NSString *)p1 useUserOverride:(BOOL)p2
-    {
-		
-		System_Globalization_CultureInfo * object = [[self alloc] initWithSignature:"string,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-      
-      return object;
-    }
++ (System_Globalization_CultureInfo *)new_withName:(NSString *)p1 useUserOverride:(BOOL)p2
+{
+  System_Globalization_CultureInfo * object = [[self alloc] initWithSignature:"string,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+  return object;
+}
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Globalization.CultureInfo
-		Managed param types : System.Int32
-	 */
-    + (System_Globalization_CultureInfo *)new_withCulture:(int32_t)p1
-    {
-		
-		System_Globalization_CultureInfo * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
-      
-      return object;
-    }
++ (System_Globalization_CultureInfo *)new_withCulture:(int32_t)p1
+{
+  System_Globalization_CultureInfo * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+  return object;
+}
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Globalization.CultureInfo
-		Managed param types : System.Int32, System.Boolean
-	 */
-    + (System_Globalization_CultureInfo *)new_withCulture:(int32_t)p1 useUserOverride:(BOOL)p2
-    {
-		
-		System_Globalization_CultureInfo * object = [[self alloc] initWithSignature:"int,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
-      
-      return object;
-    }
++ (System_Globalization_CultureInfo *)new_withCulture:(int32_t)p1 useUserOverride:(BOOL)p2
+{
+  System_Globalization_CultureInfo * object = [[self alloc] initWithSignature:"int,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+  return object;
+}
 
 #pragma mark -
 #pragma mark Properties
+
 /* Skipped property : System.Globalization.Calendar Calendar */
+
 /* Skipped property : System.Globalization.CompareInfo CompareInfo */
+
 /* Skipped property : System.Globalization.CultureTypes CultureTypes */
 
 	// Managed property name : CurrentCulture
@@ -164,6 +138,7 @@
 		thunk([value monoObject], &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
+
 /* Skipped property : System.Globalization.DateTimeFormatInfo DateTimeFormat */
 
 	// Managed property name : DefaultThreadCurrentCulture
@@ -477,7 +452,9 @@
 
 		return _nativeName;
 	}
+
 /* Skipped property : System.Globalization.NumberFormatInfo NumberFormat */
+
 /* Skipped property : System.Globalization.Calendar[] OptionalCalendars */
 
 	// Managed property name : Parent
@@ -501,6 +478,7 @@
 
 		return _parent;
 	}
+
 /* Skipped property : System.Globalization.TextInfo TextInfo */
 
 	// Managed property name : ThreeLetterISOLanguageName
@@ -593,185 +571,96 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : ClearCachedData
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)clearCachedData
-    {
-		
-		[self invokeMonoMethod:"ClearCachedData()" withNumArgs:0];
-      
-    }
+- (void)clearCachedData
+{
+  [self invokeMonoMethod:"ClearCachedData()" withNumArgs:0];
+}
 
-	/*! 
-		Managed method name : Clone
-		Managed return type : System.Object
-		Managed param types : 
-	 */
-    - (System_Object *)clone
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
-		
-		return [System_Object bestObjectWithMonoObject:monoObject];
-    }
+- (System_Object *)clone
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
+  return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : CreateSpecificCulture
-		Managed return type : System.Globalization.CultureInfo
-		Managed param types : System.String
-	 */
-    + (System_Globalization_CultureInfo *)createSpecificCulture_withName:(NSString *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateSpecificCulture(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
-    }
++ (System_Globalization_CultureInfo *)createSpecificCulture_withName:(NSString *)p1
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"CreateSpecificCulture(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withValue:(System_Object *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
+- (BOOL)equals_withValue:(System_Object *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-	/*! 
-		Managed method name : GetConsoleFallbackUICulture
-		Managed return type : System.Globalization.CultureInfo
-		Managed param types : 
-	 */
-    - (System_Globalization_CultureInfo *)getConsoleFallbackUICulture
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetConsoleFallbackUICulture()" withNumArgs:0];
-		
-		return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
-    }
+- (System_Globalization_CultureInfo *)getConsoleFallbackUICulture
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetConsoleFallbackUICulture()" withNumArgs:0];
+  return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : GetCultureInfo
-		Managed return type : System.Globalization.CultureInfo
-		Managed param types : System.Int32
-	 */
-    + (System_Globalization_CultureInfo *)getCultureInfo_withCulture:(int32_t)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultureInfo(int)" withNumArgs:1, DB_VALUE(p1)];
-		
-		return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
-    }
++ (System_Globalization_CultureInfo *)getCultureInfo_withCulture:(int32_t)p1
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultureInfo(int)" withNumArgs:1, DB_VALUE(p1)];
+  return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : GetCultureInfo
-		Managed return type : System.Globalization.CultureInfo
-		Managed param types : System.String
-	 */
-    + (System_Globalization_CultureInfo *)getCultureInfo_withName:(NSString *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultureInfo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
-    }
++ (System_Globalization_CultureInfo *)getCultureInfo_withName:(NSString *)p1
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultureInfo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : GetCultureInfo
-		Managed return type : System.Globalization.CultureInfo
-		Managed param types : System.String, System.String
-	 */
-    + (System_Globalization_CultureInfo *)getCultureInfo_withName:(NSString *)p1 altName:(NSString *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultureInfo(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
-    }
++ (System_Globalization_CultureInfo *)getCultureInfo_withName:(NSString *)p1 altName:(NSString *)p2
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultureInfo(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+  return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : GetCultureInfoByIetfLanguageTag
-		Managed return type : System.Globalization.CultureInfo
-		Managed param types : System.String
-	 */
-    + (System_Globalization_CultureInfo *)getCultureInfoByIetfLanguageTag_withName:(NSString *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultureInfoByIetfLanguageTag(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
-    }
++ (System_Globalization_CultureInfo *)getCultureInfoByIetfLanguageTag_withName:(NSString *)p1
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultureInfoByIetfLanguageTag(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
+}
+
 /* Skipped method : System.Globalization.CultureInfo[] GetCultures(System.Globalization.CultureTypes types) */
 
-	/*! 
-		Managed method name : GetFormat
-		Managed return type : System.Object
-		Managed param types : System.Type
-	 */
-    - (System_Object *)getFormat_withFormatType:(System_Type *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetFormat(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Object bestObjectWithMonoObject:monoObject];
-    }
+- (System_Object *)getFormat_withFormatType:(System_Type *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetFormat(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+- (int32_t)getHashCode
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+  return DB_UNBOX_INT32(monoObject);
+}
 
-	/*! 
-		Managed method name : ReadOnly
-		Managed return type : System.Globalization.CultureInfo
-		Managed param types : System.Globalization.CultureInfo
-	 */
-    + (System_Globalization_CultureInfo *)readOnly_withCi:(System_Globalization_CultureInfo *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Globalization.CultureInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
-    }
++ (System_Globalization_CultureInfo *)readOnly_withCi:(System_Globalization_CultureInfo *)p1
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Globalization.CultureInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
-		
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
+- (NSString *)toString
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-		m_currentCulture = nil;
-		m_currentUICulture = nil;
-		m_defaultThreadCurrentCulture = nil;
-		m_defaultThreadCurrentUICulture = nil;
-		m_installedUICulture = nil;
-		m_invariantCulture = nil;
-	}
+
+- (void)dealloc
+{
+	m_currentCulture = nil;
+	m_currentUICulture = nil;
+	m_defaultThreadCurrentCulture = nil;
+	m_defaultThreadCurrentUICulture = nil;
+	m_installedUICulture = nil;
+	m_invariantCulture = nil;
+}
 @end
 //--Dubrovnik.CodeGenerator

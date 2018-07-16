@@ -19,32 +19,24 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Collections.Generic.KeyValuePair`2";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "mscorlib";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Collections.Generic.KeyValuePair`2";
+}
++ (const char *)monoAssemblyName
+{
+	return "mscorlib";
+}
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Collections.Generic.KeyValuePair`2<System.Collections.Generic.KeyValuePair`2+TKey, System.Collections.Generic.KeyValuePair`2+TValue>
-		Managed param types : <System.Collections.Generic.KeyValuePair`2+TKey>, <System.Collections.Generic.KeyValuePair`2+TValue>
-	 */
-    + (System_Collections_Generic_KeyValuePairA2 *)new_withKey:(System_Object *)p1 value:(System_Object *)p2
-    {
-		
-		System_Collections_Generic_KeyValuePairA2 * object = [[self alloc] initWithSignature:"<_T_0>,<_T_1>" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-      
-      return object;
-    }
++ (System_Collections_Generic_KeyValuePairA2 *)new_withKey:(System_Object *)p1 value:(System_Object *)p2
+{
+  System_Collections_Generic_KeyValuePairA2 * object = [[self alloc] initWithSignature:"<_T_0>,<_T_1>" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+  return object;
+}
 
 #pragma mark -
 #pragma mark Properties
@@ -96,23 +88,17 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
-		
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
+- (NSString *)toString
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

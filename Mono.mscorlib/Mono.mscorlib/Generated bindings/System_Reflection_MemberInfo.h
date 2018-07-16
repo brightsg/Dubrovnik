@@ -35,23 +35,25 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Properties
+
 /* Skipped property : System.Collections.Generic.IEnumerable`1<System.Reflection.CustomAttributeData> CustomAttributes */
 
 	// Managed property name : DeclaringType
 	// Managed property type : System.Type
     @property (nonatomic, strong, readonly) System_Type * declaringType;
+
 /* Skipped property : System.Reflection.MemberTypes MemberType */
 
 	// Managed property name : MetadataToken
 	// Managed property type : System.Int32
     @property (nonatomic, readonly) int32_t metadataToken;
+
 /* Skipped property : System.Reflection.Module Module */
 
 	// Managed property name : Name
@@ -65,54 +67,115 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withObj:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-	/*! 
-		Managed method name : GetCustomAttributes
-		Managed return type : System.Object[]
-		Managed param types : System.Boolean
-	 */
-    - (System_Array *)getCustomAttributes_withInherit:(BOOL)p1;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : GetCustomAttributes
-		Managed return type : System.Object[]
-		Managed param types : System.Type, System.Boolean
-	 */
-    - (System_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2;
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withObj:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetCustomAttributes
+
+ Params
+   System.Boolean
+
+ Return
+   System.Object[]
+ @/textblock
+*/
+- (System_Array *)getCustomAttributes_withInherit:(BOOL)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetCustomAttributes
+
+ Params
+   System.Type
+   System.Boolean
+
+ Return
+   System.Object[]
+ @/textblock
+*/
+- (System_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2;
+
 /* Skipped method : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData> GetCustomAttributesData() */
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
 
-	/*! 
-		Managed method name : IsDefined
-		Managed return type : System.Boolean
-		Managed param types : System.Type, System.Boolean
-	 */
-    - (BOOL)isDefined_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : op_Equality
-		Managed return type : System.Boolean
-		Managed param types : System.Reflection.MemberInfo, System.Reflection.MemberInfo
-	 */
-    + (BOOL)op_Equality_withLeft:(System_Reflection_MemberInfo *)p1 right:(System_Reflection_MemberInfo *)p2;
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getHashCode;
 
-	/*! 
-		Managed method name : op_Inequality
-		Managed return type : System.Boolean
-		Managed param types : System.Reflection.MemberInfo, System.Reflection.MemberInfo
-	 */
-    + (BOOL)op_Inequality_withLeft:(System_Reflection_MemberInfo *)p1 right:(System_Reflection_MemberInfo *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   IsDefined
+
+ Params
+   System.Type
+   System.Boolean
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)isDefined_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Equality
+
+ Params
+   System.Reflection.MemberInfo
+   System.Reflection.MemberInfo
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_Equality_withLeft:(System_Reflection_MemberInfo *)p1 right:(System_Reflection_MemberInfo *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Inequality
+
+ Params
+   System.Reflection.MemberInfo
+   System.Reflection.MemberInfo
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_Inequality_withLeft:(System_Reflection_MemberInfo *)p1 right:(System_Reflection_MemberInfo *)p2;
 @end
 //--Dubrovnik.CodeGenerator

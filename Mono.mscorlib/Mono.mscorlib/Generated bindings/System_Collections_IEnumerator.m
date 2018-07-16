@@ -19,16 +19,15 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Collections.IEnumerator";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "mscorlib";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Collections.IEnumerator";
+}
++ (const char *)monoAssemblyName
+{
+	return "mscorlib";
+}
 
 #pragma mark -
 #pragma mark Properties
@@ -58,35 +57,22 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : MoveNext
-		Managed return type : System.Boolean
-		Managed param types : 
-	 */
-    - (BOOL)moveNext
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IEnumerator.MoveNext()" withNumArgs:0];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
+- (BOOL)moveNext
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IEnumerator.MoveNext()" withNumArgs:0];
+  return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-	/*! 
-		Managed method name : Reset
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)reset
-    {
-		
-		[self invokeMonoMethod:"System.Collections.IEnumerator.Reset()" withNumArgs:0];
-      
-    }
+- (void)reset
+{
+  [self invokeMonoMethod:"System.Collections.IEnumerator.Reset()" withNumArgs:0];
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

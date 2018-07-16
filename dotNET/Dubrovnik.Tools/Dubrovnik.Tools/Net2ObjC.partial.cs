@@ -88,6 +88,7 @@ namespace Dubrovnik.Tools
 		public void WriteSkippedItem(string item, string description, int newLines = 1) {
 			string s = String.Format("/* Skipped {0} : {1} */", item, description);
 			if (newLines > 0) {
+				WriteLine("");
 				WriteLine(s);
 				while (--newLines > 0) WriteLine("");
 			} else {
@@ -437,6 +438,16 @@ namespace Dubrovnik.Tools
 					WriteFacetAsMethod(facet);
 				}
 			}
+		}
+
+		public void WriteLineNz(string value) {
+			if (value.Length == 0) return;
+			WriteLine($"{value}");
+		}
+
+		public void WriteNz(string value) {
+			if (value.Length == 0) return;
+			Write($"{value}");
 		}
 
 		public AssemblyFacet AssemblyFacet
@@ -1531,18 +1542,16 @@ namespace Dubrovnik.Tools
         //
         // WriteFacetTypeInfo
         //
-        public string WriteFacetTypeInfo(IList<ParameterFacet> parameters)
+        public string WriteFacetTypeInfo(IList<ParameterFacet> parameters, string tab = "")
         {
             StringBuilder s = new StringBuilder();
-            int idx = 0;
-
-            foreach (ParameterFacet facet in parameters)
-            {
-                if (idx > 0) s.Append(", ");
+            foreach (ParameterFacet facet in parameters) {
                 string facetInfo = WriteFacetTypeInfo(facet);
-                s.Append(facetInfo);
-                idx++;
+                s.AppendFormat($"{tab}{facetInfo}{Environment.NewLine}");
             }
+			if (s.Length == 0) {
+				s.AppendFormat($"{tab}(none){Environment.NewLine}");
+			}
             return s.ToString();
         }
 

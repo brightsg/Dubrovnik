@@ -39,21 +39,30 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
+
 /* Skipped constructor : System.IO.StringWriter (System.IFormatProvider formatProvider) */
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.IO.StringWriter
-		Managed param types : System.Text.StringBuilder
-	 */
-    + (System_IO_StringWriter *)new_withSb:(System_Text_StringBuilder *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Text.StringBuilder
+
+ Return
+   System.IO.StringWriter
+ @/textblock
+*/
++ (System_IO_StringWriter *)new_withSb:(System_Text_StringBuilder *)p1;
+
 /* Skipped constructor : System.IO.StringWriter (System.Text.StringBuilder sb, System.IFormatProvider formatProvider) */
 
 #pragma mark -
@@ -66,95 +75,205 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Close
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)close;
+/**
+ Managed method.
+ @textblock
+ Name
+   Close
 
-	/*! 
-		Managed method name : FlushAsync
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : 
-	 */
-    - (System_Threading_Tasks_Task *)flushAsync;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : GetStringBuilder
-		Managed return type : System.Text.StringBuilder
-		Managed param types : 
-	 */
-    - (System_Text_StringBuilder *)getStringBuilder;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)close;
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString;
+/**
+ Managed method.
+ @textblock
+ Name
+   FlushAsync
 
-	/*! 
-		Managed method name : Write
-		Managed return type : System.Void
-		Managed param types : System.Char
-	 */
-    - (void)write_withValueChar:(uint16_t)p1;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : Write
-		Managed return type : System.Void
-		Managed param types : System.Char[], System.Int32, System.Int32
-	 */
-    - (void)write_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
+*/
+- (System_Threading_Tasks_Task *)flushAsync;
 
-	/*! 
-		Managed method name : Write
-		Managed return type : System.Void
-		Managed param types : System.String
-	 */
-    - (void)write_withValueString:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetStringBuilder
 
-	/*! 
-		Managed method name : WriteAsync
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.Char
-	 */
-    - (System_Threading_Tasks_Task *)writeAsync_withValueChar:(uint16_t)p1;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : WriteAsync
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.String
-	 */
-    - (System_Threading_Tasks_Task *)writeAsync_withValueString:(NSString *)p1;
+ Return
+   System.Text.StringBuilder
+ @/textblock
+*/
+- (System_Text_StringBuilder *)getStringBuilder;
 
-	/*! 
-		Managed method name : WriteAsync
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.Char[], System.Int32, System.Int32
-	 */
-    - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
 
-	/*! 
-		Managed method name : WriteLineAsync
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.Char
-	 */
-    - (System_Threading_Tasks_Task *)writeLineAsync_withValueChar:(uint16_t)p1;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : WriteLineAsync
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.String
-	 */
-    - (System_Threading_Tasks_Task *)writeLineAsync_withValueString:(NSString *)p1;
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString;
 
-	/*! 
-		Managed method name : WriteLineAsync
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.Char[], System.Int32, System.Int32
-	 */
-    - (System_Threading_Tasks_Task *)writeLineAsync_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+/**
+ Managed method.
+ @textblock
+ Name
+   Write
+
+ Params
+   System.Char
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)write_withValueChar:(uint16_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Write
+
+ Params
+   System.Char[]
+   System.Int32
+   System.Int32
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)write_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Write
+
+ Params
+   System.String
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)write_withValueString:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   WriteAsync
+
+ Params
+   System.Char
+
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
+*/
+- (System_Threading_Tasks_Task *)writeAsync_withValueChar:(uint16_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   WriteAsync
+
+ Params
+   System.String
+
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
+*/
+- (System_Threading_Tasks_Task *)writeAsync_withValueString:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   WriteAsync
+
+ Params
+   System.Char[]
+   System.Int32
+   System.Int32
+
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
+*/
+- (System_Threading_Tasks_Task *)writeAsync_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   WriteLineAsync
+
+ Params
+   System.Char
+
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
+*/
+- (System_Threading_Tasks_Task *)writeLineAsync_withValueChar:(uint16_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   WriteLineAsync
+
+ Params
+   System.String
+
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
+*/
+- (System_Threading_Tasks_Task *)writeLineAsync_withValueString:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   WriteLineAsync
+
+ Params
+   System.Char[]
+   System.Int32
+   System.Int32
+
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
+*/
+- (System_Threading_Tasks_Task *)writeLineAsync_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 @end
 //--Dubrovnik.CodeGenerator

@@ -19,16 +19,15 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Data.Entity.DbSet`1";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "EntityFramework";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Data.Entity.DbSet`1";
+}
++ (const char *)monoAssemblyName
+{
+	return "EntityFramework";
+}
 
 #pragma mark -
 #pragma mark Properties
@@ -58,155 +57,81 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Add
-		Managed return type : <System.Data.Entity.DbSet`1+TEntity>
-		Managed param types : <System.Data.Entity.DbSet`1+TEntity>
-	 */
-    - (System_Object *)add_withEntity:(System_Object *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Object bestObjectWithMonoObject:monoObject];
-    }
+- (System_Object *)add_withEntity:(System_Object *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : AddRange
-		Managed return type : System.Collections.Generic.IEnumerable`1<System.Data.Entity.DbSet`1+TEntity>
-		Managed param types : System.Collections.Generic.IEnumerable`1<System.Data.Entity.DbSet`1+TEntity>
-	 */
-    - (id <System_Collections_Generic_IEnumerableA1>)addRange_withEntities:(id <System_Collections_Generic_IEnumerableA1_>)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"AddRange(System.Collections.Generic.IEnumerable`1<System.Data.Entity.DbSet`1/TEntity>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
-    }
+- (id <System_Collections_Generic_IEnumerableA1>)addRange_withEntities:(id <System_Collections_Generic_IEnumerableA1_>)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"AddRange(System.Collections.Generic.IEnumerable`1<System.Data.Entity.DbSet`1/TEntity>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : Attach
-		Managed return type : <System.Data.Entity.DbSet`1+TEntity>
-		Managed param types : <System.Data.Entity.DbSet`1+TEntity>
-	 */
-    - (System_Object *)attach_withEntity:(System_Object *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Object bestObjectWithMonoObject:monoObject];
-    }
+- (System_Object *)attach_withEntity:(System_Object *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withObj:(System_Object *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
+- (BOOL)equals_withObj:(System_Object *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-	/*! 
-		Managed method name : Find
-		Managed return type : <System.Data.Entity.DbSet`1+TEntity>
-		Managed param types : System.Object[]
-	 */
-    - (System_Object *)find_withKeyValues:(System_Array *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Find(object[])" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Object bestObjectWithMonoObject:monoObject];
-    }
+- (System_Object *)find_withKeyValues:(System_Array *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"Find(object[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : FindAsync
-		Managed return type : System.Threading.Tasks.Task`1<System.Data.Entity.DbSet`1+TEntity>
-		Managed param types : System.Threading.CancellationToken, System.Object[]
-	 */
-    - (System_Threading_Tasks_TaskA1 *)findAsync_withCancellationToken:(System_Threading_CancellationToken *)p1 keyValues:(System_Array *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"FindAsync(System.Threading.CancellationToken,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
-    }
+- (System_Threading_Tasks_TaskA1 *)findAsync_withCancellationToken:(System_Threading_CancellationToken *)p1 keyValues:(System_Array *)p2
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"FindAsync(System.Threading.CancellationToken,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+  return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : FindAsync
-		Managed return type : System.Threading.Tasks.Task`1<System.Data.Entity.DbSet`1+TEntity>
-		Managed param types : System.Object[]
-	 */
-    - (System_Threading_Tasks_TaskA1 *)findAsync_withKeyValues:(System_Array *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"FindAsync(object[])" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
-    }
+- (System_Threading_Tasks_TaskA1 *)findAsync_withKeyValues:(System_Array *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"FindAsync(object[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+- (int32_t)getHashCode
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+  return DB_UNBOX_INT32(monoObject);
+}
 
-	/*! 
-		Managed method name : GetType
-		Managed return type : System.Type
-		Managed param types : 
-	 */
-    - (System_Type *)getType
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetType()" withNumArgs:0];
-		
-		return [System_Type bestObjectWithMonoObject:monoObject];
-    }
+- (System_Type *)getType
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetType()" withNumArgs:0];
+  return [System_Type bestObjectWithMonoObject:monoObject];
+}
+
 /* Skipped method : System.Data.Entity.DbSet op_Implicit(System.Data.Entity.DbSet`1<System.Data.Entity.DbSet`1+TEntity> entry) */
 
-	/*! 
-		Managed method name : Remove
-		Managed return type : <System.Data.Entity.DbSet`1+TEntity>
-		Managed param types : <System.Data.Entity.DbSet`1+TEntity>
-	 */
-    - (System_Object *)remove_withEntity:(System_Object *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Object bestObjectWithMonoObject:monoObject];
-    }
+- (System_Object *)remove_withEntity:(System_Object *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : RemoveRange
-		Managed return type : System.Collections.Generic.IEnumerable`1<System.Data.Entity.DbSet`1+TEntity>
-		Managed param types : System.Collections.Generic.IEnumerable`1<System.Data.Entity.DbSet`1+TEntity>
-	 */
-    - (id <System_Collections_Generic_IEnumerableA1>)removeRange_withEntities:(id <System_Collections_Generic_IEnumerableA1_>)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"RemoveRange(System.Collections.Generic.IEnumerable`1<System.Data.Entity.DbSet`1/TEntity>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
-    }
+- (id <System_Collections_Generic_IEnumerableA1>)removeRange_withEntities:(id <System_Collections_Generic_IEnumerableA1_>)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"RemoveRange(System.Collections.Generic.IEnumerable`1<System.Data.Entity.DbSet`1/TEntity>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
+}
+
 /* Skipped method : System.Data.Entity.Infrastructure.DbSqlQuery`1<System.Data.Entity.DbSet`1+TEntity> SqlQuery(System.String sql, System.Object[] parameters) */
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

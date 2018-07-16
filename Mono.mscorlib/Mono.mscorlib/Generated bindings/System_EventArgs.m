@@ -19,16 +19,15 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.EventArgs";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "mscorlib";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.EventArgs";
+}
++ (const char *)monoAssemblyName
+{
+	return "mscorlib";
+}
 
 #pragma mark -
 #pragma mark Fields
@@ -47,9 +46,10 @@
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-		m_empty = nil;
-	}
+
+- (void)dealloc
+{
+	m_empty = nil;
+}
 @end
 //--Dubrovnik.CodeGenerator

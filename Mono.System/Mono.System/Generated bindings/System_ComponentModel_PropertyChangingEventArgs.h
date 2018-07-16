@@ -30,20 +30,27 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.ComponentModel.PropertyChangingEventArgs
-		Managed param types : System.String
-	 */
-    + (System_ComponentModel_PropertyChangingEventArgs *)new_withPropertyName:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.String
+
+ Return
+   System.ComponentModel.PropertyChangingEventArgs
+ @/textblock
+*/
++ (System_ComponentModel_PropertyChangingEventArgs *)new_withPropertyName:(NSString *)p1;
 
 #pragma mark -
 #pragma mark Properties

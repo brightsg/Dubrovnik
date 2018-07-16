@@ -19,16 +19,15 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Data.IDataReader";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "System.Data";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Data.IDataReader";
+}
++ (const char *)monoAssemblyName
+{
+	return "System.Data";
+}
 
 #pragma mark -
 #pragma mark Properties
@@ -99,49 +98,30 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Close
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)close
-    {
-		
-		[self invokeMonoMethod:"System.Data.IDataReader.Close()" withNumArgs:0];
-      
-    }
+- (void)close
+{
+  [self invokeMonoMethod:"System.Data.IDataReader.Close()" withNumArgs:0];
+}
+
 /* Skipped method : System.Data.DataTable GetSchemaTable() */
 
-	/*! 
-		Managed method name : NextResult
-		Managed return type : System.Boolean
-		Managed param types : 
-	 */
-    - (BOOL)nextResult
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Data.IDataReader.NextResult()" withNumArgs:0];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
+- (BOOL)nextResult
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"System.Data.IDataReader.NextResult()" withNumArgs:0];
+  return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-	/*! 
-		Managed method name : Read
-		Managed return type : System.Boolean
-		Managed param types : 
-	 */
-    - (BOOL)read
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Data.IDataReader.Read()" withNumArgs:0];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
+- (BOOL)read
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"System.Data.IDataReader.Read()" withNumArgs:0];
+  return DB_UNBOX_BOOLEAN(monoObject);
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

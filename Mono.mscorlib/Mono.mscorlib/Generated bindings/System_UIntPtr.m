@@ -19,45 +19,31 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.UIntPtr";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "mscorlib";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.UIntPtr";
+}
++ (const char *)monoAssemblyName
+{
+	return "mscorlib";
+}
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.UIntPtr
-		Managed param types : System.UInt32
-	 */
-    + (System_UIntPtr *)new_withValueUint:(uint32_t)p1
-    {
-		
-		System_UIntPtr * object = [[self alloc] initWithSignature:"uint" withNumArgs:1, DB_VALUE(p1)];
-      
-      return object;
-    }
++ (System_UIntPtr *)new_withValueUint:(uint32_t)p1
+{
+  System_UIntPtr * object = [[self alloc] initWithSignature:"uint" withNumArgs:1, DB_VALUE(p1)];
+  return object;
+}
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.UIntPtr
-		Managed param types : System.UInt64
-	 */
-    + (System_UIntPtr *)new_withValueUlong:(uint64_t)p1
-    {
-		
-		System_UIntPtr * object = [[self alloc] initWithSignature:"ulong" withNumArgs:1, DB_VALUE(p1)];
-      
-      return object;
-    }
++ (System_UIntPtr *)new_withValueUlong:(uint64_t)p1
+{
+  System_UIntPtr * object = [[self alloc] initWithSignature:"ulong" withNumArgs:1, DB_VALUE(p1)];
+  return object;
+}
+
 /* Skipped constructor : System.UIntPtr (System.Void* value) */
 
 #pragma mark -
@@ -101,182 +87,95 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Add
-		Managed return type : System.UIntPtr
-		Managed param types : System.UIntPtr, System.Int32
-	 */
-    + (void *)add_withPointer:(void *)p1 offset:(int32_t)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Add(uintptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
-		
-		return DB_UNBOX_UPTR(monoObject);
-    }
++ (void *)add_withPointer:(void *)p1 offset:(int32_t)p2
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"Add(uintptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+  return DB_UNBOX_UPTR(monoObject);
+}
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withObj:(System_Object *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
+- (BOOL)equals_withObj:(System_Object *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+- (int32_t)getHashCode
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+  return DB_UNBOX_INT32(monoObject);
+}
 
-	/*! 
-		Managed method name : op_Addition
-		Managed return type : System.UIntPtr
-		Managed param types : System.UIntPtr, System.Int32
-	 */
-    + (void *)op_Addition_withPointer:(void *)p1 offset:(int32_t)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Addition(uintptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
-		
-		return DB_UNBOX_UPTR(monoObject);
-    }
++ (void *)op_Addition_withPointer:(void *)p1 offset:(int32_t)p2
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"op_Addition(uintptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+  return DB_UNBOX_UPTR(monoObject);
+}
 
-	/*! 
-		Managed method name : op_Equality
-		Managed return type : System.Boolean
-		Managed param types : System.UIntPtr, System.UIntPtr
-	 */
-    + (BOOL)op_Equality_withValue1:(void *)p1 value2:(void *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(uintptr,uintptr)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
++ (BOOL)op_Equality_withValue1:(void *)p1 value2:(void *)p2
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(uintptr,uintptr)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+  return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-	/*! 
-		Managed method name : op_Explicit
-		Managed return type : System.UIntPtr
-		Managed param types : System.UInt32
-	 */
-    + (void *)op_Explicit_withValueUint:(uint32_t)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(uint)" withNumArgs:1, DB_VALUE(p1)];
-		
-		return DB_UNBOX_UPTR(monoObject);
-    }
++ (void *)op_Explicit_withValueUint:(uint32_t)p1
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(uint)" withNumArgs:1, DB_VALUE(p1)];
+  return DB_UNBOX_UPTR(monoObject);
+}
 
-	/*! 
-		Managed method name : op_Explicit
-		Managed return type : System.UIntPtr
-		Managed param types : System.UInt64
-	 */
-    + (void *)op_Explicit_withValueUlong:(uint64_t)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(ulong)" withNumArgs:1, DB_VALUE(p1)];
-		
-		return DB_UNBOX_UPTR(monoObject);
-    }
++ (void *)op_Explicit_withValueUlong:(uint64_t)p1
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(ulong)" withNumArgs:1, DB_VALUE(p1)];
+  return DB_UNBOX_UPTR(monoObject);
+}
+
 /* Skipped method : System.UIntPtr op_Explicit(System.Void* value) */
+
 /* Skipped method : System.Void* op_Explicit(System.UIntPtr value) */
 
-	/*! 
-		Managed method name : op_Inequality
-		Managed return type : System.Boolean
-		Managed param types : System.UIntPtr, System.UIntPtr
-	 */
-    + (BOOL)op_Inequality_withValue1:(void *)p1 value2:(void *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(uintptr,uintptr)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
++ (BOOL)op_Inequality_withValue1:(void *)p1 value2:(void *)p2
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(uintptr,uintptr)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+  return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-	/*! 
-		Managed method name : op_Subtraction
-		Managed return type : System.UIntPtr
-		Managed param types : System.UIntPtr, System.Int32
-	 */
-    + (void *)op_Subtraction_withPointer:(void *)p1 offset:(int32_t)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Subtraction(uintptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
-		
-		return DB_UNBOX_UPTR(monoObject);
-    }
++ (void *)op_Subtraction_withPointer:(void *)p1 offset:(int32_t)p2
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"op_Subtraction(uintptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+  return DB_UNBOX_UPTR(monoObject);
+}
 
-	/*! 
-		Managed method name : Subtract
-		Managed return type : System.UIntPtr
-		Managed param types : System.UIntPtr, System.Int32
-	 */
-    + (void *)subtract_withPointer:(void *)p1 offset:(int32_t)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Subtract(uintptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
-		
-		return DB_UNBOX_UPTR(monoObject);
-    }
++ (void *)subtract_withPointer:(void *)p1 offset:(int32_t)p2
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"Subtract(uintptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+  return DB_UNBOX_UPTR(monoObject);
+}
+
 /* Skipped method : System.Void* ToPointer() */
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
-		
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
+- (NSString *)toString
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
 
-	/*! 
-		Managed method name : ToUInt32
-		Managed return type : System.UInt32
-		Managed param types : 
-	 */
-    - (uint32_t)toUInt32
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToUInt32()" withNumArgs:0];
-		
-		return DB_UNBOX_UINT32(monoObject);
-    }
+- (uint32_t)toUInt32
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"ToUInt32()" withNumArgs:0];
+  return DB_UNBOX_UINT32(monoObject);
+}
 
-	/*! 
-		Managed method name : ToUInt64
-		Managed return type : System.UInt64
-		Managed param types : 
-	 */
-    - (uint64_t)toUInt64
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToUInt64()" withNumArgs:0];
-		
-		return DB_UNBOX_UINT64(monoObject);
-    }
+- (uint64_t)toUInt64
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"ToUInt64()" withNumArgs:0];
+  return DB_UNBOX_UINT64(monoObject);
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

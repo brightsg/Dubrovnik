@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     12/07/2018 22:16:08
+// Date:     16/07/2018 22:19:58
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -40,87 +40,157 @@
 //
 // Class aliases
 //
+
 /* Skipped type : Microsoft.Win32.Registry Registry */
+
 /* Skipped type : Microsoft.Win32.RegistryHive RegistryHive */
+
 /* Skipped type : Microsoft.Win32.RegistryKey RegistryKey */
+
 /* Skipped type : Microsoft.Win32.RegistryKeyPermissionCheck RegistryKeyPermissionCheck */
+
 /* Skipped type : Microsoft.Win32.RegistryOptions RegistryOptions */
+
 /* Skipped type : Microsoft.Win32.RegistryValueKind RegistryValueKind */
+
 /* Skipped type : Microsoft.Win32.RegistryValueOptions RegistryValueOptions */
+
 /* Skipped type : Microsoft.Win32.RegistryView RegistryView */
+
 /* Skipped type : Microsoft.Win32.SafeHandles.CriticalHandleMinusOneIsInvalid CriticalHandleMinusOneIsInvalid */
+
 /* Skipped type : Microsoft.Win32.SafeHandles.CriticalHandleZeroOrMinusOneIsInvalid CriticalHandleZeroOrMinusOneIsInvalid */
+
 /* Skipped type : Microsoft.Win32.SafeHandles.SafeAccessTokenHandle SafeAccessTokenHandle */
+
 /* Skipped type : Microsoft.Win32.SafeHandles.SafeFileHandle SafeFileHandle */
+
 /* Skipped type : Microsoft.Win32.SafeHandles.SafeHandleMinusOneIsInvalid SafeHandleMinusOneIsInvalid */
+
 /* Skipped type : Microsoft.Win32.SafeHandles.SafeHandleZeroOrMinusOneIsInvalid SafeHandleZeroOrMinusOneIsInvalid */
+
 /* Skipped type : Microsoft.Win32.SafeHandles.SafeRegistryHandle SafeRegistryHandle */
+
 /* Skipped type : Microsoft.Win32.SafeHandles.SafeWaitHandle SafeWaitHandle */
+
 /* Skipped type : System._AppDomain _AppDomain */
+
 /* Skipped type : System.AccessViolationException AccessViolationException */
 #define SAction_ System_Action
 #define SActionA1_ System_ActionA1
 #define SActionA2_ System_ActionA2
+
 /* Skipped type : System.Action`3<System.Action`3+T1, System.Action`3+T2, System.Action`3+T3> Action`3<T1, T2, T3> */
+
 /* Skipped type : System.Action`4<System.Action`4+T1, System.Action`4+T2, System.Action`4+T3, System.Action`4+T4> Action`4<T1, T2, T3, T4> */
+
 /* Skipped type : System.Action`5 Action`5 */
+
 /* Skipped type : System.Action`6 Action`6 */
+
 /* Skipped type : System.Action`7 Action`7 */
+
 /* Skipped type : System.Action`8 Action`8 */
+
 /* Skipped type : System.ActivationContext ActivationContext */
+
 /* Skipped type : System.ActivationContext+ContextForm ActivationContext.ContextForm */
 #define SActivator_ System_Activator
+
 /* Skipped type : System.AggregateException AggregateException */
+
 /* Skipped type : System.AppContext AppContext */
 #define SAppDomain_ System_AppDomain
+
 /* Skipped type : System.AppDomainInitializer AppDomainInitializer */
+
 /* Skipped type : System.AppDomainManager AppDomainManager */
+
 /* Skipped type : System.AppDomainManagerInitializationOptions AppDomainManagerInitializationOptions */
+
 /* Skipped type : System.AppDomainSetup AppDomainSetup */
+
 /* Skipped type : System.AppDomainUnloadedException AppDomainUnloadedException */
+
 /* Skipped type : System.ApplicationException ApplicationException */
+
 /* Skipped type : System.ApplicationId ApplicationId */
+
 /* Skipped type : System.ApplicationIdentity ApplicationIdentity */
+
 /* Skipped type : System.ArgIterator ArgIterator */
+
 /* Skipped type : System.ArgumentException ArgumentException */
+
 /* Skipped type : System.ArgumentNullException ArgumentNullException */
+
 /* Skipped type : System.ArgumentOutOfRangeException ArgumentOutOfRangeException */
+
 /* Skipped type : System.ArithmeticException ArithmeticException */
 #define SArray_ System_Array
+
 /* Skipped type : System.ArraySegment`1<System.ArraySegment`1+T> ArraySegment`1<T> */
+
 /* Skipped type : System.ArrayTypeMismatchException ArrayTypeMismatchException */
+
 /* Skipped type : System.AssemblyLoadEventArgs AssemblyLoadEventArgs */
+
 /* Skipped type : System.AssemblyLoadEventHandler AssemblyLoadEventHandler */
 #define SAsyncCallback_ System_AsyncCallback
 #define SAttribute_ System_Attribute
+
 /* Skipped type : System.AttributeTargets AttributeTargets */
+
 /* Skipped type : System.AttributeUsageAttribute AttributeUsageAttribute */
+
 /* Skipped type : System.BadImageFormatException BadImageFormatException */
+
 /* Skipped type : System.Base64FormattingOptions Base64FormattingOptions */
+
 /* Skipped type : System.BitConverter BitConverter */
 #define SBoolean_ System_Boolean
+
 /* Skipped type : System.Buffer Buffer */
 #define SByte_ System_Byte
+
 /* Skipped type : System.CannotUnloadAppDomainException CannotUnloadAppDomainException */
 #define SChar_ System_Char
+
 /* Skipped type : System.CharEnumerator CharEnumerator */
+
 /* Skipped type : System.CLSCompliantAttribute CLSCompliantAttribute */
 #define SCArrayList_ System_Collections_ArrayList
+
 /* Skipped type : System.Collections.BitArray BitArray */
+
 /* Skipped type : System.Collections.CaseInsensitiveComparer CaseInsensitiveComparer */
+
 /* Skipped type : System.Collections.CaseInsensitiveHashCodeProvider CaseInsensitiveHashCodeProvider */
+
 /* Skipped type : System.Collections.CollectionBase CollectionBase */
+
 /* Skipped type : System.Collections.Comparer Comparer */
+
 /* Skipped type : System.Collections.Concurrent.ConcurrentDictionary`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue> ConcurrentDictionary`2<TKey, TValue> */
+
 /* Skipped type : System.Collections.Concurrent.ConcurrentQueue`1<System.Collections.Concurrent.ConcurrentQueue`1+T> ConcurrentQueue`1<T> */
+
 /* Skipped type : System.Collections.Concurrent.ConcurrentStack`1<System.Collections.Concurrent.ConcurrentStack`1+T> ConcurrentStack`1<T> */
+
 /* Skipped type : System.Collections.Concurrent.EnumerablePartitionerOptions EnumerablePartitionerOptions */
+
 /* Skipped type : System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.IProducerConsumerCollection`1+T> IProducerConsumerCollection`1<T> */
+
 /* Skipped type : System.Collections.Concurrent.OrderablePartitioner`1<System.Collections.Concurrent.OrderablePartitioner`1+TSource> OrderablePartitioner`1<TSource> */
+
 /* Skipped type : System.Collections.Concurrent.Partitioner Partitioner */
+
 /* Skipped type : System.Collections.Concurrent.Partitioner`1<System.Collections.Concurrent.Partitioner`1+TSource> Partitioner`1<TSource> */
+
 /* Skipped type : System.Collections.DictionaryBase DictionaryBase */
+
 /* Skipped type : System.Collections.DictionaryEntry DictionaryEntry */
+
 /* Skipped type : System.Collections.Generic.Comparer`1<System.Collections.Generic.Comparer`1+T> Comparer`1<T> */
 #define SCGDictionaryA2_Enumerator_ System_Collections_Generic_DictionaryA2__Enumerator
 #define SCGDictionaryA2_KeyCollection_Enumerator_ System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator
@@ -128,1462 +198,2836 @@
 #define SCGDictionaryA2_ System_Collections_Generic_DictionaryA2
 #define SCGDictionaryA2_ValueCollection_Enumerator_ System_Collections_Generic_DictionaryA2__ValueCollection__Enumerator
 #define SCGDictionaryA2_ValueCollection_ System_Collections_Generic_DictionaryA2__ValueCollection
+
 /* Skipped type : System.Collections.Generic.EqualityComparer`1<System.Collections.Generic.EqualityComparer`1+T> EqualityComparer`1<T> */
 #define SCGICollectionA1_ System_Collections_Generic_ICollectionA1
 #define SCGIComparerA1_ System_Collections_Generic_IComparerA1
 #define SCGIDictionaryA2_ System_Collections_Generic_IDictionaryA2
 #define SCGIEnumerableA1_ System_Collections_Generic_IEnumerableA1
 #define SCGIEnumeratorA1_ System_Collections_Generic_IEnumeratorA1
+
 /* Skipped type : System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.IEqualityComparer`1+T> IEqualityComparer`1<T> */
+
 /* Skipped type : System.Collections.Generic.IList`1<System.Collections.Generic.IList`1+T> IList`1<T> */
+
 /* Skipped type : System.Collections.Generic.IReadOnlyCollection`1<System.Collections.Generic.IReadOnlyCollection`1+T> IReadOnlyCollection`1<T> */
+
 /* Skipped type : System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey, System.Collections.Generic.IReadOnlyDictionary`2+TValue> IReadOnlyDictionary`2<TKey, TValue> */
+
 /* Skipped type : System.Collections.Generic.IReadOnlyList`1<System.Collections.Generic.IReadOnlyList`1+T> IReadOnlyList`1<T> */
+
 /* Skipped type : System.Collections.Generic.KeyNotFoundException KeyNotFoundException */
 #define SCGKeyValuePairA2_ System_Collections_Generic_KeyValuePairA2
 #define SCGListA1_Enumerator_ System_Collections_Generic_ListA1__Enumerator
 #define SCGListA1_ System_Collections_Generic_ListA1
+
 /* Skipped type : System.Collections.Hashtable Hashtable */
+
 /* Skipped type : System.Collections.ICollection ICollection */
+
 /* Skipped type : System.Collections.IComparer IComparer */
+
 /* Skipped type : System.Collections.IDictionary IDictionary */
+
 /* Skipped type : System.Collections.IDictionaryEnumerator IDictionaryEnumerator */
 #define SCIEnumerable_ System_Collections_IEnumerable
 #define SCIEnumerator_ System_Collections_IEnumerator
+
 /* Skipped type : System.Collections.IEqualityComparer IEqualityComparer */
+
 /* Skipped type : System.Collections.IHashCodeProvider IHashCodeProvider */
 #define SCIList_ System_Collections_IList
+
 /* Skipped type : System.Collections.IStructuralComparable IStructuralComparable */
+
 /* Skipped type : System.Collections.IStructuralEquatable IStructuralEquatable */
 #define SCOCollectionA1_ System_Collections_ObjectModel_CollectionA1
+
 /* Skipped type : System.Collections.ObjectModel.KeyedCollection`2<System.Collections.ObjectModel.KeyedCollection`2+TKey, System.Collections.ObjectModel.KeyedCollection`2+TItem> KeyedCollection`2<TKey, TItem> */
+
 /* Skipped type : System.Collections.ObjectModel.ReadOnlyCollection`1<System.Collections.ObjectModel.ReadOnlyCollection`1+T> ReadOnlyCollection`1<T> */
+
 /* Skipped type : System.Collections.ObjectModel.ReadOnlyDictionary`2<System.Collections.ObjectModel.ReadOnlyDictionary`2+KeyCollection+TKey, System.Collections.ObjectModel.ReadOnlyDictionary`2+KeyCollection+TValue>+KeyCollection ReadOnlyDictionary`2<TKey, TValue>.KeyCollection */
+
 /* Skipped type : System.Collections.ObjectModel.ReadOnlyDictionary`2<System.Collections.ObjectModel.ReadOnlyDictionary`2+TKey, System.Collections.ObjectModel.ReadOnlyDictionary`2+TValue> ReadOnlyDictionary`2<TKey, TValue> */
+
 /* Skipped type : System.Collections.ObjectModel.ReadOnlyDictionary`2<System.Collections.ObjectModel.ReadOnlyDictionary`2+ValueCollection+TKey, System.Collections.ObjectModel.ReadOnlyDictionary`2+ValueCollection+TValue>+ValueCollection ReadOnlyDictionary`2<TKey, TValue>.ValueCollection */
+
 /* Skipped type : System.Collections.Queue Queue */
+
 /* Skipped type : System.Collections.ReadOnlyCollectionBase ReadOnlyCollectionBase */
+
 /* Skipped type : System.Collections.SortedList SortedList */
+
 /* Skipped type : System.Collections.Stack Stack */
+
 /* Skipped type : System.Collections.StructuralComparisons StructuralComparisons */
+
 /* Skipped type : System.Comparison`1<System.Comparison`1+T> Comparison`1<T> */
+
 /* Skipped type : System.Configuration.Assemblies.AssemblyHash AssemblyHash */
+
 /* Skipped type : System.Configuration.Assemblies.AssemblyHashAlgorithm AssemblyHashAlgorithm */
+
 /* Skipped type : System.Configuration.Assemblies.AssemblyVersionCompatibility AssemblyVersionCompatibility */
+
 /* Skipped type : System.Console Console */
+
 /* Skipped type : System.ConsoleCancelEventArgs ConsoleCancelEventArgs */
+
 /* Skipped type : System.ConsoleCancelEventHandler ConsoleCancelEventHandler */
+
 /* Skipped type : System.ConsoleColor ConsoleColor */
+
 /* Skipped type : System.ConsoleKey ConsoleKey */
+
 /* Skipped type : System.ConsoleKeyInfo ConsoleKeyInfo */
+
 /* Skipped type : System.ConsoleModifiers ConsoleModifiers */
+
 /* Skipped type : System.ConsoleSpecialKey ConsoleSpecialKey */
+
 /* Skipped type : System.ContextBoundObject ContextBoundObject */
+
 /* Skipped type : System.ContextMarshalException ContextMarshalException */
+
 /* Skipped type : System.ContextStaticAttribute ContextStaticAttribute */
 #define SConvert_ System_Convert
+
 /* Skipped type : System.Converter`2<System.Converter`2+TInput, System.Converter`2+TOutput> Converter`2<TInput, TOutput> */
+
 /* Skipped type : System.CrossAppDomainDelegate CrossAppDomainDelegate */
+
 /* Skipped type : System.DataMisalignedException DataMisalignedException */
 #define SDateTime_ System_DateTime
 #define SDateTimeKind_ System_DateTimeKind
+
 /* Skipped type : System.DateTimeOffset DateTimeOffset */
 #define SDayOfWeek_ System_DayOfWeek
 #define SDBNull_ System_DBNull
 #define SDecimal_ System_Decimal
 #define SDelegate_ System_Delegate
+
 /* Skipped type : System.Deployment.Internal.InternalActivationContextHelper InternalActivationContextHelper */
+
 /* Skipped type : System.Deployment.Internal.InternalApplicationIdentityHelper InternalApplicationIdentityHelper */
+
 /* Skipped type : System.Diagnostics.CodeAnalysis.SuppressMessageAttribute SuppressMessageAttribute */
+
 /* Skipped type : System.Diagnostics.ConditionalAttribute ConditionalAttribute */
+
 /* Skipped type : System.Diagnostics.Contracts.Contract Contract */
+
 /* Skipped type : System.Diagnostics.Contracts.ContractAbbreviatorAttribute ContractAbbreviatorAttribute */
+
 /* Skipped type : System.Diagnostics.Contracts.ContractArgumentValidatorAttribute ContractArgumentValidatorAttribute */
+
 /* Skipped type : System.Diagnostics.Contracts.ContractClassAttribute ContractClassAttribute */
+
 /* Skipped type : System.Diagnostics.Contracts.ContractClassForAttribute ContractClassForAttribute */
+
 /* Skipped type : System.Diagnostics.Contracts.ContractFailedEventArgs ContractFailedEventArgs */
+
 /* Skipped type : System.Diagnostics.Contracts.ContractFailureKind ContractFailureKind */
+
 /* Skipped type : System.Diagnostics.Contracts.ContractInvariantMethodAttribute ContractInvariantMethodAttribute */
+
 /* Skipped type : System.Diagnostics.Contracts.ContractOptionAttribute ContractOptionAttribute */
+
 /* Skipped type : System.Diagnostics.Contracts.ContractPublicPropertyNameAttribute ContractPublicPropertyNameAttribute */
+
 /* Skipped type : System.Diagnostics.Contracts.ContractReferenceAssemblyAttribute ContractReferenceAssemblyAttribute */
+
 /* Skipped type : System.Diagnostics.Contracts.ContractRuntimeIgnoredAttribute ContractRuntimeIgnoredAttribute */
+
 /* Skipped type : System.Diagnostics.Contracts.ContractVerificationAttribute ContractVerificationAttribute */
+
 /* Skipped type : System.Diagnostics.Contracts.Internal.ContractHelper ContractHelper */
+
 /* Skipped type : System.Diagnostics.Contracts.PureAttribute PureAttribute */
+
 /* Skipped type : System.Diagnostics.DebuggableAttribute DebuggableAttribute */
+
 /* Skipped type : System.Diagnostics.DebuggableAttribute+DebuggingModes DebuggableAttribute.DebuggingModes */
+
 /* Skipped type : System.Diagnostics.Debugger Debugger */
+
 /* Skipped type : System.Diagnostics.DebuggerBrowsableAttribute DebuggerBrowsableAttribute */
+
 /* Skipped type : System.Diagnostics.DebuggerBrowsableState DebuggerBrowsableState */
+
 /* Skipped type : System.Diagnostics.DebuggerDisplayAttribute DebuggerDisplayAttribute */
+
 /* Skipped type : System.Diagnostics.DebuggerHiddenAttribute DebuggerHiddenAttribute */
+
 /* Skipped type : System.Diagnostics.DebuggerNonUserCodeAttribute DebuggerNonUserCodeAttribute */
+
 /* Skipped type : System.Diagnostics.DebuggerStepperBoundaryAttribute DebuggerStepperBoundaryAttribute */
+
 /* Skipped type : System.Diagnostics.DebuggerStepThroughAttribute DebuggerStepThroughAttribute */
+
 /* Skipped type : System.Diagnostics.DebuggerTypeProxyAttribute DebuggerTypeProxyAttribute */
+
 /* Skipped type : System.Diagnostics.DebuggerVisualizerAttribute DebuggerVisualizerAttribute */
+
 /* Skipped type : System.Diagnostics.StackFrame StackFrame */
+
 /* Skipped type : System.Diagnostics.StackTrace StackTrace */
+
 /* Skipped type : System.Diagnostics.SymbolStore.ISymbolBinder ISymbolBinder */
+
 /* Skipped type : System.Diagnostics.SymbolStore.ISymbolBinder1 ISymbolBinder1 */
+
 /* Skipped type : System.Diagnostics.SymbolStore.ISymbolDocument ISymbolDocument */
+
 /* Skipped type : System.Diagnostics.SymbolStore.ISymbolDocumentWriter ISymbolDocumentWriter */
+
 /* Skipped type : System.Diagnostics.SymbolStore.ISymbolMethod ISymbolMethod */
+
 /* Skipped type : System.Diagnostics.SymbolStore.ISymbolNamespace ISymbolNamespace */
+
 /* Skipped type : System.Diagnostics.SymbolStore.ISymbolReader ISymbolReader */
+
 /* Skipped type : System.Diagnostics.SymbolStore.ISymbolScope ISymbolScope */
+
 /* Skipped type : System.Diagnostics.SymbolStore.ISymbolVariable ISymbolVariable */
+
 /* Skipped type : System.Diagnostics.SymbolStore.ISymbolWriter ISymbolWriter */
+
 /* Skipped type : System.Diagnostics.SymbolStore.SymAddressKind SymAddressKind */
+
 /* Skipped type : System.Diagnostics.SymbolStore.SymbolToken SymbolToken */
+
 /* Skipped type : System.Diagnostics.SymbolStore.SymDocumentType SymDocumentType */
+
 /* Skipped type : System.Diagnostics.SymbolStore.SymLanguageType SymLanguageType */
+
 /* Skipped type : System.Diagnostics.SymbolStore.SymLanguageVendor SymLanguageVendor */
+
 /* Skipped type : System.Diagnostics.Tracing.EventActivityOptions EventActivityOptions */
+
 /* Skipped type : System.Diagnostics.Tracing.EventAttribute EventAttribute */
+
 /* Skipped type : System.Diagnostics.Tracing.EventChannel EventChannel */
+
 /* Skipped type : System.Diagnostics.Tracing.EventCommand EventCommand */
+
 /* Skipped type : System.Diagnostics.Tracing.EventCommandEventArgs EventCommandEventArgs */
+
 /* Skipped type : System.Diagnostics.Tracing.EventDataAttribute EventDataAttribute */
+
 /* Skipped type : System.Diagnostics.Tracing.EventFieldAttribute EventFieldAttribute */
+
 /* Skipped type : System.Diagnostics.Tracing.EventFieldFormat EventFieldFormat */
+
 /* Skipped type : System.Diagnostics.Tracing.EventFieldTags EventFieldTags */
+
 /* Skipped type : System.Diagnostics.Tracing.EventIgnoreAttribute EventIgnoreAttribute */
+
 /* Skipped type : System.Diagnostics.Tracing.EventKeywords EventKeywords */
+
 /* Skipped type : System.Diagnostics.Tracing.EventLevel EventLevel */
+
 /* Skipped type : System.Diagnostics.Tracing.EventListener EventListener */
+
 /* Skipped type : System.Diagnostics.Tracing.EventManifestOptions EventManifestOptions */
+
 /* Skipped type : System.Diagnostics.Tracing.EventOpcode EventOpcode */
+
 /* Skipped type : System.Diagnostics.Tracing.EventSource EventSource */
+
 /* Skipped type : System.Diagnostics.Tracing.EventSourceAttribute EventSourceAttribute */
+
 /* Skipped type : System.Diagnostics.Tracing.EventSourceCreatedEventArgs EventSourceCreatedEventArgs */
+
 /* Skipped type : System.Diagnostics.Tracing.EventSourceException EventSourceException */
+
 /* Skipped type : System.Diagnostics.Tracing.EventSourceOptions EventSourceOptions */
+
 /* Skipped type : System.Diagnostics.Tracing.EventSourceSettings EventSourceSettings */
+
 /* Skipped type : System.Diagnostics.Tracing.EventTags EventTags */
+
 /* Skipped type : System.Diagnostics.Tracing.EventTask EventTask */
+
 /* Skipped type : System.Diagnostics.Tracing.EventWrittenEventArgs EventWrittenEventArgs */
+
 /* Skipped type : System.Diagnostics.Tracing.NonEventAttribute NonEventAttribute */
+
 /* Skipped type : System.DivideByZeroException DivideByZeroException */
+
 /* Skipped type : System.DllNotFoundException DllNotFoundException */
 #define SDouble_ System_Double
+
 /* Skipped type : System.DuplicateWaitObjectException DuplicateWaitObjectException */
+
 /* Skipped type : System.EntryPointNotFoundException EntryPointNotFoundException */
 #define SEnum_ System_Enum
+
 /* Skipped type : System.Environment Environment */
+
 /* Skipped type : System.Environment+SpecialFolder Environment.SpecialFolder */
+
 /* Skipped type : System.Environment+SpecialFolderOption Environment.SpecialFolderOption */
+
 /* Skipped type : System.EnvironmentVariableTarget EnvironmentVariableTarget */
 #define SEventArgs_ System_EventArgs
+
 /* Skipped type : System.EventHandler EventHandler */
+
 /* Skipped type : System.EventHandler`1<System.EventHandler`1+TEventArgs> EventHandler`1<TEventArgs> */
 #define SException_ System_Exception
+
 /* Skipped type : System.ExecutionEngineException ExecutionEngineException */
+
 /* Skipped type : System.FieldAccessException FieldAccessException */
+
 /* Skipped type : System.FlagsAttribute FlagsAttribute */
+
 /* Skipped type : System.FormatException FormatException */
+
 /* Skipped type : System.FormattableString FormattableString */
 #define SFuncA1_ System_FuncA1
 #define SFuncA2_ System_FuncA2
 #define SFuncA3_ System_FuncA3
+
 /* Skipped type : System.Func`4<System.Func`4+T1, System.Func`4+T2, System.Func`4+T3, System.Func`4+TResult> Func`4<T1, T2, T3, TResult> */
+
 /* Skipped type : System.Func`5 Func`5 */
+
 /* Skipped type : System.Func`6 Func`6 */
+
 /* Skipped type : System.Func`7 Func`7 */
+
 /* Skipped type : System.Func`8 Func`8 */
+
 /* Skipped type : System.Func`9 Func`9 */
+
 /* Skipped type : System.GC GC */
+
 /* Skipped type : System.GCCollectionMode GCCollectionMode */
+
 /* Skipped type : System.GCNotificationStatus GCNotificationStatus */
+
 /* Skipped type : System.Globalization.Calendar Calendar */
+
 /* Skipped type : System.Globalization.CalendarAlgorithmType CalendarAlgorithmType */
+
 /* Skipped type : System.Globalization.CalendarWeekRule CalendarWeekRule */
+
 /* Skipped type : System.Globalization.CharUnicodeInfo CharUnicodeInfo */
+
 /* Skipped type : System.Globalization.ChineseLunisolarCalendar ChineseLunisolarCalendar */
+
 /* Skipped type : System.Globalization.CompareInfo CompareInfo */
+
 /* Skipped type : System.Globalization.CompareOptions CompareOptions */
 #define SGCultureInfo_ System_Globalization_CultureInfo
+
 /* Skipped type : System.Globalization.CultureNotFoundException CultureNotFoundException */
+
 /* Skipped type : System.Globalization.CultureTypes CultureTypes */
+
 /* Skipped type : System.Globalization.DateTimeFormatInfo DateTimeFormatInfo */
+
 /* Skipped type : System.Globalization.DateTimeStyles DateTimeStyles */
+
 /* Skipped type : System.Globalization.DaylightTime DaylightTime */
+
 /* Skipped type : System.Globalization.DigitShapes DigitShapes */
+
 /* Skipped type : System.Globalization.EastAsianLunisolarCalendar EastAsianLunisolarCalendar */
+
 /* Skipped type : System.Globalization.GlobalizationExtensions GlobalizationExtensions */
+
 /* Skipped type : System.Globalization.GregorianCalendar GregorianCalendar */
+
 /* Skipped type : System.Globalization.GregorianCalendarTypes GregorianCalendarTypes */
+
 /* Skipped type : System.Globalization.HebrewCalendar HebrewCalendar */
+
 /* Skipped type : System.Globalization.HijriCalendar HijriCalendar */
+
 /* Skipped type : System.Globalization.IdnMapping IdnMapping */
+
 /* Skipped type : System.Globalization.JapaneseCalendar JapaneseCalendar */
+
 /* Skipped type : System.Globalization.JapaneseLunisolarCalendar JapaneseLunisolarCalendar */
+
 /* Skipped type : System.Globalization.JulianCalendar JulianCalendar */
+
 /* Skipped type : System.Globalization.KoreanCalendar KoreanCalendar */
+
 /* Skipped type : System.Globalization.KoreanLunisolarCalendar KoreanLunisolarCalendar */
+
 /* Skipped type : System.Globalization.NumberFormatInfo NumberFormatInfo */
+
 /* Skipped type : System.Globalization.NumberStyles NumberStyles */
+
 /* Skipped type : System.Globalization.PersianCalendar PersianCalendar */
+
 /* Skipped type : System.Globalization.RegionInfo RegionInfo */
+
 /* Skipped type : System.Globalization.SortKey SortKey */
+
 /* Skipped type : System.Globalization.SortVersion SortVersion */
+
 /* Skipped type : System.Globalization.StringInfo StringInfo */
+
 /* Skipped type : System.Globalization.TaiwanCalendar TaiwanCalendar */
+
 /* Skipped type : System.Globalization.TaiwanLunisolarCalendar TaiwanLunisolarCalendar */
+
 /* Skipped type : System.Globalization.TextElementEnumerator TextElementEnumerator */
+
 /* Skipped type : System.Globalization.TextInfo TextInfo */
+
 /* Skipped type : System.Globalization.ThaiBuddhistCalendar ThaiBuddhistCalendar */
+
 /* Skipped type : System.Globalization.TimeSpanStyles TimeSpanStyles */
+
 /* Skipped type : System.Globalization.UmAlQuraCalendar UmAlQuraCalendar */
+
 /* Skipped type : System.Globalization.UnicodeCategory UnicodeCategory */
 #define SGuid_ System_Guid
+
 /* Skipped type : System.IAppDomainSetup IAppDomainSetup */
 #define SIAsyncResult_ System_IAsyncResult
 #define SICloneable_ System_ICloneable
+
 /* Skipped type : System.IComparable IComparable */
+
 /* Skipped type : System.IComparable`1<System.IComparable`1+T> IComparable`1<T> */
+
 /* Skipped type : System.IConvertible IConvertible */
+
 /* Skipped type : System.ICustomFormatter ICustomFormatter */
 #define SIDisposable_ System_IDisposable
 #define SIEquatableA1_ System_IEquatableA1
+
 /* Skipped type : System.IFormatProvider IFormatProvider */
+
 /* Skipped type : System.IFormattable IFormattable */
+
 /* Skipped type : System.IndexOutOfRangeException IndexOutOfRangeException */
+
 /* Skipped type : System.InsufficientExecutionStackException InsufficientExecutionStackException */
+
 /* Skipped type : System.InsufficientMemoryException InsufficientMemoryException */
 #define SInt16_ System_Int16
 #define SInt32_ System_Int32
 #define SInt64_ System_Int64
 #define SIntPtr_ System_IntPtr
+
 /* Skipped type : System.InvalidCastException InvalidCastException */
+
 /* Skipped type : System.InvalidOperationException InvalidOperationException */
+
 /* Skipped type : System.InvalidProgramException InvalidProgramException */
+
 /* Skipped type : System.InvalidTimeZoneException InvalidTimeZoneException */
+
 /* Skipped type : System.IO.BinaryReader BinaryReader */
+
 /* Skipped type : System.IO.BinaryWriter BinaryWriter */
+
 /* Skipped type : System.IO.BufferedStream BufferedStream */
+
 /* Skipped type : System.IO.Directory Directory */
+
 /* Skipped type : System.IO.DirectoryInfo DirectoryInfo */
+
 /* Skipped type : System.IO.DirectoryNotFoundException DirectoryNotFoundException */
+
 /* Skipped type : System.IO.DriveInfo DriveInfo */
+
 /* Skipped type : System.IO.DriveNotFoundException DriveNotFoundException */
+
 /* Skipped type : System.IO.DriveType DriveType */
+
 /* Skipped type : System.IO.EndOfStreamException EndOfStreamException */
+
 /* Skipped type : System.IO.File File */
+
 /* Skipped type : System.IO.FileAccess FileAccess */
 #define SIFileAttributes_ System_IO_FileAttributes
 #define SIFileInfo_ System_IO_FileInfo
+
 /* Skipped type : System.IO.FileLoadException FileLoadException */
+
 /* Skipped type : System.IO.FileMode FileMode */
+
 /* Skipped type : System.IO.FileNotFoundException FileNotFoundException */
+
 /* Skipped type : System.IO.FileOptions FileOptions */
+
 /* Skipped type : System.IO.FileShare FileShare */
+
 /* Skipped type : System.IO.FileStream FileStream */
+
 /* Skipped type : System.IO.FileSystemInfo FileSystemInfo */
+
 /* Skipped type : System.IO.IOException IOException */
+
 /* Skipped type : System.IO.IsolatedStorage.INormalizeForIsolatedStorage INormalizeForIsolatedStorage */
+
 /* Skipped type : System.IO.IsolatedStorage.IsolatedStorage IsolatedStorage */
+
 /* Skipped type : System.IO.IsolatedStorage.IsolatedStorageException IsolatedStorageException */
+
 /* Skipped type : System.IO.IsolatedStorage.IsolatedStorageFile IsolatedStorageFile */
+
 /* Skipped type : System.IO.IsolatedStorage.IsolatedStorageFileStream IsolatedStorageFileStream */
+
 /* Skipped type : System.IO.IsolatedStorage.IsolatedStorageScope IsolatedStorageScope */
+
 /* Skipped type : System.IO.IsolatedStorage.IsolatedStorageSecurityOptions IsolatedStorageSecurityOptions */
+
 /* Skipped type : System.IO.IsolatedStorage.IsolatedStorageSecurityState IsolatedStorageSecurityState */
+
 /* Skipped type : System.IO.MemoryStream MemoryStream */
+
 /* Skipped type : System.IO.Path Path */
+
 /* Skipped type : System.IO.PathTooLongException PathTooLongException */
+
 /* Skipped type : System.IO.SearchOption SearchOption */
+
 /* Skipped type : System.IO.SeekOrigin SeekOrigin */
 #define SIStream_ System_IO_Stream
+
 /* Skipped type : System.IO.StreamReader StreamReader */
+
 /* Skipped type : System.IO.StreamWriter StreamWriter */
 #define SIStringReader_ System_IO_StringReader
 #define SIStringWriter_ System_IO_StringWriter
 #define SITextReader_ System_IO_TextReader
+
 /* Skipped type : System.IO.TextWriter TextWriter */
+
 /* Skipped type : System.IO.UnmanagedMemoryAccessor UnmanagedMemoryAccessor */
+
 /* Skipped type : System.IO.UnmanagedMemoryStream UnmanagedMemoryStream */
+
 /* Skipped type : System.IObservable`1<System.IObservable`1+T> IObservable`1<T> */
+
 /* Skipped type : System.IObserver`1<System.IObserver`1+T> IObserver`1<T> */
+
 /* Skipped type : System.IProgress`1<System.IProgress`1+T> IProgress`1<T> */
+
 /* Skipped type : System.IServiceProvider IServiceProvider */
+
 /* Skipped type : System.Lazy`1<System.Lazy`1+T> Lazy`1<T> */
+
 /* Skipped type : System.LoaderOptimization LoaderOptimization */
+
 /* Skipped type : System.LoaderOptimizationAttribute LoaderOptimizationAttribute */
+
 /* Skipped type : System.LocalDataStoreSlot LocalDataStoreSlot */
+
 /* Skipped type : System.MarshalByRefObject MarshalByRefObject */
+
 /* Skipped type : System.Math Math */
+
 /* Skipped type : System.MemberAccessException MemberAccessException */
+
 /* Skipped type : System.MethodAccessException MethodAccessException */
+
 /* Skipped type : System.MidpointRounding MidpointRounding */
+
 /* Skipped type : System.MissingFieldException MissingFieldException */
+
 /* Skipped type : System.MissingMemberException MissingMemberException */
+
 /* Skipped type : System.MissingMethodException MissingMethodException */
+
 /* Skipped type : System.ModuleHandle ModuleHandle */
+
 /* Skipped type : System.MTAThreadAttribute MTAThreadAttribute */
 #define SMulticastDelegate_ System_MulticastDelegate
+
 /* Skipped type : System.MulticastNotSupportedException MulticastNotSupportedException */
+
 /* Skipped type : System.NonSerializedAttribute NonSerializedAttribute */
+
 /* Skipped type : System.NotFiniteNumberException NotFiniteNumberException */
+
 /* Skipped type : System.NotImplementedException NotImplementedException */
+
 /* Skipped type : System.NotSupportedException NotSupportedException */
+
 /* Skipped type : System.Nullable Nullable */
 #define SNullableA1_ System_NullableA1
+
 /* Skipped type : System.NullReferenceException NullReferenceException */
 #define SObject_ System_Object
+
 /* Skipped type : System.ObjectDisposedException ObjectDisposedException */
+
 /* Skipped type : System.ObsoleteAttribute ObsoleteAttribute */
+
 /* Skipped type : System.OperatingSystem OperatingSystem */
+
 /* Skipped type : System.OperationCanceledException OperationCanceledException */
+
 /* Skipped type : System.OutOfMemoryException OutOfMemoryException */
+
 /* Skipped type : System.OverflowException OverflowException */
+
 /* Skipped type : System.ParamArrayAttribute ParamArrayAttribute */
+
 /* Skipped type : System.PlatformID PlatformID */
+
 /* Skipped type : System.PlatformNotSupportedException PlatformNotSupportedException */
+
 /* Skipped type : System.Predicate`1<System.Predicate`1+T> Predicate`1<T> */
+
 /* Skipped type : System.Progress`1<System.Progress`1+T> Progress`1<T> */
+
 /* Skipped type : System.Random Random */
+
 /* Skipped type : System.RankException RankException */
+
 /* Skipped type : System.Reflection.AmbiguousMatchException AmbiguousMatchException */
 #define SRAssembly_ System_Reflection_Assembly
+
 /* Skipped type : System.Reflection.AssemblyAlgorithmIdAttribute AssemblyAlgorithmIdAttribute */
+
 /* Skipped type : System.Reflection.AssemblyCompanyAttribute AssemblyCompanyAttribute */
+
 /* Skipped type : System.Reflection.AssemblyConfigurationAttribute AssemblyConfigurationAttribute */
+
 /* Skipped type : System.Reflection.AssemblyContentType AssemblyContentType */
+
 /* Skipped type : System.Reflection.AssemblyCopyrightAttribute AssemblyCopyrightAttribute */
+
 /* Skipped type : System.Reflection.AssemblyCultureAttribute AssemblyCultureAttribute */
+
 /* Skipped type : System.Reflection.AssemblyDefaultAliasAttribute AssemblyDefaultAliasAttribute */
+
 /* Skipped type : System.Reflection.AssemblyDelaySignAttribute AssemblyDelaySignAttribute */
+
 /* Skipped type : System.Reflection.AssemblyDescriptionAttribute AssemblyDescriptionAttribute */
+
 /* Skipped type : System.Reflection.AssemblyFileVersionAttribute AssemblyFileVersionAttribute */
+
 /* Skipped type : System.Reflection.AssemblyFlagsAttribute AssemblyFlagsAttribute */
+
 /* Skipped type : System.Reflection.AssemblyInformationalVersionAttribute AssemblyInformationalVersionAttribute */
+
 /* Skipped type : System.Reflection.AssemblyKeyFileAttribute AssemblyKeyFileAttribute */
+
 /* Skipped type : System.Reflection.AssemblyKeyNameAttribute AssemblyKeyNameAttribute */
+
 /* Skipped type : System.Reflection.AssemblyMetadataAttribute AssemblyMetadataAttribute */
 #define SRAssemblyName_ System_Reflection_AssemblyName
+
 /* Skipped type : System.Reflection.AssemblyNameFlags AssemblyNameFlags */
+
 /* Skipped type : System.Reflection.AssemblyNameProxy AssemblyNameProxy */
+
 /* Skipped type : System.Reflection.AssemblyProductAttribute AssemblyProductAttribute */
+
 /* Skipped type : System.Reflection.AssemblySignatureKeyAttribute AssemblySignatureKeyAttribute */
+
 /* Skipped type : System.Reflection.AssemblyTitleAttribute AssemblyTitleAttribute */
+
 /* Skipped type : System.Reflection.AssemblyTrademarkAttribute AssemblyTrademarkAttribute */
+
 /* Skipped type : System.Reflection.AssemblyVersionAttribute AssemblyVersionAttribute */
 #define SRBinder_ System_Reflection_Binder
+
 /* Skipped type : System.Reflection.BindingFlags BindingFlags */
+
 /* Skipped type : System.Reflection.CallingConventions CallingConventions */
 #define SRConstructorInfo_ System_Reflection_ConstructorInfo
+
 /* Skipped type : System.Reflection.CustomAttributeData CustomAttributeData */
+
 /* Skipped type : System.Reflection.CustomAttributeExtensions CustomAttributeExtensions */
+
 /* Skipped type : System.Reflection.CustomAttributeFormatException CustomAttributeFormatException */
+
 /* Skipped type : System.Reflection.CustomAttributeNamedArgument CustomAttributeNamedArgument */
+
 /* Skipped type : System.Reflection.CustomAttributeTypedArgument CustomAttributeTypedArgument */
+
 /* Skipped type : System.Reflection.DefaultMemberAttribute DefaultMemberAttribute */
+
 /* Skipped type : System.Reflection.Emit.AssemblyBuilder AssemblyBuilder */
+
 /* Skipped type : System.Reflection.Emit.AssemblyBuilderAccess AssemblyBuilderAccess */
+
 /* Skipped type : System.Reflection.Emit.ConstructorBuilder ConstructorBuilder */
+
 /* Skipped type : System.Reflection.Emit.CustomAttributeBuilder CustomAttributeBuilder */
+
 /* Skipped type : System.Reflection.Emit.DynamicILInfo DynamicILInfo */
+
 /* Skipped type : System.Reflection.Emit.DynamicMethod DynamicMethod */
+
 /* Skipped type : System.Reflection.Emit.EnumBuilder EnumBuilder */
+
 /* Skipped type : System.Reflection.Emit.EventBuilder EventBuilder */
+
 /* Skipped type : System.Reflection.Emit.EventToken EventToken */
+
 /* Skipped type : System.Reflection.Emit.ExceptionHandler ExceptionHandler */
+
 /* Skipped type : System.Reflection.Emit.FieldBuilder FieldBuilder */
+
 /* Skipped type : System.Reflection.Emit.FieldToken FieldToken */
+
 /* Skipped type : System.Reflection.Emit.FlowControl FlowControl */
+
 /* Skipped type : System.Reflection.Emit.GenericTypeParameterBuilder GenericTypeParameterBuilder */
+
 /* Skipped type : System.Reflection.Emit.ILGenerator ILGenerator */
+
 /* Skipped type : System.Reflection.Emit.Label Label */
+
 /* Skipped type : System.Reflection.Emit.LocalBuilder LocalBuilder */
+
 /* Skipped type : System.Reflection.Emit.MethodBuilder MethodBuilder */
+
 /* Skipped type : System.Reflection.Emit.MethodRental MethodRental */
+
 /* Skipped type : System.Reflection.Emit.MethodToken MethodToken */
+
 /* Skipped type : System.Reflection.Emit.ModuleBuilder ModuleBuilder */
+
 /* Skipped type : System.Reflection.Emit.OpCode OpCode */
+
 /* Skipped type : System.Reflection.Emit.OpCodes OpCodes */
+
 /* Skipped type : System.Reflection.Emit.OpCodeType OpCodeType */
+
 /* Skipped type : System.Reflection.Emit.OperandType OperandType */
+
 /* Skipped type : System.Reflection.Emit.PackingSize PackingSize */
+
 /* Skipped type : System.Reflection.Emit.ParameterBuilder ParameterBuilder */
+
 /* Skipped type : System.Reflection.Emit.ParameterToken ParameterToken */
+
 /* Skipped type : System.Reflection.Emit.PEFileKinds PEFileKinds */
+
 /* Skipped type : System.Reflection.Emit.PropertyBuilder PropertyBuilder */
+
 /* Skipped type : System.Reflection.Emit.PropertyToken PropertyToken */
+
 /* Skipped type : System.Reflection.Emit.SignatureHelper SignatureHelper */
+
 /* Skipped type : System.Reflection.Emit.SignatureToken SignatureToken */
+
 /* Skipped type : System.Reflection.Emit.StackBehaviour StackBehaviour */
+
 /* Skipped type : System.Reflection.Emit.StringToken StringToken */
+
 /* Skipped type : System.Reflection.Emit.TypeBuilder TypeBuilder */
+
 /* Skipped type : System.Reflection.Emit.TypeToken TypeToken */
+
 /* Skipped type : System.Reflection.Emit.UnmanagedMarshal UnmanagedMarshal */
+
 /* Skipped type : System.Reflection.EventAttributes EventAttributes */
+
 /* Skipped type : System.Reflection.EventInfo EventInfo */
+
 /* Skipped type : System.Reflection.ExceptionHandlingClause ExceptionHandlingClause */
+
 /* Skipped type : System.Reflection.ExceptionHandlingClauseOptions ExceptionHandlingClauseOptions */
+
 /* Skipped type : System.Reflection.FieldAttributes FieldAttributes */
+
 /* Skipped type : System.Reflection.FieldInfo FieldInfo */
 #define SRGenericParameterAttributes_ System_Reflection_GenericParameterAttributes
+
 /* Skipped type : System.Reflection.ICustomAttributeProvider ICustomAttributeProvider */
+
 /* Skipped type : System.Reflection.ImageFileMachine ImageFileMachine */
+
 /* Skipped type : System.Reflection.InterfaceMapping InterfaceMapping */
+
 /* Skipped type : System.Reflection.IntrospectionExtensions IntrospectionExtensions */
+
 /* Skipped type : System.Reflection.InvalidFilterCriteriaException InvalidFilterCriteriaException */
+
 /* Skipped type : System.Reflection.IReflect IReflect */
+
 /* Skipped type : System.Reflection.IReflectableType IReflectableType */
+
 /* Skipped type : System.Reflection.LocalVariableInfo LocalVariableInfo */
+
 /* Skipped type : System.Reflection.ManifestResourceInfo ManifestResourceInfo */
 #define SRMemberFilter_ System_Reflection_MemberFilter
 #define SRMemberInfo_ System_Reflection_MemberInfo
+
 /* Skipped type : System.Reflection.MemberTypes MemberTypes */
+
 /* Skipped type : System.Reflection.MethodAttributes MethodAttributes */
 #define SRMethodBase_ System_Reflection_MethodBase
+
 /* Skipped type : System.Reflection.MethodBody MethodBody */
+
 /* Skipped type : System.Reflection.MethodImplAttributes MethodImplAttributes */
 #define SRMethodInfo_ System_Reflection_MethodInfo
+
 /* Skipped type : System.Reflection.Missing Missing */
+
 /* Skipped type : System.Reflection.Module Module */
+
 /* Skipped type : System.Reflection.ModuleResolveEventHandler ModuleResolveEventHandler */
+
 /* Skipped type : System.Reflection.ObfuscateAssemblyAttribute ObfuscateAssemblyAttribute */
+
 /* Skipped type : System.Reflection.ObfuscationAttribute ObfuscationAttribute */
+
 /* Skipped type : System.Reflection.ParameterAttributes ParameterAttributes */
+
 /* Skipped type : System.Reflection.ParameterInfo ParameterInfo */
+
 /* Skipped type : System.Reflection.ParameterModifier ParameterModifier */
+
 /* Skipped type : System.Reflection.Pointer Pointer */
+
 /* Skipped type : System.Reflection.PortableExecutableKinds PortableExecutableKinds */
+
 /* Skipped type : System.Reflection.ProcessorArchitecture ProcessorArchitecture */
+
 /* Skipped type : System.Reflection.PropertyAttributes PropertyAttributes */
 #define SRPropertyInfo_ System_Reflection_PropertyInfo
+
 /* Skipped type : System.Reflection.ReflectionContext ReflectionContext */
+
 /* Skipped type : System.Reflection.ReflectionTypeLoadException ReflectionTypeLoadException */
+
 /* Skipped type : System.Reflection.ResourceAttributes ResourceAttributes */
+
 /* Skipped type : System.Reflection.ResourceLocation ResourceLocation */
+
 /* Skipped type : System.Reflection.RuntimeReflectionExtensions RuntimeReflectionExtensions */
+
 /* Skipped type : System.Reflection.StrongNameKeyPair StrongNameKeyPair */
+
 /* Skipped type : System.Reflection.TargetException TargetException */
+
 /* Skipped type : System.Reflection.TargetInvocationException TargetInvocationException */
+
 /* Skipped type : System.Reflection.TargetParameterCountException TargetParameterCountException */
 #define SRTypeAttributes_ System_Reflection_TypeAttributes
+
 /* Skipped type : System.Reflection.TypeDelegator TypeDelegator */
+
 /* Skipped type : System.Reflection.TypeFilter TypeFilter */
+
 /* Skipped type : System.Reflection.TypeInfo TypeInfo */
+
 /* Skipped type : System.ResolveEventArgs ResolveEventArgs */
+
 /* Skipped type : System.ResolveEventHandler ResolveEventHandler */
+
 /* Skipped type : System.Resources.IResourceReader IResourceReader */
+
 /* Skipped type : System.Resources.IResourceWriter IResourceWriter */
+
 /* Skipped type : System.Resources.MissingManifestResourceException MissingManifestResourceException */
+
 /* Skipped type : System.Resources.MissingSatelliteAssemblyException MissingSatelliteAssemblyException */
+
 /* Skipped type : System.Resources.NeutralResourcesLanguageAttribute NeutralResourcesLanguageAttribute */
+
 /* Skipped type : System.Resources.ResourceManager ResourceManager */
+
 /* Skipped type : System.Resources.ResourceReader ResourceReader */
+
 /* Skipped type : System.Resources.ResourceSet ResourceSet */
+
 /* Skipped type : System.Resources.ResourceWriter ResourceWriter */
+
 /* Skipped type : System.Resources.SatelliteContractVersionAttribute SatelliteContractVersionAttribute */
+
 /* Skipped type : System.Resources.UltimateResourceFallbackLocation UltimateResourceFallbackLocation */
+
 /* Skipped type : System.Runtime.AssemblyTargetedPatchBandAttribute AssemblyTargetedPatchBandAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.AccessedThroughPropertyAttribute AccessedThroughPropertyAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.AsyncStateMachineAttribute AsyncStateMachineAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.AsyncTaskMethodBuilder AsyncTaskMethodBuilder */
+
 /* Skipped type : System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1+TResult> AsyncTaskMethodBuilder`1<TResult> */
+
 /* Skipped type : System.Runtime.CompilerServices.AsyncVoidMethodBuilder AsyncVoidMethodBuilder */
+
 /* Skipped type : System.Runtime.CompilerServices.CallConvCdecl CallConvCdecl */
+
 /* Skipped type : System.Runtime.CompilerServices.CallConvFastcall CallConvFastcall */
+
 /* Skipped type : System.Runtime.CompilerServices.CallConvStdcall CallConvStdcall */
+
 /* Skipped type : System.Runtime.CompilerServices.CallConvThiscall CallConvThiscall */
+
 /* Skipped type : System.Runtime.CompilerServices.CallerFilePathAttribute CallerFilePathAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.CallerLineNumberAttribute CallerLineNumberAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.CallerMemberNameAttribute CallerMemberNameAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.CompilationRelaxations CompilationRelaxations */
+
 /* Skipped type : System.Runtime.CompilerServices.CompilationRelaxationsAttribute CompilationRelaxationsAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.CompilerGeneratedAttribute CompilerGeneratedAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.CompilerGlobalScopeAttribute CompilerGlobalScopeAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.CompilerMarshalOverride CompilerMarshalOverride */
+
 /* Skipped type : System.Runtime.CompilerServices.ConditionalWeakTable`2<System.Runtime.CompilerServices.ConditionalWeakTable`2+CreateValueCallback+TKey, System.Runtime.CompilerServices.ConditionalWeakTable`2+CreateValueCallback+TValue>+CreateValueCallback ConditionalWeakTable`2<TKey, TValue>.CreateValueCallback */
+
 /* Skipped type : System.Runtime.CompilerServices.ConditionalWeakTable`2<System.Runtime.CompilerServices.ConditionalWeakTable`2+TKey, System.Runtime.CompilerServices.ConditionalWeakTable`2+TValue> ConditionalWeakTable`2<TKey, TValue> */
+
 /* Skipped type : System.Runtime.CompilerServices.ConfiguredTaskAwaitable ConfiguredTaskAwaitable */
+
 /* Skipped type : System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1+ConfiguredTaskAwaiter+TResult>+ConfiguredTaskAwaiter ConfiguredTaskAwaitable`1<TResult>.ConfiguredTaskAwaiter */
+
 /* Skipped type : System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1+TResult> ConfiguredTaskAwaitable`1<TResult> */
+
 /* Skipped type : System.Runtime.CompilerServices.ConfiguredTaskAwaitable+ConfiguredTaskAwaiter ConfiguredTaskAwaitable.ConfiguredTaskAwaiter */
+
 /* Skipped type : System.Runtime.CompilerServices.ContractHelper ContractHelper */
+
 /* Skipped type : System.Runtime.CompilerServices.CustomConstantAttribute CustomConstantAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.DateTimeConstantAttribute DateTimeConstantAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.DecimalConstantAttribute DecimalConstantAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.DefaultDependencyAttribute DefaultDependencyAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.DependencyAttribute DependencyAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.DisablePrivateReflectionAttribute DisablePrivateReflectionAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.DiscardableAttribute DiscardableAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.ExtensionAttribute ExtensionAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.FixedAddressValueTypeAttribute FixedAddressValueTypeAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.FixedBufferAttribute FixedBufferAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.FormattableStringFactory FormattableStringFactory */
+
 /* Skipped type : System.Runtime.CompilerServices.HasCopySemanticsAttribute HasCopySemanticsAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.IAsyncStateMachine IAsyncStateMachine */
+
 /* Skipped type : System.Runtime.CompilerServices.ICriticalNotifyCompletion ICriticalNotifyCompletion */
+
 /* Skipped type : System.Runtime.CompilerServices.IDispatchConstantAttribute IDispatchConstantAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.IndexerNameAttribute IndexerNameAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.INotifyCompletion INotifyCompletion */
+
 /* Skipped type : System.Runtime.CompilerServices.InternalsVisibleToAttribute InternalsVisibleToAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.IsBoxed IsBoxed */
+
 /* Skipped type : System.Runtime.CompilerServices.IsByRefLikeAttribute IsByRefLikeAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.IsByValue IsByValue */
+
 /* Skipped type : System.Runtime.CompilerServices.IsConst IsConst */
+
 /* Skipped type : System.Runtime.CompilerServices.IsCopyConstructed IsCopyConstructed */
+
 /* Skipped type : System.Runtime.CompilerServices.IsExplicitlyDereferenced IsExplicitlyDereferenced */
+
 /* Skipped type : System.Runtime.CompilerServices.IsImplicitlyDereferenced IsImplicitlyDereferenced */
+
 /* Skipped type : System.Runtime.CompilerServices.IsJitIntrinsic IsJitIntrinsic */
+
 /* Skipped type : System.Runtime.CompilerServices.IsLong IsLong */
+
 /* Skipped type : System.Runtime.CompilerServices.IsPinned IsPinned */
+
 /* Skipped type : System.Runtime.CompilerServices.IsReadOnlyAttribute IsReadOnlyAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.IsSignUnspecifiedByte IsSignUnspecifiedByte */
+
 /* Skipped type : System.Runtime.CompilerServices.IsUdtReturn IsUdtReturn */
+
 /* Skipped type : System.Runtime.CompilerServices.IsVolatile IsVolatile */
+
 /* Skipped type : System.Runtime.CompilerServices.IteratorStateMachineAttribute IteratorStateMachineAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.ITuple ITuple */
+
 /* Skipped type : System.Runtime.CompilerServices.IUnknownConstantAttribute IUnknownConstantAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.LoadHint LoadHint */
+
 /* Skipped type : System.Runtime.CompilerServices.MethodCodeType MethodCodeType */
+
 /* Skipped type : System.Runtime.CompilerServices.MethodImplAttribute MethodImplAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.MethodImplOptions MethodImplOptions */
+
 /* Skipped type : System.Runtime.CompilerServices.NativeCppClassAttribute NativeCppClassAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.ReferenceAssemblyAttribute ReferenceAssemblyAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.RequiredAttributeAttribute RequiredAttributeAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.RuntimeCompatibilityAttribute RuntimeCompatibilityAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.RuntimeFeature RuntimeFeature */
+
 /* Skipped type : System.Runtime.CompilerServices.RuntimeHelpers RuntimeHelpers */
+
 /* Skipped type : System.Runtime.CompilerServices.RuntimeHelpers+CleanupCode RuntimeHelpers.CleanupCode */
+
 /* Skipped type : System.Runtime.CompilerServices.RuntimeHelpers+TryCode RuntimeHelpers.TryCode */
+
 /* Skipped type : System.Runtime.CompilerServices.RuntimeWrappedException RuntimeWrappedException */
+
 /* Skipped type : System.Runtime.CompilerServices.ScopelessEnumAttribute ScopelessEnumAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.SpecialNameAttribute SpecialNameAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.StateMachineAttribute StateMachineAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.StringFreezingAttribute StringFreezingAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.SuppressIldasmAttribute SuppressIldasmAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.TaskAwaiter TaskAwaiter */
+
 /* Skipped type : System.Runtime.CompilerServices.TaskAwaiter`1<System.Runtime.CompilerServices.TaskAwaiter`1+TResult> TaskAwaiter`1<TResult> */
+
 /* Skipped type : System.Runtime.CompilerServices.TupleElementNamesAttribute TupleElementNamesAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.TypeForwardedFromAttribute TypeForwardedFromAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.TypeForwardedToAttribute TypeForwardedToAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.UnsafeValueTypeAttribute UnsafeValueTypeAttribute */
+
 /* Skipped type : System.Runtime.CompilerServices.YieldAwaitable YieldAwaitable */
+
 /* Skipped type : System.Runtime.CompilerServices.YieldAwaitable+YieldAwaiter YieldAwaitable.YieldAwaiter */
+
 /* Skipped type : System.Runtime.ConstrainedExecution.Cer Cer */
+
 /* Skipped type : System.Runtime.ConstrainedExecution.Consistency Consistency */
+
 /* Skipped type : System.Runtime.ConstrainedExecution.CriticalFinalizerObject CriticalFinalizerObject */
+
 /* Skipped type : System.Runtime.ConstrainedExecution.PrePrepareMethodAttribute PrePrepareMethodAttribute */
+
 /* Skipped type : System.Runtime.ConstrainedExecution.ReliabilityContractAttribute ReliabilityContractAttribute */
+
 /* Skipped type : System.Runtime.DesignerServices.WindowsRuntimeDesignerContext WindowsRuntimeDesignerContext */
+
 /* Skipped type : System.Runtime.ExceptionServices.ExceptionDispatchInfo ExceptionDispatchInfo */
+
 /* Skipped type : System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs FirstChanceExceptionEventArgs */
+
 /* Skipped type : System.Runtime.ExceptionServices.HandleProcessCorruptedStateExceptionsAttribute HandleProcessCorruptedStateExceptionsAttribute */
+
 /* Skipped type : System.Runtime.GCLargeObjectHeapCompactionMode GCLargeObjectHeapCompactionMode */
+
 /* Skipped type : System.Runtime.GCLatencyMode GCLatencyMode */
+
 /* Skipped type : System.Runtime.GCSettings GCSettings */
+
 /* Skipped type : System.Runtime.Hosting.ActivationArguments ActivationArguments */
+
 /* Skipped type : System.Runtime.Hosting.ApplicationActivator ApplicationActivator */
+
 /* Skipped type : System.Runtime.InteropServices._Activator _Activator */
+
 /* Skipped type : System.Runtime.InteropServices._Assembly _Assembly */
+
 /* Skipped type : System.Runtime.InteropServices._AssemblyBuilder _AssemblyBuilder */
+
 /* Skipped type : System.Runtime.InteropServices._AssemblyName _AssemblyName */
+
 /* Skipped type : System.Runtime.InteropServices._Attribute _Attribute */
+
 /* Skipped type : System.Runtime.InteropServices._ConstructorBuilder _ConstructorBuilder */
+
 /* Skipped type : System.Runtime.InteropServices._ConstructorInfo _ConstructorInfo */
+
 /* Skipped type : System.Runtime.InteropServices._CustomAttributeBuilder _CustomAttributeBuilder */
+
 /* Skipped type : System.Runtime.InteropServices._EnumBuilder _EnumBuilder */
+
 /* Skipped type : System.Runtime.InteropServices._EventBuilder _EventBuilder */
+
 /* Skipped type : System.Runtime.InteropServices._EventInfo _EventInfo */
 #define SRI_Exception_ System_Runtime_InteropServices__Exception
+
 /* Skipped type : System.Runtime.InteropServices._FieldBuilder _FieldBuilder */
+
 /* Skipped type : System.Runtime.InteropServices._FieldInfo _FieldInfo */
+
 /* Skipped type : System.Runtime.InteropServices._ILGenerator _ILGenerator */
+
 /* Skipped type : System.Runtime.InteropServices._LocalBuilder _LocalBuilder */
+
 /* Skipped type : System.Runtime.InteropServices._MemberInfo _MemberInfo */
+
 /* Skipped type : System.Runtime.InteropServices._MethodBase _MethodBase */
+
 /* Skipped type : System.Runtime.InteropServices._MethodBuilder _MethodBuilder */
+
 /* Skipped type : System.Runtime.InteropServices._MethodInfo _MethodInfo */
+
 /* Skipped type : System.Runtime.InteropServices._MethodRental _MethodRental */
+
 /* Skipped type : System.Runtime.InteropServices._Module _Module */
+
 /* Skipped type : System.Runtime.InteropServices._ModuleBuilder _ModuleBuilder */
+
 /* Skipped type : System.Runtime.InteropServices._ParameterBuilder _ParameterBuilder */
+
 /* Skipped type : System.Runtime.InteropServices._ParameterInfo _ParameterInfo */
+
 /* Skipped type : System.Runtime.InteropServices._PropertyBuilder _PropertyBuilder */
+
 /* Skipped type : System.Runtime.InteropServices._PropertyInfo _PropertyInfo */
+
 /* Skipped type : System.Runtime.InteropServices._SignatureHelper _SignatureHelper */
+
 /* Skipped type : System.Runtime.InteropServices._Thread _Thread */
+
 /* Skipped type : System.Runtime.InteropServices._Type _Type */
+
 /* Skipped type : System.Runtime.InteropServices._TypeBuilder _TypeBuilder */
+
 /* Skipped type : System.Runtime.InteropServices.AllowReversePInvokeCallsAttribute AllowReversePInvokeCallsAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.Architecture Architecture */
+
 /* Skipped type : System.Runtime.InteropServices.ArrayWithOffset ArrayWithOffset */
+
 /* Skipped type : System.Runtime.InteropServices.AssemblyRegistrationFlags AssemblyRegistrationFlags */
+
 /* Skipped type : System.Runtime.InteropServices.AutomationProxyAttribute AutomationProxyAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.BestFitMappingAttribute BestFitMappingAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.BIND_OPTS BIND_OPTS */
+
 /* Skipped type : System.Runtime.InteropServices.BINDPTR BINDPTR */
+
 /* Skipped type : System.Runtime.InteropServices.BStrWrapper BStrWrapper */
+
 /* Skipped type : System.Runtime.InteropServices.CALLCONV CALLCONV */
+
 /* Skipped type : System.Runtime.InteropServices.CallingConvention CallingConvention */
+
 /* Skipped type : System.Runtime.InteropServices.CharSet CharSet */
+
 /* Skipped type : System.Runtime.InteropServices.ClassInterfaceAttribute ClassInterfaceAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.ClassInterfaceType ClassInterfaceType */
+
 /* Skipped type : System.Runtime.InteropServices.CoClassAttribute CoClassAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.ComAliasNameAttribute ComAliasNameAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.ComCompatibleVersionAttribute ComCompatibleVersionAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.ComConversionLossAttribute ComConversionLossAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.ComDefaultInterfaceAttribute ComDefaultInterfaceAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.ComEventInterfaceAttribute ComEventInterfaceAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.ComEventsHelper ComEventsHelper */
+
 /* Skipped type : System.Runtime.InteropServices.COMException COMException */
+
 /* Skipped type : System.Runtime.InteropServices.ComImportAttribute ComImportAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.ComInterfaceType ComInterfaceType */
+
 /* Skipped type : System.Runtime.InteropServices.ComMemberType ComMemberType */
+
 /* Skipped type : System.Runtime.InteropServices.ComRegisterFunctionAttribute ComRegisterFunctionAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.ComSourceInterfacesAttribute ComSourceInterfacesAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.BIND_OPTS BIND_OPTS */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.BINDPTR BINDPTR */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.CALLCONV CALLCONV */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.CONNECTDATA CONNECTDATA */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.DESCKIND DESCKIND */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.DISPPARAMS DISPPARAMS */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.ELEMDESC ELEMDESC */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.ELEMDESC+DESCUNION ELEMDESC.DESCUNION */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.EXCEPINFO EXCEPINFO */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.FILETIME FILETIME */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.FUNCDESC FUNCDESC */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.FUNCFLAGS FUNCFLAGS */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.FUNCKIND FUNCKIND */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.IBindCtx IBindCtx */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.IConnectionPoint IConnectionPoint */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.IConnectionPointContainer IConnectionPointContainer */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.IDLDESC IDLDESC */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.IDLFLAG IDLFLAG */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.IEnumConnectionPoints IEnumConnectionPoints */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.IEnumConnections IEnumConnections */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.IEnumMoniker IEnumMoniker */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.IEnumString IEnumString */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.IEnumVARIANT IEnumVARIANT */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.IMoniker IMoniker */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.IMPLTYPEFLAGS IMPLTYPEFLAGS */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.INVOKEKIND INVOKEKIND */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.IPersistFile IPersistFile */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.IRunningObjectTable IRunningObjectTable */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.IStream IStream */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.ITypeComp ITypeComp */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.ITypeInfo ITypeInfo */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.ITypeInfo2 ITypeInfo2 */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.ITypeLib ITypeLib */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.ITypeLib2 ITypeLib2 */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.LIBFLAGS LIBFLAGS */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.PARAMDESC PARAMDESC */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.PARAMFLAG PARAMFLAG */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.STATSTG STATSTG */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.SYSKIND SYSKIND */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.TYPEATTR TYPEATTR */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.TYPEDESC TYPEDESC */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.TYPEFLAGS TYPEFLAGS */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.TYPEKIND TYPEKIND */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.TYPELIBATTR TYPELIBATTR */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.VARDESC VARDESC */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.VARDESC+DESCUNION VARDESC.DESCUNION */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.VARFLAGS VARFLAGS */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.VARKIND VARKIND */
+
 /* Skipped type : System.Runtime.InteropServices.ComUnregisterFunctionAttribute ComUnregisterFunctionAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.ComVisibleAttribute ComVisibleAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.CONNECTDATA CONNECTDATA */
+
 /* Skipped type : System.Runtime.InteropServices.CriticalHandle CriticalHandle */
+
 /* Skipped type : System.Runtime.InteropServices.CurrencyWrapper CurrencyWrapper */
+
 /* Skipped type : System.Runtime.InteropServices.CustomQueryInterfaceMode CustomQueryInterfaceMode */
+
 /* Skipped type : System.Runtime.InteropServices.CustomQueryInterfaceResult CustomQueryInterfaceResult */
+
 /* Skipped type : System.Runtime.InteropServices.DefaultCharSetAttribute DefaultCharSetAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.DefaultDllImportSearchPathsAttribute DefaultDllImportSearchPathsAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.DESCKIND DESCKIND */
+
 /* Skipped type : System.Runtime.InteropServices.DispatchWrapper DispatchWrapper */
+
 /* Skipped type : System.Runtime.InteropServices.DispIdAttribute DispIdAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.DISPPARAMS DISPPARAMS */
+
 /* Skipped type : System.Runtime.InteropServices.DllImportAttribute DllImportAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.DllImportSearchPath DllImportSearchPath */
+
 /* Skipped type : System.Runtime.InteropServices.ELEMDESC ELEMDESC */
+
 /* Skipped type : System.Runtime.InteropServices.ELEMDESC+DESCUNION ELEMDESC.DESCUNION */
+
 /* Skipped type : System.Runtime.InteropServices.ErrorWrapper ErrorWrapper */
+
 /* Skipped type : System.Runtime.InteropServices.EXCEPINFO EXCEPINFO */
+
 /* Skipped type : System.Runtime.InteropServices.Expando.IExpando IExpando */
+
 /* Skipped type : System.Runtime.InteropServices.ExporterEventKind ExporterEventKind */
+
 /* Skipped type : System.Runtime.InteropServices.ExtensibleClassFactory ExtensibleClassFactory */
+
 /* Skipped type : System.Runtime.InteropServices.ExternalException ExternalException */
+
 /* Skipped type : System.Runtime.InteropServices.FieldOffsetAttribute FieldOffsetAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.FILETIME FILETIME */
+
 /* Skipped type : System.Runtime.InteropServices.FUNCDESC FUNCDESC */
+
 /* Skipped type : System.Runtime.InteropServices.FUNCFLAGS FUNCFLAGS */
+
 /* Skipped type : System.Runtime.InteropServices.FUNCKIND FUNCKIND */
+
 /* Skipped type : System.Runtime.InteropServices.GCHandle GCHandle */
+
 /* Skipped type : System.Runtime.InteropServices.GCHandleType GCHandleType */
+
 /* Skipped type : System.Runtime.InteropServices.GuidAttribute GuidAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.HandleRef HandleRef */
+
 /* Skipped type : System.Runtime.InteropServices.ICustomAdapter ICustomAdapter */
+
 /* Skipped type : System.Runtime.InteropServices.ICustomFactory ICustomFactory */
+
 /* Skipped type : System.Runtime.InteropServices.ICustomMarshaler ICustomMarshaler */
+
 /* Skipped type : System.Runtime.InteropServices.ICustomQueryInterface ICustomQueryInterface */
+
 /* Skipped type : System.Runtime.InteropServices.IDispatchImplAttribute IDispatchImplAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.IDispatchImplType IDispatchImplType */
+
 /* Skipped type : System.Runtime.InteropServices.IDLDESC IDLDESC */
+
 /* Skipped type : System.Runtime.InteropServices.IDLFLAG IDLFLAG */
+
 /* Skipped type : System.Runtime.InteropServices.IMPLTYPEFLAGS IMPLTYPEFLAGS */
+
 /* Skipped type : System.Runtime.InteropServices.ImportedFromTypeLibAttribute ImportedFromTypeLibAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.ImporterEventKind ImporterEventKind */
+
 /* Skipped type : System.Runtime.InteropServices.InAttribute InAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.InterfaceTypeAttribute InterfaceTypeAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.InvalidComObjectException InvalidComObjectException */
+
 /* Skipped type : System.Runtime.InteropServices.InvalidOleVariantTypeException InvalidOleVariantTypeException */
+
 /* Skipped type : System.Runtime.InteropServices.INVOKEKIND INVOKEKIND */
+
 /* Skipped type : System.Runtime.InteropServices.IRegistrationServices IRegistrationServices */
+
 /* Skipped type : System.Runtime.InteropServices.ITypeLibConverter ITypeLibConverter */
+
 /* Skipped type : System.Runtime.InteropServices.ITypeLibExporterNameProvider ITypeLibExporterNameProvider */
+
 /* Skipped type : System.Runtime.InteropServices.ITypeLibExporterNotifySink ITypeLibExporterNotifySink */
+
 /* Skipped type : System.Runtime.InteropServices.ITypeLibImporterNotifySink ITypeLibImporterNotifySink */
+
 /* Skipped type : System.Runtime.InteropServices.LayoutKind LayoutKind */
+
 /* Skipped type : System.Runtime.InteropServices.LCIDConversionAttribute LCIDConversionAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.LIBFLAGS LIBFLAGS */
+
 /* Skipped type : System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute ManagedToNativeComInteropStubAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.Marshal Marshal */
+
 /* Skipped type : System.Runtime.InteropServices.MarshalAsAttribute MarshalAsAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.MarshalDirectiveException MarshalDirectiveException */
+
 /* Skipped type : System.Runtime.InteropServices.ObjectCreationDelegate ObjectCreationDelegate */
+
 /* Skipped type : System.Runtime.InteropServices.OptionalAttribute OptionalAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.OSPlatform OSPlatform */
+
 /* Skipped type : System.Runtime.InteropServices.OutAttribute OutAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.PARAMDESC PARAMDESC */
+
 /* Skipped type : System.Runtime.InteropServices.PARAMFLAG PARAMFLAG */
+
 /* Skipped type : System.Runtime.InteropServices.PreserveSigAttribute PreserveSigAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.PrimaryInteropAssemblyAttribute PrimaryInteropAssemblyAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.ProgIdAttribute ProgIdAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.RegistrationClassContext RegistrationClassContext */
+
 /* Skipped type : System.Runtime.InteropServices.RegistrationConnectionType RegistrationConnectionType */
+
 /* Skipped type : System.Runtime.InteropServices.RegistrationServices RegistrationServices */
+
 /* Skipped type : System.Runtime.InteropServices.RuntimeEnvironment RuntimeEnvironment */
+
 /* Skipped type : System.Runtime.InteropServices.RuntimeInformation RuntimeInformation */
+
 /* Skipped type : System.Runtime.InteropServices.SafeArrayRankMismatchException SafeArrayRankMismatchException */
+
 /* Skipped type : System.Runtime.InteropServices.SafeArrayTypeMismatchException SafeArrayTypeMismatchException */
+
 /* Skipped type : System.Runtime.InteropServices.SafeBuffer SafeBuffer */
+
 /* Skipped type : System.Runtime.InteropServices.SafeHandle SafeHandle */
+
 /* Skipped type : System.Runtime.InteropServices.SEHException SEHException */
+
 /* Skipped type : System.Runtime.InteropServices.SetWin32ContextInIDispatchAttribute SetWin32ContextInIDispatchAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.STATSTG STATSTG */
+
 /* Skipped type : System.Runtime.InteropServices.StructLayoutAttribute StructLayoutAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.SYSKIND SYSKIND */
+
 /* Skipped type : System.Runtime.InteropServices.TYPEATTR TYPEATTR */
+
 /* Skipped type : System.Runtime.InteropServices.TYPEDESC TYPEDESC */
+
 /* Skipped type : System.Runtime.InteropServices.TYPEFLAGS TYPEFLAGS */
+
 /* Skipped type : System.Runtime.InteropServices.TypeIdentifierAttribute TypeIdentifierAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.TYPEKIND TYPEKIND */
+
 /* Skipped type : System.Runtime.InteropServices.TYPELIBATTR TYPELIBATTR */
+
 /* Skipped type : System.Runtime.InteropServices.TypeLibConverter TypeLibConverter */
+
 /* Skipped type : System.Runtime.InteropServices.TypeLibExporterFlags TypeLibExporterFlags */
+
 /* Skipped type : System.Runtime.InteropServices.TypeLibFuncAttribute TypeLibFuncAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.TypeLibFuncFlags TypeLibFuncFlags */
+
 /* Skipped type : System.Runtime.InteropServices.TypeLibImportClassAttribute TypeLibImportClassAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.TypeLibImporterFlags TypeLibImporterFlags */
+
 /* Skipped type : System.Runtime.InteropServices.TypeLibTypeAttribute TypeLibTypeAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.TypeLibTypeFlags TypeLibTypeFlags */
+
 /* Skipped type : System.Runtime.InteropServices.TypeLibVarAttribute TypeLibVarAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.TypeLibVarFlags TypeLibVarFlags */
+
 /* Skipped type : System.Runtime.InteropServices.TypeLibVersionAttribute TypeLibVersionAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.UCOMIBindCtx UCOMIBindCtx */
+
 /* Skipped type : System.Runtime.InteropServices.UCOMIConnectionPoint UCOMIConnectionPoint */
+
 /* Skipped type : System.Runtime.InteropServices.UCOMIConnectionPointContainer UCOMIConnectionPointContainer */
+
 /* Skipped type : System.Runtime.InteropServices.UCOMIEnumConnectionPoints UCOMIEnumConnectionPoints */
+
 /* Skipped type : System.Runtime.InteropServices.UCOMIEnumConnections UCOMIEnumConnections */
+
 /* Skipped type : System.Runtime.InteropServices.UCOMIEnumMoniker UCOMIEnumMoniker */
+
 /* Skipped type : System.Runtime.InteropServices.UCOMIEnumString UCOMIEnumString */
+
 /* Skipped type : System.Runtime.InteropServices.UCOMIEnumVARIANT UCOMIEnumVARIANT */
+
 /* Skipped type : System.Runtime.InteropServices.UCOMIMoniker UCOMIMoniker */
+
 /* Skipped type : System.Runtime.InteropServices.UCOMIPersistFile UCOMIPersistFile */
+
 /* Skipped type : System.Runtime.InteropServices.UCOMIRunningObjectTable UCOMIRunningObjectTable */
+
 /* Skipped type : System.Runtime.InteropServices.UCOMIStream UCOMIStream */
+
 /* Skipped type : System.Runtime.InteropServices.UCOMITypeComp UCOMITypeComp */
+
 /* Skipped type : System.Runtime.InteropServices.UCOMITypeInfo UCOMITypeInfo */
+
 /* Skipped type : System.Runtime.InteropServices.UCOMITypeLib UCOMITypeLib */
+
 /* Skipped type : System.Runtime.InteropServices.UnknownWrapper UnknownWrapper */
+
 /* Skipped type : System.Runtime.InteropServices.UnmanagedFunctionPointerAttribute UnmanagedFunctionPointerAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.UnmanagedType UnmanagedType */
+
 /* Skipped type : System.Runtime.InteropServices.VARDESC VARDESC */
+
 /* Skipped type : System.Runtime.InteropServices.VARDESC+DESCUNION VARDESC.DESCUNION */
+
 /* Skipped type : System.Runtime.InteropServices.VarEnum VarEnum */
+
 /* Skipped type : System.Runtime.InteropServices.VARFLAGS VARFLAGS */
+
 /* Skipped type : System.Runtime.InteropServices.VariantWrapper VariantWrapper */
+
 /* Skipped type : System.Runtime.InteropServices.WindowsRuntime.DefaultInterfaceAttribute DefaultInterfaceAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.WindowsRuntime.DesignerNamespaceResolveEventArgs DesignerNamespaceResolveEventArgs */
+
 /* Skipped type : System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken EventRegistrationToken */
+
 /* Skipped type : System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1<System.Runtime.InteropServices.WindowsRuntime.EventRegistrationTokenTable`1+T> EventRegistrationTokenTable`1<T> */
+
 /* Skipped type : System.Runtime.InteropServices.WindowsRuntime.IActivationFactory IActivationFactory */
+
 /* Skipped type : System.Runtime.InteropServices.WindowsRuntime.InterfaceImplementedInVersionAttribute InterfaceImplementedInVersionAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.WindowsRuntime.NamespaceResolveEventArgs NamespaceResolveEventArgs */
+
 /* Skipped type : System.Runtime.InteropServices.WindowsRuntime.ReadOnlyArrayAttribute ReadOnlyArrayAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.WindowsRuntime.ReturnValueNameAttribute ReturnValueNameAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.WindowsRuntime.WindowsRuntimeMarshal WindowsRuntimeMarshal */
+
 /* Skipped type : System.Runtime.InteropServices.WindowsRuntime.WindowsRuntimeMetadata WindowsRuntimeMetadata */
+
 /* Skipped type : System.Runtime.InteropServices.WindowsRuntime.WriteOnlyArrayAttribute WriteOnlyArrayAttribute */
+
 /* Skipped type : System.Runtime.MemoryFailPoint MemoryFailPoint */
+
 /* Skipped type : System.Runtime.ProfileOptimization ProfileOptimization */
+
 /* Skipped type : System.Runtime.Remoting.ActivatedClientTypeEntry ActivatedClientTypeEntry */
+
 /* Skipped type : System.Runtime.Remoting.ActivatedServiceTypeEntry ActivatedServiceTypeEntry */
+
 /* Skipped type : System.Runtime.Remoting.Activation.ActivatorLevel ActivatorLevel */
+
 /* Skipped type : System.Runtime.Remoting.Activation.IActivator IActivator */
+
 /* Skipped type : System.Runtime.Remoting.Activation.IConstructionCallMessage IConstructionCallMessage */
+
 /* Skipped type : System.Runtime.Remoting.Activation.IConstructionReturnMessage IConstructionReturnMessage */
+
 /* Skipped type : System.Runtime.Remoting.Activation.UrlAttribute UrlAttribute */
+
 /* Skipped type : System.Runtime.Remoting.Channels.BaseChannelObjectWithProperties BaseChannelObjectWithProperties */
+
 /* Skipped type : System.Runtime.Remoting.Channels.BaseChannelSinkWithProperties BaseChannelSinkWithProperties */
+
 /* Skipped type : System.Runtime.Remoting.Channels.BaseChannelWithProperties BaseChannelWithProperties */
+
 /* Skipped type : System.Runtime.Remoting.Channels.ChannelDataStore ChannelDataStore */
+
 /* Skipped type : System.Runtime.Remoting.Channels.ChannelServices ChannelServices */
+
 /* Skipped type : System.Runtime.Remoting.Channels.ClientChannelSinkStack ClientChannelSinkStack */
+
 /* Skipped type : System.Runtime.Remoting.Channels.IChannel IChannel */
+
 /* Skipped type : System.Runtime.Remoting.Channels.IChannelDataStore IChannelDataStore */
+
 /* Skipped type : System.Runtime.Remoting.Channels.IChannelReceiver IChannelReceiver */
+
 /* Skipped type : System.Runtime.Remoting.Channels.IChannelReceiverHook IChannelReceiverHook */
+
 /* Skipped type : System.Runtime.Remoting.Channels.IChannelSender IChannelSender */
+
 /* Skipped type : System.Runtime.Remoting.Channels.IChannelSinkBase IChannelSinkBase */
+
 /* Skipped type : System.Runtime.Remoting.Channels.IClientChannelSink IClientChannelSink */
+
 /* Skipped type : System.Runtime.Remoting.Channels.IClientChannelSinkProvider IClientChannelSinkProvider */
+
 /* Skipped type : System.Runtime.Remoting.Channels.IClientChannelSinkStack IClientChannelSinkStack */
+
 /* Skipped type : System.Runtime.Remoting.Channels.IClientFormatterSink IClientFormatterSink */
+
 /* Skipped type : System.Runtime.Remoting.Channels.IClientFormatterSinkProvider IClientFormatterSinkProvider */
+
 /* Skipped type : System.Runtime.Remoting.Channels.IClientResponseChannelSinkStack IClientResponseChannelSinkStack */
+
 /* Skipped type : System.Runtime.Remoting.Channels.ISecurableChannel ISecurableChannel */
+
 /* Skipped type : System.Runtime.Remoting.Channels.IServerChannelSink IServerChannelSink */
+
 /* Skipped type : System.Runtime.Remoting.Channels.IServerChannelSinkProvider IServerChannelSinkProvider */
+
 /* Skipped type : System.Runtime.Remoting.Channels.IServerChannelSinkStack IServerChannelSinkStack */
+
 /* Skipped type : System.Runtime.Remoting.Channels.IServerFormatterSinkProvider IServerFormatterSinkProvider */
+
 /* Skipped type : System.Runtime.Remoting.Channels.IServerResponseChannelSinkStack IServerResponseChannelSinkStack */
+
 /* Skipped type : System.Runtime.Remoting.Channels.ITransportHeaders ITransportHeaders */
+
 /* Skipped type : System.Runtime.Remoting.Channels.ServerChannelSinkStack ServerChannelSinkStack */
+
 /* Skipped type : System.Runtime.Remoting.Channels.ServerProcessing ServerProcessing */
+
 /* Skipped type : System.Runtime.Remoting.Channels.SinkProviderData SinkProviderData */
+
 /* Skipped type : System.Runtime.Remoting.Channels.TransportHeaders TransportHeaders */
+
 /* Skipped type : System.Runtime.Remoting.Contexts.Context Context */
+
 /* Skipped type : System.Runtime.Remoting.Contexts.ContextAttribute ContextAttribute */
+
 /* Skipped type : System.Runtime.Remoting.Contexts.ContextProperty ContextProperty */
+
 /* Skipped type : System.Runtime.Remoting.Contexts.CrossContextDelegate CrossContextDelegate */
+
 /* Skipped type : System.Runtime.Remoting.Contexts.IContextAttribute IContextAttribute */
+
 /* Skipped type : System.Runtime.Remoting.Contexts.IContextProperty IContextProperty */
+
 /* Skipped type : System.Runtime.Remoting.Contexts.IContextPropertyActivator IContextPropertyActivator */
+
 /* Skipped type : System.Runtime.Remoting.Contexts.IContributeClientContextSink IContributeClientContextSink */
+
 /* Skipped type : System.Runtime.Remoting.Contexts.IContributeDynamicSink IContributeDynamicSink */
+
 /* Skipped type : System.Runtime.Remoting.Contexts.IContributeEnvoySink IContributeEnvoySink */
+
 /* Skipped type : System.Runtime.Remoting.Contexts.IContributeObjectSink IContributeObjectSink */
+
 /* Skipped type : System.Runtime.Remoting.Contexts.IContributeServerContextSink IContributeServerContextSink */
+
 /* Skipped type : System.Runtime.Remoting.Contexts.IDynamicMessageSink IDynamicMessageSink */
+
 /* Skipped type : System.Runtime.Remoting.Contexts.IDynamicProperty IDynamicProperty */
+
 /* Skipped type : System.Runtime.Remoting.Contexts.SynchronizationAttribute SynchronizationAttribute */
+
 /* Skipped type : System.Runtime.Remoting.CustomErrorsModes CustomErrorsModes */
+
 /* Skipped type : System.Runtime.Remoting.IChannelInfo IChannelInfo */
+
 /* Skipped type : System.Runtime.Remoting.IEnvoyInfo IEnvoyInfo */
+
 /* Skipped type : System.Runtime.Remoting.InternalRemotingServices InternalRemotingServices */
+
 /* Skipped type : System.Runtime.Remoting.IObjectHandle IObjectHandle */
+
 /* Skipped type : System.Runtime.Remoting.IRemotingTypeInfo IRemotingTypeInfo */
+
 /* Skipped type : System.Runtime.Remoting.Lifetime.ClientSponsor ClientSponsor */
+
 /* Skipped type : System.Runtime.Remoting.Lifetime.ILease ILease */
+
 /* Skipped type : System.Runtime.Remoting.Lifetime.ISponsor ISponsor */
+
 /* Skipped type : System.Runtime.Remoting.Lifetime.LeaseState LeaseState */
+
 /* Skipped type : System.Runtime.Remoting.Lifetime.LifetimeServices LifetimeServices */
+
 /* Skipped type : System.Runtime.Remoting.Messaging.AsyncResult AsyncResult */
+
 /* Skipped type : System.Runtime.Remoting.Messaging.CallContext CallContext */
+
 /* Skipped type : System.Runtime.Remoting.Messaging.ConstructionCall ConstructionCall */
+
 /* Skipped type : System.Runtime.Remoting.Messaging.ConstructionResponse ConstructionResponse */
+
 /* Skipped type : System.Runtime.Remoting.Messaging.Header Header */
+
 /* Skipped type : System.Runtime.Remoting.Messaging.HeaderHandler HeaderHandler */
+
 /* Skipped type : System.Runtime.Remoting.Messaging.ILogicalThreadAffinative ILogicalThreadAffinative */
+
 /* Skipped type : System.Runtime.Remoting.Messaging.IMessage IMessage */
+
 /* Skipped type : System.Runtime.Remoting.Messaging.IMessageCtrl IMessageCtrl */
+
 /* Skipped type : System.Runtime.Remoting.Messaging.IMessageSink IMessageSink */
+
 /* Skipped type : System.Runtime.Remoting.Messaging.IMethodCallMessage IMethodCallMessage */
+
 /* Skipped type : System.Runtime.Remoting.Messaging.IMethodMessage IMethodMessage */
+
 /* Skipped type : System.Runtime.Remoting.Messaging.IMethodReturnMessage IMethodReturnMessage */
+
 /* Skipped type : System.Runtime.Remoting.Messaging.InternalMessageWrapper InternalMessageWrapper */
+
 /* Skipped type : System.Runtime.Remoting.Messaging.IRemotingFormatter IRemotingFormatter */
+
 /* Skipped type : System.Runtime.Remoting.Messaging.LogicalCallContext LogicalCallContext */
+
 /* Skipped type : System.Runtime.Remoting.Messaging.MessageSurrogateFilter MessageSurrogateFilter */
+
 /* Skipped type : System.Runtime.Remoting.Messaging.MethodCall MethodCall */
+
 /* Skipped type : System.Runtime.Remoting.Messaging.MethodCallMessageWrapper MethodCallMessageWrapper */
+
 /* Skipped type : System.Runtime.Remoting.Messaging.MethodResponse MethodResponse */
+
 /* Skipped type : System.Runtime.Remoting.Messaging.MethodReturnMessageWrapper MethodReturnMessageWrapper */
+
 /* Skipped type : System.Runtime.Remoting.Messaging.OneWayAttribute OneWayAttribute */
+
 /* Skipped type : System.Runtime.Remoting.Messaging.RemotingSurrogateSelector RemotingSurrogateSelector */
+
 /* Skipped type : System.Runtime.Remoting.Messaging.ReturnMessage ReturnMessage */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.SoapAttribute SoapAttribute */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.SoapFieldAttribute SoapFieldAttribute */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.SoapMethodAttribute SoapMethodAttribute */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.SoapOption SoapOption */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.SoapParameterAttribute SoapParameterAttribute */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.SoapTypeAttribute SoapTypeAttribute */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.ISoapXsd ISoapXsd */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapAnyUri SoapAnyUri */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapBase64Binary SoapBase64Binary */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapDate SoapDate */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapDateTime SoapDateTime */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapDay SoapDay */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapDuration SoapDuration */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapEntities SoapEntities */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapEntity SoapEntity */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapHexBinary SoapHexBinary */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapId SoapId */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapIdref SoapIdref */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapIdrefs SoapIdrefs */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapInteger SoapInteger */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapLanguage SoapLanguage */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapMonth SoapMonth */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapMonthDay SoapMonthDay */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapName SoapName */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapNcName SoapNcName */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapNegativeInteger SoapNegativeInteger */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapNmtoken SoapNmtoken */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapNmtokens SoapNmtokens */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapNonNegativeInteger SoapNonNegativeInteger */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapNonPositiveInteger SoapNonPositiveInteger */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapNormalizedString SoapNormalizedString */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapNotation SoapNotation */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapPositiveInteger SoapPositiveInteger */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapQName SoapQName */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapTime SoapTime */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapToken SoapToken */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapYear SoapYear */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.W3cXsd2001.SoapYearMonth SoapYearMonth */
+
 /* Skipped type : System.Runtime.Remoting.Metadata.XmlFieldOrderOption XmlFieldOrderOption */
+
 /* Skipped type : System.Runtime.Remoting.ObjectHandle ObjectHandle */
+
 /* Skipped type : System.Runtime.Remoting.ObjRef ObjRef */
+
 /* Skipped type : System.Runtime.Remoting.Proxies.ProxyAttribute ProxyAttribute */
+
 /* Skipped type : System.Runtime.Remoting.Proxies.RealProxy RealProxy */
+
 /* Skipped type : System.Runtime.Remoting.RemotingConfiguration RemotingConfiguration */
+
 /* Skipped type : System.Runtime.Remoting.RemotingException RemotingException */
+
 /* Skipped type : System.Runtime.Remoting.RemotingServices RemotingServices */
+
 /* Skipped type : System.Runtime.Remoting.RemotingTimeoutException RemotingTimeoutException */
+
 /* Skipped type : System.Runtime.Remoting.ServerException ServerException */
+
 /* Skipped type : System.Runtime.Remoting.Services.EnterpriseServicesHelper EnterpriseServicesHelper */
+
 /* Skipped type : System.Runtime.Remoting.Services.ITrackingHandler ITrackingHandler */
+
 /* Skipped type : System.Runtime.Remoting.Services.TrackingServices TrackingServices */
+
 /* Skipped type : System.Runtime.Remoting.SoapServices SoapServices */
+
 /* Skipped type : System.Runtime.Remoting.TypeEntry TypeEntry */
+
 /* Skipped type : System.Runtime.Remoting.WellKnownClientTypeEntry WellKnownClientTypeEntry */
+
 /* Skipped type : System.Runtime.Remoting.WellKnownObjectMode WellKnownObjectMode */
+
 /* Skipped type : System.Runtime.Remoting.WellKnownServiceTypeEntry WellKnownServiceTypeEntry */
+
 /* Skipped type : System.Runtime.Serialization.Formatter Formatter */
+
 /* Skipped type : System.Runtime.Serialization.FormatterConverter FormatterConverter */
+
 /* Skipped type : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter BinaryFormatter */
+
 /* Skipped type : System.Runtime.Serialization.Formatters.FormatterAssemblyStyle FormatterAssemblyStyle */
+
 /* Skipped type : System.Runtime.Serialization.Formatters.FormatterTypeStyle FormatterTypeStyle */
+
 /* Skipped type : System.Runtime.Serialization.Formatters.IFieldInfo IFieldInfo */
+
 /* Skipped type : System.Runtime.Serialization.Formatters.InternalRM InternalRM */
+
 /* Skipped type : System.Runtime.Serialization.Formatters.InternalST InternalST */
+
 /* Skipped type : System.Runtime.Serialization.Formatters.ISoapMessage ISoapMessage */
+
 /* Skipped type : System.Runtime.Serialization.Formatters.ServerFault ServerFault */
+
 /* Skipped type : System.Runtime.Serialization.Formatters.SoapFault SoapFault */
+
 /* Skipped type : System.Runtime.Serialization.Formatters.SoapMessage SoapMessage */
+
 /* Skipped type : System.Runtime.Serialization.Formatters.TypeFilterLevel TypeFilterLevel */
+
 /* Skipped type : System.Runtime.Serialization.FormatterServices FormatterServices */
+
 /* Skipped type : System.Runtime.Serialization.IDeserializationCallback IDeserializationCallback */
+
 /* Skipped type : System.Runtime.Serialization.IFormatter IFormatter */
+
 /* Skipped type : System.Runtime.Serialization.IFormatterConverter IFormatterConverter */
+
 /* Skipped type : System.Runtime.Serialization.IObjectReference IObjectReference */
+
 /* Skipped type : System.Runtime.Serialization.ISafeSerializationData ISafeSerializationData */
 #define SRSISerializable_ System_Runtime_Serialization_ISerializable
+
 /* Skipped type : System.Runtime.Serialization.ISerializationSurrogate ISerializationSurrogate */
+
 /* Skipped type : System.Runtime.Serialization.ISurrogateSelector ISurrogateSelector */
+
 /* Skipped type : System.Runtime.Serialization.ObjectIDGenerator ObjectIDGenerator */
+
 /* Skipped type : System.Runtime.Serialization.ObjectManager ObjectManager */
+
 /* Skipped type : System.Runtime.Serialization.OnDeserializedAttribute OnDeserializedAttribute */
+
 /* Skipped type : System.Runtime.Serialization.OnDeserializingAttribute OnDeserializingAttribute */
+
 /* Skipped type : System.Runtime.Serialization.OnSerializedAttribute OnSerializedAttribute */
+
 /* Skipped type : System.Runtime.Serialization.OnSerializingAttribute OnSerializingAttribute */
+
 /* Skipped type : System.Runtime.Serialization.OptionalFieldAttribute OptionalFieldAttribute */
+
 /* Skipped type : System.Runtime.Serialization.SafeSerializationEventArgs SafeSerializationEventArgs */
+
 /* Skipped type : System.Runtime.Serialization.SerializationBinder SerializationBinder */
+
 /* Skipped type : System.Runtime.Serialization.SerializationEntry SerializationEntry */
+
 /* Skipped type : System.Runtime.Serialization.SerializationException SerializationException */
+
 /* Skipped type : System.Runtime.Serialization.SerializationInfo SerializationInfo */
+
 /* Skipped type : System.Runtime.Serialization.SerializationInfoEnumerator SerializationInfoEnumerator */
+
 /* Skipped type : System.Runtime.Serialization.SerializationObjectManager SerializationObjectManager */
+
 /* Skipped type : System.Runtime.Serialization.StreamingContext StreamingContext */
+
 /* Skipped type : System.Runtime.Serialization.StreamingContextStates StreamingContextStates */
+
 /* Skipped type : System.Runtime.Serialization.SurrogateSelector SurrogateSelector */
+
 /* Skipped type : System.Runtime.TargetedPatchingOptOutAttribute TargetedPatchingOptOutAttribute */
+
 /* Skipped type : System.Runtime.Versioning.CompatibilitySwitch CompatibilitySwitch */
+
 /* Skipped type : System.Runtime.Versioning.ComponentGuaranteesAttribute ComponentGuaranteesAttribute */
+
 /* Skipped type : System.Runtime.Versioning.ComponentGuaranteesOptions ComponentGuaranteesOptions */
+
 /* Skipped type : System.Runtime.Versioning.ResourceConsumptionAttribute ResourceConsumptionAttribute */
+
 /* Skipped type : System.Runtime.Versioning.ResourceExposureAttribute ResourceExposureAttribute */
+
 /* Skipped type : System.Runtime.Versioning.ResourceScope ResourceScope */
+
 /* Skipped type : System.Runtime.Versioning.TargetFrameworkAttribute TargetFrameworkAttribute */
+
 /* Skipped type : System.Runtime.Versioning.VersioningHelper VersioningHelper */
+
 /* Skipped type : System.RuntimeArgumentHandle RuntimeArgumentHandle */
+
 /* Skipped type : System.RuntimeFieldHandle RuntimeFieldHandle */
+
 /* Skipped type : System.RuntimeMethodHandle RuntimeMethodHandle */
+
 /* Skipped type : System.RuntimeTypeHandle RuntimeTypeHandle */
 #define SSByte_ System_SByte
+
 /* Skipped type : System.Security.AccessControl.AccessControlActions AccessControlActions */
+
 /* Skipped type : System.Security.AccessControl.AccessControlModification AccessControlModification */
+
 /* Skipped type : System.Security.AccessControl.AccessControlSections AccessControlSections */
+
 /* Skipped type : System.Security.AccessControl.AccessControlType AccessControlType */
+
 /* Skipped type : System.Security.AccessControl.AccessRule AccessRule */
+
 /* Skipped type : System.Security.AccessControl.AccessRule`1<System.Security.AccessControl.AccessRule`1+T> AccessRule`1<T> */
+
 /* Skipped type : System.Security.AccessControl.AceEnumerator AceEnumerator */
+
 /* Skipped type : System.Security.AccessControl.AceFlags AceFlags */
+
 /* Skipped type : System.Security.AccessControl.AceQualifier AceQualifier */
+
 /* Skipped type : System.Security.AccessControl.AceType AceType */
+
 /* Skipped type : System.Security.AccessControl.AuditFlags AuditFlags */
+
 /* Skipped type : System.Security.AccessControl.AuditRule AuditRule */
+
 /* Skipped type : System.Security.AccessControl.AuditRule`1<System.Security.AccessControl.AuditRule`1+T> AuditRule`1<T> */
+
 /* Skipped type : System.Security.AccessControl.AuthorizationRule AuthorizationRule */
+
 /* Skipped type : System.Security.AccessControl.AuthorizationRuleCollection AuthorizationRuleCollection */
+
 /* Skipped type : System.Security.AccessControl.CommonAce CommonAce */
+
 /* Skipped type : System.Security.AccessControl.CommonAcl CommonAcl */
+
 /* Skipped type : System.Security.AccessControl.CommonObjectSecurity CommonObjectSecurity */
+
 /* Skipped type : System.Security.AccessControl.CommonSecurityDescriptor CommonSecurityDescriptor */
+
 /* Skipped type : System.Security.AccessControl.CompoundAce CompoundAce */
+
 /* Skipped type : System.Security.AccessControl.CompoundAceType CompoundAceType */
+
 /* Skipped type : System.Security.AccessControl.ControlFlags ControlFlags */
+
 /* Skipped type : System.Security.AccessControl.CryptoKeyAccessRule CryptoKeyAccessRule */
+
 /* Skipped type : System.Security.AccessControl.CryptoKeyAuditRule CryptoKeyAuditRule */
+
 /* Skipped type : System.Security.AccessControl.CryptoKeyRights CryptoKeyRights */
+
 /* Skipped type : System.Security.AccessControl.CryptoKeySecurity CryptoKeySecurity */
+
 /* Skipped type : System.Security.AccessControl.CustomAce CustomAce */
+
 /* Skipped type : System.Security.AccessControl.DirectoryObjectSecurity DirectoryObjectSecurity */
+
 /* Skipped type : System.Security.AccessControl.DirectorySecurity DirectorySecurity */
+
 /* Skipped type : System.Security.AccessControl.DiscretionaryAcl DiscretionaryAcl */
+
 /* Skipped type : System.Security.AccessControl.EventWaitHandleAccessRule EventWaitHandleAccessRule */
+
 /* Skipped type : System.Security.AccessControl.EventWaitHandleAuditRule EventWaitHandleAuditRule */
+
 /* Skipped type : System.Security.AccessControl.EventWaitHandleRights EventWaitHandleRights */
+
 /* Skipped type : System.Security.AccessControl.EventWaitHandleSecurity EventWaitHandleSecurity */
+
 /* Skipped type : System.Security.AccessControl.FileSecurity FileSecurity */
+
 /* Skipped type : System.Security.AccessControl.FileSystemAccessRule FileSystemAccessRule */
+
 /* Skipped type : System.Security.AccessControl.FileSystemAuditRule FileSystemAuditRule */
+
 /* Skipped type : System.Security.AccessControl.FileSystemRights FileSystemRights */
+
 /* Skipped type : System.Security.AccessControl.FileSystemSecurity FileSystemSecurity */
+
 /* Skipped type : System.Security.AccessControl.GenericAce GenericAce */
+
 /* Skipped type : System.Security.AccessControl.GenericAcl GenericAcl */
+
 /* Skipped type : System.Security.AccessControl.GenericSecurityDescriptor GenericSecurityDescriptor */
+
 /* Skipped type : System.Security.AccessControl.InheritanceFlags InheritanceFlags */
+
 /* Skipped type : System.Security.AccessControl.KnownAce KnownAce */
+
 /* Skipped type : System.Security.AccessControl.MutexAccessRule MutexAccessRule */
+
 /* Skipped type : System.Security.AccessControl.MutexAuditRule MutexAuditRule */
+
 /* Skipped type : System.Security.AccessControl.MutexRights MutexRights */
+
 /* Skipped type : System.Security.AccessControl.MutexSecurity MutexSecurity */
+
 /* Skipped type : System.Security.AccessControl.NativeObjectSecurity NativeObjectSecurity */
+
 /* Skipped type : System.Security.AccessControl.ObjectAccessRule ObjectAccessRule */
+
 /* Skipped type : System.Security.AccessControl.ObjectAce ObjectAce */
+
 /* Skipped type : System.Security.AccessControl.ObjectAceFlags ObjectAceFlags */
+
 /* Skipped type : System.Security.AccessControl.ObjectAuditRule ObjectAuditRule */
+
 /* Skipped type : System.Security.AccessControl.ObjectSecurity ObjectSecurity */
+
 /* Skipped type : System.Security.AccessControl.ObjectSecurity`1<System.Security.AccessControl.ObjectSecurity`1+T> ObjectSecurity`1<T> */
+
 /* Skipped type : System.Security.AccessControl.PrivilegeNotHeldException PrivilegeNotHeldException */
+
 /* Skipped type : System.Security.AccessControl.PropagationFlags PropagationFlags */
+
 /* Skipped type : System.Security.AccessControl.QualifiedAce QualifiedAce */
+
 /* Skipped type : System.Security.AccessControl.RawAcl RawAcl */
+
 /* Skipped type : System.Security.AccessControl.RawSecurityDescriptor RawSecurityDescriptor */
+
 /* Skipped type : System.Security.AccessControl.RegistryAccessRule RegistryAccessRule */
+
 /* Skipped type : System.Security.AccessControl.RegistryAuditRule RegistryAuditRule */
+
 /* Skipped type : System.Security.AccessControl.RegistryRights RegistryRights */
+
 /* Skipped type : System.Security.AccessControl.RegistrySecurity RegistrySecurity */
+
 /* Skipped type : System.Security.AccessControl.ResourceType ResourceType */
+
 /* Skipped type : System.Security.AccessControl.SecurityInfos SecurityInfos */
+
 /* Skipped type : System.Security.AccessControl.SystemAcl SystemAcl */
+
 /* Skipped type : System.Security.AllowPartiallyTrustedCallersAttribute AllowPartiallyTrustedCallersAttribute */
+
 /* Skipped type : System.Security.Claims.Claim Claim */
+
 /* Skipped type : System.Security.Claims.ClaimsIdentity ClaimsIdentity */
+
 /* Skipped type : System.Security.Claims.ClaimsPrincipal ClaimsPrincipal */
+
 /* Skipped type : System.Security.Claims.ClaimTypes ClaimTypes */
+
 /* Skipped type : System.Security.Claims.ClaimValueTypes ClaimValueTypes */
+
 /* Skipped type : System.Security.CodeAccessPermission CodeAccessPermission */
+
 /* Skipped type : System.Security.Cryptography.Aes Aes */
+
 /* Skipped type : System.Security.Cryptography.AsymmetricAlgorithm AsymmetricAlgorithm */
+
 /* Skipped type : System.Security.Cryptography.AsymmetricKeyExchangeDeformatter AsymmetricKeyExchangeDeformatter */
+
 /* Skipped type : System.Security.Cryptography.AsymmetricKeyExchangeFormatter AsymmetricKeyExchangeFormatter */
+
 /* Skipped type : System.Security.Cryptography.AsymmetricSignatureDeformatter AsymmetricSignatureDeformatter */
+
 /* Skipped type : System.Security.Cryptography.AsymmetricSignatureFormatter AsymmetricSignatureFormatter */
+
 /* Skipped type : System.Security.Cryptography.CipherMode CipherMode */
+
 /* Skipped type : System.Security.Cryptography.CryptoAPITransform CryptoAPITransform */
+
 /* Skipped type : System.Security.Cryptography.CryptoConfig CryptoConfig */
+
 /* Skipped type : System.Security.Cryptography.CryptographicException CryptographicException */
+
 /* Skipped type : System.Security.Cryptography.CryptographicUnexpectedOperationException CryptographicUnexpectedOperationException */
+
 /* Skipped type : System.Security.Cryptography.CryptoStream CryptoStream */
+
 /* Skipped type : System.Security.Cryptography.CryptoStreamMode CryptoStreamMode */
+
 /* Skipped type : System.Security.Cryptography.CspKeyContainerInfo CspKeyContainerInfo */
+
 /* Skipped type : System.Security.Cryptography.CspParameters CspParameters */
+
 /* Skipped type : System.Security.Cryptography.CspProviderFlags CspProviderFlags */
+
 /* Skipped type : System.Security.Cryptography.DeriveBytes DeriveBytes */
+
 /* Skipped type : System.Security.Cryptography.DES DES */
+
 /* Skipped type : System.Security.Cryptography.DESCryptoServiceProvider DESCryptoServiceProvider */
+
 /* Skipped type : System.Security.Cryptography.DSA DSA */
+
 /* Skipped type : System.Security.Cryptography.DSACryptoServiceProvider DSACryptoServiceProvider */
+
 /* Skipped type : System.Security.Cryptography.DSAParameters DSAParameters */
+
 /* Skipped type : System.Security.Cryptography.DSASignatureDeformatter DSASignatureDeformatter */
+
 /* Skipped type : System.Security.Cryptography.DSASignatureFormatter DSASignatureFormatter */
+
 /* Skipped type : System.Security.Cryptography.FromBase64Transform FromBase64Transform */
+
 /* Skipped type : System.Security.Cryptography.FromBase64TransformMode FromBase64TransformMode */
+
 /* Skipped type : System.Security.Cryptography.HashAlgorithm HashAlgorithm */
+
 /* Skipped type : System.Security.Cryptography.HashAlgorithmName HashAlgorithmName */
+
 /* Skipped type : System.Security.Cryptography.HMAC HMAC */
+
 /* Skipped type : System.Security.Cryptography.HMACMD5 HMACMD5 */
+
 /* Skipped type : System.Security.Cryptography.HMACRIPEMD160 HMACRIPEMD160 */
+
 /* Skipped type : System.Security.Cryptography.HMACSHA1 HMACSHA1 */
+
 /* Skipped type : System.Security.Cryptography.HMACSHA256 HMACSHA256 */
+
 /* Skipped type : System.Security.Cryptography.HMACSHA384 HMACSHA384 */
+
 /* Skipped type : System.Security.Cryptography.HMACSHA512 HMACSHA512 */
+
 /* Skipped type : System.Security.Cryptography.ICryptoTransform ICryptoTransform */
+
 /* Skipped type : System.Security.Cryptography.ICspAsymmetricAlgorithm ICspAsymmetricAlgorithm */
+
 /* Skipped type : System.Security.Cryptography.KeyedHashAlgorithm KeyedHashAlgorithm */
+
 /* Skipped type : System.Security.Cryptography.KeyNumber KeyNumber */
+
 /* Skipped type : System.Security.Cryptography.KeySizes KeySizes */
+
 /* Skipped type : System.Security.Cryptography.MACTripleDES MACTripleDES */
+
 /* Skipped type : System.Security.Cryptography.MaskGenerationMethod MaskGenerationMethod */
+
 /* Skipped type : System.Security.Cryptography.MD5 MD5 */
+
 /* Skipped type : System.Security.Cryptography.MD5CryptoServiceProvider MD5CryptoServiceProvider */
+
 /* Skipped type : System.Security.Cryptography.PaddingMode PaddingMode */
+
 /* Skipped type : System.Security.Cryptography.PasswordDeriveBytes PasswordDeriveBytes */
+
 /* Skipped type : System.Security.Cryptography.PKCS1MaskGenerationMethod PKCS1MaskGenerationMethod */
+
 /* Skipped type : System.Security.Cryptography.RandomNumberGenerator RandomNumberGenerator */
+
 /* Skipped type : System.Security.Cryptography.RC2 RC2 */
+
 /* Skipped type : System.Security.Cryptography.RC2CryptoServiceProvider RC2CryptoServiceProvider */
+
 /* Skipped type : System.Security.Cryptography.Rfc2898DeriveBytes Rfc2898DeriveBytes */
+
 /* Skipped type : System.Security.Cryptography.Rijndael Rijndael */
+
 /* Skipped type : System.Security.Cryptography.RijndaelManaged RijndaelManaged */
+
 /* Skipped type : System.Security.Cryptography.RijndaelManagedTransform RijndaelManagedTransform */
+
 /* Skipped type : System.Security.Cryptography.RIPEMD160 RIPEMD160 */
+
 /* Skipped type : System.Security.Cryptography.RIPEMD160Managed RIPEMD160Managed */
+
 /* Skipped type : System.Security.Cryptography.RNGCryptoServiceProvider RNGCryptoServiceProvider */
+
 /* Skipped type : System.Security.Cryptography.RSA RSA */
+
 /* Skipped type : System.Security.Cryptography.RSACryptoServiceProvider RSACryptoServiceProvider */
+
 /* Skipped type : System.Security.Cryptography.RSAEncryptionPadding RSAEncryptionPadding */
+
 /* Skipped type : System.Security.Cryptography.RSAEncryptionPaddingMode RSAEncryptionPaddingMode */
+
 /* Skipped type : System.Security.Cryptography.RSAOAEPKeyExchangeDeformatter RSAOAEPKeyExchangeDeformatter */
+
 /* Skipped type : System.Security.Cryptography.RSAOAEPKeyExchangeFormatter RSAOAEPKeyExchangeFormatter */
+
 /* Skipped type : System.Security.Cryptography.RSAParameters RSAParameters */
+
 /* Skipped type : System.Security.Cryptography.RSAPKCS1KeyExchangeDeformatter RSAPKCS1KeyExchangeDeformatter */
+
 /* Skipped type : System.Security.Cryptography.RSAPKCS1KeyExchangeFormatter RSAPKCS1KeyExchangeFormatter */
+
 /* Skipped type : System.Security.Cryptography.RSAPKCS1SignatureDeformatter RSAPKCS1SignatureDeformatter */
+
 /* Skipped type : System.Security.Cryptography.RSAPKCS1SignatureFormatter RSAPKCS1SignatureFormatter */
+
 /* Skipped type : System.Security.Cryptography.RSASignaturePadding RSASignaturePadding */
+
 /* Skipped type : System.Security.Cryptography.RSASignaturePaddingMode RSASignaturePaddingMode */
+
 /* Skipped type : System.Security.Cryptography.SHA1 SHA1 */
+
 /* Skipped type : System.Security.Cryptography.SHA1CryptoServiceProvider SHA1CryptoServiceProvider */
+
 /* Skipped type : System.Security.Cryptography.SHA1Managed SHA1Managed */
+
 /* Skipped type : System.Security.Cryptography.SHA256 SHA256 */
+
 /* Skipped type : System.Security.Cryptography.SHA256Managed SHA256Managed */
+
 /* Skipped type : System.Security.Cryptography.SHA384 SHA384 */
+
 /* Skipped type : System.Security.Cryptography.SHA384Managed SHA384Managed */
+
 /* Skipped type : System.Security.Cryptography.SHA512 SHA512 */
+
 /* Skipped type : System.Security.Cryptography.SHA512Managed SHA512Managed */
+
 /* Skipped type : System.Security.Cryptography.SignatureDescription SignatureDescription */
+
 /* Skipped type : System.Security.Cryptography.SymmetricAlgorithm SymmetricAlgorithm */
+
 /* Skipped type : System.Security.Cryptography.ToBase64Transform ToBase64Transform */
+
 /* Skipped type : System.Security.Cryptography.TripleDES TripleDES */
+
 /* Skipped type : System.Security.Cryptography.TripleDESCryptoServiceProvider TripleDESCryptoServiceProvider */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509Certificate X509Certificate */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509ContentType X509ContentType */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509KeyStorageFlags X509KeyStorageFlags */
+
 /* Skipped type : System.Security.HostProtectionException HostProtectionException */
+
 /* Skipped type : System.Security.HostSecurityManager HostSecurityManager */
+
 /* Skipped type : System.Security.HostSecurityManagerOptions HostSecurityManagerOptions */
+
 /* Skipped type : System.Security.IEvidenceFactory IEvidenceFactory */
+
 /* Skipped type : System.Security.IPermission IPermission */
+
 /* Skipped type : System.Security.ISecurityEncodable ISecurityEncodable */
+
 /* Skipped type : System.Security.ISecurityPolicyEncodable ISecurityPolicyEncodable */
+
 /* Skipped type : System.Security.IStackWalk IStackWalk */
+
 /* Skipped type : System.Security.NamedPermissionSet NamedPermissionSet */
+
 /* Skipped type : System.Security.PartialTrustVisibilityLevel PartialTrustVisibilityLevel */
+
 /* Skipped type : System.Security.Permissions.CodeAccessSecurityAttribute CodeAccessSecurityAttribute */
+
 /* Skipped type : System.Security.Permissions.EnvironmentPermission EnvironmentPermission */
+
 /* Skipped type : System.Security.Permissions.EnvironmentPermissionAccess EnvironmentPermissionAccess */
+
 /* Skipped type : System.Security.Permissions.EnvironmentPermissionAttribute EnvironmentPermissionAttribute */
+
 /* Skipped type : System.Security.Permissions.FileDialogPermission FileDialogPermission */
+
 /* Skipped type : System.Security.Permissions.FileDialogPermissionAccess FileDialogPermissionAccess */
+
 /* Skipped type : System.Security.Permissions.FileDialogPermissionAttribute FileDialogPermissionAttribute */
+
 /* Skipped type : System.Security.Permissions.FileIOPermission FileIOPermission */
+
 /* Skipped type : System.Security.Permissions.FileIOPermissionAccess FileIOPermissionAccess */
+
 /* Skipped type : System.Security.Permissions.FileIOPermissionAttribute FileIOPermissionAttribute */
+
 /* Skipped type : System.Security.Permissions.GacIdentityPermission GacIdentityPermission */
+
 /* Skipped type : System.Security.Permissions.GacIdentityPermissionAttribute GacIdentityPermissionAttribute */
+
 /* Skipped type : System.Security.Permissions.HostProtectionAttribute HostProtectionAttribute */
+
 /* Skipped type : System.Security.Permissions.HostProtectionResource HostProtectionResource */
+
 /* Skipped type : System.Security.Permissions.IsolatedStorageContainment IsolatedStorageContainment */
+
 /* Skipped type : System.Security.Permissions.IsolatedStorageFilePermission IsolatedStorageFilePermission */
+
 /* Skipped type : System.Security.Permissions.IsolatedStorageFilePermissionAttribute IsolatedStorageFilePermissionAttribute */
+
 /* Skipped type : System.Security.Permissions.IsolatedStoragePermission IsolatedStoragePermission */
+
 /* Skipped type : System.Security.Permissions.IsolatedStoragePermissionAttribute IsolatedStoragePermissionAttribute */
+
 /* Skipped type : System.Security.Permissions.IUnrestrictedPermission IUnrestrictedPermission */
+
 /* Skipped type : System.Security.Permissions.KeyContainerPermission KeyContainerPermission */
+
 /* Skipped type : System.Security.Permissions.KeyContainerPermissionAccessEntry KeyContainerPermissionAccessEntry */
+
 /* Skipped type : System.Security.Permissions.KeyContainerPermissionAccessEntryCollection KeyContainerPermissionAccessEntryCollection */
+
 /* Skipped type : System.Security.Permissions.KeyContainerPermissionAccessEntryEnumerator KeyContainerPermissionAccessEntryEnumerator */
+
 /* Skipped type : System.Security.Permissions.KeyContainerPermissionAttribute KeyContainerPermissionAttribute */
+
 /* Skipped type : System.Security.Permissions.KeyContainerPermissionFlags KeyContainerPermissionFlags */
+
 /* Skipped type : System.Security.Permissions.PermissionSetAttribute PermissionSetAttribute */
+
 /* Skipped type : System.Security.Permissions.PermissionState PermissionState */
+
 /* Skipped type : System.Security.Permissions.PrincipalPermission PrincipalPermission */
+
 /* Skipped type : System.Security.Permissions.PrincipalPermissionAttribute PrincipalPermissionAttribute */
+
 /* Skipped type : System.Security.Permissions.PublisherIdentityPermission PublisherIdentityPermission */
+
 /* Skipped type : System.Security.Permissions.PublisherIdentityPermissionAttribute PublisherIdentityPermissionAttribute */
+
 /* Skipped type : System.Security.Permissions.ReflectionPermission ReflectionPermission */
+
 /* Skipped type : System.Security.Permissions.ReflectionPermissionAttribute ReflectionPermissionAttribute */
+
 /* Skipped type : System.Security.Permissions.ReflectionPermissionFlag ReflectionPermissionFlag */
+
 /* Skipped type : System.Security.Permissions.RegistryPermission RegistryPermission */
+
 /* Skipped type : System.Security.Permissions.RegistryPermissionAccess RegistryPermissionAccess */
+
 /* Skipped type : System.Security.Permissions.RegistryPermissionAttribute RegistryPermissionAttribute */
+
 /* Skipped type : System.Security.Permissions.SecurityAction SecurityAction */
+
 /* Skipped type : System.Security.Permissions.SecurityAttribute SecurityAttribute */
+
 /* Skipped type : System.Security.Permissions.SecurityPermission SecurityPermission */
+
 /* Skipped type : System.Security.Permissions.SecurityPermissionAttribute SecurityPermissionAttribute */
+
 /* Skipped type : System.Security.Permissions.SecurityPermissionFlag SecurityPermissionFlag */
+
 /* Skipped type : System.Security.Permissions.SiteIdentityPermission SiteIdentityPermission */
+
 /* Skipped type : System.Security.Permissions.SiteIdentityPermissionAttribute SiteIdentityPermissionAttribute */
+
 /* Skipped type : System.Security.Permissions.StrongNameIdentityPermission StrongNameIdentityPermission */
+
 /* Skipped type : System.Security.Permissions.StrongNameIdentityPermissionAttribute StrongNameIdentityPermissionAttribute */
+
 /* Skipped type : System.Security.Permissions.StrongNamePublicKeyBlob StrongNamePublicKeyBlob */
+
 /* Skipped type : System.Security.Permissions.UIPermission UIPermission */
+
 /* Skipped type : System.Security.Permissions.UIPermissionAttribute UIPermissionAttribute */
+
 /* Skipped type : System.Security.Permissions.UIPermissionClipboard UIPermissionClipboard */
+
 /* Skipped type : System.Security.Permissions.UIPermissionWindow UIPermissionWindow */
+
 /* Skipped type : System.Security.Permissions.UrlIdentityPermission UrlIdentityPermission */
+
 /* Skipped type : System.Security.Permissions.UrlIdentityPermissionAttribute UrlIdentityPermissionAttribute */
+
 /* Skipped type : System.Security.Permissions.ZoneIdentityPermission ZoneIdentityPermission */
+
 /* Skipped type : System.Security.Permissions.ZoneIdentityPermissionAttribute ZoneIdentityPermissionAttribute */
+
 /* Skipped type : System.Security.PermissionSet PermissionSet */
+
 /* Skipped type : System.Security.Policy.AllMembershipCondition AllMembershipCondition */
+
 /* Skipped type : System.Security.Policy.ApplicationDirectory ApplicationDirectory */
+
 /* Skipped type : System.Security.Policy.ApplicationDirectoryMembershipCondition ApplicationDirectoryMembershipCondition */
+
 /* Skipped type : System.Security.Policy.ApplicationSecurityInfo ApplicationSecurityInfo */
+
 /* Skipped type : System.Security.Policy.ApplicationSecurityManager ApplicationSecurityManager */
+
 /* Skipped type : System.Security.Policy.ApplicationTrust ApplicationTrust */
+
 /* Skipped type : System.Security.Policy.ApplicationTrustCollection ApplicationTrustCollection */
+
 /* Skipped type : System.Security.Policy.ApplicationTrustEnumerator ApplicationTrustEnumerator */
+
 /* Skipped type : System.Security.Policy.ApplicationVersionMatch ApplicationVersionMatch */
+
 /* Skipped type : System.Security.Policy.CodeConnectAccess CodeConnectAccess */
+
 /* Skipped type : System.Security.Policy.CodeGroup CodeGroup */
+
 /* Skipped type : System.Security.Policy.Evidence Evidence */
+
 /* Skipped type : System.Security.Policy.EvidenceBase EvidenceBase */
+
 /* Skipped type : System.Security.Policy.FileCodeGroup FileCodeGroup */
+
 /* Skipped type : System.Security.Policy.FirstMatchCodeGroup FirstMatchCodeGroup */
+
 /* Skipped type : System.Security.Policy.GacInstalled GacInstalled */
+
 /* Skipped type : System.Security.Policy.GacMembershipCondition GacMembershipCondition */
+
 /* Skipped type : System.Security.Policy.Hash Hash */
+
 /* Skipped type : System.Security.Policy.HashMembershipCondition HashMembershipCondition */
+
 /* Skipped type : System.Security.Policy.IApplicationTrustManager IApplicationTrustManager */
+
 /* Skipped type : System.Security.Policy.IIdentityPermissionFactory IIdentityPermissionFactory */
+
 /* Skipped type : System.Security.Policy.IMembershipCondition IMembershipCondition */
+
 /* Skipped type : System.Security.Policy.NetCodeGroup NetCodeGroup */
+
 /* Skipped type : System.Security.Policy.PermissionRequestEvidence PermissionRequestEvidence */
+
 /* Skipped type : System.Security.Policy.PolicyException PolicyException */
+
 /* Skipped type : System.Security.Policy.PolicyLevel PolicyLevel */
+
 /* Skipped type : System.Security.Policy.PolicyStatement PolicyStatement */
+
 /* Skipped type : System.Security.Policy.PolicyStatementAttribute PolicyStatementAttribute */
+
 /* Skipped type : System.Security.Policy.Publisher Publisher */
+
 /* Skipped type : System.Security.Policy.PublisherMembershipCondition PublisherMembershipCondition */
+
 /* Skipped type : System.Security.Policy.Site Site */
+
 /* Skipped type : System.Security.Policy.SiteMembershipCondition SiteMembershipCondition */
+
 /* Skipped type : System.Security.Policy.StrongName StrongName */
+
 /* Skipped type : System.Security.Policy.StrongNameMembershipCondition StrongNameMembershipCondition */
+
 /* Skipped type : System.Security.Policy.TrustManagerContext TrustManagerContext */
+
 /* Skipped type : System.Security.Policy.TrustManagerUIContext TrustManagerUIContext */
+
 /* Skipped type : System.Security.Policy.UnionCodeGroup UnionCodeGroup */
+
 /* Skipped type : System.Security.Policy.Url Url */
+
 /* Skipped type : System.Security.Policy.UrlMembershipCondition UrlMembershipCondition */
+
 /* Skipped type : System.Security.Policy.Zone Zone */
+
 /* Skipped type : System.Security.Policy.ZoneMembershipCondition ZoneMembershipCondition */
+
 /* Skipped type : System.Security.PolicyLevelType PolicyLevelType */
+
 /* Skipped type : System.Security.Principal.GenericIdentity GenericIdentity */
+
 /* Skipped type : System.Security.Principal.GenericPrincipal GenericPrincipal */
+
 /* Skipped type : System.Security.Principal.IdentityNotMappedException IdentityNotMappedException */
+
 /* Skipped type : System.Security.Principal.IdentityReference IdentityReference */
+
 /* Skipped type : System.Security.Principal.IdentityReferenceCollection IdentityReferenceCollection */
+
 /* Skipped type : System.Security.Principal.IIdentity IIdentity */
+
 /* Skipped type : System.Security.Principal.IPrincipal IPrincipal */
+
 /* Skipped type : System.Security.Principal.NTAccount NTAccount */
+
 /* Skipped type : System.Security.Principal.PrincipalPolicy PrincipalPolicy */
+
 /* Skipped type : System.Security.Principal.SecurityIdentifier SecurityIdentifier */
+
 /* Skipped type : System.Security.Principal.TokenAccessLevels TokenAccessLevels */
+
 /* Skipped type : System.Security.Principal.TokenImpersonationLevel TokenImpersonationLevel */
+
 /* Skipped type : System.Security.Principal.WellKnownSidType WellKnownSidType */
+
 /* Skipped type : System.Security.Principal.WindowsAccountType WindowsAccountType */
+
 /* Skipped type : System.Security.Principal.WindowsBuiltInRole WindowsBuiltInRole */
+
 /* Skipped type : System.Security.Principal.WindowsIdentity WindowsIdentity */
+
 /* Skipped type : System.Security.Principal.WindowsImpersonationContext WindowsImpersonationContext */
+
 /* Skipped type : System.Security.Principal.WindowsPrincipal WindowsPrincipal */
+
 /* Skipped type : System.Security.ReadOnlyPermissionSet ReadOnlyPermissionSet */
+
 /* Skipped type : System.Security.SecureString SecureString */
+
 /* Skipped type : System.Security.SecurityContext SecurityContext */
+
 /* Skipped type : System.Security.SecurityContextSource SecurityContextSource */
+
 /* Skipped type : System.Security.SecurityCriticalAttribute SecurityCriticalAttribute */
+
 /* Skipped type : System.Security.SecurityCriticalScope SecurityCriticalScope */
+
 /* Skipped type : System.Security.SecurityElement SecurityElement */
+
 /* Skipped type : System.Security.SecurityException SecurityException */
+
 /* Skipped type : System.Security.SecurityManager SecurityManager */
+
 /* Skipped type : System.Security.SecurityRulesAttribute SecurityRulesAttribute */
+
 /* Skipped type : System.Security.SecurityRuleSet SecurityRuleSet */
+
 /* Skipped type : System.Security.SecuritySafeCriticalAttribute SecuritySafeCriticalAttribute */
+
 /* Skipped type : System.Security.SecurityState SecurityState */
+
 /* Skipped type : System.Security.SecurityTransparentAttribute SecurityTransparentAttribute */
+
 /* Skipped type : System.Security.SecurityTreatAsSafeAttribute SecurityTreatAsSafeAttribute */
+
 /* Skipped type : System.Security.SecurityZone SecurityZone */
+
 /* Skipped type : System.Security.SuppressUnmanagedCodeSecurityAttribute SuppressUnmanagedCodeSecurityAttribute */
+
 /* Skipped type : System.Security.UnverifiableCodeAttribute UnverifiableCodeAttribute */
+
 /* Skipped type : System.Security.VerificationException VerificationException */
+
 /* Skipped type : System.Security.XmlSyntaxException XmlSyntaxException */
+
 /* Skipped type : System.SerializableAttribute SerializableAttribute */
 #define SSingle_ System_Single
+
 /* Skipped type : System.StackOverflowException StackOverflowException */
+
 /* Skipped type : System.STAThreadAttribute STAThreadAttribute */
 #define SString_ System_String
+
 /* Skipped type : System.StringComparer StringComparer */
 #define SStringComparison_ System_StringComparison
+
 /* Skipped type : System.StringSplitOptions StringSplitOptions */
+
 /* Skipped type : System.SystemException SystemException */
+
 /* Skipped type : System.Text.ASCIIEncoding ASCIIEncoding */
+
 /* Skipped type : System.Text.Decoder Decoder */
+
 /* Skipped type : System.Text.DecoderExceptionFallback DecoderExceptionFallback */
+
 /* Skipped type : System.Text.DecoderExceptionFallbackBuffer DecoderExceptionFallbackBuffer */
+
 /* Skipped type : System.Text.DecoderFallback DecoderFallback */
+
 /* Skipped type : System.Text.DecoderFallbackBuffer DecoderFallbackBuffer */
+
 /* Skipped type : System.Text.DecoderFallbackException DecoderFallbackException */
+
 /* Skipped type : System.Text.DecoderReplacementFallback DecoderReplacementFallback */
+
 /* Skipped type : System.Text.DecoderReplacementFallbackBuffer DecoderReplacementFallbackBuffer */
+
 /* Skipped type : System.Text.Encoder Encoder */
+
 /* Skipped type : System.Text.EncoderExceptionFallback EncoderExceptionFallback */
+
 /* Skipped type : System.Text.EncoderExceptionFallbackBuffer EncoderExceptionFallbackBuffer */
+
 /* Skipped type : System.Text.EncoderFallback EncoderFallback */
+
 /* Skipped type : System.Text.EncoderFallbackBuffer EncoderFallbackBuffer */
+
 /* Skipped type : System.Text.EncoderFallbackException EncoderFallbackException */
+
 /* Skipped type : System.Text.EncoderReplacementFallback EncoderReplacementFallback */
+
 /* Skipped type : System.Text.EncoderReplacementFallbackBuffer EncoderReplacementFallbackBuffer */
 #define STEncoding_ System_Text_Encoding
+
 /* Skipped type : System.Text.EncodingInfo EncodingInfo */
+
 /* Skipped type : System.Text.EncodingProvider EncodingProvider */
+
 /* Skipped type : System.Text.NormalizationForm NormalizationForm */
 #define STStringBuilder_ System_Text_StringBuilder
+
 /* Skipped type : System.Text.UnicodeEncoding UnicodeEncoding */
+
 /* Skipped type : System.Text.UTF32Encoding UTF32Encoding */
+
 /* Skipped type : System.Text.UTF7Encoding UTF7Encoding */
+
 /* Skipped type : System.Text.UTF8Encoding UTF8Encoding */
+
 /* Skipped type : System.Threading.AbandonedMutexException AbandonedMutexException */
+
 /* Skipped type : System.Threading.ApartmentState ApartmentState */
+
 /* Skipped type : System.Threading.AsyncFlowControl AsyncFlowControl */
+
 /* Skipped type : System.Threading.AsyncLocal`1<System.Threading.AsyncLocal`1+T> AsyncLocal`1<T> */
+
 /* Skipped type : System.Threading.AsyncLocalValueChangedArgs`1<System.Threading.AsyncLocalValueChangedArgs`1+T> AsyncLocalValueChangedArgs`1<T> */
+
 /* Skipped type : System.Threading.AutoResetEvent AutoResetEvent */
 #define STCancellationToken_ System_Threading_CancellationToken
+
 /* Skipped type : System.Threading.CancellationTokenRegistration CancellationTokenRegistration */
+
 /* Skipped type : System.Threading.CancellationTokenSource CancellationTokenSource */
+
 /* Skipped type : System.Threading.CompressedStack CompressedStack */
+
 /* Skipped type : System.Threading.ContextCallback ContextCallback */
+
 /* Skipped type : System.Threading.CountdownEvent CountdownEvent */
+
 /* Skipped type : System.Threading.EventResetMode EventResetMode */
+
 /* Skipped type : System.Threading.EventWaitHandle EventWaitHandle */
+
 /* Skipped type : System.Threading.ExecutionContext ExecutionContext */
+
 /* Skipped type : System.Threading.HostExecutionContext HostExecutionContext */
+
 /* Skipped type : System.Threading.HostExecutionContextManager HostExecutionContextManager */
+
 /* Skipped type : System.Threading.Interlocked Interlocked */
+
 /* Skipped type : System.Threading.IOCompletionCallback IOCompletionCallback */
+
 /* Skipped type : System.Threading.LazyInitializer LazyInitializer */
+
 /* Skipped type : System.Threading.LazyThreadSafetyMode LazyThreadSafetyMode */
+
 /* Skipped type : System.Threading.LockCookie LockCookie */
+
 /* Skipped type : System.Threading.LockRecursionException LockRecursionException */
+
 /* Skipped type : System.Threading.ManualResetEvent ManualResetEvent */
+
 /* Skipped type : System.Threading.ManualResetEventSlim ManualResetEventSlim */
+
 /* Skipped type : System.Threading.Monitor Monitor */
+
 /* Skipped type : System.Threading.Mutex Mutex */
+
 /* Skipped type : System.Threading.NativeOverlapped NativeOverlapped */
+
 /* Skipped type : System.Threading.Overlapped Overlapped */
+
 /* Skipped type : System.Threading.ParameterizedThreadStart ParameterizedThreadStart */
+
 /* Skipped type : System.Threading.PreAllocatedOverlapped PreAllocatedOverlapped */
+
 /* Skipped type : System.Threading.ReaderWriterLock ReaderWriterLock */
+
 /* Skipped type : System.Threading.RegisteredWaitHandle RegisteredWaitHandle */
+
 /* Skipped type : System.Threading.SemaphoreFullException SemaphoreFullException */
+
 /* Skipped type : System.Threading.SemaphoreSlim SemaphoreSlim */
 #define STSendOrPostCallback_ System_Threading_SendOrPostCallback
+
 /* Skipped type : System.Threading.SpinLock SpinLock */
+
 /* Skipped type : System.Threading.SpinWait SpinWait */
 #define STSynchronizationContext_ System_Threading_SynchronizationContext
+
 /* Skipped type : System.Threading.SynchronizationLockException SynchronizationLockException */
+
 /* Skipped type : System.Threading.Tasks.ConcurrentExclusiveSchedulerPair ConcurrentExclusiveSchedulerPair */
+
 /* Skipped type : System.Threading.Tasks.Parallel Parallel */
+
 /* Skipped type : System.Threading.Tasks.ParallelLoopResult ParallelLoopResult */
+
 /* Skipped type : System.Threading.Tasks.ParallelLoopState ParallelLoopState */
+
 /* Skipped type : System.Threading.Tasks.ParallelOptions ParallelOptions */
 #define STTTask_ System_Threading_Tasks_Task
 #define STTTaskA1_ System_Threading_Tasks_TaskA1
+
 /* Skipped type : System.Threading.Tasks.TaskCanceledException TaskCanceledException */
+
 /* Skipped type : System.Threading.Tasks.TaskCompletionSource`1<System.Threading.Tasks.TaskCompletionSource`1+TResult> TaskCompletionSource`1<TResult> */
+
 /* Skipped type : System.Threading.Tasks.TaskContinuationOptions TaskContinuationOptions */
+
 /* Skipped type : System.Threading.Tasks.TaskCreationOptions TaskCreationOptions */
+
 /* Skipped type : System.Threading.Tasks.TaskFactory TaskFactory */
+
 /* Skipped type : System.Threading.Tasks.TaskFactory`1<System.Threading.Tasks.TaskFactory`1+TResult> TaskFactory`1<TResult> */
+
 /* Skipped type : System.Threading.Tasks.TaskScheduler TaskScheduler */
+
 /* Skipped type : System.Threading.Tasks.TaskSchedulerException TaskSchedulerException */
+
 /* Skipped type : System.Threading.Tasks.TaskStatus TaskStatus */
+
 /* Skipped type : System.Threading.Tasks.UnobservedTaskExceptionEventArgs UnobservedTaskExceptionEventArgs */
+
 /* Skipped type : System.Threading.Thread Thread */
+
 /* Skipped type : System.Threading.ThreadAbortException ThreadAbortException */
+
 /* Skipped type : System.Threading.ThreadInterruptedException ThreadInterruptedException */
+
 /* Skipped type : System.Threading.ThreadLocal`1<System.Threading.ThreadLocal`1+T> ThreadLocal`1<T> */
+
 /* Skipped type : System.Threading.ThreadPool ThreadPool */
+
 /* Skipped type : System.Threading.ThreadPoolBoundHandle ThreadPoolBoundHandle */
+
 /* Skipped type : System.Threading.ThreadPriority ThreadPriority */
+
 /* Skipped type : System.Threading.ThreadStart ThreadStart */
+
 /* Skipped type : System.Threading.ThreadStartException ThreadStartException */
+
 /* Skipped type : System.Threading.ThreadState ThreadState */
+
 /* Skipped type : System.Threading.ThreadStateException ThreadStateException */
+
 /* Skipped type : System.Threading.Timeout Timeout */
+
 /* Skipped type : System.Threading.Timer Timer */
+
 /* Skipped type : System.Threading.TimerCallback TimerCallback */
+
 /* Skipped type : System.Threading.Volatile Volatile */
+
 /* Skipped type : System.Threading.WaitCallback WaitCallback */
+
 /* Skipped type : System.Threading.WaitHandle WaitHandle */
+
 /* Skipped type : System.Threading.WaitHandleCannotBeOpenedException WaitHandleCannotBeOpenedException */
+
 /* Skipped type : System.Threading.WaitHandleExtensions WaitHandleExtensions */
+
 /* Skipped type : System.Threading.WaitOrTimerCallback WaitOrTimerCallback */
+
 /* Skipped type : System.ThreadStaticAttribute ThreadStaticAttribute */
+
 /* Skipped type : System.TimeoutException TimeoutException */
 #define STimeSpan_ System_TimeSpan
+
 /* Skipped type : System.TimeZone TimeZone */
 #define STimeZoneInfo_ System_TimeZoneInfo
 #define STimeZoneInfo_AdjustmentRule_ System_TimeZoneInfo__AdjustmentRule
 #define STimeZoneInfo_TransitionTime_ System_TimeZoneInfo__TransitionTime
+
 /* Skipped type : System.TimeZoneNotFoundException TimeZoneNotFoundException */
+
 /* Skipped type : System.Tuple Tuple */
+
 /* Skipped type : System.Tuple`1<System.Tuple`1+T1> Tuple`1<T1> */
+
 /* Skipped type : System.Tuple`2<System.Tuple`2+T1, System.Tuple`2+T2> Tuple`2<T1, T2> */
+
 /* Skipped type : System.Tuple`3<System.Tuple`3+T1, System.Tuple`3+T2, System.Tuple`3+T3> Tuple`3<T1, T2, T3> */
+
 /* Skipped type : System.Tuple`4<System.Tuple`4+T1, System.Tuple`4+T2, System.Tuple`4+T3, System.Tuple`4+T4> Tuple`4<T1, T2, T3, T4> */
+
 /* Skipped type : System.Tuple`5 Tuple`5 */
+
 /* Skipped type : System.Tuple`6 Tuple`6 */
+
 /* Skipped type : System.Tuple`7 Tuple`7 */
+
 /* Skipped type : System.Tuple`8 Tuple`8 */
+
 /* Skipped type : System.TupleExtensions TupleExtensions */
 #define SType_ System_Type
+
 /* Skipped type : System.TypeAccessException TypeAccessException */
+
 /* Skipped type : System.TypeCode TypeCode */
+
 /* Skipped type : System.TypedReference TypedReference */
+
 /* Skipped type : System.TypeInitializationException TypeInitializationException */
+
 /* Skipped type : System.TypeLoadException TypeLoadException */
+
 /* Skipped type : System.TypeUnloadedException TypeUnloadedException */
 #define SUInt16_ System_UInt16
 #define SUInt32_ System_UInt32
 #define SUInt64_ System_UInt64
 #define SUIntPtr_ System_UIntPtr
+
 /* Skipped type : System.UnauthorizedAccessException UnauthorizedAccessException */
 #define SUnhandledExceptionEventArgs_ System_UnhandledExceptionEventArgs
 #define SUnhandledExceptionEventHandler_ System_UnhandledExceptionEventHandler
+
 /* Skipped type : System.ValueTuple ValueTuple */
+
 /* Skipped type : System.ValueTuple`1<System.ValueTuple`1+T1> ValueTuple`1<T1> */
+
 /* Skipped type : System.ValueTuple`2<System.ValueTuple`2+T1, System.ValueTuple`2+T2> ValueTuple`2<T1, T2> */
+
 /* Skipped type : System.ValueTuple`3<System.ValueTuple`3+T1, System.ValueTuple`3+T2, System.ValueTuple`3+T3> ValueTuple`3<T1, T2, T3> */
+
 /* Skipped type : System.ValueTuple`4<System.ValueTuple`4+T1, System.ValueTuple`4+T2, System.ValueTuple`4+T3, System.ValueTuple`4+T4> ValueTuple`4<T1, T2, T3, T4> */
+
 /* Skipped type : System.ValueTuple`5 ValueTuple`5 */
+
 /* Skipped type : System.ValueTuple`6 ValueTuple`6 */
+
 /* Skipped type : System.ValueTuple`7 ValueTuple`7 */
+
 /* Skipped type : System.ValueTuple`8 ValueTuple`8 */
 #define SValueType_ System_ValueType
 #define SVersion_ System_Version
 #define SVoid_ System_Void
+
 /* Skipped type : System.WeakReference WeakReference */
+
 /* Skipped type : System.WeakReference`1<System.WeakReference`1+T> WeakReference`1<T> */
 
 /*

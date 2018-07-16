@@ -31,20 +31,28 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Collections.Generic.KeyValuePair`2<System.Collections.Generic.KeyValuePair`2+TKey, System.Collections.Generic.KeyValuePair`2+TValue>
-		Managed param types : <System.Collections.Generic.KeyValuePair`2+TKey>, <System.Collections.Generic.KeyValuePair`2+TValue>
-	 */
-    + (System_Collections_Generic_KeyValuePairA2 *)new_withKey:(System_Object *)p1 value:(System_Object *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   <System.Collections.Generic.KeyValuePair`2+TKey>
+   <System.Collections.Generic.KeyValuePair`2+TValue>
+
+ Return
+   System.Collections.Generic.KeyValuePair`2<System.Collections.Generic.KeyValuePair`2+TKey, System.Collections.Generic.KeyValuePair`2+TValue>
+ @/textblock
+*/
++ (System_Collections_Generic_KeyValuePairA2 *)new_withKey:(System_Object *)p1 value:(System_Object *)p2;
 
 #pragma mark -
 #pragma mark Properties
@@ -60,11 +68,19 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString;
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString;
 @end
 //--Dubrovnik.CodeGenerator

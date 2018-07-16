@@ -31,20 +31,28 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.UnhandledExceptionEventArgs
-		Managed param types : System.Object, System.Boolean
-	 */
-    + (System_UnhandledExceptionEventArgs *)new_withException:(System_Object *)p1 isTerminating:(BOOL)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Object
+   System.Boolean
+
+ Return
+   System.UnhandledExceptionEventArgs
+ @/textblock
+*/
++ (System_UnhandledExceptionEventArgs *)new_withException:(System_Object *)p1 isTerminating:(BOOL)p2;
 
 #pragma mark -
 #pragma mark Properties

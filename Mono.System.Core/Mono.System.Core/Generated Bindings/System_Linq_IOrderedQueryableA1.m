@@ -19,21 +19,21 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Linq.IOrderedQueryable`1";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "System.Core";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Linq.IOrderedQueryable`1";
+}
++ (const char *)monoAssemblyName
+{
+	return "System.Core";
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

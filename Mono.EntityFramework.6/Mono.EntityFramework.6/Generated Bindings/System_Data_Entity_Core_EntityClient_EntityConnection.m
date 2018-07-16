@@ -19,33 +19,27 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Data.Entity.Core.EntityClient.EntityConnection";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "EntityFramework";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Data.Entity.Core.EntityClient.EntityConnection";
+}
++ (const char *)monoAssemblyName
+{
+	return "EntityFramework";
+}
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Data.Entity.Core.EntityClient.EntityConnection
-		Managed param types : System.String
-	 */
-    + (System_Data_Entity_Core_EntityClient_EntityConnection *)new_withConnectionString:(NSString *)p1
-    {
-		
-		System_Data_Entity_Core_EntityClient_EntityConnection * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-      return object;
-    }
++ (System_Data_Entity_Core_EntityClient_EntityConnection *)new_withConnectionString:(NSString *)p1
+{
+  System_Data_Entity_Core_EntityClient_EntityConnection * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return object;
+}
+
 /* Skipped constructor : System.Data.Entity.Core.EntityClient.EntityConnection (System.Data.Entity.Core.Metadata.Edm.MetadataWorkspace workspace, System.Data.Common.DbConnection connection) */
+
 /* Skipped constructor : System.Data.Entity.Core.EntityClient.EntityConnection (System.Data.Entity.Core.Metadata.Edm.MetadataWorkspace workspace, System.Data.Common.DbConnection connection, System.Boolean entityConnectionOwnsStoreConnection) */
 
 #pragma mark -
@@ -108,6 +102,7 @@
 
 		return _connectionTimeout;
 	}
+
 /* Skipped property : System.Data.Entity.Core.EntityClient.EntityTransaction CurrentTransaction */
 
 	// Managed property name : Database
@@ -175,6 +170,7 @@
 
 		return _serverVersion;
 	}
+
 /* Skipped property : System.Data.ConnectionState State */
 
 	// Managed property name : StoreConnection
@@ -201,65 +197,43 @@
 
 #pragma mark -
 #pragma mark Methods
+
 /* Skipped method : System.Data.Entity.Core.EntityClient.EntityTransaction BeginTransaction() */
+
 /* Skipped method : System.Data.Entity.Core.EntityClient.EntityTransaction BeginTransaction(System.Data.IsolationLevel isolationLevel) */
 
-	/*! 
-		Managed method name : ChangeDatabase
-		Managed return type : System.Void
-		Managed param types : System.String
-	 */
-    - (void)changeDatabase_withDatabaseName:(NSString *)p1
-    {
-		
-		[self invokeMonoMethod:"ChangeDatabase(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-    }
+- (void)changeDatabase_withDatabaseName:(NSString *)p1
+{
+  [self invokeMonoMethod:"ChangeDatabase(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+}
 
-	/*! 
-		Managed method name : Close
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)close
-    {
-		
-		[self invokeMonoMethod:"Close()" withNumArgs:0];
-      
-    }
+- (void)close
+{
+  [self invokeMonoMethod:"Close()" withNumArgs:0];
+}
+
 /* Skipped method : System.Data.Entity.Core.EntityClient.EntityCommand CreateCommand() */
+
 /* Skipped method : System.Void EnlistTransaction(System.Transactions.Transaction transaction) */
+
 /* Skipped method : System.Data.Entity.Core.Metadata.Edm.MetadataWorkspace GetMetadataWorkspace() */
 
-	/*! 
-		Managed method name : Open
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)open
-    {
-		
-		[self invokeMonoMethod:"Open()" withNumArgs:0];
-      
-    }
+- (void)open
+{
+  [self invokeMonoMethod:"Open()" withNumArgs:0];
+}
 
-	/*! 
-		Managed method name : OpenAsync
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.Threading.CancellationToken
-	 */
-    - (System_Threading_Tasks_Task *)openAsync_withCancellationToken:(System_Threading_CancellationToken *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"OpenAsync(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
-    }
+- (System_Threading_Tasks_Task *)openAsync_withCancellationToken:(System_Threading_CancellationToken *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"OpenAsync(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

@@ -46,13 +46,13 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
+
 /* Skipped constructor : System.Collections.ObjectModel.Collection`1<System.Collections.ObjectModel.Collection`1+T> (System.Collections.Generic.IList`1<System.Collections.ObjectModel.Collection`1+T> list) */
 
 #pragma mark -
@@ -65,81 +65,172 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : get_Item
-		Managed return type : <System.Collections.ObjectModel.Collection`1+T>
-		Managed param types : System.Int32
-	 */
-    - (System_Object *)get_Item_withIndex:(int32_t)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   get_Item
 
-	/*! 
-		Managed method name : set_Item
-		Managed return type : System.Void
-		Managed param types : System.Int32, <System.Collections.ObjectModel.Collection`1+T>
-	 */
-    - (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2;
+ Params
+   System.Int32
 
-	/*! 
-		Managed method name : Add
-		Managed return type : System.Void
-		Managed param types : <System.Collections.ObjectModel.Collection`1+T>
-	 */
-    - (void)add_withItem:(System_Object *)p1;
+ Return
+   <System.Collections.ObjectModel.Collection`1+T>
+ @/textblock
+*/
+- (System_Object *)get_Item_withIndex:(int32_t)p1;
 
-	/*! 
-		Managed method name : Clear
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)clear;
+/**
+ Managed method.
+ @textblock
+ Name
+   set_Item
 
-	/*! 
-		Managed method name : Contains
-		Managed return type : System.Boolean
-		Managed param types : <System.Collections.ObjectModel.Collection`1+T>
-	 */
-    - (BOOL)contains_withItem:(System_Object *)p1;
+ Params
+   System.Int32
+   <System.Collections.ObjectModel.Collection`1+T>
 
-	/*! 
-		Managed method name : CopyTo
-		Managed return type : System.Void
-		Managed param types : T[], System.Int32
-	 */
-    - (void)copyTo_withArray:(System_Array *)p1 index:(int32_t)p2;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2;
 
-	/*! 
-		Managed method name : GetEnumerator
-		Managed return type : System.Collections.Generic.IEnumerator`1<System.Collections.ObjectModel.Collection`1+T>
-		Managed param types : 
-	 */
-    - (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator;
+/**
+ Managed method.
+ @textblock
+ Name
+   Add
 
-	/*! 
-		Managed method name : IndexOf
-		Managed return type : System.Int32
-		Managed param types : <System.Collections.ObjectModel.Collection`1+T>
-	 */
-    - (int32_t)indexOf_withItem:(System_Object *)p1;
+ Params
+   <System.Collections.ObjectModel.Collection`1+T>
 
-	/*! 
-		Managed method name : Insert
-		Managed return type : System.Void
-		Managed param types : System.Int32, <System.Collections.ObjectModel.Collection`1+T>
-	 */
-    - (void)insert_withIndex:(int32_t)p1 item:(System_Object *)p2;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)add_withItem:(System_Object *)p1;
 
-	/*! 
-		Managed method name : Remove
-		Managed return type : System.Boolean
-		Managed param types : <System.Collections.ObjectModel.Collection`1+T>
-	 */
-    - (BOOL)remove_withItem:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Clear
 
-	/*! 
-		Managed method name : RemoveAt
-		Managed return type : System.Void
-		Managed param types : System.Int32
-	 */
-    - (void)removeAt_withIndex:(int32_t)p1;
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)clear;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Contains
+
+ Params
+   <System.Collections.ObjectModel.Collection`1+T>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)contains_withItem:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CopyTo
+
+ Params
+   T[]
+   System.Int32
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)copyTo_withArray:(System_Array *)p1 index:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetEnumerator
+
+ Params
+   (none)
+
+ Return
+   System.Collections.Generic.IEnumerator`1<System.Collections.ObjectModel.Collection`1+T>
+ @/textblock
+*/
+- (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   IndexOf
+
+ Params
+   <System.Collections.ObjectModel.Collection`1+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)indexOf_withItem:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Insert
+
+ Params
+   System.Int32
+   <System.Collections.ObjectModel.Collection`1+T>
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)insert_withIndex:(int32_t)p1 item:(System_Object *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Remove
+
+ Params
+   <System.Collections.ObjectModel.Collection`1+T>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)remove_withItem:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   RemoveAt
+
+ Params
+   System.Int32
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)removeAt_withIndex:(int32_t)p1;
 @end
 //--Dubrovnik.CodeGenerator

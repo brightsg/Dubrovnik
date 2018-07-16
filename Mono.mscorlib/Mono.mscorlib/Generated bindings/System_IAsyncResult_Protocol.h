@@ -81,6 +81,7 @@
 	// Managed property name : AsyncState
 	// Managed property type : System.Object
     @property (nonatomic, strong, readonly) System_Object * asyncState;
+
 /* Skipped property : System.Threading.WaitHandle AsyncWaitHandle */
 
 	// Managed property name : CompletedSynchronously
@@ -110,6 +111,7 @@
 	// Managed property name : AsyncState
 	// Managed property type : System.Object
     @property (nonatomic, strong, readonly) System_Object * asyncState;
+
 /* Skipped property : System.Threading.WaitHandle AsyncWaitHandle */
 
 	// Managed property name : CompletedSynchronously

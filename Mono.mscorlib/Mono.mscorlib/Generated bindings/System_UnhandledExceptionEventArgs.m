@@ -19,32 +19,24 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.UnhandledExceptionEventArgs";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "mscorlib";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.UnhandledExceptionEventArgs";
+}
++ (const char *)monoAssemblyName
+{
+	return "mscorlib";
+}
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.UnhandledExceptionEventArgs
-		Managed param types : System.Object, System.Boolean
-	 */
-    + (System_UnhandledExceptionEventArgs *)new_withException:(System_Object *)p1 isTerminating:(BOOL)p2
-    {
-		
-		System_UnhandledExceptionEventArgs * object = [[self alloc] initWithSignature:"object,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-      
-      return object;
-    }
++ (System_UnhandledExceptionEventArgs *)new_withException:(System_Object *)p1 isTerminating:(BOOL)p2
+{
+  System_UnhandledExceptionEventArgs * object = [[self alloc] initWithSignature:"object,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+  return object;
+}
 
 #pragma mark -
 #pragma mark Properties
@@ -94,8 +86,9 @@
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

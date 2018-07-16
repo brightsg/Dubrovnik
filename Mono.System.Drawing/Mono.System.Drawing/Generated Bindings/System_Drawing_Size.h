@@ -33,21 +33,30 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
+
 /* Skipped constructor : System.Drawing.Size (System.Drawing.Point pt) */
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Drawing.Size
-		Managed param types : System.Int32, System.Int32
-	 */
-    + (System_Drawing_Size *)new_withWidth:(int32_t)p1 height:(int32_t)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Int32
+   System.Int32
+
+ Return
+   System.Drawing.Size
+ @/textblock
+*/
++ (System_Drawing_Size *)new_withWidth:(int32_t)p1 height:(int32_t)p2;
 
 #pragma mark -
 #pragma mark Fields
@@ -74,72 +83,155 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Add
-		Managed return type : System.Drawing.Size
-		Managed param types : System.Drawing.Size, System.Drawing.Size
-	 */
-    + (System_Drawing_Size *)add_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   Add
+
+ Params
+   System.Drawing.Size
+   System.Drawing.Size
+
+ Return
+   System.Drawing.Size
+ @/textblock
+*/
++ (System_Drawing_Size *)add_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2;
+
 /* Skipped method : System.Drawing.Size Ceiling(System.Drawing.SizeF value) */
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withObj:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : op_Addition
-		Managed return type : System.Drawing.Size
-		Managed param types : System.Drawing.Size, System.Drawing.Size
-	 */
-    + (System_Drawing_Size *)op_Addition_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2;
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withObj:(System_Object *)p1;
 
-	/*! 
-		Managed method name : op_Equality
-		Managed return type : System.Boolean
-		Managed param types : System.Drawing.Size, System.Drawing.Size
-	 */
-    + (BOOL)op_Equality_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
+
+ Params
+   (none)
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getHashCode;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Addition
+
+ Params
+   System.Drawing.Size
+   System.Drawing.Size
+
+ Return
+   System.Drawing.Size
+ @/textblock
+*/
++ (System_Drawing_Size *)op_Addition_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Equality
+
+ Params
+   System.Drawing.Size
+   System.Drawing.Size
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_Equality_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2;
+
 /* Skipped method : System.Drawing.Point op_Explicit(System.Drawing.Size size) */
+
 /* Skipped method : System.Drawing.SizeF op_Implicit(System.Drawing.Size p) */
 
-	/*! 
-		Managed method name : op_Inequality
-		Managed return type : System.Boolean
-		Managed param types : System.Drawing.Size, System.Drawing.Size
-	 */
-    + (BOOL)op_Inequality_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Inequality
 
-	/*! 
-		Managed method name : op_Subtraction
-		Managed return type : System.Drawing.Size
-		Managed param types : System.Drawing.Size, System.Drawing.Size
-	 */
-    + (System_Drawing_Size *)op_Subtraction_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2;
+ Params
+   System.Drawing.Size
+   System.Drawing.Size
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_Inequality_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Subtraction
+
+ Params
+   System.Drawing.Size
+   System.Drawing.Size
+
+ Return
+   System.Drawing.Size
+ @/textblock
+*/
++ (System_Drawing_Size *)op_Subtraction_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2;
+
 /* Skipped method : System.Drawing.Size Round(System.Drawing.SizeF value) */
 
-	/*! 
-		Managed method name : Subtract
-		Managed return type : System.Drawing.Size
-		Managed param types : System.Drawing.Size, System.Drawing.Size
-	 */
-    + (System_Drawing_Size *)subtract_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   Subtract
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString;
+ Params
+   System.Drawing.Size
+   System.Drawing.Size
+
+ Return
+   System.Drawing.Size
+ @/textblock
+*/
++ (System_Drawing_Size *)subtract_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString;
+
 /* Skipped method : System.Drawing.Size Truncate(System.Drawing.SizeF value) */
 @end
 //--Dubrovnik.CodeGenerator

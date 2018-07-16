@@ -34,10 +34,9 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Properties
@@ -45,6 +44,7 @@
 	// Managed property name : AsyncState
 	// Managed property type : System.Object
     @property (nonatomic, strong, readonly) System_Object * asyncState;
+
 /* Skipped property : System.Threading.WaitHandle AsyncWaitHandle */
 
 	// Managed property name : CompletedSynchronously

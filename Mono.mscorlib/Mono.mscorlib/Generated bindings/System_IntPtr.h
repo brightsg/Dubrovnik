@@ -36,27 +36,43 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.IntPtr
-		Managed param types : System.Int32
-	 */
-    + (System_IntPtr *)new_withValueInt:(int32_t)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.IntPtr
-		Managed param types : System.Int64
-	 */
-    + (System_IntPtr *)new_withValueLong:(int64_t)p1;
+ Params
+   System.Int32
+
+ Return
+   System.IntPtr
+ @/textblock
+*/
++ (System_IntPtr *)new_withValueInt:(int32_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Int64
+
+ Return
+   System.IntPtr
+ @/textblock
+*/
++ (System_IntPtr *)new_withValueLong:(int64_t)p1;
+
 /* Skipped constructor : System.IntPtr (System.Void* value) */
 
 #pragma mark -
@@ -76,105 +92,226 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Add
-		Managed return type : System.IntPtr
-		Managed param types : System.IntPtr, System.Int32
-	 */
-    + (void *)add_withPointer:(void *)p1 offset:(int32_t)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   Add
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withObj:(System_Object *)p1;
+ Params
+   System.IntPtr
+   System.Int32
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode;
+ Return
+   System.IntPtr
+ @/textblock
+*/
++ (void *)add_withPointer:(void *)p1 offset:(int32_t)p2;
 
-	/*! 
-		Managed method name : op_Addition
-		Managed return type : System.IntPtr
-		Managed param types : System.IntPtr, System.Int32
-	 */
-    + (void *)op_Addition_withPointer:(void *)p1 offset:(int32_t)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-	/*! 
-		Managed method name : op_Equality
-		Managed return type : System.Boolean
-		Managed param types : System.IntPtr, System.IntPtr
-	 */
-    + (BOOL)op_Equality_withValue1:(void *)p1 value2:(void *)p2;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : op_Explicit
-		Managed return type : System.IntPtr
-		Managed param types : System.Int32
-	 */
-    + (void *)op_Explicit_withValueInt:(int32_t)p1;
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withObj:(System_Object *)p1;
 
-	/*! 
-		Managed method name : op_Explicit
-		Managed return type : System.IntPtr
-		Managed param types : System.Int64
-	 */
-    + (void *)op_Explicit_withValueLong:(int64_t)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
+
+ Params
+   (none)
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getHashCode;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Addition
+
+ Params
+   System.IntPtr
+   System.Int32
+
+ Return
+   System.IntPtr
+ @/textblock
+*/
++ (void *)op_Addition_withPointer:(void *)p1 offset:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Equality
+
+ Params
+   System.IntPtr
+   System.IntPtr
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_Equality_withValue1:(void *)p1 value2:(void *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Explicit
+
+ Params
+   System.Int32
+
+ Return
+   System.IntPtr
+ @/textblock
+*/
++ (void *)op_Explicit_withValueInt:(int32_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Explicit
+
+ Params
+   System.Int64
+
+ Return
+   System.IntPtr
+ @/textblock
+*/
++ (void *)op_Explicit_withValueLong:(int64_t)p1;
+
 /* Skipped method : System.IntPtr op_Explicit(System.Void* value) */
+
 /* Skipped method : System.Void* op_Explicit(System.IntPtr value) */
 
-	/*! 
-		Managed method name : op_Inequality
-		Managed return type : System.Boolean
-		Managed param types : System.IntPtr, System.IntPtr
-	 */
-    + (BOOL)op_Inequality_withValue1:(void *)p1 value2:(void *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Inequality
 
-	/*! 
-		Managed method name : op_Subtraction
-		Managed return type : System.IntPtr
-		Managed param types : System.IntPtr, System.Int32
-	 */
-    + (void *)op_Subtraction_withPointer:(void *)p1 offset:(int32_t)p2;
+ Params
+   System.IntPtr
+   System.IntPtr
 
-	/*! 
-		Managed method name : Subtract
-		Managed return type : System.IntPtr
-		Managed param types : System.IntPtr, System.Int32
-	 */
-    + (void *)subtract_withPointer:(void *)p1 offset:(int32_t)p2;
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_Inequality_withValue1:(void *)p1 value2:(void *)p2;
 
-	/*! 
-		Managed method name : ToInt32
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)toInt32;
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Subtraction
 
-	/*! 
-		Managed method name : ToInt64
-		Managed return type : System.Int64
-		Managed param types : 
-	 */
-    - (int64_t)toInt64;
+ Params
+   System.IntPtr
+   System.Int32
+
+ Return
+   System.IntPtr
+ @/textblock
+*/
++ (void *)op_Subtraction_withPointer:(void *)p1 offset:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Subtract
+
+ Params
+   System.IntPtr
+   System.Int32
+
+ Return
+   System.IntPtr
+ @/textblock
+*/
++ (void *)subtract_withPointer:(void *)p1 offset:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToInt32
+
+ Params
+   (none)
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)toInt32;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToInt64
+
+ Params
+   (none)
+
+ Return
+   System.Int64
+ @/textblock
+*/
+- (int64_t)toInt64;
+
 /* Skipped method : System.Void* ToPointer() */
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString;
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.String
-	 */
-    - (NSString *)toString_withFormat:(NSString *)p1;
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   System.String
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString_withFormat:(NSString *)p1;
 @end
 //--Dubrovnik.CodeGenerator

@@ -19,20 +19,21 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Net.WebRequest";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "System";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Net.WebRequest";
+}
++ (const char *)monoAssemblyName
+{
+	return "System";
+}
 
 #pragma mark -
 #pragma mark Properties
+
 /* Skipped property : System.Net.Security.AuthenticationLevel AuthenticationLevel */
+
 /* Skipped property : System.Net.Cache.RequestCachePolicy CachePolicy */
 
 	// Managed property name : ConnectionGroupName
@@ -144,11 +145,17 @@
 		thunk(self.monoObject, [value monoObject], &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
+
 /* Skipped property : System.Net.IWebRequestCreate CreatorInstance */
+
 /* Skipped property : System.Net.ICredentials Credentials */
+
 /* Skipped property : System.Net.Cache.RequestCachePolicy DefaultCachePolicy */
+
 /* Skipped property : System.Net.IWebProxy DefaultWebProxy */
+
 /* Skipped property : System.Net.WebHeaderCollection Headers */
+
 /* Skipped property : System.Security.Principal.TokenImpersonationLevel ImpersonationLevel */
 
 	// Managed property name : Method
@@ -223,6 +230,7 @@
 		thunk(self.monoObject, value, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
+
 /* Skipped property : System.Net.IWebProxy Proxy */
 
 	// Managed property name : RequestUri
@@ -322,194 +330,100 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Abort
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)abort
-    {
-		
-		[self invokeMonoMethod:"Abort()" withNumArgs:0];
-      
-    }
+- (void)abort
+{
+  [self invokeMonoMethod:"Abort()" withNumArgs:0];
+}
 
-	/*! 
-		Managed method name : BeginGetRequestStream
-		Managed return type : System.IAsyncResult
-		Managed param types : System.AsyncCallback, System.Object
-	 */
-    - (id <System_IAsyncResult>)beginGetRequestStream_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginGetRequestStream(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
-    }
+- (id <System_IAsyncResult>)beginGetRequestStream_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"BeginGetRequestStream(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+  return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : BeginGetResponse
-		Managed return type : System.IAsyncResult
-		Managed param types : System.AsyncCallback, System.Object
-	 */
-    - (id <System_IAsyncResult>)beginGetResponse_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginGetResponse(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
-    }
+- (id <System_IAsyncResult>)beginGetResponse_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"BeginGetResponse(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+  return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : Create
-		Managed return type : System.Net.WebRequest
-		Managed param types : System.String
-	 */
-    + (System_Net_WebRequest *)create_withRequestUriString:(NSString *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Net_WebRequest bestObjectWithMonoObject:monoObject];
-    }
++ (System_Net_WebRequest *)create_withRequestUriString:(NSString *)p1
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Net_WebRequest bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : Create
-		Managed return type : System.Net.WebRequest
-		Managed param types : System.Uri
-	 */
-    + (System_Net_WebRequest *)create_withRequestUri:(System_Uri *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Uri)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Net_WebRequest bestObjectWithMonoObject:monoObject];
-    }
++ (System_Net_WebRequest *)create_withRequestUri:(System_Uri *)p1
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Uri)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Net_WebRequest bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : CreateDefault
-		Managed return type : System.Net.WebRequest
-		Managed param types : System.Uri
-	 */
-    + (System_Net_WebRequest *)createDefault_withRequestUri:(System_Uri *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDefault(System.Uri)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Net_WebRequest bestObjectWithMonoObject:monoObject];
-    }
++ (System_Net_WebRequest *)createDefault_withRequestUri:(System_Uri *)p1
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDefault(System.Uri)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Net_WebRequest bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : CreateHttp
-		Managed return type : System.Net.HttpWebRequest
-		Managed param types : System.String
-	 */
-    + (System_Net_HttpWebRequest *)createHttp_withRequestUriString:(NSString *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateHttp(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Net_HttpWebRequest bestObjectWithMonoObject:monoObject];
-    }
++ (System_Net_HttpWebRequest *)createHttp_withRequestUriString:(NSString *)p1
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"CreateHttp(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Net_HttpWebRequest bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : CreateHttp
-		Managed return type : System.Net.HttpWebRequest
-		Managed param types : System.Uri
-	 */
-    + (System_Net_HttpWebRequest *)createHttp_withRequestUri:(System_Uri *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"CreateHttp(System.Uri)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Net_HttpWebRequest bestObjectWithMonoObject:monoObject];
-    }
++ (System_Net_HttpWebRequest *)createHttp_withRequestUri:(System_Uri *)p1
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"CreateHttp(System.Uri)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Net_HttpWebRequest bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : EndGetRequestStream
-		Managed return type : System.IO.Stream
-		Managed param types : System.IAsyncResult
-	 */
-    - (System_IO_Stream *)endGetRequestStream_withAsyncResult:(id <System_IAsyncResult_>)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"EndGetRequestStream(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_IO_Stream bestObjectWithMonoObject:monoObject];
-    }
+- (System_IO_Stream *)endGetRequestStream_withAsyncResult:(id <System_IAsyncResult_>)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"EndGetRequestStream(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_IO_Stream bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : EndGetResponse
-		Managed return type : System.Net.WebResponse
-		Managed param types : System.IAsyncResult
-	 */
-    - (System_Net_WebResponse *)endGetResponse_withAsyncResult:(id <System_IAsyncResult_>)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"EndGetResponse(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Net_WebResponse bestObjectWithMonoObject:monoObject];
-    }
+- (System_Net_WebResponse *)endGetResponse_withAsyncResult:(id <System_IAsyncResult_>)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"EndGetResponse(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Net_WebResponse bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : GetRequestStream
-		Managed return type : System.IO.Stream
-		Managed param types : 
-	 */
-    - (System_IO_Stream *)getRequestStream
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetRequestStream()" withNumArgs:0];
-		
-		return [System_IO_Stream bestObjectWithMonoObject:monoObject];
-    }
+- (System_IO_Stream *)getRequestStream
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetRequestStream()" withNumArgs:0];
+  return [System_IO_Stream bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : GetRequestStreamAsync
-		Managed return type : System.Threading.Tasks.Task`1<System.IO.Stream>
-		Managed param types : 
-	 */
-    - (System_Threading_Tasks_TaskA1 *)getRequestStreamAsync
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetRequestStreamAsync()" withNumArgs:0];
-		
-		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
-    }
+- (System_Threading_Tasks_TaskA1 *)getRequestStreamAsync
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetRequestStreamAsync()" withNumArgs:0];
+  return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : GetResponse
-		Managed return type : System.Net.WebResponse
-		Managed param types : 
-	 */
-    - (System_Net_WebResponse *)getResponse
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetResponse()" withNumArgs:0];
-		
-		return [System_Net_WebResponse bestObjectWithMonoObject:monoObject];
-    }
+- (System_Net_WebResponse *)getResponse
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetResponse()" withNumArgs:0];
+  return [System_Net_WebResponse bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : GetResponseAsync
-		Managed return type : System.Threading.Tasks.Task`1<System.Net.WebResponse>
-		Managed param types : 
-	 */
-    - (System_Threading_Tasks_TaskA1 *)getResponseAsync
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetResponseAsync()" withNumArgs:0];
-		
-		return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
-    }
+- (System_Threading_Tasks_TaskA1 *)getResponseAsync
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetResponseAsync()" withNumArgs:0];
+  return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
+}
+
 /* Skipped method : System.Net.IWebProxy GetSystemWebProxy() */
+
 /* Skipped method : System.Void RegisterPortableWebRequestCreator(System.Net.IWebRequestCreate creator) */
+
 /* Skipped method : System.Boolean RegisterPrefix(System.String prefix, System.Net.IWebRequestCreate creator) */
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

@@ -90,34 +90,62 @@
 	// Managed property name : Database
 	// Managed property type : System.String
     @property (nonatomic, strong, readonly) NSString * database;
+
 /* Skipped property : System.Data.ConnectionState State */
 
 #pragma mark -
 #pragma mark Methods
+
 /* Skipped method : System.Data.IDbTransaction BeginTransaction() */
+
 /* Skipped method : System.Data.IDbTransaction BeginTransaction(System.Data.IsolationLevel il) */
 
-	/*! 
-		Managed method name : ChangeDatabase
-		Managed return type : System.Void
-		Managed param types : System.String
-	 */
-    - (void)changeDatabase_withDatabaseName:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   ChangeDatabase
 
-	/*! 
-		Managed method name : Close
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)close;
+ Params
+   System.String
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)changeDatabase_withDatabaseName:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Close
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)close;
+
 /* Skipped method : System.Data.IDbCommand CreateCommand() */
 
-	/*! 
-		Managed method name : Open
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)open;
+/**
+ Managed method.
+ @textblock
+ Name
+   Open
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)open;
 #endif
 
 
@@ -146,34 +174,62 @@
 	// Managed property name : Database
 	// Managed property type : System.String
     @property (nonatomic, strong, readonly) NSString * database;
+
 /* Skipped property : System.Data.ConnectionState State */
 
 #pragma mark -
 #pragma mark Methods
+
 /* Skipped method : System.Data.IDbTransaction BeginTransaction() */
+
 /* Skipped method : System.Data.IDbTransaction BeginTransaction(System.Data.IsolationLevel il) */
 
-	/*! 
-		Managed method name : ChangeDatabase
-		Managed return type : System.Void
-		Managed param types : System.String
-	 */
-    - (void)changeDatabase_withDatabaseName:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   ChangeDatabase
 
-	/*! 
-		Managed method name : Close
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)close;
+ Params
+   System.String
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)changeDatabase_withDatabaseName:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Close
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)close;
+
 /* Skipped method : System.Data.IDbCommand CreateCommand() */
 
-	/*! 
-		Managed method name : Open
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)open;
+/**
+ Managed method.
+ @textblock
+ Name
+   Open
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)open;
 
 @end
 

@@ -76,6 +76,7 @@
 
 #pragma mark -
 #pragma mark Methods
+
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 #endif
 
@@ -93,6 +94,7 @@
 
 #pragma mark -
 #pragma mark Methods
+
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 
 @end

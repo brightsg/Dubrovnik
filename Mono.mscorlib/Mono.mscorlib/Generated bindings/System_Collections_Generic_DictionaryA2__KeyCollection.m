@@ -19,32 +19,24 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Collections.Generic.Dictionary`2+KeyCollection";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "mscorlib";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Collections.Generic.Dictionary`2+KeyCollection";
+}
++ (const char *)monoAssemblyName
+{
+	return "mscorlib";
+}
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+KeyCollection+TKey, System.Collections.Generic.Dictionary`2+KeyCollection+TValue>+KeyCollection
-		Managed param types : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+KeyCollection+TKey, System.Collections.Generic.Dictionary`2+KeyCollection+TValue>
-	 */
-    + (System_Collections_Generic_DictionaryA2__KeyCollection *)new_withDictionary:(System_Collections_Generic_DictionaryA2 *)p1
-    {
-		
-		System_Collections_Generic_DictionaryA2__KeyCollection * object = [[self alloc] initWithSignature:"System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2/KeyCollection/TKey, System.Collections.Generic.Dictionary`2/KeyCollection/TValue>" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-      return object;
-    }
++ (System_Collections_Generic_DictionaryA2__KeyCollection *)new_withDictionary:(System_Collections_Generic_DictionaryA2 *)p1
+{
+  System_Collections_Generic_DictionaryA2__KeyCollection * object = [[self alloc] initWithSignature:"System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2/KeyCollection/TKey, System.Collections.Generic.Dictionary`2/KeyCollection/TValue>" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return object;
+}
 
 #pragma mark -
 #pragma mark Properties
@@ -73,35 +65,22 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : CopyTo
-		Managed return type : System.Void
-		Managed param types : TKey[], System.Int32
-	 */
-    - (void)copyTo_withArray:(System_Array *)p1 index:(int32_t)p2
-    {
-		
-		[self invokeMonoMethod:"CopyTo(TKey[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-      
-    }
+- (void)copyTo_withArray:(System_Array *)p1 index:(int32_t)p2
+{
+  [self invokeMonoMethod:"CopyTo(TKey[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+}
 
-	/*! 
-		Managed method name : GetEnumerator
-		Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+KeyCollection+TKey, System.Collections.Generic.Dictionary`2+KeyCollection+TValue>+KeyCollection+Enumerator
-		Managed param types : 
-	 */
-    - (System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator *)getEnumerator
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
-		
-		return [System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator bestObjectWithMonoObject:monoObject];
-    }
+- (System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator *)getEnumerator
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
+  return [System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator bestObjectWithMonoObject:monoObject];
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

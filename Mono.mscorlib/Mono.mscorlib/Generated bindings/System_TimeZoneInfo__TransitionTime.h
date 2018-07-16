@@ -38,10 +38,9 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Properties
@@ -73,53 +72,116 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : CreateFixedDateRule
-		Managed return type : System.TimeZoneInfo+TransitionTime
-		Managed param types : System.DateTime, System.Int32, System.Int32
-	 */
-    + (System_TimeZoneInfo__TransitionTime *)createFixedDateRule_withTimeOfDay:(NSDate *)p1 month:(int32_t)p2 day:(int32_t)p3;
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateFixedDateRule
 
-	/*! 
-		Managed method name : CreateFloatingDateRule
-		Managed return type : System.TimeZoneInfo+TransitionTime
-		Managed param types : System.DateTime, System.Int32, System.Int32, System.DayOfWeek
-	 */
-    + (System_TimeZoneInfo__TransitionTime *)createFloatingDateRule_withTimeOfDay:(NSDate *)p1 month:(int32_t)p2 week:(int32_t)p3 dayOfWeek:(int32_t)p4;
+ Params
+   System.DateTime
+   System.Int32
+   System.Int32
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withObj:(System_Object *)p1;
+ Return
+   System.TimeZoneInfo+TransitionTime
+ @/textblock
+*/
++ (System_TimeZoneInfo__TransitionTime *)createFixedDateRule_withTimeOfDay:(NSDate *)p1 month:(int32_t)p2 day:(int32_t)p3;
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.TimeZoneInfo+TransitionTime
-	 */
-    - (BOOL)equals_withOther:(System_TimeZoneInfo__TransitionTime *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateFloatingDateRule
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode;
+ Params
+   System.DateTime
+   System.Int32
+   System.Int32
+   System.DayOfWeek
 
-	/*! 
-		Managed method name : op_Equality
-		Managed return type : System.Boolean
-		Managed param types : System.TimeZoneInfo+TransitionTime, System.TimeZoneInfo+TransitionTime
-	 */
-    + (BOOL)op_Equality_withT1:(System_TimeZoneInfo__TransitionTime *)p1 t2:(System_TimeZoneInfo__TransitionTime *)p2;
+ Return
+   System.TimeZoneInfo+TransitionTime
+ @/textblock
+*/
++ (System_TimeZoneInfo__TransitionTime *)createFloatingDateRule_withTimeOfDay:(NSDate *)p1 month:(int32_t)p2 week:(int32_t)p3 dayOfWeek:(int32_t)p4;
 
-	/*! 
-		Managed method name : op_Inequality
-		Managed return type : System.Boolean
-		Managed param types : System.TimeZoneInfo+TransitionTime, System.TimeZoneInfo+TransitionTime
-	 */
-    + (BOOL)op_Inequality_withT1:(System_TimeZoneInfo__TransitionTime *)p1 t2:(System_TimeZoneInfo__TransitionTime *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
+
+ Params
+   System.Object
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withObj:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
+
+ Params
+   System.TimeZoneInfo+TransitionTime
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withOther:(System_TimeZoneInfo__TransitionTime *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
+
+ Params
+   (none)
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getHashCode;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Equality
+
+ Params
+   System.TimeZoneInfo+TransitionTime
+   System.TimeZoneInfo+TransitionTime
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_Equality_withT1:(System_TimeZoneInfo__TransitionTime *)p1 t2:(System_TimeZoneInfo__TransitionTime *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Inequality
+
+ Params
+   System.TimeZoneInfo+TransitionTime
+   System.TimeZoneInfo+TransitionTime
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_Inequality_withT1:(System_TimeZoneInfo__TransitionTime *)p1 t2:(System_TimeZoneInfo__TransitionTime *)p2;
 @end
 //--Dubrovnik.CodeGenerator

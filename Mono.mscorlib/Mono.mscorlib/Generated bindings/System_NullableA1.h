@@ -33,20 +33,27 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Nullable`1<System.Nullable`1+T>
-		Managed param types : <System.Nullable`1+T>
-	 */
-    + (System_NullableA1 *)new_withValue:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   <System.Nullable`1+T>
+
+ Return
+   System.Nullable`1<System.Nullable`1+T>
+ @/textblock
+*/
++ (System_NullableA1 *)new_withValue:(System_Object *)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -62,53 +69,109 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withOther:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : GetValueOrDefault
-		Managed return type : <System.Nullable`1+T>
-		Managed param types : 
-	 */
-    - (System_Object *)getValueOrDefault;
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withOther:(System_Object *)p1;
 
-	/*! 
-		Managed method name : GetValueOrDefault
-		Managed return type : <System.Nullable`1+T>
-		Managed param types : <System.Nullable`1+T>
-	 */
-    - (System_Object *)getValueOrDefault_withDefaultValue:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
 
-	/*! 
-		Managed method name : op_Explicit
-		Managed return type : <System.Nullable`1+T>
-		Managed param types : System.Nullable`1<System.Nullable`1+T>
-	 */
-    + (System_Object *)op_Explicit_withValue:(System_NullableA1 *)p1;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : op_Implicit
-		Managed return type : System.Nullable`1<System.Nullable`1+T>
-		Managed param types : <System.Nullable`1+T>
-	 */
-    + (System_NullableA1 *)op_Implicit_withValue:(System_Object *)p1;
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getHashCode;
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetValueOrDefault
+
+ Params
+   (none)
+
+ Return
+   <System.Nullable`1+T>
+ @/textblock
+*/
+- (System_Object *)getValueOrDefault;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetValueOrDefault
+
+ Params
+   <System.Nullable`1+T>
+
+ Return
+   <System.Nullable`1+T>
+ @/textblock
+*/
+- (System_Object *)getValueOrDefault_withDefaultValue:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Explicit
+
+ Params
+   System.Nullable`1<System.Nullable`1+T>
+
+ Return
+   <System.Nullable`1+T>
+ @/textblock
+*/
++ (System_Object *)op_Explicit_withValue:(System_NullableA1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Implicit
+
+ Params
+   <System.Nullable`1+T>
+
+ Return
+   System.Nullable`1<System.Nullable`1+T>
+ @/textblock
+*/
++ (System_NullableA1 *)op_Implicit_withValue:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString;
 @end
 //--Dubrovnik.CodeGenerator

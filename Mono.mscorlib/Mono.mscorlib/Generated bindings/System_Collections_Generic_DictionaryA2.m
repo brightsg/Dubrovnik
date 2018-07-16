@@ -19,51 +19,40 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Collections.Generic.Dictionary`2";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "mscorlib";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Collections.Generic.Dictionary`2";
+}
++ (const char *)monoAssemblyName
+{
+	return "mscorlib";
+}
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
-		Managed param types : System.Int32
-	 */
-    + (System_Collections_Generic_DictionaryA2 *)new_withCapacity:(int32_t)p1
-    {
-		
-		System_Collections_Generic_DictionaryA2 * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
-      
-      return object;
-    }
++ (System_Collections_Generic_DictionaryA2 *)new_withCapacity:(int32_t)p1
+{
+  System_Collections_Generic_DictionaryA2 * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+  return object;
+}
+
 /* Skipped constructor : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue> (System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey> comparer) */
+
 /* Skipped constructor : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue> (System.Int32 capacity, System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey> comparer) */
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
-		Managed param types : System.Collections.Generic.IDictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
-	 */
-    + (System_Collections_Generic_DictionaryA2 *)new_withDictionary:(id <System_Collections_Generic_IDictionaryA2_>)p1
-    {
-		
-		System_Collections_Generic_DictionaryA2 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IDictionary`2<System.Collections.Generic.Dictionary`2/TKey, System.Collections.Generic.Dictionary`2/TValue>" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-      return object;
-    }
++ (System_Collections_Generic_DictionaryA2 *)new_withDictionary:(id <System_Collections_Generic_IDictionaryA2_>)p1
+{
+  System_Collections_Generic_DictionaryA2 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IDictionary`2<System.Collections.Generic.Dictionary`2/TKey, System.Collections.Generic.Dictionary`2/TValue>" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return object;
+}
+
 /* Skipped constructor : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue> (System.Collections.Generic.IDictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue> dictionary, System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey> comparer) */
 
 #pragma mark -
 #pragma mark Properties
+
 /* Skipped property : System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey> Comparer */
 
 	// Managed property name : Count
@@ -134,140 +123,71 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : get_Item
-		Managed return type : <System.Collections.Generic.Dictionary`2+TValue>
-		Managed param types : <System.Collections.Generic.Dictionary`2+TKey>
-	 */
-    - (System_Object *)get_Item_withKey:(System_Object *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"get_Item(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Object bestObjectWithMonoObject:monoObject];
-    }
+- (System_Object *)get_Item_withKey:(System_Object *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"get_Item(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : set_Item
-		Managed return type : System.Void
-		Managed param types : <System.Collections.Generic.Dictionary`2+TKey>, <System.Collections.Generic.Dictionary`2+TValue>
-	 */
-    - (void)set_Item_withKey:(System_Object *)p1 value:(System_Object *)p2
-    {
-		
-		[self invokeMonoMethod:"set_Item(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-      
-    }
+- (void)set_Item_withKey:(System_Object *)p1 value:(System_Object *)p2
+{
+  [self invokeMonoMethod:"set_Item(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+}
 
-	/*! 
-		Managed method name : Add
-		Managed return type : System.Void
-		Managed param types : <System.Collections.Generic.Dictionary`2+TKey>, <System.Collections.Generic.Dictionary`2+TValue>
-	 */
-    - (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2
-    {
-		
-		[self invokeMonoMethod:"Add(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-      
-    }
+- (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2
+{
+  [self invokeMonoMethod:"Add(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+}
 
-	/*! 
-		Managed method name : Clear
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)clear
-    {
-		
-		[self invokeMonoMethod:"Clear()" withNumArgs:0];
-      
-    }
+- (void)clear
+{
+  [self invokeMonoMethod:"Clear()" withNumArgs:0];
+}
 
-	/*! 
-		Managed method name : ContainsKey
-		Managed return type : System.Boolean
-		Managed param types : <System.Collections.Generic.Dictionary`2+TKey>
-	 */
-    - (BOOL)containsKey_withKey:(System_Object *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"ContainsKey(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
+- (BOOL)containsKey_withKey:(System_Object *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"ContainsKey(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-	/*! 
-		Managed method name : ContainsValue
-		Managed return type : System.Boolean
-		Managed param types : <System.Collections.Generic.Dictionary`2+TValue>
-	 */
-    - (BOOL)containsValue_withValue:(System_Object *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"ContainsValue(<_T_1>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
+- (BOOL)containsValue_withValue:(System_Object *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"ContainsValue(<_T_1>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-	/*! 
-		Managed method name : GetEnumerator
-		Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>+Enumerator
-		Managed param types : 
-	 */
-    - (System_Collections_Generic_DictionaryA2__Enumerator *)getEnumerator
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
-		
-		return [System_Collections_Generic_DictionaryA2__Enumerator bestObjectWithMonoObject:monoObject];
-    }
+- (System_Collections_Generic_DictionaryA2__Enumerator *)getEnumerator
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
+  return [System_Collections_Generic_DictionaryA2__Enumerator bestObjectWithMonoObject:monoObject];
+}
+
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 
-	/*! 
-		Managed method name : OnDeserialization
-		Managed return type : System.Void
-		Managed param types : System.Object
-	 */
-    - (void)onDeserialization_withSender:(System_Object *)p1
-    {
-		
-		[self invokeMonoMethod:"OnDeserialization(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-    }
+- (void)onDeserialization_withSender:(System_Object *)p1
+{
+  [self invokeMonoMethod:"OnDeserialization(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+}
 
-	/*! 
-		Managed method name : Remove
-		Managed return type : System.Boolean
-		Managed param types : <System.Collections.Generic.Dictionary`2+TKey>
-	 */
-    - (BOOL)remove_withKey:(System_Object *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
+- (BOOL)remove_withKey:(System_Object *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-	/*! 
-		Managed method name : TryGetValue
-		Managed return type : System.Boolean
-		Managed param types : <System.Collections.Generic.Dictionary`2+TKey>, ref TValue&
-	 */
-    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2
-    {
-		void *refPtr2 = [*p2 monoRTInvokeArg];
-
-		MonoObject *monoObject = [self invokeMonoMethod:"TryGetValue(<_T_0>,System.Collections.Generic.Dictionary`2/TValue&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
-
-		*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
-
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
+- (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2
+{
+  void *refPtr2 = [*p2 monoRTInvokeArg];
+  MonoObject *monoObject = [self invokeMonoMethod:"TryGetValue(<_T_0>,System.Collections.Generic.Dictionary`2/TValue&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+  *p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+  return DB_UNBOX_BOOLEAN(monoObject);
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

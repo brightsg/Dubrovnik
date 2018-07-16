@@ -44,65 +44,151 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.DateTime
-		Managed param types : System.Int64
-	 */
-    + (System_DateTime *)new_withTicks:(int64_t)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.DateTime
-		Managed param types : System.Int64, System.DateTimeKind
-	 */
-    + (System_DateTime *)new_withTicks:(int64_t)p1 kind:(int32_t)p2;
+ Params
+   System.Int64
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.DateTime
-		Managed param types : System.Int32, System.Int32, System.Int32
-	 */
-    + (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3;
+ Return
+   System.DateTime
+ @/textblock
+*/
++ (System_DateTime *)new_withTicks:(int64_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Int64
+   System.DateTimeKind
+
+ Return
+   System.DateTime
+ @/textblock
+*/
++ (System_DateTime *)new_withTicks:(int64_t)p1 kind:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Int32
+   System.Int32
+   System.Int32
+
+ Return
+   System.DateTime
+ @/textblock
+*/
++ (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3;
+
 /* Skipped constructor : System.DateTime (System.Int32 year, System.Int32 month, System.Int32 day, System.Globalization.Calendar calendar) */
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.DateTime
-		Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32
-	 */
-    + (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.DateTime
-		Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.DateTimeKind
-	 */
-    + (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 kind:(int32_t)p7;
+ Params
+   System.Int32
+   System.Int32
+   System.Int32
+   System.Int32
+   System.Int32
+   System.Int32
+
+ Return
+   System.DateTime
+ @/textblock
+*/
++ (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Int32
+   System.Int32
+   System.Int32
+   System.Int32
+   System.Int32
+   System.Int32
+   System.DateTimeKind
+
+ Return
+   System.DateTime
+ @/textblock
+*/
++ (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 kind:(int32_t)p7;
+
 /* Skipped constructor : System.DateTime (System.Int32 year, System.Int32 month, System.Int32 day, System.Int32 hour, System.Int32 minute, System.Int32 second, System.Globalization.Calendar calendar) */
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.DateTime
-		Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32
-	 */
-    + (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.DateTime
-		Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.DateTimeKind
-	 */
-    + (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7 kind:(int32_t)p8;
+ Params
+   System.Int32
+   System.Int32
+   System.Int32
+   System.Int32
+   System.Int32
+   System.Int32
+   System.Int32
+
+ Return
+   System.DateTime
+ @/textblock
+*/
++ (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Int32
+   System.Int32
+   System.Int32
+   System.Int32
+   System.Int32
+   System.Int32
+   System.Int32
+   System.DateTimeKind
+
+ Return
+   System.DateTime
+ @/textblock
+*/
++ (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7 kind:(int32_t)p8;
+
 /* Skipped constructor : System.DateTime (System.Int32 year, System.Int32 month, System.Int32 day, System.Int32 hour, System.Int32 minute, System.Int32 second, System.Int32 millisecond, System.Globalization.Calendar calendar) */
+
 /* Skipped constructor : System.DateTime (System.Int32 year, System.Int32 month, System.Int32 day, System.Int32 hour, System.Int32 minute, System.Int32 second, System.Int32 millisecond, System.Globalization.Calendar calendar, System.DateTimeKind kind) */
 
 #pragma mark -
@@ -186,374 +272,809 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Add
-		Managed return type : System.DateTime
-		Managed param types : System.TimeSpan
-	 */
-    - (NSDate *)add_withValue:(System_TimeSpan *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Add
 
-	/*! 
-		Managed method name : AddDays
-		Managed return type : System.DateTime
-		Managed param types : System.Double
-	 */
-    - (NSDate *)addDays_withValue:(double)p1;
+ Params
+   System.TimeSpan
 
-	/*! 
-		Managed method name : AddHours
-		Managed return type : System.DateTime
-		Managed param types : System.Double
-	 */
-    - (NSDate *)addHours_withValue:(double)p1;
+ Return
+   System.DateTime
+ @/textblock
+*/
+- (NSDate *)add_withValue:(System_TimeSpan *)p1;
 
-	/*! 
-		Managed method name : AddMilliseconds
-		Managed return type : System.DateTime
-		Managed param types : System.Double
-	 */
-    - (NSDate *)addMilliseconds_withValue:(double)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   AddDays
 
-	/*! 
-		Managed method name : AddMinutes
-		Managed return type : System.DateTime
-		Managed param types : System.Double
-	 */
-    - (NSDate *)addMinutes_withValue:(double)p1;
+ Params
+   System.Double
 
-	/*! 
-		Managed method name : AddMonths
-		Managed return type : System.DateTime
-		Managed param types : System.Int32
-	 */
-    - (NSDate *)addMonths_withMonths:(int32_t)p1;
+ Return
+   System.DateTime
+ @/textblock
+*/
+- (NSDate *)addDays_withValue:(double)p1;
 
-	/*! 
-		Managed method name : AddSeconds
-		Managed return type : System.DateTime
-		Managed param types : System.Double
-	 */
-    - (NSDate *)addSeconds_withValue:(double)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   AddHours
 
-	/*! 
-		Managed method name : AddTicks
-		Managed return type : System.DateTime
-		Managed param types : System.Int64
-	 */
-    - (NSDate *)addTicks_withValue:(int64_t)p1;
+ Params
+   System.Double
 
-	/*! 
-		Managed method name : AddYears
-		Managed return type : System.DateTime
-		Managed param types : System.Int32
-	 */
-    - (NSDate *)addYears_withValue:(int32_t)p1;
+ Return
+   System.DateTime
+ @/textblock
+*/
+- (NSDate *)addHours_withValue:(double)p1;
 
-	/*! 
-		Managed method name : Compare
-		Managed return type : System.Int32
-		Managed param types : System.DateTime, System.DateTime
-	 */
-    + (int32_t)compare_withT1:(NSDate *)p1 t2:(NSDate *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   AddMilliseconds
 
-	/*! 
-		Managed method name : CompareTo
-		Managed return type : System.Int32
-		Managed param types : System.Object
-	 */
-    - (int32_t)compareTo_withValueObject:(System_Object *)p1;
+ Params
+   System.Double
 
-	/*! 
-		Managed method name : CompareTo
-		Managed return type : System.Int32
-		Managed param types : System.DateTime
-	 */
-    - (int32_t)compareTo_withValueSDateTime:(NSDate *)p1;
+ Return
+   System.DateTime
+ @/textblock
+*/
+- (NSDate *)addMilliseconds_withValue:(double)p1;
 
-	/*! 
-		Managed method name : DaysInMonth
-		Managed return type : System.Int32
-		Managed param types : System.Int32, System.Int32
-	 */
-    + (int32_t)daysInMonth_withYear:(int32_t)p1 month:(int32_t)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   AddMinutes
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withValueObject:(System_Object *)p1;
+ Params
+   System.Double
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.DateTime
-	 */
-    - (BOOL)equals_withValueSDateTime:(NSDate *)p1;
+ Return
+   System.DateTime
+ @/textblock
+*/
+- (NSDate *)addMinutes_withValue:(double)p1;
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.DateTime, System.DateTime
-	 */
-    + (BOOL)equals_withT1:(NSDate *)p1 t2:(NSDate *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   AddMonths
 
-	/*! 
-		Managed method name : FromBinary
-		Managed return type : System.DateTime
-		Managed param types : System.Int64
-	 */
-    + (NSDate *)fromBinary_withDateData:(int64_t)p1;
+ Params
+   System.Int32
 
-	/*! 
-		Managed method name : FromFileTime
-		Managed return type : System.DateTime
-		Managed param types : System.Int64
-	 */
-    + (NSDate *)fromFileTime_withFileTime:(int64_t)p1;
+ Return
+   System.DateTime
+ @/textblock
+*/
+- (NSDate *)addMonths_withMonths:(int32_t)p1;
 
-	/*! 
-		Managed method name : FromFileTimeUtc
-		Managed return type : System.DateTime
-		Managed param types : System.Int64
-	 */
-    + (NSDate *)fromFileTimeUtc_withFileTime:(int64_t)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   AddSeconds
 
-	/*! 
-		Managed method name : FromOADate
-		Managed return type : System.DateTime
-		Managed param types : System.Double
-	 */
-    + (NSDate *)fromOADate_withD:(double)p1;
+ Params
+   System.Double
 
-	/*! 
-		Managed method name : GetDateTimeFormats
-		Managed return type : System.String[]
-		Managed param types : 
-	 */
-    - (System_Array *)getDateTimeFormats;
+ Return
+   System.DateTime
+ @/textblock
+*/
+- (NSDate *)addSeconds_withValue:(double)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   AddTicks
+
+ Params
+   System.Int64
+
+ Return
+   System.DateTime
+ @/textblock
+*/
+- (NSDate *)addTicks_withValue:(int64_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   AddYears
+
+ Params
+   System.Int32
+
+ Return
+   System.DateTime
+ @/textblock
+*/
+- (NSDate *)addYears_withValue:(int32_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Compare
+
+ Params
+   System.DateTime
+   System.DateTime
+
+ Return
+   System.Int32
+ @/textblock
+*/
++ (int32_t)compare_withT1:(NSDate *)p1 t2:(NSDate *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CompareTo
+
+ Params
+   System.Object
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)compareTo_withValueObject:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CompareTo
+
+ Params
+   System.DateTime
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)compareTo_withValueSDateTime:(NSDate *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   DaysInMonth
+
+ Params
+   System.Int32
+   System.Int32
+
+ Return
+   System.Int32
+ @/textblock
+*/
++ (int32_t)daysInMonth_withYear:(int32_t)p1 month:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
+
+ Params
+   System.Object
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withValueObject:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
+
+ Params
+   System.DateTime
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withValueSDateTime:(NSDate *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
+
+ Params
+   System.DateTime
+   System.DateTime
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)equals_withT1:(NSDate *)p1 t2:(NSDate *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FromBinary
+
+ Params
+   System.Int64
+
+ Return
+   System.DateTime
+ @/textblock
+*/
++ (NSDate *)fromBinary_withDateData:(int64_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FromFileTime
+
+ Params
+   System.Int64
+
+ Return
+   System.DateTime
+ @/textblock
+*/
++ (NSDate *)fromFileTime_withFileTime:(int64_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FromFileTimeUtc
+
+ Params
+   System.Int64
+
+ Return
+   System.DateTime
+ @/textblock
+*/
++ (NSDate *)fromFileTimeUtc_withFileTime:(int64_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FromOADate
+
+ Params
+   System.Double
+
+ Return
+   System.DateTime
+ @/textblock
+*/
++ (NSDate *)fromOADate_withD:(double)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetDateTimeFormats
+
+ Params
+   (none)
+
+ Return
+   System.String[]
+ @/textblock
+*/
+- (System_Array *)getDateTimeFormats;
+
 /* Skipped method : System.String[] GetDateTimeFormats(System.IFormatProvider provider) */
 
-	/*! 
-		Managed method name : GetDateTimeFormats
-		Managed return type : System.String[]
-		Managed param types : System.Char
-	 */
-    - (System_Array *)getDateTimeFormats_withFormat:(uint16_t)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetDateTimeFormats
+
+ Params
+   System.Char
+
+ Return
+   System.String[]
+ @/textblock
+*/
+- (System_Array *)getDateTimeFormats_withFormat:(uint16_t)p1;
+
 /* Skipped method : System.String[] GetDateTimeFormats(System.Char format, System.IFormatProvider provider) */
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
+
+ Params
+   (none)
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getHashCode;
+
 /* Skipped method : System.TypeCode GetTypeCode() */
 
-	/*! 
-		Managed method name : IsDaylightSavingTime
-		Managed return type : System.Boolean
-		Managed param types : 
-	 */
-    - (BOOL)isDaylightSavingTime;
+/**
+ Managed method.
+ @textblock
+ Name
+   IsDaylightSavingTime
 
-	/*! 
-		Managed method name : IsLeapYear
-		Managed return type : System.Boolean
-		Managed param types : System.Int32
-	 */
-    + (BOOL)isLeapYear_withYear:(int32_t)p1;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : op_Addition
-		Managed return type : System.DateTime
-		Managed param types : System.DateTime, System.TimeSpan
-	 */
-    + (NSDate *)op_Addition_withD:(NSDate *)p1 t:(System_TimeSpan *)p2;
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)isDaylightSavingTime;
 
-	/*! 
-		Managed method name : op_Equality
-		Managed return type : System.Boolean
-		Managed param types : System.DateTime, System.DateTime
-	 */
-    + (BOOL)op_Equality_withD1:(NSDate *)p1 d2:(NSDate *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   IsLeapYear
 
-	/*! 
-		Managed method name : op_GreaterThan
-		Managed return type : System.Boolean
-		Managed param types : System.DateTime, System.DateTime
-	 */
-    + (BOOL)op_GreaterThan_withT1:(NSDate *)p1 t2:(NSDate *)p2;
+ Params
+   System.Int32
 
-	/*! 
-		Managed method name : op_GreaterThanOrEqual
-		Managed return type : System.Boolean
-		Managed param types : System.DateTime, System.DateTime
-	 */
-    + (BOOL)op_GreaterThanOrEqual_withT1:(NSDate *)p1 t2:(NSDate *)p2;
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)isLeapYear_withYear:(int32_t)p1;
 
-	/*! 
-		Managed method name : op_Inequality
-		Managed return type : System.Boolean
-		Managed param types : System.DateTime, System.DateTime
-	 */
-    + (BOOL)op_Inequality_withD1:(NSDate *)p1 d2:(NSDate *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Addition
 
-	/*! 
-		Managed method name : op_LessThan
-		Managed return type : System.Boolean
-		Managed param types : System.DateTime, System.DateTime
-	 */
-    + (BOOL)op_LessThan_withT1:(NSDate *)p1 t2:(NSDate *)p2;
+ Params
+   System.DateTime
+   System.TimeSpan
 
-	/*! 
-		Managed method name : op_LessThanOrEqual
-		Managed return type : System.Boolean
-		Managed param types : System.DateTime, System.DateTime
-	 */
-    + (BOOL)op_LessThanOrEqual_withT1:(NSDate *)p1 t2:(NSDate *)p2;
+ Return
+   System.DateTime
+ @/textblock
+*/
++ (NSDate *)op_Addition_withD:(NSDate *)p1 t:(System_TimeSpan *)p2;
 
-	/*! 
-		Managed method name : op_Subtraction
-		Managed return type : System.DateTime
-		Managed param types : System.DateTime, System.TimeSpan
-	 */
-    + (NSDate *)op_Subtraction_withD:(NSDate *)p1 t:(System_TimeSpan *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Equality
 
-	/*! 
-		Managed method name : op_Subtraction
-		Managed return type : System.TimeSpan
-		Managed param types : System.DateTime, System.DateTime
-	 */
-    + (System_TimeSpan *)op_Subtraction_withD1:(NSDate *)p1 d2:(NSDate *)p2;
+ Params
+   System.DateTime
+   System.DateTime
 
-	/*! 
-		Managed method name : Parse
-		Managed return type : System.DateTime
-		Managed param types : System.String
-	 */
-    + (NSDate *)parse_withS:(NSString *)p1;
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_Equality_withD1:(NSDate *)p1 d2:(NSDate *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_GreaterThan
+
+ Params
+   System.DateTime
+   System.DateTime
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_GreaterThan_withT1:(NSDate *)p1 t2:(NSDate *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_GreaterThanOrEqual
+
+ Params
+   System.DateTime
+   System.DateTime
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_GreaterThanOrEqual_withT1:(NSDate *)p1 t2:(NSDate *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Inequality
+
+ Params
+   System.DateTime
+   System.DateTime
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_Inequality_withD1:(NSDate *)p1 d2:(NSDate *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_LessThan
+
+ Params
+   System.DateTime
+   System.DateTime
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_LessThan_withT1:(NSDate *)p1 t2:(NSDate *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_LessThanOrEqual
+
+ Params
+   System.DateTime
+   System.DateTime
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_LessThanOrEqual_withT1:(NSDate *)p1 t2:(NSDate *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Subtraction
+
+ Params
+   System.DateTime
+   System.TimeSpan
+
+ Return
+   System.DateTime
+ @/textblock
+*/
++ (NSDate *)op_Subtraction_withD:(NSDate *)p1 t:(System_TimeSpan *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Subtraction
+
+ Params
+   System.DateTime
+   System.DateTime
+
+ Return
+   System.TimeSpan
+ @/textblock
+*/
++ (System_TimeSpan *)op_Subtraction_withD1:(NSDate *)p1 d2:(NSDate *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Parse
+
+ Params
+   System.String
+
+ Return
+   System.DateTime
+ @/textblock
+*/
++ (NSDate *)parse_withS:(NSString *)p1;
+
 /* Skipped method : System.DateTime Parse(System.String s, System.IFormatProvider provider) */
+
 /* Skipped method : System.DateTime Parse(System.String s, System.IFormatProvider provider, System.Globalization.DateTimeStyles styles) */
+
 /* Skipped method : System.DateTime ParseExact(System.String s, System.String format, System.IFormatProvider provider) */
+
 /* Skipped method : System.DateTime ParseExact(System.String s, System.String format, System.IFormatProvider provider, System.Globalization.DateTimeStyles style) */
+
 /* Skipped method : System.DateTime ParseExact(System.String s, System.String[] formats, System.IFormatProvider provider, System.Globalization.DateTimeStyles style) */
 
-	/*! 
-		Managed method name : SpecifyKind
-		Managed return type : System.DateTime
-		Managed param types : System.DateTime, System.DateTimeKind
-	 */
-    + (NSDate *)specifyKind_withValue:(NSDate *)p1 kind:(int32_t)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   SpecifyKind
 
-	/*! 
-		Managed method name : Subtract
-		Managed return type : System.TimeSpan
-		Managed param types : System.DateTime
-	 */
-    - (System_TimeSpan *)subtract_withValueSDateTime:(NSDate *)p1;
+ Params
+   System.DateTime
+   System.DateTimeKind
 
-	/*! 
-		Managed method name : Subtract
-		Managed return type : System.DateTime
-		Managed param types : System.TimeSpan
-	 */
-    - (NSDate *)subtract_withValueSTimeSpan:(System_TimeSpan *)p1;
+ Return
+   System.DateTime
+ @/textblock
+*/
++ (NSDate *)specifyKind_withValue:(NSDate *)p1 kind:(int32_t)p2;
 
-	/*! 
-		Managed method name : ToBinary
-		Managed return type : System.Int64
-		Managed param types : 
-	 */
-    - (int64_t)toBinary;
+/**
+ Managed method.
+ @textblock
+ Name
+   Subtract
 
-	/*! 
-		Managed method name : ToFileTime
-		Managed return type : System.Int64
-		Managed param types : 
-	 */
-    - (int64_t)toFileTime;
+ Params
+   System.DateTime
 
-	/*! 
-		Managed method name : ToFileTimeUtc
-		Managed return type : System.Int64
-		Managed param types : 
-	 */
-    - (int64_t)toFileTimeUtc;
+ Return
+   System.TimeSpan
+ @/textblock
+*/
+- (System_TimeSpan *)subtract_withValueSDateTime:(NSDate *)p1;
 
-	/*! 
-		Managed method name : ToLocalTime
-		Managed return type : System.DateTime
-		Managed param types : 
-	 */
-    - (NSDate *)toLocalTime;
+/**
+ Managed method.
+ @textblock
+ Name
+   Subtract
 
-	/*! 
-		Managed method name : ToLongDateString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toLongDateString;
+ Params
+   System.TimeSpan
 
-	/*! 
-		Managed method name : ToLongTimeString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toLongTimeString;
+ Return
+   System.DateTime
+ @/textblock
+*/
+- (NSDate *)subtract_withValueSTimeSpan:(System_TimeSpan *)p1;
 
-	/*! 
-		Managed method name : ToOADate
-		Managed return type : System.Double
-		Managed param types : 
-	 */
-    - (double)toOADate;
+/**
+ Managed method.
+ @textblock
+ Name
+   ToBinary
 
-	/*! 
-		Managed method name : ToShortDateString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toShortDateString;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : ToShortTimeString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toShortTimeString;
+ Return
+   System.Int64
+ @/textblock
+*/
+- (int64_t)toBinary;
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString;
+/**
+ Managed method.
+ @textblock
+ Name
+   ToFileTime
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.String
-	 */
-    - (NSString *)toString_withFormat:(NSString *)p1;
+ Params
+   (none)
+
+ Return
+   System.Int64
+ @/textblock
+*/
+- (int64_t)toFileTime;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToFileTimeUtc
+
+ Params
+   (none)
+
+ Return
+   System.Int64
+ @/textblock
+*/
+- (int64_t)toFileTimeUtc;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToLocalTime
+
+ Params
+   (none)
+
+ Return
+   System.DateTime
+ @/textblock
+*/
+- (NSDate *)toLocalTime;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToLongDateString
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toLongDateString;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToLongTimeString
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toLongTimeString;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToOADate
+
+ Params
+   (none)
+
+ Return
+   System.Double
+ @/textblock
+*/
+- (double)toOADate;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToShortDateString
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toShortDateString;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToShortTimeString
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toShortTimeString;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   System.String
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString_withFormat:(NSString *)p1;
+
 /* Skipped method : System.String ToString(System.IFormatProvider provider) */
+
 /* Skipped method : System.String ToString(System.String format, System.IFormatProvider provider) */
 
-	/*! 
-		Managed method name : ToUniversalTime
-		Managed return type : System.DateTime
-		Managed param types : 
-	 */
-    - (NSDate *)toUniversalTime;
+/**
+ Managed method.
+ @textblock
+ Name
+   ToUniversalTime
 
-	/*! 
-		Managed method name : TryParse
-		Managed return type : System.Boolean
-		Managed param types : System.String, ref System.DateTime&
-	 */
-    + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(NSDate **)p2;
+ Params
+   (none)
+
+ Return
+   System.DateTime
+ @/textblock
+*/
+- (NSDate *)toUniversalTime;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryParse
+
+ Params
+   System.String
+   ref System.DateTime&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)tryParse_withS:(NSString *)p1 resultRef:(NSDate **)p2;
+
 /* Skipped method : System.Boolean TryParse(System.String s, System.IFormatProvider provider, System.Globalization.DateTimeStyles styles, System.DateTime& result) */
+
 /* Skipped method : System.Boolean TryParseExact(System.String s, System.String format, System.IFormatProvider provider, System.Globalization.DateTimeStyles style, System.DateTime& result) */
+
 /* Skipped method : System.Boolean TryParseExact(System.String s, System.String[] formats, System.IFormatProvider provider, System.Globalization.DateTimeStyles style, System.DateTime& result) */
 @end
 //--Dubrovnik.CodeGenerator

@@ -35,23 +35,31 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.IO.FileInfo
-		Managed param types : System.String
-	 */
-    + (System_IO_FileInfo *)new_withFileName:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.String
+
+ Return
+   System.IO.FileInfo
+ @/textblock
+*/
++ (System_IO_FileInfo *)new_withFileName:(NSString *)p1;
 
 #pragma mark -
 #pragma mark Properties
+
 /* Skipped property : System.IO.DirectoryInfo Directory */
 
 	// Managed property name : DirectoryName
@@ -76,80 +84,168 @@
 
 #pragma mark -
 #pragma mark Methods
+
 /* Skipped method : System.IO.StreamWriter AppendText() */
 
-	/*! 
-		Managed method name : CopyTo
-		Managed return type : System.IO.FileInfo
-		Managed param types : System.String
-	 */
-    - (System_IO_FileInfo *)copyTo_withDestFileName:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   CopyTo
 
-	/*! 
-		Managed method name : CopyTo
-		Managed return type : System.IO.FileInfo
-		Managed param types : System.String, System.Boolean
-	 */
-    - (System_IO_FileInfo *)copyTo_withDestFileName:(NSString *)p1 overwrite:(BOOL)p2;
+ Params
+   System.String
+
+ Return
+   System.IO.FileInfo
+ @/textblock
+*/
+- (System_IO_FileInfo *)copyTo_withDestFileName:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CopyTo
+
+ Params
+   System.String
+   System.Boolean
+
+ Return
+   System.IO.FileInfo
+ @/textblock
+*/
+- (System_IO_FileInfo *)copyTo_withDestFileName:(NSString *)p1 overwrite:(BOOL)p2;
+
 /* Skipped method : System.IO.FileStream Create() */
+
 /* Skipped method : System.IO.StreamWriter CreateText() */
 
-	/*! 
-		Managed method name : Decrypt
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)decrypt;
+/**
+ Managed method.
+ @textblock
+ Name
+   Decrypt
 
-	/*! 
-		Managed method name : Delete
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)delete;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : Encrypt
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)encrypt;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)decrypt;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Delete
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)delete;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Encrypt
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)encrypt;
+
 /* Skipped method : System.Security.AccessControl.FileSecurity GetAccessControl() */
+
 /* Skipped method : System.Security.AccessControl.FileSecurity GetAccessControl(System.Security.AccessControl.AccessControlSections includeSections) */
 
-	/*! 
-		Managed method name : MoveTo
-		Managed return type : System.Void
-		Managed param types : System.String
-	 */
-    - (void)moveTo_withDestFileName:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   MoveTo
+
+ Params
+   System.String
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)moveTo_withDestFileName:(NSString *)p1;
+
 /* Skipped method : System.IO.FileStream Open(System.IO.FileMode mode) */
+
 /* Skipped method : System.IO.FileStream Open(System.IO.FileMode mode, System.IO.FileAccess access) */
+
 /* Skipped method : System.IO.FileStream Open(System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share) */
+
 /* Skipped method : System.IO.FileStream OpenRead() */
+
 /* Skipped method : System.IO.StreamReader OpenText() */
+
 /* Skipped method : System.IO.FileStream OpenWrite() */
 
-	/*! 
-		Managed method name : Replace
-		Managed return type : System.IO.FileInfo
-		Managed param types : System.String, System.String
-	 */
-    - (System_IO_FileInfo *)replace_withDestinationFileName:(NSString *)p1 destinationBackupFileName:(NSString *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   Replace
 
-	/*! 
-		Managed method name : Replace
-		Managed return type : System.IO.FileInfo
-		Managed param types : System.String, System.String, System.Boolean
-	 */
-    - (System_IO_FileInfo *)replace_withDestinationFileName:(NSString *)p1 destinationBackupFileName:(NSString *)p2 ignoreMetadataErrors:(BOOL)p3;
+ Params
+   System.String
+   System.String
+
+ Return
+   System.IO.FileInfo
+ @/textblock
+*/
+- (System_IO_FileInfo *)replace_withDestinationFileName:(NSString *)p1 destinationBackupFileName:(NSString *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Replace
+
+ Params
+   System.String
+   System.String
+   System.Boolean
+
+ Return
+   System.IO.FileInfo
+ @/textblock
+*/
+- (System_IO_FileInfo *)replace_withDestinationFileName:(NSString *)p1 destinationBackupFileName:(NSString *)p2 ignoreMetadataErrors:(BOOL)p3;
+
 /* Skipped method : System.Void SetAccessControl(System.Security.AccessControl.FileSecurity fileSecurity) */
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString;
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString;
 @end
 //--Dubrovnik.CodeGenerator

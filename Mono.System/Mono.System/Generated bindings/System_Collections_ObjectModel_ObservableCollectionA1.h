@@ -39,36 +39,60 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Collections.ObjectModel.ObservableCollection`1<System.Collections.ObjectModel.ObservableCollection`1+T>
-		Managed param types : System.Collections.Generic.List`1<System.Collections.ObjectModel.ObservableCollection`1+T>
-	 */
-    + (System_Collections_ObjectModel_ObservableCollectionA1 *)new_withList:(System_Collections_Generic_ListA1 *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Collections.ObjectModel.ObservableCollection`1<System.Collections.ObjectModel.ObservableCollection`1+T>
-		Managed param types : System.Collections.Generic.IEnumerable`1<System.Collections.ObjectModel.ObservableCollection`1+T>
-	 */
-    + (System_Collections_ObjectModel_ObservableCollectionA1 *)new_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1;
+ Params
+   System.Collections.Generic.List`1<System.Collections.ObjectModel.ObservableCollection`1+T>
+
+ Return
+   System.Collections.ObjectModel.ObservableCollection`1<System.Collections.ObjectModel.ObservableCollection`1+T>
+ @/textblock
+*/
++ (System_Collections_ObjectModel_ObservableCollectionA1 *)new_withList:(System_Collections_Generic_ListA1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Collections.Generic.IEnumerable`1<System.Collections.ObjectModel.ObservableCollection`1+T>
+
+ Return
+   System.Collections.ObjectModel.ObservableCollection`1<System.Collections.ObjectModel.ObservableCollection`1+T>
+ @/textblock
+*/
++ (System_Collections_ObjectModel_ObservableCollectionA1 *)new_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Move
-		Managed return type : System.Void
-		Managed param types : System.Int32, System.Int32
-	 */
-    - (void)move_withOldIndex:(int32_t)p1 newIndex:(int32_t)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   Move
+
+ Params
+   System.Int32
+   System.Int32
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)move_withOldIndex:(int32_t)p1 newIndex:(int32_t)p2;
 @end
 //--Dubrovnik.CodeGenerator

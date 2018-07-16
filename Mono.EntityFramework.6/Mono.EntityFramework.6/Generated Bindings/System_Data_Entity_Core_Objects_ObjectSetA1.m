@@ -19,102 +19,61 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Data.Entity.Core.Objects.ObjectSet`1";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "EntityFramework";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Data.Entity.Core.Objects.ObjectSet`1";
+}
++ (const char *)monoAssemblyName
+{
+	return "EntityFramework";
+}
 
 #pragma mark -
 #pragma mark Properties
+
 /* Skipped property : System.Data.Entity.Core.Metadata.Edm.EntitySet EntitySet */
 
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : AddObject
-		Managed return type : System.Void
-		Managed param types : <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
-	 */
-    - (void)addObject_withEntity:(System_Object *)p1
-    {
-		
-		[self invokeMonoMethod:"AddObject(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-    }
+- (void)addObject_withEntity:(System_Object *)p1
+{
+  [self invokeMonoMethod:"AddObject(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+}
 
-	/*! 
-		Managed method name : ApplyCurrentValues
-		Managed return type : <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
-		Managed param types : <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
-	 */
-    - (System_Object *)applyCurrentValues_withCurrentEntity:(System_Object *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"ApplyCurrentValues(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Object bestObjectWithMonoObject:monoObject];
-    }
+- (System_Object *)applyCurrentValues_withCurrentEntity:(System_Object *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"ApplyCurrentValues(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : ApplyOriginalValues
-		Managed return type : <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
-		Managed param types : <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
-	 */
-    - (System_Object *)applyOriginalValues_withOriginalEntity:(System_Object *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"ApplyOriginalValues(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Object bestObjectWithMonoObject:monoObject];
-    }
+- (System_Object *)applyOriginalValues_withOriginalEntity:(System_Object *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"ApplyOriginalValues(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : Attach
-		Managed return type : System.Void
-		Managed param types : <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
-	 */
-    - (void)attach_withEntity:(System_Object *)p1
-    {
-		
-		[self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-    }
+- (void)attach_withEntity:(System_Object *)p1
+{
+  [self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+}
 
-	/*! 
-		Managed method name : DeleteObject
-		Managed return type : System.Void
-		Managed param types : <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
-	 */
-    - (void)deleteObject_withEntity:(System_Object *)p1
-    {
-		
-		[self invokeMonoMethod:"DeleteObject(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-    }
+- (void)deleteObject_withEntity:(System_Object *)p1
+{
+  [self invokeMonoMethod:"DeleteObject(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+}
 
-	/*! 
-		Managed method name : Detach
-		Managed return type : System.Void
-		Managed param types : <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
-	 */
-    - (void)detach_withEntity:(System_Object *)p1
-    {
-		
-		[self invokeMonoMethod:"Detach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-    }
+- (void)detach_withEntity:(System_Object *)p1
+{
+  [self invokeMonoMethod:"Detach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

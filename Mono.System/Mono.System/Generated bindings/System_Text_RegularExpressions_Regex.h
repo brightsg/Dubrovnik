@@ -37,21 +37,30 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Text.RegularExpressions.Regex
-		Managed param types : System.String
-	 */
-    + (System_Text_RegularExpressions_Regex *)new_withPattern:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.String
+
+ Return
+   System.Text.RegularExpressions.Regex
+ @/textblock
+*/
++ (System_Text_RegularExpressions_Regex *)new_withPattern:(NSString *)p1;
+
 /* Skipped constructor : System.Text.RegularExpressions.Regex (System.String pattern, System.Text.RegularExpressions.RegexOptions options) */
+
 /* Skipped constructor : System.Text.RegularExpressions.Regex (System.String pattern, System.Text.RegularExpressions.RegexOptions options, System.TimeSpan matchTimeout) */
 
 #pragma mark -
@@ -72,6 +81,7 @@
 	// Managed property name : MatchTimeout
 	// Managed property type : System.TimeSpan
     @property (nonatomic, strong, readonly) System_TimeSpan * matchTimeout;
+
 /* Skipped property : System.Text.RegularExpressions.RegexOptions Options */
 
 	// Managed property name : RightToLeft
@@ -80,157 +90,341 @@
 
 #pragma mark -
 #pragma mark Methods
+
 /* Skipped method : System.Void CompileToAssembly(System.Text.RegularExpressions.RegexCompilationInfo[] regexinfos, System.Reflection.AssemblyName assemblyname) */
+
 /* Skipped method : System.Void CompileToAssembly(System.Text.RegularExpressions.RegexCompilationInfo[] regexinfos, System.Reflection.AssemblyName assemblyname, System.Reflection.Emit.CustomAttributeBuilder[] attributes) */
+
 /* Skipped method : System.Void CompileToAssembly(System.Text.RegularExpressions.RegexCompilationInfo[] regexinfos, System.Reflection.AssemblyName assemblyname, System.Reflection.Emit.CustomAttributeBuilder[] attributes, System.String resourceFile) */
 
-	/*! 
-		Managed method name : Escape
-		Managed return type : System.String
-		Managed param types : System.String
-	 */
-    + (NSString *)escape_withStr:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Escape
 
-	/*! 
-		Managed method name : GetGroupNames
-		Managed return type : System.String[]
-		Managed param types : 
-	 */
-    - (System_Array *)getGroupNames;
+ Params
+   System.String
 
-	/*! 
-		Managed method name : GetGroupNumbers
-		Managed return type : System.Int32[]
-		Managed param types : 
-	 */
-    - (System_Array *)getGroupNumbers;
+ Return
+   System.String
+ @/textblock
+*/
++ (NSString *)escape_withStr:(NSString *)p1;
 
-	/*! 
-		Managed method name : GroupNameFromNumber
-		Managed return type : System.String
-		Managed param types : System.Int32
-	 */
-    - (NSString *)groupNameFromNumber_withI:(int32_t)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetGroupNames
 
-	/*! 
-		Managed method name : GroupNumberFromName
-		Managed return type : System.Int32
-		Managed param types : System.String
-	 */
-    - (int32_t)groupNumberFromName_withName:(NSString *)p1;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : IsMatch
-		Managed return type : System.Boolean
-		Managed param types : System.String, System.String
-	 */
-    + (BOOL)isMatch_withInput:(NSString *)p1 pattern:(NSString *)p2;
+ Return
+   System.String[]
+ @/textblock
+*/
+- (System_Array *)getGroupNames;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetGroupNumbers
+
+ Params
+   (none)
+
+ Return
+   System.Int32[]
+ @/textblock
+*/
+- (System_Array *)getGroupNumbers;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GroupNameFromNumber
+
+ Params
+   System.Int32
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)groupNameFromNumber_withI:(int32_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GroupNumberFromName
+
+ Params
+   System.String
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)groupNumberFromName_withName:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   IsMatch
+
+ Params
+   System.String
+   System.String
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)isMatch_withInput:(NSString *)p1 pattern:(NSString *)p2;
+
 /* Skipped method : System.Boolean IsMatch(System.String input, System.String pattern, System.Text.RegularExpressions.RegexOptions options) */
+
 /* Skipped method : System.Boolean IsMatch(System.String input, System.String pattern, System.Text.RegularExpressions.RegexOptions options, System.TimeSpan matchTimeout) */
 
-	/*! 
-		Managed method name : IsMatch
-		Managed return type : System.Boolean
-		Managed param types : System.String
-	 */
-    - (BOOL)isMatch_withInput:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   IsMatch
 
-	/*! 
-		Managed method name : IsMatch
-		Managed return type : System.Boolean
-		Managed param types : System.String, System.Int32
-	 */
-    - (BOOL)isMatch_withInput:(NSString *)p1 startat:(int32_t)p2;
+ Params
+   System.String
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)isMatch_withInput:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   IsMatch
+
+ Params
+   System.String
+   System.Int32
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)isMatch_withInput:(NSString *)p1 startat:(int32_t)p2;
+
 /* Skipped method : System.Text.RegularExpressions.Match Match(System.String input, System.String pattern) */
+
 /* Skipped method : System.Text.RegularExpressions.Match Match(System.String input, System.String pattern, System.Text.RegularExpressions.RegexOptions options) */
+
 /* Skipped method : System.Text.RegularExpressions.Match Match(System.String input, System.String pattern, System.Text.RegularExpressions.RegexOptions options, System.TimeSpan matchTimeout) */
+
 /* Skipped method : System.Text.RegularExpressions.Match Match(System.String input) */
+
 /* Skipped method : System.Text.RegularExpressions.Match Match(System.String input, System.Int32 startat) */
+
 /* Skipped method : System.Text.RegularExpressions.Match Match(System.String input, System.Int32 beginning, System.Int32 length) */
+
 /* Skipped method : System.Text.RegularExpressions.MatchCollection Matches(System.String input, System.String pattern) */
+
 /* Skipped method : System.Text.RegularExpressions.MatchCollection Matches(System.String input, System.String pattern, System.Text.RegularExpressions.RegexOptions options) */
+
 /* Skipped method : System.Text.RegularExpressions.MatchCollection Matches(System.String input, System.String pattern, System.Text.RegularExpressions.RegexOptions options, System.TimeSpan matchTimeout) */
+
 /* Skipped method : System.Text.RegularExpressions.MatchCollection Matches(System.String input) */
+
 /* Skipped method : System.Text.RegularExpressions.MatchCollection Matches(System.String input, System.Int32 startat) */
 
-	/*! 
-		Managed method name : Replace
-		Managed return type : System.String
-		Managed param types : System.String, System.String, System.String
-	 */
-    + (NSString *)replace_withInput:(NSString *)p1 pattern:(NSString *)p2 replacement:(NSString *)p3;
+/**
+ Managed method.
+ @textblock
+ Name
+   Replace
+
+ Params
+   System.String
+   System.String
+   System.String
+
+ Return
+   System.String
+ @/textblock
+*/
++ (NSString *)replace_withInput:(NSString *)p1 pattern:(NSString *)p2 replacement:(NSString *)p3;
+
 /* Skipped method : System.String Replace(System.String input, System.String pattern, System.String replacement, System.Text.RegularExpressions.RegexOptions options) */
+
 /* Skipped method : System.String Replace(System.String input, System.String pattern, System.String replacement, System.Text.RegularExpressions.RegexOptions options, System.TimeSpan matchTimeout) */
 
-	/*! 
-		Managed method name : Replace
-		Managed return type : System.String
-		Managed param types : System.String, System.String
-	 */
-    - (NSString *)replace_withInput:(NSString *)p1 replacement:(NSString *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   Replace
 
-	/*! 
-		Managed method name : Replace
-		Managed return type : System.String
-		Managed param types : System.String, System.String, System.Int32
-	 */
-    - (NSString *)replace_withInput:(NSString *)p1 replacement:(NSString *)p2 count:(int32_t)p3;
+ Params
+   System.String
+   System.String
 
-	/*! 
-		Managed method name : Replace
-		Managed return type : System.String
-		Managed param types : System.String, System.String, System.Int32, System.Int32
-	 */
-    - (NSString *)replace_withInput:(NSString *)p1 replacement:(NSString *)p2 count:(int32_t)p3 startat:(int32_t)p4;
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)replace_withInput:(NSString *)p1 replacement:(NSString *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Replace
+
+ Params
+   System.String
+   System.String
+   System.Int32
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)replace_withInput:(NSString *)p1 replacement:(NSString *)p2 count:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Replace
+
+ Params
+   System.String
+   System.String
+   System.Int32
+   System.Int32
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)replace_withInput:(NSString *)p1 replacement:(NSString *)p2 count:(int32_t)p3 startat:(int32_t)p4;
+
 /* Skipped method : System.String Replace(System.String input, System.String pattern, System.Text.RegularExpressions.MatchEvaluator evaluator) */
+
 /* Skipped method : System.String Replace(System.String input, System.String pattern, System.Text.RegularExpressions.MatchEvaluator evaluator, System.Text.RegularExpressions.RegexOptions options) */
+
 /* Skipped method : System.String Replace(System.String input, System.String pattern, System.Text.RegularExpressions.MatchEvaluator evaluator, System.Text.RegularExpressions.RegexOptions options, System.TimeSpan matchTimeout) */
+
 /* Skipped method : System.String Replace(System.String input, System.Text.RegularExpressions.MatchEvaluator evaluator) */
+
 /* Skipped method : System.String Replace(System.String input, System.Text.RegularExpressions.MatchEvaluator evaluator, System.Int32 count) */
+
 /* Skipped method : System.String Replace(System.String input, System.Text.RegularExpressions.MatchEvaluator evaluator, System.Int32 count, System.Int32 startat) */
 
-	/*! 
-		Managed method name : Split
-		Managed return type : System.String[]
-		Managed param types : System.String, System.String
-	 */
-    + (System_Array *)split_withInput:(NSString *)p1 pattern:(NSString *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   Split
+
+ Params
+   System.String
+   System.String
+
+ Return
+   System.String[]
+ @/textblock
+*/
++ (System_Array *)split_withInput:(NSString *)p1 pattern:(NSString *)p2;
+
 /* Skipped method : System.String[] Split(System.String input, System.String pattern, System.Text.RegularExpressions.RegexOptions options) */
+
 /* Skipped method : System.String[] Split(System.String input, System.String pattern, System.Text.RegularExpressions.RegexOptions options, System.TimeSpan matchTimeout) */
 
-	/*! 
-		Managed method name : Split
-		Managed return type : System.String[]
-		Managed param types : System.String
-	 */
-    - (System_Array *)split_withInput:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Split
 
-	/*! 
-		Managed method name : Split
-		Managed return type : System.String[]
-		Managed param types : System.String, System.Int32
-	 */
-    - (System_Array *)split_withInput:(NSString *)p1 count:(int32_t)p2;
+ Params
+   System.String
 
-	/*! 
-		Managed method name : Split
-		Managed return type : System.String[]
-		Managed param types : System.String, System.Int32, System.Int32
-	 */
-    - (System_Array *)split_withInput:(NSString *)p1 count:(int32_t)p2 startat:(int32_t)p3;
+ Return
+   System.String[]
+ @/textblock
+*/
+- (System_Array *)split_withInput:(NSString *)p1;
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString;
+/**
+ Managed method.
+ @textblock
+ Name
+   Split
 
-	/*! 
-		Managed method name : Unescape
-		Managed return type : System.String
-		Managed param types : System.String
-	 */
-    + (NSString *)unescape_withStr:(NSString *)p1;
+ Params
+   System.String
+   System.Int32
+
+ Return
+   System.String[]
+ @/textblock
+*/
+- (System_Array *)split_withInput:(NSString *)p1 count:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Split
+
+ Params
+   System.String
+   System.Int32
+   System.Int32
+
+ Return
+   System.String[]
+ @/textblock
+*/
+- (System_Array *)split_withInput:(NSString *)p1 count:(int32_t)p2 startat:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Unescape
+
+ Params
+   System.String
+
+ Return
+   System.String
+ @/textblock
+*/
++ (NSString *)unescape_withStr:(NSString *)p1;
 @end
 //--Dubrovnik.CodeGenerator

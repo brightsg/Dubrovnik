@@ -19,32 +19,24 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.ComponentModel.AsyncCompletedEventArgs";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "System";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.ComponentModel.AsyncCompletedEventArgs";
+}
++ (const char *)monoAssemblyName
+{
+	return "System";
+}
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.ComponentModel.AsyncCompletedEventArgs
-		Managed param types : System.Exception, System.Boolean, System.Object
-	 */
-    + (System_ComponentModel_AsyncCompletedEventArgs *)new_withError:(System_Exception *)p1 cancelled:(BOOL)p2 userState:(System_Object *)p3
-    {
-		
-		System_ComponentModel_AsyncCompletedEventArgs * object = [[self alloc] initWithSignature:"System.Exception,bool,object" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
-      
-      return object;
-    }
++ (System_ComponentModel_AsyncCompletedEventArgs *)new_withError:(System_Exception *)p1 cancelled:(BOOL)p2 userState:(System_Object *)p3
+{
+  System_ComponentModel_AsyncCompletedEventArgs * object = [[self alloc] initWithSignature:"System.Exception,bool,object" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
+  return object;
+}
 
 #pragma mark -
 #pragma mark Properties
@@ -116,8 +108,9 @@
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

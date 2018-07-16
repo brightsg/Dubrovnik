@@ -33,52 +33,89 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Properties
+
 /* Skipped property : System.Configuration.SettingsContext Context */
 
 	// Managed property name : IsSynchronized
 	// Managed property type : System.Boolean
     @property (nonatomic, readonly) BOOL isSynchronized;
+
 /* Skipped property : System.Configuration.SettingsPropertyCollection Properties */
+
 /* Skipped property : System.Configuration.SettingsPropertyValueCollection PropertyValues */
+
 /* Skipped property : System.Configuration.SettingsProviderCollection Providers */
 
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : get_Item
-		Managed return type : System.Object
-		Managed param types : System.String
-	 */
-    - (System_Object *)get_Item_withPropertyName:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   get_Item
 
-	/*! 
-		Managed method name : set_Item
-		Managed return type : System.Void
-		Managed param types : System.String, System.Object
-	 */
-    - (void)set_Item_withPropertyName:(NSString *)p1 value:(System_Object *)p2;
+ Params
+   System.String
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (System_Object *)get_Item_withPropertyName:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   set_Item
+
+ Params
+   System.String
+   System.Object
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)set_Item_withPropertyName:(NSString *)p1 value:(System_Object *)p2;
+
 /* Skipped method : System.Void Initialize(System.Configuration.SettingsContext context, System.Configuration.SettingsPropertyCollection properties, System.Configuration.SettingsProviderCollection providers) */
 
-	/*! 
-		Managed method name : Save
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)save;
+/**
+ Managed method.
+ @textblock
+ Name
+   Save
 
-	/*! 
-		Managed method name : Synchronized
-		Managed return type : System.Configuration.SettingsBase
-		Managed param types : System.Configuration.SettingsBase
-	 */
-    + (System_Configuration_SettingsBase *)synchronized_withSettingsBase:(System_Configuration_SettingsBase *)p1;
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)save;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Synchronized
+
+ Params
+   System.Configuration.SettingsBase
+
+ Return
+   System.Configuration.SettingsBase
+ @/textblock
+*/
++ (System_Configuration_SettingsBase *)synchronized_withSettingsBase:(System_Configuration_SettingsBase *)p1;
 @end
 //--Dubrovnik.CodeGenerator

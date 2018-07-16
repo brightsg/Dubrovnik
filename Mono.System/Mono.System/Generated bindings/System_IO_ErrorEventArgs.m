@@ -19,53 +19,39 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.IO.ErrorEventArgs";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "System";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.IO.ErrorEventArgs";
+}
++ (const char *)monoAssemblyName
+{
+	return "System";
+}
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.IO.ErrorEventArgs
-		Managed param types : System.Exception
-	 */
-    + (System_IO_ErrorEventArgs *)new_withException:(System_Exception *)p1
-    {
-		
-		System_IO_ErrorEventArgs * object = [[self alloc] initWithSignature:"System.Exception" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-      return object;
-    }
++ (System_IO_ErrorEventArgs *)new_withException:(System_Exception *)p1
+{
+  System_IO_ErrorEventArgs * object = [[self alloc] initWithSignature:"System.Exception" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return object;
+}
 
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : GetException
-		Managed return type : System.Exception
-		Managed param types : 
-	 */
-    - (System_Exception *)getException
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetException()" withNumArgs:0];
-		
-		return [System_Exception bestObjectWithMonoObject:monoObject];
-    }
+- (System_Exception *)getException
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetException()" withNumArgs:0];
+  return [System_Exception bestObjectWithMonoObject:monoObject];
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

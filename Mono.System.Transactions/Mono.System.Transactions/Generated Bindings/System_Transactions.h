@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     12/07/2018 22:16:47
+// Date:     16/07/2018 22:20:31
 //
 // Assembly: System.Transactions
 // Fullname: System.Transactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -79,44 +79,83 @@
 //
 // Class aliases
 //
+
 /* Skipped type : System.Transactions.CommittableTransaction CommittableTransaction */
+
 /* Skipped type : System.Transactions.Configuration.DefaultSettingsSection DefaultSettingsSection */
+
 /* Skipped type : System.Transactions.Configuration.MachineSettingsSection MachineSettingsSection */
+
 /* Skipped type : System.Transactions.Configuration.TransactionsSectionGroup TransactionsSectionGroup */
+
 /* Skipped type : System.Transactions.DependentCloneOption DependentCloneOption */
+
 /* Skipped type : System.Transactions.DependentTransaction DependentTransaction */
+
 /* Skipped type : System.Transactions.DistributedTransactionPermission DistributedTransactionPermission */
+
 /* Skipped type : System.Transactions.DistributedTransactionPermissionAttribute DistributedTransactionPermissionAttribute */
+
 /* Skipped type : System.Transactions.Enlistment Enlistment */
+
 /* Skipped type : System.Transactions.EnlistmentOptions EnlistmentOptions */
+
 /* Skipped type : System.Transactions.EnterpriseServicesInteropOption EnterpriseServicesInteropOption */
+
 /* Skipped type : System.Transactions.HostCurrentTransactionCallback HostCurrentTransactionCallback */
+
 /* Skipped type : System.Transactions.IDtcTransaction IDtcTransaction */
+
 /* Skipped type : System.Transactions.IEnlistmentNotification IEnlistmentNotification */
+
 /* Skipped type : System.Transactions.IPromotableSinglePhaseNotification IPromotableSinglePhaseNotification */
+
 /* Skipped type : System.Transactions.ISimpleTransactionSuperior ISimpleTransactionSuperior */
+
 /* Skipped type : System.Transactions.ISinglePhaseNotification ISinglePhaseNotification */
+
 /* Skipped type : System.Transactions.IsolationLevel IsolationLevel */
+
 /* Skipped type : System.Transactions.ITransactionPromoter ITransactionPromoter */
+
 /* Skipped type : System.Transactions.PreparingEnlistment PreparingEnlistment */
+
 /* Skipped type : System.Transactions.SinglePhaseEnlistment SinglePhaseEnlistment */
+
 /* Skipped type : System.Transactions.SubordinateTransaction SubordinateTransaction */
+
 /* Skipped type : System.Transactions.Transaction Transaction */
+
 /* Skipped type : System.Transactions.TransactionAbortedException TransactionAbortedException */
+
 /* Skipped type : System.Transactions.TransactionCompletedEventHandler TransactionCompletedEventHandler */
+
 /* Skipped type : System.Transactions.TransactionEventArgs TransactionEventArgs */
+
 /* Skipped type : System.Transactions.TransactionException TransactionException */
+
 /* Skipped type : System.Transactions.TransactionInDoubtException TransactionInDoubtException */
+
 /* Skipped type : System.Transactions.TransactionInformation TransactionInformation */
+
 /* Skipped type : System.Transactions.TransactionInterop TransactionInterop */
+
 /* Skipped type : System.Transactions.TransactionManager TransactionManager */
+
 /* Skipped type : System.Transactions.TransactionManagerCommunicationException TransactionManagerCommunicationException */
+
 /* Skipped type : System.Transactions.TransactionOptions TransactionOptions */
+
 /* Skipped type : System.Transactions.TransactionPromotionException TransactionPromotionException */
+
 /* Skipped type : System.Transactions.TransactionScope TransactionScope */
+
 /* Skipped type : System.Transactions.TransactionScopeAsyncFlowOption TransactionScopeAsyncFlowOption */
+
 /* Skipped type : System.Transactions.TransactionScopeOption TransactionScopeOption */
+
 /* Skipped type : System.Transactions.TransactionStartedEventHandler TransactionStartedEventHandler */
+
 /* Skipped type : System.Transactions.TransactionStatus TransactionStatus */
 
 /*

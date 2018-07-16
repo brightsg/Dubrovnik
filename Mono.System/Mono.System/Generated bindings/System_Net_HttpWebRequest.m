@@ -19,16 +19,15 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Net.HttpWebRequest";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "System";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Net.HttpWebRequest";
+}
++ (const char *)monoAssemblyName
+{
+	return "System";
+}
 
 #pragma mark -
 #pragma mark Properties
@@ -199,7 +198,9 @@
 		thunk(self.monoObject, value, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
+
 /* Skipped property : System.Net.DecompressionMethods AutomaticDecompression */
+
 /* Skipped property : System.Security.Cryptography.X509Certificates.X509CertificateCollection ClientCertificates */
 
 	// Managed property name : Connection
@@ -348,6 +349,7 @@
 		thunk(self.monoObject, [value monoObject], &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
+
 /* Skipped property : System.Net.HttpContinueDelegate ContinueDelegate */
 
 	// Managed property name : ContinueTimeout
@@ -385,7 +387,9 @@
 		thunk(self.monoObject, value, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
+
 /* Skipped property : System.Net.CookieContainer CookieContainer */
+
 /* Skipped property : System.Net.ICredentials Credentials */
 
 	// Managed property name : Date
@@ -424,6 +428,7 @@
 		thunk(self.monoObject, [value monoObject], &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
+
 /* Skipped property : System.Net.Cache.RequestCachePolicy DefaultCachePolicy */
 
 	// Managed property name : DefaultMaximumErrorResponseLength
@@ -555,6 +560,7 @@
 
 		return _haveResponse;
 	}
+
 /* Skipped property : System.Net.WebHeaderCollection Headers */
 
 	// Managed property name : Host
@@ -921,6 +927,7 @@
 		thunk(self.monoObject, [value monoObject], &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
+
 /* Skipped property : System.Net.IWebProxy Proxy */
 
 	// Managed property name : ReadWriteTimeout
@@ -1053,7 +1060,9 @@
 		thunk(self.monoObject, value, &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
+
 /* Skipped property : System.Net.Security.RemoteCertificateValidationCallback ServerCertificateValidationCallback */
+
 /* Skipped property : System.Net.ServicePoint ServicePoint */
 
 	// Managed property name : SupportsCookieContainer
@@ -1262,198 +1271,96 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Abort
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)abort
-    {
-		
-		[self invokeMonoMethod:"Abort()" withNumArgs:0];
-      
-    }
+- (void)abort
+{
+  [self invokeMonoMethod:"Abort()" withNumArgs:0];
+}
 
-	/*! 
-		Managed method name : AddRange
-		Managed return type : System.Void
-		Managed param types : System.Int32, System.Int32
-	 */
-    - (void)addRange_withFromInt:(int32_t)p1 toInt:(int32_t)p2
-    {
-		
-		[self invokeMonoMethod:"AddRange(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
-      
-    }
+- (void)addRange_withFromInt:(int32_t)p1 toInt:(int32_t)p2
+{
+  [self invokeMonoMethod:"AddRange(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+}
 
-	/*! 
-		Managed method name : AddRange
-		Managed return type : System.Void
-		Managed param types : System.Int64, System.Int64
-	 */
-    - (void)addRange_withFromLong:(int64_t)p1 toLong:(int64_t)p2
-    {
-		
-		[self invokeMonoMethod:"AddRange(long,long)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
-      
-    }
+- (void)addRange_withFromLong:(int64_t)p1 toLong:(int64_t)p2
+{
+  [self invokeMonoMethod:"AddRange(long,long)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+}
 
-	/*! 
-		Managed method name : AddRange
-		Managed return type : System.Void
-		Managed param types : System.Int32
-	 */
-    - (void)addRange_withRangeInt:(int32_t)p1
-    {
-		
-		[self invokeMonoMethod:"AddRange(int)" withNumArgs:1, DB_VALUE(p1)];
-      
-    }
+- (void)addRange_withRangeInt:(int32_t)p1
+{
+  [self invokeMonoMethod:"AddRange(int)" withNumArgs:1, DB_VALUE(p1)];
+}
 
-	/*! 
-		Managed method name : AddRange
-		Managed return type : System.Void
-		Managed param types : System.Int64
-	 */
-    - (void)addRange_withRangeLong:(int64_t)p1
-    {
-		
-		[self invokeMonoMethod:"AddRange(long)" withNumArgs:1, DB_VALUE(p1)];
-      
-    }
+- (void)addRange_withRangeLong:(int64_t)p1
+{
+  [self invokeMonoMethod:"AddRange(long)" withNumArgs:1, DB_VALUE(p1)];
+}
 
-	/*! 
-		Managed method name : AddRange
-		Managed return type : System.Void
-		Managed param types : System.String, System.Int32, System.Int32
-	 */
-    - (void)addRange_withRangeSpecifierString:(NSString *)p1 fromInt:(int32_t)p2 toInt:(int32_t)p3
-    {
-		
-		[self invokeMonoMethod:"AddRange(string,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
-      
-    }
+- (void)addRange_withRangeSpecifierString:(NSString *)p1 fromInt:(int32_t)p2 toInt:(int32_t)p3
+{
+  [self invokeMonoMethod:"AddRange(string,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+}
 
-	/*! 
-		Managed method name : AddRange
-		Managed return type : System.Void
-		Managed param types : System.String, System.Int64, System.Int64
-	 */
-    - (void)addRange_withRangeSpecifierString:(NSString *)p1 fromLong:(int64_t)p2 toLong:(int64_t)p3
-    {
-		
-		[self invokeMonoMethod:"AddRange(string,long,long)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
-      
-    }
+- (void)addRange_withRangeSpecifierString:(NSString *)p1 fromLong:(int64_t)p2 toLong:(int64_t)p3
+{
+  [self invokeMonoMethod:"AddRange(string,long,long)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+}
 
-	/*! 
-		Managed method name : AddRange
-		Managed return type : System.Void
-		Managed param types : System.String, System.Int32
-	 */
-    - (void)addRange_withRangeSpecifierString:(NSString *)p1 rangeInt:(int32_t)p2
-    {
-		
-		[self invokeMonoMethod:"AddRange(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-      
-    }
+- (void)addRange_withRangeSpecifierString:(NSString *)p1 rangeInt:(int32_t)p2
+{
+  [self invokeMonoMethod:"AddRange(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+}
 
-	/*! 
-		Managed method name : AddRange
-		Managed return type : System.Void
-		Managed param types : System.String, System.Int64
-	 */
-    - (void)addRange_withRangeSpecifierString:(NSString *)p1 rangeLong:(int64_t)p2
-    {
-		
-		[self invokeMonoMethod:"AddRange(string,long)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-      
-    }
+- (void)addRange_withRangeSpecifierString:(NSString *)p1 rangeLong:(int64_t)p2
+{
+  [self invokeMonoMethod:"AddRange(string,long)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+}
 
-	/*! 
-		Managed method name : BeginGetRequestStream
-		Managed return type : System.IAsyncResult
-		Managed param types : System.AsyncCallback, System.Object
-	 */
-    - (id <System_IAsyncResult>)beginGetRequestStream_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginGetRequestStream(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
-    }
+- (id <System_IAsyncResult>)beginGetRequestStream_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"BeginGetRequestStream(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+  return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : BeginGetResponse
-		Managed return type : System.IAsyncResult
-		Managed param types : System.AsyncCallback, System.Object
-	 */
-    - (id <System_IAsyncResult>)beginGetResponse_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"BeginGetResponse(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
-    }
+- (id <System_IAsyncResult>)beginGetResponse_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"BeginGetResponse(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+  return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : EndGetRequestStream
-		Managed return type : System.IO.Stream
-		Managed param types : System.IAsyncResult
-	 */
-    - (System_IO_Stream *)endGetRequestStream_withAsyncResult:(id <System_IAsyncResult_>)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"EndGetRequestStream(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_IO_Stream bestObjectWithMonoObject:monoObject];
-    }
+- (System_IO_Stream *)endGetRequestStream_withAsyncResult:(id <System_IAsyncResult_>)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"EndGetRequestStream(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_IO_Stream bestObjectWithMonoObject:monoObject];
+}
+
 /* Skipped method : System.IO.Stream EndGetRequestStream(System.IAsyncResult asyncResult, System.Net.TransportContext& context) */
 
-	/*! 
-		Managed method name : EndGetResponse
-		Managed return type : System.Net.WebResponse
-		Managed param types : System.IAsyncResult
-	 */
-    - (System_Net_WebResponse *)endGetResponse_withAsyncResult:(id <System_IAsyncResult_>)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"EndGetResponse(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Net_WebResponse bestObjectWithMonoObject:monoObject];
-    }
+- (System_Net_WebResponse *)endGetResponse_withAsyncResult:(id <System_IAsyncResult_>)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"EndGetResponse(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Net_WebResponse bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : GetRequestStream
-		Managed return type : System.IO.Stream
-		Managed param types : 
-	 */
-    - (System_IO_Stream *)getRequestStream
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetRequestStream()" withNumArgs:0];
-		
-		return [System_IO_Stream bestObjectWithMonoObject:monoObject];
-    }
+- (System_IO_Stream *)getRequestStream
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetRequestStream()" withNumArgs:0];
+  return [System_IO_Stream bestObjectWithMonoObject:monoObject];
+}
+
 /* Skipped method : System.IO.Stream GetRequestStream(System.Net.TransportContext& context) */
 
-	/*! 
-		Managed method name : GetResponse
-		Managed return type : System.Net.WebResponse
-		Managed param types : 
-	 */
-    - (System_Net_WebResponse *)getResponse
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetResponse()" withNumArgs:0];
-		
-		return [System_Net_WebResponse bestObjectWithMonoObject:monoObject];
-    }
+- (System_Net_WebResponse *)getResponse
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetResponse()" withNumArgs:0];
+  return [System_Net_WebResponse bestObjectWithMonoObject:monoObject];
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

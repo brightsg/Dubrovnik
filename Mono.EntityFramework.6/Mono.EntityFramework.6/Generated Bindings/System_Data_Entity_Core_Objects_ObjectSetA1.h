@@ -37,58 +37,106 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Properties
+
 /* Skipped property : System.Data.Entity.Core.Metadata.Edm.EntitySet EntitySet */
 
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : AddObject
-		Managed return type : System.Void
-		Managed param types : <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
-	 */
-    - (void)addObject_withEntity:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   AddObject
 
-	/*! 
-		Managed method name : ApplyCurrentValues
-		Managed return type : <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
-		Managed param types : <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
-	 */
-    - (System_Object *)applyCurrentValues_withCurrentEntity:(System_Object *)p1;
+ Params
+   <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
 
-	/*! 
-		Managed method name : ApplyOriginalValues
-		Managed return type : <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
-		Managed param types : <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
-	 */
-    - (System_Object *)applyOriginalValues_withOriginalEntity:(System_Object *)p1;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)addObject_withEntity:(System_Object *)p1;
 
-	/*! 
-		Managed method name : Attach
-		Managed return type : System.Void
-		Managed param types : <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
-	 */
-    - (void)attach_withEntity:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   ApplyCurrentValues
 
-	/*! 
-		Managed method name : DeleteObject
-		Managed return type : System.Void
-		Managed param types : <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
-	 */
-    - (void)deleteObject_withEntity:(System_Object *)p1;
+ Params
+   <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
 
-	/*! 
-		Managed method name : Detach
-		Managed return type : System.Void
-		Managed param types : <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
-	 */
-    - (void)detach_withEntity:(System_Object *)p1;
+ Return
+   <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
+ @/textblock
+*/
+- (System_Object *)applyCurrentValues_withCurrentEntity:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ApplyOriginalValues
+
+ Params
+   <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
+
+ Return
+   <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
+ @/textblock
+*/
+- (System_Object *)applyOriginalValues_withOriginalEntity:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Attach
+
+ Params
+   <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)attach_withEntity:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   DeleteObject
+
+ Params
+   <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)deleteObject_withEntity:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Detach
+
+ Params
+   <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)detach_withEntity:(System_Object *)p1;
 @end
 //--Dubrovnik.CodeGenerator

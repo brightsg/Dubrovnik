@@ -79,12 +79,20 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : GetEnumerator
-		Managed return type : System.Collections.IEnumerator
-		Managed param types : 
-	 */
-    - (id <System_Collections_IEnumerator>)getEnumerator;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetEnumerator
+
+ Params
+   (none)
+
+ Return
+   System.Collections.IEnumerator
+ @/textblock
+*/
+- (id <System_Collections_IEnumerator>)getEnumerator;
 #endif
 
 
@@ -102,12 +110,20 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : GetEnumerator
-		Managed return type : System.Collections.IEnumerator
-		Managed param types : 
-	 */
-    - (id <System_Collections_IEnumerator>)getEnumerator;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetEnumerator
+
+ Params
+   (none)
+
+ Return
+   System.Collections.IEnumerator
+ @/textblock
+*/
+- (id <System_Collections_IEnumerator>)getEnumerator;
 
 @end
 

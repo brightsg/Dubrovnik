@@ -46,10 +46,9 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Properties
@@ -65,71 +64,148 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Add
-		Managed return type : System.Void
-		Managed param types : <System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
-	 */
-    - (void)add_withItem:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Add
 
-	/*! 
-		Managed method name : Attach
-		Managed return type : System.Void
-		Managed param types : System.Collections.Generic.IEnumerable`1<System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
-	 */
-    - (void)attach_withEntities:(id <System_Collections_Generic_IEnumerableA1_>)p1;
+ Params
+   <System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
 
-	/*! 
-		Managed method name : Attach
-		Managed return type : System.Void
-		Managed param types : <System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
-	 */
-    - (void)attach_withEntity:(System_Object *)p1;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)add_withItem:(System_Object *)p1;
 
-	/*! 
-		Managed method name : Clear
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)clear;
+/**
+ Managed method.
+ @textblock
+ Name
+   Attach
 
-	/*! 
-		Managed method name : Contains
-		Managed return type : System.Boolean
-		Managed param types : <System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
-	 */
-    - (BOOL)contains_withItem:(System_Object *)p1;
+ Params
+   System.Collections.Generic.IEnumerable`1<System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
 
-	/*! 
-		Managed method name : CopyTo
-		Managed return type : System.Void
-		Managed param types : TEntity[], System.Int32
-	 */
-    - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)attach_withEntities:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
-	/*! 
-		Managed method name : CreateSourceQuery
-		Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
-		Managed param types : 
-	 */
-    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)createSourceQuery;
+/**
+ Managed method.
+ @textblock
+ Name
+   Attach
 
-	/*! 
-		Managed method name : GetEnumerator
-		Managed return type : System.Collections.Generic.IEnumerator`1<System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
-		Managed param types : 
-	 */
-    - (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator;
+ Params
+   <System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)attach_withEntity:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Clear
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)clear;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Contains
+
+ Params
+   <System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)contains_withItem:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CopyTo
+
+ Params
+   TEntity[]
+   System.Int32
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateSourceQuery
+
+ Params
+   (none)
+
+ Return
+   System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
+ @/textblock
+*/
+- (System_Data_Entity_Core_Objects_ObjectQueryA1 *)createSourceQuery;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetEnumerator
+
+ Params
+   (none)
+
+ Return
+   System.Collections.Generic.IEnumerator`1<System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
+ @/textblock
+*/
+- (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator;
+
 /* Skipped method : System.Void Load(System.Data.Entity.Core.Objects.MergeOption mergeOption) */
+
 /* Skipped method : System.Threading.Tasks.Task LoadAsync(System.Data.Entity.Core.Objects.MergeOption mergeOption, System.Threading.CancellationToken cancellationToken) */
+
 /* Skipped method : System.Void OnCollectionDeserialized(System.Runtime.Serialization.StreamingContext context) */
+
 /* Skipped method : System.Void OnSerializing(System.Runtime.Serialization.StreamingContext context) */
 
-	/*! 
-		Managed method name : Remove
-		Managed return type : System.Boolean
-		Managed param types : <System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
-	 */
-    - (BOOL)remove_withItem:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Remove
+
+ Params
+   <System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)remove_withItem:(System_Object *)p1;
 @end
 //--Dubrovnik.CodeGenerator

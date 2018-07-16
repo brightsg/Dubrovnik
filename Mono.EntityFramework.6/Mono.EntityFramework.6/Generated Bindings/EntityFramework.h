@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     12/07/2018 22:16:49
+// Date:     16/07/2018 22:20:33
 //
 // Assembly: EntityFramework
 // Fullname: EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -121,581 +121,1143 @@
 //
 // Class aliases
 //
+
 /* Skipped type : System.ComponentModel.DataAnnotations.Schema.IndexAttribute IndexAttribute */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.BasicCommandTreeVisitor BasicCommandTreeVisitor */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.BasicExpressionVisitor BasicExpressionVisitor */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbAggregate DbAggregate */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbAndExpression DbAndExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbApplyExpression DbApplyExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbArithmeticExpression DbArithmeticExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbBinaryExpression DbBinaryExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbCaseExpression DbCaseExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbCastExpression DbCastExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbCommandTree DbCommandTree */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbCommandTreeKind DbCommandTreeKind */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbComparisonExpression DbComparisonExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbConstantExpression DbConstantExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbCrossJoinExpression DbCrossJoinExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbDeleteCommandTree DbDeleteCommandTree */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbDerefExpression DbDerefExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbDistinctExpression DbDistinctExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbElementExpression DbElementExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbEntityRefExpression DbEntityRefExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbExceptExpression DbExceptExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbExpression DbExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbExpressionBinding DbExpressionBinding */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbExpressionKind DbExpressionKind */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbExpressionRebinder DbExpressionRebinder */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbExpressionVisitor DbExpressionVisitor */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbExpressionVisitor`1<System.Data.Entity.Core.Common.CommandTrees.DbExpressionVisitor`1+TResultType> DbExpressionVisitor`1<TResultType> */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbFilterExpression DbFilterExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbFunctionAggregate DbFunctionAggregate */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbFunctionCommandTree DbFunctionCommandTree */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbFunctionExpression DbFunctionExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbGroupAggregate DbGroupAggregate */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbGroupByExpression DbGroupByExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbGroupExpressionBinding DbGroupExpressionBinding */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbInExpression DbInExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbInsertCommandTree DbInsertCommandTree */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbIntersectExpression DbIntersectExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbIsEmptyExpression DbIsEmptyExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbIsNullExpression DbIsNullExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbIsOfExpression DbIsOfExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbJoinExpression DbJoinExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbLambda DbLambda */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbLambdaExpression DbLambdaExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbLikeExpression DbLikeExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbLimitExpression DbLimitExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbModificationClause DbModificationClause */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbModificationCommandTree DbModificationCommandTree */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbNewInstanceExpression DbNewInstanceExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbNotExpression DbNotExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbNullExpression DbNullExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbOfTypeExpression DbOfTypeExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbOrExpression DbOrExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbParameterReferenceExpression DbParameterReferenceExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbProjectExpression DbProjectExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbPropertyExpression DbPropertyExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbQuantifierExpression DbQuantifierExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbQueryCommandTree DbQueryCommandTree */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbRefExpression DbRefExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbRefKeyExpression DbRefKeyExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbRelationshipNavigationExpression DbRelationshipNavigationExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbScanExpression DbScanExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbSetClause DbSetClause */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbSkipExpression DbSkipExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbSortClause DbSortClause */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbSortExpression DbSortExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbTreatExpression DbTreatExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbUnaryExpression DbUnaryExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbUnionAllExpression DbUnionAllExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbUpdateCommandTree DbUpdateCommandTree */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DbVariableReferenceExpression DbVariableReferenceExpression */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.DefaultExpressionVisitor DefaultExpressionVisitor */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder.DbExpressionBuilder DbExpressionBuilder */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder.EdmFunctions EdmFunctions */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder.Row Row */
+
 /* Skipped type : System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder.Spatial.SpatialEdmFunctions SpatialEdmFunctions */
+
 /* Skipped type : System.Data.Entity.Core.Common.DataRecordInfo DataRecordInfo */
+
 /* Skipped type : System.Data.Entity.Core.Common.DbCommandDefinition DbCommandDefinition */
+
 /* Skipped type : System.Data.Entity.Core.Common.DbProviderManifest DbProviderManifest */
+
 /* Skipped type : System.Data.Entity.Core.Common.DbProviderServices DbProviderServices */
+
 /* Skipped type : System.Data.Entity.Core.Common.DbXmlEnabledProviderManifest DbXmlEnabledProviderManifest */
+
 /* Skipped type : System.Data.Entity.Core.Common.EntityRecordInfo EntityRecordInfo */
+
 /* Skipped type : System.Data.Entity.Core.Common.EntitySql.EntitySqlParser EntitySqlParser */
+
 /* Skipped type : System.Data.Entity.Core.Common.EntitySql.FunctionDefinition FunctionDefinition */
+
 /* Skipped type : System.Data.Entity.Core.Common.EntitySql.ParseResult ParseResult */
+
 /* Skipped type : System.Data.Entity.Core.Common.FieldMetadata FieldMetadata */
+
 /* Skipped type : System.Data.Entity.Core.EntityClient.EntityCommand EntityCommand */
 #define SDECEEntityConnection_ System_Data_Entity_Core_EntityClient_EntityConnection
+
 /* Skipped type : System.Data.Entity.Core.EntityClient.EntityConnectionStringBuilder EntityConnectionStringBuilder */
+
 /* Skipped type : System.Data.Entity.Core.EntityClient.EntityDataReader EntityDataReader */
+
 /* Skipped type : System.Data.Entity.Core.EntityClient.EntityParameter EntityParameter */
+
 /* Skipped type : System.Data.Entity.Core.EntityClient.EntityParameterCollection EntityParameterCollection */
+
 /* Skipped type : System.Data.Entity.Core.EntityClient.EntityProviderFactory EntityProviderFactory */
+
 /* Skipped type : System.Data.Entity.Core.EntityClient.EntityTransaction EntityTransaction */
+
 /* Skipped type : System.Data.Entity.Core.EntityCommandCompilationException EntityCommandCompilationException */
+
 /* Skipped type : System.Data.Entity.Core.EntityCommandExecutionException EntityCommandExecutionException */
+
 /* Skipped type : System.Data.Entity.Core.EntityException EntityException */
+
 /* Skipped type : System.Data.Entity.Core.EntityKey EntityKey */
+
 /* Skipped type : System.Data.Entity.Core.EntityKeyMember EntityKeyMember */
+
 /* Skipped type : System.Data.Entity.Core.EntitySqlException EntitySqlException */
+
 /* Skipped type : System.Data.Entity.Core.IExtendedDataRecord IExtendedDataRecord */
+
 /* Skipped type : System.Data.Entity.Core.InvalidCommandTreeException InvalidCommandTreeException */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.AssociationSetMapping AssociationSetMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.AssociationSetModificationFunctionMapping AssociationSetModificationFunctionMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.AssociationTypeMapping AssociationTypeMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.ComplexPropertyMapping ComplexPropertyMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.ComplexTypeMapping ComplexTypeMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.ConditionPropertyMapping ConditionPropertyMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.EndPropertyMapping EndPropertyMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.EntityContainerMapping EntityContainerMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.EntitySetBaseMapping EntitySetBaseMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.EntitySetMapping EntitySetMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.EntityTypeMapping EntityTypeMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.EntityTypeModificationFunctionMapping EntityTypeModificationFunctionMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.EntityViewContainer EntityViewContainer */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.EntityViewGenerationAttribute EntityViewGenerationAttribute */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.FunctionImportComplexTypeMapping FunctionImportComplexTypeMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.FunctionImportEntityTypeMapping FunctionImportEntityTypeMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.FunctionImportEntityTypeMappingCondition FunctionImportEntityTypeMappingCondition */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.FunctionImportEntityTypeMappingConditionIsNull FunctionImportEntityTypeMappingConditionIsNull */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.FunctionImportEntityTypeMappingConditionValue FunctionImportEntityTypeMappingConditionValue */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.FunctionImportMapping FunctionImportMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.FunctionImportMappingComposable FunctionImportMappingComposable */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.FunctionImportMappingNonComposable FunctionImportMappingNonComposable */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.FunctionImportResultMapping FunctionImportResultMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.FunctionImportReturnTypePropertyMapping FunctionImportReturnTypePropertyMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.FunctionImportReturnTypeScalarPropertyMapping FunctionImportReturnTypeScalarPropertyMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.FunctionImportStructuralTypeMapping FunctionImportStructuralTypeMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.IsNullConditionMapping IsNullConditionMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.MappingBase MappingBase */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.MappingFragment MappingFragment */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.MappingItem MappingItem */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.MappingItemCollection MappingItemCollection */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.ModificationFunctionMapping ModificationFunctionMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.ModificationFunctionMemberPath ModificationFunctionMemberPath */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.ModificationFunctionParameterBinding ModificationFunctionParameterBinding */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.ModificationFunctionResultBinding ModificationFunctionResultBinding */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.PropertyMapping PropertyMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.ScalarPropertyMapping ScalarPropertyMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.StorageMappingItemCollection StorageMappingItemCollection */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.StructuralTypeMapping StructuralTypeMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.TypeMapping TypeMapping */
+
 /* Skipped type : System.Data.Entity.Core.Mapping.ValueConditionMapping ValueConditionMapping */
+
 /* Skipped type : System.Data.Entity.Core.MappingException MappingException */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.AssociationEndMember AssociationEndMember */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.AssociationSet AssociationSet */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.AssociationSetEnd AssociationSetEnd */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.AssociationType AssociationType */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.BuiltInTypeKind BuiltInTypeKind */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.CollectionKind CollectionKind */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.CollectionType CollectionType */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.ComplexType ComplexType */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.ConcurrencyMode ConcurrencyMode */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.CsdlSerializer CsdlSerializer */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.DataModelErrorEventArgs DataModelErrorEventArgs */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.DataSpace DataSpace */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.DbModelExtensions DbModelExtensions */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.Documentation Documentation */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.EdmError EdmError */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.EdmFunction EdmFunction */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.EdmFunctionPayload EdmFunctionPayload */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.EdmItemCollection EdmItemCollection */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.EdmMember EdmMember */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.EdmModel EdmModel */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.EdmProperty EdmProperty */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.EdmSchemaError EdmSchemaError */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.EdmSchemaErrorSeverity EdmSchemaErrorSeverity */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.EdmType EdmType */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.EntityContainer EntityContainer */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.EntitySet EntitySet */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.EntitySetBase EntitySetBase */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.EntityType EntityType */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.EntityTypeBase EntityTypeBase */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.EnumMember EnumMember */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.EnumType EnumType */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.Facet Facet */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.FacetDescription FacetDescription */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.FunctionParameter FunctionParameter */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.GlobalItem GlobalItem */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.IEdmModelAdapter IEdmModelAdapter */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.ItemCollection ItemCollection */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.MetadataItem MetadataItem */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.MetadataProperty MetadataProperty */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.MetadataWorkspace MetadataWorkspace */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.NavigationProperty NavigationProperty */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.ObjectItemCollection ObjectItemCollection */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.OperationAction OperationAction */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.ParameterMode ParameterMode */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.ParameterTypeSemantics ParameterTypeSemantics */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.PrimitiveType PrimitiveType */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.PrimitiveTypeKind PrimitiveTypeKind */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.PropertyKind PropertyKind */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.ReadOnlyMetadataCollection`1<System.Data.Entity.Core.Metadata.Edm.ReadOnlyMetadataCollection`1+Enumerator+T>+Enumerator ReadOnlyMetadataCollection`1<T>.Enumerator */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.ReadOnlyMetadataCollection`1<System.Data.Entity.Core.Metadata.Edm.ReadOnlyMetadataCollection`1+T> ReadOnlyMetadataCollection`1<T> */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.ReferentialConstraint ReferentialConstraint */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.RefType RefType */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.RelationshipEndMember RelationshipEndMember */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity RelationshipMultiplicity */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.RelationshipSet RelationshipSet */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.RelationshipType RelationshipType */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.RowType RowType */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.SimpleType SimpleType */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.SsdlSerializer SsdlSerializer */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.StoreGeneratedPattern StoreGeneratedPattern */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.StoreItemCollection StoreItemCollection */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.StructuralType StructuralType */
+
 /* Skipped type : System.Data.Entity.Core.Metadata.Edm.TypeUsage TypeUsage */
+
 /* Skipped type : System.Data.Entity.Core.MetadataException MetadataException */
+
 /* Skipped type : System.Data.Entity.Core.ObjectNotFoundException ObjectNotFoundException */
+
 /* Skipped type : System.Data.Entity.Core.Objects.CompiledQuery CompiledQuery */
+
 /* Skipped type : System.Data.Entity.Core.Objects.CurrentValueRecord CurrentValueRecord */
+
 /* Skipped type : System.Data.Entity.Core.Objects.DataClasses.ComplexObject ComplexObject */
+
 /* Skipped type : System.Data.Entity.Core.Objects.DataClasses.EdmComplexPropertyAttribute EdmComplexPropertyAttribute */
+
 /* Skipped type : System.Data.Entity.Core.Objects.DataClasses.EdmComplexTypeAttribute EdmComplexTypeAttribute */
+
 /* Skipped type : System.Data.Entity.Core.Objects.DataClasses.EdmEntityTypeAttribute EdmEntityTypeAttribute */
+
 /* Skipped type : System.Data.Entity.Core.Objects.DataClasses.EdmEnumTypeAttribute EdmEnumTypeAttribute */
+
 /* Skipped type : System.Data.Entity.Core.Objects.DataClasses.EdmFunctionAttribute EdmFunctionAttribute */
+
 /* Skipped type : System.Data.Entity.Core.Objects.DataClasses.EdmPropertyAttribute EdmPropertyAttribute */
+
 /* Skipped type : System.Data.Entity.Core.Objects.DataClasses.EdmRelationshipAttribute EdmRelationshipAttribute */
+
 /* Skipped type : System.Data.Entity.Core.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute EdmRelationshipNavigationPropertyAttribute */
+
 /* Skipped type : System.Data.Entity.Core.Objects.DataClasses.EdmScalarPropertyAttribute EdmScalarPropertyAttribute */
+
 /* Skipped type : System.Data.Entity.Core.Objects.DataClasses.EdmSchemaAttribute EdmSchemaAttribute */
+
 /* Skipped type : System.Data.Entity.Core.Objects.DataClasses.EdmTypeAttribute EdmTypeAttribute */
 #define SDECODEntityCollectionA1_ System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1
 #define SDECODEntityObject_ System_Data_Entity_Core_Objects_DataClasses_EntityObject
+
 /* Skipped type : System.Data.Entity.Core.Objects.DataClasses.EntityReference EntityReference */
 #define SDECODEntityReferenceA1_ System_Data_Entity_Core_Objects_DataClasses_EntityReferenceA1
+
 /* Skipped type : System.Data.Entity.Core.Objects.DataClasses.IEntityChangeTracker IEntityChangeTracker */
+
 /* Skipped type : System.Data.Entity.Core.Objects.DataClasses.IEntityWithChangeTracker IEntityWithChangeTracker */
+
 /* Skipped type : System.Data.Entity.Core.Objects.DataClasses.IEntityWithKey IEntityWithKey */
+
 /* Skipped type : System.Data.Entity.Core.Objects.DataClasses.IEntityWithRelationships IEntityWithRelationships */
+
 /* Skipped type : System.Data.Entity.Core.Objects.DataClasses.IRelatedEnd IRelatedEnd */
+
 /* Skipped type : System.Data.Entity.Core.Objects.DataClasses.RelatedEnd RelatedEnd */
+
 /* Skipped type : System.Data.Entity.Core.Objects.DataClasses.RelationshipKind RelationshipKind */
+
 /* Skipped type : System.Data.Entity.Core.Objects.DataClasses.RelationshipManager RelationshipManager */
+
 /* Skipped type : System.Data.Entity.Core.Objects.DataClasses.StructuralObject StructuralObject */
+
 /* Skipped type : System.Data.Entity.Core.Objects.DbUpdatableDataRecord DbUpdatableDataRecord */
+
 /* Skipped type : System.Data.Entity.Core.Objects.EntityFunctions EntityFunctions */
+
 /* Skipped type : System.Data.Entity.Core.Objects.ExecutionOptions ExecutionOptions */
+
 /* Skipped type : System.Data.Entity.Core.Objects.IObjectSet`1<System.Data.Entity.Core.Objects.IObjectSet`1+TEntity> IObjectSet`1<TEntity> */
+
 /* Skipped type : System.Data.Entity.Core.Objects.MergeOption MergeOption */
 #define SDECOObjectContext_ System_Data_Entity_Core_Objects_ObjectContext
+
 /* Skipped type : System.Data.Entity.Core.Objects.ObjectContextOptions ObjectContextOptions */
+
 /* Skipped type : System.Data.Entity.Core.Objects.ObjectMaterializedEventArgs ObjectMaterializedEventArgs */
+
 /* Skipped type : System.Data.Entity.Core.Objects.ObjectMaterializedEventHandler ObjectMaterializedEventHandler */
+
 /* Skipped type : System.Data.Entity.Core.Objects.ObjectParameter ObjectParameter */
+
 /* Skipped type : System.Data.Entity.Core.Objects.ObjectParameterCollection ObjectParameterCollection */
+
 /* Skipped type : System.Data.Entity.Core.Objects.ObjectQuery ObjectQuery */
 #define SDECOObjectQueryA1_ System_Data_Entity_Core_Objects_ObjectQueryA1
+
 /* Skipped type : System.Data.Entity.Core.Objects.ObjectResult ObjectResult */
+
 /* Skipped type : System.Data.Entity.Core.Objects.ObjectResult`1<System.Data.Entity.Core.Objects.ObjectResult`1+T> ObjectResult`1<T> */
 #define SDECOObjectSetA1_ System_Data_Entity_Core_Objects_ObjectSetA1
 #define SDECOObjectStateEntry_ System_Data_Entity_Core_Objects_ObjectStateEntry
+
 /* Skipped type : System.Data.Entity.Core.Objects.ObjectStateManager ObjectStateManager */
+
 /* Skipped type : System.Data.Entity.Core.Objects.OriginalValueRecord OriginalValueRecord */
+
 /* Skipped type : System.Data.Entity.Core.Objects.ProxyDataContractResolver ProxyDataContractResolver */
 #define SDECORefreshMode_ System_Data_Entity_Core_Objects_RefreshMode
 #define SDECOSaveOptions_ System_Data_Entity_Core_Objects_SaveOptions
+
 /* Skipped type : System.Data.Entity.Core.OptimisticConcurrencyException OptimisticConcurrencyException */
+
 /* Skipped type : System.Data.Entity.Core.PropertyConstraintException PropertyConstraintException */
+
 /* Skipped type : System.Data.Entity.Core.ProviderIncompatibleException ProviderIncompatibleException */
+
 /* Skipped type : System.Data.Entity.Core.UpdateException UpdateException */
+
 /* Skipped type : System.Data.Entity.CreateDatabaseIfNotExists`1<System.Data.Entity.CreateDatabaseIfNotExists`1+TContext> CreateDatabaseIfNotExists`1<TContext> */
+
 /* Skipped type : System.Data.Entity.Database Database */
+
 /* Skipped type : System.Data.Entity.DbConfiguration DbConfiguration */
+
 /* Skipped type : System.Data.Entity.DbConfigurationTypeAttribute DbConfigurationTypeAttribute */
 #define SDEDbContext_ System_Data_Entity_DbContext
+
 /* Skipped type : System.Data.Entity.DbContextTransaction DbContextTransaction */
+
 /* Skipped type : System.Data.Entity.DbFunctionAttribute DbFunctionAttribute */
+
 /* Skipped type : System.Data.Entity.DbFunctions DbFunctions */
+
 /* Skipped type : System.Data.Entity.DbModelBuilder DbModelBuilder */
+
 /* Skipped type : System.Data.Entity.DbModelBuilderVersion DbModelBuilderVersion */
+
 /* Skipped type : System.Data.Entity.DbModelBuilderVersionAttribute DbModelBuilderVersionAttribute */
+
 /* Skipped type : System.Data.Entity.DbSet DbSet */
 #define SDEDbSetA1_ System_Data_Entity_DbSetA1
+
 /* Skipped type : System.Data.Entity.DropCreateDatabaseAlways`1<System.Data.Entity.DropCreateDatabaseAlways`1+TContext> DropCreateDatabaseAlways`1<TContext> */
+
 /* Skipped type : System.Data.Entity.DropCreateDatabaseIfModelChanges`1<System.Data.Entity.DropCreateDatabaseIfModelChanges`1+TContext> DropCreateDatabaseIfModelChanges`1<TContext> */
 #define SDEEntityState_ System_Data_Entity_EntityState
+
 /* Skipped type : System.Data.Entity.IDatabaseInitializer`1<System.Data.Entity.IDatabaseInitializer`1+TContext> IDatabaseInitializer`1<TContext> */
+
 /* Skipped type : System.Data.Entity.IDbSet`1<System.Data.Entity.IDbSet`1+TEntity> IDbSet`1<TEntity> */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Annotations.AnnotationCodeGenerator AnnotationCodeGenerator */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Annotations.AnnotationValues AnnotationValues */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Annotations.CompatibilityResult CompatibilityResult */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Annotations.IMergeableAnnotation IMergeableAnnotation */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Annotations.IndexAnnotation IndexAnnotation */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Annotations.IndexAnnotationSerializer IndexAnnotationSerializer */
+
 /* Skipped type : System.Data.Entity.Infrastructure.CommitFailedException CommitFailedException */
+
 /* Skipped type : System.Data.Entity.Infrastructure.CommitFailureHandler CommitFailureHandler */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbChangeTracker DbChangeTracker */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbCollectionEntry DbCollectionEntry */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbCollectionEntry`2<System.Data.Entity.Infrastructure.DbCollectionEntry`2+TEntity, System.Data.Entity.Infrastructure.DbCollectionEntry`2+TElement> DbCollectionEntry`2<TEntity, TElement> */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbCompiledModel DbCompiledModel */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbComplexPropertyEntry DbComplexPropertyEntry */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbComplexPropertyEntry`2<System.Data.Entity.Infrastructure.DbComplexPropertyEntry`2+TEntity, System.Data.Entity.Infrastructure.DbComplexPropertyEntry`2+TComplexProperty> DbComplexPropertyEntry`2<TEntity, TComplexProperty> */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbConnectionInfo DbConnectionInfo */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbConnectionStringOrigin DbConnectionStringOrigin */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbContextConfiguration DbContextConfiguration */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbContextInfo DbContextInfo */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbEntityEntry DbEntityEntry */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbEntityEntry`1<System.Data.Entity.Infrastructure.DbEntityEntry`1+TEntity> DbEntityEntry`1<TEntity> */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbExecutionStrategy DbExecutionStrategy */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbMemberEntry DbMemberEntry */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbMemberEntry`2<System.Data.Entity.Infrastructure.DbMemberEntry`2+TEntity, System.Data.Entity.Infrastructure.DbMemberEntry`2+TProperty> DbMemberEntry`2<TEntity, TProperty> */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbModel DbModel */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbPropertyEntry DbPropertyEntry */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbPropertyEntry`2<System.Data.Entity.Infrastructure.DbPropertyEntry`2+TEntity, System.Data.Entity.Infrastructure.DbPropertyEntry`2+TProperty> DbPropertyEntry`2<TEntity, TProperty> */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbPropertyValues DbPropertyValues */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbProviderInfo DbProviderInfo */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbQuery DbQuery */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbQuery`1<System.Data.Entity.Infrastructure.DbQuery`1+TResult> DbQuery`1<TResult> */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbRawSqlQuery DbRawSqlQuery */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbRawSqlQuery`1<System.Data.Entity.Infrastructure.DbRawSqlQuery`1+TElement> DbRawSqlQuery`1<TElement> */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbReferenceEntry DbReferenceEntry */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbReferenceEntry`2<System.Data.Entity.Infrastructure.DbReferenceEntry`2+TEntity, System.Data.Entity.Infrastructure.DbReferenceEntry`2+TProperty> DbReferenceEntry`2<TEntity, TProperty> */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbSqlQuery DbSqlQuery */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbSqlQuery`1<System.Data.Entity.Infrastructure.DbSqlQuery`1+TEntity> DbSqlQuery`1<TEntity> */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbUpdateConcurrencyException DbUpdateConcurrencyException */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DbUpdateException DbUpdateException */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DefaultExecutionStrategy DefaultExecutionStrategy */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DefaultManifestTokenResolver DefaultManifestTokenResolver */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DependencyResolution.DbConfigurationLoadedEventArgs DbConfigurationLoadedEventArgs */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DependencyResolution.DbDependencyResolverExtensions DbDependencyResolverExtensions */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DependencyResolution.ExecutionStrategyResolver`1<System.Data.Entity.Infrastructure.DependencyResolution.ExecutionStrategyResolver`1+T> ExecutionStrategyResolver`1<T> */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DependencyResolution.IDbDependencyResolver IDbDependencyResolver */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DependencyResolution.SingletonDependencyResolver`1<System.Data.Entity.Infrastructure.DependencyResolution.SingletonDependencyResolver`1+T> SingletonDependencyResolver`1<T> */
+
 /* Skipped type : System.Data.Entity.Infrastructure.DependencyResolution.TransactionHandlerResolver TransactionHandlerResolver */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Design.AppConfigReader AppConfigReader */
+
 /* Skipped type : System.Data.Entity.Infrastructure.EdmMetadata EdmMetadata */
+
 /* Skipped type : System.Data.Entity.Infrastructure.EdmxWriter EdmxWriter */
+
 /* Skipped type : System.Data.Entity.Infrastructure.ExecutionStrategyKey ExecutionStrategyKey */
+
 /* Skipped type : System.Data.Entity.Infrastructure.IDbAsyncEnumerable IDbAsyncEnumerable */
+
 /* Skipped type : System.Data.Entity.Infrastructure.IDbAsyncEnumerable`1<System.Data.Entity.Infrastructure.IDbAsyncEnumerable`1+T> IDbAsyncEnumerable`1<T> */
+
 /* Skipped type : System.Data.Entity.Infrastructure.IDbAsyncEnumerator IDbAsyncEnumerator */
+
 /* Skipped type : System.Data.Entity.Infrastructure.IDbAsyncEnumerator`1<System.Data.Entity.Infrastructure.IDbAsyncEnumerator`1+T> IDbAsyncEnumerator`1<T> */
+
 /* Skipped type : System.Data.Entity.Infrastructure.IDbAsyncQueryProvider IDbAsyncQueryProvider */
+
 /* Skipped type : System.Data.Entity.Infrastructure.IDbConnectionFactory IDbConnectionFactory */
+
 /* Skipped type : System.Data.Entity.Infrastructure.IDbContextFactory`1<System.Data.Entity.Infrastructure.IDbContextFactory`1+TContext> IDbContextFactory`1<TContext> */
+
 /* Skipped type : System.Data.Entity.Infrastructure.IDbExecutionStrategy IDbExecutionStrategy */
+
 /* Skipped type : System.Data.Entity.Infrastructure.IDbModelCacheKey IDbModelCacheKey */
+
 /* Skipped type : System.Data.Entity.Infrastructure.IDbModelCacheKeyProvider IDbModelCacheKeyProvider */
+
 /* Skipped type : System.Data.Entity.Infrastructure.IDbProviderFactoryResolver IDbProviderFactoryResolver */
+
 /* Skipped type : System.Data.Entity.Infrastructure.IManifestTokenResolver IManifestTokenResolver */
+
 /* Skipped type : System.Data.Entity.Infrastructure.IMetadataAnnotationSerializer IMetadataAnnotationSerializer */
+
 /* Skipped type : System.Data.Entity.Infrastructure.IncludeMetadataConvention IncludeMetadataConvention */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.BeginTransactionInterceptionContext BeginTransactionInterceptionContext */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.DatabaseLogFormatter DatabaseLogFormatter */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.DatabaseLogger DatabaseLogger */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher DbCommandDispatcher */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.DbCommandInterceptionContext DbCommandInterceptionContext */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.DbCommandInterceptionContext`1<System.Data.Entity.Infrastructure.Interception.DbCommandInterceptionContext`1+TResult> DbCommandInterceptionContext`1<TResult> */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.DbCommandInterceptor DbCommandInterceptor */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.DbCommandTreeInterceptionContext DbCommandTreeInterceptionContext */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.DbConfigurationInterceptionContext DbConfigurationInterceptionContext */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher DbConnectionDispatcher */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.DbConnectionInterceptionContext DbConnectionInterceptionContext */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.DbConnectionInterceptionContext`1<System.Data.Entity.Infrastructure.Interception.DbConnectionInterceptionContext`1+TResult> DbConnectionInterceptionContext`1<TResult> */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.DbConnectionPropertyInterceptionContext`1<System.Data.Entity.Infrastructure.Interception.DbConnectionPropertyInterceptionContext`1+TValue> DbConnectionPropertyInterceptionContext`1<TValue> */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.DbDispatchers DbDispatchers */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.DbInterception DbInterception */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.DbInterceptionContext DbInterceptionContext */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.DbTransactionDispatcher DbTransactionDispatcher */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext DbTransactionInterceptionContext */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext`1<System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext`1+TResult> DbTransactionInterceptionContext`1<TResult> */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.EnlistTransactionInterceptionContext EnlistTransactionInterceptionContext */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.IDbCommandInterceptor IDbCommandInterceptor */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.IDbCommandTreeInterceptor IDbCommandTreeInterceptor */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.IDbConfigurationInterceptor IDbConfigurationInterceptor */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.IDbConnectionInterceptor IDbConnectionInterceptor */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.IDbInterceptor IDbInterceptor */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.IDbTransactionInterceptor IDbTransactionInterceptor */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.MutableInterceptionContext MutableInterceptionContext */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.MutableInterceptionContext`1<System.Data.Entity.Infrastructure.Interception.MutableInterceptionContext`1+TResult> MutableInterceptionContext`1<TResult> */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Interception.PropertyInterceptionContext`1<System.Data.Entity.Infrastructure.Interception.PropertyInterceptionContext`1+TValue> PropertyInterceptionContext`1<TValue> */
 #define SDEIIObjectContextAdapter_ System_Data_Entity_Infrastructure_IObjectContextAdapter
+
 /* Skipped type : System.Data.Entity.Infrastructure.IProviderInvariantName IProviderInvariantName */
+
 /* Skipped type : System.Data.Entity.Infrastructure.LocalDbConnectionFactory LocalDbConnectionFactory */
+
 /* Skipped type : System.Data.Entity.Infrastructure.MappingViews.DbMappingView DbMappingView */
+
 /* Skipped type : System.Data.Entity.Infrastructure.MappingViews.DbMappingViewCache DbMappingViewCache */
+
 /* Skipped type : System.Data.Entity.Infrastructure.MappingViews.DbMappingViewCacheFactory DbMappingViewCacheFactory */
+
 /* Skipped type : System.Data.Entity.Infrastructure.MappingViews.DbMappingViewCacheTypeAttribute DbMappingViewCacheTypeAttribute */
+
 /* Skipped type : System.Data.Entity.Infrastructure.ModelContainerConvention ModelContainerConvention */
+
 /* Skipped type : System.Data.Entity.Infrastructure.ModelNamespaceConvention ModelNamespaceConvention */
+
 /* Skipped type : System.Data.Entity.Infrastructure.ObjectReferenceEqualityComparer ObjectReferenceEqualityComparer */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Pluralization.CustomPluralizationEntry CustomPluralizationEntry */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Pluralization.EnglishPluralizationService EnglishPluralizationService */
+
 /* Skipped type : System.Data.Entity.Infrastructure.Pluralization.IPluralizationService IPluralizationService */
+
 /* Skipped type : System.Data.Entity.Infrastructure.ReplacementDbQueryWrapper`1<System.Data.Entity.Infrastructure.ReplacementDbQueryWrapper`1+TElement> ReplacementDbQueryWrapper`1<TElement> */
+
 /* Skipped type : System.Data.Entity.Infrastructure.RetryLimitExceededException RetryLimitExceededException */
+
 /* Skipped type : System.Data.Entity.Infrastructure.SqlCeConnectionFactory SqlCeConnectionFactory */
+
 /* Skipped type : System.Data.Entity.Infrastructure.SqlConnectionFactory SqlConnectionFactory */
+
 /* Skipped type : System.Data.Entity.Infrastructure.SuppressDbSetInitializationAttribute SuppressDbSetInitializationAttribute */
+
 /* Skipped type : System.Data.Entity.Infrastructure.TableExistenceChecker TableExistenceChecker */
+
 /* Skipped type : System.Data.Entity.Infrastructure.TransactionContext TransactionContext */
+
 /* Skipped type : System.Data.Entity.Infrastructure.TransactionHandler TransactionHandler */
+
 /* Skipped type : System.Data.Entity.Infrastructure.TransactionRow TransactionRow */
+
 /* Skipped type : System.Data.Entity.Infrastructure.UnintentionalCodeFirstException UnintentionalCodeFirstException */
+
 /* Skipped type : System.Data.Entity.MigrateDatabaseToLatestVersion`2<System.Data.Entity.MigrateDatabaseToLatestVersion`2+TContext, System.Data.Entity.MigrateDatabaseToLatestVersion`2+TMigrationsConfiguration> MigrateDatabaseToLatestVersion`2<TContext, TMigrationsConfiguration> */
+
 /* Skipped type : System.Data.Entity.Migrations.Builders.ColumnBuilder ColumnBuilder */
+
 /* Skipped type : System.Data.Entity.Migrations.Builders.ParameterBuilder ParameterBuilder */
+
 /* Skipped type : System.Data.Entity.Migrations.Builders.TableBuilder`1<System.Data.Entity.Migrations.Builders.TableBuilder`1+TColumns> TableBuilder`1<TColumns> */
+
 /* Skipped type : System.Data.Entity.Migrations.DbMigration DbMigration */
+
 /* Skipped type : System.Data.Entity.Migrations.DbMigrationsConfiguration DbMigrationsConfiguration */
+
 /* Skipped type : System.Data.Entity.Migrations.DbMigrationsConfiguration`1<System.Data.Entity.Migrations.DbMigrationsConfiguration`1+TContext> DbMigrationsConfiguration`1<TContext> */
+
 /* Skipped type : System.Data.Entity.Migrations.DbMigrator DbMigrator */
+
 /* Skipped type : System.Data.Entity.Migrations.DbSetMigrationsExtensions DbSetMigrationsExtensions */
+
 /* Skipped type : System.Data.Entity.Migrations.Design.CSharpMigrationCodeGenerator CSharpMigrationCodeGenerator */
+
 /* Skipped type : System.Data.Entity.Migrations.Design.MigrationCodeGenerator MigrationCodeGenerator */
+
 /* Skipped type : System.Data.Entity.Migrations.Design.MigrationScaffolder MigrationScaffolder */
+
 /* Skipped type : System.Data.Entity.Migrations.Design.ScaffoldedMigration ScaffoldedMigration */
+
 /* Skipped type : System.Data.Entity.Migrations.Design.ToolingFacade ToolingFacade */
+
 /* Skipped type : System.Data.Entity.Migrations.Design.VisualBasicMigrationCodeGenerator VisualBasicMigrationCodeGenerator */
+
 /* Skipped type : System.Data.Entity.Migrations.History.HistoryContext HistoryContext */
+
 /* Skipped type : System.Data.Entity.Migrations.History.HistoryRow HistoryRow */
+
 /* Skipped type : System.Data.Entity.Migrations.Infrastructure.AutomaticDataLossException AutomaticDataLossException */
+
 /* Skipped type : System.Data.Entity.Migrations.Infrastructure.AutomaticMigrationsDisabledException AutomaticMigrationsDisabledException */
+
 /* Skipped type : System.Data.Entity.Migrations.Infrastructure.IDbMigration IDbMigration */
+
 /* Skipped type : System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata IMigrationMetadata */
+
 /* Skipped type : System.Data.Entity.Migrations.Infrastructure.MigrationsException MigrationsException */
+
 /* Skipped type : System.Data.Entity.Migrations.Infrastructure.MigrationsLogger MigrationsLogger */
+
 /* Skipped type : System.Data.Entity.Migrations.Infrastructure.MigrationsPendingException MigrationsPendingException */
+
 /* Skipped type : System.Data.Entity.Migrations.Infrastructure.MigratorBase MigratorBase */
+
 /* Skipped type : System.Data.Entity.Migrations.Infrastructure.MigratorLoggingDecorator MigratorLoggingDecorator */
+
 /* Skipped type : System.Data.Entity.Migrations.Infrastructure.MigratorScriptingDecorator MigratorScriptingDecorator */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.AddColumnOperation AddColumnOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.AddForeignKeyOperation AddForeignKeyOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.AddPrimaryKeyOperation AddPrimaryKeyOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.AlterColumnOperation AlterColumnOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.AlterProcedureOperation AlterProcedureOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.AlterTableOperation AlterTableOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.ColumnModel ColumnModel */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.CreateIndexOperation CreateIndexOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.CreateProcedureOperation CreateProcedureOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.CreateTableOperation CreateTableOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.DropColumnOperation DropColumnOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.DropForeignKeyOperation DropForeignKeyOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.DropIndexOperation DropIndexOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.DropPrimaryKeyOperation DropPrimaryKeyOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.DropProcedureOperation DropProcedureOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.DropTableOperation DropTableOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.ForeignKeyOperation ForeignKeyOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.HistoryOperation HistoryOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.IndexOperation IndexOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.MigrationOperation MigrationOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.MoveProcedureOperation MoveProcedureOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.MoveTableOperation MoveTableOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.NotSupportedOperation NotSupportedOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.ParameterModel ParameterModel */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.PrimaryKeyOperation PrimaryKeyOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.ProcedureOperation ProcedureOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.PropertyModel PropertyModel */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.RenameColumnOperation RenameColumnOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.RenameIndexOperation RenameIndexOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.RenameProcedureOperation RenameProcedureOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.RenameTableOperation RenameTableOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.SqlOperation SqlOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.UpdateDatabaseOperation UpdateDatabaseOperation */
+
 /* Skipped type : System.Data.Entity.Migrations.Model.UpdateDatabaseOperation+Migration UpdateDatabaseOperation.Migration */
+
 /* Skipped type : System.Data.Entity.Migrations.Sql.MigrationSqlGenerator MigrationSqlGenerator */
+
 /* Skipped type : System.Data.Entity.Migrations.Sql.MigrationStatement MigrationStatement */
+
 /* Skipped type : System.Data.Entity.Migrations.Utilities.IndentedTextWriter IndentedTextWriter */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.ComplexTypeConfiguration`1<System.Data.Entity.ModelConfiguration.ComplexTypeConfiguration`1+TComplexType> ComplexTypeConfiguration`1<TComplexType> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.AssociationMappingConfiguration AssociationMappingConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.AssociationModificationStoredProcedureConfiguration`1<System.Data.Entity.ModelConfiguration.Configuration.AssociationModificationStoredProcedureConfiguration`1+TEntityType> AssociationModificationStoredProcedureConfiguration`1<TEntityType> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.BinaryPropertyConfiguration BinaryPropertyConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.CascadableNavigationPropertyConfiguration CascadableNavigationPropertyConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ConfigurationRegistrar ConfigurationRegistrar */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ConventionDeleteModificationStoredProcedureConfiguration ConventionDeleteModificationStoredProcedureConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ConventionInsertModificationStoredProcedureConfiguration ConventionInsertModificationStoredProcedureConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ConventionModificationStoredProcedureConfiguration ConventionModificationStoredProcedureConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ConventionModificationStoredProceduresConfiguration ConventionModificationStoredProceduresConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ConventionPrimitivePropertyConfiguration ConventionPrimitivePropertyConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ConventionsConfiguration ConventionsConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ConventionTypeConfiguration ConventionTypeConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ConventionTypeConfiguration`1<System.Data.Entity.ModelConfiguration.Configuration.ConventionTypeConfiguration`1+T> ConventionTypeConfiguration`1<T> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ConventionUpdateModificationStoredProcedureConfiguration ConventionUpdateModificationStoredProcedureConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.DateTimePropertyConfiguration DateTimePropertyConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.DecimalPropertyConfiguration DecimalPropertyConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.DeleteModificationStoredProcedureConfiguration`1<System.Data.Entity.ModelConfiguration.Configuration.DeleteModificationStoredProcedureConfiguration`1+TEntityType> DeleteModificationStoredProcedureConfiguration`1<TEntityType> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.DependentNavigationPropertyConfiguration`1<System.Data.Entity.ModelConfiguration.Configuration.DependentNavigationPropertyConfiguration`1+TDependentEntityType> DependentNavigationPropertyConfiguration`1<TDependentEntityType> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.EntityMappingConfiguration`1<System.Data.Entity.ModelConfiguration.Configuration.EntityMappingConfiguration`1+TEntityType> EntityMappingConfiguration`1<TEntityType> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ForeignKeyAssociationMappingConfiguration ForeignKeyAssociationMappingConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ForeignKeyNavigationPropertyConfiguration ForeignKeyNavigationPropertyConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.InsertModificationStoredProcedureConfiguration`1<System.Data.Entity.ModelConfiguration.Configuration.InsertModificationStoredProcedureConfiguration`1+TEntityType> InsertModificationStoredProcedureConfiguration`1<TEntityType> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.LengthColumnConfiguration LengthColumnConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.LengthPropertyConfiguration LengthPropertyConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ManyNavigationPropertyConfiguration`2<System.Data.Entity.ModelConfiguration.Configuration.ManyNavigationPropertyConfiguration`2+TEntityType, System.Data.Entity.ModelConfiguration.Configuration.ManyNavigationPropertyConfiguration`2+TTargetEntityType> ManyNavigationPropertyConfiguration`2<TEntityType, TTargetEntityType> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ManyToManyAssociationMappingConfiguration ManyToManyAssociationMappingConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ManyToManyModificationStoredProcedureConfiguration`2<System.Data.Entity.ModelConfiguration.Configuration.ManyToManyModificationStoredProcedureConfiguration`2+TEntityType, System.Data.Entity.ModelConfiguration.Configuration.ManyToManyModificationStoredProcedureConfiguration`2+TTargetEntityType> ManyToManyModificationStoredProcedureConfiguration`2<TEntityType, TTargetEntityType> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ManyToManyModificationStoredProceduresConfiguration`2<System.Data.Entity.ModelConfiguration.Configuration.ManyToManyModificationStoredProceduresConfiguration`2+TEntityType, System.Data.Entity.ModelConfiguration.Configuration.ManyToManyModificationStoredProceduresConfiguration`2+TTargetEntityType> ManyToManyModificationStoredProceduresConfiguration`2<TEntityType, TTargetEntityType> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ManyToManyNavigationPropertyConfiguration`2<System.Data.Entity.ModelConfiguration.Configuration.ManyToManyNavigationPropertyConfiguration`2+TEntityType, System.Data.Entity.ModelConfiguration.Configuration.ManyToManyNavigationPropertyConfiguration`2+TTargetEntityType> ManyToManyNavigationPropertyConfiguration`2<TEntityType, TTargetEntityType> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ModificationStoredProcedureConfigurationBase ModificationStoredProcedureConfigurationBase */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ModificationStoredProceduresConfiguration`1<System.Data.Entity.ModelConfiguration.Configuration.ModificationStoredProceduresConfiguration`1+TEntityType> ModificationStoredProceduresConfiguration`1<TEntityType> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.NotNullConditionConfiguration NotNullConditionConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.OptionalNavigationPropertyConfiguration`2<System.Data.Entity.ModelConfiguration.Configuration.OptionalNavigationPropertyConfiguration`2+TEntityType, System.Data.Entity.ModelConfiguration.Configuration.OptionalNavigationPropertyConfiguration`2+TTargetEntityType> OptionalNavigationPropertyConfiguration`2<TEntityType, TTargetEntityType> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.PrimitiveColumnConfiguration PrimitiveColumnConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.PrimitivePropertyConfiguration PrimitivePropertyConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.PropertyConventionConfiguration PropertyConventionConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.PropertyConventionWithHavingConfiguration`1<System.Data.Entity.ModelConfiguration.Configuration.PropertyConventionWithHavingConfiguration`1+T> PropertyConventionWithHavingConfiguration`1<T> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.PropertyMappingConfiguration PropertyMappingConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.RequiredNavigationPropertyConfiguration`2<System.Data.Entity.ModelConfiguration.Configuration.RequiredNavigationPropertyConfiguration`2+TEntityType, System.Data.Entity.ModelConfiguration.Configuration.RequiredNavigationPropertyConfiguration`2+TTargetEntityType> RequiredNavigationPropertyConfiguration`2<TEntityType, TTargetEntityType> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.StringColumnConfiguration StringColumnConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.StringPropertyConfiguration StringPropertyConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.StructuralTypeConfiguration`1<System.Data.Entity.ModelConfiguration.Configuration.StructuralTypeConfiguration`1+TStructuralType> StructuralTypeConfiguration`1<TStructuralType> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.TypeConventionConfiguration TypeConventionConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.TypeConventionConfiguration`1<System.Data.Entity.ModelConfiguration.Configuration.TypeConventionConfiguration`1+T> TypeConventionConfiguration`1<T> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.TypeConventionWithHavingConfiguration`1<System.Data.Entity.ModelConfiguration.Configuration.TypeConventionWithHavingConfiguration`1+T> TypeConventionWithHavingConfiguration`1<T> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.TypeConventionWithHavingConfiguration`2<System.Data.Entity.ModelConfiguration.Configuration.TypeConventionWithHavingConfiguration`2+T, System.Data.Entity.ModelConfiguration.Configuration.TypeConventionWithHavingConfiguration`2+TValue> TypeConventionWithHavingConfiguration`2<T, TValue> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.UpdateModificationStoredProcedureConfiguration`1<System.Data.Entity.ModelConfiguration.Configuration.UpdateModificationStoredProcedureConfiguration`1+TEntityType> UpdateModificationStoredProcedureConfiguration`1<TEntityType> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Configuration.ValueConditionConfiguration ValueConditionConfiguration */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.AssociationInverseDiscoveryConvention AssociationInverseDiscoveryConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.AttributeToColumnAnnotationConvention`2<System.Data.Entity.ModelConfiguration.Conventions.AttributeToColumnAnnotationConvention`2+TAttribute, System.Data.Entity.ModelConfiguration.Conventions.AttributeToColumnAnnotationConvention`2+TAnnotation> AttributeToColumnAnnotationConvention`2<TAttribute, TAnnotation> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.AttributeToTableAnnotationConvention`2<System.Data.Entity.ModelConfiguration.Conventions.AttributeToTableAnnotationConvention`2+TAttribute, System.Data.Entity.ModelConfiguration.Conventions.AttributeToTableAnnotationConvention`2+TAnnotation> AttributeToTableAnnotationConvention`2<TAttribute, TAnnotation> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.ColumnAttributeConvention ColumnAttributeConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.ColumnOrderingConvention ColumnOrderingConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.ColumnOrderingConventionStrict ColumnOrderingConventionStrict */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.ComplexTypeAttributeConvention ComplexTypeAttributeConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.ComplexTypeDiscoveryConvention ComplexTypeDiscoveryConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.ConcurrencyCheckAttributeConvention ConcurrencyCheckAttributeConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.Convention Convention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.DatabaseGeneratedAttributeConvention DatabaseGeneratedAttributeConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.DecimalPropertyConvention DecimalPropertyConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.DeclaredPropertyOrderingConvention DeclaredPropertyOrderingConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.ForeignKeyAssociationMultiplicityConvention ForeignKeyAssociationMultiplicityConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.ForeignKeyDiscoveryConvention ForeignKeyDiscoveryConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.ForeignKeyIndexConvention ForeignKeyIndexConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.ForeignKeyNavigationPropertyAttributeConvention ForeignKeyNavigationPropertyAttributeConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.ForeignKeyPrimitivePropertyAttributeConvention ForeignKeyPrimitivePropertyAttributeConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.IConceptualModelConvention`1<System.Data.Entity.ModelConfiguration.Conventions.IConceptualModelConvention`1+T> IConceptualModelConvention`1<T> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.IConvention IConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.IdKeyDiscoveryConvention IdKeyDiscoveryConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.IndexAttributeConvention IndexAttributeConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.InversePropertyAttributeConvention InversePropertyAttributeConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.IStoreModelConvention`1<System.Data.Entity.ModelConfiguration.Conventions.IStoreModelConvention`1+T> IStoreModelConvention`1<T> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.KeyAttributeConvention KeyAttributeConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.KeyDiscoveryConvention KeyDiscoveryConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.ManyToManyCascadeDeleteConvention ManyToManyCascadeDeleteConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.MappingInheritedPropertiesSupportConvention MappingInheritedPropertiesSupportConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.MaxLengthAttributeConvention MaxLengthAttributeConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.NavigationPropertyNameForeignKeyDiscoveryConvention NavigationPropertyNameForeignKeyDiscoveryConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.NotMappedPropertyAttributeConvention NotMappedPropertyAttributeConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.NotMappedTypeAttributeConvention NotMappedTypeAttributeConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.OneToManyCascadeDeleteConvention OneToManyCascadeDeleteConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.OneToOneConstraintIntroductionConvention OneToOneConstraintIntroductionConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.PluralizingEntitySetNameConvention PluralizingEntitySetNameConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.PluralizingTableNameConvention PluralizingTableNameConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.PrimaryKeyNameForeignKeyDiscoveryConvention PrimaryKeyNameForeignKeyDiscoveryConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.PrimitivePropertyAttributeConfigurationConvention`1<System.Data.Entity.ModelConfiguration.Conventions.PrimitivePropertyAttributeConfigurationConvention`1+TAttribute> PrimitivePropertyAttributeConfigurationConvention`1<TAttribute> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.PropertyAttributeConfigurationConvention`1<System.Data.Entity.ModelConfiguration.Conventions.PropertyAttributeConfigurationConvention`1+TAttribute> PropertyAttributeConfigurationConvention`1<TAttribute> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.PropertyMaxLengthConvention PropertyMaxLengthConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.RequiredNavigationPropertyAttributeConvention RequiredNavigationPropertyAttributeConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.RequiredPrimitivePropertyAttributeConvention RequiredPrimitivePropertyAttributeConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.SqlCePropertyMaxLengthConvention SqlCePropertyMaxLengthConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.StoreGeneratedIdentityKeyConvention StoreGeneratedIdentityKeyConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.StringLengthAttributeConvention StringLengthAttributeConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.TableAttributeConvention TableAttributeConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.TimestampAttributeConvention TimestampAttributeConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.TypeAttributeConfigurationConvention`1<System.Data.Entity.ModelConfiguration.Conventions.TypeAttributeConfigurationConvention`1+TAttribute> TypeAttributeConfigurationConvention`1<TAttribute> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.Conventions.TypeNameForeignKeyDiscoveryConvention TypeNameForeignKeyDiscoveryConvention */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.EntityTypeConfiguration`1<System.Data.Entity.ModelConfiguration.EntityTypeConfiguration`1+TEntityType> EntityTypeConfiguration`1<TEntityType> */
+
 /* Skipped type : System.Data.Entity.ModelConfiguration.ModelValidationException ModelValidationException */
+
 /* Skipped type : System.Data.Entity.NullDatabaseInitializer`1<System.Data.Entity.NullDatabaseInitializer`1+TContext> NullDatabaseInitializer`1<TContext> */
+
 /* Skipped type : System.Data.Entity.ObservableCollectionExtensions ObservableCollectionExtensions */
+
 /* Skipped type : System.Data.Entity.QueryableExtensions QueryableExtensions */
+
 /* Skipped type : System.Data.Entity.Spatial.DbGeography DbGeography */
+
 /* Skipped type : System.Data.Entity.Spatial.DbGeographyWellKnownValue DbGeographyWellKnownValue */
+
 /* Skipped type : System.Data.Entity.Spatial.DbGeometry DbGeometry */
+
 /* Skipped type : System.Data.Entity.Spatial.DbGeometryWellKnownValue DbGeometryWellKnownValue */
+
 /* Skipped type : System.Data.Entity.Spatial.DbSpatialDataReader DbSpatialDataReader */
+
 /* Skipped type : System.Data.Entity.Spatial.DbSpatialServices DbSpatialServices */
+
 /* Skipped type : System.Data.Entity.TransactionalBehavior TransactionalBehavior */
+
 /* Skipped type : System.Data.Entity.Utilities.TaskExtensions TaskExtensions */
+
 /* Skipped type : System.Data.Entity.Utilities.TaskExtensions+CultureAwaiter TaskExtensions.CultureAwaiter */
+
 /* Skipped type : System.Data.Entity.Utilities.TaskExtensions+CultureAwaiter`1<System.Data.Entity.Utilities.TaskExtensions+CultureAwaiter`1+T> TaskExtensions.CultureAwaiter`1<T> */
+
 /* Skipped type : System.Data.Entity.Validation.DbEntityValidationException DbEntityValidationException */
+
 /* Skipped type : System.Data.Entity.Validation.DbEntityValidationResult DbEntityValidationResult */
+
 /* Skipped type : System.Data.Entity.Validation.DbUnexpectedValidationException DbUnexpectedValidationException */
+
 /* Skipped type : System.Data.Entity.Validation.DbValidationError DbValidationError */
 
 /*

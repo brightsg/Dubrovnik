@@ -37,10 +37,9 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Properties
@@ -52,6 +51,7 @@
 	// Managed property name : ContentType
 	// Managed property type : System.String
     @property (nonatomic, strong) NSString * contentType;
+
 /* Skipped property : System.Net.WebHeaderCollection Headers */
 
 	// Managed property name : IsFromCache
@@ -73,25 +73,49 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Close
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)close;
+/**
+ Managed method.
+ @textblock
+ Name
+   Close
 
-	/*! 
-		Managed method name : Dispose
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)dispose;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : GetResponseStream
-		Managed return type : System.IO.Stream
-		Managed param types : 
-	 */
-    - (System_IO_Stream *)getResponseStream;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)close;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Dispose
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)dispose;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetResponseStream
+
+ Params
+   (none)
+
+ Return
+   System.IO.Stream
+ @/textblock
+*/
+- (System_IO_Stream *)getResponseStream;
 @end
 //--Dubrovnik.CodeGenerator

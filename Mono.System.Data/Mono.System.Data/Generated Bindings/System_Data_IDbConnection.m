@@ -19,16 +19,15 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Data.IDbConnection";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "System.Data";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Data.IDbConnection";
+}
++ (const char *)monoAssemblyName
+{
+	return "System.Data";
+}
 
 #pragma mark -
 #pragma mark Properties
@@ -112,54 +111,38 @@
 
 		return _database;
 	}
+
 /* Skipped property : System.Data.ConnectionState State */
 
 #pragma mark -
 #pragma mark Methods
+
 /* Skipped method : System.Data.IDbTransaction BeginTransaction() */
+
 /* Skipped method : System.Data.IDbTransaction BeginTransaction(System.Data.IsolationLevel il) */
 
-	/*! 
-		Managed method name : ChangeDatabase
-		Managed return type : System.Void
-		Managed param types : System.String
-	 */
-    - (void)changeDatabase_withDatabaseName:(NSString *)p1
-    {
-		
-		[self invokeMonoMethod:"System.Data.IDbConnection.ChangeDatabase(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-    }
+- (void)changeDatabase_withDatabaseName:(NSString *)p1
+{
+  [self invokeMonoMethod:"System.Data.IDbConnection.ChangeDatabase(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+}
 
-	/*! 
-		Managed method name : Close
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)close
-    {
-		
-		[self invokeMonoMethod:"System.Data.IDbConnection.Close()" withNumArgs:0];
-      
-    }
+- (void)close
+{
+  [self invokeMonoMethod:"System.Data.IDbConnection.Close()" withNumArgs:0];
+}
+
 /* Skipped method : System.Data.IDbCommand CreateCommand() */
 
-	/*! 
-		Managed method name : Open
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)open
-    {
-		
-		[self invokeMonoMethod:"System.Data.IDbConnection.Open()" withNumArgs:0];
-      
-    }
+- (void)open
+{
+  [self invokeMonoMethod:"System.Data.IDbConnection.Open()" withNumArgs:0];
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

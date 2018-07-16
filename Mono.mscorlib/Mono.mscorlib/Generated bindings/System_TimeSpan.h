@@ -38,41 +38,81 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.TimeSpan
-		Managed param types : System.Int64
-	 */
-    + (System_TimeSpan *)new_withTicks:(int64_t)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.TimeSpan
-		Managed param types : System.Int32, System.Int32, System.Int32
-	 */
-    + (System_TimeSpan *)new_withHours:(int32_t)p1 minutes:(int32_t)p2 seconds:(int32_t)p3;
+ Params
+   System.Int64
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.TimeSpan
-		Managed param types : System.Int32, System.Int32, System.Int32, System.Int32
-	 */
-    + (System_TimeSpan *)new_withDays:(int32_t)p1 hours:(int32_t)p2 minutes:(int32_t)p3 seconds:(int32_t)p4;
+ Return
+   System.TimeSpan
+ @/textblock
+*/
++ (System_TimeSpan *)new_withTicks:(int64_t)p1;
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.TimeSpan
-		Managed param types : System.Int32, System.Int32, System.Int32, System.Int32, System.Int32
-	 */
-    + (System_TimeSpan *)new_withDays:(int32_t)p1 hours:(int32_t)p2 minutes:(int32_t)p3 seconds:(int32_t)p4 milliseconds:(int32_t)p5;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Int32
+   System.Int32
+   System.Int32
+
+ Return
+   System.TimeSpan
+ @/textblock
+*/
++ (System_TimeSpan *)new_withHours:(int32_t)p1 minutes:(int32_t)p2 seconds:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Int32
+   System.Int32
+   System.Int32
+   System.Int32
+
+ Return
+   System.TimeSpan
+ @/textblock
+*/
++ (System_TimeSpan *)new_withDays:(int32_t)p1 hours:(int32_t)p2 minutes:(int32_t)p3 seconds:(int32_t)p4;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Int32
+   System.Int32
+   System.Int32
+   System.Int32
+   System.Int32
+
+ Return
+   System.TimeSpan
+ @/textblock
+*/
++ (System_TimeSpan *)new_withDays:(int32_t)p1 hours:(int32_t)p2 minutes:(int32_t)p3 seconds:(int32_t)p4 milliseconds:(int32_t)p5;
 
 #pragma mark -
 #pragma mark Fields
@@ -159,232 +199,502 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Add
-		Managed return type : System.TimeSpan
-		Managed param types : System.TimeSpan
-	 */
-    - (System_TimeSpan *)add_withTs:(System_TimeSpan *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Add
 
-	/*! 
-		Managed method name : Compare
-		Managed return type : System.Int32
-		Managed param types : System.TimeSpan, System.TimeSpan
-	 */
-    + (int32_t)compare_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
+ Params
+   System.TimeSpan
 
-	/*! 
-		Managed method name : CompareTo
-		Managed return type : System.Int32
-		Managed param types : System.Object
-	 */
-    - (int32_t)compareTo_withValueObject:(System_Object *)p1;
+ Return
+   System.TimeSpan
+ @/textblock
+*/
+- (System_TimeSpan *)add_withTs:(System_TimeSpan *)p1;
 
-	/*! 
-		Managed method name : CompareTo
-		Managed return type : System.Int32
-		Managed param types : System.TimeSpan
-	 */
-    - (int32_t)compareTo_withValueSTimeSpan:(System_TimeSpan *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Compare
 
-	/*! 
-		Managed method name : Duration
-		Managed return type : System.TimeSpan
-		Managed param types : 
-	 */
-    - (System_TimeSpan *)duration;
+ Params
+   System.TimeSpan
+   System.TimeSpan
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withValue:(System_Object *)p1;
+ Return
+   System.Int32
+ @/textblock
+*/
++ (int32_t)compare_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.TimeSpan
-	 */
-    - (BOOL)equals_withObj:(System_TimeSpan *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   CompareTo
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.TimeSpan, System.TimeSpan
-	 */
-    + (BOOL)equals_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : FromDays
-		Managed return type : System.TimeSpan
-		Managed param types : System.Double
-	 */
-    + (System_TimeSpan *)fromDays_withValue:(double)p1;
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)compareTo_withValueObject:(System_Object *)p1;
 
-	/*! 
-		Managed method name : FromHours
-		Managed return type : System.TimeSpan
-		Managed param types : System.Double
-	 */
-    + (System_TimeSpan *)fromHours_withValue:(double)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   CompareTo
 
-	/*! 
-		Managed method name : FromMilliseconds
-		Managed return type : System.TimeSpan
-		Managed param types : System.Double
-	 */
-    + (System_TimeSpan *)fromMilliseconds_withValue:(double)p1;
+ Params
+   System.TimeSpan
 
-	/*! 
-		Managed method name : FromMinutes
-		Managed return type : System.TimeSpan
-		Managed param types : System.Double
-	 */
-    + (System_TimeSpan *)fromMinutes_withValue:(double)p1;
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)compareTo_withValueSTimeSpan:(System_TimeSpan *)p1;
 
-	/*! 
-		Managed method name : FromSeconds
-		Managed return type : System.TimeSpan
-		Managed param types : System.Double
-	 */
-    + (System_TimeSpan *)fromSeconds_withValue:(double)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Duration
 
-	/*! 
-		Managed method name : FromTicks
-		Managed return type : System.TimeSpan
-		Managed param types : System.Int64
-	 */
-    + (System_TimeSpan *)fromTicks_withValue:(int64_t)p1;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode;
+ Return
+   System.TimeSpan
+ @/textblock
+*/
+- (System_TimeSpan *)duration;
 
-	/*! 
-		Managed method name : Negate
-		Managed return type : System.TimeSpan
-		Managed param types : 
-	 */
-    - (System_TimeSpan *)negate;
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-	/*! 
-		Managed method name : op_Addition
-		Managed return type : System.TimeSpan
-		Managed param types : System.TimeSpan, System.TimeSpan
-	 */
-    + (System_TimeSpan *)op_Addition_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : op_Equality
-		Managed return type : System.Boolean
-		Managed param types : System.TimeSpan, System.TimeSpan
-	 */
-    + (BOOL)op_Equality_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withValue:(System_Object *)p1;
 
-	/*! 
-		Managed method name : op_GreaterThan
-		Managed return type : System.Boolean
-		Managed param types : System.TimeSpan, System.TimeSpan
-	 */
-    + (BOOL)op_GreaterThan_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-	/*! 
-		Managed method name : op_GreaterThanOrEqual
-		Managed return type : System.Boolean
-		Managed param types : System.TimeSpan, System.TimeSpan
-	 */
-    + (BOOL)op_GreaterThanOrEqual_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
+ Params
+   System.TimeSpan
 
-	/*! 
-		Managed method name : op_Inequality
-		Managed return type : System.Boolean
-		Managed param types : System.TimeSpan, System.TimeSpan
-	 */
-    + (BOOL)op_Inequality_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withObj:(System_TimeSpan *)p1;
 
-	/*! 
-		Managed method name : op_LessThan
-		Managed return type : System.Boolean
-		Managed param types : System.TimeSpan, System.TimeSpan
-	 */
-    + (BOOL)op_LessThan_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-	/*! 
-		Managed method name : op_LessThanOrEqual
-		Managed return type : System.Boolean
-		Managed param types : System.TimeSpan, System.TimeSpan
-	 */
-    + (BOOL)op_LessThanOrEqual_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
+ Params
+   System.TimeSpan
+   System.TimeSpan
 
-	/*! 
-		Managed method name : op_Subtraction
-		Managed return type : System.TimeSpan
-		Managed param types : System.TimeSpan, System.TimeSpan
-	 */
-    + (System_TimeSpan *)op_Subtraction_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)equals_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
 
-	/*! 
-		Managed method name : op_UnaryNegation
-		Managed return type : System.TimeSpan
-		Managed param types : System.TimeSpan
-	 */
-    + (System_TimeSpan *)op_UnaryNegation_withT:(System_TimeSpan *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   FromDays
 
-	/*! 
-		Managed method name : op_UnaryPlus
-		Managed return type : System.TimeSpan
-		Managed param types : System.TimeSpan
-	 */
-    + (System_TimeSpan *)op_UnaryPlus_withT:(System_TimeSpan *)p1;
+ Params
+   System.Double
 
-	/*! 
-		Managed method name : Parse
-		Managed return type : System.TimeSpan
-		Managed param types : System.String
-	 */
-    + (System_TimeSpan *)parse_withS:(NSString *)p1;
+ Return
+   System.TimeSpan
+ @/textblock
+*/
++ (System_TimeSpan *)fromDays_withValue:(double)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FromHours
+
+ Params
+   System.Double
+
+ Return
+   System.TimeSpan
+ @/textblock
+*/
++ (System_TimeSpan *)fromHours_withValue:(double)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FromMilliseconds
+
+ Params
+   System.Double
+
+ Return
+   System.TimeSpan
+ @/textblock
+*/
++ (System_TimeSpan *)fromMilliseconds_withValue:(double)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FromMinutes
+
+ Params
+   System.Double
+
+ Return
+   System.TimeSpan
+ @/textblock
+*/
++ (System_TimeSpan *)fromMinutes_withValue:(double)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FromSeconds
+
+ Params
+   System.Double
+
+ Return
+   System.TimeSpan
+ @/textblock
+*/
++ (System_TimeSpan *)fromSeconds_withValue:(double)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FromTicks
+
+ Params
+   System.Int64
+
+ Return
+   System.TimeSpan
+ @/textblock
+*/
++ (System_TimeSpan *)fromTicks_withValue:(int64_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
+
+ Params
+   (none)
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getHashCode;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Negate
+
+ Params
+   (none)
+
+ Return
+   System.TimeSpan
+ @/textblock
+*/
+- (System_TimeSpan *)negate;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Addition
+
+ Params
+   System.TimeSpan
+   System.TimeSpan
+
+ Return
+   System.TimeSpan
+ @/textblock
+*/
++ (System_TimeSpan *)op_Addition_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Equality
+
+ Params
+   System.TimeSpan
+   System.TimeSpan
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_Equality_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_GreaterThan
+
+ Params
+   System.TimeSpan
+   System.TimeSpan
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_GreaterThan_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_GreaterThanOrEqual
+
+ Params
+   System.TimeSpan
+   System.TimeSpan
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_GreaterThanOrEqual_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Inequality
+
+ Params
+   System.TimeSpan
+   System.TimeSpan
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_Inequality_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_LessThan
+
+ Params
+   System.TimeSpan
+   System.TimeSpan
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_LessThan_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_LessThanOrEqual
+
+ Params
+   System.TimeSpan
+   System.TimeSpan
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_LessThanOrEqual_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Subtraction
+
+ Params
+   System.TimeSpan
+   System.TimeSpan
+
+ Return
+   System.TimeSpan
+ @/textblock
+*/
++ (System_TimeSpan *)op_Subtraction_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_UnaryNegation
+
+ Params
+   System.TimeSpan
+
+ Return
+   System.TimeSpan
+ @/textblock
+*/
++ (System_TimeSpan *)op_UnaryNegation_withT:(System_TimeSpan *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_UnaryPlus
+
+ Params
+   System.TimeSpan
+
+ Return
+   System.TimeSpan
+ @/textblock
+*/
++ (System_TimeSpan *)op_UnaryPlus_withT:(System_TimeSpan *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Parse
+
+ Params
+   System.String
+
+ Return
+   System.TimeSpan
+ @/textblock
+*/
++ (System_TimeSpan *)parse_withS:(NSString *)p1;
+
 /* Skipped method : System.TimeSpan Parse(System.String input, System.IFormatProvider formatProvider) */
+
 /* Skipped method : System.TimeSpan ParseExact(System.String input, System.String format, System.IFormatProvider formatProvider) */
+
 /* Skipped method : System.TimeSpan ParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider) */
+
 /* Skipped method : System.TimeSpan ParseExact(System.String input, System.String format, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles) */
+
 /* Skipped method : System.TimeSpan ParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles) */
 
-	/*! 
-		Managed method name : Subtract
-		Managed return type : System.TimeSpan
-		Managed param types : System.TimeSpan
-	 */
-    - (System_TimeSpan *)subtract_withTs:(System_TimeSpan *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Subtract
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString;
+ Params
+   System.TimeSpan
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.String
-	 */
-    - (NSString *)toString_withFormat:(NSString *)p1;
+ Return
+   System.TimeSpan
+ @/textblock
+*/
+- (System_TimeSpan *)subtract_withTs:(System_TimeSpan *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   System.String
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString_withFormat:(NSString *)p1;
+
 /* Skipped method : System.String ToString(System.String format, System.IFormatProvider formatProvider) */
 
-	/*! 
-		Managed method name : TryParse
-		Managed return type : System.Boolean
-		Managed param types : System.String, ref System.TimeSpan&
-	 */
-    + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(System_TimeSpan **)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   TryParse
+
+ Params
+   System.String
+   ref System.TimeSpan&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)tryParse_withS:(NSString *)p1 resultRef:(System_TimeSpan **)p2;
+
 /* Skipped method : System.Boolean TryParse(System.String input, System.IFormatProvider formatProvider, System.TimeSpan& result) */
+
 /* Skipped method : System.Boolean TryParseExact(System.String input, System.String format, System.IFormatProvider formatProvider, System.TimeSpan& result) */
+
 /* Skipped method : System.Boolean TryParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider, System.TimeSpan& result) */
+
 /* Skipped method : System.Boolean TryParseExact(System.String input, System.String format, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles, System.TimeSpan& result) */
+
 /* Skipped method : System.Boolean TryParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles, System.TimeSpan& result) */
 @end
 //--Dubrovnik.CodeGenerator

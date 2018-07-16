@@ -19,16 +19,15 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Net.HttpWebResponse";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "System";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Net.HttpWebResponse";
+}
++ (const char *)monoAssemblyName
+{
+	return "System";
+}
 
 #pragma mark -
 #pragma mark Properties
@@ -119,7 +118,9 @@
 
 		return _contentType;
 	}
+
 /* Skipped property : System.Net.CookieCollection Cookies */
+
 /* Skipped property : System.Net.WebHeaderCollection Headers */
 
 	// Managed property name : IsMutuallyAuthenticated
@@ -320,48 +321,28 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Close
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)close
-    {
-		
-		[self invokeMonoMethod:"Close()" withNumArgs:0];
-      
-    }
+- (void)close
+{
+  [self invokeMonoMethod:"Close()" withNumArgs:0];
+}
 
-	/*! 
-		Managed method name : GetResponseHeader
-		Managed return type : System.String
-		Managed param types : System.String
-	 */
-    - (NSString *)getResponseHeader_withHeaderName:(NSString *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetResponseHeader(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
+- (NSString *)getResponseHeader_withHeaderName:(NSString *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetResponseHeader(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
 
-	/*! 
-		Managed method name : GetResponseStream
-		Managed return type : System.IO.Stream
-		Managed param types : 
-	 */
-    - (System_IO_Stream *)getResponseStream
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetResponseStream()" withNumArgs:0];
-		
-		return [System_IO_Stream bestObjectWithMonoObject:monoObject];
-    }
+- (System_IO_Stream *)getResponseStream
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetResponseStream()" withNumArgs:0];
+  return [System_IO_Stream bestObjectWithMonoObject:monoObject];
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

@@ -49,10 +49,9 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Properties
@@ -60,7 +59,9 @@
 	// Managed property name : CodeBase
 	// Managed property type : System.String
     @property (nonatomic, strong, readonly) NSString * codeBase;
+
 /* Skipped property : System.Collections.Generic.IEnumerable`1<System.Reflection.CustomAttributeData> CustomAttributes */
+
 /* Skipped property : System.Collections.Generic.IEnumerable`1<System.Reflection.TypeInfo> DefinedTypes */
 
 	// Managed property name : EntryPoint
@@ -70,6 +71,7 @@
 	// Managed property name : EscapedCodeBase
 	// Managed property type : System.String
     @property (nonatomic, strong, readonly) NSString * escapedCodeBase;
+
 /* Skipped property : System.Security.Policy.Evidence Evidence */
 
 	// Managed property name : ExportedTypes
@@ -103,312 +105,663 @@
 	// Managed property name : Location
 	// Managed property type : System.String
     @property (nonatomic, strong, readonly) NSString * location;
+
 /* Skipped property : System.Reflection.Module ManifestModule */
+
 /* Skipped property : System.Collections.Generic.IEnumerable`1<System.Reflection.Module> Modules */
+
 /* Skipped property : System.Security.PermissionSet PermissionSet */
 
 	// Managed property name : ReflectionOnly
 	// Managed property type : System.Boolean
     @property (nonatomic, readonly) BOOL reflectionOnly;
+
 /* Skipped property : System.Security.SecurityRuleSet SecurityRuleSet */
 
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : CreateInstance
-		Managed return type : System.Object
-		Managed param types : System.String
-	 */
-    - (System_Object *)createInstance_withTypeName:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateInstance
 
-	/*! 
-		Managed method name : CreateInstance
-		Managed return type : System.Object
-		Managed param types : System.String, System.Boolean
-	 */
-    - (System_Object *)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2;
+ Params
+   System.String
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (System_Object *)createInstance_withTypeName:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateInstance
+
+ Params
+   System.String
+   System.Boolean
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (System_Object *)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2;
+
 /* Skipped method : System.Object CreateInstance(System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
 
-	/*! 
-		Managed method name : CreateQualifiedName
-		Managed return type : System.String
-		Managed param types : System.String, System.String
-	 */
-    + (NSString *)createQualifiedName_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateQualifiedName
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withO:(System_Object *)p1;
+ Params
+   System.String
+   System.String
 
-	/*! 
-		Managed method name : GetAssembly
-		Managed return type : System.Reflection.Assembly
-		Managed param types : System.Type
-	 */
-    + (System_Reflection_Assembly *)getAssembly_withType:(System_Type *)p1;
+ Return
+   System.String
+ @/textblock
+*/
++ (NSString *)createQualifiedName_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2;
 
-	/*! 
-		Managed method name : GetCallingAssembly
-		Managed return type : System.Reflection.Assembly
-		Managed param types : 
-	 */
-    + (System_Reflection_Assembly *)getCallingAssembly;
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-	/*! 
-		Managed method name : GetCustomAttributes
-		Managed return type : System.Object[]
-		Managed param types : System.Boolean
-	 */
-    - (System_Array *)getCustomAttributes_withInherit:(BOOL)p1;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : GetCustomAttributes
-		Managed return type : System.Object[]
-		Managed param types : System.Type, System.Boolean
-	 */
-    - (System_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2;
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withO:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetAssembly
+
+ Params
+   System.Type
+
+ Return
+   System.Reflection.Assembly
+ @/textblock
+*/
++ (System_Reflection_Assembly *)getAssembly_withType:(System_Type *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetCallingAssembly
+
+ Params
+   (none)
+
+ Return
+   System.Reflection.Assembly
+ @/textblock
+*/
++ (System_Reflection_Assembly *)getCallingAssembly;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetCustomAttributes
+
+ Params
+   System.Boolean
+
+ Return
+   System.Object[]
+ @/textblock
+*/
+- (System_Array *)getCustomAttributes_withInherit:(BOOL)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetCustomAttributes
+
+ Params
+   System.Type
+   System.Boolean
+
+ Return
+   System.Object[]
+ @/textblock
+*/
+- (System_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2;
+
 /* Skipped method : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData> GetCustomAttributesData() */
 
-	/*! 
-		Managed method name : GetEntryAssembly
-		Managed return type : System.Reflection.Assembly
-		Managed param types : 
-	 */
-    + (System_Reflection_Assembly *)getEntryAssembly;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetEntryAssembly
 
-	/*! 
-		Managed method name : GetExecutingAssembly
-		Managed return type : System.Reflection.Assembly
-		Managed param types : 
-	 */
-    + (System_Reflection_Assembly *)getExecutingAssembly;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : GetExportedTypes
-		Managed return type : System.Type[]
-		Managed param types : 
-	 */
-    - (System_Array *)getExportedTypes;
+ Return
+   System.Reflection.Assembly
+ @/textblock
+*/
++ (System_Reflection_Assembly *)getEntryAssembly;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetExecutingAssembly
+
+ Params
+   (none)
+
+ Return
+   System.Reflection.Assembly
+ @/textblock
+*/
++ (System_Reflection_Assembly *)getExecutingAssembly;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetExportedTypes
+
+ Params
+   (none)
+
+ Return
+   System.Type[]
+ @/textblock
+*/
+- (System_Array *)getExportedTypes;
+
 /* Skipped method : System.IO.FileStream GetFile(System.String name) */
+
 /* Skipped method : System.IO.FileStream[] GetFiles() */
+
 /* Skipped method : System.IO.FileStream[] GetFiles(System.Boolean getResourceModules) */
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
+
+ Params
+   (none)
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getHashCode;
+
 /* Skipped method : System.Reflection.Module[] GetLoadedModules() */
+
 /* Skipped method : System.Reflection.Module[] GetLoadedModules(System.Boolean getResourceModules) */
+
 /* Skipped method : System.Reflection.ManifestResourceInfo GetManifestResourceInfo(System.String resourceName) */
 
-	/*! 
-		Managed method name : GetManifestResourceNames
-		Managed return type : System.String[]
-		Managed param types : 
-	 */
-    - (System_Array *)getManifestResourceNames;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetManifestResourceNames
 
-	/*! 
-		Managed method name : GetManifestResourceStream
-		Managed return type : System.IO.Stream
-		Managed param types : System.Type, System.String
-	 */
-    - (System_IO_Stream *)getManifestResourceStream_withType:(System_Type *)p1 name:(NSString *)p2;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : GetManifestResourceStream
-		Managed return type : System.IO.Stream
-		Managed param types : System.String
-	 */
-    - (System_IO_Stream *)getManifestResourceStream_withName:(NSString *)p1;
+ Return
+   System.String[]
+ @/textblock
+*/
+- (System_Array *)getManifestResourceNames;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetManifestResourceStream
+
+ Params
+   System.Type
+   System.String
+
+ Return
+   System.IO.Stream
+ @/textblock
+*/
+- (System_IO_Stream *)getManifestResourceStream_withType:(System_Type *)p1 name:(NSString *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetManifestResourceStream
+
+ Params
+   System.String
+
+ Return
+   System.IO.Stream
+ @/textblock
+*/
+- (System_IO_Stream *)getManifestResourceStream_withName:(NSString *)p1;
+
 /* Skipped method : System.Reflection.Module GetModule(System.String name) */
+
 /* Skipped method : System.Reflection.Module[] GetModules() */
+
 /* Skipped method : System.Reflection.Module[] GetModules(System.Boolean getResourceModules) */
 
-	/*! 
-		Managed method name : GetName
-		Managed return type : System.Reflection.AssemblyName
-		Managed param types : 
-	 */
-    - (System_Reflection_AssemblyName *)getName;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetName
 
-	/*! 
-		Managed method name : GetName
-		Managed return type : System.Reflection.AssemblyName
-		Managed param types : System.Boolean
-	 */
-    - (System_Reflection_AssemblyName *)getName_withCopiedName:(BOOL)p1;
+ Params
+   (none)
+
+ Return
+   System.Reflection.AssemblyName
+ @/textblock
+*/
+- (System_Reflection_AssemblyName *)getName;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetName
+
+ Params
+   System.Boolean
+
+ Return
+   System.Reflection.AssemblyName
+ @/textblock
+*/
+- (System_Reflection_AssemblyName *)getName_withCopiedName:(BOOL)p1;
+
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 
-	/*! 
-		Managed method name : GetReferencedAssemblies
-		Managed return type : System.Reflection.AssemblyName[]
-		Managed param types : 
-	 */
-    - (System_Array *)getReferencedAssemblies;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetReferencedAssemblies
 
-	/*! 
-		Managed method name : GetSatelliteAssembly
-		Managed return type : System.Reflection.Assembly
-		Managed param types : System.Globalization.CultureInfo
-	 */
-    - (System_Reflection_Assembly *)getSatelliteAssembly_withCulture:(System_Globalization_CultureInfo *)p1;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : GetSatelliteAssembly
-		Managed return type : System.Reflection.Assembly
-		Managed param types : System.Globalization.CultureInfo, System.Version
-	 */
-    - (System_Reflection_Assembly *)getSatelliteAssembly_withCulture:(System_Globalization_CultureInfo *)p1 version:(System_Version *)p2;
+ Return
+   System.Reflection.AssemblyName[]
+ @/textblock
+*/
+- (System_Array *)getReferencedAssemblies;
 
-	/*! 
-		Managed method name : GetType
-		Managed return type : System.Type
-		Managed param types : System.String
-	 */
-    - (System_Type *)getType_withName:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetSatelliteAssembly
 
-	/*! 
-		Managed method name : GetType
-		Managed return type : System.Type
-		Managed param types : System.String, System.Boolean
-	 */
-    - (System_Type *)getType_withName:(NSString *)p1 throwOnError:(BOOL)p2;
+ Params
+   System.Globalization.CultureInfo
 
-	/*! 
-		Managed method name : GetType
-		Managed return type : System.Type
-		Managed param types : System.String, System.Boolean, System.Boolean
-	 */
-    - (System_Type *)getType_withName:(NSString *)p1 throwOnError:(BOOL)p2 ignoreCase:(BOOL)p3;
+ Return
+   System.Reflection.Assembly
+ @/textblock
+*/
+- (System_Reflection_Assembly *)getSatelliteAssembly_withCulture:(System_Globalization_CultureInfo *)p1;
 
-	/*! 
-		Managed method name : GetTypes
-		Managed return type : System.Type[]
-		Managed param types : 
-	 */
-    - (System_Array *)getTypes;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetSatelliteAssembly
 
-	/*! 
-		Managed method name : IsDefined
-		Managed return type : System.Boolean
-		Managed param types : System.Type, System.Boolean
-	 */
-    - (BOOL)isDefined_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2;
+ Params
+   System.Globalization.CultureInfo
+   System.Version
 
-	/*! 
-		Managed method name : Load
-		Managed return type : System.Reflection.Assembly
-		Managed param types : System.String
-	 */
-    + (System_Reflection_Assembly *)load_withAssemblyString:(NSString *)p1;
+ Return
+   System.Reflection.Assembly
+ @/textblock
+*/
+- (System_Reflection_Assembly *)getSatelliteAssembly_withCulture:(System_Globalization_CultureInfo *)p1 version:(System_Version *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetType
+
+ Params
+   System.String
+
+ Return
+   System.Type
+ @/textblock
+*/
+- (System_Type *)getType_withName:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetType
+
+ Params
+   System.String
+   System.Boolean
+
+ Return
+   System.Type
+ @/textblock
+*/
+- (System_Type *)getType_withName:(NSString *)p1 throwOnError:(BOOL)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetType
+
+ Params
+   System.String
+   System.Boolean
+   System.Boolean
+
+ Return
+   System.Type
+ @/textblock
+*/
+- (System_Type *)getType_withName:(NSString *)p1 throwOnError:(BOOL)p2 ignoreCase:(BOOL)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetTypes
+
+ Params
+   (none)
+
+ Return
+   System.Type[]
+ @/textblock
+*/
+- (System_Array *)getTypes;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   IsDefined
+
+ Params
+   System.Type
+   System.Boolean
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)isDefined_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Load
+
+ Params
+   System.String
+
+ Return
+   System.Reflection.Assembly
+ @/textblock
+*/
++ (System_Reflection_Assembly *)load_withAssemblyString:(NSString *)p1;
+
 /* Skipped method : System.Reflection.Assembly Load(System.String assemblyString, System.Security.Policy.Evidence assemblySecurity) */
 
-	/*! 
-		Managed method name : Load
-		Managed return type : System.Reflection.Assembly
-		Managed param types : System.Reflection.AssemblyName
-	 */
-    + (System_Reflection_Assembly *)load_withAssemblyRef:(System_Reflection_AssemblyName *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Load
+
+ Params
+   System.Reflection.AssemblyName
+
+ Return
+   System.Reflection.Assembly
+ @/textblock
+*/
++ (System_Reflection_Assembly *)load_withAssemblyRef:(System_Reflection_AssemblyName *)p1;
+
 /* Skipped method : System.Reflection.Assembly Load(System.Reflection.AssemblyName assemblyRef, System.Security.Policy.Evidence assemblySecurity) */
 
-	/*! 
-		Managed method name : Load
-		Managed return type : System.Reflection.Assembly
-		Managed param types : System.Byte[]
-	 */
-    + (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Load
 
-	/*! 
-		Managed method name : Load
-		Managed return type : System.Reflection.Assembly
-		Managed param types : System.Byte[], System.Byte[]
-	 */
-    + (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2;
+ Params
+   System.Byte[]
+
+ Return
+   System.Reflection.Assembly
+ @/textblock
+*/
++ (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Load
+
+ Params
+   System.Byte[]
+   System.Byte[]
+
+ Return
+   System.Reflection.Assembly
+ @/textblock
+*/
++ (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2;
+
 /* Skipped method : System.Reflection.Assembly Load(System.Byte[] rawAssembly, System.Byte[] rawSymbolStore, System.Security.SecurityContextSource securityContextSource) */
+
 /* Skipped method : System.Reflection.Assembly Load(System.Byte[] rawAssembly, System.Byte[] rawSymbolStore, System.Security.Policy.Evidence securityEvidence) */
 
-	/*! 
-		Managed method name : LoadFile
-		Managed return type : System.Reflection.Assembly
-		Managed param types : System.String
-	 */
-    + (System_Reflection_Assembly *)loadFile_withPath:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   LoadFile
+
+ Params
+   System.String
+
+ Return
+   System.Reflection.Assembly
+ @/textblock
+*/
++ (System_Reflection_Assembly *)loadFile_withPath:(NSString *)p1;
+
 /* Skipped method : System.Reflection.Assembly LoadFile(System.String path, System.Security.Policy.Evidence securityEvidence) */
 
-	/*! 
-		Managed method name : LoadFrom
-		Managed return type : System.Reflection.Assembly
-		Managed param types : System.String
-	 */
-    + (System_Reflection_Assembly *)loadFrom_withAssemblyFile:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   LoadFrom
+
+ Params
+   System.String
+
+ Return
+   System.Reflection.Assembly
+ @/textblock
+*/
++ (System_Reflection_Assembly *)loadFrom_withAssemblyFile:(NSString *)p1;
+
 /* Skipped method : System.Reflection.Assembly LoadFrom(System.String assemblyFile, System.Security.Policy.Evidence securityEvidence) */
+
 /* Skipped method : System.Reflection.Assembly LoadFrom(System.String assemblyFile, System.Security.Policy.Evidence securityEvidence, System.Byte[] hashValue, System.Configuration.Assemblies.AssemblyHashAlgorithm hashAlgorithm) */
+
 /* Skipped method : System.Reflection.Assembly LoadFrom(System.String assemblyFile, System.Byte[] hashValue, System.Configuration.Assemblies.AssemblyHashAlgorithm hashAlgorithm) */
+
 /* Skipped method : System.Reflection.Module LoadModule(System.String moduleName, System.Byte[] rawModule) */
+
 /* Skipped method : System.Reflection.Module LoadModule(System.String moduleName, System.Byte[] rawModule, System.Byte[] rawSymbolStore) */
 
-	/*! 
-		Managed method name : LoadWithPartialName
-		Managed return type : System.Reflection.Assembly
-		Managed param types : System.String
-	 */
-    + (System_Reflection_Assembly *)loadWithPartialName_withPartialName:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   LoadWithPartialName
+
+ Params
+   System.String
+
+ Return
+   System.Reflection.Assembly
+ @/textblock
+*/
++ (System_Reflection_Assembly *)loadWithPartialName_withPartialName:(NSString *)p1;
+
 /* Skipped method : System.Reflection.Assembly LoadWithPartialName(System.String partialName, System.Security.Policy.Evidence securityEvidence) */
 
-	/*! 
-		Managed method name : op_Equality
-		Managed return type : System.Boolean
-		Managed param types : System.Reflection.Assembly, System.Reflection.Assembly
-	 */
-    + (BOOL)op_Equality_withLeft:(System_Reflection_Assembly *)p1 right:(System_Reflection_Assembly *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Equality
 
-	/*! 
-		Managed method name : op_Inequality
-		Managed return type : System.Boolean
-		Managed param types : System.Reflection.Assembly, System.Reflection.Assembly
-	 */
-    + (BOOL)op_Inequality_withLeft:(System_Reflection_Assembly *)p1 right:(System_Reflection_Assembly *)p2;
+ Params
+   System.Reflection.Assembly
+   System.Reflection.Assembly
 
-	/*! 
-		Managed method name : ReflectionOnlyLoad
-		Managed return type : System.Reflection.Assembly
-		Managed param types : System.String
-	 */
-    + (System_Reflection_Assembly *)reflectionOnlyLoad_withAssemblyString:(NSString *)p1;
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_Equality_withLeft:(System_Reflection_Assembly *)p1 right:(System_Reflection_Assembly *)p2;
 
-	/*! 
-		Managed method name : ReflectionOnlyLoad
-		Managed return type : System.Reflection.Assembly
-		Managed param types : System.Byte[]
-	 */
-    + (System_Reflection_Assembly *)reflectionOnlyLoad_withRawAssembly:(NSData *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Inequality
 
-	/*! 
-		Managed method name : ReflectionOnlyLoadFrom
-		Managed return type : System.Reflection.Assembly
-		Managed param types : System.String
-	 */
-    + (System_Reflection_Assembly *)reflectionOnlyLoadFrom_withAssemblyFile:(NSString *)p1;
+ Params
+   System.Reflection.Assembly
+   System.Reflection.Assembly
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString;
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_Inequality_withLeft:(System_Reflection_Assembly *)p1 right:(System_Reflection_Assembly *)p2;
 
-	/*! 
-		Managed method name : UnsafeLoadFrom
-		Managed return type : System.Reflection.Assembly
-		Managed param types : System.String
-	 */
-    + (System_Reflection_Assembly *)unsafeLoadFrom_withAssemblyFile:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   ReflectionOnlyLoad
+
+ Params
+   System.String
+
+ Return
+   System.Reflection.Assembly
+ @/textblock
+*/
++ (System_Reflection_Assembly *)reflectionOnlyLoad_withAssemblyString:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ReflectionOnlyLoad
+
+ Params
+   System.Byte[]
+
+ Return
+   System.Reflection.Assembly
+ @/textblock
+*/
++ (System_Reflection_Assembly *)reflectionOnlyLoad_withRawAssembly:(NSData *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ReflectionOnlyLoadFrom
+
+ Params
+   System.String
+
+ Return
+   System.Reflection.Assembly
+ @/textblock
+*/
++ (System_Reflection_Assembly *)reflectionOnlyLoadFrom_withAssemblyFile:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   UnsafeLoadFrom
+
+ Params
+   System.String
+
+ Return
+   System.Reflection.Assembly
+ @/textblock
+*/
++ (System_Reflection_Assembly *)unsafeLoadFrom_withAssemblyFile:(NSString *)p1;
 @end
 //--Dubrovnik.CodeGenerator

@@ -482,28 +482,27 @@ public void WriteClassSetup(CodeFacet facet)
 {
 	WritePragmaMark("Setup");
 #>
-	// obligatory override
-	+ (const char *)monoClassName<#=LT#>
+
++ (const char *)monoClassName<#=LT#>
 <#+
 	if (OutputFileType == OutputType.Implementation) 
 	{
 		string name = CodeFacet.NormalizeGenericTypesInManagedIdentifier(facet.NameFromType);
 #>
-	{
-		return "<#=facet.TypeNamespace#>.<#=name#>";
-	}
+{
+	return "<#=facet.TypeNamespace#>.<#=name#>";
+}
 <#+
     }
 #>
-	// obligatory override
-	+ (const char *)monoAssemblyName<#=LT#>
++ (const char *)monoAssemblyName<#=LT#>
 <#+	
 	if (OutputFileType == OutputType.Implementation) 
 	{
 #>
-	{
-		return "<#=AssemblyFacet.Name#>";
-	}
+{
+	return "<#=AssemblyFacet.Name#>";
+}
 <#+
     }
 }
@@ -529,17 +528,18 @@ public void WriteClassTeardown(CodeFacet facet)
 	{
 	WritePragmaMark("Teardown");
 #>
-	- (void)dealloc
-	{
+
+- (void)dealloc
+{
 <#+
 		foreach (string staticObjectPropertyName in StaticObjectPropertyStorageNames)
         {
 #>
-		<#=staticObjectPropertyName#> = nil;
+	<#=staticObjectPropertyName#> = nil;
 <#+
         }
 #>
-	}
+}
 <#+
 
 	this.StaticObjectPropertyStorageNames = null;
@@ -796,75 +796,4 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
 		}  // end Implementation
 	} // end IsWritable
 }
-
-//
-// WriteFacetAsMethod
-//
-public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> options = null)
-{	
-	Net2ObjC.Method method = new Net2ObjC.Method(this, facet, options);
-	if (!method.IsValid) {
-		  return;
-	}
-
-	//
-	// write method
-	//
-#>
-
-	/*! 
-		Managed method name : <#=method.IsConstructorMethod ? ".ctor" : method.MonoMethodName #>
-		Managed return type : <#=WriteFacetTypeInfo(facet)#>
-		Managed param types : <#=WriteFacetTypeInfo(facet.Parameters)#>
-<#+
-	if (facet.IsGenericMethodDefinition) 
-	{
-#>
-		Generic method definition type params : <#=WriteFacetTypeInfo(facet.GenericMethodDefinitionGenericTypeArguments)#>
-<#+
-	}
-#>
-	 */
-    <#=method.ObjCMethodType#> (<#=method.ObjCTypeDecl#>)<#=method.ObjCMethodName#><#=method.ObjCMethodParameters#><#=LT#>
-<#+		
-	if (OutputFileType == OutputType.Implementation) 
-	{
-		// type warnings
-		GenerateTypeWarnings(facet);
-		GenerateTypeWarnings(facet.Parameters);
-#>
-    {
-<#+
-		if (method.ObjCTypeDecl == "void") 
-		{
-#>
-		<#=method.ReferencePreProcess#>
-		<#=method.GetExpression#>
-      <#=method.ReferencePostProcess#>
-<#+
-		} 
-		else if (method.IsConstructorMethod) 
-		{
-#>
-		<#=method.ReferencePreProcess#>
-		<#=method.ObjCTypeDecl#> object = <#=method.GetExpression#>
-      <#=method.ReferencePostProcess#>
-      return object;
-<#+
-		} 
-		else 
-		{
-#>
-		<#=method.ReferencePreProcess#>
-		MonoObject *<#=ManagedVariableName#> = <#=method.GetExpression#>
-		<#=method.ReferencePostProcess#>
-		return <#=method.ManagedValueToObjC#>;
-<#+	
-		}// if objCTypeDecl
-#>
-    }
-<#+
-	} // if Implementation
-}
-
 #>

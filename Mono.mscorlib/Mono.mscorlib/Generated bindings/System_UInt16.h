@@ -35,10 +35,9 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Fields
@@ -54,74 +53,154 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : CompareTo
-		Managed return type : System.Int32
-		Managed param types : System.Object
-	 */
-    - (int32_t)compareTo_withValueObject:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   CompareTo
 
-	/*! 
-		Managed method name : CompareTo
-		Managed return type : System.Int32
-		Managed param types : System.UInt16
-	 */
-    - (int32_t)compareTo_withValueUint16:(uint16_t)p1;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withObjObject:(System_Object *)p1;
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)compareTo_withValueObject:(System_Object *)p1;
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.UInt16
-	 */
-    - (BOOL)equals_withObjUint16:(uint16_t)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   CompareTo
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode;
+ Params
+   System.UInt16
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)compareTo_withValueUint16:(uint16_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
+
+ Params
+   System.Object
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withObjObject:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
+
+ Params
+   System.UInt16
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withObjUint16:(uint16_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
+
+ Params
+   (none)
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getHashCode;
+
 /* Skipped method : System.TypeCode GetTypeCode() */
 
-	/*! 
-		Managed method name : Parse
-		Managed return type : System.UInt16
-		Managed param types : System.String
-	 */
-    + (uint16_t)parse_withS:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Parse
+
+ Params
+   System.String
+
+ Return
+   System.UInt16
+ @/textblock
+*/
++ (uint16_t)parse_withS:(NSString *)p1;
+
 /* Skipped method : System.UInt16 Parse(System.String s, System.Globalization.NumberStyles style) */
+
 /* Skipped method : System.UInt16 Parse(System.String s, System.IFormatProvider provider) */
+
 /* Skipped method : System.UInt16 Parse(System.String s, System.Globalization.NumberStyles style, System.IFormatProvider provider) */
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString;
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString;
+
 /* Skipped method : System.String ToString(System.IFormatProvider provider) */
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.String
-	 */
-    - (NSString *)toString_withFormat:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   System.String
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString_withFormat:(NSString *)p1;
+
 /* Skipped method : System.String ToString(System.String format, System.IFormatProvider provider) */
 
-	/*! 
-		Managed method name : TryParse
-		Managed return type : System.Boolean
-		Managed param types : System.String, ref System.UInt16&
-	 */
-    + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(uint16_t*)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   TryParse
+
+ Params
+   System.String
+   ref System.UInt16&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)tryParse_withS:(NSString *)p1 resultRef:(uint16_t*)p2;
+
 /* Skipped method : System.Boolean TryParse(System.String s, System.Globalization.NumberStyles style, System.IFormatProvider provider, System.UInt16& result) */
 @end
 //--Dubrovnik.CodeGenerator

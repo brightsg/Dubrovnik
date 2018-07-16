@@ -36,10 +36,9 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Properties
@@ -47,6 +46,7 @@
 	// Managed property name : ElementType
 	// Managed property type : System.Type
     @property (nonatomic, strong, readonly) System_Type * elementType;
+
 /* Skipped property : System.Linq.Expressions.Expression Expression */
 
 	// Managed property name : Provider

@@ -93,68 +93,142 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : get_Item
-		Managed return type : System.Object
-		Managed param types : System.Int32
-	 */
-    - (System_Object *)get_Item_withIndex:(int32_t)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   get_Item
 
-	/*! 
-		Managed method name : set_Item
-		Managed return type : System.Void
-		Managed param types : System.Int32, System.Object
-	 */
-    - (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2;
+ Params
+   System.Int32
 
-	/*! 
-		Managed method name : Add
-		Managed return type : System.Int32
-		Managed param types : System.Object
-	 */
-    - (int32_t)add_withValue:(System_Object *)p1;
+ Return
+   System.Object
+ @/textblock
+*/
+- (System_Object *)get_Item_withIndex:(int32_t)p1;
 
-	/*! 
-		Managed method name : Clear
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)clear;
+/**
+ Managed method.
+ @textblock
+ Name
+   set_Item
 
-	/*! 
-		Managed method name : Contains
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)contains_withValue:(System_Object *)p1;
+ Params
+   System.Int32
+   System.Object
 
-	/*! 
-		Managed method name : IndexOf
-		Managed return type : System.Int32
-		Managed param types : System.Object
-	 */
-    - (int32_t)indexOf_withValue:(System_Object *)p1;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2;
 
-	/*! 
-		Managed method name : Insert
-		Managed return type : System.Void
-		Managed param types : System.Int32, System.Object
-	 */
-    - (void)insert_withIndex:(int32_t)p1 value:(System_Object *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   Add
 
-	/*! 
-		Managed method name : Remove
-		Managed return type : System.Void
-		Managed param types : System.Object
-	 */
-    - (void)remove_withValue:(System_Object *)p1;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : RemoveAt
-		Managed return type : System.Void
-		Managed param types : System.Int32
-	 */
-    - (void)removeAt_withIndex:(int32_t)p1;
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)add_withValue:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Clear
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)clear;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Contains
+
+ Params
+   System.Object
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)contains_withValue:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   IndexOf
+
+ Params
+   System.Object
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)indexOf_withValue:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Insert
+
+ Params
+   System.Int32
+   System.Object
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)insert_withIndex:(int32_t)p1 value:(System_Object *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Remove
+
+ Params
+   System.Object
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)remove_withValue:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   RemoveAt
+
+ Params
+   System.Int32
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)removeAt_withIndex:(int32_t)p1;
 #endif
 
 
@@ -183,68 +257,142 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : get_Item
-		Managed return type : System.Object
-		Managed param types : System.Int32
-	 */
-    - (System_Object *)get_Item_withIndex:(int32_t)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   get_Item
 
-	/*! 
-		Managed method name : set_Item
-		Managed return type : System.Void
-		Managed param types : System.Int32, System.Object
-	 */
-    - (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2;
+ Params
+   System.Int32
 
-	/*! 
-		Managed method name : Add
-		Managed return type : System.Int32
-		Managed param types : System.Object
-	 */
-    - (int32_t)add_withValue:(System_Object *)p1;
+ Return
+   System.Object
+ @/textblock
+*/
+- (System_Object *)get_Item_withIndex:(int32_t)p1;
 
-	/*! 
-		Managed method name : Clear
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)clear;
+/**
+ Managed method.
+ @textblock
+ Name
+   set_Item
 
-	/*! 
-		Managed method name : Contains
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)contains_withValue:(System_Object *)p1;
+ Params
+   System.Int32
+   System.Object
 
-	/*! 
-		Managed method name : IndexOf
-		Managed return type : System.Int32
-		Managed param types : System.Object
-	 */
-    - (int32_t)indexOf_withValue:(System_Object *)p1;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2;
 
-	/*! 
-		Managed method name : Insert
-		Managed return type : System.Void
-		Managed param types : System.Int32, System.Object
-	 */
-    - (void)insert_withIndex:(int32_t)p1 value:(System_Object *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   Add
 
-	/*! 
-		Managed method name : Remove
-		Managed return type : System.Void
-		Managed param types : System.Object
-	 */
-    - (void)remove_withValue:(System_Object *)p1;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : RemoveAt
-		Managed return type : System.Void
-		Managed param types : System.Int32
-	 */
-    - (void)removeAt_withIndex:(int32_t)p1;
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)add_withValue:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Clear
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)clear;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Contains
+
+ Params
+   System.Object
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)contains_withValue:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   IndexOf
+
+ Params
+   System.Object
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)indexOf_withValue:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Insert
+
+ Params
+   System.Int32
+   System.Object
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)insert_withIndex:(int32_t)p1 value:(System_Object *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Remove
+
+ Params
+   System.Object
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)remove_withValue:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   RemoveAt
+
+ Params
+   System.Int32
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)removeAt_withIndex:(int32_t)p1;
 
 @end
 

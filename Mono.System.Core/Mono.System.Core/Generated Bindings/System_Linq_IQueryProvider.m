@@ -19,28 +19,32 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Linq.IQueryProvider";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "System.Core";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Linq.IQueryProvider";
+}
++ (const char *)monoAssemblyName
+{
+	return "System.Core";
+}
 
 #pragma mark -
 #pragma mark Methods
+
 /* Skipped method : System.Linq.IQueryable CreateQuery(System.Linq.Expressions.Expression expression) */
+
 /* Skipped method : System.Linq.IQueryable`1<System.Linq.IQueryProvider+TElement> CreateQuery(System.Linq.Expressions.Expression expression) */
+
 /* Skipped method : System.Object Execute(System.Linq.Expressions.Expression expression) */
+
 /* Skipped method : System.Linq.IQueryProvider+TResult Execute(System.Linq.Expressions.Expression expression) */
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

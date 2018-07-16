@@ -78,12 +78,21 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Compare
-		Managed return type : System.Int32
-		Managed param types : <System.Collections.Generic.IComparer`1+T>, <System.Collections.Generic.IComparer`1+T>
-	 */
-    - (int32_t)compare_withX:(System_Object *)p1 y:(System_Object *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   Compare
+
+ Params
+   <System.Collections.Generic.IComparer`1+T>
+   <System.Collections.Generic.IComparer`1+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)compare_withX:(System_Object *)p1 y:(System_Object *)p2;
 #endif
 
 
@@ -101,12 +110,21 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Compare
-		Managed return type : System.Int32
-		Managed param types : <System.Collections.Generic.IComparer`1+T>, <System.Collections.Generic.IComparer`1+T>
-	 */
-    - (int32_t)compare_withX:(System_Object *)p1 y:(System_Object *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   Compare
+
+ Params
+   <System.Collections.Generic.IComparer`1+T>
+   <System.Collections.Generic.IComparer`1+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)compare_withX:(System_Object *)p1 y:(System_Object *)p2;
 
 @end
 

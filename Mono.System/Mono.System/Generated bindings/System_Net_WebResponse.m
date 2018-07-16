@@ -19,16 +19,15 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Net.WebResponse";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "System";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Net.WebResponse";
+}
++ (const char *)monoAssemblyName
+{
+	return "System";
+}
 
 #pragma mark -
 #pragma mark Properties
@@ -105,6 +104,7 @@
 		thunk(self.monoObject, [value monoObject], &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
+
 /* Skipped property : System.Net.WebHeaderCollection Headers */
 
 	// Managed property name : IsFromCache
@@ -195,47 +195,27 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Close
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)close
-    {
-		
-		[self invokeMonoMethod:"Close()" withNumArgs:0];
-      
-    }
+- (void)close
+{
+  [self invokeMonoMethod:"Close()" withNumArgs:0];
+}
 
-	/*! 
-		Managed method name : Dispose
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)dispose
-    {
-		
-		[self invokeMonoMethod:"Dispose()" withNumArgs:0];
-      
-    }
+- (void)dispose
+{
+  [self invokeMonoMethod:"Dispose()" withNumArgs:0];
+}
 
-	/*! 
-		Managed method name : GetResponseStream
-		Managed return type : System.IO.Stream
-		Managed param types : 
-	 */
-    - (System_IO_Stream *)getResponseStream
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetResponseStream()" withNumArgs:0];
-		
-		return [System_IO_Stream bestObjectWithMonoObject:monoObject];
-    }
+- (System_IO_Stream *)getResponseStream
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetResponseStream()" withNumArgs:0];
+  return [System_IO_Stream bestObjectWithMonoObject:monoObject];
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

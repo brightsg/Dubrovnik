@@ -34,10 +34,9 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Fields
@@ -53,62 +52,129 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : CompareTo
-		Managed return type : System.Int32
-		Managed param types : System.Object
-	 */
-    - (int32_t)compareTo_withObj:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   CompareTo
 
-	/*! 
-		Managed method name : CompareTo
-		Managed return type : System.Int32
-		Managed param types : System.Boolean
-	 */
-    - (int32_t)compareTo_withValue:(BOOL)p1;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withObjObject:(System_Object *)p1;
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)compareTo_withObj:(System_Object *)p1;
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Boolean
-	 */
-    - (BOOL)equals_withObjBool:(BOOL)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   CompareTo
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode;
+ Params
+   System.Boolean
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)compareTo_withValue:(BOOL)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
+
+ Params
+   System.Object
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withObjObject:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
+
+ Params
+   System.Boolean
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withObjBool:(BOOL)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
+
+ Params
+   (none)
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getHashCode;
+
 /* Skipped method : System.TypeCode GetTypeCode() */
 
-	/*! 
-		Managed method name : Parse
-		Managed return type : System.Boolean
-		Managed param types : System.String
-	 */
-    + (BOOL)parse_withValue:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Parse
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString;
+ Params
+   System.String
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)parse_withValue:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString;
+
 /* Skipped method : System.String ToString(System.IFormatProvider provider) */
 
-	/*! 
-		Managed method name : TryParse
-		Managed return type : System.Boolean
-		Managed param types : System.String, ref System.Boolean&
-	 */
-    + (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(BOOL*)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   TryParse
+
+ Params
+   System.String
+   ref System.Boolean&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(BOOL*)p2;
 @end
 //--Dubrovnik.CodeGenerator

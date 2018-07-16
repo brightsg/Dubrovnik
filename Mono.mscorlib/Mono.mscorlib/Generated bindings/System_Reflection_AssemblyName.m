@@ -19,32 +19,24 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Reflection.AssemblyName";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "mscorlib";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Reflection.AssemblyName";
+}
++ (const char *)monoAssemblyName
+{
+	return "mscorlib";
+}
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Reflection.AssemblyName
-		Managed param types : System.String
-	 */
-    + (System_Reflection_AssemblyName *)new_withAssemblyName:(NSString *)p1
-    {
-		
-		System_Reflection_AssemblyName * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-      return object;
-    }
++ (System_Reflection_AssemblyName *)new_withAssemblyName:(NSString *)p1
+{
+  System_Reflection_AssemblyName * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return object;
+}
 
 #pragma mark -
 #pragma mark Properties
@@ -85,6 +77,7 @@
 		thunk(self.monoObject, [value monoObject], &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
+
 /* Skipped property : System.Reflection.AssemblyContentType ContentType */
 
 	// Managed property name : CultureInfo
@@ -182,6 +175,7 @@
 
 		return _escapedCodeBase;
 	}
+
 /* Skipped property : System.Reflection.AssemblyNameFlags Flags */
 
 	// Managed property name : FullName
@@ -205,7 +199,9 @@
 
 		return _fullName;
 	}
+
 /* Skipped property : System.Configuration.Assemblies.AssemblyHashAlgorithm HashAlgorithm */
+
 /* Skipped property : System.Reflection.StrongNameKeyPair KeyPair */
 
 	// Managed property name : Name
@@ -244,6 +240,7 @@
 		thunk(self.monoObject, [value monoObject], &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
+
 /* Skipped property : System.Reflection.ProcessorArchitecture ProcessorArchitecture */
 
 	// Managed property name : Version
@@ -282,130 +279,70 @@
 		thunk(self.monoObject, [value monoObject], &monoException);
 		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	}
+
 /* Skipped property : System.Configuration.Assemblies.AssemblyVersionCompatibility VersionCompatibility */
 
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Clone
-		Managed return type : System.Object
-		Managed param types : 
-	 */
-    - (System_Object *)clone
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
-		
-		return [System_Object bestObjectWithMonoObject:monoObject];
-    }
+- (System_Object *)clone
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
+  return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : GetAssemblyName
-		Managed return type : System.Reflection.AssemblyName
-		Managed param types : System.String
-	 */
-    + (System_Reflection_AssemblyName *)getAssemblyName_withAssemblyFile:(NSString *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetAssemblyName(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Reflection_AssemblyName bestObjectWithMonoObject:monoObject];
-    }
++ (System_Reflection_AssemblyName *)getAssemblyName_withAssemblyFile:(NSString *)p1
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"GetAssemblyName(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Reflection_AssemblyName bestObjectWithMonoObject:monoObject];
+}
+
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 
-	/*! 
-		Managed method name : GetPublicKey
-		Managed return type : System.Byte[]
-		Managed param types : 
-	 */
-    - (NSData *)getPublicKey
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetPublicKey()" withNumArgs:0];
-		
-		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
-    }
+- (NSData *)getPublicKey
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetPublicKey()" withNumArgs:0];
+  return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+}
 
-	/*! 
-		Managed method name : GetPublicKeyToken
-		Managed return type : System.Byte[]
-		Managed param types : 
-	 */
-    - (NSData *)getPublicKeyToken
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetPublicKeyToken()" withNumArgs:0];
-		
-		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
-    }
+- (NSData *)getPublicKeyToken
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetPublicKeyToken()" withNumArgs:0];
+  return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+}
 
-	/*! 
-		Managed method name : OnDeserialization
-		Managed return type : System.Void
-		Managed param types : System.Object
-	 */
-    - (void)onDeserialization_withSender:(System_Object *)p1
-    {
-		
-		[self invokeMonoMethod:"OnDeserialization(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-    }
+- (void)onDeserialization_withSender:(System_Object *)p1
+{
+  [self invokeMonoMethod:"OnDeserialization(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+}
 
-	/*! 
-		Managed method name : ReferenceMatchesDefinition
-		Managed return type : System.Boolean
-		Managed param types : System.Reflection.AssemblyName, System.Reflection.AssemblyName
-	 */
-    + (BOOL)referenceMatchesDefinition_withReference:(System_Reflection_AssemblyName *)p1 definition:(System_Reflection_AssemblyName *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"ReferenceMatchesDefinition(System.Reflection.AssemblyName,System.Reflection.AssemblyName)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
++ (BOOL)referenceMatchesDefinition_withReference:(System_Reflection_AssemblyName *)p1 definition:(System_Reflection_AssemblyName *)p2
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"ReferenceMatchesDefinition(System.Reflection.AssemblyName,System.Reflection.AssemblyName)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+  return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-	/*! 
-		Managed method name : SetPublicKey
-		Managed return type : System.Void
-		Managed param types : System.Byte[]
-	 */
-    - (void)setPublicKey_withPublicKey:(NSData *)p1
-    {
-		
-		[self invokeMonoMethod:"SetPublicKey(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-    }
+- (void)setPublicKey_withPublicKey:(NSData *)p1
+{
+  [self invokeMonoMethod:"SetPublicKey(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+}
 
-	/*! 
-		Managed method name : SetPublicKeyToken
-		Managed return type : System.Void
-		Managed param types : System.Byte[]
-	 */
-    - (void)setPublicKeyToken_withPublicKeyToken:(NSData *)p1
-    {
-		
-		[self invokeMonoMethod:"SetPublicKeyToken(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-    }
+- (void)setPublicKeyToken_withPublicKeyToken:(NSData *)p1
+{
+  [self invokeMonoMethod:"SetPublicKeyToken(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+}
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
-		
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
+- (NSString *)toString
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

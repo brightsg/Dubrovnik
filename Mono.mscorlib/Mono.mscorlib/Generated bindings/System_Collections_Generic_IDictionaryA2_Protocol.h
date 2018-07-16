@@ -98,47 +98,98 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : get_Item
-		Managed return type : <System.Collections.Generic.IDictionary`2+TValue>
-		Managed param types : <System.Collections.Generic.IDictionary`2+TKey>
-	 */
-    - (System_Object *)get_Item_withKey:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   get_Item
 
-	/*! 
-		Managed method name : set_Item
-		Managed return type : System.Void
-		Managed param types : <System.Collections.Generic.IDictionary`2+TKey>, <System.Collections.Generic.IDictionary`2+TValue>
-	 */
-    - (void)set_Item_withKey:(System_Object *)p1 value:(System_Object *)p2;
+ Params
+   <System.Collections.Generic.IDictionary`2+TKey>
 
-	/*! 
-		Managed method name : Add
-		Managed return type : System.Void
-		Managed param types : <System.Collections.Generic.IDictionary`2+TKey>, <System.Collections.Generic.IDictionary`2+TValue>
-	 */
-    - (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2;
+ Return
+   <System.Collections.Generic.IDictionary`2+TValue>
+ @/textblock
+*/
+- (System_Object *)get_Item_withKey:(System_Object *)p1;
 
-	/*! 
-		Managed method name : ContainsKey
-		Managed return type : System.Boolean
-		Managed param types : <System.Collections.Generic.IDictionary`2+TKey>
-	 */
-    - (BOOL)containsKey_withKey:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   set_Item
 
-	/*! 
-		Managed method name : Remove
-		Managed return type : System.Boolean
-		Managed param types : <System.Collections.Generic.IDictionary`2+TKey>
-	 */
-    - (BOOL)remove_withKey:(System_Object *)p1;
+ Params
+   <System.Collections.Generic.IDictionary`2+TKey>
+   <System.Collections.Generic.IDictionary`2+TValue>
 
-	/*! 
-		Managed method name : TryGetValue
-		Managed return type : System.Boolean
-		Managed param types : <System.Collections.Generic.IDictionary`2+TKey>, ref TValue&
-	 */
-    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)set_Item_withKey:(System_Object *)p1 value:(System_Object *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Add
+
+ Params
+   <System.Collections.Generic.IDictionary`2+TKey>
+   <System.Collections.Generic.IDictionary`2+TValue>
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ContainsKey
+
+ Params
+   <System.Collections.Generic.IDictionary`2+TKey>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)containsKey_withKey:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Remove
+
+ Params
+   <System.Collections.Generic.IDictionary`2+TKey>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)remove_withKey:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryGetValue
+
+ Params
+   <System.Collections.Generic.IDictionary`2+TKey>
+   ref TValue&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
 #endif
 
 
@@ -167,47 +218,98 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : get_Item
-		Managed return type : <System.Collections.Generic.IDictionary`2+TValue>
-		Managed param types : <System.Collections.Generic.IDictionary`2+TKey>
-	 */
-    - (System_Object *)get_Item_withKey:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   get_Item
 
-	/*! 
-		Managed method name : set_Item
-		Managed return type : System.Void
-		Managed param types : <System.Collections.Generic.IDictionary`2+TKey>, <System.Collections.Generic.IDictionary`2+TValue>
-	 */
-    - (void)set_Item_withKey:(System_Object *)p1 value:(System_Object *)p2;
+ Params
+   <System.Collections.Generic.IDictionary`2+TKey>
 
-	/*! 
-		Managed method name : Add
-		Managed return type : System.Void
-		Managed param types : <System.Collections.Generic.IDictionary`2+TKey>, <System.Collections.Generic.IDictionary`2+TValue>
-	 */
-    - (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2;
+ Return
+   <System.Collections.Generic.IDictionary`2+TValue>
+ @/textblock
+*/
+- (System_Object *)get_Item_withKey:(System_Object *)p1;
 
-	/*! 
-		Managed method name : ContainsKey
-		Managed return type : System.Boolean
-		Managed param types : <System.Collections.Generic.IDictionary`2+TKey>
-	 */
-    - (BOOL)containsKey_withKey:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   set_Item
 
-	/*! 
-		Managed method name : Remove
-		Managed return type : System.Boolean
-		Managed param types : <System.Collections.Generic.IDictionary`2+TKey>
-	 */
-    - (BOOL)remove_withKey:(System_Object *)p1;
+ Params
+   <System.Collections.Generic.IDictionary`2+TKey>
+   <System.Collections.Generic.IDictionary`2+TValue>
 
-	/*! 
-		Managed method name : TryGetValue
-		Managed return type : System.Boolean
-		Managed param types : <System.Collections.Generic.IDictionary`2+TKey>, ref TValue&
-	 */
-    - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)set_Item_withKey:(System_Object *)p1 value:(System_Object *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Add
+
+ Params
+   <System.Collections.Generic.IDictionary`2+TKey>
+   <System.Collections.Generic.IDictionary`2+TValue>
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ContainsKey
+
+ Params
+   <System.Collections.Generic.IDictionary`2+TKey>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)containsKey_withKey:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Remove
+
+ Params
+   <System.Collections.Generic.IDictionary`2+TKey>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)remove_withKey:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryGetValue
+
+ Params
+   <System.Collections.Generic.IDictionary`2+TKey>
+   ref TValue&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
 
 @end
 

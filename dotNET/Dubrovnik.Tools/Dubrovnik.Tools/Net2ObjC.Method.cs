@@ -8,6 +8,88 @@ using System.Threading.Tasks;
 namespace Dubrovnik.Tools {
 	public partial class Net2ObjC {
 
+		//
+		// WriteFacetAsMethod
+		//
+		public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> options = null) {
+			Net2ObjC.Method method = new Net2ObjC.Method(this, facet, options);
+			if (!method.IsValid) {
+				return;
+			}
+
+			// write method headerdoc info
+			if (OutputFileType == OutputType.Interface) {
+				string tab = "  ";
+				WriteLine($"");
+				WriteLine($"/**");
+				PushIndent(" ");
+				WriteLine($"Managed method.");
+				WriteLine($"@textblock");
+				WriteLine($"Name");
+				PushIndent(tab);
+				WriteLine($"{(method.IsConstructorMethod ? ".ctor" : method.MonoMethodName)}");
+				PopIndent();
+				WriteLine($"");
+				WriteLine($"Params");
+				PushIndent(tab);
+				Write($"{WriteFacetTypeInfo(facet.Parameters)}");
+				PopIndent();
+
+				if (facet.IsGenericMethodDefinition) {
+					WriteLine($"");
+					WriteLine($"Generics");
+					PushIndent(tab);
+					WriteLine($"{WriteFacetTypeInfo(facet.GenericMethodDefinitionGenericTypeArguments)}");
+					PopIndent();
+				}
+
+				WriteLine($"");
+				WriteLine($"Return");
+				PushIndent(tab);
+				WriteLine($"{WriteFacetTypeInfo(facet)}");
+				PopIndent();
+				WriteLine($"@/textblock");
+				PopIndent();
+				WriteLine($"*/");
+			} 
+			else {
+				WriteLine($"");
+			}
+
+			// write method name
+			WriteLine($"{method.ObjCMethodType} ({method.ObjCTypeDecl}){method.ObjCMethodName}{method.ObjCMethodParameters}{LT}");
+
+			// write method body
+			if (OutputFileType == OutputType.Implementation) {
+				// type warnings
+				GenerateTypeWarnings(facet);
+				GenerateTypeWarnings(facet.Parameters);
+
+				WriteLine("{");
+				PushIndent("  ");
+
+				if (method.ObjCTypeDecl == "void") {
+					WriteNz(method.ReferencePreProcess);
+					WriteLine($"{method.GetExpression};");
+					WriteNz(method.ReferencePostProcess);
+				} 
+				else if (method.IsConstructorMethod) {
+					WriteNz(method.ReferencePreProcess);
+					WriteLine($"{method.ObjCTypeDecl} object = {method.GetExpression};");
+					WriteNz(method.ReferencePostProcess);
+					WriteLine("return object;");
+				} 
+				else {
+					WriteNz(method.ReferencePreProcess);
+					WriteLine($"MonoObject *{ManagedVariableName} = {method.GetExpression};");
+					WriteNz(method.ReferencePostProcess);
+					WriteLine($"return {method.ManagedValueToObjC};");
+				}
+				PopIndent();
+				WriteLine("}");
+			}
+		}
+
 		private class Method {
 
 			public bool IsValid { get; private set; } = false;
@@ -163,10 +245,7 @@ namespace Dubrovnik.Tools {
 				}
 
 				// the get expression invokes the method and gets the result
-				GetExpression = String.Format(objCMethodInvokeFormat, monoInvocationName, monoMethodSig, invokeArgs) + ";";
-				if (ReferencePostProcessBuilder.Length > 0) {
-					GetExpression += Environment.NewLine;
-				}
+				GetExpression = String.Format(objCMethodInvokeFormat, monoInvocationName, monoMethodSig, invokeArgs);
 
 				// validation
 				if (IsConstructorMethod && String.IsNullOrEmpty(monoMethodSig)) throw new Exception("Mono method argument signature is empty");

@@ -19,35 +19,28 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.IO.FileInfo";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "mscorlib";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.IO.FileInfo";
+}
++ (const char *)monoAssemblyName
+{
+	return "mscorlib";
+}
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.IO.FileInfo
-		Managed param types : System.String
-	 */
-    + (System_IO_FileInfo *)new_withFileName:(NSString *)p1
-    {
-		
-		System_IO_FileInfo * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-      return object;
-    }
++ (System_IO_FileInfo *)new_withFileName:(NSString *)p1
+{
+  System_IO_FileInfo * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return object;
+}
 
 #pragma mark -
 #pragma mark Properties
+
 /* Skipped property : System.IO.DirectoryInfo Directory */
 
 	// Managed property name : DirectoryName
@@ -174,136 +167,86 @@
 
 #pragma mark -
 #pragma mark Methods
+
 /* Skipped method : System.IO.StreamWriter AppendText() */
 
-	/*! 
-		Managed method name : CopyTo
-		Managed return type : System.IO.FileInfo
-		Managed param types : System.String
-	 */
-    - (System_IO_FileInfo *)copyTo_withDestFileName:(NSString *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"CopyTo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
-    }
+- (System_IO_FileInfo *)copyTo_withDestFileName:(NSString *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"CopyTo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : CopyTo
-		Managed return type : System.IO.FileInfo
-		Managed param types : System.String, System.Boolean
-	 */
-    - (System_IO_FileInfo *)copyTo_withDestFileName:(NSString *)p1 overwrite:(BOOL)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"CopyTo(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-		
-		return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
-    }
+- (System_IO_FileInfo *)copyTo_withDestFileName:(NSString *)p1 overwrite:(BOOL)p2
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"CopyTo(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+  return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
+}
+
 /* Skipped method : System.IO.FileStream Create() */
+
 /* Skipped method : System.IO.StreamWriter CreateText() */
 
-	/*! 
-		Managed method name : Decrypt
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)decrypt
-    {
-		
-		[self invokeMonoMethod:"Decrypt()" withNumArgs:0];
-      
-    }
+- (void)decrypt
+{
+  [self invokeMonoMethod:"Decrypt()" withNumArgs:0];
+}
 
-	/*! 
-		Managed method name : Delete
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)delete
-    {
-		
-		[self invokeMonoMethod:"Delete()" withNumArgs:0];
-      
-    }
+- (void)delete
+{
+  [self invokeMonoMethod:"Delete()" withNumArgs:0];
+}
 
-	/*! 
-		Managed method name : Encrypt
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)encrypt
-    {
-		
-		[self invokeMonoMethod:"Encrypt()" withNumArgs:0];
-      
-    }
+- (void)encrypt
+{
+  [self invokeMonoMethod:"Encrypt()" withNumArgs:0];
+}
+
 /* Skipped method : System.Security.AccessControl.FileSecurity GetAccessControl() */
+
 /* Skipped method : System.Security.AccessControl.FileSecurity GetAccessControl(System.Security.AccessControl.AccessControlSections includeSections) */
 
-	/*! 
-		Managed method name : MoveTo
-		Managed return type : System.Void
-		Managed param types : System.String
-	 */
-    - (void)moveTo_withDestFileName:(NSString *)p1
-    {
-		
-		[self invokeMonoMethod:"MoveTo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-    }
+- (void)moveTo_withDestFileName:(NSString *)p1
+{
+  [self invokeMonoMethod:"MoveTo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+}
+
 /* Skipped method : System.IO.FileStream Open(System.IO.FileMode mode) */
+
 /* Skipped method : System.IO.FileStream Open(System.IO.FileMode mode, System.IO.FileAccess access) */
+
 /* Skipped method : System.IO.FileStream Open(System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share) */
+
 /* Skipped method : System.IO.FileStream OpenRead() */
+
 /* Skipped method : System.IO.StreamReader OpenText() */
+
 /* Skipped method : System.IO.FileStream OpenWrite() */
 
-	/*! 
-		Managed method name : Replace
-		Managed return type : System.IO.FileInfo
-		Managed param types : System.String, System.String
-	 */
-    - (System_IO_FileInfo *)replace_withDestinationFileName:(NSString *)p1 destinationBackupFileName:(NSString *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
-    }
+- (System_IO_FileInfo *)replace_withDestinationFileName:(NSString *)p1 destinationBackupFileName:(NSString *)p2
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+  return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : Replace
-		Managed return type : System.IO.FileInfo
-		Managed param types : System.String, System.String, System.Boolean
-	 */
-    - (System_IO_FileInfo *)replace_withDestinationFileName:(NSString *)p1 destinationBackupFileName:(NSString *)p2 ignoreMetadataErrors:(BOOL)p3
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
-		
-		return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
-    }
+- (System_IO_FileInfo *)replace_withDestinationFileName:(NSString *)p1 destinationBackupFileName:(NSString *)p2 ignoreMetadataErrors:(BOOL)p3
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+  return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
+}
+
 /* Skipped method : System.Void SetAccessControl(System.Security.AccessControl.FileSecurity fileSecurity) */
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
-		
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
+- (NSString *)toString
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

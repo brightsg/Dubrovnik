@@ -111,41 +111,82 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withObj:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-	/*! 
-		Managed method name : GetBaseException
-		Managed return type : System.Exception
-		Managed param types : 
-	 */
-    - (System_Exception *)getBaseException;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode;
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withObj:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetBaseException
+
+ Params
+   (none)
+
+ Return
+   System.Exception
+ @/textblock
+*/
+- (System_Exception *)getBaseException;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
+
+ Params
+   (none)
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getHashCode;
+
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 
-	/*! 
-		Managed method name : GetType
-		Managed return type : System.Type
-		Managed param types : 
-	 */
-    - (System_Type *)getType;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetType
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString;
+ Params
+   (none)
+
+ Return
+   System.Type
+ @/textblock
+*/
+- (System_Type *)getType;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString;
 #endif
 
 
@@ -190,41 +231,82 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withObj:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-	/*! 
-		Managed method name : GetBaseException
-		Managed return type : System.Exception
-		Managed param types : 
-	 */
-    - (System_Exception *)getBaseException;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode;
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withObj:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetBaseException
+
+ Params
+   (none)
+
+ Return
+   System.Exception
+ @/textblock
+*/
+- (System_Exception *)getBaseException;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
+
+ Params
+   (none)
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getHashCode;
+
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 
-	/*! 
-		Managed method name : GetType
-		Managed return type : System.Type
-		Managed param types : 
-	 */
-    - (System_Type *)getType;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetType
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString;
+ Params
+   (none)
+
+ Return
+   System.Type
+ @/textblock
+*/
+- (System_Type *)getType;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString;
 
 @end
 

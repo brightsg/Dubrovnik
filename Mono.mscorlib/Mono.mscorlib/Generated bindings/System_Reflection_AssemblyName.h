@@ -41,20 +41,27 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Reflection.AssemblyName
-		Managed param types : System.String
-	 */
-    + (System_Reflection_AssemblyName *)new_withAssemblyName:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.String
+
+ Return
+   System.Reflection.AssemblyName
+ @/textblock
+*/
++ (System_Reflection_AssemblyName *)new_withAssemblyName:(NSString *)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -62,6 +69,7 @@
 	// Managed property name : CodeBase
 	// Managed property type : System.String
     @property (nonatomic, strong) NSString * codeBase;
+
 /* Skipped property : System.Reflection.AssemblyContentType ContentType */
 
 	// Managed property name : CultureInfo
@@ -75,89 +83,168 @@
 	// Managed property name : EscapedCodeBase
 	// Managed property type : System.String
     @property (nonatomic, strong, readonly) NSString * escapedCodeBase;
+
 /* Skipped property : System.Reflection.AssemblyNameFlags Flags */
 
 	// Managed property name : FullName
 	// Managed property type : System.String
     @property (nonatomic, strong, readonly) NSString * fullName;
+
 /* Skipped property : System.Configuration.Assemblies.AssemblyHashAlgorithm HashAlgorithm */
+
 /* Skipped property : System.Reflection.StrongNameKeyPair KeyPair */
 
 	// Managed property name : Name
 	// Managed property type : System.String
     @property (nonatomic, strong) NSString * name;
+
 /* Skipped property : System.Reflection.ProcessorArchitecture ProcessorArchitecture */
 
 	// Managed property name : Version
 	// Managed property type : System.Version
     @property (nonatomic, strong) System_Version * version;
+
 /* Skipped property : System.Configuration.Assemblies.AssemblyVersionCompatibility VersionCompatibility */
 
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Clone
-		Managed return type : System.Object
-		Managed param types : 
-	 */
-    - (System_Object *)clone;
+/**
+ Managed method.
+ @textblock
+ Name
+   Clone
 
-	/*! 
-		Managed method name : GetAssemblyName
-		Managed return type : System.Reflection.AssemblyName
-		Managed param types : System.String
-	 */
-    + (System_Reflection_AssemblyName *)getAssemblyName_withAssemblyFile:(NSString *)p1;
+ Params
+   (none)
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (System_Object *)clone;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetAssemblyName
+
+ Params
+   System.String
+
+ Return
+   System.Reflection.AssemblyName
+ @/textblock
+*/
++ (System_Reflection_AssemblyName *)getAssemblyName_withAssemblyFile:(NSString *)p1;
+
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 
-	/*! 
-		Managed method name : GetPublicKey
-		Managed return type : System.Byte[]
-		Managed param types : 
-	 */
-    - (NSData *)getPublicKey;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetPublicKey
 
-	/*! 
-		Managed method name : GetPublicKeyToken
-		Managed return type : System.Byte[]
-		Managed param types : 
-	 */
-    - (NSData *)getPublicKeyToken;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : OnDeserialization
-		Managed return type : System.Void
-		Managed param types : System.Object
-	 */
-    - (void)onDeserialization_withSender:(System_Object *)p1;
+ Return
+   System.Byte[]
+ @/textblock
+*/
+- (NSData *)getPublicKey;
 
-	/*! 
-		Managed method name : ReferenceMatchesDefinition
-		Managed return type : System.Boolean
-		Managed param types : System.Reflection.AssemblyName, System.Reflection.AssemblyName
-	 */
-    + (BOOL)referenceMatchesDefinition_withReference:(System_Reflection_AssemblyName *)p1 definition:(System_Reflection_AssemblyName *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetPublicKeyToken
 
-	/*! 
-		Managed method name : SetPublicKey
-		Managed return type : System.Void
-		Managed param types : System.Byte[]
-	 */
-    - (void)setPublicKey_withPublicKey:(NSData *)p1;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : SetPublicKeyToken
-		Managed return type : System.Void
-		Managed param types : System.Byte[]
-	 */
-    - (void)setPublicKeyToken_withPublicKeyToken:(NSData *)p1;
+ Return
+   System.Byte[]
+ @/textblock
+*/
+- (NSData *)getPublicKeyToken;
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString;
+/**
+ Managed method.
+ @textblock
+ Name
+   OnDeserialization
+
+ Params
+   System.Object
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)onDeserialization_withSender:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ReferenceMatchesDefinition
+
+ Params
+   System.Reflection.AssemblyName
+   System.Reflection.AssemblyName
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)referenceMatchesDefinition_withReference:(System_Reflection_AssemblyName *)p1 definition:(System_Reflection_AssemblyName *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   SetPublicKey
+
+ Params
+   System.Byte[]
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)setPublicKey_withPublicKey:(NSData *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   SetPublicKeyToken
+
+ Params
+   System.Byte[]
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)setPublicKeyToken_withPublicKeyToken:(NSData *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString;
 @end
 //--Dubrovnik.CodeGenerator

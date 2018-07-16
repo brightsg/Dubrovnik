@@ -32,61 +32,121 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : AddExtensionObject
-		Managed return type : System.Void
-		Managed param types : System.String, System.Object
-	 */
-    - (void)addExtensionObject_withNamespaceUri:(NSString *)p1 extension:(System_Object *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   AddExtensionObject
 
-	/*! 
-		Managed method name : AddParam
-		Managed return type : System.Void
-		Managed param types : System.String, System.String, System.Object
-	 */
-    - (void)addParam_withName:(NSString *)p1 namespaceUri:(NSString *)p2 parameter:(System_Object *)p3;
+ Params
+   System.String
+   System.Object
 
-	/*! 
-		Managed method name : Clear
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)clear;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)addExtensionObject_withNamespaceUri:(NSString *)p1 extension:(System_Object *)p2;
 
-	/*! 
-		Managed method name : GetExtensionObject
-		Managed return type : System.Object
-		Managed param types : System.String
-	 */
-    - (System_Object *)getExtensionObject_withNamespaceUri:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   AddParam
 
-	/*! 
-		Managed method name : GetParam
-		Managed return type : System.Object
-		Managed param types : System.String, System.String
-	 */
-    - (System_Object *)getParam_withName:(NSString *)p1 namespaceUri:(NSString *)p2;
+ Params
+   System.String
+   System.String
+   System.Object
 
-	/*! 
-		Managed method name : RemoveExtensionObject
-		Managed return type : System.Object
-		Managed param types : System.String
-	 */
-    - (System_Object *)removeExtensionObject_withNamespaceUri:(NSString *)p1;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)addParam_withName:(NSString *)p1 namespaceUri:(NSString *)p2 parameter:(System_Object *)p3;
 
-	/*! 
-		Managed method name : RemoveParam
-		Managed return type : System.Object
-		Managed param types : System.String, System.String
-	 */
-    - (System_Object *)removeParam_withName:(NSString *)p1 namespaceUri:(NSString *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   Clear
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)clear;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetExtensionObject
+
+ Params
+   System.String
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (System_Object *)getExtensionObject_withNamespaceUri:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetParam
+
+ Params
+   System.String
+   System.String
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (System_Object *)getParam_withName:(NSString *)p1 namespaceUri:(NSString *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   RemoveExtensionObject
+
+ Params
+   System.String
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (System_Object *)removeExtensionObject_withNamespaceUri:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   RemoveParam
+
+ Params
+   System.String
+   System.String
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (System_Object *)removeParam_withName:(NSString *)p1 namespaceUri:(NSString *)p2;
 @end
 //--Dubrovnik.CodeGenerator

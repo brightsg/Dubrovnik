@@ -45,14 +45,15 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Properties
+
 /* Skipped property : System.Net.Security.AuthenticationLevel AuthenticationLevel */
+
 /* Skipped property : System.Net.Cache.RequestCachePolicy CachePolicy */
 
 	// Managed property name : ConnectionGroupName
@@ -66,11 +67,17 @@
 	// Managed property name : ContentType
 	// Managed property type : System.String
     @property (nonatomic, strong) NSString * contentType;
+
 /* Skipped property : System.Net.IWebRequestCreate CreatorInstance */
+
 /* Skipped property : System.Net.ICredentials Credentials */
+
 /* Skipped property : System.Net.Cache.RequestCachePolicy DefaultCachePolicy */
+
 /* Skipped property : System.Net.IWebProxy DefaultWebProxy */
+
 /* Skipped property : System.Net.WebHeaderCollection Headers */
+
 /* Skipped property : System.Security.Principal.TokenImpersonationLevel ImpersonationLevel */
 
 	// Managed property name : Method
@@ -80,6 +87,7 @@
 	// Managed property name : PreAuthenticate
 	// Managed property type : System.Boolean
     @property (nonatomic) BOOL preAuthenticate;
+
 /* Skipped property : System.Net.IWebProxy Proxy */
 
 	// Managed property name : RequestUri
@@ -97,105 +105,222 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Abort
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)abort;
+/**
+ Managed method.
+ @textblock
+ Name
+   Abort
 
-	/*! 
-		Managed method name : BeginGetRequestStream
-		Managed return type : System.IAsyncResult
-		Managed param types : System.AsyncCallback, System.Object
-	 */
-    - (id <System_IAsyncResult>)beginGetRequestStream_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : BeginGetResponse
-		Managed return type : System.IAsyncResult
-		Managed param types : System.AsyncCallback, System.Object
-	 */
-    - (id <System_IAsyncResult>)beginGetResponse_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)abort;
 
-	/*! 
-		Managed method name : Create
-		Managed return type : System.Net.WebRequest
-		Managed param types : System.String
-	 */
-    + (System_Net_WebRequest *)create_withRequestUriString:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   BeginGetRequestStream
 
-	/*! 
-		Managed method name : Create
-		Managed return type : System.Net.WebRequest
-		Managed param types : System.Uri
-	 */
-    + (System_Net_WebRequest *)create_withRequestUri:(System_Uri *)p1;
+ Params
+   System.AsyncCallback
+   System.Object
 
-	/*! 
-		Managed method name : CreateDefault
-		Managed return type : System.Net.WebRequest
-		Managed param types : System.Uri
-	 */
-    + (System_Net_WebRequest *)createDefault_withRequestUri:(System_Uri *)p1;
+ Return
+   System.IAsyncResult
+ @/textblock
+*/
+- (id <System_IAsyncResult>)beginGetRequestStream_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2;
 
-	/*! 
-		Managed method name : CreateHttp
-		Managed return type : System.Net.HttpWebRequest
-		Managed param types : System.String
-	 */
-    + (System_Net_HttpWebRequest *)createHttp_withRequestUriString:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   BeginGetResponse
 
-	/*! 
-		Managed method name : CreateHttp
-		Managed return type : System.Net.HttpWebRequest
-		Managed param types : System.Uri
-	 */
-    + (System_Net_HttpWebRequest *)createHttp_withRequestUri:(System_Uri *)p1;
+ Params
+   System.AsyncCallback
+   System.Object
 
-	/*! 
-		Managed method name : EndGetRequestStream
-		Managed return type : System.IO.Stream
-		Managed param types : System.IAsyncResult
-	 */
-    - (System_IO_Stream *)endGetRequestStream_withAsyncResult:(id <System_IAsyncResult_>)p1;
+ Return
+   System.IAsyncResult
+ @/textblock
+*/
+- (id <System_IAsyncResult>)beginGetResponse_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2;
 
-	/*! 
-		Managed method name : EndGetResponse
-		Managed return type : System.Net.WebResponse
-		Managed param types : System.IAsyncResult
-	 */
-    - (System_Net_WebResponse *)endGetResponse_withAsyncResult:(id <System_IAsyncResult_>)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Create
 
-	/*! 
-		Managed method name : GetRequestStream
-		Managed return type : System.IO.Stream
-		Managed param types : 
-	 */
-    - (System_IO_Stream *)getRequestStream;
+ Params
+   System.String
 
-	/*! 
-		Managed method name : GetRequestStreamAsync
-		Managed return type : System.Threading.Tasks.Task`1<System.IO.Stream>
-		Managed param types : 
-	 */
-    - (System_Threading_Tasks_TaskA1 *)getRequestStreamAsync;
+ Return
+   System.Net.WebRequest
+ @/textblock
+*/
++ (System_Net_WebRequest *)create_withRequestUriString:(NSString *)p1;
 
-	/*! 
-		Managed method name : GetResponse
-		Managed return type : System.Net.WebResponse
-		Managed param types : 
-	 */
-    - (System_Net_WebResponse *)getResponse;
+/**
+ Managed method.
+ @textblock
+ Name
+   Create
 
-	/*! 
-		Managed method name : GetResponseAsync
-		Managed return type : System.Threading.Tasks.Task`1<System.Net.WebResponse>
-		Managed param types : 
-	 */
-    - (System_Threading_Tasks_TaskA1 *)getResponseAsync;
+ Params
+   System.Uri
+
+ Return
+   System.Net.WebRequest
+ @/textblock
+*/
++ (System_Net_WebRequest *)create_withRequestUri:(System_Uri *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateDefault
+
+ Params
+   System.Uri
+
+ Return
+   System.Net.WebRequest
+ @/textblock
+*/
++ (System_Net_WebRequest *)createDefault_withRequestUri:(System_Uri *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateHttp
+
+ Params
+   System.String
+
+ Return
+   System.Net.HttpWebRequest
+ @/textblock
+*/
++ (System_Net_HttpWebRequest *)createHttp_withRequestUriString:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateHttp
+
+ Params
+   System.Uri
+
+ Return
+   System.Net.HttpWebRequest
+ @/textblock
+*/
++ (System_Net_HttpWebRequest *)createHttp_withRequestUri:(System_Uri *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   EndGetRequestStream
+
+ Params
+   System.IAsyncResult
+
+ Return
+   System.IO.Stream
+ @/textblock
+*/
+- (System_IO_Stream *)endGetRequestStream_withAsyncResult:(id <System_IAsyncResult_>)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   EndGetResponse
+
+ Params
+   System.IAsyncResult
+
+ Return
+   System.Net.WebResponse
+ @/textblock
+*/
+- (System_Net_WebResponse *)endGetResponse_withAsyncResult:(id <System_IAsyncResult_>)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetRequestStream
+
+ Params
+   (none)
+
+ Return
+   System.IO.Stream
+ @/textblock
+*/
+- (System_IO_Stream *)getRequestStream;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetRequestStreamAsync
+
+ Params
+   (none)
+
+ Return
+   System.Threading.Tasks.Task`1<System.IO.Stream>
+ @/textblock
+*/
+- (System_Threading_Tasks_TaskA1 *)getRequestStreamAsync;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetResponse
+
+ Params
+   (none)
+
+ Return
+   System.Net.WebResponse
+ @/textblock
+*/
+- (System_Net_WebResponse *)getResponse;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetResponseAsync
+
+ Params
+   (none)
+
+ Return
+   System.Threading.Tasks.Task`1<System.Net.WebResponse>
+ @/textblock
+*/
+- (System_Threading_Tasks_TaskA1 *)getResponseAsync;
+
 /* Skipped method : System.Net.IWebProxy GetSystemWebProxy() */
+
 /* Skipped method : System.Void RegisterPortableWebRequestCreator(System.Net.IWebRequestCreate creator) */
+
 /* Skipped method : System.Boolean RegisterPrefix(System.String prefix, System.Net.IWebRequestCreate creator) */
 @end
 //--Dubrovnik.CodeGenerator

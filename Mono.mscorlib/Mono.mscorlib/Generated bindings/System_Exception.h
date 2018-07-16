@@ -38,30 +38,47 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Exception
-		Managed param types : System.String
-	 */
-    + (System_Exception *)new_withMessage:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Exception
-		Managed param types : System.String, System.Exception
-	 */
-    + (System_Exception *)new_withMessage:(NSString *)p1 innerException:(System_Exception *)p2;
+ Params
+   System.String
+
+ Return
+   System.Exception
+ @/textblock
+*/
++ (System_Exception *)new_withMessage:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.String
+   System.Exception
+
+ Return
+   System.Exception
+ @/textblock
+*/
++ (System_Exception *)new_withMessage:(NSString *)p1 innerException:(System_Exception *)p2;
 
 #pragma mark -
 #pragma mark Properties
+
 /* Skipped property : System.Collections.IDictionary Data */
 
 	// Managed property name : HelpLink
@@ -95,26 +112,51 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : GetBaseException
-		Managed return type : System.Exception
-		Managed param types : 
-	 */
-    - (System_Exception *)getBaseException;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetBaseException
+
+ Params
+   (none)
+
+ Return
+   System.Exception
+ @/textblock
+*/
+- (System_Exception *)getBaseException;
+
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 
-	/*! 
-		Managed method name : GetType
-		Managed return type : System.Type
-		Managed param types : 
-	 */
-    - (System_Type *)getType;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetType
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString;
+ Params
+   (none)
+
+ Return
+   System.Type
+ @/textblock
+*/
+- (System_Type *)getType;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString;
 @end
 //--Dubrovnik.CodeGenerator

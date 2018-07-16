@@ -19,16 +19,15 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Data.Common.DbConnection";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "System.Data";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Data.Common.DbConnection";
+}
++ (const char *)monoAssemblyName
+{
+	return "System.Data";
+}
 
 #pragma mark -
 #pragma mark Properties
@@ -156,84 +155,58 @@
 
 		return _serverVersion;
 	}
+
 /* Skipped property : System.Data.ConnectionState State */
 
 #pragma mark -
 #pragma mark Methods
+
 /* Skipped method : System.Data.Common.DbTransaction BeginTransaction() */
+
 /* Skipped method : System.Data.Common.DbTransaction BeginTransaction(System.Data.IsolationLevel isolationLevel) */
 
-	/*! 
-		Managed method name : ChangeDatabase
-		Managed return type : System.Void
-		Managed param types : System.String
-	 */
-    - (void)changeDatabase_withDatabaseName:(NSString *)p1
-    {
-		
-		[self invokeMonoMethod:"ChangeDatabase(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-    }
+- (void)changeDatabase_withDatabaseName:(NSString *)p1
+{
+  [self invokeMonoMethod:"ChangeDatabase(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+}
 
-	/*! 
-		Managed method name : Close
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)close
-    {
-		
-		[self invokeMonoMethod:"Close()" withNumArgs:0];
-      
-    }
+- (void)close
+{
+  [self invokeMonoMethod:"Close()" withNumArgs:0];
+}
+
 /* Skipped method : System.Data.Common.DbCommand CreateCommand() */
+
 /* Skipped method : System.Void EnlistTransaction(System.Transactions.Transaction transaction) */
+
 /* Skipped method : System.Data.DataTable GetSchema() */
+
 /* Skipped method : System.Data.DataTable GetSchema(System.String collectionName) */
+
 /* Skipped method : System.Data.DataTable GetSchema(System.String collectionName, System.String[] restrictionValues) */
 
-	/*! 
-		Managed method name : Open
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)open
-    {
-		
-		[self invokeMonoMethod:"Open()" withNumArgs:0];
-      
-    }
+- (void)open
+{
+  [self invokeMonoMethod:"Open()" withNumArgs:0];
+}
 
-	/*! 
-		Managed method name : OpenAsync
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : 
-	 */
-    - (System_Threading_Tasks_Task *)openAsync
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"OpenAsync()" withNumArgs:0];
-		
-		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
-    }
+- (System_Threading_Tasks_Task *)openAsync
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"OpenAsync()" withNumArgs:0];
+  return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : OpenAsync
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.Threading.CancellationToken
-	 */
-    - (System_Threading_Tasks_Task *)openAsync_withCancellationToken:(System_Threading_CancellationToken *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"OpenAsync(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
-    }
+- (System_Threading_Tasks_Task *)openAsync_withCancellationToken:(System_Threading_CancellationToken *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"OpenAsync(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

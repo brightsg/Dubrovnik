@@ -45,10 +45,9 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Fields
@@ -95,173 +94,392 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : BeginRead
-		Managed return type : System.IAsyncResult
-		Managed param types : System.Byte[], System.Int32, System.Int32, System.AsyncCallback, System.Object
-	 */
-    - (id <System_IAsyncResult>)beginRead_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5;
+/**
+ Managed method.
+ @textblock
+ Name
+   BeginRead
 
-	/*! 
-		Managed method name : BeginWrite
-		Managed return type : System.IAsyncResult
-		Managed param types : System.Byte[], System.Int32, System.Int32, System.AsyncCallback, System.Object
-	 */
-    - (id <System_IAsyncResult>)beginWrite_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5;
+ Params
+   System.Byte[]
+   System.Int32
+   System.Int32
+   System.AsyncCallback
+   System.Object
 
-	/*! 
-		Managed method name : Close
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)close;
+ Return
+   System.IAsyncResult
+ @/textblock
+*/
+- (id <System_IAsyncResult>)beginRead_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5;
 
-	/*! 
-		Managed method name : CopyTo
-		Managed return type : System.Void
-		Managed param types : System.IO.Stream
-	 */
-    - (void)copyTo_withDestination:(System_IO_Stream *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   BeginWrite
 
-	/*! 
-		Managed method name : CopyTo
-		Managed return type : System.Void
-		Managed param types : System.IO.Stream, System.Int32
-	 */
-    - (void)copyTo_withDestination:(System_IO_Stream *)p1 bufferSize:(int32_t)p2;
+ Params
+   System.Byte[]
+   System.Int32
+   System.Int32
+   System.AsyncCallback
+   System.Object
 
-	/*! 
-		Managed method name : CopyToAsync
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.IO.Stream
-	 */
-    - (System_Threading_Tasks_Task *)copyToAsync_withDestination:(System_IO_Stream *)p1;
+ Return
+   System.IAsyncResult
+ @/textblock
+*/
+- (id <System_IAsyncResult>)beginWrite_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5;
 
-	/*! 
-		Managed method name : CopyToAsync
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.IO.Stream, System.Int32
-	 */
-    - (System_Threading_Tasks_Task *)copyToAsync_withDestination:(System_IO_Stream *)p1 bufferSize:(int32_t)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   Close
 
-	/*! 
-		Managed method name : CopyToAsync
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.IO.Stream, System.Int32, System.Threading.CancellationToken
-	 */
-    - (System_Threading_Tasks_Task *)copyToAsync_withDestination:(System_IO_Stream *)p1 bufferSize:(int32_t)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : Dispose
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)dispose;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)close;
 
-	/*! 
-		Managed method name : EndRead
-		Managed return type : System.Int32
-		Managed param types : System.IAsyncResult
-	 */
-    - (int32_t)endRead_withAsyncResult:(id <System_IAsyncResult_>)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   CopyTo
 
-	/*! 
-		Managed method name : EndWrite
-		Managed return type : System.Void
-		Managed param types : System.IAsyncResult
-	 */
-    - (void)endWrite_withAsyncResult:(id <System_IAsyncResult_>)p1;
+ Params
+   System.IO.Stream
 
-	/*! 
-		Managed method name : Flush
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)flush;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)copyTo_withDestination:(System_IO_Stream *)p1;
 
-	/*! 
-		Managed method name : FlushAsync
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : 
-	 */
-    - (System_Threading_Tasks_Task *)flushAsync;
+/**
+ Managed method.
+ @textblock
+ Name
+   CopyTo
 
-	/*! 
-		Managed method name : FlushAsync
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.Threading.CancellationToken
-	 */
-    - (System_Threading_Tasks_Task *)flushAsync_withCancellationToken:(System_Threading_CancellationToken *)p1;
+ Params
+   System.IO.Stream
+   System.Int32
 
-	/*! 
-		Managed method name : Read
-		Managed return type : System.Int32
-		Managed param types : System.Byte[], System.Int32, System.Int32
-	 */
-    - (int32_t)read_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)copyTo_withDestination:(System_IO_Stream *)p1 bufferSize:(int32_t)p2;
 
-	/*! 
-		Managed method name : ReadAsync
-		Managed return type : System.Threading.Tasks.Task`1<System.Int32>
-		Managed param types : System.Byte[], System.Int32, System.Int32
-	 */
-    - (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3;
+/**
+ Managed method.
+ @textblock
+ Name
+   CopyToAsync
 
-	/*! 
-		Managed method name : ReadAsync
-		Managed return type : System.Threading.Tasks.Task`1<System.Int32>
-		Managed param types : System.Byte[], System.Int32, System.Int32, System.Threading.CancellationToken
-	 */
-    - (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4;
+ Params
+   System.IO.Stream
 
-	/*! 
-		Managed method name : ReadByte
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)readByte;
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
+*/
+- (System_Threading_Tasks_Task *)copyToAsync_withDestination:(System_IO_Stream *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CopyToAsync
+
+ Params
+   System.IO.Stream
+   System.Int32
+
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
+*/
+- (System_Threading_Tasks_Task *)copyToAsync_withDestination:(System_IO_Stream *)p1 bufferSize:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CopyToAsync
+
+ Params
+   System.IO.Stream
+   System.Int32
+   System.Threading.CancellationToken
+
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
+*/
+- (System_Threading_Tasks_Task *)copyToAsync_withDestination:(System_IO_Stream *)p1 bufferSize:(int32_t)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Dispose
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)dispose;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   EndRead
+
+ Params
+   System.IAsyncResult
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)endRead_withAsyncResult:(id <System_IAsyncResult_>)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   EndWrite
+
+ Params
+   System.IAsyncResult
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)endWrite_withAsyncResult:(id <System_IAsyncResult_>)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Flush
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)flush;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FlushAsync
+
+ Params
+   (none)
+
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
+*/
+- (System_Threading_Tasks_Task *)flushAsync;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FlushAsync
+
+ Params
+   System.Threading.CancellationToken
+
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
+*/
+- (System_Threading_Tasks_Task *)flushAsync_withCancellationToken:(System_Threading_CancellationToken *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Read
+
+ Params
+   System.Byte[]
+   System.Int32
+   System.Int32
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)read_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ReadAsync
+
+ Params
+   System.Byte[]
+   System.Int32
+   System.Int32
+
+ Return
+   System.Threading.Tasks.Task`1<System.Int32>
+ @/textblock
+*/
+- (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ReadAsync
+
+ Params
+   System.Byte[]
+   System.Int32
+   System.Int32
+   System.Threading.CancellationToken
+
+ Return
+   System.Threading.Tasks.Task`1<System.Int32>
+ @/textblock
+*/
+- (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ReadByte
+
+ Params
+   (none)
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)readByte;
+
 /* Skipped method : System.Int64 Seek(System.Int64 offset, System.IO.SeekOrigin origin) */
 
-	/*! 
-		Managed method name : SetLength
-		Managed return type : System.Void
-		Managed param types : System.Int64
-	 */
-    - (void)setLength_withValue:(int64_t)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   SetLength
 
-	/*! 
-		Managed method name : Synchronized
-		Managed return type : System.IO.Stream
-		Managed param types : System.IO.Stream
-	 */
-    + (System_IO_Stream *)synchronized_withStream:(System_IO_Stream *)p1;
+ Params
+   System.Int64
 
-	/*! 
-		Managed method name : Write
-		Managed return type : System.Void
-		Managed param types : System.Byte[], System.Int32, System.Int32
-	 */
-    - (void)write_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)setLength_withValue:(int64_t)p1;
 
-	/*! 
-		Managed method name : WriteAsync
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.Byte[], System.Int32, System.Int32
-	 */
-    - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3;
+/**
+ Managed method.
+ @textblock
+ Name
+   Synchronized
 
-	/*! 
-		Managed method name : WriteAsync
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.Byte[], System.Int32, System.Int32, System.Threading.CancellationToken
-	 */
-    - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4;
+ Params
+   System.IO.Stream
 
-	/*! 
-		Managed method name : WriteByte
-		Managed return type : System.Void
-		Managed param types : System.Byte
-	 */
-    - (void)writeByte_withValue:(uint8_t)p1;
+ Return
+   System.IO.Stream
+ @/textblock
+*/
++ (System_IO_Stream *)synchronized_withStream:(System_IO_Stream *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Write
+
+ Params
+   System.Byte[]
+   System.Int32
+   System.Int32
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)write_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   WriteAsync
+
+ Params
+   System.Byte[]
+   System.Int32
+   System.Int32
+
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
+*/
+- (System_Threading_Tasks_Task *)writeAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   WriteAsync
+
+ Params
+   System.Byte[]
+   System.Int32
+   System.Int32
+   System.Threading.CancellationToken
+
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
+*/
+- (System_Threading_Tasks_Task *)writeAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   WriteByte
+
+ Params
+   System.Byte
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)writeByte_withValue:(uint8_t)p1;
 @end
 //--Dubrovnik.CodeGenerator

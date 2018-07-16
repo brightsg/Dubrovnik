@@ -77,12 +77,20 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Dispose
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)dispose;
+/**
+ Managed method.
+ @textblock
+ Name
+   Dispose
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)dispose;
 #endif
 
 
@@ -100,12 +108,20 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Dispose
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)dispose;
+/**
+ Managed method.
+ @textblock
+ Name
+   Dispose
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)dispose;
 
 @end
 

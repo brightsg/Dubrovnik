@@ -19,16 +19,15 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Linq.IQueryable";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "System.Core";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Linq.IQueryable";
+}
++ (const char *)monoAssemblyName
+{
+	return "System.Core";
+}
 
 #pragma mark -
 #pragma mark Properties
@@ -54,6 +53,7 @@
 
 		return _elementType;
 	}
+
 /* Skipped property : System.Linq.Expressions.Expression Expression */
 
 	// Managed property name : Provider
@@ -80,8 +80,9 @@
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

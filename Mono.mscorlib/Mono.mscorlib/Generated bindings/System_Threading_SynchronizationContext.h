@@ -36,10 +36,9 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Properties
@@ -51,60 +50,128 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : CreateCopy
-		Managed return type : System.Threading.SynchronizationContext
-		Managed param types : 
-	 */
-    - (System_Threading_SynchronizationContext *)createCopy;
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateCopy
 
-	/*! 
-		Managed method name : IsWaitNotificationRequired
-		Managed return type : System.Boolean
-		Managed param types : 
-	 */
-    - (BOOL)isWaitNotificationRequired;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : OperationCompleted
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)operationCompleted;
+ Return
+   System.Threading.SynchronizationContext
+ @/textblock
+*/
+- (System_Threading_SynchronizationContext *)createCopy;
 
-	/*! 
-		Managed method name : OperationStarted
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)operationStarted;
+/**
+ Managed method.
+ @textblock
+ Name
+   IsWaitNotificationRequired
 
-	/*! 
-		Managed method name : Post
-		Managed return type : System.Void
-		Managed param types : System.Threading.SendOrPostCallback, System.Object
-	 */
-    - (void)post_withD:(System_Threading_SendOrPostCallback *)p1 state:(System_Object *)p2;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : Send
-		Managed return type : System.Void
-		Managed param types : System.Threading.SendOrPostCallback, System.Object
-	 */
-    - (void)send_withD:(System_Threading_SendOrPostCallback *)p1 state:(System_Object *)p2;
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)isWaitNotificationRequired;
 
-	/*! 
-		Managed method name : SetSynchronizationContext
-		Managed return type : System.Void
-		Managed param types : System.Threading.SynchronizationContext
-	 */
-    + (void)setSynchronizationContext_withSyncContext:(System_Threading_SynchronizationContext *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   OperationCompleted
 
-	/*! 
-		Managed method name : Wait
-		Managed return type : System.Int32
-		Managed param types : System.IntPtr[], System.Boolean, System.Int32
-	 */
-    - (int32_t)wait_withWaitHandles:(System_Array *)p1 waitAll:(BOOL)p2 millisecondsTimeout:(int32_t)p3;
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)operationCompleted;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   OperationStarted
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)operationStarted;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Post
+
+ Params
+   System.Threading.SendOrPostCallback
+   System.Object
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)post_withD:(System_Threading_SendOrPostCallback *)p1 state:(System_Object *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Send
+
+ Params
+   System.Threading.SendOrPostCallback
+   System.Object
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)send_withD:(System_Threading_SendOrPostCallback *)p1 state:(System_Object *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   SetSynchronizationContext
+
+ Params
+   System.Threading.SynchronizationContext
+
+ Return
+   System.Void
+ @/textblock
+*/
++ (void)setSynchronizationContext_withSyncContext:(System_Threading_SynchronizationContext *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Wait
+
+ Params
+   System.IntPtr[]
+   System.Boolean
+   System.Int32
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)wait_withWaitHandles:(System_Array *)p1 waitAll:(BOOL)p2 millisecondsTimeout:(int32_t)p3;
 @end
 //--Dubrovnik.CodeGenerator

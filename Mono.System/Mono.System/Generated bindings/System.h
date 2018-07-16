@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     12/07/2018 22:16:31
+// Date:     16/07/2018 22:20:17
 //
 // Assembly: System
 // Fullname: System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -65,1008 +65,1988 @@
 //
 // Class aliases
 //
+
 /* Skipped type : Microsoft.CSharp.CSharpCodeProvider CSharpCodeProvider */
+
 /* Skipped type : Microsoft.VisualBasic.VBCodeProvider VBCodeProvider */
+
 /* Skipped type : Microsoft.Win32.IntranetZoneCredentialPolicy IntranetZoneCredentialPolicy */
+
 /* Skipped type : Microsoft.Win32.PowerModeChangedEventArgs PowerModeChangedEventArgs */
+
 /* Skipped type : Microsoft.Win32.PowerModeChangedEventHandler PowerModeChangedEventHandler */
+
 /* Skipped type : Microsoft.Win32.PowerModes PowerModes */
+
 /* Skipped type : Microsoft.Win32.SafeHandles.SafeProcessHandle SafeProcessHandle */
+
 /* Skipped type : Microsoft.Win32.SafeHandles.SafeX509ChainHandle SafeX509ChainHandle */
+
 /* Skipped type : Microsoft.Win32.SessionEndedEventArgs SessionEndedEventArgs */
+
 /* Skipped type : Microsoft.Win32.SessionEndedEventHandler SessionEndedEventHandler */
+
 /* Skipped type : Microsoft.Win32.SessionEndingEventArgs SessionEndingEventArgs */
+
 /* Skipped type : Microsoft.Win32.SessionEndingEventHandler SessionEndingEventHandler */
+
 /* Skipped type : Microsoft.Win32.SessionEndReasons SessionEndReasons */
+
 /* Skipped type : Microsoft.Win32.SessionSwitchEventArgs SessionSwitchEventArgs */
+
 /* Skipped type : Microsoft.Win32.SessionSwitchEventHandler SessionSwitchEventHandler */
+
 /* Skipped type : Microsoft.Win32.SessionSwitchReason SessionSwitchReason */
+
 /* Skipped type : Microsoft.Win32.SystemEvents SystemEvents */
+
 /* Skipped type : Microsoft.Win32.TimerElapsedEventArgs TimerElapsedEventArgs */
+
 /* Skipped type : Microsoft.Win32.TimerElapsedEventHandler TimerElapsedEventHandler */
+
 /* Skipped type : Microsoft.Win32.UserPreferenceCategory UserPreferenceCategory */
+
 /* Skipped type : Microsoft.Win32.UserPreferenceChangedEventArgs UserPreferenceChangedEventArgs */
+
 /* Skipped type : Microsoft.Win32.UserPreferenceChangedEventHandler UserPreferenceChangedEventHandler */
+
 /* Skipped type : Microsoft.Win32.UserPreferenceChangingEventArgs UserPreferenceChangingEventArgs */
+
 /* Skipped type : Microsoft.Win32.UserPreferenceChangingEventHandler UserPreferenceChangingEventHandler */
+
 /* Skipped type : System.CodeDom.CodeArgumentReferenceExpression CodeArgumentReferenceExpression */
+
 /* Skipped type : System.CodeDom.CodeArrayCreateExpression CodeArrayCreateExpression */
+
 /* Skipped type : System.CodeDom.CodeArrayIndexerExpression CodeArrayIndexerExpression */
+
 /* Skipped type : System.CodeDom.CodeAssignStatement CodeAssignStatement */
+
 /* Skipped type : System.CodeDom.CodeAttachEventStatement CodeAttachEventStatement */
+
 /* Skipped type : System.CodeDom.CodeAttributeArgument CodeAttributeArgument */
+
 /* Skipped type : System.CodeDom.CodeAttributeArgumentCollection CodeAttributeArgumentCollection */
+
 /* Skipped type : System.CodeDom.CodeAttributeDeclaration CodeAttributeDeclaration */
+
 /* Skipped type : System.CodeDom.CodeAttributeDeclarationCollection CodeAttributeDeclarationCollection */
+
 /* Skipped type : System.CodeDom.CodeBaseReferenceExpression CodeBaseReferenceExpression */
+
 /* Skipped type : System.CodeDom.CodeBinaryOperatorExpression CodeBinaryOperatorExpression */
+
 /* Skipped type : System.CodeDom.CodeBinaryOperatorType CodeBinaryOperatorType */
+
 /* Skipped type : System.CodeDom.CodeCastExpression CodeCastExpression */
+
 /* Skipped type : System.CodeDom.CodeCatchClause CodeCatchClause */
+
 /* Skipped type : System.CodeDom.CodeCatchClauseCollection CodeCatchClauseCollection */
+
 /* Skipped type : System.CodeDom.CodeChecksumPragma CodeChecksumPragma */
+
 /* Skipped type : System.CodeDom.CodeComment CodeComment */
+
 /* Skipped type : System.CodeDom.CodeCommentStatement CodeCommentStatement */
+
 /* Skipped type : System.CodeDom.CodeCommentStatementCollection CodeCommentStatementCollection */
+
 /* Skipped type : System.CodeDom.CodeCompileUnit CodeCompileUnit */
+
 /* Skipped type : System.CodeDom.CodeConditionStatement CodeConditionStatement */
+
 /* Skipped type : System.CodeDom.CodeConstructor CodeConstructor */
+
 /* Skipped type : System.CodeDom.CodeDefaultValueExpression CodeDefaultValueExpression */
+
 /* Skipped type : System.CodeDom.CodeDelegateCreateExpression CodeDelegateCreateExpression */
+
 /* Skipped type : System.CodeDom.CodeDelegateInvokeExpression CodeDelegateInvokeExpression */
+
 /* Skipped type : System.CodeDom.CodeDirectionExpression CodeDirectionExpression */
+
 /* Skipped type : System.CodeDom.CodeDirective CodeDirective */
+
 /* Skipped type : System.CodeDom.CodeDirectiveCollection CodeDirectiveCollection */
+
 /* Skipped type : System.CodeDom.CodeEntryPointMethod CodeEntryPointMethod */
+
 /* Skipped type : System.CodeDom.CodeEventReferenceExpression CodeEventReferenceExpression */
+
 /* Skipped type : System.CodeDom.CodeExpression CodeExpression */
+
 /* Skipped type : System.CodeDom.CodeExpressionCollection CodeExpressionCollection */
+
 /* Skipped type : System.CodeDom.CodeExpressionStatement CodeExpressionStatement */
+
 /* Skipped type : System.CodeDom.CodeFieldReferenceExpression CodeFieldReferenceExpression */
+
 /* Skipped type : System.CodeDom.CodeGotoStatement CodeGotoStatement */
+
 /* Skipped type : System.CodeDom.CodeIndexerExpression CodeIndexerExpression */
+
 /* Skipped type : System.CodeDom.CodeIterationStatement CodeIterationStatement */
+
 /* Skipped type : System.CodeDom.CodeLabeledStatement CodeLabeledStatement */
+
 /* Skipped type : System.CodeDom.CodeLinePragma CodeLinePragma */
+
 /* Skipped type : System.CodeDom.CodeMemberEvent CodeMemberEvent */
+
 /* Skipped type : System.CodeDom.CodeMemberField CodeMemberField */
+
 /* Skipped type : System.CodeDom.CodeMemberMethod CodeMemberMethod */
+
 /* Skipped type : System.CodeDom.CodeMemberProperty CodeMemberProperty */
+
 /* Skipped type : System.CodeDom.CodeMethodInvokeExpression CodeMethodInvokeExpression */
+
 /* Skipped type : System.CodeDom.CodeMethodReferenceExpression CodeMethodReferenceExpression */
+
 /* Skipped type : System.CodeDom.CodeMethodReturnStatement CodeMethodReturnStatement */
+
 /* Skipped type : System.CodeDom.CodeNamespace CodeNamespace */
+
 /* Skipped type : System.CodeDom.CodeNamespaceCollection CodeNamespaceCollection */
+
 /* Skipped type : System.CodeDom.CodeNamespaceImport CodeNamespaceImport */
+
 /* Skipped type : System.CodeDom.CodeNamespaceImportCollection CodeNamespaceImportCollection */
+
 /* Skipped type : System.CodeDom.CodeObject CodeObject */
+
 /* Skipped type : System.CodeDom.CodeObjectCreateExpression CodeObjectCreateExpression */
+
 /* Skipped type : System.CodeDom.CodeParameterDeclarationExpression CodeParameterDeclarationExpression */
+
 /* Skipped type : System.CodeDom.CodeParameterDeclarationExpressionCollection CodeParameterDeclarationExpressionCollection */
+
 /* Skipped type : System.CodeDom.CodePrimitiveExpression CodePrimitiveExpression */
+
 /* Skipped type : System.CodeDom.CodePropertyReferenceExpression CodePropertyReferenceExpression */
+
 /* Skipped type : System.CodeDom.CodePropertySetValueReferenceExpression CodePropertySetValueReferenceExpression */
+
 /* Skipped type : System.CodeDom.CodeRegionDirective CodeRegionDirective */
+
 /* Skipped type : System.CodeDom.CodeRegionMode CodeRegionMode */
+
 /* Skipped type : System.CodeDom.CodeRemoveEventStatement CodeRemoveEventStatement */
+
 /* Skipped type : System.CodeDom.CodeSnippetCompileUnit CodeSnippetCompileUnit */
+
 /* Skipped type : System.CodeDom.CodeSnippetExpression CodeSnippetExpression */
+
 /* Skipped type : System.CodeDom.CodeSnippetStatement CodeSnippetStatement */
+
 /* Skipped type : System.CodeDom.CodeSnippetTypeMember CodeSnippetTypeMember */
+
 /* Skipped type : System.CodeDom.CodeStatement CodeStatement */
+
 /* Skipped type : System.CodeDom.CodeStatementCollection CodeStatementCollection */
+
 /* Skipped type : System.CodeDom.CodeThisReferenceExpression CodeThisReferenceExpression */
+
 /* Skipped type : System.CodeDom.CodeThrowExceptionStatement CodeThrowExceptionStatement */
+
 /* Skipped type : System.CodeDom.CodeTryCatchFinallyStatement CodeTryCatchFinallyStatement */
+
 /* Skipped type : System.CodeDom.CodeTypeConstructor CodeTypeConstructor */
+
 /* Skipped type : System.CodeDom.CodeTypeDeclaration CodeTypeDeclaration */
+
 /* Skipped type : System.CodeDom.CodeTypeDeclarationCollection CodeTypeDeclarationCollection */
+
 /* Skipped type : System.CodeDom.CodeTypeDelegate CodeTypeDelegate */
+
 /* Skipped type : System.CodeDom.CodeTypeMember CodeTypeMember */
+
 /* Skipped type : System.CodeDom.CodeTypeMemberCollection CodeTypeMemberCollection */
+
 /* Skipped type : System.CodeDom.CodeTypeOfExpression CodeTypeOfExpression */
+
 /* Skipped type : System.CodeDom.CodeTypeParameter CodeTypeParameter */
+
 /* Skipped type : System.CodeDom.CodeTypeParameterCollection CodeTypeParameterCollection */
+
 /* Skipped type : System.CodeDom.CodeTypeReference CodeTypeReference */
+
 /* Skipped type : System.CodeDom.CodeTypeReferenceCollection CodeTypeReferenceCollection */
+
 /* Skipped type : System.CodeDom.CodeTypeReferenceExpression CodeTypeReferenceExpression */
+
 /* Skipped type : System.CodeDom.CodeTypeReferenceOptions CodeTypeReferenceOptions */
+
 /* Skipped type : System.CodeDom.CodeVariableDeclarationStatement CodeVariableDeclarationStatement */
+
 /* Skipped type : System.CodeDom.CodeVariableReferenceExpression CodeVariableReferenceExpression */
+
 /* Skipped type : System.CodeDom.Compiler.CodeCompiler CodeCompiler */
+
 /* Skipped type : System.CodeDom.Compiler.CodeDomProvider CodeDomProvider */
+
 /* Skipped type : System.CodeDom.Compiler.CodeGenerator CodeGenerator */
+
 /* Skipped type : System.CodeDom.Compiler.CodeGeneratorOptions CodeGeneratorOptions */
+
 /* Skipped type : System.CodeDom.Compiler.CodeParser CodeParser */
+
 /* Skipped type : System.CodeDom.Compiler.CompilerError CompilerError */
+
 /* Skipped type : System.CodeDom.Compiler.CompilerErrorCollection CompilerErrorCollection */
+
 /* Skipped type : System.CodeDom.Compiler.CompilerInfo CompilerInfo */
+
 /* Skipped type : System.CodeDom.Compiler.CompilerParameters CompilerParameters */
+
 /* Skipped type : System.CodeDom.Compiler.CompilerResults CompilerResults */
+
 /* Skipped type : System.CodeDom.Compiler.Executor Executor */
+
 /* Skipped type : System.CodeDom.Compiler.GeneratedCodeAttribute GeneratedCodeAttribute */
+
 /* Skipped type : System.CodeDom.Compiler.GeneratorSupport GeneratorSupport */
+
 /* Skipped type : System.CodeDom.Compiler.ICodeCompiler ICodeCompiler */
+
 /* Skipped type : System.CodeDom.Compiler.ICodeGenerator ICodeGenerator */
+
 /* Skipped type : System.CodeDom.Compiler.ICodeParser ICodeParser */
+
 /* Skipped type : System.CodeDom.Compiler.IndentedTextWriter IndentedTextWriter */
+
 /* Skipped type : System.CodeDom.Compiler.LanguageOptions LanguageOptions */
+
 /* Skipped type : System.CodeDom.Compiler.TempFileCollection TempFileCollection */
+
 /* Skipped type : System.CodeDom.FieldDirection FieldDirection */
+
 /* Skipped type : System.CodeDom.MemberAttributes MemberAttributes */
+
 /* Skipped type : System.Collections.Concurrent.BlockingCollection`1<System.Collections.Concurrent.BlockingCollection`1+T> BlockingCollection`1<T> */
+
 /* Skipped type : System.Collections.Concurrent.ConcurrentBag`1<System.Collections.Concurrent.ConcurrentBag`1+T> ConcurrentBag`1<T> */
+
 /* Skipped type : System.Collections.Generic.ISet`1<System.Collections.Generic.ISet`1+T> ISet`1<T> */
+
 /* Skipped type : System.Collections.Generic.LinkedList`1<System.Collections.Generic.LinkedList`1+Enumerator+T>+Enumerator LinkedList`1<T>.Enumerator */
+
 /* Skipped type : System.Collections.Generic.LinkedList`1<System.Collections.Generic.LinkedList`1+T> LinkedList`1<T> */
+
 /* Skipped type : System.Collections.Generic.LinkedListNode`1<System.Collections.Generic.LinkedListNode`1+T> LinkedListNode`1<T> */
+
 /* Skipped type : System.Collections.Generic.Queue`1<System.Collections.Generic.Queue`1+Enumerator+T>+Enumerator Queue`1<T>.Enumerator */
+
 /* Skipped type : System.Collections.Generic.Queue`1<System.Collections.Generic.Queue`1+T> Queue`1<T> */
+
 /* Skipped type : System.Collections.Generic.SortedDictionary`2<System.Collections.Generic.SortedDictionary`2+Enumerator+TKey, System.Collections.Generic.SortedDictionary`2+Enumerator+TValue>+Enumerator SortedDictionary`2<TKey, TValue>.Enumerator */
+
 /* Skipped type : System.Collections.Generic.SortedDictionary`2<System.Collections.Generic.SortedDictionary`2+KeyCollection+Enumerator+TKey, System.Collections.Generic.SortedDictionary`2+KeyCollection+Enumerator+TValue>+KeyCollection+Enumerator SortedDictionary`2<TKey, TValue>.KeyCollection.Enumerator */
+
 /* Skipped type : System.Collections.Generic.SortedDictionary`2<System.Collections.Generic.SortedDictionary`2+KeyCollection+TKey, System.Collections.Generic.SortedDictionary`2+KeyCollection+TValue>+KeyCollection SortedDictionary`2<TKey, TValue>.KeyCollection */
+
 /* Skipped type : System.Collections.Generic.SortedDictionary`2<System.Collections.Generic.SortedDictionary`2+TKey, System.Collections.Generic.SortedDictionary`2+TValue> SortedDictionary`2<TKey, TValue> */
+
 /* Skipped type : System.Collections.Generic.SortedDictionary`2<System.Collections.Generic.SortedDictionary`2+ValueCollection+Enumerator+TKey, System.Collections.Generic.SortedDictionary`2+ValueCollection+Enumerator+TValue>+ValueCollection+Enumerator SortedDictionary`2<TKey, TValue>.ValueCollection.Enumerator */
+
 /* Skipped type : System.Collections.Generic.SortedDictionary`2<System.Collections.Generic.SortedDictionary`2+ValueCollection+TKey, System.Collections.Generic.SortedDictionary`2+ValueCollection+TValue>+ValueCollection SortedDictionary`2<TKey, TValue>.ValueCollection */
+
 /* Skipped type : System.Collections.Generic.SortedList`2<System.Collections.Generic.SortedList`2+TKey, System.Collections.Generic.SortedList`2+TValue> SortedList`2<TKey, TValue> */
+
 /* Skipped type : System.Collections.Generic.SortedSet`1<System.Collections.Generic.SortedSet`1+Enumerator+T>+Enumerator SortedSet`1<T>.Enumerator */
+
 /* Skipped type : System.Collections.Generic.SortedSet`1<System.Collections.Generic.SortedSet`1+T> SortedSet`1<T> */
+
 /* Skipped type : System.Collections.Generic.Stack`1<System.Collections.Generic.Stack`1+Enumerator+T>+Enumerator Stack`1<T>.Enumerator */
+
 /* Skipped type : System.Collections.Generic.Stack`1<System.Collections.Generic.Stack`1+T> Stack`1<T> */
 #define SCOObservableCollectionA1_ System_Collections_ObjectModel_ObservableCollectionA1
+
 /* Skipped type : System.Collections.ObjectModel.ReadOnlyObservableCollection`1<System.Collections.ObjectModel.ReadOnlyObservableCollection`1+T> ReadOnlyObservableCollection`1<T> */
+
 /* Skipped type : System.Collections.Specialized.BitVector32 BitVector32 */
+
 /* Skipped type : System.Collections.Specialized.BitVector32+Section BitVector32.Section */
+
 /* Skipped type : System.Collections.Specialized.CollectionsUtil CollectionsUtil */
+
 /* Skipped type : System.Collections.Specialized.HybridDictionary HybridDictionary */
+
 /* Skipped type : System.Collections.Specialized.INotifyCollectionChanged INotifyCollectionChanged */
+
 /* Skipped type : System.Collections.Specialized.IOrderedDictionary IOrderedDictionary */
+
 /* Skipped type : System.Collections.Specialized.ListDictionary ListDictionary */
+
 /* Skipped type : System.Collections.Specialized.NameObjectCollectionBase NameObjectCollectionBase */
+
 /* Skipped type : System.Collections.Specialized.NameObjectCollectionBase+KeysCollection NameObjectCollectionBase.KeysCollection */
+
 /* Skipped type : System.Collections.Specialized.NameValueCollection NameValueCollection */
 #define SCSNotifyCollectionChangedAction_ System_Collections_Specialized_NotifyCollectionChangedAction
 #define SCSNotifyCollectionChangedEventArgs_ System_Collections_Specialized_NotifyCollectionChangedEventArgs
+
 /* Skipped type : System.Collections.Specialized.NotifyCollectionChangedEventHandler NotifyCollectionChangedEventHandler */
+
 /* Skipped type : System.Collections.Specialized.OrderedDictionary OrderedDictionary */
+
 /* Skipped type : System.Collections.Specialized.StringCollection StringCollection */
+
 /* Skipped type : System.Collections.Specialized.StringDictionary StringDictionary */
+
 /* Skipped type : System.Collections.Specialized.StringEnumerator StringEnumerator */
+
 /* Skipped type : System.ComponentModel.AddingNewEventArgs AddingNewEventArgs */
+
 /* Skipped type : System.ComponentModel.AddingNewEventHandler AddingNewEventHandler */
+
 /* Skipped type : System.ComponentModel.AmbientValueAttribute AmbientValueAttribute */
+
 /* Skipped type : System.ComponentModel.ArrayConverter ArrayConverter */
 #define SCAsyncCompletedEventArgs_ System_ComponentModel_AsyncCompletedEventArgs
+
 /* Skipped type : System.ComponentModel.AsyncCompletedEventHandler AsyncCompletedEventHandler */
+
 /* Skipped type : System.ComponentModel.AsyncOperation AsyncOperation */
+
 /* Skipped type : System.ComponentModel.AsyncOperationManager AsyncOperationManager */
+
 /* Skipped type : System.ComponentModel.AttributeCollection AttributeCollection */
+
 /* Skipped type : System.ComponentModel.AttributeProviderAttribute AttributeProviderAttribute */
+
 /* Skipped type : System.ComponentModel.BackgroundWorker BackgroundWorker */
+
 /* Skipped type : System.ComponentModel.BaseNumberConverter BaseNumberConverter */
+
 /* Skipped type : System.ComponentModel.BindableAttribute BindableAttribute */
+
 /* Skipped type : System.ComponentModel.BindableSupport BindableSupport */
+
 /* Skipped type : System.ComponentModel.BindingDirection BindingDirection */
+
 /* Skipped type : System.ComponentModel.BindingList`1<System.ComponentModel.BindingList`1+T> BindingList`1<T> */
+
 /* Skipped type : System.ComponentModel.BooleanConverter BooleanConverter */
+
 /* Skipped type : System.ComponentModel.BrowsableAttribute BrowsableAttribute */
+
 /* Skipped type : System.ComponentModel.ByteConverter ByteConverter */
+
 /* Skipped type : System.ComponentModel.CancelEventArgs CancelEventArgs */
+
 /* Skipped type : System.ComponentModel.CancelEventHandler CancelEventHandler */
+
 /* Skipped type : System.ComponentModel.CategoryAttribute CategoryAttribute */
+
 /* Skipped type : System.ComponentModel.CharConverter CharConverter */
+
 /* Skipped type : System.ComponentModel.CollectionChangeAction CollectionChangeAction */
+
 /* Skipped type : System.ComponentModel.CollectionChangeEventArgs CollectionChangeEventArgs */
+
 /* Skipped type : System.ComponentModel.CollectionChangeEventHandler CollectionChangeEventHandler */
+
 /* Skipped type : System.ComponentModel.CollectionConverter CollectionConverter */
+
 /* Skipped type : System.ComponentModel.ComplexBindingPropertiesAttribute ComplexBindingPropertiesAttribute */
+
 /* Skipped type : System.ComponentModel.Component Component */
+
 /* Skipped type : System.ComponentModel.ComponentCollection ComponentCollection */
+
 /* Skipped type : System.ComponentModel.ComponentConverter ComponentConverter */
+
 /* Skipped type : System.ComponentModel.ComponentEditor ComponentEditor */
+
 /* Skipped type : System.ComponentModel.ComponentResourceManager ComponentResourceManager */
+
 /* Skipped type : System.ComponentModel.Container Container */
+
 /* Skipped type : System.ComponentModel.ContainerFilterService ContainerFilterService */
+
 /* Skipped type : System.ComponentModel.CultureInfoConverter CultureInfoConverter */
+
 /* Skipped type : System.ComponentModel.CustomTypeDescriptor CustomTypeDescriptor */
+
 /* Skipped type : System.ComponentModel.DataErrorsChangedEventArgs DataErrorsChangedEventArgs */
+
 /* Skipped type : System.ComponentModel.DataObjectAttribute DataObjectAttribute */
+
 /* Skipped type : System.ComponentModel.DataObjectFieldAttribute DataObjectFieldAttribute */
+
 /* Skipped type : System.ComponentModel.DataObjectMethodAttribute DataObjectMethodAttribute */
+
 /* Skipped type : System.ComponentModel.DataObjectMethodType DataObjectMethodType */
+
 /* Skipped type : System.ComponentModel.DateTimeConverter DateTimeConverter */
+
 /* Skipped type : System.ComponentModel.DateTimeOffsetConverter DateTimeOffsetConverter */
+
 /* Skipped type : System.ComponentModel.DecimalConverter DecimalConverter */
+
 /* Skipped type : System.ComponentModel.DefaultBindingPropertyAttribute DefaultBindingPropertyAttribute */
+
 /* Skipped type : System.ComponentModel.DefaultEventAttribute DefaultEventAttribute */
+
 /* Skipped type : System.ComponentModel.DefaultPropertyAttribute DefaultPropertyAttribute */
+
 /* Skipped type : System.ComponentModel.DefaultValueAttribute DefaultValueAttribute */
+
 /* Skipped type : System.ComponentModel.DescriptionAttribute DescriptionAttribute */
+
 /* Skipped type : System.ComponentModel.Design.ActiveDesignerEventArgs ActiveDesignerEventArgs */
+
 /* Skipped type : System.ComponentModel.Design.ActiveDesignerEventHandler ActiveDesignerEventHandler */
+
 /* Skipped type : System.ComponentModel.Design.CheckoutException CheckoutException */
+
 /* Skipped type : System.ComponentModel.Design.CommandID CommandID */
+
 /* Skipped type : System.ComponentModel.Design.ComponentChangedEventArgs ComponentChangedEventArgs */
+
 /* Skipped type : System.ComponentModel.Design.ComponentChangedEventHandler ComponentChangedEventHandler */
+
 /* Skipped type : System.ComponentModel.Design.ComponentChangingEventArgs ComponentChangingEventArgs */
+
 /* Skipped type : System.ComponentModel.Design.ComponentChangingEventHandler ComponentChangingEventHandler */
+
 /* Skipped type : System.ComponentModel.Design.ComponentEventArgs ComponentEventArgs */
+
 /* Skipped type : System.ComponentModel.Design.ComponentEventHandler ComponentEventHandler */
+
 /* Skipped type : System.ComponentModel.Design.ComponentRenameEventArgs ComponentRenameEventArgs */
+
 /* Skipped type : System.ComponentModel.Design.ComponentRenameEventHandler ComponentRenameEventHandler */
+
 /* Skipped type : System.ComponentModel.Design.DesignerCollection DesignerCollection */
+
 /* Skipped type : System.ComponentModel.Design.DesignerEventArgs DesignerEventArgs */
+
 /* Skipped type : System.ComponentModel.Design.DesignerEventHandler DesignerEventHandler */
+
 /* Skipped type : System.ComponentModel.Design.DesignerOptionService DesignerOptionService */
+
 /* Skipped type : System.ComponentModel.Design.DesignerOptionService+DesignerOptionCollection DesignerOptionService.DesignerOptionCollection */
+
 /* Skipped type : System.ComponentModel.Design.DesignerTransaction DesignerTransaction */
+
 /* Skipped type : System.ComponentModel.Design.DesignerTransactionCloseEventArgs DesignerTransactionCloseEventArgs */
+
 /* Skipped type : System.ComponentModel.Design.DesignerTransactionCloseEventHandler DesignerTransactionCloseEventHandler */
+
 /* Skipped type : System.ComponentModel.Design.DesignerVerb DesignerVerb */
+
 /* Skipped type : System.ComponentModel.Design.DesignerVerbCollection DesignerVerbCollection */
+
 /* Skipped type : System.ComponentModel.Design.DesigntimeLicenseContext DesigntimeLicenseContext */
+
 /* Skipped type : System.ComponentModel.Design.DesigntimeLicenseContextSerializer DesigntimeLicenseContextSerializer */
+
 /* Skipped type : System.ComponentModel.Design.HelpContextType HelpContextType */
+
 /* Skipped type : System.ComponentModel.Design.HelpKeywordAttribute HelpKeywordAttribute */
+
 /* Skipped type : System.ComponentModel.Design.HelpKeywordType HelpKeywordType */
+
 /* Skipped type : System.ComponentModel.Design.IComponentChangeService IComponentChangeService */
+
 /* Skipped type : System.ComponentModel.Design.IComponentDiscoveryService IComponentDiscoveryService */
+
 /* Skipped type : System.ComponentModel.Design.IComponentInitializer IComponentInitializer */
+
 /* Skipped type : System.ComponentModel.Design.IDesigner IDesigner */
+
 /* Skipped type : System.ComponentModel.Design.IDesignerEventService IDesignerEventService */
+
 /* Skipped type : System.ComponentModel.Design.IDesignerFilter IDesignerFilter */
+
 /* Skipped type : System.ComponentModel.Design.IDesignerHost IDesignerHost */
+
 /* Skipped type : System.ComponentModel.Design.IDesignerHostTransactionState IDesignerHostTransactionState */
+
 /* Skipped type : System.ComponentModel.Design.IDesignerOptionService IDesignerOptionService */
+
 /* Skipped type : System.ComponentModel.Design.IDictionaryService IDictionaryService */
+
 /* Skipped type : System.ComponentModel.Design.IEventBindingService IEventBindingService */
+
 /* Skipped type : System.ComponentModel.Design.IExtenderListService IExtenderListService */
+
 /* Skipped type : System.ComponentModel.Design.IExtenderProviderService IExtenderProviderService */
+
 /* Skipped type : System.ComponentModel.Design.IHelpService IHelpService */
+
 /* Skipped type : System.ComponentModel.Design.IInheritanceService IInheritanceService */
+
 /* Skipped type : System.ComponentModel.Design.IMenuCommandService IMenuCommandService */
+
 /* Skipped type : System.ComponentModel.Design.IReferenceService IReferenceService */
+
 /* Skipped type : System.ComponentModel.Design.IResourceService IResourceService */
+
 /* Skipped type : System.ComponentModel.Design.IRootDesigner IRootDesigner */
+
 /* Skipped type : System.ComponentModel.Design.ISelectionService ISelectionService */
+
 /* Skipped type : System.ComponentModel.Design.IServiceContainer IServiceContainer */
+
 /* Skipped type : System.ComponentModel.Design.ITreeDesigner ITreeDesigner */
+
 /* Skipped type : System.ComponentModel.Design.ITypeDescriptorFilterService ITypeDescriptorFilterService */
+
 /* Skipped type : System.ComponentModel.Design.ITypeDiscoveryService ITypeDiscoveryService */
+
 /* Skipped type : System.ComponentModel.Design.ITypeResolutionService ITypeResolutionService */
+
 /* Skipped type : System.ComponentModel.Design.MenuCommand MenuCommand */
+
 /* Skipped type : System.ComponentModel.Design.SelectionTypes SelectionTypes */
+
 /* Skipped type : System.ComponentModel.Design.Serialization.ComponentSerializationService ComponentSerializationService */
+
 /* Skipped type : System.ComponentModel.Design.Serialization.ContextStack ContextStack */
+
 /* Skipped type : System.ComponentModel.Design.Serialization.DefaultSerializationProviderAttribute DefaultSerializationProviderAttribute */
+
 /* Skipped type : System.ComponentModel.Design.Serialization.DesignerLoader DesignerLoader */
+
 /* Skipped type : System.ComponentModel.Design.Serialization.DesignerSerializerAttribute DesignerSerializerAttribute */
+
 /* Skipped type : System.ComponentModel.Design.Serialization.IDesignerLoaderHost IDesignerLoaderHost */
+
 /* Skipped type : System.ComponentModel.Design.Serialization.IDesignerLoaderHost2 IDesignerLoaderHost2 */
+
 /* Skipped type : System.ComponentModel.Design.Serialization.IDesignerLoaderService IDesignerLoaderService */
+
 /* Skipped type : System.ComponentModel.Design.Serialization.IDesignerSerializationManager IDesignerSerializationManager */
+
 /* Skipped type : System.ComponentModel.Design.Serialization.IDesignerSerializationProvider IDesignerSerializationProvider */
+
 /* Skipped type : System.ComponentModel.Design.Serialization.IDesignerSerializationService IDesignerSerializationService */
+
 /* Skipped type : System.ComponentModel.Design.Serialization.INameCreationService INameCreationService */
+
 /* Skipped type : System.ComponentModel.Design.Serialization.InstanceDescriptor InstanceDescriptor */
+
 /* Skipped type : System.ComponentModel.Design.Serialization.MemberRelationship MemberRelationship */
+
 /* Skipped type : System.ComponentModel.Design.Serialization.MemberRelationshipService MemberRelationshipService */
+
 /* Skipped type : System.ComponentModel.Design.Serialization.ResolveNameEventArgs ResolveNameEventArgs */
+
 /* Skipped type : System.ComponentModel.Design.Serialization.ResolveNameEventHandler ResolveNameEventHandler */
+
 /* Skipped type : System.ComponentModel.Design.Serialization.RootDesignerSerializerAttribute RootDesignerSerializerAttribute */
+
 /* Skipped type : System.ComponentModel.Design.Serialization.SerializationStore SerializationStore */
+
 /* Skipped type : System.ComponentModel.Design.ServiceContainer ServiceContainer */
+
 /* Skipped type : System.ComponentModel.Design.ServiceCreatorCallback ServiceCreatorCallback */
+
 /* Skipped type : System.ComponentModel.Design.StandardCommands StandardCommands */
+
 /* Skipped type : System.ComponentModel.Design.StandardToolWindows StandardToolWindows */
+
 /* Skipped type : System.ComponentModel.Design.TypeDescriptionProviderService TypeDescriptionProviderService */
+
 /* Skipped type : System.ComponentModel.Design.ViewTechnology ViewTechnology */
+
 /* Skipped type : System.ComponentModel.DesignerAttribute DesignerAttribute */
+
 /* Skipped type : System.ComponentModel.DesignerCategoryAttribute DesignerCategoryAttribute */
+
 /* Skipped type : System.ComponentModel.DesignerSerializationVisibility DesignerSerializationVisibility */
+
 /* Skipped type : System.ComponentModel.DesignerSerializationVisibilityAttribute DesignerSerializationVisibilityAttribute */
+
 /* Skipped type : System.ComponentModel.DesignOnlyAttribute DesignOnlyAttribute */
+
 /* Skipped type : System.ComponentModel.DesignTimeVisibleAttribute DesignTimeVisibleAttribute */
+
 /* Skipped type : System.ComponentModel.DisplayNameAttribute DisplayNameAttribute */
+
 /* Skipped type : System.ComponentModel.DoubleConverter DoubleConverter */
+
 /* Skipped type : System.ComponentModel.DoWorkEventArgs DoWorkEventArgs */
+
 /* Skipped type : System.ComponentModel.DoWorkEventHandler DoWorkEventHandler */
+
 /* Skipped type : System.ComponentModel.EditorAttribute EditorAttribute */
+
 /* Skipped type : System.ComponentModel.EditorBrowsableAttribute EditorBrowsableAttribute */
+
 /* Skipped type : System.ComponentModel.EditorBrowsableState EditorBrowsableState */
+
 /* Skipped type : System.ComponentModel.EnumConverter EnumConverter */
+
 /* Skipped type : System.ComponentModel.EventDescriptor EventDescriptor */
+
 /* Skipped type : System.ComponentModel.EventDescriptorCollection EventDescriptorCollection */
+
 /* Skipped type : System.ComponentModel.EventHandlerList EventHandlerList */
+
 /* Skipped type : System.ComponentModel.ExpandableObjectConverter ExpandableObjectConverter */
+
 /* Skipped type : System.ComponentModel.ExtenderProvidedPropertyAttribute ExtenderProvidedPropertyAttribute */
+
 /* Skipped type : System.ComponentModel.GuidConverter GuidConverter */
+
 /* Skipped type : System.ComponentModel.HandledEventArgs HandledEventArgs */
+
 /* Skipped type : System.ComponentModel.HandledEventHandler HandledEventHandler */
+
 /* Skipped type : System.ComponentModel.IBindingList IBindingList */
+
 /* Skipped type : System.ComponentModel.IBindingListView IBindingListView */
+
 /* Skipped type : System.ComponentModel.ICancelAddNew ICancelAddNew */
+
 /* Skipped type : System.ComponentModel.IChangeTracking IChangeTracking */
+
 /* Skipped type : System.ComponentModel.IComNativeDescriptorHandler IComNativeDescriptorHandler */
+
 /* Skipped type : System.ComponentModel.IComponent IComponent */
+
 /* Skipped type : System.ComponentModel.IContainer IContainer */
+
 /* Skipped type : System.ComponentModel.ICustomTypeDescriptor ICustomTypeDescriptor */
+
 /* Skipped type : System.ComponentModel.IDataErrorInfo IDataErrorInfo */
+
 /* Skipped type : System.ComponentModel.IEditableObject IEditableObject */
+
 /* Skipped type : System.ComponentModel.IExtenderProvider IExtenderProvider */
+
 /* Skipped type : System.ComponentModel.IIntellisenseBuilder IIntellisenseBuilder */
+
 /* Skipped type : System.ComponentModel.IListSource IListSource */
+
 /* Skipped type : System.ComponentModel.ImmutableObjectAttribute ImmutableObjectAttribute */
+
 /* Skipped type : System.ComponentModel.INestedContainer INestedContainer */
+
 /* Skipped type : System.ComponentModel.INestedSite INestedSite */
+
 /* Skipped type : System.ComponentModel.InheritanceAttribute InheritanceAttribute */
+
 /* Skipped type : System.ComponentModel.InheritanceLevel InheritanceLevel */
+
 /* Skipped type : System.ComponentModel.InitializationEventAttribute InitializationEventAttribute */
+
 /* Skipped type : System.ComponentModel.INotifyDataErrorInfo INotifyDataErrorInfo */
 #define SCINotifyPropertyChanged_ System_ComponentModel_INotifyPropertyChanged
 #define SCINotifyPropertyChanging_ System_ComponentModel_INotifyPropertyChanging
+
 /* Skipped type : System.ComponentModel.InstallerTypeAttribute InstallerTypeAttribute */
+
 /* Skipped type : System.ComponentModel.InstanceCreationEditor InstanceCreationEditor */
+
 /* Skipped type : System.ComponentModel.Int16Converter Int16Converter */
+
 /* Skipped type : System.ComponentModel.Int32Converter Int32Converter */
+
 /* Skipped type : System.ComponentModel.Int64Converter Int64Converter */
+
 /* Skipped type : System.ComponentModel.InvalidAsynchronousStateException InvalidAsynchronousStateException */
+
 /* Skipped type : System.ComponentModel.InvalidEnumArgumentException InvalidEnumArgumentException */
+
 /* Skipped type : System.ComponentModel.IRaiseItemChangedEvents IRaiseItemChangedEvents */
+
 /* Skipped type : System.ComponentModel.IRevertibleChangeTracking IRevertibleChangeTracking */
+
 /* Skipped type : System.ComponentModel.ISite ISite */
+
 /* Skipped type : System.ComponentModel.ISupportInitialize ISupportInitialize */
+
 /* Skipped type : System.ComponentModel.ISupportInitializeNotification ISupportInitializeNotification */
+
 /* Skipped type : System.ComponentModel.ISynchronizeInvoke ISynchronizeInvoke */
+
 /* Skipped type : System.ComponentModel.ITypeDescriptorContext ITypeDescriptorContext */
+
 /* Skipped type : System.ComponentModel.ITypedList ITypedList */
+
 /* Skipped type : System.ComponentModel.License License */
+
 /* Skipped type : System.ComponentModel.LicenseContext LicenseContext */
+
 /* Skipped type : System.ComponentModel.LicenseException LicenseException */
+
 /* Skipped type : System.ComponentModel.LicenseManager LicenseManager */
+
 /* Skipped type : System.ComponentModel.LicenseProvider LicenseProvider */
+
 /* Skipped type : System.ComponentModel.LicenseProviderAttribute LicenseProviderAttribute */
+
 /* Skipped type : System.ComponentModel.LicenseUsageMode LicenseUsageMode */
+
 /* Skipped type : System.ComponentModel.LicFileLicenseProvider LicFileLicenseProvider */
+
 /* Skipped type : System.ComponentModel.ListBindableAttribute ListBindableAttribute */
+
 /* Skipped type : System.ComponentModel.ListChangedEventArgs ListChangedEventArgs */
+
 /* Skipped type : System.ComponentModel.ListChangedEventHandler ListChangedEventHandler */
+
 /* Skipped type : System.ComponentModel.ListChangedType ListChangedType */
+
 /* Skipped type : System.ComponentModel.ListSortDescription ListSortDescription */
+
 /* Skipped type : System.ComponentModel.ListSortDescriptionCollection ListSortDescriptionCollection */
+
 /* Skipped type : System.ComponentModel.ListSortDirection ListSortDirection */
+
 /* Skipped type : System.ComponentModel.LocalizableAttribute LocalizableAttribute */
+
 /* Skipped type : System.ComponentModel.LookupBindingPropertiesAttribute LookupBindingPropertiesAttribute */
+
 /* Skipped type : System.ComponentModel.MarshalByValueComponent MarshalByValueComponent */
+
 /* Skipped type : System.ComponentModel.MaskedTextProvider MaskedTextProvider */
+
 /* Skipped type : System.ComponentModel.MaskedTextResultHint MaskedTextResultHint */
+
 /* Skipped type : System.ComponentModel.MemberDescriptor MemberDescriptor */
+
 /* Skipped type : System.ComponentModel.MergablePropertyAttribute MergablePropertyAttribute */
+
 /* Skipped type : System.ComponentModel.MultilineStringConverter MultilineStringConverter */
+
 /* Skipped type : System.ComponentModel.NestedContainer NestedContainer */
+
 /* Skipped type : System.ComponentModel.NotifyParentPropertyAttribute NotifyParentPropertyAttribute */
+
 /* Skipped type : System.ComponentModel.NullableConverter NullableConverter */
+
 /* Skipped type : System.ComponentModel.ParenthesizePropertyNameAttribute ParenthesizePropertyNameAttribute */
+
 /* Skipped type : System.ComponentModel.PasswordPropertyTextAttribute PasswordPropertyTextAttribute */
+
 /* Skipped type : System.ComponentModel.ProgressChangedEventArgs ProgressChangedEventArgs */
+
 /* Skipped type : System.ComponentModel.ProgressChangedEventHandler ProgressChangedEventHandler */
 #define SCPropertyChangedEventArgs_ System_ComponentModel_PropertyChangedEventArgs
+
 /* Skipped type : System.ComponentModel.PropertyChangedEventHandler PropertyChangedEventHandler */
 #define SCPropertyChangingEventArgs_ System_ComponentModel_PropertyChangingEventArgs
+
 /* Skipped type : System.ComponentModel.PropertyChangingEventHandler PropertyChangingEventHandler */
+
 /* Skipped type : System.ComponentModel.PropertyDescriptor PropertyDescriptor */
+
 /* Skipped type : System.ComponentModel.PropertyDescriptorCollection PropertyDescriptorCollection */
+
 /* Skipped type : System.ComponentModel.PropertyTabAttribute PropertyTabAttribute */
+
 /* Skipped type : System.ComponentModel.PropertyTabScope PropertyTabScope */
+
 /* Skipped type : System.ComponentModel.ProvidePropertyAttribute ProvidePropertyAttribute */
+
 /* Skipped type : System.ComponentModel.ReadOnlyAttribute ReadOnlyAttribute */
+
 /* Skipped type : System.ComponentModel.RecommendedAsConfigurableAttribute RecommendedAsConfigurableAttribute */
+
 /* Skipped type : System.ComponentModel.ReferenceConverter ReferenceConverter */
+
 /* Skipped type : System.ComponentModel.RefreshEventArgs RefreshEventArgs */
+
 /* Skipped type : System.ComponentModel.RefreshEventHandler RefreshEventHandler */
+
 /* Skipped type : System.ComponentModel.RefreshProperties RefreshProperties */
+
 /* Skipped type : System.ComponentModel.RefreshPropertiesAttribute RefreshPropertiesAttribute */
+
 /* Skipped type : System.ComponentModel.RunInstallerAttribute RunInstallerAttribute */
 #define SCRunWorkerCompletedEventArgs_ System_ComponentModel_RunWorkerCompletedEventArgs
+
 /* Skipped type : System.ComponentModel.RunWorkerCompletedEventHandler RunWorkerCompletedEventHandler */
+
 /* Skipped type : System.ComponentModel.SByteConverter SByteConverter */
+
 /* Skipped type : System.ComponentModel.SettingsBindableAttribute SettingsBindableAttribute */
+
 /* Skipped type : System.ComponentModel.SingleConverter SingleConverter */
+
 /* Skipped type : System.ComponentModel.StringConverter StringConverter */
+
 /* Skipped type : System.ComponentModel.SyntaxCheck SyntaxCheck */
+
 /* Skipped type : System.ComponentModel.TimeSpanConverter TimeSpanConverter */
+
 /* Skipped type : System.ComponentModel.ToolboxItemAttribute ToolboxItemAttribute */
+
 /* Skipped type : System.ComponentModel.ToolboxItemFilterAttribute ToolboxItemFilterAttribute */
+
 /* Skipped type : System.ComponentModel.ToolboxItemFilterType ToolboxItemFilterType */
+
 /* Skipped type : System.ComponentModel.TypeConverter TypeConverter */
+
 /* Skipped type : System.ComponentModel.TypeConverter+StandardValuesCollection TypeConverter.StandardValuesCollection */
+
 /* Skipped type : System.ComponentModel.TypeConverterAttribute TypeConverterAttribute */
+
 /* Skipped type : System.ComponentModel.TypeDescriptionProvider TypeDescriptionProvider */
+
 /* Skipped type : System.ComponentModel.TypeDescriptionProviderAttribute TypeDescriptionProviderAttribute */
+
 /* Skipped type : System.ComponentModel.TypeDescriptor TypeDescriptor */
+
 /* Skipped type : System.ComponentModel.TypeListConverter TypeListConverter */
+
 /* Skipped type : System.ComponentModel.UInt16Converter UInt16Converter */
+
 /* Skipped type : System.ComponentModel.UInt32Converter UInt32Converter */
+
 /* Skipped type : System.ComponentModel.UInt64Converter UInt64Converter */
+
 /* Skipped type : System.ComponentModel.WarningException WarningException */
+
 /* Skipped type : System.ComponentModel.Win32Exception Win32Exception */
+
 /* Skipped type : System.Configuration.ApplicationScopedSettingAttribute ApplicationScopedSettingAttribute */
+
 /* Skipped type : System.Configuration.ApplicationSettingsBase ApplicationSettingsBase */
+
 /* Skipped type : System.Configuration.ApplicationSettingsGroup ApplicationSettingsGroup */
+
 /* Skipped type : System.Configuration.AppSettingsReader AppSettingsReader */
+
 /* Skipped type : System.Configuration.ClientSettingsSection ClientSettingsSection */
+
 /* Skipped type : System.Configuration.ConfigurationException ConfigurationException */
+
 /* Skipped type : System.Configuration.ConfigurationSettings ConfigurationSettings */
+
 /* Skipped type : System.Configuration.ConfigXmlDocument ConfigXmlDocument */
+
 /* Skipped type : System.Configuration.DefaultSettingValueAttribute DefaultSettingValueAttribute */
+
 /* Skipped type : System.Configuration.DictionarySectionHandler DictionarySectionHandler */
+
 /* Skipped type : System.Configuration.IApplicationSettingsProvider IApplicationSettingsProvider */
+
 /* Skipped type : System.Configuration.IConfigurationSectionHandler IConfigurationSectionHandler */
+
 /* Skipped type : System.Configuration.IConfigurationSystem IConfigurationSystem */
+
 /* Skipped type : System.Configuration.IdnElement IdnElement */
+
 /* Skipped type : System.Configuration.IgnoreSectionHandler IgnoreSectionHandler */
+
 /* Skipped type : System.Configuration.IPersistComponentSettings IPersistComponentSettings */
+
 /* Skipped type : System.Configuration.IriParsingElement IriParsingElement */
+
 /* Skipped type : System.Configuration.ISettingsProviderService ISettingsProviderService */
+
 /* Skipped type : System.Configuration.LocalFileSettingsProvider LocalFileSettingsProvider */
+
 /* Skipped type : System.Configuration.NameValueFileSectionHandler NameValueFileSectionHandler */
+
 /* Skipped type : System.Configuration.NameValueSectionHandler NameValueSectionHandler */
+
 /* Skipped type : System.Configuration.NoSettingsVersionUpgradeAttribute NoSettingsVersionUpgradeAttribute */
+
 /* Skipped type : System.Configuration.SchemeSettingElement SchemeSettingElement */
+
 /* Skipped type : System.Configuration.SchemeSettingElementCollection SchemeSettingElementCollection */
+
 /* Skipped type : System.Configuration.SettingAttribute SettingAttribute */
+
 /* Skipped type : System.Configuration.SettingChangingEventArgs SettingChangingEventArgs */
+
 /* Skipped type : System.Configuration.SettingChangingEventHandler SettingChangingEventHandler */
+
 /* Skipped type : System.Configuration.SettingElement SettingElement */
+
 /* Skipped type : System.Configuration.SettingElementCollection SettingElementCollection */
+
 /* Skipped type : System.Configuration.SettingsAttributeDictionary SettingsAttributeDictionary */
 #define SCSettingsBase_ System_Configuration_SettingsBase
+
 /* Skipped type : System.Configuration.SettingsContext SettingsContext */
+
 /* Skipped type : System.Configuration.SettingsDescriptionAttribute SettingsDescriptionAttribute */
+
 /* Skipped type : System.Configuration.SettingsGroupDescriptionAttribute SettingsGroupDescriptionAttribute */
+
 /* Skipped type : System.Configuration.SettingsGroupNameAttribute SettingsGroupNameAttribute */
+
 /* Skipped type : System.Configuration.SettingsLoadedEventArgs SettingsLoadedEventArgs */
+
 /* Skipped type : System.Configuration.SettingsLoadedEventHandler SettingsLoadedEventHandler */
+
 /* Skipped type : System.Configuration.SettingsManageability SettingsManageability */
+
 /* Skipped type : System.Configuration.SettingsManageabilityAttribute SettingsManageabilityAttribute */
+
 /* Skipped type : System.Configuration.SettingsProperty SettingsProperty */
+
 /* Skipped type : System.Configuration.SettingsPropertyCollection SettingsPropertyCollection */
+
 /* Skipped type : System.Configuration.SettingsPropertyIsReadOnlyException SettingsPropertyIsReadOnlyException */
+
 /* Skipped type : System.Configuration.SettingsPropertyNotFoundException SettingsPropertyNotFoundException */
+
 /* Skipped type : System.Configuration.SettingsPropertyValue SettingsPropertyValue */
+
 /* Skipped type : System.Configuration.SettingsPropertyValueCollection SettingsPropertyValueCollection */
+
 /* Skipped type : System.Configuration.SettingsPropertyWrongTypeException SettingsPropertyWrongTypeException */
+
 /* Skipped type : System.Configuration.SettingsProvider SettingsProvider */
+
 /* Skipped type : System.Configuration.SettingsProviderAttribute SettingsProviderAttribute */
+
 /* Skipped type : System.Configuration.SettingsProviderCollection SettingsProviderCollection */
+
 /* Skipped type : System.Configuration.SettingsSavingEventHandler SettingsSavingEventHandler */
+
 /* Skipped type : System.Configuration.SettingsSerializeAs SettingsSerializeAs */
+
 /* Skipped type : System.Configuration.SettingsSerializeAsAttribute SettingsSerializeAsAttribute */
+
 /* Skipped type : System.Configuration.SettingValueElement SettingValueElement */
+
 /* Skipped type : System.Configuration.SingleTagSectionHandler SingleTagSectionHandler */
+
 /* Skipped type : System.Configuration.SpecialSetting SpecialSetting */
+
 /* Skipped type : System.Configuration.SpecialSettingAttribute SpecialSettingAttribute */
+
 /* Skipped type : System.Configuration.UriSection UriSection */
+
 /* Skipped type : System.Configuration.UserScopedSettingAttribute UserScopedSettingAttribute */
+
 /* Skipped type : System.Configuration.UserSettingsGroup UserSettingsGroup */
+
 /* Skipped type : System.Diagnostics.BooleanSwitch BooleanSwitch */
+
 /* Skipped type : System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute ExcludeFromCodeCoverageAttribute */
+
 /* Skipped type : System.Diagnostics.ConsoleTraceListener ConsoleTraceListener */
+
 /* Skipped type : System.Diagnostics.CorrelationManager CorrelationManager */
+
 /* Skipped type : System.Diagnostics.CounterCreationData CounterCreationData */
+
 /* Skipped type : System.Diagnostics.CounterCreationDataCollection CounterCreationDataCollection */
+
 /* Skipped type : System.Diagnostics.CounterSample CounterSample */
+
 /* Skipped type : System.Diagnostics.CounterSampleCalculator CounterSampleCalculator */
+
 /* Skipped type : System.Diagnostics.DataReceivedEventArgs DataReceivedEventArgs */
+
 /* Skipped type : System.Diagnostics.DataReceivedEventHandler DataReceivedEventHandler */
+
 /* Skipped type : System.Diagnostics.Debug Debug */
+
 /* Skipped type : System.Diagnostics.DefaultTraceListener DefaultTraceListener */
+
 /* Skipped type : System.Diagnostics.DelimitedListTraceListener DelimitedListTraceListener */
+
 /* Skipped type : System.Diagnostics.DiagnosticsConfigurationHandler DiagnosticsConfigurationHandler */
+
 /* Skipped type : System.Diagnostics.EntryWrittenEventArgs EntryWrittenEventArgs */
+
 /* Skipped type : System.Diagnostics.EntryWrittenEventHandler EntryWrittenEventHandler */
+
 /* Skipped type : System.Diagnostics.EventInstance EventInstance */
+
 /* Skipped type : System.Diagnostics.EventLog EventLog */
+
 /* Skipped type : System.Diagnostics.EventLogEntry EventLogEntry */
+
 /* Skipped type : System.Diagnostics.EventLogEntryCollection EventLogEntryCollection */
+
 /* Skipped type : System.Diagnostics.EventLogEntryType EventLogEntryType */
+
 /* Skipped type : System.Diagnostics.EventLogPermission EventLogPermission */
+
 /* Skipped type : System.Diagnostics.EventLogPermissionAccess EventLogPermissionAccess */
+
 /* Skipped type : System.Diagnostics.EventLogPermissionAttribute EventLogPermissionAttribute */
+
 /* Skipped type : System.Diagnostics.EventLogPermissionEntry EventLogPermissionEntry */
+
 /* Skipped type : System.Diagnostics.EventLogPermissionEntryCollection EventLogPermissionEntryCollection */
+
 /* Skipped type : System.Diagnostics.EventLogTraceListener EventLogTraceListener */
+
 /* Skipped type : System.Diagnostics.EventSourceCreationData EventSourceCreationData */
+
 /* Skipped type : System.Diagnostics.EventTypeFilter EventTypeFilter */
+
 /* Skipped type : System.Diagnostics.FileVersionInfo FileVersionInfo */
+
 /* Skipped type : System.Diagnostics.ICollectData ICollectData */
+
 /* Skipped type : System.Diagnostics.InstanceData InstanceData */
+
 /* Skipped type : System.Diagnostics.InstanceDataCollection InstanceDataCollection */
+
 /* Skipped type : System.Diagnostics.InstanceDataCollectionCollection InstanceDataCollectionCollection */
+
 /* Skipped type : System.Diagnostics.MonitoringDescriptionAttribute MonitoringDescriptionAttribute */
+
 /* Skipped type : System.Diagnostics.OverflowAction OverflowAction */
+
 /* Skipped type : System.Diagnostics.PerformanceCounter PerformanceCounter */
+
 /* Skipped type : System.Diagnostics.PerformanceCounterCategory PerformanceCounterCategory */
+
 /* Skipped type : System.Diagnostics.PerformanceCounterCategoryType PerformanceCounterCategoryType */
+
 /* Skipped type : System.Diagnostics.PerformanceCounterInstanceLifetime PerformanceCounterInstanceLifetime */
+
 /* Skipped type : System.Diagnostics.PerformanceCounterManager PerformanceCounterManager */
+
 /* Skipped type : System.Diagnostics.PerformanceCounterPermission PerformanceCounterPermission */
+
 /* Skipped type : System.Diagnostics.PerformanceCounterPermissionAccess PerformanceCounterPermissionAccess */
+
 /* Skipped type : System.Diagnostics.PerformanceCounterPermissionAttribute PerformanceCounterPermissionAttribute */
+
 /* Skipped type : System.Diagnostics.PerformanceCounterPermissionEntry PerformanceCounterPermissionEntry */
+
 /* Skipped type : System.Diagnostics.PerformanceCounterPermissionEntryCollection PerformanceCounterPermissionEntryCollection */
+
 /* Skipped type : System.Diagnostics.PerformanceCounterType PerformanceCounterType */
+
 /* Skipped type : System.Diagnostics.Process Process */
+
 /* Skipped type : System.Diagnostics.ProcessModule ProcessModule */
+
 /* Skipped type : System.Diagnostics.ProcessModuleCollection ProcessModuleCollection */
+
 /* Skipped type : System.Diagnostics.ProcessPriorityClass ProcessPriorityClass */
+
 /* Skipped type : System.Diagnostics.ProcessStartInfo ProcessStartInfo */
+
 /* Skipped type : System.Diagnostics.ProcessThread ProcessThread */
+
 /* Skipped type : System.Diagnostics.ProcessThreadCollection ProcessThreadCollection */
+
 /* Skipped type : System.Diagnostics.ProcessWindowStyle ProcessWindowStyle */
+
 /* Skipped type : System.Diagnostics.SourceFilter SourceFilter */
+
 /* Skipped type : System.Diagnostics.SourceLevels SourceLevels */
+
 /* Skipped type : System.Diagnostics.SourceSwitch SourceSwitch */
+
 /* Skipped type : System.Diagnostics.StackFrameExtensions StackFrameExtensions */
+
 /* Skipped type : System.Diagnostics.Stopwatch Stopwatch */
+
 /* Skipped type : System.Diagnostics.Switch Switch */
+
 /* Skipped type : System.Diagnostics.SwitchAttribute SwitchAttribute */
+
 /* Skipped type : System.Diagnostics.SwitchLevelAttribute SwitchLevelAttribute */
+
 /* Skipped type : System.Diagnostics.TextWriterTraceListener TextWriterTraceListener */
+
 /* Skipped type : System.Diagnostics.ThreadPriorityLevel ThreadPriorityLevel */
+
 /* Skipped type : System.Diagnostics.ThreadState ThreadState */
+
 /* Skipped type : System.Diagnostics.ThreadWaitReason ThreadWaitReason */
+
 /* Skipped type : System.Diagnostics.Trace Trace */
+
 /* Skipped type : System.Diagnostics.TraceEventCache TraceEventCache */
+
 /* Skipped type : System.Diagnostics.TraceEventType TraceEventType */
+
 /* Skipped type : System.Diagnostics.TraceFilter TraceFilter */
+
 /* Skipped type : System.Diagnostics.TraceLevel TraceLevel */
+
 /* Skipped type : System.Diagnostics.TraceListener TraceListener */
+
 /* Skipped type : System.Diagnostics.TraceListenerCollection TraceListenerCollection */
+
 /* Skipped type : System.Diagnostics.TraceOptions TraceOptions */
+
 /* Skipped type : System.Diagnostics.TraceSource TraceSource */
+
 /* Skipped type : System.Diagnostics.TraceSwitch TraceSwitch */
+
 /* Skipped type : System.Diagnostics.XmlWriterTraceListener XmlWriterTraceListener */
+
 /* Skipped type : System.FileStyleUriParser FileStyleUriParser */
+
 /* Skipped type : System.FtpStyleUriParser FtpStyleUriParser */
+
 /* Skipped type : System.GenericUriParser GenericUriParser */
+
 /* Skipped type : System.GenericUriParserOptions GenericUriParserOptions */
+
 /* Skipped type : System.GopherStyleUriParser GopherStyleUriParser */
+
 /* Skipped type : System.HttpStyleUriParser HttpStyleUriParser */
+
 /* Skipped type : System.IO.Compression.CompressionLevel CompressionLevel */
+
 /* Skipped type : System.IO.Compression.CompressionMode CompressionMode */
+
 /* Skipped type : System.IO.Compression.DeflateStream DeflateStream */
+
 /* Skipped type : System.IO.Compression.GZipStream GZipStream */
 #define SIErrorEventArgs_ System_IO_ErrorEventArgs
+
 /* Skipped type : System.IO.ErrorEventHandler ErrorEventHandler */
+
 /* Skipped type : System.IO.FileSystemEventArgs FileSystemEventArgs */
+
 /* Skipped type : System.IO.FileSystemEventHandler FileSystemEventHandler */
+
 /* Skipped type : System.IO.FileSystemWatcher FileSystemWatcher */
+
 /* Skipped type : System.IO.InternalBufferOverflowException InternalBufferOverflowException */
+
 /* Skipped type : System.IO.InvalidDataException InvalidDataException */
+
 /* Skipped type : System.IO.IODescriptionAttribute IODescriptionAttribute */
+
 /* Skipped type : System.IO.NotifyFilters NotifyFilters */
+
 /* Skipped type : System.IO.Ports.Handshake Handshake */
+
 /* Skipped type : System.IO.Ports.Parity Parity */
+
 /* Skipped type : System.IO.Ports.SerialData SerialData */
+
 /* Skipped type : System.IO.Ports.SerialDataReceivedEventArgs SerialDataReceivedEventArgs */
+
 /* Skipped type : System.IO.Ports.SerialDataReceivedEventHandler SerialDataReceivedEventHandler */
+
 /* Skipped type : System.IO.Ports.SerialError SerialError */
+
 /* Skipped type : System.IO.Ports.SerialErrorReceivedEventArgs SerialErrorReceivedEventArgs */
+
 /* Skipped type : System.IO.Ports.SerialErrorReceivedEventHandler SerialErrorReceivedEventHandler */
+
 /* Skipped type : System.IO.Ports.SerialPinChange SerialPinChange */
+
 /* Skipped type : System.IO.Ports.SerialPinChangedEventArgs SerialPinChangedEventArgs */
+
 /* Skipped type : System.IO.Ports.SerialPinChangedEventHandler SerialPinChangedEventHandler */
+
 /* Skipped type : System.IO.Ports.SerialPort SerialPort */
+
 /* Skipped type : System.IO.Ports.StopBits StopBits */
+
 /* Skipped type : System.IO.RenamedEventArgs RenamedEventArgs */
+
 /* Skipped type : System.IO.RenamedEventHandler RenamedEventHandler */
+
 /* Skipped type : System.IO.WaitForChangedResult WaitForChangedResult */
+
 /* Skipped type : System.IO.WatcherChangeTypes WatcherChangeTypes */
+
 /* Skipped type : System.LdapStyleUriParser LdapStyleUriParser */
+
 /* Skipped type : System.Media.SoundPlayer SoundPlayer */
+
 /* Skipped type : System.Media.SystemSound SystemSound */
+
 /* Skipped type : System.Media.SystemSounds SystemSounds */
+
 /* Skipped type : System.Net.AuthenticationManager AuthenticationManager */
+
 /* Skipped type : System.Net.AuthenticationSchemes AuthenticationSchemes */
+
 /* Skipped type : System.Net.AuthenticationSchemeSelector AuthenticationSchemeSelector */
+
 /* Skipped type : System.Net.Authorization Authorization */
+
 /* Skipped type : System.Net.BindIPEndPoint BindIPEndPoint */
+
 /* Skipped type : System.Net.Cache.HttpCacheAgeControl HttpCacheAgeControl */
+
 /* Skipped type : System.Net.Cache.HttpRequestCacheLevel HttpRequestCacheLevel */
+
 /* Skipped type : System.Net.Cache.HttpRequestCachePolicy HttpRequestCachePolicy */
+
 /* Skipped type : System.Net.Cache.RequestCacheLevel RequestCacheLevel */
+
 /* Skipped type : System.Net.Cache.RequestCachePolicy RequestCachePolicy */
+
 /* Skipped type : System.Net.Configuration.AuthenticationModuleElement AuthenticationModuleElement */
+
 /* Skipped type : System.Net.Configuration.AuthenticationModuleElementCollection AuthenticationModuleElementCollection */
+
 /* Skipped type : System.Net.Configuration.AuthenticationModulesSection AuthenticationModulesSection */
+
 /* Skipped type : System.Net.Configuration.BypassElement BypassElement */
+
 /* Skipped type : System.Net.Configuration.BypassElementCollection BypassElementCollection */
+
 /* Skipped type : System.Net.Configuration.ConnectionManagementElement ConnectionManagementElement */
+
 /* Skipped type : System.Net.Configuration.ConnectionManagementElementCollection ConnectionManagementElementCollection */
+
 /* Skipped type : System.Net.Configuration.ConnectionManagementSection ConnectionManagementSection */
+
 /* Skipped type : System.Net.Configuration.DefaultProxySection DefaultProxySection */
+
 /* Skipped type : System.Net.Configuration.FtpCachePolicyElement FtpCachePolicyElement */
+
 /* Skipped type : System.Net.Configuration.HttpCachePolicyElement HttpCachePolicyElement */
+
 /* Skipped type : System.Net.Configuration.HttpListenerElement HttpListenerElement */
+
 /* Skipped type : System.Net.Configuration.HttpListenerTimeoutsElement HttpListenerTimeoutsElement */
+
 /* Skipped type : System.Net.Configuration.HttpWebRequestElement HttpWebRequestElement */
+
 /* Skipped type : System.Net.Configuration.Ipv6Element Ipv6Element */
+
 /* Skipped type : System.Net.Configuration.MailSettingsSectionGroup MailSettingsSectionGroup */
+
 /* Skipped type : System.Net.Configuration.ModuleElement ModuleElement */
+
 /* Skipped type : System.Net.Configuration.NetSectionGroup NetSectionGroup */
+
 /* Skipped type : System.Net.Configuration.PerformanceCountersElement PerformanceCountersElement */
+
 /* Skipped type : System.Net.Configuration.ProxyElement ProxyElement */
+
 /* Skipped type : System.Net.Configuration.ProxyElement+AutoDetectValues ProxyElement.AutoDetectValues */
+
 /* Skipped type : System.Net.Configuration.ProxyElement+BypassOnLocalValues ProxyElement.BypassOnLocalValues */
+
 /* Skipped type : System.Net.Configuration.ProxyElement+UseSystemDefaultValues ProxyElement.UseSystemDefaultValues */
+
 /* Skipped type : System.Net.Configuration.RequestCachingSection RequestCachingSection */
+
 /* Skipped type : System.Net.Configuration.ServicePointManagerElement ServicePointManagerElement */
+
 /* Skipped type : System.Net.Configuration.SettingsSection SettingsSection */
+
 /* Skipped type : System.Net.Configuration.SmtpNetworkElement SmtpNetworkElement */
+
 /* Skipped type : System.Net.Configuration.SmtpSection SmtpSection */
+
 /* Skipped type : System.Net.Configuration.SmtpSpecifiedPickupDirectoryElement SmtpSpecifiedPickupDirectoryElement */
+
 /* Skipped type : System.Net.Configuration.SocketElement SocketElement */
+
 /* Skipped type : System.Net.Configuration.UnicodeDecodingConformance UnicodeDecodingConformance */
+
 /* Skipped type : System.Net.Configuration.UnicodeEncodingConformance UnicodeEncodingConformance */
+
 /* Skipped type : System.Net.Configuration.WebProxyScriptElement WebProxyScriptElement */
+
 /* Skipped type : System.Net.Configuration.WebRequestModuleElement WebRequestModuleElement */
+
 /* Skipped type : System.Net.Configuration.WebRequestModuleElementCollection WebRequestModuleElementCollection */
+
 /* Skipped type : System.Net.Configuration.WebRequestModulesSection WebRequestModulesSection */
+
 /* Skipped type : System.Net.Configuration.WebUtilityElement WebUtilityElement */
+
 /* Skipped type : System.Net.Cookie Cookie */
+
 /* Skipped type : System.Net.CookieCollection CookieCollection */
+
 /* Skipped type : System.Net.CookieContainer CookieContainer */
+
 /* Skipped type : System.Net.CookieException CookieException */
+
 /* Skipped type : System.Net.CredentialCache CredentialCache */
+
 /* Skipped type : System.Net.DecompressionMethods DecompressionMethods */
+
 /* Skipped type : System.Net.Dns Dns */
+
 /* Skipped type : System.Net.DnsEndPoint DnsEndPoint */
+
 /* Skipped type : System.Net.DnsPermission DnsPermission */
+
 /* Skipped type : System.Net.DnsPermissionAttribute DnsPermissionAttribute */
+
 /* Skipped type : System.Net.DownloadDataCompletedEventArgs DownloadDataCompletedEventArgs */
+
 /* Skipped type : System.Net.DownloadDataCompletedEventHandler DownloadDataCompletedEventHandler */
+
 /* Skipped type : System.Net.DownloadProgressChangedEventArgs DownloadProgressChangedEventArgs */
+
 /* Skipped type : System.Net.DownloadProgressChangedEventHandler DownloadProgressChangedEventHandler */
+
 /* Skipped type : System.Net.DownloadStringCompletedEventArgs DownloadStringCompletedEventArgs */
+
 /* Skipped type : System.Net.DownloadStringCompletedEventHandler DownloadStringCompletedEventHandler */
+
 /* Skipped type : System.Net.EndPoint EndPoint */
+
 /* Skipped type : System.Net.EndpointPermission EndpointPermission */
+
 /* Skipped type : System.Net.FileWebRequest FileWebRequest */
+
 /* Skipped type : System.Net.FileWebResponse FileWebResponse */
+
 /* Skipped type : System.Net.FtpStatusCode FtpStatusCode */
+
 /* Skipped type : System.Net.FtpWebRequest FtpWebRequest */
+
 /* Skipped type : System.Net.FtpWebResponse FtpWebResponse */
+
 /* Skipped type : System.Net.GlobalProxySelection GlobalProxySelection */
+
 /* Skipped type : System.Net.HttpContinueDelegate HttpContinueDelegate */
+
 /* Skipped type : System.Net.HttpListener HttpListener */
+
 /* Skipped type : System.Net.HttpListener+ExtendedProtectionSelector HttpListener.ExtendedProtectionSelector */
+
 /* Skipped type : System.Net.HttpListenerBasicIdentity HttpListenerBasicIdentity */
+
 /* Skipped type : System.Net.HttpListenerContext HttpListenerContext */
+
 /* Skipped type : System.Net.HttpListenerException HttpListenerException */
+
 /* Skipped type : System.Net.HttpListenerPrefixCollection HttpListenerPrefixCollection */
+
 /* Skipped type : System.Net.HttpListenerRequest HttpListenerRequest */
+
 /* Skipped type : System.Net.HttpListenerResponse HttpListenerResponse */
+
 /* Skipped type : System.Net.HttpListenerTimeoutManager HttpListenerTimeoutManager */
+
 /* Skipped type : System.Net.HttpRequestHeader HttpRequestHeader */
+
 /* Skipped type : System.Net.HttpResponseHeader HttpResponseHeader */
 #define SNHttpStatusCode_ System_Net_HttpStatusCode
+
 /* Skipped type : System.Net.HttpVersion HttpVersion */
 #define SNHttpWebRequest_ System_Net_HttpWebRequest
 #define SNHttpWebResponse_ System_Net_HttpWebResponse
+
 /* Skipped type : System.Net.IAuthenticationModule IAuthenticationModule */
+
 /* Skipped type : System.Net.ICertificatePolicy ICertificatePolicy */
+
 /* Skipped type : System.Net.ICredentialPolicy ICredentialPolicy */
+
 /* Skipped type : System.Net.ICredentials ICredentials */
+
 /* Skipped type : System.Net.ICredentialsByHost ICredentialsByHost */
+
 /* Skipped type : System.Net.IPAddress IPAddress */
+
 /* Skipped type : System.Net.IPEndPoint IPEndPoint */
+
 /* Skipped type : System.Net.IPHostEntry IPHostEntry */
+
 /* Skipped type : System.Net.IWebProxy IWebProxy */
+
 /* Skipped type : System.Net.IWebProxyScript IWebProxyScript */
+
 /* Skipped type : System.Net.IWebRequestCreate IWebRequestCreate */
+
 /* Skipped type : System.Net.Mail.AlternateView AlternateView */
+
 /* Skipped type : System.Net.Mail.AlternateViewCollection AlternateViewCollection */
+
 /* Skipped type : System.Net.Mail.Attachment Attachment */
+
 /* Skipped type : System.Net.Mail.AttachmentBase AttachmentBase */
+
 /* Skipped type : System.Net.Mail.AttachmentCollection AttachmentCollection */
+
 /* Skipped type : System.Net.Mail.DeliveryNotificationOptions DeliveryNotificationOptions */
+
 /* Skipped type : System.Net.Mail.LinkedResource LinkedResource */
+
 /* Skipped type : System.Net.Mail.LinkedResourceCollection LinkedResourceCollection */
+
 /* Skipped type : System.Net.Mail.MailAddress MailAddress */
+
 /* Skipped type : System.Net.Mail.MailAddressCollection MailAddressCollection */
+
 /* Skipped type : System.Net.Mail.MailMessage MailMessage */
+
 /* Skipped type : System.Net.Mail.MailPriority MailPriority */
+
 /* Skipped type : System.Net.Mail.SendCompletedEventHandler SendCompletedEventHandler */
+
 /* Skipped type : System.Net.Mail.SmtpAccess SmtpAccess */
+
 /* Skipped type : System.Net.Mail.SmtpClient SmtpClient */
+
 /* Skipped type : System.Net.Mail.SmtpDeliveryFormat SmtpDeliveryFormat */
+
 /* Skipped type : System.Net.Mail.SmtpDeliveryMethod SmtpDeliveryMethod */
+
 /* Skipped type : System.Net.Mail.SmtpException SmtpException */
+
 /* Skipped type : System.Net.Mail.SmtpFailedRecipientException SmtpFailedRecipientException */
+
 /* Skipped type : System.Net.Mail.SmtpFailedRecipientsException SmtpFailedRecipientsException */
+
 /* Skipped type : System.Net.Mail.SmtpPermission SmtpPermission */
+
 /* Skipped type : System.Net.Mail.SmtpPermissionAttribute SmtpPermissionAttribute */
+
 /* Skipped type : System.Net.Mail.SmtpStatusCode SmtpStatusCode */
+
 /* Skipped type : System.Net.Mime.ContentDisposition ContentDisposition */
+
 /* Skipped type : System.Net.Mime.ContentType ContentType */
+
 /* Skipped type : System.Net.Mime.DispositionTypeNames DispositionTypeNames */
+
 /* Skipped type : System.Net.Mime.MediaTypeNames MediaTypeNames */
+
 /* Skipped type : System.Net.Mime.MediaTypeNames+Application MediaTypeNames.Application */
+
 /* Skipped type : System.Net.Mime.MediaTypeNames+Image MediaTypeNames.Image */
+
 /* Skipped type : System.Net.Mime.MediaTypeNames+Text MediaTypeNames.Text */
+
 /* Skipped type : System.Net.Mime.TransferEncoding TransferEncoding */
+
 /* Skipped type : System.Net.NetworkAccess NetworkAccess */
+
 /* Skipped type : System.Net.NetworkCredential NetworkCredential */
+
 /* Skipped type : System.Net.NetworkInformation.DuplicateAddressDetectionState DuplicateAddressDetectionState */
+
 /* Skipped type : System.Net.NetworkInformation.GatewayIPAddressInformation GatewayIPAddressInformation */
+
 /* Skipped type : System.Net.NetworkInformation.GatewayIPAddressInformationCollection GatewayIPAddressInformationCollection */
+
 /* Skipped type : System.Net.NetworkInformation.IcmpV4Statistics IcmpV4Statistics */
+
 /* Skipped type : System.Net.NetworkInformation.IcmpV6Statistics IcmpV6Statistics */
+
 /* Skipped type : System.Net.NetworkInformation.IPAddressCollection IPAddressCollection */
+
 /* Skipped type : System.Net.NetworkInformation.IPAddressInformation IPAddressInformation */
+
 /* Skipped type : System.Net.NetworkInformation.IPAddressInformationCollection IPAddressInformationCollection */
+
 /* Skipped type : System.Net.NetworkInformation.IPGlobalProperties IPGlobalProperties */
+
 /* Skipped type : System.Net.NetworkInformation.IPGlobalStatistics IPGlobalStatistics */
+
 /* Skipped type : System.Net.NetworkInformation.IPInterfaceProperties IPInterfaceProperties */
+
 /* Skipped type : System.Net.NetworkInformation.IPInterfaceStatistics IPInterfaceStatistics */
+
 /* Skipped type : System.Net.NetworkInformation.IPStatus IPStatus */
+
 /* Skipped type : System.Net.NetworkInformation.IPv4InterfaceProperties IPv4InterfaceProperties */
+
 /* Skipped type : System.Net.NetworkInformation.IPv4InterfaceStatistics IPv4InterfaceStatistics */
+
 /* Skipped type : System.Net.NetworkInformation.IPv6InterfaceProperties IPv6InterfaceProperties */
+
 /* Skipped type : System.Net.NetworkInformation.MulticastIPAddressInformation MulticastIPAddressInformation */
+
 /* Skipped type : System.Net.NetworkInformation.MulticastIPAddressInformationCollection MulticastIPAddressInformationCollection */
+
 /* Skipped type : System.Net.NetworkInformation.NetBiosNodeType NetBiosNodeType */
+
 /* Skipped type : System.Net.NetworkInformation.NetworkAddressChangedEventHandler NetworkAddressChangedEventHandler */
+
 /* Skipped type : System.Net.NetworkInformation.NetworkAvailabilityChangedEventHandler NetworkAvailabilityChangedEventHandler */
+
 /* Skipped type : System.Net.NetworkInformation.NetworkAvailabilityEventArgs NetworkAvailabilityEventArgs */
+
 /* Skipped type : System.Net.NetworkInformation.NetworkChange NetworkChange */
+
 /* Skipped type : System.Net.NetworkInformation.NetworkInformationAccess NetworkInformationAccess */
+
 /* Skipped type : System.Net.NetworkInformation.NetworkInformationException NetworkInformationException */
+
 /* Skipped type : System.Net.NetworkInformation.NetworkInformationPermission NetworkInformationPermission */
+
 /* Skipped type : System.Net.NetworkInformation.NetworkInformationPermissionAttribute NetworkInformationPermissionAttribute */
+
 /* Skipped type : System.Net.NetworkInformation.NetworkInterface NetworkInterface */
+
 /* Skipped type : System.Net.NetworkInformation.NetworkInterfaceComponent NetworkInterfaceComponent */
+
 /* Skipped type : System.Net.NetworkInformation.NetworkInterfaceType NetworkInterfaceType */
+
 /* Skipped type : System.Net.NetworkInformation.OperationalStatus OperationalStatus */
+
 /* Skipped type : System.Net.NetworkInformation.PhysicalAddress PhysicalAddress */
+
 /* Skipped type : System.Net.NetworkInformation.Ping Ping */
+
 /* Skipped type : System.Net.NetworkInformation.PingCompletedEventArgs PingCompletedEventArgs */
+
 /* Skipped type : System.Net.NetworkInformation.PingCompletedEventHandler PingCompletedEventHandler */
+
 /* Skipped type : System.Net.NetworkInformation.PingException PingException */
+
 /* Skipped type : System.Net.NetworkInformation.PingOptions PingOptions */
+
 /* Skipped type : System.Net.NetworkInformation.PingReply PingReply */
+
 /* Skipped type : System.Net.NetworkInformation.PrefixOrigin PrefixOrigin */
+
 /* Skipped type : System.Net.NetworkInformation.ScopeLevel ScopeLevel */
+
 /* Skipped type : System.Net.NetworkInformation.SuffixOrigin SuffixOrigin */
+
 /* Skipped type : System.Net.NetworkInformation.TcpConnectionInformation TcpConnectionInformation */
+
 /* Skipped type : System.Net.NetworkInformation.TcpState TcpState */
+
 /* Skipped type : System.Net.NetworkInformation.TcpStatistics TcpStatistics */
+
 /* Skipped type : System.Net.NetworkInformation.UdpStatistics UdpStatistics */
+
 /* Skipped type : System.Net.NetworkInformation.UnicastIPAddressInformation UnicastIPAddressInformation */
+
 /* Skipped type : System.Net.NetworkInformation.UnicastIPAddressInformationCollection UnicastIPAddressInformationCollection */
+
 /* Skipped type : System.Net.OpenReadCompletedEventArgs OpenReadCompletedEventArgs */
+
 /* Skipped type : System.Net.OpenReadCompletedEventHandler OpenReadCompletedEventHandler */
+
 /* Skipped type : System.Net.OpenWriteCompletedEventArgs OpenWriteCompletedEventArgs */
+
 /* Skipped type : System.Net.OpenWriteCompletedEventHandler OpenWriteCompletedEventHandler */
+
 /* Skipped type : System.Net.ProtocolViolationException ProtocolViolationException */
+
 /* Skipped type : System.Net.Security.AuthenticatedStream AuthenticatedStream */
+
 /* Skipped type : System.Net.Security.AuthenticationLevel AuthenticationLevel */
+
 /* Skipped type : System.Net.Security.EncryptionPolicy EncryptionPolicy */
+
 /* Skipped type : System.Net.Security.LocalCertificateSelectionCallback LocalCertificateSelectionCallback */
+
 /* Skipped type : System.Net.Security.NegotiateStream NegotiateStream */
+
 /* Skipped type : System.Net.Security.ProtectionLevel ProtectionLevel */
+
 /* Skipped type : System.Net.Security.RemoteCertificateValidationCallback RemoteCertificateValidationCallback */
+
 /* Skipped type : System.Net.Security.SslPolicyErrors SslPolicyErrors */
+
 /* Skipped type : System.Net.Security.SslStream SslStream */
+
 /* Skipped type : System.Net.SecurityProtocolType SecurityProtocolType */
+
 /* Skipped type : System.Net.ServicePoint ServicePoint */
+
 /* Skipped type : System.Net.ServicePointManager ServicePointManager */
+
 /* Skipped type : System.Net.SocketAddress SocketAddress */
+
 /* Skipped type : System.Net.SocketPermission SocketPermission */
+
 /* Skipped type : System.Net.SocketPermissionAttribute SocketPermissionAttribute */
+
 /* Skipped type : System.Net.Sockets.AddressFamily AddressFamily */
+
 /* Skipped type : System.Net.Sockets.IOControlCode IOControlCode */
+
 /* Skipped type : System.Net.Sockets.IPPacketInformation IPPacketInformation */
+
 /* Skipped type : System.Net.Sockets.IPProtectionLevel IPProtectionLevel */
+
 /* Skipped type : System.Net.Sockets.IPv6MulticastOption IPv6MulticastOption */
+
 /* Skipped type : System.Net.Sockets.LingerOption LingerOption */
+
 /* Skipped type : System.Net.Sockets.MulticastOption MulticastOption */
+
 /* Skipped type : System.Net.Sockets.NetworkStream NetworkStream */
+
 /* Skipped type : System.Net.Sockets.ProtocolFamily ProtocolFamily */
+
 /* Skipped type : System.Net.Sockets.ProtocolType ProtocolType */
+
 /* Skipped type : System.Net.Sockets.SelectMode SelectMode */
+
 /* Skipped type : System.Net.Sockets.SendPacketsElement SendPacketsElement */
+
 /* Skipped type : System.Net.Sockets.Socket Socket */
+
 /* Skipped type : System.Net.Sockets.SocketAsyncEventArgs SocketAsyncEventArgs */
+
 /* Skipped type : System.Net.Sockets.SocketAsyncOperation SocketAsyncOperation */
+
 /* Skipped type : System.Net.Sockets.SocketClientAccessPolicyProtocol SocketClientAccessPolicyProtocol */
+
 /* Skipped type : System.Net.Sockets.SocketError SocketError */
+
 /* Skipped type : System.Net.Sockets.SocketException SocketException */
+
 /* Skipped type : System.Net.Sockets.SocketFlags SocketFlags */
+
 /* Skipped type : System.Net.Sockets.SocketInformation SocketInformation */
+
 /* Skipped type : System.Net.Sockets.SocketInformationOptions SocketInformationOptions */
+
 /* Skipped type : System.Net.Sockets.SocketOptionLevel SocketOptionLevel */
+
 /* Skipped type : System.Net.Sockets.SocketOptionName SocketOptionName */
+
 /* Skipped type : System.Net.Sockets.SocketReceiveFromResult SocketReceiveFromResult */
+
 /* Skipped type : System.Net.Sockets.SocketReceiveMessageFromResult SocketReceiveMessageFromResult */
+
 /* Skipped type : System.Net.Sockets.SocketShutdown SocketShutdown */
+
 /* Skipped type : System.Net.Sockets.SocketTaskExtensions SocketTaskExtensions */
+
 /* Skipped type : System.Net.Sockets.SocketType SocketType */
+
 /* Skipped type : System.Net.Sockets.TcpClient TcpClient */
+
 /* Skipped type : System.Net.Sockets.TcpListener TcpListener */
+
 /* Skipped type : System.Net.Sockets.TransmitFileOptions TransmitFileOptions */
+
 /* Skipped type : System.Net.Sockets.UdpClient UdpClient */
+
 /* Skipped type : System.Net.Sockets.UdpReceiveResult UdpReceiveResult */
+
 /* Skipped type : System.Net.TransportContext TransportContext */
+
 /* Skipped type : System.Net.TransportType TransportType */
+
 /* Skipped type : System.Net.UploadDataCompletedEventArgs UploadDataCompletedEventArgs */
+
 /* Skipped type : System.Net.UploadDataCompletedEventHandler UploadDataCompletedEventHandler */
+
 /* Skipped type : System.Net.UploadFileCompletedEventArgs UploadFileCompletedEventArgs */
+
 /* Skipped type : System.Net.UploadFileCompletedEventHandler UploadFileCompletedEventHandler */
+
 /* Skipped type : System.Net.UploadProgressChangedEventArgs UploadProgressChangedEventArgs */
+
 /* Skipped type : System.Net.UploadProgressChangedEventHandler UploadProgressChangedEventHandler */
+
 /* Skipped type : System.Net.UploadStringCompletedEventArgs UploadStringCompletedEventArgs */
+
 /* Skipped type : System.Net.UploadStringCompletedEventHandler UploadStringCompletedEventHandler */
+
 /* Skipped type : System.Net.UploadValuesCompletedEventArgs UploadValuesCompletedEventArgs */
+
 /* Skipped type : System.Net.UploadValuesCompletedEventHandler UploadValuesCompletedEventHandler */
+
 /* Skipped type : System.Net.WebClient WebClient */
+
 /* Skipped type : System.Net.WebException WebException */
+
 /* Skipped type : System.Net.WebExceptionStatus WebExceptionStatus */
+
 /* Skipped type : System.Net.WebHeaderCollection WebHeaderCollection */
+
 /* Skipped type : System.Net.WebPermission WebPermission */
+
 /* Skipped type : System.Net.WebPermissionAttribute WebPermissionAttribute */
+
 /* Skipped type : System.Net.WebProxy WebProxy */
 #define SNWebRequest_ System_Net_WebRequest
+
 /* Skipped type : System.Net.WebRequestMethods WebRequestMethods */
+
 /* Skipped type : System.Net.WebRequestMethods+File WebRequestMethods.File */
+
 /* Skipped type : System.Net.WebRequestMethods+Ftp WebRequestMethods.Ftp */
+
 /* Skipped type : System.Net.WebRequestMethods+Http WebRequestMethods.Http */
 #define SNWebResponse_ System_Net_WebResponse
+
 /* Skipped type : System.Net.WebSockets.ClientWebSocket ClientWebSocket */
+
 /* Skipped type : System.Net.WebSockets.ClientWebSocketOptions ClientWebSocketOptions */
+
 /* Skipped type : System.Net.WebSockets.HttpListenerWebSocketContext HttpListenerWebSocketContext */
+
 /* Skipped type : System.Net.WebSockets.WebSocket WebSocket */
+
 /* Skipped type : System.Net.WebSockets.WebSocketCloseStatus WebSocketCloseStatus */
+
 /* Skipped type : System.Net.WebSockets.WebSocketContext WebSocketContext */
+
 /* Skipped type : System.Net.WebSockets.WebSocketError WebSocketError */
+
 /* Skipped type : System.Net.WebSockets.WebSocketException WebSocketException */
+
 /* Skipped type : System.Net.WebSockets.WebSocketMessageType WebSocketMessageType */
+
 /* Skipped type : System.Net.WebSockets.WebSocketReceiveResult WebSocketReceiveResult */
+
 /* Skipped type : System.Net.WebSockets.WebSocketState WebSocketState */
+
 /* Skipped type : System.Net.WebUtility WebUtility */
+
 /* Skipped type : System.Net.WriteStreamClosedEventArgs WriteStreamClosedEventArgs */
+
 /* Skipped type : System.Net.WriteStreamClosedEventHandler WriteStreamClosedEventHandler */
+
 /* Skipped type : System.NetPipeStyleUriParser NetPipeStyleUriParser */
+
 /* Skipped type : System.NetTcpStyleUriParser NetTcpStyleUriParser */
+
 /* Skipped type : System.NewsStyleUriParser NewsStyleUriParser */
+
 /* Skipped type : System.Reflection.ICustomTypeProvider ICustomTypeProvider */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.ADVF ADVF */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.DATADIR DATADIR */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.DVASPECT DVASPECT */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.FORMATETC FORMATETC */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.IAdviseSink IAdviseSink */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.IDataObject IDataObject */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.IEnumFORMATETC IEnumFORMATETC */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.IEnumSTATDATA IEnumSTATDATA */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.STATDATA STATDATA */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.STGMEDIUM STGMEDIUM */
+
 /* Skipped type : System.Runtime.InteropServices.ComTypes.TYMED TYMED */
+
 /* Skipped type : System.Runtime.InteropServices.DefaultParameterValueAttribute DefaultParameterValueAttribute */
+
 /* Skipped type : System.Runtime.InteropServices.HandleCollector HandleCollector */
+
 /* Skipped type : System.Runtime.InteropServices.StandardOleMarshalObject StandardOleMarshalObject */
+
 /* Skipped type : System.Runtime.Versioning.FrameworkName FrameworkName */
+
 /* Skipped type : System.Security.AccessControl.SemaphoreAccessRule SemaphoreAccessRule */
+
 /* Skipped type : System.Security.AccessControl.SemaphoreAuditRule SemaphoreAuditRule */
+
 /* Skipped type : System.Security.AccessControl.SemaphoreRights SemaphoreRights */
+
 /* Skipped type : System.Security.AccessControl.SemaphoreSecurity SemaphoreSecurity */
+
 /* Skipped type : System.Security.Authentication.AuthenticationException AuthenticationException */
+
 /* Skipped type : System.Security.Authentication.CipherAlgorithmType CipherAlgorithmType */
+
 /* Skipped type : System.Security.Authentication.ExchangeAlgorithmType ExchangeAlgorithmType */
+
 /* Skipped type : System.Security.Authentication.ExtendedProtection.ChannelBinding ChannelBinding */
+
 /* Skipped type : System.Security.Authentication.ExtendedProtection.ChannelBindingKind ChannelBindingKind */
+
 /* Skipped type : System.Security.Authentication.ExtendedProtection.Configuration.ExtendedProtectionPolicyElement ExtendedProtectionPolicyElement */
+
 /* Skipped type : System.Security.Authentication.ExtendedProtection.Configuration.ServiceNameElement ServiceNameElement */
+
 /* Skipped type : System.Security.Authentication.ExtendedProtection.Configuration.ServiceNameElementCollection ServiceNameElementCollection */
+
 /* Skipped type : System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy ExtendedProtectionPolicy */
+
 /* Skipped type : System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicyTypeConverter ExtendedProtectionPolicyTypeConverter */
+
 /* Skipped type : System.Security.Authentication.ExtendedProtection.PolicyEnforcement PolicyEnforcement */
+
 /* Skipped type : System.Security.Authentication.ExtendedProtection.ProtectionScenario ProtectionScenario */
+
 /* Skipped type : System.Security.Authentication.ExtendedProtection.ServiceNameCollection ServiceNameCollection */
+
 /* Skipped type : System.Security.Authentication.ExtendedProtection.TokenBinding TokenBinding */
+
 /* Skipped type : System.Security.Authentication.ExtendedProtection.TokenBindingType TokenBindingType */
+
 /* Skipped type : System.Security.Authentication.HashAlgorithmType HashAlgorithmType */
+
 /* Skipped type : System.Security.Authentication.InvalidCredentialException InvalidCredentialException */
+
 /* Skipped type : System.Security.Authentication.SslProtocols SslProtocols */
+
 /* Skipped type : System.Security.Claims.DynamicRoleClaimProvider DynamicRoleClaimProvider */
+
 /* Skipped type : System.Security.Cryptography.AsnEncodedData AsnEncodedData */
+
 /* Skipped type : System.Security.Cryptography.AsnEncodedDataCollection AsnEncodedDataCollection */
+
 /* Skipped type : System.Security.Cryptography.AsnEncodedDataEnumerator AsnEncodedDataEnumerator */
+
 /* Skipped type : System.Security.Cryptography.Oid Oid */
+
 /* Skipped type : System.Security.Cryptography.OidCollection OidCollection */
+
 /* Skipped type : System.Security.Cryptography.OidEnumerator OidEnumerator */
+
 /* Skipped type : System.Security.Cryptography.OidGroup OidGroup */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.OpenFlags OpenFlags */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.PublicKey PublicKey */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.StoreLocation StoreLocation */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.StoreName StoreName */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X500DistinguishedName X500DistinguishedName */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X500DistinguishedNameFlags X500DistinguishedNameFlags */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension X509BasicConstraintsExtension */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509Certificate2 X509Certificate2 */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509Certificate2Collection X509Certificate2Collection */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509Certificate2Enumerator X509Certificate2Enumerator */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509CertificateCollection X509CertificateCollection */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509CertificateCollection+X509CertificateEnumerator X509CertificateCollection.X509CertificateEnumerator */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509Chain X509Chain */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509ChainElement X509ChainElement */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509ChainElementCollection X509ChainElementCollection */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509ChainElementEnumerator X509ChainElementEnumerator */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509ChainPolicy X509ChainPolicy */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509ChainStatus X509ChainStatus */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509ChainStatusFlags X509ChainStatusFlags */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509EnhancedKeyUsageExtension X509EnhancedKeyUsageExtension */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509Extension X509Extension */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509ExtensionCollection X509ExtensionCollection */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509ExtensionEnumerator X509ExtensionEnumerator */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509FindType X509FindType */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509IncludeOption X509IncludeOption */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509KeyUsageExtension X509KeyUsageExtension */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509KeyUsageFlags X509KeyUsageFlags */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509NameType X509NameType */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509RevocationFlag X509RevocationFlag */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509RevocationMode X509RevocationMode */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509Store X509Store */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509SubjectKeyIdentifierExtension X509SubjectKeyIdentifierExtension */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509SubjectKeyIdentifierHashAlgorithm X509SubjectKeyIdentifierHashAlgorithm */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.X509VerificationFlags X509VerificationFlags */
+
 /* Skipped type : System.Security.Permissions.ResourcePermissionBase ResourcePermissionBase */
+
 /* Skipped type : System.Security.Permissions.ResourcePermissionBaseEntry ResourcePermissionBaseEntry */
+
 /* Skipped type : System.Security.Permissions.StorePermission StorePermission */
+
 /* Skipped type : System.Security.Permissions.StorePermissionAttribute StorePermissionAttribute */
+
 /* Skipped type : System.Security.Permissions.StorePermissionFlags StorePermissionFlags */
+
 /* Skipped type : System.Security.Permissions.TypeDescriptorPermission TypeDescriptorPermission */
+
 /* Skipped type : System.Security.Permissions.TypeDescriptorPermissionAttribute TypeDescriptorPermissionAttribute */
+
 /* Skipped type : System.Security.Permissions.TypeDescriptorPermissionFlags TypeDescriptorPermissionFlags */
+
 /* Skipped type : System.Security.SecureStringMarshal SecureStringMarshal */
+
 /* Skipped type : System.StringNormalizationExtensions StringNormalizationExtensions */
+
 /* Skipped type : System.Text.RegularExpressions.Capture Capture */
+
 /* Skipped type : System.Text.RegularExpressions.CaptureCollection CaptureCollection */
+
 /* Skipped type : System.Text.RegularExpressions.Group Group */
+
 /* Skipped type : System.Text.RegularExpressions.GroupCollection GroupCollection */
+
 /* Skipped type : System.Text.RegularExpressions.Match Match */
+
 /* Skipped type : System.Text.RegularExpressions.MatchCollection MatchCollection */
+
 /* Skipped type : System.Text.RegularExpressions.MatchEvaluator MatchEvaluator */
 #define STRRegex_ System_Text_RegularExpressions_Regex
+
 /* Skipped type : System.Text.RegularExpressions.RegexCompilationInfo RegexCompilationInfo */
+
 /* Skipped type : System.Text.RegularExpressions.RegexMatchTimeoutException RegexMatchTimeoutException */
+
 /* Skipped type : System.Text.RegularExpressions.RegexOptions RegexOptions */
+
 /* Skipped type : System.Text.RegularExpressions.RegexRunner RegexRunner */
+
 /* Skipped type : System.Text.RegularExpressions.RegexRunnerFactory RegexRunnerFactory */
+
 /* Skipped type : System.Threading.Barrier Barrier */
+
 /* Skipped type : System.Threading.BarrierPostPhaseException BarrierPostPhaseException */
+
 /* Skipped type : System.Threading.Semaphore Semaphore */
+
 /* Skipped type : System.Threading.ThreadExceptionEventArgs ThreadExceptionEventArgs */
+
 /* Skipped type : System.Threading.ThreadExceptionEventHandler ThreadExceptionEventHandler */
+
 /* Skipped type : System.Timers.ElapsedEventArgs ElapsedEventArgs */
+
 /* Skipped type : System.Timers.ElapsedEventHandler ElapsedEventHandler */
+
 /* Skipped type : System.Timers.Timer Timer */
+
 /* Skipped type : System.Timers.TimersDescriptionAttribute TimersDescriptionAttribute */
 #define SUri_ System_Uri
+
 /* Skipped type : System.UriBuilder UriBuilder */
 #define SUriComponents_ System_UriComponents
 #define SUriFormat_ System_UriFormat
+
 /* Skipped type : System.UriFormatException UriFormatException */
 #define SUriHostNameType_ System_UriHostNameType
+
 /* Skipped type : System.UriIdnScope UriIdnScope */
 #define SUriKind_ System_UriKind
+
 /* Skipped type : System.UriParser UriParser */
 #define SUriPartial_ System_UriPartial
+
 /* Skipped type : System.UriTypeConverter UriTypeConverter */
+
 /* Skipped type : System.Web.AspNetHostingPermission AspNetHostingPermission */
+
 /* Skipped type : System.Web.AspNetHostingPermissionAttribute AspNetHostingPermissionAttribute */
+
 /* Skipped type : System.Web.AspNetHostingPermissionLevel AspNetHostingPermissionLevel */
+
 /* Skipped type : System.Windows.Input.ICommand ICommand */
+
 /* Skipped type : System.Windows.Markup.ValueSerializerAttribute ValueSerializerAttribute */
 
 /*

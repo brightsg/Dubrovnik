@@ -19,19 +19,19 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Data.Entity.Core.Objects.ObjectStateEntry";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "EntityFramework";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Data.Entity.Core.Objects.ObjectStateEntry";
+}
++ (const char *)monoAssemblyName
+{
+	return "EntityFramework";
+}
 
 #pragma mark -
 #pragma mark Properties
+
 /* Skipped property : System.Data.Entity.Core.Objects.CurrentValueRecord CurrentValues */
 
 	// Managed property name : Entity
@@ -55,7 +55,9 @@
 
 		return _entity;
 	}
+
 /* Skipped property : System.Data.Entity.Core.EntityKey EntityKey */
+
 /* Skipped property : System.Data.Entity.Core.Metadata.Edm.EntitySetBase EntitySet */
 
 	// Managed property name : IsRelationship
@@ -78,8 +80,11 @@
 
 		return _isRelationship;
 	}
+
 /* Skipped property : System.Data.Entity.Core.Objects.ObjectStateManager ObjectStateManager */
+
 /* Skipped property : System.Data.Common.DbDataRecord OriginalValues */
+
 /* Skipped property : System.Data.Entity.Core.Objects.DataClasses.RelationshipManager RelationshipManager */
 
 	// Managed property name : State
@@ -121,133 +126,65 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : AcceptChanges
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)acceptChanges
-    {
-		
-		[self invokeMonoMethod:"AcceptChanges()" withNumArgs:0];
-      
-    }
+- (void)acceptChanges
+{
+  [self invokeMonoMethod:"AcceptChanges()" withNumArgs:0];
+}
 
-	/*! 
-		Managed method name : ApplyCurrentValues
-		Managed return type : System.Void
-		Managed param types : System.Object
-	 */
-    - (void)applyCurrentValues_withCurrentEntity:(System_Object *)p1
-    {
-		
-		[self invokeMonoMethod:"ApplyCurrentValues(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-    }
+- (void)applyCurrentValues_withCurrentEntity:(System_Object *)p1
+{
+  [self invokeMonoMethod:"ApplyCurrentValues(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+}
 
-	/*! 
-		Managed method name : ApplyOriginalValues
-		Managed return type : System.Void
-		Managed param types : System.Object
-	 */
-    - (void)applyOriginalValues_withOriginalEntity:(System_Object *)p1
-    {
-		
-		[self invokeMonoMethod:"ApplyOriginalValues(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-    }
+- (void)applyOriginalValues_withOriginalEntity:(System_Object *)p1
+{
+  [self invokeMonoMethod:"ApplyOriginalValues(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+}
 
-	/*! 
-		Managed method name : ChangeState
-		Managed return type : System.Void
-		Managed param types : System.Data.Entity.EntityState
-	 */
-    - (void)changeState_withState:(int32_t)p1
-    {
-		
-		[self invokeMonoMethod:"ChangeState(System.Data.Entity.EntityState)" withNumArgs:1, DB_VALUE(p1)];
-      
-    }
+- (void)changeState_withState:(int32_t)p1
+{
+  [self invokeMonoMethod:"ChangeState(System.Data.Entity.EntityState)" withNumArgs:1, DB_VALUE(p1)];
+}
 
-	/*! 
-		Managed method name : Delete
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)delete
-    {
-		
-		[self invokeMonoMethod:"Delete()" withNumArgs:0];
-      
-    }
+- (void)delete
+{
+  [self invokeMonoMethod:"Delete()" withNumArgs:0];
+}
 
-	/*! 
-		Managed method name : GetModifiedProperties
-		Managed return type : System.Collections.Generic.IEnumerable`1<System.String>
-		Managed param types : 
-	 */
-    - (id <System_Collections_Generic_IEnumerableA1>)getModifiedProperties
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetModifiedProperties()" withNumArgs:0];
-		
-		return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
-    }
+- (id <System_Collections_Generic_IEnumerableA1>)getModifiedProperties
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetModifiedProperties()" withNumArgs:0];
+  return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
+}
+
 /* Skipped method : System.Data.Entity.Core.Objects.OriginalValueRecord GetUpdatableOriginalValues() */
 
-	/*! 
-		Managed method name : IsPropertyChanged
-		Managed return type : System.Boolean
-		Managed param types : System.String
-	 */
-    - (BOOL)isPropertyChanged_withPropertyName:(NSString *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsPropertyChanged(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
+- (BOOL)isPropertyChanged_withPropertyName:(NSString *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"IsPropertyChanged(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-	/*! 
-		Managed method name : RejectPropertyChanges
-		Managed return type : System.Void
-		Managed param types : System.String
-	 */
-    - (void)rejectPropertyChanges_withPropertyName:(NSString *)p1
-    {
-		
-		[self invokeMonoMethod:"RejectPropertyChanges(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-    }
+- (void)rejectPropertyChanges_withPropertyName:(NSString *)p1
+{
+  [self invokeMonoMethod:"RejectPropertyChanges(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+}
 
-	/*! 
-		Managed method name : SetModified
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)setModified
-    {
-		
-		[self invokeMonoMethod:"SetModified()" withNumArgs:0];
-      
-    }
+- (void)setModified
+{
+  [self invokeMonoMethod:"SetModified()" withNumArgs:0];
+}
 
-	/*! 
-		Managed method name : SetModifiedProperty
-		Managed return type : System.Void
-		Managed param types : System.String
-	 */
-    - (void)setModifiedProperty_withPropertyName:(NSString *)p1
-    {
-		
-		[self invokeMonoMethod:"SetModifiedProperty(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-    }
+- (void)setModifiedProperty_withPropertyName:(NSString *)p1
+{
+  [self invokeMonoMethod:"SetModifiedProperty(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

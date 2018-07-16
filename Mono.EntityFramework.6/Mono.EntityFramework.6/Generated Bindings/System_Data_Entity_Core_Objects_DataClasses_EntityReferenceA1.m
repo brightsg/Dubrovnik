@@ -19,16 +19,15 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Data.Entity.Core.Objects.DataClasses.EntityReference`1";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "EntityFramework";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Data.Entity.Core.Objects.DataClasses.EntityReference`1";
+}
++ (const char *)monoAssemblyName
+{
+	return "EntityFramework";
+}
 
 #pragma mark -
 #pragma mark Properties
@@ -73,39 +72,30 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Attach
-		Managed return type : System.Void
-		Managed param types : <System.Data.Entity.Core.Objects.DataClasses.EntityReference`1+TEntity>
-	 */
-    - (void)attach_withEntity:(System_Object *)p1
-    {
-		
-		[self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-    }
+- (void)attach_withEntity:(System_Object *)p1
+{
+  [self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+}
 
-	/*! 
-		Managed method name : CreateSourceQuery
-		Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.DataClasses.EntityReference`1+TEntity>
-		Managed param types : 
-	 */
-    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)createSourceQuery
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"CreateSourceQuery()" withNumArgs:0];
-		
-		return [System_Data_Entity_Core_Objects_ObjectQueryA1 bestObjectWithMonoObject:monoObject];
-    }
+- (System_Data_Entity_Core_Objects_ObjectQueryA1 *)createSourceQuery
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"CreateSourceQuery()" withNumArgs:0];
+  return [System_Data_Entity_Core_Objects_ObjectQueryA1 bestObjectWithMonoObject:monoObject];
+}
+
 /* Skipped method : System.Void Load(System.Data.Entity.Core.Objects.MergeOption mergeOption) */
+
 /* Skipped method : System.Threading.Tasks.Task LoadAsync(System.Data.Entity.Core.Objects.MergeOption mergeOption, System.Threading.CancellationToken cancellationToken) */
+
 /* Skipped method : System.Void OnRefDeserialized(System.Runtime.Serialization.StreamingContext context) */
+
 /* Skipped method : System.Void OnSerializing(System.Runtime.Serialization.StreamingContext context) */
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

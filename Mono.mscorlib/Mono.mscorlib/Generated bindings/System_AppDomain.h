@@ -44,15 +44,17 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Properties
+
 /* Skipped property : System.ActivationContext ActivationContext */
+
 /* Skipped property : System.ApplicationIdentity ApplicationIdentity */
+
 /* Skipped property : System.Security.Policy.ApplicationTrust ApplicationTrust */
 
 	// Managed property name : BaseDirectory
@@ -62,11 +64,13 @@
 	// Managed property name : CurrentDomain
 	// Managed property type : System.AppDomain
     + (System_AppDomain *)currentDomain;
+
 /* Skipped property : System.AppDomainManager DomainManager */
 
 	// Managed property name : DynamicDirectory
 	// Managed property type : System.String
     @property (nonatomic, strong, readonly) NSString * dynamicDirectory;
+
 /* Skipped property : System.Security.Policy.Evidence Evidence */
 
 	// Managed property name : FriendlyName
@@ -105,11 +109,13 @@
 	// Managed property name : MonitoringTotalProcessorTime
 	// Managed property type : System.TimeSpan
     @property (nonatomic, strong, readonly) System_TimeSpan * monitoringTotalProcessorTime;
+
 /* Skipped property : System.Security.PermissionSet PermissionSet */
 
 	// Managed property name : RelativeSearchPath
 	// Managed property type : System.String
     @property (nonatomic, strong, readonly) NSString * relativeSearchPath;
+
 /* Skipped property : System.AppDomainSetup SetupInformation */
 
 	// Managed property name : ShadowCopyFiles
@@ -119,289 +125,619 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : AppendPrivatePath
-		Managed return type : System.Void
-		Managed param types : System.String
-	 */
-    - (void)appendPrivatePath_withPath:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   AppendPrivatePath
 
-	/*! 
-		Managed method name : ApplyPolicy
-		Managed return type : System.String
-		Managed param types : System.String
-	 */
-    - (NSString *)applyPolicy_withAssemblyName:(NSString *)p1;
+ Params
+   System.String
 
-	/*! 
-		Managed method name : ClearPrivatePath
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)clearPrivatePath;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)appendPrivatePath_withPath:(NSString *)p1;
 
-	/*! 
-		Managed method name : ClearShadowCopyPath
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)clearShadowCopyPath;
+/**
+ Managed method.
+ @textblock
+ Name
+   ApplyPolicy
+
+ Params
+   System.String
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)applyPolicy_withAssemblyName:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ClearPrivatePath
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)clearPrivatePath;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ClearShadowCopyPath
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)clearShadowCopyPath;
+
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateComInstanceFrom(System.String assemblyName, System.String typeName) */
+
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateComInstanceFrom(System.String assemblyFile, System.String typeName, System.Byte[] hashValue, System.Configuration.Assemblies.AssemblyHashAlgorithm hashAlgorithm) */
+
 /* Skipped method : System.AppDomain CreateDomain(System.String friendlyName, System.Security.Policy.Evidence securityInfo) */
+
 /* Skipped method : System.AppDomain CreateDomain(System.String friendlyName, System.Security.Policy.Evidence securityInfo, System.String appBasePath, System.String appRelativeSearchPath, System.Boolean shadowCopyFiles) */
 
-	/*! 
-		Managed method name : CreateDomain
-		Managed return type : System.AppDomain
-		Managed param types : System.String
-	 */
-    + (System_AppDomain *)createDomain_withFriendlyName:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateDomain
+
+ Params
+   System.String
+
+ Return
+   System.AppDomain
+ @/textblock
+*/
++ (System_AppDomain *)createDomain_withFriendlyName:(NSString *)p1;
+
 /* Skipped method : System.AppDomain CreateDomain(System.String friendlyName, System.Security.Policy.Evidence securityInfo, System.AppDomainSetup info) */
+
 /* Skipped method : System.AppDomain CreateDomain(System.String friendlyName, System.Security.Policy.Evidence securityInfo, System.AppDomainSetup info, System.Security.PermissionSet grantSet, System.Security.Policy.StrongName[] fullTrustAssemblies) */
+
 /* Skipped method : System.AppDomain CreateDomain(System.String friendlyName, System.Security.Policy.Evidence securityInfo, System.String appBasePath, System.String appRelativeSearchPath, System.Boolean shadowCopyFiles, System.AppDomainInitializer adInit, System.String[] adInitArgs) */
+
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstance(System.String assemblyName, System.String typeName) */
+
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstance(System.String assemblyName, System.String typeName, System.Object[] activationAttributes) */
+
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstance(System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes, System.Security.Policy.Evidence securityAttributes) */
+
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstance(System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
 
-	/*! 
-		Managed method name : CreateInstanceAndUnwrap
-		Managed return type : System.Object
-		Managed param types : System.String, System.String
-	 */
-    - (System_Object *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateInstanceAndUnwrap
 
-	/*! 
-		Managed method name : CreateInstanceAndUnwrap
-		Managed return type : System.Object
-		Managed param types : System.String, System.String, System.Object[]
-	 */
-    - (System_Object *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(System_Array *)p3;
+ Params
+   System.String
+   System.String
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (System_Object *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateInstanceAndUnwrap
+
+ Params
+   System.String
+   System.String
+   System.Object[]
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (System_Object *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(System_Array *)p3;
+
 /* Skipped method : System.Object CreateInstanceAndUnwrap(System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes, System.Security.Policy.Evidence securityAttributes) */
+
 /* Skipped method : System.Object CreateInstanceAndUnwrap(System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
+
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstanceFrom(System.String assemblyFile, System.String typeName) */
+
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstanceFrom(System.String assemblyFile, System.String typeName, System.Object[] activationAttributes) */
+
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstanceFrom(System.String assemblyFile, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes, System.Security.Policy.Evidence securityAttributes) */
+
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstanceFrom(System.String assemblyFile, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
 
-	/*! 
-		Managed method name : CreateInstanceFromAndUnwrap
-		Managed return type : System.Object
-		Managed param types : System.String, System.String
-	 */
-    - (System_Object *)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateInstanceFromAndUnwrap
 
-	/*! 
-		Managed method name : CreateInstanceFromAndUnwrap
-		Managed return type : System.Object
-		Managed param types : System.String, System.String, System.Object[]
-	 */
-    - (System_Object *)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(System_Array *)p3;
+ Params
+   System.String
+   System.String
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (System_Object *)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateInstanceFromAndUnwrap
+
+ Params
+   System.String
+   System.String
+   System.Object[]
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (System_Object *)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(System_Array *)p3;
+
 /* Skipped method : System.Object CreateInstanceFromAndUnwrap(System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes, System.Security.Policy.Evidence securityAttributes) */
+
 /* Skipped method : System.Object CreateInstanceFromAndUnwrap(System.String assemblyFile, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
+
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access) */
+
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder> assemblyAttributes) */
+
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder> assemblyAttributes, System.Security.SecurityContextSource securityContextSource) */
+
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.String dir) */
+
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.Security.Policy.Evidence evidence) */
+
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.Security.PermissionSet requiredPermissions, System.Security.PermissionSet optionalPermissions, System.Security.PermissionSet refusedPermissions) */
+
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.String dir, System.Security.Policy.Evidence evidence) */
+
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.String dir, System.Security.PermissionSet requiredPermissions, System.Security.PermissionSet optionalPermissions, System.Security.PermissionSet refusedPermissions) */
+
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.Security.Policy.Evidence evidence, System.Security.PermissionSet requiredPermissions, System.Security.PermissionSet optionalPermissions, System.Security.PermissionSet refusedPermissions) */
+
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.String dir, System.Security.Policy.Evidence evidence, System.Security.PermissionSet requiredPermissions, System.Security.PermissionSet optionalPermissions, System.Security.PermissionSet refusedPermissions) */
+
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.String dir, System.Security.Policy.Evidence evidence, System.Security.PermissionSet requiredPermissions, System.Security.PermissionSet optionalPermissions, System.Security.PermissionSet refusedPermissions, System.Boolean isSynchronized) */
+
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.String dir, System.Security.Policy.Evidence evidence, System.Security.PermissionSet requiredPermissions, System.Security.PermissionSet optionalPermissions, System.Security.PermissionSet refusedPermissions, System.Boolean isSynchronized, System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder> assemblyAttributes) */
+
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.String dir, System.Boolean isSynchronized, System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder> assemblyAttributes) */
+
 /* Skipped method : System.Void DoCallBack(System.CrossAppDomainDelegate callBackDelegate) */
 
-	/*! 
-		Managed method name : ExecuteAssembly
-		Managed return type : System.Int32
-		Managed param types : System.String
-	 */
-    - (int32_t)executeAssembly_withAssemblyFile:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   ExecuteAssembly
+
+ Params
+   System.String
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)executeAssembly_withAssemblyFile:(NSString *)p1;
+
 /* Skipped method : System.Int32 ExecuteAssembly(System.String assemblyFile, System.Security.Policy.Evidence assemblySecurity) */
+
 /* Skipped method : System.Int32 ExecuteAssembly(System.String assemblyFile, System.Security.Policy.Evidence assemblySecurity, System.String[] args) */
 
-	/*! 
-		Managed method name : ExecuteAssembly
-		Managed return type : System.Int32
-		Managed param types : System.String, System.String[]
-	 */
-    - (int32_t)executeAssembly_withAssemblyFile:(NSString *)p1 args:(System_Array *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   ExecuteAssembly
+
+ Params
+   System.String
+   System.String[]
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)executeAssembly_withAssemblyFile:(NSString *)p1 args:(System_Array *)p2;
+
 /* Skipped method : System.Int32 ExecuteAssembly(System.String assemblyFile, System.Security.Policy.Evidence assemblySecurity, System.String[] args, System.Byte[] hashValue, System.Configuration.Assemblies.AssemblyHashAlgorithm hashAlgorithm) */
+
 /* Skipped method : System.Int32 ExecuteAssembly(System.String assemblyFile, System.String[] args, System.Byte[] hashValue, System.Configuration.Assemblies.AssemblyHashAlgorithm hashAlgorithm) */
 
-	/*! 
-		Managed method name : ExecuteAssemblyByName
-		Managed return type : System.Int32
-		Managed param types : System.String
-	 */
-    - (int32_t)executeAssemblyByName_withAssemblyName:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   ExecuteAssemblyByName
+
+ Params
+   System.String
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)executeAssemblyByName_withAssemblyName:(NSString *)p1;
+
 /* Skipped method : System.Int32 ExecuteAssemblyByName(System.String assemblyName, System.Security.Policy.Evidence assemblySecurity) */
+
 /* Skipped method : System.Int32 ExecuteAssemblyByName(System.String assemblyName, System.Security.Policy.Evidence assemblySecurity, System.String[] args) */
 
-	/*! 
-		Managed method name : ExecuteAssemblyByName
-		Managed return type : System.Int32
-		Managed param types : System.String, System.String[]
-	 */
-    - (int32_t)executeAssemblyByName_withAssemblyNameString:(NSString *)p1 argsStringArray:(System_Array *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   ExecuteAssemblyByName
+
+ Params
+   System.String
+   System.String[]
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)executeAssemblyByName_withAssemblyNameString:(NSString *)p1 argsStringArray:(System_Array *)p2;
+
 /* Skipped method : System.Int32 ExecuteAssemblyByName(System.Reflection.AssemblyName assemblyName, System.Security.Policy.Evidence assemblySecurity, System.String[] args) */
 
-	/*! 
-		Managed method name : ExecuteAssemblyByName
-		Managed return type : System.Int32
-		Managed param types : System.Reflection.AssemblyName, System.String[]
-	 */
-    - (int32_t)executeAssemblyByName_withAssemblyNameSRAssemblyName:(System_Reflection_AssemblyName *)p1 argsStringArray:(System_Array *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   ExecuteAssemblyByName
 
-	/*! 
-		Managed method name : GetAssemblies
-		Managed return type : System.Reflection.Assembly[]
-		Managed param types : 
-	 */
-    - (System_Array *)getAssemblies;
+ Params
+   System.Reflection.AssemblyName
+   System.String[]
 
-	/*! 
-		Managed method name : GetCurrentThreadId
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    + (int32_t)getCurrentThreadId;
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)executeAssemblyByName_withAssemblyNameSRAssemblyName:(System_Reflection_AssemblyName *)p1 argsStringArray:(System_Array *)p2;
 
-	/*! 
-		Managed method name : GetData
-		Managed return type : System.Object
-		Managed param types : System.String
-	 */
-    - (System_Object *)getData_withName:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetAssemblies
 
-	/*! 
-		Managed method name : GetType
-		Managed return type : System.Type
-		Managed param types : 
-	 */
-    - (System_Type *)getType;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : InitializeLifetimeService
-		Managed return type : System.Object
-		Managed param types : 
-	 */
-    - (System_Object *)db_initializeLifetimeService;
+ Return
+   System.Reflection.Assembly[]
+ @/textblock
+*/
+- (System_Array *)getAssemblies;
 
-	/*! 
-		Managed method name : IsCompatibilitySwitchSet
-		Managed return type : System.Nullable`1<System.Boolean>
-		Managed param types : System.String
-	 */
-    - (System_NullableA1 *)isCompatibilitySwitchSet_withValue:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetCurrentThreadId
 
-	/*! 
-		Managed method name : IsDefaultAppDomain
-		Managed return type : System.Boolean
-		Managed param types : 
-	 */
-    - (BOOL)isDefaultAppDomain;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : IsFinalizingForUnload
-		Managed return type : System.Boolean
-		Managed param types : 
-	 */
-    - (BOOL)isFinalizingForUnload;
+ Return
+   System.Int32
+ @/textblock
+*/
++ (int32_t)getCurrentThreadId;
 
-	/*! 
-		Managed method name : Load
-		Managed return type : System.Reflection.Assembly
-		Managed param types : System.Reflection.AssemblyName
-	 */
-    - (System_Reflection_Assembly *)load_withAssemblyRef:(System_Reflection_AssemblyName *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetData
 
-	/*! 
-		Managed method name : Load
-		Managed return type : System.Reflection.Assembly
-		Managed param types : System.String
-	 */
-    - (System_Reflection_Assembly *)load_withAssemblyString:(NSString *)p1;
+ Params
+   System.String
 
-	/*! 
-		Managed method name : Load
-		Managed return type : System.Reflection.Assembly
-		Managed param types : System.Byte[]
-	 */
-    - (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1;
+ Return
+   System.Object
+ @/textblock
+*/
+- (System_Object *)getData_withName:(NSString *)p1;
 
-	/*! 
-		Managed method name : Load
-		Managed return type : System.Reflection.Assembly
-		Managed param types : System.Byte[], System.Byte[]
-	 */
-    - (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetType
+
+ Params
+   (none)
+
+ Return
+   System.Type
+ @/textblock
+*/
+- (System_Type *)getType;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   InitializeLifetimeService
+
+ Params
+   (none)
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (System_Object *)db_initializeLifetimeService;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   IsCompatibilitySwitchSet
+
+ Params
+   System.String
+
+ Return
+   System.Nullable`1<System.Boolean>
+ @/textblock
+*/
+- (System_NullableA1 *)isCompatibilitySwitchSet_withValue:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   IsDefaultAppDomain
+
+ Params
+   (none)
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)isDefaultAppDomain;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   IsFinalizingForUnload
+
+ Params
+   (none)
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)isFinalizingForUnload;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Load
+
+ Params
+   System.Reflection.AssemblyName
+
+ Return
+   System.Reflection.Assembly
+ @/textblock
+*/
+- (System_Reflection_Assembly *)load_withAssemblyRef:(System_Reflection_AssemblyName *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Load
+
+ Params
+   System.String
+
+ Return
+   System.Reflection.Assembly
+ @/textblock
+*/
+- (System_Reflection_Assembly *)load_withAssemblyString:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Load
+
+ Params
+   System.Byte[]
+
+ Return
+   System.Reflection.Assembly
+ @/textblock
+*/
+- (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Load
+
+ Params
+   System.Byte[]
+   System.Byte[]
+
+ Return
+   System.Reflection.Assembly
+ @/textblock
+*/
+- (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2;
+
 /* Skipped method : System.Reflection.Assembly Load(System.Byte[] rawAssembly, System.Byte[] rawSymbolStore, System.Security.Policy.Evidence securityEvidence) */
+
 /* Skipped method : System.Reflection.Assembly Load(System.Reflection.AssemblyName assemblyRef, System.Security.Policy.Evidence assemblySecurity) */
+
 /* Skipped method : System.Reflection.Assembly Load(System.String assemblyString, System.Security.Policy.Evidence assemblySecurity) */
 
-	/*! 
-		Managed method name : ReflectionOnlyGetAssemblies
-		Managed return type : System.Reflection.Assembly[]
-		Managed param types : 
-	 */
-    - (System_Array *)reflectionOnlyGetAssemblies;
+/**
+ Managed method.
+ @textblock
+ Name
+   ReflectionOnlyGetAssemblies
+
+ Params
+   (none)
+
+ Return
+   System.Reflection.Assembly[]
+ @/textblock
+*/
+- (System_Array *)reflectionOnlyGetAssemblies;
+
 /* Skipped method : System.Void SetAppDomainPolicy(System.Security.Policy.PolicyLevel domainPolicy) */
 
-	/*! 
-		Managed method name : SetCachePath
-		Managed return type : System.Void
-		Managed param types : System.String
-	 */
-    - (void)setCachePath_withPath:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   SetCachePath
 
-	/*! 
-		Managed method name : SetData
-		Managed return type : System.Void
-		Managed param types : System.String, System.Object
-	 */
-    - (void)setData_withName:(NSString *)p1 data:(System_Object *)p2;
+ Params
+   System.String
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)setCachePath_withPath:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   SetData
+
+ Params
+   System.String
+   System.Object
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)setData_withName:(NSString *)p1 data:(System_Object *)p2;
+
 /* Skipped method : System.Void SetData(System.String name, System.Object data, System.Security.IPermission permission) */
 
-	/*! 
-		Managed method name : SetDynamicBase
-		Managed return type : System.Void
-		Managed param types : System.String
-	 */
-    - (void)setDynamicBase_withPath:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   SetDynamicBase
+
+ Params
+   System.String
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)setDynamicBase_withPath:(NSString *)p1;
+
 /* Skipped method : System.Void SetPrincipalPolicy(System.Security.Principal.PrincipalPolicy policy) */
 
-	/*! 
-		Managed method name : SetShadowCopyFiles
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)setShadowCopyFiles;
+/**
+ Managed method.
+ @textblock
+ Name
+   SetShadowCopyFiles
 
-	/*! 
-		Managed method name : SetShadowCopyPath
-		Managed return type : System.Void
-		Managed param types : System.String
-	 */
-    - (void)setShadowCopyPath_withPath:(NSString *)p1;
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)setShadowCopyFiles;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   SetShadowCopyPath
+
+ Params
+   System.String
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)setShadowCopyPath_withPath:(NSString *)p1;
+
 /* Skipped method : System.Void SetThreadPrincipal(System.Security.Principal.IPrincipal principal) */
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString;
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
 
-	/*! 
-		Managed method name : Unload
-		Managed return type : System.Void
-		Managed param types : System.AppDomain
-	 */
-    + (void)unload_withDomain:(System_AppDomain *)p1;
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Unload
+
+ Params
+   System.AppDomain
+
+ Return
+   System.Void
+ @/textblock
+*/
++ (void)unload_withDomain:(System_AppDomain *)p1;
 @end
 //--Dubrovnik.CodeGenerator

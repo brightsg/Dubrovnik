@@ -97,40 +97,81 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Add
-		Managed return type : System.Void
-		Managed param types : <System.Collections.Generic.ICollection`1+T>
-	 */
-    - (void)add_withItem:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Add
 
-	/*! 
-		Managed method name : Clear
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)clear;
+ Params
+   <System.Collections.Generic.ICollection`1+T>
 
-	/*! 
-		Managed method name : Contains
-		Managed return type : System.Boolean
-		Managed param types : <System.Collections.Generic.ICollection`1+T>
-	 */
-    - (BOOL)contains_withItem:(System_Object *)p1;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)add_withItem:(System_Object *)p1;
 
-	/*! 
-		Managed method name : CopyTo
-		Managed return type : System.Void
-		Managed param types : T[], System.Int32
-	 */
-    - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   Clear
 
-	/*! 
-		Managed method name : Remove
-		Managed return type : System.Boolean
-		Managed param types : <System.Collections.Generic.ICollection`1+T>
-	 */
-    - (BOOL)remove_withItem:(System_Object *)p1;
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)clear;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Contains
+
+ Params
+   <System.Collections.Generic.ICollection`1+T>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)contains_withItem:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CopyTo
+
+ Params
+   T[]
+   System.Int32
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Remove
+
+ Params
+   <System.Collections.Generic.ICollection`1+T>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)remove_withItem:(System_Object *)p1;
 #endif
 
 
@@ -159,40 +200,81 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Add
-		Managed return type : System.Void
-		Managed param types : <System.Collections.Generic.ICollection`1+T>
-	 */
-    - (void)add_withItem:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Add
 
-	/*! 
-		Managed method name : Clear
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)clear;
+ Params
+   <System.Collections.Generic.ICollection`1+T>
 
-	/*! 
-		Managed method name : Contains
-		Managed return type : System.Boolean
-		Managed param types : <System.Collections.Generic.ICollection`1+T>
-	 */
-    - (BOOL)contains_withItem:(System_Object *)p1;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)add_withItem:(System_Object *)p1;
 
-	/*! 
-		Managed method name : CopyTo
-		Managed return type : System.Void
-		Managed param types : T[], System.Int32
-	 */
-    - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   Clear
 
-	/*! 
-		Managed method name : Remove
-		Managed return type : System.Boolean
-		Managed param types : <System.Collections.Generic.ICollection`1+T>
-	 */
-    - (BOOL)remove_withItem:(System_Object *)p1;
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)clear;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Contains
+
+ Params
+   <System.Collections.Generic.ICollection`1+T>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)contains_withItem:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CopyTo
+
+ Params
+   T[]
+   System.Int32
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Remove
+
+ Params
+   <System.Collections.Generic.ICollection`1+T>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)remove_withItem:(System_Object *)p1;
 
 @end
 

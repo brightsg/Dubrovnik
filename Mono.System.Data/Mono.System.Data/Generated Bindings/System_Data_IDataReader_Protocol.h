@@ -94,27 +94,52 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Close
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)close;
+/**
+ Managed method.
+ @textblock
+ Name
+   Close
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)close;
+
 /* Skipped method : System.Data.DataTable GetSchemaTable() */
 
-	/*! 
-		Managed method name : NextResult
-		Managed return type : System.Boolean
-		Managed param types : 
-	 */
-    - (BOOL)nextResult;
+/**
+ Managed method.
+ @textblock
+ Name
+   NextResult
 
-	/*! 
-		Managed method name : Read
-		Managed return type : System.Boolean
-		Managed param types : 
-	 */
-    - (BOOL)read;
+ Params
+   (none)
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)nextResult;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Read
+
+ Params
+   (none)
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)read;
 #endif
 
 
@@ -147,27 +172,52 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Close
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)close;
+/**
+ Managed method.
+ @textblock
+ Name
+   Close
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)close;
+
 /* Skipped method : System.Data.DataTable GetSchemaTable() */
 
-	/*! 
-		Managed method name : NextResult
-		Managed return type : System.Boolean
-		Managed param types : 
-	 */
-    - (BOOL)nextResult;
+/**
+ Managed method.
+ @textblock
+ Name
+   NextResult
 
-	/*! 
-		Managed method name : Read
-		Managed return type : System.Boolean
-		Managed param types : 
-	 */
-    - (BOOL)read;
+ Params
+   (none)
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)nextResult;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Read
+
+ Params
+   (none)
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)read;
 
 @end
 

@@ -42,192 +42,417 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : CompareTo
-		Managed return type : System.Int32
-		Managed param types : System.Object
-	 */
-    - (int32_t)compareTo_withTarget:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   CompareTo
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withObj:(System_Object *)p1;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : Format
-		Managed return type : System.String
-		Managed param types : System.Type, System.Object, System.String
-	 */
-    + (NSString *)format_withEnumType:(System_Type *)p1 value:(System_Object *)p2 format:(NSString *)p3;
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)compareTo_withTarget:(System_Object *)p1;
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode;
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-	/*! 
-		Managed method name : GetName
-		Managed return type : System.String
-		Managed param types : System.Type, System.Object
-	 */
-    + (NSString *)getName_withEnumType:(System_Type *)p1 value:(System_Object *)p2;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : GetNames
-		Managed return type : System.String[]
-		Managed param types : System.Type
-	 */
-    + (System_Array *)getNames_withEnumType:(System_Type *)p1;
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withObj:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Format
+
+ Params
+   System.Type
+   System.Object
+   System.String
+
+ Return
+   System.String
+ @/textblock
+*/
++ (NSString *)format_withEnumType:(System_Type *)p1 value:(System_Object *)p2 format:(NSString *)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
+
+ Params
+   (none)
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getHashCode;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetName
+
+ Params
+   System.Type
+   System.Object
+
+ Return
+   System.String
+ @/textblock
+*/
++ (NSString *)getName_withEnumType:(System_Type *)p1 value:(System_Object *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetNames
+
+ Params
+   System.Type
+
+ Return
+   System.String[]
+ @/textblock
+*/
++ (System_Array *)getNames_withEnumType:(System_Type *)p1;
+
 /* Skipped method : System.TypeCode GetTypeCode() */
 
-	/*! 
-		Managed method name : GetUnderlyingType
-		Managed return type : System.Type
-		Managed param types : System.Type
-	 */
-    + (System_Type *)getUnderlyingType_withEnumType:(System_Type *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetUnderlyingType
 
-	/*! 
-		Managed method name : GetValues
-		Managed return type : System.Array
-		Managed param types : System.Type
-	 */
-    + (System_Array *)getValues_withEnumType:(System_Type *)p1;
+ Params
+   System.Type
 
-	/*! 
-		Managed method name : HasFlag
-		Managed return type : System.Boolean
-		Managed param types : System.Enum
-	 */
-    - (BOOL)hasFlag_withFlag:(System_Enum *)p1;
+ Return
+   System.Type
+ @/textblock
+*/
++ (System_Type *)getUnderlyingType_withEnumType:(System_Type *)p1;
 
-	/*! 
-		Managed method name : IsDefined
-		Managed return type : System.Boolean
-		Managed param types : System.Type, System.Object
-	 */
-    + (BOOL)isDefined_withEnumType:(System_Type *)p1 value:(System_Object *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetValues
 
-	/*! 
-		Managed method name : Parse
-		Managed return type : System.Object
-		Managed param types : System.Type, System.String
-	 */
-    + (System_Object *)parse_withEnumType:(System_Type *)p1 value:(NSString *)p2;
+ Params
+   System.Type
 
-	/*! 
-		Managed method name : Parse
-		Managed return type : System.Object
-		Managed param types : System.Type, System.String, System.Boolean
-	 */
-    + (System_Object *)parse_withEnumType:(System_Type *)p1 value:(NSString *)p2 ignoreCase:(BOOL)p3;
+ Return
+   System.Array
+ @/textblock
+*/
++ (System_Array *)getValues_withEnumType:(System_Type *)p1;
 
-	/*! 
-		Managed method name : ToObject
-		Managed return type : System.Object
-		Managed param types : System.Type, System.Object
-	 */
-    + (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueObject:(System_Object *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   HasFlag
 
-	/*! 
-		Managed method name : ToObject
-		Managed return type : System.Object
-		Managed param types : System.Type, System.SByte
-	 */
-    + (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueSbyte:(int8_t)p2;
+ Params
+   System.Enum
 
-	/*! 
-		Managed method name : ToObject
-		Managed return type : System.Object
-		Managed param types : System.Type, System.Int16
-	 */
-    + (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueInt16:(int16_t)p2;
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)hasFlag_withFlag:(System_Enum *)p1;
 
-	/*! 
-		Managed method name : ToObject
-		Managed return type : System.Object
-		Managed param types : System.Type, System.Int32
-	 */
-    + (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueInt:(int32_t)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   IsDefined
 
-	/*! 
-		Managed method name : ToObject
-		Managed return type : System.Object
-		Managed param types : System.Type, System.Byte
-	 */
-    + (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueByte:(uint8_t)p2;
+ Params
+   System.Type
+   System.Object
 
-	/*! 
-		Managed method name : ToObject
-		Managed return type : System.Object
-		Managed param types : System.Type, System.UInt16
-	 */
-    + (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueUint16:(uint16_t)p2;
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)isDefined_withEnumType:(System_Type *)p1 value:(System_Object *)p2;
 
-	/*! 
-		Managed method name : ToObject
-		Managed return type : System.Object
-		Managed param types : System.Type, System.UInt32
-	 */
-    + (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueUint:(uint32_t)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   Parse
 
-	/*! 
-		Managed method name : ToObject
-		Managed return type : System.Object
-		Managed param types : System.Type, System.Int64
-	 */
-    + (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueLong:(int64_t)p2;
+ Params
+   System.Type
+   System.String
 
-	/*! 
-		Managed method name : ToObject
-		Managed return type : System.Object
-		Managed param types : System.Type, System.UInt64
-	 */
-    + (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueUlong:(uint64_t)p2;
+ Return
+   System.Object
+ @/textblock
+*/
++ (System_Object *)parse_withEnumType:(System_Type *)p1 value:(NSString *)p2;
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString;
+/**
+ Managed method.
+ @textblock
+ Name
+   Parse
+
+ Params
+   System.Type
+   System.String
+   System.Boolean
+
+ Return
+   System.Object
+ @/textblock
+*/
++ (System_Object *)parse_withEnumType:(System_Type *)p1 value:(NSString *)p2 ignoreCase:(BOOL)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToObject
+
+ Params
+   System.Type
+   System.Object
+
+ Return
+   System.Object
+ @/textblock
+*/
++ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueObject:(System_Object *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToObject
+
+ Params
+   System.Type
+   System.SByte
+
+ Return
+   System.Object
+ @/textblock
+*/
++ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueSbyte:(int8_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToObject
+
+ Params
+   System.Type
+   System.Int16
+
+ Return
+   System.Object
+ @/textblock
+*/
++ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueInt16:(int16_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToObject
+
+ Params
+   System.Type
+   System.Int32
+
+ Return
+   System.Object
+ @/textblock
+*/
++ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueInt:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToObject
+
+ Params
+   System.Type
+   System.Byte
+
+ Return
+   System.Object
+ @/textblock
+*/
++ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueByte:(uint8_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToObject
+
+ Params
+   System.Type
+   System.UInt16
+
+ Return
+   System.Object
+ @/textblock
+*/
++ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueUint16:(uint16_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToObject
+
+ Params
+   System.Type
+   System.UInt32
+
+ Return
+   System.Object
+ @/textblock
+*/
++ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueUint:(uint32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToObject
+
+ Params
+   System.Type
+   System.Int64
+
+ Return
+   System.Object
+ @/textblock
+*/
++ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueLong:(int64_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToObject
+
+ Params
+   System.Type
+   System.UInt64
+
+ Return
+   System.Object
+ @/textblock
+*/
++ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueUlong:(uint64_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString;
+
 /* Skipped method : System.String ToString(System.String format, System.IFormatProvider provider) */
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.String
-	 */
-    - (NSString *)toString_withFormat:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   System.String
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString_withFormat:(NSString *)p1;
+
 /* Skipped method : System.String ToString(System.IFormatProvider provider) */
 
-	/*! 
-		Managed method name : TryParse
-		Managed return type : System.Boolean
-		Managed param types : System.String, ref TEnum&
-		Generic method definition type params : <System.Enum+TEnum>
-	 */
-    + (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(System_Object **)p2 typeParameter:(id)typeParameter;
+/**
+ Managed method.
+ @textblock
+ Name
+   TryParse
 
-	/*! 
-		Managed method name : TryParse
-		Managed return type : System.Boolean
-		Managed param types : System.String, System.Boolean, ref TEnum&
-		Generic method definition type params : <System.Enum+TEnum>
-	 */
-    + (BOOL)tryParse_withValue:(NSString *)p1 ignoreCase:(BOOL)p2 resultRef:(System_Object **)p3 typeParameter:(id)typeParameter;
+ Params
+   System.String
+   ref TEnum&
+
+ Generics
+   <System.Enum+TEnum>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(System_Object **)p2 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryParse
+
+ Params
+   System.String
+   System.Boolean
+   ref TEnum&
+
+ Generics
+   <System.Enum+TEnum>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)tryParse_withValue:(NSString *)p1 ignoreCase:(BOOL)p2 resultRef:(System_Object **)p3 typeParameter:(id)typeParameter;
 @end
 //--Dubrovnik.CodeGenerator

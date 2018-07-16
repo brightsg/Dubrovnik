@@ -19,33 +19,26 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Drawing.Size";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "System.Drawing";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Drawing.Size";
+}
++ (const char *)monoAssemblyName
+{
+	return "System.Drawing";
+}
 
 #pragma mark -
 #pragma mark Constructors
+
 /* Skipped constructor : System.Drawing.Size (System.Drawing.Point pt) */
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Drawing.Size
-		Managed param types : System.Int32, System.Int32
-	 */
-    + (System_Drawing_Size *)new_withWidth:(int32_t)p1 height:(int32_t)p2
-    {
-		
-		System_Drawing_Size * object = [[self alloc] initWithSignature:"int,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
-      
-      return object;
-    }
++ (System_Drawing_Size *)new_withWidth:(int32_t)p1 height:(int32_t)p2
+{
+  System_Drawing_Size * object = [[self alloc] initWithSignature:"int,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+  return object;
+}
 
 #pragma mark -
 #pragma mark Fields
@@ -161,133 +154,76 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Add
-		Managed return type : System.Drawing.Size
-		Managed param types : System.Drawing.Size, System.Drawing.Size
-	 */
-    + (System_Drawing_Size *)add_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Add(System.Drawing.Size,System.Drawing.Size)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return [System_Drawing_Size bestObjectWithMonoObject:monoObject];
-    }
++ (System_Drawing_Size *)add_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"Add(System.Drawing.Size,System.Drawing.Size)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+  return [System_Drawing_Size bestObjectWithMonoObject:monoObject];
+}
+
 /* Skipped method : System.Drawing.Size Ceiling(System.Drawing.SizeF value) */
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withObj:(System_Object *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
+- (BOOL)equals_withObj:(System_Object *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+- (int32_t)getHashCode
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+  return DB_UNBOX_INT32(monoObject);
+}
 
-	/*! 
-		Managed method name : op_Addition
-		Managed return type : System.Drawing.Size
-		Managed param types : System.Drawing.Size, System.Drawing.Size
-	 */
-    + (System_Drawing_Size *)op_Addition_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Addition(System.Drawing.Size,System.Drawing.Size)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return [System_Drawing_Size bestObjectWithMonoObject:monoObject];
-    }
++ (System_Drawing_Size *)op_Addition_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"op_Addition(System.Drawing.Size,System.Drawing.Size)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+  return [System_Drawing_Size bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : op_Equality
-		Managed return type : System.Boolean
-		Managed param types : System.Drawing.Size, System.Drawing.Size
-	 */
-    + (BOOL)op_Equality_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Drawing.Size,System.Drawing.Size)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
++ (BOOL)op_Equality_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Drawing.Size,System.Drawing.Size)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+  return DB_UNBOX_BOOLEAN(monoObject);
+}
+
 /* Skipped method : System.Drawing.Point op_Explicit(System.Drawing.Size size) */
+
 /* Skipped method : System.Drawing.SizeF op_Implicit(System.Drawing.Size p) */
 
-	/*! 
-		Managed method name : op_Inequality
-		Managed return type : System.Boolean
-		Managed param types : System.Drawing.Size, System.Drawing.Size
-	 */
-    + (BOOL)op_Inequality_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Drawing.Size,System.Drawing.Size)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
++ (BOOL)op_Inequality_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Drawing.Size,System.Drawing.Size)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+  return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-	/*! 
-		Managed method name : op_Subtraction
-		Managed return type : System.Drawing.Size
-		Managed param types : System.Drawing.Size, System.Drawing.Size
-	 */
-    + (System_Drawing_Size *)op_Subtraction_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Subtraction(System.Drawing.Size,System.Drawing.Size)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return [System_Drawing_Size bestObjectWithMonoObject:monoObject];
-    }
++ (System_Drawing_Size *)op_Subtraction_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"op_Subtraction(System.Drawing.Size,System.Drawing.Size)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+  return [System_Drawing_Size bestObjectWithMonoObject:monoObject];
+}
+
 /* Skipped method : System.Drawing.Size Round(System.Drawing.SizeF value) */
 
-	/*! 
-		Managed method name : Subtract
-		Managed return type : System.Drawing.Size
-		Managed param types : System.Drawing.Size, System.Drawing.Size
-	 */
-    + (System_Drawing_Size *)subtract_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Subtract(System.Drawing.Size,System.Drawing.Size)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return [System_Drawing_Size bestObjectWithMonoObject:monoObject];
-    }
++ (System_Drawing_Size *)subtract_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"Subtract(System.Drawing.Size,System.Drawing.Size)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+  return [System_Drawing_Size bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
-		
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
+- (NSString *)toString
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
 /* Skipped method : System.Drawing.Size Truncate(System.Drawing.SizeF value) */
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-		m_empty = nil;
-	}
+
+- (void)dealloc
+{
+	m_empty = nil;
+}
 @end
 //--Dubrovnik.CodeGenerator

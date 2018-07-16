@@ -37,10 +37,9 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Fields
@@ -52,95 +51,207 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Close
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)close;
+/**
+ Managed method.
+ @textblock
+ Name
+   Close
 
-	/*! 
-		Managed method name : Dispose
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)dispose;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : Peek
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)peek;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)close;
 
-	/*! 
-		Managed method name : Read
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)read;
+/**
+ Managed method.
+ @textblock
+ Name
+   Dispose
 
-	/*! 
-		Managed method name : Read
-		Managed return type : System.Int32
-		Managed param types : System.Char[], System.Int32, System.Int32
-	 */
-    - (int32_t)read_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : ReadAsync
-		Managed return type : System.Threading.Tasks.Task`1<System.Int32>
-		Managed param types : System.Char[], System.Int32, System.Int32
-	 */
-    - (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)dispose;
 
-	/*! 
-		Managed method name : ReadBlock
-		Managed return type : System.Int32
-		Managed param types : System.Char[], System.Int32, System.Int32
-	 */
-    - (int32_t)readBlock_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+/**
+ Managed method.
+ @textblock
+ Name
+   Peek
 
-	/*! 
-		Managed method name : ReadBlockAsync
-		Managed return type : System.Threading.Tasks.Task`1<System.Int32>
-		Managed param types : System.Char[], System.Int32, System.Int32
-	 */
-    - (System_Threading_Tasks_TaskA1 *)readBlockAsync_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : ReadLine
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)readLine;
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)peek;
 
-	/*! 
-		Managed method name : ReadLineAsync
-		Managed return type : System.Threading.Tasks.Task`1<System.String>
-		Managed param types : 
-	 */
-    - (System_Threading_Tasks_TaskA1 *)readLineAsync;
+/**
+ Managed method.
+ @textblock
+ Name
+   Read
 
-	/*! 
-		Managed method name : ReadToEnd
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)readToEnd;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : ReadToEndAsync
-		Managed return type : System.Threading.Tasks.Task`1<System.String>
-		Managed param types : 
-	 */
-    - (System_Threading_Tasks_TaskA1 *)readToEndAsync;
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)read;
 
-	/*! 
-		Managed method name : Synchronized
-		Managed return type : System.IO.TextReader
-		Managed param types : System.IO.TextReader
-	 */
-    + (System_IO_TextReader *)synchronized_withReader:(System_IO_TextReader *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Read
+
+ Params
+   System.Char[]
+   System.Int32
+   System.Int32
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)read_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ReadAsync
+
+ Params
+   System.Char[]
+   System.Int32
+   System.Int32
+
+ Return
+   System.Threading.Tasks.Task`1<System.Int32>
+ @/textblock
+*/
+- (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ReadBlock
+
+ Params
+   System.Char[]
+   System.Int32
+   System.Int32
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)readBlock_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ReadBlockAsync
+
+ Params
+   System.Char[]
+   System.Int32
+   System.Int32
+
+ Return
+   System.Threading.Tasks.Task`1<System.Int32>
+ @/textblock
+*/
+- (System_Threading_Tasks_TaskA1 *)readBlockAsync_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ReadLine
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)readLine;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ReadLineAsync
+
+ Params
+   (none)
+
+ Return
+   System.Threading.Tasks.Task`1<System.String>
+ @/textblock
+*/
+- (System_Threading_Tasks_TaskA1 *)readLineAsync;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ReadToEnd
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)readToEnd;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ReadToEndAsync
+
+ Params
+   (none)
+
+ Return
+   System.Threading.Tasks.Task`1<System.String>
+ @/textblock
+*/
+- (System_Threading_Tasks_TaskA1 *)readToEndAsync;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Synchronized
+
+ Params
+   System.IO.TextReader
+
+ Return
+   System.IO.TextReader
+ @/textblock
+*/
++ (System_IO_TextReader *)synchronized_withReader:(System_IO_TextReader *)p1;
 @end
 //--Dubrovnik.CodeGenerator

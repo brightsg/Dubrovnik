@@ -83,6 +83,7 @@
 	// Managed property name : ElementType
 	// Managed property type : System.Type
     @property (nonatomic, strong, readonly) System_Type * elementType;
+
 /* Skipped property : System.Linq.Expressions.Expression Expression */
 
 	// Managed property name : Provider
@@ -108,6 +109,7 @@
 	// Managed property name : ElementType
 	// Managed property type : System.Type
     @property (nonatomic, strong, readonly) System_Type * elementType;
+
 /* Skipped property : System.Linq.Expressions.Expression Expression */
 
 	// Managed property name : Provider

@@ -42,20 +42,27 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+KeyCollection+TKey, System.Collections.Generic.Dictionary`2+KeyCollection+TValue>+KeyCollection
-		Managed param types : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+KeyCollection+TKey, System.Collections.Generic.Dictionary`2+KeyCollection+TValue>
-	 */
-    + (System_Collections_Generic_DictionaryA2__KeyCollection *)new_withDictionary:(System_Collections_Generic_DictionaryA2 *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+KeyCollection+TKey, System.Collections.Generic.Dictionary`2+KeyCollection+TValue>
+
+ Return
+   System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+KeyCollection+TKey, System.Collections.Generic.Dictionary`2+KeyCollection+TValue>+KeyCollection
+ @/textblock
+*/
++ (System_Collections_Generic_DictionaryA2__KeyCollection *)new_withDictionary:(System_Collections_Generic_DictionaryA2 *)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -67,18 +74,35 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : CopyTo
-		Managed return type : System.Void
-		Managed param types : TKey[], System.Int32
-	 */
-    - (void)copyTo_withArray:(System_Array *)p1 index:(int32_t)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   CopyTo
 
-	/*! 
-		Managed method name : GetEnumerator
-		Managed return type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+KeyCollection+TKey, System.Collections.Generic.Dictionary`2+KeyCollection+TValue>+KeyCollection+Enumerator
-		Managed param types : 
-	 */
-    - (System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator *)getEnumerator;
+ Params
+   TKey[]
+   System.Int32
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)copyTo_withArray:(System_Array *)p1 index:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetEnumerator
+
+ Params
+   (none)
+
+ Return
+   System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+KeyCollection+TKey, System.Collections.Generic.Dictionary`2+KeyCollection+TValue>+KeyCollection+Enumerator
+ @/textblock
+*/
+- (System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator *)getEnumerator;
 @end
 //--Dubrovnik.CodeGenerator

@@ -46,20 +46,28 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Collections.ArrayList
-		Managed param types : System.Int32
-	 */
-    + (System_Collections_ArrayList *)new_withCapacity:(int32_t)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Int32
+
+ Return
+   System.Collections.ArrayList
+ @/textblock
+*/
++ (System_Collections_ArrayList *)new_withCapacity:(int32_t)p1;
+
 /* Skipped constructor : System.Collections.ArrayList (System.Collections.ICollection c) */
 
 #pragma mark -
@@ -92,270 +100,590 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : get_Item
-		Managed return type : System.Object
-		Managed param types : System.Int32
-	 */
-    - (System_Object *)get_Item_withIndex:(int32_t)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   get_Item
 
-	/*! 
-		Managed method name : set_Item
-		Managed return type : System.Void
-		Managed param types : System.Int32, System.Object
-	 */
-    - (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2;
+ Params
+   System.Int32
 
-	/*! 
-		Managed method name : Adapter
-		Managed return type : System.Collections.ArrayList
-		Managed param types : System.Collections.IList
-	 */
-    + (System_Collections_ArrayList *)adapter_withList:(id <System_Collections_IList_>)p1;
+ Return
+   System.Object
+ @/textblock
+*/
+- (System_Object *)get_Item_withIndex:(int32_t)p1;
 
-	/*! 
-		Managed method name : Add
-		Managed return type : System.Int32
-		Managed param types : System.Object
-	 */
-    - (int32_t)add_withValue:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   set_Item
+
+ Params
+   System.Int32
+   System.Object
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Adapter
+
+ Params
+   System.Collections.IList
+
+ Return
+   System.Collections.ArrayList
+ @/textblock
+*/
++ (System_Collections_ArrayList *)adapter_withList:(id <System_Collections_IList_>)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Add
+
+ Params
+   System.Object
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)add_withValue:(System_Object *)p1;
+
 /* Skipped method : System.Void AddRange(System.Collections.ICollection c) */
+
 /* Skipped method : System.Int32 BinarySearch(System.Int32 index, System.Int32 count, System.Object value, System.Collections.IComparer comparer) */
 
-	/*! 
-		Managed method name : BinarySearch
-		Managed return type : System.Int32
-		Managed param types : System.Object
-	 */
-    - (int32_t)binarySearch_withValue:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   BinarySearch
+
+ Params
+   System.Object
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)binarySearch_withValue:(System_Object *)p1;
+
 /* Skipped method : System.Int32 BinarySearch(System.Object value, System.Collections.IComparer comparer) */
 
-	/*! 
-		Managed method name : Clear
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)clear;
+/**
+ Managed method.
+ @textblock
+ Name
+   Clear
 
-	/*! 
-		Managed method name : Clone
-		Managed return type : System.Object
-		Managed param types : 
-	 */
-    - (System_Object *)clone;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : Contains
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)contains_withItem:(System_Object *)p1;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)clear;
 
-	/*! 
-		Managed method name : CopyTo
-		Managed return type : System.Void
-		Managed param types : System.Array
-	 */
-    - (void)copyTo_withArray:(System_Array *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Clone
 
-	/*! 
-		Managed method name : CopyTo
-		Managed return type : System.Void
-		Managed param types : System.Array, System.Int32
-	 */
-    - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : CopyTo
-		Managed return type : System.Void
-		Managed param types : System.Int32, System.Array, System.Int32, System.Int32
-	 */
-    - (void)copyTo_withIndex:(int32_t)p1 array:(System_Array *)p2 arrayIndex:(int32_t)p3 count:(int32_t)p4;
+ Return
+   System.Object
+ @/textblock
+*/
+- (System_Object *)clone;
 
-	/*! 
-		Managed method name : FixedSize
-		Managed return type : System.Collections.IList
-		Managed param types : System.Collections.IList
-	 */
-    + (id <System_Collections_IList>)fixedSize_withListSCIList:(id <System_Collections_IList_>)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Contains
 
-	/*! 
-		Managed method name : FixedSize
-		Managed return type : System.Collections.ArrayList
-		Managed param types : System.Collections.ArrayList
-	 */
-    + (System_Collections_ArrayList *)fixedSize_withListSCArrayList:(System_Collections_ArrayList *)p1;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : GetEnumerator
-		Managed return type : System.Collections.IEnumerator
-		Managed param types : 
-	 */
-    - (id <System_Collections_IEnumerator>)getEnumerator;
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)contains_withItem:(System_Object *)p1;
 
-	/*! 
-		Managed method name : GetEnumerator
-		Managed return type : System.Collections.IEnumerator
-		Managed param types : System.Int32, System.Int32
-	 */
-    - (id <System_Collections_IEnumerator>)getEnumerator_withIndex:(int32_t)p1 count:(int32_t)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   CopyTo
 
-	/*! 
-		Managed method name : GetRange
-		Managed return type : System.Collections.ArrayList
-		Managed param types : System.Int32, System.Int32
-	 */
-    - (System_Collections_ArrayList *)getRange_withIndex:(int32_t)p1 count:(int32_t)p2;
+ Params
+   System.Array
 
-	/*! 
-		Managed method name : IndexOf
-		Managed return type : System.Int32
-		Managed param types : System.Object
-	 */
-    - (int32_t)indexOf_withValue:(System_Object *)p1;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)copyTo_withArray:(System_Array *)p1;
 
-	/*! 
-		Managed method name : IndexOf
-		Managed return type : System.Int32
-		Managed param types : System.Object, System.Int32
-	 */
-    - (int32_t)indexOf_withValue:(System_Object *)p1 startIndex:(int32_t)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   CopyTo
 
-	/*! 
-		Managed method name : IndexOf
-		Managed return type : System.Int32
-		Managed param types : System.Object, System.Int32, System.Int32
-	 */
-    - (int32_t)indexOf_withValue:(System_Object *)p1 startIndex:(int32_t)p2 count:(int32_t)p3;
+ Params
+   System.Array
+   System.Int32
 
-	/*! 
-		Managed method name : Insert
-		Managed return type : System.Void
-		Managed param types : System.Int32, System.Object
-	 */
-    - (void)insert_withIndex:(int32_t)p1 value:(System_Object *)p2;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CopyTo
+
+ Params
+   System.Int32
+   System.Array
+   System.Int32
+   System.Int32
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)copyTo_withIndex:(int32_t)p1 array:(System_Array *)p2 arrayIndex:(int32_t)p3 count:(int32_t)p4;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FixedSize
+
+ Params
+   System.Collections.IList
+
+ Return
+   System.Collections.IList
+ @/textblock
+*/
++ (id <System_Collections_IList>)fixedSize_withListSCIList:(id <System_Collections_IList_>)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FixedSize
+
+ Params
+   System.Collections.ArrayList
+
+ Return
+   System.Collections.ArrayList
+ @/textblock
+*/
++ (System_Collections_ArrayList *)fixedSize_withListSCArrayList:(System_Collections_ArrayList *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetEnumerator
+
+ Params
+   (none)
+
+ Return
+   System.Collections.IEnumerator
+ @/textblock
+*/
+- (id <System_Collections_IEnumerator>)getEnumerator;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetEnumerator
+
+ Params
+   System.Int32
+   System.Int32
+
+ Return
+   System.Collections.IEnumerator
+ @/textblock
+*/
+- (id <System_Collections_IEnumerator>)getEnumerator_withIndex:(int32_t)p1 count:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetRange
+
+ Params
+   System.Int32
+   System.Int32
+
+ Return
+   System.Collections.ArrayList
+ @/textblock
+*/
+- (System_Collections_ArrayList *)getRange_withIndex:(int32_t)p1 count:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   IndexOf
+
+ Params
+   System.Object
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)indexOf_withValue:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   IndexOf
+
+ Params
+   System.Object
+   System.Int32
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)indexOf_withValue:(System_Object *)p1 startIndex:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   IndexOf
+
+ Params
+   System.Object
+   System.Int32
+   System.Int32
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)indexOf_withValue:(System_Object *)p1 startIndex:(int32_t)p2 count:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Insert
+
+ Params
+   System.Int32
+   System.Object
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)insert_withIndex:(int32_t)p1 value:(System_Object *)p2;
+
 /* Skipped method : System.Void InsertRange(System.Int32 index, System.Collections.ICollection c) */
 
-	/*! 
-		Managed method name : LastIndexOf
-		Managed return type : System.Int32
-		Managed param types : System.Object
-	 */
-    - (int32_t)lastIndexOf_withValue:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   LastIndexOf
 
-	/*! 
-		Managed method name : LastIndexOf
-		Managed return type : System.Int32
-		Managed param types : System.Object, System.Int32
-	 */
-    - (int32_t)lastIndexOf_withValue:(System_Object *)p1 startIndex:(int32_t)p2;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : LastIndexOf
-		Managed return type : System.Int32
-		Managed param types : System.Object, System.Int32, System.Int32
-	 */
-    - (int32_t)lastIndexOf_withValue:(System_Object *)p1 startIndex:(int32_t)p2 count:(int32_t)p3;
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)lastIndexOf_withValue:(System_Object *)p1;
 
-	/*! 
-		Managed method name : ReadOnly
-		Managed return type : System.Collections.IList
-		Managed param types : System.Collections.IList
-	 */
-    + (id <System_Collections_IList>)readOnly_withListSCIList:(id <System_Collections_IList_>)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   LastIndexOf
 
-	/*! 
-		Managed method name : ReadOnly
-		Managed return type : System.Collections.ArrayList
-		Managed param types : System.Collections.ArrayList
-	 */
-    + (System_Collections_ArrayList *)readOnly_withListSCArrayList:(System_Collections_ArrayList *)p1;
+ Params
+   System.Object
+   System.Int32
 
-	/*! 
-		Managed method name : Remove
-		Managed return type : System.Void
-		Managed param types : System.Object
-	 */
-    - (void)remove_withObj:(System_Object *)p1;
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)lastIndexOf_withValue:(System_Object *)p1 startIndex:(int32_t)p2;
 
-	/*! 
-		Managed method name : RemoveAt
-		Managed return type : System.Void
-		Managed param types : System.Int32
-	 */
-    - (void)removeAt_withIndex:(int32_t)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   LastIndexOf
 
-	/*! 
-		Managed method name : RemoveRange
-		Managed return type : System.Void
-		Managed param types : System.Int32, System.Int32
-	 */
-    - (void)removeRange_withIndex:(int32_t)p1 count:(int32_t)p2;
+ Params
+   System.Object
+   System.Int32
+   System.Int32
 
-	/*! 
-		Managed method name : Repeat
-		Managed return type : System.Collections.ArrayList
-		Managed param types : System.Object, System.Int32
-	 */
-    + (System_Collections_ArrayList *)repeat_withValue:(System_Object *)p1 count:(int32_t)p2;
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)lastIndexOf_withValue:(System_Object *)p1 startIndex:(int32_t)p2 count:(int32_t)p3;
 
-	/*! 
-		Managed method name : Reverse
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)reverse;
+/**
+ Managed method.
+ @textblock
+ Name
+   ReadOnly
 
-	/*! 
-		Managed method name : Reverse
-		Managed return type : System.Void
-		Managed param types : System.Int32, System.Int32
-	 */
-    - (void)reverse_withIndex:(int32_t)p1 count:(int32_t)p2;
+ Params
+   System.Collections.IList
+
+ Return
+   System.Collections.IList
+ @/textblock
+*/
++ (id <System_Collections_IList>)readOnly_withListSCIList:(id <System_Collections_IList_>)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ReadOnly
+
+ Params
+   System.Collections.ArrayList
+
+ Return
+   System.Collections.ArrayList
+ @/textblock
+*/
++ (System_Collections_ArrayList *)readOnly_withListSCArrayList:(System_Collections_ArrayList *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Remove
+
+ Params
+   System.Object
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)remove_withObj:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   RemoveAt
+
+ Params
+   System.Int32
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)removeAt_withIndex:(int32_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   RemoveRange
+
+ Params
+   System.Int32
+   System.Int32
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)removeRange_withIndex:(int32_t)p1 count:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Repeat
+
+ Params
+   System.Object
+   System.Int32
+
+ Return
+   System.Collections.ArrayList
+ @/textblock
+*/
++ (System_Collections_ArrayList *)repeat_withValue:(System_Object *)p1 count:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Reverse
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)reverse;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Reverse
+
+ Params
+   System.Int32
+   System.Int32
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)reverse_withIndex:(int32_t)p1 count:(int32_t)p2;
+
 /* Skipped method : System.Void SetRange(System.Int32 index, System.Collections.ICollection c) */
 
-	/*! 
-		Managed method name : Sort
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)sort;
+/**
+ Managed method.
+ @textblock
+ Name
+   Sort
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)sort;
+
 /* Skipped method : System.Void Sort(System.Collections.IComparer comparer) */
+
 /* Skipped method : System.Void Sort(System.Int32 index, System.Int32 count, System.Collections.IComparer comparer) */
 
-	/*! 
-		Managed method name : Synchronized
-		Managed return type : System.Collections.IList
-		Managed param types : System.Collections.IList
-	 */
-    + (id <System_Collections_IList>)synchronized_withListSCIList:(id <System_Collections_IList_>)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Synchronized
 
-	/*! 
-		Managed method name : Synchronized
-		Managed return type : System.Collections.ArrayList
-		Managed param types : System.Collections.ArrayList
-	 */
-    + (System_Collections_ArrayList *)synchronized_withListSCArrayList:(System_Collections_ArrayList *)p1;
+ Params
+   System.Collections.IList
 
-	/*! 
-		Managed method name : ToArray
-		Managed return type : System.Object[]
-		Managed param types : 
-	 */
-    - (System_Array *)toArray;
+ Return
+   System.Collections.IList
+ @/textblock
+*/
++ (id <System_Collections_IList>)synchronized_withListSCIList:(id <System_Collections_IList_>)p1;
 
-	/*! 
-		Managed method name : ToArray
-		Managed return type : System.Array
-		Managed param types : System.Type
-	 */
-    - (System_Array *)toArray_withType:(System_Type *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Synchronized
 
-	/*! 
-		Managed method name : TrimToSize
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)trimToSize;
+ Params
+   System.Collections.ArrayList
+
+ Return
+   System.Collections.ArrayList
+ @/textblock
+*/
++ (System_Collections_ArrayList *)synchronized_withListSCArrayList:(System_Collections_ArrayList *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToArray
+
+ Params
+   (none)
+
+ Return
+   System.Object[]
+ @/textblock
+*/
+- (System_Array *)toArray;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToArray
+
+ Params
+   System.Type
+
+ Return
+   System.Array
+ @/textblock
+*/
+- (System_Array *)toArray_withType:(System_Type *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TrimToSize
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)trimToSize;
 @end
 //--Dubrovnik.CodeGenerator

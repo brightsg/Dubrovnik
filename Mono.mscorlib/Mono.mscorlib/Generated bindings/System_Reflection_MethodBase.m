@@ -19,20 +19,21 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Reflection.MethodBase";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "mscorlib";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Reflection.MethodBase";
+}
++ (const char *)monoAssemblyName
+{
+	return "mscorlib";
+}
 
 #pragma mark -
 #pragma mark Properties
+
 /* Skipped property : System.Reflection.MethodAttributes Attributes */
+
 /* Skipped property : System.Reflection.CallingConventions CallingConvention */
 
 	// Managed property name : ContainsGenericParameters
@@ -433,113 +434,73 @@
 
 		return _isVirtual;
 	}
+
 /* Skipped property : System.RuntimeMethodHandle MethodHandle */
+
 /* Skipped property : System.Reflection.MethodImplAttributes MethodImplementationFlags */
 
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withObj:(System_Object *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
+- (BOOL)equals_withObj:(System_Object *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-	/*! 
-		Managed method name : GetCurrentMethod
-		Managed return type : System.Reflection.MethodBase
-		Managed param types : 
-	 */
-    + (System_Reflection_MethodBase *)getCurrentMethod
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetCurrentMethod()" withNumArgs:0];
-		
-		return [System_Reflection_MethodBase bestObjectWithMonoObject:monoObject];
-    }
++ (System_Reflection_MethodBase *)getCurrentMethod
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"GetCurrentMethod()" withNumArgs:0];
+  return [System_Reflection_MethodBase bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : GetGenericArguments
-		Managed return type : System.Type[]
-		Managed param types : 
-	 */
-    - (System_Array *)getGenericArguments
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetGenericArguments()" withNumArgs:0];
-		
-		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
-    }
+- (System_Array *)getGenericArguments
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetGenericArguments()" withNumArgs:0];
+  return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+}
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+- (int32_t)getHashCode
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+  return DB_UNBOX_INT32(monoObject);
+}
+
 /* Skipped method : System.Reflection.MethodBody GetMethodBody() */
+
 /* Skipped method : System.Reflection.MethodBase GetMethodFromHandle(System.RuntimeMethodHandle handle) */
+
 /* Skipped method : System.Reflection.MethodBase GetMethodFromHandle(System.RuntimeMethodHandle handle, System.RuntimeTypeHandle declaringType) */
+
 /* Skipped method : System.Reflection.MethodImplAttributes GetMethodImplementationFlags() */
+
 /* Skipped method : System.Reflection.ParameterInfo[] GetParameters() */
+
 /* Skipped method : System.Object Invoke(System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) */
 
-	/*! 
-		Managed method name : Invoke
-		Managed return type : System.Object
-		Managed param types : System.Object, System.Object[]
-	 */
-    - (System_Object *)invoke_withObj:(System_Object *)p1 parameters:(System_Array *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return [System_Object bestObjectWithMonoObject:monoObject];
-    }
+- (System_Object *)invoke_withObj:(System_Object *)p1 parameters:(System_Array *)p2
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+  return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : op_Equality
-		Managed return type : System.Boolean
-		Managed param types : System.Reflection.MethodBase, System.Reflection.MethodBase
-	 */
-    + (BOOL)op_Equality_withLeft:(System_Reflection_MethodBase *)p1 right:(System_Reflection_MethodBase *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Reflection.MethodBase,System.Reflection.MethodBase)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
++ (BOOL)op_Equality_withLeft:(System_Reflection_MethodBase *)p1 right:(System_Reflection_MethodBase *)p2
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Reflection.MethodBase,System.Reflection.MethodBase)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+  return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-	/*! 
-		Managed method name : op_Inequality
-		Managed return type : System.Boolean
-		Managed param types : System.Reflection.MethodBase, System.Reflection.MethodBase
-	 */
-    + (BOOL)op_Inequality_withLeft:(System_Reflection_MethodBase *)p1 right:(System_Reflection_MethodBase *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Reflection.MethodBase,System.Reflection.MethodBase)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
++ (BOOL)op_Inequality_withLeft:(System_Reflection_MethodBase *)p1 right:(System_Reflection_MethodBase *)p2
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Reflection.MethodBase,System.Reflection.MethodBase)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+  return DB_UNBOX_BOOLEAN(monoObject);
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

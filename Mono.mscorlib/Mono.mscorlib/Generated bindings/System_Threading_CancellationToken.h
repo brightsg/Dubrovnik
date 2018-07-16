@@ -33,20 +33,27 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Threading.CancellationToken
-		Managed param types : System.Boolean
-	 */
-    + (System_Threading_CancellationToken *)new_withCanceled:(BOOL)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Boolean
+
+ Return
+   System.Threading.CancellationToken
+ @/textblock
+*/
++ (System_Threading_CancellationToken *)new_withCanceled:(BOOL)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -62,55 +69,110 @@
 	// Managed property name : None
 	// Managed property type : System.Threading.CancellationToken
     + (System_Threading_CancellationToken *)none;
+
 /* Skipped property : System.Threading.WaitHandle WaitHandle */
 
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Threading.CancellationToken
-	 */
-    - (BOOL)equals_withOtherSTCancellationToken:(System_Threading_CancellationToken *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withOtherObject:(System_Object *)p1;
+ Params
+   System.Threading.CancellationToken
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode;
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withOtherSTCancellationToken:(System_Threading_CancellationToken *)p1;
 
-	/*! 
-		Managed method name : op_Equality
-		Managed return type : System.Boolean
-		Managed param types : System.Threading.CancellationToken, System.Threading.CancellationToken
-	 */
-    + (BOOL)op_Equality_withLeft:(System_Threading_CancellationToken *)p1 right:(System_Threading_CancellationToken *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-	/*! 
-		Managed method name : op_Inequality
-		Managed return type : System.Boolean
-		Managed param types : System.Threading.CancellationToken, System.Threading.CancellationToken
-	 */
-    + (BOOL)op_Inequality_withLeft:(System_Threading_CancellationToken *)p1 right:(System_Threading_CancellationToken *)p2;
+ Params
+   System.Object
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withOtherObject:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
+
+ Params
+   (none)
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getHashCode;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Equality
+
+ Params
+   System.Threading.CancellationToken
+   System.Threading.CancellationToken
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_Equality_withLeft:(System_Threading_CancellationToken *)p1 right:(System_Threading_CancellationToken *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Inequality
+
+ Params
+   System.Threading.CancellationToken
+   System.Threading.CancellationToken
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_Inequality_withLeft:(System_Threading_CancellationToken *)p1 right:(System_Threading_CancellationToken *)p2;
+
 /* Skipped method : System.Threading.CancellationTokenRegistration Register(System.Action callback) */
+
 /* Skipped method : System.Threading.CancellationTokenRegistration Register(System.Action callback, System.Boolean useSynchronizationContext) */
+
 /* Skipped method : System.Threading.CancellationTokenRegistration Register(System.Action`1<System.Object> callback, System.Object state) */
+
 /* Skipped method : System.Threading.CancellationTokenRegistration Register(System.Action`1<System.Object> callback, System.Object state, System.Boolean useSynchronizationContext) */
 
-	/*! 
-		Managed method name : ThrowIfCancellationRequested
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)throwIfCancellationRequested;
+/**
+ Managed method.
+ @textblock
+ Name
+   ThrowIfCancellationRequested
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)throwIfCancellationRequested;
 @end
 //--Dubrovnik.CodeGenerator

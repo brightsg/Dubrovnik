@@ -77,12 +77,20 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Clone
-		Managed return type : System.Object
-		Managed param types : 
-	 */
-    - (System_Object *)clone;
+/**
+ Managed method.
+ @textblock
+ Name
+   Clone
+
+ Params
+   (none)
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (System_Object *)clone;
 #endif
 
 
@@ -100,12 +108,20 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Clone
-		Managed return type : System.Object
-		Managed param types : 
-	 */
-    - (System_Object *)clone;
+/**
+ Managed method.
+ @textblock
+ Name
+   Clone
+
+ Params
+   (none)
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (System_Object *)clone;
 
 @end
 

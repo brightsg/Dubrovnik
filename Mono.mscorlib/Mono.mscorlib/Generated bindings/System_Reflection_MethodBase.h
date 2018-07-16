@@ -36,14 +36,15 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Properties
+
 /* Skipped property : System.Reflection.MethodAttributes Attributes */
+
 /* Skipped property : System.Reflection.CallingConventions CallingConvention */
 
 	// Managed property name : ContainsGenericParameters
@@ -121,65 +122,132 @@
 	// Managed property name : IsVirtual
 	// Managed property type : System.Boolean
     @property (nonatomic, readonly) BOOL isVirtual;
+
 /* Skipped property : System.RuntimeMethodHandle MethodHandle */
+
 /* Skipped property : System.Reflection.MethodImplAttributes MethodImplementationFlags */
 
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withObj:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-	/*! 
-		Managed method name : GetCurrentMethod
-		Managed return type : System.Reflection.MethodBase
-		Managed param types : 
-	 */
-    + (System_Reflection_MethodBase *)getCurrentMethod;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : GetGenericArguments
-		Managed return type : System.Type[]
-		Managed param types : 
-	 */
-    - (System_Array *)getGenericArguments;
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withObj:(System_Object *)p1;
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetCurrentMethod
+
+ Params
+   (none)
+
+ Return
+   System.Reflection.MethodBase
+ @/textblock
+*/
++ (System_Reflection_MethodBase *)getCurrentMethod;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetGenericArguments
+
+ Params
+   (none)
+
+ Return
+   System.Type[]
+ @/textblock
+*/
+- (System_Array *)getGenericArguments;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
+
+ Params
+   (none)
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getHashCode;
+
 /* Skipped method : System.Reflection.MethodBody GetMethodBody() */
+
 /* Skipped method : System.Reflection.MethodBase GetMethodFromHandle(System.RuntimeMethodHandle handle) */
+
 /* Skipped method : System.Reflection.MethodBase GetMethodFromHandle(System.RuntimeMethodHandle handle, System.RuntimeTypeHandle declaringType) */
+
 /* Skipped method : System.Reflection.MethodImplAttributes GetMethodImplementationFlags() */
+
 /* Skipped method : System.Reflection.ParameterInfo[] GetParameters() */
+
 /* Skipped method : System.Object Invoke(System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) */
 
-	/*! 
-		Managed method name : Invoke
-		Managed return type : System.Object
-		Managed param types : System.Object, System.Object[]
-	 */
-    - (System_Object *)invoke_withObj:(System_Object *)p1 parameters:(System_Array *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   Invoke
 
-	/*! 
-		Managed method name : op_Equality
-		Managed return type : System.Boolean
-		Managed param types : System.Reflection.MethodBase, System.Reflection.MethodBase
-	 */
-    + (BOOL)op_Equality_withLeft:(System_Reflection_MethodBase *)p1 right:(System_Reflection_MethodBase *)p2;
+ Params
+   System.Object
+   System.Object[]
 
-	/*! 
-		Managed method name : op_Inequality
-		Managed return type : System.Boolean
-		Managed param types : System.Reflection.MethodBase, System.Reflection.MethodBase
-	 */
-    + (BOOL)op_Inequality_withLeft:(System_Reflection_MethodBase *)p1 right:(System_Reflection_MethodBase *)p2;
+ Return
+   System.Object
+ @/textblock
+*/
+- (System_Object *)invoke_withObj:(System_Object *)p1 parameters:(System_Array *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Equality
+
+ Params
+   System.Reflection.MethodBase
+   System.Reflection.MethodBase
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_Equality_withLeft:(System_Reflection_MethodBase *)p1 right:(System_Reflection_MethodBase *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Inequality
+
+ Params
+   System.Reflection.MethodBase
+   System.Reflection.MethodBase
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_Inequality_withLeft:(System_Reflection_MethodBase *)p1 right:(System_Reflection_MethodBase *)p2;
 @end
 //--Dubrovnik.CodeGenerator

@@ -35,90 +35,199 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Collections.Specialized.NotifyCollectionChangedEventArgs
-		Managed param types : System.Collections.Specialized.NotifyCollectionChangedAction
-	 */
-    + (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Collections.Specialized.NotifyCollectionChangedEventArgs
-		Managed param types : System.Collections.Specialized.NotifyCollectionChangedAction, System.Object
-	 */
-    + (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 changedItem:(System_Object *)p2;
+ Params
+   System.Collections.Specialized.NotifyCollectionChangedAction
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Collections.Specialized.NotifyCollectionChangedEventArgs
-		Managed param types : System.Collections.Specialized.NotifyCollectionChangedAction, System.Object, System.Int32
-	 */
-    + (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 changedItem:(System_Object *)p2 index:(int32_t)p3;
+ Return
+   System.Collections.Specialized.NotifyCollectionChangedEventArgs
+ @/textblock
+*/
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1;
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Collections.Specialized.NotifyCollectionChangedEventArgs
-		Managed param types : System.Collections.Specialized.NotifyCollectionChangedAction, System.Collections.IList
-	 */
-    + (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 changedItems:(id <System_Collections_IList_>)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Collections.Specialized.NotifyCollectionChangedEventArgs
-		Managed param types : System.Collections.Specialized.NotifyCollectionChangedAction, System.Collections.IList, System.Int32
-	 */
-    + (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 changedItems:(id <System_Collections_IList_>)p2 startingIndex:(int32_t)p3;
+ Params
+   System.Collections.Specialized.NotifyCollectionChangedAction
+   System.Object
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Collections.Specialized.NotifyCollectionChangedEventArgs
-		Managed param types : System.Collections.Specialized.NotifyCollectionChangedAction, System.Object, System.Object
-	 */
-    + (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 newItem:(System_Object *)p2 oldItem:(System_Object *)p3;
+ Return
+   System.Collections.Specialized.NotifyCollectionChangedEventArgs
+ @/textblock
+*/
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 changedItem:(System_Object *)p2;
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Collections.Specialized.NotifyCollectionChangedEventArgs
-		Managed param types : System.Collections.Specialized.NotifyCollectionChangedAction, System.Object, System.Object, System.Int32
-	 */
-    + (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 newItem:(System_Object *)p2 oldItem:(System_Object *)p3 index:(int32_t)p4;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Collections.Specialized.NotifyCollectionChangedEventArgs
-		Managed param types : System.Collections.Specialized.NotifyCollectionChangedAction, System.Collections.IList, System.Collections.IList
-	 */
-    + (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 newItems:(id <System_Collections_IList_>)p2 oldItems:(id <System_Collections_IList_>)p3;
+ Params
+   System.Collections.Specialized.NotifyCollectionChangedAction
+   System.Object
+   System.Int32
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Collections.Specialized.NotifyCollectionChangedEventArgs
-		Managed param types : System.Collections.Specialized.NotifyCollectionChangedAction, System.Collections.IList, System.Collections.IList, System.Int32
-	 */
-    + (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 newItems:(id <System_Collections_IList_>)p2 oldItems:(id <System_Collections_IList_>)p3 startingIndex:(int32_t)p4;
+ Return
+   System.Collections.Specialized.NotifyCollectionChangedEventArgs
+ @/textblock
+*/
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 changedItem:(System_Object *)p2 index:(int32_t)p3;
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Collections.Specialized.NotifyCollectionChangedEventArgs
-		Managed param types : System.Collections.Specialized.NotifyCollectionChangedAction, System.Object, System.Int32, System.Int32
-	 */
-    + (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 changedItem:(System_Object *)p2 index:(int32_t)p3 oldIndex:(int32_t)p4;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Collections.Specialized.NotifyCollectionChangedEventArgs
-		Managed param types : System.Collections.Specialized.NotifyCollectionChangedAction, System.Collections.IList, System.Int32, System.Int32
-	 */
-    + (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 changedItems:(id <System_Collections_IList_>)p2 index:(int32_t)p3 oldIndex:(int32_t)p4;
+ Params
+   System.Collections.Specialized.NotifyCollectionChangedAction
+   System.Collections.IList
+
+ Return
+   System.Collections.Specialized.NotifyCollectionChangedEventArgs
+ @/textblock
+*/
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 changedItems:(id <System_Collections_IList_>)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Collections.Specialized.NotifyCollectionChangedAction
+   System.Collections.IList
+   System.Int32
+
+ Return
+   System.Collections.Specialized.NotifyCollectionChangedEventArgs
+ @/textblock
+*/
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 changedItems:(id <System_Collections_IList_>)p2 startingIndex:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Collections.Specialized.NotifyCollectionChangedAction
+   System.Object
+   System.Object
+
+ Return
+   System.Collections.Specialized.NotifyCollectionChangedEventArgs
+ @/textblock
+*/
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 newItem:(System_Object *)p2 oldItem:(System_Object *)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Collections.Specialized.NotifyCollectionChangedAction
+   System.Object
+   System.Object
+   System.Int32
+
+ Return
+   System.Collections.Specialized.NotifyCollectionChangedEventArgs
+ @/textblock
+*/
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 newItem:(System_Object *)p2 oldItem:(System_Object *)p3 index:(int32_t)p4;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Collections.Specialized.NotifyCollectionChangedAction
+   System.Collections.IList
+   System.Collections.IList
+
+ Return
+   System.Collections.Specialized.NotifyCollectionChangedEventArgs
+ @/textblock
+*/
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 newItems:(id <System_Collections_IList_>)p2 oldItems:(id <System_Collections_IList_>)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Collections.Specialized.NotifyCollectionChangedAction
+   System.Collections.IList
+   System.Collections.IList
+   System.Int32
+
+ Return
+   System.Collections.Specialized.NotifyCollectionChangedEventArgs
+ @/textblock
+*/
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 newItems:(id <System_Collections_IList_>)p2 oldItems:(id <System_Collections_IList_>)p3 startingIndex:(int32_t)p4;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Collections.Specialized.NotifyCollectionChangedAction
+   System.Object
+   System.Int32
+   System.Int32
+
+ Return
+   System.Collections.Specialized.NotifyCollectionChangedEventArgs
+ @/textblock
+*/
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 changedItem:(System_Object *)p2 index:(int32_t)p3 oldIndex:(int32_t)p4;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Collections.Specialized.NotifyCollectionChangedAction
+   System.Collections.IList
+   System.Int32
+   System.Int32
+
+ Return
+   System.Collections.Specialized.NotifyCollectionChangedEventArgs
+ @/textblock
+*/
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 changedItems:(id <System_Collections_IList_>)p2 index:(int32_t)p3 oldIndex:(int32_t)p4;
 
 #pragma mark -
 #pragma mark Properties

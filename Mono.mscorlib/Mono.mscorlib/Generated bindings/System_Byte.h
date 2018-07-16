@@ -35,10 +35,9 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Fields
@@ -54,74 +53,154 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : CompareTo
-		Managed return type : System.Int32
-		Managed param types : System.Object
-	 */
-    - (int32_t)compareTo_withValueObject:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   CompareTo
 
-	/*! 
-		Managed method name : CompareTo
-		Managed return type : System.Int32
-		Managed param types : System.Byte
-	 */
-    - (int32_t)compareTo_withValueByte:(uint8_t)p1;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withObjObject:(System_Object *)p1;
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)compareTo_withValueObject:(System_Object *)p1;
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Byte
-	 */
-    - (BOOL)equals_withObjByte:(uint8_t)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   CompareTo
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode;
+ Params
+   System.Byte
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)compareTo_withValueByte:(uint8_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
+
+ Params
+   System.Object
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withObjObject:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
+
+ Params
+   System.Byte
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withObjByte:(uint8_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
+
+ Params
+   (none)
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getHashCode;
+
 /* Skipped method : System.TypeCode GetTypeCode() */
 
-	/*! 
-		Managed method name : Parse
-		Managed return type : System.Byte
-		Managed param types : System.String
-	 */
-    + (uint8_t)parse_withS:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Parse
+
+ Params
+   System.String
+
+ Return
+   System.Byte
+ @/textblock
+*/
++ (uint8_t)parse_withS:(NSString *)p1;
+
 /* Skipped method : System.Byte Parse(System.String s, System.Globalization.NumberStyles style) */
+
 /* Skipped method : System.Byte Parse(System.String s, System.IFormatProvider provider) */
+
 /* Skipped method : System.Byte Parse(System.String s, System.Globalization.NumberStyles style, System.IFormatProvider provider) */
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString;
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.String
-	 */
-    - (NSString *)toString_withFormat:(NSString *)p1;
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   System.String
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString_withFormat:(NSString *)p1;
+
 /* Skipped method : System.String ToString(System.IFormatProvider provider) */
+
 /* Skipped method : System.String ToString(System.String format, System.IFormatProvider provider) */
 
-	/*! 
-		Managed method name : TryParse
-		Managed return type : System.Boolean
-		Managed param types : System.String, ref System.Byte&
-	 */
-    + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(uint8_t*)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   TryParse
+
+ Params
+   System.String
+   ref System.Byte&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)tryParse_withS:(NSString *)p1 resultRef:(uint8_t*)p2;
+
 /* Skipped method : System.Boolean TryParse(System.String s, System.Globalization.NumberStyles style, System.IFormatProvider provider, System.Byte& result) */
 @end
 //--Dubrovnik.CodeGenerator

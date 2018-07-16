@@ -38,10 +38,9 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Properties
@@ -53,18 +52,34 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Dispose
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)dispose;
+/**
+ Managed method.
+ @textblock
+ Name
+   Dispose
 
-	/*! 
-		Managed method name : MoveNext
-		Managed return type : System.Boolean
-		Managed param types : 
-	 */
-    - (BOOL)moveNext;
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)dispose;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   MoveNext
+
+ Params
+   (none)
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)moveNext;
 @end
 //--Dubrovnik.CodeGenerator

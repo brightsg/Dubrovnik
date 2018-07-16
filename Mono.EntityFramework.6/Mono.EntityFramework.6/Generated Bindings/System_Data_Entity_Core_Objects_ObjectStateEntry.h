@@ -37,26 +37,31 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Properties
+
 /* Skipped property : System.Data.Entity.Core.Objects.CurrentValueRecord CurrentValues */
 
 	// Managed property name : Entity
 	// Managed property type : System.Object
     @property (nonatomic, strong, readonly) System_Object * entity;
+
 /* Skipped property : System.Data.Entity.Core.EntityKey EntityKey */
+
 /* Skipped property : System.Data.Entity.Core.Metadata.Edm.EntitySetBase EntitySet */
 
 	// Managed property name : IsRelationship
 	// Managed property type : System.Boolean
     @property (nonatomic, readonly) BOOL isRelationship;
+
 /* Skipped property : System.Data.Entity.Core.Objects.ObjectStateManager ObjectStateManager */
+
 /* Skipped property : System.Data.Common.DbDataRecord OriginalValues */
+
 /* Skipped property : System.Data.Entity.Core.Objects.DataClasses.RelationshipManager RelationshipManager */
 
 	// Managed property name : State
@@ -66,75 +71,156 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : AcceptChanges
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)acceptChanges;
+/**
+ Managed method.
+ @textblock
+ Name
+   AcceptChanges
 
-	/*! 
-		Managed method name : ApplyCurrentValues
-		Managed return type : System.Void
-		Managed param types : System.Object
-	 */
-    - (void)applyCurrentValues_withCurrentEntity:(System_Object *)p1;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : ApplyOriginalValues
-		Managed return type : System.Void
-		Managed param types : System.Object
-	 */
-    - (void)applyOriginalValues_withOriginalEntity:(System_Object *)p1;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)acceptChanges;
 
-	/*! 
-		Managed method name : ChangeState
-		Managed return type : System.Void
-		Managed param types : System.Data.Entity.EntityState
-	 */
-    - (void)changeState_withState:(int32_t)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   ApplyCurrentValues
 
-	/*! 
-		Managed method name : Delete
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)delete;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : GetModifiedProperties
-		Managed return type : System.Collections.Generic.IEnumerable`1<System.String>
-		Managed param types : 
-	 */
-    - (id <System_Collections_Generic_IEnumerableA1>)getModifiedProperties;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)applyCurrentValues_withCurrentEntity:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ApplyOriginalValues
+
+ Params
+   System.Object
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)applyOriginalValues_withOriginalEntity:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ChangeState
+
+ Params
+   System.Data.Entity.EntityState
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)changeState_withState:(int32_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Delete
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)delete;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetModifiedProperties
+
+ Params
+   (none)
+
+ Return
+   System.Collections.Generic.IEnumerable`1<System.String>
+ @/textblock
+*/
+- (id <System_Collections_Generic_IEnumerableA1>)getModifiedProperties;
+
 /* Skipped method : System.Data.Entity.Core.Objects.OriginalValueRecord GetUpdatableOriginalValues() */
 
-	/*! 
-		Managed method name : IsPropertyChanged
-		Managed return type : System.Boolean
-		Managed param types : System.String
-	 */
-    - (BOOL)isPropertyChanged_withPropertyName:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   IsPropertyChanged
 
-	/*! 
-		Managed method name : RejectPropertyChanges
-		Managed return type : System.Void
-		Managed param types : System.String
-	 */
-    - (void)rejectPropertyChanges_withPropertyName:(NSString *)p1;
+ Params
+   System.String
 
-	/*! 
-		Managed method name : SetModified
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)setModified;
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)isPropertyChanged_withPropertyName:(NSString *)p1;
 
-	/*! 
-		Managed method name : SetModifiedProperty
-		Managed return type : System.Void
-		Managed param types : System.String
-	 */
-    - (void)setModifiedProperty_withPropertyName:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   RejectPropertyChanges
+
+ Params
+   System.String
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)rejectPropertyChanges_withPropertyName:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   SetModified
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)setModified;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   SetModifiedProperty
+
+ Params
+   System.String
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)setModifiedProperty_withPropertyName:(NSString *)p1;
 @end
 //--Dubrovnik.CodeGenerator

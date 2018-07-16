@@ -37,27 +37,43 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.UIntPtr
-		Managed param types : System.UInt32
-	 */
-    + (System_UIntPtr *)new_withValueUint:(uint32_t)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.UIntPtr
-		Managed param types : System.UInt64
-	 */
-    + (System_UIntPtr *)new_withValueUlong:(uint64_t)p1;
+ Params
+   System.UInt32
+
+ Return
+   System.UIntPtr
+ @/textblock
+*/
++ (System_UIntPtr *)new_withValueUint:(uint32_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.UInt64
+
+ Return
+   System.UIntPtr
+ @/textblock
+*/
++ (System_UIntPtr *)new_withValueUlong:(uint64_t)p1;
+
 /* Skipped constructor : System.UIntPtr (System.Void* value) */
 
 #pragma mark -
@@ -77,98 +93,211 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Add
-		Managed return type : System.UIntPtr
-		Managed param types : System.UIntPtr, System.Int32
-	 */
-    + (void *)add_withPointer:(void *)p1 offset:(int32_t)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   Add
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withObj:(System_Object *)p1;
+ Params
+   System.UIntPtr
+   System.Int32
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode;
+ Return
+   System.UIntPtr
+ @/textblock
+*/
++ (void *)add_withPointer:(void *)p1 offset:(int32_t)p2;
 
-	/*! 
-		Managed method name : op_Addition
-		Managed return type : System.UIntPtr
-		Managed param types : System.UIntPtr, System.Int32
-	 */
-    + (void *)op_Addition_withPointer:(void *)p1 offset:(int32_t)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-	/*! 
-		Managed method name : op_Equality
-		Managed return type : System.Boolean
-		Managed param types : System.UIntPtr, System.UIntPtr
-	 */
-    + (BOOL)op_Equality_withValue1:(void *)p1 value2:(void *)p2;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : op_Explicit
-		Managed return type : System.UIntPtr
-		Managed param types : System.UInt32
-	 */
-    + (void *)op_Explicit_withValueUint:(uint32_t)p1;
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withObj:(System_Object *)p1;
 
-	/*! 
-		Managed method name : op_Explicit
-		Managed return type : System.UIntPtr
-		Managed param types : System.UInt64
-	 */
-    + (void *)op_Explicit_withValueUlong:(uint64_t)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
+
+ Params
+   (none)
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getHashCode;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Addition
+
+ Params
+   System.UIntPtr
+   System.Int32
+
+ Return
+   System.UIntPtr
+ @/textblock
+*/
++ (void *)op_Addition_withPointer:(void *)p1 offset:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Equality
+
+ Params
+   System.UIntPtr
+   System.UIntPtr
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_Equality_withValue1:(void *)p1 value2:(void *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Explicit
+
+ Params
+   System.UInt32
+
+ Return
+   System.UIntPtr
+ @/textblock
+*/
++ (void *)op_Explicit_withValueUint:(uint32_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Explicit
+
+ Params
+   System.UInt64
+
+ Return
+   System.UIntPtr
+ @/textblock
+*/
++ (void *)op_Explicit_withValueUlong:(uint64_t)p1;
+
 /* Skipped method : System.UIntPtr op_Explicit(System.Void* value) */
+
 /* Skipped method : System.Void* op_Explicit(System.UIntPtr value) */
 
-	/*! 
-		Managed method name : op_Inequality
-		Managed return type : System.Boolean
-		Managed param types : System.UIntPtr, System.UIntPtr
-	 */
-    + (BOOL)op_Inequality_withValue1:(void *)p1 value2:(void *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Inequality
 
-	/*! 
-		Managed method name : op_Subtraction
-		Managed return type : System.UIntPtr
-		Managed param types : System.UIntPtr, System.Int32
-	 */
-    + (void *)op_Subtraction_withPointer:(void *)p1 offset:(int32_t)p2;
+ Params
+   System.UIntPtr
+   System.UIntPtr
 
-	/*! 
-		Managed method name : Subtract
-		Managed return type : System.UIntPtr
-		Managed param types : System.UIntPtr, System.Int32
-	 */
-    + (void *)subtract_withPointer:(void *)p1 offset:(int32_t)p2;
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_Inequality_withValue1:(void *)p1 value2:(void *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Subtraction
+
+ Params
+   System.UIntPtr
+   System.Int32
+
+ Return
+   System.UIntPtr
+ @/textblock
+*/
++ (void *)op_Subtraction_withPointer:(void *)p1 offset:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Subtract
+
+ Params
+   System.UIntPtr
+   System.Int32
+
+ Return
+   System.UIntPtr
+ @/textblock
+*/
++ (void *)subtract_withPointer:(void *)p1 offset:(int32_t)p2;
+
 /* Skipped method : System.Void* ToPointer() */
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString;
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
 
-	/*! 
-		Managed method name : ToUInt32
-		Managed return type : System.UInt32
-		Managed param types : 
-	 */
-    - (uint32_t)toUInt32;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : ToUInt64
-		Managed return type : System.UInt64
-		Managed param types : 
-	 */
-    - (uint64_t)toUInt64;
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToUInt32
+
+ Params
+   (none)
+
+ Return
+   System.UInt32
+ @/textblock
+*/
+- (uint32_t)toUInt32;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToUInt64
+
+ Params
+   (none)
+
+ Return
+   System.UInt64
+ @/textblock
+*/
+- (uint64_t)toUInt64;
 @end
 //--Dubrovnik.CodeGenerator

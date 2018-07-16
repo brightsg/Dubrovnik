@@ -36,10 +36,9 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Properties
@@ -63,51 +62,99 @@
 	// Managed property name : ServerVersion
 	// Managed property type : System.String
     @property (nonatomic, strong, readonly) NSString * serverVersion;
+
 /* Skipped property : System.Data.ConnectionState State */
 
 #pragma mark -
 #pragma mark Methods
+
 /* Skipped method : System.Data.Common.DbTransaction BeginTransaction() */
+
 /* Skipped method : System.Data.Common.DbTransaction BeginTransaction(System.Data.IsolationLevel isolationLevel) */
 
-	/*! 
-		Managed method name : ChangeDatabase
-		Managed return type : System.Void
-		Managed param types : System.String
-	 */
-    - (void)changeDatabase_withDatabaseName:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   ChangeDatabase
 
-	/*! 
-		Managed method name : Close
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)close;
+ Params
+   System.String
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)changeDatabase_withDatabaseName:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Close
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)close;
+
 /* Skipped method : System.Data.Common.DbCommand CreateCommand() */
+
 /* Skipped method : System.Void EnlistTransaction(System.Transactions.Transaction transaction) */
+
 /* Skipped method : System.Data.DataTable GetSchema() */
+
 /* Skipped method : System.Data.DataTable GetSchema(System.String collectionName) */
+
 /* Skipped method : System.Data.DataTable GetSchema(System.String collectionName, System.String[] restrictionValues) */
 
-	/*! 
-		Managed method name : Open
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)open;
+/**
+ Managed method.
+ @textblock
+ Name
+   Open
 
-	/*! 
-		Managed method name : OpenAsync
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : 
-	 */
-    - (System_Threading_Tasks_Task *)openAsync;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : OpenAsync
-		Managed return type : System.Threading.Tasks.Task
-		Managed param types : System.Threading.CancellationToken
-	 */
-    - (System_Threading_Tasks_Task *)openAsync_withCancellationToken:(System_Threading_CancellationToken *)p1;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)open;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   OpenAsync
+
+ Params
+   (none)
+
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
+*/
+- (System_Threading_Tasks_Task *)openAsync;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   OpenAsync
+
+ Params
+   System.Threading.CancellationToken
+
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
+*/
+- (System_Threading_Tasks_Task *)openAsync_withCancellationToken:(System_Threading_CancellationToken *)p1;
 @end
 //--Dubrovnik.CodeGenerator

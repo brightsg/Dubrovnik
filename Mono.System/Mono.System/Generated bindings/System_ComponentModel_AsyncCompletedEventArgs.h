@@ -32,20 +32,29 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.ComponentModel.AsyncCompletedEventArgs
-		Managed param types : System.Exception, System.Boolean, System.Object
-	 */
-    + (System_ComponentModel_AsyncCompletedEventArgs *)new_withError:(System_Exception *)p1 cancelled:(BOOL)p2 userState:(System_Object *)p3;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Exception
+   System.Boolean
+   System.Object
+
+ Return
+   System.ComponentModel.AsyncCompletedEventArgs
+ @/textblock
+*/
++ (System_ComponentModel_AsyncCompletedEventArgs *)new_withError:(System_Exception *)p1 cancelled:(BOOL)p2 userState:(System_Object *)p3;
 
 #pragma mark -
 #pragma mark Properties

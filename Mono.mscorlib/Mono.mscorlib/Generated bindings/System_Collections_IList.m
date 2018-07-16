@@ -19,16 +19,15 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Collections.IList";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "mscorlib";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Collections.IList";
+}
++ (const char *)monoAssemblyName
+{
+	return "mscorlib";
+}
 
 #pragma mark -
 #pragma mark Properties
@@ -78,122 +77,60 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : get_Item
-		Managed return type : System.Object
-		Managed param types : System.Int32
-	 */
-    - (System_Object *)get_Item_withIndex:(int32_t)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.get_Item(int)" withNumArgs:1, DB_VALUE(p1)];
-		
-		return [System_Object bestObjectWithMonoObject:monoObject];
-    }
+- (System_Object *)get_Item_withIndex:(int32_t)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.get_Item(int)" withNumArgs:1, DB_VALUE(p1)];
+  return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : set_Item
-		Managed return type : System.Void
-		Managed param types : System.Int32, System.Object
-	 */
-    - (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2
-    {
-		
-		[self invokeMonoMethod:"System.Collections.IList.set_Item(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
-      
-    }
+- (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2
+{
+  [self invokeMonoMethod:"System.Collections.IList.set_Item(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+}
 
-	/*! 
-		Managed method name : Add
-		Managed return type : System.Int32
-		Managed param types : System.Object
-	 */
-    - (int32_t)add_withValue:(System_Object *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.Add(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+- (int32_t)add_withValue:(System_Object *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.Add(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return DB_UNBOX_INT32(monoObject);
+}
 
-	/*! 
-		Managed method name : Clear
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)clear
-    {
-		
-		[self invokeMonoMethod:"System.Collections.IList.Clear()" withNumArgs:0];
-      
-    }
+- (void)clear
+{
+  [self invokeMonoMethod:"System.Collections.IList.Clear()" withNumArgs:0];
+}
 
-	/*! 
-		Managed method name : Contains
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)contains_withValue:(System_Object *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.Contains(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
+- (BOOL)contains_withValue:(System_Object *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.Contains(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-	/*! 
-		Managed method name : IndexOf
-		Managed return type : System.Int32
-		Managed param types : System.Object
-	 */
-    - (int32_t)indexOf_withValue:(System_Object *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.IndexOf(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+- (int32_t)indexOf_withValue:(System_Object *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.IndexOf(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return DB_UNBOX_INT32(monoObject);
+}
 
-	/*! 
-		Managed method name : Insert
-		Managed return type : System.Void
-		Managed param types : System.Int32, System.Object
-	 */
-    - (void)insert_withIndex:(int32_t)p1 value:(System_Object *)p2
-    {
-		
-		[self invokeMonoMethod:"System.Collections.IList.Insert(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
-      
-    }
+- (void)insert_withIndex:(int32_t)p1 value:(System_Object *)p2
+{
+  [self invokeMonoMethod:"System.Collections.IList.Insert(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+}
 
-	/*! 
-		Managed method name : Remove
-		Managed return type : System.Void
-		Managed param types : System.Object
-	 */
-    - (void)remove_withValue:(System_Object *)p1
-    {
-		
-		[self invokeMonoMethod:"System.Collections.IList.Remove(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-    }
+- (void)remove_withValue:(System_Object *)p1
+{
+  [self invokeMonoMethod:"System.Collections.IList.Remove(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+}
 
-	/*! 
-		Managed method name : RemoveAt
-		Managed return type : System.Void
-		Managed param types : System.Int32
-	 */
-    - (void)removeAt_withIndex:(int32_t)p1
-    {
-		
-		[self invokeMonoMethod:"System.Collections.IList.RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];
-      
-    }
+- (void)removeAt_withIndex:(int32_t)p1
+{
+  [self invokeMonoMethod:"System.Collections.IList.RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

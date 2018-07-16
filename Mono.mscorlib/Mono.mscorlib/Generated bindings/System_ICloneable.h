@@ -33,19 +33,26 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Clone
-		Managed return type : System.Object
-		Managed param types : 
-	 */
-    - (System_Object *)clone;
+/**
+ Managed method.
+ @textblock
+ Name
+   Clone
+
+ Params
+   (none)
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (System_Object *)clone;
 @end
 //--Dubrovnik.CodeGenerator

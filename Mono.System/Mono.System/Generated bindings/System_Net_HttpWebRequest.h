@@ -45,10 +45,9 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Properties
@@ -72,7 +71,9 @@
 	// Managed property name : AllowWriteStreamBuffering
 	// Managed property type : System.Boolean
     @property (nonatomic) BOOL allowWriteStreamBuffering;
+
 /* Skipped property : System.Net.DecompressionMethods AutomaticDecompression */
+
 /* Skipped property : System.Security.Cryptography.X509Certificates.X509CertificateCollection ClientCertificates */
 
 	// Managed property name : Connection
@@ -90,17 +91,21 @@
 	// Managed property name : ContentType
 	// Managed property type : System.String
     @property (nonatomic, strong) NSString * contentType;
+
 /* Skipped property : System.Net.HttpContinueDelegate ContinueDelegate */
 
 	// Managed property name : ContinueTimeout
 	// Managed property type : System.Int32
     @property (nonatomic) int32_t continueTimeout;
+
 /* Skipped property : System.Net.CookieContainer CookieContainer */
+
 /* Skipped property : System.Net.ICredentials Credentials */
 
 	// Managed property name : Date
 	// Managed property type : System.DateTime
     @property (nonatomic, strong) NSDate * date;
+
 /* Skipped property : System.Net.Cache.RequestCachePolicy DefaultCachePolicy */
 
 	// Managed property name : DefaultMaximumErrorResponseLength
@@ -120,6 +125,7 @@
 	// Managed property name : HaveResponse
 	// Managed property type : System.Boolean
     @property (nonatomic, readonly) BOOL haveResponse;
+
 /* Skipped property : System.Net.WebHeaderCollection Headers */
 
 	// Managed property name : Host
@@ -161,6 +167,7 @@
 	// Managed property name : ProtocolVersion
 	// Managed property type : System.Version
     @property (nonatomic, strong) System_Version * protocolVersion;
+
 /* Skipped property : System.Net.IWebProxy Proxy */
 
 	// Managed property name : ReadWriteTimeout
@@ -178,7 +185,9 @@
 	// Managed property name : SendChunked
 	// Managed property type : System.Boolean
     @property (nonatomic) BOOL sendChunked;
+
 /* Skipped property : System.Net.Security.RemoteCertificateValidationCallback ServerCertificateValidationCallback */
+
 /* Skipped property : System.Net.ServicePoint ServicePoint */
 
 	// Managed property name : SupportsCookieContainer
@@ -208,111 +217,243 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Abort
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)abort;
+/**
+ Managed method.
+ @textblock
+ Name
+   Abort
 
-	/*! 
-		Managed method name : AddRange
-		Managed return type : System.Void
-		Managed param types : System.Int32, System.Int32
-	 */
-    - (void)addRange_withFromInt:(int32_t)p1 toInt:(int32_t)p2;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : AddRange
-		Managed return type : System.Void
-		Managed param types : System.Int64, System.Int64
-	 */
-    - (void)addRange_withFromLong:(int64_t)p1 toLong:(int64_t)p2;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)abort;
 
-	/*! 
-		Managed method name : AddRange
-		Managed return type : System.Void
-		Managed param types : System.Int32
-	 */
-    - (void)addRange_withRangeInt:(int32_t)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   AddRange
 
-	/*! 
-		Managed method name : AddRange
-		Managed return type : System.Void
-		Managed param types : System.Int64
-	 */
-    - (void)addRange_withRangeLong:(int64_t)p1;
+ Params
+   System.Int32
+   System.Int32
 
-	/*! 
-		Managed method name : AddRange
-		Managed return type : System.Void
-		Managed param types : System.String, System.Int32, System.Int32
-	 */
-    - (void)addRange_withRangeSpecifierString:(NSString *)p1 fromInt:(int32_t)p2 toInt:(int32_t)p3;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)addRange_withFromInt:(int32_t)p1 toInt:(int32_t)p2;
 
-	/*! 
-		Managed method name : AddRange
-		Managed return type : System.Void
-		Managed param types : System.String, System.Int64, System.Int64
-	 */
-    - (void)addRange_withRangeSpecifierString:(NSString *)p1 fromLong:(int64_t)p2 toLong:(int64_t)p3;
+/**
+ Managed method.
+ @textblock
+ Name
+   AddRange
 
-	/*! 
-		Managed method name : AddRange
-		Managed return type : System.Void
-		Managed param types : System.String, System.Int32
-	 */
-    - (void)addRange_withRangeSpecifierString:(NSString *)p1 rangeInt:(int32_t)p2;
+ Params
+   System.Int64
+   System.Int64
 
-	/*! 
-		Managed method name : AddRange
-		Managed return type : System.Void
-		Managed param types : System.String, System.Int64
-	 */
-    - (void)addRange_withRangeSpecifierString:(NSString *)p1 rangeLong:(int64_t)p2;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)addRange_withFromLong:(int64_t)p1 toLong:(int64_t)p2;
 
-	/*! 
-		Managed method name : BeginGetRequestStream
-		Managed return type : System.IAsyncResult
-		Managed param types : System.AsyncCallback, System.Object
-	 */
-    - (id <System_IAsyncResult>)beginGetRequestStream_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   AddRange
 
-	/*! 
-		Managed method name : BeginGetResponse
-		Managed return type : System.IAsyncResult
-		Managed param types : System.AsyncCallback, System.Object
-	 */
-    - (id <System_IAsyncResult>)beginGetResponse_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2;
+ Params
+   System.Int32
 
-	/*! 
-		Managed method name : EndGetRequestStream
-		Managed return type : System.IO.Stream
-		Managed param types : System.IAsyncResult
-	 */
-    - (System_IO_Stream *)endGetRequestStream_withAsyncResult:(id <System_IAsyncResult_>)p1;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)addRange_withRangeInt:(int32_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   AddRange
+
+ Params
+   System.Int64
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)addRange_withRangeLong:(int64_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   AddRange
+
+ Params
+   System.String
+   System.Int32
+   System.Int32
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)addRange_withRangeSpecifierString:(NSString *)p1 fromInt:(int32_t)p2 toInt:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   AddRange
+
+ Params
+   System.String
+   System.Int64
+   System.Int64
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)addRange_withRangeSpecifierString:(NSString *)p1 fromLong:(int64_t)p2 toLong:(int64_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   AddRange
+
+ Params
+   System.String
+   System.Int32
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)addRange_withRangeSpecifierString:(NSString *)p1 rangeInt:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   AddRange
+
+ Params
+   System.String
+   System.Int64
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)addRange_withRangeSpecifierString:(NSString *)p1 rangeLong:(int64_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   BeginGetRequestStream
+
+ Params
+   System.AsyncCallback
+   System.Object
+
+ Return
+   System.IAsyncResult
+ @/textblock
+*/
+- (id <System_IAsyncResult>)beginGetRequestStream_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   BeginGetResponse
+
+ Params
+   System.AsyncCallback
+   System.Object
+
+ Return
+   System.IAsyncResult
+ @/textblock
+*/
+- (id <System_IAsyncResult>)beginGetResponse_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   EndGetRequestStream
+
+ Params
+   System.IAsyncResult
+
+ Return
+   System.IO.Stream
+ @/textblock
+*/
+- (System_IO_Stream *)endGetRequestStream_withAsyncResult:(id <System_IAsyncResult_>)p1;
+
 /* Skipped method : System.IO.Stream EndGetRequestStream(System.IAsyncResult asyncResult, System.Net.TransportContext& context) */
 
-	/*! 
-		Managed method name : EndGetResponse
-		Managed return type : System.Net.WebResponse
-		Managed param types : System.IAsyncResult
-	 */
-    - (System_Net_WebResponse *)endGetResponse_withAsyncResult:(id <System_IAsyncResult_>)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   EndGetResponse
 
-	/*! 
-		Managed method name : GetRequestStream
-		Managed return type : System.IO.Stream
-		Managed param types : 
-	 */
-    - (System_IO_Stream *)getRequestStream;
+ Params
+   System.IAsyncResult
+
+ Return
+   System.Net.WebResponse
+ @/textblock
+*/
+- (System_Net_WebResponse *)endGetResponse_withAsyncResult:(id <System_IAsyncResult_>)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetRequestStream
+
+ Params
+   (none)
+
+ Return
+   System.IO.Stream
+ @/textblock
+*/
+- (System_IO_Stream *)getRequestStream;
+
 /* Skipped method : System.IO.Stream GetRequestStream(System.Net.TransportContext& context) */
 
-	/*! 
-		Managed method name : GetResponse
-		Managed return type : System.Net.WebResponse
-		Managed param types : 
-	 */
-    - (System_Net_WebResponse *)getResponse;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetResponse
+
+ Params
+   (none)
+
+ Return
+   System.Net.WebResponse
+ @/textblock
+*/
+- (System_Net_WebResponse *)getResponse;
 @end
 //--Dubrovnik.CodeGenerator

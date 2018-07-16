@@ -78,12 +78,20 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : <System.IEquatable`1+T>
-	 */
-    - (BOOL)equals_withOther:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
+
+ Params
+   <System.IEquatable`1+T>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withOther:(System_Object *)p1;
 #endif
 
 
@@ -101,12 +109,20 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : <System.IEquatable`1+T>
-	 */
-    - (BOOL)equals_withOther:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
+
+ Params
+   <System.IEquatable`1+T>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withOther:(System_Object *)p1;
 
 @end
 

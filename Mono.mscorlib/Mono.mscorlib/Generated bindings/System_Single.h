@@ -35,10 +35,9 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Fields
@@ -70,144 +69,310 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : CompareTo
-		Managed return type : System.Int32
-		Managed param types : System.Object
-	 */
-    - (int32_t)compareTo_withValueObject:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   CompareTo
 
-	/*! 
-		Managed method name : CompareTo
-		Managed return type : System.Int32
-		Managed param types : System.Single
-	 */
-    - (int32_t)compareTo_withValueSingle:(float)p1;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withObjObject:(System_Object *)p1;
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)compareTo_withValueObject:(System_Object *)p1;
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Single
-	 */
-    - (BOOL)equals_withObjSingle:(float)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   CompareTo
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode;
+ Params
+   System.Single
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)compareTo_withValueSingle:(float)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
+
+ Params
+   System.Object
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withObjObject:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
+
+ Params
+   System.Single
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withObjSingle:(float)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
+
+ Params
+   (none)
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getHashCode;
+
 /* Skipped method : System.TypeCode GetTypeCode() */
 
-	/*! 
-		Managed method name : IsInfinity
-		Managed return type : System.Boolean
-		Managed param types : System.Single
-	 */
-    + (BOOL)isInfinity_withF:(float)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   IsInfinity
 
-	/*! 
-		Managed method name : IsNaN
-		Managed return type : System.Boolean
-		Managed param types : System.Single
-	 */
-    + (BOOL)isNaN_withF:(float)p1;
+ Params
+   System.Single
 
-	/*! 
-		Managed method name : IsNegativeInfinity
-		Managed return type : System.Boolean
-		Managed param types : System.Single
-	 */
-    + (BOOL)isNegativeInfinity_withF:(float)p1;
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)isInfinity_withF:(float)p1;
 
-	/*! 
-		Managed method name : IsPositiveInfinity
-		Managed return type : System.Boolean
-		Managed param types : System.Single
-	 */
-    + (BOOL)isPositiveInfinity_withF:(float)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   IsNaN
 
-	/*! 
-		Managed method name : op_Equality
-		Managed return type : System.Boolean
-		Managed param types : System.Single, System.Single
-	 */
-    + (BOOL)op_Equality_withLeft:(float)p1 right:(float)p2;
+ Params
+   System.Single
 
-	/*! 
-		Managed method name : op_GreaterThan
-		Managed return type : System.Boolean
-		Managed param types : System.Single, System.Single
-	 */
-    + (BOOL)op_GreaterThan_withLeft:(float)p1 right:(float)p2;
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)isNaN_withF:(float)p1;
 
-	/*! 
-		Managed method name : op_GreaterThanOrEqual
-		Managed return type : System.Boolean
-		Managed param types : System.Single, System.Single
-	 */
-    + (BOOL)op_GreaterThanOrEqual_withLeft:(float)p1 right:(float)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   IsNegativeInfinity
 
-	/*! 
-		Managed method name : op_Inequality
-		Managed return type : System.Boolean
-		Managed param types : System.Single, System.Single
-	 */
-    + (BOOL)op_Inequality_withLeft:(float)p1 right:(float)p2;
+ Params
+   System.Single
 
-	/*! 
-		Managed method name : op_LessThan
-		Managed return type : System.Boolean
-		Managed param types : System.Single, System.Single
-	 */
-    + (BOOL)op_LessThan_withLeft:(float)p1 right:(float)p2;
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)isNegativeInfinity_withF:(float)p1;
 
-	/*! 
-		Managed method name : op_LessThanOrEqual
-		Managed return type : System.Boolean
-		Managed param types : System.Single, System.Single
-	 */
-    + (BOOL)op_LessThanOrEqual_withLeft:(float)p1 right:(float)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   IsPositiveInfinity
 
-	/*! 
-		Managed method name : Parse
-		Managed return type : System.Single
-		Managed param types : System.String
-	 */
-    + (float)parse_withS:(NSString *)p1;
+ Params
+   System.Single
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)isPositiveInfinity_withF:(float)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Equality
+
+ Params
+   System.Single
+   System.Single
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_Equality_withLeft:(float)p1 right:(float)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_GreaterThan
+
+ Params
+   System.Single
+   System.Single
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_GreaterThan_withLeft:(float)p1 right:(float)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_GreaterThanOrEqual
+
+ Params
+   System.Single
+   System.Single
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_GreaterThanOrEqual_withLeft:(float)p1 right:(float)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_Inequality
+
+ Params
+   System.Single
+   System.Single
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_Inequality_withLeft:(float)p1 right:(float)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_LessThan
+
+ Params
+   System.Single
+   System.Single
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_LessThan_withLeft:(float)p1 right:(float)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   op_LessThanOrEqual
+
+ Params
+   System.Single
+   System.Single
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)op_LessThanOrEqual_withLeft:(float)p1 right:(float)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Parse
+
+ Params
+   System.String
+
+ Return
+   System.Single
+ @/textblock
+*/
++ (float)parse_withS:(NSString *)p1;
+
 /* Skipped method : System.Single Parse(System.String s, System.Globalization.NumberStyles style) */
+
 /* Skipped method : System.Single Parse(System.String s, System.IFormatProvider provider) */
+
 /* Skipped method : System.Single Parse(System.String s, System.Globalization.NumberStyles style, System.IFormatProvider provider) */
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString;
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString;
+
 /* Skipped method : System.String ToString(System.IFormatProvider provider) */
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : System.String
-	 */
-    - (NSString *)toString_withFormat:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   System.String
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)toString_withFormat:(NSString *)p1;
+
 /* Skipped method : System.String ToString(System.String format, System.IFormatProvider provider) */
 
-	/*! 
-		Managed method name : TryParse
-		Managed return type : System.Boolean
-		Managed param types : System.String, ref System.Single&
-	 */
-    + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(float*)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   TryParse
+
+ Params
+   System.String
+   ref System.Single&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)tryParse_withS:(NSString *)p1 resultRef:(float*)p2;
+
 /* Skipped method : System.Boolean TryParse(System.String s, System.Globalization.NumberStyles style, System.IFormatProvider provider, System.Single& result) */
 @end
 //--Dubrovnik.CodeGenerator

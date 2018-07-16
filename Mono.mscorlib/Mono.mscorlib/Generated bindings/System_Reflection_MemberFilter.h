@@ -41,43 +41,79 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Reflection.MemberFilter
-		Managed param types : System.Object, System.IntPtr
-	 */
-    + (System_Reflection_MemberFilter *)new_withObject:(System_Object *)p1 method:(void *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Object
+   System.IntPtr
+
+ Return
+   System.Reflection.MemberFilter
+ @/textblock
+*/
++ (System_Reflection_MemberFilter *)new_withObject:(System_Object *)p1 method:(void *)p2;
 
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : BeginInvoke
-		Managed return type : System.IAsyncResult
-		Managed param types : System.Reflection.MemberInfo, System.Object, System.AsyncCallback, System.Object
-	 */
-    - (id <System_IAsyncResult>)beginInvoke_withM:(System_Reflection_MemberInfo *)p1 filterCriteria:(System_Object *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4;
+/**
+ Managed method.
+ @textblock
+ Name
+   BeginInvoke
 
-	/*! 
-		Managed method name : EndInvoke
-		Managed return type : System.Boolean
-		Managed param types : System.IAsyncResult
-	 */
-    - (BOOL)endInvoke_withResult:(id <System_IAsyncResult_>)p1;
+ Params
+   System.Reflection.MemberInfo
+   System.Object
+   System.AsyncCallback
+   System.Object
 
-	/*! 
-		Managed method name : Invoke
-		Managed return type : System.Boolean
-		Managed param types : System.Reflection.MemberInfo, System.Object
-	 */
-    - (BOOL)invoke_withM:(System_Reflection_MemberInfo *)p1 filterCriteria:(System_Object *)p2;
+ Return
+   System.IAsyncResult
+ @/textblock
+*/
+- (id <System_IAsyncResult>)beginInvoke_withM:(System_Reflection_MemberInfo *)p1 filterCriteria:(System_Object *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   EndInvoke
+
+ Params
+   System.IAsyncResult
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)endInvoke_withResult:(id <System_IAsyncResult_>)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Invoke
+
+ Params
+   System.Reflection.MemberInfo
+   System.Object
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)invoke_withM:(System_Reflection_MemberInfo *)p1 filterCriteria:(System_Object *)p2;
 @end
 //--Dubrovnik.CodeGenerator

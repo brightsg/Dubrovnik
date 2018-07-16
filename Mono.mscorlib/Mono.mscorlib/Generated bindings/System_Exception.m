@@ -19,48 +19,34 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Exception";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "mscorlib";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Exception";
+}
++ (const char *)monoAssemblyName
+{
+	return "mscorlib";
+}
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Exception
-		Managed param types : System.String
-	 */
-    + (System_Exception *)new_withMessage:(NSString *)p1
-    {
-		
-		System_Exception * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
-      
-      return object;
-    }
++ (System_Exception *)new_withMessage:(NSString *)p1
+{
+  System_Exception * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return object;
+}
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : System.Exception
-		Managed param types : System.String, System.Exception
-	 */
-    + (System_Exception *)new_withMessage:(NSString *)p1 innerException:(System_Exception *)p2
-    {
-		
-		System_Exception * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-      
-      return object;
-    }
++ (System_Exception *)new_withMessage:(NSString *)p1 innerException:(System_Exception *)p2
+{
+  System_Exception * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+  return object;
+}
 
 #pragma mark -
 #pragma mark Properties
+
 /* Skipped property : System.Collections.IDictionary Data */
 
 	// Managed property name : HelpLink
@@ -264,50 +250,31 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : GetBaseException
-		Managed return type : System.Exception
-		Managed param types : 
-	 */
-    - (System_Exception *)getBaseException
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetBaseException()" withNumArgs:0];
-		
-		return [System_Exception bestObjectWithMonoObject:monoObject];
-    }
+- (System_Exception *)getBaseException
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetBaseException()" withNumArgs:0];
+  return [System_Exception bestObjectWithMonoObject:monoObject];
+}
+
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 
-	/*! 
-		Managed method name : GetType
-		Managed return type : System.Type
-		Managed param types : 
-	 */
-    - (System_Type *)getType
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetType()" withNumArgs:0];
-		
-		return [System_Type bestObjectWithMonoObject:monoObject];
-    }
+- (System_Type *)getType
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetType()" withNumArgs:0];
+  return [System_Type bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : ToString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)toString
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
-		
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
+- (NSString *)toString
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

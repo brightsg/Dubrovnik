@@ -19,16 +19,15 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "System.Text.Encoding";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "mscorlib";
-	}
+
++ (const char *)monoClassName
+{
+	return "System.Text.Encoding";
+}
++ (const char *)monoAssemblyName
+{
+	return "mscorlib";
+}
 
 #pragma mark -
 #pragma mark Properties
@@ -119,6 +118,7 @@
 
 		return _codePage;
 	}
+
 /* Skipped property : System.Text.DecoderFallback DecoderFallback */
 
 	// Managed property name : Default
@@ -142,6 +142,7 @@
 
 		return m_default;
 	}
+
 /* Skipped property : System.Text.EncoderFallback EncoderFallback */
 
 	// Managed property name : EncodingName
@@ -448,367 +449,198 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Clone
-		Managed return type : System.Object
-		Managed param types : 
-	 */
-    - (System_Object *)clone
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
-		
-		return [System_Object bestObjectWithMonoObject:monoObject];
-    }
+- (System_Object *)clone
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
+  return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
-	/*! 
-		Managed method name : Convert
-		Managed return type : System.Byte[]
-		Managed param types : System.Text.Encoding, System.Text.Encoding, System.Byte[]
-	 */
-    + (NSData *)convert_withSrcEncoding:(System_Text_Encoding *)p1 dstEncoding:(System_Text_Encoding *)p2 bytes:(NSData *)p3
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Convert(System.Text.Encoding,System.Text.Encoding,byte[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
-		
-		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
-    }
++ (NSData *)convert_withSrcEncoding:(System_Text_Encoding *)p1 dstEncoding:(System_Text_Encoding *)p2 bytes:(NSData *)p3
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"Convert(System.Text.Encoding,System.Text.Encoding,byte[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+  return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+}
 
-	/*! 
-		Managed method name : Convert
-		Managed return type : System.Byte[]
-		Managed param types : System.Text.Encoding, System.Text.Encoding, System.Byte[], System.Int32, System.Int32
-	 */
-    + (NSData *)convert_withSrcEncoding:(System_Text_Encoding *)p1 dstEncoding:(System_Text_Encoding *)p2 bytes:(NSData *)p3 index:(int32_t)p4 count:(int32_t)p5
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"Convert(System.Text.Encoding,System.Text.Encoding,byte[],int,int)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
-		
-		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
-    }
++ (NSData *)convert_withSrcEncoding:(System_Text_Encoding *)p1 dstEncoding:(System_Text_Encoding *)p2 bytes:(NSData *)p3 index:(int32_t)p4 count:(int32_t)p5
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"Convert(System.Text.Encoding,System.Text.Encoding,byte[],int,int)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
+  return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+}
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withValue:(System_Object *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
+- (BOOL)equals_withValue:(System_Object *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-	/*! 
-		Managed method name : GetByteCount
-		Managed return type : System.Int32
-		Managed param types : System.Char[]
-	 */
-    - (int32_t)getByteCount_withChars:(System_Array *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetByteCount(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+- (int32_t)getByteCount_withChars:(System_Array *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetByteCount(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return DB_UNBOX_INT32(monoObject);
+}
 
-	/*! 
-		Managed method name : GetByteCount
-		Managed return type : System.Int32
-		Managed param types : System.String
-	 */
-    - (int32_t)getByteCount_withS:(NSString *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetByteCount(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+- (int32_t)getByteCount_withS:(NSString *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetByteCount(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return DB_UNBOX_INT32(monoObject);
+}
 
-	/*! 
-		Managed method name : GetByteCount
-		Managed return type : System.Int32
-		Managed param types : System.Char[], System.Int32, System.Int32
-	 */
-    - (int32_t)getByteCount_withChars:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetByteCount(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+- (int32_t)getByteCount_withChars:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetByteCount(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+  return DB_UNBOX_INT32(monoObject);
+}
+
 /* Skipped method : System.Int32 GetByteCount(System.Char* chars, System.Int32 count) */
 
-	/*! 
-		Managed method name : GetBytes
-		Managed return type : System.Byte[]
-		Managed param types : System.Char[]
-	 */
-    - (NSData *)getBytes_withChars:(System_Array *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
-    }
+- (NSData *)getBytes_withChars:(System_Array *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+}
 
-	/*! 
-		Managed method name : GetBytes
-		Managed return type : System.Byte[]
-		Managed param types : System.Char[], System.Int32, System.Int32
-	 */
-    - (NSData *)getBytes_withChars:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
-		
-		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
-    }
+- (NSData *)getBytes_withChars:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+  return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+}
 
-	/*! 
-		Managed method name : GetBytes
-		Managed return type : System.Int32
-		Managed param types : System.Char[], System.Int32, System.Int32, System.Byte[], System.Int32
-	 */
-    - (int32_t)getBytes_withChars:(System_Array *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(char[],int,int,byte[],int)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], DB_VALUE(p5)];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+- (int32_t)getBytes_withChars:(System_Array *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(char[],int,int,byte[],int)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], DB_VALUE(p5)];
+  return DB_UNBOX_INT32(monoObject);
+}
 
-	/*! 
-		Managed method name : GetBytes
-		Managed return type : System.Byte[]
-		Managed param types : System.String
-	 */
-    - (NSData *)getBytes_withS:(NSString *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
-    }
+- (NSData *)getBytes_withS:(NSString *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+}
 
-	/*! 
-		Managed method name : GetBytes
-		Managed return type : System.Int32
-		Managed param types : System.String, System.Int32, System.Int32, System.Byte[], System.Int32
-	 */
-    - (int32_t)getBytes_withS:(NSString *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(string,int,int,byte[],int)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], DB_VALUE(p5)];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+- (int32_t)getBytes_withS:(NSString *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(string,int,int,byte[],int)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], DB_VALUE(p5)];
+  return DB_UNBOX_INT32(monoObject);
+}
+
 /* Skipped method : System.Int32 GetBytes(System.Char* chars, System.Int32 charCount, System.Byte* bytes, System.Int32 byteCount) */
 
-	/*! 
-		Managed method name : GetCharCount
-		Managed return type : System.Int32
-		Managed param types : System.Byte[]
-	 */
-    - (int32_t)getCharCount_withBytes:(NSData *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCharCount(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+- (int32_t)getCharCount_withBytes:(NSData *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetCharCount(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return DB_UNBOX_INT32(monoObject);
+}
 
-	/*! 
-		Managed method name : GetCharCount
-		Managed return type : System.Int32
-		Managed param types : System.Byte[], System.Int32, System.Int32
-	 */
-    - (int32_t)getCharCount_withBytes:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetCharCount(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+- (int32_t)getCharCount_withBytes:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetCharCount(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+  return DB_UNBOX_INT32(monoObject);
+}
+
 /* Skipped method : System.Int32 GetCharCount(System.Byte* bytes, System.Int32 count) */
 
-	/*! 
-		Managed method name : GetChars
-		Managed return type : System.Char[]
-		Managed param types : System.Byte[]
-	 */
-    - (System_Array *)getChars_withBytes:(NSData *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetChars(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
-    }
+- (System_Array *)getChars_withBytes:(NSData *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetChars(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+}
 
-	/*! 
-		Managed method name : GetChars
-		Managed return type : System.Char[]
-		Managed param types : System.Byte[], System.Int32, System.Int32
-	 */
-    - (System_Array *)getChars_withBytes:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetChars(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
-		
-		return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
-    }
+- (System_Array *)getChars_withBytes:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetChars(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+  return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+}
 
-	/*! 
-		Managed method name : GetChars
-		Managed return type : System.Int32
-		Managed param types : System.Byte[], System.Int32, System.Int32, System.Char[], System.Int32
-	 */
-    - (int32_t)getChars_withBytes:(NSData *)p1 byteIndex:(int32_t)p2 byteCount:(int32_t)p3 chars:(System_Array *)p4 charIndex:(int32_t)p5
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetChars(byte[],int,int,char[],int)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], DB_VALUE(p5)];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+- (int32_t)getChars_withBytes:(NSData *)p1 byteIndex:(int32_t)p2 byteCount:(int32_t)p3 chars:(System_Array *)p4 charIndex:(int32_t)p5
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetChars(byte[],int,int,char[],int)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], DB_VALUE(p5)];
+  return DB_UNBOX_INT32(monoObject);
+}
+
 /* Skipped method : System.Int32 GetChars(System.Byte* bytes, System.Int32 byteCount, System.Char* chars, System.Int32 charCount) */
+
 /* Skipped method : System.Text.Decoder GetDecoder() */
+
 /* Skipped method : System.Text.Encoder GetEncoder() */
 
-	/*! 
-		Managed method name : GetEncoding
-		Managed return type : System.Text.Encoding
-		Managed param types : System.Int32
-	 */
-    + (System_Text_Encoding *)getEncoding_withCodepage:(int32_t)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEncoding(int)" withNumArgs:1, DB_VALUE(p1)];
-		
-		return [System_Text_Encoding bestObjectWithMonoObject:monoObject];
-    }
++ (System_Text_Encoding *)getEncoding_withCodepage:(int32_t)p1
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"GetEncoding(int)" withNumArgs:1, DB_VALUE(p1)];
+  return [System_Text_Encoding bestObjectWithMonoObject:monoObject];
+}
+
 /* Skipped method : System.Text.Encoding GetEncoding(System.Int32 codepage, System.Text.EncoderFallback encoderFallback, System.Text.DecoderFallback decoderFallback) */
 
-	/*! 
-		Managed method name : GetEncoding
-		Managed return type : System.Text.Encoding
-		Managed param types : System.String
-	 */
-    + (System_Text_Encoding *)getEncoding_withName:(NSString *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoClassMethod:"GetEncoding(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [System_Text_Encoding bestObjectWithMonoObject:monoObject];
-    }
++ (System_Text_Encoding *)getEncoding_withName:(NSString *)p1
+{
+  MonoObject *monoObject = [self invokeMonoClassMethod:"GetEncoding(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [System_Text_Encoding bestObjectWithMonoObject:monoObject];
+}
+
 /* Skipped method : System.Text.Encoding GetEncoding(System.String name, System.Text.EncoderFallback encoderFallback, System.Text.DecoderFallback decoderFallback) */
+
 /* Skipped method : System.Text.EncodingInfo[] GetEncodings() */
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+- (int32_t)getHashCode
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+  return DB_UNBOX_INT32(monoObject);
+}
 
-	/*! 
-		Managed method name : GetMaxByteCount
-		Managed return type : System.Int32
-		Managed param types : System.Int32
-	 */
-    - (int32_t)getMaxByteCount_withCharCount:(int32_t)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetMaxByteCount(int)" withNumArgs:1, DB_VALUE(p1)];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+- (int32_t)getMaxByteCount_withCharCount:(int32_t)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetMaxByteCount(int)" withNumArgs:1, DB_VALUE(p1)];
+  return DB_UNBOX_INT32(monoObject);
+}
 
-	/*! 
-		Managed method name : GetMaxCharCount
-		Managed return type : System.Int32
-		Managed param types : System.Int32
-	 */
-    - (int32_t)getMaxCharCount_withByteCount:(int32_t)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetMaxCharCount(int)" withNumArgs:1, DB_VALUE(p1)];
-		
-		return DB_UNBOX_INT32(monoObject);
-    }
+- (int32_t)getMaxCharCount_withByteCount:(int32_t)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetMaxCharCount(int)" withNumArgs:1, DB_VALUE(p1)];
+  return DB_UNBOX_INT32(monoObject);
+}
 
-	/*! 
-		Managed method name : GetPreamble
-		Managed return type : System.Byte[]
-		Managed param types : 
-	 */
-    - (NSData *)getPreamble
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetPreamble()" withNumArgs:0];
-		
-		return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
-    }
+- (NSData *)getPreamble
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetPreamble()" withNumArgs:0];
+  return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+}
+
 /* Skipped method : System.String GetString(System.Byte* bytes, System.Int32 byteCount) */
 
-	/*! 
-		Managed method name : GetString
-		Managed return type : System.String
-		Managed param types : System.Byte[]
-	 */
-    - (NSString *)getString_withBytes:(NSData *)p1
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetString(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
-		
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
+- (NSString *)getString_withBytes:(NSData *)p1
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetString(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
 
-	/*! 
-		Managed method name : GetString
-		Managed return type : System.String
-		Managed param types : System.Byte[], System.Int32, System.Int32
-	 */
-    - (NSString *)getString_withBytes:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GetString(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
-		
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
+- (NSString *)getString_withBytes:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"GetString(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
 
-	/*! 
-		Managed method name : IsAlwaysNormalized
-		Managed return type : System.Boolean
-		Managed param types : 
-	 */
-    - (BOOL)isAlwaysNormalized
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"IsAlwaysNormalized()" withNumArgs:0];
-		
-		return DB_UNBOX_BOOLEAN(monoObject);
-    }
+- (BOOL)isAlwaysNormalized
+{
+  MonoObject *monoObject = [self invokeMonoMethod:"IsAlwaysNormalized()" withNumArgs:0];
+  return DB_UNBOX_BOOLEAN(monoObject);
+}
+
 /* Skipped method : System.Boolean IsAlwaysNormalized(System.Text.NormalizationForm form) */
+
 /* Skipped method : System.Void RegisterProvider(System.Text.EncodingProvider provider) */
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-		m_aSCII = nil;
-		m_bigEndianUnicode = nil;
-		m_default = nil;
-		m_unicode = nil;
-		m_uTF32 = nil;
-		m_uTF7 = nil;
-		m_uTF8 = nil;
-	}
+
+- (void)dealloc
+{
+	m_aSCII = nil;
+	m_bigEndianUnicode = nil;
+	m_default = nil;
+	m_unicode = nil;
+	m_uTF32 = nil;
+	m_uTF7 = nil;
+	m_uTF8 = nil;
+}
 @end
 //--Dubrovnik.CodeGenerator

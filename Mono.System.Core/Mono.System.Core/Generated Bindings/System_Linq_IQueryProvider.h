@@ -38,16 +38,19 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Methods
+
 /* Skipped method : System.Linq.IQueryable CreateQuery(System.Linq.Expressions.Expression expression) */
+
 /* Skipped method : System.Linq.IQueryable`1<System.Linq.IQueryProvider+TElement> CreateQuery(System.Linq.Expressions.Expression expression) */
+
 /* Skipped method : System.Object Execute(System.Linq.Expressions.Expression expression) */
+
 /* Skipped method : System.Linq.IQueryProvider+TResult Execute(System.Linq.Expressions.Expression expression) */
 @end
 //--Dubrovnik.CodeGenerator

@@ -34,10 +34,9 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Properties
@@ -49,22 +48,42 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : Attach
-		Managed return type : System.Void
-		Managed param types : <System.Data.Entity.Core.Objects.DataClasses.EntityReference`1+TEntity>
-	 */
-    - (void)attach_withEntity:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Attach
 
-	/*! 
-		Managed method name : CreateSourceQuery
-		Managed return type : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.DataClasses.EntityReference`1+TEntity>
-		Managed param types : 
-	 */
-    - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)createSourceQuery;
+ Params
+   <System.Data.Entity.Core.Objects.DataClasses.EntityReference`1+TEntity>
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)attach_withEntity:(System_Object *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateSourceQuery
+
+ Params
+   (none)
+
+ Return
+   System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.DataClasses.EntityReference`1+TEntity>
+ @/textblock
+*/
+- (System_Data_Entity_Core_Objects_ObjectQueryA1 *)createSourceQuery;
+
 /* Skipped method : System.Void Load(System.Data.Entity.Core.Objects.MergeOption mergeOption) */
+
 /* Skipped method : System.Threading.Tasks.Task LoadAsync(System.Data.Entity.Core.Objects.MergeOption mergeOption, System.Threading.CancellationToken cancellationToken) */
+
 /* Skipped method : System.Void OnRefDeserialized(System.Runtime.Serialization.StreamingContext context) */
+
 /* Skipped method : System.Void OnSerializing(System.Runtime.Serialization.StreamingContext context) */
 @end
 //--Dubrovnik.CodeGenerator

@@ -39,20 +39,31 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : CreateOrderedEnumerable
-		Managed return type : System.Linq.IOrderedEnumerable`1<System.Linq.IOrderedEnumerable`1+TElement>
-		Managed param types : System.Func`2<System.Linq.IOrderedEnumerable`1+TElement, System.Linq.IOrderedEnumerable`1+TKey>, System.Collections.Generic.IComparer`1<System.Linq.IOrderedEnumerable`1+TKey>, System.Boolean
-		Generic method definition type params : <System.Linq.IOrderedEnumerable`1+TKey>
-	 */
-    - (id <System_Linq_IOrderedEnumerableA1>)createOrderedEnumerable_withKeySelector:(System_FuncA2 *)p1 comparer:(id <System_Collections_Generic_IComparerA1_>)p2 descending:(BOOL)p3 typeParameter:(id)typeParameter;
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateOrderedEnumerable
+
+ Params
+   System.Func`2<System.Linq.IOrderedEnumerable`1+TElement, System.Linq.IOrderedEnumerable`1+TKey>
+   System.Collections.Generic.IComparer`1<System.Linq.IOrderedEnumerable`1+TKey>
+   System.Boolean
+
+ Generics
+   <System.Linq.IOrderedEnumerable`1+TKey>
+
+ Return
+   System.Linq.IOrderedEnumerable`1<System.Linq.IOrderedEnumerable`1+TElement>
+ @/textblock
+*/
+- (id <System_Linq_IOrderedEnumerableA1>)createOrderedEnumerable_withKeySelector:(System_FuncA2 *)p1 comparer:(id <System_Collections_Generic_IComparerA1_>)p2 descending:(BOOL)p3 typeParameter:(id)typeParameter;
 @end
 //--Dubrovnik.CodeGenerator
