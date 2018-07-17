@@ -33,28 +33,28 @@
  
  For more detail see the source to -monoTypeForTypeParameter:
  */
-- (System_Object *)newWithTypeName:(char *)genericTypeDefinitionName monoImage:(MonoImage *)monoImage typeParameters:(NSArray<id> *)typeParameters;
+- (System_Object *)newWithTypeName:(const char *)genericTypeDefinitionName monoImage:(MonoImage *)monoImage typeParameters:(NSArray<id> *)typeParameters;
 
 /**
  
  Create an instance of a core generic type using a type definition name eg: List<T> and an array of generic type parameters.
  
  */
-- (System_Object *)newWithCoreTypeName:(char *)genericTypeDefinitionName typeParameters:(NSArray<id> *)typeParameters;
+- (System_Object *)newWithCoreTypeName:(const char *)genericTypeDefinitionName typeParameters:(NSArray<id> *)typeParameters;
 
 /**
  
  Construct a generic type using the given name, image and type parameters.
  
  */
-- (System_Type *)constructType:(char *)typeName monoImage:(MonoImage *)monoImage typeParameters:(NSArray<id> *)typeParameters;
+- (System_Type *)constructType:(const char *)typeName monoImage:(MonoImage *)monoImage typeParameters:(NSArray<id> *)typeParameters;
 
 /**
  
  Construct a core generic type using the given name and type parameters.
  
  */
-- (System_Type *)constructCoreType:(char *)typeName typeParameters:(NSArray<id> *)typeParameters;
+- (System_Type *)constructCoreType:(const char *)typeName typeParameters:(NSArray<id> *)typeParameters;
 
 /**
  
