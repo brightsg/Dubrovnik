@@ -33,47 +33,43 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : IsFixedSize
-	// Managed property type : System.Boolean
-    @synthesize isFixedSize = _isFixedSize;
-    - (BOOL)isFixedSize
-    {
-		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Collections.IList.IsFixedSize");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		BOOL monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_isFixedSize = monoObject;
-
-		return _isFixedSize;
+@synthesize isFixedSize = _isFixedSize;
+- (BOOL)isFixedSize
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "System.Collections.IList.IsFixedSize");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_isFixedSize = monoObject;
 
-	// Managed property name : IsReadOnly
-	// Managed property type : System.Boolean
-    @synthesize isReadOnly = _isReadOnly;
-    - (BOOL)isReadOnly
-    {
-		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Collections.IList.IsReadOnly");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		BOOL monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_isReadOnly = monoObject;
+	return _isFixedSize;
+}
 
-		return _isReadOnly;
+@synthesize isReadOnly = _isReadOnly;
+- (BOOL)isReadOnly
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "System.Collections.IList.IsReadOnly");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_isReadOnly = monoObject;
+
+	return _isReadOnly;
+}
 
 #pragma mark -
 #pragma mark Methods

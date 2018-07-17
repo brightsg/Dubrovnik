@@ -440,6 +440,10 @@ namespace Dubrovnik.Tools
 			}
 		}
 
+		public void PushTabIndent() {
+			PushIndent("\t");
+		}
+
 		public void WriteLineNz(string value) {
 			if (value.Length == 0) return;
 			WriteLine($"{value}");

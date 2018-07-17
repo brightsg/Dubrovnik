@@ -46,81 +46,233 @@
 
 /* Skipped property : System.Reflection.CallingConventions CallingConvention */
 
-	// Managed property name : ContainsGenericParameters
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL containsGenericParameters;
+/**
+  Managed property.
+  @textblock
+  Name
+    ContainsGenericParameters
 
-	// Managed property name : IsAbstract
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isAbstract;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL containsGenericParameters;
 
-	// Managed property name : IsAssembly
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isAssembly;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsAbstract
 
-	// Managed property name : IsConstructor
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isConstructor;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isAbstract;
 
-	// Managed property name : IsFamily
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isFamily;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsAssembly
 
-	// Managed property name : IsFamilyAndAssembly
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isFamilyAndAssembly;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isAssembly;
 
-	// Managed property name : IsFamilyOrAssembly
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isFamilyOrAssembly;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsConstructor
 
-	// Managed property name : IsFinal
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isFinal;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isConstructor;
 
-	// Managed property name : IsGenericMethod
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isGenericMethod;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsFamily
 
-	// Managed property name : IsGenericMethodDefinition
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isGenericMethodDefinition;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isFamily;
 
-	// Managed property name : IsHideBySig
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isHideBySig;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsFamilyAndAssembly
 
-	// Managed property name : IsPrivate
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isPrivate;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isFamilyAndAssembly;
 
-	// Managed property name : IsPublic
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isPublic;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsFamilyOrAssembly
 
-	// Managed property name : IsSecurityCritical
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isSecurityCritical;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isFamilyOrAssembly;
 
-	// Managed property name : IsSecuritySafeCritical
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isSecuritySafeCritical;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsFinal
 
-	// Managed property name : IsSecurityTransparent
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isSecurityTransparent;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isFinal;
 
-	// Managed property name : IsSpecialName
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isSpecialName;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsGenericMethod
 
-	// Managed property name : IsStatic
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isStatic;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isGenericMethod;
 
-	// Managed property name : IsVirtual
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isVirtual;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsGenericMethodDefinition
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isGenericMethodDefinition;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    IsHideBySig
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isHideBySig;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    IsPrivate
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isPrivate;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    IsPublic
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isPublic;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    IsSecurityCritical
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isSecurityCritical;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    IsSecuritySafeCritical
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isSecuritySafeCritical;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    IsSecurityTransparent
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isSecurityTransparent;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    IsSpecialName
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isSpecialName;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    IsStatic
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isStatic;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    IsVirtual
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isVirtual;
 
 /* Skipped property : System.RuntimeMethodHandle MethodHandle */
 
@@ -130,62 +282,62 @@
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   System.Object
+  Params
+    System.Object
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withObj:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetCurrentMethod
+  Managed method.
+  @textblock
+  Name
+    GetCurrentMethod
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Reflection.MethodBase
- @/textblock
+  Return
+    System.Reflection.MethodBase
+  @/textblock
 */
 + (System_Reflection_MethodBase *)getCurrentMethod;
 
 /**
- Managed method.
- @textblock
- Name
-   GetGenericArguments
+  Managed method.
+  @textblock
+  Name
+    GetGenericArguments
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Type[]
- @/textblock
+  Return
+    System.Type[]
+  @/textblock
 */
 - (System_Array *)getGenericArguments;
 
 /**
- Managed method.
- @textblock
- Name
-   GetHashCode
+  Managed method.
+  @textblock
+  Name
+    GetHashCode
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getHashCode;
 
@@ -202,50 +354,50 @@
 /* Skipped method : System.Object Invoke(System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) */
 
 /**
- Managed method.
- @textblock
- Name
-   Invoke
+  Managed method.
+  @textblock
+  Name
+    Invoke
 
- Params
-   System.Object
-   System.Object[]
+  Params
+    System.Object
+    System.Object[]
 
- Return
-   System.Object
- @/textblock
+  Return
+    System.Object
+  @/textblock
 */
 - (System_Object *)invoke_withObj:(System_Object *)p1 parameters:(System_Array *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   op_Equality
+  Managed method.
+  @textblock
+  Name
+    op_Equality
 
- Params
-   System.Reflection.MethodBase
-   System.Reflection.MethodBase
+  Params
+    System.Reflection.MethodBase
+    System.Reflection.MethodBase
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)op_Equality_withLeft:(System_Reflection_MethodBase *)p1 right:(System_Reflection_MethodBase *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   op_Inequality
+  Managed method.
+  @textblock
+  Name
+    op_Inequality
 
- Params
-   System.Reflection.MethodBase
-   System.Reflection.MethodBase
+  Params
+    System.Reflection.MethodBase
+    System.Reflection.MethodBase
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)op_Inequality_withLeft:(System_Reflection_MethodBase *)p1 right:(System_Reflection_MethodBase *)p2;
 @end

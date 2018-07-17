@@ -33,71 +33,59 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : Epsilon
-	// Managed field type : System.Double
-    static double m_epsilon;
-    + (double)epsilon
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"Epsilon"];
-		m_epsilon = DB_UNBOX_DOUBLE(monoObject);
+static double m_epsilon;
++ (double)epsilon
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"Epsilon"];
+	m_epsilon = DB_UNBOX_DOUBLE(monoObject);
 
-		return m_epsilon;
-	}
+	return m_epsilon;
+}
 
-	// Managed field name : MaxValue
-	// Managed field type : System.Double
-    static double m_maxValue;
-    + (double)maxValue
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"MaxValue"];
-		m_maxValue = DB_UNBOX_DOUBLE(monoObject);
+static double m_maxValue;
++ (double)maxValue
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"MaxValue"];
+	m_maxValue = DB_UNBOX_DOUBLE(monoObject);
 
-		return m_maxValue;
-	}
+	return m_maxValue;
+}
 
-	// Managed field name : MinValue
-	// Managed field type : System.Double
-    static double m_minValue;
-    + (double)minValue
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"MinValue"];
-		m_minValue = DB_UNBOX_DOUBLE(monoObject);
+static double m_minValue;
++ (double)minValue
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"MinValue"];
+	m_minValue = DB_UNBOX_DOUBLE(monoObject);
 
-		return m_minValue;
-	}
+	return m_minValue;
+}
 
-	// Managed field name : NaN
-	// Managed field type : System.Double
-    static double m_naN;
-    + (double)naN
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"NaN"];
-		m_naN = DB_UNBOX_DOUBLE(monoObject);
+static double m_naN;
++ (double)naN
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"NaN"];
+	m_naN = DB_UNBOX_DOUBLE(monoObject);
 
-		return m_naN;
-	}
+	return m_naN;
+}
 
-	// Managed field name : NegativeInfinity
-	// Managed field type : System.Double
-    static double m_negativeInfinity;
-    + (double)negativeInfinity
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"NegativeInfinity"];
-		m_negativeInfinity = DB_UNBOX_DOUBLE(monoObject);
+static double m_negativeInfinity;
++ (double)negativeInfinity
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"NegativeInfinity"];
+	m_negativeInfinity = DB_UNBOX_DOUBLE(monoObject);
 
-		return m_negativeInfinity;
-	}
+	return m_negativeInfinity;
+}
 
-	// Managed field name : PositiveInfinity
-	// Managed field type : System.Double
-    static double m_positiveInfinity;
-    + (double)positiveInfinity
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"PositiveInfinity"];
-		m_positiveInfinity = DB_UNBOX_DOUBLE(monoObject);
+static double m_positiveInfinity;
++ (double)positiveInfinity
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"PositiveInfinity"];
+	m_positiveInfinity = DB_UNBOX_DOUBLE(monoObject);
 
-		return m_positiveInfinity;
-	}
+	return m_positiveInfinity;
+}
 
 #pragma mark -
 #pragma mark Methods

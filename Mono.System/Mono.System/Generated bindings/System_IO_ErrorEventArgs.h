@@ -37,17 +37,17 @@
 #pragma mark Constructors
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Exception
+  Params
+    System.Exception
 
- Return
-   System.IO.ErrorEventArgs
- @/textblock
+  Return
+    System.IO.ErrorEventArgs
+  @/textblock
 */
 + (System_IO_ErrorEventArgs *)new_withException:(System_Exception *)p1;
 
@@ -55,17 +55,17 @@
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   GetException
+  Managed method.
+  @textblock
+  Name
+    GetException
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Exception
- @/textblock
+  Return
+    System.Exception
+  @/textblock
 */
 - (System_Exception *)getException;
 @end

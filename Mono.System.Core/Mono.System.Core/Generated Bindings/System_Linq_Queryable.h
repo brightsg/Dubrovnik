@@ -70,205 +70,205 @@
 /* Skipped method : System.Boolean All(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Boolean>> predicate) */
 
 /**
- Managed method.
- @textblock
- Name
-   Any
+  Managed method.
+  @textblock
+  Name
+    Any
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)any_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Boolean Any(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Boolean>> predicate) */
 
 /**
- Managed method.
- @textblock
- Name
-   AsQueryable
+  Managed method.
+  @textblock
+  Name
+    AsQueryable
 
- Params
-   System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TElement>
+  Params
+    System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TElement>
 
- Generics
-   <System.Linq.Queryable+TElement>
+  Generics
+    <System.Linq.Queryable+TElement>
 
- Return
-   System.Linq.IQueryable`1<System.Linq.Queryable+TElement>
- @/textblock
+  Return
+    System.Linq.IQueryable`1<System.Linq.Queryable+TElement>
+  @/textblock
 */
 + (id <System_Linq_IQueryableA1>)asQueryable_withSourceSCGILQueryable__TElement:(id <System_Collections_Generic_IEnumerableA1_>)p1 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   AsQueryable
+  Managed method.
+  @textblock
+  Name
+    AsQueryable
 
- Params
-   System.Collections.IEnumerable
+  Params
+    System.Collections.IEnumerable
 
- Return
-   System.Linq.IQueryable
- @/textblock
+  Return
+    System.Linq.IQueryable
+  @/textblock
 */
 + (id <System_Linq_IQueryable>)asQueryable_withSourceSCIEnumerable:(id <System_Collections_IEnumerable_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Average
+  Managed method.
+  @textblock
+  Name
+    Average
 
- Params
-   System.Linq.IQueryable`1<System.Int32>
+  Params
+    System.Linq.IQueryable`1<System.Int32>
 
- Return
-   System.Double
- @/textblock
+  Return
+    System.Double
+  @/textblock
 */
 + (double)average_withSourceSLIQueryableA1int:(id <System_Linq_IQueryableA1_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Average
+  Managed method.
+  @textblock
+  Name
+    Average
 
- Params
-   System.Linq.IQueryable`1<System.Nullable`1<System.Int32>>
+  Params
+    System.Linq.IQueryable`1<System.Nullable`1<System.Int32>>
 
- Return
-   System.Nullable`1<System.Double>
- @/textblock
+  Return
+    System.Nullable`1<System.Double>
+  @/textblock
 */
 + (System_NullableA1 *)average_withSourceSLINullableA1int:(id <System_Linq_IQueryableA1_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Average
+  Managed method.
+  @textblock
+  Name
+    Average
 
- Params
-   System.Linq.IQueryable`1<System.Int64>
+  Params
+    System.Linq.IQueryable`1<System.Int64>
 
- Return
-   System.Double
- @/textblock
+  Return
+    System.Double
+  @/textblock
 */
 + (double)average_withSourceSLIQueryableA1long:(id <System_Linq_IQueryableA1_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Average
+  Managed method.
+  @textblock
+  Name
+    Average
 
- Params
-   System.Linq.IQueryable`1<System.Nullable`1<System.Int64>>
+  Params
+    System.Linq.IQueryable`1<System.Nullable`1<System.Int64>>
 
- Return
-   System.Nullable`1<System.Double>
- @/textblock
+  Return
+    System.Nullable`1<System.Double>
+  @/textblock
 */
 + (System_NullableA1 *)average_withSourceSLINullableA1long:(id <System_Linq_IQueryableA1_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Average
+  Managed method.
+  @textblock
+  Name
+    Average
 
- Params
-   System.Linq.IQueryable`1<System.Single>
+  Params
+    System.Linq.IQueryable`1<System.Single>
 
- Return
-   System.Single
- @/textblock
+  Return
+    System.Single
+  @/textblock
 */
 + (float)average_withSourceSLIQueryableA1single:(id <System_Linq_IQueryableA1_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Average
+  Managed method.
+  @textblock
+  Name
+    Average
 
- Params
-   System.Linq.IQueryable`1<System.Nullable`1<System.Single>>
+  Params
+    System.Linq.IQueryable`1<System.Nullable`1<System.Single>>
 
- Return
-   System.Nullable`1<System.Single>
- @/textblock
+  Return
+    System.Nullable`1<System.Single>
+  @/textblock
 */
 + (System_NullableA1 *)average_withSourceSLINullableA1single:(id <System_Linq_IQueryableA1_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Average
+  Managed method.
+  @textblock
+  Name
+    Average
 
- Params
-   System.Linq.IQueryable`1<System.Double>
+  Params
+    System.Linq.IQueryable`1<System.Double>
 
- Return
-   System.Double
- @/textblock
+  Return
+    System.Double
+  @/textblock
 */
 + (double)average_withSourceSLIQueryableA1double:(id <System_Linq_IQueryableA1_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Average
+  Managed method.
+  @textblock
+  Name
+    Average
 
- Params
-   System.Linq.IQueryable`1<System.Nullable`1<System.Double>>
+  Params
+    System.Linq.IQueryable`1<System.Nullable`1<System.Double>>
 
- Return
-   System.Nullable`1<System.Double>
- @/textblock
+  Return
+    System.Nullable`1<System.Double>
+  @/textblock
 */
 + (System_NullableA1 *)average_withSourceSLINullableA1double:(id <System_Linq_IQueryableA1_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Average
+  Managed method.
+  @textblock
+  Name
+    Average
 
- Params
-   System.Linq.IQueryable`1<System.Decimal>
+  Params
+    System.Linq.IQueryable`1<System.Decimal>
 
- Return
-   System.Decimal
- @/textblock
+  Return
+    System.Decimal
+  @/textblock
 */
 + (NSDecimalNumber *)average_withSourceSLIDecimal:(id <System_Linq_IQueryableA1_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Average
+  Managed method.
+  @textblock
+  Name
+    Average
 
- Params
-   System.Linq.IQueryable`1<System.Nullable`1<System.Decimal>>
+  Params
+    System.Linq.IQueryable`1<System.Nullable`1<System.Decimal>>
 
- Return
-   System.Nullable`1<System.Decimal>
- @/textblock
+  Return
+    System.Nullable`1<System.Decimal>
+  @/textblock
 */
 + (System_NullableA1 *)average_withSourceSLINDecimal:(id <System_Linq_IQueryableA1_>)p1;
 
@@ -293,234 +293,234 @@
 /* Skipped method : System.Nullable`1<System.Decimal> Average(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Nullable`1<System.Decimal>>> selector) */
 
 /**
- Managed method.
- @textblock
- Name
-   Cast
+  Managed method.
+  @textblock
+  Name
+    Cast
 
- Params
-   System.Linq.IQueryable
+  Params
+    System.Linq.IQueryable
 
- Generics
-   <System.Linq.Queryable+TResult>
+  Generics
+    <System.Linq.Queryable+TResult>
 
- Return
-   System.Linq.IQueryable`1<System.Linq.Queryable+TResult>
- @/textblock
+  Return
+    System.Linq.IQueryable`1<System.Linq.Queryable+TResult>
+  @/textblock
 */
 + (id <System_Linq_IQueryableA1>)cast_withSource:(id <System_Linq_IQueryable_>)p1 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   Concat
+  Managed method.
+  @textblock
+  Name
+    Concat
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
-   System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TSource>
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+    System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TSource>
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
- @/textblock
+  Return
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+  @/textblock
 */
 + (id <System_Linq_IQueryableA1>)concat_withSource1:(id <System_Linq_IQueryableA1_>)p1 source2:(id <System_Collections_Generic_IEnumerableA1_>)p2 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   Contains
+  Managed method.
+  @textblock
+  Name
+    Contains
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
-   <System.Linq.Queryable+TSource>
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+    <System.Linq.Queryable+TSource>
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)contains_withSource:(id <System_Linq_IQueryableA1_>)p1 item:(System_Object *)p2 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Boolean Contains(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Queryable+TSource item, System.Collections.Generic.IEqualityComparer`1<System.Linq.Queryable+TSource> comparer) */
 
 /**
- Managed method.
- @textblock
- Name
-   Count
+  Managed method.
+  @textblock
+  Name
+    Count
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)count_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Int32 Count(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Boolean>> predicate) */
 
 /**
- Managed method.
- @textblock
- Name
-   DefaultIfEmpty
+  Managed method.
+  @textblock
+  Name
+    DefaultIfEmpty
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
- @/textblock
+  Return
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+  @/textblock
 */
 + (id <System_Linq_IQueryableA1>)defaultIfEmpty_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   DefaultIfEmpty
+  Managed method.
+  @textblock
+  Name
+    DefaultIfEmpty
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
-   <System.Linq.Queryable+TSource>
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+    <System.Linq.Queryable+TSource>
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
- @/textblock
+  Return
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+  @/textblock
 */
 + (id <System_Linq_IQueryableA1>)defaultIfEmpty_withSource:(id <System_Linq_IQueryableA1_>)p1 defaultValue:(System_Object *)p2 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   Distinct
+  Managed method.
+  @textblock
+  Name
+    Distinct
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
- @/textblock
+  Return
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+  @/textblock
 */
 + (id <System_Linq_IQueryableA1>)distinct_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.IQueryable`1<System.Linq.Queryable+TSource> Distinct(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Collections.Generic.IEqualityComparer`1<System.Linq.Queryable+TSource> comparer) */
 
 /**
- Managed method.
- @textblock
- Name
-   ElementAt
+  Managed method.
+  @textblock
+  Name
+    ElementAt
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
-   System.Int32
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+    System.Int32
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   <System.Linq.Queryable+TSource>
- @/textblock
+  Return
+    <System.Linq.Queryable+TSource>
+  @/textblock
 */
 + (System_Object *)elementAt_withSource:(id <System_Linq_IQueryableA1_>)p1 index:(int32_t)p2 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   ElementAtOrDefault
+  Managed method.
+  @textblock
+  Name
+    ElementAtOrDefault
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
-   System.Int32
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+    System.Int32
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   <System.Linq.Queryable+TSource>
- @/textblock
+  Return
+    <System.Linq.Queryable+TSource>
+  @/textblock
 */
 + (System_Object *)elementAtOrDefault_withSource:(id <System_Linq_IQueryableA1_>)p1 index:(int32_t)p2 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   Except
+  Managed method.
+  @textblock
+  Name
+    Except
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
-   System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TSource>
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+    System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TSource>
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
- @/textblock
+  Return
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+  @/textblock
 */
 + (id <System_Linq_IQueryableA1>)except_withSource1:(id <System_Linq_IQueryableA1_>)p1 source2:(id <System_Collections_Generic_IEnumerableA1_>)p2 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.IQueryable`1<System.Linq.Queryable+TSource> Except(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source1, System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TSource> source2, System.Collections.Generic.IEqualityComparer`1<System.Linq.Queryable+TSource> comparer) */
 
 /**
- Managed method.
- @textblock
- Name
-   First
+  Managed method.
+  @textblock
+  Name
+    First
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   <System.Linq.Queryable+TSource>
- @/textblock
+  Return
+    <System.Linq.Queryable+TSource>
+  @/textblock
 */
 + (System_Object *)first_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.Queryable+TSource First(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Boolean>> predicate) */
 
 /**
- Managed method.
- @textblock
- Name
-   FirstOrDefault
+  Managed method.
+  @textblock
+  Name
+    FirstOrDefault
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   <System.Linq.Queryable+TSource>
- @/textblock
+  Return
+    <System.Linq.Queryable+TSource>
+  @/textblock
 */
 + (System_Object *)firstOrDefault_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
 
@@ -547,21 +547,21 @@
 /* Skipped method : System.Linq.IQueryable`1<System.Linq.Queryable+TResult> GroupJoin(System.Linq.IQueryable`1<System.Linq.Queryable+TOuter> outer, System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TInner> inner, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TOuter, System.Linq.Queryable+TKey>> outerKeySelector, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TInner, System.Linq.Queryable+TKey>> innerKeySelector, System.Linq.Expressions.Expression`1<System.Func`3<System.Linq.Queryable+TOuter, System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TInner>, System.Linq.Queryable+TResult>> resultSelector, System.Collections.Generic.IEqualityComparer`1<System.Linq.Queryable+TKey> comparer) */
 
 /**
- Managed method.
- @textblock
- Name
-   Intersect
+  Managed method.
+  @textblock
+  Name
+    Intersect
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
-   System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TSource>
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+    System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TSource>
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
- @/textblock
+  Return
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+  @/textblock
 */
 + (id <System_Linq_IQueryableA1>)intersect_withSource1:(id <System_Linq_IQueryableA1_>)p1 source2:(id <System_Collections_Generic_IEnumerableA1_>)p2 typeParameter:(id)typeParameter;
 
@@ -572,120 +572,120 @@
 /* Skipped method : System.Linq.IQueryable`1<System.Linq.Queryable+TResult> Join(System.Linq.IQueryable`1<System.Linq.Queryable+TOuter> outer, System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TInner> inner, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TOuter, System.Linq.Queryable+TKey>> outerKeySelector, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TInner, System.Linq.Queryable+TKey>> innerKeySelector, System.Linq.Expressions.Expression`1<System.Func`3<System.Linq.Queryable+TOuter, System.Linq.Queryable+TInner, System.Linq.Queryable+TResult>> resultSelector, System.Collections.Generic.IEqualityComparer`1<System.Linq.Queryable+TKey> comparer) */
 
 /**
- Managed method.
- @textblock
- Name
-   Last
+  Managed method.
+  @textblock
+  Name
+    Last
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   <System.Linq.Queryable+TSource>
- @/textblock
+  Return
+    <System.Linq.Queryable+TSource>
+  @/textblock
 */
 + (System_Object *)last_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.Queryable+TSource Last(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Boolean>> predicate) */
 
 /**
- Managed method.
- @textblock
- Name
-   LastOrDefault
+  Managed method.
+  @textblock
+  Name
+    LastOrDefault
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   <System.Linq.Queryable+TSource>
- @/textblock
+  Return
+    <System.Linq.Queryable+TSource>
+  @/textblock
 */
 + (System_Object *)lastOrDefault_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.Queryable+TSource LastOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Boolean>> predicate) */
 
 /**
- Managed method.
- @textblock
- Name
-   LongCount
+  Managed method.
+  @textblock
+  Name
+    LongCount
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   System.Int64
- @/textblock
+  Return
+    System.Int64
+  @/textblock
 */
 + (int64_t)longCount_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Int64 LongCount(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Boolean>> predicate) */
 
 /**
- Managed method.
- @textblock
- Name
-   Max
+  Managed method.
+  @textblock
+  Name
+    Max
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   <System.Linq.Queryable+TSource>
- @/textblock
+  Return
+    <System.Linq.Queryable+TSource>
+  @/textblock
 */
 + (System_Object *)max_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.Queryable+TResult Max(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Linq.Queryable+TResult>> selector) */
 
 /**
- Managed method.
- @textblock
- Name
-   Min
+  Managed method.
+  @textblock
+  Name
+    Min
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   <System.Linq.Queryable+TSource>
- @/textblock
+  Return
+    <System.Linq.Queryable+TSource>
+  @/textblock
 */
 + (System_Object *)min_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.Queryable+TResult Min(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Linq.Queryable+TResult>> selector) */
 
 /**
- Managed method.
- @textblock
- Name
-   OfType
+  Managed method.
+  @textblock
+  Name
+    OfType
 
- Params
-   System.Linq.IQueryable
+  Params
+    System.Linq.IQueryable
 
- Generics
-   <System.Linq.Queryable+TResult>
+  Generics
+    <System.Linq.Queryable+TResult>
 
- Return
-   System.Linq.IQueryable`1<System.Linq.Queryable+TResult>
- @/textblock
+  Return
+    System.Linq.IQueryable`1<System.Linq.Queryable+TResult>
+  @/textblock
 */
 + (id <System_Linq_IQueryableA1>)ofType_withSource:(id <System_Linq_IQueryable_>)p1 typeParameter:(id)typeParameter;
 
@@ -698,20 +698,20 @@
 /* Skipped method : System.Linq.IOrderedQueryable`1<System.Linq.Queryable+TSource> OrderByDescending(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Linq.Queryable+TKey>> keySelector, System.Collections.Generic.IComparer`1<System.Linq.Queryable+TKey> comparer) */
 
 /**
- Managed method.
- @textblock
- Name
-   Reverse
+  Managed method.
+  @textblock
+  Name
+    Reverse
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
- @/textblock
+  Return
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+  @/textblock
 */
 + (id <System_Linq_IQueryableA1>)reverse_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
 
@@ -728,82 +728,82 @@
 /* Skipped method : System.Linq.IQueryable`1<System.Linq.Queryable+TResult> SelectMany(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TCollection>>> collectionSelector, System.Linq.Expressions.Expression`1<System.Func`3<System.Linq.Queryable+TSource, System.Linq.Queryable+TCollection, System.Linq.Queryable+TResult>> resultSelector) */
 
 /**
- Managed method.
- @textblock
- Name
-   SequenceEqual
+  Managed method.
+  @textblock
+  Name
+    SequenceEqual
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
-   System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TSource>
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+    System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TSource>
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)sequenceEqual_withSource1:(id <System_Linq_IQueryableA1_>)p1 source2:(id <System_Collections_Generic_IEnumerableA1_>)p2 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Boolean SequenceEqual(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source1, System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TSource> source2, System.Collections.Generic.IEqualityComparer`1<System.Linq.Queryable+TSource> comparer) */
 
 /**
- Managed method.
- @textblock
- Name
-   Single
+  Managed method.
+  @textblock
+  Name
+    Single
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   <System.Linq.Queryable+TSource>
- @/textblock
+  Return
+    <System.Linq.Queryable+TSource>
+  @/textblock
 */
 + (System_Object *)single_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.Queryable+TSource Single(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Boolean>> predicate) */
 
 /**
- Managed method.
- @textblock
- Name
-   SingleOrDefault
+  Managed method.
+  @textblock
+  Name
+    SingleOrDefault
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   <System.Linq.Queryable+TSource>
- @/textblock
+  Return
+    <System.Linq.Queryable+TSource>
+  @/textblock
 */
 + (System_Object *)singleOrDefault_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.Queryable+TSource SingleOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Boolean>> predicate) */
 
 /**
- Managed method.
- @textblock
- Name
-   Skip
+  Managed method.
+  @textblock
+  Name
+    Skip
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
-   System.Int32
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+    System.Int32
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
- @/textblock
+  Return
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+  @/textblock
 */
 + (id <System_Linq_IQueryableA1>)skip_withSource:(id <System_Linq_IQueryableA1_>)p1 count:(int32_t)p2 typeParameter:(id)typeParameter;
 
@@ -812,152 +812,152 @@
 /* Skipped method : System.Linq.IQueryable`1<System.Linq.Queryable+TSource> SkipWhile(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`3<System.Linq.Queryable+TSource, System.Int32, System.Boolean>> predicate) */
 
 /**
- Managed method.
- @textblock
- Name
-   Sum
+  Managed method.
+  @textblock
+  Name
+    Sum
 
- Params
-   System.Linq.IQueryable`1<System.Int32>
+  Params
+    System.Linq.IQueryable`1<System.Int32>
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)sum_withSourceSLIQueryableA1int:(id <System_Linq_IQueryableA1_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Sum
+  Managed method.
+  @textblock
+  Name
+    Sum
 
- Params
-   System.Linq.IQueryable`1<System.Nullable`1<System.Int32>>
+  Params
+    System.Linq.IQueryable`1<System.Nullable`1<System.Int32>>
 
- Return
-   System.Nullable`1<System.Int32>
- @/textblock
+  Return
+    System.Nullable`1<System.Int32>
+  @/textblock
 */
 + (System_NullableA1 *)sum_withSourceSLINullableA1int:(id <System_Linq_IQueryableA1_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Sum
+  Managed method.
+  @textblock
+  Name
+    Sum
 
- Params
-   System.Linq.IQueryable`1<System.Int64>
+  Params
+    System.Linq.IQueryable`1<System.Int64>
 
- Return
-   System.Int64
- @/textblock
+  Return
+    System.Int64
+  @/textblock
 */
 + (int64_t)sum_withSourceSLIQueryableA1long:(id <System_Linq_IQueryableA1_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Sum
+  Managed method.
+  @textblock
+  Name
+    Sum
 
- Params
-   System.Linq.IQueryable`1<System.Nullable`1<System.Int64>>
+  Params
+    System.Linq.IQueryable`1<System.Nullable`1<System.Int64>>
 
- Return
-   System.Nullable`1<System.Int64>
- @/textblock
+  Return
+    System.Nullable`1<System.Int64>
+  @/textblock
 */
 + (System_NullableA1 *)sum_withSourceSLINullableA1long:(id <System_Linq_IQueryableA1_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Sum
+  Managed method.
+  @textblock
+  Name
+    Sum
 
- Params
-   System.Linq.IQueryable`1<System.Single>
+  Params
+    System.Linq.IQueryable`1<System.Single>
 
- Return
-   System.Single
- @/textblock
+  Return
+    System.Single
+  @/textblock
 */
 + (float)sum_withSourceSLIQueryableA1single:(id <System_Linq_IQueryableA1_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Sum
+  Managed method.
+  @textblock
+  Name
+    Sum
 
- Params
-   System.Linq.IQueryable`1<System.Nullable`1<System.Single>>
+  Params
+    System.Linq.IQueryable`1<System.Nullable`1<System.Single>>
 
- Return
-   System.Nullable`1<System.Single>
- @/textblock
+  Return
+    System.Nullable`1<System.Single>
+  @/textblock
 */
 + (System_NullableA1 *)sum_withSourceSLINullableA1single:(id <System_Linq_IQueryableA1_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Sum
+  Managed method.
+  @textblock
+  Name
+    Sum
 
- Params
-   System.Linq.IQueryable`1<System.Double>
+  Params
+    System.Linq.IQueryable`1<System.Double>
 
- Return
-   System.Double
- @/textblock
+  Return
+    System.Double
+  @/textblock
 */
 + (double)sum_withSourceSLIQueryableA1double:(id <System_Linq_IQueryableA1_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Sum
+  Managed method.
+  @textblock
+  Name
+    Sum
 
- Params
-   System.Linq.IQueryable`1<System.Nullable`1<System.Double>>
+  Params
+    System.Linq.IQueryable`1<System.Nullable`1<System.Double>>
 
- Return
-   System.Nullable`1<System.Double>
- @/textblock
+  Return
+    System.Nullable`1<System.Double>
+  @/textblock
 */
 + (System_NullableA1 *)sum_withSourceSLINullableA1double:(id <System_Linq_IQueryableA1_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Sum
+  Managed method.
+  @textblock
+  Name
+    Sum
 
- Params
-   System.Linq.IQueryable`1<System.Decimal>
+  Params
+    System.Linq.IQueryable`1<System.Decimal>
 
- Return
-   System.Decimal
- @/textblock
+  Return
+    System.Decimal
+  @/textblock
 */
 + (NSDecimalNumber *)sum_withSourceSLIDecimal:(id <System_Linq_IQueryableA1_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Sum
+  Managed method.
+  @textblock
+  Name
+    Sum
 
- Params
-   System.Linq.IQueryable`1<System.Nullable`1<System.Decimal>>
+  Params
+    System.Linq.IQueryable`1<System.Nullable`1<System.Decimal>>
 
- Return
-   System.Nullable`1<System.Decimal>
- @/textblock
+  Return
+    System.Nullable`1<System.Decimal>
+  @/textblock
 */
 + (System_NullableA1 *)sum_withSourceSLINDecimal:(id <System_Linq_IQueryableA1_>)p1;
 
@@ -982,21 +982,21 @@
 /* Skipped method : System.Nullable`1<System.Decimal> Sum(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Nullable`1<System.Decimal>>> selector) */
 
 /**
- Managed method.
- @textblock
- Name
-   Take
+  Managed method.
+  @textblock
+  Name
+    Take
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
-   System.Int32
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+    System.Int32
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
- @/textblock
+  Return
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+  @/textblock
 */
 + (id <System_Linq_IQueryableA1>)take_withSource:(id <System_Linq_IQueryableA1_>)p1 count:(int32_t)p2 typeParameter:(id)typeParameter;
 
@@ -1013,21 +1013,21 @@
 /* Skipped method : System.Linq.IOrderedQueryable`1<System.Linq.Queryable+TSource> ThenByDescending(System.Linq.IOrderedQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Linq.Queryable+TKey>> keySelector, System.Collections.Generic.IComparer`1<System.Linq.Queryable+TKey> comparer) */
 
 /**
- Managed method.
- @textblock
- Name
-   Union
+  Managed method.
+  @textblock
+  Name
+    Union
 
- Params
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
-   System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TSource>
+  Params
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+    System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TSource>
 
- Generics
-   <System.Linq.Queryable+TSource>
+  Generics
+    <System.Linq.Queryable+TSource>
 
- Return
-   System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
- @/textblock
+  Return
+    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
+  @/textblock
 */
 + (id <System_Linq_IQueryableA1>)union_withSource1:(id <System_Linq_IQueryableA1_>)p1 source2:(id <System_Collections_Generic_IEnumerableA1_>)p2 typeParameter:(id)typeParameter;
 

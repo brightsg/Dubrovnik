@@ -42,134 +42,142 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Current
-	// Managed property type : System.Threading.SynchronizationContext
-    + (System_Threading_SynchronizationContext *)current;
+/**
+  Managed property.
+  @textblock
+  Name
+    Current
+
+  Type
+    System.Threading.SynchronizationContext
+  @/textblock
+*/
++ (System_Threading_SynchronizationContext *)current;
 
 #pragma mark -
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   CreateCopy
+  Managed method.
+  @textblock
+  Name
+    CreateCopy
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Threading.SynchronizationContext
- @/textblock
+  Return
+    System.Threading.SynchronizationContext
+  @/textblock
 */
 - (System_Threading_SynchronizationContext *)createCopy;
 
 /**
- Managed method.
- @textblock
- Name
-   IsWaitNotificationRequired
+  Managed method.
+  @textblock
+  Name
+    IsWaitNotificationRequired
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)isWaitNotificationRequired;
 
 /**
- Managed method.
- @textblock
- Name
-   OperationCompleted
+  Managed method.
+  @textblock
+  Name
+    OperationCompleted
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)operationCompleted;
 
 /**
- Managed method.
- @textblock
- Name
-   OperationStarted
+  Managed method.
+  @textblock
+  Name
+    OperationStarted
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)operationStarted;
 
 /**
- Managed method.
- @textblock
- Name
-   Post
+  Managed method.
+  @textblock
+  Name
+    Post
 
- Params
-   System.Threading.SendOrPostCallback
-   System.Object
+  Params
+    System.Threading.SendOrPostCallback
+    System.Object
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)post_withD:(System_Threading_SendOrPostCallback *)p1 state:(System_Object *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   Send
+  Managed method.
+  @textblock
+  Name
+    Send
 
- Params
-   System.Threading.SendOrPostCallback
-   System.Object
+  Params
+    System.Threading.SendOrPostCallback
+    System.Object
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)send_withD:(System_Threading_SendOrPostCallback *)p1 state:(System_Object *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   SetSynchronizationContext
+  Managed method.
+  @textblock
+  Name
+    SetSynchronizationContext
 
- Params
-   System.Threading.SynchronizationContext
+  Params
+    System.Threading.SynchronizationContext
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)setSynchronizationContext_withSyncContext:(System_Threading_SynchronizationContext *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Wait
+  Managed method.
+  @textblock
+  Name
+    Wait
 
- Params
-   System.IntPtr[]
-   System.Boolean
-   System.Int32
+  Params
+    System.IntPtr[]
+    System.Boolean
+    System.Int32
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)wait_withWaitHandles:(System_Array *)p1 waitAll:(BOOL)p2 millisecondsTimeout:(int32_t)p3;
 @end

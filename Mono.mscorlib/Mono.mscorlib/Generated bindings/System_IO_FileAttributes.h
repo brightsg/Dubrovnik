@@ -56,68 +56,196 @@ typedef NS_ENUM(int32_t, enumSystem_IO_FileAttributes) {
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : Archive
-	// Managed field type : System.IO.FileAttributes
-    + (int32_t)archive;
+/**
+  Managed field.
+  @textblock
+  Name
+    Archive
 
-	// Managed field name : Compressed
-	// Managed field type : System.IO.FileAttributes
-    + (int32_t)compressed;
+  Type
+    System.IO.FileAttributes
+  @/textblock
+*/
++ (int32_t)archive;
 
-	// Managed field name : Device
-	// Managed field type : System.IO.FileAttributes
-    + (int32_t)device;
+/**
+  Managed field.
+  @textblock
+  Name
+    Compressed
 
-	// Managed field name : Directory
-	// Managed field type : System.IO.FileAttributes
-    + (int32_t)directory;
+  Type
+    System.IO.FileAttributes
+  @/textblock
+*/
++ (int32_t)compressed;
 
-	// Managed field name : Encrypted
-	// Managed field type : System.IO.FileAttributes
-    + (int32_t)encrypted;
+/**
+  Managed field.
+  @textblock
+  Name
+    Device
 
-	// Managed field name : Hidden
-	// Managed field type : System.IO.FileAttributes
-    + (int32_t)hidden;
+  Type
+    System.IO.FileAttributes
+  @/textblock
+*/
++ (int32_t)device;
 
-	// Managed field name : IntegrityStream
-	// Managed field type : System.IO.FileAttributes
-    + (int32_t)integrityStream;
+/**
+  Managed field.
+  @textblock
+  Name
+    Directory
 
-	// Managed field name : Normal
-	// Managed field type : System.IO.FileAttributes
-    + (int32_t)normal;
+  Type
+    System.IO.FileAttributes
+  @/textblock
+*/
++ (int32_t)directory;
 
-	// Managed field name : NoScrubData
-	// Managed field type : System.IO.FileAttributes
-    + (int32_t)noScrubData;
+/**
+  Managed field.
+  @textblock
+  Name
+    Encrypted
 
-	// Managed field name : NotContentIndexed
-	// Managed field type : System.IO.FileAttributes
-    + (int32_t)notContentIndexed;
+  Type
+    System.IO.FileAttributes
+  @/textblock
+*/
++ (int32_t)encrypted;
 
-	// Managed field name : Offline
-	// Managed field type : System.IO.FileAttributes
-    + (int32_t)offline;
+/**
+  Managed field.
+  @textblock
+  Name
+    Hidden
 
-	// Managed field name : ReadOnly
-	// Managed field type : System.IO.FileAttributes
-    + (int32_t)readOnly;
+  Type
+    System.IO.FileAttributes
+  @/textblock
+*/
++ (int32_t)hidden;
 
-	// Managed field name : ReparsePoint
-	// Managed field type : System.IO.FileAttributes
-    + (int32_t)reparsePoint;
+/**
+  Managed field.
+  @textblock
+  Name
+    IntegrityStream
 
-	// Managed field name : SparseFile
-	// Managed field type : System.IO.FileAttributes
-    + (int32_t)sparseFile;
+  Type
+    System.IO.FileAttributes
+  @/textblock
+*/
++ (int32_t)integrityStream;
 
-	// Managed field name : System
-	// Managed field type : System.IO.FileAttributes
-    + (int32_t)system;
+/**
+  Managed field.
+  @textblock
+  Name
+    Normal
 
-	// Managed field name : Temporary
-	// Managed field type : System.IO.FileAttributes
-    + (int32_t)temporary;
+  Type
+    System.IO.FileAttributes
+  @/textblock
+*/
++ (int32_t)normal;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    NoScrubData
+
+  Type
+    System.IO.FileAttributes
+  @/textblock
+*/
++ (int32_t)noScrubData;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    NotContentIndexed
+
+  Type
+    System.IO.FileAttributes
+  @/textblock
+*/
++ (int32_t)notContentIndexed;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    Offline
+
+  Type
+    System.IO.FileAttributes
+  @/textblock
+*/
++ (int32_t)offline;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    ReadOnly
+
+  Type
+    System.IO.FileAttributes
+  @/textblock
+*/
++ (int32_t)readOnly;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    ReparsePoint
+
+  Type
+    System.IO.FileAttributes
+  @/textblock
+*/
++ (int32_t)reparsePoint;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    SparseFile
+
+  Type
+    System.IO.FileAttributes
+  @/textblock
+*/
++ (int32_t)sparseFile;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    System
+
+  Type
+    System.IO.FileAttributes
+  @/textblock
+*/
++ (int32_t)system;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    Temporary
+
+  Type
+    System.IO.FileAttributes
+  @/textblock
+*/
++ (int32_t)temporary;
 @end
 //--Dubrovnik.CodeGenerator

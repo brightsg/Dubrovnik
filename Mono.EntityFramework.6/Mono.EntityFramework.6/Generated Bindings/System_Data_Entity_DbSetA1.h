@@ -51,178 +51,186 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Local
-	// Managed property type : System.Collections.ObjectModel.ObservableCollection`1<System.Data.Entity.DbSet`1+TEntity>
-    @property (nonatomic, strong, readonly) System_Collections_ObjectModel_ObservableCollectionA1 * local;
+/**
+  Managed property.
+  @textblock
+  Name
+    Local
+
+  Type
+    System.Collections.ObjectModel.ObservableCollection`1<System.Data.Entity.DbSet`1+TEntity>
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Collections_ObjectModel_ObservableCollectionA1 * local;
 
 #pragma mark -
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   Add
+  Managed method.
+  @textblock
+  Name
+    Add
 
- Params
-   <System.Data.Entity.DbSet`1+TEntity>
+  Params
+    <System.Data.Entity.DbSet`1+TEntity>
 
- Return
-   <System.Data.Entity.DbSet`1+TEntity>
- @/textblock
+  Return
+    <System.Data.Entity.DbSet`1+TEntity>
+  @/textblock
 */
 - (System_Object *)add_withEntity:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   AddRange
+  Managed method.
+  @textblock
+  Name
+    AddRange
 
- Params
-   System.Collections.Generic.IEnumerable`1<System.Data.Entity.DbSet`1+TEntity>
+  Params
+    System.Collections.Generic.IEnumerable`1<System.Data.Entity.DbSet`1+TEntity>
 
- Return
-   System.Collections.Generic.IEnumerable`1<System.Data.Entity.DbSet`1+TEntity>
- @/textblock
+  Return
+    System.Collections.Generic.IEnumerable`1<System.Data.Entity.DbSet`1+TEntity>
+  @/textblock
 */
 - (id <System_Collections_Generic_IEnumerableA1>)addRange_withEntities:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Attach
+  Managed method.
+  @textblock
+  Name
+    Attach
 
- Params
-   <System.Data.Entity.DbSet`1+TEntity>
+  Params
+    <System.Data.Entity.DbSet`1+TEntity>
 
- Return
-   <System.Data.Entity.DbSet`1+TEntity>
- @/textblock
+  Return
+    <System.Data.Entity.DbSet`1+TEntity>
+  @/textblock
 */
 - (System_Object *)attach_withEntity:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   System.Object
+  Params
+    System.Object
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withObj:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Find
+  Managed method.
+  @textblock
+  Name
+    Find
 
- Params
-   System.Object[]
+  Params
+    System.Object[]
 
- Return
-   <System.Data.Entity.DbSet`1+TEntity>
- @/textblock
+  Return
+    <System.Data.Entity.DbSet`1+TEntity>
+  @/textblock
 */
 - (System_Object *)find_withKeyValues:(System_Array *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   FindAsync
+  Managed method.
+  @textblock
+  Name
+    FindAsync
 
- Params
-   System.Threading.CancellationToken
-   System.Object[]
+  Params
+    System.Threading.CancellationToken
+    System.Object[]
 
- Return
-   System.Threading.Tasks.Task`1<System.Data.Entity.DbSet`1+TEntity>
- @/textblock
+  Return
+    System.Threading.Tasks.Task`1<System.Data.Entity.DbSet`1+TEntity>
+  @/textblock
 */
 - (System_Threading_Tasks_TaskA1 *)findAsync_withCancellationToken:(System_Threading_CancellationToken *)p1 keyValues:(System_Array *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   FindAsync
+  Managed method.
+  @textblock
+  Name
+    FindAsync
 
- Params
-   System.Object[]
+  Params
+    System.Object[]
 
- Return
-   System.Threading.Tasks.Task`1<System.Data.Entity.DbSet`1+TEntity>
- @/textblock
+  Return
+    System.Threading.Tasks.Task`1<System.Data.Entity.DbSet`1+TEntity>
+  @/textblock
 */
 - (System_Threading_Tasks_TaskA1 *)findAsync_withKeyValues:(System_Array *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetHashCode
+  Managed method.
+  @textblock
+  Name
+    GetHashCode
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getHashCode;
 
 /**
- Managed method.
- @textblock
- Name
-   GetType
+  Managed method.
+  @textblock
+  Name
+    GetType
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Type
- @/textblock
+  Return
+    System.Type
+  @/textblock
 */
 - (System_Type *)getType;
 
 /* Skipped method : System.Data.Entity.DbSet op_Implicit(System.Data.Entity.DbSet`1<System.Data.Entity.DbSet`1+TEntity> entry) */
 
 /**
- Managed method.
- @textblock
- Name
-   Remove
+  Managed method.
+  @textblock
+  Name
+    Remove
 
- Params
-   <System.Data.Entity.DbSet`1+TEntity>
+  Params
+    <System.Data.Entity.DbSet`1+TEntity>
 
- Return
-   <System.Data.Entity.DbSet`1+TEntity>
- @/textblock
+  Return
+    <System.Data.Entity.DbSet`1+TEntity>
+  @/textblock
 */
 - (System_Object *)remove_withEntity:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   RemoveRange
+  Managed method.
+  @textblock
+  Name
+    RemoveRange
 
- Params
-   System.Collections.Generic.IEnumerable`1<System.Data.Entity.DbSet`1+TEntity>
+  Params
+    System.Collections.Generic.IEnumerable`1<System.Data.Entity.DbSet`1+TEntity>
 
- Return
-   System.Collections.Generic.IEnumerable`1<System.Data.Entity.DbSet`1+TEntity>
- @/textblock
+  Return
+    System.Collections.Generic.IEnumerable`1<System.Data.Entity.DbSet`1+TEntity>
+  @/textblock
 */
 - (id <System_Collections_Generic_IEnumerableA1>)removeRange_withEntities:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 

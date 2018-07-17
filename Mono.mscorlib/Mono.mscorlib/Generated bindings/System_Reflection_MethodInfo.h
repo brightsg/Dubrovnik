@@ -45,9 +45,17 @@
 
 /* Skipped property : System.Reflection.ParameterInfo ReturnParameter */
 
-	// Managed property name : ReturnType
-	// Managed property type : System.Type
-    @property (nonatomic, strong, readonly) System_Type * returnType;
+/**
+  Managed property.
+  @textblock
+  Name
+    ReturnType
+
+  Type
+    System.Type
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Type * returnType;
 
 /* Skipped property : System.Reflection.ICustomAttributeProvider ReturnTypeCustomAttributes */
 
@@ -55,155 +63,155 @@
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   CreateDelegate
+  Managed method.
+  @textblock
+  Name
+    CreateDelegate
 
- Params
-   System.Type
+  Params
+    System.Type
 
- Return
-   System.Delegate
- @/textblock
+  Return
+    System.Delegate
+  @/textblock
 */
 - (System_Delegate *)createDelegate_withDelegateType:(System_Type *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   CreateDelegate
+  Managed method.
+  @textblock
+  Name
+    CreateDelegate
 
- Params
-   System.Type
-   System.Object
+  Params
+    System.Type
+    System.Object
 
- Return
-   System.Delegate
- @/textblock
+  Return
+    System.Delegate
+  @/textblock
 */
 - (System_Delegate *)createDelegate_withDelegateType:(System_Type *)p1 target:(System_Object *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   System.Object
+  Params
+    System.Object
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withObj:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetBaseDefinition
+  Managed method.
+  @textblock
+  Name
+    GetBaseDefinition
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Reflection.MethodInfo
- @/textblock
+  Return
+    System.Reflection.MethodInfo
+  @/textblock
 */
 - (System_Reflection_MethodInfo *)getBaseDefinition;
 
 /**
- Managed method.
- @textblock
- Name
-   GetGenericArguments
+  Managed method.
+  @textblock
+  Name
+    GetGenericArguments
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Type[]
- @/textblock
+  Return
+    System.Type[]
+  @/textblock
 */
 - (System_Array *)getGenericArguments;
 
 /**
- Managed method.
- @textblock
- Name
-   GetGenericMethodDefinition
+  Managed method.
+  @textblock
+  Name
+    GetGenericMethodDefinition
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Reflection.MethodInfo
- @/textblock
+  Return
+    System.Reflection.MethodInfo
+  @/textblock
 */
 - (System_Reflection_MethodInfo *)getGenericMethodDefinition;
 
 /**
- Managed method.
- @textblock
- Name
-   GetHashCode
+  Managed method.
+  @textblock
+  Name
+    GetHashCode
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getHashCode;
 
 /**
- Managed method.
- @textblock
- Name
-   MakeGenericMethod
+  Managed method.
+  @textblock
+  Name
+    MakeGenericMethod
 
- Params
-   System.Type[]
+  Params
+    System.Type[]
 
- Return
-   System.Reflection.MethodInfo
- @/textblock
+  Return
+    System.Reflection.MethodInfo
+  @/textblock
 */
 - (System_Reflection_MethodInfo *)makeGenericMethod_withTypeArguments:(System_Array *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   op_Equality
+  Managed method.
+  @textblock
+  Name
+    op_Equality
 
- Params
-   System.Reflection.MethodInfo
-   System.Reflection.MethodInfo
+  Params
+    System.Reflection.MethodInfo
+    System.Reflection.MethodInfo
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)op_Equality_withLeft:(System_Reflection_MethodInfo *)p1 right:(System_Reflection_MethodInfo *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   op_Inequality
+  Managed method.
+  @textblock
+  Name
+    op_Inequality
 
- Params
-   System.Reflection.MethodInfo
-   System.Reflection.MethodInfo
+  Params
+    System.Reflection.MethodInfo
+    System.Reflection.MethodInfo
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)op_Inequality_withLeft:(System_Reflection_MethodInfo *)p1 right:(System_Reflection_MethodInfo *)p2;
 @end

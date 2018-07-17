@@ -33,27 +33,25 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Local
-	// Managed property type : System.Collections.ObjectModel.ObservableCollection`1<System.Data.Entity.DbSet`1+TEntity>
-    @synthesize local = _local;
-    - (System_Collections_ObjectModel_ObservableCollectionA1 *)local
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Local");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_local isEqualToMonoObject:monoObject]) return _local;					
-		_local = [System_Collections_ObjectModel_ObservableCollectionA1 bestObjectWithMonoObject:monoObject];
-
-		return _local;
+@synthesize local = _local;
+- (System_Collections_ObjectModel_ObservableCollectionA1 *)local
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Local");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_local isEqualToMonoObject:monoObject]) return _local;
+	_local = [System_Collections_ObjectModel_ObservableCollectionA1 bestObjectWithMonoObject:monoObject];
+
+	return _local;
+}
 
 #pragma mark -
 #pragma mark Methods

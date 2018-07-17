@@ -50,197 +50,185 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : BaseStream
-	// Managed property type : System.IO.Stream
-    @synthesize baseStream = _baseStream;
-    - (System_IO_Stream *)baseStream
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BaseStream");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_baseStream isEqualToMonoObject:monoObject]) return _baseStream;					
-		_baseStream = [System_IO_Stream bestObjectWithMonoObject:monoObject];
-
-		return _baseStream;
+@synthesize baseStream = _baseStream;
+- (System_IO_Stream *)baseStream
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "BaseStream");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_baseStream isEqualToMonoObject:monoObject]) return _baseStream;
+	_baseStream = [System_IO_Stream bestObjectWithMonoObject:monoObject];
+
+	return _baseStream;
+}
 
 /* Skipped property : System.Xml.Formatting Formatting */
 
-	// Managed property name : Indentation
-	// Managed property type : System.Int32
-    @synthesize indentation = _indentation;
-    - (int32_t)indentation
-    {
-		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Indentation");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int32_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_indentation = monoObject;
+@synthesize indentation = _indentation;
+- (int32_t)indentation
+{
+	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Indentation");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	int32_t monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_indentation = monoObject;
 
-		return _indentation;
+	return _indentation;
+}
+- (void)setIndentation:(int32_t)value
+{
+	_indentation = value;
+	typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "Indentation");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-    - (void)setIndentation:(int32_t)value
-	{
-		_indentation = value;
-		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Indentation");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject *monoException = NULL;
-		thunk(self.monoObject, value, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-	}
+	thunk(self.monoObject, value, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
 
-	// Managed property name : IndentChar
-	// Managed property type : System.Char
-    @synthesize indentChar = _indentChar;
-    - (uint16_t)indentChar
-    {
-		typedef uint16_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IndentChar");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		uint16_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_indentChar = monoObject;
+@synthesize indentChar = _indentChar;
+- (uint16_t)indentChar
+{
+	typedef uint16_t (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IndentChar");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	uint16_t monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_indentChar = monoObject;
 
-		return _indentChar;
+	return _indentChar;
+}
+- (void)setIndentChar:(uint16_t)value
+{
+	_indentChar = value;
+	typedef void (*Thunk)(MonoObject *, uint16_t, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "IndentChar");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-    - (void)setIndentChar:(uint16_t)value
-	{
-		_indentChar = value;
-		typedef void (*Thunk)(MonoObject *, uint16_t, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "IndentChar");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject *monoException = NULL;
-		thunk(self.monoObject, value, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-	}
+	thunk(self.monoObject, value, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
 
-	// Managed property name : Namespaces
-	// Managed property type : System.Boolean
-    @synthesize namespaces = _namespaces;
-    - (BOOL)namespaces
-    {
-		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Namespaces");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		BOOL monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_namespaces = monoObject;
+@synthesize namespaces = _namespaces;
+- (BOOL)namespaces
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Namespaces");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_namespaces = monoObject;
 
-		return _namespaces;
+	return _namespaces;
+}
+- (void)setNamespaces:(BOOL)value
+{
+	_namespaces = value;
+	typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "Namespaces");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-    - (void)setNamespaces:(BOOL)value
-	{
-		_namespaces = value;
-		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Namespaces");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject *monoException = NULL;
-		thunk(self.monoObject, value, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-	}
+	thunk(self.monoObject, value, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
 
-	// Managed property name : QuoteChar
-	// Managed property type : System.Char
-    @synthesize quoteChar = _quoteChar;
-    - (uint16_t)quoteChar
-    {
-		typedef uint16_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "QuoteChar");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		uint16_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_quoteChar = monoObject;
+@synthesize quoteChar = _quoteChar;
+- (uint16_t)quoteChar
+{
+	typedef uint16_t (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "QuoteChar");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	uint16_t monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_quoteChar = monoObject;
 
-		return _quoteChar;
+	return _quoteChar;
+}
+- (void)setQuoteChar:(uint16_t)value
+{
+	_quoteChar = value;
+	typedef void (*Thunk)(MonoObject *, uint16_t, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "QuoteChar");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-    - (void)setQuoteChar:(uint16_t)value
-	{
-		_quoteChar = value;
-		typedef void (*Thunk)(MonoObject *, uint16_t, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "QuoteChar");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject *monoException = NULL;
-		thunk(self.monoObject, value, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-	}
+	thunk(self.monoObject, value, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
 
 /* Skipped property : System.Xml.WriteState WriteState */
 
-	// Managed property name : XmlLang
-	// Managed property type : System.String
-    @synthesize xmlLang = _xmlLang;
-    - (NSString *)xmlLang
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "XmlLang");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_xmlLang isEqualToMonoObject:monoObject]) return _xmlLang;					
-		_xmlLang = [NSString stringWithMonoString:DB_STRING(monoObject)];
-
-		return _xmlLang;
+@synthesize xmlLang = _xmlLang;
+- (NSString *)xmlLang
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "XmlLang");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_xmlLang isEqualToMonoObject:monoObject]) return _xmlLang;
+	_xmlLang = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+	return _xmlLang;
+}
 
 /* Skipped property : System.Xml.XmlSpace XmlSpace */
 

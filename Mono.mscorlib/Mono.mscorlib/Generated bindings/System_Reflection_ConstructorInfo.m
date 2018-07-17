@@ -33,29 +33,25 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : ConstructorName
-	// Managed field type : System.String
-    static NSString * m_constructorName;
-    + (NSString *)constructorName
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"ConstructorName"];
-		if ([self object:m_constructorName isEqualToMonoObject:monoObject]) return m_constructorName;					
-		m_constructorName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+static NSString * m_constructorName;
++ (NSString *)constructorName
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"ConstructorName"];
+	if ([self object:m_constructorName isEqualToMonoObject:monoObject]) return m_constructorName;
+	m_constructorName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
-		return m_constructorName;
-	}
+	return m_constructorName;
+}
 
-	// Managed field name : TypeConstructorName
-	// Managed field type : System.String
-    static NSString * m_typeConstructorName;
-    + (NSString *)typeConstructorName
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"TypeConstructorName"];
-		if ([self object:m_typeConstructorName isEqualToMonoObject:monoObject]) return m_typeConstructorName;					
-		m_typeConstructorName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+static NSString * m_typeConstructorName;
++ (NSString *)typeConstructorName
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"TypeConstructorName"];
+	if ([self object:m_typeConstructorName isEqualToMonoObject:monoObject]) return m_typeConstructorName;
+	m_typeConstructorName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
-		return m_typeConstructorName;
-	}
+	return m_typeConstructorName;
+}
 
 #pragma mark -
 #pragma mark Properties

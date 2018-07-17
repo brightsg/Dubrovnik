@@ -33,38 +33,32 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : SafeUnescaped
-	// Managed field type : System.UriFormat
-    static int32_t m_safeUnescaped;
-    + (int32_t)safeUnescaped
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"SafeUnescaped"];
-		m_safeUnescaped = DB_UNBOX_INT32(monoObject);
+static int32_t m_safeUnescaped;
++ (int32_t)safeUnescaped
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"SafeUnescaped"];
+	m_safeUnescaped = DB_UNBOX_INT32(monoObject);
 
-		return m_safeUnescaped;
-	}
+	return m_safeUnescaped;
+}
 
-	// Managed field name : Unescaped
-	// Managed field type : System.UriFormat
-    static int32_t m_unescaped;
-    + (int32_t)unescaped
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"Unescaped"];
-		m_unescaped = DB_UNBOX_INT32(monoObject);
+static int32_t m_unescaped;
++ (int32_t)unescaped
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"Unescaped"];
+	m_unescaped = DB_UNBOX_INT32(monoObject);
 
-		return m_unescaped;
-	}
+	return m_unescaped;
+}
 
-	// Managed field name : UriEscaped
-	// Managed field type : System.UriFormat
-    static int32_t m_uriEscaped;
-    + (int32_t)uriEscaped
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"UriEscaped"];
-		m_uriEscaped = DB_UNBOX_INT32(monoObject);
+static int32_t m_uriEscaped;
++ (int32_t)uriEscaped
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"UriEscaped"];
+	m_uriEscaped = DB_UNBOX_INT32(monoObject);
 
-		return m_uriEscaped;
-	}
+	return m_uriEscaped;
+}
 
 #pragma mark -
 #pragma mark Teardown

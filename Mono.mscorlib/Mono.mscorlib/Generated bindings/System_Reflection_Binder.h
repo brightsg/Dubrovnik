@@ -48,35 +48,35 @@
 /* Skipped method : System.Reflection.MethodBase BindToMethod(System.Reflection.BindingFlags bindingAttr, System.Reflection.MethodBase[] match, System.Object[]& args, System.Reflection.ParameterModifier[] modifiers, System.Globalization.CultureInfo culture, System.String[] names, System.Object& state) */
 
 /**
- Managed method.
- @textblock
- Name
-   ChangeType
+  Managed method.
+  @textblock
+  Name
+    ChangeType
 
- Params
-   System.Object
-   System.Type
-   System.Globalization.CultureInfo
+  Params
+    System.Object
+    System.Type
+    System.Globalization.CultureInfo
 
- Return
-   System.Object
- @/textblock
+  Return
+    System.Object
+  @/textblock
 */
 - (System_Object *)changeType_withValue:(System_Object *)p1 type:(System_Type *)p2 culture:(System_Globalization_CultureInfo *)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   ReorderArgumentArray
+  Managed method.
+  @textblock
+  Name
+    ReorderArgumentArray
 
- Params
-   ref System.Object[]&
-   System.Object
+  Params
+    ref System.Object[]&
+    System.Object
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)reorderArgumentArray_withArgsRef:(System_Object **)p1 state:(System_Object *)p2;
 

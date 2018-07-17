@@ -39,31 +39,47 @@
 #pragma mark Constructors
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Object
-   System.Exception
-   System.Boolean
+  Params
+    System.Object
+    System.Exception
+    System.Boolean
 
- Return
-   System.ComponentModel.RunWorkerCompletedEventArgs
- @/textblock
+  Return
+    System.ComponentModel.RunWorkerCompletedEventArgs
+  @/textblock
 */
 + (System_ComponentModel_RunWorkerCompletedEventArgs *)new_withResult:(System_Object *)p1 error:(System_Exception *)p2 cancelled:(BOOL)p3;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Result
-	// Managed property type : System.Object
-    @property (nonatomic, strong, readonly) System_Object * result;
+/**
+  Managed property.
+  @textblock
+  Name
+    Result
 
-	// Managed property name : UserState
-	// Managed property type : System.Object
-    @property (nonatomic, strong, readonly) System_Object * userState;
+  Type
+    System.Object
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Object * result;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    UserState
+
+  Type
+    System.Object
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Object * userState;
 @end
 //--Dubrovnik.CodeGenerator

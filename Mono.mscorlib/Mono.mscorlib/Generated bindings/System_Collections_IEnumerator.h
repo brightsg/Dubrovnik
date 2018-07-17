@@ -41,40 +41,48 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Current
-	// Managed property type : System.Object
-    @property (nonatomic, strong, readonly) System_Object * current;
+/**
+  Managed property.
+  @textblock
+  Name
+    Current
+
+  Type
+    System.Object
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Object * current;
 
 #pragma mark -
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   MoveNext
+  Managed method.
+  @textblock
+  Name
+    MoveNext
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)moveNext;
 
 /**
- Managed method.
- @textblock
- Name
-   Reset
+  Managed method.
+  @textblock
+  Name
+    Reset
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)reset;
 @end

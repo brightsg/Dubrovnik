@@ -52,135 +52,151 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Count
-	// Managed property type : System.Int32
-    @property (nonatomic, readonly) int32_t count;
+/**
+  Managed property.
+  @textblock
+  Name
+    Count
 
-	// Managed property name : IsReadOnly
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isReadOnly;
+  Type
+    System.Int32
+  @/textblock
+*/
+@property (nonatomic, readonly) int32_t count;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    IsReadOnly
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isReadOnly;
 
 #pragma mark -
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   Add
+  Managed method.
+  @textblock
+  Name
+    Add
 
- Params
-   <System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
+  Params
+    <System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)add_withItem:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Attach
+  Managed method.
+  @textblock
+  Name
+    Attach
 
- Params
-   System.Collections.Generic.IEnumerable`1<System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
+  Params
+    System.Collections.Generic.IEnumerable`1<System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)attach_withEntities:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Attach
+  Managed method.
+  @textblock
+  Name
+    Attach
 
- Params
-   <System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
+  Params
+    <System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)attach_withEntity:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Clear
+  Managed method.
+  @textblock
+  Name
+    Clear
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)clear;
 
 /**
- Managed method.
- @textblock
- Name
-   Contains
+  Managed method.
+  @textblock
+  Name
+    Contains
 
- Params
-   <System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
+  Params
+    <System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)contains_withItem:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   CopyTo
+  Managed method.
+  @textblock
+  Name
+    CopyTo
 
- Params
-   TEntity[]
-   System.Int32
+  Params
+    TEntity[]
+    System.Int32
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   CreateSourceQuery
+  Managed method.
+  @textblock
+  Name
+    CreateSourceQuery
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
- @/textblock
+  Return
+    System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
+  @/textblock
 */
 - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)createSourceQuery;
 
 /**
- Managed method.
- @textblock
- Name
-   GetEnumerator
+  Managed method.
+  @textblock
+  Name
+    GetEnumerator
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Collections.Generic.IEnumerator`1<System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
- @/textblock
+  Return
+    System.Collections.Generic.IEnumerator`1<System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
+  @/textblock
 */
 - (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator;
 
@@ -193,17 +209,17 @@
 /* Skipped method : System.Void OnSerializing(System.Runtime.Serialization.StreamingContext context) */
 
 /**
- Managed method.
- @textblock
- Name
-   Remove
+  Managed method.
+  @textblock
+  Name
+    Remove
 
- Params
-   <System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
+  Params
+    <System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)remove_withItem:(System_Object *)p1;
 @end

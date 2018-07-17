@@ -42,49 +42,45 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Key
-	// Managed property type : <System.Collections.Generic.KeyValuePair`2+TKey>
-    @synthesize key = _key;
-    - (System_Object *)key
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Key");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_key isEqualToMonoObject:monoObject]) return _key;					
-		_key = [System_Object bestObjectWithMonoObject:monoObject];
-
-		return _key;
+@synthesize key = _key;
+- (System_Object *)key
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Key");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_key isEqualToMonoObject:monoObject]) return _key;
+	_key = [System_Object bestObjectWithMonoObject:monoObject];
 
-	// Managed property name : Value
-	// Managed property type : <System.Collections.Generic.KeyValuePair`2+TValue>
-    @synthesize value = _value;
-    - (System_Object *)value
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Value");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_value isEqualToMonoObject:monoObject]) return _value;					
-		_value = [System_Object bestObjectWithMonoObject:monoObject];
+	return _key;
+}
 
-		return _value;
+@synthesize value = _value;
+- (System_Object *)value
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Value");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_value isEqualToMonoObject:monoObject]) return _value;
+	_value = [System_Object bestObjectWithMonoObject:monoObject];
+
+	return _value;
+}
 
 #pragma mark -
 #pragma mark Methods

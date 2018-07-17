@@ -38,27 +38,25 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : BaseURI
-	// Managed property type : System.String
-    @synthesize baseURI = _baseURI;
-    - (NSString *)baseURI
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BaseURI");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_baseURI isEqualToMonoObject:monoObject]) return _baseURI;					
-		_baseURI = [NSString stringWithMonoString:DB_STRING(monoObject)];
-
-		return _baseURI;
+@synthesize baseURI = _baseURI;
+- (NSString *)baseURI
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "BaseURI");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_baseURI isEqualToMonoObject:monoObject]) return _baseURI;
+	_baseURI = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+	return _baseURI;
+}
 
 /* Skipped property : System.Xml.XmlElement DocumentElement */
 
@@ -66,190 +64,176 @@
 
 /* Skipped property : System.Xml.XmlImplementation Implementation */
 
-	// Managed property name : InnerText
-	// Managed property type : System.String
-    @synthesize innerText = _innerText;
-    - (void)setInnerText:(NSString *)value
-	{
-		_innerText = value;
-		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "InnerText");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject *monoException = NULL;
-		thunk(self.monoObject, [value monoObject], &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+@synthesize innerText = _innerText;
+- (void)setInnerText:(NSString *)value
+{
+	_innerText = value;
+	typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "InnerText");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	thunk(self.monoObject, [value monoObject], &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
 
-	// Managed property name : InnerXml
-	// Managed property type : System.String
-    @synthesize innerXml = _innerXml;
-    - (NSString *)innerXml
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InnerXml");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_innerXml isEqualToMonoObject:monoObject]) return _innerXml;					
-		_innerXml = [NSString stringWithMonoString:DB_STRING(monoObject)];
-
-		return _innerXml;
+@synthesize innerXml = _innerXml;
+- (NSString *)innerXml
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "InnerXml");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-    - (void)setInnerXml:(NSString *)value
-	{
-		_innerXml = value;
-		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "InnerXml");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject *monoException = NULL;
-		thunk(self.monoObject, [value monoObject], &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_innerXml isEqualToMonoObject:monoObject]) return _innerXml;
+	_innerXml = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+	return _innerXml;
+}
+- (void)setInnerXml:(NSString *)value
+{
+	_innerXml = value;
+	typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "InnerXml");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	thunk(self.monoObject, [value monoObject], &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
 
-	// Managed property name : IsReadOnly
-	// Managed property type : System.Boolean
-    @synthesize isReadOnly = _isReadOnly;
-    - (BOOL)isReadOnly
-    {
-		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsReadOnly");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		BOOL monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_isReadOnly = monoObject;
-
-		return _isReadOnly;
+@synthesize isReadOnly = _isReadOnly;
+- (BOOL)isReadOnly
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IsReadOnly");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_isReadOnly = monoObject;
 
-	// Managed property name : LocalName
-	// Managed property type : System.String
-    @synthesize localName = _localName;
-    - (NSString *)localName
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LocalName");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_localName isEqualToMonoObject:monoObject]) return _localName;					
-		_localName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+	return _isReadOnly;
+}
 
-		return _localName;
+@synthesize localName = _localName;
+- (NSString *)localName
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "LocalName");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_localName isEqualToMonoObject:monoObject]) return _localName;
+	_localName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
-	// Managed property name : Name
-	// Managed property type : System.String
-    @synthesize name = _name;
-    - (NSString *)name
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Name");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
-		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
+	return _localName;
+}
 
-		return _name;
+@synthesize name = _name;
+- (NSString *)name
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Name");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_name isEqualToMonoObject:monoObject]) return _name;
+	_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+	return _name;
+}
 
 /* Skipped property : System.Xml.XmlNameTable NameTable */
 
 /* Skipped property : System.Xml.XmlNodeType NodeType */
 
-	// Managed property name : OwnerDocument
-	// Managed property type : System.Xml.XmlDocument
-    @synthesize ownerDocument = _ownerDocument;
-    - (System_Xml_XmlDocument *)ownerDocument
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "OwnerDocument");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_ownerDocument isEqualToMonoObject:monoObject]) return _ownerDocument;					
-		_ownerDocument = [System_Xml_XmlDocument bestObjectWithMonoObject:monoObject];
-
-		return _ownerDocument;
+@synthesize ownerDocument = _ownerDocument;
+- (System_Xml_XmlDocument *)ownerDocument
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "OwnerDocument");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_ownerDocument isEqualToMonoObject:monoObject]) return _ownerDocument;
+	_ownerDocument = [System_Xml_XmlDocument bestObjectWithMonoObject:monoObject];
+
+	return _ownerDocument;
+}
 
 /* Skipped property : System.Xml.XmlNode ParentNode */
 
-	// Managed property name : PreserveWhitespace
-	// Managed property type : System.Boolean
-    @synthesize preserveWhitespace = _preserveWhitespace;
-    - (BOOL)preserveWhitespace
-    {
-		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PreserveWhitespace");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		BOOL monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_preserveWhitespace = monoObject;
+@synthesize preserveWhitespace = _preserveWhitespace;
+- (BOOL)preserveWhitespace
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "PreserveWhitespace");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_preserveWhitespace = monoObject;
 
-		return _preserveWhitespace;
+	return _preserveWhitespace;
+}
+- (void)setPreserveWhitespace:(BOOL)value
+{
+	_preserveWhitespace = value;
+	typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "PreserveWhitespace");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-    - (void)setPreserveWhitespace:(BOOL)value
-	{
-		_preserveWhitespace = value;
-		typedef void (*Thunk)(MonoObject *, BOOL, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "PreserveWhitespace");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject *monoException = NULL;
-		thunk(self.monoObject, value, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-	}
+	thunk(self.monoObject, value, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
 
 /* Skipped property : System.Xml.Schema.IXmlSchemaInfo SchemaInfo */
 

@@ -33,29 +33,25 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : FalseString
-	// Managed field type : System.String
-    static NSString * m_falseString;
-    + (NSString *)falseString
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"FalseString"];
-		if ([self object:m_falseString isEqualToMonoObject:monoObject]) return m_falseString;					
-		m_falseString = [NSString stringWithMonoString:DB_STRING(monoObject)];
+static NSString * m_falseString;
++ (NSString *)falseString
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"FalseString"];
+	if ([self object:m_falseString isEqualToMonoObject:monoObject]) return m_falseString;
+	m_falseString = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
-		return m_falseString;
-	}
+	return m_falseString;
+}
 
-	// Managed field name : TrueString
-	// Managed field type : System.String
-    static NSString * m_trueString;
-    + (NSString *)trueString
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"TrueString"];
-		if ([self object:m_trueString isEqualToMonoObject:monoObject]) return m_trueString;					
-		m_trueString = [NSString stringWithMonoString:DB_STRING(monoObject)];
+static NSString * m_trueString;
++ (NSString *)trueString
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"TrueString"];
+	if ([self object:m_trueString isEqualToMonoObject:monoObject]) return m_trueString;
+	m_trueString = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
-		return m_trueString;
-	}
+	return m_trueString;
+}
 
 #pragma mark -
 #pragma mark Methods

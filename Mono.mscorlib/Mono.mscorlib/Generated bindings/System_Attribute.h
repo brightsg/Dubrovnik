@@ -42,58 +42,66 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : TypeId
-	// Managed property type : System.Object
-    @property (nonatomic, strong, readonly) System_Object * typeId;
+/**
+  Managed property.
+  @textblock
+  Name
+    TypeId
+
+  Type
+    System.Object
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Object * typeId;
 
 #pragma mark -
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   System.Object
+  Params
+    System.Object
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withObj:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetCustomAttribute
+  Managed method.
+  @textblock
+  Name
+    GetCustomAttribute
 
- Params
-   System.Reflection.MemberInfo
-   System.Type
+  Params
+    System.Reflection.MemberInfo
+    System.Type
 
- Return
-   System.Attribute
- @/textblock
+  Return
+    System.Attribute
+  @/textblock
 */
 + (System_Attribute *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   GetCustomAttribute
+  Managed method.
+  @textblock
+  Name
+    GetCustomAttribute
 
- Params
-   System.Reflection.MemberInfo
-   System.Type
-   System.Boolean
+  Params
+    System.Reflection.MemberInfo
+    System.Type
+    System.Boolean
 
- Return
-   System.Attribute
- @/textblock
+  Return
+    System.Attribute
+  @/textblock
 */
 + (System_Attribute *)getCustomAttribute_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3;
 
@@ -106,99 +114,99 @@
 /* Skipped method : System.Attribute GetCustomAttribute(System.Reflection.Module element, System.Type attributeType, System.Boolean inherit) */
 
 /**
- Managed method.
- @textblock
- Name
-   GetCustomAttribute
+  Managed method.
+  @textblock
+  Name
+    GetCustomAttribute
 
- Params
-   System.Reflection.Assembly
-   System.Type
+  Params
+    System.Reflection.Assembly
+    System.Type
 
- Return
-   System.Attribute
- @/textblock
+  Return
+    System.Attribute
+  @/textblock
 */
 + (System_Attribute *)getCustomAttribute_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   GetCustomAttribute
+  Managed method.
+  @textblock
+  Name
+    GetCustomAttribute
 
- Params
-   System.Reflection.Assembly
-   System.Type
-   System.Boolean
+  Params
+    System.Reflection.Assembly
+    System.Type
+    System.Boolean
 
- Return
-   System.Attribute
- @/textblock
+  Return
+    System.Attribute
+  @/textblock
 */
 + (System_Attribute *)getCustomAttribute_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   GetCustomAttributes
+  Managed method.
+  @textblock
+  Name
+    GetCustomAttributes
 
- Params
-   System.Reflection.MemberInfo
-   System.Type
+  Params
+    System.Reflection.MemberInfo
+    System.Type
 
- Return
-   System.Attribute[]
- @/textblock
+  Return
+    System.Attribute[]
+  @/textblock
 */
 + (System_Array *)getCustomAttributes_withElement:(System_Reflection_MemberInfo *)p1 type:(System_Type *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   GetCustomAttributes
+  Managed method.
+  @textblock
+  Name
+    GetCustomAttributes
 
- Params
-   System.Reflection.MemberInfo
-   System.Type
-   System.Boolean
+  Params
+    System.Reflection.MemberInfo
+    System.Type
+    System.Boolean
 
- Return
-   System.Attribute[]
- @/textblock
+  Return
+    System.Attribute[]
+  @/textblock
 */
 + (System_Array *)getCustomAttributes_withElement:(System_Reflection_MemberInfo *)p1 type:(System_Type *)p2 inherit:(BOOL)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   GetCustomAttributes
+  Managed method.
+  @textblock
+  Name
+    GetCustomAttributes
 
- Params
-   System.Reflection.MemberInfo
+  Params
+    System.Reflection.MemberInfo
 
- Return
-   System.Attribute[]
- @/textblock
+  Return
+    System.Attribute[]
+  @/textblock
 */
 + (System_Array *)getCustomAttributes_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetCustomAttributes
+  Managed method.
+  @textblock
+  Name
+    GetCustomAttributes
 
- Params
-   System.Reflection.MemberInfo
-   System.Boolean
+  Params
+    System.Reflection.MemberInfo
+    System.Boolean
 
- Return
-   System.Attribute[]
- @/textblock
+  Return
+    System.Attribute[]
+  @/textblock
 */
 + (System_Array *)getCustomAttributes_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 inheritBool:(BOOL)p2;
 
@@ -219,129 +227,129 @@
 /* Skipped method : System.Attribute[] GetCustomAttributes(System.Reflection.Module element, System.Type attributeType, System.Boolean inherit) */
 
 /**
- Managed method.
- @textblock
- Name
-   GetCustomAttributes
+  Managed method.
+  @textblock
+  Name
+    GetCustomAttributes
 
- Params
-   System.Reflection.Assembly
-   System.Type
+  Params
+    System.Reflection.Assembly
+    System.Type
 
- Return
-   System.Attribute[]
- @/textblock
+  Return
+    System.Attribute[]
+  @/textblock
 */
 + (System_Array *)getCustomAttributes_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   GetCustomAttributes
+  Managed method.
+  @textblock
+  Name
+    GetCustomAttributes
 
- Params
-   System.Reflection.Assembly
-   System.Type
-   System.Boolean
+  Params
+    System.Reflection.Assembly
+    System.Type
+    System.Boolean
 
- Return
-   System.Attribute[]
- @/textblock
+  Return
+    System.Attribute[]
+  @/textblock
 */
 + (System_Array *)getCustomAttributes_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   GetCustomAttributes
+  Managed method.
+  @textblock
+  Name
+    GetCustomAttributes
 
- Params
-   System.Reflection.Assembly
+  Params
+    System.Reflection.Assembly
 
- Return
-   System.Attribute[]
- @/textblock
+  Return
+    System.Attribute[]
+  @/textblock
 */
 + (System_Array *)getCustomAttributes_withElementSRAssembly:(System_Reflection_Assembly *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetCustomAttributes
+  Managed method.
+  @textblock
+  Name
+    GetCustomAttributes
 
- Params
-   System.Reflection.Assembly
-   System.Boolean
+  Params
+    System.Reflection.Assembly
+    System.Boolean
 
- Return
-   System.Attribute[]
- @/textblock
+  Return
+    System.Attribute[]
+  @/textblock
 */
 + (System_Array *)getCustomAttributes_withElementSRAssembly:(System_Reflection_Assembly *)p1 inheritBool:(BOOL)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   GetHashCode
+  Managed method.
+  @textblock
+  Name
+    GetHashCode
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getHashCode;
 
 /**
- Managed method.
- @textblock
- Name
-   IsDefaultAttribute
+  Managed method.
+  @textblock
+  Name
+    IsDefaultAttribute
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)isDefaultAttribute;
 
 /**
- Managed method.
- @textblock
- Name
-   IsDefined
+  Managed method.
+  @textblock
+  Name
+    IsDefined
 
- Params
-   System.Reflection.MemberInfo
-   System.Type
+  Params
+    System.Reflection.MemberInfo
+    System.Type
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)isDefined_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   IsDefined
+  Managed method.
+  @textblock
+  Name
+    IsDefined
 
- Params
-   System.Reflection.MemberInfo
-   System.Type
-   System.Boolean
+  Params
+    System.Reflection.MemberInfo
+    System.Type
+    System.Boolean
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)isDefined_withElementSRMemberInfo:(System_Reflection_MemberInfo *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3;
 
@@ -354,50 +362,50 @@
 /* Skipped method : System.Boolean IsDefined(System.Reflection.Module element, System.Type attributeType, System.Boolean inherit) */
 
 /**
- Managed method.
- @textblock
- Name
-   IsDefined
+  Managed method.
+  @textblock
+  Name
+    IsDefined
 
- Params
-   System.Reflection.Assembly
-   System.Type
+  Params
+    System.Reflection.Assembly
+    System.Type
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)isDefined_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   IsDefined
+  Managed method.
+  @textblock
+  Name
+    IsDefined
 
- Params
-   System.Reflection.Assembly
-   System.Type
-   System.Boolean
+  Params
+    System.Reflection.Assembly
+    System.Type
+    System.Boolean
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)isDefined_withElementSRAssembly:(System_Reflection_Assembly *)p1 attributeTypeSType:(System_Type *)p2 inheritBool:(BOOL)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   Match
+  Managed method.
+  @textblock
+  Name
+    Match
 
- Params
-   System.Object
+  Params
+    System.Object
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)match_withObj:(System_Object *)p1;
 @end

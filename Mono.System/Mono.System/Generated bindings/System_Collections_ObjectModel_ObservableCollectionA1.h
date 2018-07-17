@@ -46,32 +46,32 @@
 #pragma mark Constructors
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Collections.Generic.List`1<System.Collections.ObjectModel.ObservableCollection`1+T>
+  Params
+    System.Collections.Generic.List`1<System.Collections.ObjectModel.ObservableCollection`1+T>
 
- Return
-   System.Collections.ObjectModel.ObservableCollection`1<System.Collections.ObjectModel.ObservableCollection`1+T>
- @/textblock
+  Return
+    System.Collections.ObjectModel.ObservableCollection`1<System.Collections.ObjectModel.ObservableCollection`1+T>
+  @/textblock
 */
 + (System_Collections_ObjectModel_ObservableCollectionA1 *)new_withList:(System_Collections_Generic_ListA1 *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Collections.Generic.IEnumerable`1<System.Collections.ObjectModel.ObservableCollection`1+T>
+  Params
+    System.Collections.Generic.IEnumerable`1<System.Collections.ObjectModel.ObservableCollection`1+T>
 
- Return
-   System.Collections.ObjectModel.ObservableCollection`1<System.Collections.ObjectModel.ObservableCollection`1+T>
- @/textblock
+  Return
+    System.Collections.ObjectModel.ObservableCollection`1<System.Collections.ObjectModel.ObservableCollection`1+T>
+  @/textblock
 */
 + (System_Collections_ObjectModel_ObservableCollectionA1 *)new_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
@@ -79,18 +79,18 @@
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   Move
+  Managed method.
+  @textblock
+  Name
+    Move
 
- Params
-   System.Int32
-   System.Int32
+  Params
+    System.Int32
+    System.Int32
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)move_withOldIndex:(int32_t)p1 newIndex:(int32_t)p2;
 @end

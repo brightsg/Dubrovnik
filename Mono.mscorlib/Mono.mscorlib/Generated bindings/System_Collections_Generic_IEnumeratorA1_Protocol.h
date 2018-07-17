@@ -80,9 +80,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Current
-	// Managed property type : <System.Collections.Generic.IEnumerator`1+T>
-    @property (nonatomic, strong, readonly) System_Object * current;
+/**
+  Managed property.
+  @textblock
+  Name
+    Current
+
+  Type
+    <System.Collections.Generic.IEnumerator`1+T>
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Object * current;
 #endif
 
 
@@ -100,9 +108,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Current
-	// Managed property type : <System.Collections.Generic.IEnumerator`1+T>
-    @property (nonatomic, strong, readonly) System_Object * current;
+/**
+  Managed property.
+  @textblock
+  Name
+    Current
+
+  Type
+    <System.Collections.Generic.IEnumerator`1+T>
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Object * current;
 
 @end
 

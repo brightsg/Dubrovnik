@@ -60,330 +60,292 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : MaxValue
-	// Managed field type : System.TimeSpan
-    static System_TimeSpan * m_maxValue;
-    + (System_TimeSpan *)maxValue
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"MaxValue"];
-		if ([self object:m_maxValue isEqualToMonoObject:monoObject]) return m_maxValue;					
-		m_maxValue = [System_TimeSpan bestObjectWithMonoObject:monoObject];
+static System_TimeSpan * m_maxValue;
++ (System_TimeSpan *)maxValue
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"MaxValue"];
+	if ([self object:m_maxValue isEqualToMonoObject:monoObject]) return m_maxValue;
+	m_maxValue = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
-		return m_maxValue;
-	}
+	return m_maxValue;
+}
 
-	// Managed field name : MinValue
-	// Managed field type : System.TimeSpan
-    static System_TimeSpan * m_minValue;
-    + (System_TimeSpan *)minValue
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"MinValue"];
-		if ([self object:m_minValue isEqualToMonoObject:monoObject]) return m_minValue;					
-		m_minValue = [System_TimeSpan bestObjectWithMonoObject:monoObject];
+static System_TimeSpan * m_minValue;
++ (System_TimeSpan *)minValue
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"MinValue"];
+	if ([self object:m_minValue isEqualToMonoObject:monoObject]) return m_minValue;
+	m_minValue = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
-		return m_minValue;
-	}
+	return m_minValue;
+}
 
-	// Managed field name : TicksPerDay
-	// Managed field type : System.Int64
-    static int64_t m_ticksPerDay;
-    + (int64_t)ticksPerDay
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"TicksPerDay"];
-		m_ticksPerDay = DB_UNBOX_INT64(monoObject);
+static int64_t m_ticksPerDay;
++ (int64_t)ticksPerDay
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"TicksPerDay"];
+	m_ticksPerDay = DB_UNBOX_INT64(monoObject);
 
-		return m_ticksPerDay;
-	}
+	return m_ticksPerDay;
+}
 
-	// Managed field name : TicksPerHour
-	// Managed field type : System.Int64
-    static int64_t m_ticksPerHour;
-    + (int64_t)ticksPerHour
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"TicksPerHour"];
-		m_ticksPerHour = DB_UNBOX_INT64(monoObject);
+static int64_t m_ticksPerHour;
++ (int64_t)ticksPerHour
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"TicksPerHour"];
+	m_ticksPerHour = DB_UNBOX_INT64(monoObject);
 
-		return m_ticksPerHour;
-	}
+	return m_ticksPerHour;
+}
 
-	// Managed field name : TicksPerMillisecond
-	// Managed field type : System.Int64
-    static int64_t m_ticksPerMillisecond;
-    + (int64_t)ticksPerMillisecond
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"TicksPerMillisecond"];
-		m_ticksPerMillisecond = DB_UNBOX_INT64(monoObject);
+static int64_t m_ticksPerMillisecond;
++ (int64_t)ticksPerMillisecond
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"TicksPerMillisecond"];
+	m_ticksPerMillisecond = DB_UNBOX_INT64(monoObject);
 
-		return m_ticksPerMillisecond;
-	}
+	return m_ticksPerMillisecond;
+}
 
-	// Managed field name : TicksPerMinute
-	// Managed field type : System.Int64
-    static int64_t m_ticksPerMinute;
-    + (int64_t)ticksPerMinute
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"TicksPerMinute"];
-		m_ticksPerMinute = DB_UNBOX_INT64(monoObject);
+static int64_t m_ticksPerMinute;
++ (int64_t)ticksPerMinute
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"TicksPerMinute"];
+	m_ticksPerMinute = DB_UNBOX_INT64(monoObject);
 
-		return m_ticksPerMinute;
-	}
+	return m_ticksPerMinute;
+}
 
-	// Managed field name : TicksPerSecond
-	// Managed field type : System.Int64
-    static int64_t m_ticksPerSecond;
-    + (int64_t)ticksPerSecond
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"TicksPerSecond"];
-		m_ticksPerSecond = DB_UNBOX_INT64(monoObject);
+static int64_t m_ticksPerSecond;
++ (int64_t)ticksPerSecond
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"TicksPerSecond"];
+	m_ticksPerSecond = DB_UNBOX_INT64(monoObject);
 
-		return m_ticksPerSecond;
-	}
+	return m_ticksPerSecond;
+}
 
-	// Managed field name : Zero
-	// Managed field type : System.TimeSpan
-    static System_TimeSpan * m_zero;
-    + (System_TimeSpan *)zero
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"Zero"];
-		if ([self object:m_zero isEqualToMonoObject:monoObject]) return m_zero;					
-		m_zero = [System_TimeSpan bestObjectWithMonoObject:monoObject];
+static System_TimeSpan * m_zero;
++ (System_TimeSpan *)zero
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"Zero"];
+	if ([self object:m_zero isEqualToMonoObject:monoObject]) return m_zero;
+	m_zero = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
-		return m_zero;
-	}
+	return m_zero;
+}
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Days
-	// Managed property type : System.Int32
-    @synthesize days = _days;
-    - (int32_t)days
-    {
-		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Days");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int32_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_days = monoObject;
-
-		return _days;
+@synthesize days = _days;
+- (int32_t)days
+{
+	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Days");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	int32_t monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_days = monoObject;
 
-	// Managed property name : Hours
-	// Managed property type : System.Int32
-    @synthesize hours = _hours;
-    - (int32_t)hours
-    {
-		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Hours");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int32_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_hours = monoObject;
+	return _days;
+}
 
-		return _hours;
+@synthesize hours = _hours;
+- (int32_t)hours
+{
+	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Hours");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	int32_t monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_hours = monoObject;
 
-	// Managed property name : Milliseconds
-	// Managed property type : System.Int32
-    @synthesize milliseconds = _milliseconds;
-    - (int32_t)milliseconds
-    {
-		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Milliseconds");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int32_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_milliseconds = monoObject;
+	return _hours;
+}
 
-		return _milliseconds;
+@synthesize milliseconds = _milliseconds;
+- (int32_t)milliseconds
+{
+	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Milliseconds");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	int32_t monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_milliseconds = monoObject;
 
-	// Managed property name : Minutes
-	// Managed property type : System.Int32
-    @synthesize minutes = _minutes;
-    - (int32_t)minutes
-    {
-		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Minutes");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int32_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_minutes = monoObject;
+	return _milliseconds;
+}
 
-		return _minutes;
+@synthesize minutes = _minutes;
+- (int32_t)minutes
+{
+	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Minutes");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	int32_t monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_minutes = monoObject;
 
-	// Managed property name : Seconds
-	// Managed property type : System.Int32
-    @synthesize seconds = _seconds;
-    - (int32_t)seconds
-    {
-		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Seconds");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int32_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_seconds = monoObject;
+	return _minutes;
+}
 
-		return _seconds;
+@synthesize seconds = _seconds;
+- (int32_t)seconds
+{
+	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Seconds");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	int32_t monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_seconds = monoObject;
 
-	// Managed property name : Ticks
-	// Managed property type : System.Int64
-    @synthesize ticks = _ticks;
-    - (int64_t)ticks
-    {
-		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Ticks");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int64_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_ticks = monoObject;
+	return _seconds;
+}
 
-		return _ticks;
+@synthesize ticks = _ticks;
+- (int64_t)ticks
+{
+	typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Ticks");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	int64_t monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_ticks = monoObject;
 
-	// Managed property name : TotalDays
-	// Managed property type : System.Double
-    @synthesize totalDays = _totalDays;
-    - (double)totalDays
-    {
-		typedef double (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TotalDays");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		double monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_totalDays = monoObject;
+	return _ticks;
+}
 
-		return _totalDays;
+@synthesize totalDays = _totalDays;
+- (double)totalDays
+{
+	typedef double (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "TotalDays");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	double monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_totalDays = monoObject;
 
-	// Managed property name : TotalHours
-	// Managed property type : System.Double
-    @synthesize totalHours = _totalHours;
-    - (double)totalHours
-    {
-		typedef double (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TotalHours");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		double monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_totalHours = monoObject;
+	return _totalDays;
+}
 
-		return _totalHours;
+@synthesize totalHours = _totalHours;
+- (double)totalHours
+{
+	typedef double (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "TotalHours");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	double monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_totalHours = monoObject;
 
-	// Managed property name : TotalMilliseconds
-	// Managed property type : System.Double
-    @synthesize totalMilliseconds = _totalMilliseconds;
-    - (double)totalMilliseconds
-    {
-		typedef double (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TotalMilliseconds");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		double monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_totalMilliseconds = monoObject;
+	return _totalHours;
+}
 
-		return _totalMilliseconds;
+@synthesize totalMilliseconds = _totalMilliseconds;
+- (double)totalMilliseconds
+{
+	typedef double (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "TotalMilliseconds");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	double monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_totalMilliseconds = monoObject;
 
-	// Managed property name : TotalMinutes
-	// Managed property type : System.Double
-    @synthesize totalMinutes = _totalMinutes;
-    - (double)totalMinutes
-    {
-		typedef double (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TotalMinutes");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		double monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_totalMinutes = monoObject;
+	return _totalMilliseconds;
+}
 
-		return _totalMinutes;
+@synthesize totalMinutes = _totalMinutes;
+- (double)totalMinutes
+{
+	typedef double (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "TotalMinutes");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	double monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_totalMinutes = monoObject;
 
-	// Managed property name : TotalSeconds
-	// Managed property type : System.Double
-    @synthesize totalSeconds = _totalSeconds;
-    - (double)totalSeconds
-    {
-		typedef double (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TotalSeconds");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		double monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_totalSeconds = monoObject;
+	return _totalMinutes;
+}
 
-		return _totalSeconds;
+@synthesize totalSeconds = _totalSeconds;
+- (double)totalSeconds
+{
+	typedef double (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "TotalSeconds");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	double monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_totalSeconds = monoObject;
+
+	return _totalSeconds;
+}
 
 #pragma mark -
 #pragma mark Methods

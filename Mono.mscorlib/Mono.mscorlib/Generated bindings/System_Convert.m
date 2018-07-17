@@ -33,17 +33,15 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : DBNull
-	// Managed field type : System.Object
-    static System_Object * m_dBNull;
-    + (System_Object *)dBNull
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"DBNull"];
-		if ([self object:m_dBNull isEqualToMonoObject:monoObject]) return m_dBNull;					
-		m_dBNull = [System_Object bestObjectWithMonoObject:monoObject];
+static System_Object * m_dBNull;
++ (System_Object *)dBNull
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"DBNull"];
+	if ([self object:m_dBNull isEqualToMonoObject:monoObject]) return m_dBNull;
+	m_dBNull = [System_Object bestObjectWithMonoObject:monoObject];
 
-		return m_dBNull;
-	}
+	return m_dBNull;
+}
 
 #pragma mark -
 #pragma mark Methods

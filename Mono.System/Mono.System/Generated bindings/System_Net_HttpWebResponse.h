@@ -46,107 +46,211 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : CharacterSet
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * characterSet;
+/**
+  Managed property.
+  @textblock
+  Name
+    CharacterSet
 
-	// Managed property name : ContentEncoding
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * contentEncoding;
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * characterSet;
 
-	// Managed property name : ContentLength
-	// Managed property type : System.Int64
-    @property (nonatomic, readonly) int64_t contentLength;
+/**
+  Managed property.
+  @textblock
+  Name
+    ContentEncoding
 
-	// Managed property name : ContentType
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * contentType;
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * contentEncoding;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    ContentLength
+
+  Type
+    System.Int64
+  @/textblock
+*/
+@property (nonatomic, readonly) int64_t contentLength;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    ContentType
+
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * contentType;
 
 /* Skipped property : System.Net.CookieCollection Cookies */
 
 /* Skipped property : System.Net.WebHeaderCollection Headers */
 
-	// Managed property name : IsMutuallyAuthenticated
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isMutuallyAuthenticated;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsMutuallyAuthenticated
 
-	// Managed property name : LastModified
-	// Managed property type : System.DateTime
-    @property (nonatomic, strong, readonly) NSDate * lastModified;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isMutuallyAuthenticated;
 
-	// Managed property name : Method
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * method;
+/**
+  Managed property.
+  @textblock
+  Name
+    LastModified
 
-	// Managed property name : ProtocolVersion
-	// Managed property type : System.Version
-    @property (nonatomic, strong, readonly) System_Version * protocolVersion;
+  Type
+    System.DateTime
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSDate * lastModified;
 
-	// Managed property name : ResponseUri
-	// Managed property type : System.Uri
-    @property (nonatomic, strong, readonly) System_Uri * responseUri;
+/**
+  Managed property.
+  @textblock
+  Name
+    Method
 
-	// Managed property name : Server
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * server;
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * method;
 
-	// Managed property name : StatusCode
-	// Managed property type : System.Net.HttpStatusCode
-    @property (nonatomic, readonly) int32_t statusCode;
+/**
+  Managed property.
+  @textblock
+  Name
+    ProtocolVersion
 
-	// Managed property name : StatusDescription
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * statusDescription;
+  Type
+    System.Version
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Version * protocolVersion;
 
-	// Managed property name : SupportsHeaders
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL supportsHeaders;
+/**
+  Managed property.
+  @textblock
+  Name
+    ResponseUri
+
+  Type
+    System.Uri
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Uri * responseUri;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    Server
+
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * server;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    StatusCode
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
+@property (nonatomic, readonly) int32_t statusCode;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    StatusDescription
+
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * statusDescription;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    SupportsHeaders
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL supportsHeaders;
 
 #pragma mark -
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   Close
+  Managed method.
+  @textblock
+  Name
+    Close
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)close;
 
 /**
- Managed method.
- @textblock
- Name
-   GetResponseHeader
+  Managed method.
+  @textblock
+  Name
+    GetResponseHeader
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 - (NSString *)getResponseHeader_withHeaderName:(NSString *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetResponseStream
+  Managed method.
+  @textblock
+  Name
+    GetResponseStream
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.IO.Stream
- @/textblock
+  Return
+    System.IO.Stream
+  @/textblock
 */
 - (System_IO_Stream *)getResponseStream;
 @end

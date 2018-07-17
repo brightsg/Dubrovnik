@@ -38,26 +38,24 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Count
-	// Managed property type : System.Int32
-    @synthesize count = _count;
-    - (int32_t)count
-    {
-		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int32_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_count = monoObject;
-
-		return _count;
+@synthesize count = _count;
+- (int32_t)count
+{
+	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	int32_t monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_count = monoObject;
+
+	return _count;
+}
 
 #pragma mark -
 #pragma mark Methods

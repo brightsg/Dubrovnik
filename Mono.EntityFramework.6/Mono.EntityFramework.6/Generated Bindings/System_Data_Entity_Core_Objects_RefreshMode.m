@@ -33,27 +33,23 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : ClientWins
-	// Managed field type : System.Data.Entity.Core.Objects.RefreshMode
-    static int32_t m_clientWins;
-    + (int32_t)clientWins
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"ClientWins"];
-		m_clientWins = DB_UNBOX_INT32(monoObject);
+static int32_t m_clientWins;
++ (int32_t)clientWins
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"ClientWins"];
+	m_clientWins = DB_UNBOX_INT32(monoObject);
 
-		return m_clientWins;
-	}
+	return m_clientWins;
+}
 
-	// Managed field name : StoreWins
-	// Managed field type : System.Data.Entity.Core.Objects.RefreshMode
-    static int32_t m_storeWins;
-    + (int32_t)storeWins
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"StoreWins"];
-		m_storeWins = DB_UNBOX_INT32(monoObject);
+static int32_t m_storeWins;
++ (int32_t)storeWins
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"StoreWins"];
+	m_storeWins = DB_UNBOX_INT32(monoObject);
 
-		return m_storeWins;
-	}
+	return m_storeWins;
+}
 
 #pragma mark -
 #pragma mark Teardown

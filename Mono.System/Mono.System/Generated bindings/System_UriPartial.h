@@ -44,20 +44,52 @@ typedef NS_ENUM(int32_t, enumSystem_UriPartial) {
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : Authority
-	// Managed field type : System.UriPartial
-    + (int32_t)authority;
+/**
+  Managed field.
+  @textblock
+  Name
+    Authority
 
-	// Managed field name : Path
-	// Managed field type : System.UriPartial
-    + (int32_t)path;
+  Type
+    System.UriPartial
+  @/textblock
+*/
++ (int32_t)authority;
 
-	// Managed field name : Query
-	// Managed field type : System.UriPartial
-    + (int32_t)query;
+/**
+  Managed field.
+  @textblock
+  Name
+    Path
 
-	// Managed field name : Scheme
-	// Managed field type : System.UriPartial
-    + (int32_t)scheme;
+  Type
+    System.UriPartial
+  @/textblock
+*/
++ (int32_t)path;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    Query
+
+  Type
+    System.UriPartial
+  @/textblock
+*/
++ (int32_t)query;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    Scheme
+
+  Type
+    System.UriPartial
+  @/textblock
+*/
++ (int32_t)scheme;
 @end
 //--Dubrovnik.CodeGenerator

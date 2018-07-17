@@ -42,13 +42,29 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : ConstructorName
-	// Managed field type : System.String
-    + (NSString *)constructorName;
+/**
+  Managed field.
+  @textblock
+  Name
+    ConstructorName
 
-	// Managed field name : TypeConstructorName
-	// Managed field type : System.String
-    + (NSString *)typeConstructorName;
+  Type
+    System.String
+  @/textblock
+*/
++ (NSString *)constructorName;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    TypeConstructorName
+
+  Type
+    System.String
+  @/textblock
+*/
++ (NSString *)typeConstructorName;
 
 #pragma mark -
 #pragma mark Properties
@@ -59,81 +75,81 @@
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   System.Object
+  Params
+    System.Object
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withObj:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetHashCode
+  Managed method.
+  @textblock
+  Name
+    GetHashCode
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getHashCode;
 
 /* Skipped method : System.Object Invoke(System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) */
 
 /**
- Managed method.
- @textblock
- Name
-   Invoke
+  Managed method.
+  @textblock
+  Name
+    Invoke
 
- Params
-   System.Object[]
+  Params
+    System.Object[]
 
- Return
-   System.Object
- @/textblock
+  Return
+    System.Object
+  @/textblock
 */
 - (System_Object *)invoke_withParameters:(System_Array *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   op_Equality
+  Managed method.
+  @textblock
+  Name
+    op_Equality
 
- Params
-   System.Reflection.ConstructorInfo
-   System.Reflection.ConstructorInfo
+  Params
+    System.Reflection.ConstructorInfo
+    System.Reflection.ConstructorInfo
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)op_Equality_withLeft:(System_Reflection_ConstructorInfo *)p1 right:(System_Reflection_ConstructorInfo *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   op_Inequality
+  Managed method.
+  @textblock
+  Name
+    op_Inequality
 
- Params
-   System.Reflection.ConstructorInfo
-   System.Reflection.ConstructorInfo
+  Params
+    System.Reflection.ConstructorInfo
+    System.Reflection.ConstructorInfo
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)op_Inequality_withLeft:(System_Reflection_ConstructorInfo *)p1 right:(System_Reflection_ConstructorInfo *)p2;
 @end

@@ -48,336 +48,400 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : BaseUtcOffset
-	// Managed property type : System.TimeSpan
-    @property (nonatomic, strong, readonly) System_TimeSpan * baseUtcOffset;
+/**
+  Managed property.
+  @textblock
+  Name
+    BaseUtcOffset
 
-	// Managed property name : DaylightName
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * daylightName;
+  Type
+    System.TimeSpan
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_TimeSpan * baseUtcOffset;
 
-	// Managed property name : DisplayName
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * displayName;
+/**
+  Managed property.
+  @textblock
+  Name
+    DaylightName
 
-	// Managed property name : Id
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * id;
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * daylightName;
 
-	// Managed property name : Local
-	// Managed property type : System.TimeZoneInfo
-    + (System_TimeZoneInfo *)local;
+/**
+  Managed property.
+  @textblock
+  Name
+    DisplayName
 
-	// Managed property name : StandardName
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * standardName;
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * displayName;
 
-	// Managed property name : SupportsDaylightSavingTime
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL supportsDaylightSavingTime;
+/**
+  Managed property.
+  @textblock
+  Name
+    Id
 
-	// Managed property name : Utc
-	// Managed property type : System.TimeZoneInfo
-    + (System_TimeZoneInfo *)utc;
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * id;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    Local
+
+  Type
+    System.TimeZoneInfo
+  @/textblock
+*/
++ (System_TimeZoneInfo *)local;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    StandardName
+
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * standardName;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    SupportsDaylightSavingTime
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL supportsDaylightSavingTime;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    Utc
+
+  Type
+    System.TimeZoneInfo
+  @/textblock
+*/
++ (System_TimeZoneInfo *)utc;
 
 #pragma mark -
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   ClearCachedData
+  Managed method.
+  @textblock
+  Name
+    ClearCachedData
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)clearCachedData;
 
 /* Skipped method : System.DateTimeOffset ConvertTime(System.DateTimeOffset dateTimeOffset, System.TimeZoneInfo destinationTimeZone) */
 
 /**
- Managed method.
- @textblock
- Name
-   ConvertTime
+  Managed method.
+  @textblock
+  Name
+    ConvertTime
 
- Params
-   System.DateTime
-   System.TimeZoneInfo
+  Params
+    System.DateTime
+    System.TimeZoneInfo
 
- Return
-   System.DateTime
- @/textblock
+  Return
+    System.DateTime
+  @/textblock
 */
 + (NSDate *)convertTime_withDateTime:(NSDate *)p1 destinationTimeZone:(System_TimeZoneInfo *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   ConvertTime
+  Managed method.
+  @textblock
+  Name
+    ConvertTime
 
- Params
-   System.DateTime
-   System.TimeZoneInfo
-   System.TimeZoneInfo
+  Params
+    System.DateTime
+    System.TimeZoneInfo
+    System.TimeZoneInfo
 
- Return
-   System.DateTime
- @/textblock
+  Return
+    System.DateTime
+  @/textblock
 */
 + (NSDate *)convertTime_withDateTime:(NSDate *)p1 sourceTimeZone:(System_TimeZoneInfo *)p2 destinationTimeZone:(System_TimeZoneInfo *)p3;
 
 /* Skipped method : System.DateTimeOffset ConvertTimeBySystemTimeZoneId(System.DateTimeOffset dateTimeOffset, System.String destinationTimeZoneId) */
 
 /**
- Managed method.
- @textblock
- Name
-   ConvertTimeBySystemTimeZoneId
+  Managed method.
+  @textblock
+  Name
+    ConvertTimeBySystemTimeZoneId
 
- Params
-   System.DateTime
-   System.String
+  Params
+    System.DateTime
+    System.String
 
- Return
-   System.DateTime
- @/textblock
+  Return
+    System.DateTime
+  @/textblock
 */
 + (NSDate *)convertTimeBySystemTimeZoneId_withDateTime:(NSDate *)p1 destinationTimeZoneId:(NSString *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   ConvertTimeBySystemTimeZoneId
+  Managed method.
+  @textblock
+  Name
+    ConvertTimeBySystemTimeZoneId
 
- Params
-   System.DateTime
-   System.String
-   System.String
+  Params
+    System.DateTime
+    System.String
+    System.String
 
- Return
-   System.DateTime
- @/textblock
+  Return
+    System.DateTime
+  @/textblock
 */
 + (NSDate *)convertTimeBySystemTimeZoneId_withDateTime:(NSDate *)p1 sourceTimeZoneId:(NSString *)p2 destinationTimeZoneId:(NSString *)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   ConvertTimeFromUtc
+  Managed method.
+  @textblock
+  Name
+    ConvertTimeFromUtc
 
- Params
-   System.DateTime
-   System.TimeZoneInfo
+  Params
+    System.DateTime
+    System.TimeZoneInfo
 
- Return
-   System.DateTime
- @/textblock
+  Return
+    System.DateTime
+  @/textblock
 */
 + (NSDate *)convertTimeFromUtc_withDateTime:(NSDate *)p1 destinationTimeZone:(System_TimeZoneInfo *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   ConvertTimeToUtc
+  Managed method.
+  @textblock
+  Name
+    ConvertTimeToUtc
 
- Params
-   System.DateTime
+  Params
+    System.DateTime
 
- Return
-   System.DateTime
- @/textblock
+  Return
+    System.DateTime
+  @/textblock
 */
 + (NSDate *)convertTimeToUtc_withDateTime:(NSDate *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   ConvertTimeToUtc
+  Managed method.
+  @textblock
+  Name
+    ConvertTimeToUtc
 
- Params
-   System.DateTime
-   System.TimeZoneInfo
+  Params
+    System.DateTime
+    System.TimeZoneInfo
 
- Return
-   System.DateTime
- @/textblock
+  Return
+    System.DateTime
+  @/textblock
 */
 + (NSDate *)convertTimeToUtc_withDateTime:(NSDate *)p1 sourceTimeZone:(System_TimeZoneInfo *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   CreateCustomTimeZone
+  Managed method.
+  @textblock
+  Name
+    CreateCustomTimeZone
 
- Params
-   System.String
-   System.TimeSpan
-   System.String
-   System.String
+  Params
+    System.String
+    System.TimeSpan
+    System.String
+    System.String
 
- Return
-   System.TimeZoneInfo
- @/textblock
+  Return
+    System.TimeZoneInfo
+  @/textblock
 */
 + (System_TimeZoneInfo *)createCustomTimeZone_withId:(NSString *)p1 baseUtcOffset:(System_TimeSpan *)p2 displayName:(NSString *)p3 standardDisplayName:(NSString *)p4;
 
 /**
- Managed method.
- @textblock
- Name
-   CreateCustomTimeZone
+  Managed method.
+  @textblock
+  Name
+    CreateCustomTimeZone
 
- Params
-   System.String
-   System.TimeSpan
-   System.String
-   System.String
-   System.String
-   System.TimeZoneInfo+AdjustmentRule[]
+  Params
+    System.String
+    System.TimeSpan
+    System.String
+    System.String
+    System.String
+    System.TimeZoneInfo+AdjustmentRule[]
 
- Return
-   System.TimeZoneInfo
- @/textblock
+  Return
+    System.TimeZoneInfo
+  @/textblock
 */
 + (System_TimeZoneInfo *)createCustomTimeZone_withId:(NSString *)p1 baseUtcOffset:(System_TimeSpan *)p2 displayName:(NSString *)p3 standardDisplayName:(NSString *)p4 daylightDisplayName:(NSString *)p5 adjustmentRules:(System_Array *)p6;
 
 /**
- Managed method.
- @textblock
- Name
-   CreateCustomTimeZone
+  Managed method.
+  @textblock
+  Name
+    CreateCustomTimeZone
 
- Params
-   System.String
-   System.TimeSpan
-   System.String
-   System.String
-   System.String
-   System.TimeZoneInfo+AdjustmentRule[]
-   System.Boolean
+  Params
+    System.String
+    System.TimeSpan
+    System.String
+    System.String
+    System.String
+    System.TimeZoneInfo+AdjustmentRule[]
+    System.Boolean
 
- Return
-   System.TimeZoneInfo
- @/textblock
+  Return
+    System.TimeZoneInfo
+  @/textblock
 */
 + (System_TimeZoneInfo *)createCustomTimeZone_withId:(NSString *)p1 baseUtcOffset:(System_TimeSpan *)p2 displayName:(NSString *)p3 standardDisplayName:(NSString *)p4 daylightDisplayName:(NSString *)p5 adjustmentRules:(System_Array *)p6 disableDaylightSavingTime:(BOOL)p7;
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   System.TimeZoneInfo
+  Params
+    System.TimeZoneInfo
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withOther:(System_TimeZoneInfo *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   System.Object
+  Params
+    System.Object
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withObj:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   FindSystemTimeZoneById
+  Managed method.
+  @textblock
+  Name
+    FindSystemTimeZoneById
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.TimeZoneInfo
- @/textblock
+  Return
+    System.TimeZoneInfo
+  @/textblock
 */
 + (System_TimeZoneInfo *)findSystemTimeZoneById_withId:(NSString *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   FromSerializedString
+  Managed method.
+  @textblock
+  Name
+    FromSerializedString
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.TimeZoneInfo
- @/textblock
+  Return
+    System.TimeZoneInfo
+  @/textblock
 */
 + (System_TimeZoneInfo *)fromSerializedString_withSource:(NSString *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetAdjustmentRules
+  Managed method.
+  @textblock
+  Name
+    GetAdjustmentRules
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.TimeZoneInfo+AdjustmentRule[]
- @/textblock
+  Return
+    System.TimeZoneInfo+AdjustmentRule[]
+  @/textblock
 */
 - (System_Array *)getAdjustmentRules;
 
 /* Skipped method : System.TimeSpan[] GetAmbiguousTimeOffsets(System.DateTimeOffset dateTimeOffset) */
 
 /**
- Managed method.
- @textblock
- Name
-   GetAmbiguousTimeOffsets
+  Managed method.
+  @textblock
+  Name
+    GetAmbiguousTimeOffsets
 
- Params
-   System.DateTime
+  Params
+    System.DateTime
 
- Return
-   System.TimeSpan[]
- @/textblock
+  Return
+    System.TimeSpan[]
+  @/textblock
 */
 - (System_Array *)getAmbiguousTimeOffsets_withDateTime:(NSDate *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetHashCode
+  Managed method.
+  @textblock
+  Name
+    GetHashCode
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getHashCode;
 
@@ -386,111 +450,111 @@
 /* Skipped method : System.TimeSpan GetUtcOffset(System.DateTimeOffset dateTimeOffset) */
 
 /**
- Managed method.
- @textblock
- Name
-   GetUtcOffset
+  Managed method.
+  @textblock
+  Name
+    GetUtcOffset
 
- Params
-   System.DateTime
+  Params
+    System.DateTime
 
- Return
-   System.TimeSpan
- @/textblock
+  Return
+    System.TimeSpan
+  @/textblock
 */
 - (System_TimeSpan *)getUtcOffset_withDateTime:(NSDate *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   HasSameRules
+  Managed method.
+  @textblock
+  Name
+    HasSameRules
 
- Params
-   System.TimeZoneInfo
+  Params
+    System.TimeZoneInfo
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)hasSameRules_withOther:(System_TimeZoneInfo *)p1;
 
 /* Skipped method : System.Boolean IsAmbiguousTime(System.DateTimeOffset dateTimeOffset) */
 
 /**
- Managed method.
- @textblock
- Name
-   IsAmbiguousTime
+  Managed method.
+  @textblock
+  Name
+    IsAmbiguousTime
 
- Params
-   System.DateTime
+  Params
+    System.DateTime
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)isAmbiguousTime_withDateTime:(NSDate *)p1;
 
 /* Skipped method : System.Boolean IsDaylightSavingTime(System.DateTimeOffset dateTimeOffset) */
 
 /**
- Managed method.
- @textblock
- Name
-   IsDaylightSavingTime
+  Managed method.
+  @textblock
+  Name
+    IsDaylightSavingTime
 
- Params
-   System.DateTime
+  Params
+    System.DateTime
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)isDaylightSavingTime_withDateTime:(NSDate *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   IsInvalidTime
+  Managed method.
+  @textblock
+  Name
+    IsInvalidTime
 
- Params
-   System.DateTime
+  Params
+    System.DateTime
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)isInvalidTime_withDateTime:(NSDate *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   ToSerializedString
+  Managed method.
+  @textblock
+  Name
+    ToSerializedString
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 - (NSString *)toSerializedString;
 
 /**
- Managed method.
- @textblock
- Name
-   ToString
+  Managed method.
+  @textblock
+  Name
+    ToString
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 - (NSString *)toString;
 @end

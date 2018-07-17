@@ -42,48 +42,44 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : ExceptionObject
-	// Managed property type : System.Object
-    @synthesize exceptionObject = _exceptionObject;
-    - (System_Object *)exceptionObject
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ExceptionObject");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_exceptionObject isEqualToMonoObject:monoObject]) return _exceptionObject;					
-		_exceptionObject = [System_Object bestObjectWithMonoObject:monoObject];
-
-		return _exceptionObject;
+@synthesize exceptionObject = _exceptionObject;
+- (System_Object *)exceptionObject
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "ExceptionObject");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_exceptionObject isEqualToMonoObject:monoObject]) return _exceptionObject;
+	_exceptionObject = [System_Object bestObjectWithMonoObject:monoObject];
 
-	// Managed property name : IsTerminating
-	// Managed property type : System.Boolean
-    @synthesize isTerminating = _isTerminating;
-    - (BOOL)isTerminating
-    {
-		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsTerminating");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		BOOL monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_isTerminating = monoObject;
+	return _exceptionObject;
+}
 
-		return _isTerminating;
+@synthesize isTerminating = _isTerminating;
+- (BOOL)isTerminating
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IsTerminating");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_isTerminating = monoObject;
+
+	return _isTerminating;
+}
 
 #pragma mark -
 #pragma mark Teardown

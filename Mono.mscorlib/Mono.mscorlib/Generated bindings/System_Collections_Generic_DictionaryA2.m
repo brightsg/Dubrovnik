@@ -56,70 +56,64 @@
 
 /* Skipped property : System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey> Comparer */
 
-	// Managed property name : Count
-	// Managed property type : System.Int32
-    @synthesize count = _count;
-    - (int32_t)count
-    {
-		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Count");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int32_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_count = monoObject;
-
-		return _count;
+@synthesize count = _count;
+- (int32_t)count
+{
+	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Count");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	int32_t monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_count = monoObject;
 
-	// Managed property name : Keys
-	// Managed property type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>+KeyCollection
-    @synthesize keys = _keys;
-    - (System_Collections_Generic_DictionaryA2__KeyCollection *)keys
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Keys");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_keys isEqualToMonoObject:monoObject]) return _keys;					
-		_keys = [System_Collections_Generic_DictionaryA2__KeyCollection bestObjectWithMonoObject:monoObject];
+	return _count;
+}
 
-		return _keys;
+@synthesize keys = _keys;
+- (System_Collections_Generic_DictionaryA2__KeyCollection *)keys
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Keys");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_keys isEqualToMonoObject:monoObject]) return _keys;
+	_keys = [System_Collections_Generic_DictionaryA2__KeyCollection bestObjectWithMonoObject:monoObject];
 
-	// Managed property name : Values
-	// Managed property type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>+ValueCollection
-    @synthesize values = _values;
-    - (System_Collections_Generic_DictionaryA2__ValueCollection *)values
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Values");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_values isEqualToMonoObject:monoObject]) return _values;					
-		_values = [System_Collections_Generic_DictionaryA2__ValueCollection bestObjectWithMonoObject:monoObject];
+	return _keys;
+}
 
-		return _values;
+@synthesize values = _values;
+- (System_Collections_Generic_DictionaryA2__ValueCollection *)values
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Values");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_values isEqualToMonoObject:monoObject]) return _values;
+	_values = [System_Collections_Generic_DictionaryA2__ValueCollection bestObjectWithMonoObject:monoObject];
+
+	return _values;
+}
 
 #pragma mark -
 #pragma mark Methods

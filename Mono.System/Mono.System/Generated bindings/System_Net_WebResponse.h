@@ -43,77 +43,125 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : ContentLength
-	// Managed property type : System.Int64
-    @property (nonatomic) int64_t contentLength;
+/**
+  Managed property.
+  @textblock
+  Name
+    ContentLength
 
-	// Managed property name : ContentType
-	// Managed property type : System.String
-    @property (nonatomic, strong) NSString * contentType;
+  Type
+    System.Int64
+  @/textblock
+*/
+@property (nonatomic) int64_t contentLength;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    ContentType
+
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong) NSString * contentType;
 
 /* Skipped property : System.Net.WebHeaderCollection Headers */
 
-	// Managed property name : IsFromCache
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isFromCache;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsFromCache
 
-	// Managed property name : IsMutuallyAuthenticated
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isMutuallyAuthenticated;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isFromCache;
 
-	// Managed property name : ResponseUri
-	// Managed property type : System.Uri
-    @property (nonatomic, strong, readonly) System_Uri * responseUri;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsMutuallyAuthenticated
 
-	// Managed property name : SupportsHeaders
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL supportsHeaders;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isMutuallyAuthenticated;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    ResponseUri
+
+  Type
+    System.Uri
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Uri * responseUri;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    SupportsHeaders
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL supportsHeaders;
 
 #pragma mark -
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   Close
+  Managed method.
+  @textblock
+  Name
+    Close
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)close;
 
 /**
- Managed method.
- @textblock
- Name
-   Dispose
+  Managed method.
+  @textblock
+  Name
+    Dispose
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)dispose;
 
 /**
- Managed method.
- @textblock
- Name
-   GetResponseStream
+  Managed method.
+  @textblock
+  Name
+    GetResponseStream
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.IO.Stream
- @/textblock
+  Return
+    System.IO.Stream
+  @/textblock
 */
 - (System_IO_Stream *)getResponseStream;
 @end

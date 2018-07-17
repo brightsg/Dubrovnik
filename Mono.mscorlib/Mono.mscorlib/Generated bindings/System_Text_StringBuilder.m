@@ -66,98 +66,92 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Capacity
-	// Managed property type : System.Int32
-    @synthesize capacity = _capacity;
-    - (int32_t)capacity
-    {
-		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Capacity");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int32_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_capacity = monoObject;
-
-		return _capacity;
+@synthesize capacity = _capacity;
+- (int32_t)capacity
+{
+	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Capacity");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-    - (void)setCapacity:(int32_t)value
-	{
-		_capacity = value;
-		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Capacity");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject *monoException = NULL;
-		thunk(self.monoObject, value, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-	}
+	int32_t monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_capacity = monoObject;
 
-	// Managed property name : Length
-	// Managed property type : System.Int32
-    @synthesize length = _length;
-    - (int32_t)length
-    {
-		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Length");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int32_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_length = monoObject;
-
-		return _length;
+	return _capacity;
+}
+- (void)setCapacity:(int32_t)value
+{
+	_capacity = value;
+	typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "Capacity");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-    - (void)setLength:(int32_t)value
-	{
-		_length = value;
-		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Length");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject *monoException = NULL;
-		thunk(self.monoObject, value, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-	}
+	thunk(self.monoObject, value, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
 
-	// Managed property name : MaxCapacity
-	// Managed property type : System.Int32
-    @synthesize maxCapacity = _maxCapacity;
-    - (int32_t)maxCapacity
-    {
-		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MaxCapacity");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int32_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_maxCapacity = monoObject;
-
-		return _maxCapacity;
+@synthesize length = _length;
+- (int32_t)length
+{
+	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Length");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	int32_t monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_length = monoObject;
+
+	return _length;
+}
+- (void)setLength:(int32_t)value
+{
+	_length = value;
+	typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "Length");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	thunk(self.monoObject, value, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
+
+@synthesize maxCapacity = _maxCapacity;
+- (int32_t)maxCapacity
+{
+	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "MaxCapacity");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	int32_t monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_maxCapacity = monoObject;
+
+	return _maxCapacity;
+}
 
 #pragma mark -
 #pragma mark Methods

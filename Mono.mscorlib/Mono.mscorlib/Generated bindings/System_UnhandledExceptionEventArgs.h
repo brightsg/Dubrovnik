@@ -38,30 +38,46 @@
 #pragma mark Constructors
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Object
-   System.Boolean
+  Params
+    System.Object
+    System.Boolean
 
- Return
-   System.UnhandledExceptionEventArgs
- @/textblock
+  Return
+    System.UnhandledExceptionEventArgs
+  @/textblock
 */
 + (System_UnhandledExceptionEventArgs *)new_withException:(System_Object *)p1 isTerminating:(BOOL)p2;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : ExceptionObject
-	// Managed property type : System.Object
-    @property (nonatomic, strong, readonly) System_Object * exceptionObject;
+/**
+  Managed property.
+  @textblock
+  Name
+    ExceptionObject
 
-	// Managed property name : IsTerminating
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isTerminating;
+  Type
+    System.Object
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Object * exceptionObject;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    IsTerminating
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isTerminating;
 @end
 //--Dubrovnik.CodeGenerator

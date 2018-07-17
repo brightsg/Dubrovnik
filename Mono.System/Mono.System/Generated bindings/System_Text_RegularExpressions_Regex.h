@@ -44,17 +44,17 @@
 #pragma mark Constructors
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.Text.RegularExpressions.Regex
- @/textblock
+  Return
+    System.Text.RegularExpressions.Regex
+  @/textblock
 */
 + (System_Text_RegularExpressions_Regex *)new_withPattern:(NSString *)p1;
 
@@ -65,27 +65,59 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : InfiniteMatchTimeout
-	// Managed field type : System.TimeSpan
-    + (System_TimeSpan *)infiniteMatchTimeout;
+/**
+  Managed field.
+  @textblock
+  Name
+    InfiniteMatchTimeout
+
+  Type
+    System.TimeSpan
+  @/textblock
+*/
++ (System_TimeSpan *)infiniteMatchTimeout;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : CacheSize
-	// Managed property type : System.Int32
-    + (int32_t)cacheSize;
-    + (void)setCacheSize:(int32_t)value;
+/**
+  Managed property.
+  @textblock
+  Name
+    CacheSize
 
-	// Managed property name : MatchTimeout
-	// Managed property type : System.TimeSpan
-    @property (nonatomic, strong, readonly) System_TimeSpan * matchTimeout;
+  Type
+    System.Int32
+  @/textblock
+*/
++ (int32_t)cacheSize;
++ (void)setCacheSize:(int32_t)value;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    MatchTimeout
+
+  Type
+    System.TimeSpan
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_TimeSpan * matchTimeout;
 
 /* Skipped property : System.Text.RegularExpressions.RegexOptions Options */
 
-	// Managed property name : RightToLeft
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL rightToLeft;
+/**
+  Managed property.
+  @textblock
+  Name
+    RightToLeft
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL rightToLeft;
 
 #pragma mark -
 #pragma mark Methods
@@ -97,93 +129,93 @@
 /* Skipped method : System.Void CompileToAssembly(System.Text.RegularExpressions.RegexCompilationInfo[] regexinfos, System.Reflection.AssemblyName assemblyname, System.Reflection.Emit.CustomAttributeBuilder[] attributes, System.String resourceFile) */
 
 /**
- Managed method.
- @textblock
- Name
-   Escape
+  Managed method.
+  @textblock
+  Name
+    Escape
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 + (NSString *)escape_withStr:(NSString *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetGroupNames
+  Managed method.
+  @textblock
+  Name
+    GetGroupNames
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.String[]
- @/textblock
+  Return
+    System.String[]
+  @/textblock
 */
 - (System_Array *)getGroupNames;
 
 /**
- Managed method.
- @textblock
- Name
-   GetGroupNumbers
+  Managed method.
+  @textblock
+  Name
+    GetGroupNumbers
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Int32[]
- @/textblock
+  Return
+    System.Int32[]
+  @/textblock
 */
 - (System_Array *)getGroupNumbers;
 
 /**
- Managed method.
- @textblock
- Name
-   GroupNameFromNumber
+  Managed method.
+  @textblock
+  Name
+    GroupNameFromNumber
 
- Params
-   System.Int32
+  Params
+    System.Int32
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 - (NSString *)groupNameFromNumber_withI:(int32_t)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GroupNumberFromName
+  Managed method.
+  @textblock
+  Name
+    GroupNumberFromName
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)groupNumberFromName_withName:(NSString *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   IsMatch
+  Managed method.
+  @textblock
+  Name
+    IsMatch
 
- Params
-   System.String
-   System.String
+  Params
+    System.String
+    System.String
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)isMatch_withInput:(NSString *)p1 pattern:(NSString *)p2;
 
@@ -192,33 +224,33 @@
 /* Skipped method : System.Boolean IsMatch(System.String input, System.String pattern, System.Text.RegularExpressions.RegexOptions options, System.TimeSpan matchTimeout) */
 
 /**
- Managed method.
- @textblock
- Name
-   IsMatch
+  Managed method.
+  @textblock
+  Name
+    IsMatch
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)isMatch_withInput:(NSString *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   IsMatch
+  Managed method.
+  @textblock
+  Name
+    IsMatch
 
- Params
-   System.String
-   System.Int32
+  Params
+    System.String
+    System.Int32
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)isMatch_withInput:(NSString *)p1 startat:(int32_t)p2;
 
@@ -245,19 +277,19 @@
 /* Skipped method : System.Text.RegularExpressions.MatchCollection Matches(System.String input, System.Int32 startat) */
 
 /**
- Managed method.
- @textblock
- Name
-   Replace
+  Managed method.
+  @textblock
+  Name
+    Replace
 
- Params
-   System.String
-   System.String
-   System.String
+  Params
+    System.String
+    System.String
+    System.String
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 + (NSString *)replace_withInput:(NSString *)p1 pattern:(NSString *)p2 replacement:(NSString *)p3;
 
@@ -266,53 +298,53 @@
 /* Skipped method : System.String Replace(System.String input, System.String pattern, System.String replacement, System.Text.RegularExpressions.RegexOptions options, System.TimeSpan matchTimeout) */
 
 /**
- Managed method.
- @textblock
- Name
-   Replace
+  Managed method.
+  @textblock
+  Name
+    Replace
 
- Params
-   System.String
-   System.String
+  Params
+    System.String
+    System.String
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 - (NSString *)replace_withInput:(NSString *)p1 replacement:(NSString *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   Replace
+  Managed method.
+  @textblock
+  Name
+    Replace
 
- Params
-   System.String
-   System.String
-   System.Int32
+  Params
+    System.String
+    System.String
+    System.Int32
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 - (NSString *)replace_withInput:(NSString *)p1 replacement:(NSString *)p2 count:(int32_t)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   Replace
+  Managed method.
+  @textblock
+  Name
+    Replace
 
- Params
-   System.String
-   System.String
-   System.Int32
-   System.Int32
+  Params
+    System.String
+    System.String
+    System.Int32
+    System.Int32
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 - (NSString *)replace_withInput:(NSString *)p1 replacement:(NSString *)p2 count:(int32_t)p3 startat:(int32_t)p4;
 
@@ -329,18 +361,18 @@
 /* Skipped method : System.String Replace(System.String input, System.Text.RegularExpressions.MatchEvaluator evaluator, System.Int32 count, System.Int32 startat) */
 
 /**
- Managed method.
- @textblock
- Name
-   Split
+  Managed method.
+  @textblock
+  Name
+    Split
 
- Params
-   System.String
-   System.String
+  Params
+    System.String
+    System.String
 
- Return
-   System.String[]
- @/textblock
+  Return
+    System.String[]
+  @/textblock
 */
 + (System_Array *)split_withInput:(NSString *)p1 pattern:(NSString *)p2;
 
@@ -349,80 +381,80 @@
 /* Skipped method : System.String[] Split(System.String input, System.String pattern, System.Text.RegularExpressions.RegexOptions options, System.TimeSpan matchTimeout) */
 
 /**
- Managed method.
- @textblock
- Name
-   Split
+  Managed method.
+  @textblock
+  Name
+    Split
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.String[]
- @/textblock
+  Return
+    System.String[]
+  @/textblock
 */
 - (System_Array *)split_withInput:(NSString *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Split
+  Managed method.
+  @textblock
+  Name
+    Split
 
- Params
-   System.String
-   System.Int32
+  Params
+    System.String
+    System.Int32
 
- Return
-   System.String[]
- @/textblock
+  Return
+    System.String[]
+  @/textblock
 */
 - (System_Array *)split_withInput:(NSString *)p1 count:(int32_t)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   Split
+  Managed method.
+  @textblock
+  Name
+    Split
 
- Params
-   System.String
-   System.Int32
-   System.Int32
+  Params
+    System.String
+    System.Int32
+    System.Int32
 
- Return
-   System.String[]
- @/textblock
+  Return
+    System.String[]
+  @/textblock
 */
 - (System_Array *)split_withInput:(NSString *)p1 count:(int32_t)p2 startat:(int32_t)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   ToString
+  Managed method.
+  @textblock
+  Name
+    ToString
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 - (NSString *)toString;
 
 /**
- Managed method.
- @textblock
- Name
-   Unescape
+  Managed method.
+  @textblock
+  Name
+    Unescape
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 + (NSString *)unescape_withStr:(NSString *)p1;
 @end

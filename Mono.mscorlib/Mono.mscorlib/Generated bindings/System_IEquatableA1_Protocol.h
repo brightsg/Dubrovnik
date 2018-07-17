@@ -78,17 +78,17 @@
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   <System.IEquatable`1+T>
+  Params
+    <System.IEquatable`1+T>
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withOther:(System_Object *)p1;
 #endif
@@ -109,17 +109,17 @@
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   <System.IEquatable`1+T>
+  Params
+    <System.IEquatable`1+T>
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withOther:(System_Object *)p1;
 

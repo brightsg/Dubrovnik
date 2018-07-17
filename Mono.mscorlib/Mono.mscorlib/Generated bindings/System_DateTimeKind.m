@@ -33,38 +33,32 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : Local
-	// Managed field type : System.DateTimeKind
-    static int32_t m_local;
-    + (int32_t)local
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"Local"];
-		m_local = DB_UNBOX_INT32(monoObject);
+static int32_t m_local;
++ (int32_t)local
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"Local"];
+	m_local = DB_UNBOX_INT32(monoObject);
 
-		return m_local;
-	}
+	return m_local;
+}
 
-	// Managed field name : Unspecified
-	// Managed field type : System.DateTimeKind
-    static int32_t m_unspecified;
-    + (int32_t)unspecified
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"Unspecified"];
-		m_unspecified = DB_UNBOX_INT32(monoObject);
+static int32_t m_unspecified;
++ (int32_t)unspecified
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"Unspecified"];
+	m_unspecified = DB_UNBOX_INT32(monoObject);
 
-		return m_unspecified;
-	}
+	return m_unspecified;
+}
 
-	// Managed field name : Utc
-	// Managed field type : System.DateTimeKind
-    static int32_t m_utc;
-    + (int32_t)utc
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"Utc"];
-		m_utc = DB_UNBOX_INT32(monoObject);
+static int32_t m_utc;
++ (int32_t)utc
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"Utc"];
+	m_utc = DB_UNBOX_INT32(monoObject);
 
-		return m_utc;
-	}
+	return m_utc;
+}
 
 #pragma mark -
 #pragma mark Teardown

@@ -47,32 +47,88 @@ typedef NS_ENUM(int32_t, enumSystem_DayOfWeek) {
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : Friday
-	// Managed field type : System.DayOfWeek
-    + (int32_t)friday;
+/**
+  Managed field.
+  @textblock
+  Name
+    Friday
 
-	// Managed field name : Monday
-	// Managed field type : System.DayOfWeek
-    + (int32_t)monday;
+  Type
+    System.DayOfWeek
+  @/textblock
+*/
++ (int32_t)friday;
 
-	// Managed field name : Saturday
-	// Managed field type : System.DayOfWeek
-    + (int32_t)saturday;
+/**
+  Managed field.
+  @textblock
+  Name
+    Monday
 
-	// Managed field name : Sunday
-	// Managed field type : System.DayOfWeek
-    + (int32_t)sunday;
+  Type
+    System.DayOfWeek
+  @/textblock
+*/
++ (int32_t)monday;
 
-	// Managed field name : Thursday
-	// Managed field type : System.DayOfWeek
-    + (int32_t)thursday;
+/**
+  Managed field.
+  @textblock
+  Name
+    Saturday
 
-	// Managed field name : Tuesday
-	// Managed field type : System.DayOfWeek
-    + (int32_t)tuesday;
+  Type
+    System.DayOfWeek
+  @/textblock
+*/
++ (int32_t)saturday;
 
-	// Managed field name : Wednesday
-	// Managed field type : System.DayOfWeek
-    + (int32_t)wednesday;
+/**
+  Managed field.
+  @textblock
+  Name
+    Sunday
+
+  Type
+    System.DayOfWeek
+  @/textblock
+*/
++ (int32_t)sunday;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    Thursday
+
+  Type
+    System.DayOfWeek
+  @/textblock
+*/
++ (int32_t)thursday;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    Tuesday
+
+  Type
+    System.DayOfWeek
+  @/textblock
+*/
++ (int32_t)tuesday;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    Wednesday
+
+  Type
+    System.DayOfWeek
+  @/textblock
+*/
++ (int32_t)wednesday;
 @end
 //--Dubrovnik.CodeGenerator

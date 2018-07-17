@@ -79,15 +79,31 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : ElementType
-	// Managed property type : System.Type
-    @property (nonatomic, strong, readonly) System_Type * elementType;
+/**
+  Managed property.
+  @textblock
+  Name
+    ElementType
+
+  Type
+    System.Type
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Type * elementType;
 
 /* Skipped property : System.Linq.Expressions.Expression Expression */
 
-	// Managed property name : Provider
-	// Managed property type : System.Linq.IQueryProvider
-    @property (nonatomic, strong, readonly) System_Linq_IQueryProvider * provider;
+/**
+  Managed property.
+  @textblock
+  Name
+    Provider
+
+  Type
+    System.Linq.IQueryProvider
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Linq_IQueryProvider * provider;
 #endif
 
 
@@ -105,15 +121,31 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : ElementType
-	// Managed property type : System.Type
-    @property (nonatomic, strong, readonly) System_Type * elementType;
+/**
+  Managed property.
+  @textblock
+  Name
+    ElementType
+
+  Type
+    System.Type
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Type * elementType;
 
 /* Skipped property : System.Linq.Expressions.Expression Expression */
 
-	// Managed property name : Provider
-	// Managed property type : System.Linq.IQueryProvider
-    @property (nonatomic, strong, readonly) System_Linq_IQueryProvider * provider;
+/**
+  Managed property.
+  @textblock
+  Name
+    Provider
+
+  Type
+    System.Linq.IQueryProvider
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Linq_IQueryProvider * provider;
 
 @end
 

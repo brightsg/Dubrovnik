@@ -55,17 +55,17 @@
 #pragma mark Constructors
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Int32
+  Params
+    System.Int32
 
- Return
-   System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
- @/textblock
+  Return
+    System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
+  @/textblock
 */
 + (System_Collections_Generic_DictionaryA2 *)new_withCapacity:(int32_t)p1;
 
@@ -74,17 +74,17 @@
 /* Skipped constructor : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue> (System.Int32 capacity, System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey> comparer) */
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Collections.Generic.IDictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
+  Params
+    System.Collections.Generic.IDictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
 
- Return
-   System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
- @/textblock
+  Return
+    System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>
+  @/textblock
 */
 + (System_Collections_Generic_DictionaryA2 *)new_withDictionary:(id <System_Collections_Generic_IDictionaryA2_>)p1;
 
@@ -95,173 +95,197 @@
 
 /* Skipped property : System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey> Comparer */
 
-	// Managed property name : Count
-	// Managed property type : System.Int32
-    @property (nonatomic, readonly) int32_t count;
+/**
+  Managed property.
+  @textblock
+  Name
+    Count
 
-	// Managed property name : Keys
-	// Managed property type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>+KeyCollection
-    @property (nonatomic, strong, readonly) System_Collections_Generic_DictionaryA2__KeyCollection * keys;
+  Type
+    System.Int32
+  @/textblock
+*/
+@property (nonatomic, readonly) int32_t count;
 
-	// Managed property name : Values
-	// Managed property type : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>+ValueCollection
-    @property (nonatomic, strong, readonly) System_Collections_Generic_DictionaryA2__ValueCollection * values;
+/**
+  Managed property.
+  @textblock
+  Name
+    Keys
+
+  Type
+    System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>+KeyCollection
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Collections_Generic_DictionaryA2__KeyCollection * keys;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    Values
+
+  Type
+    System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>+ValueCollection
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Collections_Generic_DictionaryA2__ValueCollection * values;
 
 #pragma mark -
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   get_Item
+  Managed method.
+  @textblock
+  Name
+    get_Item
 
- Params
-   <System.Collections.Generic.Dictionary`2+TKey>
+  Params
+    <System.Collections.Generic.Dictionary`2+TKey>
 
- Return
-   <System.Collections.Generic.Dictionary`2+TValue>
- @/textblock
+  Return
+    <System.Collections.Generic.Dictionary`2+TValue>
+  @/textblock
 */
 - (System_Object *)get_Item_withKey:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   set_Item
+  Managed method.
+  @textblock
+  Name
+    set_Item
 
- Params
-   <System.Collections.Generic.Dictionary`2+TKey>
-   <System.Collections.Generic.Dictionary`2+TValue>
+  Params
+    <System.Collections.Generic.Dictionary`2+TKey>
+    <System.Collections.Generic.Dictionary`2+TValue>
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)set_Item_withKey:(System_Object *)p1 value:(System_Object *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   Add
+  Managed method.
+  @textblock
+  Name
+    Add
 
- Params
-   <System.Collections.Generic.Dictionary`2+TKey>
-   <System.Collections.Generic.Dictionary`2+TValue>
+  Params
+    <System.Collections.Generic.Dictionary`2+TKey>
+    <System.Collections.Generic.Dictionary`2+TValue>
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   Clear
+  Managed method.
+  @textblock
+  Name
+    Clear
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)clear;
 
 /**
- Managed method.
- @textblock
- Name
-   ContainsKey
+  Managed method.
+  @textblock
+  Name
+    ContainsKey
 
- Params
-   <System.Collections.Generic.Dictionary`2+TKey>
+  Params
+    <System.Collections.Generic.Dictionary`2+TKey>
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)containsKey_withKey:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   ContainsValue
+  Managed method.
+  @textblock
+  Name
+    ContainsValue
 
- Params
-   <System.Collections.Generic.Dictionary`2+TValue>
+  Params
+    <System.Collections.Generic.Dictionary`2+TValue>
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)containsValue_withValue:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetEnumerator
+  Managed method.
+  @textblock
+  Name
+    GetEnumerator
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>+Enumerator
- @/textblock
+  Return
+    System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue>+Enumerator
+  @/textblock
 */
 - (System_Collections_Generic_DictionaryA2__Enumerator *)getEnumerator;
 
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 
 /**
- Managed method.
- @textblock
- Name
-   OnDeserialization
+  Managed method.
+  @textblock
+  Name
+    OnDeserialization
 
- Params
-   System.Object
+  Params
+    System.Object
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)onDeserialization_withSender:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Remove
+  Managed method.
+  @textblock
+  Name
+    Remove
 
- Params
-   <System.Collections.Generic.Dictionary`2+TKey>
+  Params
+    <System.Collections.Generic.Dictionary`2+TKey>
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)remove_withKey:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   TryGetValue
+  Managed method.
+  @textblock
+  Name
+    TryGetValue
 
- Params
-   <System.Collections.Generic.Dictionary`2+TKey>
-   ref TValue&
+  Params
+    <System.Collections.Generic.Dictionary`2+TKey>
+    ref TValue&
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
 @end

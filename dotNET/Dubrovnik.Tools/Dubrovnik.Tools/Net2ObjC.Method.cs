@@ -21,7 +21,7 @@ namespace Dubrovnik.Tools {
 				string tab = "  ";
 				WriteLine($"");
 				WriteLine($"/**");
-				PushIndent(" ");
+				PushIndent(tab);
 				WriteLine($"Managed method.");
 				WriteLine($"@textblock");
 				WriteLine($"Name");

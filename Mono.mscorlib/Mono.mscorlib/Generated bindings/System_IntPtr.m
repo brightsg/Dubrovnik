@@ -50,40 +50,36 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : Zero
-	// Managed field type : System.IntPtr
-    static void * m_zero;
-    + (void *)zero
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"Zero"];
-		m_zero = DB_UNBOX_PTR(monoObject);
+static void * m_zero;
++ (void *)zero
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"Zero"];
+	m_zero = DB_UNBOX_PTR(monoObject);
 
-		return m_zero;
-	}
+	return m_zero;
+}
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Size
-	// Managed property type : System.Int32
-    static int32_t m_size;
-    + (int32_t)size
-    {
-		typedef int32_t (*Thunk)(MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Size");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int32_t monoObject = thunk(&monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		m_size = monoObject;
-
-		return m_size;
+static int32_t m_size;
++ (int32_t)size
+{
+	typedef int32_t (*Thunk)(MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Size");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	int32_t monoObject = thunk(&monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	m_size = monoObject;
+
+	return m_size;
+}
 
 #pragma mark -
 #pragma mark Methods

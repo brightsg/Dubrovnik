@@ -42,123 +42,155 @@
 /* Skipped constructor : System.Drawing.Size (System.Drawing.Point pt) */
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Int32
-   System.Int32
+  Params
+    System.Int32
+    System.Int32
 
- Return
-   System.Drawing.Size
- @/textblock
+  Return
+    System.Drawing.Size
+  @/textblock
 */
 + (System_Drawing_Size *)new_withWidth:(int32_t)p1 height:(int32_t)p2;
 
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : Empty
-	// Managed field type : System.Drawing.Size
-    + (System_Drawing_Size *)empty;
+/**
+  Managed field.
+  @textblock
+  Name
+    Empty
+
+  Type
+    System.Drawing.Size
+  @/textblock
+*/
++ (System_Drawing_Size *)empty;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Height
-	// Managed property type : System.Int32
-    @property (nonatomic) int32_t height;
+/**
+  Managed property.
+  @textblock
+  Name
+    Height
 
-	// Managed property name : IsEmpty
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isEmpty;
+  Type
+    System.Int32
+  @/textblock
+*/
+@property (nonatomic) int32_t height;
 
-	// Managed property name : Width
-	// Managed property type : System.Int32
-    @property (nonatomic) int32_t width;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsEmpty
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isEmpty;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    Width
+
+  Type
+    System.Int32
+  @/textblock
+*/
+@property (nonatomic) int32_t width;
 
 #pragma mark -
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   Add
+  Managed method.
+  @textblock
+  Name
+    Add
 
- Params
-   System.Drawing.Size
-   System.Drawing.Size
+  Params
+    System.Drawing.Size
+    System.Drawing.Size
 
- Return
-   System.Drawing.Size
- @/textblock
+  Return
+    System.Drawing.Size
+  @/textblock
 */
 + (System_Drawing_Size *)add_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2;
 
 /* Skipped method : System.Drawing.Size Ceiling(System.Drawing.SizeF value) */
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   System.Object
+  Params
+    System.Object
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withObj:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetHashCode
+  Managed method.
+  @textblock
+  Name
+    GetHashCode
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getHashCode;
 
 /**
- Managed method.
- @textblock
- Name
-   op_Addition
+  Managed method.
+  @textblock
+  Name
+    op_Addition
 
- Params
-   System.Drawing.Size
-   System.Drawing.Size
+  Params
+    System.Drawing.Size
+    System.Drawing.Size
 
- Return
-   System.Drawing.Size
- @/textblock
+  Return
+    System.Drawing.Size
+  @/textblock
 */
 + (System_Drawing_Size *)op_Addition_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   op_Equality
+  Managed method.
+  @textblock
+  Name
+    op_Equality
 
- Params
-   System.Drawing.Size
-   System.Drawing.Size
+  Params
+    System.Drawing.Size
+    System.Drawing.Size
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)op_Equality_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2;
 
@@ -167,67 +199,67 @@
 /* Skipped method : System.Drawing.SizeF op_Implicit(System.Drawing.Size p) */
 
 /**
- Managed method.
- @textblock
- Name
-   op_Inequality
+  Managed method.
+  @textblock
+  Name
+    op_Inequality
 
- Params
-   System.Drawing.Size
-   System.Drawing.Size
+  Params
+    System.Drawing.Size
+    System.Drawing.Size
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)op_Inequality_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   op_Subtraction
+  Managed method.
+  @textblock
+  Name
+    op_Subtraction
 
- Params
-   System.Drawing.Size
-   System.Drawing.Size
+  Params
+    System.Drawing.Size
+    System.Drawing.Size
 
- Return
-   System.Drawing.Size
- @/textblock
+  Return
+    System.Drawing.Size
+  @/textblock
 */
 + (System_Drawing_Size *)op_Subtraction_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2;
 
 /* Skipped method : System.Drawing.Size Round(System.Drawing.SizeF value) */
 
 /**
- Managed method.
- @textblock
- Name
-   Subtract
+  Managed method.
+  @textblock
+  Name
+    Subtract
 
- Params
-   System.Drawing.Size
-   System.Drawing.Size
+  Params
+    System.Drawing.Size
+    System.Drawing.Size
 
- Return
-   System.Drawing.Size
- @/textblock
+  Return
+    System.Drawing.Size
+  @/textblock
 */
 + (System_Drawing_Size *)subtract_withSz1:(System_Drawing_Size *)p1 sz2:(System_Drawing_Size *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   ToString
+  Managed method.
+  @textblock
+  Name
+    ToString
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 - (NSString *)toString;
 

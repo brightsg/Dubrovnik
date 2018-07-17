@@ -68,161 +68,147 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : AsyncState
-	// Managed property type : System.Object
-    @synthesize asyncState = _asyncState;
-    - (System_Object *)asyncState
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "AsyncState");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_asyncState isEqualToMonoObject:monoObject]) return _asyncState;					
-		_asyncState = [System_Object bestObjectWithMonoObject:monoObject];
-
-		return _asyncState;
+@synthesize asyncState = _asyncState;
+- (System_Object *)asyncState
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "AsyncState");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_asyncState isEqualToMonoObject:monoObject]) return _asyncState;
+	_asyncState = [System_Object bestObjectWithMonoObject:monoObject];
 
-	// Managed property name : CompletedTask
-	// Managed property type : System.Threading.Tasks.Task
-    static System_Threading_Tasks_Task * m_completedTask;
-    + (System_Threading_Tasks_Task *)completedTask
-    {
-		typedef MonoObject * (*Thunk)(MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CompletedTask");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(&monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:m_completedTask isEqualToMonoObject:monoObject]) return m_completedTask;					
-		m_completedTask = [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+	return _asyncState;
+}
 
-		return m_completedTask;
+static System_Threading_Tasks_Task * m_completedTask;
++ (System_Threading_Tasks_Task *)completedTask
+{
+	typedef MonoObject * (*Thunk)(MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "CompletedTask");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(&monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:m_completedTask isEqualToMonoObject:monoObject]) return m_completedTask;
+	m_completedTask = [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+
+	return m_completedTask;
+}
 
 /* Skipped property : System.Threading.Tasks.TaskCreationOptions CreationOptions */
 
-	// Managed property name : CurrentId
-	// Managed property type : System.Nullable`1<System.Int32>
-    static System_NullableA1 * m_currentId;
-    + (System_NullableA1 *)currentId
-    {
-		typedef MonoObject * (*Thunk)(MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrentId");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(&monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:m_currentId isEqualToMonoObject:monoObject]) return m_currentId;					
-		m_currentId = [System_NullableA1 bestObjectWithMonoObject:monoObject];
-
-		return m_currentId;
+static System_NullableA1 * m_currentId;
++ (System_NullableA1 *)currentId
+{
+	typedef MonoObject * (*Thunk)(MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "CurrentId");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(&monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:m_currentId isEqualToMonoObject:monoObject]) return m_currentId;
+	m_currentId = [System_NullableA1 bestObjectWithMonoObject:monoObject];
+
+	return m_currentId;
+}
 
 /* Skipped property : System.AggregateException Exception */
 
 /* Skipped property : System.Threading.Tasks.TaskFactory Factory */
 
-	// Managed property name : Id
-	// Managed property type : System.Int32
-    @synthesize id = _id;
-    - (int32_t)id
-    {
-		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Id");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int32_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_id = monoObject;
-
-		return _id;
+@synthesize id = _id;
+- (int32_t)id
+{
+	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Id");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	int32_t monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_id = monoObject;
 
-	// Managed property name : IsCanceled
-	// Managed property type : System.Boolean
-    @synthesize isCanceled = _isCanceled;
-    - (BOOL)isCanceled
-    {
-		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsCanceled");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		BOOL monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_isCanceled = monoObject;
+	return _id;
+}
 
-		return _isCanceled;
+@synthesize isCanceled = _isCanceled;
+- (BOOL)isCanceled
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IsCanceled");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_isCanceled = monoObject;
 
-	// Managed property name : IsCompleted
-	// Managed property type : System.Boolean
-    @synthesize isCompleted = _isCompleted;
-    - (BOOL)isCompleted
-    {
-		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsCompleted");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		BOOL monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_isCompleted = monoObject;
+	return _isCanceled;
+}
 
-		return _isCompleted;
+@synthesize isCompleted = _isCompleted;
+- (BOOL)isCompleted
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IsCompleted");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_isCompleted = monoObject;
 
-	// Managed property name : IsFaulted
-	// Managed property type : System.Boolean
-    @synthesize isFaulted = _isFaulted;
-    - (BOOL)isFaulted
-    {
-		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsFaulted");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		BOOL monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_isFaulted = monoObject;
+	return _isCompleted;
+}
 
-		return _isFaulted;
+@synthesize isFaulted = _isFaulted;
+- (BOOL)isFaulted
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IsFaulted");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_isFaulted = monoObject;
+
+	return _isFaulted;
+}
 
 /* Skipped property : System.Threading.Tasks.TaskStatus Status */
 

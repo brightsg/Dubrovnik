@@ -66,508 +66,468 @@
 
 /* Skipped property : System.Globalization.CultureTypes CultureTypes */
 
-	// Managed property name : CurrentCulture
-	// Managed property type : System.Globalization.CultureInfo
-    static System_Globalization_CultureInfo * m_currentCulture;
-    + (System_Globalization_CultureInfo *)currentCulture
-    {
-		typedef MonoObject * (*Thunk)(MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrentCulture");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(&monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:m_currentCulture isEqualToMonoObject:monoObject]) return m_currentCulture;					
-		m_currentCulture = [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
+static System_Globalization_CultureInfo * m_currentCulture;
++ (System_Globalization_CultureInfo *)currentCulture
+{
+	typedef MonoObject * (*Thunk)(MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "CurrentCulture");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	MonoObject * monoObject = thunk(&monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:m_currentCulture isEqualToMonoObject:monoObject]) return m_currentCulture;
+	m_currentCulture = [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
 
-		return m_currentCulture;
+	return m_currentCulture;
+}
++ (void)setCurrentCulture:(System_Globalization_CultureInfo *)value
+{
+	m_currentCulture = value;
+	typedef void (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "CurrentCulture");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-    + (void)setCurrentCulture:(System_Globalization_CultureInfo *)value
-	{
-		m_currentCulture = value;
-		typedef void (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CurrentCulture");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject *monoException = NULL;
-		thunk([value monoObject], &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-	}
+	thunk([value monoObject], &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
 
-	// Managed property name : CurrentUICulture
-	// Managed property type : System.Globalization.CultureInfo
-    static System_Globalization_CultureInfo * m_currentUICulture;
-    + (System_Globalization_CultureInfo *)currentUICulture
-    {
-		typedef MonoObject * (*Thunk)(MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrentUICulture");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(&monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:m_currentUICulture isEqualToMonoObject:monoObject]) return m_currentUICulture;					
-		m_currentUICulture = [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
+static System_Globalization_CultureInfo * m_currentUICulture;
++ (System_Globalization_CultureInfo *)currentUICulture
+{
+	typedef MonoObject * (*Thunk)(MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "CurrentUICulture");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	MonoObject * monoObject = thunk(&monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:m_currentUICulture isEqualToMonoObject:monoObject]) return m_currentUICulture;
+	m_currentUICulture = [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
 
-		return m_currentUICulture;
+	return m_currentUICulture;
+}
++ (void)setCurrentUICulture:(System_Globalization_CultureInfo *)value
+{
+	m_currentUICulture = value;
+	typedef void (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "CurrentUICulture");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-    + (void)setCurrentUICulture:(System_Globalization_CultureInfo *)value
-	{
-		m_currentUICulture = value;
-		typedef void (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CurrentUICulture");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject *monoException = NULL;
-		thunk([value monoObject], &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-	}
+	thunk([value monoObject], &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
 
 /* Skipped property : System.Globalization.DateTimeFormatInfo DateTimeFormat */
 
-	// Managed property name : DefaultThreadCurrentCulture
-	// Managed property type : System.Globalization.CultureInfo
-    static System_Globalization_CultureInfo * m_defaultThreadCurrentCulture;
-    + (System_Globalization_CultureInfo *)defaultThreadCurrentCulture
-    {
-		typedef MonoObject * (*Thunk)(MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DefaultThreadCurrentCulture");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(&monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:m_defaultThreadCurrentCulture isEqualToMonoObject:monoObject]) return m_defaultThreadCurrentCulture;					
-		m_defaultThreadCurrentCulture = [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
-
-		return m_defaultThreadCurrentCulture;
+static System_Globalization_CultureInfo * m_defaultThreadCurrentCulture;
++ (System_Globalization_CultureInfo *)defaultThreadCurrentCulture
+{
+	typedef MonoObject * (*Thunk)(MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "DefaultThreadCurrentCulture");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-    + (void)setDefaultThreadCurrentCulture:(System_Globalization_CultureInfo *)value
-	{
-		m_defaultThreadCurrentCulture = value;
-		typedef void (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "DefaultThreadCurrentCulture");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject *monoException = NULL;
-		thunk([value monoObject], &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	MonoObject * monoObject = thunk(&monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:m_defaultThreadCurrentCulture isEqualToMonoObject:monoObject]) return m_defaultThreadCurrentCulture;
+	m_defaultThreadCurrentCulture = [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
+
+	return m_defaultThreadCurrentCulture;
+}
++ (void)setDefaultThreadCurrentCulture:(System_Globalization_CultureInfo *)value
+{
+	m_defaultThreadCurrentCulture = value;
+	typedef void (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "DefaultThreadCurrentCulture");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	thunk([value monoObject], &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
 
-	// Managed property name : DefaultThreadCurrentUICulture
-	// Managed property type : System.Globalization.CultureInfo
-    static System_Globalization_CultureInfo * m_defaultThreadCurrentUICulture;
-    + (System_Globalization_CultureInfo *)defaultThreadCurrentUICulture
-    {
-		typedef MonoObject * (*Thunk)(MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DefaultThreadCurrentUICulture");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(&monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:m_defaultThreadCurrentUICulture isEqualToMonoObject:monoObject]) return m_defaultThreadCurrentUICulture;					
-		m_defaultThreadCurrentUICulture = [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
-
-		return m_defaultThreadCurrentUICulture;
+static System_Globalization_CultureInfo * m_defaultThreadCurrentUICulture;
++ (System_Globalization_CultureInfo *)defaultThreadCurrentUICulture
+{
+	typedef MonoObject * (*Thunk)(MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "DefaultThreadCurrentUICulture");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-    + (void)setDefaultThreadCurrentUICulture:(System_Globalization_CultureInfo *)value
-	{
-		m_defaultThreadCurrentUICulture = value;
-		typedef void (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "DefaultThreadCurrentUICulture");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject *monoException = NULL;
-		thunk([value monoObject], &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	MonoObject * monoObject = thunk(&monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:m_defaultThreadCurrentUICulture isEqualToMonoObject:monoObject]) return m_defaultThreadCurrentUICulture;
+	m_defaultThreadCurrentUICulture = [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
+
+	return m_defaultThreadCurrentUICulture;
+}
++ (void)setDefaultThreadCurrentUICulture:(System_Globalization_CultureInfo *)value
+{
+	m_defaultThreadCurrentUICulture = value;
+	typedef void (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "DefaultThreadCurrentUICulture");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	thunk([value monoObject], &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
 
-	// Managed property name : DisplayName
-	// Managed property type : System.String
-    @synthesize displayName = _displayName;
-    - (NSString *)displayName
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DisplayName");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_displayName isEqualToMonoObject:monoObject]) return _displayName;					
-		_displayName = [NSString stringWithMonoString:DB_STRING(monoObject)];
-
-		return _displayName;
+@synthesize displayName = _displayName;
+- (NSString *)displayName
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "DisplayName");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_displayName isEqualToMonoObject:monoObject]) return _displayName;
+	_displayName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
-	// Managed property name : EnglishName
-	// Managed property type : System.String
-    @synthesize englishName = _englishName;
-    - (NSString *)englishName
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "EnglishName");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_englishName isEqualToMonoObject:monoObject]) return _englishName;					
-		_englishName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+	return _displayName;
+}
 
-		return _englishName;
+@synthesize englishName = _englishName;
+- (NSString *)englishName
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "EnglishName");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_englishName isEqualToMonoObject:monoObject]) return _englishName;
+	_englishName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
-	// Managed property name : IetfLanguageTag
-	// Managed property type : System.String
-    @synthesize ietfLanguageTag = _ietfLanguageTag;
-    - (NSString *)ietfLanguageTag
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IetfLanguageTag");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_ietfLanguageTag isEqualToMonoObject:monoObject]) return _ietfLanguageTag;					
-		_ietfLanguageTag = [NSString stringWithMonoString:DB_STRING(monoObject)];
+	return _englishName;
+}
 
-		return _ietfLanguageTag;
+@synthesize ietfLanguageTag = _ietfLanguageTag;
+- (NSString *)ietfLanguageTag
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IetfLanguageTag");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_ietfLanguageTag isEqualToMonoObject:monoObject]) return _ietfLanguageTag;
+	_ietfLanguageTag = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
-	// Managed property name : InstalledUICulture
-	// Managed property type : System.Globalization.CultureInfo
-    static System_Globalization_CultureInfo * m_installedUICulture;
-    + (System_Globalization_CultureInfo *)installedUICulture
-    {
-		typedef MonoObject * (*Thunk)(MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InstalledUICulture");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(&monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:m_installedUICulture isEqualToMonoObject:monoObject]) return m_installedUICulture;					
-		m_installedUICulture = [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
+	return _ietfLanguageTag;
+}
 
-		return m_installedUICulture;
+static System_Globalization_CultureInfo * m_installedUICulture;
++ (System_Globalization_CultureInfo *)installedUICulture
+{
+	typedef MonoObject * (*Thunk)(MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "InstalledUICulture");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(&monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:m_installedUICulture isEqualToMonoObject:monoObject]) return m_installedUICulture;
+	m_installedUICulture = [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
 
-	// Managed property name : InvariantCulture
-	// Managed property type : System.Globalization.CultureInfo
-    static System_Globalization_CultureInfo * m_invariantCulture;
-    + (System_Globalization_CultureInfo *)invariantCulture
-    {
-		typedef MonoObject * (*Thunk)(MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "InvariantCulture");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(&monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:m_invariantCulture isEqualToMonoObject:monoObject]) return m_invariantCulture;					
-		m_invariantCulture = [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
+	return m_installedUICulture;
+}
 
-		return m_invariantCulture;
+static System_Globalization_CultureInfo * m_invariantCulture;
++ (System_Globalization_CultureInfo *)invariantCulture
+{
+	typedef MonoObject * (*Thunk)(MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "InvariantCulture");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(&monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:m_invariantCulture isEqualToMonoObject:monoObject]) return m_invariantCulture;
+	m_invariantCulture = [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
 
-	// Managed property name : IsNeutralCulture
-	// Managed property type : System.Boolean
-    @synthesize isNeutralCulture = _isNeutralCulture;
-    - (BOOL)isNeutralCulture
-    {
-		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsNeutralCulture");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		BOOL monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_isNeutralCulture = monoObject;
+	return m_invariantCulture;
+}
 
-		return _isNeutralCulture;
+@synthesize isNeutralCulture = _isNeutralCulture;
+- (BOOL)isNeutralCulture
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IsNeutralCulture");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_isNeutralCulture = monoObject;
 
-	// Managed property name : IsReadOnly
-	// Managed property type : System.Boolean
-    @synthesize isReadOnly = _isReadOnly;
-    - (BOOL)isReadOnly
-    {
-		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsReadOnly");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		BOOL monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_isReadOnly = monoObject;
+	return _isNeutralCulture;
+}
 
-		return _isReadOnly;
+@synthesize isReadOnly = _isReadOnly;
+- (BOOL)isReadOnly
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IsReadOnly");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_isReadOnly = monoObject;
 
-	// Managed property name : KeyboardLayoutId
-	// Managed property type : System.Int32
-    @synthesize keyboardLayoutId = _keyboardLayoutId;
-    - (int32_t)keyboardLayoutId
-    {
-		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "KeyboardLayoutId");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int32_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_keyboardLayoutId = monoObject;
+	return _isReadOnly;
+}
 
-		return _keyboardLayoutId;
+@synthesize keyboardLayoutId = _keyboardLayoutId;
+- (int32_t)keyboardLayoutId
+{
+	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "KeyboardLayoutId");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	int32_t monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_keyboardLayoutId = monoObject;
 
-	// Managed property name : LCID
-	// Managed property type : System.Int32
-    @synthesize lCID = _lCID;
-    - (int32_t)lCID
-    {
-		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "LCID");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int32_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_lCID = monoObject;
+	return _keyboardLayoutId;
+}
 
-		return _lCID;
+@synthesize lCID = _lCID;
+- (int32_t)lCID
+{
+	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "LCID");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	int32_t monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_lCID = monoObject;
 
-	// Managed property name : Name
-	// Managed property type : System.String
-    @synthesize name = _name;
-    - (NSString *)name
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Name");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
-		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
+	return _lCID;
+}
 
-		return _name;
+@synthesize name = _name;
+- (NSString *)name
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Name");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_name isEqualToMonoObject:monoObject]) return _name;
+	_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
-	// Managed property name : NativeName
-	// Managed property type : System.String
-    @synthesize nativeName = _nativeName;
-    - (NSString *)nativeName
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "NativeName");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_nativeName isEqualToMonoObject:monoObject]) return _nativeName;					
-		_nativeName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+	return _name;
+}
 
-		return _nativeName;
+@synthesize nativeName = _nativeName;
+- (NSString *)nativeName
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "NativeName");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_nativeName isEqualToMonoObject:monoObject]) return _nativeName;
+	_nativeName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+	return _nativeName;
+}
 
 /* Skipped property : System.Globalization.NumberFormatInfo NumberFormat */
 
 /* Skipped property : System.Globalization.Calendar[] OptionalCalendars */
 
-	// Managed property name : Parent
-	// Managed property type : System.Globalization.CultureInfo
-    @synthesize parent = _parent;
-    - (System_Globalization_CultureInfo *)parent
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Parent");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_parent isEqualToMonoObject:monoObject]) return _parent;					
-		_parent = [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
-
-		return _parent;
+@synthesize parent = _parent;
+- (System_Globalization_CultureInfo *)parent
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Parent");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_parent isEqualToMonoObject:monoObject]) return _parent;
+	_parent = [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
+
+	return _parent;
+}
 
 /* Skipped property : System.Globalization.TextInfo TextInfo */
 
-	// Managed property name : ThreeLetterISOLanguageName
-	// Managed property type : System.String
-    @synthesize threeLetterISOLanguageName = _threeLetterISOLanguageName;
-    - (NSString *)threeLetterISOLanguageName
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ThreeLetterISOLanguageName");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_threeLetterISOLanguageName isEqualToMonoObject:monoObject]) return _threeLetterISOLanguageName;					
-		_threeLetterISOLanguageName = [NSString stringWithMonoString:DB_STRING(monoObject)];
-
-		return _threeLetterISOLanguageName;
+@synthesize threeLetterISOLanguageName = _threeLetterISOLanguageName;
+- (NSString *)threeLetterISOLanguageName
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "ThreeLetterISOLanguageName");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_threeLetterISOLanguageName isEqualToMonoObject:monoObject]) return _threeLetterISOLanguageName;
+	_threeLetterISOLanguageName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
-	// Managed property name : ThreeLetterWindowsLanguageName
-	// Managed property type : System.String
-    @synthesize threeLetterWindowsLanguageName = _threeLetterWindowsLanguageName;
-    - (NSString *)threeLetterWindowsLanguageName
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ThreeLetterWindowsLanguageName");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_threeLetterWindowsLanguageName isEqualToMonoObject:monoObject]) return _threeLetterWindowsLanguageName;					
-		_threeLetterWindowsLanguageName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+	return _threeLetterISOLanguageName;
+}
 
-		return _threeLetterWindowsLanguageName;
+@synthesize threeLetterWindowsLanguageName = _threeLetterWindowsLanguageName;
+- (NSString *)threeLetterWindowsLanguageName
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "ThreeLetterWindowsLanguageName");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_threeLetterWindowsLanguageName isEqualToMonoObject:monoObject]) return _threeLetterWindowsLanguageName;
+	_threeLetterWindowsLanguageName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
-	// Managed property name : TwoLetterISOLanguageName
-	// Managed property type : System.String
-    @synthesize twoLetterISOLanguageName = _twoLetterISOLanguageName;
-    - (NSString *)twoLetterISOLanguageName
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "TwoLetterISOLanguageName");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_twoLetterISOLanguageName isEqualToMonoObject:monoObject]) return _twoLetterISOLanguageName;					
-		_twoLetterISOLanguageName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+	return _threeLetterWindowsLanguageName;
+}
 
-		return _twoLetterISOLanguageName;
+@synthesize twoLetterISOLanguageName = _twoLetterISOLanguageName;
+- (NSString *)twoLetterISOLanguageName
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "TwoLetterISOLanguageName");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_twoLetterISOLanguageName isEqualToMonoObject:monoObject]) return _twoLetterISOLanguageName;
+	_twoLetterISOLanguageName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
-	// Managed property name : UseUserOverride
-	// Managed property type : System.Boolean
-    @synthesize useUserOverride = _useUserOverride;
-    - (BOOL)useUserOverride
-    {
-		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "UseUserOverride");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		BOOL monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_useUserOverride = monoObject;
+	return _twoLetterISOLanguageName;
+}
 
-		return _useUserOverride;
+@synthesize useUserOverride = _useUserOverride;
+- (BOOL)useUserOverride
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "UseUserOverride");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_useUserOverride = monoObject;
+
+	return _useUserOverride;
+}
 
 #pragma mark -
 #pragma mark Methods

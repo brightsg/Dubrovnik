@@ -66,17 +66,15 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : Empty
-	// Managed field type : System.Guid
-    static System_Guid * m_empty;
-    + (System_Guid *)empty
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"Empty"];
-		if ([self object:m_empty isEqualToMonoObject:monoObject]) return m_empty;					
-		m_empty = [System_Guid bestObjectWithMonoObject:monoObject];
+static System_Guid * m_empty;
++ (System_Guid *)empty
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"Empty"];
+	if ([self object:m_empty isEqualToMonoObject:monoObject]) return m_empty;
+	m_empty = [System_Guid bestObjectWithMonoObject:monoObject];
 
-		return m_empty;
-	}
+	return m_empty;
+}
 
 #pragma mark -
 #pragma mark Methods

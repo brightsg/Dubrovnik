@@ -40,139 +40,155 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : FalseString
-	// Managed field type : System.String
-    + (NSString *)falseString;
+/**
+  Managed field.
+  @textblock
+  Name
+    FalseString
 
-	// Managed field name : TrueString
-	// Managed field type : System.String
-    + (NSString *)trueString;
+  Type
+    System.String
+  @/textblock
+*/
++ (NSString *)falseString;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    TrueString
+
+  Type
+    System.String
+  @/textblock
+*/
++ (NSString *)trueString;
 
 #pragma mark -
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   CompareTo
+  Managed method.
+  @textblock
+  Name
+    CompareTo
 
- Params
-   System.Object
+  Params
+    System.Object
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)compareTo_withObj:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   CompareTo
+  Managed method.
+  @textblock
+  Name
+    CompareTo
 
- Params
-   System.Boolean
+  Params
+    System.Boolean
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)compareTo_withValue:(BOOL)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   System.Object
+  Params
+    System.Object
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withObjObject:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   System.Boolean
+  Params
+    System.Boolean
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withObjBool:(BOOL)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetHashCode
+  Managed method.
+  @textblock
+  Name
+    GetHashCode
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getHashCode;
 
 /* Skipped method : System.TypeCode GetTypeCode() */
 
 /**
- Managed method.
- @textblock
- Name
-   Parse
+  Managed method.
+  @textblock
+  Name
+    Parse
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)parse_withValue:(NSString *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   ToString
+  Managed method.
+  @textblock
+  Name
+    ToString
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 - (NSString *)toString;
 
 /* Skipped method : System.String ToString(System.IFormatProvider provider) */
 
 /**
- Managed method.
- @textblock
- Name
-   TryParse
+  Managed method.
+  @textblock
+  Name
+    TryParse
 
- Params
-   System.String
-   ref System.Boolean&
+  Params
+    System.String
+    ref System.Boolean&
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(BOOL*)p2;
 @end

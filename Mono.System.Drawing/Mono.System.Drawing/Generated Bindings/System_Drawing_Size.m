@@ -44,113 +44,105 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : Empty
-	// Managed field type : System.Drawing.Size
-    static System_Drawing_Size * m_empty;
-    + (System_Drawing_Size *)empty
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"Empty"];
-		if ([self object:m_empty isEqualToMonoObject:monoObject]) return m_empty;					
-		m_empty = [System_Drawing_Size bestObjectWithMonoObject:monoObject];
+static System_Drawing_Size * m_empty;
++ (System_Drawing_Size *)empty
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"Empty"];
+	if ([self object:m_empty isEqualToMonoObject:monoObject]) return m_empty;
+	m_empty = [System_Drawing_Size bestObjectWithMonoObject:monoObject];
 
-		return m_empty;
-	}
+	return m_empty;
+}
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Height
-	// Managed property type : System.Int32
-    @synthesize height = _height;
-    - (int32_t)height
-    {
-		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Height");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int32_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_height = monoObject;
-
-		return _height;
+@synthesize height = _height;
+- (int32_t)height
+{
+	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Height");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-    - (void)setHeight:(int32_t)value
-	{
-		_height = value;
-		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Height");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject *monoException = NULL;
-		thunk(self.monoObject, value, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-	}
+	int32_t monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_height = monoObject;
 
-	// Managed property name : IsEmpty
-	// Managed property type : System.Boolean
-    @synthesize isEmpty = _isEmpty;
-    - (BOOL)isEmpty
-    {
-		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsEmpty");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		BOOL monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_isEmpty = monoObject;
-
-		return _isEmpty;
+	return _height;
+}
+- (void)setHeight:(int32_t)value
+{
+	_height = value;
+	typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "Height");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	thunk(self.monoObject, value, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
 
-	// Managed property name : Width
-	// Managed property type : System.Int32
-    @synthesize width = _width;
-    - (int32_t)width
-    {
-		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Width");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int32_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_width = monoObject;
+@synthesize isEmpty = _isEmpty;
+- (BOOL)isEmpty
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IsEmpty");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_isEmpty = monoObject;
 
-		return _width;
+	return _isEmpty;
+}
+
+@synthesize width = _width;
+- (int32_t)width
+{
+	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Width");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-    - (void)setWidth:(int32_t)value
-	{
-		_width = value;
-		typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "Width");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject *monoException = NULL;
-		thunk(self.monoObject, value, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	int32_t monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_width = monoObject;
+
+	return _width;
+}
+- (void)setWidth:(int32_t)value
+{
+	_width = value;
+	typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "Width");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	thunk(self.monoObject, value, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
 
 #pragma mark -
 #pragma mark Methods

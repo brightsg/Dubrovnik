@@ -49,58 +49,66 @@
 #pragma mark Constructors
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+ValueCollection+TKey, System.Collections.Generic.Dictionary`2+ValueCollection+TValue>
+  Params
+    System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+ValueCollection+TKey, System.Collections.Generic.Dictionary`2+ValueCollection+TValue>
 
- Return
-   System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+ValueCollection+TKey, System.Collections.Generic.Dictionary`2+ValueCollection+TValue>+ValueCollection
- @/textblock
+  Return
+    System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+ValueCollection+TKey, System.Collections.Generic.Dictionary`2+ValueCollection+TValue>+ValueCollection
+  @/textblock
 */
 + (System_Collections_Generic_DictionaryA2__ValueCollection *)new_withDictionary:(System_Collections_Generic_DictionaryA2 *)p1;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Count
-	// Managed property type : System.Int32
-    @property (nonatomic, readonly) int32_t count;
+/**
+  Managed property.
+  @textblock
+  Name
+    Count
+
+  Type
+    System.Int32
+  @/textblock
+*/
+@property (nonatomic, readonly) int32_t count;
 
 #pragma mark -
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   CopyTo
+  Managed method.
+  @textblock
+  Name
+    CopyTo
 
- Params
-   TValue[]
-   System.Int32
+  Params
+    TValue[]
+    System.Int32
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)copyTo_withArray:(System_Array *)p1 index:(int32_t)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   GetEnumerator
+  Managed method.
+  @textblock
+  Name
+    GetEnumerator
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+ValueCollection+TKey, System.Collections.Generic.Dictionary`2+ValueCollection+TValue>+ValueCollection+Enumerator
- @/textblock
+  Return
+    System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+ValueCollection+TKey, System.Collections.Generic.Dictionary`2+ValueCollection+TValue>+ValueCollection+Enumerator
+  @/textblock
 */
 - (System_Collections_Generic_DictionaryA2__ValueCollection__Enumerator *)getEnumerator;
 @end

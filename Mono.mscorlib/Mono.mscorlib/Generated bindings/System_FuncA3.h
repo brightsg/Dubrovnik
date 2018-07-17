@@ -46,18 +46,18 @@
 #pragma mark Constructors
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Object
-   System.IntPtr
+  Params
+    System.Object
+    System.IntPtr
 
- Return
-   System.Func`3<System.Func`3+T1, System.Func`3+T2, System.Func`3+TResult>
- @/textblock
+  Return
+    System.Func`3<System.Func`3+T1, System.Func`3+T2, System.Func`3+TResult>
+  @/textblock
 */
 + (System_FuncA3 *)new_withObject:(System_Object *)p1 method:(void *)p2;
 
@@ -65,51 +65,51 @@
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   BeginInvoke
+  Managed method.
+  @textblock
+  Name
+    BeginInvoke
 
- Params
-   <System.Func`3+T1>
-   <System.Func`3+T2>
-   System.AsyncCallback
-   System.Object
+  Params
+    <System.Func`3+T1>
+    <System.Func`3+T2>
+    System.AsyncCallback
+    System.Object
 
- Return
-   System.IAsyncResult
- @/textblock
+  Return
+    System.IAsyncResult
+  @/textblock
 */
 - (id <System_IAsyncResult>)beginInvoke_withArg1:(System_Object *)p1 arg2:(System_Object *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4;
 
 /**
- Managed method.
- @textblock
- Name
-   EndInvoke
+  Managed method.
+  @textblock
+  Name
+    EndInvoke
 
- Params
-   System.IAsyncResult
+  Params
+    System.IAsyncResult
 
- Return
-   <System.Func`3+TResult>
- @/textblock
+  Return
+    <System.Func`3+TResult>
+  @/textblock
 */
 - (System_Object *)endInvoke_withResult:(id <System_IAsyncResult_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Invoke
+  Managed method.
+  @textblock
+  Name
+    Invoke
 
- Params
-   <System.Func`3+T1>
-   <System.Func`3+T2>
+  Params
+    <System.Func`3+T1>
+    <System.Func`3+T2>
 
- Return
-   <System.Func`3+TResult>
- @/textblock
+  Return
+    <System.Func`3+TResult>
+  @/textblock
 */
 - (System_Object *)invoke_withArg1:(System_Object *)p1 arg2:(System_Object *)p2;
 @end

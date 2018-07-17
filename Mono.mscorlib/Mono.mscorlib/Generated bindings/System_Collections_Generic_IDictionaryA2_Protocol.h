@@ -86,107 +86,123 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Keys
-	// Managed property type : System.Collections.Generic.ICollection`1<System.Collections.Generic.IDictionary`2+TKey>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_ICollectionA1 * keys;
+/**
+  Managed property.
+  @textblock
+  Name
+    Keys
 
-	// Managed property name : Values
-	// Managed property type : System.Collections.Generic.ICollection`1<System.Collections.Generic.IDictionary`2+TValue>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_ICollectionA1 * values;
+  Type
+    System.Collections.Generic.ICollection`1<System.Collections.Generic.IDictionary`2+TKey>
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Collections_Generic_ICollectionA1 * keys;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    Values
+
+  Type
+    System.Collections.Generic.ICollection`1<System.Collections.Generic.IDictionary`2+TValue>
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Collections_Generic_ICollectionA1 * values;
 
 #pragma mark -
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   get_Item
+  Managed method.
+  @textblock
+  Name
+    get_Item
 
- Params
-   <System.Collections.Generic.IDictionary`2+TKey>
+  Params
+    <System.Collections.Generic.IDictionary`2+TKey>
 
- Return
-   <System.Collections.Generic.IDictionary`2+TValue>
- @/textblock
+  Return
+    <System.Collections.Generic.IDictionary`2+TValue>
+  @/textblock
 */
 - (System_Object *)get_Item_withKey:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   set_Item
+  Managed method.
+  @textblock
+  Name
+    set_Item
 
- Params
-   <System.Collections.Generic.IDictionary`2+TKey>
-   <System.Collections.Generic.IDictionary`2+TValue>
+  Params
+    <System.Collections.Generic.IDictionary`2+TKey>
+    <System.Collections.Generic.IDictionary`2+TValue>
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)set_Item_withKey:(System_Object *)p1 value:(System_Object *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   Add
+  Managed method.
+  @textblock
+  Name
+    Add
 
- Params
-   <System.Collections.Generic.IDictionary`2+TKey>
-   <System.Collections.Generic.IDictionary`2+TValue>
+  Params
+    <System.Collections.Generic.IDictionary`2+TKey>
+    <System.Collections.Generic.IDictionary`2+TValue>
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   ContainsKey
+  Managed method.
+  @textblock
+  Name
+    ContainsKey
 
- Params
-   <System.Collections.Generic.IDictionary`2+TKey>
+  Params
+    <System.Collections.Generic.IDictionary`2+TKey>
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)containsKey_withKey:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Remove
+  Managed method.
+  @textblock
+  Name
+    Remove
 
- Params
-   <System.Collections.Generic.IDictionary`2+TKey>
+  Params
+    <System.Collections.Generic.IDictionary`2+TKey>
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)remove_withKey:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   TryGetValue
+  Managed method.
+  @textblock
+  Name
+    TryGetValue
 
- Params
-   <System.Collections.Generic.IDictionary`2+TKey>
-   ref TValue&
+  Params
+    <System.Collections.Generic.IDictionary`2+TKey>
+    ref TValue&
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
 #endif
@@ -206,107 +222,123 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Keys
-	// Managed property type : System.Collections.Generic.ICollection`1<System.Collections.Generic.IDictionary`2+TKey>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_ICollectionA1 * keys;
+/**
+  Managed property.
+  @textblock
+  Name
+    Keys
 
-	// Managed property name : Values
-	// Managed property type : System.Collections.Generic.ICollection`1<System.Collections.Generic.IDictionary`2+TValue>
-    @property (nonatomic, strong, readonly) System_Collections_Generic_ICollectionA1 * values;
+  Type
+    System.Collections.Generic.ICollection`1<System.Collections.Generic.IDictionary`2+TKey>
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Collections_Generic_ICollectionA1 * keys;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    Values
+
+  Type
+    System.Collections.Generic.ICollection`1<System.Collections.Generic.IDictionary`2+TValue>
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Collections_Generic_ICollectionA1 * values;
 
 #pragma mark -
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   get_Item
+  Managed method.
+  @textblock
+  Name
+    get_Item
 
- Params
-   <System.Collections.Generic.IDictionary`2+TKey>
+  Params
+    <System.Collections.Generic.IDictionary`2+TKey>
 
- Return
-   <System.Collections.Generic.IDictionary`2+TValue>
- @/textblock
+  Return
+    <System.Collections.Generic.IDictionary`2+TValue>
+  @/textblock
 */
 - (System_Object *)get_Item_withKey:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   set_Item
+  Managed method.
+  @textblock
+  Name
+    set_Item
 
- Params
-   <System.Collections.Generic.IDictionary`2+TKey>
-   <System.Collections.Generic.IDictionary`2+TValue>
+  Params
+    <System.Collections.Generic.IDictionary`2+TKey>
+    <System.Collections.Generic.IDictionary`2+TValue>
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)set_Item_withKey:(System_Object *)p1 value:(System_Object *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   Add
+  Managed method.
+  @textblock
+  Name
+    Add
 
- Params
-   <System.Collections.Generic.IDictionary`2+TKey>
-   <System.Collections.Generic.IDictionary`2+TValue>
+  Params
+    <System.Collections.Generic.IDictionary`2+TKey>
+    <System.Collections.Generic.IDictionary`2+TValue>
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   ContainsKey
+  Managed method.
+  @textblock
+  Name
+    ContainsKey
 
- Params
-   <System.Collections.Generic.IDictionary`2+TKey>
+  Params
+    <System.Collections.Generic.IDictionary`2+TKey>
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)containsKey_withKey:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Remove
+  Managed method.
+  @textblock
+  Name
+    Remove
 
- Params
-   <System.Collections.Generic.IDictionary`2+TKey>
+  Params
+    <System.Collections.Generic.IDictionary`2+TKey>
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)remove_withKey:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   TryGetValue
+  Managed method.
+  @textblock
+  Name
+    TryGetValue
 
- Params
-   <System.Collections.Generic.IDictionary`2+TKey>
-   ref TValue&
+  Params
+    <System.Collections.Generic.IDictionary`2+TKey>
+    ref TValue&
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
 

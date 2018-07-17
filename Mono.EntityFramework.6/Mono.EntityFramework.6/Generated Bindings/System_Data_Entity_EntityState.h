@@ -45,24 +45,64 @@ typedef NS_ENUM(int32_t, enumSystem_Data_Entity_EntityState) {
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : Added
-	// Managed field type : System.Data.Entity.EntityState
-    + (int32_t)added;
+/**
+  Managed field.
+  @textblock
+  Name
+    Added
 
-	// Managed field name : Deleted
-	// Managed field type : System.Data.Entity.EntityState
-    + (int32_t)deleted;
+  Type
+    System.Data.Entity.EntityState
+  @/textblock
+*/
++ (int32_t)added;
 
-	// Managed field name : Detached
-	// Managed field type : System.Data.Entity.EntityState
-    + (int32_t)detached;
+/**
+  Managed field.
+  @textblock
+  Name
+    Deleted
 
-	// Managed field name : Modified
-	// Managed field type : System.Data.Entity.EntityState
-    + (int32_t)modified;
+  Type
+    System.Data.Entity.EntityState
+  @/textblock
+*/
++ (int32_t)deleted;
 
-	// Managed field name : Unchanged
-	// Managed field type : System.Data.Entity.EntityState
-    + (int32_t)unchanged;
+/**
+  Managed field.
+  @textblock
+  Name
+    Detached
+
+  Type
+    System.Data.Entity.EntityState
+  @/textblock
+*/
++ (int32_t)detached;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    Modified
+
+  Type
+    System.Data.Entity.EntityState
+  @/textblock
+*/
++ (int32_t)modified;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    Unchanged
+
+  Type
+    System.Data.Entity.EntityState
+  @/textblock
+*/
++ (int32_t)unchanged;
 @end
 //--Dubrovnik.CodeGenerator

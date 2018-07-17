@@ -43,16 +43,40 @@ typedef NS_ENUM(int32_t, enumSystem_DateTimeKind) {
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : Local
-	// Managed field type : System.DateTimeKind
-    + (int32_t)local;
+/**
+  Managed field.
+  @textblock
+  Name
+    Local
 
-	// Managed field name : Unspecified
-	// Managed field type : System.DateTimeKind
-    + (int32_t)unspecified;
+  Type
+    System.DateTimeKind
+  @/textblock
+*/
++ (int32_t)local;
 
-	// Managed field name : Utc
-	// Managed field type : System.DateTimeKind
-    + (int32_t)utc;
+/**
+  Managed field.
+  @textblock
+  Name
+    Unspecified
+
+  Type
+    System.DateTimeKind
+  @/textblock
+*/
++ (int32_t)unspecified;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    Utc
+
+  Type
+    System.DateTimeKind
+  @/textblock
+*/
++ (int32_t)utc;
 @end
 //--Dubrovnik.CodeGenerator

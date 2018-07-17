@@ -64,41 +64,37 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : Empty
-	// Managed field type : System.String
-    static NSString * m_empty;
-    + (NSString *)empty
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"Empty"];
-		if ([self object:m_empty isEqualToMonoObject:monoObject]) return m_empty;					
-		m_empty = [NSString stringWithMonoString:DB_STRING(monoObject)];
+static NSString * m_empty;
++ (NSString *)empty
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"Empty"];
+	if ([self object:m_empty isEqualToMonoObject:monoObject]) return m_empty;
+	m_empty = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
-		return m_empty;
-	}
+	return m_empty;
+}
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Length
-	// Managed property type : System.Int32
-    @synthesize length = _length;
-    - (int32_t)length
-    {
-		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Length");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int32_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_length = monoObject;
-
-		return _length;
+@synthesize length = _length;
+- (int32_t)length
+{
+	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Length");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	int32_t monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_length = monoObject;
+
+	return _length;
+}
 
 #pragma mark -
 #pragma mark Methods

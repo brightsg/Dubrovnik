@@ -48,36 +48,100 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_GenericParameterAttributes) {
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : Contravariant
-	// Managed field type : System.Reflection.GenericParameterAttributes
-    + (int32_t)contravariant;
+/**
+  Managed field.
+  @textblock
+  Name
+    Contravariant
 
-	// Managed field name : Covariant
-	// Managed field type : System.Reflection.GenericParameterAttributes
-    + (int32_t)covariant;
+  Type
+    System.Reflection.GenericParameterAttributes
+  @/textblock
+*/
++ (int32_t)contravariant;
 
-	// Managed field name : DefaultConstructorConstraint
-	// Managed field type : System.Reflection.GenericParameterAttributes
-    + (int32_t)defaultConstructorConstraint;
+/**
+  Managed field.
+  @textblock
+  Name
+    Covariant
 
-	// Managed field name : None
-	// Managed field type : System.Reflection.GenericParameterAttributes
-    + (int32_t)none;
+  Type
+    System.Reflection.GenericParameterAttributes
+  @/textblock
+*/
++ (int32_t)covariant;
 
-	// Managed field name : NotNullableValueTypeConstraint
-	// Managed field type : System.Reflection.GenericParameterAttributes
-    + (int32_t)notNullableValueTypeConstraint;
+/**
+  Managed field.
+  @textblock
+  Name
+    DefaultConstructorConstraint
 
-	// Managed field name : ReferenceTypeConstraint
-	// Managed field type : System.Reflection.GenericParameterAttributes
-    + (int32_t)referenceTypeConstraint;
+  Type
+    System.Reflection.GenericParameterAttributes
+  @/textblock
+*/
++ (int32_t)defaultConstructorConstraint;
 
-	// Managed field name : SpecialConstraintMask
-	// Managed field type : System.Reflection.GenericParameterAttributes
-    + (int32_t)specialConstraintMask;
+/**
+  Managed field.
+  @textblock
+  Name
+    None
 
-	// Managed field name : VarianceMask
-	// Managed field type : System.Reflection.GenericParameterAttributes
-    + (int32_t)varianceMask;
+  Type
+    System.Reflection.GenericParameterAttributes
+  @/textblock
+*/
++ (int32_t)none;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    NotNullableValueTypeConstraint
+
+  Type
+    System.Reflection.GenericParameterAttributes
+  @/textblock
+*/
++ (int32_t)notNullableValueTypeConstraint;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    ReferenceTypeConstraint
+
+  Type
+    System.Reflection.GenericParameterAttributes
+  @/textblock
+*/
++ (int32_t)referenceTypeConstraint;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    SpecialConstraintMask
+
+  Type
+    System.Reflection.GenericParameterAttributes
+  @/textblock
+*/
++ (int32_t)specialConstraintMask;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    VarianceMask
+
+  Type
+    System.Reflection.GenericParameterAttributes
+  @/textblock
+*/
++ (int32_t)varianceMask;
 @end
 //--Dubrovnik.CodeGenerator

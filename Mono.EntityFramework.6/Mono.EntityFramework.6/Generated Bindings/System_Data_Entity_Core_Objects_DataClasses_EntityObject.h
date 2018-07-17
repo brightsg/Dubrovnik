@@ -40,8 +40,16 @@
 
 /* Skipped property : System.Data.Entity.Core.EntityKey EntityKey */
 
-	// Managed property name : EntityState
-	// Managed property type : System.Data.Entity.EntityState
-    @property (nonatomic, readonly) int32_t entityState;
+/**
+  Managed property.
+  @textblock
+  Name
+    EntityState
+
+  Type
+    System.Data.Entity.EntityState
+  @/textblock
+*/
+@property (nonatomic, readonly) int32_t entityState;
 @end
 //--Dubrovnik.CodeGenerator

@@ -41,106 +41,122 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : MaxValue
-	// Managed field type : System.Int16
-    + (int16_t)maxValue;
+/**
+  Managed field.
+  @textblock
+  Name
+    MaxValue
 
-	// Managed field name : MinValue
-	// Managed field type : System.Int16
-    + (int16_t)minValue;
+  Type
+    System.Int16
+  @/textblock
+*/
++ (int16_t)maxValue;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    MinValue
+
+  Type
+    System.Int16
+  @/textblock
+*/
++ (int16_t)minValue;
 
 #pragma mark -
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   CompareTo
+  Managed method.
+  @textblock
+  Name
+    CompareTo
 
- Params
-   System.Object
+  Params
+    System.Object
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)compareTo_withValueObject:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   CompareTo
+  Managed method.
+  @textblock
+  Name
+    CompareTo
 
- Params
-   System.Int16
+  Params
+    System.Int16
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)compareTo_withValueInt16:(int16_t)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   System.Object
+  Params
+    System.Object
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withObjObject:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   System.Int16
+  Params
+    System.Int16
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withObjInt16:(int16_t)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetHashCode
+  Managed method.
+  @textblock
+  Name
+    GetHashCode
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getHashCode;
 
 /* Skipped method : System.TypeCode GetTypeCode() */
 
 /**
- Managed method.
- @textblock
- Name
-   Parse
+  Managed method.
+  @textblock
+  Name
+    Parse
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.Int16
- @/textblock
+  Return
+    System.Int16
+  @/textblock
 */
 + (int16_t)parse_withS:(NSString *)p1;
 
@@ -151,52 +167,52 @@
 /* Skipped method : System.Int16 Parse(System.String s, System.Globalization.NumberStyles style, System.IFormatProvider provider) */
 
 /**
- Managed method.
- @textblock
- Name
-   ToString
+  Managed method.
+  @textblock
+  Name
+    ToString
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 - (NSString *)toString;
 
 /* Skipped method : System.String ToString(System.IFormatProvider provider) */
 
 /**
- Managed method.
- @textblock
- Name
-   ToString
+  Managed method.
+  @textblock
+  Name
+    ToString
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 - (NSString *)toString_withFormat:(NSString *)p1;
 
 /* Skipped method : System.String ToString(System.String format, System.IFormatProvider provider) */
 
 /**
- Managed method.
- @textblock
- Name
-   TryParse
+  Managed method.
+  @textblock
+  Name
+    TryParse
 
- Params
-   System.String
-   ref System.Int16&
+  Params
+    System.String
+    ref System.Int16&
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(int16_t*)p2;
 

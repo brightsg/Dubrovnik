@@ -33,38 +33,32 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : Absolute
-	// Managed field type : System.UriKind
-    static int32_t m_absolute;
-    + (int32_t)absolute
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"Absolute"];
-		m_absolute = DB_UNBOX_INT32(monoObject);
+static int32_t m_absolute;
++ (int32_t)absolute
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"Absolute"];
+	m_absolute = DB_UNBOX_INT32(monoObject);
 
-		return m_absolute;
-	}
+	return m_absolute;
+}
 
-	// Managed field name : Relative
-	// Managed field type : System.UriKind
-    static int32_t m_relative;
-    + (int32_t)relative
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"Relative"];
-		m_relative = DB_UNBOX_INT32(monoObject);
+static int32_t m_relative;
++ (int32_t)relative
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"Relative"];
+	m_relative = DB_UNBOX_INT32(monoObject);
 
-		return m_relative;
-	}
+	return m_relative;
+}
 
-	// Managed field name : RelativeOrAbsolute
-	// Managed field type : System.UriKind
-    static int32_t m_relativeOrAbsolute;
-    + (int32_t)relativeOrAbsolute
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"RelativeOrAbsolute"];
-		m_relativeOrAbsolute = DB_UNBOX_INT32(monoObject);
+static int32_t m_relativeOrAbsolute;
++ (int32_t)relativeOrAbsolute
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"RelativeOrAbsolute"];
+	m_relativeOrAbsolute = DB_UNBOX_INT32(monoObject);
 
-		return m_relativeOrAbsolute;
-	}
+	return m_relativeOrAbsolute;
+}
 
 #pragma mark -
 #pragma mark Teardown

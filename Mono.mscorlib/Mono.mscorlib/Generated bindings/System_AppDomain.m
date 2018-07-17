@@ -39,328 +39,300 @@
 
 /* Skipped property : System.Security.Policy.ApplicationTrust ApplicationTrust */
 
-	// Managed property name : BaseDirectory
-	// Managed property type : System.String
-    @synthesize baseDirectory = _baseDirectory;
-    - (NSString *)baseDirectory
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BaseDirectory");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_baseDirectory isEqualToMonoObject:monoObject]) return _baseDirectory;					
-		_baseDirectory = [NSString stringWithMonoString:DB_STRING(monoObject)];
-
-		return _baseDirectory;
+@synthesize baseDirectory = _baseDirectory;
+- (NSString *)baseDirectory
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "BaseDirectory");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_baseDirectory isEqualToMonoObject:monoObject]) return _baseDirectory;
+	_baseDirectory = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
-	// Managed property name : CurrentDomain
-	// Managed property type : System.AppDomain
-    static System_AppDomain * m_currentDomain;
-    + (System_AppDomain *)currentDomain
-    {
-		typedef MonoObject * (*Thunk)(MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CurrentDomain");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(&monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:m_currentDomain isEqualToMonoObject:monoObject]) return m_currentDomain;					
-		m_currentDomain = [System_AppDomain bestObjectWithMonoObject:monoObject];
+	return _baseDirectory;
+}
 
-		return m_currentDomain;
+static System_AppDomain * m_currentDomain;
++ (System_AppDomain *)currentDomain
+{
+	typedef MonoObject * (*Thunk)(MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "CurrentDomain");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(&monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:m_currentDomain isEqualToMonoObject:monoObject]) return m_currentDomain;
+	m_currentDomain = [System_AppDomain bestObjectWithMonoObject:monoObject];
+
+	return m_currentDomain;
+}
 
 /* Skipped property : System.AppDomainManager DomainManager */
 
-	// Managed property name : DynamicDirectory
-	// Managed property type : System.String
-    @synthesize dynamicDirectory = _dynamicDirectory;
-    - (NSString *)dynamicDirectory
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DynamicDirectory");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_dynamicDirectory isEqualToMonoObject:monoObject]) return _dynamicDirectory;					
-		_dynamicDirectory = [NSString stringWithMonoString:DB_STRING(monoObject)];
-
-		return _dynamicDirectory;
+@synthesize dynamicDirectory = _dynamicDirectory;
+- (NSString *)dynamicDirectory
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "DynamicDirectory");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_dynamicDirectory isEqualToMonoObject:monoObject]) return _dynamicDirectory;
+	_dynamicDirectory = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+	return _dynamicDirectory;
+}
 
 /* Skipped property : System.Security.Policy.Evidence Evidence */
 
-	// Managed property name : FriendlyName
-	// Managed property type : System.String
-    @synthesize friendlyName = _friendlyName;
-    - (NSString *)friendlyName
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "FriendlyName");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_friendlyName isEqualToMonoObject:monoObject]) return _friendlyName;					
-		_friendlyName = [NSString stringWithMonoString:DB_STRING(monoObject)];
-
-		return _friendlyName;
+@synthesize friendlyName = _friendlyName;
+- (NSString *)friendlyName
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "FriendlyName");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_friendlyName isEqualToMonoObject:monoObject]) return _friendlyName;
+	_friendlyName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
-	// Managed property name : Id
-	// Managed property type : System.Int32
-    @synthesize id = _id;
-    - (int32_t)id
-    {
-		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Id");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int32_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_id = monoObject;
+	return _friendlyName;
+}
 
-		return _id;
+@synthesize id = _id;
+- (int32_t)id
+{
+	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Id");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	int32_t monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_id = monoObject;
 
-	// Managed property name : IsFullyTrusted
-	// Managed property type : System.Boolean
-    @synthesize isFullyTrusted = _isFullyTrusted;
-    - (BOOL)isFullyTrusted
-    {
-		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsFullyTrusted");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		BOOL monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_isFullyTrusted = monoObject;
+	return _id;
+}
 
-		return _isFullyTrusted;
+@synthesize isFullyTrusted = _isFullyTrusted;
+- (BOOL)isFullyTrusted
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IsFullyTrusted");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_isFullyTrusted = monoObject;
 
-	// Managed property name : IsHomogenous
-	// Managed property type : System.Boolean
-    @synthesize isHomogenous = _isHomogenous;
-    - (BOOL)isHomogenous
-    {
-		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsHomogenous");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		BOOL monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_isHomogenous = monoObject;
+	return _isFullyTrusted;
+}
 
-		return _isHomogenous;
+@synthesize isHomogenous = _isHomogenous;
+- (BOOL)isHomogenous
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IsHomogenous");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_isHomogenous = monoObject;
 
-	// Managed property name : MonitoringIsEnabled
-	// Managed property type : System.Boolean
-    static BOOL m_monitoringIsEnabled;
-    + (BOOL)monitoringIsEnabled
-    {
-		typedef BOOL (*Thunk)(MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MonitoringIsEnabled");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		BOOL monoObject = thunk(&monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		m_monitoringIsEnabled = monoObject;
+	return _isHomogenous;
+}
 
-		return m_monitoringIsEnabled;
+static BOOL m_monitoringIsEnabled;
++ (BOOL)monitoringIsEnabled
+{
+	typedef BOOL (*Thunk)(MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "MonitoringIsEnabled");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-    + (void)setMonitoringIsEnabled:(BOOL)value
-	{
-		m_monitoringIsEnabled = value;
-		typedef void (*Thunk)(BOOL, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "MonitoringIsEnabled");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject *monoException = NULL;
-		thunk(value, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	BOOL monoObject = thunk(&monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	m_monitoringIsEnabled = monoObject;
+
+	return m_monitoringIsEnabled;
+}
++ (void)setMonitoringIsEnabled:(BOOL)value
+{
+	m_monitoringIsEnabled = value;
+	typedef void (*Thunk)(BOOL, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "MonitoringIsEnabled");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	thunk(value, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
 
-	// Managed property name : MonitoringSurvivedMemorySize
-	// Managed property type : System.Int64
-    @synthesize monitoringSurvivedMemorySize = _monitoringSurvivedMemorySize;
-    - (int64_t)monitoringSurvivedMemorySize
-    {
-		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MonitoringSurvivedMemorySize");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int64_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_monitoringSurvivedMemorySize = monoObject;
-
-		return _monitoringSurvivedMemorySize;
+@synthesize monitoringSurvivedMemorySize = _monitoringSurvivedMemorySize;
+- (int64_t)monitoringSurvivedMemorySize
+{
+	typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "MonitoringSurvivedMemorySize");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	int64_t monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_monitoringSurvivedMemorySize = monoObject;
 
-	// Managed property name : MonitoringSurvivedProcessMemorySize
-	// Managed property type : System.Int64
-    static int64_t m_monitoringSurvivedProcessMemorySize;
-    + (int64_t)monitoringSurvivedProcessMemorySize
-    {
-		typedef int64_t (*Thunk)(MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MonitoringSurvivedProcessMemorySize");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int64_t monoObject = thunk(&monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		m_monitoringSurvivedProcessMemorySize = monoObject;
+	return _monitoringSurvivedMemorySize;
+}
 
-		return m_monitoringSurvivedProcessMemorySize;
+static int64_t m_monitoringSurvivedProcessMemorySize;
++ (int64_t)monitoringSurvivedProcessMemorySize
+{
+	typedef int64_t (*Thunk)(MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "MonitoringSurvivedProcessMemorySize");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	int64_t monoObject = thunk(&monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	m_monitoringSurvivedProcessMemorySize = monoObject;
 
-	// Managed property name : MonitoringTotalAllocatedMemorySize
-	// Managed property type : System.Int64
-    @synthesize monitoringTotalAllocatedMemorySize = _monitoringTotalAllocatedMemorySize;
-    - (int64_t)monitoringTotalAllocatedMemorySize
-    {
-		typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MonitoringTotalAllocatedMemorySize");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int64_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_monitoringTotalAllocatedMemorySize = monoObject;
+	return m_monitoringSurvivedProcessMemorySize;
+}
 
-		return _monitoringTotalAllocatedMemorySize;
+@synthesize monitoringTotalAllocatedMemorySize = _monitoringTotalAllocatedMemorySize;
+- (int64_t)monitoringTotalAllocatedMemorySize
+{
+	typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "MonitoringTotalAllocatedMemorySize");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	int64_t monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_monitoringTotalAllocatedMemorySize = monoObject;
 
-	// Managed property name : MonitoringTotalProcessorTime
-	// Managed property type : System.TimeSpan
-    @synthesize monitoringTotalProcessorTime = _monitoringTotalProcessorTime;
-    - (System_TimeSpan *)monitoringTotalProcessorTime
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MonitoringTotalProcessorTime");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_monitoringTotalProcessorTime isEqualToMonoObject:monoObject]) return _monitoringTotalProcessorTime;					
-		_monitoringTotalProcessorTime = [System_TimeSpan bestObjectWithMonoObject:monoObject];
+	return _monitoringTotalAllocatedMemorySize;
+}
 
-		return _monitoringTotalProcessorTime;
+@synthesize monitoringTotalProcessorTime = _monitoringTotalProcessorTime;
+- (System_TimeSpan *)monitoringTotalProcessorTime
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "MonitoringTotalProcessorTime");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_monitoringTotalProcessorTime isEqualToMonoObject:monoObject]) return _monitoringTotalProcessorTime;
+	_monitoringTotalProcessorTime = [System_TimeSpan bestObjectWithMonoObject:monoObject];
+
+	return _monitoringTotalProcessorTime;
+}
 
 /* Skipped property : System.Security.PermissionSet PermissionSet */
 
-	// Managed property name : RelativeSearchPath
-	// Managed property type : System.String
-    @synthesize relativeSearchPath = _relativeSearchPath;
-    - (NSString *)relativeSearchPath
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RelativeSearchPath");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_relativeSearchPath isEqualToMonoObject:monoObject]) return _relativeSearchPath;					
-		_relativeSearchPath = [NSString stringWithMonoString:DB_STRING(monoObject)];
-
-		return _relativeSearchPath;
+@synthesize relativeSearchPath = _relativeSearchPath;
+- (NSString *)relativeSearchPath
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "RelativeSearchPath");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_relativeSearchPath isEqualToMonoObject:monoObject]) return _relativeSearchPath;
+	_relativeSearchPath = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+	return _relativeSearchPath;
+}
 
 /* Skipped property : System.AppDomainSetup SetupInformation */
 
-	// Managed property name : ShadowCopyFiles
-	// Managed property type : System.Boolean
-    @synthesize shadowCopyFiles = _shadowCopyFiles;
-    - (BOOL)shadowCopyFiles
-    {
-		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ShadowCopyFiles");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		BOOL monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_shadowCopyFiles = monoObject;
-
-		return _shadowCopyFiles;
+@synthesize shadowCopyFiles = _shadowCopyFiles;
+- (BOOL)shadowCopyFiles
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "ShadowCopyFiles");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_shadowCopyFiles = monoObject;
+
+	return _shadowCopyFiles;
+}
 
 #pragma mark -
 #pragma mark Methods

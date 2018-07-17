@@ -44,142 +44,190 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Day
-	// Managed property type : System.Int32
-    @property (nonatomic, readonly) int32_t day;
+/**
+  Managed property.
+  @textblock
+  Name
+    Day
 
-	// Managed property name : DayOfWeek
-	// Managed property type : System.DayOfWeek
-    @property (nonatomic, readonly) int32_t dayOfWeek;
+  Type
+    System.Int32
+  @/textblock
+*/
+@property (nonatomic, readonly) int32_t day;
 
-	// Managed property name : IsFixedDateRule
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isFixedDateRule;
+/**
+  Managed property.
+  @textblock
+  Name
+    DayOfWeek
 
-	// Managed property name : Month
-	// Managed property type : System.Int32
-    @property (nonatomic, readonly) int32_t month;
+  Type
+    System.DayOfWeek
+  @/textblock
+*/
+@property (nonatomic, readonly) int32_t dayOfWeek;
 
-	// Managed property name : TimeOfDay
-	// Managed property type : System.DateTime
-    @property (nonatomic, strong, readonly) NSDate * timeOfDay;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsFixedDateRule
 
-	// Managed property name : Week
-	// Managed property type : System.Int32
-    @property (nonatomic, readonly) int32_t week;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isFixedDateRule;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    Month
+
+  Type
+    System.Int32
+  @/textblock
+*/
+@property (nonatomic, readonly) int32_t month;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    TimeOfDay
+
+  Type
+    System.DateTime
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSDate * timeOfDay;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    Week
+
+  Type
+    System.Int32
+  @/textblock
+*/
+@property (nonatomic, readonly) int32_t week;
 
 #pragma mark -
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   CreateFixedDateRule
+  Managed method.
+  @textblock
+  Name
+    CreateFixedDateRule
 
- Params
-   System.DateTime
-   System.Int32
-   System.Int32
+  Params
+    System.DateTime
+    System.Int32
+    System.Int32
 
- Return
-   System.TimeZoneInfo+TransitionTime
- @/textblock
+  Return
+    System.TimeZoneInfo+TransitionTime
+  @/textblock
 */
 + (System_TimeZoneInfo__TransitionTime *)createFixedDateRule_withTimeOfDay:(NSDate *)p1 month:(int32_t)p2 day:(int32_t)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   CreateFloatingDateRule
+  Managed method.
+  @textblock
+  Name
+    CreateFloatingDateRule
 
- Params
-   System.DateTime
-   System.Int32
-   System.Int32
-   System.DayOfWeek
+  Params
+    System.DateTime
+    System.Int32
+    System.Int32
+    System.DayOfWeek
 
- Return
-   System.TimeZoneInfo+TransitionTime
- @/textblock
+  Return
+    System.TimeZoneInfo+TransitionTime
+  @/textblock
 */
 + (System_TimeZoneInfo__TransitionTime *)createFloatingDateRule_withTimeOfDay:(NSDate *)p1 month:(int32_t)p2 week:(int32_t)p3 dayOfWeek:(int32_t)p4;
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   System.Object
+  Params
+    System.Object
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withObj:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   System.TimeZoneInfo+TransitionTime
+  Params
+    System.TimeZoneInfo+TransitionTime
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withOther:(System_TimeZoneInfo__TransitionTime *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetHashCode
+  Managed method.
+  @textblock
+  Name
+    GetHashCode
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getHashCode;
 
 /**
- Managed method.
- @textblock
- Name
-   op_Equality
+  Managed method.
+  @textblock
+  Name
+    op_Equality
 
- Params
-   System.TimeZoneInfo+TransitionTime
-   System.TimeZoneInfo+TransitionTime
+  Params
+    System.TimeZoneInfo+TransitionTime
+    System.TimeZoneInfo+TransitionTime
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)op_Equality_withT1:(System_TimeZoneInfo__TransitionTime *)p1 t2:(System_TimeZoneInfo__TransitionTime *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   op_Inequality
+  Managed method.
+  @textblock
+  Name
+    op_Inequality
 
- Params
-   System.TimeZoneInfo+TransitionTime
-   System.TimeZoneInfo+TransitionTime
+  Params
+    System.TimeZoneInfo+TransitionTime
+    System.TimeZoneInfo+TransitionTime
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)op_Inequality_withT1:(System_TimeZoneInfo__TransitionTime *)p1 t2:(System_TimeZoneInfo__TransitionTime *)p2;
 @end

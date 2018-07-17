@@ -87,192 +87,568 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : Accepted
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)accepted;
+/**
+  Managed field.
+  @textblock
+  Name
+    Accepted
 
-	// Managed field name : Ambiguous
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)ambiguous;
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)accepted;
 
-	// Managed field name : BadGateway
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)badGateway;
+/**
+  Managed field.
+  @textblock
+  Name
+    Ambiguous
 
-	// Managed field name : BadRequest
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)badRequest;
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)ambiguous;
 
-	// Managed field name : Conflict
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)conflict;
+/**
+  Managed field.
+  @textblock
+  Name
+    BadGateway
 
-	// Managed field name : Continue
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)continue;
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)badGateway;
 
-	// Managed field name : Created
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)created;
+/**
+  Managed field.
+  @textblock
+  Name
+    BadRequest
 
-	// Managed field name : ExpectationFailed
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)expectationFailed;
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)badRequest;
 
-	// Managed field name : Forbidden
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)forbidden;
+/**
+  Managed field.
+  @textblock
+  Name
+    Conflict
 
-	// Managed field name : Found
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)found;
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)conflict;
 
-	// Managed field name : GatewayTimeout
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)gatewayTimeout;
+/**
+  Managed field.
+  @textblock
+  Name
+    Continue
 
-	// Managed field name : Gone
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)gone;
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)continue;
 
-	// Managed field name : HttpVersionNotSupported
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)httpVersionNotSupported;
+/**
+  Managed field.
+  @textblock
+  Name
+    Created
 
-	// Managed field name : InternalServerError
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)internalServerError;
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)created;
 
-	// Managed field name : LengthRequired
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)lengthRequired;
+/**
+  Managed field.
+  @textblock
+  Name
+    ExpectationFailed
 
-	// Managed field name : MethodNotAllowed
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)methodNotAllowed;
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)expectationFailed;
 
-	// Managed field name : Moved
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)moved;
+/**
+  Managed field.
+  @textblock
+  Name
+    Forbidden
 
-	// Managed field name : MovedPermanently
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)movedPermanently;
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)forbidden;
 
-	// Managed field name : MultipleChoices
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)multipleChoices;
+/**
+  Managed field.
+  @textblock
+  Name
+    Found
 
-	// Managed field name : NoContent
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)noContent;
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)found;
 
-	// Managed field name : NonAuthoritativeInformation
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)nonAuthoritativeInformation;
+/**
+  Managed field.
+  @textblock
+  Name
+    GatewayTimeout
 
-	// Managed field name : NotAcceptable
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)notAcceptable;
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)gatewayTimeout;
 
-	// Managed field name : NotFound
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)notFound;
+/**
+  Managed field.
+  @textblock
+  Name
+    Gone
 
-	// Managed field name : NotImplemented
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)notImplemented;
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)gone;
 
-	// Managed field name : NotModified
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)notModified;
+/**
+  Managed field.
+  @textblock
+  Name
+    HttpVersionNotSupported
 
-	// Managed field name : OK
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)oK;
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)httpVersionNotSupported;
 
-	// Managed field name : PartialContent
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)partialContent;
+/**
+  Managed field.
+  @textblock
+  Name
+    InternalServerError
 
-	// Managed field name : PaymentRequired
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)paymentRequired;
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)internalServerError;
 
-	// Managed field name : PreconditionFailed
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)preconditionFailed;
+/**
+  Managed field.
+  @textblock
+  Name
+    LengthRequired
 
-	// Managed field name : ProxyAuthenticationRequired
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)proxyAuthenticationRequired;
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)lengthRequired;
 
-	// Managed field name : Redirect
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)redirect;
+/**
+  Managed field.
+  @textblock
+  Name
+    MethodNotAllowed
 
-	// Managed field name : RedirectKeepVerb
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)redirectKeepVerb;
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)methodNotAllowed;
 
-	// Managed field name : RedirectMethod
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)redirectMethod;
+/**
+  Managed field.
+  @textblock
+  Name
+    Moved
 
-	// Managed field name : RequestedRangeNotSatisfiable
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)requestedRangeNotSatisfiable;
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)moved;
 
-	// Managed field name : RequestEntityTooLarge
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)requestEntityTooLarge;
+/**
+  Managed field.
+  @textblock
+  Name
+    MovedPermanently
 
-	// Managed field name : RequestTimeout
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)requestTimeout;
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)movedPermanently;
 
-	// Managed field name : RequestUriTooLong
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)requestUriTooLong;
+/**
+  Managed field.
+  @textblock
+  Name
+    MultipleChoices
 
-	// Managed field name : ResetContent
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)resetContent;
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)multipleChoices;
 
-	// Managed field name : SeeOther
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)seeOther;
+/**
+  Managed field.
+  @textblock
+  Name
+    NoContent
 
-	// Managed field name : ServiceUnavailable
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)serviceUnavailable;
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)noContent;
 
-	// Managed field name : SwitchingProtocols
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)switchingProtocols;
+/**
+  Managed field.
+  @textblock
+  Name
+    NonAuthoritativeInformation
 
-	// Managed field name : TemporaryRedirect
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)temporaryRedirect;
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)nonAuthoritativeInformation;
 
-	// Managed field name : Unauthorized
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)unauthorized;
+/**
+  Managed field.
+  @textblock
+  Name
+    NotAcceptable
 
-	// Managed field name : UnsupportedMediaType
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)unsupportedMediaType;
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)notAcceptable;
 
-	// Managed field name : Unused
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)unused;
+/**
+  Managed field.
+  @textblock
+  Name
+    NotFound
 
-	// Managed field name : UpgradeRequired
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)upgradeRequired;
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)notFound;
 
-	// Managed field name : UseProxy
-	// Managed field type : System.Net.HttpStatusCode
-    + (int32_t)useProxy;
+/**
+  Managed field.
+  @textblock
+  Name
+    NotImplemented
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)notImplemented;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    NotModified
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)notModified;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    OK
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)oK;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    PartialContent
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)partialContent;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    PaymentRequired
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)paymentRequired;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    PreconditionFailed
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)preconditionFailed;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    ProxyAuthenticationRequired
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)proxyAuthenticationRequired;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    Redirect
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)redirect;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    RedirectKeepVerb
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)redirectKeepVerb;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    RedirectMethod
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)redirectMethod;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    RequestedRangeNotSatisfiable
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)requestedRangeNotSatisfiable;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    RequestEntityTooLarge
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)requestEntityTooLarge;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    RequestTimeout
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)requestTimeout;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    RequestUriTooLong
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)requestUriTooLong;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    ResetContent
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)resetContent;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    SeeOther
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)seeOther;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    ServiceUnavailable
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)serviceUnavailable;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    SwitchingProtocols
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)switchingProtocols;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    TemporaryRedirect
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)temporaryRedirect;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    Unauthorized
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)unauthorized;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    UnsupportedMediaType
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)unsupportedMediaType;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    Unused
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)unused;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    UpgradeRequired
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)upgradeRequired;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    UseProxy
+
+  Type
+    System.Net.HttpStatusCode
+  @/textblock
+*/
++ (int32_t)useProxy;
 @end
 //--Dubrovnik.CodeGenerator

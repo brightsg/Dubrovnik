@@ -41,65 +41,89 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Depth
-	// Managed property type : System.Int32
-    @property (nonatomic, readonly) int32_t depth;
+/**
+  Managed property.
+  @textblock
+  Name
+    Depth
 
-	// Managed property name : IsClosed
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isClosed;
+  Type
+    System.Int32
+  @/textblock
+*/
+@property (nonatomic, readonly) int32_t depth;
 
-	// Managed property name : RecordsAffected
-	// Managed property type : System.Int32
-    @property (nonatomic, readonly) int32_t recordsAffected;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsClosed
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isClosed;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    RecordsAffected
+
+  Type
+    System.Int32
+  @/textblock
+*/
+@property (nonatomic, readonly) int32_t recordsAffected;
 
 #pragma mark -
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   Close
+  Managed method.
+  @textblock
+  Name
+    Close
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)close;
 
 /* Skipped method : System.Data.DataTable GetSchemaTable() */
 
 /**
- Managed method.
- @textblock
- Name
-   NextResult
+  Managed method.
+  @textblock
+  Name
+    NextResult
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)nextResult;
 
 /**
- Managed method.
- @textblock
- Name
-   Read
+  Managed method.
+  @textblock
+  Name
+    Read
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)read;
 @end

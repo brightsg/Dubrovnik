@@ -70,27 +70,25 @@
 
 /* Skipped property : System.Threading.Tasks.TaskFactory`1<System.Threading.Tasks.Task`1+TResult> Factory */
 
-	// Managed property name : Result
-	// Managed property type : <System.Threading.Tasks.Task`1+TResult>
-    @synthesize result = _result;
-    - (System_Object *)result
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Result");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_result isEqualToMonoObject:monoObject]) return _result;					
-		_result = [System_Object bestObjectWithMonoObject:monoObject];
-
-		return _result;
+@synthesize result = _result;
+- (System_Object *)result
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Result");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_result isEqualToMonoObject:monoObject]) return _result;
+	_result = [System_Object bestObjectWithMonoObject:monoObject];
+
+	return _result;
+}
 
 #pragma mark -
 #pragma mark Methods

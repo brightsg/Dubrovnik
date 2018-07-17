@@ -33,115 +33,105 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : DateEnd
-	// Managed property type : System.DateTime
-    @synthesize dateEnd = _dateEnd;
-    - (NSDate *)dateEnd
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DateEnd");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_dateEnd isEqualToMonoObject:monoObject]) return _dateEnd;					
-		_dateEnd = [NSDate dateWithMonoDateTime:monoObject];
-
-		return _dateEnd;
+@synthesize dateEnd = _dateEnd;
+- (NSDate *)dateEnd
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "DateEnd");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_dateEnd isEqualToMonoObject:monoObject]) return _dateEnd;
+	_dateEnd = [NSDate dateWithMonoDateTime:monoObject];
 
-	// Managed property name : DateStart
-	// Managed property type : System.DateTime
-    @synthesize dateStart = _dateStart;
-    - (NSDate *)dateStart
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DateStart");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_dateStart isEqualToMonoObject:monoObject]) return _dateStart;					
-		_dateStart = [NSDate dateWithMonoDateTime:monoObject];
+	return _dateEnd;
+}
 
-		return _dateStart;
+@synthesize dateStart = _dateStart;
+- (NSDate *)dateStart
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "DateStart");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_dateStart isEqualToMonoObject:monoObject]) return _dateStart;
+	_dateStart = [NSDate dateWithMonoDateTime:monoObject];
 
-	// Managed property name : DaylightDelta
-	// Managed property type : System.TimeSpan
-    @synthesize daylightDelta = _daylightDelta;
-    - (System_TimeSpan *)daylightDelta
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DaylightDelta");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_daylightDelta isEqualToMonoObject:monoObject]) return _daylightDelta;					
-		_daylightDelta = [System_TimeSpan bestObjectWithMonoObject:monoObject];
+	return _dateStart;
+}
 
-		return _daylightDelta;
+@synthesize daylightDelta = _daylightDelta;
+- (System_TimeSpan *)daylightDelta
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "DaylightDelta");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_daylightDelta isEqualToMonoObject:monoObject]) return _daylightDelta;
+	_daylightDelta = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
-	// Managed property name : DaylightTransitionEnd
-	// Managed property type : System.TimeZoneInfo+TransitionTime
-    @synthesize daylightTransitionEnd = _daylightTransitionEnd;
-    - (System_TimeZoneInfo__TransitionTime *)daylightTransitionEnd
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DaylightTransitionEnd");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_daylightTransitionEnd isEqualToMonoObject:monoObject]) return _daylightTransitionEnd;					
-		_daylightTransitionEnd = [System_TimeZoneInfo__TransitionTime bestObjectWithMonoObject:monoObject];
+	return _daylightDelta;
+}
 
-		return _daylightTransitionEnd;
+@synthesize daylightTransitionEnd = _daylightTransitionEnd;
+- (System_TimeZoneInfo__TransitionTime *)daylightTransitionEnd
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "DaylightTransitionEnd");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_daylightTransitionEnd isEqualToMonoObject:monoObject]) return _daylightTransitionEnd;
+	_daylightTransitionEnd = [System_TimeZoneInfo__TransitionTime bestObjectWithMonoObject:monoObject];
 
-	// Managed property name : DaylightTransitionStart
-	// Managed property type : System.TimeZoneInfo+TransitionTime
-    @synthesize daylightTransitionStart = _daylightTransitionStart;
-    - (System_TimeZoneInfo__TransitionTime *)daylightTransitionStart
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DaylightTransitionStart");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_daylightTransitionStart isEqualToMonoObject:monoObject]) return _daylightTransitionStart;					
-		_daylightTransitionStart = [System_TimeZoneInfo__TransitionTime bestObjectWithMonoObject:monoObject];
+	return _daylightTransitionEnd;
+}
 
-		return _daylightTransitionStart;
+@synthesize daylightTransitionStart = _daylightTransitionStart;
+- (System_TimeZoneInfo__TransitionTime *)daylightTransitionStart
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "DaylightTransitionStart");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_daylightTransitionStart isEqualToMonoObject:monoObject]) return _daylightTransitionStart;
+	_daylightTransitionStart = [System_TimeZoneInfo__TransitionTime bestObjectWithMonoObject:monoObject];
+
+	return _daylightTransitionStart;
+}
 
 #pragma mark -
 #pragma mark Methods

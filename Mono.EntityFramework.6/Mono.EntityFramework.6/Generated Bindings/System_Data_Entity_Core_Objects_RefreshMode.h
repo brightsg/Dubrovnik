@@ -42,12 +42,28 @@ typedef NS_ENUM(int32_t, enumSystem_Data_Entity_Core_Objects_RefreshMode) {
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : ClientWins
-	// Managed field type : System.Data.Entity.Core.Objects.RefreshMode
-    + (int32_t)clientWins;
+/**
+  Managed field.
+  @textblock
+  Name
+    ClientWins
 
-	// Managed field name : StoreWins
-	// Managed field type : System.Data.Entity.Core.Objects.RefreshMode
-    + (int32_t)storeWins;
+  Type
+    System.Data.Entity.Core.Objects.RefreshMode
+  @/textblock
+*/
++ (int32_t)clientWins;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    StoreWins
+
+  Type
+    System.Data.Entity.Core.Objects.RefreshMode
+  @/textblock
+*/
++ (int32_t)storeWins;
 @end
 //--Dubrovnik.CodeGenerator

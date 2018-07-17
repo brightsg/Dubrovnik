@@ -46,28 +46,76 @@ typedef NS_ENUM(int32_t, enumSystem_StringComparison) {
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : CurrentCulture
-	// Managed field type : System.StringComparison
-    + (int32_t)currentCulture;
+/**
+  Managed field.
+  @textblock
+  Name
+    CurrentCulture
 
-	// Managed field name : CurrentCultureIgnoreCase
-	// Managed field type : System.StringComparison
-    + (int32_t)currentCultureIgnoreCase;
+  Type
+    System.StringComparison
+  @/textblock
+*/
++ (int32_t)currentCulture;
 
-	// Managed field name : InvariantCulture
-	// Managed field type : System.StringComparison
-    + (int32_t)invariantCulture;
+/**
+  Managed field.
+  @textblock
+  Name
+    CurrentCultureIgnoreCase
 
-	// Managed field name : InvariantCultureIgnoreCase
-	// Managed field type : System.StringComparison
-    + (int32_t)invariantCultureIgnoreCase;
+  Type
+    System.StringComparison
+  @/textblock
+*/
++ (int32_t)currentCultureIgnoreCase;
 
-	// Managed field name : Ordinal
-	// Managed field type : System.StringComparison
-    + (int32_t)ordinal;
+/**
+  Managed field.
+  @textblock
+  Name
+    InvariantCulture
 
-	// Managed field name : OrdinalIgnoreCase
-	// Managed field type : System.StringComparison
-    + (int32_t)ordinalIgnoreCase;
+  Type
+    System.StringComparison
+  @/textblock
+*/
++ (int32_t)invariantCulture;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    InvariantCultureIgnoreCase
+
+  Type
+    System.StringComparison
+  @/textblock
+*/
++ (int32_t)invariantCultureIgnoreCase;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    Ordinal
+
+  Type
+    System.StringComparison
+  @/textblock
+*/
++ (int32_t)ordinal;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    OrdinalIgnoreCase
+
+  Type
+    System.StringComparison
+  @/textblock
+*/
++ (int32_t)ordinalIgnoreCase;
 @end
 //--Dubrovnik.CodeGenerator

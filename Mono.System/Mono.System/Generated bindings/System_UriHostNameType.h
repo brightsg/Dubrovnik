@@ -45,24 +45,64 @@ typedef NS_ENUM(int32_t, enumSystem_UriHostNameType) {
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : Basic
-	// Managed field type : System.UriHostNameType
-    + (int32_t)basic;
+/**
+  Managed field.
+  @textblock
+  Name
+    Basic
 
-	// Managed field name : Dns
-	// Managed field type : System.UriHostNameType
-    + (int32_t)dns;
+  Type
+    System.UriHostNameType
+  @/textblock
+*/
++ (int32_t)basic;
 
-	// Managed field name : IPv4
-	// Managed field type : System.UriHostNameType
-    + (int32_t)iPv4;
+/**
+  Managed field.
+  @textblock
+  Name
+    Dns
 
-	// Managed field name : IPv6
-	// Managed field type : System.UriHostNameType
-    + (int32_t)iPv6;
+  Type
+    System.UriHostNameType
+  @/textblock
+*/
++ (int32_t)dns;
 
-	// Managed field name : Unknown
-	// Managed field type : System.UriHostNameType
-    + (int32_t)unknown;
+/**
+  Managed field.
+  @textblock
+  Name
+    IPv4
+
+  Type
+    System.UriHostNameType
+  @/textblock
+*/
++ (int32_t)iPv4;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    IPv6
+
+  Type
+    System.UriHostNameType
+  @/textblock
+*/
++ (int32_t)iPv6;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    Unknown
+
+  Type
+    System.UriHostNameType
+  @/textblock
+*/
++ (int32_t)unknown;
 @end
 //--Dubrovnik.CodeGenerator

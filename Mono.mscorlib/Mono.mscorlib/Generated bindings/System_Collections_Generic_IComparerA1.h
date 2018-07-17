@@ -41,18 +41,18 @@
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   Compare
+  Managed method.
+  @textblock
+  Name
+    Compare
 
- Params
-   <System.Collections.Generic.IComparer`1+T>
-   <System.Collections.Generic.IComparer`1+T>
+  Params
+    <System.Collections.Generic.IComparer`1+T>
+    <System.Collections.Generic.IComparer`1+T>
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)compare_withX:(System_Object *)p1 y:(System_Object *)p2;
 @end

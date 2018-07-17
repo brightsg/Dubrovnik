@@ -42,69 +42,63 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : CanBeCanceled
-	// Managed property type : System.Boolean
-    @synthesize canBeCanceled = _canBeCanceled;
-    - (BOOL)canBeCanceled
-    {
-		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CanBeCanceled");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		BOOL monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_canBeCanceled = monoObject;
-
-		return _canBeCanceled;
+@synthesize canBeCanceled = _canBeCanceled;
+- (BOOL)canBeCanceled
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "CanBeCanceled");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_canBeCanceled = monoObject;
 
-	// Managed property name : IsCancellationRequested
-	// Managed property type : System.Boolean
-    @synthesize isCancellationRequested = _isCancellationRequested;
-    - (BOOL)isCancellationRequested
-    {
-		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsCancellationRequested");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		BOOL monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_isCancellationRequested = monoObject;
+	return _canBeCanceled;
+}
 
-		return _isCancellationRequested;
+@synthesize isCancellationRequested = _isCancellationRequested;
+- (BOOL)isCancellationRequested
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IsCancellationRequested");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_isCancellationRequested = monoObject;
 
-	// Managed property name : None
-	// Managed property type : System.Threading.CancellationToken
-    static System_Threading_CancellationToken * m_none;
-    + (System_Threading_CancellationToken *)none
-    {
-		typedef MonoObject * (*Thunk)(MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "None");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(&monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:m_none isEqualToMonoObject:monoObject]) return m_none;					
-		m_none = [System_Threading_CancellationToken bestObjectWithMonoObject:monoObject];
+	return _isCancellationRequested;
+}
 
-		return m_none;
+static System_Threading_CancellationToken * m_none;
++ (System_Threading_CancellationToken *)none
+{
+	typedef MonoObject * (*Thunk)(MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "None");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(&monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:m_none isEqualToMonoObject:monoObject]) return m_none;
+	m_none = [System_Threading_CancellationToken bestObjectWithMonoObject:monoObject];
+
+	return m_none;
+}
 
 /* Skipped property : System.Threading.WaitHandle WaitHandle */
 

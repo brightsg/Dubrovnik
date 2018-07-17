@@ -46,27 +46,25 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Encoding
-	// Managed property type : System.Text.Encoding
-    @synthesize encoding = _encoding;
-    - (System_Text_Encoding *)encoding
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Encoding");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_encoding isEqualToMonoObject:monoObject]) return _encoding;					
-		_encoding = [System_Text_Encoding bestObjectWithMonoObject:monoObject];
-
-		return _encoding;
+@synthesize encoding = _encoding;
+- (System_Text_Encoding *)encoding
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Encoding");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_encoding isEqualToMonoObject:monoObject]) return _encoding;
+	_encoding = [System_Text_Encoding bestObjectWithMonoObject:monoObject];
+
+	return _encoding;
+}
 
 #pragma mark -
 #pragma mark Methods

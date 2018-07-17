@@ -33,82 +33,68 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : Friday
-	// Managed field type : System.DayOfWeek
-    static int32_t m_friday;
-    + (int32_t)friday
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"Friday"];
-		m_friday = DB_UNBOX_INT32(monoObject);
+static int32_t m_friday;
++ (int32_t)friday
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"Friday"];
+	m_friday = DB_UNBOX_INT32(monoObject);
 
-		return m_friday;
-	}
+	return m_friday;
+}
 
-	// Managed field name : Monday
-	// Managed field type : System.DayOfWeek
-    static int32_t m_monday;
-    + (int32_t)monday
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"Monday"];
-		m_monday = DB_UNBOX_INT32(monoObject);
+static int32_t m_monday;
++ (int32_t)monday
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"Monday"];
+	m_monday = DB_UNBOX_INT32(monoObject);
 
-		return m_monday;
-	}
+	return m_monday;
+}
 
-	// Managed field name : Saturday
-	// Managed field type : System.DayOfWeek
-    static int32_t m_saturday;
-    + (int32_t)saturday
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"Saturday"];
-		m_saturday = DB_UNBOX_INT32(monoObject);
+static int32_t m_saturday;
++ (int32_t)saturday
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"Saturday"];
+	m_saturday = DB_UNBOX_INT32(monoObject);
 
-		return m_saturday;
-	}
+	return m_saturday;
+}
 
-	// Managed field name : Sunday
-	// Managed field type : System.DayOfWeek
-    static int32_t m_sunday;
-    + (int32_t)sunday
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"Sunday"];
-		m_sunday = DB_UNBOX_INT32(monoObject);
+static int32_t m_sunday;
++ (int32_t)sunday
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"Sunday"];
+	m_sunday = DB_UNBOX_INT32(monoObject);
 
-		return m_sunday;
-	}
+	return m_sunday;
+}
 
-	// Managed field name : Thursday
-	// Managed field type : System.DayOfWeek
-    static int32_t m_thursday;
-    + (int32_t)thursday
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"Thursday"];
-		m_thursday = DB_UNBOX_INT32(monoObject);
+static int32_t m_thursday;
++ (int32_t)thursday
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"Thursday"];
+	m_thursday = DB_UNBOX_INT32(monoObject);
 
-		return m_thursday;
-	}
+	return m_thursday;
+}
 
-	// Managed field name : Tuesday
-	// Managed field type : System.DayOfWeek
-    static int32_t m_tuesday;
-    + (int32_t)tuesday
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"Tuesday"];
-		m_tuesday = DB_UNBOX_INT32(monoObject);
+static int32_t m_tuesday;
++ (int32_t)tuesday
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"Tuesday"];
+	m_tuesday = DB_UNBOX_INT32(monoObject);
 
-		return m_tuesday;
-	}
+	return m_tuesday;
+}
 
-	// Managed field name : Wednesday
-	// Managed field type : System.DayOfWeek
-    static int32_t m_wednesday;
-    + (int32_t)wednesday
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"Wednesday"];
-		m_wednesday = DB_UNBOX_INT32(monoObject);
+static int32_t m_wednesday;
++ (int32_t)wednesday
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"Wednesday"];
+	m_wednesday = DB_UNBOX_INT32(monoObject);
 
-		return m_wednesday;
-	}
+	return m_wednesday;
+}
 
 #pragma mark -
 #pragma mark Teardown

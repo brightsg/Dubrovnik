@@ -33,38 +33,32 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : AcceptAllChangesAfterSave
-	// Managed field type : System.Data.Entity.Core.Objects.SaveOptions
-    static int32_t m_acceptAllChangesAfterSave;
-    + (int32_t)acceptAllChangesAfterSave
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"AcceptAllChangesAfterSave"];
-		m_acceptAllChangesAfterSave = DB_UNBOX_INT32(monoObject);
+static int32_t m_acceptAllChangesAfterSave;
++ (int32_t)acceptAllChangesAfterSave
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"AcceptAllChangesAfterSave"];
+	m_acceptAllChangesAfterSave = DB_UNBOX_INT32(monoObject);
 
-		return m_acceptAllChangesAfterSave;
-	}
+	return m_acceptAllChangesAfterSave;
+}
 
-	// Managed field name : DetectChangesBeforeSave
-	// Managed field type : System.Data.Entity.Core.Objects.SaveOptions
-    static int32_t m_detectChangesBeforeSave;
-    + (int32_t)detectChangesBeforeSave
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"DetectChangesBeforeSave"];
-		m_detectChangesBeforeSave = DB_UNBOX_INT32(monoObject);
+static int32_t m_detectChangesBeforeSave;
++ (int32_t)detectChangesBeforeSave
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"DetectChangesBeforeSave"];
+	m_detectChangesBeforeSave = DB_UNBOX_INT32(monoObject);
 
-		return m_detectChangesBeforeSave;
-	}
+	return m_detectChangesBeforeSave;
+}
 
-	// Managed field name : None
-	// Managed field type : System.Data.Entity.Core.Objects.SaveOptions
-    static int32_t m_none;
-    + (int32_t)none
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"None"];
-		m_none = DB_UNBOX_INT32(monoObject);
+static int32_t m_none;
++ (int32_t)none
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"None"];
+	m_none = DB_UNBOX_INT32(monoObject);
 
-		return m_none;
-	}
+	return m_none;
+}
 
 #pragma mark -
 #pragma mark Teardown

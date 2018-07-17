@@ -49,92 +49,92 @@
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   AddObject
+  Managed method.
+  @textblock
+  Name
+    AddObject
 
- Params
-   <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
+  Params
+    <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)addObject_withEntity:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   ApplyCurrentValues
+  Managed method.
+  @textblock
+  Name
+    ApplyCurrentValues
 
- Params
-   <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
+  Params
+    <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
 
- Return
-   <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
- @/textblock
+  Return
+    <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
+  @/textblock
 */
 - (System_Object *)applyCurrentValues_withCurrentEntity:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   ApplyOriginalValues
+  Managed method.
+  @textblock
+  Name
+    ApplyOriginalValues
 
- Params
-   <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
+  Params
+    <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
 
- Return
-   <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
- @/textblock
+  Return
+    <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
+  @/textblock
 */
 - (System_Object *)applyOriginalValues_withOriginalEntity:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Attach
+  Managed method.
+  @textblock
+  Name
+    Attach
 
- Params
-   <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
+  Params
+    <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)attach_withEntity:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   DeleteObject
+  Managed method.
+  @textblock
+  Name
+    DeleteObject
 
- Params
-   <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
+  Params
+    <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)deleteObject_withEntity:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Detach
+  Managed method.
+  @textblock
+  Name
+    Detach
 
- Params
-   <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
+  Params
+    <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)detach_withEntity:(System_Object *)p1;
 @end

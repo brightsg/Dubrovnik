@@ -37,27 +37,25 @@
 
 /* Skipped property : System.Reflection.ParameterInfo ReturnParameter */
 
-	// Managed property name : ReturnType
-	// Managed property type : System.Type
-    @synthesize returnType = _returnType;
-    - (System_Type *)returnType
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ReturnType");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_returnType isEqualToMonoObject:monoObject]) return _returnType;					
-		_returnType = [System_Type bestObjectWithMonoObject:monoObject];
-
-		return _returnType;
+@synthesize returnType = _returnType;
+- (System_Type *)returnType
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "ReturnType");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_returnType isEqualToMonoObject:monoObject]) return _returnType;
+	_returnType = [System_Type bestObjectWithMonoObject:monoObject];
+
+	return _returnType;
+}
 
 /* Skipped property : System.Reflection.ICustomAttributeProvider ReturnTypeCustomAttributes */
 

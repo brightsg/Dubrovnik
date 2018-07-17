@@ -45,24 +45,64 @@ typedef NS_ENUM(int32_t, enumSystem_Collections_Specialized_NotifyCollectionChan
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : Add
-	// Managed field type : System.Collections.Specialized.NotifyCollectionChangedAction
-    + (int32_t)add;
+/**
+  Managed field.
+  @textblock
+  Name
+    Add
 
-	// Managed field name : Move
-	// Managed field type : System.Collections.Specialized.NotifyCollectionChangedAction
-    + (int32_t)move;
+  Type
+    System.Collections.Specialized.NotifyCollectionChangedAction
+  @/textblock
+*/
++ (int32_t)add;
 
-	// Managed field name : Remove
-	// Managed field type : System.Collections.Specialized.NotifyCollectionChangedAction
-    + (int32_t)remove;
+/**
+  Managed field.
+  @textblock
+  Name
+    Move
 
-	// Managed field name : Replace
-	// Managed field type : System.Collections.Specialized.NotifyCollectionChangedAction
-    + (int32_t)replace;
+  Type
+    System.Collections.Specialized.NotifyCollectionChangedAction
+  @/textblock
+*/
++ (int32_t)move;
 
-	// Managed field name : Reset
-	// Managed field type : System.Collections.Specialized.NotifyCollectionChangedAction
-    + (int32_t)reset;
+/**
+  Managed field.
+  @textblock
+  Name
+    Remove
+
+  Type
+    System.Collections.Specialized.NotifyCollectionChangedAction
+  @/textblock
+*/
++ (int32_t)remove;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    Replace
+
+  Type
+    System.Collections.Specialized.NotifyCollectionChangedAction
+  @/textblock
+*/
++ (int32_t)replace;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    Reset
+
+  Type
+    System.Collections.Specialized.NotifyCollectionChangedAction
+  @/textblock
+*/
++ (int32_t)reset;
 @end
 //--Dubrovnik.CodeGenerator

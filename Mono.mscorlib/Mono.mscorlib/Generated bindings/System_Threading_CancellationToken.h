@@ -40,34 +40,58 @@
 #pragma mark Constructors
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Boolean
+  Params
+    System.Boolean
 
- Return
-   System.Threading.CancellationToken
- @/textblock
+  Return
+    System.Threading.CancellationToken
+  @/textblock
 */
 + (System_Threading_CancellationToken *)new_withCanceled:(BOOL)p1;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : CanBeCanceled
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL canBeCanceled;
+/**
+  Managed property.
+  @textblock
+  Name
+    CanBeCanceled
 
-	// Managed property name : IsCancellationRequested
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isCancellationRequested;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL canBeCanceled;
 
-	// Managed property name : None
-	// Managed property type : System.Threading.CancellationToken
-    + (System_Threading_CancellationToken *)none;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsCancellationRequested
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isCancellationRequested;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    None
+
+  Type
+    System.Threading.CancellationToken
+  @/textblock
+*/
++ (System_Threading_CancellationToken *)none;
 
 /* Skipped property : System.Threading.WaitHandle WaitHandle */
 
@@ -75,79 +99,79 @@
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   System.Threading.CancellationToken
+  Params
+    System.Threading.CancellationToken
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withOtherSTCancellationToken:(System_Threading_CancellationToken *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   System.Object
+  Params
+    System.Object
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withOtherObject:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetHashCode
+  Managed method.
+  @textblock
+  Name
+    GetHashCode
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getHashCode;
 
 /**
- Managed method.
- @textblock
- Name
-   op_Equality
+  Managed method.
+  @textblock
+  Name
+    op_Equality
 
- Params
-   System.Threading.CancellationToken
-   System.Threading.CancellationToken
+  Params
+    System.Threading.CancellationToken
+    System.Threading.CancellationToken
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)op_Equality_withLeft:(System_Threading_CancellationToken *)p1 right:(System_Threading_CancellationToken *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   op_Inequality
+  Managed method.
+  @textblock
+  Name
+    op_Inequality
 
- Params
-   System.Threading.CancellationToken
-   System.Threading.CancellationToken
+  Params
+    System.Threading.CancellationToken
+    System.Threading.CancellationToken
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)op_Inequality_withLeft:(System_Threading_CancellationToken *)p1 right:(System_Threading_CancellationToken *)p2;
 
@@ -160,17 +184,17 @@
 /* Skipped method : System.Threading.CancellationTokenRegistration Register(System.Action`1<System.Object> callback, System.Object state, System.Boolean useSynchronizationContext) */
 
 /**
- Managed method.
- @textblock
- Name
-   ThrowIfCancellationRequested
+  Managed method.
+  @textblock
+  Name
+    ThrowIfCancellationRequested
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)throwIfCancellationRequested;
 @end

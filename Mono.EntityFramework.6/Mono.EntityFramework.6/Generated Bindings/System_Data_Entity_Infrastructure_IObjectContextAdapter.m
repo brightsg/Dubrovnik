@@ -33,27 +33,25 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : ObjectContext
-	// Managed property type : System.Data.Entity.Core.Objects.ObjectContext
-    @synthesize objectContext = _objectContext;
-    - (System_Data_Entity_Core_Objects_ObjectContext *)objectContext
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "System.Data.Entity.Infrastructure.IObjectContextAdapter.ObjectContext");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_objectContext isEqualToMonoObject:monoObject]) return _objectContext;					
-		_objectContext = [System_Data_Entity_Core_Objects_ObjectContext bestObjectWithMonoObject:monoObject];
-
-		return _objectContext;
+@synthesize objectContext = _objectContext;
+- (System_Data_Entity_Core_Objects_ObjectContext *)objectContext
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "System.Data.Entity.Infrastructure.IObjectContextAdapter.ObjectContext");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_objectContext isEqualToMonoObject:monoObject]) return _objectContext;
+	_objectContext = [System_Data_Entity_Core_Objects_ObjectContext bestObjectWithMonoObject:monoObject];
+
+	return _objectContext;
+}
 
 #pragma mark -
 #pragma mark Teardown

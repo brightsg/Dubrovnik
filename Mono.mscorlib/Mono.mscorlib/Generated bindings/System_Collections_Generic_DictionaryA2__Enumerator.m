@@ -33,27 +33,25 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Current
-	// Managed property type : System.Collections.Generic.KeyValuePair`2<System.Collections.Generic.Dictionary`2+Enumerator+TKey, System.Collections.Generic.Dictionary`2+Enumerator+TValue>
-    @synthesize current = _current;
-    - (System_Collections_Generic_KeyValuePairA2 *)current
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Current");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_current isEqualToMonoObject:monoObject]) return _current;					
-		_current = [System_Collections_Generic_KeyValuePairA2 bestObjectWithMonoObject:monoObject];
-
-		return _current;
+@synthesize current = _current;
+- (System_Collections_Generic_KeyValuePairA2 *)current
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Current");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_current isEqualToMonoObject:monoObject]) return _current;
+	_current = [System_Collections_Generic_KeyValuePairA2 bestObjectWithMonoObject:monoObject];
+
+	return _current;
+}
 
 #pragma mark -
 #pragma mark Methods

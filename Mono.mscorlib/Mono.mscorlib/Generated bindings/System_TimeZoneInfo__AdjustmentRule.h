@@ -44,75 +44,115 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : DateEnd
-	// Managed property type : System.DateTime
-    @property (nonatomic, strong, readonly) NSDate * dateEnd;
+/**
+  Managed property.
+  @textblock
+  Name
+    DateEnd
 
-	// Managed property name : DateStart
-	// Managed property type : System.DateTime
-    @property (nonatomic, strong, readonly) NSDate * dateStart;
+  Type
+    System.DateTime
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSDate * dateEnd;
 
-	// Managed property name : DaylightDelta
-	// Managed property type : System.TimeSpan
-    @property (nonatomic, strong, readonly) System_TimeSpan * daylightDelta;
+/**
+  Managed property.
+  @textblock
+  Name
+    DateStart
 
-	// Managed property name : DaylightTransitionEnd
-	// Managed property type : System.TimeZoneInfo+TransitionTime
-    @property (nonatomic, strong, readonly) System_TimeZoneInfo__TransitionTime * daylightTransitionEnd;
+  Type
+    System.DateTime
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSDate * dateStart;
 
-	// Managed property name : DaylightTransitionStart
-	// Managed property type : System.TimeZoneInfo+TransitionTime
-    @property (nonatomic, strong, readonly) System_TimeZoneInfo__TransitionTime * daylightTransitionStart;
+/**
+  Managed property.
+  @textblock
+  Name
+    DaylightDelta
+
+  Type
+    System.TimeSpan
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_TimeSpan * daylightDelta;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    DaylightTransitionEnd
+
+  Type
+    System.TimeZoneInfo+TransitionTime
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_TimeZoneInfo__TransitionTime * daylightTransitionEnd;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    DaylightTransitionStart
+
+  Type
+    System.TimeZoneInfo+TransitionTime
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_TimeZoneInfo__TransitionTime * daylightTransitionStart;
 
 #pragma mark -
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   CreateAdjustmentRule
+  Managed method.
+  @textblock
+  Name
+    CreateAdjustmentRule
 
- Params
-   System.DateTime
-   System.DateTime
-   System.TimeSpan
-   System.TimeZoneInfo+TransitionTime
-   System.TimeZoneInfo+TransitionTime
+  Params
+    System.DateTime
+    System.DateTime
+    System.TimeSpan
+    System.TimeZoneInfo+TransitionTime
+    System.TimeZoneInfo+TransitionTime
 
- Return
-   System.TimeZoneInfo+AdjustmentRule
- @/textblock
+  Return
+    System.TimeZoneInfo+AdjustmentRule
+  @/textblock
 */
 + (System_TimeZoneInfo__AdjustmentRule *)createAdjustmentRule_withDateStart:(NSDate *)p1 dateEnd:(NSDate *)p2 daylightDelta:(System_TimeSpan *)p3 daylightTransitionStart:(System_TimeZoneInfo__TransitionTime *)p4 daylightTransitionEnd:(System_TimeZoneInfo__TransitionTime *)p5;
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   System.TimeZoneInfo+AdjustmentRule
+  Params
+    System.TimeZoneInfo+AdjustmentRule
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withOther:(System_TimeZoneInfo__AdjustmentRule *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetHashCode
+  Managed method.
+  @textblock
+  Name
+    GetHashCode
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getHashCode;
 @end

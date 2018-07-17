@@ -35,26 +35,24 @@
 
 /* Skipped property : System.Configuration.SettingsContext Context */
 
-	// Managed property name : IsSynchronized
-	// Managed property type : System.Boolean
-    @synthesize isSynchronized = _isSynchronized;
-    - (BOOL)isSynchronized
-    {
-		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "IsSynchronized");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		BOOL monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_isSynchronized = monoObject;
-
-		return _isSynchronized;
+@synthesize isSynchronized = _isSynchronized;
+- (BOOL)isSynchronized
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IsSynchronized");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_isSynchronized = monoObject;
+
+	return _isSynchronized;
+}
 
 /* Skipped property : System.Configuration.SettingsPropertyCollection Properties */
 

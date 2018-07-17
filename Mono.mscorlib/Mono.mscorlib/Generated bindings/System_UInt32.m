@@ -33,27 +33,23 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : MaxValue
-	// Managed field type : System.UInt32
-    static uint32_t m_maxValue;
-    + (uint32_t)maxValue
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"MaxValue"];
-		m_maxValue = DB_UNBOX_UINT32(monoObject);
+static uint32_t m_maxValue;
++ (uint32_t)maxValue
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"MaxValue"];
+	m_maxValue = DB_UNBOX_UINT32(monoObject);
 
-		return m_maxValue;
-	}
+	return m_maxValue;
+}
 
-	// Managed field name : MinValue
-	// Managed field type : System.UInt32
-    static uint32_t m_minValue;
-    + (uint32_t)minValue
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"MinValue"];
-		m_minValue = DB_UNBOX_UINT32(monoObject);
+static uint32_t m_minValue;
++ (uint32_t)minValue
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"MinValue"];
+	m_minValue = DB_UNBOX_UINT32(monoObject);
 
-		return m_minValue;
-	}
+	return m_minValue;
+}
 
 #pragma mark -
 #pragma mark Methods

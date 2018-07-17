@@ -48,17 +48,17 @@
 /* Skipped constructor : System.IO.StringWriter (System.IFormatProvider formatProvider) */
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Text.StringBuilder
+  Params
+    System.Text.StringBuilder
 
- Return
-   System.IO.StringWriter
- @/textblock
+  Return
+    System.IO.StringWriter
+  @/textblock
 */
 + (System_IO_StringWriter *)new_withSb:(System_Text_StringBuilder *)p1;
 
@@ -67,211 +67,219 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Encoding
-	// Managed property type : System.Text.Encoding
-    @property (nonatomic, strong, readonly) System_Text_Encoding * encoding;
+/**
+  Managed property.
+  @textblock
+  Name
+    Encoding
+
+  Type
+    System.Text.Encoding
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Text_Encoding * encoding;
 
 #pragma mark -
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   Close
+  Managed method.
+  @textblock
+  Name
+    Close
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)close;
 
 /**
- Managed method.
- @textblock
- Name
-   FlushAsync
+  Managed method.
+  @textblock
+  Name
+    FlushAsync
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 - (System_Threading_Tasks_Task *)flushAsync;
 
 /**
- Managed method.
- @textblock
- Name
-   GetStringBuilder
+  Managed method.
+  @textblock
+  Name
+    GetStringBuilder
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Text.StringBuilder
- @/textblock
+  Return
+    System.Text.StringBuilder
+  @/textblock
 */
 - (System_Text_StringBuilder *)getStringBuilder;
 
 /**
- Managed method.
- @textblock
- Name
-   ToString
+  Managed method.
+  @textblock
+  Name
+    ToString
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 - (NSString *)toString;
 
 /**
- Managed method.
- @textblock
- Name
-   Write
+  Managed method.
+  @textblock
+  Name
+    Write
 
- Params
-   System.Char
+  Params
+    System.Char
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)write_withValueChar:(uint16_t)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Write
+  Managed method.
+  @textblock
+  Name
+    Write
 
- Params
-   System.Char[]
-   System.Int32
-   System.Int32
+  Params
+    System.Char[]
+    System.Int32
+    System.Int32
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)write_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   Write
+  Managed method.
+  @textblock
+  Name
+    Write
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)write_withValueString:(NSString *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   WriteAsync
+  Managed method.
+  @textblock
+  Name
+    WriteAsync
 
- Params
-   System.Char
+  Params
+    System.Char
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 - (System_Threading_Tasks_Task *)writeAsync_withValueChar:(uint16_t)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   WriteAsync
+  Managed method.
+  @textblock
+  Name
+    WriteAsync
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 - (System_Threading_Tasks_Task *)writeAsync_withValueString:(NSString *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   WriteAsync
+  Managed method.
+  @textblock
+  Name
+    WriteAsync
 
- Params
-   System.Char[]
-   System.Int32
-   System.Int32
+  Params
+    System.Char[]
+    System.Int32
+    System.Int32
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   WriteLineAsync
+  Managed method.
+  @textblock
+  Name
+    WriteLineAsync
 
- Params
-   System.Char
+  Params
+    System.Char
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 - (System_Threading_Tasks_Task *)writeLineAsync_withValueChar:(uint16_t)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   WriteLineAsync
+  Managed method.
+  @textblock
+  Name
+    WriteLineAsync
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 - (System_Threading_Tasks_Task *)writeLineAsync_withValueString:(NSString *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   WriteLineAsync
+  Managed method.
+  @textblock
+  Name
+    WriteLineAsync
 
- Params
-   System.Char[]
-   System.Int32
-   System.Int32
+  Params
+    System.Char[]
+    System.Int32
+    System.Int32
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 - (System_Threading_Tasks_Task *)writeLineAsync_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 @end

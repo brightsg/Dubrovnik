@@ -47,9 +47,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : BaseURI
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * baseURI;
+/**
+  Managed property.
+  @textblock
+  Name
+    BaseURI
+
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * baseURI;
 
 /* Skipped property : System.Xml.XmlElement DocumentElement */
 
@@ -57,39 +65,95 @@
 
 /* Skipped property : System.Xml.XmlImplementation Implementation */
 
-	// Managed property name : InnerText
-	// Managed property type : System.String
-    @property (nonatomic, strong) NSString * innerText;
+/**
+  Managed property.
+  @textblock
+  Name
+    InnerText
 
-	// Managed property name : InnerXml
-	// Managed property type : System.String
-    @property (nonatomic, strong) NSString * innerXml;
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong) NSString * innerText;
 
-	// Managed property name : IsReadOnly
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isReadOnly;
+/**
+  Managed property.
+  @textblock
+  Name
+    InnerXml
 
-	// Managed property name : LocalName
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * localName;
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong) NSString * innerXml;
 
-	// Managed property name : Name
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * name;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsReadOnly
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isReadOnly;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    LocalName
+
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * localName;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    Name
+
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * name;
 
 /* Skipped property : System.Xml.XmlNameTable NameTable */
 
 /* Skipped property : System.Xml.XmlNodeType NodeType */
 
-	// Managed property name : OwnerDocument
-	// Managed property type : System.Xml.XmlDocument
-    @property (nonatomic, strong, readonly) System_Xml_XmlDocument * ownerDocument;
+/**
+  Managed property.
+  @textblock
+  Name
+    OwnerDocument
+
+  Type
+    System.Xml.XmlDocument
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Xml_XmlDocument * ownerDocument;
 
 /* Skipped property : System.Xml.XmlNode ParentNode */
 
-	// Managed property name : PreserveWhitespace
-	// Managed property type : System.Boolean
-    @property (nonatomic) BOOL preserveWhitespace;
+/**
+  Managed property.
+  @textblock
+  Name
+    PreserveWhitespace
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic) BOOL preserveWhitespace;
 
 /* Skipped property : System.Xml.Schema.IXmlSchemaInfo SchemaInfo */
 
@@ -151,96 +215,96 @@
 /* Skipped method : System.Xml.XmlNode ImportNode(System.Xml.XmlNode node, System.Boolean deep) */
 
 /**
- Managed method.
- @textblock
- Name
-   Load
+  Managed method.
+  @textblock
+  Name
+    Load
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)load_withFilename:(NSString *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Load
+  Managed method.
+  @textblock
+  Name
+    Load
 
- Params
-   System.IO.Stream
+  Params
+    System.IO.Stream
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)load_withInStream:(System_IO_Stream *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Load
+  Managed method.
+  @textblock
+  Name
+    Load
 
- Params
-   System.IO.TextReader
+  Params
+    System.IO.TextReader
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)load_withTxtReader:(System_IO_TextReader *)p1;
 
 /* Skipped method : System.Void Load(System.Xml.XmlReader reader) */
 
 /**
- Managed method.
- @textblock
- Name
-   LoadXml
+  Managed method.
+  @textblock
+  Name
+    LoadXml
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)loadXml_withXml:(NSString *)p1;
 
 /* Skipped method : System.Xml.XmlNode ReadNode(System.Xml.XmlReader reader) */
 
 /**
- Managed method.
- @textblock
- Name
-   Save
+  Managed method.
+  @textblock
+  Name
+    Save
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)save_withFilename:(NSString *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Save
+  Managed method.
+  @textblock
+  Name
+    Save
 
- Params
-   System.IO.Stream
+  Params
+    System.IO.Stream
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)save_withOutStream:(System_IO_Stream *)p1;
 

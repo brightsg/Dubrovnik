@@ -33,17 +33,15 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : Null
-	// Managed field type : System.IO.TextReader
-    static System_IO_TextReader * m_null;
-    + (System_IO_TextReader *)null
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"Null"];
-		if ([self object:m_null isEqualToMonoObject:monoObject]) return m_null;					
-		m_null = [System_IO_TextReader bestObjectWithMonoObject:monoObject];
+static System_IO_TextReader * m_null;
++ (System_IO_TextReader *)null
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"Null"];
+	if ([self object:m_null isEqualToMonoObject:monoObject]) return m_null;
+	m_null = [System_IO_TextReader bestObjectWithMonoObject:monoObject];
 
-		return m_null;
-	}
+	return m_null;
+}
 
 #pragma mark -
 #pragma mark Methods

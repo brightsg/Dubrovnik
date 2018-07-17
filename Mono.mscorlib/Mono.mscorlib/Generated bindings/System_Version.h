@@ -45,345 +45,393 @@
 #pragma mark Constructors
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Int32
-   System.Int32
-   System.Int32
-   System.Int32
+  Params
+    System.Int32
+    System.Int32
+    System.Int32
+    System.Int32
 
- Return
-   System.Version
- @/textblock
+  Return
+    System.Version
+  @/textblock
 */
 + (System_Version *)new_withMajor:(int32_t)p1 minor:(int32_t)p2 build:(int32_t)p3 revision:(int32_t)p4;
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Int32
-   System.Int32
-   System.Int32
+  Params
+    System.Int32
+    System.Int32
+    System.Int32
 
- Return
-   System.Version
- @/textblock
+  Return
+    System.Version
+  @/textblock
 */
 + (System_Version *)new_withMajor:(int32_t)p1 minor:(int32_t)p2 build:(int32_t)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Int32
-   System.Int32
+  Params
+    System.Int32
+    System.Int32
 
- Return
-   System.Version
- @/textblock
+  Return
+    System.Version
+  @/textblock
 */
 + (System_Version *)new_withMajor:(int32_t)p1 minor:(int32_t)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.Version
- @/textblock
+  Return
+    System.Version
+  @/textblock
 */
 + (System_Version *)new_withVersion:(NSString *)p1;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Build
-	// Managed property type : System.Int32
-    @property (nonatomic, readonly) int32_t build;
+/**
+  Managed property.
+  @textblock
+  Name
+    Build
 
-	// Managed property name : Major
-	// Managed property type : System.Int32
-    @property (nonatomic, readonly) int32_t major;
+  Type
+    System.Int32
+  @/textblock
+*/
+@property (nonatomic, readonly) int32_t build;
 
-	// Managed property name : MajorRevision
-	// Managed property type : System.Int16
-    @property (nonatomic, readonly) int16_t majorRevision;
+/**
+  Managed property.
+  @textblock
+  Name
+    Major
 
-	// Managed property name : Minor
-	// Managed property type : System.Int32
-    @property (nonatomic, readonly) int32_t minor;
+  Type
+    System.Int32
+  @/textblock
+*/
+@property (nonatomic, readonly) int32_t major;
 
-	// Managed property name : MinorRevision
-	// Managed property type : System.Int16
-    @property (nonatomic, readonly) int16_t minorRevision;
+/**
+  Managed property.
+  @textblock
+  Name
+    MajorRevision
 
-	// Managed property name : Revision
-	// Managed property type : System.Int32
-    @property (nonatomic, readonly) int32_t revision;
+  Type
+    System.Int16
+  @/textblock
+*/
+@property (nonatomic, readonly) int16_t majorRevision;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    Minor
+
+  Type
+    System.Int32
+  @/textblock
+*/
+@property (nonatomic, readonly) int32_t minor;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    MinorRevision
+
+  Type
+    System.Int16
+  @/textblock
+*/
+@property (nonatomic, readonly) int16_t minorRevision;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    Revision
+
+  Type
+    System.Int32
+  @/textblock
+*/
+@property (nonatomic, readonly) int32_t revision;
 
 #pragma mark -
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   Clone
+  Managed method.
+  @textblock
+  Name
+    Clone
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Object
- @/textblock
+  Return
+    System.Object
+  @/textblock
 */
 - (System_Object *)clone;
 
 /**
- Managed method.
- @textblock
- Name
-   CompareTo
+  Managed method.
+  @textblock
+  Name
+    CompareTo
 
- Params
-   System.Object
+  Params
+    System.Object
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)compareTo_withVersion:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   CompareTo
+  Managed method.
+  @textblock
+  Name
+    CompareTo
 
- Params
-   System.Version
+  Params
+    System.Version
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)compareTo_withValue:(System_Version *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   System.Object
+  Params
+    System.Object
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withObjObject:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   System.Version
+  Params
+    System.Version
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withObjSVersion:(System_Version *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetHashCode
+  Managed method.
+  @textblock
+  Name
+    GetHashCode
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getHashCode;
 
 /**
- Managed method.
- @textblock
- Name
-   op_Equality
+  Managed method.
+  @textblock
+  Name
+    op_Equality
 
- Params
-   System.Version
-   System.Version
+  Params
+    System.Version
+    System.Version
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)op_Equality_withV1:(System_Version *)p1 v2:(System_Version *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   op_GreaterThan
+  Managed method.
+  @textblock
+  Name
+    op_GreaterThan
 
- Params
-   System.Version
-   System.Version
+  Params
+    System.Version
+    System.Version
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)op_GreaterThan_withV1:(System_Version *)p1 v2:(System_Version *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   op_GreaterThanOrEqual
+  Managed method.
+  @textblock
+  Name
+    op_GreaterThanOrEqual
 
- Params
-   System.Version
-   System.Version
+  Params
+    System.Version
+    System.Version
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)op_GreaterThanOrEqual_withV1:(System_Version *)p1 v2:(System_Version *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   op_Inequality
+  Managed method.
+  @textblock
+  Name
+    op_Inequality
 
- Params
-   System.Version
-   System.Version
+  Params
+    System.Version
+    System.Version
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)op_Inequality_withV1:(System_Version *)p1 v2:(System_Version *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   op_LessThan
+  Managed method.
+  @textblock
+  Name
+    op_LessThan
 
- Params
-   System.Version
-   System.Version
+  Params
+    System.Version
+    System.Version
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)op_LessThan_withV1:(System_Version *)p1 v2:(System_Version *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   op_LessThanOrEqual
+  Managed method.
+  @textblock
+  Name
+    op_LessThanOrEqual
 
- Params
-   System.Version
-   System.Version
+  Params
+    System.Version
+    System.Version
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)op_LessThanOrEqual_withV1:(System_Version *)p1 v2:(System_Version *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   Parse
+  Managed method.
+  @textblock
+  Name
+    Parse
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.Version
- @/textblock
+  Return
+    System.Version
+  @/textblock
 */
 + (System_Version *)parse_withInput:(NSString *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   ToString
+  Managed method.
+  @textblock
+  Name
+    ToString
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 - (NSString *)toString;
 
 /**
- Managed method.
- @textblock
- Name
-   ToString
+  Managed method.
+  @textblock
+  Name
+    ToString
 
- Params
-   System.Int32
+  Params
+    System.Int32
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 - (NSString *)toString_withFieldCount:(int32_t)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   TryParse
+  Managed method.
+  @textblock
+  Name
+    TryParse
 
- Params
-   System.String
-   ref System.Version&
+  Params
+    System.String
+    ref System.Version&
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)tryParse_withInput:(NSString *)p1 resultRef:(System_Version **)p2;
 @end

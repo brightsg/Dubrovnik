@@ -82,17 +82,17 @@
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   GetEnumerator
+  Managed method.
+  @textblock
+  Name
+    GetEnumerator
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Collections.Generic.IEnumerator`1<System.Collections.Generic.IEnumerable`1+T>
- @/textblock
+  Return
+    System.Collections.Generic.IEnumerator`1<System.Collections.Generic.IEnumerable`1+T>
+  @/textblock
 */
 - (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator;
 #endif
@@ -113,17 +113,17 @@
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   GetEnumerator
+  Managed method.
+  @textblock
+  Name
+    GetEnumerator
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Collections.Generic.IEnumerator`1<System.Collections.Generic.IEnumerable`1+T>
- @/textblock
+  Return
+    System.Collections.Generic.IEnumerator`1<System.Collections.Generic.IEnumerable`1+T>
+  @/textblock
 */
 - (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator;
 

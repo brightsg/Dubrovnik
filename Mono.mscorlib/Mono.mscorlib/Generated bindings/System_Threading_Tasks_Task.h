@@ -61,33 +61,33 @@
 #pragma mark Constructors
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Action
+  Params
+    System.Action
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 + (System_Threading_Tasks_Task *)new_withAction:(System_Action *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Action
-   System.Threading.CancellationToken
+  Params
+    System.Action
+    System.Threading.CancellationToken
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 + (System_Threading_Tasks_Task *)new_withAction:(System_Action *)p1 cancellationToken:(System_Threading_CancellationToken *)p2;
 
@@ -96,35 +96,35 @@
 /* Skipped constructor : System.Threading.Tasks.Task (System.Action action, System.Threading.CancellationToken cancellationToken, System.Threading.Tasks.TaskCreationOptions creationOptions) */
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Action`1<System.Object>
-   System.Object
+  Params
+    System.Action`1<System.Object>
+    System.Object
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 + (System_Threading_Tasks_Task *)new_withAction:(System_ActionA1 *)p1 state:(System_Object *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Action`1<System.Object>
-   System.Object
-   System.Threading.CancellationToken
+  Params
+    System.Action`1<System.Object>
+    System.Object
+    System.Threading.CancellationToken
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 + (System_Threading_Tasks_Task *)new_withAction:(System_ActionA1 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
 
@@ -135,39 +135,95 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : AsyncState
-	// Managed property type : System.Object
-    @property (nonatomic, strong, readonly) System_Object * asyncState;
+/**
+  Managed property.
+  @textblock
+  Name
+    AsyncState
 
-	// Managed property name : CompletedTask
-	// Managed property type : System.Threading.Tasks.Task
-    + (System_Threading_Tasks_Task *)completedTask;
+  Type
+    System.Object
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Object * asyncState;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    CompletedTask
+
+  Type
+    System.Threading.Tasks.Task
+  @/textblock
+*/
++ (System_Threading_Tasks_Task *)completedTask;
 
 /* Skipped property : System.Threading.Tasks.TaskCreationOptions CreationOptions */
 
-	// Managed property name : CurrentId
-	// Managed property type : System.Nullable`1<System.Int32>
-    + (System_NullableA1 *)currentId;
+/**
+  Managed property.
+  @textblock
+  Name
+    CurrentId
+
+  Type
+    System.Nullable`1<System.Int32>
+  @/textblock
+*/
++ (System_NullableA1 *)currentId;
 
 /* Skipped property : System.AggregateException Exception */
 
 /* Skipped property : System.Threading.Tasks.TaskFactory Factory */
 
-	// Managed property name : Id
-	// Managed property type : System.Int32
-    @property (nonatomic, readonly) int32_t id;
+/**
+  Managed property.
+  @textblock
+  Name
+    Id
 
-	// Managed property name : IsCanceled
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isCanceled;
+  Type
+    System.Int32
+  @/textblock
+*/
+@property (nonatomic, readonly) int32_t id;
 
-	// Managed property name : IsCompleted
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isCompleted;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsCanceled
 
-	// Managed property name : IsFaulted
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isFaulted;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isCanceled;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    IsCompleted
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isCompleted;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    IsFaulted
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isFaulted;
 
 /* Skipped property : System.Threading.Tasks.TaskStatus Status */
 
@@ -177,33 +233,33 @@
 /* Skipped method : System.Runtime.CompilerServices.ConfiguredTaskAwaitable ConfigureAwait(System.Boolean continueOnCapturedContext) */
 
 /**
- Managed method.
- @textblock
- Name
-   ContinueWith
+  Managed method.
+  @textblock
+  Name
+    ContinueWith
 
- Params
-   System.Action`1<System.Threading.Tasks.Task>
+  Params
+    System.Action`1<System.Threading.Tasks.Task>
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA1 *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   ContinueWith
+  Managed method.
+  @textblock
+  Name
+    ContinueWith
 
- Params
-   System.Action`1<System.Threading.Tasks.Task>
-   System.Threading.CancellationToken
+  Params
+    System.Action`1<System.Threading.Tasks.Task>
+    System.Threading.CancellationToken
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA1 *)p1 cancellationToken:(System_Threading_CancellationToken *)p2;
 
@@ -214,35 +270,35 @@
 /* Skipped method : System.Threading.Tasks.Task ContinueWith(System.Action`1<System.Threading.Tasks.Task> continuationAction, System.Threading.CancellationToken cancellationToken, System.Threading.Tasks.TaskContinuationOptions continuationOptions, System.Threading.Tasks.TaskScheduler scheduler) */
 
 /**
- Managed method.
- @textblock
- Name
-   ContinueWith
+  Managed method.
+  @textblock
+  Name
+    ContinueWith
 
- Params
-   System.Action`2<System.Threading.Tasks.Task, System.Object>
-   System.Object
+  Params
+    System.Action`2<System.Threading.Tasks.Task, System.Object>
+    System.Object
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA2 *)p1 state:(System_Object *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   ContinueWith
+  Managed method.
+  @textblock
+  Name
+    ContinueWith
 
- Params
-   System.Action`2<System.Threading.Tasks.Task, System.Object>
-   System.Object
-   System.Threading.CancellationToken
+  Params
+    System.Action`2<System.Threading.Tasks.Task, System.Object>
+    System.Object
+    System.Threading.CancellationToken
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 - (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA2 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
 
@@ -253,39 +309,39 @@
 /* Skipped method : System.Threading.Tasks.Task ContinueWith(System.Action`2<System.Threading.Tasks.Task, System.Object> continuationAction, System.Object state, System.Threading.CancellationToken cancellationToken, System.Threading.Tasks.TaskContinuationOptions continuationOptions, System.Threading.Tasks.TaskScheduler scheduler) */
 
 /**
- Managed method.
- @textblock
- Name
-   ContinueWith
+  Managed method.
+  @textblock
+  Name
+    ContinueWith
 
- Params
-   System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.Task+TResult>
+  Params
+    System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.Task+TResult>
 
- Generics
-   <System.Threading.Tasks.Task+TResult>
+  Generics
+    <System.Threading.Tasks.Task+TResult>
 
- Return
-   System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
- @/textblock
+  Return
+    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+  @/textblock
 */
 - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA2 *)p1 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   ContinueWith
+  Managed method.
+  @textblock
+  Name
+    ContinueWith
 
- Params
-   System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.Task+TResult>
-   System.Threading.CancellationToken
+  Params
+    System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.Task+TResult>
+    System.Threading.CancellationToken
 
- Generics
-   <System.Threading.Tasks.Task+TResult>
+  Generics
+    <System.Threading.Tasks.Task+TResult>
 
- Return
-   System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
- @/textblock
+  Return
+    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+  @/textblock
 */
 - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA2 *)p1 cancellationToken:(System_Threading_CancellationToken *)p2 typeParameter:(id)typeParameter;
 
@@ -296,41 +352,41 @@
 /* Skipped method : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult> ContinueWith(System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.Task+TResult> continuationFunction, System.Threading.CancellationToken cancellationToken, System.Threading.Tasks.TaskContinuationOptions continuationOptions, System.Threading.Tasks.TaskScheduler scheduler) */
 
 /**
- Managed method.
- @textblock
- Name
-   ContinueWith
+  Managed method.
+  @textblock
+  Name
+    ContinueWith
 
- Params
-   System.Func`3<System.Threading.Tasks.Task, System.Object, System.Threading.Tasks.Task+TResult>
-   System.Object
+  Params
+    System.Func`3<System.Threading.Tasks.Task, System.Object, System.Threading.Tasks.Task+TResult>
+    System.Object
 
- Generics
-   <System.Threading.Tasks.Task+TResult>
+  Generics
+    <System.Threading.Tasks.Task+TResult>
 
- Return
-   System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
- @/textblock
+  Return
+    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+  @/textblock
 */
 - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(System_Object *)p2 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   ContinueWith
+  Managed method.
+  @textblock
+  Name
+    ContinueWith
 
- Params
-   System.Func`3<System.Threading.Tasks.Task, System.Object, System.Threading.Tasks.Task+TResult>
-   System.Object
-   System.Threading.CancellationToken
+  Params
+    System.Func`3<System.Threading.Tasks.Task, System.Object, System.Threading.Tasks.Task+TResult>
+    System.Object
+    System.Threading.CancellationToken
 
- Generics
-   <System.Threading.Tasks.Task+TResult>
+  Generics
+    <System.Threading.Tasks.Task+TResult>
 
- Return
-   System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
- @/textblock
+  Return
+    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+  @/textblock
 */
 - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3 typeParameter:(id)typeParameter;
 
@@ -341,637 +397,637 @@
 /* Skipped method : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult> ContinueWith(System.Func`3<System.Threading.Tasks.Task, System.Object, System.Threading.Tasks.Task+TResult> continuationFunction, System.Object state, System.Threading.CancellationToken cancellationToken, System.Threading.Tasks.TaskContinuationOptions continuationOptions, System.Threading.Tasks.TaskScheduler scheduler) */
 
 /**
- Managed method.
- @textblock
- Name
-   Delay
+  Managed method.
+  @textblock
+  Name
+    Delay
 
- Params
-   System.TimeSpan
+  Params
+    System.TimeSpan
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 + (System_Threading_Tasks_Task *)delay_withDelay:(System_TimeSpan *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Delay
+  Managed method.
+  @textblock
+  Name
+    Delay
 
- Params
-   System.TimeSpan
-   System.Threading.CancellationToken
+  Params
+    System.TimeSpan
+    System.Threading.CancellationToken
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 + (System_Threading_Tasks_Task *)delay_withDelay:(System_TimeSpan *)p1 cancellationToken:(System_Threading_CancellationToken *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   Delay
+  Managed method.
+  @textblock
+  Name
+    Delay
 
- Params
-   System.Int32
+  Params
+    System.Int32
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 + (System_Threading_Tasks_Task *)delay_withMillisecondsDelay:(int32_t)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Delay
+  Managed method.
+  @textblock
+  Name
+    Delay
 
- Params
-   System.Int32
-   System.Threading.CancellationToken
+  Params
+    System.Int32
+    System.Threading.CancellationToken
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 + (System_Threading_Tasks_Task *)delay_withMillisecondsDelay:(int32_t)p1 cancellationToken:(System_Threading_CancellationToken *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   Dispose
+  Managed method.
+  @textblock
+  Name
+    Dispose
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)dispose;
 
 /**
- Managed method.
- @textblock
- Name
-   FromResult
+  Managed method.
+  @textblock
+  Name
+    FromResult
 
- Params
-   <System.Threading.Tasks.Task+TResult>
+  Params
+    <System.Threading.Tasks.Task+TResult>
 
- Generics
-   <System.Threading.Tasks.Task+TResult>
+  Generics
+    <System.Threading.Tasks.Task+TResult>
 
- Return
-   System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
- @/textblock
+  Return
+    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+  @/textblock
 */
 + (System_Threading_Tasks_TaskA1 *)fromResult_withResult:(System_Object *)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Runtime.CompilerServices.TaskAwaiter GetAwaiter() */
 
 /**
- Managed method.
- @textblock
- Name
-   Run
+  Managed method.
+  @textblock
+  Name
+    Run
 
- Params
-   System.Action
+  Params
+    System.Action
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 + (System_Threading_Tasks_Task *)run_withAction:(System_Action *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Run
+  Managed method.
+  @textblock
+  Name
+    Run
 
- Params
-   System.Action
-   System.Threading.CancellationToken
+  Params
+    System.Action
+    System.Threading.CancellationToken
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 + (System_Threading_Tasks_Task *)run_withAction:(System_Action *)p1 cancellationToken:(System_Threading_CancellationToken *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   Run
+  Managed method.
+  @textblock
+  Name
+    Run
 
- Params
-   System.Func`1<System.Threading.Tasks.Task+TResult>
+  Params
+    System.Func`1<System.Threading.Tasks.Task+TResult>
 
- Generics
-   <System.Threading.Tasks.Task+TResult>
+  Generics
+    <System.Threading.Tasks.Task+TResult>
 
- Return
-   System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
- @/textblock
+  Return
+    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+  @/textblock
 */
 + (System_Threading_Tasks_TaskA1 *)run_withFunctionSFTTTask__TResult:(System_FuncA1 *)p1 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   Run
+  Managed method.
+  @textblock
+  Name
+    Run
 
- Params
-   System.Func`1<System.Threading.Tasks.Task+TResult>
-   System.Threading.CancellationToken
+  Params
+    System.Func`1<System.Threading.Tasks.Task+TResult>
+    System.Threading.CancellationToken
 
- Generics
-   <System.Threading.Tasks.Task+TResult>
+  Generics
+    <System.Threading.Tasks.Task+TResult>
 
- Return
-   System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
- @/textblock
+  Return
+    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+  @/textblock
 */
 + (System_Threading_Tasks_TaskA1 *)run_withFunctionSFTTTask__TResult:(System_FuncA1 *)p1 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p2 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   Run
+  Managed method.
+  @textblock
+  Name
+    Run
 
- Params
-   System.Func`1<System.Threading.Tasks.Task>
+  Params
+    System.Func`1<System.Threading.Tasks.Task>
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 + (System_Threading_Tasks_Task *)run_withFunctionSFTTTask:(System_FuncA1 *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Run
+  Managed method.
+  @textblock
+  Name
+    Run
 
- Params
-   System.Func`1<System.Threading.Tasks.Task>
-   System.Threading.CancellationToken
+  Params
+    System.Func`1<System.Threading.Tasks.Task>
+    System.Threading.CancellationToken
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 + (System_Threading_Tasks_Task *)run_withFunctionSFTTTask:(System_FuncA1 *)p1 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   Run
+  Managed method.
+  @textblock
+  Name
+    Run
 
- Params
-   System.Func`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>>
+  Params
+    System.Func`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>>
 
- Generics
-   <System.Threading.Tasks.Task+TResult>
+  Generics
+    <System.Threading.Tasks.Task+TResult>
 
- Return
-   System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
- @/textblock
+  Return
+    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+  @/textblock
 */
 + (System_Threading_Tasks_TaskA1 *)run_withFunctionSFTTTTTTask__TResult:(System_FuncA1 *)p1 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   Run
+  Managed method.
+  @textblock
+  Name
+    Run
 
- Params
-   System.Func`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>>
-   System.Threading.CancellationToken
+  Params
+    System.Func`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>>
+    System.Threading.CancellationToken
 
- Generics
-   <System.Threading.Tasks.Task+TResult>
+  Generics
+    <System.Threading.Tasks.Task+TResult>
 
- Return
-   System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
- @/textblock
+  Return
+    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
+  @/textblock
 */
 + (System_Threading_Tasks_TaskA1 *)run_withFunctionSFTTTTTTask__TResult:(System_FuncA1 *)p1 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p2 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   RunSynchronously
+  Managed method.
+  @textblock
+  Name
+    RunSynchronously
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)runSynchronously;
 
 /* Skipped method : System.Void RunSynchronously(System.Threading.Tasks.TaskScheduler scheduler) */
 
 /**
- Managed method.
- @textblock
- Name
-   Start
+  Managed method.
+  @textblock
+  Name
+    Start
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)start;
 
 /* Skipped method : System.Void Start(System.Threading.Tasks.TaskScheduler scheduler) */
 
 /**
- Managed method.
- @textblock
- Name
-   Wait
+  Managed method.
+  @textblock
+  Name
+    Wait
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)wait;
 
 /**
- Managed method.
- @textblock
- Name
-   Wait
+  Managed method.
+  @textblock
+  Name
+    Wait
 
- Params
-   System.TimeSpan
+  Params
+    System.TimeSpan
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)wait_withTimeout:(System_TimeSpan *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Wait
+  Managed method.
+  @textblock
+  Name
+    Wait
 
- Params
-   System.Threading.CancellationToken
+  Params
+    System.Threading.CancellationToken
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)wait_withCancellationToken:(System_Threading_CancellationToken *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Wait
+  Managed method.
+  @textblock
+  Name
+    Wait
 
- Params
-   System.Int32
+  Params
+    System.Int32
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)wait_withMillisecondsTimeout:(int32_t)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Wait
+  Managed method.
+  @textblock
+  Name
+    Wait
 
- Params
-   System.Int32
-   System.Threading.CancellationToken
+  Params
+    System.Int32
+    System.Threading.CancellationToken
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)wait_withMillisecondsTimeout:(int32_t)p1 cancellationToken:(System_Threading_CancellationToken *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   WaitAll
+  Managed method.
+  @textblock
+  Name
+    WaitAll
 
- Params
-   System.Threading.Tasks.Task[]
+  Params
+    System.Threading.Tasks.Task[]
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)waitAll_withTasks:(System_Array *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   WaitAll
+  Managed method.
+  @textblock
+  Name
+    WaitAll
 
- Params
-   System.Threading.Tasks.Task[]
-   System.TimeSpan
+  Params
+    System.Threading.Tasks.Task[]
+    System.TimeSpan
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)waitAll_withTasks:(System_Array *)p1 timeout:(System_TimeSpan *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   WaitAll
+  Managed method.
+  @textblock
+  Name
+    WaitAll
 
- Params
-   System.Threading.Tasks.Task[]
-   System.Int32
+  Params
+    System.Threading.Tasks.Task[]
+    System.Int32
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)waitAll_withTasks:(System_Array *)p1 millisecondsTimeout:(int32_t)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   WaitAll
+  Managed method.
+  @textblock
+  Name
+    WaitAll
 
- Params
-   System.Threading.Tasks.Task[]
-   System.Threading.CancellationToken
+  Params
+    System.Threading.Tasks.Task[]
+    System.Threading.CancellationToken
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)waitAll_withTasks:(System_Array *)p1 cancellationToken:(System_Threading_CancellationToken *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   WaitAll
+  Managed method.
+  @textblock
+  Name
+    WaitAll
 
- Params
-   System.Threading.Tasks.Task[]
-   System.Int32
-   System.Threading.CancellationToken
+  Params
+    System.Threading.Tasks.Task[]
+    System.Int32
+    System.Threading.CancellationToken
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)waitAll_withTasks:(System_Array *)p1 millisecondsTimeout:(int32_t)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   WaitAny
+  Managed method.
+  @textblock
+  Name
+    WaitAny
 
- Params
-   System.Threading.Tasks.Task[]
+  Params
+    System.Threading.Tasks.Task[]
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)waitAny_withTasks:(System_Array *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   WaitAny
+  Managed method.
+  @textblock
+  Name
+    WaitAny
 
- Params
-   System.Threading.Tasks.Task[]
-   System.TimeSpan
+  Params
+    System.Threading.Tasks.Task[]
+    System.TimeSpan
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)waitAny_withTasks:(System_Array *)p1 timeout:(System_TimeSpan *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   WaitAny
+  Managed method.
+  @textblock
+  Name
+    WaitAny
 
- Params
-   System.Threading.Tasks.Task[]
-   System.Threading.CancellationToken
+  Params
+    System.Threading.Tasks.Task[]
+    System.Threading.CancellationToken
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)waitAny_withTasks:(System_Array *)p1 cancellationToken:(System_Threading_CancellationToken *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   WaitAny
+  Managed method.
+  @textblock
+  Name
+    WaitAny
 
- Params
-   System.Threading.Tasks.Task[]
-   System.Int32
+  Params
+    System.Threading.Tasks.Task[]
+    System.Int32
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)waitAny_withTasks:(System_Array *)p1 millisecondsTimeout:(int32_t)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   WaitAny
+  Managed method.
+  @textblock
+  Name
+    WaitAny
 
- Params
-   System.Threading.Tasks.Task[]
-   System.Int32
-   System.Threading.CancellationToken
+  Params
+    System.Threading.Tasks.Task[]
+    System.Int32
+    System.Threading.CancellationToken
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)waitAny_withTasks:(System_Array *)p1 millisecondsTimeout:(int32_t)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   WhenAll
+  Managed method.
+  @textblock
+  Name
+    WhenAll
 
- Params
-   System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Task>
+  Params
+    System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Task>
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 + (System_Threading_Tasks_Task *)whenAll_withTasksSCGITTTask:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   WhenAll
+  Managed method.
+  @textblock
+  Name
+    WhenAll
 
- Params
-   System.Threading.Tasks.Task[]
+  Params
+    System.Threading.Tasks.Task[]
 
- Return
-   System.Threading.Tasks.Task
- @/textblock
+  Return
+    System.Threading.Tasks.Task
+  @/textblock
 */
 + (System_Threading_Tasks_Task *)whenAll_withTasksSTTTaskArray:(System_Array *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   WhenAll
+  Managed method.
+  @textblock
+  Name
+    WhenAll
 
- Params
-   System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>>
+  Params
+    System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>>
 
- Generics
-   <System.Threading.Tasks.Task+TResult>
+  Generics
+    <System.Threading.Tasks.Task+TResult>
 
- Return
-   System.Threading.Tasks.Task`1<TResult[]>
- @/textblock
+  Return
+    System.Threading.Tasks.Task`1<TResult[]>
+  @/textblock
 */
 + (System_Threading_Tasks_TaskA1 *)whenAll_withTasksSCGITTTTTTask__TResult:(id <System_Collections_Generic_IEnumerableA1_>)p1 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   WhenAll
+  Managed method.
+  @textblock
+  Name
+    WhenAll
 
- Params
-   Task`1[]
+  Params
+    Task`1[]
 
- Generics
-   <System.Threading.Tasks.Task+TResult>
+  Generics
+    <System.Threading.Tasks.Task+TResult>
 
- Return
-   System.Threading.Tasks.Task`1<TResult[]>
- @/textblock
+  Return
+    System.Threading.Tasks.Task`1<TResult[]>
+  @/textblock
 */
 + (System_Threading_Tasks_TaskA1 *)whenAll_withTasksTaskA1Array:(System_Array *)p1 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   WhenAny
+  Managed method.
+  @textblock
+  Name
+    WhenAny
 
- Params
-   System.Threading.Tasks.Task[]
+  Params
+    System.Threading.Tasks.Task[]
 
- Return
-   System.Threading.Tasks.Task`1<System.Threading.Tasks.Task>
- @/textblock
+  Return
+    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task>
+  @/textblock
 */
 + (System_Threading_Tasks_TaskA1 *)whenAny_withTasksSTTTaskArray:(System_Array *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   WhenAny
+  Managed method.
+  @textblock
+  Name
+    WhenAny
 
- Params
-   System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Task>
+  Params
+    System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Task>
 
- Return
-   System.Threading.Tasks.Task`1<System.Threading.Tasks.Task>
- @/textblock
+  Return
+    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task>
+  @/textblock
 */
 + (System_Threading_Tasks_TaskA1 *)whenAny_withTasksSCGITTTask:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   WhenAny
+  Managed method.
+  @textblock
+  Name
+    WhenAny
 
- Params
-   Task`1[]
+  Params
+    Task`1[]
 
- Generics
-   <System.Threading.Tasks.Task+TResult>
+  Generics
+    <System.Threading.Tasks.Task+TResult>
 
- Return
-   System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>>
- @/textblock
+  Return
+    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>>
+  @/textblock
 */
 + (System_Threading_Tasks_TaskA1 *)whenAny_withTasksTaskA1Array:(System_Array *)p1 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   WhenAny
+  Managed method.
+  @textblock
+  Name
+    WhenAny
 
- Params
-   System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>>
+  Params
+    System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>>
 
- Generics
-   <System.Threading.Tasks.Task+TResult>
+  Generics
+    <System.Threading.Tasks.Task+TResult>
 
- Return
-   System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>>
- @/textblock
+  Return
+    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>>
+  @/textblock
 */
 + (System_Threading_Tasks_TaskA1 *)whenAny_withTasksSCGITTTTTTask__TResult:(id <System_Collections_Generic_IEnumerableA1_>)p1 typeParameter:(id)typeParameter;
 

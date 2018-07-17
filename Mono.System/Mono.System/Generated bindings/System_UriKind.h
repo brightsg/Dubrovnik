@@ -43,16 +43,40 @@ typedef NS_ENUM(int32_t, enumSystem_UriKind) {
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : Absolute
-	// Managed field type : System.UriKind
-    + (int32_t)absolute;
+/**
+  Managed field.
+  @textblock
+  Name
+    Absolute
 
-	// Managed field name : Relative
-	// Managed field type : System.UriKind
-    + (int32_t)relative;
+  Type
+    System.UriKind
+  @/textblock
+*/
++ (int32_t)absolute;
 
-	// Managed field name : RelativeOrAbsolute
-	// Managed field type : System.UriKind
-    + (int32_t)relativeOrAbsolute;
+/**
+  Managed field.
+  @textblock
+  Name
+    Relative
+
+  Type
+    System.UriKind
+  @/textblock
+*/
++ (int32_t)relative;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    RelativeOrAbsolute
+
+  Type
+    System.UriKind
+  @/textblock
+*/
++ (int32_t)relativeOrAbsolute;
 @end
 //--Dubrovnik.CodeGenerator

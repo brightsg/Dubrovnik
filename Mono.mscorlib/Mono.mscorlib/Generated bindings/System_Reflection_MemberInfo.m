@@ -35,96 +35,88 @@
 
 /* Skipped property : System.Collections.Generic.IEnumerable`1<System.Reflection.CustomAttributeData> CustomAttributes */
 
-	// Managed property name : DeclaringType
-	// Managed property type : System.Type
-    @synthesize declaringType = _declaringType;
-    - (System_Type *)declaringType
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DeclaringType");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_declaringType isEqualToMonoObject:monoObject]) return _declaringType;					
-		_declaringType = [System_Type bestObjectWithMonoObject:monoObject];
-
-		return _declaringType;
+@synthesize declaringType = _declaringType;
+- (System_Type *)declaringType
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "DeclaringType");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_declaringType isEqualToMonoObject:monoObject]) return _declaringType;
+	_declaringType = [System_Type bestObjectWithMonoObject:monoObject];
+
+	return _declaringType;
+}
 
 /* Skipped property : System.Reflection.MemberTypes MemberType */
 
-	// Managed property name : MetadataToken
-	// Managed property type : System.Int32
-    @synthesize metadataToken = _metadataToken;
-    - (int32_t)metadataToken
-    {
-		typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MetadataToken");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int32_t monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_metadataToken = monoObject;
-
-		return _metadataToken;
+@synthesize metadataToken = _metadataToken;
+- (int32_t)metadataToken
+{
+	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "MetadataToken");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	int32_t monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_metadataToken = monoObject;
+
+	return _metadataToken;
+}
 
 /* Skipped property : System.Reflection.Module Module */
 
-	// Managed property name : Name
-	// Managed property type : System.String
-    @synthesize name = _name;
-    - (NSString *)name
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Name");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_name isEqualToMonoObject:monoObject]) return _name;					
-		_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
-
-		return _name;
+@synthesize name = _name;
+- (NSString *)name
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Name");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_name isEqualToMonoObject:monoObject]) return _name;
+	_name = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
-	// Managed property name : ReflectedType
-	// Managed property type : System.Type
-    @synthesize reflectedType = _reflectedType;
-    - (System_Type *)reflectedType
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "ReflectedType");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_reflectedType isEqualToMonoObject:monoObject]) return _reflectedType;					
-		_reflectedType = [System_Type bestObjectWithMonoObject:monoObject];
+	return _name;
+}
 
-		return _reflectedType;
+@synthesize reflectedType = _reflectedType;
+- (System_Type *)reflectedType
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "ReflectedType");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_reflectedType isEqualToMonoObject:monoObject]) return _reflectedType;
+	_reflectedType = [System_Type bestObjectWithMonoObject:monoObject];
+
+	return _reflectedType;
+}
 
 #pragma mark -
 #pragma mark Methods

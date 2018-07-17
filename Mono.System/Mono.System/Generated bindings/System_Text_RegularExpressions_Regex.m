@@ -46,101 +46,93 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : InfiniteMatchTimeout
-	// Managed field type : System.TimeSpan
-    static System_TimeSpan * m_infiniteMatchTimeout;
-    + (System_TimeSpan *)infiniteMatchTimeout
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"InfiniteMatchTimeout"];
-		if ([self object:m_infiniteMatchTimeout isEqualToMonoObject:monoObject]) return m_infiniteMatchTimeout;					
-		m_infiniteMatchTimeout = [System_TimeSpan bestObjectWithMonoObject:monoObject];
+static System_TimeSpan * m_infiniteMatchTimeout;
++ (System_TimeSpan *)infiniteMatchTimeout
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"InfiniteMatchTimeout"];
+	if ([self object:m_infiniteMatchTimeout isEqualToMonoObject:monoObject]) return m_infiniteMatchTimeout;
+	m_infiniteMatchTimeout = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
-		return m_infiniteMatchTimeout;
-	}
+	return m_infiniteMatchTimeout;
+}
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : CacheSize
-	// Managed property type : System.Int32
-    static int32_t m_cacheSize;
-    + (int32_t)cacheSize
-    {
-		typedef int32_t (*Thunk)(MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CacheSize");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		int32_t monoObject = thunk(&monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		m_cacheSize = monoObject;
-
-		return m_cacheSize;
+static int32_t m_cacheSize;
++ (int32_t)cacheSize
+{
+	typedef int32_t (*Thunk)(MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "CacheSize");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-    + (void)setCacheSize:(int32_t)value
-	{
-		m_cacheSize = value;
-		typedef void (*Thunk)(int32_t, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CacheSize");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject *monoException = NULL;
-		thunk(value, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-	}
+	int32_t monoObject = thunk(&monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	m_cacheSize = monoObject;
 
-	// Managed property name : MatchTimeout
-	// Managed property type : System.TimeSpan
-    @synthesize matchTimeout = _matchTimeout;
-    - (System_TimeSpan *)matchTimeout
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "MatchTimeout");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_matchTimeout isEqualToMonoObject:monoObject]) return _matchTimeout;					
-		_matchTimeout = [System_TimeSpan bestObjectWithMonoObject:monoObject];
-
-		return _matchTimeout;
+	return m_cacheSize;
+}
++ (void)setCacheSize:(int32_t)value
+{
+	m_cacheSize = value;
+	typedef void (*Thunk)(int32_t, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "CacheSize");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	thunk(value, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
+
+@synthesize matchTimeout = _matchTimeout;
+- (System_TimeSpan *)matchTimeout
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "MatchTimeout");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_matchTimeout isEqualToMonoObject:monoObject]) return _matchTimeout;
+	_matchTimeout = [System_TimeSpan bestObjectWithMonoObject:monoObject];
+
+	return _matchTimeout;
+}
 
 /* Skipped property : System.Text.RegularExpressions.RegexOptions Options */
 
-	// Managed property name : RightToLeft
-	// Managed property type : System.Boolean
-    @synthesize rightToLeft = _rightToLeft;
-    - (BOOL)rightToLeft
-    {
-		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "RightToLeft");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		BOOL monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_rightToLeft = monoObject;
-
-		return _rightToLeft;
+@synthesize rightToLeft = _rightToLeft;
+- (BOOL)rightToLeft
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "RightToLeft");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_rightToLeft = monoObject;
+
+	return _rightToLeft;
+}
 
 #pragma mark -
 #pragma mark Methods

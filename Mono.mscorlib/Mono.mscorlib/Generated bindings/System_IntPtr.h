@@ -43,32 +43,32 @@
 #pragma mark Constructors
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Int32
+  Params
+    System.Int32
 
- Return
-   System.IntPtr
- @/textblock
+  Return
+    System.IntPtr
+  @/textblock
 */
 + (System_IntPtr *)new_withValueInt:(int32_t)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Int64
+  Params
+    System.Int64
 
- Return
-   System.IntPtr
- @/textblock
+  Return
+    System.IntPtr
+  @/textblock
 */
 + (System_IntPtr *)new_withValueLong:(int64_t)p1;
 
@@ -77,125 +77,141 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : Zero
-	// Managed field type : System.IntPtr
-    + (void *)zero;
+/**
+  Managed field.
+  @textblock
+  Name
+    Zero
+
+  Type
+    System.IntPtr
+  @/textblock
+*/
++ (void *)zero;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Size
-	// Managed property type : System.Int32
-    + (int32_t)size;
+/**
+  Managed property.
+  @textblock
+  Name
+    Size
+
+  Type
+    System.Int32
+  @/textblock
+*/
++ (int32_t)size;
 
 #pragma mark -
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   Add
+  Managed method.
+  @textblock
+  Name
+    Add
 
- Params
-   System.IntPtr
-   System.Int32
+  Params
+    System.IntPtr
+    System.Int32
 
- Return
-   System.IntPtr
- @/textblock
+  Return
+    System.IntPtr
+  @/textblock
 */
 + (void *)add_withPointer:(void *)p1 offset:(int32_t)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   System.Object
+  Params
+    System.Object
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withObj:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetHashCode
+  Managed method.
+  @textblock
+  Name
+    GetHashCode
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getHashCode;
 
 /**
- Managed method.
- @textblock
- Name
-   op_Addition
+  Managed method.
+  @textblock
+  Name
+    op_Addition
 
- Params
-   System.IntPtr
-   System.Int32
+  Params
+    System.IntPtr
+    System.Int32
 
- Return
-   System.IntPtr
- @/textblock
+  Return
+    System.IntPtr
+  @/textblock
 */
 + (void *)op_Addition_withPointer:(void *)p1 offset:(int32_t)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   op_Equality
+  Managed method.
+  @textblock
+  Name
+    op_Equality
 
- Params
-   System.IntPtr
-   System.IntPtr
+  Params
+    System.IntPtr
+    System.IntPtr
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)op_Equality_withValue1:(void *)p1 value2:(void *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   op_Explicit
+  Managed method.
+  @textblock
+  Name
+    op_Explicit
 
- Params
-   System.Int32
+  Params
+    System.Int32
 
- Return
-   System.IntPtr
- @/textblock
+  Return
+    System.IntPtr
+  @/textblock
 */
 + (void *)op_Explicit_withValueInt:(int32_t)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   op_Explicit
+  Managed method.
+  @textblock
+  Name
+    op_Explicit
 
- Params
-   System.Int64
+  Params
+    System.Int64
 
- Return
-   System.IntPtr
- @/textblock
+  Return
+    System.IntPtr
+  @/textblock
 */
 + (void *)op_Explicit_withValueLong:(int64_t)p1;
 
@@ -204,112 +220,112 @@
 /* Skipped method : System.Void* op_Explicit(System.IntPtr value) */
 
 /**
- Managed method.
- @textblock
- Name
-   op_Inequality
+  Managed method.
+  @textblock
+  Name
+    op_Inequality
 
- Params
-   System.IntPtr
-   System.IntPtr
+  Params
+    System.IntPtr
+    System.IntPtr
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)op_Inequality_withValue1:(void *)p1 value2:(void *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   op_Subtraction
+  Managed method.
+  @textblock
+  Name
+    op_Subtraction
 
- Params
-   System.IntPtr
-   System.Int32
+  Params
+    System.IntPtr
+    System.Int32
 
- Return
-   System.IntPtr
- @/textblock
+  Return
+    System.IntPtr
+  @/textblock
 */
 + (void *)op_Subtraction_withPointer:(void *)p1 offset:(int32_t)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   Subtract
+  Managed method.
+  @textblock
+  Name
+    Subtract
 
- Params
-   System.IntPtr
-   System.Int32
+  Params
+    System.IntPtr
+    System.Int32
 
- Return
-   System.IntPtr
- @/textblock
+  Return
+    System.IntPtr
+  @/textblock
 */
 + (void *)subtract_withPointer:(void *)p1 offset:(int32_t)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   ToInt32
+  Managed method.
+  @textblock
+  Name
+    ToInt32
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)toInt32;
 
 /**
- Managed method.
- @textblock
- Name
-   ToInt64
+  Managed method.
+  @textblock
+  Name
+    ToInt64
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Int64
- @/textblock
+  Return
+    System.Int64
+  @/textblock
 */
 - (int64_t)toInt64;
 
 /* Skipped method : System.Void* ToPointer() */
 
 /**
- Managed method.
- @textblock
- Name
-   ToString
+  Managed method.
+  @textblock
+  Name
+    ToString
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 - (NSString *)toString;
 
 /**
- Managed method.
- @textblock
- Name
-   ToString
+  Managed method.
+  @textblock
+  Name
+    ToString
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 - (NSString *)toString_withFormat:(NSString *)p1;
 @end

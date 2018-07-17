@@ -33,71 +33,59 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : Epsilon
-	// Managed field type : System.Single
-    static float m_epsilon;
-    + (float)epsilon
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"Epsilon"];
-		m_epsilon = DB_UNBOX_FLOAT(monoObject);
+static float m_epsilon;
++ (float)epsilon
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"Epsilon"];
+	m_epsilon = DB_UNBOX_FLOAT(monoObject);
 
-		return m_epsilon;
-	}
+	return m_epsilon;
+}
 
-	// Managed field name : MaxValue
-	// Managed field type : System.Single
-    static float m_maxValue;
-    + (float)maxValue
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"MaxValue"];
-		m_maxValue = DB_UNBOX_FLOAT(monoObject);
+static float m_maxValue;
++ (float)maxValue
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"MaxValue"];
+	m_maxValue = DB_UNBOX_FLOAT(monoObject);
 
-		return m_maxValue;
-	}
+	return m_maxValue;
+}
 
-	// Managed field name : MinValue
-	// Managed field type : System.Single
-    static float m_minValue;
-    + (float)minValue
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"MinValue"];
-		m_minValue = DB_UNBOX_FLOAT(monoObject);
+static float m_minValue;
++ (float)minValue
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"MinValue"];
+	m_minValue = DB_UNBOX_FLOAT(monoObject);
 
-		return m_minValue;
-	}
+	return m_minValue;
+}
 
-	// Managed field name : NaN
-	// Managed field type : System.Single
-    static float m_naN;
-    + (float)naN
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"NaN"];
-		m_naN = DB_UNBOX_FLOAT(monoObject);
+static float m_naN;
++ (float)naN
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"NaN"];
+	m_naN = DB_UNBOX_FLOAT(monoObject);
 
-		return m_naN;
-	}
+	return m_naN;
+}
 
-	// Managed field name : NegativeInfinity
-	// Managed field type : System.Single
-    static float m_negativeInfinity;
-    + (float)negativeInfinity
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"NegativeInfinity"];
-		m_negativeInfinity = DB_UNBOX_FLOAT(monoObject);
+static float m_negativeInfinity;
++ (float)negativeInfinity
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"NegativeInfinity"];
+	m_negativeInfinity = DB_UNBOX_FLOAT(monoObject);
 
-		return m_negativeInfinity;
-	}
+	return m_negativeInfinity;
+}
 
-	// Managed field name : PositiveInfinity
-	// Managed field type : System.Single
-    static float m_positiveInfinity;
-    + (float)positiveInfinity
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"PositiveInfinity"];
-		m_positiveInfinity = DB_UNBOX_FLOAT(monoObject);
+static float m_positiveInfinity;
++ (float)positiveInfinity
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"PositiveInfinity"];
+	m_positiveInfinity = DB_UNBOX_FLOAT(monoObject);
 
-		return m_positiveInfinity;
-	}
+	return m_positiveInfinity;
+}
 
 #pragma mark -
 #pragma mark Methods

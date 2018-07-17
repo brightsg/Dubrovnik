@@ -41,17 +41,41 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : ConnectionString
-	// Managed property type : System.String
-    @property (nonatomic, strong) NSString * connectionString;
+/**
+  Managed property.
+  @textblock
+  Name
+    ConnectionString
 
-	// Managed property name : ConnectionTimeout
-	// Managed property type : System.Int32
-    @property (nonatomic, readonly) int32_t connectionTimeout;
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong) NSString * connectionString;
 
-	// Managed property name : Database
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * database;
+/**
+  Managed property.
+  @textblock
+  Name
+    ConnectionTimeout
+
+  Type
+    System.Int32
+  @/textblock
+*/
+@property (nonatomic, readonly) int32_t connectionTimeout;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    Database
+
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * database;
 
 /* Skipped property : System.Data.ConnectionState State */
 
@@ -63,49 +87,49 @@
 /* Skipped method : System.Data.IDbTransaction BeginTransaction(System.Data.IsolationLevel il) */
 
 /**
- Managed method.
- @textblock
- Name
-   ChangeDatabase
+  Managed method.
+  @textblock
+  Name
+    ChangeDatabase
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)changeDatabase_withDatabaseName:(NSString *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Close
+  Managed method.
+  @textblock
+  Name
+    Close
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)close;
 
 /* Skipped method : System.Data.IDbCommand CreateCommand() */
 
 /**
- Managed method.
- @textblock
- Name
-   Open
+  Managed method.
+  @textblock
+  Name
+    Open
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)open;
 @end

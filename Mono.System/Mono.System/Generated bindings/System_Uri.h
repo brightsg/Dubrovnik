@@ -49,645 +49,909 @@
 #pragma mark Constructors
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.Uri
- @/textblock
+  Return
+    System.Uri
+  @/textblock
 */
 + (System_Uri *)new_withUriString:(NSString *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.String
-   System.Boolean
+  Params
+    System.String
+    System.Boolean
 
- Return
-   System.Uri
- @/textblock
+  Return
+    System.Uri
+  @/textblock
 */
 + (System_Uri *)new_withUriString:(NSString *)p1 dontEscape:(BOOL)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Uri
-   System.String
-   System.Boolean
+  Params
+    System.Uri
+    System.String
+    System.Boolean
 
- Return
-   System.Uri
- @/textblock
+  Return
+    System.Uri
+  @/textblock
 */
 + (System_Uri *)new_withBaseUri:(System_Uri *)p1 relativeUri:(NSString *)p2 dontEscape:(BOOL)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.String
-   System.UriKind
+  Params
+    System.String
+    System.UriKind
 
- Return
-   System.Uri
- @/textblock
+  Return
+    System.Uri
+  @/textblock
 */
 + (System_Uri *)new_withUriString:(NSString *)p1 uriKind:(int32_t)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Uri
-   System.String
+  Params
+    System.Uri
+    System.String
 
- Return
-   System.Uri
- @/textblock
+  Return
+    System.Uri
+  @/textblock
 */
 + (System_Uri *)new_withBaseUriSUri:(System_Uri *)p1 relativeUriString:(NSString *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Uri
-   System.Uri
+  Params
+    System.Uri
+    System.Uri
 
- Return
-   System.Uri
- @/textblock
+  Return
+    System.Uri
+  @/textblock
 */
 + (System_Uri *)new_withBaseUriSUri:(System_Uri *)p1 relativeUriSUri:(System_Uri *)p2;
 
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : SchemeDelimiter
-	// Managed field type : System.String
-    + (NSString *)schemeDelimiter;
+/**
+  Managed field.
+  @textblock
+  Name
+    SchemeDelimiter
 
-	// Managed field name : UriSchemeFile
-	// Managed field type : System.String
-    + (NSString *)uriSchemeFile;
+  Type
+    System.String
+  @/textblock
+*/
++ (NSString *)schemeDelimiter;
 
-	// Managed field name : UriSchemeFtp
-	// Managed field type : System.String
-    + (NSString *)uriSchemeFtp;
+/**
+  Managed field.
+  @textblock
+  Name
+    UriSchemeFile
 
-	// Managed field name : UriSchemeGopher
-	// Managed field type : System.String
-    + (NSString *)uriSchemeGopher;
+  Type
+    System.String
+  @/textblock
+*/
++ (NSString *)uriSchemeFile;
 
-	// Managed field name : UriSchemeHttp
-	// Managed field type : System.String
-    + (NSString *)uriSchemeHttp;
+/**
+  Managed field.
+  @textblock
+  Name
+    UriSchemeFtp
 
-	// Managed field name : UriSchemeHttps
-	// Managed field type : System.String
-    + (NSString *)uriSchemeHttps;
+  Type
+    System.String
+  @/textblock
+*/
++ (NSString *)uriSchemeFtp;
 
-	// Managed field name : UriSchemeMailto
-	// Managed field type : System.String
-    + (NSString *)uriSchemeMailto;
+/**
+  Managed field.
+  @textblock
+  Name
+    UriSchemeGopher
 
-	// Managed field name : UriSchemeNetPipe
-	// Managed field type : System.String
-    + (NSString *)uriSchemeNetPipe;
+  Type
+    System.String
+  @/textblock
+*/
++ (NSString *)uriSchemeGopher;
 
-	// Managed field name : UriSchemeNetTcp
-	// Managed field type : System.String
-    + (NSString *)uriSchemeNetTcp;
+/**
+  Managed field.
+  @textblock
+  Name
+    UriSchemeHttp
 
-	// Managed field name : UriSchemeNews
-	// Managed field type : System.String
-    + (NSString *)uriSchemeNews;
+  Type
+    System.String
+  @/textblock
+*/
++ (NSString *)uriSchemeHttp;
 
-	// Managed field name : UriSchemeNntp
-	// Managed field type : System.String
-    + (NSString *)uriSchemeNntp;
+/**
+  Managed field.
+  @textblock
+  Name
+    UriSchemeHttps
+
+  Type
+    System.String
+  @/textblock
+*/
++ (NSString *)uriSchemeHttps;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    UriSchemeMailto
+
+  Type
+    System.String
+  @/textblock
+*/
++ (NSString *)uriSchemeMailto;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    UriSchemeNetPipe
+
+  Type
+    System.String
+  @/textblock
+*/
++ (NSString *)uriSchemeNetPipe;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    UriSchemeNetTcp
+
+  Type
+    System.String
+  @/textblock
+*/
++ (NSString *)uriSchemeNetTcp;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    UriSchemeNews
+
+  Type
+    System.String
+  @/textblock
+*/
++ (NSString *)uriSchemeNews;
+
+/**
+  Managed field.
+  @textblock
+  Name
+    UriSchemeNntp
+
+  Type
+    System.String
+  @/textblock
+*/
++ (NSString *)uriSchemeNntp;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : AbsolutePath
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * absolutePath;
+/**
+  Managed property.
+  @textblock
+  Name
+    AbsolutePath
 
-	// Managed property name : AbsoluteUri
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * absoluteUri;
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * absolutePath;
 
-	// Managed property name : Authority
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * authority;
+/**
+  Managed property.
+  @textblock
+  Name
+    AbsoluteUri
 
-	// Managed property name : DnsSafeHost
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * dnsSafeHost;
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * absoluteUri;
 
-	// Managed property name : Fragment
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * fragment;
+/**
+  Managed property.
+  @textblock
+  Name
+    Authority
 
-	// Managed property name : Host
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * host;
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * authority;
 
-	// Managed property name : HostNameType
-	// Managed property type : System.UriHostNameType
-    @property (nonatomic, readonly) int32_t hostNameType;
+/**
+  Managed property.
+  @textblock
+  Name
+    DnsSafeHost
 
-	// Managed property name : IdnHost
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * idnHost;
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * dnsSafeHost;
 
-	// Managed property name : IsAbsoluteUri
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isAbsoluteUri;
+/**
+  Managed property.
+  @textblock
+  Name
+    Fragment
 
-	// Managed property name : IsDefaultPort
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isDefaultPort;
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * fragment;
 
-	// Managed property name : IsFile
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isFile;
+/**
+  Managed property.
+  @textblock
+  Name
+    Host
 
-	// Managed property name : IsLoopback
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isLoopback;
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * host;
 
-	// Managed property name : IsUnc
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isUnc;
+/**
+  Managed property.
+  @textblock
+  Name
+    HostNameType
 
-	// Managed property name : LocalPath
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * localPath;
+  Type
+    System.UriHostNameType
+  @/textblock
+*/
+@property (nonatomic, readonly) int32_t hostNameType;
 
-	// Managed property name : OriginalString
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * originalString;
+/**
+  Managed property.
+  @textblock
+  Name
+    IdnHost
 
-	// Managed property name : PathAndQuery
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * pathAndQuery;
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * idnHost;
 
-	// Managed property name : Port
-	// Managed property type : System.Int32
-    @property (nonatomic, readonly) int32_t port;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsAbsoluteUri
 
-	// Managed property name : Query
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * query;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isAbsoluteUri;
 
-	// Managed property name : Scheme
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * scheme;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsDefaultPort
 
-	// Managed property name : Segments
-	// Managed property type : System.String[]
-    @property (nonatomic, strong, readonly) System_Array * segments;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isDefaultPort;
 
-	// Managed property name : UserEscaped
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL userEscaped;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsFile
 
-	// Managed property name : UserInfo
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * userInfo;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isFile;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    IsLoopback
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isLoopback;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    IsUnc
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isUnc;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    LocalPath
+
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * localPath;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    OriginalString
+
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * originalString;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    PathAndQuery
+
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * pathAndQuery;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    Port
+
+  Type
+    System.Int32
+  @/textblock
+*/
+@property (nonatomic, readonly) int32_t port;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    Query
+
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * query;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    Scheme
+
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * scheme;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    Segments
+
+  Type
+    System.String[]
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Array * segments;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    UserEscaped
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL userEscaped;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    UserInfo
+
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * userInfo;
 
 #pragma mark -
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   CheckHostName
+  Managed method.
+  @textblock
+  Name
+    CheckHostName
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.UriHostNameType
- @/textblock
+  Return
+    System.UriHostNameType
+  @/textblock
 */
 + (int32_t)checkHostName_withName:(NSString *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   CheckSchemeName
+  Managed method.
+  @textblock
+  Name
+    CheckSchemeName
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)checkSchemeName_withSchemeName:(NSString *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Compare
+  Managed method.
+  @textblock
+  Name
+    Compare
 
- Params
-   System.Uri
-   System.Uri
-   System.UriComponents
-   System.UriFormat
-   System.StringComparison
+  Params
+    System.Uri
+    System.Uri
+    System.UriComponents
+    System.UriFormat
+    System.StringComparison
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)compare_withUri1:(System_Uri *)p1 uri2:(System_Uri *)p2 partsToCompare:(int32_t)p3 compareFormat:(int32_t)p4 comparisonType:(int32_t)p5;
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   System.Object
+  Params
+    System.Object
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withComparand:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   EscapeDataString
+  Managed method.
+  @textblock
+  Name
+    EscapeDataString
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 + (NSString *)escapeDataString_withStringToEscape:(NSString *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   EscapeUriString
+  Managed method.
+  @textblock
+  Name
+    EscapeUriString
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 + (NSString *)escapeUriString_withStringToEscape:(NSString *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   FromHex
+  Managed method.
+  @textblock
+  Name
+    FromHex
 
- Params
-   System.Char
+  Params
+    System.Char
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)fromHex_withDigit:(uint16_t)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetComponents
+  Managed method.
+  @textblock
+  Name
+    GetComponents
 
- Params
-   System.UriComponents
-   System.UriFormat
+  Params
+    System.UriComponents
+    System.UriFormat
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 - (NSString *)getComponents_withComponents:(int32_t)p1 format:(int32_t)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   GetHashCode
+  Managed method.
+  @textblock
+  Name
+    GetHashCode
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getHashCode;
 
 /**
- Managed method.
- @textblock
- Name
-   GetLeftPart
+  Managed method.
+  @textblock
+  Name
+    GetLeftPart
 
- Params
-   System.UriPartial
+  Params
+    System.UriPartial
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 - (NSString *)getLeftPart_withPart:(int32_t)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   HexEscape
+  Managed method.
+  @textblock
+  Name
+    HexEscape
 
- Params
-   System.Char
+  Params
+    System.Char
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 + (NSString *)hexEscape_withCharacter:(uint16_t)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   HexUnescape
+  Managed method.
+  @textblock
+  Name
+    HexUnescape
 
- Params
-   System.String
-   ref System.Int32&
+  Params
+    System.String
+    ref System.Int32&
 
- Return
-   System.Char
- @/textblock
+  Return
+    System.Char
+  @/textblock
 */
 + (uint16_t)hexUnescape_withPattern:(NSString *)p1 indexRef:(int32_t*)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   IsBaseOf
+  Managed method.
+  @textblock
+  Name
+    IsBaseOf
 
- Params
-   System.Uri
+  Params
+    System.Uri
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)isBaseOf_withUri:(System_Uri *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   IsHexDigit
+  Managed method.
+  @textblock
+  Name
+    IsHexDigit
 
- Params
-   System.Char
+  Params
+    System.Char
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)isHexDigit_withCharacter:(uint16_t)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   IsHexEncoding
+  Managed method.
+  @textblock
+  Name
+    IsHexEncoding
 
- Params
-   System.String
-   System.Int32
+  Params
+    System.String
+    System.Int32
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)isHexEncoding_withPattern:(NSString *)p1 index:(int32_t)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   IsWellFormedOriginalString
+  Managed method.
+  @textblock
+  Name
+    IsWellFormedOriginalString
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)isWellFormedOriginalString;
 
 /**
- Managed method.
- @textblock
- Name
-   IsWellFormedUriString
+  Managed method.
+  @textblock
+  Name
+    IsWellFormedUriString
 
- Params
-   System.String
-   System.UriKind
+  Params
+    System.String
+    System.UriKind
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)isWellFormedUriString_withUriString:(NSString *)p1 uriKind:(int32_t)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   MakeRelative
+  Managed method.
+  @textblock
+  Name
+    MakeRelative
 
- Params
-   System.Uri
+  Params
+    System.Uri
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 - (NSString *)makeRelative_withToUri:(System_Uri *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   MakeRelativeUri
+  Managed method.
+  @textblock
+  Name
+    MakeRelativeUri
 
- Params
-   System.Uri
+  Params
+    System.Uri
 
- Return
-   System.Uri
- @/textblock
+  Return
+    System.Uri
+  @/textblock
 */
 - (System_Uri *)makeRelativeUri_withUri:(System_Uri *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   op_Equality
+  Managed method.
+  @textblock
+  Name
+    op_Equality
 
- Params
-   System.Uri
-   System.Uri
+  Params
+    System.Uri
+    System.Uri
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)op_Equality_withUri1:(System_Uri *)p1 uri2:(System_Uri *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   op_Inequality
+  Managed method.
+  @textblock
+  Name
+    op_Inequality
 
- Params
-   System.Uri
-   System.Uri
+  Params
+    System.Uri
+    System.Uri
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)op_Inequality_withUri1:(System_Uri *)p1 uri2:(System_Uri *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   ToString
+  Managed method.
+  @textblock
+  Name
+    ToString
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 - (NSString *)toString;
 
 /**
- Managed method.
- @textblock
- Name
-   TryCreate
+  Managed method.
+  @textblock
+  Name
+    TryCreate
 
- Params
-   System.String
-   System.UriKind
-   ref System.Uri&
+  Params
+    System.String
+    System.UriKind
+    ref System.Uri&
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)tryCreate_withUriString:(NSString *)p1 uriKind:(int32_t)p2 resultRef:(System_Uri **)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   TryCreate
+  Managed method.
+  @textblock
+  Name
+    TryCreate
 
- Params
-   System.Uri
-   System.String
-   ref System.Uri&
+  Params
+    System.Uri
+    System.String
+    ref System.Uri&
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)tryCreate_withBaseUriSUri:(System_Uri *)p1 relativeUriString:(NSString *)p2 resultSUriRef:(System_Uri **)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   TryCreate
+  Managed method.
+  @textblock
+  Name
+    TryCreate
 
- Params
-   System.Uri
-   System.Uri
-   ref System.Uri&
+  Params
+    System.Uri
+    System.Uri
+    ref System.Uri&
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 + (BOOL)tryCreate_withBaseUriSUri:(System_Uri *)p1 relativeUriSUri:(System_Uri *)p2 resultSUriRef:(System_Uri **)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   UnescapeDataString
+  Managed method.
+  @textblock
+  Name
+    UnescapeDataString
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 + (NSString *)unescapeDataString_withStringToUnescape:(NSString *)p1;
 @end

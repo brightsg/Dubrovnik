@@ -77,19 +77,43 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : AsyncState
-	// Managed property type : System.Object
-    @property (nonatomic, strong, readonly) System_Object * asyncState;
+/**
+  Managed property.
+  @textblock
+  Name
+    AsyncState
+
+  Type
+    System.Object
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Object * asyncState;
 
 /* Skipped property : System.Threading.WaitHandle AsyncWaitHandle */
 
-	// Managed property name : CompletedSynchronously
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL completedSynchronously;
+/**
+  Managed property.
+  @textblock
+  Name
+    CompletedSynchronously
 
-	// Managed property name : IsCompleted
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isCompleted;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL completedSynchronously;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    IsCompleted
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isCompleted;
 #endif
 
 
@@ -107,19 +131,43 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : AsyncState
-	// Managed property type : System.Object
-    @property (nonatomic, strong, readonly) System_Object * asyncState;
+/**
+  Managed property.
+  @textblock
+  Name
+    AsyncState
+
+  Type
+    System.Object
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Object * asyncState;
 
 /* Skipped property : System.Threading.WaitHandle AsyncWaitHandle */
 
-	// Managed property name : CompletedSynchronously
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL completedSynchronously;
+/**
+  Managed property.
+  @textblock
+  Name
+    CompletedSynchronously
 
-	// Managed property name : IsCompleted
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isCompleted;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL completedSynchronously;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    IsCompleted
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isCompleted;
 
 @end
 

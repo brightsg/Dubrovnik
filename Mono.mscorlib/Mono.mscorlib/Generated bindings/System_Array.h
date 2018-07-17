@@ -59,33 +59,89 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : IsFixedSize
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isFixedSize;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsFixedSize
 
-	// Managed property name : IsReadOnly
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isReadOnly;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isFixedSize;
 
-	// Managed property name : IsSynchronized
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isSynchronized;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsReadOnly
 
-	// Managed property name : Length
-	// Managed property type : System.Int32
-    @property (nonatomic, readonly) int32_t length;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isReadOnly;
 
-	// Managed property name : LongLength
-	// Managed property type : System.Int64
-    @property (nonatomic, readonly) int64_t longLength;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsSynchronized
 
-	// Managed property name : Rank
-	// Managed property type : System.Int32
-    @property (nonatomic, readonly) int32_t rank;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isSynchronized;
 
-	// Managed property name : SyncRoot
-	// Managed property type : System.Object
-    @property (nonatomic, strong, readonly) System_Object * syncRoot;
+/**
+  Managed property.
+  @textblock
+  Name
+    Length
+
+  Type
+    System.Int32
+  @/textblock
+*/
+@property (nonatomic, readonly) int32_t length;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    LongLength
+
+  Type
+    System.Int64
+  @/textblock
+*/
+@property (nonatomic, readonly) int64_t longLength;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    Rank
+
+  Type
+    System.Int32
+  @/textblock
+*/
+@property (nonatomic, readonly) int32_t rank;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    SyncRoot
+
+  Type
+    System.Object
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Object * syncRoot;
 
 #pragma mark -
 #pragma mark Methods
@@ -93,36 +149,36 @@
 /* Skipped method : System.Collections.ObjectModel.ReadOnlyCollection`1<System.Array+T> AsReadOnly(T[] array) */
 
 /**
- Managed method.
- @textblock
- Name
-   BinarySearch
+  Managed method.
+  @textblock
+  Name
+    BinarySearch
 
- Params
-   System.Array
-   System.Object
+  Params
+    System.Array
+    System.Object
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)binarySearch_withArraySArray:(System_Array *)p1 valueObject:(System_Object *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   BinarySearch
+  Managed method.
+  @textblock
+  Name
+    BinarySearch
 
- Params
-   System.Array
-   System.Int32
-   System.Int32
-   System.Object
+  Params
+    System.Array
+    System.Int32
+    System.Int32
+    System.Object
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)binarySearch_withArraySArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueObject:(System_Object *)p4;
 
@@ -131,359 +187,359 @@
 /* Skipped method : System.Int32 BinarySearch(System.Array array, System.Int32 index, System.Int32 length, System.Object value, System.Collections.IComparer comparer) */
 
 /**
- Managed method.
- @textblock
- Name
-   BinarySearch
+  Managed method.
+  @textblock
+  Name
+    BinarySearch
 
- Params
-   T[]
-   <System.Array+T>
+  Params
+    T[]
+    <System.Array+T>
 
- Generics
-   <System.Array+T>
+  Generics
+    <System.Array+T>
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   BinarySearch
+  Managed method.
+  @textblock
+  Name
+    BinarySearch
 
- Params
-   T[]
-   <System.Array+T>
-   System.Collections.Generic.IComparer`1<System.Array+T>
+  Params
+    T[]
+    <System.Array+T>
+    System.Collections.Generic.IComparer`1<System.Array+T>
 
- Generics
-   <System.Array+T>
+  Generics
+    <System.Array+T>
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 comparerSCGIArray__T:(id <System_Collections_Generic_IComparerA1_>)p3 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   BinarySearch
+  Managed method.
+  @textblock
+  Name
+    BinarySearch
 
- Params
-   T[]
-   System.Int32
-   System.Int32
-   <System.Array+T>
+  Params
+    T[]
+    System.Int32
+    System.Int32
+    <System.Array+T>
 
- Generics
-   <System.Array+T>
+  Generics
+    <System.Array+T>
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueT:(System_Object *)p4 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   BinarySearch
+  Managed method.
+  @textblock
+  Name
+    BinarySearch
 
- Params
-   T[]
-   System.Int32
-   System.Int32
-   <System.Array+T>
-   System.Collections.Generic.IComparer`1<System.Array+T>
+  Params
+    T[]
+    System.Int32
+    System.Int32
+    <System.Array+T>
+    System.Collections.Generic.IComparer`1<System.Array+T>
 
- Generics
-   <System.Array+T>
+  Generics
+    <System.Array+T>
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueT:(System_Object *)p4 comparerSCGIArray__T:(id <System_Collections_Generic_IComparerA1_>)p5 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   Clear
+  Managed method.
+  @textblock
+  Name
+    Clear
 
- Params
-   System.Array
-   System.Int32
-   System.Int32
+  Params
+    System.Array
+    System.Int32
+    System.Int32
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)clear_withArray:(System_Array *)p1 index:(int32_t)p2 length:(int32_t)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   Clone
+  Managed method.
+  @textblock
+  Name
+    Clone
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Object
- @/textblock
+  Return
+    System.Object
+  @/textblock
 */
 - (System_Object *)clone;
 
 /**
- Managed method.
- @textblock
- Name
-   ConstrainedCopy
+  Managed method.
+  @textblock
+  Name
+    ConstrainedCopy
 
- Params
-   System.Array
-   System.Int32
-   System.Array
-   System.Int32
-   System.Int32
+  Params
+    System.Array
+    System.Int32
+    System.Array
+    System.Int32
+    System.Int32
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)constrainedCopy_withSourceArray:(System_Array *)p1 sourceIndex:(int32_t)p2 destinationArray:(System_Array *)p3 destinationIndex:(int32_t)p4 length:(int32_t)p5;
 
 /* Skipped method : TOutput[] ConvertAll(TInput[] array, System.Converter`2<System.Array+TInput, System.Array+TOutput> converter) */
 
 /**
- Managed method.
- @textblock
- Name
-   Copy
+  Managed method.
+  @textblock
+  Name
+    Copy
 
- Params
-   System.Array
-   System.Array
-   System.Int32
+  Params
+    System.Array
+    System.Array
+    System.Int32
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)copy_withSourceArraySArray:(System_Array *)p1 destinationArraySArray:(System_Array *)p2 lengthInt:(int32_t)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   Copy
+  Managed method.
+  @textblock
+  Name
+    Copy
 
- Params
-   System.Array
-   System.Int32
-   System.Array
-   System.Int32
-   System.Int32
+  Params
+    System.Array
+    System.Int32
+    System.Array
+    System.Int32
+    System.Int32
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)copy_withSourceArraySArray:(System_Array *)p1 sourceIndexInt:(int32_t)p2 destinationArraySArray:(System_Array *)p3 destinationIndexInt:(int32_t)p4 lengthInt:(int32_t)p5;
 
 /**
- Managed method.
- @textblock
- Name
-   Copy
+  Managed method.
+  @textblock
+  Name
+    Copy
 
- Params
-   System.Array
-   System.Array
-   System.Int64
+  Params
+    System.Array
+    System.Array
+    System.Int64
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)copy_withSourceArraySArray:(System_Array *)p1 destinationArraySArray:(System_Array *)p2 lengthLong:(int64_t)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   Copy
+  Managed method.
+  @textblock
+  Name
+    Copy
 
- Params
-   System.Array
-   System.Int64
-   System.Array
-   System.Int64
-   System.Int64
+  Params
+    System.Array
+    System.Int64
+    System.Array
+    System.Int64
+    System.Int64
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)copy_withSourceArraySArray:(System_Array *)p1 sourceIndexLong:(int64_t)p2 destinationArraySArray:(System_Array *)p3 destinationIndexLong:(int64_t)p4 lengthLong:(int64_t)p5;
 
 /**
- Managed method.
- @textblock
- Name
-   CopyTo
+  Managed method.
+  @textblock
+  Name
+    CopyTo
 
- Params
-   System.Array
-   System.Int32
+  Params
+    System.Array
+    System.Int32
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)copyTo_withArraySArray:(System_Array *)p1 indexInt:(int32_t)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   CopyTo
+  Managed method.
+  @textblock
+  Name
+    CopyTo
 
- Params
-   System.Array
-   System.Int64
+  Params
+    System.Array
+    System.Int64
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)copyTo_withArraySArray:(System_Array *)p1 indexLong:(int64_t)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   CreateInstance
+  Managed method.
+  @textblock
+  Name
+    CreateInstance
 
- Params
-   System.Type
-   System.Int32
+  Params
+    System.Type
+    System.Int32
 
- Return
-   System.Array
- @/textblock
+  Return
+    System.Array
+  @/textblock
 */
 + (System_Array *)createInstance_withElementType:(System_Type *)p1 length:(int32_t)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   CreateInstance
+  Managed method.
+  @textblock
+  Name
+    CreateInstance
 
- Params
-   System.Type
-   System.Int32
-   System.Int32
+  Params
+    System.Type
+    System.Int32
+    System.Int32
 
- Return
-   System.Array
- @/textblock
+  Return
+    System.Array
+  @/textblock
 */
 + (System_Array *)createInstance_withElementType:(System_Type *)p1 length1:(int32_t)p2 length2:(int32_t)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   CreateInstance
+  Managed method.
+  @textblock
+  Name
+    CreateInstance
 
- Params
-   System.Type
-   System.Int32
-   System.Int32
-   System.Int32
+  Params
+    System.Type
+    System.Int32
+    System.Int32
+    System.Int32
 
- Return
-   System.Array
- @/textblock
+  Return
+    System.Array
+  @/textblock
 */
 + (System_Array *)createInstance_withElementType:(System_Type *)p1 length1:(int32_t)p2 length2:(int32_t)p3 length3:(int32_t)p4;
 
 /**
- Managed method.
- @textblock
- Name
-   CreateInstance
+  Managed method.
+  @textblock
+  Name
+    CreateInstance
 
- Params
-   System.Type
-   System.Int32[]
+  Params
+    System.Type
+    System.Int32[]
 
- Return
-   System.Array
- @/textblock
+  Return
+    System.Array
+  @/textblock
 */
 + (System_Array *)createInstance_withElementTypeSType:(System_Type *)p1 lengthsIntArray:(System_Array *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   CreateInstance
+  Managed method.
+  @textblock
+  Name
+    CreateInstance
 
- Params
-   System.Type
-   System.Int64[]
+  Params
+    System.Type
+    System.Int64[]
 
- Return
-   System.Array
- @/textblock
+  Return
+    System.Array
+  @/textblock
 */
 + (System_Array *)createInstance_withElementTypeSType:(System_Type *)p1 lengthsLongArray:(System_Array *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   CreateInstance
+  Managed method.
+  @textblock
+  Name
+    CreateInstance
 
- Params
-   System.Type
-   System.Int32[]
-   System.Int32[]
+  Params
+    System.Type
+    System.Int32[]
+    System.Int32[]
 
- Return
-   System.Array
- @/textblock
+  Return
+    System.Array
+  @/textblock
 */
 + (System_Array *)createInstance_withElementType:(System_Type *)p1 lengths:(System_Array *)p2 lowerBounds:(System_Array *)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   Empty
+  Managed method.
+  @textblock
+  Name
+    Empty
 
- Params
-   (none)
+  Params
+    (none)
 
- Generics
-   <System.Array+T>
+  Generics
+    <System.Array+T>
 
- Return
-   T[]
- @/textblock
+  Return
+    T[]
+  @/textblock
 */
 + (System_Array *)empty_withTypeParameter:(id)typeParameter;
 
@@ -508,693 +564,693 @@
 /* Skipped method : System.Int32 FindLastIndex(T[] array, System.Int32 startIndex, System.Int32 count, System.Predicate`1<System.Array+T> match) */
 
 /**
- Managed method.
- @textblock
- Name
-   ForEach
+  Managed method.
+  @textblock
+  Name
+    ForEach
 
- Params
-   T[]
-   System.Action`1<System.Array+T>
+  Params
+    T[]
+    System.Action`1<System.Array+T>
 
- Generics
-   <System.Array+T>
+  Generics
+    <System.Array+T>
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)forEach_withArray:(System_Array *)p1 action:(System_ActionA1 *)p2 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   GetEnumerator
+  Managed method.
+  @textblock
+  Name
+    GetEnumerator
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Collections.IEnumerator
- @/textblock
+  Return
+    System.Collections.IEnumerator
+  @/textblock
 */
 - (id <System_Collections_IEnumerator>)getEnumerator;
 
 /**
- Managed method.
- @textblock
- Name
-   GetLength
+  Managed method.
+  @textblock
+  Name
+    GetLength
 
- Params
-   System.Int32
+  Params
+    System.Int32
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getLength_withDimension:(int32_t)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetLongLength
+  Managed method.
+  @textblock
+  Name
+    GetLongLength
 
- Params
-   System.Int32
+  Params
+    System.Int32
 
- Return
-   System.Int64
- @/textblock
+  Return
+    System.Int64
+  @/textblock
 */
 - (int64_t)getLongLength_withDimension:(int32_t)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetLowerBound
+  Managed method.
+  @textblock
+  Name
+    GetLowerBound
 
- Params
-   System.Int32
+  Params
+    System.Int32
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getLowerBound_withDimension:(int32_t)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetUpperBound
+  Managed method.
+  @textblock
+  Name
+    GetUpperBound
 
- Params
-   System.Int32
+  Params
+    System.Int32
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getUpperBound_withDimension:(int32_t)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetValue
+  Managed method.
+  @textblock
+  Name
+    GetValue
 
- Params
-   System.Int32[]
+  Params
+    System.Int32[]
 
- Return
-   System.Object
- @/textblock
+  Return
+    System.Object
+  @/textblock
 */
 - (System_Object *)getValue_withIndicesIntArray:(System_Array *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetValue
+  Managed method.
+  @textblock
+  Name
+    GetValue
 
- Params
-   System.Int32
+  Params
+    System.Int32
 
- Return
-   System.Object
- @/textblock
+  Return
+    System.Object
+  @/textblock
 */
 - (System_Object *)getValue_withIndexInt:(int32_t)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetValue
+  Managed method.
+  @textblock
+  Name
+    GetValue
 
- Params
-   System.Int32
-   System.Int32
+  Params
+    System.Int32
+    System.Int32
 
- Return
-   System.Object
- @/textblock
+  Return
+    System.Object
+  @/textblock
 */
 - (System_Object *)getValue_withIndex1Int:(int32_t)p1 index2Int:(int32_t)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   GetValue
+  Managed method.
+  @textblock
+  Name
+    GetValue
 
- Params
-   System.Int32
-   System.Int32
-   System.Int32
+  Params
+    System.Int32
+    System.Int32
+    System.Int32
 
- Return
-   System.Object
- @/textblock
+  Return
+    System.Object
+  @/textblock
 */
 - (System_Object *)getValue_withIndex1Int:(int32_t)p1 index2Int:(int32_t)p2 index3Int:(int32_t)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   GetValue
+  Managed method.
+  @textblock
+  Name
+    GetValue
 
- Params
-   System.Int64
+  Params
+    System.Int64
 
- Return
-   System.Object
- @/textblock
+  Return
+    System.Object
+  @/textblock
 */
 - (System_Object *)getValue_withIndexLong:(int64_t)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetValue
+  Managed method.
+  @textblock
+  Name
+    GetValue
 
- Params
-   System.Int64
-   System.Int64
+  Params
+    System.Int64
+    System.Int64
 
- Return
-   System.Object
- @/textblock
+  Return
+    System.Object
+  @/textblock
 */
 - (System_Object *)getValue_withIndex1Long:(int64_t)p1 index2Long:(int64_t)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   GetValue
+  Managed method.
+  @textblock
+  Name
+    GetValue
 
- Params
-   System.Int64
-   System.Int64
-   System.Int64
+  Params
+    System.Int64
+    System.Int64
+    System.Int64
 
- Return
-   System.Object
- @/textblock
+  Return
+    System.Object
+  @/textblock
 */
 - (System_Object *)getValue_withIndex1Long:(int64_t)p1 index2Long:(int64_t)p2 index3Long:(int64_t)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   GetValue
+  Managed method.
+  @textblock
+  Name
+    GetValue
 
- Params
-   System.Int64[]
+  Params
+    System.Int64[]
 
- Return
-   System.Object
- @/textblock
+  Return
+    System.Object
+  @/textblock
 */
 - (System_Object *)getValue_withIndicesLongArray:(System_Array *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   IndexOf
+  Managed method.
+  @textblock
+  Name
+    IndexOf
 
- Params
-   System.Array
-   System.Object
+  Params
+    System.Array
+    System.Object
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)indexOf_withArraySArray:(System_Array *)p1 valueObject:(System_Object *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   IndexOf
+  Managed method.
+  @textblock
+  Name
+    IndexOf
 
- Params
-   System.Array
-   System.Object
-   System.Int32
+  Params
+    System.Array
+    System.Object
+    System.Int32
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)indexOf_withArraySArray:(System_Array *)p1 valueObject:(System_Object *)p2 startIndexInt:(int32_t)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   IndexOf
+  Managed method.
+  @textblock
+  Name
+    IndexOf
 
- Params
-   System.Array
-   System.Object
-   System.Int32
-   System.Int32
+  Params
+    System.Array
+    System.Object
+    System.Int32
+    System.Int32
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)indexOf_withArraySArray:(System_Array *)p1 valueObject:(System_Object *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4;
 
 /**
- Managed method.
- @textblock
- Name
-   IndexOf
+  Managed method.
+  @textblock
+  Name
+    IndexOf
 
- Params
-   T[]
-   <System.Array+T>
+  Params
+    T[]
+    <System.Array+T>
 
- Generics
-   <System.Array+T>
+  Generics
+    <System.Array+T>
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)indexOf_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   IndexOf
+  Managed method.
+  @textblock
+  Name
+    IndexOf
 
- Params
-   T[]
-   <System.Array+T>
-   System.Int32
+  Params
+    T[]
+    <System.Array+T>
+    System.Int32
 
- Generics
-   <System.Array+T>
+  Generics
+    <System.Array+T>
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)indexOf_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 startIndexInt:(int32_t)p3 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   IndexOf
+  Managed method.
+  @textblock
+  Name
+    IndexOf
 
- Params
-   T[]
-   <System.Array+T>
-   System.Int32
-   System.Int32
+  Params
+    T[]
+    <System.Array+T>
+    System.Int32
+    System.Int32
 
- Generics
-   <System.Array+T>
+  Generics
+    <System.Array+T>
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)indexOf_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   Initialize
+  Managed method.
+  @textblock
+  Name
+    Initialize
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)initialize;
 
 /**
- Managed method.
- @textblock
- Name
-   LastIndexOf
+  Managed method.
+  @textblock
+  Name
+    LastIndexOf
 
- Params
-   System.Array
-   System.Object
+  Params
+    System.Array
+    System.Object
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)lastIndexOf_withArraySArray:(System_Array *)p1 valueObject:(System_Object *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   LastIndexOf
+  Managed method.
+  @textblock
+  Name
+    LastIndexOf
 
- Params
-   System.Array
-   System.Object
-   System.Int32
+  Params
+    System.Array
+    System.Object
+    System.Int32
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)lastIndexOf_withArraySArray:(System_Array *)p1 valueObject:(System_Object *)p2 startIndexInt:(int32_t)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   LastIndexOf
+  Managed method.
+  @textblock
+  Name
+    LastIndexOf
 
- Params
-   System.Array
-   System.Object
-   System.Int32
-   System.Int32
+  Params
+    System.Array
+    System.Object
+    System.Int32
+    System.Int32
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)lastIndexOf_withArraySArray:(System_Array *)p1 valueObject:(System_Object *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4;
 
 /**
- Managed method.
- @textblock
- Name
-   LastIndexOf
+  Managed method.
+  @textblock
+  Name
+    LastIndexOf
 
- Params
-   T[]
-   <System.Array+T>
+  Params
+    T[]
+    <System.Array+T>
 
- Generics
-   <System.Array+T>
+  Generics
+    <System.Array+T>
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)lastIndexOf_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   LastIndexOf
+  Managed method.
+  @textblock
+  Name
+    LastIndexOf
 
- Params
-   T[]
-   <System.Array+T>
-   System.Int32
+  Params
+    T[]
+    <System.Array+T>
+    System.Int32
 
- Generics
-   <System.Array+T>
+  Generics
+    <System.Array+T>
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)lastIndexOf_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 startIndexInt:(int32_t)p3 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   LastIndexOf
+  Managed method.
+  @textblock
+  Name
+    LastIndexOf
 
- Params
-   T[]
-   <System.Array+T>
-   System.Int32
-   System.Int32
+  Params
+    T[]
+    <System.Array+T>
+    System.Int32
+    System.Int32
 
- Generics
-   <System.Array+T>
+  Generics
+    <System.Array+T>
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 + (int32_t)lastIndexOf_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Void Resize(T[]& array, System.Int32 newSize) */
 
 /**
- Managed method.
- @textblock
- Name
-   Reverse
+  Managed method.
+  @textblock
+  Name
+    Reverse
 
- Params
-   System.Array
+  Params
+    System.Array
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)reverse_withArray:(System_Array *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Reverse
+  Managed method.
+  @textblock
+  Name
+    Reverse
 
- Params
-   System.Array
-   System.Int32
-   System.Int32
+  Params
+    System.Array
+    System.Int32
+    System.Int32
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)reverse_withArray:(System_Array *)p1 index:(int32_t)p2 length:(int32_t)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   SetValue
+  Managed method.
+  @textblock
+  Name
+    SetValue
 
- Params
-   System.Object
-   System.Int32
+  Params
+    System.Object
+    System.Int32
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)setValue_withValueObject:(System_Object *)p1 indexInt:(int32_t)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   SetValue
+  Managed method.
+  @textblock
+  Name
+    SetValue
 
- Params
-   System.Object
-   System.Int32
-   System.Int32
+  Params
+    System.Object
+    System.Int32
+    System.Int32
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)setValue_withValueObject:(System_Object *)p1 index1Int:(int32_t)p2 index2Int:(int32_t)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   SetValue
+  Managed method.
+  @textblock
+  Name
+    SetValue
 
- Params
-   System.Object
-   System.Int32
-   System.Int32
-   System.Int32
+  Params
+    System.Object
+    System.Int32
+    System.Int32
+    System.Int32
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)setValue_withValueObject:(System_Object *)p1 index1Int:(int32_t)p2 index2Int:(int32_t)p3 index3Int:(int32_t)p4;
 
 /**
- Managed method.
- @textblock
- Name
-   SetValue
+  Managed method.
+  @textblock
+  Name
+    SetValue
 
- Params
-   System.Object
-   System.Int32[]
+  Params
+    System.Object
+    System.Int32[]
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)setValue_withValueObject:(System_Object *)p1 indicesIntArray:(System_Array *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   SetValue
+  Managed method.
+  @textblock
+  Name
+    SetValue
 
- Params
-   System.Object
-   System.Int64
+  Params
+    System.Object
+    System.Int64
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)setValue_withValueObject:(System_Object *)p1 indexLong:(int64_t)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   SetValue
+  Managed method.
+  @textblock
+  Name
+    SetValue
 
- Params
-   System.Object
-   System.Int64
-   System.Int64
+  Params
+    System.Object
+    System.Int64
+    System.Int64
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)setValue_withValueObject:(System_Object *)p1 index1Long:(int64_t)p2 index2Long:(int64_t)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   SetValue
+  Managed method.
+  @textblock
+  Name
+    SetValue
 
- Params
-   System.Object
-   System.Int64
-   System.Int64
-   System.Int64
+  Params
+    System.Object
+    System.Int64
+    System.Int64
+    System.Int64
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)setValue_withValueObject:(System_Object *)p1 index1Long:(int64_t)p2 index2Long:(int64_t)p3 index3Long:(int64_t)p4;
 
 /**
- Managed method.
- @textblock
- Name
-   SetValue
+  Managed method.
+  @textblock
+  Name
+    SetValue
 
- Params
-   System.Object
-   System.Int64[]
+  Params
+    System.Object
+    System.Int64[]
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)setValue_withValueObject:(System_Object *)p1 indicesLongArray:(System_Array *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   Sort
+  Managed method.
+  @textblock
+  Name
+    Sort
 
- Params
-   System.Array
+  Params
+    System.Array
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)sort_withArraySArray:(System_Array *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Sort
+  Managed method.
+  @textblock
+  Name
+    Sort
 
- Params
-   System.Array
-   System.Array
+  Params
+    System.Array
+    System.Array
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)sort_withKeysSArray:(System_Array *)p1 itemsSArray:(System_Array *)p2;
 
 /**
- Managed method.
- @textblock
- Name
-   Sort
+  Managed method.
+  @textblock
+  Name
+    Sort
 
- Params
-   System.Array
-   System.Int32
-   System.Int32
+  Params
+    System.Array
+    System.Int32
+    System.Int32
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)sort_withArraySArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   Sort
+  Managed method.
+  @textblock
+  Name
+    Sort
 
- Params
-   System.Array
-   System.Array
-   System.Int32
-   System.Int32
+  Params
+    System.Array
+    System.Array
+    System.Int32
+    System.Int32
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)sort_withKeysSArray:(System_Array *)p1 itemsSArray:(System_Array *)p2 indexInt:(int32_t)p3 lengthInt:(int32_t)p4;
 
@@ -1207,162 +1263,162 @@
 /* Skipped method : System.Void Sort(System.Array keys, System.Array items, System.Int32 index, System.Int32 length, System.Collections.IComparer comparer) */
 
 /**
- Managed method.
- @textblock
- Name
-   Sort
+  Managed method.
+  @textblock
+  Name
+    Sort
 
- Params
-   T[]
+  Params
+    T[]
 
- Generics
-   <System.Array+T>
+  Generics
+    <System.Array+T>
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)sort_withArrayTArray:(System_Array *)p1 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   Sort
+  Managed method.
+  @textblock
+  Name
+    Sort
 
- Params
-   TKey[]
-   TValue[]
+  Params
+    TKey[]
+    TValue[]
 
- Generics
-   <System.Array+TKey>, <System.Array+TValue>
+  Generics
+    <System.Array+TKey>, <System.Array+TValue>
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)sort_withKeysTKeyArray:(System_Array *)p1 itemsTValueArray:(System_Array *)p2 typeParameters:(NSArray<id> *)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   Sort
+  Managed method.
+  @textblock
+  Name
+    Sort
 
- Params
-   T[]
-   System.Int32
-   System.Int32
+  Params
+    T[]
+    System.Int32
+    System.Int32
 
- Generics
-   <System.Array+T>
+  Generics
+    <System.Array+T>
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)sort_withArrayTArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   Sort
+  Managed method.
+  @textblock
+  Name
+    Sort
 
- Params
-   TKey[]
-   TValue[]
-   System.Int32
-   System.Int32
+  Params
+    TKey[]
+    TValue[]
+    System.Int32
+    System.Int32
 
- Generics
-   <System.Array+TKey>, <System.Array+TValue>
+  Generics
+    <System.Array+TKey>, <System.Array+TValue>
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)sort_withKeysTKeyArray:(System_Array *)p1 itemsTValueArray:(System_Array *)p2 indexInt:(int32_t)p3 lengthInt:(int32_t)p4 typeParameters:(NSArray<id> *)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   Sort
+  Managed method.
+  @textblock
+  Name
+    Sort
 
- Params
-   T[]
-   System.Collections.Generic.IComparer`1<System.Array+T>
+  Params
+    T[]
+    System.Collections.Generic.IComparer`1<System.Array+T>
 
- Generics
-   <System.Array+T>
+  Generics
+    <System.Array+T>
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)sort_withArrayTArray:(System_Array *)p1 comparerSCGIArray__T:(id <System_Collections_Generic_IComparerA1_>)p2 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   Sort
+  Managed method.
+  @textblock
+  Name
+    Sort
 
- Params
-   TKey[]
-   TValue[]
-   System.Collections.Generic.IComparer`1<System.Array+TKey>
+  Params
+    TKey[]
+    TValue[]
+    System.Collections.Generic.IComparer`1<System.Array+TKey>
 
- Generics
-   <System.Array+TKey>, <System.Array+TValue>
+  Generics
+    <System.Array+TKey>, <System.Array+TValue>
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)sort_withKeysTKeyArray:(System_Array *)p1 itemsTValueArray:(System_Array *)p2 comparerSCGIArray__TKey:(id <System_Collections_Generic_IComparerA1_>)p3 typeParameters:(NSArray<id> *)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   Sort
+  Managed method.
+  @textblock
+  Name
+    Sort
 
- Params
-   T[]
-   System.Int32
-   System.Int32
-   System.Collections.Generic.IComparer`1<System.Array+T>
+  Params
+    T[]
+    System.Int32
+    System.Int32
+    System.Collections.Generic.IComparer`1<System.Array+T>
 
- Generics
-   <System.Array+T>
+  Generics
+    <System.Array+T>
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)sort_withArrayTArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 comparerSCGIArray__T:(id <System_Collections_Generic_IComparerA1_>)p4 typeParameter:(id)typeParameter;
 
 /**
- Managed method.
- @textblock
- Name
-   Sort
+  Managed method.
+  @textblock
+  Name
+    Sort
 
- Params
-   TKey[]
-   TValue[]
-   System.Int32
-   System.Int32
-   System.Collections.Generic.IComparer`1<System.Array+TKey>
+  Params
+    TKey[]
+    TValue[]
+    System.Int32
+    System.Int32
+    System.Collections.Generic.IComparer`1<System.Array+TKey>
 
- Generics
-   <System.Array+TKey>, <System.Array+TValue>
+  Generics
+    <System.Array+TKey>, <System.Array+TValue>
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 + (void)sort_withKeysTKeyArray:(System_Array *)p1 itemsTValueArray:(System_Array *)p2 indexInt:(int32_t)p3 lengthInt:(int32_t)p4 comparerSCGIArray__TKey:(id <System_Collections_Generic_IComparerA1_>)p5 typeParameters:(NSArray<id> *)typeParameter;
 

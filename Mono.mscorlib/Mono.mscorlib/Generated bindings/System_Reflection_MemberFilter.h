@@ -48,18 +48,18 @@
 #pragma mark Constructors
 
 /**
- Managed method.
- @textblock
- Name
-   .ctor
+  Managed method.
+  @textblock
+  Name
+    .ctor
 
- Params
-   System.Object
-   System.IntPtr
+  Params
+    System.Object
+    System.IntPtr
 
- Return
-   System.Reflection.MemberFilter
- @/textblock
+  Return
+    System.Reflection.MemberFilter
+  @/textblock
 */
 + (System_Reflection_MemberFilter *)new_withObject:(System_Object *)p1 method:(void *)p2;
 
@@ -67,51 +67,51 @@
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   BeginInvoke
+  Managed method.
+  @textblock
+  Name
+    BeginInvoke
 
- Params
-   System.Reflection.MemberInfo
-   System.Object
-   System.AsyncCallback
-   System.Object
+  Params
+    System.Reflection.MemberInfo
+    System.Object
+    System.AsyncCallback
+    System.Object
 
- Return
-   System.IAsyncResult
- @/textblock
+  Return
+    System.IAsyncResult
+  @/textblock
 */
 - (id <System_IAsyncResult>)beginInvoke_withM:(System_Reflection_MemberInfo *)p1 filterCriteria:(System_Object *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4;
 
 /**
- Managed method.
- @textblock
- Name
-   EndInvoke
+  Managed method.
+  @textblock
+  Name
+    EndInvoke
 
- Params
-   System.IAsyncResult
+  Params
+    System.IAsyncResult
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)endInvoke_withResult:(id <System_IAsyncResult_>)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   Invoke
+  Managed method.
+  @textblock
+  Name
+    Invoke
 
- Params
-   System.Reflection.MemberInfo
-   System.Object
+  Params
+    System.Reflection.MemberInfo
+    System.Object
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)invoke_withM:(System_Reflection_MemberInfo *)p1 filterCriteria:(System_Object *)p2;
 @end

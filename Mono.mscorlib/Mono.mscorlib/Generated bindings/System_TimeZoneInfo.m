@@ -33,180 +33,164 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : BaseUtcOffset
-	// Managed property type : System.TimeSpan
-    @synthesize baseUtcOffset = _baseUtcOffset;
-    - (System_TimeSpan *)baseUtcOffset
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "BaseUtcOffset");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_baseUtcOffset isEqualToMonoObject:monoObject]) return _baseUtcOffset;					
-		_baseUtcOffset = [System_TimeSpan bestObjectWithMonoObject:monoObject];
-
-		return _baseUtcOffset;
+@synthesize baseUtcOffset = _baseUtcOffset;
+- (System_TimeSpan *)baseUtcOffset
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "BaseUtcOffset");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_baseUtcOffset isEqualToMonoObject:monoObject]) return _baseUtcOffset;
+	_baseUtcOffset = [System_TimeSpan bestObjectWithMonoObject:monoObject];
 
-	// Managed property name : DaylightName
-	// Managed property type : System.String
-    @synthesize daylightName = _daylightName;
-    - (NSString *)daylightName
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DaylightName");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_daylightName isEqualToMonoObject:monoObject]) return _daylightName;					
-		_daylightName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+	return _baseUtcOffset;
+}
 
-		return _daylightName;
+@synthesize daylightName = _daylightName;
+- (NSString *)daylightName
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "DaylightName");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_daylightName isEqualToMonoObject:monoObject]) return _daylightName;
+	_daylightName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
-	// Managed property name : DisplayName
-	// Managed property type : System.String
-    @synthesize displayName = _displayName;
-    - (NSString *)displayName
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DisplayName");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_displayName isEqualToMonoObject:monoObject]) return _displayName;					
-		_displayName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+	return _daylightName;
+}
 
-		return _displayName;
+@synthesize displayName = _displayName;
+- (NSString *)displayName
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "DisplayName");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_displayName isEqualToMonoObject:monoObject]) return _displayName;
+	_displayName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
-	// Managed property name : Id
-	// Managed property type : System.String
-    @synthesize id = _id;
-    - (NSString *)id
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Id");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_id isEqualToMonoObject:monoObject]) return _id;					
-		_id = [NSString stringWithMonoString:DB_STRING(monoObject)];
+	return _displayName;
+}
 
-		return _id;
+@synthesize id = _id;
+- (NSString *)id
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Id");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_id isEqualToMonoObject:monoObject]) return _id;
+	_id = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
-	// Managed property name : Local
-	// Managed property type : System.TimeZoneInfo
-    static System_TimeZoneInfo * m_local;
-    + (System_TimeZoneInfo *)local
-    {
-		typedef MonoObject * (*Thunk)(MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Local");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(&monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:m_local isEqualToMonoObject:monoObject]) return m_local;					
-		m_local = [System_TimeZoneInfo bestObjectWithMonoObject:monoObject];
+	return _id;
+}
 
-		return m_local;
+static System_TimeZoneInfo * m_local;
++ (System_TimeZoneInfo *)local
+{
+	typedef MonoObject * (*Thunk)(MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Local");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(&monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:m_local isEqualToMonoObject:monoObject]) return m_local;
+	m_local = [System_TimeZoneInfo bestObjectWithMonoObject:monoObject];
 
-	// Managed property name : StandardName
-	// Managed property type : System.String
-    @synthesize standardName = _standardName;
-    - (NSString *)standardName
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "StandardName");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_standardName isEqualToMonoObject:monoObject]) return _standardName;					
-		_standardName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+	return m_local;
+}
 
-		return _standardName;
+@synthesize standardName = _standardName;
+- (NSString *)standardName
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "StandardName");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_standardName isEqualToMonoObject:monoObject]) return _standardName;
+	_standardName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
-	// Managed property name : SupportsDaylightSavingTime
-	// Managed property type : System.Boolean
-    @synthesize supportsDaylightSavingTime = _supportsDaylightSavingTime;
-    - (BOOL)supportsDaylightSavingTime
-    {
-		typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "SupportsDaylightSavingTime");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		BOOL monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		_supportsDaylightSavingTime = monoObject;
+	return _standardName;
+}
 
-		return _supportsDaylightSavingTime;
+@synthesize supportsDaylightSavingTime = _supportsDaylightSavingTime;
+- (BOOL)supportsDaylightSavingTime
+{
+	typedef BOOL (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "SupportsDaylightSavingTime");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	BOOL monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	_supportsDaylightSavingTime = monoObject;
 
-	// Managed property name : Utc
-	// Managed property type : System.TimeZoneInfo
-    static System_TimeZoneInfo * m_utc;
-    + (System_TimeZoneInfo *)utc
-    {
-		typedef MonoObject * (*Thunk)(MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Utc");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(&monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:m_utc isEqualToMonoObject:monoObject]) return m_utc;					
-		m_utc = [System_TimeZoneInfo bestObjectWithMonoObject:monoObject];
+	return _supportsDaylightSavingTime;
+}
 
-		return m_utc;
+static System_TimeZoneInfo * m_utc;
++ (System_TimeZoneInfo *)utc
+{
+	typedef MonoObject * (*Thunk)(MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Utc");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(&monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:m_utc isEqualToMonoObject:monoObject]) return m_utc;
+	m_utc = [System_TimeZoneInfo bestObjectWithMonoObject:monoObject];
+
+	return m_utc;
+}
 
 #pragma mark -
 #pragma mark Methods

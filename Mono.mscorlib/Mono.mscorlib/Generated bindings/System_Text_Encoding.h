@@ -45,373 +45,525 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : ASCII
-	// Managed property type : System.Text.Encoding
-    + (System_Text_Encoding *)aSCII;
+/**
+  Managed property.
+  @textblock
+  Name
+    ASCII
 
-	// Managed property name : BigEndianUnicode
-	// Managed property type : System.Text.Encoding
-    + (System_Text_Encoding *)bigEndianUnicode;
+  Type
+    System.Text.Encoding
+  @/textblock
+*/
++ (System_Text_Encoding *)aSCII;
 
-	// Managed property name : BodyName
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * bodyName;
+/**
+  Managed property.
+  @textblock
+  Name
+    BigEndianUnicode
 
-	// Managed property name : CodePage
-	// Managed property type : System.Int32
-    @property (nonatomic, readonly) int32_t codePage;
+  Type
+    System.Text.Encoding
+  @/textblock
+*/
++ (System_Text_Encoding *)bigEndianUnicode;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    BodyName
+
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * bodyName;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    CodePage
+
+  Type
+    System.Int32
+  @/textblock
+*/
+@property (nonatomic, readonly) int32_t codePage;
 
 /* Skipped property : System.Text.DecoderFallback DecoderFallback */
 
-	// Managed property name : Default
-	// Managed property type : System.Text.Encoding
-    + (System_Text_Encoding *)default;
+/**
+  Managed property.
+  @textblock
+  Name
+    Default
+
+  Type
+    System.Text.Encoding
+  @/textblock
+*/
++ (System_Text_Encoding *)default;
 
 /* Skipped property : System.Text.EncoderFallback EncoderFallback */
 
-	// Managed property name : EncodingName
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * encodingName;
+/**
+  Managed property.
+  @textblock
+  Name
+    EncodingName
 
-	// Managed property name : HeaderName
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * headerName;
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * encodingName;
 
-	// Managed property name : IsBrowserDisplay
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isBrowserDisplay;
+/**
+  Managed property.
+  @textblock
+  Name
+    HeaderName
 
-	// Managed property name : IsBrowserSave
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isBrowserSave;
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * headerName;
 
-	// Managed property name : IsMailNewsDisplay
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isMailNewsDisplay;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsBrowserDisplay
 
-	// Managed property name : IsMailNewsSave
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isMailNewsSave;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isBrowserDisplay;
 
-	// Managed property name : IsReadOnly
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isReadOnly;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsBrowserSave
 
-	// Managed property name : IsSingleByte
-	// Managed property type : System.Boolean
-    @property (nonatomic, readonly) BOOL isSingleByte;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isBrowserSave;
 
-	// Managed property name : Unicode
-	// Managed property type : System.Text.Encoding
-    + (System_Text_Encoding *)unicode;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsMailNewsDisplay
 
-	// Managed property name : UTF32
-	// Managed property type : System.Text.Encoding
-    + (System_Text_Encoding *)uTF32;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isMailNewsDisplay;
 
-	// Managed property name : UTF7
-	// Managed property type : System.Text.Encoding
-    + (System_Text_Encoding *)uTF7;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsMailNewsSave
 
-	// Managed property name : UTF8
-	// Managed property type : System.Text.Encoding
-    + (System_Text_Encoding *)uTF8;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isMailNewsSave;
 
-	// Managed property name : WebName
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * webName;
+/**
+  Managed property.
+  @textblock
+  Name
+    IsReadOnly
 
-	// Managed property name : WindowsCodePage
-	// Managed property type : System.Int32
-    @property (nonatomic, readonly) int32_t windowsCodePage;
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isReadOnly;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    IsSingleByte
+
+  Type
+    System.Boolean
+  @/textblock
+*/
+@property (nonatomic, readonly) BOOL isSingleByte;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    Unicode
+
+  Type
+    System.Text.Encoding
+  @/textblock
+*/
++ (System_Text_Encoding *)unicode;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    UTF32
+
+  Type
+    System.Text.Encoding
+  @/textblock
+*/
++ (System_Text_Encoding *)uTF32;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    UTF7
+
+  Type
+    System.Text.Encoding
+  @/textblock
+*/
++ (System_Text_Encoding *)uTF7;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    UTF8
+
+  Type
+    System.Text.Encoding
+  @/textblock
+*/
++ (System_Text_Encoding *)uTF8;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    WebName
+
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * webName;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    WindowsCodePage
+
+  Type
+    System.Int32
+  @/textblock
+*/
+@property (nonatomic, readonly) int32_t windowsCodePage;
 
 #pragma mark -
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   Clone
+  Managed method.
+  @textblock
+  Name
+    Clone
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Object
- @/textblock
+  Return
+    System.Object
+  @/textblock
 */
 - (System_Object *)clone;
 
 /**
- Managed method.
- @textblock
- Name
-   Convert
+  Managed method.
+  @textblock
+  Name
+    Convert
 
- Params
-   System.Text.Encoding
-   System.Text.Encoding
-   System.Byte[]
+  Params
+    System.Text.Encoding
+    System.Text.Encoding
+    System.Byte[]
 
- Return
-   System.Byte[]
- @/textblock
+  Return
+    System.Byte[]
+  @/textblock
 */
 + (NSData *)convert_withSrcEncoding:(System_Text_Encoding *)p1 dstEncoding:(System_Text_Encoding *)p2 bytes:(NSData *)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   Convert
+  Managed method.
+  @textblock
+  Name
+    Convert
 
- Params
-   System.Text.Encoding
-   System.Text.Encoding
-   System.Byte[]
-   System.Int32
-   System.Int32
+  Params
+    System.Text.Encoding
+    System.Text.Encoding
+    System.Byte[]
+    System.Int32
+    System.Int32
 
- Return
-   System.Byte[]
- @/textblock
+  Return
+    System.Byte[]
+  @/textblock
 */
 + (NSData *)convert_withSrcEncoding:(System_Text_Encoding *)p1 dstEncoding:(System_Text_Encoding *)p2 bytes:(NSData *)p3 index:(int32_t)p4 count:(int32_t)p5;
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   System.Object
+  Params
+    System.Object
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withValue:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetByteCount
+  Managed method.
+  @textblock
+  Name
+    GetByteCount
 
- Params
-   System.Char[]
+  Params
+    System.Char[]
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getByteCount_withChars:(System_Array *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetByteCount
+  Managed method.
+  @textblock
+  Name
+    GetByteCount
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getByteCount_withS:(NSString *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetByteCount
+  Managed method.
+  @textblock
+  Name
+    GetByteCount
 
- Params
-   System.Char[]
-   System.Int32
-   System.Int32
+  Params
+    System.Char[]
+    System.Int32
+    System.Int32
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getByteCount_withChars:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 /* Skipped method : System.Int32 GetByteCount(System.Char* chars, System.Int32 count) */
 
 /**
- Managed method.
- @textblock
- Name
-   GetBytes
+  Managed method.
+  @textblock
+  Name
+    GetBytes
 
- Params
-   System.Char[]
+  Params
+    System.Char[]
 
- Return
-   System.Byte[]
- @/textblock
+  Return
+    System.Byte[]
+  @/textblock
 */
 - (NSData *)getBytes_withChars:(System_Array *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetBytes
+  Managed method.
+  @textblock
+  Name
+    GetBytes
 
- Params
-   System.Char[]
-   System.Int32
-   System.Int32
+  Params
+    System.Char[]
+    System.Int32
+    System.Int32
 
- Return
-   System.Byte[]
- @/textblock
+  Return
+    System.Byte[]
+  @/textblock
 */
 - (NSData *)getBytes_withChars:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   GetBytes
+  Managed method.
+  @textblock
+  Name
+    GetBytes
 
- Params
-   System.Char[]
-   System.Int32
-   System.Int32
-   System.Byte[]
-   System.Int32
+  Params
+    System.Char[]
+    System.Int32
+    System.Int32
+    System.Byte[]
+    System.Int32
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getBytes_withChars:(System_Array *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5;
 
 /**
- Managed method.
- @textblock
- Name
-   GetBytes
+  Managed method.
+  @textblock
+  Name
+    GetBytes
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.Byte[]
- @/textblock
+  Return
+    System.Byte[]
+  @/textblock
 */
 - (NSData *)getBytes_withS:(NSString *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetBytes
+  Managed method.
+  @textblock
+  Name
+    GetBytes
 
- Params
-   System.String
-   System.Int32
-   System.Int32
-   System.Byte[]
-   System.Int32
+  Params
+    System.String
+    System.Int32
+    System.Int32
+    System.Byte[]
+    System.Int32
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getBytes_withS:(NSString *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5;
 
 /* Skipped method : System.Int32 GetBytes(System.Char* chars, System.Int32 charCount, System.Byte* bytes, System.Int32 byteCount) */
 
 /**
- Managed method.
- @textblock
- Name
-   GetCharCount
+  Managed method.
+  @textblock
+  Name
+    GetCharCount
 
- Params
-   System.Byte[]
+  Params
+    System.Byte[]
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getCharCount_withBytes:(NSData *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetCharCount
+  Managed method.
+  @textblock
+  Name
+    GetCharCount
 
- Params
-   System.Byte[]
-   System.Int32
-   System.Int32
+  Params
+    System.Byte[]
+    System.Int32
+    System.Int32
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getCharCount_withBytes:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 /* Skipped method : System.Int32 GetCharCount(System.Byte* bytes, System.Int32 count) */
 
 /**
- Managed method.
- @textblock
- Name
-   GetChars
+  Managed method.
+  @textblock
+  Name
+    GetChars
 
- Params
-   System.Byte[]
+  Params
+    System.Byte[]
 
- Return
-   System.Char[]
- @/textblock
+  Return
+    System.Char[]
+  @/textblock
 */
 - (System_Array *)getChars_withBytes:(NSData *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetChars
+  Managed method.
+  @textblock
+  Name
+    GetChars
 
- Params
-   System.Byte[]
-   System.Int32
-   System.Int32
+  Params
+    System.Byte[]
+    System.Int32
+    System.Int32
 
- Return
-   System.Char[]
- @/textblock
+  Return
+    System.Char[]
+  @/textblock
 */
 - (System_Array *)getChars_withBytes:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   GetChars
+  Managed method.
+  @textblock
+  Name
+    GetChars
 
- Params
-   System.Byte[]
-   System.Int32
-   System.Int32
-   System.Char[]
-   System.Int32
+  Params
+    System.Byte[]
+    System.Int32
+    System.Int32
+    System.Char[]
+    System.Int32
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getChars_withBytes:(NSData *)p1 byteIndex:(int32_t)p2 byteCount:(int32_t)p3 chars:(System_Array *)p4 charIndex:(int32_t)p5;
 
@@ -422,34 +574,34 @@
 /* Skipped method : System.Text.Encoder GetEncoder() */
 
 /**
- Managed method.
- @textblock
- Name
-   GetEncoding
+  Managed method.
+  @textblock
+  Name
+    GetEncoding
 
- Params
-   System.Int32
+  Params
+    System.Int32
 
- Return
-   System.Text.Encoding
- @/textblock
+  Return
+    System.Text.Encoding
+  @/textblock
 */
 + (System_Text_Encoding *)getEncoding_withCodepage:(int32_t)p1;
 
 /* Skipped method : System.Text.Encoding GetEncoding(System.Int32 codepage, System.Text.EncoderFallback encoderFallback, System.Text.DecoderFallback decoderFallback) */
 
 /**
- Managed method.
- @textblock
- Name
-   GetEncoding
+  Managed method.
+  @textblock
+  Name
+    GetEncoding
 
- Params
-   System.String
+  Params
+    System.String
 
- Return
-   System.Text.Encoding
- @/textblock
+  Return
+    System.Text.Encoding
+  @/textblock
 */
 + (System_Text_Encoding *)getEncoding_withName:(NSString *)p1;
 
@@ -458,111 +610,111 @@
 /* Skipped method : System.Text.EncodingInfo[] GetEncodings() */
 
 /**
- Managed method.
- @textblock
- Name
-   GetHashCode
+  Managed method.
+  @textblock
+  Name
+    GetHashCode
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getHashCode;
 
 /**
- Managed method.
- @textblock
- Name
-   GetMaxByteCount
+  Managed method.
+  @textblock
+  Name
+    GetMaxByteCount
 
- Params
-   System.Int32
+  Params
+    System.Int32
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getMaxByteCount_withCharCount:(int32_t)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetMaxCharCount
+  Managed method.
+  @textblock
+  Name
+    GetMaxCharCount
 
- Params
-   System.Int32
+  Params
+    System.Int32
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getMaxCharCount_withByteCount:(int32_t)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetPreamble
+  Managed method.
+  @textblock
+  Name
+    GetPreamble
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Byte[]
- @/textblock
+  Return
+    System.Byte[]
+  @/textblock
 */
 - (NSData *)getPreamble;
 
 /* Skipped method : System.String GetString(System.Byte* bytes, System.Int32 byteCount) */
 
 /**
- Managed method.
- @textblock
- Name
-   GetString
+  Managed method.
+  @textblock
+  Name
+    GetString
 
- Params
-   System.Byte[]
+  Params
+    System.Byte[]
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 - (NSString *)getString_withBytes:(NSData *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetString
+  Managed method.
+  @textblock
+  Name
+    GetString
 
- Params
-   System.Byte[]
-   System.Int32
-   System.Int32
+  Params
+    System.Byte[]
+    System.Int32
+    System.Int32
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 - (NSString *)getString_withBytes:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 /**
- Managed method.
- @textblock
- Name
-   IsAlwaysNormalized
+  Managed method.
+  @textblock
+  Name
+    IsAlwaysNormalized
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)isAlwaysNormalized;
 

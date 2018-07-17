@@ -40,17 +40,17 @@
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   Dispose
+  Managed method.
+  @textblock
+  Name
+    Dispose
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Void
- @/textblock
+  Return
+    System.Void
+  @/textblock
 */
 - (void)dispose;
 @end

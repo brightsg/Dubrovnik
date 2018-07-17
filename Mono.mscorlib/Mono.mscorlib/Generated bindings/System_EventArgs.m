@@ -33,17 +33,15 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : Empty
-	// Managed field type : System.EventArgs
-    static System_EventArgs * m_empty;
-    + (System_EventArgs *)empty
-    {
-		MonoObject *monoObject = [[self class] getMonoClassField:"Empty"];
-		if ([self object:m_empty isEqualToMonoObject:monoObject]) return m_empty;					
-		m_empty = [System_EventArgs bestObjectWithMonoObject:monoObject];
+static System_EventArgs * m_empty;
++ (System_EventArgs *)empty
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"Empty"];
+	if ([self object:m_empty isEqualToMonoObject:monoObject]) return m_empty;
+	m_empty = [System_EventArgs bestObjectWithMonoObject:monoObject];
 
-		return m_empty;
-	}
+	return m_empty;
+}
 
 #pragma mark -
 #pragma mark Teardown

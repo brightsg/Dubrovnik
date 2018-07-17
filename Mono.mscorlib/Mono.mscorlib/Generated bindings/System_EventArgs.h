@@ -35,8 +35,16 @@
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : Empty
-	// Managed field type : System.EventArgs
-    + (System_EventArgs *)empty;
+/**
+  Managed field.
+  @textblock
+  Name
+    Empty
+
+  Type
+    System.EventArgs
+  @/textblock
+*/
++ (System_EventArgs *)empty;
 @end
 //--Dubrovnik.CodeGenerator

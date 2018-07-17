@@ -54,103 +54,97 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : CommandTimeout
-	// Managed property type : System.Nullable`1<System.Int32>
-    @synthesize commandTimeout = _commandTimeout;
-    - (System_NullableA1 *)commandTimeout
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "CommandTimeout");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_commandTimeout isEqualToMonoObject:monoObject]) return _commandTimeout;					
-		_commandTimeout = [System_NullableA1 bestObjectWithMonoObject:monoObject];
-
-		return _commandTimeout;
+@synthesize commandTimeout = _commandTimeout;
+- (System_NullableA1 *)commandTimeout
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "CommandTimeout");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-    - (void)setCommandTimeout:(System_NullableA1 *)value
-	{
-		_commandTimeout = value;
-		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "CommandTimeout");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject *monoException = NULL;
-		thunk(self.monoObject, [value monoObject], &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_commandTimeout isEqualToMonoObject:monoObject]) return _commandTimeout;
+	_commandTimeout = [System_NullableA1 bestObjectWithMonoObject:monoObject];
 
-	// Managed property name : Connection
-	// Managed property type : System.Data.Common.DbConnection
-    @synthesize connection = _connection;
-    - (System_Data_Common_DbConnection *)connection
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "Connection");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_connection isEqualToMonoObject:monoObject]) return _connection;					
-		_connection = [System_Data_Common_DbConnection bestObjectWithMonoObject:monoObject];
-
-		return _connection;
+	return _commandTimeout;
+}
+- (void)setCommandTimeout:(System_NullableA1 *)value
+{
+	_commandTimeout = value;
+	typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "CommandTimeout");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	thunk(self.monoObject, [value monoObject], &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
+
+@synthesize connection = _connection;
+- (System_Data_Common_DbConnection *)connection
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Connection");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_connection isEqualToMonoObject:monoObject]) return _connection;
+	_connection = [System_Data_Common_DbConnection bestObjectWithMonoObject:monoObject];
+
+	return _connection;
+}
 
 /* Skipped property : System.Data.Entity.Core.Objects.ObjectContextOptions ContextOptions */
 
-	// Managed property name : DefaultContainerName
-	// Managed property type : System.String
-    @synthesize defaultContainerName = _defaultContainerName;
-    - (NSString *)defaultContainerName
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "DefaultContainerName");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_defaultContainerName isEqualToMonoObject:monoObject]) return _defaultContainerName;					
-		_defaultContainerName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+@synthesize defaultContainerName = _defaultContainerName;
+- (NSString *)defaultContainerName
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "DefaultContainerName");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_defaultContainerName isEqualToMonoObject:monoObject]) return _defaultContainerName;
+	_defaultContainerName = [NSString stringWithMonoString:DB_STRING(monoObject)];
 
-		return _defaultContainerName;
+	return _defaultContainerName;
+}
+- (void)setDefaultContainerName:(NSString *)value
+{
+	_defaultContainerName = value;
+	typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "DefaultContainerName");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-    - (void)setDefaultContainerName:(NSString *)value
-	{
-		_defaultContainerName = value;
-		typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertySetMethod(thunkClass, "DefaultContainerName");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject *monoException = NULL;
-		thunk(self.monoObject, [value monoObject], &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-	}
+	thunk(self.monoObject, [value monoObject], &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
 
 /* Skipped property : System.Data.Entity.Infrastructure.Interception.DbInterceptionContext InterceptionContext */
 

@@ -42,27 +42,25 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : PropertyName
-	// Managed property type : System.String
-    @synthesize propertyName = _propertyName;
-    - (NSString *)propertyName
-    {
-		typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
-		static Thunk thunk;
-		static MonoClass *thunkClass;
-		MonoObject *monoException = NULL;
-		if (!thunk || thunkClass != self.monoClass) {
-			thunkClass = self.monoClass;
-			MonoMethod *monoMethod = GetPropertyGetMethod(thunkClass, "PropertyName");
-			thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
-		}
-		MonoObject * monoObject = thunk(self.monoObject, &monoException);
-		if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
-		if ([self object:_propertyName isEqualToMonoObject:monoObject]) return _propertyName;					
-		_propertyName = [NSString stringWithMonoString:DB_STRING(monoObject)];
-
-		return _propertyName;
+@synthesize propertyName = _propertyName;
+- (NSString *)propertyName
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "PropertyName");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_propertyName isEqualToMonoObject:monoObject]) return _propertyName;
+	_propertyName = [NSString stringWithMonoString:DB_STRING(monoObject)];
+
+	return _propertyName;
+}
 
 #pragma mark -
 #pragma mark Teardown

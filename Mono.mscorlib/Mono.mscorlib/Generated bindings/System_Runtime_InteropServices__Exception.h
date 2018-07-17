@@ -46,107 +46,155 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : HelpLink
-	// Managed property type : System.String
-    @property (nonatomic, strong) NSString * helpLink;
+/**
+  Managed property.
+  @textblock
+  Name
+    HelpLink
 
-	// Managed property name : InnerException
-	// Managed property type : System.Exception
-    @property (nonatomic, strong, readonly) System_Exception * innerException;
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong) NSString * helpLink;
 
-	// Managed property name : Message
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * message;
+/**
+  Managed property.
+  @textblock
+  Name
+    InnerException
 
-	// Managed property name : Source
-	// Managed property type : System.String
-    @property (nonatomic, strong) NSString * source;
+  Type
+    System.Exception
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Exception * innerException;
 
-	// Managed property name : StackTrace
-	// Managed property type : System.String
-    @property (nonatomic, strong, readonly) NSString * stackTrace;
+/**
+  Managed property.
+  @textblock
+  Name
+    Message
 
-	// Managed property name : TargetSite
-	// Managed property type : System.Reflection.MethodBase
-    @property (nonatomic, strong, readonly) System_Reflection_MethodBase * targetSite;
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * message;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    Source
+
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong) NSString * source;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    StackTrace
+
+  Type
+    System.String
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * stackTrace;
+
+/**
+  Managed property.
+  @textblock
+  Name
+    TargetSite
+
+  Type
+    System.Reflection.MethodBase
+  @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Reflection_MethodBase * targetSite;
 
 #pragma mark -
 #pragma mark Methods
 
 /**
- Managed method.
- @textblock
- Name
-   Equals
+  Managed method.
+  @textblock
+  Name
+    Equals
 
- Params
-   System.Object
+  Params
+    System.Object
 
- Return
-   System.Boolean
- @/textblock
+  Return
+    System.Boolean
+  @/textblock
 */
 - (BOOL)equals_withObj:(System_Object *)p1;
 
 /**
- Managed method.
- @textblock
- Name
-   GetBaseException
+  Managed method.
+  @textblock
+  Name
+    GetBaseException
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Exception
- @/textblock
+  Return
+    System.Exception
+  @/textblock
 */
 - (System_Exception *)getBaseException;
 
 /**
- Managed method.
- @textblock
- Name
-   GetHashCode
+  Managed method.
+  @textblock
+  Name
+    GetHashCode
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Int32
- @/textblock
+  Return
+    System.Int32
+  @/textblock
 */
 - (int32_t)getHashCode;
 
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 
 /**
- Managed method.
- @textblock
- Name
-   GetType
+  Managed method.
+  @textblock
+  Name
+    GetType
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.Type
- @/textblock
+  Return
+    System.Type
+  @/textblock
 */
 - (System_Type *)getType;
 
 /**
- Managed method.
- @textblock
- Name
-   ToString
+  Managed method.
+  @textblock
+  Name
+    ToString
 
- Params
-   (none)
+  Params
+    (none)
 
- Return
-   System.String
- @/textblock
+  Return
+    System.String
+  @/textblock
 */
 - (NSString *)toString;
 @end
