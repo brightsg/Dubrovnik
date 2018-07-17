@@ -3,13 +3,13 @@
 //
 // mscorlib.m
 //
-// Dubrovnik based OS X Cocoa Objective-C to Mono bindings.
+// Dubrovnik based macOS Cocoa Objective-C to Mono bindings.
 //
 // This code was generated using a tool available as part of:
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     16/07/2018 23:40:43
+// Date:     17/07/2018 11:26:15
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089

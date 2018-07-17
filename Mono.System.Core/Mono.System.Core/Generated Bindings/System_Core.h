@@ -3,13 +3,13 @@
 //
 // System_Core.h
 //
-// Dubrovnik based OS X Cocoa Objective-C to Mono bindings.
+// Dubrovnik based macOS Cocoa Objective-C to Mono bindings.
 //
 // This code was generated using a tool available as part of:
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     16/07/2018 23:41:10
+// Date:     17/07/2018 11:26:38
 //
 // Assembly: System.Core
 // Fullname: System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -41,7 +41,6 @@
 //
 // </auto-generated>
 //------------------------------------------------------------------------------
-#import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 
 //

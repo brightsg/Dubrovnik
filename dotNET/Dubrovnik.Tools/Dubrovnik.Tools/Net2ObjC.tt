@@ -31,10 +31,6 @@ _TransformText();
 #>
 <#+
 //
-// Class feature control blocks.
-//
-
-//
 //  WriteFileBanner() 
 //
 void WriteFileBanner() 
@@ -45,7 +41,7 @@ void WriteFileBanner()
 //
 // <#=OutputFileType == OutputType.Implementation ? ImplementationFile : InterfaceFile #>
 //
-// Dubrovnik based OS X Cocoa Objective-C to Mono bindings.
+// Dubrovnik based macOS Cocoa Objective-C to Mono bindings.
 //
 // This code was generated using a tool available as part of:
 // http://github.com/ThesaurusSoftware/Dubrovnik
@@ -105,7 +101,6 @@ public void WriteModuleBanner(CodeFacet facet, string module)
 //
 // Frameworks
 //
-#import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 
 //
@@ -157,6 +152,7 @@ public void WriteModuleFooter()
 //--<#=GenToolName#>
 <#+	
 }
+
 //
 // WriteInterfaceFilePreliminaries
 //
@@ -166,7 +162,6 @@ public void WriteInterfaceFilePreliminaries()
 	string objCAssemblyExtraHeader = objCAssemblyHeaderName + ".__Extra__.h";
 	
 #>
-#import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 
 //
@@ -238,6 +233,7 @@ public void WriteCommentBlock(string info)
 */
 <#+	
 }
+
 //
 // WriteImplementationFilePreliminaries
 //
@@ -268,30 +264,11 @@ public void WriteProtocolStart(InterfaceFacet facet, string module, bool writeIm
 {
 	if (!writeImplementation) {
 		WriteModuleBanner(facet, module);
-    }
-
-	string baseProtocol = "System_Object";
-	string adoptionProtocolSuffix = "_";
-	string adoptionProtocolName = facet.ObjCFacet.Type + adoptionProtocolSuffix;
+   }
+	
+	Net2ObjC.Protocol protocol = new Net2ObjC.Protocol(this, facet, writeImplementation);
 
 	if (!writeImplementation) {
-
-		// write adoption protocol
-		string protocolSuffix = adoptionProtocolSuffix;
-		string protocolName = adoptionProtocolName;
-	
-		// build list of base protocols 
-		string baseProtocols = baseProtocol + protocolSuffix;
-		foreach (ImplementedInterfaceFacet interfaceFacet in facet.ImplementedInterfaces) {
-			string interfaceName = interfaceFacet.ObjCFacet.Type + protocolSuffix;
-			if (Config.GenerateFacetBinding(interfaceFacet)) {
-				baseProtocols += (", " + interfaceName);
-		   }
-			else {
-				baseProtocols += (" /*, " + interfaceName + "*/ ");
-			}
-		}
-
 #>
 
 /*
@@ -332,89 +309,24 @@ public void WriteProtocolStart(InterfaceFacet facet, string module, bool writeIm
 //
 // Adoption protocol
 //
-@protocol <#=protocolName#> <<#=baseProtocols#>>
+@protocol <#=protocol.ProtocolName#> <<#=protocol.BaseProtocols#>>
 
 @optional
 
-#ifdef  DEF_P_AND_M_<#=protocolName.ToUpper()#>
+#ifdef  DEF_P_AND_M_<#=protocol.ProtocolName.ToUpper()#>
 <#+	
     } else {
-	
-		// write implementation protocol
-		string protocolSuffix = "";
-		string protocolName = facet.ObjCFacet.Type + protocolSuffix;
-
-		// build list of base protocols 
-		string baseProtocols = adoptionProtocolName + ", " + baseProtocol;
-		foreach (ImplementedInterfaceFacet interfaceFacet in facet.ImplementedInterfaces) {
-		  string interfaceName = interfaceFacet.ObjCFacet.Type + protocolSuffix;
-		   if (Config.GenerateFacetBinding(interfaceFacet)) {
-				baseProtocols += (", " + interfaceName);
-		   }
-			else {
-				baseProtocols += (" /*, " + interfaceName + "*/ ");
-			}
-		}
 #>
 
 //
 // Implementation protocol
 //
-@protocol <#=protocolName#> <<#=baseProtocols#>>
+@protocol <#=protocol.ProtocolName#> <<#=protocol.BaseProtocols#>>
 
 @optional
 
 <#+		
 	}// if !writeAux
-
-}
-
-//
-// WriteProtocolEnd
-//
-public void WriteProtocolEnd(CodeFacet facet, bool writeAux = false)
-{
-	if (!writeAux) {
-#>
-#endif
-
-<#+
-    } // if !writeAux
-#>
-
-@end
-
-<#+
-	if (writeAux) {
-		WriteModuleFooter();
-    }
-}
-
-//
-// WriteFacetAsEnumeration
-//
-public void WriteFacetAsEnumeration(EnumerationFacet enumeration)
-{
-	string objCEnumType = ObjCTypeNameFromManagedTypeName(enumeration.UnderlyingType);
-	string objCType = ObjCTypeNameFromManagedTypeName(enumeration.Type);
-
-	// output the enums as a C typedef enum.
-	if (OutputFileType == OutputType.Interface) 
-	{
-#>
-typedef NS_ENUM(<#=objCEnumType#>, enum<#=objCType#>) {
-<#+
-		foreach (FieldFacet field in enumeration.Fields) {
-			string objCFieldName = ObjCIdentifierFromManagedIdentifier(field.Name);
-#>
-	<#=objCType#>_<#=objCFieldName#> = <#=field.ConstantValue#>,
-<#+
-		}
-#>
-};
-<#+
-    } 
-
 }
 
 //
@@ -492,7 +404,7 @@ public void WriteFacetAsAccessor(CodeFacet facet, Dictionary<string, object> opt
 
 				// note that the thunk is valid only for a specific class instance.
 				// if the obj-C receiver represents a managed interface then the cached thunk
-				// must be regenerated if the thunk id invalid for the receiver mono class.
+				// must be regenerated if the thunk is invalid for the receiver mono class.
 				if (!facet.IsStatic) {
 #>
     {

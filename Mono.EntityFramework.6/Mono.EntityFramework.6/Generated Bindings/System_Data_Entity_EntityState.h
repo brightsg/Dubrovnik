@@ -5,7 +5,6 @@
 //
 // Frameworks
 //
-#import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 
 //
@@ -28,11 +27,11 @@
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumSystem_Data_Entity_EntityState) {
-	System_Data_Entity_EntityState_Added = 4,
-	System_Data_Entity_EntityState_Deleted = 8,
-	System_Data_Entity_EntityState_Detached = 1,
-	System_Data_Entity_EntityState_Modified = 16,
-	System_Data_Entity_EntityState_Unchanged = 2,
+  System_Data_Entity_EntityState_Added = 4,
+  System_Data_Entity_EntityState_Deleted = 8,
+  System_Data_Entity_EntityState_Detached = 1,
+  System_Data_Entity_EntityState_Modified = 16,
+  System_Data_Entity_EntityState_Unchanged = 2,
 };
 
 @interface System_Data_Entity_EntityState : System_Enum

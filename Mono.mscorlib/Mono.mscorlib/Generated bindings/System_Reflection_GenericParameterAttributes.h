@@ -5,7 +5,6 @@
 //
 // Frameworks
 //
-#import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 
 //
@@ -28,14 +27,14 @@
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumSystem_Reflection_GenericParameterAttributes) {
-	System_Reflection_GenericParameterAttributes_Contravariant = 2,
-	System_Reflection_GenericParameterAttributes_Covariant = 1,
-	System_Reflection_GenericParameterAttributes_DefaultConstructorConstraint = 16,
-	System_Reflection_GenericParameterAttributes_None = 0,
-	System_Reflection_GenericParameterAttributes_NotNullableValueTypeConstraint = 8,
-	System_Reflection_GenericParameterAttributes_ReferenceTypeConstraint = 4,
-	System_Reflection_GenericParameterAttributes_SpecialConstraintMask = 28,
-	System_Reflection_GenericParameterAttributes_VarianceMask = 3,
+  System_Reflection_GenericParameterAttributes_Contravariant = 2,
+  System_Reflection_GenericParameterAttributes_Covariant = 1,
+  System_Reflection_GenericParameterAttributes_DefaultConstructorConstraint = 16,
+  System_Reflection_GenericParameterAttributes_None = 0,
+  System_Reflection_GenericParameterAttributes_NotNullableValueTypeConstraint = 8,
+  System_Reflection_GenericParameterAttributes_ReferenceTypeConstraint = 4,
+  System_Reflection_GenericParameterAttributes_SpecialConstraintMask = 28,
+  System_Reflection_GenericParameterAttributes_VarianceMask = 3,
 };
 
 @interface System_Reflection_GenericParameterAttributes : System_Enum

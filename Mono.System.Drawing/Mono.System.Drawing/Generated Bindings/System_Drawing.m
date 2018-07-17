@@ -3,13 +3,13 @@
 //
 // System_Drawing.m
 //
-// Dubrovnik based OS X Cocoa Objective-C to Mono bindings.
+// Dubrovnik based macOS Cocoa Objective-C to Mono bindings.
 //
 // This code was generated using a tool available as part of:
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     16/07/2018 23:41:20
+// Date:     17/07/2018 11:26:46
 //
 // Assembly: System.Drawing
 // Fullname: System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a

@@ -5,7 +5,6 @@
 //
 // Frameworks
 //
-#import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 
 //
@@ -28,12 +27,12 @@
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumSystem_StringComparison) {
-	System_StringComparison_CurrentCulture = 0,
-	System_StringComparison_CurrentCultureIgnoreCase = 1,
-	System_StringComparison_InvariantCulture = 2,
-	System_StringComparison_InvariantCultureIgnoreCase = 3,
-	System_StringComparison_Ordinal = 4,
-	System_StringComparison_OrdinalIgnoreCase = 5,
+  System_StringComparison_CurrentCulture = 0,
+  System_StringComparison_CurrentCultureIgnoreCase = 1,
+  System_StringComparison_InvariantCulture = 2,
+  System_StringComparison_InvariantCultureIgnoreCase = 3,
+  System_StringComparison_Ordinal = 4,
+  System_StringComparison_OrdinalIgnoreCase = 5,
 };
 
 @interface System_StringComparison : System_Enum

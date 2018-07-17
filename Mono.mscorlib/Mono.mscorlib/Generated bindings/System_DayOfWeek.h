@@ -5,7 +5,6 @@
 //
 // Frameworks
 //
-#import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 
 //
@@ -28,13 +27,13 @@
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumSystem_DayOfWeek) {
-	System_DayOfWeek_Friday = 5,
-	System_DayOfWeek_Monday = 1,
-	System_DayOfWeek_Saturday = 6,
-	System_DayOfWeek_Sunday = 0,
-	System_DayOfWeek_Thursday = 4,
-	System_DayOfWeek_Tuesday = 2,
-	System_DayOfWeek_Wednesday = 3,
+  System_DayOfWeek_Friday = 5,
+  System_DayOfWeek_Monday = 1,
+  System_DayOfWeek_Saturday = 6,
+  System_DayOfWeek_Sunday = 0,
+  System_DayOfWeek_Thursday = 4,
+  System_DayOfWeek_Tuesday = 2,
+  System_DayOfWeek_Wednesday = 3,
 };
 
 @interface System_DayOfWeek : System_Enum

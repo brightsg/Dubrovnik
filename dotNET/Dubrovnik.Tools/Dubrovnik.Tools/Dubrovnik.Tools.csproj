@@ -82,8 +82,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Net2ObjC.tt</DependentUpon>
     </Compile>
+    <Compile Include="Net2ObjC.Enum.cs" />
     <Compile Include="Net2ObjC.Method.cs" />
     <Compile Include="Net2ObjC.partial.cs" />
+    <Compile Include="Net2ObjC.Protocol.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="TemplatingEngineHost.cs" />

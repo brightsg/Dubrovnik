@@ -5,7 +5,6 @@
 //
 // Frameworks
 //
-#import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 
 //
@@ -28,10 +27,10 @@
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumSystem_UriPartial) {
-	System_UriPartial_Authority = 1,
-	System_UriPartial_Path = 2,
-	System_UriPartial_Query = 3,
-	System_UriPartial_Scheme = 0,
+  System_UriPartial_Authority = 1,
+  System_UriPartial_Path = 2,
+  System_UriPartial_Query = 3,
+  System_UriPartial_Scheme = 0,
 };
 
 @interface System_UriPartial : System_Enum

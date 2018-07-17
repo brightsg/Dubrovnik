@@ -5,7 +5,6 @@
 //
 // Frameworks
 //
-#import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 
 //
@@ -28,9 +27,9 @@
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumSystem_UriKind) {
-	System_UriKind_Absolute = 1,
-	System_UriKind_Relative = 2,
-	System_UriKind_RelativeOrAbsolute = 0,
+  System_UriKind_Absolute = 1,
+  System_UriKind_Relative = 2,
+  System_UriKind_RelativeOrAbsolute = 0,
 };
 
 @interface System_UriKind : System_Enum
