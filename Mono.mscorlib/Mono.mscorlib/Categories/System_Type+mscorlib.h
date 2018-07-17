@@ -10,7 +10,7 @@
 
 @interface System_Type (mscorlib)
 
-+ (instancetype)constructCoreType:(char *)typeName typeParameters:(NSArray<id> *)typeParameters;
-+ (instancetype)constructType:(char *)typeName monoImage:(MonoImage *)monoImage typeParameters:(NSArray<id> *)typeParameters;
++ (instancetype)constructCoreType:(const char *)typeName typeParameters:(NSArray<id> *)typeParameters;
++ (instancetype)constructType:(const char *)typeName monoImage:(MonoImage *)monoImage typeParameters:(NSArray<id> *)typeParameters;
 
 @end

@@ -30,14 +30,14 @@
 #pragma mark -
 #pragma mark Factory methods
 
-- (System_Object *)newWithCoreTypeName:(char *)genericTypeDefinitionName typeParameters:(NSArray <id> *)typeParameters
+- (System_Object *)newWithCoreTypeName:(const char *)genericTypeDefinitionName typeParameters:(NSArray <id> *)typeParameters
 {
     return [self newWithTypeName:genericTypeDefinitionName
                                              monoImage:mono_get_corlib()
                                         typeParameters:typeParameters];
 }
 
-- (System_Object *)newWithTypeName:(char *)typeName monoImage:(MonoImage *)monoImage typeParameters:(NSArray <id> *)typeParameters
+- (System_Object *)newWithTypeName:(const char *)typeName monoImage:(MonoImage *)monoImage typeParameters:(NSArray <id> *)typeParameters
 {
     System_Type *constructedType = [self constructType:typeName monoImage:monoImage typeParameters:typeParameters];
     id object = [System_Activator createInstance_withType:constructedType];
@@ -45,18 +45,18 @@
     return object;
 }
 
-- (System_Type *)constructCoreType:(char *)typeName typeParameters:(NSArray<id> *)typeParameters {
+- (System_Type *)constructCoreType:(const char *)typeName typeParameters:(NSArray<id> *)typeParameters {
     return [self constructType:typeName monoImage:mono_get_corlib() typeParameters:typeParameters];
 }
 
-- (System_Type *)constructType:(char *)typeName monoImage:(MonoImage *)monoImage typeParameters:(NSArray<id> *)typeParameters
+- (System_Type *)constructType:(const char *)typeName monoImage:(MonoImage *)monoImage typeParameters:(NSArray<id> *)typeParameters
 {
     // get System.Array of System.Type
     NSArray <System_Type *> *systemTypes = [self systemTypesForTypeParameters:typeParameters];
     System_Array *systemTypesManaged = [systemTypes managedArrayWithTypeName:[System_Type managedTypeName]];
     
     // get type representing type definition
-    MonoType *monoType = mono_reflection_type_from_name(typeName, monoImage);
+    MonoType *monoType = mono_reflection_type_from_name((char *)typeName, monoImage);
     MonoReflectionType *monoReflectionType = mono_type_get_object([DBManagedEnvironment currentDomain], monoType);
     System_Type *type = [System_Type objectWithMonoObject:(MonoObject *)monoReflectionType];
     
