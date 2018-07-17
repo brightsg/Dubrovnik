@@ -9,7 +9,7 @@
 //
 extern char DBCacheSuffixChar;
 
-#import <Foundation/Foundation.h>
+#import <AppKit/AppKit.h>
 #import "DBMonoIncludes.h"
 #import "DBManagedType.h"
 

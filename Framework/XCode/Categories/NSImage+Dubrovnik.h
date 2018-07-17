@@ -7,7 +7,7 @@
 //  Mono licence applies.
 //  https://github.com/mono/mono/blob/master/LICENSE
 //
-#import <Cocoa/Cocoa.h>
+#import <AppKit/AppKit.h>
 #import "DBMonoIncludes.h"
 
 @interface NSImage (Dubrovnik)

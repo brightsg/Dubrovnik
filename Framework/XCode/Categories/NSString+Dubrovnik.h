@@ -7,7 +7,7 @@
 //  Mono licence applies.
 //  https://github.com/mono/mono/blob/master/LICENSE
 //
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
 @class System_String, System_Object;

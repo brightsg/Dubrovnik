@@ -9,7 +9,7 @@
 //
 
 // module
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 #import "DBInvoke.h"
 #import "DBBoxing.h"
 

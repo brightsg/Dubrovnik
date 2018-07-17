@@ -5,7 +5,7 @@
 //  Created by Jonathan on 04/09/2013.
 //
 //
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 #import "DBType.h"
 
 @class DBManagedObject;
