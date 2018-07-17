@@ -410,7 +410,7 @@ your code will interact with the managed runtime.
 
 Dubrovnik provides two main classes: `DBMonoObject` and
 `DBMonoClass`. They can be thought of as wrappers around C# objects
-and classes. `DBMonoObject` serves as the base class for `System_Object`, our native warpper to `System.Object`.
+and classes. `DBMonoObject` serves as the base class for `System_Object`, our native wrapper to `System.Object`.
 
 So to call a method with this managed signature:
 
