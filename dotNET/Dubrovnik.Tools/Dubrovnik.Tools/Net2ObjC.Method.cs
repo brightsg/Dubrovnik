@@ -8,6 +8,43 @@ namespace Dubrovnik.Tools {
 	public partial class Net2ObjC {
 
 		//
+		// WriteMethods
+		//
+		public void WriteMethods(IList<MethodFacet> methods, Dictionary<string, object> options = null) {
+			if (methods.Any()) {
+				WritePragmaMark("Methods");
+
+				foreach (MethodFacet facet in methods) {
+
+					if (!Config.GenerateFacetBinding(facet)) {
+						WriteSkippedItem("method", facet.Description());
+						continue;
+					}
+
+					WriteFacetAsMethod(facet, options);
+				}
+			}
+		}
+
+		//
+		// WriteConstructors
+		//
+		public void WriteConstructors(IList<MethodFacet> methods) {
+			if (methods.Any()) {
+				WritePragmaMark("Constructors");
+
+				foreach (MethodFacet facet in methods) {
+					if (!Config.GenerateFacetBinding(facet)) {
+						WriteSkippedItem("constructor", facet.Description());
+						continue;
+					}
+
+					WriteFacetAsMethod(facet);
+				}
+			}
+		}
+
+		//
 		// WriteFacetAsMethod
 		//
 		public void WriteFacetAsMethod(MethodFacet facet, Dictionary<string, object> options = null) {

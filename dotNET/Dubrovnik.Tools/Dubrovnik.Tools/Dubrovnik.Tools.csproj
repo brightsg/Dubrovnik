@@ -76,6 +76,7 @@
     <Compile Include="Facets\StructFacet.cs" />
     <Compile Include="GeneratedFileExporter.cs" />
     <Compile Include="Net2ObjC.Accessor.cs" />
+    <Compile Include="Net2ObjC.Assembly.cs" />
     <Compile Include="Net2ObjC.Class.cs" />
     <Compile Include="Net2ObjC.cs">
       <AutoGen>True</AutoGen>
@@ -83,9 +84,15 @@
       <DependentUpon>Net2ObjC.tt</DependentUpon>
     </Compile>
     <Compile Include="Net2ObjC.Enum.cs" />
+    <Compile Include="Net2ObjC.Facet.cs" />
+    <Compile Include="Net2ObjC.Interface.cs" />
     <Compile Include="Net2ObjC.Method.cs" />
-    <Compile Include="Net2ObjC.partial.cs" />
+    <Compile Include="Net2ObjC.ObjC.cs" />
+    <Compile Include="Net2ObjC.Output.cs" />
+    <Compile Include="Net2ObjC.Main.cs" />
     <Compile Include="Net2ObjC.Protocol.cs" />
+    <Compile Include="Net2ObjC.Struct.cs" />
+    <Compile Include="Net2ObjC.Type.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="TemplatingEngineHost.cs" />

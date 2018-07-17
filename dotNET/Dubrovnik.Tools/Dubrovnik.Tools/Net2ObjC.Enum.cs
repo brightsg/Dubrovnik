@@ -4,6 +4,19 @@ namespace Dubrovnik.Tools {
 	public partial class Net2ObjC {
 
 		//
+		// WriteEnumeration
+		//
+		public void WriteEnumeration(EnumerationFacet facet) {
+			if (!Config.GenerateFacetBinding(facet)) {
+				return;
+			}
+
+			WriteClassStart(facet, "enumeration");
+			WriteFields(facet.Fields);
+			WriteClassEnd(facet);
+		}
+
+		//
 		// WriteFacetAsEnumeration
 		//
 		public void WriteFacetAsEnumeration(EnumerationFacet enumeration) {

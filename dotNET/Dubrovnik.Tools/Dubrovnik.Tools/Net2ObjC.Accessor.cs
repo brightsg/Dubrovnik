@@ -1,9 +1,46 @@
 ﻿using Dubrovnik.Tools.Facets;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Dubrovnik.Tools {
 	public partial class Net2ObjC {
+
+		//
+		// WriteFields
+		//
+		public void WriteFields(IList<FieldFacet> fields) {
+			if (fields.Any()) {
+				WritePragmaMark("Fields");
+
+				foreach (CodeFacet facet in fields) {
+					if (!Config.GenerateFacetBinding(facet)) {
+						WriteSkippedItem("field", facet.Description());
+						continue;
+					}
+
+					WriteFacetAsAccessor(facet);
+				}
+			}
+		}
+
+		//
+		// WriteProperties
+		//
+		public void WriteProperties(IList<PropertyFacet> properties, Dictionary<string, object> options = null) {
+			if (properties.Any()) {
+				WritePragmaMark("Properties");
+
+				foreach (PropertyFacet facet in properties) {
+					if (!Config.GenerateFacetBinding(facet)) {
+						WriteSkippedItem("property", facet.Description());
+						continue;
+					}
+
+					WriteFacetAsAccessor(facet, options);
+				}
+			}
+		}
 
 		//
 		// WriteFacetAsAccessor

@@ -5,6 +5,22 @@ namespace Dubrovnik.Tools {
 	public partial class Net2ObjC {
 
 		//
+		// WriteClass
+		//
+		public void WriteClass(ClassFacet facet) {
+			if (!Config.GenerateFacetBinding(facet)) {
+				return;
+			}
+
+			WriteClassStart(facet, "class");
+			WriteConstructors(facet.Constructors);
+			WriteFields(facet.Fields);
+			WriteProperties(facet.Properties);
+			WriteMethods(facet.Methods);
+			WriteClassEnd(facet);
+		}
+
+		//
 		// WriteClassStart
 		//
 		public void WriteClassStart(CodeFacet facet, string module, bool writeBanner = true) {
