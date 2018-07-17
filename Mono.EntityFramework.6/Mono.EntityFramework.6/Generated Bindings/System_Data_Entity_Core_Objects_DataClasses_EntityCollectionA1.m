@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1";
+	return "System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "EntityFramework";
+	return "EntityFramework";
 }
 
 #pragma mark -
@@ -76,45 +76,45 @@
 
 - (void)add_withItem:(System_Object *)p1
 {
-  [self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 - (void)attach_withEntities:(id <System_Collections_Generic_IEnumerableA1_>)p1
 {
-  [self invokeMonoMethod:"Attach(System.Collections.Generic.IEnumerable`1<System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1/TEntity>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Attach(System.Collections.Generic.IEnumerable`1<System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1/TEntity>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 - (void)attach_withEntity:(System_Object *)p1
 {
-  [self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 - (void)clear
 {
-  [self invokeMonoMethod:"Clear()" withNumArgs:0];
+	[self invokeMonoMethod:"Clear()" withNumArgs:0];
 }
 
 - (BOOL)contains_withItem:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Contains(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"Contains(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2
 {
-  [self invokeMonoMethod:"CopyTo(TEntity[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	[self invokeMonoMethod:"CopyTo(TEntity[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 }
 
 - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)createSourceQuery
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"CreateSourceQuery()" withNumArgs:0];
-  return [System_Data_Entity_Core_Objects_ObjectQueryA1 bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"CreateSourceQuery()" withNumArgs:0];
+	return [System_Data_Entity_Core_Objects_ObjectQueryA1 bestObjectWithMonoObject:monoObject];
 }
 
 - (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
-  return [System_Collections_Generic_IEnumeratorA1 bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
+	return [System_Collections_Generic_IEnumeratorA1 bestObjectWithMonoObject:monoObject];
 }
 
 /* Skipped method : System.Void Load(System.Data.Entity.Core.Objects.MergeOption mergeOption) */
@@ -127,8 +127,8 @@
 
 - (BOOL)remove_withItem:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 #pragma mark -

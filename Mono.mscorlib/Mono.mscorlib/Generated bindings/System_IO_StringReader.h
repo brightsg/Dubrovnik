@@ -44,17 +44,17 @@
 #pragma mark Constructors
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.IO.StringReader
-  @/textblock
+ Return
+   System.IO.StringReader
+ @/textblock
 */
 + (System_IO_StringReader *)new_withS:(NSString *)p1;
 
@@ -62,158 +62,158 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Close
+ Managed method.
+ @textblock
+ Name
+   Close
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)close;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Peek
+ Managed method.
+ @textblock
+ Name
+   Peek
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)peek;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Read
+ Managed method.
+ @textblock
+ Name
+   Read
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)read;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Read
+ Managed method.
+ @textblock
+ Name
+   Read
 
-  Params
-    System.Char[]
-    System.Int32
-    System.Int32
+ Params
+   System.Char[]
+   System.Int32
+   System.Int32
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)read_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ReadAsync
+ Managed method.
+ @textblock
+ Name
+   ReadAsync
 
-  Params
-    System.Char[]
-    System.Int32
-    System.Int32
+ Params
+   System.Char[]
+   System.Int32
+   System.Int32
 
-  Return
-    System.Threading.Tasks.Task`1<System.Int32>
-  @/textblock
+ Return
+   System.Threading.Tasks.Task`1<System.Int32>
+ @/textblock
 */
 - (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ReadBlockAsync
+ Managed method.
+ @textblock
+ Name
+   ReadBlockAsync
 
-  Params
-    System.Char[]
-    System.Int32
-    System.Int32
+ Params
+   System.Char[]
+   System.Int32
+   System.Int32
 
-  Return
-    System.Threading.Tasks.Task`1<System.Int32>
-  @/textblock
+ Return
+   System.Threading.Tasks.Task`1<System.Int32>
+ @/textblock
 */
 - (System_Threading_Tasks_TaskA1 *)readBlockAsync_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ReadLine
+ Managed method.
+ @textblock
+ Name
+   ReadLine
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.String
-  @/textblock
+ Return
+   System.String
+ @/textblock
 */
 - (NSString *)readLine;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ReadLineAsync
+ Managed method.
+ @textblock
+ Name
+   ReadLineAsync
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Threading.Tasks.Task`1<System.String>
-  @/textblock
+ Return
+   System.Threading.Tasks.Task`1<System.String>
+ @/textblock
 */
 - (System_Threading_Tasks_TaskA1 *)readLineAsync;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ReadToEnd
+ Managed method.
+ @textblock
+ Name
+   ReadToEnd
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.String
-  @/textblock
+ Return
+   System.String
+ @/textblock
 */
 - (NSString *)readToEnd;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ReadToEndAsync
+ Managed method.
+ @textblock
+ Name
+   ReadToEndAsync
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Threading.Tasks.Task`1<System.String>
-  @/textblock
+ Return
+   System.Threading.Tasks.Task`1<System.String>
+ @/textblock
 */
 - (System_Threading_Tasks_TaskA1 *)readToEndAsync;
 @end

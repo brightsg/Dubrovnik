@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Data.IDbConnection";
+	return "System.Data.IDbConnection";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "System.Data";
+	return "System.Data";
 }
 
 #pragma mark -
@@ -118,19 +118,19 @@
 
 - (void)changeDatabase_withDatabaseName:(NSString *)p1
 {
-  [self invokeMonoMethod:"System.Data.IDbConnection.ChangeDatabase(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"System.Data.IDbConnection.ChangeDatabase(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 - (void)close
 {
-  [self invokeMonoMethod:"System.Data.IDbConnection.Close()" withNumArgs:0];
+	[self invokeMonoMethod:"System.Data.IDbConnection.Close()" withNumArgs:0];
 }
 
 /* Skipped method : System.Data.IDbCommand CreateCommand() */
 
 - (void)open
 {
-  [self invokeMonoMethod:"System.Data.IDbConnection.Open()" withNumArgs:0];
+	[self invokeMonoMethod:"System.Data.IDbConnection.Open()" withNumArgs:0];
 }
 
 #pragma mark -

@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Text.RegularExpressions.Regex";
+	return "System.Text.RegularExpressions.Regex";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "System";
+	return "System";
 }
 
 #pragma mark -
@@ -35,8 +35,8 @@
 
 + (System_Text_RegularExpressions_Regex *)new_withPattern:(NSString *)p1
 {
-  System_Text_RegularExpressions_Regex * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return object;
+	System_Text_RegularExpressions_Regex * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return object;
 }
 
 /* Skipped constructor : System.Text.RegularExpressions.Regex (System.String pattern, System.Text.RegularExpressions.RegexOptions options) */
@@ -145,38 +145,38 @@ static int32_t m_cacheSize;
 
 + (NSString *)escape_withStr:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"Escape(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Escape(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 - (System_Array *)getGroupNames
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetGroupNames()" withNumArgs:0];
-  return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetGroupNames()" withNumArgs:0];
+	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
 - (System_Array *)getGroupNumbers
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetGroupNumbers()" withNumArgs:0];
-  return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetGroupNumbers()" withNumArgs:0];
+	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
 - (NSString *)groupNameFromNumber_withI:(int32_t)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GroupNameFromNumber(int)" withNumArgs:1, DB_VALUE(p1)];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GroupNameFromNumber(int)" withNumArgs:1, DB_VALUE(p1)];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 - (int32_t)groupNumberFromName_withName:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GroupNumberFromName(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_INT32(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"GroupNumberFromName(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_INT32(monoObject);
 }
 
 + (BOOL)isMatch_withInput:(NSString *)p1 pattern:(NSString *)p2
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"IsMatch(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsMatch(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 /* Skipped method : System.Boolean IsMatch(System.String input, System.String pattern, System.Text.RegularExpressions.RegexOptions options) */
@@ -185,14 +185,14 @@ static int32_t m_cacheSize;
 
 - (BOOL)isMatch_withInput:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"IsMatch(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"IsMatch(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (BOOL)isMatch_withInput:(NSString *)p1 startat:(int32_t)p2
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"IsMatch(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"IsMatch(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 /* Skipped method : System.Text.RegularExpressions.Match Match(System.String input, System.String pattern) */
@@ -219,8 +219,8 @@ static int32_t m_cacheSize;
 
 + (NSString *)replace_withInput:(NSString *)p1 pattern:(NSString *)p2 replacement:(NSString *)p3
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"Replace(string,string,string)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Replace(string,string,string)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 /* Skipped method : System.String Replace(System.String input, System.String pattern, System.String replacement, System.Text.RegularExpressions.RegexOptions options) */
@@ -229,20 +229,20 @@ static int32_t m_cacheSize;
 
 - (NSString *)replace_withInput:(NSString *)p1 replacement:(NSString *)p2
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 - (NSString *)replace_withInput:(NSString *)p1 replacement:(NSString *)p2 count:(int32_t)p3
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string,int)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string,int)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 - (NSString *)replace_withInput:(NSString *)p1 replacement:(NSString *)p2 count:(int32_t)p3 startat:(int32_t)p4
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string,int,int)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string,int,int)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 /* Skipped method : System.String Replace(System.String input, System.String pattern, System.Text.RegularExpressions.MatchEvaluator evaluator) */
@@ -259,8 +259,8 @@ static int32_t m_cacheSize;
 
 + (System_Array *)split_withInput:(NSString *)p1 pattern:(NSString *)p2
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"Split(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Split(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
 /* Skipped method : System.String[] Split(System.String input, System.String pattern, System.Text.RegularExpressions.RegexOptions options) */
@@ -269,32 +269,32 @@ static int32_t m_cacheSize;
 
 - (System_Array *)split_withInput:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Split(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"Split(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
 - (System_Array *)split_withInput:(NSString *)p1 count:(int32_t)p2
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Split(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-  return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"Split(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
 - (System_Array *)split_withInput:(NSString *)p1 count:(int32_t)p2 startat:(int32_t)p3
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Split(string,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
-  return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"Split(string,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
 - (NSString *)toString
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 + (NSString *)unescape_withStr:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"Unescape(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Unescape(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 #pragma mark -
@@ -302,7 +302,7 @@ static int32_t m_cacheSize;
 
 - (void)dealloc
 {
-  m_infiniteMatchTimeout = nil;
+	m_infiniteMatchTimeout = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

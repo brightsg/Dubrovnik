@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Data.Common.DbConnection";
+	return "System.Data.Common.DbConnection";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "System.Data";
+	return "System.Data";
 }
 
 #pragma mark -
@@ -158,12 +158,12 @@
 
 - (void)changeDatabase_withDatabaseName:(NSString *)p1
 {
-  [self invokeMonoMethod:"ChangeDatabase(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"ChangeDatabase(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 - (void)close
 {
-  [self invokeMonoMethod:"Close()" withNumArgs:0];
+	[self invokeMonoMethod:"Close()" withNumArgs:0];
 }
 
 /* Skipped method : System.Data.Common.DbCommand CreateCommand() */
@@ -178,19 +178,19 @@
 
 - (void)open
 {
-  [self invokeMonoMethod:"Open()" withNumArgs:0];
+	[self invokeMonoMethod:"Open()" withNumArgs:0];
 }
 
 - (System_Threading_Tasks_Task *)openAsync
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"OpenAsync()" withNumArgs:0];
-  return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"OpenAsync()" withNumArgs:0];
+	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Threading_Tasks_Task *)openAsync_withCancellationToken:(System_Threading_CancellationToken *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"OpenAsync(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"OpenAsync(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
 #pragma mark -

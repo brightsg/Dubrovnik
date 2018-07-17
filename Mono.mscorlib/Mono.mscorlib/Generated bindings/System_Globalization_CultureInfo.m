@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Globalization.CultureInfo";
+	return "System.Globalization.CultureInfo";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "mscorlib";
+	return "mscorlib";
 }
 
 #pragma mark -
@@ -35,26 +35,26 @@
 
 + (System_Globalization_CultureInfo *)new_withName:(NSString *)p1
 {
-  System_Globalization_CultureInfo * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return object;
+	System_Globalization_CultureInfo * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return object;
 }
 
 + (System_Globalization_CultureInfo *)new_withName:(NSString *)p1 useUserOverride:(BOOL)p2
 {
-  System_Globalization_CultureInfo * object = [[self alloc] initWithSignature:"string,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-  return object;
+	System_Globalization_CultureInfo * object = [[self alloc] initWithSignature:"string,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	return object;
 }
 
 + (System_Globalization_CultureInfo *)new_withCulture:(int32_t)p1
 {
-  System_Globalization_CultureInfo * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
-  return object;
+	System_Globalization_CultureInfo * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+	return object;
 }
 
 + (System_Globalization_CultureInfo *)new_withCulture:(int32_t)p1 useUserOverride:(BOOL)p2
 {
-  System_Globalization_CultureInfo * object = [[self alloc] initWithSignature:"int,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
-  return object;
+	System_Globalization_CultureInfo * object = [[self alloc] initWithSignature:"int,bool" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	return object;
 }
 
 #pragma mark -
@@ -534,81 +534,81 @@ static System_Globalization_CultureInfo * m_invariantCulture;
 
 - (void)clearCachedData
 {
-  [self invokeMonoMethod:"ClearCachedData()" withNumArgs:0];
+	[self invokeMonoMethod:"ClearCachedData()" withNumArgs:0];
 }
 
 - (System_Object *)clone
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
-  return [System_Object bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
+	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Globalization_CultureInfo *)createSpecificCulture_withName:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"CreateSpecificCulture(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateSpecificCulture(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
 }
 
 - (BOOL)equals_withValue:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (System_Globalization_CultureInfo *)getConsoleFallbackUICulture
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetConsoleFallbackUICulture()" withNumArgs:0];
-  return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetConsoleFallbackUICulture()" withNumArgs:0];
+	return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Globalization_CultureInfo *)getCultureInfo_withCulture:(int32_t)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultureInfo(int)" withNumArgs:1, DB_VALUE(p1)];
-  return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultureInfo(int)" withNumArgs:1, DB_VALUE(p1)];
+	return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Globalization_CultureInfo *)getCultureInfo_withName:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultureInfo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultureInfo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Globalization_CultureInfo *)getCultureInfo_withName:(NSString *)p1 altName:(NSString *)p2
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultureInfo(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultureInfo(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Globalization_CultureInfo *)getCultureInfoByIetfLanguageTag_withName:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultureInfoByIetfLanguageTag(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"GetCultureInfoByIetfLanguageTag(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
 }
 
 /* Skipped method : System.Globalization.CultureInfo[] GetCultures(System.Globalization.CultureTypes types) */
 
 - (System_Object *)getFormat_withFormatType:(System_Type *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetFormat(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_Object bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetFormat(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (int32_t)getHashCode
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
-  return DB_UNBOX_INT32(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+	return DB_UNBOX_INT32(monoObject);
 }
 
 + (System_Globalization_CultureInfo *)readOnly_withCi:(System_Globalization_CultureInfo *)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Globalization.CultureInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Globalization.CultureInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
 }
 
 - (NSString *)toString
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 #pragma mark -
@@ -616,12 +616,12 @@ static System_Globalization_CultureInfo * m_invariantCulture;
 
 - (void)dealloc
 {
-  m_currentCulture = nil;
-  m_currentUICulture = nil;
-  m_defaultThreadCurrentCulture = nil;
-  m_defaultThreadCurrentUICulture = nil;
-  m_installedUICulture = nil;
-  m_invariantCulture = nil;
+	m_currentCulture = nil;
+	m_currentUICulture = nil;
+	m_defaultThreadCurrentCulture = nil;
+	m_defaultThreadCurrentUICulture = nil;
+	m_installedUICulture = nil;
+	m_invariantCulture = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

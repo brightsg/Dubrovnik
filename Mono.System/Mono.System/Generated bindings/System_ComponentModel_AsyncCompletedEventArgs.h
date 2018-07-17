@@ -39,19 +39,19 @@
 #pragma mark Constructors
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    System.Exception
-    System.Boolean
-    System.Object
+ Params
+   System.Exception
+   System.Boolean
+   System.Object
 
-  Return
-    System.ComponentModel.AsyncCompletedEventArgs
-  @/textblock
+ Return
+   System.ComponentModel.AsyncCompletedEventArgs
+ @/textblock
 */
 + (System_ComponentModel_AsyncCompletedEventArgs *)new_withError:(System_Exception *)p1 cancelled:(BOOL)p2 userState:(System_Object *)p3;
 
@@ -59,38 +59,38 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Cancelled
+ Managed property.
+ @textblock
+ Name
+   Cancelled
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL cancelled;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Error
+ Managed property.
+ @textblock
+ Name
+   Error
 
-  Type
-    System.Exception
-  @/textblock
+ Type
+   System.Exception
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Exception * error;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    UserState
+ Managed property.
+ @textblock
+ Name
+   UserState
 
-  Type
-    System.Object
-  @/textblock
+ Type
+   System.Object
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Object * userState;
 @end

@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Collections.Generic.IEnumerable`1";
+	return "System.Collections.Generic.IEnumerable`1";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "mscorlib";
+	return "mscorlib";
 }
 
 #pragma mark -
@@ -35,8 +35,8 @@
 
 - (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IEnumerable`1<System.Collections.Generic.IEnumerable`1+T>.GetEnumerator()" withNumArgs:0];
-  return [System_Collections_Generic_IEnumeratorA1 bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IEnumerable`1<System.Collections.Generic.IEnumerable`1+T>.GetEnumerator()" withNumArgs:0];
+	return [System_Collections_Generic_IEnumeratorA1 bestObjectWithMonoObject:monoObject];
 }
 
 #pragma mark -

@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Boolean";
+	return "System.Boolean";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "mscorlib";
+	return "mscorlib";
 }
 
 #pragma mark -
@@ -58,54 +58,54 @@ static NSString * m_trueString;
 
 - (int32_t)compareTo_withObj:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_INT32(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_INT32(monoObject);
 }
 
 - (int32_t)compareTo_withValue:(BOOL)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(bool)" withNumArgs:1, DB_VALUE(p1)];
-  return DB_UNBOX_INT32(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(bool)" withNumArgs:1, DB_VALUE(p1)];
+	return DB_UNBOX_INT32(monoObject);
 }
 
 - (BOOL)equals_withObjObject:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (BOOL)equals_withObjBool:(BOOL)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Equals(bool)" withNumArgs:1, DB_VALUE(p1)];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(bool)" withNumArgs:1, DB_VALUE(p1)];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (int32_t)getHashCode
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
-  return DB_UNBOX_INT32(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+	return DB_UNBOX_INT32(monoObject);
 }
 
 /* Skipped method : System.TypeCode GetTypeCode() */
 
 + (BOOL)parse_withValue:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (NSString *)toString
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 /* Skipped method : System.String ToString(System.IFormatProvider provider) */
 
 + (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(BOOL*)p2
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,bool&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,bool&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 #pragma mark -
@@ -113,8 +113,8 @@ static NSString * m_trueString;
 
 - (void)dealloc
 {
-  m_falseString = nil;
-  m_trueString = nil;
+	m_falseString = nil;
+	m_trueString = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

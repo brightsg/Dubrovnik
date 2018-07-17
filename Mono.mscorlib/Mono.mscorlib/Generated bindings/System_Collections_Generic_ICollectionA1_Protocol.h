@@ -86,26 +86,26 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Count
+ Managed property.
+ @textblock
+ Name
+   Count
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 @property (nonatomic, readonly) int32_t count;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    IsReadOnly
+ Managed property.
+ @textblock
+ Name
+   IsReadOnly
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL isReadOnly;
 
@@ -113,78 +113,78 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Add
+ Managed method.
+ @textblock
+ Name
+   Add
 
-  Params
-    <System.Collections.Generic.ICollection`1+T>
+ Params
+   <System.Collections.Generic.ICollection`1+T>
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)add_withItem:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Clear
+ Managed method.
+ @textblock
+ Name
+   Clear
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)clear;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Contains
+ Managed method.
+ @textblock
+ Name
+   Contains
 
-  Params
-    <System.Collections.Generic.ICollection`1+T>
+ Params
+   <System.Collections.Generic.ICollection`1+T>
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)contains_withItem:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CopyTo
+ Managed method.
+ @textblock
+ Name
+   CopyTo
 
-  Params
-    T[]
-    System.Int32
+ Params
+   T[]
+   System.Int32
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Remove
+ Managed method.
+ @textblock
+ Name
+   Remove
 
-  Params
-    <System.Collections.Generic.ICollection`1+T>
+ Params
+   <System.Collections.Generic.ICollection`1+T>
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)remove_withItem:(System_Object *)p1;
 #endif
@@ -205,26 +205,26 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Count
+ Managed property.
+ @textblock
+ Name
+   Count
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 @property (nonatomic, readonly) int32_t count;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    IsReadOnly
+ Managed property.
+ @textblock
+ Name
+   IsReadOnly
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL isReadOnly;
 
@@ -232,78 +232,78 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Add
+ Managed method.
+ @textblock
+ Name
+   Add
 
-  Params
-    <System.Collections.Generic.ICollection`1+T>
+ Params
+   <System.Collections.Generic.ICollection`1+T>
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)add_withItem:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Clear
+ Managed method.
+ @textblock
+ Name
+   Clear
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)clear;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Contains
+ Managed method.
+ @textblock
+ Name
+   Contains
 
-  Params
-    <System.Collections.Generic.ICollection`1+T>
+ Params
+   <System.Collections.Generic.ICollection`1+T>
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)contains_withItem:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CopyTo
+ Managed method.
+ @textblock
+ Name
+   CopyTo
 
-  Params
-    T[]
-    System.Int32
+ Params
+   T[]
+   System.Int32
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Remove
+ Managed method.
+ @textblock
+ Name
+   Remove
 
-  Params
-    <System.Collections.Generic.ICollection`1+T>
+ Params
+   <System.Collections.Generic.ICollection`1+T>
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)remove_withItem:(System_Object *)p1;
 

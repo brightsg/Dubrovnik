@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Collections.Generic.Dictionary`2";
+	return "System.Collections.Generic.Dictionary`2";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "mscorlib";
+	return "mscorlib";
 }
 
 #pragma mark -
@@ -35,8 +35,8 @@
 
 + (System_Collections_Generic_DictionaryA2 *)new_withCapacity:(int32_t)p1
 {
-  System_Collections_Generic_DictionaryA2 * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
-  return object;
+	System_Collections_Generic_DictionaryA2 * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+	return object;
 }
 
 /* Skipped constructor : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue> (System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey> comparer) */
@@ -45,8 +45,8 @@
 
 + (System_Collections_Generic_DictionaryA2 *)new_withDictionary:(id <System_Collections_Generic_IDictionaryA2_>)p1
 {
-  System_Collections_Generic_DictionaryA2 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IDictionary`2<System.Collections.Generic.Dictionary`2/TKey, System.Collections.Generic.Dictionary`2/TValue>" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return object;
+	System_Collections_Generic_DictionaryA2 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IDictionary`2<System.Collections.Generic.Dictionary`2/TKey, System.Collections.Generic.Dictionary`2/TValue>" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return object;
 }
 
 /* Skipped constructor : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue> (System.Collections.Generic.IDictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue> dictionary, System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey> comparer) */
@@ -120,62 +120,62 @@
 
 - (System_Object *)get_Item_withKey:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"get_Item(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_Object bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"get_Item(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (void)set_Item_withKey:(System_Object *)p1 value:(System_Object *)p2
 {
-  [self invokeMonoMethod:"set_Item(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	[self invokeMonoMethod:"set_Item(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 }
 
 - (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2
 {
-  [self invokeMonoMethod:"Add(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Add(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 }
 
 - (void)clear
 {
-  [self invokeMonoMethod:"Clear()" withNumArgs:0];
+	[self invokeMonoMethod:"Clear()" withNumArgs:0];
 }
 
 - (BOOL)containsKey_withKey:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"ContainsKey(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"ContainsKey(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (BOOL)containsValue_withValue:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"ContainsValue(<_T_1>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"ContainsValue(<_T_1>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (System_Collections_Generic_DictionaryA2__Enumerator *)getEnumerator
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
-  return [System_Collections_Generic_DictionaryA2__Enumerator bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
+	return [System_Collections_Generic_DictionaryA2__Enumerator bestObjectWithMonoObject:monoObject];
 }
 
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 
 - (void)onDeserialization_withSender:(System_Object *)p1
 {
-  [self invokeMonoMethod:"OnDeserialization(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"OnDeserialization(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 - (BOOL)remove_withKey:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2
 {
-  void *refPtr2 = [*p2 monoRTInvokeArg];
-  MonoObject *monoObject = [self invokeMonoMethod:"TryGetValue(<_T_0>,System.Collections.Generic.Dictionary`2/TValue&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
-  *p2 = [System_Object bestObjectWithMonoObject:refPtr2];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	void *refPtr2 = [*p2 monoRTInvokeArg];
+	MonoObject *monoObject = [self invokeMonoMethod:"TryGetValue(<_T_0>,System.Collections.Generic.Dictionary`2/TValue&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 #pragma mark -

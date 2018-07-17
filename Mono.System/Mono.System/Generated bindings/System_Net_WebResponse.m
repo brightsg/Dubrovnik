@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Net.WebResponse";
+	return "System.Net.WebResponse";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "System";
+	return "System";
 }
 
 #pragma mark -
@@ -186,18 +186,18 @@
 
 - (void)close
 {
-  [self invokeMonoMethod:"Close()" withNumArgs:0];
+	[self invokeMonoMethod:"Close()" withNumArgs:0];
 }
 
 - (void)dispose
 {
-  [self invokeMonoMethod:"Dispose()" withNumArgs:0];
+	[self invokeMonoMethod:"Dispose()" withNumArgs:0];
 }
 
 - (System_IO_Stream *)getResponseStream
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetResponseStream()" withNumArgs:0];
-  return [System_IO_Stream bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetResponseStream()" withNumArgs:0];
+	return [System_IO_Stream bestObjectWithMonoObject:monoObject];
 }
 
 #pragma mark -

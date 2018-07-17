@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Linq.IOrderedQueryable";
+	return "System.Linq.IOrderedQueryable";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "System.Core";
+	return "System.Core";
 }
 
 #pragma mark -

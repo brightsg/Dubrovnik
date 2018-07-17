@@ -41,14 +41,14 @@
 /* Skipped property : System.Data.Entity.Core.EntityKey EntityKey */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    EntityState
+ Managed property.
+ @textblock
+ Name
+   EntityState
 
-  Type
-    System.Data.Entity.EntityState
-  @/textblock
+ Type
+   System.Data.Entity.EntityState
+ @/textblock
 */
 @property (nonatomic, readonly) int32_t entityState;
 @end

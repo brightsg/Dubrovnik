@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Runtime.InteropServices._Exception";
+	return "System.Runtime.InteropServices._Exception";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "mscorlib";
+	return "mscorlib";
 }
 
 #pragma mark -
@@ -188,34 +188,34 @@
 
 - (BOOL)equals_withObj:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Exception.Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Exception.Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (System_Exception *)getBaseException
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Exception.GetBaseException()" withNumArgs:0];
-  return [System_Exception bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Exception.GetBaseException()" withNumArgs:0];
+	return [System_Exception bestObjectWithMonoObject:monoObject];
 }
 
 - (int32_t)getHashCode
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Exception.GetHashCode()" withNumArgs:0];
-  return DB_UNBOX_INT32(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Exception.GetHashCode()" withNumArgs:0];
+	return DB_UNBOX_INT32(monoObject);
 }
 
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 
 - (System_Type *)getType
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Exception.GetType()" withNumArgs:0];
-  return [System_Type bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Exception.GetType()" withNumArgs:0];
+	return [System_Type bestObjectWithMonoObject:monoObject];
 }
 
 - (NSString *)toString
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Exception.ToString()" withNumArgs:0];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Exception.ToString()" withNumArgs:0];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 #pragma mark -

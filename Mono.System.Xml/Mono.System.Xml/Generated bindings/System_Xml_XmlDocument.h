@@ -48,14 +48,14 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    BaseURI
+ Managed property.
+ @textblock
+ Name
+   BaseURI
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * baseURI;
 
@@ -66,62 +66,62 @@
 /* Skipped property : System.Xml.XmlImplementation Implementation */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    InnerText
+ Managed property.
+ @textblock
+ Name
+   InnerText
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong) NSString * innerText;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    InnerXml
+ Managed property.
+ @textblock
+ Name
+   InnerXml
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong) NSString * innerXml;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    IsReadOnly
+ Managed property.
+ @textblock
+ Name
+   IsReadOnly
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL isReadOnly;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    LocalName
+ Managed property.
+ @textblock
+ Name
+   LocalName
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * localName;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Name
+ Managed property.
+ @textblock
+ Name
+   Name
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * name;
 
@@ -130,28 +130,28 @@
 /* Skipped property : System.Xml.XmlNodeType NodeType */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    OwnerDocument
+ Managed property.
+ @textblock
+ Name
+   OwnerDocument
 
-  Type
-    System.Xml.XmlDocument
-  @/textblock
+ Type
+   System.Xml.XmlDocument
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Xml_XmlDocument * ownerDocument;
 
 /* Skipped property : System.Xml.XmlNode ParentNode */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    PreserveWhitespace
+ Managed property.
+ @textblock
+ Name
+   PreserveWhitespace
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic) BOOL preserveWhitespace;
 
@@ -215,96 +215,96 @@
 /* Skipped method : System.Xml.XmlNode ImportNode(System.Xml.XmlNode node, System.Boolean deep) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Load
+ Managed method.
+ @textblock
+ Name
+   Load
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)load_withFilename:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Load
+ Managed method.
+ @textblock
+ Name
+   Load
 
-  Params
-    System.IO.Stream
+ Params
+   System.IO.Stream
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)load_withInStream:(System_IO_Stream *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Load
+ Managed method.
+ @textblock
+ Name
+   Load
 
-  Params
-    System.IO.TextReader
+ Params
+   System.IO.TextReader
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)load_withTxtReader:(System_IO_TextReader *)p1;
 
 /* Skipped method : System.Void Load(System.Xml.XmlReader reader) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    LoadXml
+ Managed method.
+ @textblock
+ Name
+   LoadXml
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)loadXml_withXml:(NSString *)p1;
 
 /* Skipped method : System.Xml.XmlNode ReadNode(System.Xml.XmlReader reader) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Save
+ Managed method.
+ @textblock
+ Name
+   Save
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)save_withFilename:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Save
+ Managed method.
+ @textblock
+ Name
+   Save
 
-  Params
-    System.IO.Stream
+ Params
+   System.IO.Stream
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)save_withOutStream:(System_IO_Stream *)p1;
 

@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Data.Entity.Core.Objects.DataClasses.EntityReference`1";
+	return "System.Data.Entity.Core.Objects.DataClasses.EntityReference`1";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "EntityFramework";
+	return "EntityFramework";
 }
 
 #pragma mark -
@@ -73,13 +73,13 @@
 
 - (void)attach_withEntity:(System_Object *)p1
 {
-  [self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)createSourceQuery
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"CreateSourceQuery()" withNumArgs:0];
-  return [System_Data_Entity_Core_Objects_ObjectQueryA1 bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"CreateSourceQuery()" withNumArgs:0];
+	return [System_Data_Entity_Core_Objects_ObjectQueryA1 bestObjectWithMonoObject:monoObject];
 }
 
 /* Skipped method : System.Void Load(System.Data.Entity.Core.Objects.MergeOption mergeOption) */

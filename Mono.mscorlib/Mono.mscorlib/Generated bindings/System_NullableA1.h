@@ -40,17 +40,17 @@
 #pragma mark Constructors
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    <System.Nullable`1+T>
+ Params
+   <System.Nullable`1+T>
 
-  Return
-    System.Nullable`1<System.Nullable`1+T>
-  @/textblock
+ Return
+   System.Nullable`1<System.Nullable`1+T>
+ @/textblock
 */
 + (System_NullableA1 *)new_withValue:(System_Object *)p1;
 
@@ -58,26 +58,26 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    HasValue
+ Managed property.
+ @textblock
+ Name
+   HasValue
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL hasValue;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Value
+ Managed property.
+ @textblock
+ Name
+   Value
 
-  Type
-    <System.Nullable`1+T>
-  @/textblock
+ Type
+   <System.Nullable`1+T>
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Object * value;
 
@@ -85,107 +85,107 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Equals
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-  Params
-    System.Object
+ Params
+   System.Object
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)equals_withOther:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetHashCode
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)getHashCode;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetValueOrDefault
+ Managed method.
+ @textblock
+ Name
+   GetValueOrDefault
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    <System.Nullable`1+T>
-  @/textblock
+ Return
+   <System.Nullable`1+T>
+ @/textblock
 */
 - (System_Object *)getValueOrDefault;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetValueOrDefault
+ Managed method.
+ @textblock
+ Name
+   GetValueOrDefault
 
-  Params
-    <System.Nullable`1+T>
+ Params
+   <System.Nullable`1+T>
 
-  Return
-    <System.Nullable`1+T>
-  @/textblock
+ Return
+   <System.Nullable`1+T>
+ @/textblock
 */
 - (System_Object *)getValueOrDefault_withDefaultValue:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    op_Explicit
+ Managed method.
+ @textblock
+ Name
+   op_Explicit
 
-  Params
-    System.Nullable`1<System.Nullable`1+T>
+ Params
+   System.Nullable`1<System.Nullable`1+T>
 
-  Return
-    <System.Nullable`1+T>
-  @/textblock
+ Return
+   <System.Nullable`1+T>
+ @/textblock
 */
 + (System_Object *)op_Explicit_withValue:(System_NullableA1 *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    op_Implicit
+ Managed method.
+ @textblock
+ Name
+   op_Implicit
 
-  Params
-    <System.Nullable`1+T>
+ Params
+   <System.Nullable`1+T>
 
-  Return
-    System.Nullable`1<System.Nullable`1+T>
-  @/textblock
+ Return
+   System.Nullable`1<System.Nullable`1+T>
+ @/textblock
 */
 + (System_NullableA1 *)op_Implicit_withValue:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ToString
+ Managed method.
+ @textblock
+ Name
+   ToString
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.String
-  @/textblock
+ Return
+   System.String
+ @/textblock
 */
 - (NSString *)toString;
 @end

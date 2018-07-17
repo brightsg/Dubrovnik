@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.DBNull";
+	return "System.DBNull";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "mscorlib";
+	return "mscorlib";
 }
 
 #pragma mark -
@@ -52,8 +52,8 @@ static System_DBNull * m_value;
 
 - (NSString *)toString
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 /* Skipped method : System.String ToString(System.IFormatProvider provider) */
@@ -63,7 +63,7 @@ static System_DBNull * m_value;
 
 - (void)dealloc
 {
-  m_value = nil;
+	m_value = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

@@ -46,81 +46,81 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Equals
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-  Params
-    System.Object
+ Params
+   System.Object
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)equals_withObj:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetHashCode
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)getHashCode;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetInvocationList
+ Managed method.
+ @textblock
+ Name
+   GetInvocationList
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Delegate[]
-  @/textblock
+ Return
+   System.Delegate[]
+ @/textblock
 */
 - (System_Array *)getInvocationList;
 
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    op_Equality
+ Managed method.
+ @textblock
+ Name
+   op_Equality
 
-  Params
-    System.MulticastDelegate
-    System.MulticastDelegate
+ Params
+   System.MulticastDelegate
+   System.MulticastDelegate
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)op_Equality_withD1:(System_MulticastDelegate *)p1 d2:(System_MulticastDelegate *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    op_Inequality
+ Managed method.
+ @textblock
+ Name
+   op_Inequality
 
-  Params
-    System.MulticastDelegate
-    System.MulticastDelegate
+ Params
+   System.MulticastDelegate
+   System.MulticastDelegate
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)op_Inequality_withD1:(System_MulticastDelegate *)p1 d2:(System_MulticastDelegate *)p2;
 @end

@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.IO.FileInfo";
+	return "System.IO.FileInfo";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "mscorlib";
+	return "mscorlib";
 }
 
 #pragma mark -
@@ -35,8 +35,8 @@
 
 + (System_IO_FileInfo *)new_withFileName:(NSString *)p1
 {
-  System_IO_FileInfo * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return object;
+	System_IO_FileInfo * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return object;
 }
 
 #pragma mark -
@@ -163,14 +163,14 @@
 
 - (System_IO_FileInfo *)copyTo_withDestFileName:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"CopyTo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"CopyTo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
 }
 
 - (System_IO_FileInfo *)copyTo_withDestFileName:(NSString *)p1 overwrite:(BOOL)p2
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"CopyTo(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-  return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"CopyTo(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
 }
 
 /* Skipped method : System.IO.FileStream Create() */
@@ -179,17 +179,17 @@
 
 - (void)decrypt
 {
-  [self invokeMonoMethod:"Decrypt()" withNumArgs:0];
+	[self invokeMonoMethod:"Decrypt()" withNumArgs:0];
 }
 
 - (void)delete
 {
-  [self invokeMonoMethod:"Delete()" withNumArgs:0];
+	[self invokeMonoMethod:"Delete()" withNumArgs:0];
 }
 
 - (void)encrypt
 {
-  [self invokeMonoMethod:"Encrypt()" withNumArgs:0];
+	[self invokeMonoMethod:"Encrypt()" withNumArgs:0];
 }
 
 /* Skipped method : System.Security.AccessControl.FileSecurity GetAccessControl() */
@@ -198,7 +198,7 @@
 
 - (void)moveTo_withDestFileName:(NSString *)p1
 {
-  [self invokeMonoMethod:"MoveTo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"MoveTo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 /* Skipped method : System.IO.FileStream Open(System.IO.FileMode mode) */
@@ -215,22 +215,22 @@
 
 - (System_IO_FileInfo *)replace_withDestinationFileName:(NSString *)p1 destinationBackupFileName:(NSString *)p2
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
 }
 
 - (System_IO_FileInfo *)replace_withDestinationFileName:(NSString *)p1 destinationBackupFileName:(NSString *)p2 ignoreMetadataErrors:(BOOL)p3
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
-  return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+	return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
 }
 
 /* Skipped method : System.Void SetAccessControl(System.Security.AccessControl.FileSecurity fileSecurity) */
 
 - (NSString *)toString
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 #pragma mark -

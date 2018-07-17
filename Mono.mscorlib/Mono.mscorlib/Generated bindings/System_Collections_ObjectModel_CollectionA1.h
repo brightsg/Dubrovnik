@@ -58,14 +58,14 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Count
+ Managed property.
+ @textblock
+ Name
+   Count
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 @property (nonatomic, readonly) int32_t count;
 
@@ -73,170 +73,170 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    get_Item
+ Managed method.
+ @textblock
+ Name
+   get_Item
 
-  Params
-    System.Int32
+ Params
+   System.Int32
 
-  Return
-    <System.Collections.ObjectModel.Collection`1+T>
-  @/textblock
+ Return
+   <System.Collections.ObjectModel.Collection`1+T>
+ @/textblock
 */
 - (System_Object *)get_Item_withIndex:(int32_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    set_Item
+ Managed method.
+ @textblock
+ Name
+   set_Item
 
-  Params
-    System.Int32
-    <System.Collections.ObjectModel.Collection`1+T>
+ Params
+   System.Int32
+   <System.Collections.ObjectModel.Collection`1+T>
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Add
+ Managed method.
+ @textblock
+ Name
+   Add
 
-  Params
-    <System.Collections.ObjectModel.Collection`1+T>
+ Params
+   <System.Collections.ObjectModel.Collection`1+T>
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)add_withItem:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Clear
+ Managed method.
+ @textblock
+ Name
+   Clear
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)clear;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Contains
+ Managed method.
+ @textblock
+ Name
+   Contains
 
-  Params
-    <System.Collections.ObjectModel.Collection`1+T>
+ Params
+   <System.Collections.ObjectModel.Collection`1+T>
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)contains_withItem:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CopyTo
+ Managed method.
+ @textblock
+ Name
+   CopyTo
 
-  Params
-    T[]
-    System.Int32
+ Params
+   T[]
+   System.Int32
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)copyTo_withArray:(System_Array *)p1 index:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetEnumerator
+ Managed method.
+ @textblock
+ Name
+   GetEnumerator
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Collections.Generic.IEnumerator`1<System.Collections.ObjectModel.Collection`1+T>
-  @/textblock
+ Return
+   System.Collections.Generic.IEnumerator`1<System.Collections.ObjectModel.Collection`1+T>
+ @/textblock
 */
 - (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IndexOf
+ Managed method.
+ @textblock
+ Name
+   IndexOf
 
-  Params
-    <System.Collections.ObjectModel.Collection`1+T>
+ Params
+   <System.Collections.ObjectModel.Collection`1+T>
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)indexOf_withItem:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Insert
+ Managed method.
+ @textblock
+ Name
+   Insert
 
-  Params
-    System.Int32
-    <System.Collections.ObjectModel.Collection`1+T>
+ Params
+   System.Int32
+   <System.Collections.ObjectModel.Collection`1+T>
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)insert_withIndex:(int32_t)p1 item:(System_Object *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Remove
+ Managed method.
+ @textblock
+ Name
+   Remove
 
-  Params
-    <System.Collections.ObjectModel.Collection`1+T>
+ Params
+   <System.Collections.ObjectModel.Collection`1+T>
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)remove_withItem:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    RemoveAt
+ Managed method.
+ @textblock
+ Name
+   RemoveAt
 
-  Params
-    System.Int32
+ Params
+   System.Int32
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)removeAt_withIndex:(int32_t)p1;
 @end

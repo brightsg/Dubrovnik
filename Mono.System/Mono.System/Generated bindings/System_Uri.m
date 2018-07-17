@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Uri";
+	return "System.Uri";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "System";
+	return "System";
 }
 
 #pragma mark -
@@ -35,38 +35,38 @@
 
 + (System_Uri *)new_withUriString:(NSString *)p1
 {
-  System_Uri * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return object;
+	System_Uri * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return object;
 }
 
 + (System_Uri *)new_withUriString:(NSString *)p1 dontEscape:(BOOL)p2
 {
-  System_Uri * object = [[self alloc] initWithSignature:"string,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-  return object;
+	System_Uri * object = [[self alloc] initWithSignature:"string,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	return object;
 }
 
 + (System_Uri *)new_withBaseUri:(System_Uri *)p1 relativeUri:(NSString *)p2 dontEscape:(BOOL)p3
 {
-  System_Uri * object = [[self alloc] initWithSignature:"System.Uri,string,bool" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
-  return object;
+	System_Uri * object = [[self alloc] initWithSignature:"System.Uri,string,bool" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+	return object;
 }
 
 + (System_Uri *)new_withUriString:(NSString *)p1 uriKind:(int32_t)p2
 {
-  System_Uri * object = [[self alloc] initWithSignature:"string,System.UriKind" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-  return object;
+	System_Uri * object = [[self alloc] initWithSignature:"string,System.UriKind" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	return object;
 }
 
 + (System_Uri *)new_withBaseUriSUri:(System_Uri *)p1 relativeUriString:(NSString *)p2
 {
-  System_Uri * object = [[self alloc] initWithSignature:"System.Uri,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return object;
+	System_Uri * object = [[self alloc] initWithSignature:"System.Uri,string" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return object;
 }
 
 + (System_Uri *)new_withBaseUriSUri:(System_Uri *)p1 relativeUriSUri:(System_Uri *)p2
 {
-  System_Uri * object = [[self alloc] initWithSignature:"System.Uri,System.Uri" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return object;
+	System_Uri * object = [[self alloc] initWithSignature:"System.Uri,System.Uri" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return object;
 }
 
 #pragma mark -
@@ -622,164 +622,164 @@ static NSString * m_uriSchemeNntp;
 
 + (int32_t)checkHostName_withName:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"CheckHostName(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_INT32(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CheckHostName(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_INT32(monoObject);
 }
 
 + (BOOL)checkSchemeName_withSchemeName:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"CheckSchemeName(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CheckSchemeName(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (int32_t)compare_withUri1:(System_Uri *)p1 uri2:(System_Uri *)p2 partsToCompare:(int32_t)p3 compareFormat:(int32_t)p4 comparisonType:(int32_t)p5
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"Compare(System.Uri,System.Uri,System.UriComponents,System.UriFormat,stringComparison)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];
-  return DB_UNBOX_INT32(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Compare(System.Uri,System.Uri,System.UriComponents,System.UriFormat,stringComparison)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];
+	return DB_UNBOX_INT32(monoObject);
 }
 
 - (BOOL)equals_withComparand:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (NSString *)escapeDataString_withStringToEscape:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"EscapeDataString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"EscapeDataString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 + (NSString *)escapeUriString_withStringToEscape:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"EscapeUriString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"EscapeUriString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 + (int32_t)fromHex_withDigit:(uint16_t)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"FromHex(char)" withNumArgs:1, DB_VALUE(p1)];
-  return DB_UNBOX_INT32(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FromHex(char)" withNumArgs:1, DB_VALUE(p1)];
+	return DB_UNBOX_INT32(monoObject);
 }
 
 - (NSString *)getComponents_withComponents:(int32_t)p1 format:(int32_t)p2
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetComponents(System.UriComponents,System.UriFormat)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetComponents(System.UriComponents,System.UriFormat)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 - (int32_t)getHashCode
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
-  return DB_UNBOX_INT32(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+	return DB_UNBOX_INT32(monoObject);
 }
 
 - (NSString *)getLeftPart_withPart:(int32_t)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetLeftPart(System.UriPartial)" withNumArgs:1, DB_VALUE(p1)];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetLeftPart(System.UriPartial)" withNumArgs:1, DB_VALUE(p1)];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 + (NSString *)hexEscape_withCharacter:(uint16_t)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"HexEscape(char)" withNumArgs:1, DB_VALUE(p1)];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"HexEscape(char)" withNumArgs:1, DB_VALUE(p1)];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 + (uint16_t)hexUnescape_withPattern:(NSString *)p1 indexRef:(int32_t*)p2
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"HexUnescape(string,int&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];
-  return DB_UNBOX_UINT16(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"HexUnescape(string,int&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];
+	return DB_UNBOX_UINT16(monoObject);
 }
 
 - (BOOL)isBaseOf_withUri:(System_Uri *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"IsBaseOf(System.Uri)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"IsBaseOf(System.Uri)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)isHexDigit_withCharacter:(uint16_t)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"IsHexDigit(char)" withNumArgs:1, DB_VALUE(p1)];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsHexDigit(char)" withNumArgs:1, DB_VALUE(p1)];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)isHexEncoding_withPattern:(NSString *)p1 index:(int32_t)p2
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"IsHexEncoding(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsHexEncoding(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (BOOL)isWellFormedOriginalString
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"IsWellFormedOriginalString()" withNumArgs:0];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"IsWellFormedOriginalString()" withNumArgs:0];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)isWellFormedUriString_withUriString:(NSString *)p1 uriKind:(int32_t)p2
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"IsWellFormedUriString(string,System.UriKind)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsWellFormedUriString(string,System.UriKind)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (NSString *)makeRelative_withToUri:(System_Uri *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"MakeRelative(System.Uri)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"MakeRelative(System.Uri)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 - (System_Uri *)makeRelativeUri_withUri:(System_Uri *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"MakeRelativeUri(System.Uri)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_Uri bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"MakeRelativeUri(System.Uri)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_Uri bestObjectWithMonoObject:monoObject];
 }
 
 + (BOOL)op_Equality_withUri1:(System_Uri *)p1 uri2:(System_Uri *)p2
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Uri,System.Uri)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Uri,System.Uri)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)op_Inequality_withUri1:(System_Uri *)p1 uri2:(System_Uri *)p2
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Uri,System.Uri)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Uri,System.Uri)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (NSString *)toString
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 + (BOOL)tryCreate_withUriString:(NSString *)p1 uriKind:(int32_t)p2 resultRef:(System_Uri **)p3
 {
-  void *refPtr3 = [*p3 monoRTInvokeArg];
-  MonoObject *monoObject = [self invokeMonoClassMethod:"TryCreate(string,System.UriKind,System.Uri&)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), &refPtr3];
-  *p3 = [System_Object bestObjectWithMonoObject:refPtr3];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	void *refPtr3 = [*p3 monoRTInvokeArg];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryCreate(string,System.UriKind,System.Uri&)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), &refPtr3];
+	*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)tryCreate_withBaseUriSUri:(System_Uri *)p1 relativeUriString:(NSString *)p2 resultSUriRef:(System_Uri **)p3
 {
-  void *refPtr3 = [*p3 monoRTInvokeArg];
-  MonoObject *monoObject = [self invokeMonoClassMethod:"TryCreate(System.Uri,string,System.Uri&)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], &refPtr3];
-  *p3 = [System_Object bestObjectWithMonoObject:refPtr3];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	void *refPtr3 = [*p3 monoRTInvokeArg];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryCreate(System.Uri,string,System.Uri&)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], &refPtr3];
+	*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)tryCreate_withBaseUriSUri:(System_Uri *)p1 relativeUriSUri:(System_Uri *)p2 resultSUriRef:(System_Uri **)p3
 {
-  void *refPtr3 = [*p3 monoRTInvokeArg];
-  MonoObject *monoObject = [self invokeMonoClassMethod:"TryCreate(System.Uri,System.Uri,System.Uri&)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], &refPtr3];
-  *p3 = [System_Object bestObjectWithMonoObject:refPtr3];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	void *refPtr3 = [*p3 monoRTInvokeArg];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryCreate(System.Uri,System.Uri,System.Uri&)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], &refPtr3];
+	*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (NSString *)unescapeDataString_withStringToUnescape:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"UnescapeDataString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"UnescapeDataString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 #pragma mark -
@@ -787,17 +787,17 @@ static NSString * m_uriSchemeNntp;
 
 - (void)dealloc
 {
-  m_schemeDelimiter = nil;
-  m_uriSchemeFile = nil;
-  m_uriSchemeFtp = nil;
-  m_uriSchemeGopher = nil;
-  m_uriSchemeHttp = nil;
-  m_uriSchemeHttps = nil;
-  m_uriSchemeMailto = nil;
-  m_uriSchemeNetPipe = nil;
-  m_uriSchemeNetTcp = nil;
-  m_uriSchemeNews = nil;
-  m_uriSchemeNntp = nil;
+	m_schemeDelimiter = nil;
+	m_uriSchemeFile = nil;
+	m_uriSchemeFtp = nil;
+	m_uriSchemeGopher = nil;
+	m_uriSchemeHttp = nil;
+	m_uriSchemeHttps = nil;
+	m_uriSchemeMailto = nil;
+	m_uriSchemeNetPipe = nil;
+	m_uriSchemeNetTcp = nil;
+	m_uriSchemeNews = nil;
+	m_uriSchemeNntp = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

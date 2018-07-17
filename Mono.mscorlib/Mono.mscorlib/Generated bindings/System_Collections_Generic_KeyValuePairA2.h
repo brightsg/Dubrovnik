@@ -38,18 +38,18 @@
 #pragma mark Constructors
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    <System.Collections.Generic.KeyValuePair`2+TKey>
-    <System.Collections.Generic.KeyValuePair`2+TValue>
+ Params
+   <System.Collections.Generic.KeyValuePair`2+TKey>
+   <System.Collections.Generic.KeyValuePair`2+TValue>
 
-  Return
-    System.Collections.Generic.KeyValuePair`2<System.Collections.Generic.KeyValuePair`2+TKey, System.Collections.Generic.KeyValuePair`2+TValue>
-  @/textblock
+ Return
+   System.Collections.Generic.KeyValuePair`2<System.Collections.Generic.KeyValuePair`2+TKey, System.Collections.Generic.KeyValuePair`2+TValue>
+ @/textblock
 */
 + (System_Collections_Generic_KeyValuePairA2 *)new_withKey:(System_Object *)p1 value:(System_Object *)p2;
 
@@ -57,26 +57,26 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Key
+ Managed property.
+ @textblock
+ Name
+   Key
 
-  Type
-    <System.Collections.Generic.KeyValuePair`2+TKey>
-  @/textblock
+ Type
+   <System.Collections.Generic.KeyValuePair`2+TKey>
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Object * key;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Value
+ Managed property.
+ @textblock
+ Name
+   Value
 
-  Type
-    <System.Collections.Generic.KeyValuePair`2+TValue>
-  @/textblock
+ Type
+   <System.Collections.Generic.KeyValuePair`2+TValue>
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Object * value;
 
@@ -84,17 +84,17 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ToString
+ Managed method.
+ @textblock
+ Name
+   ToString
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.String
-  @/textblock
+ Return
+   System.String
+ @/textblock
 */
 - (NSString *)toString;
 @end

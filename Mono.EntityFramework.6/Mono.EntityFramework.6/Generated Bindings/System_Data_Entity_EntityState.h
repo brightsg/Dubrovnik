@@ -27,11 +27,11 @@
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumSystem_Data_Entity_EntityState) {
-  System_Data_Entity_EntityState_Added = 4,
-  System_Data_Entity_EntityState_Deleted = 8,
-  System_Data_Entity_EntityState_Detached = 1,
-  System_Data_Entity_EntityState_Modified = 16,
-  System_Data_Entity_EntityState_Unchanged = 2,
+	System_Data_Entity_EntityState_Added = 4,
+	System_Data_Entity_EntityState_Deleted = 8,
+	System_Data_Entity_EntityState_Detached = 1,
+	System_Data_Entity_EntityState_Modified = 16,
+	System_Data_Entity_EntityState_Unchanged = 2,
 };
 
 @interface System_Data_Entity_EntityState : System_Enum
@@ -46,62 +46,62 @@ typedef NS_ENUM(int32_t, enumSystem_Data_Entity_EntityState) {
 #pragma mark Fields
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Added
+ Managed field.
+ @textblock
+ Name
+   Added
 
-  Type
-    System.Data.Entity.EntityState
-  @/textblock
+ Type
+   System.Data.Entity.EntityState
+ @/textblock
 */
 + (int32_t)added;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Deleted
+ Managed field.
+ @textblock
+ Name
+   Deleted
 
-  Type
-    System.Data.Entity.EntityState
-  @/textblock
+ Type
+   System.Data.Entity.EntityState
+ @/textblock
 */
 + (int32_t)deleted;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Detached
+ Managed field.
+ @textblock
+ Name
+   Detached
 
-  Type
-    System.Data.Entity.EntityState
-  @/textblock
+ Type
+   System.Data.Entity.EntityState
+ @/textblock
 */
 + (int32_t)detached;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Modified
+ Managed field.
+ @textblock
+ Name
+   Modified
 
-  Type
-    System.Data.Entity.EntityState
-  @/textblock
+ Type
+   System.Data.Entity.EntityState
+ @/textblock
 */
 + (int32_t)modified;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Unchanged
+ Managed field.
+ @textblock
+ Name
+   Unchanged
 
-  Type
-    System.Data.Entity.EntityState
-  @/textblock
+ Type
+   System.Data.Entity.EntityState
+ @/textblock
 */
 + (int32_t)unchanged;
 @end

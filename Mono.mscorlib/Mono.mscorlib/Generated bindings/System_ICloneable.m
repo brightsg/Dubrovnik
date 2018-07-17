@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.ICloneable";
+	return "System.ICloneable";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "mscorlib";
+	return "mscorlib";
 }
 
 #pragma mark -
@@ -35,8 +35,8 @@
 
 - (System_Object *)clone
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"System.ICloneable.Clone()" withNumArgs:0];
-  return [System_Object bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"System.ICloneable.Clone()" withNumArgs:0];
+	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 #pragma mark -

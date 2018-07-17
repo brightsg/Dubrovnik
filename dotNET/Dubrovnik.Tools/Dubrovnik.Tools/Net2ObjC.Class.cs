@@ -48,7 +48,7 @@ namespace Dubrovnik.Tools {
 			if (OutputFileType == OutputType.Implementation) {
 				string name = CodeFacet.NormalizeGenericTypesInManagedIdentifier(facet.NameFromType);
 				WriteLine("{");
-				PushIndent("  ");
+				PushTabIndent();
 				WriteLine($"return \"{facet.TypeNamespace}.{name}\";");
 				PopIndent();
 				WriteLine("}");
@@ -58,7 +58,7 @@ namespace Dubrovnik.Tools {
 			WriteLine($"+ (const char *)monoAssemblyName{LT}");
 			if (OutputFileType == OutputType.Implementation) {
 				WriteLine("{");
-				PushIndent("  ");
+				PushTabIndent();
 				WriteLine($"return \"{AssemblyFacet.Name}\";");
 				PopIndent();
 				WriteLine("}");
@@ -119,7 +119,7 @@ namespace Dubrovnik.Tools {
 				WriteLine("");
 				WriteLine("- (void)dealloc");
 				WriteLine("{");
-				PushIndent("  ");
+				PushTabIndent();
 				foreach (string staticObjectPropertyName in StaticObjectPropertyStorageNames) {
 					WriteLine($"{staticObjectPropertyName} = nil;");
 				}

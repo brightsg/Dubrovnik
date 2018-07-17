@@ -45,33 +45,33 @@
 #pragma mark Constructors
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Exception
-  @/textblock
+ Return
+   System.Exception
+ @/textblock
 */
 + (System_Exception *)new_withMessage:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    System.String
-    System.Exception
+ Params
+   System.String
+   System.Exception
 
-  Return
-    System.Exception
-  @/textblock
+ Return
+   System.Exception
+ @/textblock
 */
 + (System_Exception *)new_withMessage:(NSString *)p1 innerException:(System_Exception *)p2;
 
@@ -81,86 +81,86 @@
 /* Skipped property : System.Collections.IDictionary Data */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    HelpLink
+ Managed property.
+ @textblock
+ Name
+   HelpLink
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong) NSString * helpLink;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    HResult
+ Managed property.
+ @textblock
+ Name
+   HResult
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 @property (nonatomic) int32_t hResult;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    InnerException
+ Managed property.
+ @textblock
+ Name
+   InnerException
 
-  Type
-    System.Exception
-  @/textblock
+ Type
+   System.Exception
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Exception * innerException;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Message
+ Managed property.
+ @textblock
+ Name
+   Message
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * message;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Source
+ Managed property.
+ @textblock
+ Name
+   Source
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong) NSString * source;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    StackTrace
+ Managed property.
+ @textblock
+ Name
+   StackTrace
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * stackTrace;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    TargetSite
+ Managed property.
+ @textblock
+ Name
+   TargetSite
 
-  Type
-    System.Reflection.MethodBase
-  @/textblock
+ Type
+   System.Reflection.MethodBase
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Reflection_MethodBase * targetSite;
 
@@ -168,49 +168,49 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetBaseException
+ Managed method.
+ @textblock
+ Name
+   GetBaseException
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Exception
-  @/textblock
+ Return
+   System.Exception
+ @/textblock
 */
 - (System_Exception *)getBaseException;
 
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetType
+ Managed method.
+ @textblock
+ Name
+   GetType
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Type
-  @/textblock
+ Return
+   System.Type
+ @/textblock
 */
 - (System_Type *)getType;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ToString
+ Managed method.
+ @textblock
+ Name
+   ToString
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.String
-  @/textblock
+ Return
+   System.String
+ @/textblock
 */
 - (NSString *)toString;
 @end

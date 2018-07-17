@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Data.Entity.Core.Objects.ObjectSet`1";
+	return "System.Data.Entity.Core.Objects.ObjectSet`1";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "EntityFramework";
+	return "EntityFramework";
 }
 
 #pragma mark -
@@ -40,34 +40,34 @@
 
 - (void)addObject_withEntity:(System_Object *)p1
 {
-  [self invokeMonoMethod:"AddObject(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"AddObject(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 - (System_Object *)applyCurrentValues_withCurrentEntity:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"ApplyCurrentValues(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_Object bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"ApplyCurrentValues(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Object *)applyOriginalValues_withOriginalEntity:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"ApplyOriginalValues(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_Object bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"ApplyOriginalValues(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (void)attach_withEntity:(System_Object *)p1
 {
-  [self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 - (void)deleteObject_withEntity:(System_Object *)p1
 {
-  [self invokeMonoMethod:"DeleteObject(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"DeleteObject(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 - (void)detach_withEntity:(System_Object *)p1
 {
-  [self invokeMonoMethod:"Detach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Detach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 #pragma mark -

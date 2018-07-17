@@ -27,12 +27,12 @@
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumSystem_StringComparison) {
-  System_StringComparison_CurrentCulture = 0,
-  System_StringComparison_CurrentCultureIgnoreCase = 1,
-  System_StringComparison_InvariantCulture = 2,
-  System_StringComparison_InvariantCultureIgnoreCase = 3,
-  System_StringComparison_Ordinal = 4,
-  System_StringComparison_OrdinalIgnoreCase = 5,
+	System_StringComparison_CurrentCulture = 0,
+	System_StringComparison_CurrentCultureIgnoreCase = 1,
+	System_StringComparison_InvariantCulture = 2,
+	System_StringComparison_InvariantCultureIgnoreCase = 3,
+	System_StringComparison_Ordinal = 4,
+	System_StringComparison_OrdinalIgnoreCase = 5,
 };
 
 @interface System_StringComparison : System_Enum
@@ -47,74 +47,74 @@ typedef NS_ENUM(int32_t, enumSystem_StringComparison) {
 #pragma mark Fields
 
 /**
-  Managed field.
-  @textblock
-  Name
-    CurrentCulture
+ Managed field.
+ @textblock
+ Name
+   CurrentCulture
 
-  Type
-    System.StringComparison
-  @/textblock
+ Type
+   System.StringComparison
+ @/textblock
 */
 + (int32_t)currentCulture;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    CurrentCultureIgnoreCase
+ Managed field.
+ @textblock
+ Name
+   CurrentCultureIgnoreCase
 
-  Type
-    System.StringComparison
-  @/textblock
+ Type
+   System.StringComparison
+ @/textblock
 */
 + (int32_t)currentCultureIgnoreCase;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    InvariantCulture
+ Managed field.
+ @textblock
+ Name
+   InvariantCulture
 
-  Type
-    System.StringComparison
-  @/textblock
+ Type
+   System.StringComparison
+ @/textblock
 */
 + (int32_t)invariantCulture;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    InvariantCultureIgnoreCase
+ Managed field.
+ @textblock
+ Name
+   InvariantCultureIgnoreCase
 
-  Type
-    System.StringComparison
-  @/textblock
+ Type
+   System.StringComparison
+ @/textblock
 */
 + (int32_t)invariantCultureIgnoreCase;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Ordinal
+ Managed field.
+ @textblock
+ Name
+   Ordinal
 
-  Type
-    System.StringComparison
-  @/textblock
+ Type
+   System.StringComparison
+ @/textblock
 */
 + (int32_t)ordinal;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    OrdinalIgnoreCase
+ Managed field.
+ @textblock
+ Name
+   OrdinalIgnoreCase
 
-  Type
-    System.StringComparison
-  @/textblock
+ Type
+   System.StringComparison
+ @/textblock
 */
 + (int32_t)ordinalIgnoreCase;
 @end

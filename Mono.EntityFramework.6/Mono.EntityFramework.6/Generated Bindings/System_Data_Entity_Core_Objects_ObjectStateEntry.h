@@ -46,14 +46,14 @@
 /* Skipped property : System.Data.Entity.Core.Objects.CurrentValueRecord CurrentValues */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Entity
+ Managed property.
+ @textblock
+ Name
+   Entity
 
-  Type
-    System.Object
-  @/textblock
+ Type
+   System.Object
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Object * entity;
 
@@ -62,14 +62,14 @@
 /* Skipped property : System.Data.Entity.Core.Metadata.Edm.EntitySetBase EntitySet */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    IsRelationship
+ Managed property.
+ @textblock
+ Name
+   IsRelationship
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL isRelationship;
 
@@ -80,14 +80,14 @@
 /* Skipped property : System.Data.Entity.Core.Objects.DataClasses.RelationshipManager RelationshipManager */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    State
+ Managed property.
+ @textblock
+ Name
+   State
 
-  Type
-    System.Data.Entity.EntityState
-  @/textblock
+ Type
+   System.Data.Entity.EntityState
+ @/textblock
 */
 @property (nonatomic) int32_t state;
 
@@ -95,154 +95,154 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    AcceptChanges
+ Managed method.
+ @textblock
+ Name
+   AcceptChanges
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)acceptChanges;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ApplyCurrentValues
+ Managed method.
+ @textblock
+ Name
+   ApplyCurrentValues
 
-  Params
-    System.Object
+ Params
+   System.Object
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)applyCurrentValues_withCurrentEntity:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ApplyOriginalValues
+ Managed method.
+ @textblock
+ Name
+   ApplyOriginalValues
 
-  Params
-    System.Object
+ Params
+   System.Object
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)applyOriginalValues_withOriginalEntity:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ChangeState
+ Managed method.
+ @textblock
+ Name
+   ChangeState
 
-  Params
-    System.Data.Entity.EntityState
+ Params
+   System.Data.Entity.EntityState
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)changeState_withState:(int32_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Delete
+ Managed method.
+ @textblock
+ Name
+   Delete
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)delete;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetModifiedProperties
+ Managed method.
+ @textblock
+ Name
+   GetModifiedProperties
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Collections.Generic.IEnumerable`1<System.String>
-  @/textblock
+ Return
+   System.Collections.Generic.IEnumerable`1<System.String>
+ @/textblock
 */
 - (id <System_Collections_Generic_IEnumerableA1>)getModifiedProperties;
 
 /* Skipped method : System.Data.Entity.Core.Objects.OriginalValueRecord GetUpdatableOriginalValues() */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsPropertyChanged
+ Managed method.
+ @textblock
+ Name
+   IsPropertyChanged
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)isPropertyChanged_withPropertyName:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    RejectPropertyChanges
+ Managed method.
+ @textblock
+ Name
+   RejectPropertyChanges
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)rejectPropertyChanges_withPropertyName:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    SetModified
+ Managed method.
+ @textblock
+ Name
+   SetModified
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)setModified;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    SetModifiedProperty
+ Managed method.
+ @textblock
+ Name
+   SetModifiedProperty
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)setModifiedProperty_withPropertyName:(NSString *)p1;
 @end

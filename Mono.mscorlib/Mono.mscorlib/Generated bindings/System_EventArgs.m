@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.EventArgs";
+	return "System.EventArgs";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "mscorlib";
+	return "mscorlib";
 }
 
 #pragma mark -
@@ -48,7 +48,7 @@ static System_EventArgs * m_empty;
 
 - (void)dealloc
 {
-  m_empty = nil;
+	m_empty = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

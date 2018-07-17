@@ -27,23 +27,23 @@
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumSystem_UriComponents) {
-  System_UriComponents_AbsoluteUri = 127,
-  System_UriComponents_Fragment = 64,
-  System_UriComponents_Host = 4,
-  System_UriComponents_HostAndPort = 132,
-  System_UriComponents_HttpRequestUrl = 61,
-  System_UriComponents_KeepDelimiter = 1073741824,
-  System_UriComponents_NormalizedHost = 256,
-  System_UriComponents_Path = 16,
-  System_UriComponents_PathAndQuery = 48,
-  System_UriComponents_Port = 8,
-  System_UriComponents_Query = 32,
-  System_UriComponents_Scheme = 1,
-  System_UriComponents_SchemeAndServer = 13,
-  System_UriComponents_SerializationInfoString = -2147483648,
-  System_UriComponents_StrongAuthority = 134,
-  System_UriComponents_StrongPort = 128,
-  System_UriComponents_UserInfo = 2,
+	System_UriComponents_AbsoluteUri = 127,
+	System_UriComponents_Fragment = 64,
+	System_UriComponents_Host = 4,
+	System_UriComponents_HostAndPort = 132,
+	System_UriComponents_HttpRequestUrl = 61,
+	System_UriComponents_KeepDelimiter = 1073741824,
+	System_UriComponents_NormalizedHost = 256,
+	System_UriComponents_Path = 16,
+	System_UriComponents_PathAndQuery = 48,
+	System_UriComponents_Port = 8,
+	System_UriComponents_Query = 32,
+	System_UriComponents_Scheme = 1,
+	System_UriComponents_SchemeAndServer = 13,
+	System_UriComponents_SerializationInfoString = -2147483648,
+	System_UriComponents_StrongAuthority = 134,
+	System_UriComponents_StrongPort = 128,
+	System_UriComponents_UserInfo = 2,
 };
 
 @interface System_UriComponents : System_Enum
@@ -58,206 +58,206 @@ typedef NS_ENUM(int32_t, enumSystem_UriComponents) {
 #pragma mark Fields
 
 /**
-  Managed field.
-  @textblock
-  Name
-    AbsoluteUri
+ Managed field.
+ @textblock
+ Name
+   AbsoluteUri
 
-  Type
-    System.UriComponents
-  @/textblock
+ Type
+   System.UriComponents
+ @/textblock
 */
 + (int32_t)absoluteUri;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Fragment
+ Managed field.
+ @textblock
+ Name
+   Fragment
 
-  Type
-    System.UriComponents
-  @/textblock
+ Type
+   System.UriComponents
+ @/textblock
 */
 + (int32_t)fragment;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Host
+ Managed field.
+ @textblock
+ Name
+   Host
 
-  Type
-    System.UriComponents
-  @/textblock
+ Type
+   System.UriComponents
+ @/textblock
 */
 + (int32_t)host;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    HostAndPort
+ Managed field.
+ @textblock
+ Name
+   HostAndPort
 
-  Type
-    System.UriComponents
-  @/textblock
+ Type
+   System.UriComponents
+ @/textblock
 */
 + (int32_t)hostAndPort;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    HttpRequestUrl
+ Managed field.
+ @textblock
+ Name
+   HttpRequestUrl
 
-  Type
-    System.UriComponents
-  @/textblock
+ Type
+   System.UriComponents
+ @/textblock
 */
 + (int32_t)httpRequestUrl;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    KeepDelimiter
+ Managed field.
+ @textblock
+ Name
+   KeepDelimiter
 
-  Type
-    System.UriComponents
-  @/textblock
+ Type
+   System.UriComponents
+ @/textblock
 */
 + (int32_t)keepDelimiter;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    NormalizedHost
+ Managed field.
+ @textblock
+ Name
+   NormalizedHost
 
-  Type
-    System.UriComponents
-  @/textblock
+ Type
+   System.UriComponents
+ @/textblock
 */
 + (int32_t)normalizedHost;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Path
+ Managed field.
+ @textblock
+ Name
+   Path
 
-  Type
-    System.UriComponents
-  @/textblock
+ Type
+   System.UriComponents
+ @/textblock
 */
 + (int32_t)path;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    PathAndQuery
+ Managed field.
+ @textblock
+ Name
+   PathAndQuery
 
-  Type
-    System.UriComponents
-  @/textblock
+ Type
+   System.UriComponents
+ @/textblock
 */
 + (int32_t)pathAndQuery;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Port
+ Managed field.
+ @textblock
+ Name
+   Port
 
-  Type
-    System.UriComponents
-  @/textblock
+ Type
+   System.UriComponents
+ @/textblock
 */
 + (int32_t)port;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Query
+ Managed field.
+ @textblock
+ Name
+   Query
 
-  Type
-    System.UriComponents
-  @/textblock
+ Type
+   System.UriComponents
+ @/textblock
 */
 + (int32_t)query;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Scheme
+ Managed field.
+ @textblock
+ Name
+   Scheme
 
-  Type
-    System.UriComponents
-  @/textblock
+ Type
+   System.UriComponents
+ @/textblock
 */
 + (int32_t)scheme;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    SchemeAndServer
+ Managed field.
+ @textblock
+ Name
+   SchemeAndServer
 
-  Type
-    System.UriComponents
-  @/textblock
+ Type
+   System.UriComponents
+ @/textblock
 */
 + (int32_t)schemeAndServer;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    SerializationInfoString
+ Managed field.
+ @textblock
+ Name
+   SerializationInfoString
 
-  Type
-    System.UriComponents
-  @/textblock
+ Type
+   System.UriComponents
+ @/textblock
 */
 + (int32_t)serializationInfoString;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    StrongAuthority
+ Managed field.
+ @textblock
+ Name
+   StrongAuthority
 
-  Type
-    System.UriComponents
-  @/textblock
+ Type
+   System.UriComponents
+ @/textblock
 */
 + (int32_t)strongAuthority;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    StrongPort
+ Managed field.
+ @textblock
+ Name
+   StrongPort
 
-  Type
-    System.UriComponents
-  @/textblock
+ Type
+   System.UriComponents
+ @/textblock
 */
 + (int32_t)strongPort;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    UserInfo
+ Managed field.
+ @textblock
+ Name
+   UserInfo
 
-  Type
-    System.UriComponents
-  @/textblock
+ Type
+   System.UriComponents
+ @/textblock
 */
 + (int32_t)userInfo;
 @end

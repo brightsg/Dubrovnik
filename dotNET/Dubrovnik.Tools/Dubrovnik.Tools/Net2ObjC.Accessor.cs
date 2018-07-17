@@ -19,19 +19,20 @@ namespace Dubrovnik.Tools {
 			if (OutputFileType == OutputType.Interface) {
 
 				// write accessor headerdoc info
-				string tab = "  ";
+				string tab = " ";
+				string tab2 = "  ";
 				WriteLine("");
 				WriteLine("/**");
 				PushIndent(tab);
 				WriteLine($"Managed {accessor.Description}.");
 				WriteLine("@textblock");
 				WriteLine("Name");
-				PushIndent(tab);
+				PushIndent(tab2);
 				WriteLine($"{accessor.Name}");
 				PopIndent();
 				WriteLine("");;
 				WriteLine("Type");
-				PushIndent(tab);
+				PushIndent(tab2);
 				WriteLine($"{WriteFacetTypeInfo(facet)}");
 				PopIndent();
 				WriteLine("@/textblock");

@@ -40,14 +40,14 @@
 #pragma mark Fields
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Value
+ Managed field.
+ @textblock
+ Name
+   Value
 
-  Type
-    System.DBNull
-  @/textblock
+ Type
+   System.DBNull
+ @/textblock
 */
 + (System_DBNull *)value;
 
@@ -59,17 +59,17 @@
 /* Skipped method : System.TypeCode GetTypeCode() */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ToString
+ Managed method.
+ @textblock
+ Name
+   ToString
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.String
-  @/textblock
+ Return
+   System.String
+ @/textblock
 */
 - (NSString *)toString;
 

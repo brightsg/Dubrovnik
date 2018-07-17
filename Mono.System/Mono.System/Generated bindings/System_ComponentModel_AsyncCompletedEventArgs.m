@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.ComponentModel.AsyncCompletedEventArgs";
+	return "System.ComponentModel.AsyncCompletedEventArgs";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "System";
+	return "System";
 }
 
 #pragma mark -
@@ -35,8 +35,8 @@
 
 + (System_ComponentModel_AsyncCompletedEventArgs *)new_withError:(System_Exception *)p1 cancelled:(BOOL)p2 userState:(System_Object *)p3
 {
-  System_ComponentModel_AsyncCompletedEventArgs * object = [[self alloc] initWithSignature:"System.Exception,bool,object" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
-  return object;
+	System_ComponentModel_AsyncCompletedEventArgs * object = [[self alloc] initWithSignature:"System.Exception,bool,object" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
+	return object;
 }
 
 #pragma mark -

@@ -44,76 +44,76 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    ContentLength
+ Managed property.
+ @textblock
+ Name
+   ContentLength
 
-  Type
-    System.Int64
-  @/textblock
+ Type
+   System.Int64
+ @/textblock
 */
 @property (nonatomic) int64_t contentLength;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    ContentType
+ Managed property.
+ @textblock
+ Name
+   ContentType
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong) NSString * contentType;
 
 /* Skipped property : System.Net.WebHeaderCollection Headers */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    IsFromCache
+ Managed property.
+ @textblock
+ Name
+   IsFromCache
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL isFromCache;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    IsMutuallyAuthenticated
+ Managed property.
+ @textblock
+ Name
+   IsMutuallyAuthenticated
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL isMutuallyAuthenticated;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    ResponseUri
+ Managed property.
+ @textblock
+ Name
+   ResponseUri
 
-  Type
-    System.Uri
-  @/textblock
+ Type
+   System.Uri
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Uri * responseUri;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    SupportsHeaders
+ Managed property.
+ @textblock
+ Name
+   SupportsHeaders
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL supportsHeaders;
 
@@ -121,47 +121,47 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Close
+ Managed method.
+ @textblock
+ Name
+   Close
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)close;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Dispose
+ Managed method.
+ @textblock
+ Name
+   Dispose
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)dispose;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetResponseStream
+ Managed method.
+ @textblock
+ Name
+   GetResponseStream
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.IO.Stream
-  @/textblock
+ Return
+   System.IO.Stream
+ @/textblock
 */
 - (System_IO_Stream *)getResponseStream;
 @end

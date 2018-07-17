@@ -47,18 +47,18 @@
 #pragma mark Constructors
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    System.Object
-    System.IntPtr
+ Params
+   System.Object
+   System.IntPtr
 
-  Return
-    System.Action
-  @/textblock
+ Return
+   System.Action
+ @/textblock
 */
 + (System_Action *)new_withObject:(System_Object *)p1 method:(void *)p2;
 
@@ -66,48 +66,48 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    BeginInvoke
+ Managed method.
+ @textblock
+ Name
+   BeginInvoke
 
-  Params
-    System.AsyncCallback
-    System.Object
+ Params
+   System.AsyncCallback
+   System.Object
 
-  Return
-    System.IAsyncResult
-  @/textblock
+ Return
+   System.IAsyncResult
+ @/textblock
 */
 - (id <System_IAsyncResult>)beginInvoke_withCallback:(System_AsyncCallback *)p1 object:(System_Object *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    EndInvoke
+ Managed method.
+ @textblock
+ Name
+   EndInvoke
 
-  Params
-    System.IAsyncResult
+ Params
+   System.IAsyncResult
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)endInvoke_withResult:(id <System_IAsyncResult_>)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Invoke
+ Managed method.
+ @textblock
+ Name
+   Invoke
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)invoke;
 @end

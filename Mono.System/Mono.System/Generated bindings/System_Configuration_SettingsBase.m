@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Configuration.SettingsBase";
+	return "System.Configuration.SettingsBase";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "System";
+	return "System";
 }
 
 #pragma mark -
@@ -65,26 +65,26 @@
 
 - (System_Object *)get_Item_withPropertyName:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"get_Item(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_Object bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"get_Item(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (void)set_Item_withPropertyName:(NSString *)p1 value:(System_Object *)p2
 {
-  [self invokeMonoMethod:"set_Item(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	[self invokeMonoMethod:"set_Item(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 }
 
 /* Skipped method : System.Void Initialize(System.Configuration.SettingsContext context, System.Configuration.SettingsPropertyCollection properties, System.Configuration.SettingsProviderCollection providers) */
 
 - (void)save
 {
-  [self invokeMonoMethod:"Save()" withNumArgs:0];
+	[self invokeMonoMethod:"Save()" withNumArgs:0];
 }
 
 + (System_Configuration_SettingsBase *)synchronized_withSettingsBase:(System_Configuration_SettingsBase *)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"Synchronized(System.Configuration.SettingsBase)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_Configuration_SettingsBase bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Synchronized(System.Configuration.SettingsBase)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_Configuration_SettingsBase bestObjectWithMonoObject:monoObject];
 }
 
 #pragma mark -

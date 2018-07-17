@@ -27,9 +27,9 @@
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumSystem_UriFormat) {
-  System_UriFormat_SafeUnescaped = 3,
-  System_UriFormat_Unescaped = 2,
-  System_UriFormat_UriEscaped = 1,
+	System_UriFormat_SafeUnescaped = 3,
+	System_UriFormat_Unescaped = 2,
+	System_UriFormat_UriEscaped = 1,
 };
 
 @interface System_UriFormat : System_Enum
@@ -44,38 +44,38 @@ typedef NS_ENUM(int32_t, enumSystem_UriFormat) {
 #pragma mark Fields
 
 /**
-  Managed field.
-  @textblock
-  Name
-    SafeUnescaped
+ Managed field.
+ @textblock
+ Name
+   SafeUnescaped
 
-  Type
-    System.UriFormat
-  @/textblock
+ Type
+   System.UriFormat
+ @/textblock
 */
 + (int32_t)safeUnescaped;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Unescaped
+ Managed field.
+ @textblock
+ Name
+   Unescaped
 
-  Type
-    System.UriFormat
-  @/textblock
+ Type
+   System.UriFormat
+ @/textblock
 */
 + (int32_t)unescaped;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    UriEscaped
+ Managed field.
+ @textblock
+ Name
+   UriEscaped
 
-  Type
-    System.UriFormat
-  @/textblock
+ Type
+   System.UriFormat
+ @/textblock
 */
 + (int32_t)uriEscaped;
 @end

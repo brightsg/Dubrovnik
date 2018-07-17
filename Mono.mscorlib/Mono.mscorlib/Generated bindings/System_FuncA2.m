@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Func`2";
+	return "System.Func`2";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "mscorlib";
+	return "mscorlib";
 }
 
 #pragma mark -
@@ -35,8 +35,8 @@
 
 + (System_FuncA2 *)new_withObject:(System_Object *)p1 method:(void *)p2
 {
-  System_FuncA2 * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-  return object;
+	System_FuncA2 * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	return object;
 }
 
 #pragma mark -
@@ -44,20 +44,20 @@
 
 - (id <System_IAsyncResult>)beginInvoke_withArg:(System_Object *)p1 callback:(System_AsyncCallback *)p2 object:(System_Object *)p3
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(<_T_0>,System.AsyncCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
-  return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(<_T_0>,System.AsyncCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Object *)endInvoke_withResult:(id <System_IAsyncResult_>)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_Object bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Object *)invoke_withArg:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Invoke(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_Object bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"Invoke(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 #pragma mark -

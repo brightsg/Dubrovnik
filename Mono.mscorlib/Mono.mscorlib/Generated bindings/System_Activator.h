@@ -51,50 +51,50 @@
 /* Skipped method : System.Object CreateInstance(System.Type type, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CreateInstance
+ Managed method.
+ @textblock
+ Name
+   CreateInstance
 
-  Params
-    System.Type
-    System.Object[]
+ Params
+   System.Type
+   System.Object[]
 
-  Return
-    System.Object
-  @/textblock
+ Return
+   System.Object
+ @/textblock
 */
 + (System_Object *)createInstance_withType:(System_Type *)p1 args:(System_Array *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CreateInstance
+ Managed method.
+ @textblock
+ Name
+   CreateInstance
 
-  Params
-    System.Type
-    System.Object[]
-    System.Object[]
+ Params
+   System.Type
+   System.Object[]
+   System.Object[]
 
-  Return
-    System.Object
-  @/textblock
+ Return
+   System.Object
+ @/textblock
 */
 + (System_Object *)createInstance_withType:(System_Type *)p1 args:(System_Array *)p2 activationAttributes:(System_Array *)p3;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CreateInstance
+ Managed method.
+ @textblock
+ Name
+   CreateInstance
 
-  Params
-    System.Type
+ Params
+   System.Type
 
-  Return
-    System.Object
-  @/textblock
+ Return
+   System.Object
+ @/textblock
 */
 + (System_Object *)createInstance_withType:(System_Type *)p1;
 
@@ -103,36 +103,36 @@
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstance(System.String assemblyName, System.String typeName, System.Object[] activationAttributes) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CreateInstance
+ Managed method.
+ @textblock
+ Name
+   CreateInstance
 
-  Params
-    System.Type
-    System.Boolean
+ Params
+   System.Type
+   System.Boolean
 
-  Return
-    System.Object
-  @/textblock
+ Return
+   System.Object
+ @/textblock
 */
 + (System_Object *)createInstance_withType:(System_Type *)p1 nonPublic:(BOOL)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CreateInstance
+ Managed method.
+ @textblock
+ Name
+   CreateInstance
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Generics
-    <System.Activator+T>
+ Generics
+   <System.Activator+T>
 
-  Return
-    <System.Activator+T>
-  @/textblock
+ Return
+   <System.Activator+T>
+ @/textblock
 */
 + (System_Object *)createInstance_withTypeParameter:(id)typeParameter;
 
@@ -165,35 +165,35 @@
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstanceFrom(System.AppDomain domain, System.String assemblyFile, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetObject
+ Managed method.
+ @textblock
+ Name
+   GetObject
 
-  Params
-    System.Type
-    System.String
+ Params
+   System.Type
+   System.String
 
-  Return
-    System.Object
-  @/textblock
+ Return
+   System.Object
+ @/textblock
 */
 + (System_Object *)getObject_withType:(System_Type *)p1 url:(NSString *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetObject
+ Managed method.
+ @textblock
+ Name
+   GetObject
 
-  Params
-    System.Type
-    System.String
-    System.Object
+ Params
+   System.Type
+   System.String
+   System.Object
 
-  Return
-    System.Object
-  @/textblock
+ Return
+   System.Object
+ @/textblock
 */
 + (System_Object *)getObject_withType:(System_Type *)p1 url:(NSString *)p2 state:(System_Object *)p3;
 @end

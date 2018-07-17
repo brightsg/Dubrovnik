@@ -42,17 +42,17 @@
 #pragma mark Constructors
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.IO.FileInfo
-  @/textblock
+ Return
+   System.IO.FileInfo
+ @/textblock
 */
 + (System_IO_FileInfo *)new_withFileName:(NSString *)p1;
 
@@ -62,62 +62,62 @@
 /* Skipped property : System.IO.DirectoryInfo Directory */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    DirectoryName
+ Managed property.
+ @textblock
+ Name
+   DirectoryName
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * directoryName;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Exists
+ Managed property.
+ @textblock
+ Name
+   Exists
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL exists;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    IsReadOnly
+ Managed property.
+ @textblock
+ Name
+   IsReadOnly
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic) BOOL isReadOnly;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Length
+ Managed property.
+ @textblock
+ Name
+   Length
 
-  Type
-    System.Int64
-  @/textblock
+ Type
+   System.Int64
+ @/textblock
 */
 @property (nonatomic, readonly) int64_t length;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Name
+ Managed property.
+ @textblock
+ Name
+   Name
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * name;
 
@@ -127,33 +127,33 @@
 /* Skipped method : System.IO.StreamWriter AppendText() */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CopyTo
+ Managed method.
+ @textblock
+ Name
+   CopyTo
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.IO.FileInfo
-  @/textblock
+ Return
+   System.IO.FileInfo
+ @/textblock
 */
 - (System_IO_FileInfo *)copyTo_withDestFileName:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CopyTo
+ Managed method.
+ @textblock
+ Name
+   CopyTo
 
-  Params
-    System.String
-    System.Boolean
+ Params
+   System.String
+   System.Boolean
 
-  Return
-    System.IO.FileInfo
-  @/textblock
+ Return
+   System.IO.FileInfo
+ @/textblock
 */
 - (System_IO_FileInfo *)copyTo_withDestFileName:(NSString *)p1 overwrite:(BOOL)p2;
 
@@ -162,47 +162,47 @@
 /* Skipped method : System.IO.StreamWriter CreateText() */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Decrypt
+ Managed method.
+ @textblock
+ Name
+   Decrypt
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)decrypt;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Delete
+ Managed method.
+ @textblock
+ Name
+   Delete
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)delete;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Encrypt
+ Managed method.
+ @textblock
+ Name
+   Encrypt
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)encrypt;
 
@@ -211,17 +211,17 @@
 /* Skipped method : System.Security.AccessControl.FileSecurity GetAccessControl(System.Security.AccessControl.AccessControlSections includeSections) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    MoveTo
+ Managed method.
+ @textblock
+ Name
+   MoveTo
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)moveTo_withDestFileName:(NSString *)p1;
 
@@ -238,52 +238,52 @@
 /* Skipped method : System.IO.FileStream OpenWrite() */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Replace
+ Managed method.
+ @textblock
+ Name
+   Replace
 
-  Params
-    System.String
-    System.String
+ Params
+   System.String
+   System.String
 
-  Return
-    System.IO.FileInfo
-  @/textblock
+ Return
+   System.IO.FileInfo
+ @/textblock
 */
 - (System_IO_FileInfo *)replace_withDestinationFileName:(NSString *)p1 destinationBackupFileName:(NSString *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Replace
+ Managed method.
+ @textblock
+ Name
+   Replace
 
-  Params
-    System.String
-    System.String
-    System.Boolean
+ Params
+   System.String
+   System.String
+   System.Boolean
 
-  Return
-    System.IO.FileInfo
-  @/textblock
+ Return
+   System.IO.FileInfo
+ @/textblock
 */
 - (System_IO_FileInfo *)replace_withDestinationFileName:(NSString *)p1 destinationBackupFileName:(NSString *)p2 ignoreMetadataErrors:(BOOL)p3;
 
 /* Skipped method : System.Void SetAccessControl(System.Security.AccessControl.FileSecurity fileSecurity) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ToString
+ Managed method.
+ @textblock
+ Name
+   ToString
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.String
-  @/textblock
+ Return
+   System.String
+ @/textblock
 */
 - (NSString *)toString;
 @end

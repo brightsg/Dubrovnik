@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Net.HttpStatusCode";
+	return "System.Net.HttpStatusCode";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "System";
+	return "System";
 }
 
 #pragma mark -

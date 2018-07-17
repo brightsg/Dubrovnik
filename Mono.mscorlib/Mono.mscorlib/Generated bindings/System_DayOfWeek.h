@@ -27,13 +27,13 @@
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumSystem_DayOfWeek) {
-  System_DayOfWeek_Friday = 5,
-  System_DayOfWeek_Monday = 1,
-  System_DayOfWeek_Saturday = 6,
-  System_DayOfWeek_Sunday = 0,
-  System_DayOfWeek_Thursday = 4,
-  System_DayOfWeek_Tuesday = 2,
-  System_DayOfWeek_Wednesday = 3,
+	System_DayOfWeek_Friday = 5,
+	System_DayOfWeek_Monday = 1,
+	System_DayOfWeek_Saturday = 6,
+	System_DayOfWeek_Sunday = 0,
+	System_DayOfWeek_Thursday = 4,
+	System_DayOfWeek_Tuesday = 2,
+	System_DayOfWeek_Wednesday = 3,
 };
 
 @interface System_DayOfWeek : System_Enum
@@ -48,86 +48,86 @@ typedef NS_ENUM(int32_t, enumSystem_DayOfWeek) {
 #pragma mark Fields
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Friday
+ Managed field.
+ @textblock
+ Name
+   Friday
 
-  Type
-    System.DayOfWeek
-  @/textblock
+ Type
+   System.DayOfWeek
+ @/textblock
 */
 + (int32_t)friday;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Monday
+ Managed field.
+ @textblock
+ Name
+   Monday
 
-  Type
-    System.DayOfWeek
-  @/textblock
+ Type
+   System.DayOfWeek
+ @/textblock
 */
 + (int32_t)monday;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Saturday
+ Managed field.
+ @textblock
+ Name
+   Saturday
 
-  Type
-    System.DayOfWeek
-  @/textblock
+ Type
+   System.DayOfWeek
+ @/textblock
 */
 + (int32_t)saturday;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Sunday
+ Managed field.
+ @textblock
+ Name
+   Sunday
 
-  Type
-    System.DayOfWeek
-  @/textblock
+ Type
+   System.DayOfWeek
+ @/textblock
 */
 + (int32_t)sunday;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Thursday
+ Managed field.
+ @textblock
+ Name
+   Thursday
 
-  Type
-    System.DayOfWeek
-  @/textblock
+ Type
+   System.DayOfWeek
+ @/textblock
 */
 + (int32_t)thursday;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Tuesday
+ Managed field.
+ @textblock
+ Name
+   Tuesday
 
-  Type
-    System.DayOfWeek
-  @/textblock
+ Type
+   System.DayOfWeek
+ @/textblock
 */
 + (int32_t)tuesday;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Wednesday
+ Managed field.
+ @textblock
+ Name
+   Wednesday
 
-  Type
-    System.DayOfWeek
-  @/textblock
+ Type
+   System.DayOfWeek
+ @/textblock
 */
 + (int32_t)wednesday;
 @end

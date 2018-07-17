@@ -52,62 +52,62 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Accept
+ Managed property.
+ @textblock
+ Name
+   Accept
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong) NSString * accept;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Address
+ Managed property.
+ @textblock
+ Name
+   Address
 
-  Type
-    System.Uri
-  @/textblock
+ Type
+   System.Uri
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Uri * address;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    AllowAutoRedirect
+ Managed property.
+ @textblock
+ Name
+   AllowAutoRedirect
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic) BOOL allowAutoRedirect;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    AllowReadStreamBuffering
+ Managed property.
+ @textblock
+ Name
+   AllowReadStreamBuffering
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic) BOOL allowReadStreamBuffering;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    AllowWriteStreamBuffering
+ Managed property.
+ @textblock
+ Name
+   AllowWriteStreamBuffering
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic) BOOL allowWriteStreamBuffering;
 
@@ -116,64 +116,64 @@
 /* Skipped property : System.Security.Cryptography.X509Certificates.X509CertificateCollection ClientCertificates */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Connection
+ Managed property.
+ @textblock
+ Name
+   Connection
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong) NSString * connection;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    ConnectionGroupName
+ Managed property.
+ @textblock
+ Name
+   ConnectionGroupName
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong) NSString * connectionGroupName;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    ContentLength
+ Managed property.
+ @textblock
+ Name
+   ContentLength
 
-  Type
-    System.Int64
-  @/textblock
+ Type
+   System.Int64
+ @/textblock
 */
 @property (nonatomic) int64_t contentLength;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    ContentType
+ Managed property.
+ @textblock
+ Name
+   ContentType
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong) NSString * contentType;
 
 /* Skipped property : System.Net.HttpContinueDelegate ContinueDelegate */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    ContinueTimeout
+ Managed property.
+ @textblock
+ Name
+   ContinueTimeout
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 @property (nonatomic) int32_t continueTimeout;
 
@@ -182,238 +182,238 @@
 /* Skipped property : System.Net.ICredentials Credentials */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Date
+ Managed property.
+ @textblock
+ Name
+   Date
 
-  Type
-    System.DateTime
-  @/textblock
+ Type
+   System.DateTime
+ @/textblock
 */
 @property (nonatomic, strong) NSDate * date;
 
 /* Skipped property : System.Net.Cache.RequestCachePolicy DefaultCachePolicy */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    DefaultMaximumErrorResponseLength
+ Managed property.
+ @textblock
+ Name
+   DefaultMaximumErrorResponseLength
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 + (int32_t)defaultMaximumErrorResponseLength;
 + (void)setDefaultMaximumErrorResponseLength:(int32_t)value;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    DefaultMaximumResponseHeadersLength
+ Managed property.
+ @textblock
+ Name
+   DefaultMaximumResponseHeadersLength
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 + (int32_t)defaultMaximumResponseHeadersLength;
 + (void)setDefaultMaximumResponseHeadersLength:(int32_t)value;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Expect
+ Managed property.
+ @textblock
+ Name
+   Expect
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong) NSString * expect;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    HaveResponse
+ Managed property.
+ @textblock
+ Name
+   HaveResponse
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL haveResponse;
 
 /* Skipped property : System.Net.WebHeaderCollection Headers */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Host
+ Managed property.
+ @textblock
+ Name
+   Host
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong) NSString * host;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    IfModifiedSince
+ Managed property.
+ @textblock
+ Name
+   IfModifiedSince
 
-  Type
-    System.DateTime
-  @/textblock
+ Type
+   System.DateTime
+ @/textblock
 */
 @property (nonatomic, strong) NSDate * ifModifiedSince;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    KeepAlive
+ Managed property.
+ @textblock
+ Name
+   KeepAlive
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic) BOOL keepAlive;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    MaximumAutomaticRedirections
+ Managed property.
+ @textblock
+ Name
+   MaximumAutomaticRedirections
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 @property (nonatomic) int32_t maximumAutomaticRedirections;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    MaximumResponseHeadersLength
+ Managed property.
+ @textblock
+ Name
+   MaximumResponseHeadersLength
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 @property (nonatomic) int32_t maximumResponseHeadersLength;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    MediaType
+ Managed property.
+ @textblock
+ Name
+   MediaType
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong) NSString * mediaType;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Method
+ Managed property.
+ @textblock
+ Name
+   Method
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong) NSString * method;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Pipelined
+ Managed property.
+ @textblock
+ Name
+   Pipelined
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic) BOOL pipelined;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    PreAuthenticate
+ Managed property.
+ @textblock
+ Name
+   PreAuthenticate
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic) BOOL preAuthenticate;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    ProtocolVersion
+ Managed property.
+ @textblock
+ Name
+   ProtocolVersion
 
-  Type
-    System.Version
-  @/textblock
+ Type
+   System.Version
+ @/textblock
 */
 @property (nonatomic, strong) System_Version * protocolVersion;
 
 /* Skipped property : System.Net.IWebProxy Proxy */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    ReadWriteTimeout
+ Managed property.
+ @textblock
+ Name
+   ReadWriteTimeout
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 @property (nonatomic) int32_t readWriteTimeout;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Referer
+ Managed property.
+ @textblock
+ Name
+   Referer
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong) NSString * referer;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    RequestUri
+ Managed property.
+ @textblock
+ Name
+   RequestUri
 
-  Type
-    System.Uri
-  @/textblock
+ Type
+   System.Uri
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Uri * requestUri;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    SendChunked
+ Managed property.
+ @textblock
+ Name
+   SendChunked
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic) BOOL sendChunked;
 
@@ -422,74 +422,74 @@
 /* Skipped property : System.Net.ServicePoint ServicePoint */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    SupportsCookieContainer
+ Managed property.
+ @textblock
+ Name
+   SupportsCookieContainer
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL supportsCookieContainer;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Timeout
+ Managed property.
+ @textblock
+ Name
+   Timeout
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 @property (nonatomic) int32_t timeout;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    TransferEncoding
+ Managed property.
+ @textblock
+ Name
+   TransferEncoding
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong) NSString * transferEncoding;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    UnsafeAuthenticatedConnectionSharing
+ Managed property.
+ @textblock
+ Name
+   UnsafeAuthenticatedConnectionSharing
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic) BOOL unsafeAuthenticatedConnectionSharing;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    UseDefaultCredentials
+ Managed property.
+ @textblock
+ Name
+   UseDefaultCredentials
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic) BOOL useDefaultCredentials;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    UserAgent
+ Managed property.
+ @textblock
+ Name
+   UserAgent
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong) NSString * userAgent;
 
@@ -497,241 +497,241 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Abort
+ Managed method.
+ @textblock
+ Name
+   Abort
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)abort;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    AddRange
+ Managed method.
+ @textblock
+ Name
+   AddRange
 
-  Params
-    System.Int32
-    System.Int32
+ Params
+   System.Int32
+   System.Int32
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)addRange_withFromInt:(int32_t)p1 toInt:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    AddRange
+ Managed method.
+ @textblock
+ Name
+   AddRange
 
-  Params
-    System.Int64
-    System.Int64
+ Params
+   System.Int64
+   System.Int64
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)addRange_withFromLong:(int64_t)p1 toLong:(int64_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    AddRange
+ Managed method.
+ @textblock
+ Name
+   AddRange
 
-  Params
-    System.Int32
+ Params
+   System.Int32
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)addRange_withRangeInt:(int32_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    AddRange
+ Managed method.
+ @textblock
+ Name
+   AddRange
 
-  Params
-    System.Int64
+ Params
+   System.Int64
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)addRange_withRangeLong:(int64_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    AddRange
+ Managed method.
+ @textblock
+ Name
+   AddRange
 
-  Params
-    System.String
-    System.Int32
-    System.Int32
+ Params
+   System.String
+   System.Int32
+   System.Int32
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)addRange_withRangeSpecifierString:(NSString *)p1 fromInt:(int32_t)p2 toInt:(int32_t)p3;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    AddRange
+ Managed method.
+ @textblock
+ Name
+   AddRange
 
-  Params
-    System.String
-    System.Int64
-    System.Int64
+ Params
+   System.String
+   System.Int64
+   System.Int64
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)addRange_withRangeSpecifierString:(NSString *)p1 fromLong:(int64_t)p2 toLong:(int64_t)p3;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    AddRange
+ Managed method.
+ @textblock
+ Name
+   AddRange
 
-  Params
-    System.String
-    System.Int32
+ Params
+   System.String
+   System.Int32
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)addRange_withRangeSpecifierString:(NSString *)p1 rangeInt:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    AddRange
+ Managed method.
+ @textblock
+ Name
+   AddRange
 
-  Params
-    System.String
-    System.Int64
+ Params
+   System.String
+   System.Int64
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)addRange_withRangeSpecifierString:(NSString *)p1 rangeLong:(int64_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    BeginGetRequestStream
+ Managed method.
+ @textblock
+ Name
+   BeginGetRequestStream
 
-  Params
-    System.AsyncCallback
-    System.Object
+ Params
+   System.AsyncCallback
+   System.Object
 
-  Return
-    System.IAsyncResult
-  @/textblock
+ Return
+   System.IAsyncResult
+ @/textblock
 */
 - (id <System_IAsyncResult>)beginGetRequestStream_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    BeginGetResponse
+ Managed method.
+ @textblock
+ Name
+   BeginGetResponse
 
-  Params
-    System.AsyncCallback
-    System.Object
+ Params
+   System.AsyncCallback
+   System.Object
 
-  Return
-    System.IAsyncResult
-  @/textblock
+ Return
+   System.IAsyncResult
+ @/textblock
 */
 - (id <System_IAsyncResult>)beginGetResponse_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    EndGetRequestStream
+ Managed method.
+ @textblock
+ Name
+   EndGetRequestStream
 
-  Params
-    System.IAsyncResult
+ Params
+   System.IAsyncResult
 
-  Return
-    System.IO.Stream
-  @/textblock
+ Return
+   System.IO.Stream
+ @/textblock
 */
 - (System_IO_Stream *)endGetRequestStream_withAsyncResult:(id <System_IAsyncResult_>)p1;
 
 /* Skipped method : System.IO.Stream EndGetRequestStream(System.IAsyncResult asyncResult, System.Net.TransportContext& context) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    EndGetResponse
+ Managed method.
+ @textblock
+ Name
+   EndGetResponse
 
-  Params
-    System.IAsyncResult
+ Params
+   System.IAsyncResult
 
-  Return
-    System.Net.WebResponse
-  @/textblock
+ Return
+   System.Net.WebResponse
+ @/textblock
 */
 - (System_Net_WebResponse *)endGetResponse_withAsyncResult:(id <System_IAsyncResult_>)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetRequestStream
+ Managed method.
+ @textblock
+ Name
+   GetRequestStream
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.IO.Stream
-  @/textblock
+ Return
+   System.IO.Stream
+ @/textblock
 */
 - (System_IO_Stream *)getRequestStream;
 
 /* Skipped method : System.IO.Stream GetRequestStream(System.Net.TransportContext& context) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetResponse
+ Managed method.
+ @textblock
+ Name
+   GetResponse
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Net.WebResponse
-  @/textblock
+ Return
+   System.Net.WebResponse
+ @/textblock
 */
 - (System_Net_WebResponse *)getResponse;
 @end

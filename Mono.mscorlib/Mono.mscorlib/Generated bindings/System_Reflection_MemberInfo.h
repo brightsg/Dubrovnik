@@ -44,54 +44,54 @@
 /* Skipped property : System.Collections.Generic.IEnumerable`1<System.Reflection.CustomAttributeData> CustomAttributes */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    DeclaringType
+ Managed property.
+ @textblock
+ Name
+   DeclaringType
 
-  Type
-    System.Type
-  @/textblock
+ Type
+   System.Type
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Type * declaringType;
 
 /* Skipped property : System.Reflection.MemberTypes MemberType */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    MetadataToken
+ Managed property.
+ @textblock
+ Name
+   MetadataToken
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 @property (nonatomic, readonly) int32_t metadataToken;
 
 /* Skipped property : System.Reflection.Module Module */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Name
+ Managed property.
+ @textblock
+ Name
+   Name
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * name;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    ReflectedType
+ Managed property.
+ @textblock
+ Name
+   ReflectedType
 
-  Type
-    System.Type
-  @/textblock
+ Type
+   System.Type
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Type * reflectedType;
 
@@ -99,113 +99,113 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Equals
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-  Params
-    System.Object
+ Params
+   System.Object
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)equals_withObj:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetCustomAttributes
+ Managed method.
+ @textblock
+ Name
+   GetCustomAttributes
 
-  Params
-    System.Boolean
+ Params
+   System.Boolean
 
-  Return
-    System.Object[]
-  @/textblock
+ Return
+   System.Object[]
+ @/textblock
 */
 - (System_Array *)getCustomAttributes_withInherit:(BOOL)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetCustomAttributes
+ Managed method.
+ @textblock
+ Name
+   GetCustomAttributes
 
-  Params
-    System.Type
-    System.Boolean
+ Params
+   System.Type
+   System.Boolean
 
-  Return
-    System.Object[]
-  @/textblock
+ Return
+   System.Object[]
+ @/textblock
 */
 - (System_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2;
 
 /* Skipped method : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData> GetCustomAttributesData() */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetHashCode
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)getHashCode;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsDefined
+ Managed method.
+ @textblock
+ Name
+   IsDefined
 
-  Params
-    System.Type
-    System.Boolean
+ Params
+   System.Type
+   System.Boolean
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)isDefined_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    op_Equality
+ Managed method.
+ @textblock
+ Name
+   op_Equality
 
-  Params
-    System.Reflection.MemberInfo
-    System.Reflection.MemberInfo
+ Params
+   System.Reflection.MemberInfo
+   System.Reflection.MemberInfo
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)op_Equality_withLeft:(System_Reflection_MemberInfo *)p1 right:(System_Reflection_MemberInfo *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    op_Inequality
+ Managed method.
+ @textblock
+ Name
+   op_Inequality
 
-  Params
-    System.Reflection.MemberInfo
-    System.Reflection.MemberInfo
+ Params
+   System.Reflection.MemberInfo
+   System.Reflection.MemberInfo
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)op_Inequality_withLeft:(System_Reflection_MemberInfo *)p1 right:(System_Reflection_MemberInfo *)p2;
 @end

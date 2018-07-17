@@ -57,179 +57,179 @@
 /* Skipped property : System.Security.Policy.ApplicationTrust ApplicationTrust */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    BaseDirectory
+ Managed property.
+ @textblock
+ Name
+   BaseDirectory
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * baseDirectory;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    CurrentDomain
+ Managed property.
+ @textblock
+ Name
+   CurrentDomain
 
-  Type
-    System.AppDomain
-  @/textblock
+ Type
+   System.AppDomain
+ @/textblock
 */
 + (System_AppDomain *)currentDomain;
 
 /* Skipped property : System.AppDomainManager DomainManager */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    DynamicDirectory
+ Managed property.
+ @textblock
+ Name
+   DynamicDirectory
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * dynamicDirectory;
 
 /* Skipped property : System.Security.Policy.Evidence Evidence */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    FriendlyName
+ Managed property.
+ @textblock
+ Name
+   FriendlyName
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * friendlyName;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Id
+ Managed property.
+ @textblock
+ Name
+   Id
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 @property (nonatomic, readonly) int32_t id;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    IsFullyTrusted
+ Managed property.
+ @textblock
+ Name
+   IsFullyTrusted
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL isFullyTrusted;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    IsHomogenous
+ Managed property.
+ @textblock
+ Name
+   IsHomogenous
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL isHomogenous;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    MonitoringIsEnabled
+ Managed property.
+ @textblock
+ Name
+   MonitoringIsEnabled
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 + (BOOL)monitoringIsEnabled;
 + (void)setMonitoringIsEnabled:(BOOL)value;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    MonitoringSurvivedMemorySize
+ Managed property.
+ @textblock
+ Name
+   MonitoringSurvivedMemorySize
 
-  Type
-    System.Int64
-  @/textblock
+ Type
+   System.Int64
+ @/textblock
 */
 @property (nonatomic, readonly) int64_t monitoringSurvivedMemorySize;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    MonitoringSurvivedProcessMemorySize
+ Managed property.
+ @textblock
+ Name
+   MonitoringSurvivedProcessMemorySize
 
-  Type
-    System.Int64
-  @/textblock
+ Type
+   System.Int64
+ @/textblock
 */
 + (int64_t)monitoringSurvivedProcessMemorySize;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    MonitoringTotalAllocatedMemorySize
+ Managed property.
+ @textblock
+ Name
+   MonitoringTotalAllocatedMemorySize
 
-  Type
-    System.Int64
-  @/textblock
+ Type
+   System.Int64
+ @/textblock
 */
 @property (nonatomic, readonly) int64_t monitoringTotalAllocatedMemorySize;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    MonitoringTotalProcessorTime
+ Managed property.
+ @textblock
+ Name
+   MonitoringTotalProcessorTime
 
-  Type
-    System.TimeSpan
-  @/textblock
+ Type
+   System.TimeSpan
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_TimeSpan * monitoringTotalProcessorTime;
 
 /* Skipped property : System.Security.PermissionSet PermissionSet */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    RelativeSearchPath
+ Managed property.
+ @textblock
+ Name
+   RelativeSearchPath
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * relativeSearchPath;
 
 /* Skipped property : System.AppDomainSetup SetupInformation */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    ShadowCopyFiles
+ Managed property.
+ @textblock
+ Name
+   ShadowCopyFiles
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL shadowCopyFiles;
 
@@ -237,62 +237,62 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    AppendPrivatePath
+ Managed method.
+ @textblock
+ Name
+   AppendPrivatePath
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)appendPrivatePath_withPath:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ApplyPolicy
+ Managed method.
+ @textblock
+ Name
+   ApplyPolicy
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.String
-  @/textblock
+ Return
+   System.String
+ @/textblock
 */
 - (NSString *)applyPolicy_withAssemblyName:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ClearPrivatePath
+ Managed method.
+ @textblock
+ Name
+   ClearPrivatePath
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)clearPrivatePath;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ClearShadowCopyPath
+ Managed method.
+ @textblock
+ Name
+   ClearShadowCopyPath
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)clearShadowCopyPath;
 
@@ -305,17 +305,17 @@
 /* Skipped method : System.AppDomain CreateDomain(System.String friendlyName, System.Security.Policy.Evidence securityInfo, System.String appBasePath, System.String appRelativeSearchPath, System.Boolean shadowCopyFiles) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CreateDomain
+ Managed method.
+ @textblock
+ Name
+   CreateDomain
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.AppDomain
-  @/textblock
+ Return
+   System.AppDomain
+ @/textblock
 */
 + (System_AppDomain *)createDomain_withFriendlyName:(NSString *)p1;
 
@@ -334,35 +334,35 @@
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstance(System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CreateInstanceAndUnwrap
+ Managed method.
+ @textblock
+ Name
+   CreateInstanceAndUnwrap
 
-  Params
-    System.String
-    System.String
+ Params
+   System.String
+   System.String
 
-  Return
-    System.Object
-  @/textblock
+ Return
+   System.Object
+ @/textblock
 */
 - (System_Object *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CreateInstanceAndUnwrap
+ Managed method.
+ @textblock
+ Name
+   CreateInstanceAndUnwrap
 
-  Params
-    System.String
-    System.String
-    System.Object[]
+ Params
+   System.String
+   System.String
+   System.Object[]
 
-  Return
-    System.Object
-  @/textblock
+ Return
+   System.Object
+ @/textblock
 */
 - (System_Object *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(System_Array *)p3;
 
@@ -379,35 +379,35 @@
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstanceFrom(System.String assemblyFile, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CreateInstanceFromAndUnwrap
+ Managed method.
+ @textblock
+ Name
+   CreateInstanceFromAndUnwrap
 
-  Params
-    System.String
-    System.String
+ Params
+   System.String
+   System.String
 
-  Return
-    System.Object
-  @/textblock
+ Return
+   System.Object
+ @/textblock
 */
 - (System_Object *)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CreateInstanceFromAndUnwrap
+ Managed method.
+ @textblock
+ Name
+   CreateInstanceFromAndUnwrap
 
-  Params
-    System.String
-    System.String
-    System.Object[]
+ Params
+   System.String
+   System.String
+   System.Object[]
 
-  Return
-    System.Object
-  @/textblock
+ Return
+   System.Object
+ @/textblock
 */
 - (System_Object *)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(System_Array *)p3;
 
@@ -444,17 +444,17 @@
 /* Skipped method : System.Void DoCallBack(System.CrossAppDomainDelegate callBackDelegate) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ExecuteAssembly
+ Managed method.
+ @textblock
+ Name
+   ExecuteAssembly
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)executeAssembly_withAssemblyFile:(NSString *)p1;
 
@@ -463,18 +463,18 @@
 /* Skipped method : System.Int32 ExecuteAssembly(System.String assemblyFile, System.Security.Policy.Evidence assemblySecurity, System.String[] args) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ExecuteAssembly
+ Managed method.
+ @textblock
+ Name
+   ExecuteAssembly
 
-  Params
-    System.String
-    System.String[]
+ Params
+   System.String
+   System.String[]
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)executeAssembly_withAssemblyFile:(NSString *)p1 args:(System_Array *)p2;
 
@@ -483,17 +483,17 @@
 /* Skipped method : System.Int32 ExecuteAssembly(System.String assemblyFile, System.String[] args, System.Byte[] hashValue, System.Configuration.Assemblies.AssemblyHashAlgorithm hashAlgorithm) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ExecuteAssemblyByName
+ Managed method.
+ @textblock
+ Name
+   ExecuteAssemblyByName
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)executeAssemblyByName_withAssemblyName:(NSString *)p1;
 
@@ -502,217 +502,217 @@
 /* Skipped method : System.Int32 ExecuteAssemblyByName(System.String assemblyName, System.Security.Policy.Evidence assemblySecurity, System.String[] args) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ExecuteAssemblyByName
+ Managed method.
+ @textblock
+ Name
+   ExecuteAssemblyByName
 
-  Params
-    System.String
-    System.String[]
+ Params
+   System.String
+   System.String[]
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)executeAssemblyByName_withAssemblyNameString:(NSString *)p1 argsStringArray:(System_Array *)p2;
 
 /* Skipped method : System.Int32 ExecuteAssemblyByName(System.Reflection.AssemblyName assemblyName, System.Security.Policy.Evidence assemblySecurity, System.String[] args) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ExecuteAssemblyByName
+ Managed method.
+ @textblock
+ Name
+   ExecuteAssemblyByName
 
-  Params
-    System.Reflection.AssemblyName
-    System.String[]
+ Params
+   System.Reflection.AssemblyName
+   System.String[]
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)executeAssemblyByName_withAssemblyNameSRAssemblyName:(System_Reflection_AssemblyName *)p1 argsStringArray:(System_Array *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetAssemblies
+ Managed method.
+ @textblock
+ Name
+   GetAssemblies
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Reflection.Assembly[]
-  @/textblock
+ Return
+   System.Reflection.Assembly[]
+ @/textblock
 */
 - (System_Array *)getAssemblies;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetCurrentThreadId
+ Managed method.
+ @textblock
+ Name
+   GetCurrentThreadId
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 + (int32_t)getCurrentThreadId;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetData
+ Managed method.
+ @textblock
+ Name
+   GetData
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Object
-  @/textblock
+ Return
+   System.Object
+ @/textblock
 */
 - (System_Object *)getData_withName:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetType
+ Managed method.
+ @textblock
+ Name
+   GetType
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Type
-  @/textblock
+ Return
+   System.Type
+ @/textblock
 */
 - (System_Type *)getType;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    InitializeLifetimeService
+ Managed method.
+ @textblock
+ Name
+   InitializeLifetimeService
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Object
-  @/textblock
+ Return
+   System.Object
+ @/textblock
 */
 - (System_Object *)db_initializeLifetimeService;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsCompatibilitySwitchSet
+ Managed method.
+ @textblock
+ Name
+   IsCompatibilitySwitchSet
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Nullable`1<System.Boolean>
-  @/textblock
+ Return
+   System.Nullable`1<System.Boolean>
+ @/textblock
 */
 - (System_NullableA1 *)isCompatibilitySwitchSet_withValue:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsDefaultAppDomain
+ Managed method.
+ @textblock
+ Name
+   IsDefaultAppDomain
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)isDefaultAppDomain;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsFinalizingForUnload
+ Managed method.
+ @textblock
+ Name
+   IsFinalizingForUnload
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)isFinalizingForUnload;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Load
+ Managed method.
+ @textblock
+ Name
+   Load
 
-  Params
-    System.Reflection.AssemblyName
+ Params
+   System.Reflection.AssemblyName
 
-  Return
-    System.Reflection.Assembly
-  @/textblock
+ Return
+   System.Reflection.Assembly
+ @/textblock
 */
 - (System_Reflection_Assembly *)load_withAssemblyRef:(System_Reflection_AssemblyName *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Load
+ Managed method.
+ @textblock
+ Name
+   Load
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Reflection.Assembly
-  @/textblock
+ Return
+   System.Reflection.Assembly
+ @/textblock
 */
 - (System_Reflection_Assembly *)load_withAssemblyString:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Load
+ Managed method.
+ @textblock
+ Name
+   Load
 
-  Params
-    System.Byte[]
+ Params
+   System.Byte[]
 
-  Return
-    System.Reflection.Assembly
-  @/textblock
+ Return
+   System.Reflection.Assembly
+ @/textblock
 */
 - (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Load
+ Managed method.
+ @textblock
+ Name
+   Load
 
-  Params
-    System.Byte[]
-    System.Byte[]
+ Params
+   System.Byte[]
+   System.Byte[]
 
-  Return
-    System.Reflection.Assembly
-  @/textblock
+ Return
+   System.Reflection.Assembly
+ @/textblock
 */
 - (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2;
 
@@ -723,131 +723,131 @@
 /* Skipped method : System.Reflection.Assembly Load(System.String assemblyString, System.Security.Policy.Evidence assemblySecurity) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ReflectionOnlyGetAssemblies
+ Managed method.
+ @textblock
+ Name
+   ReflectionOnlyGetAssemblies
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Reflection.Assembly[]
-  @/textblock
+ Return
+   System.Reflection.Assembly[]
+ @/textblock
 */
 - (System_Array *)reflectionOnlyGetAssemblies;
 
 /* Skipped method : System.Void SetAppDomainPolicy(System.Security.Policy.PolicyLevel domainPolicy) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    SetCachePath
+ Managed method.
+ @textblock
+ Name
+   SetCachePath
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)setCachePath_withPath:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    SetData
+ Managed method.
+ @textblock
+ Name
+   SetData
 
-  Params
-    System.String
-    System.Object
+ Params
+   System.String
+   System.Object
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)setData_withName:(NSString *)p1 data:(System_Object *)p2;
 
 /* Skipped method : System.Void SetData(System.String name, System.Object data, System.Security.IPermission permission) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    SetDynamicBase
+ Managed method.
+ @textblock
+ Name
+   SetDynamicBase
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)setDynamicBase_withPath:(NSString *)p1;
 
 /* Skipped method : System.Void SetPrincipalPolicy(System.Security.Principal.PrincipalPolicy policy) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    SetShadowCopyFiles
+ Managed method.
+ @textblock
+ Name
+   SetShadowCopyFiles
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)setShadowCopyFiles;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    SetShadowCopyPath
+ Managed method.
+ @textblock
+ Name
+   SetShadowCopyPath
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)setShadowCopyPath_withPath:(NSString *)p1;
 
 /* Skipped method : System.Void SetThreadPrincipal(System.Security.Principal.IPrincipal principal) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ToString
+ Managed method.
+ @textblock
+ Name
+   ToString
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.String
-  @/textblock
+ Return
+   System.String
+ @/textblock
 */
 - (NSString *)toString;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Unload
+ Managed method.
+ @textblock
+ Name
+   Unload
 
-  Params
-    System.AppDomain
+ Params
+   System.AppDomain
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 + (void)unload_withDomain:(System_AppDomain *)p1;
 @end

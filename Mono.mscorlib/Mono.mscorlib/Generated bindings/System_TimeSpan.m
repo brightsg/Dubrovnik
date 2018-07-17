@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.TimeSpan";
+	return "System.TimeSpan";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "mscorlib";
+	return "mscorlib";
 }
 
 #pragma mark -
@@ -35,26 +35,26 @@
 
 + (System_TimeSpan *)new_withTicks:(int64_t)p1
 {
-  System_TimeSpan * object = [[self alloc] initWithSignature:"long" withNumArgs:1, DB_VALUE(p1)];
-  return object;
+	System_TimeSpan * object = [[self alloc] initWithSignature:"long" withNumArgs:1, DB_VALUE(p1)];
+	return object;
 }
 
 + (System_TimeSpan *)new_withHours:(int32_t)p1 minutes:(int32_t)p2 seconds:(int32_t)p3
 {
-  System_TimeSpan * object = [[self alloc] initWithSignature:"int,int,int" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
-  return object;
+	System_TimeSpan * object = [[self alloc] initWithSignature:"int,int,int" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
+	return object;
 }
 
 + (System_TimeSpan *)new_withDays:(int32_t)p1 hours:(int32_t)p2 minutes:(int32_t)p3 seconds:(int32_t)p4
 {
-  System_TimeSpan * object = [[self alloc] initWithSignature:"int,int,int,int" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
-  return object;
+	System_TimeSpan * object = [[self alloc] initWithSignature:"int,int,int,int" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
+	return object;
 }
 
 + (System_TimeSpan *)new_withDays:(int32_t)p1 hours:(int32_t)p2 minutes:(int32_t)p3 seconds:(int32_t)p4 milliseconds:(int32_t)p5
 {
-  System_TimeSpan * object = [[self alloc] initWithSignature:"int,int,int,int,int" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];
-  return object;
+	System_TimeSpan * object = [[self alloc] initWithSignature:"int,int,int,int,int" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];
+	return object;
 }
 
 #pragma mark -
@@ -352,164 +352,164 @@ static System_TimeSpan * m_zero;
 
 - (System_TimeSpan *)add_withTs:(System_TimeSpan *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Add(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_TimeSpan bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"Add(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
 }
 
 + (int32_t)compare_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"Compare(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return DB_UNBOX_INT32(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Compare(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return DB_UNBOX_INT32(monoObject);
 }
 
 - (int32_t)compareTo_withValueObject:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_INT32(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_INT32(monoObject);
 }
 
 - (int32_t)compareTo_withValueSTimeSpan:(System_TimeSpan *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_INT32(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_INT32(monoObject);
 }
 
 - (System_TimeSpan *)duration
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Duration()" withNumArgs:0];
-  return [System_TimeSpan bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"Duration()" withNumArgs:0];
+	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
 }
 
 - (BOOL)equals_withValue:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (BOOL)equals_withObj:(System_TimeSpan *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)equals_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"Equals(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Equals(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (System_TimeSpan *)fromDays_withValue:(double)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"FromDays(double)" withNumArgs:1, DB_VALUE(p1)];
-  return [System_TimeSpan bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FromDays(double)" withNumArgs:1, DB_VALUE(p1)];
+	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
 }
 
 + (System_TimeSpan *)fromHours_withValue:(double)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"FromHours(double)" withNumArgs:1, DB_VALUE(p1)];
-  return [System_TimeSpan bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FromHours(double)" withNumArgs:1, DB_VALUE(p1)];
+	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
 }
 
 + (System_TimeSpan *)fromMilliseconds_withValue:(double)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"FromMilliseconds(double)" withNumArgs:1, DB_VALUE(p1)];
-  return [System_TimeSpan bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FromMilliseconds(double)" withNumArgs:1, DB_VALUE(p1)];
+	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
 }
 
 + (System_TimeSpan *)fromMinutes_withValue:(double)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"FromMinutes(double)" withNumArgs:1, DB_VALUE(p1)];
-  return [System_TimeSpan bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FromMinutes(double)" withNumArgs:1, DB_VALUE(p1)];
+	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
 }
 
 + (System_TimeSpan *)fromSeconds_withValue:(double)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"FromSeconds(double)" withNumArgs:1, DB_VALUE(p1)];
-  return [System_TimeSpan bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FromSeconds(double)" withNumArgs:1, DB_VALUE(p1)];
+	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
 }
 
 + (System_TimeSpan *)fromTicks_withValue:(int64_t)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"FromTicks(long)" withNumArgs:1, DB_VALUE(p1)];
-  return [System_TimeSpan bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FromTicks(long)" withNumArgs:1, DB_VALUE(p1)];
+	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
 }
 
 - (int32_t)getHashCode
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
-  return DB_UNBOX_INT32(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+	return DB_UNBOX_INT32(monoObject);
 }
 
 - (System_TimeSpan *)negate
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Negate()" withNumArgs:0];
-  return [System_TimeSpan bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"Negate()" withNumArgs:0];
+	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
 }
 
 + (System_TimeSpan *)op_Addition_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"op_Addition(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return [System_TimeSpan bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Addition(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
 }
 
 + (BOOL)op_Equality_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)op_GreaterThan_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"op_GreaterThan(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_GreaterThan(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)op_GreaterThanOrEqual_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"op_GreaterThanOrEqual(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_GreaterThanOrEqual(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)op_Inequality_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)op_LessThan_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"op_LessThan(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_LessThan(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)op_LessThanOrEqual_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"op_LessThanOrEqual(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_LessThanOrEqual(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (System_TimeSpan *)op_Subtraction_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"op_Subtraction(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return [System_TimeSpan bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Subtraction(System.TimeSpan,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
 }
 
 + (System_TimeSpan *)op_UnaryNegation_withT:(System_TimeSpan *)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"op_UnaryNegation(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_TimeSpan bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_UnaryNegation(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
 }
 
 + (System_TimeSpan *)op_UnaryPlus_withT:(System_TimeSpan *)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"op_UnaryPlus(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_TimeSpan bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_UnaryPlus(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
 }
 
 + (System_TimeSpan *)parse_withS:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_TimeSpan bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
 }
 
 /* Skipped method : System.TimeSpan Parse(System.String input, System.IFormatProvider formatProvider) */
@@ -524,30 +524,30 @@ static System_TimeSpan * m_zero;
 
 - (System_TimeSpan *)subtract_withTs:(System_TimeSpan *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Subtract(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_TimeSpan bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"Subtract(System.TimeSpan)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
 }
 
 - (NSString *)toString
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 - (NSString *)toString_withFormat:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"ToString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"ToString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 /* Skipped method : System.String ToString(System.String format, System.IFormatProvider formatProvider) */
 
 + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(System_TimeSpan **)p2
 {
-  void *refPtr2 = [*p2 monoRTInvokeArg];
-  MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.TimeSpan&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
-  *p2 = [System_Object bestObjectWithMonoObject:refPtr2];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	void *refPtr2 = [*p2 monoRTInvokeArg];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.TimeSpan&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 /* Skipped method : System.Boolean TryParse(System.String input, System.IFormatProvider formatProvider, System.TimeSpan& result) */
@@ -565,9 +565,9 @@ static System_TimeSpan * m_zero;
 
 - (void)dealloc
 {
-  m_maxValue = nil;
-  m_minValue = nil;
-  m_zero = nil;
+	m_maxValue = nil;
+	m_minValue = nil;
+	m_zero = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

@@ -18,33 +18,34 @@ namespace Dubrovnik.Tools {
 
 			// write method headerdoc info
 			if (OutputFileType == OutputType.Interface) {
-				string tab = "  ";
+				string tab = " ";
+				string tab2 = "  ";
 				WriteLine($"");
 				WriteLine($"/**");
 				PushIndent(tab);
 				WriteLine($"Managed method.");
 				WriteLine($"@textblock");
 				WriteLine($"Name");
-				PushIndent(tab);
+				PushIndent(tab2);
 				WriteLine($"{(method.IsConstructorMethod ? ".ctor" : method.MonoMethodName)}");
 				PopIndent();
 				WriteLine($"");
 				WriteLine($"Params");
-				PushIndent(tab);
+				PushIndent(tab2);
 				Write($"{WriteFacetTypeInfo(facet.Parameters)}");
 				PopIndent();
 
 				if (facet.IsGenericMethodDefinition) {
 					WriteLine($"");
 					WriteLine($"Generics");
-					PushIndent(tab);
+					PushIndent(tab2);
 					WriteLine($"{WriteFacetTypeInfo(facet.GenericMethodDefinitionGenericTypeArguments)}");
 					PopIndent();
 				}
 
 				WriteLine($"");
 				WriteLine($"Return");
-				PushIndent(tab);
+				PushIndent(tab2);
 				WriteLine($"{WriteFacetTypeInfo(facet)}");
 				PopIndent();
 				WriteLine($"@/textblock");
@@ -65,7 +66,7 @@ namespace Dubrovnik.Tools {
 				GenerateTypeWarnings(facet.Parameters);
 
 				WriteLine("{");
-				PushIndent("  ");
+				PushTabIndent();
 
 				if (method.ObjCTypeDecl == "void") {
 					WriteNz(method.ReferencePreProcess);

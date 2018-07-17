@@ -27,8 +27,8 @@
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumSystem_Data_Entity_Core_Objects_RefreshMode) {
-  System_Data_Entity_Core_Objects_RefreshMode_ClientWins = 2,
-  System_Data_Entity_Core_Objects_RefreshMode_StoreWins = 1,
+	System_Data_Entity_Core_Objects_RefreshMode_ClientWins = 2,
+	System_Data_Entity_Core_Objects_RefreshMode_StoreWins = 1,
 };
 
 @interface System_Data_Entity_Core_Objects_RefreshMode : System_Enum
@@ -43,26 +43,26 @@ typedef NS_ENUM(int32_t, enumSystem_Data_Entity_Core_Objects_RefreshMode) {
 #pragma mark Fields
 
 /**
-  Managed field.
-  @textblock
-  Name
-    ClientWins
+ Managed field.
+ @textblock
+ Name
+   ClientWins
 
-  Type
-    System.Data.Entity.Core.Objects.RefreshMode
-  @/textblock
+ Type
+   System.Data.Entity.Core.Objects.RefreshMode
+ @/textblock
 */
 + (int32_t)clientWins;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    StoreWins
+ Managed field.
+ @textblock
+ Name
+   StoreWins
 
-  Type
-    System.Data.Entity.Core.Objects.RefreshMode
-  @/textblock
+ Type
+   System.Data.Entity.Core.Objects.RefreshMode
+ @/textblock
 */
 + (int32_t)storeWins;
 @end

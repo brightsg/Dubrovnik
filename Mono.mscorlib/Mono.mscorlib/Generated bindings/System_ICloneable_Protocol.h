@@ -77,17 +77,17 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Clone
+ Managed method.
+ @textblock
+ Name
+   Clone
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Object
-  @/textblock
+ Return
+   System.Object
+ @/textblock
 */
 - (System_Object *)clone;
 #endif
@@ -108,17 +108,17 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Clone
+ Managed method.
+ @textblock
+ Name
+   Clone
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Object
-  @/textblock
+ Return
+   System.Object
+ @/textblock
 */
 - (System_Object *)clone;
 

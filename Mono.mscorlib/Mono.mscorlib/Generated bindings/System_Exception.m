@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Exception";
+	return "System.Exception";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "mscorlib";
+	return "mscorlib";
 }
 
 #pragma mark -
@@ -35,14 +35,14 @@
 
 + (System_Exception *)new_withMessage:(NSString *)p1
 {
-  System_Exception * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return object;
+	System_Exception * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return object;
 }
 
 + (System_Exception *)new_withMessage:(NSString *)p1 innerException:(System_Exception *)p2
 {
-  System_Exception * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return object;
+	System_Exception * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return object;
 }
 
 #pragma mark -
@@ -239,22 +239,22 @@
 
 - (System_Exception *)getBaseException
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetBaseException()" withNumArgs:0];
-  return [System_Exception bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetBaseException()" withNumArgs:0];
+	return [System_Exception bestObjectWithMonoObject:monoObject];
 }
 
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 
 - (System_Type *)getType
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetType()" withNumArgs:0];
-  return [System_Type bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetType()" withNumArgs:0];
+	return [System_Type bestObjectWithMonoObject:monoObject];
 }
 
 - (NSString *)toString
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 #pragma mark -

@@ -44,14 +44,14 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Current
+ Managed property.
+ @textblock
+ Name
+   Current
 
-  Type
-    <System.Collections.Generic.IEnumerator`1+T>
-  @/textblock
+ Type
+   <System.Collections.Generic.IEnumerator`1+T>
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Object * current;
 @end

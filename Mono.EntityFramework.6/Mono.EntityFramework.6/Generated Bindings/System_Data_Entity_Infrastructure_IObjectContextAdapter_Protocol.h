@@ -76,14 +76,14 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    ObjectContext
+ Managed property.
+ @textblock
+ Name
+   ObjectContext
 
-  Type
-    System.Data.Entity.Core.Objects.ObjectContext
-  @/textblock
+ Type
+   System.Data.Entity.Core.Objects.ObjectContext
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Data_Entity_Core_Objects_ObjectContext * objectContext;
 #endif
@@ -104,14 +104,14 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    ObjectContext
+ Managed property.
+ @textblock
+ Name
+   ObjectContext
 
-  Type
-    System.Data.Entity.Core.Objects.ObjectContext
-  @/textblock
+ Type
+   System.Data.Entity.Core.Objects.ObjectContext
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Data_Entity_Core_Objects_ObjectContext * objectContext;
 

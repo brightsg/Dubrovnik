@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.ComponentModel.RunWorkerCompletedEventArgs";
+	return "System.ComponentModel.RunWorkerCompletedEventArgs";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "System";
+	return "System";
 }
 
 #pragma mark -
@@ -35,8 +35,8 @@
 
 + (System_ComponentModel_RunWorkerCompletedEventArgs *)new_withResult:(System_Object *)p1 error:(System_Exception *)p2 cancelled:(BOOL)p3
 {
-  System_ComponentModel_RunWorkerCompletedEventArgs * object = [[self alloc] initWithSignature:"object,System.Exception,bool" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
-  return object;
+	System_ComponentModel_RunWorkerCompletedEventArgs * object = [[self alloc] initWithSignature:"object,System.Exception,bool" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+	return object;
 }
 
 #pragma mark -

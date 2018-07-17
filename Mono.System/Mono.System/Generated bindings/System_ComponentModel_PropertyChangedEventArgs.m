@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.ComponentModel.PropertyChangedEventArgs";
+	return "System.ComponentModel.PropertyChangedEventArgs";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "System";
+	return "System";
 }
 
 #pragma mark -
@@ -35,8 +35,8 @@
 
 + (System_ComponentModel_PropertyChangedEventArgs *)new_withPropertyName:(NSString *)p1
 {
-  System_ComponentModel_PropertyChangedEventArgs * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return object;
+	System_ComponentModel_PropertyChangedEventArgs * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return object;
 }
 
 #pragma mark -

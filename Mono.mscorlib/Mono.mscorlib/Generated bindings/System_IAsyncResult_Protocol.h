@@ -78,40 +78,40 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    AsyncState
+ Managed property.
+ @textblock
+ Name
+   AsyncState
 
-  Type
-    System.Object
-  @/textblock
+ Type
+   System.Object
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Object * asyncState;
 
 /* Skipped property : System.Threading.WaitHandle AsyncWaitHandle */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    CompletedSynchronously
+ Managed property.
+ @textblock
+ Name
+   CompletedSynchronously
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL completedSynchronously;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    IsCompleted
+ Managed property.
+ @textblock
+ Name
+   IsCompleted
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL isCompleted;
 #endif
@@ -132,40 +132,40 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    AsyncState
+ Managed property.
+ @textblock
+ Name
+   AsyncState
 
-  Type
-    System.Object
-  @/textblock
+ Type
+   System.Object
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Object * asyncState;
 
 /* Skipped property : System.Threading.WaitHandle AsyncWaitHandle */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    CompletedSynchronously
+ Managed property.
+ @textblock
+ Name
+   CompletedSynchronously
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL completedSynchronously;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    IsCompleted
+ Managed property.
+ @textblock
+ Name
+   IsCompleted
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL isCompleted;
 

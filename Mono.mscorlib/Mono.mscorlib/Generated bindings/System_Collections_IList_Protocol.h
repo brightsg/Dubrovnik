@@ -82,26 +82,26 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    IsFixedSize
+ Managed property.
+ @textblock
+ Name
+   IsFixedSize
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL isFixedSize;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    IsReadOnly
+ Managed property.
+ @textblock
+ Name
+   IsReadOnly
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL isReadOnly;
 
@@ -109,139 +109,139 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    get_Item
+ Managed method.
+ @textblock
+ Name
+   get_Item
 
-  Params
-    System.Int32
+ Params
+   System.Int32
 
-  Return
-    System.Object
-  @/textblock
+ Return
+   System.Object
+ @/textblock
 */
 - (System_Object *)get_Item_withIndex:(int32_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    set_Item
+ Managed method.
+ @textblock
+ Name
+   set_Item
 
-  Params
-    System.Int32
-    System.Object
+ Params
+   System.Int32
+   System.Object
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Add
+ Managed method.
+ @textblock
+ Name
+   Add
 
-  Params
-    System.Object
+ Params
+   System.Object
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)add_withValue:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Clear
+ Managed method.
+ @textblock
+ Name
+   Clear
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)clear;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Contains
+ Managed method.
+ @textblock
+ Name
+   Contains
 
-  Params
-    System.Object
+ Params
+   System.Object
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)contains_withValue:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IndexOf
+ Managed method.
+ @textblock
+ Name
+   IndexOf
 
-  Params
-    System.Object
+ Params
+   System.Object
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)indexOf_withValue:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Insert
+ Managed method.
+ @textblock
+ Name
+   Insert
 
-  Params
-    System.Int32
-    System.Object
+ Params
+   System.Int32
+   System.Object
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)insert_withIndex:(int32_t)p1 value:(System_Object *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Remove
+ Managed method.
+ @textblock
+ Name
+   Remove
 
-  Params
-    System.Object
+ Params
+   System.Object
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)remove_withValue:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    RemoveAt
+ Managed method.
+ @textblock
+ Name
+   RemoveAt
 
-  Params
-    System.Int32
+ Params
+   System.Int32
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)removeAt_withIndex:(int32_t)p1;
 #endif
@@ -262,26 +262,26 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    IsFixedSize
+ Managed property.
+ @textblock
+ Name
+   IsFixedSize
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL isFixedSize;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    IsReadOnly
+ Managed property.
+ @textblock
+ Name
+   IsReadOnly
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL isReadOnly;
 
@@ -289,139 +289,139 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    get_Item
+ Managed method.
+ @textblock
+ Name
+   get_Item
 
-  Params
-    System.Int32
+ Params
+   System.Int32
 
-  Return
-    System.Object
-  @/textblock
+ Return
+   System.Object
+ @/textblock
 */
 - (System_Object *)get_Item_withIndex:(int32_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    set_Item
+ Managed method.
+ @textblock
+ Name
+   set_Item
 
-  Params
-    System.Int32
-    System.Object
+ Params
+   System.Int32
+   System.Object
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Add
+ Managed method.
+ @textblock
+ Name
+   Add
 
-  Params
-    System.Object
+ Params
+   System.Object
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)add_withValue:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Clear
+ Managed method.
+ @textblock
+ Name
+   Clear
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)clear;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Contains
+ Managed method.
+ @textblock
+ Name
+   Contains
 
-  Params
-    System.Object
+ Params
+   System.Object
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)contains_withValue:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IndexOf
+ Managed method.
+ @textblock
+ Name
+   IndexOf
 
-  Params
-    System.Object
+ Params
+   System.Object
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)indexOf_withValue:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Insert
+ Managed method.
+ @textblock
+ Name
+   Insert
 
-  Params
-    System.Int32
-    System.Object
+ Params
+   System.Int32
+   System.Object
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)insert_withIndex:(int32_t)p1 value:(System_Object *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Remove
+ Managed method.
+ @textblock
+ Name
+   Remove
 
-  Params
-    System.Object
+ Params
+   System.Object
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)remove_withValue:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    RemoveAt
+ Managed method.
+ @textblock
+ Name
+   RemoveAt
 
-  Params
-    System.Int32
+ Params
+   System.Int32
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)removeAt_withIndex:(int32_t)p1;
 

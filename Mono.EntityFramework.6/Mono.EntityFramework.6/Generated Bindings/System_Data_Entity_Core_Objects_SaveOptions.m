@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Data.Entity.Core.Objects.SaveOptions";
+	return "System.Data.Entity.Core.Objects.SaveOptions";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "EntityFramework";
+	return "EntityFramework";
 }
 
 #pragma mark -

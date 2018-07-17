@@ -27,9 +27,9 @@
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumSystem_DateTimeKind) {
-  System_DateTimeKind_Local = 2,
-  System_DateTimeKind_Unspecified = 0,
-  System_DateTimeKind_Utc = 1,
+	System_DateTimeKind_Local = 2,
+	System_DateTimeKind_Unspecified = 0,
+	System_DateTimeKind_Utc = 1,
 };
 
 @interface System_DateTimeKind : System_Enum
@@ -44,38 +44,38 @@ typedef NS_ENUM(int32_t, enumSystem_DateTimeKind) {
 #pragma mark Fields
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Local
+ Managed field.
+ @textblock
+ Name
+   Local
 
-  Type
-    System.DateTimeKind
-  @/textblock
+ Type
+   System.DateTimeKind
+ @/textblock
 */
 + (int32_t)local;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Unspecified
+ Managed field.
+ @textblock
+ Name
+   Unspecified
 
-  Type
-    System.DateTimeKind
-  @/textblock
+ Type
+   System.DateTimeKind
+ @/textblock
 */
 + (int32_t)unspecified;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Utc
+ Managed field.
+ @textblock
+ Name
+   Utc
 
-  Type
-    System.DateTimeKind
-  @/textblock
+ Type
+   System.DateTimeKind
+ @/textblock
 */
 + (int32_t)utc;
 @end

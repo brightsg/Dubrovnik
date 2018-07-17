@@ -42,74 +42,74 @@
 #pragma mark Fields
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Epsilon
+ Managed field.
+ @textblock
+ Name
+   Epsilon
 
-  Type
-    System.Single
-  @/textblock
+ Type
+   System.Single
+ @/textblock
 */
 + (float)epsilon;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    MaxValue
+ Managed field.
+ @textblock
+ Name
+   MaxValue
 
-  Type
-    System.Single
-  @/textblock
+ Type
+   System.Single
+ @/textblock
 */
 + (float)maxValue;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    MinValue
+ Managed field.
+ @textblock
+ Name
+   MinValue
 
-  Type
-    System.Single
-  @/textblock
+ Type
+   System.Single
+ @/textblock
 */
 + (float)minValue;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    NaN
+ Managed field.
+ @textblock
+ Name
+   NaN
 
-  Type
-    System.Single
-  @/textblock
+ Type
+   System.Single
+ @/textblock
 */
 + (float)naN;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    NegativeInfinity
+ Managed field.
+ @textblock
+ Name
+   NegativeInfinity
 
-  Type
-    System.Single
-  @/textblock
+ Type
+   System.Single
+ @/textblock
 */
 + (float)negativeInfinity;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    PositiveInfinity
+ Managed field.
+ @textblock
+ Name
+   PositiveInfinity
 
-  Type
-    System.Single
-  @/textblock
+ Type
+   System.Single
+ @/textblock
 */
 + (float)positiveInfinity;
 
@@ -117,250 +117,250 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CompareTo
+ Managed method.
+ @textblock
+ Name
+   CompareTo
 
-  Params
-    System.Object
+ Params
+   System.Object
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)compareTo_withValueObject:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CompareTo
+ Managed method.
+ @textblock
+ Name
+   CompareTo
 
-  Params
-    System.Single
+ Params
+   System.Single
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)compareTo_withValueSingle:(float)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Equals
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-  Params
-    System.Object
+ Params
+   System.Object
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)equals_withObjObject:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Equals
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-  Params
-    System.Single
+ Params
+   System.Single
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)equals_withObjSingle:(float)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetHashCode
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)getHashCode;
 
 /* Skipped method : System.TypeCode GetTypeCode() */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsInfinity
+ Managed method.
+ @textblock
+ Name
+   IsInfinity
 
-  Params
-    System.Single
+ Params
+   System.Single
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isInfinity_withF:(float)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsNaN
+ Managed method.
+ @textblock
+ Name
+   IsNaN
 
-  Params
-    System.Single
+ Params
+   System.Single
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isNaN_withF:(float)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsNegativeInfinity
+ Managed method.
+ @textblock
+ Name
+   IsNegativeInfinity
 
-  Params
-    System.Single
+ Params
+   System.Single
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isNegativeInfinity_withF:(float)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsPositiveInfinity
+ Managed method.
+ @textblock
+ Name
+   IsPositiveInfinity
 
-  Params
-    System.Single
+ Params
+   System.Single
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isPositiveInfinity_withF:(float)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    op_Equality
+ Managed method.
+ @textblock
+ Name
+   op_Equality
 
-  Params
-    System.Single
-    System.Single
+ Params
+   System.Single
+   System.Single
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)op_Equality_withLeft:(float)p1 right:(float)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    op_GreaterThan
+ Managed method.
+ @textblock
+ Name
+   op_GreaterThan
 
-  Params
-    System.Single
-    System.Single
+ Params
+   System.Single
+   System.Single
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)op_GreaterThan_withLeft:(float)p1 right:(float)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    op_GreaterThanOrEqual
+ Managed method.
+ @textblock
+ Name
+   op_GreaterThanOrEqual
 
-  Params
-    System.Single
-    System.Single
+ Params
+   System.Single
+   System.Single
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)op_GreaterThanOrEqual_withLeft:(float)p1 right:(float)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    op_Inequality
+ Managed method.
+ @textblock
+ Name
+   op_Inequality
 
-  Params
-    System.Single
-    System.Single
+ Params
+   System.Single
+   System.Single
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)op_Inequality_withLeft:(float)p1 right:(float)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    op_LessThan
+ Managed method.
+ @textblock
+ Name
+   op_LessThan
 
-  Params
-    System.Single
-    System.Single
+ Params
+   System.Single
+   System.Single
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)op_LessThan_withLeft:(float)p1 right:(float)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    op_LessThanOrEqual
+ Managed method.
+ @textblock
+ Name
+   op_LessThanOrEqual
 
-  Params
-    System.Single
-    System.Single
+ Params
+   System.Single
+   System.Single
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)op_LessThanOrEqual_withLeft:(float)p1 right:(float)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Parse
+ Managed method.
+ @textblock
+ Name
+   Parse
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Single
-  @/textblock
+ Return
+   System.Single
+ @/textblock
 */
 + (float)parse_withS:(NSString *)p1;
 
@@ -371,52 +371,52 @@
 /* Skipped method : System.Single Parse(System.String s, System.Globalization.NumberStyles style, System.IFormatProvider provider) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ToString
+ Managed method.
+ @textblock
+ Name
+   ToString
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.String
-  @/textblock
+ Return
+   System.String
+ @/textblock
 */
 - (NSString *)toString;
 
 /* Skipped method : System.String ToString(System.IFormatProvider provider) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ToString
+ Managed method.
+ @textblock
+ Name
+   ToString
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.String
-  @/textblock
+ Return
+   System.String
+ @/textblock
 */
 - (NSString *)toString_withFormat:(NSString *)p1;
 
 /* Skipped method : System.String ToString(System.String format, System.IFormatProvider provider) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    TryParse
+ Managed method.
+ @textblock
+ Name
+   TryParse
 
-  Params
-    System.String
-    ref System.Single&
+ Params
+   System.String
+   ref System.Single&
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(float*)p2;
 

@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Net.HttpWebResponse";
+	return "System.Net.HttpWebResponse";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "System";
+	return "System";
 }
 
 #pragma mark -
@@ -298,19 +298,19 @@
 
 - (void)close
 {
-  [self invokeMonoMethod:"Close()" withNumArgs:0];
+	[self invokeMonoMethod:"Close()" withNumArgs:0];
 }
 
 - (NSString *)getResponseHeader_withHeaderName:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetResponseHeader(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetResponseHeader(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 - (System_IO_Stream *)getResponseStream
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetResponseStream()" withNumArgs:0];
-  return [System_IO_Stream bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetResponseStream()" withNumArgs:0];
+	return [System_IO_Stream bestObjectWithMonoObject:monoObject];
 }
 
 #pragma mark -

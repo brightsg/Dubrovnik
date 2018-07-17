@@ -39,112 +39,112 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    AddExtensionObject
+ Managed method.
+ @textblock
+ Name
+   AddExtensionObject
 
-  Params
-    System.String
-    System.Object
+ Params
+   System.String
+   System.Object
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)addExtensionObject_withNamespaceUri:(NSString *)p1 extension:(System_Object *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    AddParam
+ Managed method.
+ @textblock
+ Name
+   AddParam
 
-  Params
-    System.String
-    System.String
-    System.Object
+ Params
+   System.String
+   System.String
+   System.Object
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)addParam_withName:(NSString *)p1 namespaceUri:(NSString *)p2 parameter:(System_Object *)p3;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Clear
+ Managed method.
+ @textblock
+ Name
+   Clear
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)clear;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetExtensionObject
+ Managed method.
+ @textblock
+ Name
+   GetExtensionObject
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Object
-  @/textblock
+ Return
+   System.Object
+ @/textblock
 */
 - (System_Object *)getExtensionObject_withNamespaceUri:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetParam
+ Managed method.
+ @textblock
+ Name
+   GetParam
 
-  Params
-    System.String
-    System.String
+ Params
+   System.String
+   System.String
 
-  Return
-    System.Object
-  @/textblock
+ Return
+   System.Object
+ @/textblock
 */
 - (System_Object *)getParam_withName:(NSString *)p1 namespaceUri:(NSString *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    RemoveExtensionObject
+ Managed method.
+ @textblock
+ Name
+   RemoveExtensionObject
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Object
-  @/textblock
+ Return
+   System.Object
+ @/textblock
 */
 - (System_Object *)removeExtensionObject_withNamespaceUri:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    RemoveParam
+ Managed method.
+ @textblock
+ Name
+   RemoveParam
 
-  Params
-    System.String
-    System.String
+ Params
+   System.String
+   System.String
 
-  Return
-    System.Object
-  @/textblock
+ Return
+   System.Object
+ @/textblock
 */
 - (System_Object *)removeParam_withName:(NSString *)p1 namespaceUri:(NSString *)p2;
 @end

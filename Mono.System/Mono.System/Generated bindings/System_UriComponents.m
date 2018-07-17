@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.UriComponents";
+	return "System.UriComponents";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "System";
+	return "System";
 }
 
 #pragma mark -

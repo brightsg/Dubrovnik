@@ -57,32 +57,32 @@
 #pragma mark Constructors
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    System.Int32
+ Params
+   System.Int32
 
-  Return
-    System.Collections.Generic.List`1<System.Collections.Generic.List`1+T>
-  @/textblock
+ Return
+   System.Collections.Generic.List`1<System.Collections.Generic.List`1+T>
+ @/textblock
 */
 + (System_Collections_Generic_ListA1 *)new_withCapacity:(int32_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    System.Collections.Generic.IEnumerable`1<System.Collections.Generic.List`1+T>
+ Params
+   System.Collections.Generic.IEnumerable`1<System.Collections.Generic.List`1+T>
 
-  Return
-    System.Collections.Generic.List`1<System.Collections.Generic.List`1+T>
-  @/textblock
+ Return
+   System.Collections.Generic.List`1<System.Collections.Generic.List`1+T>
+ @/textblock
 */
 + (System_Collections_Generic_ListA1 *)new_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
@@ -90,26 +90,26 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Capacity
+ Managed property.
+ @textblock
+ Name
+   Capacity
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 @property (nonatomic) int32_t capacity;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Count
+ Managed property.
+ @textblock
+ Name
+   Count
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 @property (nonatomic, readonly) int32_t count;
 
@@ -117,195 +117,195 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    get_Item
+ Managed method.
+ @textblock
+ Name
+   get_Item
 
-  Params
-    System.Int32
+ Params
+   System.Int32
 
-  Return
-    <System.Collections.Generic.List`1+T>
-  @/textblock
+ Return
+   <System.Collections.Generic.List`1+T>
+ @/textblock
 */
 - (System_Object *)get_Item_withIndex:(int32_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    set_Item
+ Managed method.
+ @textblock
+ Name
+   set_Item
 
-  Params
-    System.Int32
-    <System.Collections.Generic.List`1+T>
+ Params
+   System.Int32
+   <System.Collections.Generic.List`1+T>
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Add
+ Managed method.
+ @textblock
+ Name
+   Add
 
-  Params
-    <System.Collections.Generic.List`1+T>
+ Params
+   <System.Collections.Generic.List`1+T>
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)add_withItem:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    AddRange
+ Managed method.
+ @textblock
+ Name
+   AddRange
 
-  Params
-    System.Collections.Generic.IEnumerable`1<System.Collections.Generic.List`1+T>
+ Params
+   System.Collections.Generic.IEnumerable`1<System.Collections.Generic.List`1+T>
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)addRange_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
 /* Skipped method : System.Collections.ObjectModel.ReadOnlyCollection`1<System.Collections.Generic.List`1+T> AsReadOnly() */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    BinarySearch
+ Managed method.
+ @textblock
+ Name
+   BinarySearch
 
-  Params
-    System.Int32
-    System.Int32
-    <System.Collections.Generic.List`1+T>
-    System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>
+ Params
+   System.Int32
+   System.Int32
+   <System.Collections.Generic.List`1+T>
+   System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)binarySearch_withIndex:(int32_t)p1 count:(int32_t)p2 item:(System_Object *)p3 comparer:(id <System_Collections_Generic_IComparerA1_>)p4;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    BinarySearch
+ Managed method.
+ @textblock
+ Name
+   BinarySearch
 
-  Params
-    <System.Collections.Generic.List`1+T>
+ Params
+   <System.Collections.Generic.List`1+T>
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)binarySearch_withItem:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    BinarySearch
+ Managed method.
+ @textblock
+ Name
+   BinarySearch
 
-  Params
-    <System.Collections.Generic.List`1+T>
-    System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>
+ Params
+   <System.Collections.Generic.List`1+T>
+   System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)binarySearch_withItem:(System_Object *)p1 comparer:(id <System_Collections_Generic_IComparerA1_>)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Clear
+ Managed method.
+ @textblock
+ Name
+   Clear
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)clear;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Contains
+ Managed method.
+ @textblock
+ Name
+   Contains
 
-  Params
-    <System.Collections.Generic.List`1+T>
+ Params
+   <System.Collections.Generic.List`1+T>
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)contains_withItem:(System_Object *)p1;
 
 /* Skipped method : System.Collections.Generic.List`1<System.Collections.Generic.List`1+TOutput> ConvertAll(System.Converter`2<System.Collections.Generic.List`1+T, System.Collections.Generic.List`1+TOutput> converter) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CopyTo
+ Managed method.
+ @textblock
+ Name
+   CopyTo
 
-  Params
-    T[]
+ Params
+   T[]
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)copyTo_withArray:(System_Array *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CopyTo
+ Managed method.
+ @textblock
+ Name
+   CopyTo
 
-  Params
-    System.Int32
-    T[]
-    System.Int32
-    System.Int32
+ Params
+   System.Int32
+   T[]
+   System.Int32
+   System.Int32
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)copyTo_withIndex:(int32_t)p1 array:(System_Array *)p2 arrayIndex:(int32_t)p3 count:(int32_t)p4;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CopyTo
+ Managed method.
+ @textblock
+ Name
+   CopyTo
 
-  Params
-    T[]
-    System.Int32
+ Params
+   T[]
+   System.Int32
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2;
 
@@ -330,334 +330,334 @@
 /* Skipped method : System.Int32 FindLastIndex(System.Int32 startIndex, System.Int32 count, System.Predicate`1<System.Collections.Generic.List`1+T> match) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ForEach
+ Managed method.
+ @textblock
+ Name
+   ForEach
 
-  Params
-    System.Action`1<System.Collections.Generic.List`1+T>
+ Params
+   System.Action`1<System.Collections.Generic.List`1+T>
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)forEach_withAction:(System_ActionA1 *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetEnumerator
+ Managed method.
+ @textblock
+ Name
+   GetEnumerator
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Collections.Generic.List`1<System.Collections.Generic.List`1+T>+Enumerator
-  @/textblock
+ Return
+   System.Collections.Generic.List`1<System.Collections.Generic.List`1+T>+Enumerator
+ @/textblock
 */
 - (System_Collections_Generic_ListA1__Enumerator *)getEnumerator;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetRange
+ Managed method.
+ @textblock
+ Name
+   GetRange
 
-  Params
-    System.Int32
-    System.Int32
+ Params
+   System.Int32
+   System.Int32
 
-  Return
-    System.Collections.Generic.List`1<System.Collections.Generic.List`1+T>
-  @/textblock
+ Return
+   System.Collections.Generic.List`1<System.Collections.Generic.List`1+T>
+ @/textblock
 */
 - (System_Collections_Generic_ListA1 *)getRange_withIndex:(int32_t)p1 count:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IndexOf
+ Managed method.
+ @textblock
+ Name
+   IndexOf
 
-  Params
-    <System.Collections.Generic.List`1+T>
+ Params
+   <System.Collections.Generic.List`1+T>
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)indexOf_withItem:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IndexOf
+ Managed method.
+ @textblock
+ Name
+   IndexOf
 
-  Params
-    <System.Collections.Generic.List`1+T>
-    System.Int32
+ Params
+   <System.Collections.Generic.List`1+T>
+   System.Int32
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)indexOf_withItem:(System_Object *)p1 index:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IndexOf
+ Managed method.
+ @textblock
+ Name
+   IndexOf
 
-  Params
-    <System.Collections.Generic.List`1+T>
-    System.Int32
-    System.Int32
+ Params
+   <System.Collections.Generic.List`1+T>
+   System.Int32
+   System.Int32
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)indexOf_withItem:(System_Object *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Insert
+ Managed method.
+ @textblock
+ Name
+   Insert
 
-  Params
-    System.Int32
-    <System.Collections.Generic.List`1+T>
+ Params
+   System.Int32
+   <System.Collections.Generic.List`1+T>
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)insert_withIndex:(int32_t)p1 item:(System_Object *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    InsertRange
+ Managed method.
+ @textblock
+ Name
+   InsertRange
 
-  Params
-    System.Int32
-    System.Collections.Generic.IEnumerable`1<System.Collections.Generic.List`1+T>
+ Params
+   System.Int32
+   System.Collections.Generic.IEnumerable`1<System.Collections.Generic.List`1+T>
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)insertRange_withIndex:(int32_t)p1 collection:(id <System_Collections_Generic_IEnumerableA1_>)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    LastIndexOf
+ Managed method.
+ @textblock
+ Name
+   LastIndexOf
 
-  Params
-    <System.Collections.Generic.List`1+T>
-    System.Int32
-    System.Int32
+ Params
+   <System.Collections.Generic.List`1+T>
+   System.Int32
+   System.Int32
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)lastIndexOf_withItem:(System_Object *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    LastIndexOf
+ Managed method.
+ @textblock
+ Name
+   LastIndexOf
 
-  Params
-    <System.Collections.Generic.List`1+T>
+ Params
+   <System.Collections.Generic.List`1+T>
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)lastIndexOf_withItem:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    LastIndexOf
+ Managed method.
+ @textblock
+ Name
+   LastIndexOf
 
-  Params
-    <System.Collections.Generic.List`1+T>
-    System.Int32
+ Params
+   <System.Collections.Generic.List`1+T>
+   System.Int32
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)lastIndexOf_withItem:(System_Object *)p1 index:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Remove
+ Managed method.
+ @textblock
+ Name
+   Remove
 
-  Params
-    <System.Collections.Generic.List`1+T>
+ Params
+   <System.Collections.Generic.List`1+T>
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)remove_withItem:(System_Object *)p1;
 
 /* Skipped method : System.Int32 RemoveAll(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    RemoveAt
+ Managed method.
+ @textblock
+ Name
+   RemoveAt
 
-  Params
-    System.Int32
+ Params
+   System.Int32
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)removeAt_withIndex:(int32_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    RemoveRange
+ Managed method.
+ @textblock
+ Name
+   RemoveRange
 
-  Params
-    System.Int32
-    System.Int32
+ Params
+   System.Int32
+   System.Int32
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)removeRange_withIndex:(int32_t)p1 count:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Reverse
+ Managed method.
+ @textblock
+ Name
+   Reverse
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)reverse;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Reverse
+ Managed method.
+ @textblock
+ Name
+   Reverse
 
-  Params
-    System.Int32
-    System.Int32
+ Params
+   System.Int32
+   System.Int32
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)reverse_withIndex:(int32_t)p1 count:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Sort
+ Managed method.
+ @textblock
+ Name
+   Sort
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)sort;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Sort
+ Managed method.
+ @textblock
+ Name
+   Sort
 
-  Params
-    System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>
+ Params
+   System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)sort_withComparer:(id <System_Collections_Generic_IComparerA1_>)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Sort
+ Managed method.
+ @textblock
+ Name
+   Sort
 
-  Params
-    System.Int32
-    System.Int32
-    System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>
+ Params
+   System.Int32
+   System.Int32
+   System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1+T>
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)sort_withIndex:(int32_t)p1 count:(int32_t)p2 comparer:(id <System_Collections_Generic_IComparerA1_>)p3;
 
 /* Skipped method : System.Void Sort(System.Comparison`1<System.Collections.Generic.List`1+T> comparison) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ToArray
+ Managed method.
+ @textblock
+ Name
+   ToArray
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    T[]
-  @/textblock
+ Return
+   T[]
+ @/textblock
 */
 - (System_Array *)toArray;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    TrimExcess
+ Managed method.
+ @textblock
+ Name
+   TrimExcess
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)trimExcess;
 

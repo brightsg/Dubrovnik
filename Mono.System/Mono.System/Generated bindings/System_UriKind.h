@@ -27,9 +27,9 @@
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumSystem_UriKind) {
-  System_UriKind_Absolute = 1,
-  System_UriKind_Relative = 2,
-  System_UriKind_RelativeOrAbsolute = 0,
+	System_UriKind_Absolute = 1,
+	System_UriKind_Relative = 2,
+	System_UriKind_RelativeOrAbsolute = 0,
 };
 
 @interface System_UriKind : System_Enum
@@ -44,38 +44,38 @@ typedef NS_ENUM(int32_t, enumSystem_UriKind) {
 #pragma mark Fields
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Absolute
+ Managed field.
+ @textblock
+ Name
+   Absolute
 
-  Type
-    System.UriKind
-  @/textblock
+ Type
+   System.UriKind
+ @/textblock
 */
 + (int32_t)absolute;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Relative
+ Managed field.
+ @textblock
+ Name
+   Relative
 
-  Type
-    System.UriKind
-  @/textblock
+ Type
+   System.UriKind
+ @/textblock
 */
 + (int32_t)relative;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    RelativeOrAbsolute
+ Managed field.
+ @textblock
+ Name
+   RelativeOrAbsolute
 
-  Type
-    System.UriKind
-  @/textblock
+ Type
+   System.UriKind
+ @/textblock
 */
 + (int32_t)relativeOrAbsolute;
 @end

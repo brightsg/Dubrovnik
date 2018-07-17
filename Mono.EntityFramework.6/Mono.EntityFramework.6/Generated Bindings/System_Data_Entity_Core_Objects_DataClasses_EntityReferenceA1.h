@@ -41,14 +41,14 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Value
+ Managed property.
+ @textblock
+ Name
+   Value
 
-  Type
-    <System.Data.Entity.Core.Objects.DataClasses.EntityReference`1+TEntity>
-  @/textblock
+ Type
+   <System.Data.Entity.Core.Objects.DataClasses.EntityReference`1+TEntity>
+ @/textblock
 */
 @property (nonatomic, strong) System_Object * value;
 
@@ -56,32 +56,32 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Attach
+ Managed method.
+ @textblock
+ Name
+   Attach
 
-  Params
-    <System.Data.Entity.Core.Objects.DataClasses.EntityReference`1+TEntity>
+ Params
+   <System.Data.Entity.Core.Objects.DataClasses.EntityReference`1+TEntity>
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)attach_withEntity:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CreateSourceQuery
+ Managed method.
+ @textblock
+ Name
+   CreateSourceQuery
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.DataClasses.EntityReference`1+TEntity>
-  @/textblock
+ Return
+   System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.DataClasses.EntityReference`1+TEntity>
+ @/textblock
 */
 - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)createSourceQuery;
 

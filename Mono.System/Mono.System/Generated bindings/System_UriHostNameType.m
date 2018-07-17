@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.UriHostNameType";
+	return "System.UriHostNameType";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "System";
+	return "System";
 }
 
 #pragma mark -

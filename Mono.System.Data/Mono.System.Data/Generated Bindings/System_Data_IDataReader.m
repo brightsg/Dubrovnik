@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Data.IDataReader";
+	return "System.Data.IDataReader";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "System.Data";
+	return "System.Data";
 }
 
 #pragma mark -
@@ -95,21 +95,21 @@
 
 - (void)close
 {
-  [self invokeMonoMethod:"System.Data.IDataReader.Close()" withNumArgs:0];
+	[self invokeMonoMethod:"System.Data.IDataReader.Close()" withNumArgs:0];
 }
 
 /* Skipped method : System.Data.DataTable GetSchemaTable() */
 
 - (BOOL)nextResult
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"System.Data.IDataReader.NextResult()" withNumArgs:0];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Data.IDataReader.NextResult()" withNumArgs:0];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (BOOL)read
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"System.Data.IDataReader.Read()" withNumArgs:0];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Data.IDataReader.Read()" withNumArgs:0];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 #pragma mark -

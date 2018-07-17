@@ -43,62 +43,62 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    ConnectionString
+ Managed property.
+ @textblock
+ Name
+   ConnectionString
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong) NSString * connectionString;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    ConnectionTimeout
+ Managed property.
+ @textblock
+ Name
+   ConnectionTimeout
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 @property (nonatomic, readonly) int32_t connectionTimeout;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Database
+ Managed property.
+ @textblock
+ Name
+   Database
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * database;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    DataSource
+ Managed property.
+ @textblock
+ Name
+   DataSource
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * dataSource;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    ServerVersion
+ Managed property.
+ @textblock
+ Name
+   ServerVersion
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * serverVersion;
 
@@ -112,32 +112,32 @@
 /* Skipped method : System.Data.Common.DbTransaction BeginTransaction(System.Data.IsolationLevel isolationLevel) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ChangeDatabase
+ Managed method.
+ @textblock
+ Name
+   ChangeDatabase
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)changeDatabase_withDatabaseName:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Close
+ Managed method.
+ @textblock
+ Name
+   Close
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)close;
 
@@ -152,47 +152,47 @@
 /* Skipped method : System.Data.DataTable GetSchema(System.String collectionName, System.String[] restrictionValues) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Open
+ Managed method.
+ @textblock
+ Name
+   Open
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)open;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    OpenAsync
+ Managed method.
+ @textblock
+ Name
+   OpenAsync
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Threading.Tasks.Task
-  @/textblock
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
 */
 - (System_Threading_Tasks_Task *)openAsync;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    OpenAsync
+ Managed method.
+ @textblock
+ Name
+   OpenAsync
 
-  Params
-    System.Threading.CancellationToken
+ Params
+   System.Threading.CancellationToken
 
-  Return
-    System.Threading.Tasks.Task
-  @/textblock
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
 */
 - (System_Threading_Tasks_Task *)openAsync_withCancellationToken:(System_Threading_CancellationToken *)p1;
 @end

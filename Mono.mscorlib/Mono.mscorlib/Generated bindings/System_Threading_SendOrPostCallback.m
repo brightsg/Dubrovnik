@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Threading.SendOrPostCallback";
+	return "System.Threading.SendOrPostCallback";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "mscorlib";
+	return "mscorlib";
 }
 
 #pragma mark -
@@ -35,8 +35,8 @@
 
 + (System_Threading_SendOrPostCallback *)new_withObject:(System_Object *)p1 method:(void *)p2
 {
-  System_Threading_SendOrPostCallback * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-  return object;
+	System_Threading_SendOrPostCallback * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	return object;
 }
 
 #pragma mark -
@@ -44,18 +44,18 @@
 
 - (id <System_IAsyncResult>)beginInvoke_withState:(System_Object *)p1 callback:(System_AsyncCallback *)p2 object:(System_Object *)p3
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(object,System.AsyncCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
-  return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(object,System.AsyncCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
 }
 
 - (void)endInvoke_withResult:(id <System_IAsyncResult_>)p1
 {
-  [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 - (void)invoke_withState:(System_Object *)p1
 {
-  [self invokeMonoMethod:"Invoke(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Invoke(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 #pragma mark -

@@ -56,38 +56,38 @@
 /* Skipped property : System.Net.Cache.RequestCachePolicy CachePolicy */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    ConnectionGroupName
+ Managed property.
+ @textblock
+ Name
+   ConnectionGroupName
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong) NSString * connectionGroupName;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    ContentLength
+ Managed property.
+ @textblock
+ Name
+   ContentLength
 
-  Type
-    System.Int64
-  @/textblock
+ Type
+   System.Int64
+ @/textblock
 */
 @property (nonatomic) int64_t contentLength;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    ContentType
+ Managed property.
+ @textblock
+ Name
+   ContentType
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong) NSString * contentType;
 
@@ -104,64 +104,64 @@
 /* Skipped property : System.Security.Principal.TokenImpersonationLevel ImpersonationLevel */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Method
+ Managed property.
+ @textblock
+ Name
+   Method
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong) NSString * method;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    PreAuthenticate
+ Managed property.
+ @textblock
+ Name
+   PreAuthenticate
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic) BOOL preAuthenticate;
 
 /* Skipped property : System.Net.IWebProxy Proxy */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    RequestUri
+ Managed property.
+ @textblock
+ Name
+   RequestUri
 
-  Type
-    System.Uri
-  @/textblock
+ Type
+   System.Uri
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Uri * requestUri;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Timeout
+ Managed property.
+ @textblock
+ Name
+   Timeout
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 @property (nonatomic) int32_t timeout;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    UseDefaultCredentials
+ Managed property.
+ @textblock
+ Name
+   UseDefaultCredentials
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic) BOOL useDefaultCredentials;
 
@@ -169,214 +169,214 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Abort
+ Managed method.
+ @textblock
+ Name
+   Abort
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)abort;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    BeginGetRequestStream
+ Managed method.
+ @textblock
+ Name
+   BeginGetRequestStream
 
-  Params
-    System.AsyncCallback
-    System.Object
+ Params
+   System.AsyncCallback
+   System.Object
 
-  Return
-    System.IAsyncResult
-  @/textblock
+ Return
+   System.IAsyncResult
+ @/textblock
 */
 - (id <System_IAsyncResult>)beginGetRequestStream_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    BeginGetResponse
+ Managed method.
+ @textblock
+ Name
+   BeginGetResponse
 
-  Params
-    System.AsyncCallback
-    System.Object
+ Params
+   System.AsyncCallback
+   System.Object
 
-  Return
-    System.IAsyncResult
-  @/textblock
+ Return
+   System.IAsyncResult
+ @/textblock
 */
 - (id <System_IAsyncResult>)beginGetResponse_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Create
+ Managed method.
+ @textblock
+ Name
+   Create
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Net.WebRequest
-  @/textblock
+ Return
+   System.Net.WebRequest
+ @/textblock
 */
 + (System_Net_WebRequest *)create_withRequestUriString:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Create
+ Managed method.
+ @textblock
+ Name
+   Create
 
-  Params
-    System.Uri
+ Params
+   System.Uri
 
-  Return
-    System.Net.WebRequest
-  @/textblock
+ Return
+   System.Net.WebRequest
+ @/textblock
 */
 + (System_Net_WebRequest *)create_withRequestUri:(System_Uri *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CreateDefault
+ Managed method.
+ @textblock
+ Name
+   CreateDefault
 
-  Params
-    System.Uri
+ Params
+   System.Uri
 
-  Return
-    System.Net.WebRequest
-  @/textblock
+ Return
+   System.Net.WebRequest
+ @/textblock
 */
 + (System_Net_WebRequest *)createDefault_withRequestUri:(System_Uri *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CreateHttp
+ Managed method.
+ @textblock
+ Name
+   CreateHttp
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Net.HttpWebRequest
-  @/textblock
+ Return
+   System.Net.HttpWebRequest
+ @/textblock
 */
 + (System_Net_HttpWebRequest *)createHttp_withRequestUriString:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CreateHttp
+ Managed method.
+ @textblock
+ Name
+   CreateHttp
 
-  Params
-    System.Uri
+ Params
+   System.Uri
 
-  Return
-    System.Net.HttpWebRequest
-  @/textblock
+ Return
+   System.Net.HttpWebRequest
+ @/textblock
 */
 + (System_Net_HttpWebRequest *)createHttp_withRequestUri:(System_Uri *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    EndGetRequestStream
+ Managed method.
+ @textblock
+ Name
+   EndGetRequestStream
 
-  Params
-    System.IAsyncResult
+ Params
+   System.IAsyncResult
 
-  Return
-    System.IO.Stream
-  @/textblock
+ Return
+   System.IO.Stream
+ @/textblock
 */
 - (System_IO_Stream *)endGetRequestStream_withAsyncResult:(id <System_IAsyncResult_>)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    EndGetResponse
+ Managed method.
+ @textblock
+ Name
+   EndGetResponse
 
-  Params
-    System.IAsyncResult
+ Params
+   System.IAsyncResult
 
-  Return
-    System.Net.WebResponse
-  @/textblock
+ Return
+   System.Net.WebResponse
+ @/textblock
 */
 - (System_Net_WebResponse *)endGetResponse_withAsyncResult:(id <System_IAsyncResult_>)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetRequestStream
+ Managed method.
+ @textblock
+ Name
+   GetRequestStream
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.IO.Stream
-  @/textblock
+ Return
+   System.IO.Stream
+ @/textblock
 */
 - (System_IO_Stream *)getRequestStream;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetRequestStreamAsync
+ Managed method.
+ @textblock
+ Name
+   GetRequestStreamAsync
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Threading.Tasks.Task`1<System.IO.Stream>
-  @/textblock
+ Return
+   System.Threading.Tasks.Task`1<System.IO.Stream>
+ @/textblock
 */
 - (System_Threading_Tasks_TaskA1 *)getRequestStreamAsync;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetResponse
+ Managed method.
+ @textblock
+ Name
+   GetResponse
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Net.WebResponse
-  @/textblock
+ Return
+   System.Net.WebResponse
+ @/textblock
 */
 - (System_Net_WebResponse *)getResponse;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetResponseAsync
+ Managed method.
+ @textblock
+ Name
+   GetResponseAsync
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Threading.Tasks.Task`1<System.Net.WebResponse>
-  @/textblock
+ Return
+   System.Threading.Tasks.Task`1<System.Net.WebResponse>
+ @/textblock
 */
 - (System_Threading_Tasks_TaskA1 *)getResponseAsync;
 

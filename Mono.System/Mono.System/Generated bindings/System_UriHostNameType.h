@@ -27,11 +27,11 @@
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumSystem_UriHostNameType) {
-  System_UriHostNameType_Basic = 1,
-  System_UriHostNameType_Dns = 2,
-  System_UriHostNameType_IPv4 = 3,
-  System_UriHostNameType_IPv6 = 4,
-  System_UriHostNameType_Unknown = 0,
+	System_UriHostNameType_Basic = 1,
+	System_UriHostNameType_Dns = 2,
+	System_UriHostNameType_IPv4 = 3,
+	System_UriHostNameType_IPv6 = 4,
+	System_UriHostNameType_Unknown = 0,
 };
 
 @interface System_UriHostNameType : System_Enum
@@ -46,62 +46,62 @@ typedef NS_ENUM(int32_t, enumSystem_UriHostNameType) {
 #pragma mark Fields
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Basic
+ Managed field.
+ @textblock
+ Name
+   Basic
 
-  Type
-    System.UriHostNameType
-  @/textblock
+ Type
+   System.UriHostNameType
+ @/textblock
 */
 + (int32_t)basic;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Dns
+ Managed field.
+ @textblock
+ Name
+   Dns
 
-  Type
-    System.UriHostNameType
-  @/textblock
+ Type
+   System.UriHostNameType
+ @/textblock
 */
 + (int32_t)dns;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    IPv4
+ Managed field.
+ @textblock
+ Name
+   IPv4
 
-  Type
-    System.UriHostNameType
-  @/textblock
+ Type
+   System.UriHostNameType
+ @/textblock
 */
 + (int32_t)iPv4;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    IPv6
+ Managed field.
+ @textblock
+ Name
+   IPv6
 
-  Type
-    System.UriHostNameType
-  @/textblock
+ Type
+   System.UriHostNameType
+ @/textblock
 */
 + (int32_t)iPv6;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Unknown
+ Managed field.
+ @textblock
+ Name
+   Unknown
 
-  Type
-    System.UriHostNameType
-  @/textblock
+ Type
+   System.UriHostNameType
+ @/textblock
 */
 + (int32_t)unknown;
 @end

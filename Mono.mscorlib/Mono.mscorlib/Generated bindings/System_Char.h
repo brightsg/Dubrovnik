@@ -44,26 +44,26 @@
 #pragma mark Fields
 
 /**
-  Managed field.
-  @textblock
-  Name
-    MaxValue
+ Managed field.
+ @textblock
+ Name
+   MaxValue
 
-  Type
-    System.Char
-  @/textblock
+ Type
+   System.Char
+ @/textblock
 */
 + (uint16_t)maxValue;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    MinValue
+ Managed field.
+ @textblock
+ Name
+   MinValue
 
-  Type
-    System.Char
-  @/textblock
+ Type
+   System.Char
+ @/textblock
 */
 + (uint16_t)minValue;
 
@@ -71,155 +71,155 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CompareTo
+ Managed method.
+ @textblock
+ Name
+   CompareTo
 
-  Params
-    System.Object
+ Params
+   System.Object
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)compareTo_withValueObject:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CompareTo
+ Managed method.
+ @textblock
+ Name
+   CompareTo
 
-  Params
-    System.Char
+ Params
+   System.Char
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)compareTo_withValueChar:(uint16_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ConvertFromUtf32
+ Managed method.
+ @textblock
+ Name
+   ConvertFromUtf32
 
-  Params
-    System.Int32
+ Params
+   System.Int32
 
-  Return
-    System.String
-  @/textblock
+ Return
+   System.String
+ @/textblock
 */
 + (NSString *)convertFromUtf32_withUtf32:(int32_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ConvertToUtf32
+ Managed method.
+ @textblock
+ Name
+   ConvertToUtf32
 
-  Params
-    System.Char
-    System.Char
+ Params
+   System.Char
+   System.Char
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 + (int32_t)convertToUtf32_withHighSurrogate:(uint16_t)p1 lowSurrogate:(uint16_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ConvertToUtf32
+ Managed method.
+ @textblock
+ Name
+   ConvertToUtf32
 
-  Params
-    System.String
-    System.Int32
+ Params
+   System.String
+   System.Int32
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 + (int32_t)convertToUtf32_withS:(NSString *)p1 index:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Equals
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-  Params
-    System.Object
+ Params
+   System.Object
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)equals_withObjObject:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Equals
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-  Params
-    System.Char
+ Params
+   System.Char
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)equals_withObjChar:(uint16_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetHashCode
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)getHashCode;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetNumericValue
+ Managed method.
+ @textblock
+ Name
+   GetNumericValue
 
-  Params
-    System.Char
+ Params
+   System.Char
 
-  Return
-    System.Double
-  @/textblock
+ Return
+   System.Double
+ @/textblock
 */
 + (double)getNumericValue_withC:(uint16_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetNumericValue
+ Managed method.
+ @textblock
+ Name
+   GetNumericValue
 
-  Params
-    System.String
-    System.Int32
+ Params
+   System.String
+   System.Int32
 
-  Return
-    System.Double
-  @/textblock
+ Return
+   System.Double
+ @/textblock
 */
 + (double)getNumericValue_withS:(NSString *)p1 index:(int32_t)p2;
 
@@ -230,623 +230,623 @@
 /* Skipped method : System.Globalization.UnicodeCategory GetUnicodeCategory(System.String s, System.Int32 index) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsControl
+ Managed method.
+ @textblock
+ Name
+   IsControl
 
-  Params
-    System.Char
+ Params
+   System.Char
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isControl_withC:(uint16_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsControl
+ Managed method.
+ @textblock
+ Name
+   IsControl
 
-  Params
-    System.String
-    System.Int32
+ Params
+   System.String
+   System.Int32
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isControl_withS:(NSString *)p1 index:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsDigit
+ Managed method.
+ @textblock
+ Name
+   IsDigit
 
-  Params
-    System.Char
+ Params
+   System.Char
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isDigit_withC:(uint16_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsDigit
+ Managed method.
+ @textblock
+ Name
+   IsDigit
 
-  Params
-    System.String
-    System.Int32
+ Params
+   System.String
+   System.Int32
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isDigit_withS:(NSString *)p1 index:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsHighSurrogate
+ Managed method.
+ @textblock
+ Name
+   IsHighSurrogate
 
-  Params
-    System.Char
+ Params
+   System.Char
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isHighSurrogate_withC:(uint16_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsHighSurrogate
+ Managed method.
+ @textblock
+ Name
+   IsHighSurrogate
 
-  Params
-    System.String
-    System.Int32
+ Params
+   System.String
+   System.Int32
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isHighSurrogate_withS:(NSString *)p1 index:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsLetter
+ Managed method.
+ @textblock
+ Name
+   IsLetter
 
-  Params
-    System.Char
+ Params
+   System.Char
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isLetter_withC:(uint16_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsLetter
+ Managed method.
+ @textblock
+ Name
+   IsLetter
 
-  Params
-    System.String
-    System.Int32
+ Params
+   System.String
+   System.Int32
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isLetter_withS:(NSString *)p1 index:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsLetterOrDigit
+ Managed method.
+ @textblock
+ Name
+   IsLetterOrDigit
 
-  Params
-    System.Char
+ Params
+   System.Char
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isLetterOrDigit_withC:(uint16_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsLetterOrDigit
+ Managed method.
+ @textblock
+ Name
+   IsLetterOrDigit
 
-  Params
-    System.String
-    System.Int32
+ Params
+   System.String
+   System.Int32
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isLetterOrDigit_withS:(NSString *)p1 index:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsLower
+ Managed method.
+ @textblock
+ Name
+   IsLower
 
-  Params
-    System.Char
+ Params
+   System.Char
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isLower_withC:(uint16_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsLower
+ Managed method.
+ @textblock
+ Name
+   IsLower
 
-  Params
-    System.String
-    System.Int32
+ Params
+   System.String
+   System.Int32
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isLower_withS:(NSString *)p1 index:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsLowSurrogate
+ Managed method.
+ @textblock
+ Name
+   IsLowSurrogate
 
-  Params
-    System.Char
+ Params
+   System.Char
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isLowSurrogate_withC:(uint16_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsLowSurrogate
+ Managed method.
+ @textblock
+ Name
+   IsLowSurrogate
 
-  Params
-    System.String
-    System.Int32
+ Params
+   System.String
+   System.Int32
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isLowSurrogate_withS:(NSString *)p1 index:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsNumber
+ Managed method.
+ @textblock
+ Name
+   IsNumber
 
-  Params
-    System.Char
+ Params
+   System.Char
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isNumber_withC:(uint16_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsNumber
+ Managed method.
+ @textblock
+ Name
+   IsNumber
 
-  Params
-    System.String
-    System.Int32
+ Params
+   System.String
+   System.Int32
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isNumber_withS:(NSString *)p1 index:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsPunctuation
+ Managed method.
+ @textblock
+ Name
+   IsPunctuation
 
-  Params
-    System.Char
+ Params
+   System.Char
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isPunctuation_withC:(uint16_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsPunctuation
+ Managed method.
+ @textblock
+ Name
+   IsPunctuation
 
-  Params
-    System.String
-    System.Int32
+ Params
+   System.String
+   System.Int32
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isPunctuation_withS:(NSString *)p1 index:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsSeparator
+ Managed method.
+ @textblock
+ Name
+   IsSeparator
 
-  Params
-    System.Char
+ Params
+   System.Char
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isSeparator_withC:(uint16_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsSeparator
+ Managed method.
+ @textblock
+ Name
+   IsSeparator
 
-  Params
-    System.String
-    System.Int32
+ Params
+   System.String
+   System.Int32
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isSeparator_withS:(NSString *)p1 index:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsSurrogate
+ Managed method.
+ @textblock
+ Name
+   IsSurrogate
 
-  Params
-    System.Char
+ Params
+   System.Char
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isSurrogate_withC:(uint16_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsSurrogate
+ Managed method.
+ @textblock
+ Name
+   IsSurrogate
 
-  Params
-    System.String
-    System.Int32
+ Params
+   System.String
+   System.Int32
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isSurrogate_withS:(NSString *)p1 index:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsSurrogatePair
+ Managed method.
+ @textblock
+ Name
+   IsSurrogatePair
 
-  Params
-    System.String
-    System.Int32
+ Params
+   System.String
+   System.Int32
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isSurrogatePair_withS:(NSString *)p1 index:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsSurrogatePair
+ Managed method.
+ @textblock
+ Name
+   IsSurrogatePair
 
-  Params
-    System.Char
-    System.Char
+ Params
+   System.Char
+   System.Char
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isSurrogatePair_withHighSurrogate:(uint16_t)p1 lowSurrogate:(uint16_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsSymbol
+ Managed method.
+ @textblock
+ Name
+   IsSymbol
 
-  Params
-    System.Char
+ Params
+   System.Char
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isSymbol_withC:(uint16_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsSymbol
+ Managed method.
+ @textblock
+ Name
+   IsSymbol
 
-  Params
-    System.String
-    System.Int32
+ Params
+   System.String
+   System.Int32
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isSymbol_withS:(NSString *)p1 index:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsUpper
+ Managed method.
+ @textblock
+ Name
+   IsUpper
 
-  Params
-    System.Char
+ Params
+   System.Char
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isUpper_withC:(uint16_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsUpper
+ Managed method.
+ @textblock
+ Name
+   IsUpper
 
-  Params
-    System.String
-    System.Int32
+ Params
+   System.String
+   System.Int32
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isUpper_withS:(NSString *)p1 index:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsWhiteSpace
+ Managed method.
+ @textblock
+ Name
+   IsWhiteSpace
 
-  Params
-    System.Char
+ Params
+   System.Char
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isWhiteSpace_withC:(uint16_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    IsWhiteSpace
+ Managed method.
+ @textblock
+ Name
+   IsWhiteSpace
 
-  Params
-    System.String
-    System.Int32
+ Params
+   System.String
+   System.Int32
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)isWhiteSpace_withS:(NSString *)p1 index:(int32_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Parse
+ Managed method.
+ @textblock
+ Name
+   Parse
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Char
-  @/textblock
+ Return
+   System.Char
+ @/textblock
 */
 + (uint16_t)parse_withS:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ToLower
+ Managed method.
+ @textblock
+ Name
+   ToLower
 
-  Params
-    System.Char
-    System.Globalization.CultureInfo
+ Params
+   System.Char
+   System.Globalization.CultureInfo
 
-  Return
-    System.Char
-  @/textblock
+ Return
+   System.Char
+ @/textblock
 */
 + (uint16_t)toLower_withC:(uint16_t)p1 culture:(System_Globalization_CultureInfo *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ToLower
+ Managed method.
+ @textblock
+ Name
+   ToLower
 
-  Params
-    System.Char
+ Params
+   System.Char
 
-  Return
-    System.Char
-  @/textblock
+ Return
+   System.Char
+ @/textblock
 */
 + (uint16_t)toLower_withC:(uint16_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ToLowerInvariant
+ Managed method.
+ @textblock
+ Name
+   ToLowerInvariant
 
-  Params
-    System.Char
+ Params
+   System.Char
 
-  Return
-    System.Char
-  @/textblock
+ Return
+   System.Char
+ @/textblock
 */
 + (uint16_t)toLowerInvariant_withC:(uint16_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ToString
+ Managed method.
+ @textblock
+ Name
+   ToString
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.String
-  @/textblock
+ Return
+   System.String
+ @/textblock
 */
 - (NSString *)toString;
 
 /* Skipped method : System.String ToString(System.IFormatProvider provider) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ToString
+ Managed method.
+ @textblock
+ Name
+   ToString
 
-  Params
-    System.Char
+ Params
+   System.Char
 
-  Return
-    System.String
-  @/textblock
+ Return
+   System.String
+ @/textblock
 */
 + (NSString *)toString_withC:(uint16_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ToUpper
+ Managed method.
+ @textblock
+ Name
+   ToUpper
 
-  Params
-    System.Char
-    System.Globalization.CultureInfo
+ Params
+   System.Char
+   System.Globalization.CultureInfo
 
-  Return
-    System.Char
-  @/textblock
+ Return
+   System.Char
+ @/textblock
 */
 + (uint16_t)toUpper_withC:(uint16_t)p1 culture:(System_Globalization_CultureInfo *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ToUpper
+ Managed method.
+ @textblock
+ Name
+   ToUpper
 
-  Params
-    System.Char
+ Params
+   System.Char
 
-  Return
-    System.Char
-  @/textblock
+ Return
+   System.Char
+ @/textblock
 */
 + (uint16_t)toUpper_withC:(uint16_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ToUpperInvariant
+ Managed method.
+ @textblock
+ Name
+   ToUpperInvariant
 
-  Params
-    System.Char
+ Params
+   System.Char
 
-  Return
-    System.Char
-  @/textblock
+ Return
+   System.Char
+ @/textblock
 */
 + (uint16_t)toUpperInvariant_withC:(uint16_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    TryParse
+ Managed method.
+ @textblock
+ Name
+   TryParse
 
-  Params
-    System.String
-    ref System.Char&
+ Params
+   System.String
+   ref System.Char&
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(uint16_t*)p2;
 @end

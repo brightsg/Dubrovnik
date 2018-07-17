@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.IEquatable`1";
+	return "System.IEquatable`1";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "mscorlib";
+	return "mscorlib";
 }
 
 #pragma mark -
@@ -35,8 +35,8 @@
 
 - (BOOL)equals_withOther:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"System.IEquatable`1<System.IEquatable`1+T>.Equals(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"System.IEquatable`1<System.IEquatable`1+T>.Equals(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 #pragma mark -

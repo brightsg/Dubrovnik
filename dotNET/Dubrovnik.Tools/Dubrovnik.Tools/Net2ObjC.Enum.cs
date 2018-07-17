@@ -13,7 +13,7 @@ namespace Dubrovnik.Tools {
 			// output the enums as a C typedef enum.
 			if (OutputFileType == OutputType.Interface) {
 				WriteLine($"typedef NS_ENUM({objCEnumType}, enum{objCType}) {{");
-				PushIndent("  ");
+				PushTabIndent();
 				foreach (FieldFacet field in enumeration.Fields) {
 					string objCFieldName = ObjCIdentifierFromManagedIdentifier(field.Name);
 					WriteLine($"{objCType}_{objCFieldName} = {field.ConstantValue},");

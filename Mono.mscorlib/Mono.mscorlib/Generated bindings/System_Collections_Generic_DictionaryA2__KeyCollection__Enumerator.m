@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Collections.Generic.Dictionary`2+KeyCollection+Enumerator";
+	return "System.Collections.Generic.Dictionary`2+KeyCollection+Enumerator";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "mscorlib";
+	return "mscorlib";
 }
 
 #pragma mark -
@@ -58,13 +58,13 @@
 
 - (void)dispose
 {
-  [self invokeMonoMethod:"Dispose()" withNumArgs:0];
+	[self invokeMonoMethod:"Dispose()" withNumArgs:0];
 }
 
 - (BOOL)moveNext
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"MoveNext()" withNumArgs:0];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"MoveNext()" withNumArgs:0];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 #pragma mark -

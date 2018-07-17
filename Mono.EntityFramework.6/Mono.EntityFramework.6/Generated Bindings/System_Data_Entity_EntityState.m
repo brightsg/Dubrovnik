@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Data.Entity.EntityState";
+	return "System.Data.Entity.EntityState";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "EntityFramework";
+	return "EntityFramework";
 }
 
 #pragma mark -

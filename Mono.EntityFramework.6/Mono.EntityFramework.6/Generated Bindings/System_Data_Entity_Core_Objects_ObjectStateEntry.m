@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Data.Entity.Core.Objects.ObjectStateEntry";
+	return "System.Data.Entity.Core.Objects.ObjectStateEntry";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "EntityFramework";
+	return "EntityFramework";
 }
 
 #pragma mark -
@@ -123,56 +123,56 @@
 
 - (void)acceptChanges
 {
-  [self invokeMonoMethod:"AcceptChanges()" withNumArgs:0];
+	[self invokeMonoMethod:"AcceptChanges()" withNumArgs:0];
 }
 
 - (void)applyCurrentValues_withCurrentEntity:(System_Object *)p1
 {
-  [self invokeMonoMethod:"ApplyCurrentValues(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"ApplyCurrentValues(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 - (void)applyOriginalValues_withOriginalEntity:(System_Object *)p1
 {
-  [self invokeMonoMethod:"ApplyOriginalValues(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"ApplyOriginalValues(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 - (void)changeState_withState:(int32_t)p1
 {
-  [self invokeMonoMethod:"ChangeState(System.Data.Entity.EntityState)" withNumArgs:1, DB_VALUE(p1)];
+	[self invokeMonoMethod:"ChangeState(System.Data.Entity.EntityState)" withNumArgs:1, DB_VALUE(p1)];
 }
 
 - (void)delete
 {
-  [self invokeMonoMethod:"Delete()" withNumArgs:0];
+	[self invokeMonoMethod:"Delete()" withNumArgs:0];
 }
 
 - (id <System_Collections_Generic_IEnumerableA1>)getModifiedProperties
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetModifiedProperties()" withNumArgs:0];
-  return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetModifiedProperties()" withNumArgs:0];
+	return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
 }
 
 /* Skipped method : System.Data.Entity.Core.Objects.OriginalValueRecord GetUpdatableOriginalValues() */
 
 - (BOOL)isPropertyChanged_withPropertyName:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"IsPropertyChanged(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"IsPropertyChanged(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (void)rejectPropertyChanges_withPropertyName:(NSString *)p1
 {
-  [self invokeMonoMethod:"RejectPropertyChanges(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"RejectPropertyChanges(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 - (void)setModified
 {
-  [self invokeMonoMethod:"SetModified()" withNumArgs:0];
+	[self invokeMonoMethod:"SetModified()" withNumArgs:0];
 }
 
 - (void)setModifiedProperty_withPropertyName:(NSString *)p1
 {
-  [self invokeMonoMethod:"SetModifiedProperty(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"SetModifiedProperty(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 #pragma mark -

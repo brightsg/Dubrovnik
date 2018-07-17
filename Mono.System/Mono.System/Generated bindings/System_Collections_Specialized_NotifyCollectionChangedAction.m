@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Collections.Specialized.NotifyCollectionChangedAction";
+	return "System.Collections.Specialized.NotifyCollectionChangedAction";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "System";
+	return "System";
 }
 
 #pragma mark -

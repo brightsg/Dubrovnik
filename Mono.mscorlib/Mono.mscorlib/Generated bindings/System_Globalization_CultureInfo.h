@@ -45,64 +45,64 @@
 #pragma mark Constructors
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Globalization.CultureInfo
-  @/textblock
+ Return
+   System.Globalization.CultureInfo
+ @/textblock
 */
 + (System_Globalization_CultureInfo *)new_withName:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    System.String
-    System.Boolean
+ Params
+   System.String
+   System.Boolean
 
-  Return
-    System.Globalization.CultureInfo
-  @/textblock
+ Return
+   System.Globalization.CultureInfo
+ @/textblock
 */
 + (System_Globalization_CultureInfo *)new_withName:(NSString *)p1 useUserOverride:(BOOL)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    System.Int32
+ Params
+   System.Int32
 
-  Return
-    System.Globalization.CultureInfo
-  @/textblock
+ Return
+   System.Globalization.CultureInfo
+ @/textblock
 */
 + (System_Globalization_CultureInfo *)new_withCulture:(int32_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    System.Int32
-    System.Boolean
+ Params
+   System.Int32
+   System.Boolean
 
-  Return
-    System.Globalization.CultureInfo
-  @/textblock
+ Return
+   System.Globalization.CultureInfo
+ @/textblock
 */
 + (System_Globalization_CultureInfo *)new_withCulture:(int32_t)p1 useUserOverride:(BOOL)p2;
 
@@ -116,27 +116,27 @@
 /* Skipped property : System.Globalization.CultureTypes CultureTypes */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    CurrentCulture
+ Managed property.
+ @textblock
+ Name
+   CurrentCulture
 
-  Type
-    System.Globalization.CultureInfo
-  @/textblock
+ Type
+   System.Globalization.CultureInfo
+ @/textblock
 */
 + (System_Globalization_CultureInfo *)currentCulture;
 + (void)setCurrentCulture:(System_Globalization_CultureInfo *)value;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    CurrentUICulture
+ Managed property.
+ @textblock
+ Name
+   CurrentUICulture
 
-  Type
-    System.Globalization.CultureInfo
-  @/textblock
+ Type
+   System.Globalization.CultureInfo
+ @/textblock
 */
 + (System_Globalization_CultureInfo *)currentUICulture;
 + (void)setCurrentUICulture:(System_Globalization_CultureInfo *)value;
@@ -144,160 +144,160 @@
 /* Skipped property : System.Globalization.DateTimeFormatInfo DateTimeFormat */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    DefaultThreadCurrentCulture
+ Managed property.
+ @textblock
+ Name
+   DefaultThreadCurrentCulture
 
-  Type
-    System.Globalization.CultureInfo
-  @/textblock
+ Type
+   System.Globalization.CultureInfo
+ @/textblock
 */
 + (System_Globalization_CultureInfo *)defaultThreadCurrentCulture;
 + (void)setDefaultThreadCurrentCulture:(System_Globalization_CultureInfo *)value;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    DefaultThreadCurrentUICulture
+ Managed property.
+ @textblock
+ Name
+   DefaultThreadCurrentUICulture
 
-  Type
-    System.Globalization.CultureInfo
-  @/textblock
+ Type
+   System.Globalization.CultureInfo
+ @/textblock
 */
 + (System_Globalization_CultureInfo *)defaultThreadCurrentUICulture;
 + (void)setDefaultThreadCurrentUICulture:(System_Globalization_CultureInfo *)value;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    DisplayName
+ Managed property.
+ @textblock
+ Name
+   DisplayName
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * displayName;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    EnglishName
+ Managed property.
+ @textblock
+ Name
+   EnglishName
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * englishName;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    IetfLanguageTag
+ Managed property.
+ @textblock
+ Name
+   IetfLanguageTag
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * ietfLanguageTag;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    InstalledUICulture
+ Managed property.
+ @textblock
+ Name
+   InstalledUICulture
 
-  Type
-    System.Globalization.CultureInfo
-  @/textblock
+ Type
+   System.Globalization.CultureInfo
+ @/textblock
 */
 + (System_Globalization_CultureInfo *)installedUICulture;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    InvariantCulture
+ Managed property.
+ @textblock
+ Name
+   InvariantCulture
 
-  Type
-    System.Globalization.CultureInfo
-  @/textblock
+ Type
+   System.Globalization.CultureInfo
+ @/textblock
 */
 + (System_Globalization_CultureInfo *)invariantCulture;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    IsNeutralCulture
+ Managed property.
+ @textblock
+ Name
+   IsNeutralCulture
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL isNeutralCulture;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    IsReadOnly
+ Managed property.
+ @textblock
+ Name
+   IsReadOnly
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL isReadOnly;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    KeyboardLayoutId
+ Managed property.
+ @textblock
+ Name
+   KeyboardLayoutId
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 @property (nonatomic, readonly) int32_t keyboardLayoutId;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    LCID
+ Managed property.
+ @textblock
+ Name
+   LCID
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 @property (nonatomic, readonly) int32_t lCID;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Name
+ Managed property.
+ @textblock
+ Name
+   Name
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * name;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    NativeName
+ Managed property.
+ @textblock
+ Name
+   NativeName
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * nativeName;
 
@@ -306,64 +306,64 @@
 /* Skipped property : System.Globalization.Calendar[] OptionalCalendars */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Parent
+ Managed property.
+ @textblock
+ Name
+   Parent
 
-  Type
-    System.Globalization.CultureInfo
-  @/textblock
+ Type
+   System.Globalization.CultureInfo
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Globalization_CultureInfo * parent;
 
 /* Skipped property : System.Globalization.TextInfo TextInfo */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    ThreeLetterISOLanguageName
+ Managed property.
+ @textblock
+ Name
+   ThreeLetterISOLanguageName
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * threeLetterISOLanguageName;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    ThreeLetterWindowsLanguageName
+ Managed property.
+ @textblock
+ Name
+   ThreeLetterWindowsLanguageName
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * threeLetterWindowsLanguageName;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    TwoLetterISOLanguageName
+ Managed property.
+ @textblock
+ Name
+   TwoLetterISOLanguageName
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * twoLetterISOLanguageName;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    UseUserOverride
+ Managed property.
+ @textblock
+ Name
+   UseUserOverride
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic, readonly) BOOL useUserOverride;
 
@@ -371,200 +371,200 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ClearCachedData
+ Managed method.
+ @textblock
+ Name
+   ClearCachedData
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)clearCachedData;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Clone
+ Managed method.
+ @textblock
+ Name
+   Clone
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Object
-  @/textblock
+ Return
+   System.Object
+ @/textblock
 */
 - (System_Object *)clone;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CreateSpecificCulture
+ Managed method.
+ @textblock
+ Name
+   CreateSpecificCulture
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Globalization.CultureInfo
-  @/textblock
+ Return
+   System.Globalization.CultureInfo
+ @/textblock
 */
 + (System_Globalization_CultureInfo *)createSpecificCulture_withName:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Equals
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-  Params
-    System.Object
+ Params
+   System.Object
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)equals_withValue:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetConsoleFallbackUICulture
+ Managed method.
+ @textblock
+ Name
+   GetConsoleFallbackUICulture
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Globalization.CultureInfo
-  @/textblock
+ Return
+   System.Globalization.CultureInfo
+ @/textblock
 */
 - (System_Globalization_CultureInfo *)getConsoleFallbackUICulture;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetCultureInfo
+ Managed method.
+ @textblock
+ Name
+   GetCultureInfo
 
-  Params
-    System.Int32
+ Params
+   System.Int32
 
-  Return
-    System.Globalization.CultureInfo
-  @/textblock
+ Return
+   System.Globalization.CultureInfo
+ @/textblock
 */
 + (System_Globalization_CultureInfo *)getCultureInfo_withCulture:(int32_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetCultureInfo
+ Managed method.
+ @textblock
+ Name
+   GetCultureInfo
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Globalization.CultureInfo
-  @/textblock
+ Return
+   System.Globalization.CultureInfo
+ @/textblock
 */
 + (System_Globalization_CultureInfo *)getCultureInfo_withName:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetCultureInfo
+ Managed method.
+ @textblock
+ Name
+   GetCultureInfo
 
-  Params
-    System.String
-    System.String
+ Params
+   System.String
+   System.String
 
-  Return
-    System.Globalization.CultureInfo
-  @/textblock
+ Return
+   System.Globalization.CultureInfo
+ @/textblock
 */
 + (System_Globalization_CultureInfo *)getCultureInfo_withName:(NSString *)p1 altName:(NSString *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetCultureInfoByIetfLanguageTag
+ Managed method.
+ @textblock
+ Name
+   GetCultureInfoByIetfLanguageTag
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Globalization.CultureInfo
-  @/textblock
+ Return
+   System.Globalization.CultureInfo
+ @/textblock
 */
 + (System_Globalization_CultureInfo *)getCultureInfoByIetfLanguageTag_withName:(NSString *)p1;
 
 /* Skipped method : System.Globalization.CultureInfo[] GetCultures(System.Globalization.CultureTypes types) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetFormat
+ Managed method.
+ @textblock
+ Name
+   GetFormat
 
-  Params
-    System.Type
+ Params
+   System.Type
 
-  Return
-    System.Object
-  @/textblock
+ Return
+   System.Object
+ @/textblock
 */
 - (System_Object *)getFormat_withFormatType:(System_Type *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetHashCode
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)getHashCode;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ReadOnly
+ Managed method.
+ @textblock
+ Name
+   ReadOnly
 
-  Params
-    System.Globalization.CultureInfo
+ Params
+   System.Globalization.CultureInfo
 
-  Return
-    System.Globalization.CultureInfo
-  @/textblock
+ Return
+   System.Globalization.CultureInfo
+ @/textblock
 */
 + (System_Globalization_CultureInfo *)readOnly_withCi:(System_Globalization_CultureInfo *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ToString
+ Managed method.
+ @textblock
+ Name
+   ToString
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.String
-  @/textblock
+ Return
+   System.String
+ @/textblock
 */
 - (NSString *)toString;
 @end

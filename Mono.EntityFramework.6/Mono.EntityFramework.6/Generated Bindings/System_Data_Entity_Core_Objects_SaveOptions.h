@@ -27,9 +27,9 @@
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumSystem_Data_Entity_Core_Objects_SaveOptions) {
-  System_Data_Entity_Core_Objects_SaveOptions_AcceptAllChangesAfterSave = 1,
-  System_Data_Entity_Core_Objects_SaveOptions_DetectChangesBeforeSave = 2,
-  System_Data_Entity_Core_Objects_SaveOptions_None = 0,
+	System_Data_Entity_Core_Objects_SaveOptions_AcceptAllChangesAfterSave = 1,
+	System_Data_Entity_Core_Objects_SaveOptions_DetectChangesBeforeSave = 2,
+	System_Data_Entity_Core_Objects_SaveOptions_None = 0,
 };
 
 @interface System_Data_Entity_Core_Objects_SaveOptions : System_Enum
@@ -44,38 +44,38 @@ typedef NS_ENUM(int32_t, enumSystem_Data_Entity_Core_Objects_SaveOptions) {
 #pragma mark Fields
 
 /**
-  Managed field.
-  @textblock
-  Name
-    AcceptAllChangesAfterSave
+ Managed field.
+ @textblock
+ Name
+   AcceptAllChangesAfterSave
 
-  Type
-    System.Data.Entity.Core.Objects.SaveOptions
-  @/textblock
+ Type
+   System.Data.Entity.Core.Objects.SaveOptions
+ @/textblock
 */
 + (int32_t)acceptAllChangesAfterSave;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    DetectChangesBeforeSave
+ Managed field.
+ @textblock
+ Name
+   DetectChangesBeforeSave
 
-  Type
-    System.Data.Entity.Core.Objects.SaveOptions
-  @/textblock
+ Type
+   System.Data.Entity.Core.Objects.SaveOptions
+ @/textblock
 */
 + (int32_t)detectChangesBeforeSave;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    None
+ Managed field.
+ @textblock
+ Name
+   None
 
-  Type
-    System.Data.Entity.Core.Objects.SaveOptions
-  @/textblock
+ Type
+   System.Data.Entity.Core.Objects.SaveOptions
+ @/textblock
 */
 + (int32_t)none;
 @end

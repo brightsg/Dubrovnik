@@ -45,71 +45,71 @@
 #pragma mark Constructors
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    System.Int64
+ Params
+   System.Int64
 
-  Return
-    System.TimeSpan
-  @/textblock
+ Return
+   System.TimeSpan
+ @/textblock
 */
 + (System_TimeSpan *)new_withTicks:(int64_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    System.Int32
-    System.Int32
-    System.Int32
+ Params
+   System.Int32
+   System.Int32
+   System.Int32
 
-  Return
-    System.TimeSpan
-  @/textblock
+ Return
+   System.TimeSpan
+ @/textblock
 */
 + (System_TimeSpan *)new_withHours:(int32_t)p1 minutes:(int32_t)p2 seconds:(int32_t)p3;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    System.Int32
-    System.Int32
-    System.Int32
-    System.Int32
+ Params
+   System.Int32
+   System.Int32
+   System.Int32
+   System.Int32
 
-  Return
-    System.TimeSpan
-  @/textblock
+ Return
+   System.TimeSpan
+ @/textblock
 */
 + (System_TimeSpan *)new_withDays:(int32_t)p1 hours:(int32_t)p2 minutes:(int32_t)p3 seconds:(int32_t)p4;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    System.Int32
-    System.Int32
-    System.Int32
-    System.Int32
-    System.Int32
+ Params
+   System.Int32
+   System.Int32
+   System.Int32
+   System.Int32
+   System.Int32
 
-  Return
-    System.TimeSpan
-  @/textblock
+ Return
+   System.TimeSpan
+ @/textblock
 */
 + (System_TimeSpan *)new_withDays:(int32_t)p1 hours:(int32_t)p2 minutes:(int32_t)p3 seconds:(int32_t)p4 milliseconds:(int32_t)p5;
 
@@ -117,98 +117,98 @@
 #pragma mark Fields
 
 /**
-  Managed field.
-  @textblock
-  Name
-    MaxValue
+ Managed field.
+ @textblock
+ Name
+   MaxValue
 
-  Type
-    System.TimeSpan
-  @/textblock
+ Type
+   System.TimeSpan
+ @/textblock
 */
 + (System_TimeSpan *)maxValue;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    MinValue
+ Managed field.
+ @textblock
+ Name
+   MinValue
 
-  Type
-    System.TimeSpan
-  @/textblock
+ Type
+   System.TimeSpan
+ @/textblock
 */
 + (System_TimeSpan *)minValue;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    TicksPerDay
+ Managed field.
+ @textblock
+ Name
+   TicksPerDay
 
-  Type
-    System.Int64
-  @/textblock
+ Type
+   System.Int64
+ @/textblock
 */
 + (int64_t)ticksPerDay;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    TicksPerHour
+ Managed field.
+ @textblock
+ Name
+   TicksPerHour
 
-  Type
-    System.Int64
-  @/textblock
+ Type
+   System.Int64
+ @/textblock
 */
 + (int64_t)ticksPerHour;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    TicksPerMillisecond
+ Managed field.
+ @textblock
+ Name
+   TicksPerMillisecond
 
-  Type
-    System.Int64
-  @/textblock
+ Type
+   System.Int64
+ @/textblock
 */
 + (int64_t)ticksPerMillisecond;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    TicksPerMinute
+ Managed field.
+ @textblock
+ Name
+   TicksPerMinute
 
-  Type
-    System.Int64
-  @/textblock
+ Type
+   System.Int64
+ @/textblock
 */
 + (int64_t)ticksPerMinute;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    TicksPerSecond
+ Managed field.
+ @textblock
+ Name
+   TicksPerSecond
 
-  Type
-    System.Int64
-  @/textblock
+ Type
+   System.Int64
+ @/textblock
 */
 + (int64_t)ticksPerSecond;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Zero
+ Managed field.
+ @textblock
+ Name
+   Zero
 
-  Type
-    System.TimeSpan
-  @/textblock
+ Type
+   System.TimeSpan
+ @/textblock
 */
 + (System_TimeSpan *)zero;
 
@@ -216,134 +216,134 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Days
+ Managed property.
+ @textblock
+ Name
+   Days
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 @property (nonatomic, readonly) int32_t days;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Hours
+ Managed property.
+ @textblock
+ Name
+   Hours
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 @property (nonatomic, readonly) int32_t hours;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Milliseconds
+ Managed property.
+ @textblock
+ Name
+   Milliseconds
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 @property (nonatomic, readonly) int32_t milliseconds;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Minutes
+ Managed property.
+ @textblock
+ Name
+   Minutes
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 @property (nonatomic, readonly) int32_t minutes;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Seconds
+ Managed property.
+ @textblock
+ Name
+   Seconds
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 @property (nonatomic, readonly) int32_t seconds;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Ticks
+ Managed property.
+ @textblock
+ Name
+   Ticks
 
-  Type
-    System.Int64
-  @/textblock
+ Type
+   System.Int64
+ @/textblock
 */
 @property (nonatomic, readonly) int64_t ticks;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    TotalDays
+ Managed property.
+ @textblock
+ Name
+   TotalDays
 
-  Type
-    System.Double
-  @/textblock
+ Type
+   System.Double
+ @/textblock
 */
 @property (nonatomic, readonly) double totalDays;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    TotalHours
+ Managed property.
+ @textblock
+ Name
+   TotalHours
 
-  Type
-    System.Double
-  @/textblock
+ Type
+   System.Double
+ @/textblock
 */
 @property (nonatomic, readonly) double totalHours;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    TotalMilliseconds
+ Managed property.
+ @textblock
+ Name
+   TotalMilliseconds
 
-  Type
-    System.Double
-  @/textblock
+ Type
+   System.Double
+ @/textblock
 */
 @property (nonatomic, readonly) double totalMilliseconds;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    TotalMinutes
+ Managed property.
+ @textblock
+ Name
+   TotalMinutes
 
-  Type
-    System.Double
-  @/textblock
+ Type
+   System.Double
+ @/textblock
 */
 @property (nonatomic, readonly) double totalMinutes;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    TotalSeconds
+ Managed property.
+ @textblock
+ Name
+   TotalSeconds
 
-  Type
-    System.Double
-  @/textblock
+ Type
+   System.Double
+ @/textblock
 */
 @property (nonatomic, readonly) double totalSeconds;
 
@@ -351,417 +351,417 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Add
+ Managed method.
+ @textblock
+ Name
+   Add
 
-  Params
-    System.TimeSpan
+ Params
+   System.TimeSpan
 
-  Return
-    System.TimeSpan
-  @/textblock
+ Return
+   System.TimeSpan
+ @/textblock
 */
 - (System_TimeSpan *)add_withTs:(System_TimeSpan *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Compare
+ Managed method.
+ @textblock
+ Name
+   Compare
 
-  Params
-    System.TimeSpan
-    System.TimeSpan
+ Params
+   System.TimeSpan
+   System.TimeSpan
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 + (int32_t)compare_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CompareTo
+ Managed method.
+ @textblock
+ Name
+   CompareTo
 
-  Params
-    System.Object
+ Params
+   System.Object
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)compareTo_withValueObject:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    CompareTo
+ Managed method.
+ @textblock
+ Name
+   CompareTo
 
-  Params
-    System.TimeSpan
+ Params
+   System.TimeSpan
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)compareTo_withValueSTimeSpan:(System_TimeSpan *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Duration
+ Managed method.
+ @textblock
+ Name
+   Duration
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.TimeSpan
-  @/textblock
+ Return
+   System.TimeSpan
+ @/textblock
 */
 - (System_TimeSpan *)duration;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Equals
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-  Params
-    System.Object
+ Params
+   System.Object
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)equals_withValue:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Equals
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-  Params
-    System.TimeSpan
+ Params
+   System.TimeSpan
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)equals_withObj:(System_TimeSpan *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Equals
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-  Params
-    System.TimeSpan
-    System.TimeSpan
+ Params
+   System.TimeSpan
+   System.TimeSpan
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)equals_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    FromDays
+ Managed method.
+ @textblock
+ Name
+   FromDays
 
-  Params
-    System.Double
+ Params
+   System.Double
 
-  Return
-    System.TimeSpan
-  @/textblock
+ Return
+   System.TimeSpan
+ @/textblock
 */
 + (System_TimeSpan *)fromDays_withValue:(double)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    FromHours
+ Managed method.
+ @textblock
+ Name
+   FromHours
 
-  Params
-    System.Double
+ Params
+   System.Double
 
-  Return
-    System.TimeSpan
-  @/textblock
+ Return
+   System.TimeSpan
+ @/textblock
 */
 + (System_TimeSpan *)fromHours_withValue:(double)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    FromMilliseconds
+ Managed method.
+ @textblock
+ Name
+   FromMilliseconds
 
-  Params
-    System.Double
+ Params
+   System.Double
 
-  Return
-    System.TimeSpan
-  @/textblock
+ Return
+   System.TimeSpan
+ @/textblock
 */
 + (System_TimeSpan *)fromMilliseconds_withValue:(double)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    FromMinutes
+ Managed method.
+ @textblock
+ Name
+   FromMinutes
 
-  Params
-    System.Double
+ Params
+   System.Double
 
-  Return
-    System.TimeSpan
-  @/textblock
+ Return
+   System.TimeSpan
+ @/textblock
 */
 + (System_TimeSpan *)fromMinutes_withValue:(double)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    FromSeconds
+ Managed method.
+ @textblock
+ Name
+   FromSeconds
 
-  Params
-    System.Double
+ Params
+   System.Double
 
-  Return
-    System.TimeSpan
-  @/textblock
+ Return
+   System.TimeSpan
+ @/textblock
 */
 + (System_TimeSpan *)fromSeconds_withValue:(double)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    FromTicks
+ Managed method.
+ @textblock
+ Name
+   FromTicks
 
-  Params
-    System.Int64
+ Params
+   System.Int64
 
-  Return
-    System.TimeSpan
-  @/textblock
+ Return
+   System.TimeSpan
+ @/textblock
 */
 + (System_TimeSpan *)fromTicks_withValue:(int64_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetHashCode
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)getHashCode;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Negate
+ Managed method.
+ @textblock
+ Name
+   Negate
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.TimeSpan
-  @/textblock
+ Return
+   System.TimeSpan
+ @/textblock
 */
 - (System_TimeSpan *)negate;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    op_Addition
+ Managed method.
+ @textblock
+ Name
+   op_Addition
 
-  Params
-    System.TimeSpan
-    System.TimeSpan
+ Params
+   System.TimeSpan
+   System.TimeSpan
 
-  Return
-    System.TimeSpan
-  @/textblock
+ Return
+   System.TimeSpan
+ @/textblock
 */
 + (System_TimeSpan *)op_Addition_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    op_Equality
+ Managed method.
+ @textblock
+ Name
+   op_Equality
 
-  Params
-    System.TimeSpan
-    System.TimeSpan
+ Params
+   System.TimeSpan
+   System.TimeSpan
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)op_Equality_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    op_GreaterThan
+ Managed method.
+ @textblock
+ Name
+   op_GreaterThan
 
-  Params
-    System.TimeSpan
-    System.TimeSpan
+ Params
+   System.TimeSpan
+   System.TimeSpan
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)op_GreaterThan_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    op_GreaterThanOrEqual
+ Managed method.
+ @textblock
+ Name
+   op_GreaterThanOrEqual
 
-  Params
-    System.TimeSpan
-    System.TimeSpan
+ Params
+   System.TimeSpan
+   System.TimeSpan
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)op_GreaterThanOrEqual_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    op_Inequality
+ Managed method.
+ @textblock
+ Name
+   op_Inequality
 
-  Params
-    System.TimeSpan
-    System.TimeSpan
+ Params
+   System.TimeSpan
+   System.TimeSpan
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)op_Inequality_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    op_LessThan
+ Managed method.
+ @textblock
+ Name
+   op_LessThan
 
-  Params
-    System.TimeSpan
-    System.TimeSpan
+ Params
+   System.TimeSpan
+   System.TimeSpan
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)op_LessThan_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    op_LessThanOrEqual
+ Managed method.
+ @textblock
+ Name
+   op_LessThanOrEqual
 
-  Params
-    System.TimeSpan
-    System.TimeSpan
+ Params
+   System.TimeSpan
+   System.TimeSpan
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)op_LessThanOrEqual_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    op_Subtraction
+ Managed method.
+ @textblock
+ Name
+   op_Subtraction
 
-  Params
-    System.TimeSpan
-    System.TimeSpan
+ Params
+   System.TimeSpan
+   System.TimeSpan
 
-  Return
-    System.TimeSpan
-  @/textblock
+ Return
+   System.TimeSpan
+ @/textblock
 */
 + (System_TimeSpan *)op_Subtraction_withT1:(System_TimeSpan *)p1 t2:(System_TimeSpan *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    op_UnaryNegation
+ Managed method.
+ @textblock
+ Name
+   op_UnaryNegation
 
-  Params
-    System.TimeSpan
+ Params
+   System.TimeSpan
 
-  Return
-    System.TimeSpan
-  @/textblock
+ Return
+   System.TimeSpan
+ @/textblock
 */
 + (System_TimeSpan *)op_UnaryNegation_withT:(System_TimeSpan *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    op_UnaryPlus
+ Managed method.
+ @textblock
+ Name
+   op_UnaryPlus
 
-  Params
-    System.TimeSpan
+ Params
+   System.TimeSpan
 
-  Return
-    System.TimeSpan
-  @/textblock
+ Return
+   System.TimeSpan
+ @/textblock
 */
 + (System_TimeSpan *)op_UnaryPlus_withT:(System_TimeSpan *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Parse
+ Managed method.
+ @textblock
+ Name
+   Parse
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.TimeSpan
-  @/textblock
+ Return
+   System.TimeSpan
+ @/textblock
 */
 + (System_TimeSpan *)parse_withS:(NSString *)p1;
 
@@ -776,65 +776,65 @@
 /* Skipped method : System.TimeSpan ParseExact(System.String input, System.String[] formats, System.IFormatProvider formatProvider, System.Globalization.TimeSpanStyles styles) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Subtract
+ Managed method.
+ @textblock
+ Name
+   Subtract
 
-  Params
-    System.TimeSpan
+ Params
+   System.TimeSpan
 
-  Return
-    System.TimeSpan
-  @/textblock
+ Return
+   System.TimeSpan
+ @/textblock
 */
 - (System_TimeSpan *)subtract_withTs:(System_TimeSpan *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ToString
+ Managed method.
+ @textblock
+ Name
+   ToString
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.String
-  @/textblock
+ Return
+   System.String
+ @/textblock
 */
 - (NSString *)toString;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ToString
+ Managed method.
+ @textblock
+ Name
+   ToString
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.String
-  @/textblock
+ Return
+   System.String
+ @/textblock
 */
 - (NSString *)toString_withFormat:(NSString *)p1;
 
 /* Skipped method : System.String ToString(System.String format, System.IFormatProvider formatProvider) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    TryParse
+ Managed method.
+ @textblock
+ Name
+   TryParse
 
-  Params
-    System.String
-    ref System.TimeSpan&
+ Params
+   System.String
+   ref System.TimeSpan&
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(System_TimeSpan **)p2;
 

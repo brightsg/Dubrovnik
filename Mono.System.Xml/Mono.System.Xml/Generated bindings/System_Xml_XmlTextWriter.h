@@ -46,34 +46,34 @@
 #pragma mark Constructors
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    System.IO.Stream
-    System.Text.Encoding
+ Params
+   System.IO.Stream
+   System.Text.Encoding
 
-  Return
-    System.Xml.XmlTextWriter
-  @/textblock
+ Return
+   System.Xml.XmlTextWriter
+ @/textblock
 */
 + (System_Xml_XmlTextWriter *)new_withW:(System_IO_Stream *)p1 encoding:(System_Text_Encoding *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    System.String
-    System.Text.Encoding
+ Params
+   System.String
+   System.Text.Encoding
 
-  Return
-    System.Xml.XmlTextWriter
-  @/textblock
+ Return
+   System.Xml.XmlTextWriter
+ @/textblock
 */
 + (System_Xml_XmlTextWriter *)new_withFilename:(NSString *)p1 encoding:(System_Text_Encoding *)p2;
 
@@ -83,78 +83,78 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    BaseStream
+ Managed property.
+ @textblock
+ Name
+   BaseStream
 
-  Type
-    System.IO.Stream
-  @/textblock
+ Type
+   System.IO.Stream
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_IO_Stream * baseStream;
 
 /* Skipped property : System.Xml.Formatting Formatting */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Indentation
+ Managed property.
+ @textblock
+ Name
+   Indentation
 
-  Type
-    System.Int32
-  @/textblock
+ Type
+   System.Int32
+ @/textblock
 */
 @property (nonatomic) int32_t indentation;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    IndentChar
+ Managed property.
+ @textblock
+ Name
+   IndentChar
 
-  Type
-    System.Char
-  @/textblock
+ Type
+   System.Char
+ @/textblock
 */
 @property (nonatomic) uint16_t indentChar;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Namespaces
+ Managed property.
+ @textblock
+ Name
+   Namespaces
 
-  Type
-    System.Boolean
-  @/textblock
+ Type
+   System.Boolean
+ @/textblock
 */
 @property (nonatomic) BOOL namespaces;
 
 /**
-  Managed property.
-  @textblock
-  Name
-    QuoteChar
+ Managed property.
+ @textblock
+ Name
+   QuoteChar
 
-  Type
-    System.Char
-  @/textblock
+ Type
+   System.Char
+ @/textblock
 */
 @property (nonatomic) uint16_t quoteChar;
 
 /* Skipped property : System.Xml.WriteState WriteState */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    XmlLang
+ Managed property.
+ @textblock
+ Name
+   XmlLang
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * xmlLang;
 
@@ -164,440 +164,440 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Close
+ Managed method.
+ @textblock
+ Name
+   Close
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)close;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Flush
+ Managed method.
+ @textblock
+ Name
+   Flush
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)flush;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    LookupPrefix
+ Managed method.
+ @textblock
+ Name
+   LookupPrefix
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.String
-  @/textblock
+ Return
+   System.String
+ @/textblock
 */
 - (NSString *)lookupPrefix_withNs:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteBase64
+ Managed method.
+ @textblock
+ Name
+   WriteBase64
 
-  Params
-    System.Byte[]
-    System.Int32
-    System.Int32
+ Params
+   System.Byte[]
+   System.Int32
+   System.Int32
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeBase64_withBuffer:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteBinHex
+ Managed method.
+ @textblock
+ Name
+   WriteBinHex
 
-  Params
-    System.Byte[]
-    System.Int32
-    System.Int32
+ Params
+   System.Byte[]
+   System.Int32
+   System.Int32
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeBinHex_withBuffer:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteCData
+ Managed method.
+ @textblock
+ Name
+   WriteCData
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeCData_withText:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteCharEntity
+ Managed method.
+ @textblock
+ Name
+   WriteCharEntity
 
-  Params
-    System.Char
+ Params
+   System.Char
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeCharEntity_withCh:(uint16_t)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteChars
+ Managed method.
+ @textblock
+ Name
+   WriteChars
 
-  Params
-    System.Char[]
-    System.Int32
-    System.Int32
+ Params
+   System.Char[]
+   System.Int32
+   System.Int32
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeChars_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteComment
+ Managed method.
+ @textblock
+ Name
+   WriteComment
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeComment_withText:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteDocType
+ Managed method.
+ @textblock
+ Name
+   WriteDocType
 
-  Params
-    System.String
-    System.String
-    System.String
-    System.String
+ Params
+   System.String
+   System.String
+   System.String
+   System.String
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeDocType_withName:(NSString *)p1 pubid:(NSString *)p2 sysid:(NSString *)p3 subset:(NSString *)p4;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteEndAttribute
+ Managed method.
+ @textblock
+ Name
+   WriteEndAttribute
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeEndAttribute;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteEndDocument
+ Managed method.
+ @textblock
+ Name
+   WriteEndDocument
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeEndDocument;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteEndElement
+ Managed method.
+ @textblock
+ Name
+   WriteEndElement
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeEndElement;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteEntityRef
+ Managed method.
+ @textblock
+ Name
+   WriteEntityRef
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeEntityRef_withName:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteFullEndElement
+ Managed method.
+ @textblock
+ Name
+   WriteFullEndElement
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeFullEndElement;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteName
+ Managed method.
+ @textblock
+ Name
+   WriteName
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeName_withName:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteNmToken
+ Managed method.
+ @textblock
+ Name
+   WriteNmToken
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeNmToken_withName:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteProcessingInstruction
+ Managed method.
+ @textblock
+ Name
+   WriteProcessingInstruction
 
-  Params
-    System.String
-    System.String
+ Params
+   System.String
+   System.String
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeProcessingInstruction_withName:(NSString *)p1 text:(NSString *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteQualifiedName
+ Managed method.
+ @textblock
+ Name
+   WriteQualifiedName
 
-  Params
-    System.String
-    System.String
+ Params
+   System.String
+   System.String
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeQualifiedName_withLocalName:(NSString *)p1 ns:(NSString *)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteRaw
+ Managed method.
+ @textblock
+ Name
+   WriteRaw
 
-  Params
-    System.Char[]
-    System.Int32
-    System.Int32
+ Params
+   System.Char[]
+   System.Int32
+   System.Int32
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeRaw_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteRaw
+ Managed method.
+ @textblock
+ Name
+   WriteRaw
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeRaw_withData:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteStartAttribute
+ Managed method.
+ @textblock
+ Name
+   WriteStartAttribute
 
-  Params
-    System.String
-    System.String
-    System.String
+ Params
+   System.String
+   System.String
+   System.String
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeStartAttribute_withPrefix:(NSString *)p1 localName:(NSString *)p2 ns:(NSString *)p3;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteStartDocument
+ Managed method.
+ @textblock
+ Name
+   WriteStartDocument
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeStartDocument;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteStartDocument
+ Managed method.
+ @textblock
+ Name
+   WriteStartDocument
 
-  Params
-    System.Boolean
+ Params
+   System.Boolean
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeStartDocument_withStandalone:(BOOL)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteStartElement
+ Managed method.
+ @textblock
+ Name
+   WriteStartElement
 
-  Params
-    System.String
-    System.String
-    System.String
+ Params
+   System.String
+   System.String
+   System.String
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeStartElement_withPrefix:(NSString *)p1 localName:(NSString *)p2 ns:(NSString *)p3;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteString
+ Managed method.
+ @textblock
+ Name
+   WriteString
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeString_withText:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteSurrogateCharEntity
+ Managed method.
+ @textblock
+ Name
+   WriteSurrogateCharEntity
 
-  Params
-    System.Char
-    System.Char
+ Params
+   System.Char
+   System.Char
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeSurrogateCharEntity_withLowChar:(uint16_t)p1 highChar:(uint16_t)p2;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    WriteWhitespace
+ Managed method.
+ @textblock
+ Name
+   WriteWhitespace
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)writeWhitespace_withWs:(NSString *)p1;
 @end

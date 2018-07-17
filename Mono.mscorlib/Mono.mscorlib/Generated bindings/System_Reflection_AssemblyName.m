@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Reflection.AssemblyName";
+	return "System.Reflection.AssemblyName";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "mscorlib";
+	return "mscorlib";
 }
 
 #pragma mark -
@@ -35,8 +35,8 @@
 
 + (System_Reflection_AssemblyName *)new_withAssemblyName:(NSString *)p1
 {
-  System_Reflection_AssemblyName * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return object;
+	System_Reflection_AssemblyName * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return object;
 }
 
 #pragma mark -
@@ -274,55 +274,55 @@
 
 - (System_Object *)clone
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
-  return [System_Object bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
+	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Reflection_AssemblyName *)getAssemblyName_withAssemblyFile:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"GetAssemblyName(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_Reflection_AssemblyName bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"GetAssemblyName(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_Reflection_AssemblyName bestObjectWithMonoObject:monoObject];
 }
 
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 
 - (NSData *)getPublicKey
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetPublicKey()" withNumArgs:0];
-  return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetPublicKey()" withNumArgs:0];
+	return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 }
 
 - (NSData *)getPublicKeyToken
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetPublicKeyToken()" withNumArgs:0];
-  return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetPublicKeyToken()" withNumArgs:0];
+	return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 }
 
 - (void)onDeserialization_withSender:(System_Object *)p1
 {
-  [self invokeMonoMethod:"OnDeserialization(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"OnDeserialization(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 + (BOOL)referenceMatchesDefinition_withReference:(System_Reflection_AssemblyName *)p1 definition:(System_Reflection_AssemblyName *)p2
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"ReferenceMatchesDefinition(System.Reflection.AssemblyName,System.Reflection.AssemblyName)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ReferenceMatchesDefinition(System.Reflection.AssemblyName,System.Reflection.AssemblyName)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (void)setPublicKey_withPublicKey:(NSData *)p1
 {
-  [self invokeMonoMethod:"SetPublicKey(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"SetPublicKey(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 - (void)setPublicKeyToken_withPublicKeyToken:(NSData *)p1
 {
-  [self invokeMonoMethod:"SetPublicKeyToken(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"SetPublicKeyToken(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 - (NSString *)toString
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 #pragma mark -

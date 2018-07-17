@@ -49,53 +49,53 @@
 #pragma mark Constructors
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Data.Entity.DbContext
-  @/textblock
+ Return
+   System.Data.Entity.DbContext
+ @/textblock
 */
 + (System_Data_Entity_DbContext *)new_withNameOrConnectionString:(NSString *)p1;
 
 /* Skipped constructor : System.Data.Entity.DbContext (System.String nameOrConnectionString, System.Data.Entity.Infrastructure.DbCompiledModel model) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    System.Data.Common.DbConnection
-    System.Boolean
+ Params
+   System.Data.Common.DbConnection
+   System.Boolean
 
-  Return
-    System.Data.Entity.DbContext
-  @/textblock
+ Return
+   System.Data.Entity.DbContext
+ @/textblock
 */
 + (System_Data_Entity_DbContext *)new_withExistingConnection:(System_Data_Common_DbConnection *)p1 contextOwnsConnection:(BOOL)p2;
 
 /* Skipped constructor : System.Data.Entity.DbContext (System.Data.Common.DbConnection existingConnection, System.Data.Entity.Infrastructure.DbCompiledModel model, System.Boolean contextOwnsConnection) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    System.Data.Entity.Core.Objects.ObjectContext
-    System.Boolean
+ Params
+   System.Data.Entity.Core.Objects.ObjectContext
+   System.Boolean
 
-  Return
-    System.Data.Entity.DbContext
-  @/textblock
+ Return
+   System.Data.Entity.DbContext
+ @/textblock
 */
 + (System_Data_Entity_DbContext *)new_withObjectContext:(System_Data_Entity_Core_Objects_ObjectContext *)p1 dbContextOwnsObjectContext:(BOOL)p2;
 
@@ -112,17 +112,17 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Dispose
+ Managed method.
+ @textblock
+ Name
+   Dispose
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)dispose;
 
@@ -131,129 +131,129 @@
 /* Skipped method : System.Data.Entity.Infrastructure.DbEntityEntry Entry(System.Object entity) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Equals
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-  Params
-    System.Object
+ Params
+   System.Object
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)equals_withObj:(System_Object *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetHashCode
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)getHashCode;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    GetType
+ Managed method.
+ @textblock
+ Name
+   GetType
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Type
-  @/textblock
+ Return
+   System.Type
+ @/textblock
 */
 - (System_Type *)getType;
 
 /* Skipped method : System.Collections.Generic.IEnumerable`1<System.Data.Entity.Validation.DbEntityValidationResult> GetValidationErrors() */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    SaveChanges
+ Managed method.
+ @textblock
+ Name
+   SaveChanges
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Int32
-  @/textblock
+ Return
+   System.Int32
+ @/textblock
 */
 - (int32_t)saveChanges;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    SaveChangesAsync
+ Managed method.
+ @textblock
+ Name
+   SaveChangesAsync
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Threading.Tasks.Task`1<System.Int32>
-  @/textblock
+ Return
+   System.Threading.Tasks.Task`1<System.Int32>
+ @/textblock
 */
 - (System_Threading_Tasks_TaskA1 *)saveChangesAsync;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    SaveChangesAsync
+ Managed method.
+ @textblock
+ Name
+   SaveChangesAsync
 
-  Params
-    System.Threading.CancellationToken
+ Params
+   System.Threading.CancellationToken
 
-  Return
-    System.Threading.Tasks.Task`1<System.Int32>
-  @/textblock
+ Return
+   System.Threading.Tasks.Task`1<System.Int32>
+ @/textblock
 */
 - (System_Threading_Tasks_TaskA1 *)saveChangesAsync_withCancellationToken:(System_Threading_CancellationToken *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Set
+ Managed method.
+ @textblock
+ Name
+   Set
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Generics
-    <System.Data.Entity.DbContext+TEntity>
+ Generics
+   <System.Data.Entity.DbContext+TEntity>
 
-  Return
-    System.Data.Entity.DbSet`1<System.Data.Entity.DbContext+TEntity>
-  @/textblock
+ Return
+   System.Data.Entity.DbSet`1<System.Data.Entity.DbContext+TEntity>
+ @/textblock
 */
 - (System_Data_Entity_DbSetA1 *)set_withTypeParameter:(id)typeParameter;
 
 /* Skipped method : System.Data.Entity.DbSet Set(System.Type entityType) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    ToString
+ Managed method.
+ @textblock
+ Name
+   ToString
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.String
-  @/textblock
+ Return
+   System.String
+ @/textblock
 */
 - (NSString *)toString;
 @end

@@ -27,10 +27,10 @@
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumSystem_UriPartial) {
-  System_UriPartial_Authority = 1,
-  System_UriPartial_Path = 2,
-  System_UriPartial_Query = 3,
-  System_UriPartial_Scheme = 0,
+	System_UriPartial_Authority = 1,
+	System_UriPartial_Path = 2,
+	System_UriPartial_Query = 3,
+	System_UriPartial_Scheme = 0,
 };
 
 @interface System_UriPartial : System_Enum
@@ -45,50 +45,50 @@ typedef NS_ENUM(int32_t, enumSystem_UriPartial) {
 #pragma mark Fields
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Authority
+ Managed field.
+ @textblock
+ Name
+   Authority
 
-  Type
-    System.UriPartial
-  @/textblock
+ Type
+   System.UriPartial
+ @/textblock
 */
 + (int32_t)authority;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Path
+ Managed field.
+ @textblock
+ Name
+   Path
 
-  Type
-    System.UriPartial
-  @/textblock
+ Type
+   System.UriPartial
+ @/textblock
 */
 + (int32_t)path;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Query
+ Managed field.
+ @textblock
+ Name
+   Query
 
-  Type
-    System.UriPartial
-  @/textblock
+ Type
+   System.UriPartial
+ @/textblock
 */
 + (int32_t)query;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Scheme
+ Managed field.
+ @textblock
+ Name
+   Scheme
 
-  Type
-    System.UriPartial
-  @/textblock
+ Type
+   System.UriPartial
+ @/textblock
 */
 + (int32_t)scheme;
 @end

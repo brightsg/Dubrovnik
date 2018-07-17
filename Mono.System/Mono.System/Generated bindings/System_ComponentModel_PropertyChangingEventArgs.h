@@ -37,17 +37,17 @@
 #pragma mark Constructors
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.ComponentModel.PropertyChangingEventArgs
-  @/textblock
+ Return
+   System.ComponentModel.PropertyChangingEventArgs
+ @/textblock
 */
 + (System_ComponentModel_PropertyChangingEventArgs *)new_withPropertyName:(NSString *)p1;
 
@@ -55,14 +55,14 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    PropertyName
+ Managed property.
+ @textblock
+ Name
+   PropertyName
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong, readonly) NSString * propertyName;
 @end

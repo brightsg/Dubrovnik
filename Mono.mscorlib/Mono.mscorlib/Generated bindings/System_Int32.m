@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Int32";
+	return "System.Int32";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "mscorlib";
+	return "mscorlib";
 }
 
 #pragma mark -
@@ -56,40 +56,40 @@ static int32_t m_minValue;
 
 - (int32_t)compareTo_withValueObject:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_INT32(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_INT32(monoObject);
 }
 
 - (int32_t)compareTo_withValueInt:(int32_t)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(int)" withNumArgs:1, DB_VALUE(p1)];
-  return DB_UNBOX_INT32(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(int)" withNumArgs:1, DB_VALUE(p1)];
+	return DB_UNBOX_INT32(monoObject);
 }
 
 - (BOOL)equals_withObjObject:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (BOOL)equals_withObjInt:(int32_t)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Equals(int)" withNumArgs:1, DB_VALUE(p1)];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(int)" withNumArgs:1, DB_VALUE(p1)];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (int32_t)getHashCode
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
-  return DB_UNBOX_INT32(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+	return DB_UNBOX_INT32(monoObject);
 }
 
 /* Skipped method : System.TypeCode GetTypeCode() */
 
 + (int32_t)parse_withS:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_INT32(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_INT32(monoObject);
 }
 
 /* Skipped method : System.Int32 Parse(System.String s, System.Globalization.NumberStyles style) */
@@ -100,14 +100,14 @@ static int32_t m_minValue;
 
 - (NSString *)toString
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 - (NSString *)toString_withFormat:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"ToString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"ToString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 /* Skipped method : System.String ToString(System.IFormatProvider provider) */
@@ -116,8 +116,8 @@ static int32_t m_minValue;
 
 + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(int32_t*)p2
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,int&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,int&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 /* Skipped method : System.Boolean TryParse(System.String s, System.Globalization.NumberStyles style, System.IFormatProvider provider, System.Int32& result) */

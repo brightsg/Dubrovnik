@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.DayOfWeek";
+	return "System.DayOfWeek";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "mscorlib";
+	return "mscorlib";
 }
 
 #pragma mark -

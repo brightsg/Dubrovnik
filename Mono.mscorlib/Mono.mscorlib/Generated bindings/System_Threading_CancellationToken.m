@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Threading.CancellationToken";
+	return "System.Threading.CancellationToken";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "mscorlib";
+	return "mscorlib";
 }
 
 #pragma mark -
@@ -35,8 +35,8 @@
 
 + (System_Threading_CancellationToken *)new_withCanceled:(BOOL)p1
 {
-  System_Threading_CancellationToken * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
-  return object;
+	System_Threading_CancellationToken * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
+	return object;
 }
 
 #pragma mark -
@@ -107,32 +107,32 @@ static System_Threading_CancellationToken * m_none;
 
 - (BOOL)equals_withOtherSTCancellationToken:(System_Threading_CancellationToken *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (BOOL)equals_withOtherObject:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (int32_t)getHashCode
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
-  return DB_UNBOX_INT32(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+	return DB_UNBOX_INT32(monoObject);
 }
 
 + (BOOL)op_Equality_withLeft:(System_Threading_CancellationToken *)p1 right:(System_Threading_CancellationToken *)p2
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Threading.CancellationToken,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Threading.CancellationToken,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)op_Inequality_withLeft:(System_Threading_CancellationToken *)p1 right:(System_Threading_CancellationToken *)p2
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Threading.CancellationToken,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Threading.CancellationToken,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 /* Skipped method : System.Threading.CancellationTokenRegistration Register(System.Action callback) */
@@ -145,7 +145,7 @@ static System_Threading_CancellationToken * m_none;
 
 - (void)throwIfCancellationRequested
 {
-  [self invokeMonoMethod:"ThrowIfCancellationRequested()" withNumArgs:0];
+	[self invokeMonoMethod:"ThrowIfCancellationRequested()" withNumArgs:0];
 }
 
 #pragma mark -
@@ -153,7 +153,7 @@ static System_Threading_CancellationToken * m_none;
 
 - (void)dealloc
 {
-  m_none = nil;
+	m_none = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

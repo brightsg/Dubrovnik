@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Collections.IList";
+	return "System.Collections.IList";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "mscorlib";
+	return "mscorlib";
 }
 
 #pragma mark -
@@ -76,51 +76,51 @@
 
 - (System_Object *)get_Item_withIndex:(int32_t)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.get_Item(int)" withNumArgs:1, DB_VALUE(p1)];
-  return [System_Object bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.get_Item(int)" withNumArgs:1, DB_VALUE(p1)];
+	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2
 {
-  [self invokeMonoMethod:"System.Collections.IList.set_Item(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+	[self invokeMonoMethod:"System.Collections.IList.set_Item(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
 }
 
 - (int32_t)add_withValue:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.Add(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_INT32(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.Add(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_INT32(monoObject);
 }
 
 - (void)clear
 {
-  [self invokeMonoMethod:"System.Collections.IList.Clear()" withNumArgs:0];
+	[self invokeMonoMethod:"System.Collections.IList.Clear()" withNumArgs:0];
 }
 
 - (BOOL)contains_withValue:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.Contains(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.Contains(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (int32_t)indexOf_withValue:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.IndexOf(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_INT32(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.IndexOf(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_INT32(monoObject);
 }
 
 - (void)insert_withIndex:(int32_t)p1 value:(System_Object *)p2
 {
-  [self invokeMonoMethod:"System.Collections.IList.Insert(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+	[self invokeMonoMethod:"System.Collections.IList.Insert(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
 }
 
 - (void)remove_withValue:(System_Object *)p1
 {
-  [self invokeMonoMethod:"System.Collections.IList.Remove(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"System.Collections.IList.Remove(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 - (void)removeAt_withIndex:(int32_t)p1
 {
-  [self invokeMonoMethod:"System.Collections.IList.RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];
+	[self invokeMonoMethod:"System.Collections.IList.RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];
 }
 
 #pragma mark -

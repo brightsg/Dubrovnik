@@ -45,18 +45,18 @@
 #pragma mark Constructors
 
 /**
-  Managed method.
-  @textblock
-  Name
-    .ctor
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-  Params
-    System.String
-    System.Data.Entity.Core.Objects.ObjectContext
+ Params
+   System.String
+   System.Data.Entity.Core.Objects.ObjectContext
 
-  Return
-    System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
-  @/textblock
+ Return
+   System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
+ @/textblock
 */
 + (System_Data_Entity_Core_Objects_ObjectQueryA1 *)new_withCommandText:(NSString *)p1 context:(System_Data_Entity_Core_Objects_ObjectContext *)p2;
 
@@ -66,14 +66,14 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Name
+ Managed property.
+ @textblock
+ Name
+   Name
 
-  Type
-    System.String
-  @/textblock
+ Type
+   System.String
+ @/textblock
 */
 @property (nonatomic, strong) NSString * name;
 
@@ -81,32 +81,32 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Distinct
+ Managed method.
+ @textblock
+ Name
+   Distinct
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
-  @/textblock
+ Return
+   System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
+ @/textblock
 */
 - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)distinct;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Except
+ Managed method.
+ @textblock
+ Name
+   Except
 
-  Params
-    System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
+ Params
+   System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
 
-  Return
-    System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
-  @/textblock
+ Return
+   System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
+ @/textblock
 */
 - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)except_withQuery:(System_Data_Entity_Core_Objects_ObjectQueryA1 *)p1;
 
@@ -119,50 +119,50 @@
 /* Skipped method : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Common.DbDataRecord> GroupBy(System.String keys, System.String projection, System.Data.Entity.Core.Objects.ObjectParameter[] parameters) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Include
+ Managed method.
+ @textblock
+ Name
+   Include
 
-  Params
-    System.String
+ Params
+   System.String
 
-  Return
-    System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
-  @/textblock
+ Return
+   System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
+ @/textblock
 */
 - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)include_withPath:(NSString *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Intersect
+ Managed method.
+ @textblock
+ Name
+   Intersect
 
-  Params
-    System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
+ Params
+   System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
 
-  Return
-    System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
-  @/textblock
+ Return
+   System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
+ @/textblock
 */
 - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)intersect_withQuery:(System_Data_Entity_Core_Objects_ObjectQueryA1 *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    OfType
+ Managed method.
+ @textblock
+ Name
+   OfType
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Generics
-    <System.Data.Entity.Core.Objects.ObjectQuery`1+TResultType>
+ Generics
+   <System.Data.Entity.Core.Objects.ObjectQuery`1+TResultType>
 
-  Return
-    System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+TResultType>
-  @/textblock
+ Return
+   System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+TResultType>
+ @/textblock
 */
 - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)ofType_withTypeParameter:(id)typeParameter;
 
@@ -177,32 +177,32 @@
 /* Skipped method : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T> Top(System.String count, System.Data.Entity.Core.Objects.ObjectParameter[] parameters) */
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Union
+ Managed method.
+ @textblock
+ Name
+   Union
 
-  Params
-    System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
+ Params
+   System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
 
-  Return
-    System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
-  @/textblock
+ Return
+   System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
+ @/textblock
 */
 - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)union_withQuery:(System_Data_Entity_Core_Objects_ObjectQueryA1 *)p1;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    UnionAll
+ Managed method.
+ @textblock
+ Name
+   UnionAll
 
-  Params
-    System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
+ Params
+   System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
 
-  Return
-    System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
-  @/textblock
+ Return
+   System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1+T>
+ @/textblock
 */
 - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)unionAll_withQuery:(System_Data_Entity_Core_Objects_ObjectQueryA1 *)p1;
 

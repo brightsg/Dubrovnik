@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Data.Entity.Core.EntityClient.EntityConnection";
+	return "System.Data.Entity.Core.EntityClient.EntityConnection";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "EntityFramework";
+	return "EntityFramework";
 }
 
 #pragma mark -
@@ -35,8 +35,8 @@
 
 + (System_Data_Entity_Core_EntityClient_EntityConnection *)new_withConnectionString:(NSString *)p1
 {
-  System_Data_Entity_Core_EntityClient_EntityConnection * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return object;
+	System_Data_Entity_Core_EntityClient_EntityConnection * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return object;
 }
 
 /* Skipped constructor : System.Data.Entity.Core.EntityClient.EntityConnection (System.Data.Entity.Core.Metadata.Edm.MetadataWorkspace workspace, System.Data.Common.DbConnection connection) */
@@ -193,12 +193,12 @@
 
 - (void)changeDatabase_withDatabaseName:(NSString *)p1
 {
-  [self invokeMonoMethod:"ChangeDatabase(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"ChangeDatabase(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 - (void)close
 {
-  [self invokeMonoMethod:"Close()" withNumArgs:0];
+	[self invokeMonoMethod:"Close()" withNumArgs:0];
 }
 
 /* Skipped method : System.Data.Entity.Core.EntityClient.EntityCommand CreateCommand() */
@@ -209,13 +209,13 @@
 
 - (void)open
 {
-  [self invokeMonoMethod:"Open()" withNumArgs:0];
+	[self invokeMonoMethod:"Open()" withNumArgs:0];
 }
 
 - (System_Threading_Tasks_Task *)openAsync_withCancellationToken:(System_Threading_CancellationToken *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"OpenAsync(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"OpenAsync(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
 #pragma mark -

@@ -27,11 +27,11 @@
 
 // C enumeration
 typedef NS_ENUM(int32_t, enumSystem_Collections_Specialized_NotifyCollectionChangedAction) {
-  System_Collections_Specialized_NotifyCollectionChangedAction_Add = 0,
-  System_Collections_Specialized_NotifyCollectionChangedAction_Move = 3,
-  System_Collections_Specialized_NotifyCollectionChangedAction_Remove = 1,
-  System_Collections_Specialized_NotifyCollectionChangedAction_Replace = 2,
-  System_Collections_Specialized_NotifyCollectionChangedAction_Reset = 4,
+	System_Collections_Specialized_NotifyCollectionChangedAction_Add = 0,
+	System_Collections_Specialized_NotifyCollectionChangedAction_Move = 3,
+	System_Collections_Specialized_NotifyCollectionChangedAction_Remove = 1,
+	System_Collections_Specialized_NotifyCollectionChangedAction_Replace = 2,
+	System_Collections_Specialized_NotifyCollectionChangedAction_Reset = 4,
 };
 
 @interface System_Collections_Specialized_NotifyCollectionChangedAction : System_Enum
@@ -46,62 +46,62 @@ typedef NS_ENUM(int32_t, enumSystem_Collections_Specialized_NotifyCollectionChan
 #pragma mark Fields
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Add
+ Managed field.
+ @textblock
+ Name
+   Add
 
-  Type
-    System.Collections.Specialized.NotifyCollectionChangedAction
-  @/textblock
+ Type
+   System.Collections.Specialized.NotifyCollectionChangedAction
+ @/textblock
 */
 + (int32_t)add;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Move
+ Managed field.
+ @textblock
+ Name
+   Move
 
-  Type
-    System.Collections.Specialized.NotifyCollectionChangedAction
-  @/textblock
+ Type
+   System.Collections.Specialized.NotifyCollectionChangedAction
+ @/textblock
 */
 + (int32_t)move;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Remove
+ Managed field.
+ @textblock
+ Name
+   Remove
 
-  Type
-    System.Collections.Specialized.NotifyCollectionChangedAction
-  @/textblock
+ Type
+   System.Collections.Specialized.NotifyCollectionChangedAction
+ @/textblock
 */
 + (int32_t)remove;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Replace
+ Managed field.
+ @textblock
+ Name
+   Replace
 
-  Type
-    System.Collections.Specialized.NotifyCollectionChangedAction
-  @/textblock
+ Type
+   System.Collections.Specialized.NotifyCollectionChangedAction
+ @/textblock
 */
 + (int32_t)replace;
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Reset
+ Managed field.
+ @textblock
+ Name
+   Reset
 
-  Type
-    System.Collections.Specialized.NotifyCollectionChangedAction
-  @/textblock
+ Type
+   System.Collections.Specialized.NotifyCollectionChangedAction
+ @/textblock
 */
 + (int32_t)reset;
 @end

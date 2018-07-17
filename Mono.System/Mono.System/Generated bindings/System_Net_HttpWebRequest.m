@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Net.HttpWebRequest";
+	return "System.Net.HttpWebRequest";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "System";
+	return "System";
 }
 
 #pragma mark -
@@ -1204,87 +1204,87 @@ static int32_t m_defaultMaximumResponseHeadersLength;
 
 - (void)abort
 {
-  [self invokeMonoMethod:"Abort()" withNumArgs:0];
+	[self invokeMonoMethod:"Abort()" withNumArgs:0];
 }
 
 - (void)addRange_withFromInt:(int32_t)p1 toInt:(int32_t)p2
 {
-  [self invokeMonoMethod:"AddRange(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	[self invokeMonoMethod:"AddRange(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 }
 
 - (void)addRange_withFromLong:(int64_t)p1 toLong:(int64_t)p2
 {
-  [self invokeMonoMethod:"AddRange(long,long)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	[self invokeMonoMethod:"AddRange(long,long)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 }
 
 - (void)addRange_withRangeInt:(int32_t)p1
 {
-  [self invokeMonoMethod:"AddRange(int)" withNumArgs:1, DB_VALUE(p1)];
+	[self invokeMonoMethod:"AddRange(int)" withNumArgs:1, DB_VALUE(p1)];
 }
 
 - (void)addRange_withRangeLong:(int64_t)p1
 {
-  [self invokeMonoMethod:"AddRange(long)" withNumArgs:1, DB_VALUE(p1)];
+	[self invokeMonoMethod:"AddRange(long)" withNumArgs:1, DB_VALUE(p1)];
 }
 
 - (void)addRange_withRangeSpecifierString:(NSString *)p1 fromInt:(int32_t)p2 toInt:(int32_t)p3
 {
-  [self invokeMonoMethod:"AddRange(string,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	[self invokeMonoMethod:"AddRange(string,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 }
 
 - (void)addRange_withRangeSpecifierString:(NSString *)p1 fromLong:(int64_t)p2 toLong:(int64_t)p3
 {
-  [self invokeMonoMethod:"AddRange(string,long,long)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	[self invokeMonoMethod:"AddRange(string,long,long)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 }
 
 - (void)addRange_withRangeSpecifierString:(NSString *)p1 rangeInt:(int32_t)p2
 {
-  [self invokeMonoMethod:"AddRange(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	[self invokeMonoMethod:"AddRange(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 }
 
 - (void)addRange_withRangeSpecifierString:(NSString *)p1 rangeLong:(int64_t)p2
 {
-  [self invokeMonoMethod:"AddRange(string,long)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	[self invokeMonoMethod:"AddRange(string,long)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 }
 
 - (id <System_IAsyncResult>)beginGetRequestStream_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"BeginGetRequestStream(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"BeginGetRequestStream(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
 }
 
 - (id <System_IAsyncResult>)beginGetResponse_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"BeginGetResponse(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"BeginGetResponse(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
 }
 
 - (System_IO_Stream *)endGetRequestStream_withAsyncResult:(id <System_IAsyncResult_>)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"EndGetRequestStream(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_IO_Stream bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"EndGetRequestStream(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_IO_Stream bestObjectWithMonoObject:monoObject];
 }
 
 /* Skipped method : System.IO.Stream EndGetRequestStream(System.IAsyncResult asyncResult, System.Net.TransportContext& context) */
 
 - (System_Net_WebResponse *)endGetResponse_withAsyncResult:(id <System_IAsyncResult_>)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"EndGetResponse(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_Net_WebResponse bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"EndGetResponse(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_Net_WebResponse bestObjectWithMonoObject:monoObject];
 }
 
 - (System_IO_Stream *)getRequestStream
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetRequestStream()" withNumArgs:0];
-  return [System_IO_Stream bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetRequestStream()" withNumArgs:0];
+	return [System_IO_Stream bestObjectWithMonoObject:monoObject];
 }
 
 /* Skipped method : System.IO.Stream GetRequestStream(System.Net.TransportContext& context) */
 
 - (System_Net_WebResponse *)getResponse
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetResponse()" withNumArgs:0];
-  return [System_Net_WebResponse bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetResponse()" withNumArgs:0];
+	return [System_Net_WebResponse bestObjectWithMonoObject:monoObject];
 }
 
 #pragma mark -

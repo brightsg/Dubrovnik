@@ -80,28 +80,28 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    ElementType
+ Managed property.
+ @textblock
+ Name
+   ElementType
 
-  Type
-    System.Type
-  @/textblock
+ Type
+   System.Type
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Type * elementType;
 
 /* Skipped property : System.Linq.Expressions.Expression Expression */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Provider
+ Managed property.
+ @textblock
+ Name
+   Provider
 
-  Type
-    System.Linq.IQueryProvider
-  @/textblock
+ Type
+   System.Linq.IQueryProvider
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Linq_IQueryProvider * provider;
 #endif
@@ -122,28 +122,28 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    ElementType
+ Managed property.
+ @textblock
+ Name
+   ElementType
 
-  Type
-    System.Type
-  @/textblock
+ Type
+   System.Type
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Type * elementType;
 
 /* Skipped property : System.Linq.Expressions.Expression Expression */
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Provider
+ Managed property.
+ @textblock
+ Name
+   Provider
 
-  Type
-    System.Linq.IQueryProvider
-  @/textblock
+ Type
+   System.Linq.IQueryProvider
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Linq_IQueryProvider * provider;
 

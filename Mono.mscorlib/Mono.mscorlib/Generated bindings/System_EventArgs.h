@@ -36,14 +36,14 @@
 #pragma mark Fields
 
 /**
-  Managed field.
-  @textblock
-  Name
-    Empty
+ Managed field.
+ @textblock
+ Name
+   Empty
 
-  Type
-    System.EventArgs
-  @/textblock
+ Type
+   System.EventArgs
+ @/textblock
 */
 + (System_EventArgs *)empty;
 @end

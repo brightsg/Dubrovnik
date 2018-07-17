@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Collections.Generic.IComparer`1";
+	return "System.Collections.Generic.IComparer`1";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "mscorlib";
+	return "mscorlib";
 }
 
 #pragma mark -
@@ -35,8 +35,8 @@
 
 - (int32_t)compare_withX:(System_Object *)p1 y:(System_Object *)p2
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IComparer`1<System.Collections.Generic.IComparer`1+T>.Compare(<_T_0>,<_T_0>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-  return DB_UNBOX_INT32(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IComparer`1<System.Collections.Generic.IComparer`1+T>.Compare(<_T_0>,<_T_0>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return DB_UNBOX_INT32(monoObject);
 }
 
 #pragma mark -

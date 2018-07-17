@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Nullable`1";
+	return "System.Nullable`1";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "mscorlib";
+	return "mscorlib";
 }
 
 #pragma mark -
@@ -35,8 +35,8 @@
 
 + (System_NullableA1 *)new_withValue:(System_Object *)p1
 {
-  System_NullableA1 * object = [[self alloc] initWithSignature:"<_T_0>" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return object;
+	System_NullableA1 * object = [[self alloc] initWithSignature:"<_T_0>" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return object;
 }
 
 #pragma mark -
@@ -86,44 +86,44 @@
 
 - (BOOL)equals_withOther:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return DB_UNBOX_BOOLEAN(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (int32_t)getHashCode
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
-  return DB_UNBOX_INT32(monoObject);
+	MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];
+	return DB_UNBOX_INT32(monoObject);
 }
 
 - (System_Object *)getValueOrDefault
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetValueOrDefault()" withNumArgs:0];
-  return [System_Object bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetValueOrDefault()" withNumArgs:0];
+	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Object *)getValueOrDefault_withDefaultValue:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetValueOrDefault(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_Object bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetValueOrDefault(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Object *)op_Explicit_withValue:(System_NullableA1 *)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(System.Nullable`1<System.Nullable`1/T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_Object bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(System.Nullable`1<System.Nullable`1/T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 + (System_NullableA1 *)op_Implicit_withValue:(System_Object *)p1
 {
-  MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_NullableA1 bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_NullableA1 bestObjectWithMonoObject:monoObject];
 }
 
 - (NSString *)toString
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 #pragma mark -

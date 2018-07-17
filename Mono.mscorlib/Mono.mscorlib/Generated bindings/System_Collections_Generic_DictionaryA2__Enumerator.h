@@ -45,14 +45,14 @@
 #pragma mark Properties
 
 /**
-  Managed property.
-  @textblock
-  Name
-    Current
+ Managed property.
+ @textblock
+ Name
+   Current
 
-  Type
-    System.Collections.Generic.KeyValuePair`2<System.Collections.Generic.Dictionary`2+Enumerator+TKey, System.Collections.Generic.Dictionary`2+Enumerator+TValue>
-  @/textblock
+ Type
+   System.Collections.Generic.KeyValuePair`2<System.Collections.Generic.Dictionary`2+Enumerator+TKey, System.Collections.Generic.Dictionary`2+Enumerator+TValue>
+ @/textblock
 */
 @property (nonatomic, strong, readonly) System_Collections_Generic_KeyValuePairA2 * current;
 
@@ -60,32 +60,32 @@
 #pragma mark Methods
 
 /**
-  Managed method.
-  @textblock
-  Name
-    Dispose
+ Managed method.
+ @textblock
+ Name
+   Dispose
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Void
-  @/textblock
+ Return
+   System.Void
+ @/textblock
 */
 - (void)dispose;
 
 /**
-  Managed method.
-  @textblock
-  Name
-    MoveNext
+ Managed method.
+ @textblock
+ Name
+   MoveNext
 
-  Params
-    (none)
+ Params
+   (none)
 
-  Return
-    System.Boolean
-  @/textblock
+ Return
+   System.Boolean
+ @/textblock
 */
 - (BOOL)moveNext;
 @end

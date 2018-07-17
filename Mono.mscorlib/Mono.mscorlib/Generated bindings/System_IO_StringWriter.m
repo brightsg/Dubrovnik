@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.IO.StringWriter";
+	return "System.IO.StringWriter";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "mscorlib";
+	return "mscorlib";
 }
 
 #pragma mark -
@@ -37,8 +37,8 @@
 
 + (System_IO_StringWriter *)new_withSb:(System_Text_StringBuilder *)p1
 {
-  System_IO_StringWriter * object = [[self alloc] initWithSignature:"System.Text.StringBuilder" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return object;
+	System_IO_StringWriter * object = [[self alloc] initWithSignature:"System.Text.StringBuilder" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return object;
 }
 
 /* Skipped constructor : System.IO.StringWriter (System.Text.StringBuilder sb, System.IFormatProvider formatProvider) */
@@ -71,76 +71,76 @@
 
 - (void)close
 {
-  [self invokeMonoMethod:"Close()" withNumArgs:0];
+	[self invokeMonoMethod:"Close()" withNumArgs:0];
 }
 
 - (System_Threading_Tasks_Task *)flushAsync
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"FlushAsync()" withNumArgs:0];
-  return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"FlushAsync()" withNumArgs:0];
+	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Text_StringBuilder *)getStringBuilder
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"GetStringBuilder()" withNumArgs:0];
-  return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetStringBuilder()" withNumArgs:0];
+	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
 }
 
 - (NSString *)toString
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
-  return [NSString stringWithMonoString:DB_STRING(monoObject)];
+	MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 - (void)write_withValueChar:(uint16_t)p1
 {
-  [self invokeMonoMethod:"Write(char)" withNumArgs:1, DB_VALUE(p1)];
+	[self invokeMonoMethod:"Write(char)" withNumArgs:1, DB_VALUE(p1)];
 }
 
 - (void)write_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
 {
-  [self invokeMonoMethod:"Write(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	[self invokeMonoMethod:"Write(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 }
 
 - (void)write_withValueString:(NSString *)p1
 {
-  [self invokeMonoMethod:"Write(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Write(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 - (System_Threading_Tasks_Task *)writeAsync_withValueChar:(uint16_t)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(char)" withNumArgs:1, DB_VALUE(p1)];
-  return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(char)" withNumArgs:1, DB_VALUE(p1)];
+	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Threading_Tasks_Task *)writeAsync_withValueString:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
-  return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Threading_Tasks_Task *)writeLineAsync_withValueChar:(uint16_t)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync(char)" withNumArgs:1, DB_VALUE(p1)];
-  return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync(char)" withNumArgs:1, DB_VALUE(p1)];
+	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Threading_Tasks_Task *)writeLineAsync_withValueString:(NSString *)p1
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-  return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Threading_Tasks_Task *)writeLineAsync_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
 {
-  MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
-  return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+	MonoObject *monoObject = [self invokeMonoMethod:"WriteLineAsync(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
 #pragma mark -

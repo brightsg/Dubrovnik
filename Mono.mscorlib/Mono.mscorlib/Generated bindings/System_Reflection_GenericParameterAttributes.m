@@ -22,12 +22,12 @@
 
 + (const char *)monoClassName
 {
-  return "System.Reflection.GenericParameterAttributes";
+	return "System.Reflection.GenericParameterAttributes";
 }
 
 + (const char *)monoAssemblyName
 {
-  return "mscorlib";
+	return "mscorlib";
 }
 
 #pragma mark -
