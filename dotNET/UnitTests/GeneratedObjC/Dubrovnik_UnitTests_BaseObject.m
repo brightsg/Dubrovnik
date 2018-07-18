@@ -19,21 +19,22 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "Dubrovnik.UnitTests.BaseObject";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "Dubrovnik.UnitTests";
-	}
+
++ (const char *)monoClassName
+{
+	return "Dubrovnik.UnitTests.BaseObject";
+}
+
++ (const char *)monoAssemblyName
+{
+	return "Dubrovnik.UnitTests";
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

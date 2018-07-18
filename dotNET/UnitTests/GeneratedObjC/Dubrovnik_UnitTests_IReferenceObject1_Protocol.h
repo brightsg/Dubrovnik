@@ -5,7 +5,6 @@
 //
 // Frameworks
 //
-#import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 
 //
@@ -78,13 +77,29 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : ExIntTestProperty
-	// Managed property type : System.Int32
-    @property (nonatomic) int32_t exIntTestProperty;
+/**
+ Managed property.
+ @textblock
+ Name
+   ExIntTestProperty
 
-	// Managed property name : ImpIntTestProperty
-	// Managed property type : System.Int32
-    @property (nonatomic) int32_t impIntTestProperty;
+ Type
+   System.Int32
+ @/textblock
+*/
+@property (nonatomic) int32_t exIntTestProperty;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   ImpIntTestProperty
+
+ Type
+   System.Int32
+ @/textblock
+*/
+@property (nonatomic) int32_t impIntTestProperty;
 #endif
 
 
@@ -102,13 +117,29 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : ExIntTestProperty
-	// Managed property type : System.Int32
-    @property (nonatomic) int32_t exIntTestProperty;
+/**
+ Managed property.
+ @textblock
+ Name
+   ExIntTestProperty
 
-	// Managed property name : ImpIntTestProperty
-	// Managed property type : System.Int32
-    @property (nonatomic) int32_t impIntTestProperty;
+ Type
+   System.Int32
+ @/textblock
+*/
+@property (nonatomic) int32_t exIntTestProperty;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   ImpIntTestProperty
+
+ Type
+   System.Int32
+ @/textblock
+*/
+@property (nonatomic) int32_t impIntTestProperty;
 
 @end
 

@@ -5,7 +5,6 @@
 //
 // Frameworks
 //
-#import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 
 //
@@ -36,68 +35,141 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : CollectionChanged
-		Managed return type : System.Void
-		Managed param types : System.Object, System.EventArgs
-	 */
-    + (void)collectionChanged_withSender:(System_Object *)p1 arg:(System_EventArgs *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   CollectionChanged
 
-	/*! 
-		Managed method name : ConfigureStaticEventHandler
-		Managed return type : System.Void
-		Managed param types : System.Object, System.String, System.String, System.Boolean
-	 */
-    + (void)configureStaticEventHandler_withObj:(System_Object *)p1 objEventName:(NSString *)p2 handlerMethodName:(NSString *)p3 attach:(BOOL)p4;
+ Params
+   System.Object
+   System.EventArgs
 
-	/*! 
-		Managed method name : DubrovnikEventHandlerICall1
-		Managed return type : System.Void
-		Managed param types : System.Object, System.EventArgs
-	 */
-    + (void)dubrovnikEventHandlerICall1_withSender:(System_Object *)p1 args:(System_EventArgs *)p2;
+ Return
+   System.Void
+ @/textblock
+*/
++ (void)collectionChanged_withSender:(System_Object *)p1 arg:(System_EventArgs *)p2;
 
-	/*! 
-		Managed method name : DubrovnikEventHandlerICall2
-		Managed return type : System.Void
-		Managed param types : System.Object, System.EventArgs
-	 */
-    + (void)dubrovnikEventHandlerICall2_withSender:(System_Object *)p1 args:(System_EventArgs *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   ConfigureStaticEventHandler
 
-	/*! 
-		Managed method name : ManagedEvent_AppDomain_UnhandledException
-		Managed return type : System.Void
-		Managed param types : System.Object, System.UnhandledExceptionEventArgs
-	 */
-    + (void)managedEvent_AppDomain_UnhandledException_withSender:(System_Object *)p1 args:(System_UnhandledExceptionEventArgs *)p2;
+ Params
+   System.Object
+   System.String
+   System.String
+   System.Boolean
 
-	/*! 
-		Managed method name : ManagedEvent_ManagedObject_PropertyChanged
-		Managed return type : System.Void
-		Managed param types : System.Object, System.EventArgs
-	 */
-    + (void)managedEvent_ManagedObject_PropertyChanged_withSender:(System_Object *)p1 args:(System_EventArgs *)p2;
+ Return
+   System.Void
+ @/textblock
+*/
++ (void)configureStaticEventHandler_withObj:(System_Object *)p1 objEventName:(NSString *)p2 handlerMethodName:(NSString *)p3 attach:(BOOL)p4;
 
-	/*! 
-		Managed method name : ManagedEvent_ManagedObject_PropertyChanging
-		Managed return type : System.Void
-		Managed param types : System.Object, System.EventArgs
-	 */
-    + (void)managedEvent_ManagedObject_PropertyChanging_withSender:(System_Object *)p1 args:(System_EventArgs *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   DubrovnikEventHandlerICall1
 
-	/*! 
-		Managed method name : ObjectSupportsEvent
-		Managed return type : System.Boolean
-		Managed param types : System.Object, System.String
-	 */
-    + (BOOL)objectSupportsEvent_withObj:(System_Object *)p1 objEventName:(NSString *)p2;
+ Params
+   System.Object
+   System.EventArgs
+
+ Return
+   System.Void
+ @/textblock
+*/
++ (void)dubrovnikEventHandlerICall1_withSender:(System_Object *)p1 args:(System_EventArgs *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   DubrovnikEventHandlerICall2
+
+ Params
+   System.Object
+   System.EventArgs
+
+ Return
+   System.Void
+ @/textblock
+*/
++ (void)dubrovnikEventHandlerICall2_withSender:(System_Object *)p1 args:(System_EventArgs *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ManagedEvent_AppDomain_UnhandledException
+
+ Params
+   System.Object
+   System.UnhandledExceptionEventArgs
+
+ Return
+   System.Void
+ @/textblock
+*/
++ (void)managedEvent_AppDomain_UnhandledException_withSender:(System_Object *)p1 args:(System_UnhandledExceptionEventArgs *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ManagedEvent_ManagedObject_PropertyChanged
+
+ Params
+   System.Object
+   System.EventArgs
+
+ Return
+   System.Void
+ @/textblock
+*/
++ (void)managedEvent_ManagedObject_PropertyChanged_withSender:(System_Object *)p1 args:(System_EventArgs *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ManagedEvent_ManagedObject_PropertyChanging
+
+ Params
+   System.Object
+   System.EventArgs
+
+ Return
+   System.Void
+ @/textblock
+*/
++ (void)managedEvent_ManagedObject_PropertyChanging_withSender:(System_Object *)p1 args:(System_EventArgs *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ObjectSupportsEvent
+
+ Params
+   System.Object
+   System.String
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)objectSupportsEvent_withObj:(System_Object *)p1 objEventName:(NSString *)p2;
 @end
 //--Dubrovnik.CodeGenerator

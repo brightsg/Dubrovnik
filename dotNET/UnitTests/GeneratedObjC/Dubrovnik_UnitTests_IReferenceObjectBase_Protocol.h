@@ -5,7 +5,6 @@
 //
 // Frameworks
 //
-#import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 
 //
@@ -78,9 +77,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : InterfaceTestProperty
-	// Managed property type : Dubrovnik.UnitTests.ITestProperty
-    @property (nonatomic, strong) Dubrovnik_UnitTests_ITestProperty * interfaceTestProperty;
+/**
+ Managed property.
+ @textblock
+ Name
+   InterfaceTestProperty
+
+ Type
+   Dubrovnik.UnitTests.ITestProperty
+ @/textblock
+*/
+@property (nonatomic, strong) Dubrovnik_UnitTests_ITestProperty * interfaceTestProperty;
 #endif
 
 
@@ -98,9 +105,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : InterfaceTestProperty
-	// Managed property type : Dubrovnik.UnitTests.ITestProperty
-    @property (nonatomic, strong) Dubrovnik_UnitTests_ITestProperty * interfaceTestProperty;
+/**
+ Managed property.
+ @textblock
+ Name
+   InterfaceTestProperty
+
+ Type
+   Dubrovnik.UnitTests.ITestProperty
+ @/textblock
+*/
+@property (nonatomic, strong) Dubrovnik_UnitTests_ITestProperty * interfaceTestProperty;
 
 @end
 

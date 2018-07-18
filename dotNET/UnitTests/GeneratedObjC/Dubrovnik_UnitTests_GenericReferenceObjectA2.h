@@ -5,7 +5,6 @@
 //
 // Frameworks
 //
-#import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 
 //
@@ -32,57 +31,126 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : GenericPropertyWithTypeParameterT
-	// Managed property type : <Dubrovnik.UnitTests.GenericReferenceObject`2+T>
-    @property (nonatomic, strong) System_Object * genericPropertyWithTypeParameterT;
+/**
+ Managed property.
+ @textblock
+ Name
+   GenericPropertyWithTypeParameterT
 
-	// Managed property name : GenericPropertyWithTypeParameterU
-	// Managed property type : <Dubrovnik.UnitTests.GenericReferenceObject`2+U>
-    @property (nonatomic, strong) System_Object * genericPropertyWithTypeParameterU;
+ Type
+   <Dubrovnik.UnitTests.GenericReferenceObject`2+T>
+ @/textblock
+*/
+@property (nonatomic, strong) System_Object * genericPropertyWithTypeParameterT;
 
-	// Managed property name : ListOfTypeT
-	// Managed property type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.GenericReferenceObject`2+T>
-    @property (nonatomic, strong) System_Collections_Generic_ListA1 * listOfTypeT;
+/**
+ Managed property.
+ @textblock
+ Name
+   GenericPropertyWithTypeParameterU
 
-	// Managed property name : ListOfTypeU
-	// Managed property type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.GenericReferenceObject`2+U>
-    @property (nonatomic, strong) System_Collections_Generic_ListA1 * listOfTypeU;
+ Type
+   <Dubrovnik.UnitTests.GenericReferenceObject`2+U>
+ @/textblock
+*/
+@property (nonatomic, strong) System_Object * genericPropertyWithTypeParameterU;
 
-	// Managed property name : Nested
-	// Managed property type : Dubrovnik.UnitTests.GenericReferenceObject`2<Dubrovnik.UnitTests.GenericReferenceObject`2+T, Dubrovnik.UnitTests.GenericReferenceObject`2+U>+NestedClass
-    @property (nonatomic, strong) Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass * nested;
+/**
+ Managed property.
+ @textblock
+ Name
+   ListOfTypeT
+
+ Type
+   System.Collections.Generic.List`1<Dubrovnik.UnitTests.GenericReferenceObject`2+T>
+ @/textblock
+*/
+@property (nonatomic, strong) System_Collections_Generic_ListA1 * listOfTypeT;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   ListOfTypeU
+
+ Type
+   System.Collections.Generic.List`1<Dubrovnik.UnitTests.GenericReferenceObject`2+U>
+ @/textblock
+*/
+@property (nonatomic, strong) System_Collections_Generic_ListA1 * listOfTypeU;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   Nested
+
+ Type
+   Dubrovnik.UnitTests.GenericReferenceObject`2<Dubrovnik.UnitTests.GenericReferenceObject`2+T, Dubrovnik.UnitTests.GenericReferenceObject`2+U>+NestedClass
+ @/textblock
+*/
+@property (nonatomic, strong) Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass * nested;
 
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : GenericMethod
-		Managed return type : <Dubrovnik.UnitTests.GenericReferenceObject`2+V>
-		Managed param types : <Dubrovnik.UnitTests.GenericReferenceObject`2+T>, <Dubrovnik.UnitTests.GenericReferenceObject`2+U>, <Dubrovnik.UnitTests.GenericReferenceObject`2+V>
-		Generic method definition type params : <Dubrovnik.UnitTests.GenericReferenceObject`2+V>
-	 */
-    - (System_Object *)genericMethod_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2 parameterV:(System_Object *)p3 typeParameter:(id)typeParameter;
+/**
+ Managed method.
+ @textblock
+ Name
+   GenericMethod
 
-	/*! 
-		Managed method name : GenericMethodReturningParameterTypeT
-		Managed return type : <Dubrovnik.UnitTests.GenericReferenceObject`2+T>
-		Managed param types : <Dubrovnik.UnitTests.GenericReferenceObject`2+T>, <Dubrovnik.UnitTests.GenericReferenceObject`2+U>
-	 */
-    - (System_Object *)genericMethodReturningParameterTypeT_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2;
+ Params
+   <Dubrovnik.UnitTests.GenericReferenceObject`2+T>
+   <Dubrovnik.UnitTests.GenericReferenceObject`2+U>
+   <Dubrovnik.UnitTests.GenericReferenceObject`2+V>
 
-	/*! 
-		Managed method name : GenericMethodReturningParameterTypeU
-		Managed return type : <Dubrovnik.UnitTests.GenericReferenceObject`2+U>
-		Managed param types : <Dubrovnik.UnitTests.GenericReferenceObject`2+T>, <Dubrovnik.UnitTests.GenericReferenceObject`2+U>
-	 */
-    - (System_Object *)genericMethodReturningParameterTypeU_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2;
+ Generics
+   <Dubrovnik.UnitTests.GenericReferenceObject`2+V>
+
+ Return
+   <Dubrovnik.UnitTests.GenericReferenceObject`2+V>
+ @/textblock
+*/
+- (System_Object *)genericMethod_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2 parameterV:(System_Object *)p3 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GenericMethodReturningParameterTypeT
+
+ Params
+   <Dubrovnik.UnitTests.GenericReferenceObject`2+T>
+   <Dubrovnik.UnitTests.GenericReferenceObject`2+U>
+
+ Return
+   <Dubrovnik.UnitTests.GenericReferenceObject`2+T>
+ @/textblock
+*/
+- (System_Object *)genericMethodReturningParameterTypeT_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GenericMethodReturningParameterTypeU
+
+ Params
+   <Dubrovnik.UnitTests.GenericReferenceObject`2+T>
+   <Dubrovnik.UnitTests.GenericReferenceObject`2+U>
+
+ Return
+   <Dubrovnik.UnitTests.GenericReferenceObject`2+U>
+ @/textblock
+*/
+- (System_Object *)genericMethodReturningParameterTypeU_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2;
 @end
 //--Dubrovnik.CodeGenerator

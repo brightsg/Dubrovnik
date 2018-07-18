@@ -5,7 +5,6 @@
 //
 // Frameworks
 //
-#import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 
 //
@@ -31,47 +30,86 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : Dubrovnik.UnitTests.ReferenceStruct
-		Managed param types : System.String
-	 */
-    + (Dubrovnik_UnitTests_ReferenceStruct *)new_withS:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.String
+
+ Return
+   Dubrovnik.UnitTests.ReferenceStruct
+ @/textblock
+*/
++ (Dubrovnik_UnitTests_ReferenceStruct *)new_withS:(NSString *)p1;
 
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : intField
-	// Managed field type : System.Int32
-    @property (nonatomic) int32_t intField;
+/**
+ Managed field.
+ @textblock
+ Name
+   intField
 
-	// Managed field name : StringField
-	// Managed field type : System.String
-    @property (nonatomic, strong) NSString * stringField;
+ Type
+   System.Int32
+ @/textblock
+*/
+@property (nonatomic) int32_t intField;
+
+/**
+ Managed field.
+ @textblock
+ Name
+   StringField
+
+ Type
+   System.String
+ @/textblock
+*/
+@property (nonatomic, strong) NSString * stringField;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : StringProperty
-	// Managed property type : System.String
-    @property (nonatomic, strong) NSString * stringProperty;
+/**
+ Managed property.
+ @textblock
+ Name
+   StringProperty
+
+ Type
+   System.String
+ @/textblock
+*/
+@property (nonatomic, strong) NSString * stringProperty;
 
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : StringMethod
-		Managed return type : System.String
-		Managed param types : System.String
-	 */
-    - (NSString *)stringMethod_withS1:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   StringMethod
+
+ Params
+   System.String
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)stringMethod_withS1:(NSString *)p1;
 @end
 //--Dubrovnik.CodeGenerator

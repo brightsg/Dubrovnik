@@ -5,7 +5,6 @@
 //
 // Frameworks
 //
-#import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 
 //
@@ -34,16 +33,23 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : InterfaceTestProperty
-	// Managed property type : Dubrovnik.UnitTests.ITestProperty
-    @property (nonatomic, strong) Dubrovnik_UnitTests_ITestProperty * interfaceTestProperty;
+/**
+ Managed property.
+ @textblock
+ Name
+   InterfaceTestProperty
+
+ Type
+   Dubrovnik.UnitTests.ITestProperty
+ @/textblock
+*/
+@property (nonatomic, strong) Dubrovnik_UnitTests_ITestProperty * interfaceTestProperty;
 @end
 //--Dubrovnik.CodeGenerator

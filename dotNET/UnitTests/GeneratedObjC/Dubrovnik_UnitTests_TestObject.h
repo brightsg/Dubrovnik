@@ -5,7 +5,6 @@
 //
 // Frameworks
 //
-#import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 
 //
@@ -30,16 +29,23 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : Name
-	// Managed property type : System.String
-    @property (nonatomic, strong) NSString * name;
+/**
+ Managed property.
+ @textblock
+ Name
+   Name
+
+ Type
+   System.String
+ @/textblock
+*/
+@property (nonatomic, strong) NSString * name;
 @end
 //--Dubrovnik.CodeGenerator

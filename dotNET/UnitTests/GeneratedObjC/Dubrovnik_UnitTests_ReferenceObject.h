@@ -5,7 +5,6 @@
 //
 // Frameworks
 //
-#import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 
 //
@@ -84,664 +83,1602 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Constructors
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : Dubrovnik.UnitTests.ReferenceObject
-		Managed param types : System.String
-	 */
-    + (Dubrovnik_UnitTests_ReferenceObject *)new_withValue:(NSString *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-	/*! 
-		Managed method name : .ctor
-		Managed return type : Dubrovnik.UnitTests.ReferenceObject
-		Managed param types : System.String, System.String
-	 */
-    + (Dubrovnik_UnitTests_ReferenceObject *)new_withValue1:(NSString *)p1 value2:(NSString *)p2;
+ Params
+   System.String
+
+ Return
+   Dubrovnik.UnitTests.ReferenceObject
+ @/textblock
+*/
++ (Dubrovnik_UnitTests_ReferenceObject *)new_withValue:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.String
+   System.String
+
+ Return
+   Dubrovnik.UnitTests.ReferenceObject
+ @/textblock
+*/
++ (Dubrovnik_UnitTests_ReferenceObject *)new_withValue1:(NSString *)p1 value2:(NSString *)p2;
 
 #pragma mark -
 #pragma mark Fields
 
-	// Managed field name : ClassConstStringField
-	// Managed field type : System.String
-    + (NSString *)classConstStringField;
+/**
+ Managed field.
+ @textblock
+ Name
+   ClassConstStringField
 
-	// Managed field name : ClassDateField
-	// Managed field type : System.DateTime
-    + (NSDate *)classDateField;
-    + (void)setClassDateField:(NSDate *)value;
+ Type
+   System.String
+ @/textblock
+*/
++ (NSString *)classConstStringField;
 
-	// Managed field name : ClassIntField
-	// Managed field type : System.Int32
-    + (int32_t)classIntField;
-    + (void)setClassIntField:(int32_t)value;
+/**
+ Managed field.
+ @textblock
+ Name
+   ClassDateField
 
-	// Managed field name : ClassReadonlyStringField
-	// Managed field type : System.String
-    @property (nonatomic, strong, readonly) NSString * classReadonlyStringField;
+ Type
+   System.DateTime
+ @/textblock
+*/
++ (NSDate *)classDateField;
++ (void)setClassDateField:(NSDate *)value;
 
-	// Managed field name : ClassStringField
-	// Managed field type : System.String
-    + (NSString *)classStringField;
-    + (void)setClassStringField:(NSString *)value;
+/**
+ Managed field.
+ @textblock
+ Name
+   ClassIntField
 
-	// Managed field name : DateField
-	// Managed field type : System.DateTime
-    @property (nonatomic, strong) NSDate * dateField;
+ Type
+   System.Int32
+ @/textblock
+*/
++ (int32_t)classIntField;
++ (void)setClassIntField:(int32_t)value;
 
-	// Managed field name : IntEnumField
-	// Managed field type : Dubrovnik.UnitTests.IntEnum
-    @property (nonatomic) int32_t intEnumField;
+/**
+ Managed field.
+ @textblock
+ Name
+   ClassReadonlyStringField
 
-	// Managed field name : IntField
-	// Managed field type : System.Int32
-    @property (nonatomic) int32_t intField;
+ Type
+   System.String
+ @/textblock
+*/
+@property (nonatomic, strong, readonly) NSString * classReadonlyStringField;
 
-	// Managed field name : LongEnumField
-	// Managed field type : Dubrovnik.UnitTests.LongEnum
-    @property (nonatomic) int64_t longEnumField;
+/**
+ Managed field.
+ @textblock
+ Name
+   ClassStringField
 
-	// Managed field name : StringField
-	// Managed field type : System.String
-    @property (nonatomic, strong) NSString * stringField;
+ Type
+   System.String
+ @/textblock
+*/
++ (NSString *)classStringField;
++ (void)setClassStringField:(NSString *)value;
+
+/**
+ Managed field.
+ @textblock
+ Name
+   DateField
+
+ Type
+   System.DateTime
+ @/textblock
+*/
+@property (nonatomic, strong) NSDate * dateField;
+
+/**
+ Managed field.
+ @textblock
+ Name
+   IntEnumField
+
+ Type
+   Dubrovnik.UnitTests.IntEnum
+ @/textblock
+*/
+@property (nonatomic) int32_t intEnumField;
+
+/**
+ Managed field.
+ @textblock
+ Name
+   IntField
+
+ Type
+   System.Int32
+ @/textblock
+*/
+@property (nonatomic) int32_t intField;
+
+/**
+ Managed field.
+ @textblock
+ Name
+   LongEnumField
+
+ Type
+   Dubrovnik.UnitTests.LongEnum
+ @/textblock
+*/
+@property (nonatomic) int64_t longEnumField;
+
+/**
+ Managed field.
+ @textblock
+ Name
+   StringField
+
+ Type
+   System.String
+ @/textblock
+*/
+@property (nonatomic, strong) NSString * stringField;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : BoolArray
-	// Managed property type : System.Boolean[]
-    @property (nonatomic, strong) System_Array * boolArray;
+/**
+ Managed property.
+ @textblock
+ Name
+   BoolArray
 
-	// Managed property name : ClassDateProperty
-	// Managed property type : System.DateTime
-    + (NSDate *)classDateProperty;
-    + (void)setClassDateProperty:(NSDate *)value;
+ Type
+   System.Boolean[]
+ @/textblock
+*/
+@property (nonatomic, strong) System_Array * boolArray;
 
-	// Managed property name : ClassStringProperty
-	// Managed property type : System.String
-    + (NSString *)classStringProperty;
-    + (void)setClassStringProperty:(NSString *)value;
+/**
+ Managed property.
+ @textblock
+ Name
+   ClassDateProperty
 
-	// Managed property name : Date
-	// Managed property type : System.DateTime
-    @property (nonatomic, strong) NSDate * date;
+ Type
+   System.DateTime
+ @/textblock
+*/
++ (NSDate *)classDateProperty;
++ (void)setClassDateProperty:(NSDate *)value;
 
-	// Managed property name : DecimalNumber
-	// Managed property type : System.Decimal
-    @property (nonatomic, strong) NSDecimalNumber * decimalNumber;
+/**
+ Managed property.
+ @textblock
+ Name
+   ClassStringProperty
 
-	// Managed property name : DoubleArray
-	// Managed property type : System.Double[]
-    @property (nonatomic, strong) System_Array * doubleArray;
+ Type
+   System.String
+ @/textblock
+*/
++ (NSString *)classStringProperty;
++ (void)setClassStringProperty:(NSString *)value;
 
-	// Managed property name : DoubleList
-	// Managed property type : System.Collections.Generic.List`1<System.Double>
-    @property (nonatomic, strong) System_Collections_Generic_ListA1 * doubleList;
+/**
+ Managed property.
+ @textblock
+ Name
+   Date
 
-	// Managed property name : ExIntTestProperty
-	// Managed property type : System.Boolean
-    @property (nonatomic) BOOL exIntTestProperty;
+ Type
+   System.DateTime
+ @/textblock
+*/
+@property (nonatomic, strong) NSDate * date;
 
-	// Managed property name : FloatArray
-	// Managed property type : System.Single[]
-    @property (nonatomic, strong) System_Array * floatArray;
+/**
+ Managed property.
+ @textblock
+ Name
+   DecimalNumber
 
-	// Managed property name : FloatList
-	// Managed property type : System.Collections.Generic.List`1<System.Single>
-    @property (nonatomic, strong) System_Collections_Generic_ListA1 * floatList;
+ Type
+   System.Decimal
+ @/textblock
+*/
+@property (nonatomic, strong) NSDecimalNumber * decimalNumber;
 
-	// Managed property name : FloatNullable
-	// Managed property type : System.Nullable`1<System.Single>
-    @property (nonatomic, strong) System_NullableA1 * floatNullable;
+/**
+ Managed property.
+ @textblock
+ Name
+   DoubleArray
 
-	// Managed property name : ImpIntTestProperty
-	// Managed property type : System.Int32
-    @property (nonatomic) int32_t impIntTestProperty;
+ Type
+   System.Double[]
+ @/textblock
+*/
+@property (nonatomic, strong) System_Array * doubleArray;
 
-	// Managed property name : Int16Array
-	// Managed property type : System.Int16[]
-    @property (nonatomic, strong) System_Array * int16Array;
+/**
+ Managed property.
+ @textblock
+ Name
+   DoubleList
 
-	// Managed property name : Int32Array
-	// Managed property type : System.Int32[]
-    @property (nonatomic, strong) System_Array * int32Array;
+ Type
+   System.Collections.Generic.List`1<System.Double>
+ @/textblock
+*/
+@property (nonatomic, strong) System_Collections_Generic_ListA1 * doubleList;
 
-	// Managed property name : Int32Number
-	// Managed property type : System.Int32
-    @property (nonatomic) int32_t int32Number;
+/**
+ Managed property.
+ @textblock
+ Name
+   ExIntTestProperty
 
-	// Managed property name : Int32Pointer
-	// Managed property type : System.Int32*
-    @property (nonatomic) int32_t * int32Pointer;
+ Type
+   System.Boolean
+ @/textblock
+*/
+@property (nonatomic) BOOL exIntTestProperty;
 
-	// Managed property name : Int64Array
-	// Managed property type : System.Int64[]
-    @property (nonatomic, strong) System_Array * int64Array;
+/**
+ Managed property.
+ @textblock
+ Name
+   FloatArray
 
-	// Managed property name : Int64Number
-	// Managed property type : System.Int64
-    @property (nonatomic) int64_t int64Number;
+ Type
+   System.Single[]
+ @/textblock
+*/
+@property (nonatomic, strong) System_Array * floatArray;
 
-	// Managed property name : IntEnumeration
-	// Managed property type : Dubrovnik.UnitTests.IntEnum
-    @property (nonatomic) int32_t intEnumeration;
+/**
+ Managed property.
+ @textblock
+ Name
+   FloatList
 
-	// Managed property name : InterfaceTestProperty
-	// Managed property type : Dubrovnik.UnitTests.ITestProperty
-    @property (nonatomic, strong) Dubrovnik_UnitTests_ITestProperty * interfaceTestProperty;
+ Type
+   System.Collections.Generic.List`1<System.Single>
+ @/textblock
+*/
+@property (nonatomic, strong) System_Collections_Generic_ListA1 * floatList;
 
-	// Managed property name : IntIntDictionary
-	// Managed property type : System.Collections.Generic.Dictionary`2<System.Int32, System.Int32>
-    @property (nonatomic, strong) System_Collections_Generic_DictionaryA2 * intIntDictionary;
+/**
+ Managed property.
+ @textblock
+ Name
+   FloatNullable
 
-	// Managed property name : IntIntStringDictionaryDictionary
-	// Managed property type : System.Collections.Generic.Dictionary`2<System.Int32, System.Collections.Generic.Dictionary`2<System.Int32, System.String>>
-    @property (nonatomic, strong) System_Collections_Generic_DictionaryA2 * intIntStringDictionaryDictionary;
+ Type
+   System.Nullable`1<System.Single>
+ @/textblock
+*/
+@property (nonatomic, strong) System_NullableA1 * floatNullable;
 
-	// Managed property name : IntList
-	// Managed property type : System.Collections.Generic.List`1<System.Int32>
-    @property (nonatomic, strong) System_Collections_Generic_ListA1 * intList;
+/**
+ Managed property.
+ @textblock
+ Name
+   ImpIntTestProperty
 
-	// Managed property name : IntNullable
-	// Managed property type : System.Nullable`1<System.Int32>
-    @property (nonatomic, strong) System_NullableA1 * intNullable;
+ Type
+   System.Int32
+ @/textblock
+*/
+@property (nonatomic) int32_t impIntTestProperty;
 
-	// Managed property name : IntNumber
-	// Managed property type : System.Int32
-    @property (nonatomic) int32_t intNumber;
+/**
+ Managed property.
+ @textblock
+ Name
+   Int16Array
 
-	// Managed property name : LongEnumeration
-	// Managed property type : Dubrovnik.UnitTests.LongEnum
-    @property (nonatomic) int64_t longEnumeration;
+ Type
+   System.Int16[]
+ @/textblock
+*/
+@property (nonatomic, strong) System_Array * int16Array;
 
-	// Managed property name : MinimalReferenceObject
-	// Managed property type : Dubrovnik.UnitTests.IMinimalReferenceObject
-    @property (nonatomic, strong, readonly) Dubrovnik_UnitTests_IMinimalReferenceObject * minimalReferenceObject;
+/**
+ Managed property.
+ @textblock
+ Name
+   Int32Array
 
-	// Managed property name : Name
-	// Managed property type : System.String
-    @property (nonatomic, strong) NSString * name;
+ Type
+   System.Int32[]
+ @/textblock
+*/
+@property (nonatomic, strong) System_Array * int32Array;
 
-	// Managed property name : NestedClassList
-	// Managed property type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject+NestedClass>
-    @property (nonatomic, strong) System_Collections_Generic_ListA1 * nestedClassList;
+/**
+ Managed property.
+ @textblock
+ Name
+   Int32Number
 
-	// Managed property name : NotifyingProperty1
-	// Managed property type : System.String
-    @property (nonatomic, strong) NSString * notifyingProperty1;
+ Type
+   System.Int32
+ @/textblock
+*/
+@property (nonatomic) int32_t int32Number;
 
-	// Managed property name : NotifyingProperty2
-	// Managed property type : System.String
-    @property (nonatomic, strong) NSString * notifyingProperty2;
+/**
+ Managed property.
+ @textblock
+ Name
+   Int32Pointer
 
-	// Managed property name : ObjectObjectDictionary
-	// Managed property type : System.Collections.Generic.Dictionary`2<System.Object, System.Object>
-    @property (nonatomic, strong) System_Collections_Generic_DictionaryA2 * objectObjectDictionary;
+ Type
+   System.Int32*
+ @/textblock
+*/
+@property (nonatomic) int32_t * int32Pointer;
 
-	// Managed property name : Pointer
-	// Managed property type : System.IntPtr
-    @property (nonatomic) void * pointer;
+/**
+ Managed property.
+ @textblock
+ Name
+   Int64Array
 
-	// Managed property name : ReferenceObject1
-	// Managed property type : Dubrovnik.UnitTests.IReferenceObject1
-    @property (nonatomic, strong, readonly) Dubrovnik_UnitTests_IReferenceObject1 * referenceObject1;
+ Type
+   System.Int64[]
+ @/textblock
+*/
+@property (nonatomic, strong) System_Array * int64Array;
 
-	// Managed property name : ReferenceObject2
-	// Managed property type : Dubrovnik.UnitTests.IReferenceObject2
-    @property (nonatomic, strong, readonly) Dubrovnik_UnitTests_IReferenceObject2 * referenceObject2;
+/**
+ Managed property.
+ @textblock
+ Name
+   Int64Number
 
-	// Managed property name : ReferenceObjectList
-	// Managed property type : System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject>
-    @property (nonatomic, strong) System_Collections_Generic_ListA1 * referenceObjectList;
+ Type
+   System.Int64
+ @/textblock
+*/
+@property (nonatomic) int64_t int64Number;
 
-	// Managed property name : ReferenceObjectRelative
-	// Managed property type : Dubrovnik.UnitTests.ReferenceObject
-    @property (nonatomic, strong) Dubrovnik_UnitTests_ReferenceObject * referenceObjectRelative;
+/**
+ Managed property.
+ @textblock
+ Name
+   IntEnumeration
 
-	// Managed property name : StringArray
-	// Managed property type : System.String[]
-    @property (nonatomic, strong) System_Array * stringArray;
+ Type
+   Dubrovnik.UnitTests.IntEnum
+ @/textblock
+*/
+@property (nonatomic) int32_t intEnumeration;
 
-	// Managed property name : StringArrayList
-	// Managed property type : System.Collections.ArrayList
-    @property (nonatomic, strong) System_Collections_ArrayList * stringArrayList;
+/**
+ Managed property.
+ @textblock
+ Name
+   InterfaceTestProperty
 
-	// Managed property name : StringList
-	// Managed property type : System.Collections.Generic.List`1<System.String>
-    @property (nonatomic, strong) System_Collections_Generic_ListA1 * stringList;
+ Type
+   Dubrovnik.UnitTests.ITestProperty
+ @/textblock
+*/
+@property (nonatomic, strong) Dubrovnik_UnitTests_ITestProperty * interfaceTestProperty;
 
-	// Managed property name : StringObjectDictionary
-	// Managed property type : System.Collections.Generic.Dictionary`2<System.String, System.Object>
-    @property (nonatomic, strong) System_Collections_Generic_DictionaryA2 * stringObjectDictionary;
+/**
+ Managed property.
+ @textblock
+ Name
+   IntIntDictionary
 
-	// Managed property name : StringProperty
-	// Managed property type : System.String
-    @property (nonatomic, strong) NSString * stringProperty;
+ Type
+   System.Collections.Generic.Dictionary`2<System.Int32, System.Int32>
+ @/textblock
+*/
+@property (nonatomic, strong) System_Collections_Generic_DictionaryA2 * intIntDictionary;
 
-	// Managed property name : StringStringDictionary
-	// Managed property type : System.Collections.Generic.Dictionary`2<System.String, System.String>
-    @property (nonatomic, strong) System_Collections_Generic_DictionaryA2 * stringStringDictionary;
+/**
+ Managed property.
+ @textblock
+ Name
+   IntIntStringDictionaryDictionary
 
-	// Managed property name : StringStringGenericReferenceObject
-	// Managed property type : Dubrovnik.UnitTests.GenericReferenceObject`2<System.String, System.String>
-    @property (nonatomic, strong) Dubrovnik_UnitTests_GenericReferenceObjectA2 * stringStringGenericReferenceObject;
+ Type
+   System.Collections.Generic.Dictionary`2<System.Int32, System.Collections.Generic.Dictionary`2<System.Int32, System.String>>
+ @/textblock
+*/
+@property (nonatomic, strong) System_Collections_Generic_DictionaryA2 * intIntStringDictionaryDictionary;
 
-	// Managed property name : UIntList
-	// Managed property type : System.Collections.Generic.List`1<System.UInt32>
-    @property (nonatomic, strong) System_Collections_Generic_ListA1 * uIntList;
+/**
+ Managed property.
+ @textblock
+ Name
+   IntList
+
+ Type
+   System.Collections.Generic.List`1<System.Int32>
+ @/textblock
+*/
+@property (nonatomic, strong) System_Collections_Generic_ListA1 * intList;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   IntNullable
+
+ Type
+   System.Nullable`1<System.Int32>
+ @/textblock
+*/
+@property (nonatomic, strong) System_NullableA1 * intNullable;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   IntNumber
+
+ Type
+   System.Int32
+ @/textblock
+*/
+@property (nonatomic) int32_t intNumber;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   LongEnumeration
+
+ Type
+   Dubrovnik.UnitTests.LongEnum
+ @/textblock
+*/
+@property (nonatomic) int64_t longEnumeration;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   MinimalReferenceObject
+
+ Type
+   Dubrovnik.UnitTests.IMinimalReferenceObject
+ @/textblock
+*/
+@property (nonatomic, strong, readonly) Dubrovnik_UnitTests_IMinimalReferenceObject * minimalReferenceObject;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   Name
+
+ Type
+   System.String
+ @/textblock
+*/
+@property (nonatomic, strong) NSString * name;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   NestedClassList
+
+ Type
+   System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject+NestedClass>
+ @/textblock
+*/
+@property (nonatomic, strong) System_Collections_Generic_ListA1 * nestedClassList;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   NotifyingProperty1
+
+ Type
+   System.String
+ @/textblock
+*/
+@property (nonatomic, strong) NSString * notifyingProperty1;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   NotifyingProperty2
+
+ Type
+   System.String
+ @/textblock
+*/
+@property (nonatomic, strong) NSString * notifyingProperty2;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   ObjectObjectDictionary
+
+ Type
+   System.Collections.Generic.Dictionary`2<System.Object, System.Object>
+ @/textblock
+*/
+@property (nonatomic, strong) System_Collections_Generic_DictionaryA2 * objectObjectDictionary;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   Pointer
+
+ Type
+   System.IntPtr
+ @/textblock
+*/
+@property (nonatomic) void * pointer;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   ReferenceObject1
+
+ Type
+   Dubrovnik.UnitTests.IReferenceObject1
+ @/textblock
+*/
+@property (nonatomic, strong, readonly) Dubrovnik_UnitTests_IReferenceObject1 * referenceObject1;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   ReferenceObject2
+
+ Type
+   Dubrovnik.UnitTests.IReferenceObject2
+ @/textblock
+*/
+@property (nonatomic, strong, readonly) Dubrovnik_UnitTests_IReferenceObject2 * referenceObject2;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   ReferenceObjectList
+
+ Type
+   System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject>
+ @/textblock
+*/
+@property (nonatomic, strong) System_Collections_Generic_ListA1 * referenceObjectList;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   ReferenceObjectRelative
+
+ Type
+   Dubrovnik.UnitTests.ReferenceObject
+ @/textblock
+*/
+@property (nonatomic, strong) Dubrovnik_UnitTests_ReferenceObject * referenceObjectRelative;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   StringArray
+
+ Type
+   System.String[]
+ @/textblock
+*/
+@property (nonatomic, strong) System_Array * stringArray;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   StringArrayList
+
+ Type
+   System.Collections.ArrayList
+ @/textblock
+*/
+@property (nonatomic, strong) System_Collections_ArrayList * stringArrayList;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   StringList
+
+ Type
+   System.Collections.Generic.List`1<System.String>
+ @/textblock
+*/
+@property (nonatomic, strong) System_Collections_Generic_ListA1 * stringList;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   StringObjectDictionary
+
+ Type
+   System.Collections.Generic.Dictionary`2<System.String, System.Object>
+ @/textblock
+*/
+@property (nonatomic, strong) System_Collections_Generic_DictionaryA2 * stringObjectDictionary;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   StringProperty
+
+ Type
+   System.String
+ @/textblock
+*/
+@property (nonatomic, strong) NSString * stringProperty;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   StringStringDictionary
+
+ Type
+   System.Collections.Generic.Dictionary`2<System.String, System.String>
+ @/textblock
+*/
+@property (nonatomic, strong) System_Collections_Generic_DictionaryA2 * stringStringDictionary;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   StringStringGenericReferenceObject
+
+ Type
+   Dubrovnik.UnitTests.GenericReferenceObject`2<System.String, System.String>
+ @/textblock
+*/
+@property (nonatomic, strong) Dubrovnik_UnitTests_GenericReferenceObjectA2 * stringStringGenericReferenceObject;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   UIntList
+
+ Type
+   System.Collections.Generic.List`1<System.UInt32>
+ @/textblock
+*/
+@property (nonatomic, strong) System_Collections_Generic_ListA1 * uIntList;
 
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : AddIEnumerable
-		Managed return type : System.String
-		Managed param types : System.Collections.Generic.IEnumerable`1<System.String>
-	 */
-    - (NSString *)addIEnumerable_withList:(id <System_Collections_Generic_IEnumerableA1_>)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   AddIEnumerable
 
-	/*! 
-		Managed method name : ClassDescription
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    + (NSString *)classDescription;
+ Params
+   System.Collections.Generic.IEnumerable`1<System.String>
 
-	/*! 
-		Managed method name : DateMethod
-		Managed return type : System.DateTime
-		Managed param types : System.DateTime
-	 */
-    - (NSDate *)dateMethod_withD1:(NSDate *)p1;
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)addIEnumerable_withList:(id <System_Collections_Generic_IEnumerableA1_>)p1;
 
-	/*! 
-		Managed method name : DecimalMultiplierMethod
-		Managed return type : System.Decimal
-		Managed param types : System.Decimal, System.Decimal
-	 */
-    - (NSDecimalNumber *)decimalMultiplierMethod_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   ClassDescription
 
-	/*! 
-		Managed method name : DoubleIt
-		Managed return type : System.Int32
-		Managed param types : System.Int32
-	 */
-    - (int32_t)doubleIt_withXInt:(int32_t)p1;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : DoubleIt
-		Managed return type : System.Int32
-		Managed param types : ref System.Int32&
-	 */
-    - (int32_t)doubleIt_withXIntRef:(int32_t*)p1;
+ Return
+   System.String
+ @/textblock
+*/
++ (NSString *)classDescription;
 
-	/*! 
-		Managed method name : Equals
-		Managed return type : System.Boolean
-		Managed param types : System.Object
-	 */
-    - (BOOL)equals_withObj:(System_Object *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   DateMethod
 
-	/*! 
-		Managed method name : GenericMethod0
-		Managed return type : System.String
-		Managed param types : 
-		Generic method definition type params : <Dubrovnik.UnitTests.ReferenceObject+T>
-	 */
-    - (NSString *)genericMethod0_withTypeParameter:(id)typeParameter;
+ Params
+   System.DateTime
 
-	/*! 
-		Managed method name : GenericMethod02
-		Managed return type : System.String
-		Managed param types : 
-		Generic method definition type params : <Dubrovnik.UnitTests.ReferenceObject+T>, <Dubrovnik.UnitTests.ReferenceObject+U>
-	 */
-    - (NSString *)genericMethod02_withTypeParameters:(NSArray<id> *)typeParameter;
+ Return
+   System.DateTime
+ @/textblock
+*/
+- (NSDate *)dateMethod_withD1:(NSDate *)p1;
 
-	/*! 
-		Managed method name : GenericMethod1
-		Managed return type : <Dubrovnik.UnitTests.ReferenceObject+T>
-		Managed param types : <Dubrovnik.UnitTests.ReferenceObject+T>
-		Generic method definition type params : <Dubrovnik.UnitTests.ReferenceObject+T>
-	 */
-    - (System_Object *)genericMethod1_withValue:(System_Object *)p1 typeParameter:(id)typeParameter;
+/**
+ Managed method.
+ @textblock
+ Name
+   DecimalMultiplierMethod
 
-	/*! 
-		Managed method name : GenericMethod2
-		Managed return type : System.Collections.Generic.Dictionary`2<Dubrovnik.UnitTests.ReferenceObject+T, Dubrovnik.UnitTests.ReferenceObject+U>
-		Managed param types : <Dubrovnik.UnitTests.ReferenceObject+T>, <Dubrovnik.UnitTests.ReferenceObject+U>
-		Generic method definition type params : <Dubrovnik.UnitTests.ReferenceObject+T>, <Dubrovnik.UnitTests.ReferenceObject+U>
-	 */
-    - (System_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter;
+ Params
+   System.Decimal
+   System.Decimal
 
-	/*! 
-		Managed method name : GenericMethodList1
-		Managed return type : <Dubrovnik.UnitTests.ReferenceObject+T>
-		Managed param types : System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject+T>
-		Generic method definition type params : <Dubrovnik.UnitTests.ReferenceObject+T>
-	 */
-    - (System_Object *)genericMethodList1_withValue:(System_Collections_Generic_ListA1 *)p1 typeParameter:(id)typeParameter;
+ Return
+   System.Decimal
+ @/textblock
+*/
+- (NSDecimalNumber *)decimalMultiplierMethod_withD1:(NSDecimalNumber *)p1 d2:(NSDecimalNumber *)p2;
 
-	/*! 
-		Managed method name : GetHashCode
-		Managed return type : System.Int32
-		Managed param types : 
-	 */
-    - (int32_t)getHashCode;
+/**
+ Managed method.
+ @textblock
+ Name
+   DoubleIt
 
-	/*! 
-		Managed method name : initWithString
-		Managed return type : System.String
-		Managed param types : System.String
-	 */
-    - (NSString *)db_initWithString_withS:(NSString *)p1;
+ Params
+   System.Int32
 
-	/*! 
-		Managed method name : InvokeActionDelegate
-		Managed return type : System.Void
-		Managed param types : Dubrovnik.UnitTests.ReferenceObject+ActionDelegate
-	 */
-    - (void)invokeActionDelegate_withActionDUReferenceObject__ActionDelegate:(Dubrovnik_UnitTests_ReferenceObject__ActionDelegate *)p1;
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)doubleIt_withXInt:(int32_t)p1;
 
-	/*! 
-		Managed method name : InvokeActionDelegate
-		Managed return type : System.Void
-		Managed param types : System.Action`1<System.String>
-	 */
-    - (void)invokeActionDelegate_withActionSActionA1string:(System_ActionA1 *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   DoubleIt
 
-	/*! 
-		Managed method name : InvokeActionDelegate
-		Managed return type : System.Void
-		Managed param types : System.Action`2<System.String, System.Object>
-	 */
-    - (void)invokeActionDelegate_withActionSActionA2string_object:(System_ActionA2 *)p1;
+ Params
+   ref System.Int32&
 
-	/*! 
-		Managed method name : InvokeFunctionA1
-		Managed return type : System.Int32
-		Managed param types : System.Func`1<System.Int32>
-	 */
-    - (int32_t)invokeFunctionA1_withFunc:(System_FuncA1 *)p1;
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)doubleIt_withXIntRef:(int32_t*)p1;
 
-	/*! 
-		Managed method name : InvokeFunctionA2
-		Managed return type : System.String
-		Managed param types : System.Func`2<System.Int32, System.String>
-	 */
-    - (NSString *)invokeFunctionA2_withFunc:(System_FuncA2 *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   Equals
 
-	/*! 
-		Managed method name : InvokeFunctionA3
-		Managed return type : System.String
-		Managed param types : System.Func`3<System.Int32, System.Double, System.String>
-	 */
-    - (NSString *)invokeFunctionA3_withFunc:(System_FuncA3 *)p1;
+ Params
+   System.Object
 
-	/*! 
-		Managed method name : InvokeFunctionDelegate1
-		Managed return type : System.Void
-		Managed param types : Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate1
-	 */
-    - (void)invokeFunctionDelegate1_withFunc:(Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1 *)p1;
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)equals_withObj:(System_Object *)p1;
 
-	/*! 
-		Managed method name : InvokeFunctionDelegate2
-		Managed return type : System.Void
-		Managed param types : Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate2
-	 */
-    - (void)invokeFunctionDelegate2_withFunc:(Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2 *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   GenericMethod0
 
-	/*! 
-		Managed method name : InvokeSimpleDelegate
-		Managed return type : System.Void
-		Managed param types : Dubrovnik.UnitTests.ReferenceObject+SimpleDelegate
-	 */
-    - (void)invokeSimpleDelegate_withDelg:(Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate *)p1;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : MixedMethod1
-		Managed return type : System.String
-		Managed param types : System.Int32, System.Int64, System.Single, System.Double, System.DateTime, System.String, Dubrovnik.UnitTests.ReferenceObject
-	 */
-    - (NSString *)mixedMethod1_withIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(Dubrovnik_UnitTests_ReferenceObject *)p7;
+ Generics
+   <Dubrovnik.UnitTests.ReferenceObject+T>
 
-	/*! 
-		Managed method name : NestedTypeParameter
-		Managed return type : System.Void
-		Managed param types : Dubrovnik.UnitTests.ReferenceObject+NestedClass
-	 */
-    - (void)nestedTypeParameter_withP1DUReferenceObject__NestedClass:(Dubrovnik_UnitTests_ReferenceObject__NestedClass *)p1;
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)genericMethod0_withTypeParameter:(id)typeParameter;
 
-	/*! 
-		Managed method name : NestedTypeParameter
-		Managed return type : System.Void
-		Managed param types : Dubrovnik.UnitTests.ReferenceObject+NestedEnum
-	 */
-    - (void)nestedTypeParameter_withP1DUReferenceObject__NestedEnum:(int32_t)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   GenericMethod02
 
-	/*! 
-		Managed method name : NestedTypeParameters
-		Managed return type : System.Void
-		Managed param types : Dubrovnik.UnitTests.ReferenceObject+NestedClass, Dubrovnik.UnitTests.ReferenceObject+NestedEnum
-	 */
-    - (void)nestedTypeParameters_withP1:(Dubrovnik_UnitTests_ReferenceObject__NestedClass *)p1 p2:(int32_t)p2;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : NestedTypeParameters
-		Managed return type : Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2<System.String, System.Int32>
-		Managed param types : Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2<System.String, System.Int32>
-	 */
-    - (Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 *)nestedTypeParameters_withPDUReferenceObject__NestedGenericClassA2string_int:(Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 *)p1;
+ Generics
+   <Dubrovnik.UnitTests.ReferenceObject+T>, <Dubrovnik.UnitTests.ReferenceObject+U>
 
-	/*! 
-		Managed method name : NestedTypeParameters
-		Managed return type : Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2<System.Int32, System.String>
-		Managed param types : Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2<System.Int32, System.String>
-	 */
-    - (Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 *)nestedTypeParameters_withPDUReferenceObject__NestedGenericClassA2int_string:(Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 *)p1;
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)genericMethod02_withTypeParameters:(NSArray<id> *)typeParameter;
 
-	/*! 
-		Managed method name : NullableBoolMethod
-		Managed return type : System.Nullable`1<System.Boolean>
-		Managed param types : System.Nullable`1<System.Boolean>
-	 */
-    - (System_NullableA1 *)nullableBoolMethod_withP1:(System_NullableA1 *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   GenericMethod1
 
-	/*! 
-		Managed method name : NullableDateMethod
-		Managed return type : System.Nullable`1<System.DateTime>
-		Managed param types : System.Nullable`1<System.DateTime>
-	 */
-    - (System_NullableA1 *)nullableDateMethod_withP1:(System_NullableA1 *)p1;
+ Params
+   <Dubrovnik.UnitTests.ReferenceObject+T>
 
-	/*! 
-		Managed method name : NullableDecimalMethod
-		Managed return type : System.Nullable`1<System.Decimal>
-		Managed param types : System.Nullable`1<System.Decimal>
-	 */
-    - (System_NullableA1 *)nullableDecimalMethod_withP1:(System_NullableA1 *)p1;
+ Generics
+   <Dubrovnik.UnitTests.ReferenceObject+T>
 
-	/*! 
-		Managed method name : NullableDoubleMethod
-		Managed return type : System.Nullable`1<System.Double>
-		Managed param types : System.Nullable`1<System.Double>
-	 */
-    - (System_NullableA1 *)nullableDoubleMethod_withP1:(System_NullableA1 *)p1;
+ Return
+   <Dubrovnik.UnitTests.ReferenceObject+T>
+ @/textblock
+*/
+- (System_Object *)genericMethod1_withValue:(System_Object *)p1 typeParameter:(id)typeParameter;
 
-	/*! 
-		Managed method name : NullableInt32Method
-		Managed return type : System.Nullable`1<System.Int32>
-		Managed param types : System.Nullable`1<System.Int32>
-	 */
-    - (System_NullableA1 *)nullableInt32Method_withP1:(System_NullableA1 *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   GenericMethod2
 
-	/*! 
-		Managed method name : RaiseUnitTestEvent1
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)raiseUnitTestEvent1;
+ Params
+   <Dubrovnik.UnitTests.ReferenceObject+T>
+   <Dubrovnik.UnitTests.ReferenceObject+U>
 
-	/*! 
-		Managed method name : RaiseUnitTestEvent2
-		Managed return type : System.Void
-		Managed param types : 
-	 */
-    - (void)raiseUnitTestEvent2;
+ Generics
+   <Dubrovnik.UnitTests.ReferenceObject+T>, <Dubrovnik.UnitTests.ReferenceObject+U>
 
-	/*! 
-		Managed method name : ReferenceStructMethod
-		Managed return type : Dubrovnik.UnitTests.ReferenceStruct
-		Managed param types : System.String
-	 */
-    - (Dubrovnik_UnitTests_ReferenceStruct *)referenceStructMethod_withS1:(NSString *)p1;
+ Return
+   System.Collections.Generic.Dictionary`2<Dubrovnik.UnitTests.ReferenceObject+T, Dubrovnik.UnitTests.ReferenceObject+U>
+ @/textblock
+*/
+- (System_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter;
 
-	/*! 
-		Managed method name : ReverseList
-		Managed return type : System.Boolean
-		Managed param types : System.Collections.Generic.List`1<System.String>
-	 */
-    - (BOOL)reverseList_withListSCGListA1string:(System_Collections_Generic_ListA1 *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   GenericMethodList1
 
-	/*! 
-		Managed method name : ReverseList
-		Managed return type : System.Boolean
-		Managed param types : System.Collections.Generic.List`1<System.Int32>
-	 */
-    - (BOOL)reverseList_withListSCGListA1int:(System_Collections_Generic_ListA1 *)p1;
+ Params
+   System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject+T>
 
-	/*! 
-		Managed method name : StringMethod
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    - (NSString *)stringMethod;
+ Generics
+   <Dubrovnik.UnitTests.ReferenceObject+T>
 
-	/*! 
-		Managed method name : StringMethod
-		Managed return type : System.String
-		Managed param types : System.String
-	 */
-    - (NSString *)stringMethod_withS1:(NSString *)p1;
+ Return
+   <Dubrovnik.UnitTests.ReferenceObject+T>
+ @/textblock
+*/
+- (System_Object *)genericMethodList1_withValue:(System_Collections_Generic_ListA1 *)p1 typeParameter:(id)typeParameter;
 
-	/*! 
-		Managed method name : StringMethod
-		Managed return type : System.String
-		Managed param types : System.Int32
-	 */
-    - (NSString *)stringMethod_withN:(int32_t)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   GetHashCode
 
-	/*! 
-		Managed method name : StringMethod
-		Managed return type : System.String
-		Managed param types : System.String, System.String
-	 */
-    - (NSString *)stringMethod_withS1String:(NSString *)p1 s2String:(NSString *)p2;
+ Params
+   (none)
 
-	/*! 
-		Managed method name : StringMethod
-		Managed return type : System.String
-		Managed param types : System.String, System.Int32
-	 */
-    - (NSString *)stringMethod_withS1:(NSString *)p1 n:(int32_t)p2;
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getHashCode;
 
-	/*! 
-		Managed method name : StringMethod
-		Managed return type : System.String
-		Managed param types : System.String, System.Object
-	 */
-    - (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(System_Object *)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   initWithString
 
-	/*! 
-		Managed method name : StringMethodWithStringRef
-		Managed return type : System.String
-		Managed param types : ref System.String&
-	 */
-    - (NSString *)stringMethodWithStringRef_withS1Ref:(NSString **)p1;
+ Params
+   System.String
 
-	/*! 
-		Managed method name : Sum
-		Managed return type : System.Int64
-		Managed param types : System.Int64[]
-	 */
-    - (int64_t)sum_withInt64Array:(System_Array *)p1;
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)db_initWithString_withS:(NSString *)p1;
 
-	/*! 
-		Managed method name : Sum
-		Managed return type : System.Int32
-		Managed param types : System.Int32[]
-	 */
-    - (int32_t)sum_withInt32Array:(System_Array *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   InvokeActionDelegate
 
-	/*! 
-		Managed method name : Sum
-		Managed return type : System.Int16
-		Managed param types : System.Int16[]
-	 */
-    - (int16_t)sum_withInt16Array:(System_Array *)p1;
+ Params
+   Dubrovnik.UnitTests.ReferenceObject+ActionDelegate
 
-	/*! 
-		Managed method name : Sum
-		Managed return type : System.Byte
-		Managed param types : System.Byte[]
-	 */
-    - (uint8_t)sum_withByteArray:(NSData *)p1;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)invokeActionDelegate_withActionDUReferenceObject__ActionDelegate:(Dubrovnik_UnitTests_ReferenceObject__ActionDelegate *)p1;
 
-	/*! 
-		Managed method name : Sum
-		Managed return type : System.Single
-		Managed param types : System.Single[]
-	 */
-    - (float)sum_withFloatArray:(System_Array *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   InvokeActionDelegate
 
-	/*! 
-		Managed method name : Sum
-		Managed return type : System.Double
-		Managed param types : System.Double[]
-	 */
-    - (double)sum_withDoubleArray:(System_Array *)p1;
+ Params
+   System.Action`1<System.String>
 
-	/*! 
-		Managed method name : Sum
-		Managed return type : System.String
-		Managed param types : System.String[]
-	 */
-    - (NSString *)sum_withStringArray:(System_Array *)p1;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)invokeActionDelegate_withActionSActionA1string:(System_ActionA1 *)p1;
 
-	/*! 
-		Managed method name : SumAndSwitch
-		Managed return type : System.Int32
-		Managed param types : System.Int32*, System.Int32*
-	 */
-    - (int32_t)sumAndSwitch_withIntPtrX:(int32_t*)p1 intPtrY:(int32_t*)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   InvokeActionDelegate
 
-	/*! 
-		Managed method name : SumAndSwitch
-		Managed return type : System.Int64
-		Managed param types : System.Int64*, System.Int64*
-	 */
-    - (int64_t)sumAndSwitch_withInt64PtrX:(int64_t*)p1 int64PtrY:(int64_t*)p2;
+ Params
+   System.Action`2<System.String, System.Object>
 
-	/*! 
-		Managed method name : SumAndSwitch
-		Managed return type : System.Single
-		Managed param types : System.Single*, System.Single*
-	 */
-    - (float)sumAndSwitch_withFloatPtrX:(float*)p1 floatPtrY:(float*)p2;
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)invokeActionDelegate_withActionSActionA2string_object:(System_ActionA2 *)p1;
 
-	/*! 
-		Managed method name : SumAndSwitch
-		Managed return type : System.Double
-		Managed param types : System.Double*, System.Double*
-	 */
-    - (double)sumAndSwitch_withDoublePtrX:(double*)p1 doublePtrY:(double*)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   InvokeFunctionA1
+
+ Params
+   System.Func`1<System.Int32>
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)invokeFunctionA1_withFunc:(System_FuncA1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   InvokeFunctionA2
+
+ Params
+   System.Func`2<System.Int32, System.String>
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)invokeFunctionA2_withFunc:(System_FuncA2 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   InvokeFunctionA3
+
+ Params
+   System.Func`3<System.Int32, System.Double, System.String>
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)invokeFunctionA3_withFunc:(System_FuncA3 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   InvokeFunctionDelegate1
+
+ Params
+   Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate1
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)invokeFunctionDelegate1_withFunc:(Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   InvokeFunctionDelegate2
+
+ Params
+   Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate2
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)invokeFunctionDelegate2_withFunc:(Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   InvokeSimpleDelegate
+
+ Params
+   Dubrovnik.UnitTests.ReferenceObject+SimpleDelegate
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)invokeSimpleDelegate_withDelg:(Dubrovnik_UnitTests_ReferenceObject__SimpleDelegate *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   MixedMethod1
+
+ Params
+   System.Int32
+   System.Int64
+   System.Single
+   System.Double
+   System.DateTime
+   System.String
+   Dubrovnik.UnitTests.ReferenceObject
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)mixedMethod1_withIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(Dubrovnik_UnitTests_ReferenceObject *)p7;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   NestedTypeParameter
+
+ Params
+   Dubrovnik.UnitTests.ReferenceObject+NestedClass
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)nestedTypeParameter_withP1DUReferenceObject__NestedClass:(Dubrovnik_UnitTests_ReferenceObject__NestedClass *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   NestedTypeParameter
+
+ Params
+   Dubrovnik.UnitTests.ReferenceObject+NestedEnum
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)nestedTypeParameter_withP1DUReferenceObject__NestedEnum:(int32_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   NestedTypeParameters
+
+ Params
+   Dubrovnik.UnitTests.ReferenceObject+NestedClass
+   Dubrovnik.UnitTests.ReferenceObject+NestedEnum
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)nestedTypeParameters_withP1:(Dubrovnik_UnitTests_ReferenceObject__NestedClass *)p1 p2:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   NestedTypeParameters
+
+ Params
+   Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2<System.String, System.Int32>
+
+ Return
+   Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2<System.String, System.Int32>
+ @/textblock
+*/
+- (Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 *)nestedTypeParameters_withPDUReferenceObject__NestedGenericClassA2string_int:(Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   NestedTypeParameters
+
+ Params
+   Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2<System.Int32, System.String>
+
+ Return
+   Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2<System.Int32, System.String>
+ @/textblock
+*/
+- (Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 *)nestedTypeParameters_withPDUReferenceObject__NestedGenericClassA2int_string:(Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   NullableBoolMethod
+
+ Params
+   System.Nullable`1<System.Boolean>
+
+ Return
+   System.Nullable`1<System.Boolean>
+ @/textblock
+*/
+- (System_NullableA1 *)nullableBoolMethod_withP1:(System_NullableA1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   NullableDateMethod
+
+ Params
+   System.Nullable`1<System.DateTime>
+
+ Return
+   System.Nullable`1<System.DateTime>
+ @/textblock
+*/
+- (System_NullableA1 *)nullableDateMethod_withP1:(System_NullableA1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   NullableDecimalMethod
+
+ Params
+   System.Nullable`1<System.Decimal>
+
+ Return
+   System.Nullable`1<System.Decimal>
+ @/textblock
+*/
+- (System_NullableA1 *)nullableDecimalMethod_withP1:(System_NullableA1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   NullableDoubleMethod
+
+ Params
+   System.Nullable`1<System.Double>
+
+ Return
+   System.Nullable`1<System.Double>
+ @/textblock
+*/
+- (System_NullableA1 *)nullableDoubleMethod_withP1:(System_NullableA1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   NullableInt32Method
+
+ Params
+   System.Nullable`1<System.Int32>
+
+ Return
+   System.Nullable`1<System.Int32>
+ @/textblock
+*/
+- (System_NullableA1 *)nullableInt32Method_withP1:(System_NullableA1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   RaiseUnitTestEvent1
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)raiseUnitTestEvent1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   RaiseUnitTestEvent2
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)raiseUnitTestEvent2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ReferenceStructMethod
+
+ Params
+   System.String
+
+ Return
+   Dubrovnik.UnitTests.ReferenceStruct
+ @/textblock
+*/
+- (Dubrovnik_UnitTests_ReferenceStruct *)referenceStructMethod_withS1:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ReverseList
+
+ Params
+   System.Collections.Generic.List`1<System.String>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)reverseList_withListSCGListA1string:(System_Collections_Generic_ListA1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ReverseList
+
+ Params
+   System.Collections.Generic.List`1<System.Int32>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)reverseList_withListSCGListA1int:(System_Collections_Generic_ListA1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   StringMethod
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)stringMethod;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   StringMethod
+
+ Params
+   System.String
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)stringMethod_withS1:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   StringMethod
+
+ Params
+   System.Int32
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)stringMethod_withN:(int32_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   StringMethod
+
+ Params
+   System.String
+   System.String
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)stringMethod_withS1String:(NSString *)p1 s2String:(NSString *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   StringMethod
+
+ Params
+   System.String
+   System.Int32
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)stringMethod_withS1:(NSString *)p1 n:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   StringMethod
+
+ Params
+   System.String
+   System.Object
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(System_Object *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   StringMethodWithStringRef
+
+ Params
+   ref System.String&
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)stringMethodWithStringRef_withS1Ref:(NSString **)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Sum
+
+ Params
+   System.Int64[]
+
+ Return
+   System.Int64
+ @/textblock
+*/
+- (int64_t)sum_withInt64Array:(System_Array *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Sum
+
+ Params
+   System.Int32[]
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)sum_withInt32Array:(System_Array *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Sum
+
+ Params
+   System.Int16[]
+
+ Return
+   System.Int16
+ @/textblock
+*/
+- (int16_t)sum_withInt16Array:(System_Array *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Sum
+
+ Params
+   System.Byte[]
+
+ Return
+   System.Byte
+ @/textblock
+*/
+- (uint8_t)sum_withByteArray:(NSData *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Sum
+
+ Params
+   System.Single[]
+
+ Return
+   System.Single
+ @/textblock
+*/
+- (float)sum_withFloatArray:(System_Array *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Sum
+
+ Params
+   System.Double[]
+
+ Return
+   System.Double
+ @/textblock
+*/
+- (double)sum_withDoubleArray:(System_Array *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Sum
+
+ Params
+   System.String[]
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)sum_withStringArray:(System_Array *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   SumAndSwitch
+
+ Params
+   System.Int32*
+   System.Int32*
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)sumAndSwitch_withIntPtrX:(int32_t*)p1 intPtrY:(int32_t*)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   SumAndSwitch
+
+ Params
+   System.Int64*
+   System.Int64*
+
+ Return
+   System.Int64
+ @/textblock
+*/
+- (int64_t)sumAndSwitch_withInt64PtrX:(int64_t*)p1 int64PtrY:(int64_t*)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   SumAndSwitch
+
+ Params
+   System.Single*
+   System.Single*
+
+ Return
+   System.Single
+ @/textblock
+*/
+- (float)sumAndSwitch_withFloatPtrX:(float*)p1 floatPtrY:(float*)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   SumAndSwitch
+
+ Params
+   System.Double*
+   System.Double*
+
+ Return
+   System.Double
+ @/textblock
+*/
+- (double)sumAndSwitch_withDoublePtrX:(double*)p1 doublePtrY:(double*)p2;
 @end
 //--Dubrovnik.CodeGenerator

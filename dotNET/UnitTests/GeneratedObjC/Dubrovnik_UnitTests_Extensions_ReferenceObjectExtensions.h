@@ -5,7 +5,6 @@
 //
 // Frameworks
 //
-#import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 
 //
@@ -31,33 +30,56 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : ExtensionString
-		Managed return type : System.String
-		Managed param types : Dubrovnik.UnitTests.ReferenceObject
-	 */
-    + (NSString *)extensionString_withTest:(Dubrovnik_UnitTests_ReferenceObject *)p1;
+/**
+ Managed method.
+ @textblock
+ Name
+   ExtensionString
 
-	/*! 
-		Managed method name : StaticString
-		Managed return type : System.String
-		Managed param types : 
-	 */
-    + (NSString *)staticString;
+ Params
+   Dubrovnik.UnitTests.ReferenceObject
 
-	/*! 
-		Managed method name : StaticString
-		Managed return type : System.String
-		Managed param types : Dubrovnik.UnitTests.ReferenceObject
-	 */
-    + (NSString *)staticString_withTest:(Dubrovnik_UnitTests_ReferenceObject *)p1;
+ Return
+   System.String
+ @/textblock
+*/
++ (NSString *)extensionString_withTest:(Dubrovnik_UnitTests_ReferenceObject *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   StaticString
+
+ Params
+   (none)
+
+ Return
+   System.String
+ @/textblock
+*/
++ (NSString *)staticString;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   StaticString
+
+ Params
+   Dubrovnik.UnitTests.ReferenceObject
+
+ Return
+   System.String
+ @/textblock
+*/
++ (NSString *)staticString_withTest:(Dubrovnik_UnitTests_ReferenceObject *)p1;
 @end
 //--Dubrovnik.CodeGenerator

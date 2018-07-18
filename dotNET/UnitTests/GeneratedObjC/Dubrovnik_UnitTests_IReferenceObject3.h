@@ -5,7 +5,6 @@
 //
 // Frameworks
 //
-#import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 
 //
@@ -34,16 +33,23 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName;
-	// obligatory override
-	+ (const char *)monoAssemblyName;
+
++ (const char *)monoClassName;
++ (const char *)monoAssemblyName;
 
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : ExIntTestProperty
-	// Managed property type : System.Single
-    @property (nonatomic) float exIntTestProperty;
+/**
+ Managed property.
+ @textblock
+ Name
+   ExIntTestProperty
+
+ Type
+   System.Single
+ @/textblock
+*/
+@property (nonatomic) float exIntTestProperty;
 @end
 //--Dubrovnik.CodeGenerator

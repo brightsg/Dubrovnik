@@ -5,7 +5,6 @@
 //
 // Frameworks
 //
-#import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 
 //
@@ -77,12 +76,21 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : StringMethod
-		Managed return type : System.String
-		Managed param types : System.String, System.Int32
-	 */
-    - (NSString *)stringMethod_withS1:(NSString *)p1 n:(int32_t)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   StringMethod
+
+ Params
+   System.String
+   System.Int32
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)stringMethod_withS1:(NSString *)p1 n:(int32_t)p2;
 #endif
 
 
@@ -100,12 +108,21 @@
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : StringMethod
-		Managed return type : System.String
-		Managed param types : System.String, System.Int32
-	 */
-    - (NSString *)stringMethod_withS1:(NSString *)p1 n:(int32_t)p2;
+/**
+ Managed method.
+ @textblock
+ Name
+   StringMethod
+
+ Params
+   System.String
+   System.Int32
+
+ Return
+   System.String
+ @/textblock
+*/
+- (NSString *)stringMethod_withS1:(NSString *)p1 n:(int32_t)p2;
 
 @end
 

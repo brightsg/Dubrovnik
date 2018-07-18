@@ -19,37 +19,31 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "Dubrovnik.UnitTests.IMinimalReferenceObject";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "Dubrovnik.UnitTests";
-	}
+
++ (const char *)monoClassName
+{
+	return "Dubrovnik.UnitTests.IMinimalReferenceObject";
+}
+
++ (const char *)monoAssemblyName
+{
+	return "Dubrovnik.UnitTests";
+}
 
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : StringMethod
-		Managed return type : System.String
-		Managed param types : System.String, System.Int32
-	 */
-    - (NSString *)stringMethod_withS1:(NSString *)p1 n:(int32_t)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"Dubrovnik.UnitTests.IMinimalReferenceObject.StringMethod(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-		
-		return [NSString stringWithMonoString:DB_STRING(monoObject)];
-    }
+- (NSString *)stringMethod_withS1:(NSString *)p1 n:(int32_t)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Dubrovnik.UnitTests.IMinimalReferenceObject.StringMethod(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator

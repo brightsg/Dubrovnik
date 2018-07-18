@@ -5,7 +5,6 @@
 //
 // Frameworks
 //
-#import <Cocoa/Cocoa.h>
 #import <Dubrovnik/Dubrovnik.h>
 
 //
@@ -78,9 +77,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : ExIntTestProperty
-	// Managed property type : System.Single
-    @property (nonatomic) float exIntTestProperty;
+/**
+ Managed property.
+ @textblock
+ Name
+   ExIntTestProperty
+
+ Type
+   System.Single
+ @/textblock
+*/
+@property (nonatomic) float exIntTestProperty;
 #endif
 
 
@@ -98,9 +105,17 @@
 #pragma mark -
 #pragma mark Properties
 
-	// Managed property name : ExIntTestProperty
-	// Managed property type : System.Single
-    @property (nonatomic) float exIntTestProperty;
+/**
+ Managed property.
+ @textblock
+ Name
+   ExIntTestProperty
+
+ Type
+   System.Single
+ @/textblock
+*/
+@property (nonatomic) float exIntTestProperty;
 
 @end
 

@@ -19,37 +19,31 @@
 
 #pragma mark -
 #pragma mark Setup
-	// obligatory override
-	+ (const char *)monoClassName
-	{
-		return "Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2";
-	}
-	// obligatory override
-	+ (const char *)monoAssemblyName
-	{
-		return "Dubrovnik.UnitTests";
-	}
+
++ (const char *)monoClassName
+{
+	return "Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2";
+}
+
++ (const char *)monoAssemblyName
+{
+	return "Dubrovnik.UnitTests";
+}
 
 #pragma mark -
 #pragma mark Methods
 
-	/*! 
-		Managed method name : GenericMethodReturningParameterOfTypeT
-		Managed return type : <Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2+T>
-		Managed param types : <Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2+T>, <Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2+U>
-	 */
-    - (System_Object *)genericMethodReturningParameterOfTypeT_withP1:(System_Object *)p1 u:(System_Object *)p2
-    {
-		
-		MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterOfTypeT(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-		
-		return [System_Object bestObjectWithMonoObject:monoObject];
-    }
+- (System_Object *)genericMethodReturningParameterOfTypeT_withP1:(System_Object *)p1 u:(System_Object *)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterOfTypeT(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
 #pragma mark -
 #pragma mark Teardown
-	- (void)dealloc
-	{
-	}
+
+- (void)dealloc
+{
+}
 @end
 //--Dubrovnik.CodeGenerator
