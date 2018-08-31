@@ -24,11 +24,20 @@ do { \
 
 //
 // define a managed event handler
-//
+// this variant accepts a selector string
 #define DBDefineEventHandler(FUNCTION_NAME, EVENT_NAME, SELECTOR_STRING, OPTIONS) \
 static void FUNCTION_NAME(MonoObject* monoSender, MonoObject* monoEventArgs) \
 { \
     DBDispatchEvent(EVENT_NAME, SELECTOR_STRING, OPTIONS); \
+} \
+
+//
+// define a managed event handler
+// this variant accepts a selector
+#define DBDefineEventHandlerSEL(FUNCTION_NAME, EVENT_NAME, SELECTOR, OPTIONS) \
+static void FUNCTION_NAME(MonoObject* monoSender, MonoObject* monoEventArgs) \
+{ \
+DBDispatchEvent(EVENT_NAME, NSStringFromSelector(SELECTOR), OPTIONS); \
 } \
 
 //
