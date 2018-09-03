@@ -2062,11 +2062,6 @@ static NSString * m_classStringProperty;
 
 - (void)dealloc
 {
-	m_classConstStringField = nil;
-	m_classDateField = nil;
-	m_classStringField = nil;
-	m_classDateProperty = nil;
-	m_classStringProperty = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator
