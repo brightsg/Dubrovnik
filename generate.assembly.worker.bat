@@ -33,6 +33,9 @@ REM Set Dubrovnik tool exe relative paths
 REM
 set "REFLECTOR_EXE=.\..\..\dotNET\Dubrovnik.Tools\Dubrovnik.Reflector\bin\Debug\Dubrovnik.Reflector.exe"
 set "GENERATOR_EXE=.\..\..\dotNET\Dubrovnik.Tools\Dubrovnik.Generator\bin\Debug\Dubrovnik.Generator.exe"
+echo.
+echo Reflector tool : %REFLECTOR_EXE%
+echo Generator tool : %GENERATOR_EXE%
 
 REM
 REM Generate assembly reflection XML file using the Dubrovnik reflector tool
