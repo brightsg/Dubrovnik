@@ -136,13 +136,9 @@ namespace Dubrovnik.Tools {
 				WriteLine("- (void)dealloc");
 				WriteLine("{");
 				PushTabIndent();
-				foreach (string staticObjectPropertyName in StaticObjectPropertyStorageNames) {
-					WriteLine($"{staticObjectPropertyName} = nil;");
-				}
+                // we have no output here as yet but the opportunity exists
 				PopIndent();
 				WriteLine("}");
-
-				StaticObjectPropertyStorageNames = null;
 			}
 		}
 	}
