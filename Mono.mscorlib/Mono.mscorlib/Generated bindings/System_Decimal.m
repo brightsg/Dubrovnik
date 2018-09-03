@@ -528,11 +528,6 @@ static NSDecimalNumber * m_zero;
 
 - (void)dealloc
 {
-	m_maxValue = nil;
-	m_minusOne = nil;
-	m_minValue = nil;
-	m_one = nil;
-	m_zero = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

@@ -533,8 +533,6 @@ static System_NullableA1 * m_currentId;
 
 - (void)dealloc
 {
-	m_completedTask = nil;
-	m_currentId = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

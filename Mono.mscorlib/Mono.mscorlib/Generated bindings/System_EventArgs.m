@@ -48,7 +48,6 @@ static System_EventArgs * m_empty;
 
 - (void)dealloc
 {
-	m_empty = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

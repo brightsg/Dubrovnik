@@ -153,7 +153,6 @@ static System_Threading_CancellationToken * m_none;
 
 - (void)dealloc
 {
-	m_none = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

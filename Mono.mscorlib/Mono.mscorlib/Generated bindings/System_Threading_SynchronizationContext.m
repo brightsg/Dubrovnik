@@ -104,7 +104,6 @@ static System_Threading_SynchronizationContext * m_current;
 
 - (void)dealloc
 {
-	m_current = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

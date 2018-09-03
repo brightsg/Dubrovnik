@@ -98,8 +98,6 @@ static NSString * m_typeConstructorName;
 
 - (void)dealloc
 {
-	m_constructorName = nil;
-	m_typeConstructorName = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

@@ -631,7 +631,6 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 - (void)dealloc
 {
-	m_currentDomain = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

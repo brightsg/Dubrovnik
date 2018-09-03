@@ -63,7 +63,6 @@ static System_DBNull * m_value;
 
 - (void)dealloc
 {
-	m_value = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

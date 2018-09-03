@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     17/07/2018 22:27:56
+// Date:     03/09/2018 12:23:41
 //
 // Assembly: System.Core
 // Fullname: System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -596,15 +596,21 @@
 
 /* Skipped type : System.Security.Cryptography.X509Certificates.AuthenticodeSignatureInformation AuthenticodeSignatureInformation */
 
+/* Skipped type : System.Security.Cryptography.X509Certificates.CertificateRequest CertificateRequest */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.DSACertificateExtensions DSACertificateExtensions */
 
 /* Skipped type : System.Security.Cryptography.X509Certificates.ECDsaCertificateExtensions ECDsaCertificateExtensions */
 
 /* Skipped type : System.Security.Cryptography.X509Certificates.RSACertificateExtensions RSACertificateExtensions */
 
+/* Skipped type : System.Security.Cryptography.X509Certificates.SubjectAlternativeNameBuilder SubjectAlternativeNameBuilder */
+
 /* Skipped type : System.Security.Cryptography.X509Certificates.TimestampInformation TimestampInformation */
 
 /* Skipped type : System.Security.Cryptography.X509Certificates.TrustStatus TrustStatus */
+
+/* Skipped type : System.Security.Cryptography.X509Certificates.X509SignatureGenerator X509SignatureGenerator */
 
 /* Skipped type : System.Security.ManifestKinds ManifestKinds */
 

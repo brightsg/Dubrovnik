@@ -216,7 +216,6 @@ static System_Drawing_Size * m_empty;
 
 - (void)dealloc
 {
-	m_empty = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

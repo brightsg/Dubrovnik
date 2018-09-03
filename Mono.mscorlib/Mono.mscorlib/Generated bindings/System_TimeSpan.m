@@ -565,9 +565,6 @@ static System_TimeSpan * m_zero;
 
 - (void)dealloc
 {
-	m_maxValue = nil;
-	m_minValue = nil;
-	m_zero = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

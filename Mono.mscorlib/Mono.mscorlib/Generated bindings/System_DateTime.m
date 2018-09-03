@@ -760,11 +760,6 @@ static NSDate * m_utcNow;
 
 - (void)dealloc
 {
-	m_maxValue = nil;
-	m_minValue = nil;
-	m_now = nil;
-	m_today = nil;
-	m_utcNow = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

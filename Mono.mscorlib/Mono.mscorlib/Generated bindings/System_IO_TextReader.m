@@ -127,7 +127,6 @@ static System_IO_TextReader * m_null;
 
 - (void)dealloc
 {
-	m_null = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

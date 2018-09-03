@@ -1707,7 +1707,6 @@ static System_Object * m_dBNull;
 
 - (void)dealloc
 {
-	m_dBNull = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

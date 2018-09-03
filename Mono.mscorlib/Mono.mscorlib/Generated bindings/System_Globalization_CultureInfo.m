@@ -616,12 +616,6 @@ static System_Globalization_CultureInfo * m_invariantCulture;
 
 - (void)dealloc
 {
-	m_currentCulture = nil;
-	m_currentUICulture = nil;
-	m_defaultThreadCurrentCulture = nil;
-	m_defaultThreadCurrentUICulture = nil;
-	m_installedUICulture = nil;
-	m_invariantCulture = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

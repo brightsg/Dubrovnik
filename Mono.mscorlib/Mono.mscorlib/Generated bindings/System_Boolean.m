@@ -113,8 +113,6 @@ static NSString * m_trueString;
 
 - (void)dealloc
 {
-	m_falseString = nil;
-	m_trueString = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

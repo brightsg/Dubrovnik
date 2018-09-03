@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     17/07/2018 22:28:03
+// Date:     03/09/2018 12:23:47
 //
 // Assembly: System.Data
 // Fullname: System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -502,7 +502,15 @@
 
 /* Skipped type : System.Data.SqlClient.SortOrder SortOrder */
 
+/* Skipped type : System.Data.SqlClient.SqlAuthenticationInitializer SqlAuthenticationInitializer */
+
 /* Skipped type : System.Data.SqlClient.SqlAuthenticationMethod SqlAuthenticationMethod */
+
+/* Skipped type : System.Data.SqlClient.SqlAuthenticationParameters SqlAuthenticationParameters */
+
+/* Skipped type : System.Data.SqlClient.SqlAuthenticationProvider SqlAuthenticationProvider */
+
+/* Skipped type : System.Data.SqlClient.SqlAuthenticationToken SqlAuthenticationToken */
 
 /* Skipped type : System.Data.SqlClient.SqlBulkCopy SqlBulkCopy */
 
@@ -513,6 +521,8 @@
 /* Skipped type : System.Data.SqlClient.SqlBulkCopyOptions SqlBulkCopyOptions */
 
 /* Skipped type : System.Data.SqlClient.SqlClientFactory SqlClientFactory */
+
+/* Skipped type : System.Data.SqlClient.SqlClientLogger SqlClientLogger */
 
 /* Skipped type : System.Data.SqlClient.SqlClientMetaDataCollectionNames SqlClientMetaDataCollectionNames */
 
@@ -525,6 +535,8 @@
 /* Skipped type : System.Data.SqlClient.SqlColumnEncryptionCngProvider SqlColumnEncryptionCngProvider */
 
 /* Skipped type : System.Data.SqlClient.SqlColumnEncryptionCspProvider SqlColumnEncryptionCspProvider */
+
+/* Skipped type : System.Data.SqlClient.SqlColumnEncryptionEnclaveProvider SqlColumnEncryptionEnclaveProvider */
 
 /* Skipped type : System.Data.SqlClient.SqlColumnEncryptionKeyStoreProvider SqlColumnEncryptionKeyStoreProvider */
 
@@ -549,6 +561,10 @@
 /* Skipped type : System.Data.SqlClient.SQLDebugging SQLDebugging */
 
 /* Skipped type : System.Data.SqlClient.SqlDependency SqlDependency */
+
+/* Skipped type : System.Data.SqlClient.SqlEnclaveAttestationParameters SqlEnclaveAttestationParameters */
+
+/* Skipped type : System.Data.SqlClient.SqlEnclaveSession SqlEnclaveSession */
 
 /* Skipped type : System.Data.SqlClient.SqlError SqlError */
 

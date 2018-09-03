@@ -1623,12 +1623,6 @@ static System_Reflection_Binder * m_defaultBinder;
 
 - (void)dealloc
 {
-	m_emptyTypes = nil;
-	m_filterAttribute = nil;
-	m_filterName = nil;
-	m_filterNameIgnoreCase = nil;
-	m_missing = nil;
-	m_defaultBinder = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

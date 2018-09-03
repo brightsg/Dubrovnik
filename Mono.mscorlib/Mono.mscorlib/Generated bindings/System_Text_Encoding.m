@@ -597,13 +597,6 @@ static System_Text_Encoding * m_uTF8;
 
 - (void)dealloc
 {
-	m_aSCII = nil;
-	m_bigEndianUnicode = nil;
-	m_default = nil;
-	m_unicode = nil;
-	m_uTF32 = nil;
-	m_uTF7 = nil;
-	m_uTF8 = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

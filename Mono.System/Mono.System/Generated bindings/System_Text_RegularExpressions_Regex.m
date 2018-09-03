@@ -302,7 +302,6 @@ static int32_t m_cacheSize;
 
 - (void)dealloc
 {
-	m_infiniteMatchTimeout = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

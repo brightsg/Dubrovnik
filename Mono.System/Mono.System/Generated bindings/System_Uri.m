@@ -787,17 +787,6 @@ static NSString * m_uriSchemeNntp;
 
 - (void)dealloc
 {
-	m_schemeDelimiter = nil;
-	m_uriSchemeFile = nil;
-	m_uriSchemeFtp = nil;
-	m_uriSchemeGopher = nil;
-	m_uriSchemeHttp = nil;
-	m_uriSchemeHttps = nil;
-	m_uriSchemeMailto = nil;
-	m_uriSchemeNetPipe = nil;
-	m_uriSchemeNetTcp = nil;
-	m_uriSchemeNews = nil;
-	m_uriSchemeNntp = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

@@ -388,7 +388,6 @@ static System_IO_Stream * m_null;
 
 - (void)dealloc
 {
-	m_null = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator

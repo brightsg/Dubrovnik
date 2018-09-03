@@ -363,8 +363,6 @@ static System_TimeZoneInfo * m_utc;
 
 - (void)dealloc
 {
-	m_local = nil;
-	m_utc = nil;
 }
 @end
 //--Dubrovnik.CodeGenerator
