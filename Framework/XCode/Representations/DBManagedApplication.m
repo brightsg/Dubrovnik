@@ -129,15 +129,9 @@ NSString * const DBNoteManagedApplicationLoaded = @"DBNoteManagedApplicationLoad
  Note that it may be possible to omit the PropertyChanging event without encountering an exception if the
  changed property is not a non terminal part of an observed key path.
  
- EntityObject seems to issue events in a way that is KVO compliant.
- 
- EntityFramework navigation properties may pose more of a problem and may require additional intervention.
- 
  */
 - (void)eventSender:(DBManagedObject *)sender propertyChanging:(DBManagedObject *)monoEventArgs
 {
-
-    
     // monoEventArgs should be an instance of System.ComponentModel.PropertyChangedEventArgs
     // as long as the calling process is linked to mono.System.
     // if not it will be an instance of System.EventArgs.
@@ -151,18 +145,25 @@ NSString * const DBNoteManagedApplicationLoaded = @"DBNoteManagedApplicationLoad
         
         // get the unmanged property name
         NSString *propertyName = [sender unmanagedPropertyName:[managedPropertyName UTF8String]];
- 
-#ifdef DB_TRACE
-        id value = [sender valueForKey:propertyName];
-        NSLog(@"Sender %@ %p PropertyChanging %@ value : %@ %p", [sender class], sender, propertyName, value, value);
-#endif
+     
         // raise KVO notifications for the unmanaged property name
-        [sender willChangeValueForKey:propertyName];
+        // note: the sender may, perversely, not respond to the selector if the event
+        // was raised against a siblingObject, say a managed interface.
+        SEL selector = NSSelectorFromString(propertyName);
         
-    } else {
-        
+        // send to related responding objects
+        for (DBManagedObject *object in sender.siblingObjects_dub_) {
+            if ([object respondsToSelector:selector]) {
+#ifdef DB_TRACE
+                id value = [object valueForKey:propertyName];
+                NSLog(@"Sender %@ %p PropertyChanging %@ value : %@ %p", [object class], object, propertyName, value, value);
+#endif
+                [object willChangeValueForKey:propertyName];
+            }
+        }
+    }
+    else {
         NSLog(@"PropertyChanging event sender : %@ does not respond to -propertyName. Are you linked to to Mono.System?", monoEventArgs);
-        
     }
 }
 
@@ -182,20 +183,25 @@ NSString * const DBNoteManagedApplicationLoaded = @"DBNoteManagedApplicationLoad
         // get the unmanged property name
         NSString *propertyName = [sender unmanagedPropertyName:[managedPropertyName UTF8String]];
         
-#ifdef DB_TRACE
-        //NSLog(@"PropertyChanged event sender : %@ %p MonoObject %p property name: %@", [sender class], sender, sender.monoObject, propertyName);
-        id value = [sender valueForKey:propertyName];
-        NSLog(@"Sender %@ %p PropertyChanged %@ value : %@ %p", [sender class], sender, propertyName, value, value);
-#endif
         // raise KVO notifications for the unmanaged property name
         // note: this may fail if a prior willChangeValueForKey has not been sent
-        [sender didChangeValueForKey:propertyName];
-        
-    } else {
-        
-
+        // note: the sender may, perversely, not respond to the selector if the event
+        // was raised against a siblingObject, say a managed interface.
+        SEL selector = NSSelectorFromString(propertyName);
+        for (DBManagedObject *object in sender.siblingObjects_dub_) {
+            
+            // send to related responding objects
+            if ([object respondsToSelector:selector]) {
+#ifdef DB_TRACE
+                id value = [object valueForKey:propertyName];
+                NSLog(@"Sender %@ %p PropertyChanged %@ value : %@ %p", [object class], object, propertyName, value, value);
+#endif
+                [object didChangeValueForKey:propertyName];
+            }
+        }
+    }
+    else {
         NSLog(@"PropertyChanged event sender : %@ does not respond to -propertyName. Are you linked to to Mono.System?", monoEventArgs);
-        
     }
 }
 

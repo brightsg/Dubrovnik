@@ -55,36 +55,10 @@ extern char DBCacheSuffixChar;
  Calling +objectWithMonoObject: always returns an instance of the receiver, never a subclass.
  So you are much more likely to generate a SI using this method.
  In general it should only be ncessary to use +objectWithMonoObject: when access to an explicit interface is equired.
- The explicit interface should be created and disposed off as quickly as possible.
- 
- A PI is cached, an SI is not. When the default Obj-C representation of a given MonoObject is required the cache
- is consulted first to determine if an existing PI exists. If so it is used. This default representation
- is citical when it comes to determining, for example, what Obj-C object to associate as the source of a managed event.
- For this reason managed events can only be raised by primary instances.
- 
- This represents a fundamental property of the bridge when it comes to working with bindings and managed events.
- If, for example, you bind to an explicit interface representation of an object and then try and bind to the actual object
- an exception will be raised.
- 
- Therefore, in general, do not attempt to bind to or subscribe to managed events for an object that you do not consider as a suitable 
- candidate PI object. 
- 
- Remember that the first unmanaged representation of a given MonoObject * becomes the PI.
- So depending on the application's execution history different object representations of the same MonoObject * may become
- the PI depending on which classes, superclasses and interfaces actually get instantiated.
- Some defensive programming may be required in some circumstances.
- In general using +bestObjectWithMonoObject: provides the best overall strategy.
- 
- Note:
- It would be possible to build a tracking system that would enable the PI to maintain a collection of all the SI objects
- representing the same MonoObject *. When the PI was deallocated a SI would have to be promoted to PI. When a managed event
- occurred this could be routed to the PI and SI instances. I am not certain if trying to send KVO key changing/changed messages for
- properties not implemented in a superclass/interface would be problematic - I imagine that in some situations it could be!
- To overcome that problem it would be necessary for each PI and SI to individually track whether they were registered for a particular event.
- All of which sounds rather onerous.
  
  */
 @property (assign, readonly) BOOL isPrimaryInstance;
++ (BOOL)canObserveNonPrimaryInstance_dub_;
 
 /*!
  
@@ -220,6 +194,17 @@ extern char DBCacheSuffixChar;
 - (id)initWithMonoObject:(MonoObject *)obj;
 
 /*!
+ A managed object can be wrapped by multiple unmanaged objects to allow for explicit base class representations and
+ managed interface representations.
+ 
+ Any two native objects that have the same UUID represent the same managed object.
+ This approach provides accurate native object identification that avoids dealing with changing monoObject *
+ pointers and mono hash collisions.
+ 
+ */
+@property (strong, readonly) NSUUID *uuid_dub_;
+
+/*!
  
  Initialise the object representation with a signature indicating the argument types to be passed to the Mono constructor.
  
@@ -258,6 +243,12 @@ extern char DBCacheSuffixChar;
 + (BOOL)object:(id)object isEqualToMonoObject:(MonoObject *)monoObject;
 - (BOOL)object:(id)object1 isEqualToMonoObjectForObject:(id)object2;
 - (BOOL)object:(id)object isEqualToMonoObject:(MonoObject *)monoObject;
+
+/**
+ Returns array of objects related to the receiver.
+ These objects wrap the same managed object (say as an explicit base class or interface).
+ */
+- (NSArray<DBManagedObject *> *)siblingObjects_dub_;
 
 // Indexer Access
 - (MonoObject *)monoObjectForIndexObject:(void *)indexObject;
@@ -315,5 +306,6 @@ extern char DBCacheSuffixChar;
 + (const char *)monoClassNamespace:(MonoClass *)klass;
 + (const char *)monoClassTypeName:(MonoClass *)klass;
 + (void)registerInternalCall:(NSString *)methodName callPointer:(void *)callPointer;
+
 
 @end

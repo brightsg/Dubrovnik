@@ -22,6 +22,7 @@
 #import "DBManagedMethod.h"
 #import "DBTypemanager.h"
 #import "DBPrimaryInstanceCache.h"
+#import "DBSecondaryInstanceCache.h"
 
 // categories
 #import "NSString+Dubrovnik.h"
@@ -67,6 +68,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 @protocol System_object_predeclaration <NSObject>
 - (BOOL)equals_withObj:(DBManagedObject *)p1;
 - (int32_t)getHashCode;
+- (int32_t)db_getHashCode;
 @end
 
 @interface DBManagedObject()
@@ -74,6 +76,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 // objects
 @property (strong, readwrite) DBManagedEnvironment *monoEnvironment;
 @property (strong, readwrite) DBManagedType *managedType;
+@property (strong, readwrite) NSUUID *uuid_dub_;
 
 // collections
 @property (strong, nonatomic) NSMutableArray *willChangeValueForKeyTracker;
@@ -101,6 +104,11 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 {
     // be considerate here as we can can cause issues with the managed runtime
     m_objectArgClass = NSClassFromString(@"System_ValueType_ObjectArg__");
+}
+
++ (BOOL)canObserveNonPrimaryInstance_dub_
+{
+    return YES;
 }
 
 + (BOOL)automaticallyNotifiesObserversForKey:(NSString *)key
@@ -289,27 +297,42 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     // such as a System_Nullable.
     // Things may not work out so well passing nil for other types...
     
+    if (monoObject == NULL) {
+        self = nil;
+        return self;
+    }
+    
     // Search the primary instance cache.
     // This is essential to avoid generating multiple unmanaged wrappers
     // for a given managed object when say receiving a MonoObject pointer from an event.
     DBManagedInstanceInfo info = 0;
     DBManagedObject *cachedInstance = [[DBPrimaryInstanceCache sharedCache] objectForMonoObject:monoObject info:&info];
+    NSUUID *uuid = nil;
     
     if (!cachedInstance) {
-        
         // this instance will be primary
         self.isPrimaryInstance = YES;
+    }
+    else if (cachedInstance.class != self.class) {
         
-    } else if ([cachedInstance class] != [self class]) {
+        // the secondary cache may contain an object of suitable class (say a managed interface representation).
+        // sibling objects have the same -monoObject.
+        for (DBManagedObject *obj in cachedInstance.siblingObjects_dub_) {
+            if (obj.class == self.class) {
+                self = obj;
+                return self;
+            }
+        }
         
-        // if cached instance is not of the current class
-        // then we are creating a non primary instance ie:
+        // if cached instance is not of the current class and the secondary cash has no hit
+        // then we are creating a secondary instance ie:
         // another ObjC wrapper for a MonoObject that already has a primary instance
         
+        // wrappers will share the same uuid
+        uuid = cachedInstance.uuid_dub_;
         cachedInstance = nil;
-        
-    } else {
-        
+    }
+    else {
         // return the cached instance as self
         self = cachedInstance;
         return self;
@@ -319,26 +342,27 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     self = [super init];
 	if (self) {
 		self.monoObject = monoObject;
-		
-		if (monoObject != NULL) {
-            self.monoEnvironment = [DBManagedEnvironment currentEnvironment];
-            [self setupTypeInstance:info];
-        } else {
-			self = nil;
-		}
+        self.uuid_dub_ = uuid ? : [NSUUID UUID];
+        self.monoEnvironment = [DBManagedEnvironment currentEnvironment];
+        [self setupTypeInstance:info];
 	}
 	
-    // add primary instance to cache
+    // add primary instance native object to cache.
+    // keyed by mono_object_hash(monoObject)
     if (self.isPrimaryInstance) {
         [[DBPrimaryInstanceCache sharedCache] addObject:self];
     }
     
+    // add all native objects to secondary cache keyed by uuid
+    // this enables looking up multiple native wrappers for the same managed object
+    [[DBSecondaryInstanceCache sharedCache] addObject:self];
+    
     // cache system types.
     // caching them here means they will stay alive in the primary instance cache
-    // and will be available for fast retieval
+    // and will be available for fast retrieval
     if ([self isKindOfClass:NSClassFromString(@"System_Type")]) {
         if (!m_systemTypes) {
-            m_systemTypes = [[NSMutableDictionary alloc] initWithCapacity:10];
+            m_systemTypes = [[NSMutableDictionary alloc] initWithCapacity:100];
         }
         if (!m_systemTypes[self.description]) {
             m_systemTypes[self.description] = self;
@@ -390,11 +414,28 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
         // remove property change notifications
         self.automaticallyNotifiesObserversOfManagedPropertyChanges = NO;
         
-        // Clear instance cache?
-        // The instance cache uses zeroing weak refs so uncaching should happen by default
+        // clear primary instance cache?
+        // NO : the cache uses zeroing weak refs so uncaching should happen by default
+        
+        // upgrade a secondary instance to primary status if possible.
+        // this should help to ensure that event selectors continue to be called for
+        // secondary cache objects when their primary cache sibling gets deallocated
+        for (DBManagedObject *object in self.siblingObjects_dub_) {
+            if (object != self) {
+                object.isPrimaryInstance = YES;
+                [[DBPrimaryInstanceCache sharedCache] addObject:object];
+                object.automaticallyNotifiesObserversOfManagedPropertyChanges = YES;
+                break;
+            }
+        }
     }
     
-    // free the gc handle
+    // clean up secondary instance cache?
+    // NO : the cache uses zeroing weak refs so uncaching should happen by default
+    
+    // free the gc handle.
+    // this will make the underlying managed object eligible for garbage collection
+    // if it has no other roots.
     if (_mono_gchandle != 0) {
         mono_gchandle_free(_mono_gchandle);
         _mono_gchandle = 0;
@@ -404,7 +445,10 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 - (NSString *)description {
 	MonoString *monoString = (MonoString *)[self invokeMonoMethod:"System.Object:ToString()" withNumArgs:0];
 	
-	return([NSString stringWithMonoString:monoString]);
+    // show native and managed descriptions.
+    // we show the native description because we may wrap a given managed object in more than one native object,
+    // especially when representing managed interfaces
+	return [NSString stringWithFormat:@"%@ (%@)", [self className], [NSString stringWithMonoString:monoString]];
 }
 
 #pragma mark -
@@ -727,6 +771,12 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
         // check for monoObject pointer equality
         if (self.monoObject == [other monoObject]) {
+            
+            // we may have situations, primarily involving managed interfaces, where we have
+            // two separate managed objects wrapping the same MonoObject *.
+            // in this case, even though we have two distinct class, the hash for these
+            // objects will be the same (as it is simply the managed object hash).
+            // so regardless of the native class we have to affirm equality here.
             return YES;
         }
         
@@ -750,15 +800,26 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     return NO;
 }
 
+- (NSArray<DBManagedObject *> *)siblingObjects_dub_
+{
+    return [[DBSecondaryInstanceCache sharedCache] siblingObjects:self];
+}
+
 #pragma mark -
 #pragma mark Hashing
 
 - (NSUInteger)hash
 {
+#warning code generator needs be smart enough to override GetHashCode and GetType
     // if the subclass implements getHashCode then use it
-    if ([self respondsToSelector:@selector(getHashCode)]) {
+    if ([self respondsToSelector:@selector(db_getHashCode)]) {
+        return (NSUInteger)[(id)self db_getHashCode];
+    }
+    // should be redundant
+    else if ([self respondsToSelector:@selector(getHashCode)]) {
         return (NSUInteger)[(id)self getHashCode];
-    } else {
+    }
+    else {
         return [super hash];
     }
 }
@@ -1008,9 +1069,6 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
 - (void)willChangeValueForKey:(NSString *)key
 {
-    // contract
-    NSAssert(self.isPrimaryInstance, @"non primary instance");
-    
     // KVO requires the willChange/didChange notifications to be accurately paired.
     // So the managed layer should implement both INotifyPropertyChanging and INotifyPropertyChanged.
     // However, it is easy, especially when issuing manual notify property changes to corrupt the pairing.
@@ -1029,10 +1087,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
 - (void)didChangeValueForKey:(NSString *)key
 {
-    // contract
-    NSAssert(self.isPrimaryInstance, @"non primary instance");
-    
-    // track change value
+   // track change value
     BOOL trackChangeNotifications = YES;
     if (trackChangeNotifications && ![self trackDidChangeValueForKey:key]) {
         return;
@@ -1047,25 +1102,27 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
 - (void)setObservationInfo:(void *)observationInfo
 {
-    if (!self.isPrimaryInstance) {
-        id primaryInstance = [[DBTypeManager sharedManager] objectWithMonoObject:self.monoObject];
-        
-        [NSException raise:@"DBObservationException" format:@"%@ (%p): Only primary instances support the raising of managed events. Observing the properties of a managed object requires the use of managed events, which this object cannot support. Use the primary instance for the represented managed object instead.\nThe primary instance is %@ %p obsInfo : %@", self, self, primaryInstance, primaryInstance, [primaryInstance observationInfo]];
-    }
-    
-    // trace
-    if (self.monoEnvironment.tracer.onSetObservationInfo) {
-        self.monoEnvironment.tracer.onSetObservationInfo(self, self.observationInfo, observationInfo);
-    }
-    
     /*
-     
-     This method will be called whenever an observer or binding changes.
-     If we have not already configured this object to to respond to managed object property change events
-     then do so now.
+     The primary instance must be configured to receive property changing events.
+     We only want to do this once, hence we identify the primary instance
+     and add the vent hanlders here if required
      */
-    if (!self.automaticallyNotifiesObserversOfManagedPropertyChanges) {
-        self.automaticallyNotifiesObserversOfManagedPropertyChanges = YES;
+    if (self.isPrimaryInstance) {
+        
+        // trace
+        if (self.monoEnvironment.tracer.onSetObservationInfo) {
+            self.monoEnvironment.tracer.onSetObservationInfo(self, self.observationInfo, observationInfo);
+        }
+        
+        /*
+         
+         This method will be called whenever an observer or binding changes.
+         If we have not already configured this object to to respond to managed object property change events
+         then do so now.
+         */
+        if (!self.automaticallyNotifiesObserversOfManagedPropertyChanges) {
+            self.automaticallyNotifiesObserversOfManagedPropertyChanges = YES;
+        }
     }
     
     // caching the observation info in an ivar is a documented optimisation
@@ -1233,8 +1290,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     
     // contract
     if (!self.isPrimaryInstance) {
-        [NSException raise:@"DBObservationException"
-                    format:@"Instance must be primary in order to raise managed events."];
+        [NSException raise:@"DBObservationException" format:@"Instance must be primary."];
     }
     
     if (_automaticallyNotifiesObserversOfManagedPropertyChanges == value) {
@@ -1249,7 +1305,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
      the managed object is wrapped by more than one unmanaged object.
      
      Ideally calls below will only add the event handler if it is not already present.
-     However, it doesn't seem possible to reliably ensure this.
+     However, it doesn't seem possible to reliably ensure this vis reflection.
      Hence we enforce the isPrimaryInstance condition.
      
      */

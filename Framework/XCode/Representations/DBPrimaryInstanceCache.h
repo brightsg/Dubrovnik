@@ -13,12 +13,12 @@ typedef NS_OPTIONS(NSUInteger, DBManagedInstanceInfo)
     DBPrimaryInstanceExistsForMonoObject = 0x01 << 0,
 };
 
-typedef NS_OPTIONS(NSUInteger, DBLogInstanceCacheOptions)
+typedef NS_OPTIONS(NSUInteger, DBLogPrimaryInstanceCacheOptions)
 {
-    DBLogInstanceCacheCount = 0x00 << 0,
-    DBLogInstanceCacheObjects = 0x01 << 0,
-    DBLogInstanceCacheKeyValuePairCount = 0x01 << 1,
-    DBLogInstanceCacheAll = (DBLogInstanceCacheCount | DBLogInstanceCacheObjects | DBLogInstanceCacheKeyValuePairCount)
+    DBLogPrimaryInstanceCacheCount = 0x00 << 0,
+    DBLogPrimaryInstanceCacheObjects = 0x01 << 0,
+    DBLogPrimaryInstanceCacheKeyValuePairCount = 0x01 << 1,
+    DBLogPrimaryInstanceCacheAll = (DBLogPrimaryInstanceCacheCount | DBLogPrimaryInstanceCacheObjects | DBLogPrimaryInstanceCacheKeyValuePairCount)
 };
 
 @interface DBPrimaryInstanceCache : NSObject
@@ -51,7 +51,7 @@ typedef NS_OPTIONS(NSUInteger, DBLogInstanceCacheOptions)
  Log the primary instance cache
  
  */
-- (void)logPrimaryInstanceCache:(DBLogInstanceCacheOptions)options;
+- (void)logPrimaryInstanceCache:(DBLogPrimaryInstanceCacheOptions)options;
 
 /*!
  

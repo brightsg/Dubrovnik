@@ -166,6 +166,8 @@ static MonoAssembly *monoAssembly;
     char *argv[] = {(char *)assemblyFile.UTF8String};
     int retval = [monoEnv invokeAssembly:monoAssembly prepareThreading:NO argCount:argc arguments:argv];
     XCTAssertTrue(retval == 0, @"Call to assembly entry point failed");
+    
+    [self doSetupTests];
 }
 
 - (void)tearDown
@@ -174,6 +176,40 @@ static MonoAssembly *monoAssembly;
     [[DBManagedEnvironment currentEnvironment] terminate];
     
     [super tearDown];
+}
+
+
+- (void)doSetupTests
+{
+    DUReferenceObject_ *refObj2 = nil;
+    
+    // these tests are sensitive to the state of the caches so we run them now
+    // before the other tests dirty them.
+    // the release pools should ensure that the caches if not pristine will be clear of object references
+    @autoreleasepool {
+        Dubrovnik_UnitTests_IReferenceObject1 *iRefObj = nil;
+        @autoreleasepool {
+            // allocate a primary instance
+            DUReferenceObject_ *refObj = [DUReferenceObject_ new];
+            
+            // allocate a secondary instance
+            iRefObj = DB_INTERFACE(Dubrovnik_UnitTests_IReferenceObject1, refObj);
+            
+            // validate primary and secondary status
+            XCTAssertTrue(refObj.isPrimaryInstance, DBUBooleanTestFailed);
+            XCTAssertTrue(!iRefObj.isPrimaryInstance, DBUBooleanTestFailed);
+        }
+        
+        // when the primary instance deallocates the secondary instance should get upgraded to primary status
+        XCTAssertTrue(iRefObj.isPrimaryInstance, DBUBooleanTestFailed);
+        
+        // if we create a new non interface instance it should not be primary
+        refObj2 = [[DUReferenceObject_ alloc] initWithMonoObject:iRefObj.monoObject];
+        XCTAssertTrue(!refObj2.isPrimaryInstance, DBUBooleanTestFailed);
+    }
+    
+    // we should see another primary instance upgrade here
+    XCTAssertTrue(refObj2.isPrimaryInstance, DBUBooleanTestFailed);
 }
 
 #pragma mark -
@@ -424,15 +460,18 @@ static MonoAssembly *monoAssembly;
     } while (++loopCount < loopMax);
     
     // number of cache objects should be preserved
-    XCTAssertTrue(cacheCount == [DBPrimaryInstanceCache sharedCache].count, DBUEqualityTestFailed);
+    NSUInteger finalCacheCount = [DBPrimaryInstanceCache sharedCache].count;
+    XCTAssertTrue(cacheCount == finalCacheCount, DBUEqualityTestFailed);
     
     NSLog(@"Total : %lu allocations", allocationCount);
+    NSLog(@"Initial cache count : %lu", cacheCount);
+    NSLog(@"Final cache count : %lu", finalCacheCount);
     
     // a test compaction
     [[DBPrimaryInstanceCache sharedCache] compact];
     
     // log the cache
-    [[DBPrimaryInstanceCache sharedCache] logPrimaryInstanceCache:DBLogInstanceCacheAll];
+    [[DBPrimaryInstanceCache sharedCache] logPrimaryInstanceCache:DBLogPrimaryInstanceCacheAll];
 }
 
 - (void)testMultiStringGeneration
@@ -1936,11 +1975,21 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // int
     // note that this is slightly complicated by the fact that the code generator defaults to using +bestObjectWithMonoObject which prefers to
-    // return a class rather than interface; hence we explictly create interface based instances below.
+    // return a class rather than an interface; hence we explictly create interface based instances below.
+    // see use of DB_INTERFACE macro below
     Dubrovnik_UnitTests_IReferenceObject1 *refObject1 = [Dubrovnik_UnitTests_IReferenceObject1 objectWithMonoObject:[refObject monoObject]];
     [refObject1 setExIntTestProperty:89467];
     int32_t intValue = [refObject1 exIntTestProperty];
     NSAssert(intValue == 89467, DBUEqualityTestFailed);
+    
+    if (m_runningAutoGenCodeTest) {
+        // there ar emore convenient ways of generating interface instances
+        Dubrovnik_UnitTests_IReferenceObject1 *refObject1a = DB_INTERFACE(Dubrovnik_UnitTests_IReferenceObject1, refObject);
+        Dubrovnik_UnitTests_IReferenceObject1 *refObject1b = [Dubrovnik_UnitTests_IReferenceObject1 objectWithConformingManagedObject:refObject];
+        
+        // the interface instances should be cached so check for idnetical objects
+        XCTAssertTrue(refObject1 == refObject1a && refObject1 == refObject1b, DBUEqualityTestFailed);
+    }
     
     // float
     Dubrovnik_UnitTests_IReferenceObject2 *refObject2 = [Dubrovnik_UnitTests_IReferenceObject2 objectWithMonoObject:[refObject monoObject]];

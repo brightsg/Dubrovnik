@@ -45,6 +45,8 @@
 		AB2CD2FD178D77910075CF6A /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */; };
 		AB3451DE190A96F500A6F47B /* DBMonoIncludes.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3451DC190A96F500A6F47B /* DBMonoIncludes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB3451DF190A96F500A6F47B /* Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3451DD190A96F500A6F47B /* Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB36B79E21495E6600D31D13 /* DBSecondaryInstanceCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AB36B79C21495E6600D31D13 /* DBSecondaryInstanceCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB36B79F21495E6600D31D13 /* DBSecondaryInstanceCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36B79D21495E6600D31D13 /* DBSecondaryInstanceCache.m */; };
 		AB3FF5FC1D9A7A8400A6E6B8 /* Dubrovnik_UnitTests_IntEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3FF5FA1D9A7A8400A6E6B8 /* Dubrovnik_UnitTests_IntEnum.m */; };
 		AB3FF5FD1D9A7A8400A6E6B8 /* Dubrovnik_UnitTests_LongEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3FF5FB1D9A7A8400A6E6B8 /* Dubrovnik_UnitTests_LongEnum.m */; };
 		AB4759761D7083D100C3319C /* DBManagedObject+Logging.h in Headers */ = {isa = PBXBuildFile; fileRef = AB4759741D7083D100C3319C /* DBManagedObject+Logging.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -210,6 +212,8 @@
 		AB26E09B1E49F8F4004876FE /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Framework/XCode/../../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
 		AB3451DC190A96F500A6F47B /* DBMonoIncludes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DBMonoIncludes.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		AB3451DD190A96F500A6F47B /* Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik.h; sourceTree = SOURCE_ROOT; };
+		AB36B79C21495E6600D31D13 /* DBSecondaryInstanceCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBSecondaryInstanceCache.h; sourceTree = "<group>"; };
+		AB36B79D21495E6600D31D13 /* DBSecondaryInstanceCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBSecondaryInstanceCache.m; sourceTree = "<group>"; };
 		AB3D373E1BBEE1D400622D9C /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = Readme.md; path = ../../Readme.md; sourceTree = "<group>"; };
 		AB3D373F1BBF0FAD00622D9C /* make-mono64-bundle.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = "make-mono64-bundle.sh"; path = "../../Scripts/make-mono64-bundle.sh"; sourceTree = "<group>"; };
 		AB3FF5FA1D9A7A8400A6E6B8 /* Dubrovnik_UnitTests_IntEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik_UnitTests_IntEnum.m; sourceTree = "<group>"; };
@@ -500,6 +504,8 @@
 				ABAAE7241E2652AE00CC81F1 /* DBManagedAssembly.m */,
 				ABE576491D9C5ABA0085C457 /* DBManagedType.h */,
 				ABE5764A1D9C5ABA0085C457 /* DBManagedType.m */,
+				AB36B79C21495E6600D31D13 /* DBSecondaryInstanceCache.h */,
+				AB36B79D21495E6600D31D13 /* DBSecondaryInstanceCache.m */,
 			);
 			path = Representations;
 			sourceTree = "<group>";
@@ -805,6 +811,7 @@
 				ABAAE7251E2652AE00CC81F1 /* DBManagedAssembly.h in Headers */,
 				AB49E434178ABAAE00D01244 /* NSNumber+Dubrovnik.h in Headers */,
 				AB49E430178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.h in Headers */,
+				AB36B79E21495E6600D31D13 /* DBSecondaryInstanceCache.h in Headers */,
 				93365A8D0872370700EC726F /* DBManagedClass.h in Headers */,
 				93365A8F0872370700EC726F /* DBManagedObject.h in Headers */,
 				9DF2367B0874E3CC008A199C /* NSData+Dubrovnik.h in Headers */,
@@ -957,6 +964,7 @@
 				9D6335AF09750DAD00FB76DF /* DBData.m in Sources */,
 				AB49E431178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.m in Sources */,
 				ABE5764C1D9C5ABA0085C457 /* DBManagedType.m in Sources */,
+				AB36B79F21495E6600D31D13 /* DBSecondaryInstanceCache.m in Sources */,
 				AB49E435178ABAAE00D01244 /* NSNumber+Dubrovnik.m in Sources */,
 				ABF4847019D1DCC000769746 /* DBManagedObjectThread.m in Sources */,
 				ABF43FB9179FF4FC00BAB99E /* DBManagedMethod.m in Sources */,

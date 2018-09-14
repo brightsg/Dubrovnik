@@ -124,9 +124,6 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
         return;
     }
     
-    // contract
-    NSAssert(sender.isPrimaryInstance, @"non primary instance : %@ : %@", sender, eventName);
-    
     // add new target
     NSPointerArray *eventTargets = [self eventTargetsForSender:sender eventName:eventName];
     [eventTargets addPointer:(__bridge void *)(target)];
@@ -150,9 +147,6 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
         return nil;
     }
     
-    // contract
-    NSAssert(sender.isPrimaryInstance, @"non primary instance");
-
     // get the sender's managed event map
     NSMutableDictionary *eventMap = [sender managedEventMap];
     
@@ -182,9 +176,6 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
         return;
     }
     
-    // contract
-    NSAssert(sender.isPrimaryInstance, @"non primary instance");
-
     // remove target for event
     NSPointerArray *eventTargets = [self eventTargetsForSender:sender eventName:eventName];
     NSUInteger targetIndex = [eventTargets db_indexForObjectPointer:target];
@@ -306,9 +297,6 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
     // get the instance representing the managed object
     DBManagedObject *sender = [[DBTypeManager sharedManager] objectWithMonoObject:monoObject];
     
-    // contract
-    NSAssert(sender.isPrimaryInstance, @"A non primary instance cannot be an event sender!");
-    
     // in the case of a static event the registered sender will be the sender's type
     DBManagedObject *registeredSender = nil;
     if (options[@"staticSender"]) {
@@ -352,6 +340,8 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
         }
         
         // dispatch selector event to target if it is supported
+        // note : if the event target is an instantance of DBManagedObject then we should
+        // try and call the event selector on -siblingObjects.
         if ([eventTarget respondsToSelector:eventSelector]) {
             
             // strict method signature check.
@@ -383,8 +373,8 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
             [eventTarget performSelector:eventSelector withObject:sender withObject:eventArgument];
 #pragma clang diagnostic pop
             
-        } else {
-            
+        }
+        else {
             NSLog(@"Could not dispatch -%@ to %@ in response to managed event %@ as the target method is not implemented.", NSStringFromSelector(eventSelector), eventTarget, eventName);
         }
     }

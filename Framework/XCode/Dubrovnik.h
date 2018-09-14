@@ -42,6 +42,7 @@
 #import "DBManagedEvent.h"
 #import "DBManagedApplication.h"
 #import "DBPrimaryInstanceCache.h"
+#import "DBSecondaryInstanceCache.h"
 #import "DBManagedAssembly.h"
 
 // categories

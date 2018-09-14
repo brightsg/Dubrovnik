@@ -184,16 +184,16 @@ static NSMutableArray *m_cacheBuckets;
      
      The cache key is the monoObject * mono hash value.
      This is constant for the lifetime of the object.
-     Wehen using a moveable memory GC we may see multiple objects with the same hash.
+     When using a moveable memory GC we may see multiple objects with the same hash.
      In this case we need to test for uniqueness using -monoObject.
      
      */
 #ifdef DB_TRACE_OBJECT_CACHE_SIZE
-    [self logPrimaryInstanceCache:DBLogInstanceCacheCount];
+    [self logPrimaryInstanceCache:DBLogPrimaryInstanceCacheCount];
 #endif
     
     // contract
-    NSAssert(object.isPrimaryInstance, @"Cannot add a non primary instance to the cache.");
+    NSAssert(object.isPrimaryInstance, @"Cannot add a non primary instance to this cache.");
 
     [self lockCache];
     
@@ -217,7 +217,7 @@ static NSMutableArray *m_cacheBuckets;
             
             // Bucket holds weak references - if not objects will never get deallocated.
             // When an object gets deallocated the bucket item will be set to NULL.
-            // Null items can be scaveneged by calling -compact
+            // Null items can be scavenged by calling -compact
             NSPointerArray *bucket = [NSPointerArray weakObjectsPointerArray];
             
             // the cache holds weak refrences to its objects so we must retain a strong refrence to the bucket.
@@ -321,22 +321,22 @@ static NSMutableArray *m_cacheBuckets;
 #pragma mark -
 #pragma mark Logging
 
-- (void)logPrimaryInstanceCache:(DBLogInstanceCacheOptions)options
+- (void)logPrimaryInstanceCache:(DBLogPrimaryInstanceCacheOptions)options
 {
     // log number of non null items
-    NSLog(@"Number of objects: %lu", [self count]);
+    NSLog(@"cache1 count : %lu", [self count]);
 
     // log number of key value pairs
-    if (DBLogInstanceCacheKeyValuePairCount & options) {
-        NSLog(@"Number of key-value pairs keys: %lu", [self cacheMap].count);
+    if (DBLogPrimaryInstanceCacheKeyValuePairCount & options) {
+        NSLog(@"cache1 count key-value pairs keys : %lu", [self cacheMap].count);
     }
     
     // log items
-    if (DBLogInstanceCacheObjects & options) {
+    if (DBLogPrimaryInstanceCacheObjects & options) {
         
         NSUInteger idx = 1;
         for (id object in self.allObjects) {
-            NSLog(@"Cache object (%lu) : [%@] %@", idx++, [object className], object);
+            NSLog(@"cache1[%lu] object : [%@] %@", idx++, [object className], object);
         }
     }
 }
