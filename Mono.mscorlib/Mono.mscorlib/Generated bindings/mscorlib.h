@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     03/09/2018 12:23:15
+// Date:     20/09/2018 10:04:00
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -471,10 +471,8 @@
 
 /* Skipped type : System.EnvironmentVariableTarget EnvironmentVariableTarget */
 #define SEventArgs_ System_EventArgs
-
-/* Skipped type : System.EventHandler EventHandler */
-
-/* Skipped type : System.EventHandler`1<System.EventHandler`1+TEventArgs> EventHandler`1<TEventArgs> */
+#define SEventHandler_ System_EventHandler
+#define SEventHandlerA1_ System_EventHandlerA1
 #define SException_ System_Exception
 
 /* Skipped type : System.ExecutionEngineException ExecutionEngineException */
@@ -3090,6 +3088,8 @@ Assembly type imports
 #import "System_Double.h"
 #import "System_Enum.h"
 #import "System_EventArgs.h"
+#import "System_EventHandler.h"
+#import "System_EventHandlerA1.h"
 #import "System_Exception.h"
 #import "System_FuncA1.h"
 #import "System_FuncA2.h"

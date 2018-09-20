@@ -1575,6 +1575,8 @@
 		<string>System.Double</string>
 		<string>System.Enum</string>
 		<string>System.EventArgs</string>
+		<string>System.EventHandler</string>
+		<string>System.EventHandler`1</string>
 		<string>System.Exception</string>
 		<string>System.Func`1</string>
 		<string>System.Func`2</string>
