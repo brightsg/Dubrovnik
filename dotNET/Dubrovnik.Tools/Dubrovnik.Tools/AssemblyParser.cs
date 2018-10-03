@@ -241,7 +241,6 @@ namespace Dubrovnik.Tools
 					xtw.Formatting = Formatting.Indented;
 
 					xtw.WriteStartDocument();
-					//xtw.WriteProcessingInstruction("xml", "version=\"1.0\" encoding=\"utf-16\"");
 					xtw.WriteStartElement("Assembly");
 					xtw.WriteAttributeString("Name", Path.GetFileNameWithoutExtension(assemblyFileName));
 					xtw.WriteAttributeString("FullName", assembly.FullName);

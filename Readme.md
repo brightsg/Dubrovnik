@@ -219,7 +219,7 @@ Prerequisites
 =============
 - [Mono Framework](http://www.mono-project.com/Downloads) 4.4.0 or higher 64 bit compatible MDK. Make sure to download the MDK framework source version as this supplies the necessary embedded mono headers in `/Library/Frameworks/Mono.framework/headers/mono-2.0`.
 
-- The code generator requires the Microsoft.VisualStudio.TextTemplating assembly. This ships as part of the optional MS VisualStudio SDK. The correct SDK must be installed for the version of Visual Studio being used. The version of the TextTemplating assembly may change with the SDK version so it may be necessary to adjust the TextTemplating assembly reference. For Visual Studio 2013 (Version 12) the required text templating assemblies can be found in C:\Program Files (x86)\Microsoft Visual Studio 12.0\VSSDK\VisualStudioIntegration\Common\Assemblies\v4.0. Note that references to Interface assemblies for previous TextTemplating versions will likely be required.
+- The code generator requires the Microsoft.VisualStudio.TextTemplating assembly. This ships as part of the optional MS VisualStudio SDK. The correct SDK must be installed for the version of Visual Studio being used. The version of the TextTemplating assembly may change with the SDK version so it may be necessary to adjust the TextTemplating assembly reference. For Visual Studio 2015 (Version 14) the required text templating assemblies can be found in GAC MSIL. Note that references to Interface assemblies for previous TextTemplating versions will likely be required.
 
 - Some of the provided assembly bindings require the Windows commandline [nuget.exe](https://www.nuget.org/downloads) to be available on the PATH.
 

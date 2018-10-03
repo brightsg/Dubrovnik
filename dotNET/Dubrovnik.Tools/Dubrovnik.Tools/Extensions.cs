@@ -79,9 +79,7 @@ namespace Dubrovnik.Tools {
 					}
 				}
 
-				if (false) {
-					Console.WriteLine("GetFriendlyFullName :{0} : {1}", type.FullName, s);
-				}
+				// Console.WriteLine("GetFriendlyFullName :{0} : {1}", type.FullName, s);
 
 				return s;
 			}

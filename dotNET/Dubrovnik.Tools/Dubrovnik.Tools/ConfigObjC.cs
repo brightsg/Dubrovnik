@@ -362,7 +362,7 @@ namespace Dubrovnik.Tools {
 				try {
 					file = Path.Combine(outputPath, name);
 					File.Delete(file);
-				} catch (Exception e) {
+				} catch {
 					Console.WriteLine($"Could not delete output file : {file}");
 				}
 			} 
