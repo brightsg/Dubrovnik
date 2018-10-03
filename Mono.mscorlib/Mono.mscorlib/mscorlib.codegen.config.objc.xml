@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ConfigObjC xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<FilterSystemInterfaces>false</FilterSystemInterfaces>
 	<!-- In this case we mark all types (see mscorlib.types.xml) as skipped and then white list according to our requirements. -->

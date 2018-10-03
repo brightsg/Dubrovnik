@@ -87,6 +87,7 @@
     <Compile Include="Net2ObjC.Struct.cs" />
     <Compile Include="Net2ObjC.Type.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringWriterWithEncoding.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="TemplatingEngineHost.cs" />
   </ItemGroup>

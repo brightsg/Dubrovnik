@@ -74,14 +74,13 @@ namespace Dubrovnik.Reflector {
 				string outputFileName = Path.Combine(options.OutputPath, xmlFileName);
 
 				// Write assembly xml output overwriting existing files
-				// .NET default string encoding is Unicode
-				File.WriteAllText(outputFileName, xml, Encoding.Unicode);
+				File.WriteAllText(outputFileName, xml);
 
 				// parsed type names are written to <assembly name>.types.xml file name 
 				xml = assemblyParser.ParsedTypeNames();
 				xmlFileName = Path.GetFileNameWithoutExtension(inputFileName) + ".types.xml";
 				outputFileName = Path.Combine(options.OutputPath, xmlFileName);
-				File.WriteAllText(outputFileName, xml, Encoding.Unicode);
+				File.WriteAllText(outputFileName, xml);
 
 			} catch (Exception e)
 			{

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
 
@@ -233,7 +234,7 @@ namespace Dubrovnik.Tools
 			string xml;
 
 			// StringWriter
-			using (StringWriter sw = new StringWriter())
+			using (StringWriter sw = new StringWriterWithEncoding(Encoding.UTF8))
 			{
 				// TextWriter
 				using (XmlTextWriter xtw = new XmlTextWriter(sw))
@@ -482,7 +483,7 @@ namespace Dubrovnik.Tools
 			string xml;
 
 			// StringWriter
-			using (StringWriter sw = new StringWriter()) {
+			using (StringWriter sw = new StringWriterWithEncoding(Encoding.UTF8)) {
 				// TextWriter
 				using (XmlTextWriter xtw = new XmlTextWriter(sw)) {
 					xtw.Formatting = Formatting.Indented;

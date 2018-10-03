@@ -174,14 +174,13 @@ namespace Dubrovnik.Reflector.UI
 			Properties.Settings.Default.ExportPath = exportPath;
 			Properties.Settings.Default.Save();
 
-			// .NET default string encoding is Unicode
-			File.WriteAllText(dialog.FileName, _xml, Encoding.Unicode);
+			File.WriteAllText(dialog.FileName, _xml);
 
 			// parsed type names are written to <assembly name>.types.xml file name 
 			string xmlTypeNames = _assemblyParser.ParsedTypeNames();
 			string xmlFileName = Path.GetFileNameWithoutExtension(dialog.FileName) + ".types.xml";
 			string xmlFilePath = Path.Combine(Path.GetDirectoryName(dialog.FileName), xmlFileName);
-			File.WriteAllText(xmlFilePath, xmlTypeNames, Encoding.Unicode);
+			File.WriteAllText(xmlFilePath, xmlTypeNames);
 
 			MessageBox.Show(string.Format("The XML file was successfully saved to {0}.", dialog.FileName));
 		}

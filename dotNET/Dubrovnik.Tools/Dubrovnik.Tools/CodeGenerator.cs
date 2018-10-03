@@ -80,7 +80,7 @@ namespace Dubrovnik.Tools
                 string outputFileName = Path.GetFileNameWithoutExtension(templateFileName);
                 outputFileName = Path.Combine(Path.GetDirectoryName(templateFileName), outputFileName);
                 outputFileName = outputFileName + "1" + templateHost.FileExtension;
-                File.WriteAllText(outputFileName, LogText, templateHost.FileEncoding);
+                File.WriteAllText(outputFileName, LogText);
             }
 
             // format errors
