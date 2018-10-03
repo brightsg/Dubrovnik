@@ -9,11 +9,11 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     03/09/2018 11:46:22
+// Date:     10/3/2018 2:55:05 PM
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.6820.21190, Culture=neutral, PublicKeyToken=null
-// Path:     C:\Users\Jonathan\Documents\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
+// Fullname: Dubrovnik.UnitTests, Version=1.0.6850.26851, Culture=neutral, PublicKeyToken=null
+// Path:     C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.2.9200.0
 // OS Arch:  64 bit
