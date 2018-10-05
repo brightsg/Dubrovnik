@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     10/5/2018 12:17:12 PM
+// Date:     10/5/2018 1:04:05 PM
 //
 // Assembly: System
 // Fullname: System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -796,8 +796,7 @@
 /* Skipped type : System.ComponentModel.ListSortDescription ListSortDescription */
 
 /* Skipped type : System.ComponentModel.ListSortDescriptionCollection ListSortDescriptionCollection */
-
-/* Skipped type : System.ComponentModel.ListSortDirection ListSortDirection */
+#define SCListSortDirection_ System_ComponentModel_ListSortDirection
 
 /* Skipped type : System.ComponentModel.LocalizableAttribute LocalizableAttribute */
 
@@ -2062,6 +2061,7 @@ Assembly type imports
 #import "System_ComponentModel_INotifyPropertyChanging.h"
 #import "System_ComponentModel_INotifyPropertyChanging.h"
 #import "System_ComponentModel_INotifyPropertyChanging_Protocol.h"
+#import "System_ComponentModel_ListSortDirection.h"
 #import "System_ComponentModel_PropertyChangedEventArgs.h"
 #import "System_ComponentModel_PropertyChangingEventArgs.h"
 #import "System_ComponentModel_RunWorkerCompletedEventArgs.h"

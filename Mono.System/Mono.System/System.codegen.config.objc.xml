@@ -1006,6 +1006,7 @@
 		<string>System.ComponentModel.AsyncCompletedEventArgs</string>
 		<string>System.ComponentModel.INotifyPropertyChanged</string>
 		<string>System.ComponentModel.INotifyPropertyChanging</string>
+    <string>System.ComponentModel.ListSortDirection</string>
 		<string>System.ComponentModel.PropertyChangedEventArgs</string>
 		<string>System.ComponentModel.PropertyChangingEventArgs</string>
 		<string>System.ComponentModel.RunWorkerCompletedEventArgs</string>
