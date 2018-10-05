@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		AB26E0AD1E4A15C0004876FE /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB26E0AC1E4A15C0004876FE /* Mono.framework */; };
+		AB2D58DC216788E8001F7D3D /* System_Text_RegularExpressions_RegexOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2D58DA216788E8001F7D3D /* System_Text_RegularExpressions_RegexOptions.m */; };
+		AB2D58DD216788E8001F7D3D /* System_Text_RegularExpressions_RegexOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2D58DB216788E8001F7D3D /* System_Text_RegularExpressions_RegexOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2D58E021678B44001F7D3D /* System_ComponentModel_ListSortDirection.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2D58DE21678B44001F7D3D /* System_ComponentModel_ListSortDirection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2D58E121678B44001F7D3D /* System_ComponentModel_ListSortDirection.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2D58DF21678B44001F7D3D /* System_ComponentModel_ListSortDirection.m */; };
 		AB2E64EF20D311AB00582990 /* System_Net_WebResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E64E520D311A900582990 /* System_Net_WebResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E64F020D311AB00582990 /* System_Net_WebResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E64E620D311A900582990 /* System_Net_WebResponse.m */; };
 		AB2E64F120D311AB00582990 /* System_Net_WebRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E64E720D311A900582990 /* System_Net_WebRequest.m */; };
@@ -89,6 +93,10 @@
 
 /* Begin PBXFileReference section */
 		AB26E0AC1E4A15C0004876FE /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.System/../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
+		AB2D58DA216788E8001F7D3D /* System_Text_RegularExpressions_RegexOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Text_RegularExpressions_RegexOptions.m; sourceTree = "<group>"; };
+		AB2D58DB216788E8001F7D3D /* System_Text_RegularExpressions_RegexOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Text_RegularExpressions_RegexOptions.h; sourceTree = "<group>"; };
+		AB2D58DE21678B44001F7D3D /* System_ComponentModel_ListSortDirection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_ListSortDirection.h; sourceTree = "<group>"; };
+		AB2D58DF21678B44001F7D3D /* System_ComponentModel_ListSortDirection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_ListSortDirection.m; sourceTree = "<group>"; };
 		AB2E64E520D311A900582990 /* System_Net_WebResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Net_WebResponse.h; sourceTree = "<group>"; };
 		AB2E64E620D311A900582990 /* System_Net_WebResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Net_WebResponse.m; sourceTree = "<group>"; };
 		AB2E64E720D311A900582990 /* System_Net_WebRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Net_WebRequest.m; sourceTree = "<group>"; };
@@ -303,6 +311,10 @@
 		ABB813BB20D15AB700623A23 /* Generated bindings */ = {
 			isa = PBXGroup;
 			children = (
+				AB2D58DE21678B44001F7D3D /* System_ComponentModel_ListSortDirection.h */,
+				AB2D58DF21678B44001F7D3D /* System_ComponentModel_ListSortDirection.m */,
+				AB2D58DB216788E8001F7D3D /* System_Text_RegularExpressions_RegexOptions.h */,
+				AB2D58DA216788E8001F7D3D /* System_Text_RegularExpressions_RegexOptions.m */,
 				AB2E64EA20D311A900582990 /* System_Net_HttpStatusCode.h */,
 				AB2E64EB20D311AA00582990 /* System_Net_HttpStatusCode.m */,
 				AB2E64E820D311A900582990 /* System_Net_HttpWebRequest.h */,
@@ -387,6 +399,7 @@
 				ABB813EE20D15AE900623A23 /* System.h in Headers */,
 				ABB813F220D15AE900623A23 /* System_UriPartial.h in Headers */,
 				ABB8140220D15AE900623A23 /* System_UriFormat.h in Headers */,
+				AB2D58E021678B44001F7D3D /* System_ComponentModel_ListSortDirection.h in Headers */,
 				ABB813F120D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanging_Protocol.h in Headers */,
 				ABB8140B20D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanged_Protocol.h in Headers */,
 				ABB813FE20D15AE900623A23 /* System_Collections_ObjectModel_ObservableCollectionA1.h in Headers */,
@@ -397,6 +410,7 @@
 				ABA397451906BAE600D5CA6E /* Categories.h in Headers */,
 				ABA397461906BAE600D5CA6E /* Framework.h in Headers */,
 				ABA397471906BAE600D5CA6E /* GeneratedBindings.h in Headers */,
+				AB2D58DD216788E8001F7D3D /* System_Text_RegularExpressions_RegexOptions.h in Headers */,
 				ABA397481906BAE600D5CA6E /* HelperClasses.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,8 +519,10 @@
 				ABB813E920D15AE900623A23 /* System_Collections_Specialized_NotifyCollectionChangedAction.m in Sources */,
 				AB2E64F520D311AB00582990 /* System_Net_HttpStatusCode.m in Sources */,
 				ABB813ED20D15AE900623A23 /* System_Uri.m in Sources */,
+				AB2D58DC216788E8001F7D3D /* System_Text_RegularExpressions_RegexOptions.m in Sources */,
 				ABB8140920D15AE900623A23 /* System_UriPartial.m in Sources */,
 				ABB813F920D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanging.m in Sources */,
+				AB2D58E121678B44001F7D3D /* System_ComponentModel_ListSortDirection.m in Sources */,
 				ABB813F020D15AE900623A23 /* System.m in Sources */,
 				ABB8140320D15AE900623A23 /* System_UriFormat.m in Sources */,
 				AB2E64F120D311AB00582990 /* System_Net_WebRequest.m in Sources */,
