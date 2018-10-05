@@ -20,6 +20,11 @@
 @class System_Data_Entity_Core_Objects_RefreshMode;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 
@@ -52,7 +57,7 @@ typedef NS_ENUM(int32_t, enumSystem_Data_Entity_Core_Objects_RefreshMode) {
    System.Data.Entity.Core.Objects.RefreshMode
  @/textblock
 */
-+ (int32_t)clientWins;
++ (enumSystem_Data_Entity_Core_Objects_RefreshMode)clientWins;
 
 /**
  Managed field.
@@ -64,6 +69,6 @@ typedef NS_ENUM(int32_t, enumSystem_Data_Entity_Core_Objects_RefreshMode) {
    System.Data.Entity.Core.Objects.RefreshMode
  @/textblock
 */
-+ (int32_t)storeWins;
++ (enumSystem_Data_Entity_Core_Objects_RefreshMode)storeWins;
 @end
 //--Dubrovnik.CodeGenerator

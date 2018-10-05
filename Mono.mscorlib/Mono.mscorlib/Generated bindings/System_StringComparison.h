@@ -20,6 +20,11 @@
 @class System_StringComparison;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 #import "System_Enum.h"
@@ -56,7 +61,7 @@ typedef NS_ENUM(int32_t, enumSystem_StringComparison) {
    System.StringComparison
  @/textblock
 */
-+ (int32_t)currentCulture;
++ (enumSystem_StringComparison)currentCulture;
 
 /**
  Managed field.
@@ -68,7 +73,7 @@ typedef NS_ENUM(int32_t, enumSystem_StringComparison) {
    System.StringComparison
  @/textblock
 */
-+ (int32_t)currentCultureIgnoreCase;
++ (enumSystem_StringComparison)currentCultureIgnoreCase;
 
 /**
  Managed field.
@@ -80,7 +85,7 @@ typedef NS_ENUM(int32_t, enumSystem_StringComparison) {
    System.StringComparison
  @/textblock
 */
-+ (int32_t)invariantCulture;
++ (enumSystem_StringComparison)invariantCulture;
 
 /**
  Managed field.
@@ -92,7 +97,7 @@ typedef NS_ENUM(int32_t, enumSystem_StringComparison) {
    System.StringComparison
  @/textblock
 */
-+ (int32_t)invariantCultureIgnoreCase;
++ (enumSystem_StringComparison)invariantCultureIgnoreCase;
 
 /**
  Managed field.
@@ -104,7 +109,7 @@ typedef NS_ENUM(int32_t, enumSystem_StringComparison) {
    System.StringComparison
  @/textblock
 */
-+ (int32_t)ordinal;
++ (enumSystem_StringComparison)ordinal;
 
 /**
  Managed field.
@@ -116,6 +121,6 @@ typedef NS_ENUM(int32_t, enumSystem_StringComparison) {
    System.StringComparison
  @/textblock
 */
-+ (int32_t)ordinalIgnoreCase;
++ (enumSystem_StringComparison)ordinalIgnoreCase;
 @end
 //--Dubrovnik.CodeGenerator

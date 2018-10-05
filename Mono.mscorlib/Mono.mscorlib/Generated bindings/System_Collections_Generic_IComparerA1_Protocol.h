@@ -24,6 +24,11 @@
 @protocol System_Collections_Generic_IComparerA1_;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 #import "System_Collections_Generic_IComparerA1_Protocol.h"
@@ -63,7 +68,6 @@
  Properties and method predeclarations can be conditionally included in the adoption protocol if required.
 
 */
-
 
 //
 // Adoption protocol

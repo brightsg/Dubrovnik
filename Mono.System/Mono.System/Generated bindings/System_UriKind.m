@@ -33,8 +33,8 @@
 #pragma mark -
 #pragma mark Fields
 
-static int32_t m_absolute;
-+ (int32_t)absolute
+static enumSystem_UriKind m_absolute;
++ (enumSystem_UriKind)absolute
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Absolute"];
 	m_absolute = DB_UNBOX_INT32(monoObject);
@@ -42,8 +42,8 @@ static int32_t m_absolute;
 	return m_absolute;
 }
 
-static int32_t m_relative;
-+ (int32_t)relative
+static enumSystem_UriKind m_relative;
++ (enumSystem_UriKind)relative
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Relative"];
 	m_relative = DB_UNBOX_INT32(monoObject);
@@ -51,8 +51,8 @@ static int32_t m_relative;
 	return m_relative;
 }
 
-static int32_t m_relativeOrAbsolute;
-+ (int32_t)relativeOrAbsolute
+static enumSystem_UriKind m_relativeOrAbsolute;
++ (enumSystem_UriKind)relativeOrAbsolute
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"RelativeOrAbsolute"];
 	m_relativeOrAbsolute = DB_UNBOX_INT32(monoObject);

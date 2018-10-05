@@ -33,8 +33,8 @@
 #pragma mark -
 #pragma mark Fields
 
-static int32_t m_acceptAllChangesAfterSave;
-+ (int32_t)acceptAllChangesAfterSave
+static enumSystem_Data_Entity_Core_Objects_SaveOptions m_acceptAllChangesAfterSave;
++ (enumSystem_Data_Entity_Core_Objects_SaveOptions)acceptAllChangesAfterSave
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"AcceptAllChangesAfterSave"];
 	m_acceptAllChangesAfterSave = DB_UNBOX_INT32(monoObject);
@@ -42,8 +42,8 @@ static int32_t m_acceptAllChangesAfterSave;
 	return m_acceptAllChangesAfterSave;
 }
 
-static int32_t m_detectChangesBeforeSave;
-+ (int32_t)detectChangesBeforeSave
+static enumSystem_Data_Entity_Core_Objects_SaveOptions m_detectChangesBeforeSave;
++ (enumSystem_Data_Entity_Core_Objects_SaveOptions)detectChangesBeforeSave
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"DetectChangesBeforeSave"];
 	m_detectChangesBeforeSave = DB_UNBOX_INT32(monoObject);
@@ -51,8 +51,8 @@ static int32_t m_detectChangesBeforeSave;
 	return m_detectChangesBeforeSave;
 }
 
-static int32_t m_none;
-+ (int32_t)none
+static enumSystem_Data_Entity_Core_Objects_SaveOptions m_none;
++ (enumSystem_Data_Entity_Core_Objects_SaveOptions)none
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"None"];
 	m_none = DB_UNBOX_INT32(monoObject);

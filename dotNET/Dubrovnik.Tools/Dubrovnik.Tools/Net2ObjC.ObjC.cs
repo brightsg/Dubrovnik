@@ -124,10 +124,11 @@ namespace Dubrovnik.Tools {
 				// canonical type name.
 				decl = ObjCIdentifierFromManagedIdentifier(managedType);
 
-				// if ObjC rep is NSObject or pointer then append deref operator.
-				//if (ObjCRepresentationIsObject(managedFacet) || managedFacet.IsPointer) {
-				decl += " *";
-				//}
+                if (managedFacet.IsEnum) {
+                    decl = "enum" + decl;
+                } else {
+                    decl += " *";
+                }
 			}
 
 			return decl;
@@ -224,13 +225,64 @@ namespace Dubrovnik.Tools {
 			return imports;
 		}
 
-		/// <summary>
-		/// Returns all ObjC import directives required to fully derive an ObjC class from its subclass and its adopted protocols.
-		/// These directives constitute the minimum required to define a class in an ObjC interface header file.
+        /// <summary>
+		/// Returns additional required ObjC import directives.
 		/// </summary>
-		/// <param name="facet">Facet</param>
-		/// <returns>List of ObjC import directives.</returns>
-		public List<string> ObjCDerivationImportDirectives(CodeFacet facet) {
+		/// <param name="facet"></param>
+		/// <returns></returns>
+		public List<string> ObjCImportDirectives(CodeFacet facet, bool filter = true)
+        {
+            List<string> imports = new List<string>();
+
+            if (!Config.GenerateFacetBinding(facet)) {
+                return imports;
+            }
+
+            // objC type
+            // note that a constructor has no return type
+            string objCType = facet.ObjCFacet.Type;
+            string importStr = null;
+            if (!string.IsNullOrEmpty(objCType)) {
+
+                // we only need to import types defined in the current assembly.
+                // other types will be imported via their own assembly's header
+                if (AssemblyFacet.DefinesFacetType(facet.Type)) {
+                
+                    // if the type is an enum
+                    if (facet.IsEnum) {
+                        objCType = facet.ObjCFacet.Type;
+                        importStr = $"#import \"{objCType}.h\"";
+                        imports.Add(importStr);
+                    }
+                }
+            }
+
+            // forward declare objC facet types for all children
+            List<CodeFacet> children = facet.Children();
+            foreach (CodeFacet child in children) {
+                imports.AddRange(ObjCImportDirectives(child, false));
+            }
+
+            // remove duplicates
+            imports = imports.Distinct().ToList();
+            imports.Sort();
+
+            // the filter ensures that the import list doesn't include
+            // the header that the import directives will be inserted into
+            if (filter && importStr != null) {
+                imports.Remove(importStr);
+            }
+
+            return imports;
+        }
+
+        /// <summary>
+        /// Returns all ObjC import directives required to fully derive an ObjC class from its subclass and its adopted protocols.
+        /// These directives constitute the minimum required to define a class in an ObjC interface header file.
+        /// </summary>
+        /// <param name="facet">Facet</param>
+        /// <returns>List of ObjC import directives.</returns>
+        public List<string> ObjCDerivationImportDirectives(CodeFacet facet) {
 			List<string> imports = new List<string>();
 
 			// iterate over the sub facets required to derive the native representation
@@ -282,7 +334,6 @@ namespace Dubrovnik.Tools {
 					if (!AssemblyFacet.DefinesFacetType(baseType)) {
 						continue;
 					}
-
 
 					// if we are not generating bindings for the given type then
 					// a header file won't be available
@@ -400,8 +451,8 @@ namespace Dubrovnik.Tools {
 
 			// if type is an enum then use its underlying type
 			if (managedFacet.IsEnum) {
-				managedType = managedFacet.UnderlyingType;
-			}
+                managedType = managedFacet.UnderlyingType;
+            }
 
 			// retrieve an ObjCTypeAssociation for the given managedType
 			string key = ObjCTypeAssociation.UniqueTypeName(objCTypeDecl, managedType);

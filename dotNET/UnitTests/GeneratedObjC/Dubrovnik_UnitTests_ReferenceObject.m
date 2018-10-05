@@ -132,14 +132,14 @@ static NSString * m_classStringField;
 }
 
 @synthesize intEnumField = _intEnumField;
-- (int32_t)intEnumField
+- (enumDubrovnik_UnitTests_IntEnum)intEnumField
 {
 	MonoObject *monoObject = [self getMonoField:"IntEnumField"];
 	_intEnumField = DB_UNBOX_INT32(monoObject);
 
 	return _intEnumField;
 }
-- (void)setIntEnumField:(int32_t)value
+- (void)setIntEnumField:(enumDubrovnik_UnitTests_IntEnum)value
 {
 	_intEnumField = value;
 	MonoObject *monoObject = DB_VALUE(value);
@@ -162,14 +162,14 @@ static NSString * m_classStringField;
 }
 
 @synthesize longEnumField = _longEnumField;
-- (int64_t)longEnumField
+- (enumDubrovnik_UnitTests_LongEnum)longEnumField
 {
 	MonoObject *monoObject = [self getMonoField:"LongEnumField"];
 	_longEnumField = DB_UNBOX_INT64(monoObject);
 
 	return _longEnumField;
 }
-- (void)setLongEnumField:(int64_t)value
+- (void)setLongEnumField:(enumDubrovnik_UnitTests_LongEnum)value
 {
 	_longEnumField = value;
 	MonoObject *monoObject = DB_VALUE(value);
@@ -821,9 +821,9 @@ static NSString * m_classStringProperty;
 }
 
 @synthesize intEnumeration = _intEnumeration;
-- (int32_t)intEnumeration
+- (enumDubrovnik_UnitTests_IntEnum)intEnumeration
 {
-	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	typedef enumDubrovnik_UnitTests_IntEnum (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;
 	static MonoClass* thunkClass;
 	MonoObject* monoException = NULL;
@@ -832,16 +832,16 @@ static NSString * m_classStringProperty;
 		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IntEnumeration");
 		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-	int32_t monoObject = thunk(self.monoObject, &monoException);
+	enumDubrovnik_UnitTests_IntEnum monoObject = thunk(self.monoObject, &monoException);
 	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	_intEnumeration = monoObject;
 
 	return _intEnumeration;
 }
-- (void)setIntEnumeration:(int32_t)value
+- (void)setIntEnumeration:(enumDubrovnik_UnitTests_IntEnum)value
 {
 	_intEnumeration = value;
-	typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+	typedef void (*Thunk)(MonoObject *, enumDubrovnik_UnitTests_IntEnum, MonoObject**);
 	static Thunk thunk;
 	static MonoClass* thunkClass;
 	MonoObject* monoException = NULL;
@@ -1064,9 +1064,9 @@ static NSString * m_classStringProperty;
 }
 
 @synthesize longEnumeration = _longEnumeration;
-- (int64_t)longEnumeration
+- (enumDubrovnik_UnitTests_LongEnum)longEnumeration
 {
-	typedef int64_t (*Thunk)(MonoObject *, MonoObject**);
+	typedef enumDubrovnik_UnitTests_LongEnum (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;
 	static MonoClass* thunkClass;
 	MonoObject* monoException = NULL;
@@ -1075,16 +1075,16 @@ static NSString * m_classStringProperty;
 		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "LongEnumeration");
 		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-	int64_t monoObject = thunk(self.monoObject, &monoException);
+	enumDubrovnik_UnitTests_LongEnum monoObject = thunk(self.monoObject, &monoException);
 	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	_longEnumeration = monoObject;
 
 	return _longEnumeration;
 }
-- (void)setLongEnumeration:(int64_t)value
+- (void)setLongEnumeration:(enumDubrovnik_UnitTests_LongEnum)value
 {
 	_longEnumeration = value;
-	typedef void (*Thunk)(MonoObject *, int64_t, MonoObject**);
+	typedef void (*Thunk)(MonoObject *, enumDubrovnik_UnitTests_LongEnum, MonoObject**);
 	static Thunk thunk;
 	static MonoClass* thunkClass;
 	MonoObject* monoException = NULL;
@@ -1867,12 +1867,12 @@ static NSString * m_classStringProperty;
 	[self invokeMonoMethod:"NestedTypeParameter(Dubrovnik.UnitTests.ReferenceObject/NestedClass)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
-- (void)nestedTypeParameter_withP1DUReferenceObject__NestedEnum:(int32_t)p1
+- (void)nestedTypeParameter_withP1DUReferenceObject__NestedEnum:(enumDubrovnik_UnitTests_ReferenceObject__NestedEnum)p1
 {
 	[self invokeMonoMethod:"NestedTypeParameter(Dubrovnik.UnitTests.ReferenceObject/NestedEnum)" withNumArgs:1, DB_VALUE(p1)];
 }
 
-- (void)nestedTypeParameters_withP1:(Dubrovnik_UnitTests_ReferenceObject__NestedClass *)p1 p2:(int32_t)p2
+- (void)nestedTypeParameters_withP1:(Dubrovnik_UnitTests_ReferenceObject__NestedClass *)p1 p2:(enumDubrovnik_UnitTests_ReferenceObject__NestedEnum)p2
 {
 	[self invokeMonoMethod:"NestedTypeParameters(Dubrovnik.UnitTests.ReferenceObject/NestedClass,Dubrovnik.UnitTests.ReferenceObject/NestedEnum)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 }

@@ -33,8 +33,8 @@
 #pragma mark -
 #pragma mark Fields
 
-static int32_t m_local;
-+ (int32_t)local
+static enumSystem_DateTimeKind m_local;
++ (enumSystem_DateTimeKind)local
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Local"];
 	m_local = DB_UNBOX_INT32(monoObject);
@@ -42,8 +42,8 @@ static int32_t m_local;
 	return m_local;
 }
 
-static int32_t m_unspecified;
-+ (int32_t)unspecified
+static enumSystem_DateTimeKind m_unspecified;
++ (enumSystem_DateTimeKind)unspecified
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Unspecified"];
 	m_unspecified = DB_UNBOX_INT32(monoObject);
@@ -51,8 +51,8 @@ static int32_t m_unspecified;
 	return m_unspecified;
 }
 
-static int32_t m_utc;
-+ (int32_t)utc
+static enumSystem_DateTimeKind m_utc;
++ (enumSystem_DateTimeKind)utc
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Utc"];
 	m_utc = DB_UNBOX_INT32(monoObject);

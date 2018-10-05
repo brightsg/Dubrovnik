@@ -20,6 +20,11 @@
 @class System_Data_Entity_EntityState;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 
@@ -55,7 +60,7 @@ typedef NS_ENUM(int32_t, enumSystem_Data_Entity_EntityState) {
    System.Data.Entity.EntityState
  @/textblock
 */
-+ (int32_t)added;
++ (enumSystem_Data_Entity_EntityState)added;
 
 /**
  Managed field.
@@ -67,7 +72,7 @@ typedef NS_ENUM(int32_t, enumSystem_Data_Entity_EntityState) {
    System.Data.Entity.EntityState
  @/textblock
 */
-+ (int32_t)deleted;
++ (enumSystem_Data_Entity_EntityState)deleted;
 
 /**
  Managed field.
@@ -79,7 +84,7 @@ typedef NS_ENUM(int32_t, enumSystem_Data_Entity_EntityState) {
    System.Data.Entity.EntityState
  @/textblock
 */
-+ (int32_t)detached;
++ (enumSystem_Data_Entity_EntityState)detached;
 
 /**
  Managed field.
@@ -91,7 +96,7 @@ typedef NS_ENUM(int32_t, enumSystem_Data_Entity_EntityState) {
    System.Data.Entity.EntityState
  @/textblock
 */
-+ (int32_t)modified;
++ (enumSystem_Data_Entity_EntityState)modified;
 
 /**
  Managed field.
@@ -103,6 +108,6 @@ typedef NS_ENUM(int32_t, enumSystem_Data_Entity_EntityState) {
    System.Data.Entity.EntityState
  @/textblock
 */
-+ (int32_t)unchanged;
++ (enumSystem_Data_Entity_EntityState)unchanged;
 @end
 //--Dubrovnik.CodeGenerator

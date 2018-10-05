@@ -37,6 +37,11 @@
 @protocol System_Collections_Generic_IEnumeratorA1_;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 //#import "System_Data_Entity_Core_Objects_DataClasses_RelatedEnd.h" // class base defaults to System.Object

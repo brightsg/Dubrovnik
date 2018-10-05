@@ -33,8 +33,8 @@
 #pragma mark -
 #pragma mark Fields
 
-static int32_t m_archive;
-+ (int32_t)archive
+static enumSystem_IO_FileAttributes m_archive;
++ (enumSystem_IO_FileAttributes)archive
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Archive"];
 	m_archive = DB_UNBOX_INT32(monoObject);
@@ -42,8 +42,8 @@ static int32_t m_archive;
 	return m_archive;
 }
 
-static int32_t m_compressed;
-+ (int32_t)compressed
+static enumSystem_IO_FileAttributes m_compressed;
++ (enumSystem_IO_FileAttributes)compressed
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Compressed"];
 	m_compressed = DB_UNBOX_INT32(monoObject);
@@ -51,8 +51,8 @@ static int32_t m_compressed;
 	return m_compressed;
 }
 
-static int32_t m_device;
-+ (int32_t)device
+static enumSystem_IO_FileAttributes m_device;
++ (enumSystem_IO_FileAttributes)device
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Device"];
 	m_device = DB_UNBOX_INT32(monoObject);
@@ -60,8 +60,8 @@ static int32_t m_device;
 	return m_device;
 }
 
-static int32_t m_directory;
-+ (int32_t)directory
+static enumSystem_IO_FileAttributes m_directory;
++ (enumSystem_IO_FileAttributes)directory
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Directory"];
 	m_directory = DB_UNBOX_INT32(monoObject);
@@ -69,8 +69,8 @@ static int32_t m_directory;
 	return m_directory;
 }
 
-static int32_t m_encrypted;
-+ (int32_t)encrypted
+static enumSystem_IO_FileAttributes m_encrypted;
++ (enumSystem_IO_FileAttributes)encrypted
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Encrypted"];
 	m_encrypted = DB_UNBOX_INT32(monoObject);
@@ -78,8 +78,8 @@ static int32_t m_encrypted;
 	return m_encrypted;
 }
 
-static int32_t m_hidden;
-+ (int32_t)hidden
+static enumSystem_IO_FileAttributes m_hidden;
++ (enumSystem_IO_FileAttributes)hidden
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Hidden"];
 	m_hidden = DB_UNBOX_INT32(monoObject);
@@ -87,8 +87,8 @@ static int32_t m_hidden;
 	return m_hidden;
 }
 
-static int32_t m_integrityStream;
-+ (int32_t)integrityStream
+static enumSystem_IO_FileAttributes m_integrityStream;
++ (enumSystem_IO_FileAttributes)integrityStream
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"IntegrityStream"];
 	m_integrityStream = DB_UNBOX_INT32(monoObject);
@@ -96,8 +96,8 @@ static int32_t m_integrityStream;
 	return m_integrityStream;
 }
 
-static int32_t m_normal;
-+ (int32_t)normal
+static enumSystem_IO_FileAttributes m_normal;
++ (enumSystem_IO_FileAttributes)normal
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Normal"];
 	m_normal = DB_UNBOX_INT32(monoObject);
@@ -105,8 +105,8 @@ static int32_t m_normal;
 	return m_normal;
 }
 
-static int32_t m_noScrubData;
-+ (int32_t)noScrubData
+static enumSystem_IO_FileAttributes m_noScrubData;
++ (enumSystem_IO_FileAttributes)noScrubData
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"NoScrubData"];
 	m_noScrubData = DB_UNBOX_INT32(monoObject);
@@ -114,8 +114,8 @@ static int32_t m_noScrubData;
 	return m_noScrubData;
 }
 
-static int32_t m_notContentIndexed;
-+ (int32_t)notContentIndexed
+static enumSystem_IO_FileAttributes m_notContentIndexed;
++ (enumSystem_IO_FileAttributes)notContentIndexed
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"NotContentIndexed"];
 	m_notContentIndexed = DB_UNBOX_INT32(monoObject);
@@ -123,8 +123,8 @@ static int32_t m_notContentIndexed;
 	return m_notContentIndexed;
 }
 
-static int32_t m_offline;
-+ (int32_t)offline
+static enumSystem_IO_FileAttributes m_offline;
++ (enumSystem_IO_FileAttributes)offline
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Offline"];
 	m_offline = DB_UNBOX_INT32(monoObject);
@@ -132,8 +132,8 @@ static int32_t m_offline;
 	return m_offline;
 }
 
-static int32_t m_readOnly;
-+ (int32_t)readOnly
+static enumSystem_IO_FileAttributes m_readOnly;
++ (enumSystem_IO_FileAttributes)readOnly
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"ReadOnly"];
 	m_readOnly = DB_UNBOX_INT32(monoObject);
@@ -141,8 +141,8 @@ static int32_t m_readOnly;
 	return m_readOnly;
 }
 
-static int32_t m_reparsePoint;
-+ (int32_t)reparsePoint
+static enumSystem_IO_FileAttributes m_reparsePoint;
++ (enumSystem_IO_FileAttributes)reparsePoint
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"ReparsePoint"];
 	m_reparsePoint = DB_UNBOX_INT32(monoObject);
@@ -150,8 +150,8 @@ static int32_t m_reparsePoint;
 	return m_reparsePoint;
 }
 
-static int32_t m_sparseFile;
-+ (int32_t)sparseFile
+static enumSystem_IO_FileAttributes m_sparseFile;
++ (enumSystem_IO_FileAttributes)sparseFile
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"SparseFile"];
 	m_sparseFile = DB_UNBOX_INT32(monoObject);
@@ -159,8 +159,8 @@ static int32_t m_sparseFile;
 	return m_sparseFile;
 }
 
-static int32_t m_system;
-+ (int32_t)system
+static enumSystem_IO_FileAttributes m_system;
++ (enumSystem_IO_FileAttributes)system
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"System"];
 	m_system = DB_UNBOX_INT32(monoObject);
@@ -168,8 +168,8 @@ static int32_t m_system;
 	return m_system;
 }
 
-static int32_t m_temporary;
-+ (int32_t)temporary
+static enumSystem_IO_FileAttributes m_temporary;
++ (enumSystem_IO_FileAttributes)temporary
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Temporary"];
 	m_temporary = DB_UNBOX_INT32(monoObject);

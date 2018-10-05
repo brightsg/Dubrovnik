@@ -20,6 +20,11 @@
 @class System_IO_FileAttributes;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 #import "System_Enum.h"
@@ -66,7 +71,7 @@ typedef NS_ENUM(int32_t, enumSystem_IO_FileAttributes) {
    System.IO.FileAttributes
  @/textblock
 */
-+ (int32_t)archive;
++ (enumSystem_IO_FileAttributes)archive;
 
 /**
  Managed field.
@@ -78,7 +83,7 @@ typedef NS_ENUM(int32_t, enumSystem_IO_FileAttributes) {
    System.IO.FileAttributes
  @/textblock
 */
-+ (int32_t)compressed;
++ (enumSystem_IO_FileAttributes)compressed;
 
 /**
  Managed field.
@@ -90,7 +95,7 @@ typedef NS_ENUM(int32_t, enumSystem_IO_FileAttributes) {
    System.IO.FileAttributes
  @/textblock
 */
-+ (int32_t)device;
++ (enumSystem_IO_FileAttributes)device;
 
 /**
  Managed field.
@@ -102,7 +107,7 @@ typedef NS_ENUM(int32_t, enumSystem_IO_FileAttributes) {
    System.IO.FileAttributes
  @/textblock
 */
-+ (int32_t)directory;
++ (enumSystem_IO_FileAttributes)directory;
 
 /**
  Managed field.
@@ -114,7 +119,7 @@ typedef NS_ENUM(int32_t, enumSystem_IO_FileAttributes) {
    System.IO.FileAttributes
  @/textblock
 */
-+ (int32_t)encrypted;
++ (enumSystem_IO_FileAttributes)encrypted;
 
 /**
  Managed field.
@@ -126,7 +131,7 @@ typedef NS_ENUM(int32_t, enumSystem_IO_FileAttributes) {
    System.IO.FileAttributes
  @/textblock
 */
-+ (int32_t)hidden;
++ (enumSystem_IO_FileAttributes)hidden;
 
 /**
  Managed field.
@@ -138,7 +143,7 @@ typedef NS_ENUM(int32_t, enumSystem_IO_FileAttributes) {
    System.IO.FileAttributes
  @/textblock
 */
-+ (int32_t)integrityStream;
++ (enumSystem_IO_FileAttributes)integrityStream;
 
 /**
  Managed field.
@@ -150,7 +155,7 @@ typedef NS_ENUM(int32_t, enumSystem_IO_FileAttributes) {
    System.IO.FileAttributes
  @/textblock
 */
-+ (int32_t)normal;
++ (enumSystem_IO_FileAttributes)normal;
 
 /**
  Managed field.
@@ -162,7 +167,7 @@ typedef NS_ENUM(int32_t, enumSystem_IO_FileAttributes) {
    System.IO.FileAttributes
  @/textblock
 */
-+ (int32_t)noScrubData;
++ (enumSystem_IO_FileAttributes)noScrubData;
 
 /**
  Managed field.
@@ -174,7 +179,7 @@ typedef NS_ENUM(int32_t, enumSystem_IO_FileAttributes) {
    System.IO.FileAttributes
  @/textblock
 */
-+ (int32_t)notContentIndexed;
++ (enumSystem_IO_FileAttributes)notContentIndexed;
 
 /**
  Managed field.
@@ -186,7 +191,7 @@ typedef NS_ENUM(int32_t, enumSystem_IO_FileAttributes) {
    System.IO.FileAttributes
  @/textblock
 */
-+ (int32_t)offline;
++ (enumSystem_IO_FileAttributes)offline;
 
 /**
  Managed field.
@@ -198,7 +203,7 @@ typedef NS_ENUM(int32_t, enumSystem_IO_FileAttributes) {
    System.IO.FileAttributes
  @/textblock
 */
-+ (int32_t)readOnly;
++ (enumSystem_IO_FileAttributes)readOnly;
 
 /**
  Managed field.
@@ -210,7 +215,7 @@ typedef NS_ENUM(int32_t, enumSystem_IO_FileAttributes) {
    System.IO.FileAttributes
  @/textblock
 */
-+ (int32_t)reparsePoint;
++ (enumSystem_IO_FileAttributes)reparsePoint;
 
 /**
  Managed field.
@@ -222,7 +227,7 @@ typedef NS_ENUM(int32_t, enumSystem_IO_FileAttributes) {
    System.IO.FileAttributes
  @/textblock
 */
-+ (int32_t)sparseFile;
++ (enumSystem_IO_FileAttributes)sparseFile;
 
 /**
  Managed field.
@@ -234,7 +239,7 @@ typedef NS_ENUM(int32_t, enumSystem_IO_FileAttributes) {
    System.IO.FileAttributes
  @/textblock
 */
-+ (int32_t)system;
++ (enumSystem_IO_FileAttributes)system;
 
 /**
  Managed field.
@@ -246,6 +251,6 @@ typedef NS_ENUM(int32_t, enumSystem_IO_FileAttributes) {
    System.IO.FileAttributes
  @/textblock
 */
-+ (int32_t)temporary;
++ (enumSystem_IO_FileAttributes)temporary;
 @end
 //--Dubrovnik.CodeGenerator

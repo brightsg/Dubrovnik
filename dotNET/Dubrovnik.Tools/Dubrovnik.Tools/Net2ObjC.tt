@@ -97,6 +97,7 @@ public void WriteModuleBanner(CodeFacet facet, string module)
 		List<string> declarations =  ObjCForwardDeclarations(facet);
 		string forwardDeclarations = String.Join("\n", declarations);
 		string derivationImportDirectives = String.Join("\n", ObjCDerivationImportDirectives(facet));
+		string importDirectives = String.Join("\n", ObjCImportDirectives(facet));
 #>
 //
 // Frameworks
@@ -114,6 +115,11 @@ public void WriteModuleBanner(CodeFacet facet, string module)
 // Forward class and protocol declarations
 //
 <#=forwardDeclarations#>
+
+//
+// Local assembly imports
+//
+<#=importDirectives#>
 
 //
 // Import superclass and adopted protocols
@@ -304,7 +310,6 @@ public void WriteProtocolStart(InterfaceFacet facet, string module, bool writeIm
  Properties and method predeclarations can be conditionally included in the adoption protocol if required.
 
 */
-
 
 //
 // Adoption protocol

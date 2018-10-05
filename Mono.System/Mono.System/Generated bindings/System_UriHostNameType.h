@@ -20,6 +20,11 @@
 @class System_UriHostNameType;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 
@@ -55,7 +60,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriHostNameType) {
    System.UriHostNameType
  @/textblock
 */
-+ (int32_t)basic;
++ (enumSystem_UriHostNameType)basic;
 
 /**
  Managed field.
@@ -67,7 +72,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriHostNameType) {
    System.UriHostNameType
  @/textblock
 */
-+ (int32_t)dns;
++ (enumSystem_UriHostNameType)dns;
 
 /**
  Managed field.
@@ -79,7 +84,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriHostNameType) {
    System.UriHostNameType
  @/textblock
 */
-+ (int32_t)iPv4;
++ (enumSystem_UriHostNameType)iPv4;
 
 /**
  Managed field.
@@ -91,7 +96,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriHostNameType) {
    System.UriHostNameType
  @/textblock
 */
-+ (int32_t)iPv6;
++ (enumSystem_UriHostNameType)iPv6;
 
 /**
  Managed field.
@@ -103,6 +108,6 @@ typedef NS_ENUM(int32_t, enumSystem_UriHostNameType) {
    System.UriHostNameType
  @/textblock
 */
-+ (int32_t)unknown;
++ (enumSystem_UriHostNameType)unknown;
 @end
 //--Dubrovnik.CodeGenerator

@@ -20,6 +20,11 @@
 @class System_Data_Entity_Core_Objects_SaveOptions;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 
@@ -53,7 +58,7 @@ typedef NS_ENUM(int32_t, enumSystem_Data_Entity_Core_Objects_SaveOptions) {
    System.Data.Entity.Core.Objects.SaveOptions
  @/textblock
 */
-+ (int32_t)acceptAllChangesAfterSave;
++ (enumSystem_Data_Entity_Core_Objects_SaveOptions)acceptAllChangesAfterSave;
 
 /**
  Managed field.
@@ -65,7 +70,7 @@ typedef NS_ENUM(int32_t, enumSystem_Data_Entity_Core_Objects_SaveOptions) {
    System.Data.Entity.Core.Objects.SaveOptions
  @/textblock
 */
-+ (int32_t)detectChangesBeforeSave;
++ (enumSystem_Data_Entity_Core_Objects_SaveOptions)detectChangesBeforeSave;
 
 /**
  Managed field.
@@ -77,6 +82,6 @@ typedef NS_ENUM(int32_t, enumSystem_Data_Entity_Core_Objects_SaveOptions) {
    System.Data.Entity.Core.Objects.SaveOptions
  @/textblock
 */
-+ (int32_t)none;
++ (enumSystem_Data_Entity_Core_Objects_SaveOptions)none;
 @end
 //--Dubrovnik.CodeGenerator

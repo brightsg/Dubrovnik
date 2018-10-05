@@ -25,6 +25,11 @@
 @protocol Dubrovnik_UnitTests_ITestProperty_;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 #import "Dubrovnik_UnitTests_IReferenceObjectBase_Protocol.h"
@@ -63,7 +68,6 @@
  Properties and method predeclarations can be conditionally included in the adoption protocol if required.
 
 */
-
 
 //
 // Adoption protocol

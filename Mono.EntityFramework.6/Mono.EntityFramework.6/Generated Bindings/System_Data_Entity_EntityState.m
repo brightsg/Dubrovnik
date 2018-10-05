@@ -33,8 +33,8 @@
 #pragma mark -
 #pragma mark Fields
 
-static int32_t m_added;
-+ (int32_t)added
+static enumSystem_Data_Entity_EntityState m_added;
++ (enumSystem_Data_Entity_EntityState)added
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Added"];
 	m_added = DB_UNBOX_INT32(monoObject);
@@ -42,8 +42,8 @@ static int32_t m_added;
 	return m_added;
 }
 
-static int32_t m_deleted;
-+ (int32_t)deleted
+static enumSystem_Data_Entity_EntityState m_deleted;
++ (enumSystem_Data_Entity_EntityState)deleted
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Deleted"];
 	m_deleted = DB_UNBOX_INT32(monoObject);
@@ -51,8 +51,8 @@ static int32_t m_deleted;
 	return m_deleted;
 }
 
-static int32_t m_detached;
-+ (int32_t)detached
+static enumSystem_Data_Entity_EntityState m_detached;
++ (enumSystem_Data_Entity_EntityState)detached
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Detached"];
 	m_detached = DB_UNBOX_INT32(monoObject);
@@ -60,8 +60,8 @@ static int32_t m_detached;
 	return m_detached;
 }
 
-static int32_t m_modified;
-+ (int32_t)modified
+static enumSystem_Data_Entity_EntityState m_modified;
++ (enumSystem_Data_Entity_EntityState)modified
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Modified"];
 	m_modified = DB_UNBOX_INT32(monoObject);
@@ -69,8 +69,8 @@ static int32_t m_modified;
 	return m_modified;
 }
 
-static int32_t m_unchanged;
-+ (int32_t)unchanged
+static enumSystem_Data_Entity_EntityState m_unchanged;
++ (enumSystem_Data_Entity_EntityState)unchanged
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Unchanged"];
 	m_unchanged = DB_UNBOX_INT32(monoObject);

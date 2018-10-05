@@ -33,8 +33,8 @@
 #pragma mark -
 #pragma mark Fields
 
-static int32_t m_clientWins;
-+ (int32_t)clientWins
+static enumSystem_Data_Entity_Core_Objects_RefreshMode m_clientWins;
++ (enumSystem_Data_Entity_Core_Objects_RefreshMode)clientWins
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"ClientWins"];
 	m_clientWins = DB_UNBOX_INT32(monoObject);
@@ -42,8 +42,8 @@ static int32_t m_clientWins;
 	return m_clientWins;
 }
 
-static int32_t m_storeWins;
-+ (int32_t)storeWins
+static enumSystem_Data_Entity_Core_Objects_RefreshMode m_storeWins;
++ (enumSystem_Data_Entity_Core_Objects_RefreshMode)storeWins
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"StoreWins"];
 	m_storeWins = DB_UNBOX_INT32(monoObject);

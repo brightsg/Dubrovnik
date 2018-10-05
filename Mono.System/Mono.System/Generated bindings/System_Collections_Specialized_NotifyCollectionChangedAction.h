@@ -20,6 +20,11 @@
 @class System_Collections_Specialized_NotifyCollectionChangedAction;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 
@@ -55,7 +60,7 @@ typedef NS_ENUM(int32_t, enumSystem_Collections_Specialized_NotifyCollectionChan
    System.Collections.Specialized.NotifyCollectionChangedAction
  @/textblock
 */
-+ (int32_t)add;
++ (enumSystem_Collections_Specialized_NotifyCollectionChangedAction)add;
 
 /**
  Managed field.
@@ -67,7 +72,7 @@ typedef NS_ENUM(int32_t, enumSystem_Collections_Specialized_NotifyCollectionChan
    System.Collections.Specialized.NotifyCollectionChangedAction
  @/textblock
 */
-+ (int32_t)move;
++ (enumSystem_Collections_Specialized_NotifyCollectionChangedAction)move;
 
 /**
  Managed field.
@@ -79,7 +84,7 @@ typedef NS_ENUM(int32_t, enumSystem_Collections_Specialized_NotifyCollectionChan
    System.Collections.Specialized.NotifyCollectionChangedAction
  @/textblock
 */
-+ (int32_t)remove;
++ (enumSystem_Collections_Specialized_NotifyCollectionChangedAction)remove;
 
 /**
  Managed field.
@@ -91,7 +96,7 @@ typedef NS_ENUM(int32_t, enumSystem_Collections_Specialized_NotifyCollectionChan
    System.Collections.Specialized.NotifyCollectionChangedAction
  @/textblock
 */
-+ (int32_t)replace;
++ (enumSystem_Collections_Specialized_NotifyCollectionChangedAction)replace;
 
 /**
  Managed field.
@@ -103,6 +108,6 @@ typedef NS_ENUM(int32_t, enumSystem_Collections_Specialized_NotifyCollectionChan
    System.Collections.Specialized.NotifyCollectionChangedAction
  @/textblock
 */
-+ (int32_t)reset;
++ (enumSystem_Collections_Specialized_NotifyCollectionChangedAction)reset;
 @end
 //--Dubrovnik.CodeGenerator

@@ -39,6 +39,12 @@
 @class System_Type;
 
 //
+// Local assembly imports
+//
+#import "System_Reflection_GenericParameterAttributes.h"
+#import "System_Reflection_TypeAttributes.h"
+
+//
 // Import superclass and adopted protocols
 //
 #import "System_Reflection_MemberInfo.h"
@@ -163,7 +169,7 @@
    System.Reflection.TypeAttributes
  @/textblock
 */
-@property (nonatomic, readonly) int32_t attributes;
+@property (nonatomic, readonly) enumSystem_Reflection_TypeAttributes attributes;
 
 /**
  Managed property.
@@ -247,7 +253,7 @@
    System.Reflection.GenericParameterAttributes
  @/textblock
 */
-@property (nonatomic, readonly) int32_t genericParameterAttributes;
+@property (nonatomic, readonly) enumSystem_Reflection_GenericParameterAttributes genericParameterAttributes;
 
 /**
  Managed property.

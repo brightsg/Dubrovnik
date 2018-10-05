@@ -53,9 +53,9 @@
 }
 
 @synthesize dayOfWeek = _dayOfWeek;
-- (int32_t)dayOfWeek
+- (enumSystem_DayOfWeek)dayOfWeek
 {
-	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	typedef enumSystem_DayOfWeek (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;
 	static MonoClass* thunkClass;
 	MonoObject* monoException = NULL;
@@ -64,7 +64,7 @@
 		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "DayOfWeek");
 		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-	int32_t monoObject = thunk(self.monoObject, &monoException);
+	enumSystem_DayOfWeek monoObject = thunk(self.monoObject, &monoException);
 	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	_dayOfWeek = monoObject;
 
@@ -157,7 +157,7 @@
 	return [System_TimeZoneInfo__TransitionTime bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_TimeZoneInfo__TransitionTime *)createFloatingDateRule_withTimeOfDay:(NSDate *)p1 month:(int32_t)p2 week:(int32_t)p3 dayOfWeek:(int32_t)p4
++ (System_TimeZoneInfo__TransitionTime *)createFloatingDateRule_withTimeOfDay:(NSDate *)p1 month:(int32_t)p2 week:(int32_t)p3 dayOfWeek:(enumSystem_DayOfWeek)p4
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFloatingDateRule(System.DateTime,int,int,System.DayOfWeek)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
 	return [System_TimeZoneInfo__TransitionTime bestObjectWithMonoObject:monoObject];

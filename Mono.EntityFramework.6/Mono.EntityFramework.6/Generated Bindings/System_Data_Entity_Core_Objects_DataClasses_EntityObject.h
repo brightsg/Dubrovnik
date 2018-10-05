@@ -23,6 +23,11 @@
 @class System_Data_Entity_EntityState;
 
 //
+// Local assembly imports
+//
+#import "System_Data_Entity_EntityState.h"
+
+//
 // Import superclass and adopted protocols
 //
 //#import "System_Data_Entity_Core_Objects_DataClasses_StructuralObject.h" // class base defaults to System.Object
@@ -50,6 +55,6 @@
    System.Data.Entity.EntityState
  @/textblock
 */
-@property (nonatomic, readonly) int32_t entityState;
+@property (nonatomic, readonly) enumSystem_Data_Entity_EntityState entityState;
 @end
 //--Dubrovnik.CodeGenerator

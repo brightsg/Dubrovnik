@@ -85,9 +85,9 @@
 /* Skipped property : System.Data.Entity.Core.Objects.DataClasses.RelationshipManager RelationshipManager */
 
 @synthesize state = _state;
-- (int32_t)state
+- (enumSystem_Data_Entity_EntityState)state
 {
-	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	typedef enumSystem_Data_Entity_EntityState (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;
 	static MonoClass* thunkClass;
 	MonoObject* monoException = NULL;
@@ -96,16 +96,16 @@
 		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "State");
 		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-	int32_t monoObject = thunk(self.monoObject, &monoException);
+	enumSystem_Data_Entity_EntityState monoObject = thunk(self.monoObject, &monoException);
 	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	_state = monoObject;
 
 	return _state;
 }
-- (void)setState:(int32_t)value
+- (void)setState:(enumSystem_Data_Entity_EntityState)value
 {
 	_state = value;
-	typedef void (*Thunk)(MonoObject *, int32_t, MonoObject**);
+	typedef void (*Thunk)(MonoObject *, enumSystem_Data_Entity_EntityState, MonoObject**);
 	static Thunk thunk;
 	static MonoClass* thunkClass;
 	MonoObject* monoException = NULL;
@@ -136,7 +136,7 @@
 	[self invokeMonoMethod:"ApplyOriginalValues(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
-- (void)changeState_withState:(int32_t)p1
+- (void)changeState_withState:(enumSystem_Data_Entity_EntityState)p1
 {
 	[self invokeMonoMethod:"ChangeState(System.Data.Entity.EntityState)" withNumArgs:1, DB_VALUE(p1)];
 }

@@ -27,6 +27,11 @@
 @protocol System_Collections_Generic_IEnumeratorA1_;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 #import "System_Collections_Generic_IEnumerableA1_Protocol.h"

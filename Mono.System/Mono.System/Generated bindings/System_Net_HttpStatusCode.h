@@ -20,6 +20,11 @@
 @class System_Net_HttpStatusCode;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 
@@ -97,7 +102,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)accepted;
++ (enumSystem_Net_HttpStatusCode)accepted;
 
 /**
  Managed field.
@@ -109,7 +114,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)ambiguous;
++ (enumSystem_Net_HttpStatusCode)ambiguous;
 
 /**
  Managed field.
@@ -121,7 +126,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)badGateway;
++ (enumSystem_Net_HttpStatusCode)badGateway;
 
 /**
  Managed field.
@@ -133,7 +138,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)badRequest;
++ (enumSystem_Net_HttpStatusCode)badRequest;
 
 /**
  Managed field.
@@ -145,7 +150,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)conflict;
++ (enumSystem_Net_HttpStatusCode)conflict;
 
 /**
  Managed field.
@@ -157,7 +162,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)continue;
++ (enumSystem_Net_HttpStatusCode)continue;
 
 /**
  Managed field.
@@ -169,7 +174,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)created;
++ (enumSystem_Net_HttpStatusCode)created;
 
 /**
  Managed field.
@@ -181,7 +186,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)expectationFailed;
++ (enumSystem_Net_HttpStatusCode)expectationFailed;
 
 /**
  Managed field.
@@ -193,7 +198,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)forbidden;
++ (enumSystem_Net_HttpStatusCode)forbidden;
 
 /**
  Managed field.
@@ -205,7 +210,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)found;
++ (enumSystem_Net_HttpStatusCode)found;
 
 /**
  Managed field.
@@ -217,7 +222,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)gatewayTimeout;
++ (enumSystem_Net_HttpStatusCode)gatewayTimeout;
 
 /**
  Managed field.
@@ -229,7 +234,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)gone;
++ (enumSystem_Net_HttpStatusCode)gone;
 
 /**
  Managed field.
@@ -241,7 +246,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)httpVersionNotSupported;
++ (enumSystem_Net_HttpStatusCode)httpVersionNotSupported;
 
 /**
  Managed field.
@@ -253,7 +258,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)internalServerError;
++ (enumSystem_Net_HttpStatusCode)internalServerError;
 
 /**
  Managed field.
@@ -265,7 +270,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)lengthRequired;
++ (enumSystem_Net_HttpStatusCode)lengthRequired;
 
 /**
  Managed field.
@@ -277,7 +282,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)methodNotAllowed;
++ (enumSystem_Net_HttpStatusCode)methodNotAllowed;
 
 /**
  Managed field.
@@ -289,7 +294,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)moved;
++ (enumSystem_Net_HttpStatusCode)moved;
 
 /**
  Managed field.
@@ -301,7 +306,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)movedPermanently;
++ (enumSystem_Net_HttpStatusCode)movedPermanently;
 
 /**
  Managed field.
@@ -313,7 +318,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)multipleChoices;
++ (enumSystem_Net_HttpStatusCode)multipleChoices;
 
 /**
  Managed field.
@@ -325,7 +330,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)noContent;
++ (enumSystem_Net_HttpStatusCode)noContent;
 
 /**
  Managed field.
@@ -337,7 +342,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)nonAuthoritativeInformation;
++ (enumSystem_Net_HttpStatusCode)nonAuthoritativeInformation;
 
 /**
  Managed field.
@@ -349,7 +354,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)notAcceptable;
++ (enumSystem_Net_HttpStatusCode)notAcceptable;
 
 /**
  Managed field.
@@ -361,7 +366,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)notFound;
++ (enumSystem_Net_HttpStatusCode)notFound;
 
 /**
  Managed field.
@@ -373,7 +378,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)notImplemented;
++ (enumSystem_Net_HttpStatusCode)notImplemented;
 
 /**
  Managed field.
@@ -385,7 +390,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)notModified;
++ (enumSystem_Net_HttpStatusCode)notModified;
 
 /**
  Managed field.
@@ -397,7 +402,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)oK;
++ (enumSystem_Net_HttpStatusCode)oK;
 
 /**
  Managed field.
@@ -409,7 +414,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)partialContent;
++ (enumSystem_Net_HttpStatusCode)partialContent;
 
 /**
  Managed field.
@@ -421,7 +426,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)paymentRequired;
++ (enumSystem_Net_HttpStatusCode)paymentRequired;
 
 /**
  Managed field.
@@ -433,7 +438,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)preconditionFailed;
++ (enumSystem_Net_HttpStatusCode)preconditionFailed;
 
 /**
  Managed field.
@@ -445,7 +450,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)proxyAuthenticationRequired;
++ (enumSystem_Net_HttpStatusCode)proxyAuthenticationRequired;
 
 /**
  Managed field.
@@ -457,7 +462,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)redirect;
++ (enumSystem_Net_HttpStatusCode)redirect;
 
 /**
  Managed field.
@@ -469,7 +474,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)redirectKeepVerb;
++ (enumSystem_Net_HttpStatusCode)redirectKeepVerb;
 
 /**
  Managed field.
@@ -481,7 +486,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)redirectMethod;
++ (enumSystem_Net_HttpStatusCode)redirectMethod;
 
 /**
  Managed field.
@@ -493,7 +498,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)requestedRangeNotSatisfiable;
++ (enumSystem_Net_HttpStatusCode)requestedRangeNotSatisfiable;
 
 /**
  Managed field.
@@ -505,7 +510,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)requestEntityTooLarge;
++ (enumSystem_Net_HttpStatusCode)requestEntityTooLarge;
 
 /**
  Managed field.
@@ -517,7 +522,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)requestTimeout;
++ (enumSystem_Net_HttpStatusCode)requestTimeout;
 
 /**
  Managed field.
@@ -529,7 +534,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)requestUriTooLong;
++ (enumSystem_Net_HttpStatusCode)requestUriTooLong;
 
 /**
  Managed field.
@@ -541,7 +546,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)resetContent;
++ (enumSystem_Net_HttpStatusCode)resetContent;
 
 /**
  Managed field.
@@ -553,7 +558,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)seeOther;
++ (enumSystem_Net_HttpStatusCode)seeOther;
 
 /**
  Managed field.
@@ -565,7 +570,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)serviceUnavailable;
++ (enumSystem_Net_HttpStatusCode)serviceUnavailable;
 
 /**
  Managed field.
@@ -577,7 +582,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)switchingProtocols;
++ (enumSystem_Net_HttpStatusCode)switchingProtocols;
 
 /**
  Managed field.
@@ -589,7 +594,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)temporaryRedirect;
++ (enumSystem_Net_HttpStatusCode)temporaryRedirect;
 
 /**
  Managed field.
@@ -601,7 +606,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)unauthorized;
++ (enumSystem_Net_HttpStatusCode)unauthorized;
 
 /**
  Managed field.
@@ -613,7 +618,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)unsupportedMediaType;
++ (enumSystem_Net_HttpStatusCode)unsupportedMediaType;
 
 /**
  Managed field.
@@ -625,7 +630,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)unused;
++ (enumSystem_Net_HttpStatusCode)unused;
 
 /**
  Managed field.
@@ -637,7 +642,7 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)upgradeRequired;
++ (enumSystem_Net_HttpStatusCode)upgradeRequired;
 
 /**
  Managed field.
@@ -649,6 +654,6 @@ typedef NS_ENUM(int32_t, enumSystem_Net_HttpStatusCode) {
    System.Net.HttpStatusCode
  @/textblock
 */
-+ (int32_t)useProxy;
++ (enumSystem_Net_HttpStatusCode)useProxy;
 @end
 //--Dubrovnik.CodeGenerator

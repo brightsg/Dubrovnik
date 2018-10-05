@@ -35,6 +35,11 @@
 @protocol System_Collections_Generic_IEnumerableA1_;
 
 //
+// Local assembly imports
+//
+#import "System_StringComparison.h"
+
+//
 // Import superclass and adopted protocols
 //
 #import "System_Collections_Generic_IEnumerableA1_Protocol.h"
@@ -223,7 +228,7 @@
    System.Int32
  @/textblock
 */
-+ (int32_t)compare_withStrA:(NSString *)p1 strB:(NSString *)p2 comparisonType:(int32_t)p3;
++ (int32_t)compare_withStrA:(NSString *)p1 strB:(NSString *)p2 comparisonType:(enumSystem_StringComparison)p3;
 
 /* Skipped method : System.Int32 Compare(System.String strA, System.String strB, System.Globalization.CultureInfo culture, System.Globalization.CompareOptions options) */
 
@@ -325,7 +330,7 @@
    System.Int32
  @/textblock
 */
-+ (int32_t)compare_withStrA:(NSString *)p1 indexA:(int32_t)p2 strB:(NSString *)p3 indexB:(int32_t)p4 length:(int32_t)p5 comparisonType:(int32_t)p6;
++ (int32_t)compare_withStrA:(NSString *)p1 indexA:(int32_t)p2 strB:(NSString *)p3 indexB:(int32_t)p4 length:(int32_t)p5 comparisonType:(enumSystem_StringComparison)p6;
 
 /**
  Managed method.
@@ -649,7 +654,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)endsWith_withValue:(NSString *)p1 comparisonType:(int32_t)p2;
+- (BOOL)endsWith_withValue:(NSString *)p1 comparisonType:(enumSystem_StringComparison)p2;
 
 /**
  Managed method.
@@ -712,7 +717,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withValue:(NSString *)p1 comparisonType:(int32_t)p2;
+- (BOOL)equals_withValue:(NSString *)p1 comparisonType:(enumSystem_StringComparison)p2;
 
 /**
  Managed method.
@@ -745,7 +750,7 @@
    System.Boolean
  @/textblock
 */
-+ (BOOL)equals_withA:(NSString *)p1 b:(NSString *)p2 comparisonType:(int32_t)p3;
++ (BOOL)equals_withA:(NSString *)p1 b:(NSString *)p2 comparisonType:(enumSystem_StringComparison)p3;
 
 /**
  Managed method.
@@ -951,7 +956,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)indexOf_withValue:(NSString *)p1 comparisonType:(int32_t)p2;
+- (int32_t)indexOf_withValue:(NSString *)p1 comparisonType:(enumSystem_StringComparison)p2;
 
 /**
  Managed method.
@@ -968,7 +973,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)indexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 comparisonType:(int32_t)p3;
+- (int32_t)indexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 comparisonType:(enumSystem_StringComparison)p3;
 
 /**
  Managed method.
@@ -986,7 +991,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)indexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 comparisonType:(int32_t)p4;
+- (int32_t)indexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 comparisonType:(enumSystem_StringComparison)p4;
 
 /**
  Managed method.
@@ -1324,7 +1329,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)lastIndexOf_withValue:(NSString *)p1 comparisonType:(int32_t)p2;
+- (int32_t)lastIndexOf_withValue:(NSString *)p1 comparisonType:(enumSystem_StringComparison)p2;
 
 /**
  Managed method.
@@ -1341,7 +1346,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)lastIndexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 comparisonType:(int32_t)p3;
+- (int32_t)lastIndexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 comparisonType:(enumSystem_StringComparison)p3;
 
 /**
  Managed method.
@@ -1359,7 +1364,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)lastIndexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 comparisonType:(int32_t)p4;
+- (int32_t)lastIndexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 comparisonType:(enumSystem_StringComparison)p4;
 
 /**
  Managed method.
@@ -1651,7 +1656,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)startsWith_withValue:(NSString *)p1 comparisonType:(int32_t)p2;
+- (BOOL)startsWith_withValue:(NSString *)p1 comparisonType:(enumSystem_StringComparison)p2;
 
 /**
  Managed method.

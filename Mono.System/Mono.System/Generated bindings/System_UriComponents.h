@@ -20,6 +20,11 @@
 @class System_UriComponents;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 
@@ -67,7 +72,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriComponents) {
    System.UriComponents
  @/textblock
 */
-+ (int32_t)absoluteUri;
++ (enumSystem_UriComponents)absoluteUri;
 
 /**
  Managed field.
@@ -79,7 +84,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriComponents) {
    System.UriComponents
  @/textblock
 */
-+ (int32_t)fragment;
++ (enumSystem_UriComponents)fragment;
 
 /**
  Managed field.
@@ -91,7 +96,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriComponents) {
    System.UriComponents
  @/textblock
 */
-+ (int32_t)host;
++ (enumSystem_UriComponents)host;
 
 /**
  Managed field.
@@ -103,7 +108,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriComponents) {
    System.UriComponents
  @/textblock
 */
-+ (int32_t)hostAndPort;
++ (enumSystem_UriComponents)hostAndPort;
 
 /**
  Managed field.
@@ -115,7 +120,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriComponents) {
    System.UriComponents
  @/textblock
 */
-+ (int32_t)httpRequestUrl;
++ (enumSystem_UriComponents)httpRequestUrl;
 
 /**
  Managed field.
@@ -127,7 +132,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriComponents) {
    System.UriComponents
  @/textblock
 */
-+ (int32_t)keepDelimiter;
++ (enumSystem_UriComponents)keepDelimiter;
 
 /**
  Managed field.
@@ -139,7 +144,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriComponents) {
    System.UriComponents
  @/textblock
 */
-+ (int32_t)normalizedHost;
++ (enumSystem_UriComponents)normalizedHost;
 
 /**
  Managed field.
@@ -151,7 +156,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriComponents) {
    System.UriComponents
  @/textblock
 */
-+ (int32_t)path;
++ (enumSystem_UriComponents)path;
 
 /**
  Managed field.
@@ -163,7 +168,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriComponents) {
    System.UriComponents
  @/textblock
 */
-+ (int32_t)pathAndQuery;
++ (enumSystem_UriComponents)pathAndQuery;
 
 /**
  Managed field.
@@ -175,7 +180,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriComponents) {
    System.UriComponents
  @/textblock
 */
-+ (int32_t)port;
++ (enumSystem_UriComponents)port;
 
 /**
  Managed field.
@@ -187,7 +192,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriComponents) {
    System.UriComponents
  @/textblock
 */
-+ (int32_t)query;
++ (enumSystem_UriComponents)query;
 
 /**
  Managed field.
@@ -199,7 +204,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriComponents) {
    System.UriComponents
  @/textblock
 */
-+ (int32_t)scheme;
++ (enumSystem_UriComponents)scheme;
 
 /**
  Managed field.
@@ -211,7 +216,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriComponents) {
    System.UriComponents
  @/textblock
 */
-+ (int32_t)schemeAndServer;
++ (enumSystem_UriComponents)schemeAndServer;
 
 /**
  Managed field.
@@ -223,7 +228,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriComponents) {
    System.UriComponents
  @/textblock
 */
-+ (int32_t)serializationInfoString;
++ (enumSystem_UriComponents)serializationInfoString;
 
 /**
  Managed field.
@@ -235,7 +240,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriComponents) {
    System.UriComponents
  @/textblock
 */
-+ (int32_t)strongAuthority;
++ (enumSystem_UriComponents)strongAuthority;
 
 /**
  Managed field.
@@ -247,7 +252,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriComponents) {
    System.UriComponents
  @/textblock
 */
-+ (int32_t)strongPort;
++ (enumSystem_UriComponents)strongPort;
 
 /**
  Managed field.
@@ -259,6 +264,6 @@ typedef NS_ENUM(int32_t, enumSystem_UriComponents) {
    System.UriComponents
  @/textblock
 */
-+ (int32_t)userInfo;
++ (enumSystem_UriComponents)userInfo;
 @end
 //--Dubrovnik.CodeGenerator

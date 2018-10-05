@@ -24,8 +24,14 @@
 @class System_Runtime_Serialization_ISerializable;
 @class System_String;
 @class System_Text_RegularExpressions_Regex;
+@class System_Text_RegularExpressions_RegexOptions;
 @class System_TimeSpan;
 @class System_Void;
+
+//
+// Local assembly imports
+//
+#import "System_Text_RegularExpressions_RegexOptions.h"
 
 //
 // Import superclass and adopted protocols
@@ -58,9 +64,38 @@
 */
 + (System_Text_RegularExpressions_Regex *)new_withPattern:(NSString *)p1;
 
-/* Skipped constructor : System.Text.RegularExpressions.Regex (System.String pattern, System.Text.RegularExpressions.RegexOptions options) */
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
 
-/* Skipped constructor : System.Text.RegularExpressions.Regex (System.String pattern, System.Text.RegularExpressions.RegexOptions options, System.TimeSpan matchTimeout) */
+ Params
+   System.String
+   System.Text.RegularExpressions.RegexOptions
+
+ Return
+   System.Text.RegularExpressions.Regex
+ @/textblock
+*/
++ (System_Text_RegularExpressions_Regex *)new_withPattern:(NSString *)p1 options:(enumSystem_Text_RegularExpressions_RegexOptions)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.String
+   System.Text.RegularExpressions.RegexOptions
+   System.TimeSpan
+
+ Return
+   System.Text.RegularExpressions.Regex
+ @/textblock
+*/
++ (System_Text_RegularExpressions_Regex *)new_withPattern:(NSString *)p1 options:(enumSystem_Text_RegularExpressions_RegexOptions)p2 matchTimeout:(System_TimeSpan *)p3;
 
 #pragma mark -
 #pragma mark Fields
@@ -105,7 +140,17 @@
 */
 @property (nonatomic, strong, readonly) System_TimeSpan * matchTimeout;
 
-/* Skipped property : System.Text.RegularExpressions.RegexOptions Options */
+/**
+ Managed property.
+ @textblock
+ Name
+   Options
+
+ Type
+   System.Text.RegularExpressions.RegexOptions
+ @/textblock
+*/
+@property (nonatomic, readonly) enumSystem_Text_RegularExpressions_RegexOptions options;
 
 /**
  Managed property.
@@ -219,9 +264,40 @@
 */
 + (BOOL)isMatch_withInput:(NSString *)p1 pattern:(NSString *)p2;
 
-/* Skipped method : System.Boolean IsMatch(System.String input, System.String pattern, System.Text.RegularExpressions.RegexOptions options) */
+/**
+ Managed method.
+ @textblock
+ Name
+   IsMatch
 
-/* Skipped method : System.Boolean IsMatch(System.String input, System.String pattern, System.Text.RegularExpressions.RegexOptions options, System.TimeSpan matchTimeout) */
+ Params
+   System.String
+   System.String
+   System.Text.RegularExpressions.RegexOptions
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)isMatch_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(enumSystem_Text_RegularExpressions_RegexOptions)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   IsMatch
+
+ Params
+   System.String
+   System.String
+   System.Text.RegularExpressions.RegexOptions
+   System.TimeSpan
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)isMatch_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(enumSystem_Text_RegularExpressions_RegexOptions)p3 matchTimeout:(System_TimeSpan *)p4;
 
 /**
  Managed method.
@@ -293,9 +369,42 @@
 */
 + (NSString *)replace_withInput:(NSString *)p1 pattern:(NSString *)p2 replacement:(NSString *)p3;
 
-/* Skipped method : System.String Replace(System.String input, System.String pattern, System.String replacement, System.Text.RegularExpressions.RegexOptions options) */
+/**
+ Managed method.
+ @textblock
+ Name
+   Replace
 
-/* Skipped method : System.String Replace(System.String input, System.String pattern, System.String replacement, System.Text.RegularExpressions.RegexOptions options, System.TimeSpan matchTimeout) */
+ Params
+   System.String
+   System.String
+   System.String
+   System.Text.RegularExpressions.RegexOptions
+
+ Return
+   System.String
+ @/textblock
+*/
++ (NSString *)replace_withInput:(NSString *)p1 pattern:(NSString *)p2 replacement:(NSString *)p3 options:(enumSystem_Text_RegularExpressions_RegexOptions)p4;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Replace
+
+ Params
+   System.String
+   System.String
+   System.String
+   System.Text.RegularExpressions.RegexOptions
+   System.TimeSpan
+
+ Return
+   System.String
+ @/textblock
+*/
++ (NSString *)replace_withInput:(NSString *)p1 pattern:(NSString *)p2 replacement:(NSString *)p3 options:(enumSystem_Text_RegularExpressions_RegexOptions)p4 matchTimeout:(System_TimeSpan *)p5;
 
 /**
  Managed method.
@@ -376,9 +485,40 @@
 */
 + (System_Array *)split_withInput:(NSString *)p1 pattern:(NSString *)p2;
 
-/* Skipped method : System.String[] Split(System.String input, System.String pattern, System.Text.RegularExpressions.RegexOptions options) */
+/**
+ Managed method.
+ @textblock
+ Name
+   Split
 
-/* Skipped method : System.String[] Split(System.String input, System.String pattern, System.Text.RegularExpressions.RegexOptions options, System.TimeSpan matchTimeout) */
+ Params
+   System.String
+   System.String
+   System.Text.RegularExpressions.RegexOptions
+
+ Return
+   System.String[]
+ @/textblock
+*/
++ (System_Array *)split_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(enumSystem_Text_RegularExpressions_RegexOptions)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Split
+
+ Params
+   System.String
+   System.String
+   System.Text.RegularExpressions.RegexOptions
+   System.TimeSpan
+
+ Return
+   System.String[]
+ @/textblock
+*/
++ (System_Array *)split_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(enumSystem_Text_RegularExpressions_RegexOptions)p3 matchTimeout:(System_TimeSpan *)p4;
 
 /**
  Managed method.

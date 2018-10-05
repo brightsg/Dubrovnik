@@ -26,6 +26,11 @@
 @protocol System_Collections_IList_;
 
 //
+// Local assembly imports
+//
+#import "System_Collections_Specialized_NotifyCollectionChangedAction.h"
+
+//
 // Import superclass and adopted protocols
 //
 
@@ -54,7 +59,7 @@
    System.Collections.Specialized.NotifyCollectionChangedEventArgs
  @/textblock
 */
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1;
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1;
 
 /**
  Managed method.
@@ -70,7 +75,7 @@
    System.Collections.Specialized.NotifyCollectionChangedEventArgs
  @/textblock
 */
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 changedItem:(System_Object *)p2;
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItem:(System_Object *)p2;
 
 /**
  Managed method.
@@ -87,7 +92,7 @@
    System.Collections.Specialized.NotifyCollectionChangedEventArgs
  @/textblock
 */
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 changedItem:(System_Object *)p2 index:(int32_t)p3;
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItem:(System_Object *)p2 index:(int32_t)p3;
 
 /**
  Managed method.
@@ -103,7 +108,7 @@
    System.Collections.Specialized.NotifyCollectionChangedEventArgs
  @/textblock
 */
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 changedItems:(id <System_Collections_IList_>)p2;
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItems:(id <System_Collections_IList_>)p2;
 
 /**
  Managed method.
@@ -120,7 +125,7 @@
    System.Collections.Specialized.NotifyCollectionChangedEventArgs
  @/textblock
 */
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 changedItems:(id <System_Collections_IList_>)p2 startingIndex:(int32_t)p3;
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItems:(id <System_Collections_IList_>)p2 startingIndex:(int32_t)p3;
 
 /**
  Managed method.
@@ -137,7 +142,7 @@
    System.Collections.Specialized.NotifyCollectionChangedEventArgs
  @/textblock
 */
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 newItem:(System_Object *)p2 oldItem:(System_Object *)p3;
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 newItem:(System_Object *)p2 oldItem:(System_Object *)p3;
 
 /**
  Managed method.
@@ -155,7 +160,7 @@
    System.Collections.Specialized.NotifyCollectionChangedEventArgs
  @/textblock
 */
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 newItem:(System_Object *)p2 oldItem:(System_Object *)p3 index:(int32_t)p4;
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 newItem:(System_Object *)p2 oldItem:(System_Object *)p3 index:(int32_t)p4;
 
 /**
  Managed method.
@@ -172,7 +177,7 @@
    System.Collections.Specialized.NotifyCollectionChangedEventArgs
  @/textblock
 */
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 newItems:(id <System_Collections_IList_>)p2 oldItems:(id <System_Collections_IList_>)p3;
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 newItems:(id <System_Collections_IList_>)p2 oldItems:(id <System_Collections_IList_>)p3;
 
 /**
  Managed method.
@@ -190,7 +195,7 @@
    System.Collections.Specialized.NotifyCollectionChangedEventArgs
  @/textblock
 */
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 newItems:(id <System_Collections_IList_>)p2 oldItems:(id <System_Collections_IList_>)p3 startingIndex:(int32_t)p4;
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 newItems:(id <System_Collections_IList_>)p2 oldItems:(id <System_Collections_IList_>)p3 startingIndex:(int32_t)p4;
 
 /**
  Managed method.
@@ -208,7 +213,7 @@
    System.Collections.Specialized.NotifyCollectionChangedEventArgs
  @/textblock
 */
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 changedItem:(System_Object *)p2 index:(int32_t)p3 oldIndex:(int32_t)p4;
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItem:(System_Object *)p2 index:(int32_t)p3 oldIndex:(int32_t)p4;
 
 /**
  Managed method.
@@ -226,7 +231,7 @@
    System.Collections.Specialized.NotifyCollectionChangedEventArgs
  @/textblock
 */
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 changedItems:(id <System_Collections_IList_>)p2 index:(int32_t)p3 oldIndex:(int32_t)p4;
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItems:(id <System_Collections_IList_>)p2 index:(int32_t)p3 oldIndex:(int32_t)p4;
 
 #pragma mark -
 #pragma mark Properties
@@ -241,7 +246,7 @@
    System.Collections.Specialized.NotifyCollectionChangedAction
  @/textblock
 */
-@property (nonatomic, readonly) int32_t action;
+@property (nonatomic, readonly) enumSystem_Collections_Specialized_NotifyCollectionChangedAction action;
 
 /**
  Managed property.

@@ -72,6 +72,13 @@
 @protocol System_Collections_Generic_IEnumerableA1_;
 
 //
+// Local assembly imports
+//
+#import "Dubrovnik_UnitTests_IntEnum.h"
+#import "Dubrovnik_UnitTests_LongEnum.h"
+#import "Dubrovnik_UnitTests_ReferenceObject__NestedEnum.h"
+
+//
 // Import superclass and adopted protocols
 //
 #import "Dubrovnik_UnitTests_IMinimalReferenceObject_Protocol.h"
@@ -209,7 +216,7 @@
    Dubrovnik.UnitTests.IntEnum
  @/textblock
 */
-@property (nonatomic) int32_t intEnumField;
+@property (nonatomic) enumDubrovnik_UnitTests_IntEnum intEnumField;
 
 /**
  Managed field.
@@ -233,7 +240,7 @@
    Dubrovnik.UnitTests.LongEnum
  @/textblock
 */
-@property (nonatomic) int64_t longEnumField;
+@property (nonatomic) enumDubrovnik_UnitTests_LongEnum longEnumField;
 
 /**
  Managed field.
@@ -478,7 +485,7 @@
    Dubrovnik.UnitTests.IntEnum
  @/textblock
 */
-@property (nonatomic) int32_t intEnumeration;
+@property (nonatomic) enumDubrovnik_UnitTests_IntEnum intEnumeration;
 
 /**
  Managed property.
@@ -562,7 +569,7 @@
    Dubrovnik.UnitTests.LongEnum
  @/textblock
 */
-@property (nonatomic) int64_t longEnumeration;
+@property (nonatomic) enumDubrovnik_UnitTests_LongEnum longEnumeration;
 
 /**
  Managed property.
@@ -1206,7 +1213,7 @@
    System.Void
  @/textblock
 */
-- (void)nestedTypeParameter_withP1DUReferenceObject__NestedEnum:(int32_t)p1;
+- (void)nestedTypeParameter_withP1DUReferenceObject__NestedEnum:(enumDubrovnik_UnitTests_ReferenceObject__NestedEnum)p1;
 
 /**
  Managed method.
@@ -1222,7 +1229,7 @@
    System.Void
  @/textblock
 */
-- (void)nestedTypeParameters_withP1:(Dubrovnik_UnitTests_ReferenceObject__NestedClass *)p1 p2:(int32_t)p2;
+- (void)nestedTypeParameters_withP1:(Dubrovnik_UnitTests_ReferenceObject__NestedClass *)p1 p2:(enumDubrovnik_UnitTests_ReferenceObject__NestedEnum)p2;
 
 /**
  Managed method.

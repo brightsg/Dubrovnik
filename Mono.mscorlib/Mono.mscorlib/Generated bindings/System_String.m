@@ -123,7 +123,7 @@ static NSString * m_empty;
 	return DB_UNBOX_INT32(monoObject);
 }
 
-+ (int32_t)compare_withStrA:(NSString *)p1 strB:(NSString *)p2 comparisonType:(int32_t)p3
++ (int32_t)compare_withStrA:(NSString *)p1 strB:(NSString *)p2 comparisonType:(enumSystem_StringComparison)p3
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"Compare(string,string,stringComparison)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
 	return DB_UNBOX_INT32(monoObject);
@@ -157,7 +157,7 @@ static NSString * m_empty;
 
 /* Skipped method : System.Int32 Compare(System.String strA, System.Int32 indexA, System.String strB, System.Int32 indexB, System.Int32 length, System.Globalization.CultureInfo culture, System.Globalization.CompareOptions options) */
 
-+ (int32_t)compare_withStrA:(NSString *)p1 indexA:(int32_t)p2 strB:(NSString *)p3 indexB:(int32_t)p4 length:(int32_t)p5 comparisonType:(int32_t)p6
++ (int32_t)compare_withStrA:(NSString *)p1 indexA:(int32_t)p2 strB:(NSString *)p3 indexB:(int32_t)p4 length:(int32_t)p5 comparisonType:(enumSystem_StringComparison)p6
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"Compare(string,int,string,int,int,stringComparison)" withNumArgs:6, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6)];
 	return DB_UNBOX_INT32(monoObject);
@@ -276,7 +276,7 @@ static NSString * m_empty;
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-- (BOOL)endsWith_withValue:(NSString *)p1 comparisonType:(int32_t)p2
+- (BOOL)endsWith_withValue:(NSString *)p1 comparisonType:(enumSystem_StringComparison)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"EndsWith(string,stringComparison)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 	return DB_UNBOX_BOOLEAN(monoObject);
@@ -300,7 +300,7 @@ static NSString * m_empty;
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-- (BOOL)equals_withValue:(NSString *)p1 comparisonType:(int32_t)p2
+- (BOOL)equals_withValue:(NSString *)p1 comparisonType:(enumSystem_StringComparison)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Equals(string,stringComparison)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 	return DB_UNBOX_BOOLEAN(monoObject);
@@ -312,7 +312,7 @@ static NSString * m_empty;
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-+ (BOOL)equals_withA:(NSString *)p1 b:(NSString *)p2 comparisonType:(int32_t)p3
++ (BOOL)equals_withA:(NSString *)p1 b:(NSString *)p2 comparisonType:(enumSystem_StringComparison)p3
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"Equals(string,string,stringComparison)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
 	return DB_UNBOX_BOOLEAN(monoObject);
@@ -396,19 +396,19 @@ static NSString * m_empty;
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (int32_t)indexOf_withValue:(NSString *)p1 comparisonType:(int32_t)p2
+- (int32_t)indexOf_withValue:(NSString *)p1 comparisonType:(enumSystem_StringComparison)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(string,stringComparison)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (int32_t)indexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 comparisonType:(int32_t)p3
+- (int32_t)indexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 comparisonType:(enumSystem_StringComparison)p3
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(string,int,stringComparison)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (int32_t)indexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 comparisonType:(int32_t)p4
+- (int32_t)indexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 comparisonType:(enumSystem_StringComparison)p4
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(string,int,int,stringComparison)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
 	return DB_UNBOX_INT32(monoObject);
@@ -536,19 +536,19 @@ static NSString * m_empty;
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (int32_t)lastIndexOf_withValue:(NSString *)p1 comparisonType:(int32_t)p2
+- (int32_t)lastIndexOf_withValue:(NSString *)p1 comparisonType:(enumSystem_StringComparison)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(string,stringComparison)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (int32_t)lastIndexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 comparisonType:(int32_t)p3
+- (int32_t)lastIndexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 comparisonType:(enumSystem_StringComparison)p3
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(string,int,stringComparison)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (int32_t)lastIndexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 comparisonType:(int32_t)p4
+- (int32_t)lastIndexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 comparisonType:(enumSystem_StringComparison)p4
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(string,int,int,stringComparison)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
 	return DB_UNBOX_INT32(monoObject);
@@ -666,7 +666,7 @@ static NSString * m_empty;
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-- (BOOL)startsWith_withValue:(NSString *)p1 comparisonType:(int32_t)p2
+- (BOOL)startsWith_withValue:(NSString *)p1 comparisonType:(enumSystem_StringComparison)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"StartsWith(string,stringComparison)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 	return DB_UNBOX_BOOLEAN(monoObject);

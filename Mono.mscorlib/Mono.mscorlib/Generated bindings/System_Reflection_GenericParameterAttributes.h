@@ -20,6 +20,11 @@
 @class System_Reflection_GenericParameterAttributes;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 #import "System_Enum.h"
@@ -58,7 +63,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_GenericParameterAttributes) {
    System.Reflection.GenericParameterAttributes
  @/textblock
 */
-+ (int32_t)contravariant;
++ (enumSystem_Reflection_GenericParameterAttributes)contravariant;
 
 /**
  Managed field.
@@ -70,7 +75,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_GenericParameterAttributes) {
    System.Reflection.GenericParameterAttributes
  @/textblock
 */
-+ (int32_t)covariant;
++ (enumSystem_Reflection_GenericParameterAttributes)covariant;
 
 /**
  Managed field.
@@ -82,7 +87,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_GenericParameterAttributes) {
    System.Reflection.GenericParameterAttributes
  @/textblock
 */
-+ (int32_t)defaultConstructorConstraint;
++ (enumSystem_Reflection_GenericParameterAttributes)defaultConstructorConstraint;
 
 /**
  Managed field.
@@ -94,7 +99,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_GenericParameterAttributes) {
    System.Reflection.GenericParameterAttributes
  @/textblock
 */
-+ (int32_t)none;
++ (enumSystem_Reflection_GenericParameterAttributes)none;
 
 /**
  Managed field.
@@ -106,7 +111,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_GenericParameterAttributes) {
    System.Reflection.GenericParameterAttributes
  @/textblock
 */
-+ (int32_t)notNullableValueTypeConstraint;
++ (enumSystem_Reflection_GenericParameterAttributes)notNullableValueTypeConstraint;
 
 /**
  Managed field.
@@ -118,7 +123,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_GenericParameterAttributes) {
    System.Reflection.GenericParameterAttributes
  @/textblock
 */
-+ (int32_t)referenceTypeConstraint;
++ (enumSystem_Reflection_GenericParameterAttributes)referenceTypeConstraint;
 
 /**
  Managed field.
@@ -130,7 +135,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_GenericParameterAttributes) {
    System.Reflection.GenericParameterAttributes
  @/textblock
 */
-+ (int32_t)specialConstraintMask;
++ (enumSystem_Reflection_GenericParameterAttributes)specialConstraintMask;
 
 /**
  Managed field.
@@ -142,6 +147,6 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_GenericParameterAttributes) {
    System.Reflection.GenericParameterAttributes
  @/textblock
 */
-+ (int32_t)varianceMask;
++ (enumSystem_Reflection_GenericParameterAttributes)varianceMask;
 @end
 //--Dubrovnik.CodeGenerator

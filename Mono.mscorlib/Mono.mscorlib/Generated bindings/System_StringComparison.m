@@ -33,8 +33,8 @@
 #pragma mark -
 #pragma mark Fields
 
-static int32_t m_currentCulture;
-+ (int32_t)currentCulture
+static enumSystem_StringComparison m_currentCulture;
++ (enumSystem_StringComparison)currentCulture
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"CurrentCulture"];
 	m_currentCulture = DB_UNBOX_INT32(monoObject);
@@ -42,8 +42,8 @@ static int32_t m_currentCulture;
 	return m_currentCulture;
 }
 
-static int32_t m_currentCultureIgnoreCase;
-+ (int32_t)currentCultureIgnoreCase
+static enumSystem_StringComparison m_currentCultureIgnoreCase;
++ (enumSystem_StringComparison)currentCultureIgnoreCase
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"CurrentCultureIgnoreCase"];
 	m_currentCultureIgnoreCase = DB_UNBOX_INT32(monoObject);
@@ -51,8 +51,8 @@ static int32_t m_currentCultureIgnoreCase;
 	return m_currentCultureIgnoreCase;
 }
 
-static int32_t m_invariantCulture;
-+ (int32_t)invariantCulture
+static enumSystem_StringComparison m_invariantCulture;
++ (enumSystem_StringComparison)invariantCulture
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"InvariantCulture"];
 	m_invariantCulture = DB_UNBOX_INT32(monoObject);
@@ -60,8 +60,8 @@ static int32_t m_invariantCulture;
 	return m_invariantCulture;
 }
 
-static int32_t m_invariantCultureIgnoreCase;
-+ (int32_t)invariantCultureIgnoreCase
+static enumSystem_StringComparison m_invariantCultureIgnoreCase;
++ (enumSystem_StringComparison)invariantCultureIgnoreCase
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"InvariantCultureIgnoreCase"];
 	m_invariantCultureIgnoreCase = DB_UNBOX_INT32(monoObject);
@@ -69,8 +69,8 @@ static int32_t m_invariantCultureIgnoreCase;
 	return m_invariantCultureIgnoreCase;
 }
 
-static int32_t m_ordinal;
-+ (int32_t)ordinal
+static enumSystem_StringComparison m_ordinal;
++ (enumSystem_StringComparison)ordinal
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Ordinal"];
 	m_ordinal = DB_UNBOX_INT32(monoObject);
@@ -78,8 +78,8 @@ static int32_t m_ordinal;
 	return m_ordinal;
 }
 
-static int32_t m_ordinalIgnoreCase;
-+ (int32_t)ordinalIgnoreCase
+static enumSystem_StringComparison m_ordinalIgnoreCase;
++ (enumSystem_StringComparison)ordinalIgnoreCase
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"OrdinalIgnoreCase"];
 	m_ordinalIgnoreCase = DB_UNBOX_INT32(monoObject);

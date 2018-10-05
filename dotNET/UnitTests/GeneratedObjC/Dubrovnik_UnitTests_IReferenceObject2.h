@@ -24,6 +24,11 @@
 @protocol Dubrovnik_UnitTests_IReferenceObject2_;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 #import "Dubrovnik_UnitTests_IReferenceObject2_Protocol.h"

@@ -20,6 +20,11 @@
 @class System_UriPartial;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 
@@ -54,7 +59,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriPartial) {
    System.UriPartial
  @/textblock
 */
-+ (int32_t)authority;
++ (enumSystem_UriPartial)authority;
 
 /**
  Managed field.
@@ -66,7 +71,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriPartial) {
    System.UriPartial
  @/textblock
 */
-+ (int32_t)path;
++ (enumSystem_UriPartial)path;
 
 /**
  Managed field.
@@ -78,7 +83,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriPartial) {
    System.UriPartial
  @/textblock
 */
-+ (int32_t)query;
++ (enumSystem_UriPartial)query;
 
 /**
  Managed field.
@@ -90,6 +95,6 @@ typedef NS_ENUM(int32_t, enumSystem_UriPartial) {
    System.UriPartial
  @/textblock
 */
-+ (int32_t)scheme;
++ (enumSystem_UriPartial)scheme;
 @end
 //--Dubrovnik.CodeGenerator

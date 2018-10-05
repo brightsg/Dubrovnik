@@ -25,6 +25,11 @@
 @protocol System_Linq_IQueryableA1_;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 #import "System_Linq_IQueryable_Protocol.h"

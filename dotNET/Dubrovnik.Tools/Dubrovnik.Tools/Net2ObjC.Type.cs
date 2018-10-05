@@ -146,9 +146,8 @@ namespace Dubrovnik.Tools {
 			if (managedType == null) {
 				if (managedFacet.IsByRef || managedFacet.IsPointer) {
 					managedType = managedFacet.ElementType;
-				} else if (managedFacet.IsEnum) {
-					managedType = managedFacet.UnderlyingType;
-				} else {
+				} 
+                else {
 					managedType = managedFacet.Type;
 				}
 			}

@@ -36,6 +36,11 @@
 @protocol System_Collections_Generic_IEnumerableA1_;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 //#import "System_Data_Entity_Infrastructure_DbQueryA1.h" // class base defaults to System.Object

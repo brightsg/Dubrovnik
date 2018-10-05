@@ -33,8 +33,8 @@
 #pragma mark -
 #pragma mark Fields
 
-static int32_t m_basic;
-+ (int32_t)basic
+static enumSystem_UriHostNameType m_basic;
++ (enumSystem_UriHostNameType)basic
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Basic"];
 	m_basic = DB_UNBOX_INT32(monoObject);
@@ -42,8 +42,8 @@ static int32_t m_basic;
 	return m_basic;
 }
 
-static int32_t m_dns;
-+ (int32_t)dns
+static enumSystem_UriHostNameType m_dns;
++ (enumSystem_UriHostNameType)dns
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Dns"];
 	m_dns = DB_UNBOX_INT32(monoObject);
@@ -51,8 +51,8 @@ static int32_t m_dns;
 	return m_dns;
 }
 
-static int32_t m_iPv4;
-+ (int32_t)iPv4
+static enumSystem_UriHostNameType m_iPv4;
++ (enumSystem_UriHostNameType)iPv4
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"IPv4"];
 	m_iPv4 = DB_UNBOX_INT32(monoObject);
@@ -60,8 +60,8 @@ static int32_t m_iPv4;
 	return m_iPv4;
 }
 
-static int32_t m_iPv6;
-+ (int32_t)iPv6
+static enumSystem_UriHostNameType m_iPv6;
++ (enumSystem_UriHostNameType)iPv6
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"IPv6"];
 	m_iPv6 = DB_UNBOX_INT32(monoObject);
@@ -69,8 +69,8 @@ static int32_t m_iPv6;
 	return m_iPv6;
 }
 
-static int32_t m_unknown;
-+ (int32_t)unknown
+static enumSystem_UriHostNameType m_unknown;
++ (enumSystem_UriHostNameType)unknown
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Unknown"];
 	m_unknown = DB_UNBOX_INT32(monoObject);

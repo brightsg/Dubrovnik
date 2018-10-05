@@ -20,6 +20,11 @@
 @class System_Reflection_TypeAttributes;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 #import "System_Enum.h"
@@ -82,7 +87,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)abstract;
++ (enumSystem_Reflection_TypeAttributes)abstract;
 
 /**
  Managed field.
@@ -94,7 +99,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)ansiClass;
++ (enumSystem_Reflection_TypeAttributes)ansiClass;
 
 /**
  Managed field.
@@ -106,7 +111,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)autoClass;
++ (enumSystem_Reflection_TypeAttributes)autoClass;
 
 /**
  Managed field.
@@ -118,7 +123,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)autoLayout;
++ (enumSystem_Reflection_TypeAttributes)autoLayout;
 
 /**
  Managed field.
@@ -130,7 +135,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)beforeFieldInit;
++ (enumSystem_Reflection_TypeAttributes)beforeFieldInit;
 
 /**
  Managed field.
@@ -142,7 +147,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)class_;
++ (enumSystem_Reflection_TypeAttributes)class_;
 
 /**
  Managed field.
@@ -154,7 +159,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)classSemanticsMask;
++ (enumSystem_Reflection_TypeAttributes)classSemanticsMask;
 
 /**
  Managed field.
@@ -166,7 +171,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)customFormatClass;
++ (enumSystem_Reflection_TypeAttributes)customFormatClass;
 
 /**
  Managed field.
@@ -178,7 +183,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)customFormatMask;
++ (enumSystem_Reflection_TypeAttributes)customFormatMask;
 
 /**
  Managed field.
@@ -190,7 +195,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)explicitLayout;
++ (enumSystem_Reflection_TypeAttributes)explicitLayout;
 
 /**
  Managed field.
@@ -202,7 +207,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)hasSecurity;
++ (enumSystem_Reflection_TypeAttributes)hasSecurity;
 
 /**
  Managed field.
@@ -214,7 +219,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)import;
++ (enumSystem_Reflection_TypeAttributes)import;
 
 /**
  Managed field.
@@ -226,7 +231,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)interface;
++ (enumSystem_Reflection_TypeAttributes)interface;
 
 /**
  Managed field.
@@ -238,7 +243,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)layoutMask;
++ (enumSystem_Reflection_TypeAttributes)layoutMask;
 
 /**
  Managed field.
@@ -250,7 +255,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)nestedAssembly;
++ (enumSystem_Reflection_TypeAttributes)nestedAssembly;
 
 /**
  Managed field.
@@ -262,7 +267,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)nestedFamANDAssem;
++ (enumSystem_Reflection_TypeAttributes)nestedFamANDAssem;
 
 /**
  Managed field.
@@ -274,7 +279,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)nestedFamily;
++ (enumSystem_Reflection_TypeAttributes)nestedFamily;
 
 /**
  Managed field.
@@ -286,7 +291,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)nestedFamORAssem;
++ (enumSystem_Reflection_TypeAttributes)nestedFamORAssem;
 
 /**
  Managed field.
@@ -298,7 +303,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)nestedPrivate;
++ (enumSystem_Reflection_TypeAttributes)nestedPrivate;
 
 /**
  Managed field.
@@ -310,7 +315,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)nestedPublic;
++ (enumSystem_Reflection_TypeAttributes)nestedPublic;
 
 /**
  Managed field.
@@ -322,7 +327,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)notPublic;
++ (enumSystem_Reflection_TypeAttributes)notPublic;
 
 /**
  Managed field.
@@ -334,7 +339,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)public;
++ (enumSystem_Reflection_TypeAttributes)public;
 
 /**
  Managed field.
@@ -346,7 +351,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)reservedMask;
++ (enumSystem_Reflection_TypeAttributes)reservedMask;
 
 /**
  Managed field.
@@ -358,7 +363,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)rTSpecialName;
++ (enumSystem_Reflection_TypeAttributes)rTSpecialName;
 
 /**
  Managed field.
@@ -370,7 +375,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)sealed;
++ (enumSystem_Reflection_TypeAttributes)sealed;
 
 /**
  Managed field.
@@ -382,7 +387,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)sequentialLayout;
++ (enumSystem_Reflection_TypeAttributes)sequentialLayout;
 
 /**
  Managed field.
@@ -394,7 +399,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)serializable;
++ (enumSystem_Reflection_TypeAttributes)serializable;
 
 /**
  Managed field.
@@ -406,7 +411,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)specialName;
++ (enumSystem_Reflection_TypeAttributes)specialName;
 
 /**
  Managed field.
@@ -418,7 +423,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)stringFormatMask;
++ (enumSystem_Reflection_TypeAttributes)stringFormatMask;
 
 /**
  Managed field.
@@ -430,7 +435,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)unicodeClass;
++ (enumSystem_Reflection_TypeAttributes)unicodeClass;
 
 /**
  Managed field.
@@ -442,7 +447,7 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)visibilityMask;
++ (enumSystem_Reflection_TypeAttributes)visibilityMask;
 
 /**
  Managed field.
@@ -454,6 +459,6 @@ typedef NS_ENUM(int32_t, enumSystem_Reflection_TypeAttributes) {
    System.Reflection.TypeAttributes
  @/textblock
 */
-+ (int32_t)windowsRuntime;
++ (enumSystem_Reflection_TypeAttributes)windowsRuntime;
 @end
 //--Dubrovnik.CodeGenerator

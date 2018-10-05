@@ -20,6 +20,11 @@
 @class Dubrovnik_UnitTests_ByteEnum;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 
@@ -54,7 +59,7 @@ typedef NS_ENUM(uint8_t, enumDubrovnik_UnitTests_ByteEnum) {
    Dubrovnik.UnitTests.ByteEnum
  @/textblock
 */
-+ (uint8_t)val1;
++ (enumDubrovnik_UnitTests_ByteEnum)val1;
 
 /**
  Managed field.
@@ -66,7 +71,7 @@ typedef NS_ENUM(uint8_t, enumDubrovnik_UnitTests_ByteEnum) {
    Dubrovnik.UnitTests.ByteEnum
  @/textblock
 */
-+ (uint8_t)val2;
++ (enumDubrovnik_UnitTests_ByteEnum)val2;
 
 /**
  Managed field.
@@ -78,7 +83,7 @@ typedef NS_ENUM(uint8_t, enumDubrovnik_UnitTests_ByteEnum) {
    Dubrovnik.UnitTests.ByteEnum
  @/textblock
 */
-+ (uint8_t)val3;
++ (enumDubrovnik_UnitTests_ByteEnum)val3;
 
 /**
  Managed field.
@@ -90,6 +95,6 @@ typedef NS_ENUM(uint8_t, enumDubrovnik_UnitTests_ByteEnum) {
    Dubrovnik.UnitTests.ByteEnum
  @/textblock
 */
-+ (uint8_t)val4;
++ (enumDubrovnik_UnitTests_ByteEnum)val4;
 @end
 //--Dubrovnik.CodeGenerator

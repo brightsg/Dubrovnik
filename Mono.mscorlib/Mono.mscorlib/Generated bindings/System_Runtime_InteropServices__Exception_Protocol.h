@@ -30,6 +30,11 @@
 @protocol System_Runtime_InteropServices__Exception_;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 #import "System_Object.h"
@@ -69,7 +74,6 @@
  Properties and method predeclarations can be conditionally included in the adoption protocol if required.
 
 */
-
 
 //
 // Adoption protocol

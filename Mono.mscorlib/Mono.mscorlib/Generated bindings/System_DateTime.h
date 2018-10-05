@@ -33,6 +33,12 @@
 @class System_TimeSpan;
 
 //
+// Local assembly imports
+//
+#import "System_DateTimeKind.h"
+#import "System_DayOfWeek.h"
+
+//
 // Import superclass and adopted protocols
 //
 #import "System_IEquatableA1_Protocol.h"
@@ -79,7 +85,7 @@
    System.DateTime
  @/textblock
 */
-+ (System_DateTime *)new_withTicks:(int64_t)p1 kind:(int32_t)p2;
++ (System_DateTime *)new_withTicks:(int64_t)p1 kind:(enumSystem_DateTimeKind)p2;
 
 /**
  Managed method.
@@ -139,7 +145,7 @@
    System.DateTime
  @/textblock
 */
-+ (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 kind:(int32_t)p7;
++ (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 kind:(enumSystem_DateTimeKind)p7;
 
 /* Skipped constructor : System.DateTime (System.Int32 year, System.Int32 month, System.Int32 day, System.Int32 hour, System.Int32 minute, System.Int32 second, System.Globalization.Calendar calendar) */
 
@@ -184,7 +190,7 @@
    System.DateTime
  @/textblock
 */
-+ (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7 kind:(int32_t)p8;
++ (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7 kind:(enumSystem_DateTimeKind)p8;
 
 /* Skipped constructor : System.DateTime (System.Int32 year, System.Int32 month, System.Int32 day, System.Int32 hour, System.Int32 minute, System.Int32 second, System.Int32 millisecond, System.Globalization.Calendar calendar) */
 
@@ -254,7 +260,7 @@
    System.DayOfWeek
  @/textblock
 */
-@property (nonatomic, readonly) int32_t dayOfWeek;
+@property (nonatomic, readonly) enumSystem_DayOfWeek dayOfWeek;
 
 /**
  Managed property.
@@ -290,7 +296,7 @@
    System.DateTimeKind
  @/textblock
 */
-@property (nonatomic, readonly) int32_t kind;
+@property (nonatomic, readonly) enumSystem_DateTimeKind kind;
 
 /**
  Managed property.
@@ -982,7 +988,7 @@
    System.DateTime
  @/textblock
 */
-+ (NSDate *)specifyKind_withValue:(NSDate *)p1 kind:(int32_t)p2;
++ (NSDate *)specifyKind_withValue:(NSDate *)p1 kind:(enumSystem_DateTimeKind)p2;
 
 /**
  Managed method.

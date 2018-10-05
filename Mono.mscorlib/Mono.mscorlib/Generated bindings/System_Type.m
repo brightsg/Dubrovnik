@@ -136,9 +136,9 @@ static System_Object * m_missing;
 }
 
 @synthesize attributes = _attributes;
-- (int32_t)attributes
+- (enumSystem_Reflection_TypeAttributes)attributes
 {
-	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	typedef enumSystem_Reflection_TypeAttributes (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;
 	static MonoClass* thunkClass;
 	MonoObject* monoException = NULL;
@@ -147,7 +147,7 @@ static System_Object * m_missing;
 		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Attributes");
 		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-	int32_t monoObject = thunk(self.monoObject, &monoException);
+	enumSystem_Reflection_TypeAttributes monoObject = thunk(self.monoObject, &monoException);
 	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	_attributes = monoObject;
 
@@ -274,9 +274,9 @@ static System_Reflection_Binder * m_defaultBinder;
 }
 
 @synthesize genericParameterAttributes = _genericParameterAttributes;
-- (int32_t)genericParameterAttributes
+- (enumSystem_Reflection_GenericParameterAttributes)genericParameterAttributes
 {
-	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	typedef enumSystem_Reflection_GenericParameterAttributes (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;
 	static MonoClass* thunkClass;
 	MonoObject* monoException = NULL;
@@ -285,7 +285,7 @@ static System_Reflection_Binder * m_defaultBinder;
 		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "GenericParameterAttributes");
 		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-	int32_t monoObject = thunk(self.monoObject, &monoException);
+	enumSystem_Reflection_GenericParameterAttributes monoObject = thunk(self.monoObject, &monoException);
 	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	_genericParameterAttributes = monoObject;
 

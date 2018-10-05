@@ -27,6 +27,11 @@
 @class System_TimeZoneInfo__TransitionTime;
 
 //
+// Local assembly imports
+//
+#import "System_DayOfWeek.h"
+
+//
 // Import superclass and adopted protocols
 //
 #import "System_IEquatableA1_Protocol.h"
@@ -66,7 +71,7 @@
    System.DayOfWeek
  @/textblock
 */
-@property (nonatomic, readonly) int32_t dayOfWeek;
+@property (nonatomic, readonly) enumSystem_DayOfWeek dayOfWeek;
 
 /**
  Managed property.
@@ -152,7 +157,7 @@
    System.TimeZoneInfo+TransitionTime
  @/textblock
 */
-+ (System_TimeZoneInfo__TransitionTime *)createFloatingDateRule_withTimeOfDay:(NSDate *)p1 month:(int32_t)p2 week:(int32_t)p3 dayOfWeek:(int32_t)p4;
++ (System_TimeZoneInfo__TransitionTime *)createFloatingDateRule_withTimeOfDay:(NSDate *)p1 month:(int32_t)p2 week:(int32_t)p3 dayOfWeek:(enumSystem_DayOfWeek)p4;
 
 /**
  Managed method.

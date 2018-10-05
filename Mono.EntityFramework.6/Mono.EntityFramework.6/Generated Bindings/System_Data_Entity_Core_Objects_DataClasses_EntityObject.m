@@ -36,9 +36,9 @@
 /* Skipped property : System.Data.Entity.Core.EntityKey EntityKey */
 
 @synthesize entityState = _entityState;
-- (int32_t)entityState
+- (enumSystem_Data_Entity_EntityState)entityState
 {
-	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	typedef enumSystem_Data_Entity_EntityState (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;
 	static MonoClass* thunkClass;
 	MonoObject* monoException = NULL;
@@ -47,7 +47,7 @@
 		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "EntityState");
 		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-	int32_t monoObject = thunk(self.monoObject, &monoException);
+	enumSystem_Data_Entity_EntityState monoObject = thunk(self.monoObject, &monoException);
 	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	_entityState = monoObject;
 

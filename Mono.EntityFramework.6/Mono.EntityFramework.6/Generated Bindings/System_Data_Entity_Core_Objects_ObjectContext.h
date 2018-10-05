@@ -45,6 +45,12 @@
 @protocol System_Collections_IEnumerable_;
 
 //
+// Local assembly imports
+//
+#import "System_Data_Entity_Core_Objects_RefreshMode.h"
+#import "System_Data_Entity_Core_Objects_SaveOptions.h"
+
+//
 // Import superclass and adopted protocols
 //
 #import "System_Data_Entity_Infrastructure_IObjectContextAdapter_Protocol.h"
@@ -605,7 +611,7 @@
    System.Void
  @/textblock
 */
-- (void)refresh_withRefreshMode:(int32_t)p1 collection:(id <System_Collections_IEnumerable_>)p2;
+- (void)refresh_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 collection:(id <System_Collections_IEnumerable_>)p2;
 
 /**
  Managed method.
@@ -621,7 +627,7 @@
    System.Void
  @/textblock
 */
-- (void)refresh_withRefreshMode:(int32_t)p1 entity:(System_Object *)p2;
+- (void)refresh_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 entity:(System_Object *)p2;
 
 /**
  Managed method.
@@ -637,7 +643,7 @@
    System.Threading.Tasks.Task
  @/textblock
 */
-- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(int32_t)p1 collection:(id <System_Collections_IEnumerable_>)p2;
+- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 collection:(id <System_Collections_IEnumerable_>)p2;
 
 /**
  Managed method.
@@ -654,7 +660,7 @@
    System.Threading.Tasks.Task
  @/textblock
 */
-- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(int32_t)p1 collection:(id <System_Collections_IEnumerable_>)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
+- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 collection:(id <System_Collections_IEnumerable_>)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
 
 /**
  Managed method.
@@ -670,7 +676,7 @@
    System.Threading.Tasks.Task
  @/textblock
 */
-- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(int32_t)p1 entity:(System_Object *)p2;
+- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 entity:(System_Object *)p2;
 
 /**
  Managed method.
@@ -687,7 +693,7 @@
    System.Threading.Tasks.Task
  @/textblock
 */
-- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(int32_t)p1 entity:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
+- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 entity:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
 
 /**
  Managed method.
@@ -732,7 +738,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)saveChanges_withOptions:(int32_t)p1;
+- (int32_t)saveChanges_withOptions:(enumSystem_Data_Entity_Core_Objects_SaveOptions)p1;
 
 /**
  Managed method.
@@ -777,7 +783,7 @@
    System.Threading.Tasks.Task`1<System.Int32>
  @/textblock
 */
-- (System_Threading_Tasks_TaskA1 *)saveChangesAsync_withOptions:(int32_t)p1;
+- (System_Threading_Tasks_TaskA1 *)saveChangesAsync_withOptions:(enumSystem_Data_Entity_Core_Objects_SaveOptions)p1;
 
 /**
  Managed method.
@@ -793,7 +799,7 @@
    System.Threading.Tasks.Task`1<System.Int32>
  @/textblock
 */
-- (System_Threading_Tasks_TaskA1 *)saveChangesAsync_withOptions:(int32_t)p1 cancellationToken:(System_Threading_CancellationToken *)p2;
+- (System_Threading_Tasks_TaskA1 *)saveChangesAsync_withOptions:(enumSystem_Data_Entity_Core_Objects_SaveOptions)p1 cancellationToken:(System_Threading_CancellationToken *)p2;
 
 /* Skipped method : System.Data.Entity.Core.Objects.ObjectResult`1<System.Data.Entity.Core.Objects.ObjectContext+TElement> Translate(System.Data.Common.DbDataReader reader) */
 

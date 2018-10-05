@@ -33,8 +33,8 @@
 #pragma mark -
 #pragma mark Fields
 
-static int32_t m_friday;
-+ (int32_t)friday
+static enumSystem_DayOfWeek m_friday;
++ (enumSystem_DayOfWeek)friday
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Friday"];
 	m_friday = DB_UNBOX_INT32(monoObject);
@@ -42,8 +42,8 @@ static int32_t m_friday;
 	return m_friday;
 }
 
-static int32_t m_monday;
-+ (int32_t)monday
+static enumSystem_DayOfWeek m_monday;
++ (enumSystem_DayOfWeek)monday
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Monday"];
 	m_monday = DB_UNBOX_INT32(monoObject);
@@ -51,8 +51,8 @@ static int32_t m_monday;
 	return m_monday;
 }
 
-static int32_t m_saturday;
-+ (int32_t)saturday
+static enumSystem_DayOfWeek m_saturday;
++ (enumSystem_DayOfWeek)saturday
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Saturday"];
 	m_saturday = DB_UNBOX_INT32(monoObject);
@@ -60,8 +60,8 @@ static int32_t m_saturday;
 	return m_saturday;
 }
 
-static int32_t m_sunday;
-+ (int32_t)sunday
+static enumSystem_DayOfWeek m_sunday;
++ (enumSystem_DayOfWeek)sunday
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Sunday"];
 	m_sunday = DB_UNBOX_INT32(monoObject);
@@ -69,8 +69,8 @@ static int32_t m_sunday;
 	return m_sunday;
 }
 
-static int32_t m_thursday;
-+ (int32_t)thursday
+static enumSystem_DayOfWeek m_thursday;
++ (enumSystem_DayOfWeek)thursday
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Thursday"];
 	m_thursday = DB_UNBOX_INT32(monoObject);
@@ -78,8 +78,8 @@ static int32_t m_thursday;
 	return m_thursday;
 }
 
-static int32_t m_tuesday;
-+ (int32_t)tuesday
+static enumSystem_DayOfWeek m_tuesday;
++ (enumSystem_DayOfWeek)tuesday
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Tuesday"];
 	m_tuesday = DB_UNBOX_INT32(monoObject);
@@ -87,8 +87,8 @@ static int32_t m_tuesday;
 	return m_tuesday;
 }
 
-static int32_t m_wednesday;
-+ (int32_t)wednesday
+static enumSystem_DayOfWeek m_wednesday;
++ (enumSystem_DayOfWeek)wednesday
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Wednesday"];
 	m_wednesday = DB_UNBOX_INT32(monoObject);

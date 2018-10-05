@@ -27,6 +27,11 @@
 @protocol System_Linq_IQueryProvider_;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 #import "System_Linq_IQueryable_Protocol.h"
@@ -65,7 +70,6 @@
  Properties and method predeclarations can be conditionally included in the adoption protocol if required.
 
 */
-
 
 //
 // Adoption protocol

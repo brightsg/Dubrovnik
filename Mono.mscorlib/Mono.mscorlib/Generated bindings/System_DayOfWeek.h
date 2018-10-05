@@ -20,6 +20,11 @@
 @class System_DayOfWeek;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 #import "System_Enum.h"
@@ -57,7 +62,7 @@ typedef NS_ENUM(int32_t, enumSystem_DayOfWeek) {
    System.DayOfWeek
  @/textblock
 */
-+ (int32_t)friday;
++ (enumSystem_DayOfWeek)friday;
 
 /**
  Managed field.
@@ -69,7 +74,7 @@ typedef NS_ENUM(int32_t, enumSystem_DayOfWeek) {
    System.DayOfWeek
  @/textblock
 */
-+ (int32_t)monday;
++ (enumSystem_DayOfWeek)monday;
 
 /**
  Managed field.
@@ -81,7 +86,7 @@ typedef NS_ENUM(int32_t, enumSystem_DayOfWeek) {
    System.DayOfWeek
  @/textblock
 */
-+ (int32_t)saturday;
++ (enumSystem_DayOfWeek)saturday;
 
 /**
  Managed field.
@@ -93,7 +98,7 @@ typedef NS_ENUM(int32_t, enumSystem_DayOfWeek) {
    System.DayOfWeek
  @/textblock
 */
-+ (int32_t)sunday;
++ (enumSystem_DayOfWeek)sunday;
 
 /**
  Managed field.
@@ -105,7 +110,7 @@ typedef NS_ENUM(int32_t, enumSystem_DayOfWeek) {
    System.DayOfWeek
  @/textblock
 */
-+ (int32_t)thursday;
++ (enumSystem_DayOfWeek)thursday;
 
 /**
  Managed field.
@@ -117,7 +122,7 @@ typedef NS_ENUM(int32_t, enumSystem_DayOfWeek) {
    System.DayOfWeek
  @/textblock
 */
-+ (int32_t)tuesday;
++ (enumSystem_DayOfWeek)tuesday;
 
 /**
  Managed field.
@@ -129,6 +134,6 @@ typedef NS_ENUM(int32_t, enumSystem_DayOfWeek) {
    System.DayOfWeek
  @/textblock
 */
-+ (int32_t)wednesday;
++ (enumSystem_DayOfWeek)wednesday;
 @end
 //--Dubrovnik.CodeGenerator

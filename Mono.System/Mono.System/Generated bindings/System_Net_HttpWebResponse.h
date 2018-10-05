@@ -31,6 +31,11 @@
 @class System_Void;
 
 //
+// Local assembly imports
+//
+#import "System_Net_HttpStatusCode.h"
+
+//
 // Import superclass and adopted protocols
 //
 #import "System_Net_WebResponse.h"
@@ -180,7 +185,7 @@
    System.Net.HttpStatusCode
  @/textblock
 */
-@property (nonatomic, readonly) int32_t statusCode;
+@property (nonatomic, readonly) enumSystem_Net_HttpStatusCode statusCode;
 
 /**
  Managed property.

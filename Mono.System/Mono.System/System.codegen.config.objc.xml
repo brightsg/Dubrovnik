@@ -1018,6 +1018,7 @@
 		<string>System.IO.ErrorEventArgs</string>
 		<string>System.Text.RegularExpressions.Regex</string>
 		<string>System.Text.RegularExpressions.Options</string>
+    <string>System.Text.RegularExpressions.RegexOptions</string>
 		<string>System.Uri</string>
 		<string>System.UriComponents</string>
 		<string>System.UriFormat</string>

@@ -33,6 +33,15 @@
 @class System_UriPartial;
 
 //
+// Local assembly imports
+//
+#import "System_UriComponents.h"
+#import "System_UriFormat.h"
+#import "System_UriHostNameType.h"
+#import "System_UriKind.h"
+#import "System_UriPartial.h"
+
+//
 // Import superclass and adopted protocols
 //
 
@@ -110,7 +119,7 @@
    System.Uri
  @/textblock
 */
-+ (System_Uri *)new_withUriString:(NSString *)p1 uriKind:(int32_t)p2;
++ (System_Uri *)new_withUriString:(NSString *)p1 uriKind:(enumSystem_UriKind)p2;
 
 /**
  Managed method.
@@ -364,7 +373,7 @@
    System.UriHostNameType
  @/textblock
 */
-@property (nonatomic, readonly) int32_t hostNameType;
+@property (nonatomic, readonly) enumSystem_UriHostNameType hostNameType;
 
 /**
  Managed property.
@@ -562,7 +571,7 @@
    System.UriHostNameType
  @/textblock
 */
-+ (int32_t)checkHostName_withName:(NSString *)p1;
++ (enumSystem_UriHostNameType)checkHostName_withName:(NSString *)p1;
 
 /**
  Managed method.
@@ -596,7 +605,7 @@
    System.Int32
  @/textblock
 */
-+ (int32_t)compare_withUri1:(System_Uri *)p1 uri2:(System_Uri *)p2 partsToCompare:(int32_t)p3 compareFormat:(int32_t)p4 comparisonType:(int32_t)p5;
++ (int32_t)compare_withUri1:(System_Uri *)p1 uri2:(System_Uri *)p2 partsToCompare:(enumSystem_UriComponents)p3 compareFormat:(enumSystem_UriFormat)p4 comparisonType:(enumSystem_StringComparison)p5;
 
 /**
  Managed method.
@@ -672,7 +681,7 @@
    System.String
  @/textblock
 */
-- (NSString *)getComponents_withComponents:(int32_t)p1 format:(int32_t)p2;
+- (NSString *)getComponents_withComponents:(enumSystem_UriComponents)p1 format:(enumSystem_UriFormat)p2;
 
 /**
  Managed method.
@@ -702,7 +711,7 @@
    System.String
  @/textblock
 */
-- (NSString *)getLeftPart_withPart:(int32_t)p1;
+- (NSString *)getLeftPart_withPart:(enumSystem_UriPartial)p1;
 
 /**
  Managed method.
@@ -810,7 +819,7 @@
    System.Boolean
  @/textblock
 */
-+ (BOOL)isWellFormedUriString_withUriString:(NSString *)p1 uriKind:(int32_t)p2;
++ (BOOL)isWellFormedUriString_withUriString:(NSString *)p1 uriKind:(enumSystem_UriKind)p2;
 
 /**
  Managed method.
@@ -904,7 +913,7 @@
    System.Boolean
  @/textblock
 */
-+ (BOOL)tryCreate_withUriString:(NSString *)p1 uriKind:(int32_t)p2 resultRef:(System_Uri **)p3;
++ (BOOL)tryCreate_withUriString:(NSString *)p1 uriKind:(enumSystem_UriKind)p2 resultRef:(System_Uri **)p3;
 
 /**
  Managed method.

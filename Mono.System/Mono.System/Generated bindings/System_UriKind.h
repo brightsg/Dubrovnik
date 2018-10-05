@@ -20,6 +20,11 @@
 @class System_UriKind;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 
@@ -53,7 +58,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriKind) {
    System.UriKind
  @/textblock
 */
-+ (int32_t)absolute;
++ (enumSystem_UriKind)absolute;
 
 /**
  Managed field.
@@ -65,7 +70,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriKind) {
    System.UriKind
  @/textblock
 */
-+ (int32_t)relative;
++ (enumSystem_UriKind)relative;
 
 /**
  Managed field.
@@ -77,6 +82,6 @@ typedef NS_ENUM(int32_t, enumSystem_UriKind) {
    System.UriKind
  @/textblock
 */
-+ (int32_t)relativeOrAbsolute;
++ (enumSystem_UriKind)relativeOrAbsolute;
 @end
 //--Dubrovnik.CodeGenerator

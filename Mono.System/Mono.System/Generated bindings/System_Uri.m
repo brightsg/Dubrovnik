@@ -51,7 +51,7 @@
 	return object;
 }
 
-+ (System_Uri *)new_withUriString:(NSString *)p1 uriKind:(int32_t)p2
++ (System_Uri *)new_withUriString:(NSString *)p1 uriKind:(enumSystem_UriKind)p2
 {
 	System_Uri * object = [[self alloc] initWithSignature:"string,System.UriKind" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 	return object;
@@ -306,9 +306,9 @@ static NSString * m_uriSchemeNntp;
 }
 
 @synthesize hostNameType = _hostNameType;
-- (int32_t)hostNameType
+- (enumSystem_UriHostNameType)hostNameType
 {
-	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	typedef enumSystem_UriHostNameType (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;
 	static MonoClass* thunkClass;
 	MonoObject* monoException = NULL;
@@ -317,7 +317,7 @@ static NSString * m_uriSchemeNntp;
 		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "HostNameType");
 		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-	int32_t monoObject = thunk(self.monoObject, &monoException);
+	enumSystem_UriHostNameType monoObject = thunk(self.monoObject, &monoException);
 	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	_hostNameType = monoObject;
 
@@ -620,7 +620,7 @@ static NSString * m_uriSchemeNntp;
 #pragma mark -
 #pragma mark Methods
 
-+ (int32_t)checkHostName_withName:(NSString *)p1
++ (enumSystem_UriHostNameType)checkHostName_withName:(NSString *)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"CheckHostName(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return DB_UNBOX_INT32(monoObject);
@@ -632,7 +632,7 @@ static NSString * m_uriSchemeNntp;
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-+ (int32_t)compare_withUri1:(System_Uri *)p1 uri2:(System_Uri *)p2 partsToCompare:(int32_t)p3 compareFormat:(int32_t)p4 comparisonType:(int32_t)p5
++ (int32_t)compare_withUri1:(System_Uri *)p1 uri2:(System_Uri *)p2 partsToCompare:(enumSystem_UriComponents)p3 compareFormat:(enumSystem_UriFormat)p4 comparisonType:(enumSystem_StringComparison)p5
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"Compare(System.Uri,System.Uri,System.UriComponents,System.UriFormat,stringComparison)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];
 	return DB_UNBOX_INT32(monoObject);
@@ -662,7 +662,7 @@ static NSString * m_uriSchemeNntp;
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (NSString *)getComponents_withComponents:(int32_t)p1 format:(int32_t)p2
+- (NSString *)getComponents_withComponents:(enumSystem_UriComponents)p1 format:(enumSystem_UriFormat)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetComponents(System.UriComponents,System.UriFormat)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
@@ -674,7 +674,7 @@ static NSString * m_uriSchemeNntp;
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (NSString *)getLeftPart_withPart:(int32_t)p1
+- (NSString *)getLeftPart_withPart:(enumSystem_UriPartial)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetLeftPart(System.UriPartial)" withNumArgs:1, DB_VALUE(p1)];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
@@ -716,7 +716,7 @@ static NSString * m_uriSchemeNntp;
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-+ (BOOL)isWellFormedUriString_withUriString:(NSString *)p1 uriKind:(int32_t)p2
++ (BOOL)isWellFormedUriString_withUriString:(NSString *)p1 uriKind:(enumSystem_UriKind)p2
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"IsWellFormedUriString(string,System.UriKind)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 	return DB_UNBOX_BOOLEAN(monoObject);
@@ -752,7 +752,7 @@ static NSString * m_uriSchemeNntp;
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
-+ (BOOL)tryCreate_withUriString:(NSString *)p1 uriKind:(int32_t)p2 resultRef:(System_Uri **)p3
++ (BOOL)tryCreate_withUriString:(NSString *)p1 uriKind:(enumSystem_UriKind)p2 resultRef:(System_Uri **)p3
 {
 	void *refPtr3 = [*p3 monoRTInvokeArg];
 	MonoObject *monoObject = [self invokeMonoClassMethod:"TryCreate(string,System.UriKind,System.Uri&)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), &refPtr3];

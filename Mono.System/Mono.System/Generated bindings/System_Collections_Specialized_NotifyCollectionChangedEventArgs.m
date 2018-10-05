@@ -33,67 +33,67 @@
 #pragma mark -
 #pragma mark Constructors
 
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1
 {
 	System_Collections_Specialized_NotifyCollectionChangedEventArgs * object = [[self alloc] initWithSignature:"System.Collections.Specialized.NotifyCollectionChangedAction" withNumArgs:1, DB_VALUE(p1)];
 	return object;
 }
 
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 changedItem:(System_Object *)p2
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItem:(System_Object *)p2
 {
 	System_Collections_Specialized_NotifyCollectionChangedEventArgs * object = [[self alloc] initWithSignature:"System.Collections.Specialized.NotifyCollectionChangedAction,object" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
 	return object;
 }
 
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 changedItem:(System_Object *)p2 index:(int32_t)p3
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItem:(System_Object *)p2 index:(int32_t)p3
 {
 	System_Collections_Specialized_NotifyCollectionChangedEventArgs * object = [[self alloc] initWithSignature:"System.Collections.Specialized.NotifyCollectionChangedAction,object,int" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3)];
 	return object;
 }
 
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 changedItems:(id <System_Collections_IList_>)p2
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItems:(id <System_Collections_IList_>)p2
 {
 	System_Collections_Specialized_NotifyCollectionChangedEventArgs * object = [[self alloc] initWithSignature:"System.Collections.Specialized.NotifyCollectionChangedAction,System.Collections.IList" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
 	return object;
 }
 
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 changedItems:(id <System_Collections_IList_>)p2 startingIndex:(int32_t)p3
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItems:(id <System_Collections_IList_>)p2 startingIndex:(int32_t)p3
 {
 	System_Collections_Specialized_NotifyCollectionChangedEventArgs * object = [[self alloc] initWithSignature:"System.Collections.Specialized.NotifyCollectionChangedAction,System.Collections.IList,int" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3)];
 	return object;
 }
 
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 newItem:(System_Object *)p2 oldItem:(System_Object *)p3
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 newItem:(System_Object *)p2 oldItem:(System_Object *)p3
 {
 	System_Collections_Specialized_NotifyCollectionChangedEventArgs * object = [[self alloc] initWithSignature:"System.Collections.Specialized.NotifyCollectionChangedAction,object,object" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 	return object;
 }
 
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 newItem:(System_Object *)p2 oldItem:(System_Object *)p3 index:(int32_t)p4
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 newItem:(System_Object *)p2 oldItem:(System_Object *)p3 index:(int32_t)p4
 {
 	System_Collections_Specialized_NotifyCollectionChangedEventArgs * object = [[self alloc] initWithSignature:"System.Collections.Specialized.NotifyCollectionChangedAction,object,object,int" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
 	return object;
 }
 
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 newItems:(id <System_Collections_IList_>)p2 oldItems:(id <System_Collections_IList_>)p3
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 newItems:(id <System_Collections_IList_>)p2 oldItems:(id <System_Collections_IList_>)p3
 {
 	System_Collections_Specialized_NotifyCollectionChangedEventArgs * object = [[self alloc] initWithSignature:"System.Collections.Specialized.NotifyCollectionChangedAction,System.Collections.IList,System.Collections.IList" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 	return object;
 }
 
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 newItems:(id <System_Collections_IList_>)p2 oldItems:(id <System_Collections_IList_>)p3 startingIndex:(int32_t)p4
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 newItems:(id <System_Collections_IList_>)p2 oldItems:(id <System_Collections_IList_>)p3 startingIndex:(int32_t)p4
 {
 	System_Collections_Specialized_NotifyCollectionChangedEventArgs * object = [[self alloc] initWithSignature:"System.Collections.Specialized.NotifyCollectionChangedAction,System.Collections.IList,System.Collections.IList,int" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
 	return object;
 }
 
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 changedItem:(System_Object *)p2 index:(int32_t)p3 oldIndex:(int32_t)p4
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItem:(System_Object *)p2 index:(int32_t)p3 oldIndex:(int32_t)p4
 {
 	System_Collections_Specialized_NotifyCollectionChangedEventArgs * object = [[self alloc] initWithSignature:"System.Collections.Specialized.NotifyCollectionChangedAction,object,int,int" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
 	return object;
 }
 
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(int32_t)p1 changedItems:(id <System_Collections_IList_>)p2 index:(int32_t)p3 oldIndex:(int32_t)p4
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItems:(id <System_Collections_IList_>)p2 index:(int32_t)p3 oldIndex:(int32_t)p4
 {
 	System_Collections_Specialized_NotifyCollectionChangedEventArgs * object = [[self alloc] initWithSignature:"System.Collections.Specialized.NotifyCollectionChangedAction,System.Collections.IList,int,int" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
 	return object;
@@ -103,9 +103,9 @@
 #pragma mark Properties
 
 @synthesize action = _action;
-- (int32_t)action
+- (enumSystem_Collections_Specialized_NotifyCollectionChangedAction)action
 {
-	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	typedef enumSystem_Collections_Specialized_NotifyCollectionChangedAction (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;
 	static MonoClass* thunkClass;
 	MonoObject* monoException = NULL;
@@ -114,7 +114,7 @@
 		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Action");
 		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-	int32_t monoObject = thunk(self.monoObject, &monoException);
+	enumSystem_Collections_Specialized_NotifyCollectionChangedAction monoObject = thunk(self.monoObject, &monoException);
 	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	_action = monoObject;
 

@@ -236,9 +236,9 @@
 }
 
 @synthesize statusCode = _statusCode;
-- (int32_t)statusCode
+- (enumSystem_Net_HttpStatusCode)statusCode
 {
-	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	typedef enumSystem_Net_HttpStatusCode (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;
 	static MonoClass* thunkClass;
 	MonoObject* monoException = NULL;
@@ -247,7 +247,7 @@
 		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "StatusCode");
 		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-	int32_t monoObject = thunk(self.monoObject, &monoException);
+	enumSystem_Net_HttpStatusCode monoObject = thunk(self.monoObject, &monoException);
 	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	_statusCode = monoObject;
 

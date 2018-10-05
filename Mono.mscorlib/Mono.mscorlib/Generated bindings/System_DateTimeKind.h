@@ -20,6 +20,11 @@
 @class System_DateTimeKind;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 #import "System_Enum.h"
@@ -53,7 +58,7 @@ typedef NS_ENUM(int32_t, enumSystem_DateTimeKind) {
    System.DateTimeKind
  @/textblock
 */
-+ (int32_t)local;
++ (enumSystem_DateTimeKind)local;
 
 /**
  Managed field.
@@ -65,7 +70,7 @@ typedef NS_ENUM(int32_t, enumSystem_DateTimeKind) {
    System.DateTimeKind
  @/textblock
 */
-+ (int32_t)unspecified;
++ (enumSystem_DateTimeKind)unspecified;
 
 /**
  Managed field.
@@ -77,6 +82,6 @@ typedef NS_ENUM(int32_t, enumSystem_DateTimeKind) {
    System.DateTimeKind
  @/textblock
 */
-+ (int32_t)utc;
++ (enumSystem_DateTimeKind)utc;
 @end
 //--Dubrovnik.CodeGenerator

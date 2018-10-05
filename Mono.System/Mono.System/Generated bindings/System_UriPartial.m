@@ -33,8 +33,8 @@
 #pragma mark -
 #pragma mark Fields
 
-static int32_t m_authority;
-+ (int32_t)authority
+static enumSystem_UriPartial m_authority;
++ (enumSystem_UriPartial)authority
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Authority"];
 	m_authority = DB_UNBOX_INT32(monoObject);
@@ -42,8 +42,8 @@ static int32_t m_authority;
 	return m_authority;
 }
 
-static int32_t m_path;
-+ (int32_t)path
+static enumSystem_UriPartial m_path;
++ (enumSystem_UriPartial)path
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Path"];
 	m_path = DB_UNBOX_INT32(monoObject);
@@ -51,8 +51,8 @@ static int32_t m_path;
 	return m_path;
 }
 
-static int32_t m_query;
-+ (int32_t)query
+static enumSystem_UriPartial m_query;
++ (enumSystem_UriPartial)query
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Query"];
 	m_query = DB_UNBOX_INT32(monoObject);
@@ -60,8 +60,8 @@ static int32_t m_query;
 	return m_query;
 }
 
-static int32_t m_scheme;
-+ (int32_t)scheme
+static enumSystem_UriPartial m_scheme;
++ (enumSystem_UriPartial)scheme
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Scheme"];
 	m_scheme = DB_UNBOX_INT32(monoObject);

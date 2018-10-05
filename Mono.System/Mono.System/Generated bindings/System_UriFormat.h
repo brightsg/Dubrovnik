@@ -20,6 +20,11 @@
 @class System_UriFormat;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 
@@ -53,7 +58,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriFormat) {
    System.UriFormat
  @/textblock
 */
-+ (int32_t)safeUnescaped;
++ (enumSystem_UriFormat)safeUnescaped;
 
 /**
  Managed field.
@@ -65,7 +70,7 @@ typedef NS_ENUM(int32_t, enumSystem_UriFormat) {
    System.UriFormat
  @/textblock
 */
-+ (int32_t)unescaped;
++ (enumSystem_UriFormat)unescaped;
 
 /**
  Managed field.
@@ -77,6 +82,6 @@ typedef NS_ENUM(int32_t, enumSystem_UriFormat) {
    System.UriFormat
  @/textblock
 */
-+ (int32_t)uriEscaped;
++ (enumSystem_UriFormat)uriEscaped;
 @end
 //--Dubrovnik.CodeGenerator

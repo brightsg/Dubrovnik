@@ -33,8 +33,8 @@
 #pragma mark -
 #pragma mark Fields
 
-static int32_t m_safeUnescaped;
-+ (int32_t)safeUnescaped
+static enumSystem_UriFormat m_safeUnescaped;
++ (enumSystem_UriFormat)safeUnescaped
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"SafeUnescaped"];
 	m_safeUnescaped = DB_UNBOX_INT32(monoObject);
@@ -42,8 +42,8 @@ static int32_t m_safeUnescaped;
 	return m_safeUnescaped;
 }
 
-static int32_t m_unescaped;
-+ (int32_t)unescaped
+static enumSystem_UriFormat m_unescaped;
++ (enumSystem_UriFormat)unescaped
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Unescaped"];
 	m_unescaped = DB_UNBOX_INT32(monoObject);
@@ -51,8 +51,8 @@ static int32_t m_unescaped;
 	return m_unescaped;
 }
 
-static int32_t m_uriEscaped;
-+ (int32_t)uriEscaped
+static enumSystem_UriFormat m_uriEscaped;
++ (enumSystem_UriFormat)uriEscaped
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"UriEscaped"];
 	m_uriEscaped = DB_UNBOX_INT32(monoObject);

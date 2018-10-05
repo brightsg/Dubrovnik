@@ -39,7 +39,7 @@
 	return object;
 }
 
-+ (System_DateTime *)new_withTicks:(int64_t)p1 kind:(int32_t)p2
++ (System_DateTime *)new_withTicks:(int64_t)p1 kind:(enumSystem_DateTimeKind)p2
 {
 	System_DateTime * object = [[self alloc] initWithSignature:"long,System.DateTimeKind" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 	return object;
@@ -59,7 +59,7 @@
 	return object;
 }
 
-+ (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 kind:(int32_t)p7
++ (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 kind:(enumSystem_DateTimeKind)p7
 {
 	System_DateTime * object = [[self alloc] initWithSignature:"int,int,int,int,int,int,System.DateTimeKind" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7)];
 	return object;
@@ -73,7 +73,7 @@
 	return object;
 }
 
-+ (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7 kind:(int32_t)p8
++ (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7 kind:(enumSystem_DateTimeKind)p8
 {
 	System_DateTime * object = [[self alloc] initWithSignature:"int,int,int,int,int,int,int,System.DateTimeKind" withNumArgs:8, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), DB_VALUE(p8)];
 	return object;
@@ -149,9 +149,9 @@ static NSDate * m_minValue;
 }
 
 @synthesize dayOfWeek = _dayOfWeek;
-- (int32_t)dayOfWeek
+- (enumSystem_DayOfWeek)dayOfWeek
 {
-	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	typedef enumSystem_DayOfWeek (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;
 	static MonoClass* thunkClass;
 	MonoObject* monoException = NULL;
@@ -160,7 +160,7 @@ static NSDate * m_minValue;
 		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "DayOfWeek");
 		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-	int32_t monoObject = thunk(self.monoObject, &monoException);
+	enumSystem_DayOfWeek monoObject = thunk(self.monoObject, &monoException);
 	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	_dayOfWeek = monoObject;
 
@@ -206,9 +206,9 @@ static NSDate * m_minValue;
 }
 
 @synthesize kind = _kind;
-- (int32_t)kind
+- (enumSystem_DateTimeKind)kind
 {
-	typedef int32_t (*Thunk)(MonoObject *, MonoObject**);
+	typedef enumSystem_DateTimeKind (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;
 	static MonoClass* thunkClass;
 	MonoObject* monoException = NULL;
@@ -217,7 +217,7 @@ static NSDate * m_minValue;
 		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Kind");
 		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
-	int32_t monoObject = thunk(self.monoObject, &monoException);
+	enumSystem_DateTimeKind monoObject = thunk(self.monoObject, &monoException);
 	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 	_kind = monoObject;
 
@@ -647,7 +647,7 @@ static NSDate * m_utcNow;
 
 /* Skipped method : System.DateTime ParseExact(System.String s, System.String[] formats, System.IFormatProvider provider, System.Globalization.DateTimeStyles style) */
 
-+ (NSDate *)specifyKind_withValue:(NSDate *)p1 kind:(int32_t)p2
++ (NSDate *)specifyKind_withValue:(NSDate *)p1 kind:(enumSystem_DateTimeKind)p2
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"SpecifyKind(System.DateTime,System.DateTimeKind)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 	return [NSDate dateWithMonoDateTime:monoObject];

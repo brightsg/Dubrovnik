@@ -33,8 +33,8 @@
 #pragma mark -
 #pragma mark Fields
 
-static uint8_t m_val1;
-+ (uint8_t)val1
+static enumDubrovnik_UnitTests_ByteEnum m_val1;
++ (enumDubrovnik_UnitTests_ByteEnum)val1
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"val1"];
 	m_val1 = DB_UNBOX_UINT8(monoObject);
@@ -42,8 +42,8 @@ static uint8_t m_val1;
 	return m_val1;
 }
 
-static uint8_t m_val2;
-+ (uint8_t)val2
+static enumDubrovnik_UnitTests_ByteEnum m_val2;
++ (enumDubrovnik_UnitTests_ByteEnum)val2
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"val2"];
 	m_val2 = DB_UNBOX_UINT8(monoObject);
@@ -51,8 +51,8 @@ static uint8_t m_val2;
 	return m_val2;
 }
 
-static uint8_t m_val3;
-+ (uint8_t)val3
+static enumDubrovnik_UnitTests_ByteEnum m_val3;
++ (enumDubrovnik_UnitTests_ByteEnum)val3
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"val3"];
 	m_val3 = DB_UNBOX_UINT8(monoObject);
@@ -60,8 +60,8 @@ static uint8_t m_val3;
 	return m_val3;
 }
 
-static uint8_t m_val4;
-+ (uint8_t)val4
+static enumDubrovnik_UnitTests_ByteEnum m_val4;
++ (enumDubrovnik_UnitTests_ByteEnum)val4
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"val4"];
 	m_val4 = DB_UNBOX_UINT8(monoObject);

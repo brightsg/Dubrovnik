@@ -22,6 +22,11 @@
 @protocol System_ComponentModel_INotifyPropertyChanging_;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 #import "System_ComponentModel_INotifyPropertyChanging_Protocol.h"

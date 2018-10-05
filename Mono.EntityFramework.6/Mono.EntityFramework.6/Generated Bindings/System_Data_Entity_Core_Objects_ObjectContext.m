@@ -342,35 +342,35 @@
 
 /* Skipped method : System.Void LoadProperty(System.Data.Entity.Core.Objects.ObjectContext+TEntity entity, System.Linq.Expressions.Expression`1<System.Func`2<System.Data.Entity.Core.Objects.ObjectContext+TEntity, System.Object>> selector, System.Data.Entity.Core.Objects.MergeOption mergeOption) */
 
-- (void)refresh_withRefreshMode:(int32_t)p1 collection:(id <System_Collections_IEnumerable_>)p2
+- (void)refresh_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 collection:(id <System_Collections_IEnumerable_>)p2
 {
 	[self invokeMonoMethod:"Refresh(System.Data.Entity.Core.Objects.RefreshMode,System.Collections.IEnumerable)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
 }
 
-- (void)refresh_withRefreshMode:(int32_t)p1 entity:(System_Object *)p2
+- (void)refresh_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 entity:(System_Object *)p2
 {
 	[self invokeMonoMethod:"Refresh(System.Data.Entity.Core.Objects.RefreshMode,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
 }
 
-- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(int32_t)p1 collection:(id <System_Collections_IEnumerable_>)p2
+- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 collection:(id <System_Collections_IEnumerable_>)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"RefreshAsync(System.Data.Entity.Core.Objects.RefreshMode,System.Collections.IEnumerable)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
 	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(int32_t)p1 collection:(id <System_Collections_IEnumerable_>)p2 cancellationToken:(System_Threading_CancellationToken *)p3
+- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 collection:(id <System_Collections_IEnumerable_>)p2 cancellationToken:(System_Threading_CancellationToken *)p3
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"RefreshAsync(System.Data.Entity.Core.Objects.RefreshMode,System.Collections.IEnumerable,System.Threading.CancellationToken)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(int32_t)p1 entity:(System_Object *)p2
+- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 entity:(System_Object *)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"RefreshAsync(System.Data.Entity.Core.Objects.RefreshMode,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
 	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(int32_t)p1 entity:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3
+- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 entity:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"RefreshAsync(System.Data.Entity.Core.Objects.RefreshMode,object,System.Threading.CancellationToken)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
@@ -388,7 +388,7 @@
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (int32_t)saveChanges_withOptions:(int32_t)p1
+- (int32_t)saveChanges_withOptions:(enumSystem_Data_Entity_Core_Objects_SaveOptions)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"SaveChanges(System.Data.Entity.Core.Objects.SaveOptions)" withNumArgs:1, DB_VALUE(p1)];
 	return DB_UNBOX_INT32(monoObject);
@@ -406,13 +406,13 @@
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Threading_Tasks_TaskA1 *)saveChangesAsync_withOptions:(int32_t)p1
+- (System_Threading_Tasks_TaskA1 *)saveChangesAsync_withOptions:(enumSystem_Data_Entity_Core_Objects_SaveOptions)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"SaveChangesAsync(System.Data.Entity.Core.Objects.SaveOptions)" withNumArgs:1, DB_VALUE(p1)];
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Threading_Tasks_TaskA1 *)saveChangesAsync_withOptions:(int32_t)p1 cancellationToken:(System_Threading_CancellationToken *)p2
+- (System_Threading_Tasks_TaskA1 *)saveChangesAsync_withOptions:(enumSystem_Data_Entity_Core_Objects_SaveOptions)p1 cancellationToken:(System_Threading_CancellationToken *)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"SaveChangesAsync(System.Data.Entity.Core.Objects.SaveOptions,System.Threading.CancellationToken)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];

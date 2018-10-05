@@ -27,6 +27,11 @@
 @class System_Xml_XmlDocument;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 //#import "System_Xml_XmlNode.h" // class base defaults to System.Object

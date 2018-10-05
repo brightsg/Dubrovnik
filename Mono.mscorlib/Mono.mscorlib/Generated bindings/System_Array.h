@@ -41,6 +41,11 @@
 @protocol System_Collections_IEnumerator_;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 #import "System_Collections_IEnumerable_Protocol.h"

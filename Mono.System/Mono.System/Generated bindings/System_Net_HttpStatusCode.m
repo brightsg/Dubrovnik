@@ -33,8 +33,8 @@
 #pragma mark -
 #pragma mark Fields
 
-static int32_t m_accepted;
-+ (int32_t)accepted
+static enumSystem_Net_HttpStatusCode m_accepted;
++ (enumSystem_Net_HttpStatusCode)accepted
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Accepted"];
 	m_accepted = DB_UNBOX_INT32(monoObject);
@@ -42,8 +42,8 @@ static int32_t m_accepted;
 	return m_accepted;
 }
 
-static int32_t m_ambiguous;
-+ (int32_t)ambiguous
+static enumSystem_Net_HttpStatusCode m_ambiguous;
++ (enumSystem_Net_HttpStatusCode)ambiguous
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Ambiguous"];
 	m_ambiguous = DB_UNBOX_INT32(monoObject);
@@ -51,8 +51,8 @@ static int32_t m_ambiguous;
 	return m_ambiguous;
 }
 
-static int32_t m_badGateway;
-+ (int32_t)badGateway
+static enumSystem_Net_HttpStatusCode m_badGateway;
++ (enumSystem_Net_HttpStatusCode)badGateway
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"BadGateway"];
 	m_badGateway = DB_UNBOX_INT32(monoObject);
@@ -60,8 +60,8 @@ static int32_t m_badGateway;
 	return m_badGateway;
 }
 
-static int32_t m_badRequest;
-+ (int32_t)badRequest
+static enumSystem_Net_HttpStatusCode m_badRequest;
++ (enumSystem_Net_HttpStatusCode)badRequest
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"BadRequest"];
 	m_badRequest = DB_UNBOX_INT32(monoObject);
@@ -69,8 +69,8 @@ static int32_t m_badRequest;
 	return m_badRequest;
 }
 
-static int32_t m_conflict;
-+ (int32_t)conflict
+static enumSystem_Net_HttpStatusCode m_conflict;
++ (enumSystem_Net_HttpStatusCode)conflict
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Conflict"];
 	m_conflict = DB_UNBOX_INT32(monoObject);
@@ -78,8 +78,8 @@ static int32_t m_conflict;
 	return m_conflict;
 }
 
-static int32_t m_continue;
-+ (int32_t)continue
+static enumSystem_Net_HttpStatusCode m_continue;
++ (enumSystem_Net_HttpStatusCode)continue
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Continue"];
 	m_continue = DB_UNBOX_INT32(monoObject);
@@ -87,8 +87,8 @@ static int32_t m_continue;
 	return m_continue;
 }
 
-static int32_t m_created;
-+ (int32_t)created
+static enumSystem_Net_HttpStatusCode m_created;
++ (enumSystem_Net_HttpStatusCode)created
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Created"];
 	m_created = DB_UNBOX_INT32(monoObject);
@@ -96,8 +96,8 @@ static int32_t m_created;
 	return m_created;
 }
 
-static int32_t m_expectationFailed;
-+ (int32_t)expectationFailed
+static enumSystem_Net_HttpStatusCode m_expectationFailed;
++ (enumSystem_Net_HttpStatusCode)expectationFailed
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"ExpectationFailed"];
 	m_expectationFailed = DB_UNBOX_INT32(monoObject);
@@ -105,8 +105,8 @@ static int32_t m_expectationFailed;
 	return m_expectationFailed;
 }
 
-static int32_t m_forbidden;
-+ (int32_t)forbidden
+static enumSystem_Net_HttpStatusCode m_forbidden;
++ (enumSystem_Net_HttpStatusCode)forbidden
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Forbidden"];
 	m_forbidden = DB_UNBOX_INT32(monoObject);
@@ -114,8 +114,8 @@ static int32_t m_forbidden;
 	return m_forbidden;
 }
 
-static int32_t m_found;
-+ (int32_t)found
+static enumSystem_Net_HttpStatusCode m_found;
++ (enumSystem_Net_HttpStatusCode)found
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Found"];
 	m_found = DB_UNBOX_INT32(monoObject);
@@ -123,8 +123,8 @@ static int32_t m_found;
 	return m_found;
 }
 
-static int32_t m_gatewayTimeout;
-+ (int32_t)gatewayTimeout
+static enumSystem_Net_HttpStatusCode m_gatewayTimeout;
++ (enumSystem_Net_HttpStatusCode)gatewayTimeout
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"GatewayTimeout"];
 	m_gatewayTimeout = DB_UNBOX_INT32(monoObject);
@@ -132,8 +132,8 @@ static int32_t m_gatewayTimeout;
 	return m_gatewayTimeout;
 }
 
-static int32_t m_gone;
-+ (int32_t)gone
+static enumSystem_Net_HttpStatusCode m_gone;
++ (enumSystem_Net_HttpStatusCode)gone
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Gone"];
 	m_gone = DB_UNBOX_INT32(monoObject);
@@ -141,8 +141,8 @@ static int32_t m_gone;
 	return m_gone;
 }
 
-static int32_t m_httpVersionNotSupported;
-+ (int32_t)httpVersionNotSupported
+static enumSystem_Net_HttpStatusCode m_httpVersionNotSupported;
++ (enumSystem_Net_HttpStatusCode)httpVersionNotSupported
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"HttpVersionNotSupported"];
 	m_httpVersionNotSupported = DB_UNBOX_INT32(monoObject);
@@ -150,8 +150,8 @@ static int32_t m_httpVersionNotSupported;
 	return m_httpVersionNotSupported;
 }
 
-static int32_t m_internalServerError;
-+ (int32_t)internalServerError
+static enumSystem_Net_HttpStatusCode m_internalServerError;
++ (enumSystem_Net_HttpStatusCode)internalServerError
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"InternalServerError"];
 	m_internalServerError = DB_UNBOX_INT32(monoObject);
@@ -159,8 +159,8 @@ static int32_t m_internalServerError;
 	return m_internalServerError;
 }
 
-static int32_t m_lengthRequired;
-+ (int32_t)lengthRequired
+static enumSystem_Net_HttpStatusCode m_lengthRequired;
++ (enumSystem_Net_HttpStatusCode)lengthRequired
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"LengthRequired"];
 	m_lengthRequired = DB_UNBOX_INT32(monoObject);
@@ -168,8 +168,8 @@ static int32_t m_lengthRequired;
 	return m_lengthRequired;
 }
 
-static int32_t m_methodNotAllowed;
-+ (int32_t)methodNotAllowed
+static enumSystem_Net_HttpStatusCode m_methodNotAllowed;
++ (enumSystem_Net_HttpStatusCode)methodNotAllowed
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"MethodNotAllowed"];
 	m_methodNotAllowed = DB_UNBOX_INT32(monoObject);
@@ -177,8 +177,8 @@ static int32_t m_methodNotAllowed;
 	return m_methodNotAllowed;
 }
 
-static int32_t m_moved;
-+ (int32_t)moved
+static enumSystem_Net_HttpStatusCode m_moved;
++ (enumSystem_Net_HttpStatusCode)moved
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Moved"];
 	m_moved = DB_UNBOX_INT32(monoObject);
@@ -186,8 +186,8 @@ static int32_t m_moved;
 	return m_moved;
 }
 
-static int32_t m_movedPermanently;
-+ (int32_t)movedPermanently
+static enumSystem_Net_HttpStatusCode m_movedPermanently;
++ (enumSystem_Net_HttpStatusCode)movedPermanently
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"MovedPermanently"];
 	m_movedPermanently = DB_UNBOX_INT32(monoObject);
@@ -195,8 +195,8 @@ static int32_t m_movedPermanently;
 	return m_movedPermanently;
 }
 
-static int32_t m_multipleChoices;
-+ (int32_t)multipleChoices
+static enumSystem_Net_HttpStatusCode m_multipleChoices;
++ (enumSystem_Net_HttpStatusCode)multipleChoices
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"MultipleChoices"];
 	m_multipleChoices = DB_UNBOX_INT32(monoObject);
@@ -204,8 +204,8 @@ static int32_t m_multipleChoices;
 	return m_multipleChoices;
 }
 
-static int32_t m_noContent;
-+ (int32_t)noContent
+static enumSystem_Net_HttpStatusCode m_noContent;
++ (enumSystem_Net_HttpStatusCode)noContent
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"NoContent"];
 	m_noContent = DB_UNBOX_INT32(monoObject);
@@ -213,8 +213,8 @@ static int32_t m_noContent;
 	return m_noContent;
 }
 
-static int32_t m_nonAuthoritativeInformation;
-+ (int32_t)nonAuthoritativeInformation
+static enumSystem_Net_HttpStatusCode m_nonAuthoritativeInformation;
++ (enumSystem_Net_HttpStatusCode)nonAuthoritativeInformation
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"NonAuthoritativeInformation"];
 	m_nonAuthoritativeInformation = DB_UNBOX_INT32(monoObject);
@@ -222,8 +222,8 @@ static int32_t m_nonAuthoritativeInformation;
 	return m_nonAuthoritativeInformation;
 }
 
-static int32_t m_notAcceptable;
-+ (int32_t)notAcceptable
+static enumSystem_Net_HttpStatusCode m_notAcceptable;
++ (enumSystem_Net_HttpStatusCode)notAcceptable
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"NotAcceptable"];
 	m_notAcceptable = DB_UNBOX_INT32(monoObject);
@@ -231,8 +231,8 @@ static int32_t m_notAcceptable;
 	return m_notAcceptable;
 }
 
-static int32_t m_notFound;
-+ (int32_t)notFound
+static enumSystem_Net_HttpStatusCode m_notFound;
++ (enumSystem_Net_HttpStatusCode)notFound
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"NotFound"];
 	m_notFound = DB_UNBOX_INT32(monoObject);
@@ -240,8 +240,8 @@ static int32_t m_notFound;
 	return m_notFound;
 }
 
-static int32_t m_notImplemented;
-+ (int32_t)notImplemented
+static enumSystem_Net_HttpStatusCode m_notImplemented;
++ (enumSystem_Net_HttpStatusCode)notImplemented
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"NotImplemented"];
 	m_notImplemented = DB_UNBOX_INT32(monoObject);
@@ -249,8 +249,8 @@ static int32_t m_notImplemented;
 	return m_notImplemented;
 }
 
-static int32_t m_notModified;
-+ (int32_t)notModified
+static enumSystem_Net_HttpStatusCode m_notModified;
++ (enumSystem_Net_HttpStatusCode)notModified
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"NotModified"];
 	m_notModified = DB_UNBOX_INT32(monoObject);
@@ -258,8 +258,8 @@ static int32_t m_notModified;
 	return m_notModified;
 }
 
-static int32_t m_oK;
-+ (int32_t)oK
+static enumSystem_Net_HttpStatusCode m_oK;
++ (enumSystem_Net_HttpStatusCode)oK
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"OK"];
 	m_oK = DB_UNBOX_INT32(monoObject);
@@ -267,8 +267,8 @@ static int32_t m_oK;
 	return m_oK;
 }
 
-static int32_t m_partialContent;
-+ (int32_t)partialContent
+static enumSystem_Net_HttpStatusCode m_partialContent;
++ (enumSystem_Net_HttpStatusCode)partialContent
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"PartialContent"];
 	m_partialContent = DB_UNBOX_INT32(monoObject);
@@ -276,8 +276,8 @@ static int32_t m_partialContent;
 	return m_partialContent;
 }
 
-static int32_t m_paymentRequired;
-+ (int32_t)paymentRequired
+static enumSystem_Net_HttpStatusCode m_paymentRequired;
++ (enumSystem_Net_HttpStatusCode)paymentRequired
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"PaymentRequired"];
 	m_paymentRequired = DB_UNBOX_INT32(monoObject);
@@ -285,8 +285,8 @@ static int32_t m_paymentRequired;
 	return m_paymentRequired;
 }
 
-static int32_t m_preconditionFailed;
-+ (int32_t)preconditionFailed
+static enumSystem_Net_HttpStatusCode m_preconditionFailed;
++ (enumSystem_Net_HttpStatusCode)preconditionFailed
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"PreconditionFailed"];
 	m_preconditionFailed = DB_UNBOX_INT32(monoObject);
@@ -294,8 +294,8 @@ static int32_t m_preconditionFailed;
 	return m_preconditionFailed;
 }
 
-static int32_t m_proxyAuthenticationRequired;
-+ (int32_t)proxyAuthenticationRequired
+static enumSystem_Net_HttpStatusCode m_proxyAuthenticationRequired;
++ (enumSystem_Net_HttpStatusCode)proxyAuthenticationRequired
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"ProxyAuthenticationRequired"];
 	m_proxyAuthenticationRequired = DB_UNBOX_INT32(monoObject);
@@ -303,8 +303,8 @@ static int32_t m_proxyAuthenticationRequired;
 	return m_proxyAuthenticationRequired;
 }
 
-static int32_t m_redirect;
-+ (int32_t)redirect
+static enumSystem_Net_HttpStatusCode m_redirect;
++ (enumSystem_Net_HttpStatusCode)redirect
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Redirect"];
 	m_redirect = DB_UNBOX_INT32(monoObject);
@@ -312,8 +312,8 @@ static int32_t m_redirect;
 	return m_redirect;
 }
 
-static int32_t m_redirectKeepVerb;
-+ (int32_t)redirectKeepVerb
+static enumSystem_Net_HttpStatusCode m_redirectKeepVerb;
++ (enumSystem_Net_HttpStatusCode)redirectKeepVerb
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"RedirectKeepVerb"];
 	m_redirectKeepVerb = DB_UNBOX_INT32(monoObject);
@@ -321,8 +321,8 @@ static int32_t m_redirectKeepVerb;
 	return m_redirectKeepVerb;
 }
 
-static int32_t m_redirectMethod;
-+ (int32_t)redirectMethod
+static enumSystem_Net_HttpStatusCode m_redirectMethod;
++ (enumSystem_Net_HttpStatusCode)redirectMethod
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"RedirectMethod"];
 	m_redirectMethod = DB_UNBOX_INT32(monoObject);
@@ -330,8 +330,8 @@ static int32_t m_redirectMethod;
 	return m_redirectMethod;
 }
 
-static int32_t m_requestedRangeNotSatisfiable;
-+ (int32_t)requestedRangeNotSatisfiable
+static enumSystem_Net_HttpStatusCode m_requestedRangeNotSatisfiable;
++ (enumSystem_Net_HttpStatusCode)requestedRangeNotSatisfiable
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"RequestedRangeNotSatisfiable"];
 	m_requestedRangeNotSatisfiable = DB_UNBOX_INT32(monoObject);
@@ -339,8 +339,8 @@ static int32_t m_requestedRangeNotSatisfiable;
 	return m_requestedRangeNotSatisfiable;
 }
 
-static int32_t m_requestEntityTooLarge;
-+ (int32_t)requestEntityTooLarge
+static enumSystem_Net_HttpStatusCode m_requestEntityTooLarge;
++ (enumSystem_Net_HttpStatusCode)requestEntityTooLarge
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"RequestEntityTooLarge"];
 	m_requestEntityTooLarge = DB_UNBOX_INT32(monoObject);
@@ -348,8 +348,8 @@ static int32_t m_requestEntityTooLarge;
 	return m_requestEntityTooLarge;
 }
 
-static int32_t m_requestTimeout;
-+ (int32_t)requestTimeout
+static enumSystem_Net_HttpStatusCode m_requestTimeout;
++ (enumSystem_Net_HttpStatusCode)requestTimeout
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"RequestTimeout"];
 	m_requestTimeout = DB_UNBOX_INT32(monoObject);
@@ -357,8 +357,8 @@ static int32_t m_requestTimeout;
 	return m_requestTimeout;
 }
 
-static int32_t m_requestUriTooLong;
-+ (int32_t)requestUriTooLong
+static enumSystem_Net_HttpStatusCode m_requestUriTooLong;
++ (enumSystem_Net_HttpStatusCode)requestUriTooLong
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"RequestUriTooLong"];
 	m_requestUriTooLong = DB_UNBOX_INT32(monoObject);
@@ -366,8 +366,8 @@ static int32_t m_requestUriTooLong;
 	return m_requestUriTooLong;
 }
 
-static int32_t m_resetContent;
-+ (int32_t)resetContent
+static enumSystem_Net_HttpStatusCode m_resetContent;
++ (enumSystem_Net_HttpStatusCode)resetContent
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"ResetContent"];
 	m_resetContent = DB_UNBOX_INT32(monoObject);
@@ -375,8 +375,8 @@ static int32_t m_resetContent;
 	return m_resetContent;
 }
 
-static int32_t m_seeOther;
-+ (int32_t)seeOther
+static enumSystem_Net_HttpStatusCode m_seeOther;
++ (enumSystem_Net_HttpStatusCode)seeOther
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"SeeOther"];
 	m_seeOther = DB_UNBOX_INT32(monoObject);
@@ -384,8 +384,8 @@ static int32_t m_seeOther;
 	return m_seeOther;
 }
 
-static int32_t m_serviceUnavailable;
-+ (int32_t)serviceUnavailable
+static enumSystem_Net_HttpStatusCode m_serviceUnavailable;
++ (enumSystem_Net_HttpStatusCode)serviceUnavailable
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"ServiceUnavailable"];
 	m_serviceUnavailable = DB_UNBOX_INT32(monoObject);
@@ -393,8 +393,8 @@ static int32_t m_serviceUnavailable;
 	return m_serviceUnavailable;
 }
 
-static int32_t m_switchingProtocols;
-+ (int32_t)switchingProtocols
+static enumSystem_Net_HttpStatusCode m_switchingProtocols;
++ (enumSystem_Net_HttpStatusCode)switchingProtocols
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"SwitchingProtocols"];
 	m_switchingProtocols = DB_UNBOX_INT32(monoObject);
@@ -402,8 +402,8 @@ static int32_t m_switchingProtocols;
 	return m_switchingProtocols;
 }
 
-static int32_t m_temporaryRedirect;
-+ (int32_t)temporaryRedirect
+static enumSystem_Net_HttpStatusCode m_temporaryRedirect;
++ (enumSystem_Net_HttpStatusCode)temporaryRedirect
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"TemporaryRedirect"];
 	m_temporaryRedirect = DB_UNBOX_INT32(monoObject);
@@ -411,8 +411,8 @@ static int32_t m_temporaryRedirect;
 	return m_temporaryRedirect;
 }
 
-static int32_t m_unauthorized;
-+ (int32_t)unauthorized
+static enumSystem_Net_HttpStatusCode m_unauthorized;
++ (enumSystem_Net_HttpStatusCode)unauthorized
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Unauthorized"];
 	m_unauthorized = DB_UNBOX_INT32(monoObject);
@@ -420,8 +420,8 @@ static int32_t m_unauthorized;
 	return m_unauthorized;
 }
 
-static int32_t m_unsupportedMediaType;
-+ (int32_t)unsupportedMediaType
+static enumSystem_Net_HttpStatusCode m_unsupportedMediaType;
++ (enumSystem_Net_HttpStatusCode)unsupportedMediaType
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"UnsupportedMediaType"];
 	m_unsupportedMediaType = DB_UNBOX_INT32(monoObject);
@@ -429,8 +429,8 @@ static int32_t m_unsupportedMediaType;
 	return m_unsupportedMediaType;
 }
 
-static int32_t m_unused;
-+ (int32_t)unused
+static enumSystem_Net_HttpStatusCode m_unused;
++ (enumSystem_Net_HttpStatusCode)unused
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Unused"];
 	m_unused = DB_UNBOX_INT32(monoObject);
@@ -438,8 +438,8 @@ static int32_t m_unused;
 	return m_unused;
 }
 
-static int32_t m_upgradeRequired;
-+ (int32_t)upgradeRequired
+static enumSystem_Net_HttpStatusCode m_upgradeRequired;
++ (enumSystem_Net_HttpStatusCode)upgradeRequired
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"UpgradeRequired"];
 	m_upgradeRequired = DB_UNBOX_INT32(monoObject);
@@ -447,8 +447,8 @@ static int32_t m_upgradeRequired;
 	return m_upgradeRequired;
 }
 
-static int32_t m_useProxy;
-+ (int32_t)useProxy
+static enumSystem_Net_HttpStatusCode m_useProxy;
++ (enumSystem_Net_HttpStatusCode)useProxy
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"UseProxy"];
 	m_useProxy = DB_UNBOX_INT32(monoObject);

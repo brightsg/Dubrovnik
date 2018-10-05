@@ -20,6 +20,11 @@
 @class Dubrovnik_UnitTests_ShortEnum;
 
 //
+// Local assembly imports
+//
+
+
+//
 // Import superclass and adopted protocols
 //
 
@@ -54,7 +59,7 @@ typedef NS_ENUM(int16_t, enumDubrovnik_UnitTests_ShortEnum) {
    Dubrovnik.UnitTests.ShortEnum
  @/textblock
 */
-+ (int16_t)val1;
++ (enumDubrovnik_UnitTests_ShortEnum)val1;
 
 /**
  Managed field.
@@ -66,7 +71,7 @@ typedef NS_ENUM(int16_t, enumDubrovnik_UnitTests_ShortEnum) {
    Dubrovnik.UnitTests.ShortEnum
  @/textblock
 */
-+ (int16_t)val2;
++ (enumDubrovnik_UnitTests_ShortEnum)val2;
 
 /**
  Managed field.
@@ -78,7 +83,7 @@ typedef NS_ENUM(int16_t, enumDubrovnik_UnitTests_ShortEnum) {
    Dubrovnik.UnitTests.ShortEnum
  @/textblock
 */
-+ (int16_t)val3;
++ (enumDubrovnik_UnitTests_ShortEnum)val3;
 
 /**
  Managed field.
@@ -90,6 +95,6 @@ typedef NS_ENUM(int16_t, enumDubrovnik_UnitTests_ShortEnum) {
    Dubrovnik.UnitTests.ShortEnum
  @/textblock
 */
-+ (int16_t)val4;
++ (enumDubrovnik_UnitTests_ShortEnum)val4;
 @end
 //--Dubrovnik.CodeGenerator

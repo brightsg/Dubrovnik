@@ -33,8 +33,8 @@
 #pragma mark -
 #pragma mark Fields
 
-static int32_t m_contravariant;
-+ (int32_t)contravariant
+static enumSystem_Reflection_GenericParameterAttributes m_contravariant;
++ (enumSystem_Reflection_GenericParameterAttributes)contravariant
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Contravariant"];
 	m_contravariant = DB_UNBOX_INT32(monoObject);
@@ -42,8 +42,8 @@ static int32_t m_contravariant;
 	return m_contravariant;
 }
 
-static int32_t m_covariant;
-+ (int32_t)covariant
+static enumSystem_Reflection_GenericParameterAttributes m_covariant;
++ (enumSystem_Reflection_GenericParameterAttributes)covariant
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Covariant"];
 	m_covariant = DB_UNBOX_INT32(monoObject);
@@ -51,8 +51,8 @@ static int32_t m_covariant;
 	return m_covariant;
 }
 
-static int32_t m_defaultConstructorConstraint;
-+ (int32_t)defaultConstructorConstraint
+static enumSystem_Reflection_GenericParameterAttributes m_defaultConstructorConstraint;
++ (enumSystem_Reflection_GenericParameterAttributes)defaultConstructorConstraint
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"DefaultConstructorConstraint"];
 	m_defaultConstructorConstraint = DB_UNBOX_INT32(monoObject);
@@ -60,8 +60,8 @@ static int32_t m_defaultConstructorConstraint;
 	return m_defaultConstructorConstraint;
 }
 
-static int32_t m_none;
-+ (int32_t)none
+static enumSystem_Reflection_GenericParameterAttributes m_none;
++ (enumSystem_Reflection_GenericParameterAttributes)none
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"None"];
 	m_none = DB_UNBOX_INT32(monoObject);
@@ -69,8 +69,8 @@ static int32_t m_none;
 	return m_none;
 }
 
-static int32_t m_notNullableValueTypeConstraint;
-+ (int32_t)notNullableValueTypeConstraint
+static enumSystem_Reflection_GenericParameterAttributes m_notNullableValueTypeConstraint;
++ (enumSystem_Reflection_GenericParameterAttributes)notNullableValueTypeConstraint
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"NotNullableValueTypeConstraint"];
 	m_notNullableValueTypeConstraint = DB_UNBOX_INT32(monoObject);
@@ -78,8 +78,8 @@ static int32_t m_notNullableValueTypeConstraint;
 	return m_notNullableValueTypeConstraint;
 }
 
-static int32_t m_referenceTypeConstraint;
-+ (int32_t)referenceTypeConstraint
+static enumSystem_Reflection_GenericParameterAttributes m_referenceTypeConstraint;
++ (enumSystem_Reflection_GenericParameterAttributes)referenceTypeConstraint
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"ReferenceTypeConstraint"];
 	m_referenceTypeConstraint = DB_UNBOX_INT32(monoObject);
@@ -87,8 +87,8 @@ static int32_t m_referenceTypeConstraint;
 	return m_referenceTypeConstraint;
 }
 
-static int32_t m_specialConstraintMask;
-+ (int32_t)specialConstraintMask
+static enumSystem_Reflection_GenericParameterAttributes m_specialConstraintMask;
++ (enumSystem_Reflection_GenericParameterAttributes)specialConstraintMask
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"SpecialConstraintMask"];
 	m_specialConstraintMask = DB_UNBOX_INT32(monoObject);
@@ -96,8 +96,8 @@ static int32_t m_specialConstraintMask;
 	return m_specialConstraintMask;
 }
 
-static int32_t m_varianceMask;
-+ (int32_t)varianceMask
+static enumSystem_Reflection_GenericParameterAttributes m_varianceMask;
++ (enumSystem_Reflection_GenericParameterAttributes)varianceMask
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"VarianceMask"];
 	m_varianceMask = DB_UNBOX_INT32(monoObject);

@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     10/3/2018 2:20:13 PM
+// Date:     10/5/2018 12:17:12 PM
 //
 // Assembly: System
 // Fullname: System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -1997,8 +1997,7 @@
 /* Skipped type : System.Text.RegularExpressions.RegexCompilationInfo RegexCompilationInfo */
 
 /* Skipped type : System.Text.RegularExpressions.RegexMatchTimeoutException RegexMatchTimeoutException */
-
-/* Skipped type : System.Text.RegularExpressions.RegexOptions RegexOptions */
+#define STRRegexOptions_ System_Text_RegularExpressions_RegexOptions
 
 /* Skipped type : System.Text.RegularExpressions.RegexRunner RegexRunner */
 
@@ -2074,6 +2073,7 @@ Assembly type imports
 #import "System_Net_WebRequest.h"
 #import "System_Net_WebResponse.h"
 #import "System_Text_RegularExpressions_Regex.h"
+#import "System_Text_RegularExpressions_RegexOptions.h"
 #import "System_Uri.h"
 #import "System_UriComponents.h"
 #import "System_UriFormat.h"

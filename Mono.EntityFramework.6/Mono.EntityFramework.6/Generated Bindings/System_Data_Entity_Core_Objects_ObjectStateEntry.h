@@ -28,6 +28,11 @@
 @protocol System_Collections_Generic_IEnumerableA1_;
 
 //
+// Local assembly imports
+//
+#import "System_Data_Entity_EntityState.h"
+
+//
 // Import superclass and adopted protocols
 //
 
@@ -89,7 +94,7 @@
    System.Data.Entity.EntityState
  @/textblock
 */
-@property (nonatomic) int32_t state;
+@property (nonatomic) enumSystem_Data_Entity_EntityState state;
 
 #pragma mark -
 #pragma mark Methods
@@ -152,7 +157,7 @@
    System.Void
  @/textblock
 */
-- (void)changeState_withState:(int32_t)p1;
+- (void)changeState_withState:(enumSystem_Data_Entity_EntityState)p1;
 
 /**
  Managed method.
