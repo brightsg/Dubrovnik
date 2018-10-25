@@ -50,14 +50,14 @@ namespace Dubrovnik.Reflector {
 
 				// input file must exist
 				if (!File.Exists(options.InputFile)) {
-					Console.WriteLine("ERROR: Input file does not exist.");
+					Console.WriteLine($"ERROR: Reflector input file does not exist : {options.InputFile}");
 					return -1;
 				}
 
-				// output path must exist
+                // output path must exist
+                Directory.CreateDirectory(options.OutputPath);
 				if (!Directory.Exists(options.OutputPath)) {
-
-					Console.WriteLine("ERROR: Output path does not exist.");
+					Console.WriteLine($"ERROR: Reflector output path does not exist : {options.OutputPath}");
 					return -1;
 				}
 	
