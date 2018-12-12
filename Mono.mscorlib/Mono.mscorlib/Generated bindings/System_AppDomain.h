@@ -42,9 +42,9 @@
 //
 // Import superclass and adopted protocols
 //
-//#import "System_MarshalByRefObject.h" // class base defaults to System.Object
+#import "System_MarshalByRefObject.h"
 
-@interface System_AppDomain : System_Object
+@interface System_AppDomain : System_MarshalByRefObject
 
 #pragma mark -
 #pragma mark Setup

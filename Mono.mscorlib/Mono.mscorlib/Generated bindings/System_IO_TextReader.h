@@ -35,9 +35,9 @@
 // Import superclass and adopted protocols
 //
 #import "System_IDisposable_Protocol.h"
-//#import "System_MarshalByRefObject.h" // class base defaults to System.Object
+#import "System_MarshalByRefObject.h"
 
-@interface System_IO_TextReader : System_Object <System_IDisposable_>
+@interface System_IO_TextReader : System_MarshalByRefObject <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

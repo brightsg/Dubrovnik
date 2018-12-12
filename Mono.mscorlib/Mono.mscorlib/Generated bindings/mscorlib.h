@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     10/5/2018 12:16:24 PM
+// Date:     12/12/2018 10:13:35 PM
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -721,8 +721,7 @@
 /* Skipped type : System.LoaderOptimizationAttribute LoaderOptimizationAttribute */
 
 /* Skipped type : System.LocalDataStoreSlot LocalDataStoreSlot */
-
-/* Skipped type : System.MarshalByRefObject MarshalByRefObject */
+#define SMarshalByRefObject_ System_MarshalByRefObject
 
 /* Skipped type : System.Math Math */
 
@@ -3118,6 +3117,7 @@ Assembly type imports
 #import "System_IO_StringReader.h"
 #import "System_IO_StringWriter.h"
 #import "System_IO_TextReader.h"
+#import "System_MarshalByRefObject.h"
 #import "System_MulticastDelegate.h"
 #import "System_NullableA1.h"
 #import "System_Object.h"

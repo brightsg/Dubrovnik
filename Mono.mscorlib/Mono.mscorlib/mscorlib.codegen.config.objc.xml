@@ -1597,6 +1597,7 @@
 		<string>System.IO.StringReader</string>
 		<string>System.IO.StringWriter</string>
 		<string>System.IO.TextReader</string>
+		<string>System.MarshalByRefObject</string>
 		<string>System.MulticastDelegate</string>
 		<string>System.Nullable`1</string>
 		<string>System.Object</string>

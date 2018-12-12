@@ -45,7 +45,7 @@
 //
 
 
-@interface System_Net_WebRequest : System_Object <System_Runtime_Serialization_ISerializable_>
+@interface System_Net_WebRequest : System_MarshalByRefObject <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
 #pragma mark Setup

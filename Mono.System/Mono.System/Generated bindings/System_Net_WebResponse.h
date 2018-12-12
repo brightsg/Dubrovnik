@@ -37,7 +37,7 @@
 //
 
 
-@interface System_Net_WebResponse : System_Object <System_Runtime_Serialization_ISerializable_, System_IDisposable_>
+@interface System_Net_WebResponse : System_MarshalByRefObject <System_Runtime_Serialization_ISerializable_, System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup
