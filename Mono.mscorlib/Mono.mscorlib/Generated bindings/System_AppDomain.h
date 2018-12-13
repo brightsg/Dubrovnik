@@ -21,6 +21,7 @@
 @class System_Array;
 @class System_Boolean;
 @class System_Byte;
+@class System_CrossAppDomainDelegate;
 @class System_Globalization_CultureInfo;
 @class System_Int32;
 @class System_Int64;
@@ -446,7 +447,20 @@
 
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.String dir, System.Boolean isSynchronized, System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder> assemblyAttributes) */
 
-/* Skipped method : System.Void DoCallBack(System.CrossAppDomainDelegate callBackDelegate) */
+/**
+ Managed method.
+ @textblock
+ Name
+   DoCallBack
+
+ Params
+   System.CrossAppDomainDelegate
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)doCallBack_withCallBackDelegate:(System_CrossAppDomainDelegate *)p1;
 
 /**
  Managed method.

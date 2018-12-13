@@ -452,7 +452,10 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.String dir, System.Boolean isSynchronized, System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder> assemblyAttributes) */
 
-/* Skipped method : System.Void DoCallBack(System.CrossAppDomainDelegate callBackDelegate) */
+- (void)doCallBack_withCallBackDelegate:(System_CrossAppDomainDelegate *)p1
+{
+	[self invokeMonoMethod:"DoCallBack(System.CrossAppDomainDelegate)" withNumArgs:1, [p1 monoRTInvokeArg]];
+}
 
 - (int32_t)executeAssembly_withAssemblyFile:(NSString *)p1
 {

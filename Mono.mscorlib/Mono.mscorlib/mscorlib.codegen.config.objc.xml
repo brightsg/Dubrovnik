@@ -1566,6 +1566,7 @@
 		<string>System.Collections.IList</string>
 		<string>System.Collections.ObjectModel.Collection`1</string>
 		<string>System.Convert</string>
+		<string>System.CrossAppDomainDelegate</string>
 		<string>System.DateTime</string>
 		<string>System.DateTimeKind</string>
 		<string>System.DayOfWeek</string>
