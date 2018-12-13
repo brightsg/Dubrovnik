@@ -21,6 +21,7 @@
 @class System_Boolean;
 @class System_Char;
 @class System_FuncA2;
+@class System_FuncA4;
 @class System_Globalization_CultureInfo;
 @class System_Guid;
 @class System_Int32;
@@ -1390,11 +1391,59 @@
 */
 + (System_Type *)getType_withTypeName:(NSString *)p1;
 
-/* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type> typeResolver) */
+/**
+ Managed method.
+ @textblock
+ Name
+   GetType
 
-/* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type> typeResolver, System.Boolean throwOnError) */
+ Params
+   System.String
+   System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>
+   System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type>
 
-/* Skipped method : System.Type GetType(System.String typeName, System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly> assemblyResolver, System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type> typeResolver, System.Boolean throwOnError, System.Boolean ignoreCase) */
+ Return
+   System.Type
+ @/textblock
+*/
++ (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_FuncA2 *)p2 typeResolver:(System_FuncA4 *)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetType
+
+ Params
+   System.String
+   System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>
+   System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type>
+   System.Boolean
+
+ Return
+   System.Type
+ @/textblock
+*/
++ (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_FuncA2 *)p2 typeResolver:(System_FuncA4 *)p3 throwOnError:(BOOL)p4;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetType
+
+ Params
+   System.String
+   System.Func`2<System.Reflection.AssemblyName, System.Reflection.Assembly>
+   System.Func`4<System.Reflection.Assembly, System.String, System.Boolean, System.Type>
+   System.Boolean
+   System.Boolean
+
+ Return
+   System.Type
+ @/textblock
+*/
++ (System_Type *)getType_withTypeName:(NSString *)p1 assemblyResolver:(System_FuncA2 *)p2 typeResolver:(System_FuncA4 *)p3 throwOnError:(BOOL)p4 ignoreCase:(BOOL)p5;
 
 /**
  Managed method.

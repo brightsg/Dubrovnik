@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     12/13/2018 11:18:39 AM
+// Date:     12/13/2018 11:26:20 AM
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -78,18 +78,12 @@
 #define SAction_ System_Action
 #define SActionA1_ System_ActionA1
 #define SActionA2_ System_ActionA2
-
-/* Skipped type : System.Action`3<System.Action`3+T1, System.Action`3+T2, System.Action`3+T3> Action`3<T1, T2, T3> */
-
-/* Skipped type : System.Action`4<System.Action`4+T1, System.Action`4+T2, System.Action`4+T3, System.Action`4+T4> Action`4<T1, T2, T3, T4> */
-
-/* Skipped type : System.Action`5 Action`5 */
-
-/* Skipped type : System.Action`6 Action`6 */
-
-/* Skipped type : System.Action`7 Action`7 */
-
-/* Skipped type : System.Action`8 Action`8 */
+#define SActionA3_ System_ActionA3
+#define SActionA4_ System_ActionA4
+#define SActionA5_ System_ActionA5
+#define SActionA6_ System_ActionA6
+#define SActionA7_ System_ActionA7
+#define SActionA8_ System_ActionA8
 
 /* Skipped type : System.ActivationContext ActivationContext */
 
@@ -486,18 +480,12 @@
 #define SFuncA1_ System_FuncA1
 #define SFuncA2_ System_FuncA2
 #define SFuncA3_ System_FuncA3
-
-/* Skipped type : System.Func`4<System.Func`4+T1, System.Func`4+T2, System.Func`4+T3, System.Func`4+TResult> Func`4<T1, T2, T3, TResult> */
-
-/* Skipped type : System.Func`5 Func`5 */
-
-/* Skipped type : System.Func`6 Func`6 */
-
-/* Skipped type : System.Func`7 Func`7 */
-
-/* Skipped type : System.Func`8 Func`8 */
-
-/* Skipped type : System.Func`9 Func`9 */
+#define SFuncA4_ System_FuncA4
+#define SFuncA5_ System_FuncA5
+#define SFuncA6_ System_FuncA6
+#define SFuncA7_ System_FuncA7
+#define SFuncA8_ System_FuncA8
+#define SFuncA9_ System_FuncA9
 
 /* Skipped type : System.GC GC */
 
@@ -3033,6 +3021,12 @@ Assembly type imports
 #import "System_Action.h"
 #import "System_ActionA1.h"
 #import "System_ActionA2.h"
+#import "System_ActionA3.h"
+#import "System_ActionA4.h"
+#import "System_ActionA5.h"
+#import "System_ActionA6.h"
+#import "System_ActionA7.h"
+#import "System_ActionA8.h"
 #import "System_Activator.h"
 #import "System_AppDomain.h"
 #import "System_Array.h"
@@ -3093,6 +3087,12 @@ Assembly type imports
 #import "System_FuncA1.h"
 #import "System_FuncA2.h"
 #import "System_FuncA3.h"
+#import "System_FuncA4.h"
+#import "System_FuncA5.h"
+#import "System_FuncA6.h"
+#import "System_FuncA7.h"
+#import "System_FuncA8.h"
+#import "System_FuncA9.h"
 #import "System_Globalization_CultureInfo.h"
 #import "System_Guid.h"
 #import "System_IAsyncResult.h"

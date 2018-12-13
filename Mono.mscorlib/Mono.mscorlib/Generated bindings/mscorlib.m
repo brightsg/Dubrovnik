@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     12/13/2018 11:18:39 AM
+// Date:     12/13/2018 11:26:20 AM
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -42,6 +42,12 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_Action.m
 // Dubrovnik.CodeGenerator made System_ActionA1.m
 // Dubrovnik.CodeGenerator made System_ActionA2.m
+// Dubrovnik.CodeGenerator made System_ActionA3.m
+// Dubrovnik.CodeGenerator made System_ActionA4.m
+// Dubrovnik.CodeGenerator made System_ActionA5.m
+// Dubrovnik.CodeGenerator made System_ActionA6.m
+// Dubrovnik.CodeGenerator made System_ActionA7.m
+// Dubrovnik.CodeGenerator made System_ActionA8.m
 // Dubrovnik.CodeGenerator made System_Activator.m
 // Dubrovnik.CodeGenerator made System_AppDomain.m
 // Dubrovnik.CodeGenerator made System_Array.m
@@ -86,6 +92,12 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_FuncA1.m
 // Dubrovnik.CodeGenerator made System_FuncA2.m
 // Dubrovnik.CodeGenerator made System_FuncA3.m
+// Dubrovnik.CodeGenerator made System_FuncA4.m
+// Dubrovnik.CodeGenerator made System_FuncA5.m
+// Dubrovnik.CodeGenerator made System_FuncA6.m
+// Dubrovnik.CodeGenerator made System_FuncA7.m
+// Dubrovnik.CodeGenerator made System_FuncA8.m
+// Dubrovnik.CodeGenerator made System_FuncA9.m
 // Dubrovnik.CodeGenerator made System_Globalization_CultureInfo.m
 // Dubrovnik.CodeGenerator made System_Guid.m
 // Dubrovnik.CodeGenerator made System_IAsyncResult.m

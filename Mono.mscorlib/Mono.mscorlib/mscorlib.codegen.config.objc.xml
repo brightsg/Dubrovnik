@@ -1544,6 +1544,12 @@
 		<string>System.Action</string>
 		<string>System.Action`1</string>
 		<string>System.Action`2</string>
+		<string>System.Action`3</string>
+		<string>System.Action`4</string>
+		<string>System.Action`5</string>
+		<string>System.Action`6</string>
+		<string>System.Action`7</string>
+		<string>System.Action`8</string>
 		<string>System.Activator</string>
 		<string>System.AppDomain</string>
 		<string>System.Array</string>
@@ -1582,6 +1588,12 @@
 		<string>System.Func`1</string>
 		<string>System.Func`2</string>
 		<string>System.Func`3</string>
+		<string>System.Func`4</string>
+		<string>System.Func`5</string>
+		<string>System.Func`6</string>
+		<string>System.Func`7</string>
+		<string>System.Func`8</string>
+		<string>System.Func`9</string>
 		<string>System.Globalization.CultureInfo</string>
 		<string>System.Guid</string>
 		<string>System.IAsyncResult</string>
