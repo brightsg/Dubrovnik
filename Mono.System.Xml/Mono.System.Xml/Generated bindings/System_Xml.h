@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     12/13/2018 11:27:01 AM
+// Date:     12/20/2018 12:35:16 PM
 //
 // Assembly: System.Xml
 // Fullname: System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089

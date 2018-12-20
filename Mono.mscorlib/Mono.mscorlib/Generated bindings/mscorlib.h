@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     12/13/2018 11:26:20 AM
+// Date:     12/20/2018 12:34:27 PM
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -1970,18 +1970,12 @@
 /* Skipped type : System.Runtime.Remoting.ObjectHandle ObjectHandle */
 
 /* Skipped type : System.Runtime.Remoting.ObjRef ObjRef */
-
-/* Skipped type : System.Runtime.Remoting.Proxies.ProxyAttribute ProxyAttribute */
-
-/* Skipped type : System.Runtime.Remoting.Proxies.RealProxy RealProxy */
-
-/* Skipped type : System.Runtime.Remoting.RemotingConfiguration RemotingConfiguration */
-
-/* Skipped type : System.Runtime.Remoting.RemotingException RemotingException */
-
-/* Skipped type : System.Runtime.Remoting.RemotingServices RemotingServices */
-
-/* Skipped type : System.Runtime.Remoting.RemotingTimeoutException RemotingTimeoutException */
+#define SRRPProxyAttribute_ System_Runtime_Remoting_Proxies_ProxyAttribute
+#define SRRPRealProxy_ System_Runtime_Remoting_Proxies_RealProxy
+#define SRRRemotingConfiguration_ System_Runtime_Remoting_RemotingConfiguration
+#define SRRRemotingException_ System_Runtime_Remoting_RemotingException
+#define SRRRemotingServices_ System_Runtime_Remoting_RemotingServices
+#define SRRRemotingTimeoutException_ System_Runtime_Remoting_RemotingTimeoutException
 
 /* Skipped type : System.Runtime.Remoting.ServerException ServerException */
 
@@ -3135,6 +3129,12 @@ Assembly type imports
 #import "System_Runtime_InteropServices__Exception.h"
 #import "System_Runtime_InteropServices__Exception.h"
 #import "System_Runtime_InteropServices__Exception_Protocol.h"
+#import "System_Runtime_Remoting_Proxies_ProxyAttribute.h"
+#import "System_Runtime_Remoting_Proxies_RealProxy.h"
+#import "System_Runtime_Remoting_RemotingConfiguration.h"
+#import "System_Runtime_Remoting_RemotingException.h"
+#import "System_Runtime_Remoting_RemotingServices.h"
+#import "System_Runtime_Remoting_RemotingTimeoutException.h"
 #import "System_Runtime_Serialization_ISerializable.h"
 #import "System_Runtime_Serialization_ISerializable.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"

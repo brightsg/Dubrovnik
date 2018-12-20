@@ -1625,6 +1625,12 @@
 		<string>System.Reflection.MethodInfo</string>
 		<string>System.Reflection.PropertyInfo</string>
 		<string>System.Reflection.TypeAttributes</string>
+		<string>System.Runtime.Remoting.Proxies.ProxyAttribute</string>
+		<string>System.Runtime.Remoting.Proxies.RealProxy</string>
+		<string>System.Runtime.Remoting.RemotingConfiguration</string>
+		<string>System.Runtime.Remoting.RemotingException</string>
+		<string>System.Runtime.Remoting.RemotingServices</string>
+		<string>System.Runtime.Remoting.RemotingTimeoutException</string>
 		<string>System.Runtime.InteropServices._Exception</string>
 		<string>System.Runtime.Serialization.ISerializable</string>
 		<string>System.SByte</string>

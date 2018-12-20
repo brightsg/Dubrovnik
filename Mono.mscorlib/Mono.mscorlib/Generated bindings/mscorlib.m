@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     12/13/2018 11:26:20 AM
+// Date:     12/20/2018 12:34:27 PM
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -130,6 +130,12 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_Reflection_PropertyInfo.m
 // Dubrovnik.CodeGenerator made System_Reflection_TypeAttributes.m
 // Dubrovnik.CodeGenerator made System_Runtime_InteropServices__Exception.m
+// Dubrovnik.CodeGenerator made System_Runtime_Remoting_Proxies_ProxyAttribute.m
+// Dubrovnik.CodeGenerator made System_Runtime_Remoting_Proxies_RealProxy.m
+// Dubrovnik.CodeGenerator made System_Runtime_Remoting_RemotingConfiguration.m
+// Dubrovnik.CodeGenerator made System_Runtime_Remoting_RemotingException.m
+// Dubrovnik.CodeGenerator made System_Runtime_Remoting_RemotingServices.m
+// Dubrovnik.CodeGenerator made System_Runtime_Remoting_RemotingTimeoutException.m
 // Dubrovnik.CodeGenerator made System_Runtime_Serialization_ISerializable.m
 // Dubrovnik.CodeGenerator made System_SByte.m
 // Dubrovnik.CodeGenerator made System_Single.m
