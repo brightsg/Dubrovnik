@@ -1625,6 +1625,11 @@
 		<string>System.Reflection.MethodInfo</string>
 		<string>System.Reflection.PropertyInfo</string>
 		<string>System.Reflection.TypeAttributes</string>
+		<string>System.Runtime.Remoting.Lifetime.ClientSponsor</string>
+		<string>System.Runtime.Remoting.Lifetime.ILease</string>
+		<string>System.Runtime.Remoting.Lifetime.ISponsor</string>
+		<string>System.Runtime.Remoting.Lifetime.LeaseState</string>
+		<string>System.Runtime.Remoting.Lifetime.LifetimeServices</string>
 		<string>System.Runtime.Remoting.Proxies.ProxyAttribute</string>
 		<string>System.Runtime.Remoting.Proxies.RealProxy</string>
 		<string>System.Runtime.Remoting.RemotingConfiguration</string>
