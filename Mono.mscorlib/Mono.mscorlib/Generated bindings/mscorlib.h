@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     12/20/2018 12:34:27 PM
+// Date:     12/31/2018 8:21:50 PM
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -1830,16 +1830,11 @@
 /* Skipped type : System.Runtime.Remoting.IObjectHandle IObjectHandle */
 
 /* Skipped type : System.Runtime.Remoting.IRemotingTypeInfo IRemotingTypeInfo */
-
-/* Skipped type : System.Runtime.Remoting.Lifetime.ClientSponsor ClientSponsor */
-
-/* Skipped type : System.Runtime.Remoting.Lifetime.ILease ILease */
-
-/* Skipped type : System.Runtime.Remoting.Lifetime.ISponsor ISponsor */
-
-/* Skipped type : System.Runtime.Remoting.Lifetime.LeaseState LeaseState */
-
-/* Skipped type : System.Runtime.Remoting.Lifetime.LifetimeServices LifetimeServices */
+#define SRRLClientSponsor_ System_Runtime_Remoting_Lifetime_ClientSponsor
+#define SRRLILease_ System_Runtime_Remoting_Lifetime_ILease
+#define SRRLISponsor_ System_Runtime_Remoting_Lifetime_ISponsor
+#define SRRLLeaseState_ System_Runtime_Remoting_Lifetime_LeaseState
+#define SRRLLifetimeServices_ System_Runtime_Remoting_Lifetime_LifetimeServices
 
 /* Skipped type : System.Runtime.Remoting.Messaging.AsyncResult AsyncResult */
 
@@ -3129,6 +3124,15 @@ Assembly type imports
 #import "System_Runtime_InteropServices__Exception.h"
 #import "System_Runtime_InteropServices__Exception.h"
 #import "System_Runtime_InteropServices__Exception_Protocol.h"
+#import "System_Runtime_Remoting_Lifetime_ClientSponsor.h"
+#import "System_Runtime_Remoting_Lifetime_ILease.h"
+#import "System_Runtime_Remoting_Lifetime_ILease.h"
+#import "System_Runtime_Remoting_Lifetime_ILease_Protocol.h"
+#import "System_Runtime_Remoting_Lifetime_ISponsor.h"
+#import "System_Runtime_Remoting_Lifetime_ISponsor.h"
+#import "System_Runtime_Remoting_Lifetime_ISponsor_Protocol.h"
+#import "System_Runtime_Remoting_Lifetime_LeaseState.h"
+#import "System_Runtime_Remoting_Lifetime_LifetimeServices.h"
 #import "System_Runtime_Remoting_Proxies_ProxyAttribute.h"
 #import "System_Runtime_Remoting_Proxies_RealProxy.h"
 #import "System_Runtime_Remoting_RemotingConfiguration.h"
