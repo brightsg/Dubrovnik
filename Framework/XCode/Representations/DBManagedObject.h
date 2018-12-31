@@ -191,7 +191,7 @@ extern char DBCacheSuffixChar;
  This method is the designated initialiser.
  
  */
-- (id)initWithMonoObject:(MonoObject *)obj;
+- (id)initWithMonoObject:(MonoObject *)obj NS_DESIGNATED_INITIALIZER;
 
 /*!
  A managed object can be wrapped by multiple unmanaged objects to allow for explicit base class representations and
