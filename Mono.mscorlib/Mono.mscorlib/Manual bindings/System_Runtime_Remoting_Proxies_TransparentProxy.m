@@ -11,6 +11,9 @@
 // Local assembly import
 #import "mscorlib.h"
 
+NSString * const TransparentProxyValueForKeyException = @"TransparentProxyValueForKeyException";
+NSString * const TransparentProxySetValueForKeyException = @"TransparentProxySetValueForKeyException";
+
 @interface System_Runtime_Remoting_Proxies_TransparentProxy ()
 
 @property (strong, nonatomic, readwrite) System_Type *proxyTargetType;
@@ -87,14 +90,14 @@
         monoMethod = GetPropertyGetMethod(self.proxyTargetMonoClass, managedPropertyName.UTF8String);
     }
     // TODO: check for field method
-    if (!monoMethod) {
-        return [super valueForUndefinedKey:key];
+    if (!monoMethod) {;
+        @throw [NSException exceptionWithName:TransparentProxyValueForKeyException reason:[NSString stringWithFormat:@"No class accessor method found for %@", key] userInfo:@{}];
     }
     
     // if all is well the transparent proxy will provide an implementation of the method
     MonoMethod *proxyInvocationMethod = mono_object_get_virtual_method (self.monoObject, monoMethod);
     if (!proxyInvocationMethod) {
-        return [super valueForUndefinedKey:key];
+        @throw [NSException exceptionWithName:TransparentProxyValueForKeyException reason:[NSString stringWithFormat:@"No virtual accessor method found for %@", key] userInfo:@{}];
     }
     
     // invoke the getter method on the transparent proxy
@@ -113,8 +116,7 @@
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key
 {
     if (value && ![value respondsToSelector:@selector(monoObject)]) {
-#warning test this - in practice we see recursion
-        return [super setValue:value forKey:key];
+        @throw [NSException exceptionWithName:TransparentProxySetValueForKeyException reason:[NSString stringWithFormat:@"%@ does not respond to -monoObject", self] userInfo:@{}];
     }
     
     // get property setter method
@@ -126,13 +128,13 @@
     }
     // TODO: check for field method
     if (!monoMethod) {
-        return [super setValue:value forKey:key];
+        @throw [NSException exceptionWithName:TransparentProxySetValueForKeyException reason:[NSString stringWithFormat:@"No class accessor method found for %@", key] userInfo:@{}];
     }
     
     // if all is well the transparent proxy will provide an implementation of the method
     MonoMethod *proxyInvocationMethod = mono_object_get_virtual_method (self.monoObject, monoMethod);
     if (!proxyInvocationMethod) {
-        return [super setValue:value forKey:key];
+        @throw [NSException exceptionWithName:TransparentProxySetValueForKeyException reason:[NSString stringWithFormat:@"No virtual accessor method found for %@", key] userInfo:@{}];
     }
     
     // invoke the setter method on the transparent proxy
