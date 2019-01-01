@@ -56,6 +56,18 @@
 		AB348B3C21CBC5CF00F07B68 /* System_Runtime_Remoting_RemotingTimeoutException.h in Headers */ = {isa = PBXBuildFile; fileRef = AB348B3021CBC5CE00F07B68 /* System_Runtime_Remoting_RemotingTimeoutException.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB348B3F21CBC85500F07B68 /* System_Runtime_Remoting_Proxies_TransparentProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = AB348B3D21CBC85500F07B68 /* System_Runtime_Remoting_Proxies_TransparentProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB348B4021CBC85500F07B68 /* System_Runtime_Remoting_Proxies_TransparentProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = AB348B3E21CBC85500F07B68 /* System_Runtime_Remoting_Proxies_TransparentProxy.m */; };
+		AB35EBFA21DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_ISponsor.h in Headers */ = {isa = PBXBuildFile; fileRef = AB35EBEE21DAB389009CC602 /* System_Runtime_Remoting_Lifetime_ISponsor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB35EBFB21DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_LeaseState.h in Headers */ = {isa = PBXBuildFile; fileRef = AB35EBEF21DAB389009CC602 /* System_Runtime_Remoting_Lifetime_LeaseState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB35EBFC21DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_ISponsor_Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = AB35EBF021DAB389009CC602 /* System_Runtime_Remoting_Lifetime_ISponsor_Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB35EBFD21DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_ClientSponsor.m in Sources */ = {isa = PBXBuildFile; fileRef = AB35EBF121DAB38A009CC602 /* System_Runtime_Remoting_Lifetime_ClientSponsor.m */; };
+		AB35EBFE21DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_ILease.h in Headers */ = {isa = PBXBuildFile; fileRef = AB35EBF221DAB38A009CC602 /* System_Runtime_Remoting_Lifetime_ILease.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB35EBFF21DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_LeaseState.m in Sources */ = {isa = PBXBuildFile; fileRef = AB35EBF321DAB38A009CC602 /* System_Runtime_Remoting_Lifetime_LeaseState.m */; };
+		AB35EC0021DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_LifetimeServices.h in Headers */ = {isa = PBXBuildFile; fileRef = AB35EBF421DAB38A009CC602 /* System_Runtime_Remoting_Lifetime_LifetimeServices.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB35EC0121DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_LifetimeServices.m in Sources */ = {isa = PBXBuildFile; fileRef = AB35EBF521DAB38A009CC602 /* System_Runtime_Remoting_Lifetime_LifetimeServices.m */; };
+		AB35EC0221DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_ISponsor.m in Sources */ = {isa = PBXBuildFile; fileRef = AB35EBF621DAB38B009CC602 /* System_Runtime_Remoting_Lifetime_ISponsor.m */; };
+		AB35EC0321DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_ILease_Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = AB35EBF721DAB38B009CC602 /* System_Runtime_Remoting_Lifetime_ILease_Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB35EC0421DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_ILease.m in Sources */ = {isa = PBXBuildFile; fileRef = AB35EBF821DAB38B009CC602 /* System_Runtime_Remoting_Lifetime_ILease.m */; };
+		AB35EC0521DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_ClientSponsor.h in Headers */ = {isa = PBXBuildFile; fileRef = AB35EBF921DAB38B009CC602 /* System_Runtime_Remoting_Lifetime_ClientSponsor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB3884B7204B837A00F35C45 /* System_Double.__Extra__.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2926F720165C8500478AF4 /* System_Double.__Extra__.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB41D60620D1BA9F009B8274 /* System_Collections_ObjectModel_CollectionA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB41D60420D1BA9E009B8274 /* System_Collections_ObjectModel_CollectionA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB41D60720D1BA9F009B8274 /* System_Collections_ObjectModel_CollectionA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB41D60520D1BA9E009B8274 /* System_Collections_ObjectModel_CollectionA1.m */; };
@@ -430,6 +442,18 @@
 		AB348B3021CBC5CE00F07B68 /* System_Runtime_Remoting_RemotingTimeoutException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Runtime_Remoting_RemotingTimeoutException.h; sourceTree = "<group>"; };
 		AB348B3D21CBC85500F07B68 /* System_Runtime_Remoting_Proxies_TransparentProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = System_Runtime_Remoting_Proxies_TransparentProxy.h; sourceTree = "<group>"; };
 		AB348B3E21CBC85500F07B68 /* System_Runtime_Remoting_Proxies_TransparentProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = System_Runtime_Remoting_Proxies_TransparentProxy.m; sourceTree = "<group>"; };
+		AB35EBEE21DAB389009CC602 /* System_Runtime_Remoting_Lifetime_ISponsor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Runtime_Remoting_Lifetime_ISponsor.h; sourceTree = "<group>"; };
+		AB35EBEF21DAB389009CC602 /* System_Runtime_Remoting_Lifetime_LeaseState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Runtime_Remoting_Lifetime_LeaseState.h; sourceTree = "<group>"; };
+		AB35EBF021DAB389009CC602 /* System_Runtime_Remoting_Lifetime_ISponsor_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Runtime_Remoting_Lifetime_ISponsor_Protocol.h; sourceTree = "<group>"; };
+		AB35EBF121DAB38A009CC602 /* System_Runtime_Remoting_Lifetime_ClientSponsor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Runtime_Remoting_Lifetime_ClientSponsor.m; sourceTree = "<group>"; };
+		AB35EBF221DAB38A009CC602 /* System_Runtime_Remoting_Lifetime_ILease.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Runtime_Remoting_Lifetime_ILease.h; sourceTree = "<group>"; };
+		AB35EBF321DAB38A009CC602 /* System_Runtime_Remoting_Lifetime_LeaseState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Runtime_Remoting_Lifetime_LeaseState.m; sourceTree = "<group>"; };
+		AB35EBF421DAB38A009CC602 /* System_Runtime_Remoting_Lifetime_LifetimeServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Runtime_Remoting_Lifetime_LifetimeServices.h; sourceTree = "<group>"; };
+		AB35EBF521DAB38A009CC602 /* System_Runtime_Remoting_Lifetime_LifetimeServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Runtime_Remoting_Lifetime_LifetimeServices.m; sourceTree = "<group>"; };
+		AB35EBF621DAB38B009CC602 /* System_Runtime_Remoting_Lifetime_ISponsor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Runtime_Remoting_Lifetime_ISponsor.m; sourceTree = "<group>"; };
+		AB35EBF721DAB38B009CC602 /* System_Runtime_Remoting_Lifetime_ILease_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Runtime_Remoting_Lifetime_ILease_Protocol.h; sourceTree = "<group>"; };
+		AB35EBF821DAB38B009CC602 /* System_Runtime_Remoting_Lifetime_ILease.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Runtime_Remoting_Lifetime_ILease.m; sourceTree = "<group>"; };
+		AB35EBF921DAB38B009CC602 /* System_Runtime_Remoting_Lifetime_ClientSponsor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Runtime_Remoting_Lifetime_ClientSponsor.h; sourceTree = "<group>"; };
 		AB41D60420D1BA9E009B8274 /* System_Collections_ObjectModel_CollectionA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_ObjectModel_CollectionA1.h; sourceTree = "<group>"; };
 		AB41D60520D1BA9E009B8274 /* System_Collections_ObjectModel_CollectionA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Collections_ObjectModel_CollectionA1.m; sourceTree = "<group>"; };
 		AB512A3E20D062140078F747 /* System_DayOfWeek.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_DayOfWeek.h; sourceTree = "<group>"; };
@@ -799,6 +823,18 @@
 		AB4CDBCE1FFBF4FE0096326D /* Generated bindings */ = {
 			isa = PBXGroup;
 			children = (
+				AB35EBF921DAB38B009CC602 /* System_Runtime_Remoting_Lifetime_ClientSponsor.h */,
+				AB35EBF121DAB38A009CC602 /* System_Runtime_Remoting_Lifetime_ClientSponsor.m */,
+				AB35EBF721DAB38B009CC602 /* System_Runtime_Remoting_Lifetime_ILease_Protocol.h */,
+				AB35EBF221DAB38A009CC602 /* System_Runtime_Remoting_Lifetime_ILease.h */,
+				AB35EBF821DAB38B009CC602 /* System_Runtime_Remoting_Lifetime_ILease.m */,
+				AB35EBF021DAB389009CC602 /* System_Runtime_Remoting_Lifetime_ISponsor_Protocol.h */,
+				AB35EBEE21DAB389009CC602 /* System_Runtime_Remoting_Lifetime_ISponsor.h */,
+				AB35EBF621DAB38B009CC602 /* System_Runtime_Remoting_Lifetime_ISponsor.m */,
+				AB35EBEF21DAB389009CC602 /* System_Runtime_Remoting_Lifetime_LeaseState.h */,
+				AB35EBF321DAB38A009CC602 /* System_Runtime_Remoting_Lifetime_LeaseState.m */,
+				AB35EBF421DAB38A009CC602 /* System_Runtime_Remoting_Lifetime_LifetimeServices.h */,
+				AB35EBF521DAB38A009CC602 /* System_Runtime_Remoting_Lifetime_LifetimeServices.m */,
 				AB348B2921CBC5CD00F07B68 /* System_Runtime_Remoting_Proxies_ProxyAttribute.h */,
 				AB348B2521CBC5CD00F07B68 /* System_Runtime_Remoting_Proxies_ProxyAttribute.m */,
 				AB348B2621CBC5CD00F07B68 /* System_Runtime_Remoting_Proxies_RealProxy.h */,
@@ -1284,6 +1320,7 @@
 				AB348B3721CBC5CF00F07B68 /* System_Runtime_Remoting_RemotingException.h in Headers */,
 				AB24601F20F4FA1D00D1C09E /* System_Int32+mscorlib.h in Headers */,
 				AB512B4520D062510078F747 /* mscorlib.h in Headers */,
+				AB35EC0021DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_LifetimeServices.h in Headers */,
 				AB512BBA20D062510078F747 /* System_ActionA2.h in Headers */,
 				AB512B6820D062510078F747 /* System_Runtime_Serialization_ISerializable.h in Headers */,
 				AB512B6E20D062510078F747 /* System_Reflection_MethodInfo.h in Headers */,
@@ -1322,7 +1359,9 @@
 				AB24602F20F4FBD800D1C09E /* System_Int16+mscorlib.h in Headers */,
 				AB512B8220D062510078F747 /* System_Collections_Generic_DictionaryA2__KeyCollection.h in Headers */,
 				AB512B5E20D062510078F747 /* System_TimeZoneInfo__TransitionTime.h in Headers */,
+				AB35EBFA21DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_ISponsor.h in Headers */,
 				AB348B3C21CBC5CF00F07B68 /* System_Runtime_Remoting_RemotingTimeoutException.h in Headers */,
+				AB35EC0321DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_ILease_Protocol.h in Headers */,
 				AB512B5420D062510078F747 /* System_Int32.h in Headers */,
 				AB512BAE20D062510078F747 /* System_Collections_IList_Protocol.h in Headers */,
 				AB24601720F4F94100D1C09E /* System_Double+mscorlib.h in Headers */,
@@ -1372,6 +1411,7 @@
 				AB512B3E20D062510078F747 /* System_Convert.h in Headers */,
 				AB512B7320D062510078F747 /* System_Runtime_InteropServices__Exception.h in Headers */,
 				AB512B2820D062510078F747 /* System_String.h in Headers */,
+				AB35EC0521DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_ClientSponsor.h in Headers */,
 				AB512B6A20D062510078F747 /* System_Delegate.h in Headers */,
 				AB512B7C20D062510078F747 /* System_Reflection_AssemblyName.h in Headers */,
 				AB512B7620D062510078F747 /* System_Text_StringBuilder.h in Headers */,
@@ -1419,9 +1459,11 @@
 				ABCAE54A1AA893C90006453A /* System_Collections_Generic_IEnumerableA1+mscorlib.h in Headers */,
 				AB92F2DE1AA4F0E700BA9B9E /* DBNullableBoolTransformer.h in Headers */,
 				ABE13551192AB0C5000689BC /* DBNullableInt64Transformer.h in Headers */,
+				AB35EBFB21DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_LeaseState.h in Headers */,
 				ABE1354D192AAEED000689BC /* DBNullableDecimalTransformer.h in Headers */,
 				AB950DE8192AA6720035ABC6 /* DBNullableDateTransformer.h in Headers */,
 				AB950DEB192AA6C10035ABC6 /* ValueTransformers.h in Headers */,
+				AB35EBFC21DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_ISponsor_Protocol.h in Headers */,
 				AB5F417D1CE280FB00026E36 /* DBGenericTypeHelper.h in Headers */,
 				AB5B147121C27874003710A8 /* System_CrossAppDomainDelegate.h in Headers */,
 				AB2E74CA18FFDB0D0061C63E /* HelperClasses.h in Headers */,
@@ -1440,6 +1482,7 @@
 				ABB8A42C18FF15B300213B80 /* System_Collections_IList+mscorlib.h in Headers */,
 				ABA4F3E32002BEBF00D6597A /* System_Object.h in Headers */,
 				AB24603320F4FC0E00D1C09E /* System_UInt16+mscorlib.h in Headers */,
+				AB35EBFE21DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_ILease.h in Headers */,
 				ABB8A42618FF15B300213B80 /* System_Collections_ArrayList+mscorlib.h in Headers */,
 				AB24601B20F4F97500D1C09E /* System_Single+mscorlib.h in Headers */,
 				ABB8A42A18FF15B300213B80 /* System_Collections_Generic_ListA1+mscorlib.h in Headers */,
@@ -1593,6 +1636,7 @@
 				AB512B4020D062510078F747 /* System_Char.m in Sources */,
 				ABE229381FD026560096A875 /* NSNull+mscorlib.m in Sources */,
 				ABB8A42718FF15B300213B80 /* System_Collections_ArrayList+mscorlib.m in Sources */,
+				AB35EBFF21DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_LeaseState.m in Sources */,
 				AB512B5C20D062510078F747 /* System_Reflection_PropertyInfo.m in Sources */,
 				AB512B8920D062510078F747 /* System_ValueType.m in Sources */,
 				AB512BE920D0730E0078F747 /* System_Reflection_MemberInfo.m in Sources */,
@@ -1606,6 +1650,7 @@
 				AB512BB620D062510078F747 /* System_Exception.m in Sources */,
 				AB512B3A20D062510078F747 /* System_Reflection_Assembly.m in Sources */,
 				AB348B3121CBC5CF00F07B68 /* System_Runtime_Remoting_Proxies_ProxyAttribute.m in Sources */,
+				AB35EC0121DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_LifetimeServices.m in Sources */,
 				AB512BC320D062510078F747 /* System_AsyncCallback.m in Sources */,
 				AB512BCB20D062510078F747 /* System_Text_StringBuilder.m in Sources */,
 				AB512B2E20D062510078F747 /* System_Collections_Generic_DictionaryA2__ValueCollection.m in Sources */,
@@ -1622,6 +1667,7 @@
 				AB41D60720D1BA9F009B8274 /* System_Collections_ObjectModel_CollectionA1.m in Sources */,
 				AB512B3D20D062510078F747 /* System_Globalization_CultureInfo.m in Sources */,
 				AB512BDD20D062520078F747 /* System_Runtime_Serialization_ISerializable.m in Sources */,
+				AB35EBFD21DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_ClientSponsor.m in Sources */,
 				AB512B6920D062510078F747 /* System_FuncA1.m in Sources */,
 				AB24600820F4F62D00D1C09E /* System_Byte+mscorlib.m in Sources */,
 				AB512BC120D062510078F747 /* System_IEquatableA1.m in Sources */,
@@ -1694,6 +1740,7 @@
 				AB512B1920D062510078F747 /* System_Reflection_ConstructorInfo.m in Sources */,
 				AB5B148D21C27AAF003710A8 /* System_FuncA8.m in Sources */,
 				AB512BAF20D062510078F747 /* System_String.m in Sources */,
+				AB35EC0421DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_ILease.m in Sources */,
 				AB512B7B20D062510078F747 /* System_TimeZoneInfo__AdjustmentRule.m in Sources */,
 				AB512B2620D062510078F747 /* System_Threading_SendOrPostCallback.m in Sources */,
 				AB512B5D20D062510078F747 /* System_Threading_CancellationToken.m in Sources */,
@@ -1727,6 +1774,7 @@
 				AB512B8720D062510078F747 /* System_Reflection_GenericParameterAttributes.m in Sources */,
 				AB512B9320D062510078F747 /* System_IO_FileAttributes.m in Sources */,
 				AB512B6720D062510078F747 /* System_Guid.m in Sources */,
+				AB35EC0221DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_ISponsor.m in Sources */,
 				AB57FDEA1C96DC94003D00E8 /* DBNullableInt32Transformer.m in Sources */,
 				ABB8A39718FF09F900213B80 /* System_Array+mscorlib.m in Sources */,
 				AB24602C20F4FB3C00D1C09E /* System_UInt64+mscorlib.m in Sources */,
