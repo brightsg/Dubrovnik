@@ -40,6 +40,8 @@
 		AB2E74C918FFDB0D0061C63E /* GeneratedBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74C418FFDB0D0061C63E /* GeneratedBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74CA18FFDB0D0061C63E /* HelperClasses.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74C518FFDB0D0061C63E /* HelperClasses.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74CB18FFDB0D0061C63E /* ManualBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74C618FFDB0D0061C63E /* ManualBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2F9E2421DBE34A00A28C5C /* NSDecimalNumber+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2F9E2221DBE34A00A28C5C /* NSDecimalNumber+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2F9E2521DBE34A00A28C5C /* NSDecimalNumber+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2F9E2321DBE34A00A28C5C /* NSDecimalNumber+mscorlib.m */; };
 		AB342C0F20E67A0700CA1659 /* System_Boolean+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = AB342C0D20E67A0700CA1659 /* System_Boolean+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB342C1020E67A0700CA1659 /* System_Boolean+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = AB342C0E20E67A0700CA1659 /* System_Boolean+mscorlib.m */; };
 		AB348B3121CBC5CF00F07B68 /* System_Runtime_Remoting_Proxies_ProxyAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = AB348B2521CBC5CD00F07B68 /* System_Runtime_Remoting_Proxies_ProxyAttribute.m */; };
@@ -426,6 +428,8 @@
 		AB2E74C418FFDB0D0061C63E /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
 		AB2E74C518FFDB0D0061C63E /* HelperClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClasses.h; sourceTree = "<group>"; };
 		AB2E74C618FFDB0D0061C63E /* ManualBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualBindings.h; sourceTree = "<group>"; };
+		AB2F9E2221DBE34A00A28C5C /* NSDecimalNumber+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSDecimalNumber+mscorlib.h"; path = "Categories/NSDecimalNumber+mscorlib.h"; sourceTree = "<group>"; };
+		AB2F9E2321DBE34A00A28C5C /* NSDecimalNumber+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSDecimalNumber+mscorlib.m"; path = "Categories/NSDecimalNumber+mscorlib.m"; sourceTree = "<group>"; };
 		AB342C0D20E67A0700CA1659 /* System_Boolean+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "System_Boolean+mscorlib.h"; sourceTree = "<group>"; };
 		AB342C0E20E67A0700CA1659 /* System_Boolean+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "System_Boolean+mscorlib.m"; sourceTree = "<group>"; };
 		AB348B2521CBC5CD00F07B68 /* System_Runtime_Remoting_Proxies_ProxyAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Runtime_Remoting_Proxies_ProxyAttribute.m; sourceTree = "<group>"; };
@@ -1288,6 +1292,8 @@
 				ABB9F2411DC8D4D300A95896 /* NSDate+mscorlib.m */,
 				ABE229351FD026560096A875 /* NSNull+mscorlib.h */,
 				ABE229361FD026560096A875 /* NSNull+mscorlib.m */,
+				AB2F9E2221DBE34A00A28C5C /* NSDecimalNumber+mscorlib.h */,
+				AB2F9E2321DBE34A00A28C5C /* NSDecimalNumber+mscorlib.m */,
 			);
 			name = "Categories - Native";
 			sourceTree = "<group>";
@@ -1323,6 +1329,7 @@
 				AB35EC0021DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_LifetimeServices.h in Headers */,
 				AB512BBA20D062510078F747 /* System_ActionA2.h in Headers */,
 				AB512B6820D062510078F747 /* System_Runtime_Serialization_ISerializable.h in Headers */,
+				AB2F9E2421DBE34A00A28C5C /* NSDecimalNumber+mscorlib.h in Headers */,
 				AB512B6E20D062510078F747 /* System_Reflection_MethodInfo.h in Headers */,
 				AB5B149021C27AAF003710A8 /* System_ActionA7.h in Headers */,
 				AB512B1E20D062510078F747 /* System_Threading_Tasks_Task.h in Headers */,
@@ -1723,6 +1730,7 @@
 				AB512B4820D062510078F747 /* System_Delegate.m in Sources */,
 				AB512B2C20D062510078F747 /* System_Threading_SynchronizationContext.m in Sources */,
 				AB5B149421C27AAF003710A8 /* System_FuncA9.m in Sources */,
+				AB2F9E2521DBE34A00A28C5C /* NSDecimalNumber+mscorlib.m in Sources */,
 				AB512B1420D062510078F747 /* System_StringComparison.m in Sources */,
 				AB512B4120D062510078F747 /* System_IO_StringWriter.m in Sources */,
 				AB512BD020D062510078F747 /* System_IntPtr.m in Sources */,

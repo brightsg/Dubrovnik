@@ -11,6 +11,8 @@
 #import "NSString+mscorlib.h"
 #import "NSDate+mscorlib.h"
 #import "NSNull+mscorlib.h"
+#import "NSDecimalNumber+mscorlib.h"
+
 #import "System_Object+mscorlib.h"
 #import "System_ValueType+mscorlib.h"
 #import "System_Type+mscorlib.h"
