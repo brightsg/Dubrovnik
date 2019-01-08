@@ -360,7 +360,9 @@ static BOOL m_useClassLookupCache = YES;
                                   }
                    ]
          ];
-        
+        /*
+         I think its easier just to deal with System_Exception directly.
+         The code generator is not currently outputting the correct return NSException type for bestObject....
         [self add:[DBType typeWithName:DBType_System_Exception
                                     id:DBTypeID_System_Exception
                              monoClass:mono_get_exception_class()
@@ -368,7 +370,7 @@ static BOOL m_useClassLookupCache = YES;
                                  return NSExceptionFromMonoException(monoObject, @{@"runWillRaiseCallback" : @NO});
                              }
                    ]
-         ];
+         ]; */
         
 #pragma clang diagnostic pop
         
