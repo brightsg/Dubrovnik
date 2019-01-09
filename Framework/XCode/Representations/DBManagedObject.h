@@ -218,6 +218,8 @@ extern char DBCacheSuffixChar;
 @property (assign, nonatomic, readonly) MonoType* monoType;
 - (char *)monoTypeName;
 
+@property (strong) void(^onDealloc)(id);
+
 /**
  
  For reference types returns -monoObject. For value types returns a pointer to the unboxed value.

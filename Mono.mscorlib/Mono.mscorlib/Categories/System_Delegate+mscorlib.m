@@ -13,6 +13,8 @@
 #import "System_IntPtr.h"
 #import <objc/runtime.h>
 
+@class DBDelegateInfo;
+
 /*!
  
  Universal delegate internal call function typedef.
@@ -21,6 +23,7 @@
 typedef MonoObject *(*DBUniversalDelegateInternalCallFunc)(void * context, MonoArray *params);
 
 static BOOL m_universalDelegateRegistered = NO;
+static NSMutableDictionary<NSNumber *, DBDelegateInfo *> *m_universalDelegateInfoCache;
 
 @interface  DBDelegateInfo : NSObject
 @property (strong) DBUniversalDelegateBlock block;
@@ -42,12 +45,29 @@ static BOOL m_universalDelegateRegistered = NO;
 
 @end
 
-// DBDelegateInfo based universal delegate callback handler
+/**
+
+ DBDelegateInfo based universal delegate callback handler
+ 
+ */
 static MonoObject *UniversalDelegateServices_NativeHandler_DelegateInfoContext(void *context, MonoArray *params)
 {
-    // get context as delegateInfo
-    DBDelegateInfo *delegateInfo = (__bridge DBDelegateInfo *)context;
-
+    NSNumber *cacheKey = nil;
+    DBDelegateInfo *delegateInfo = nil;
+    
+    @synchronized (m_universalDelegateInfoCache) {
+        
+        // use the context to lookup the delegate info
+        cacheKey = @((int64_t)context);
+        delegateInfo = m_universalDelegateInfoCache[cacheKey];
+        
+        // a cache miss should likely only occur then native wrapper has been deallocated but the managed delegate lives on
+        if (!delegateInfo) {
+            NSLog(@"No native delegateInfo found for UniversalDelegate invocation.");
+            return nil;
+        }
+    }
+    
     // dispatch block
     __block System_Object *resultObject = nil;
     dispatch_block_t dispatchBlk = ^{
@@ -111,6 +131,8 @@ static MonoObject *UniversalDelegateServices_NativeHandler_DelegateInfoContext(v
     // add internal call
     mono_add_internal_call(callName.UTF8String, iCallFuncPtr);
     
+    m_universalDelegateInfoCache = [NSMutableDictionary dictionaryWithCapacity:50];
+    
     m_universalDelegateRegistered = YES;
 }
 
@@ -129,22 +151,45 @@ static MonoObject *UniversalDelegateServices_NativeHandler_DelegateInfoContext(v
     }
     
     // create delegate info
-    DBDelegateInfo *info = [[DBDelegateInfo alloc] init];
-    info.block = block;
+    DBDelegateInfo *delegateInfo = [[DBDelegateInfo alloc] init];
+    delegateInfo.block = block;
     
     // wrap context in IntPtr - remember IntPtr is a value type.
-    void *context = (__bridge void *)(info);
-    System_IntPtr *contextPtr = [System_IntPtr new_withValueLong:(int64_t)context];
-    NSAssert((int64_t)context == contextPtr.toInt64, @"invalid context");
+    int64_t context = (int64_t)delegateInfo;
+    System_IntPtr *contextPtr = [System_IntPtr new_withValueLong:context];
+    NSAssert(context == contextPtr.toInt64, @"invalid context");
     
     // Invoke CreateWrapper
     MonoMethod *method = [DBManagedEnvironment dubrovnikMonoMethodWithName:"CreateWrapper" className:"Mono.Embedding.UniversalDelegateServices" argCount:2];
     MonoObject *monoResult = DBMonoClassInvokeMethod(method, 2, delegateType.monoObject, [contextPtr monoRTInvokeArg]);
     System_Delegate *delegate = [self objectWithMonoObject:monoResult];
     
+    // cache the delegate info
+    NSNumber *cacheKey = @(context);
+    @synchronized (m_universalDelegateInfoCache) {
+        if (m_universalDelegateInfoCache[cacheKey]) {
+            NSLog(@"Unexpected DBDelegateInfo instance found in cache. The cache will be updated but it's possible that the wrong native block will get called when the managed delegate is invoked.");
+        }
+        m_universalDelegateInfoCache[cacheKey] = delegateInfo;
+    }
+    
+    // the dealloc block helps to prevent crashes occuring when a managed delegate gets invoked and the native wrapper
+    // has been deallocated.
+    delegate.onDealloc = ^void(System_Delegate *delegate) {
+        @synchronized (m_universalDelegateInfoCache) {
+            id obj = m_universalDelegateInfoCache[cacheKey];
+            if (!obj) {
+                NSLog(@"Expected DBDelegateInfo instance not found in cache.");
+            }
+            else {
+                [m_universalDelegateInfoCache removeObjectForKey:cacheKey];
+            }
+        }
+    };
+    
     // retain the info.
     // note that we could have used self as the context but a separate object seems cleaner
-    delegate.db_delegateInfo = info;
+    delegate.db_delegateInfo = delegateInfo;
     
     return delegate;
 }

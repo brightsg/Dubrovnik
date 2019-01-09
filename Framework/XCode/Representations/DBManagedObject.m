@@ -408,6 +408,11 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
         self.monoEnvironment.tracer.onDealloc(self);
     }
     
+    // dealloc block
+    if (self.onDealloc) {
+        self.onDealloc(self);
+    }
+    
     // cleanup primary instance.
     if (self.isPrimaryInstance) {
         
