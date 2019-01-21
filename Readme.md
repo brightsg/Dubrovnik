@@ -491,12 +491,6 @@ Dubrovnik inherits the [Mono licence](https://github.com/mono/mono/blob/master/L
 TLDR : In general, the runtime and its class libraries are licensed under the
 terms of the MIT license
 
-Contributors
-============
-* Jonathan Mitchell : Thesaurus Software Ltd
-* Ross Webster : Thesaurus Software Ltd
-* Allan Hsu 
-* Bryan Berg 
 
 
 
