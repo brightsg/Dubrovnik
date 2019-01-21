@@ -20,3 +20,5 @@ Framework/examples/DBCocoaExample/DBCocoaExample/DBCocoaExample/bin/
 Framework/examples/DBCocoaExample/DBCocoaExample/DBCocoaExample/obj/
 *.zip
 Mono.EntityFramework.6/Mono.EntityFramework.6/Packages/
+dotNET/Dubrovnik.Tools/packages
+.vs
