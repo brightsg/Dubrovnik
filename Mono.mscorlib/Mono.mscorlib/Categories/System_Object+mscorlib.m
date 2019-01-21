@@ -23,6 +23,24 @@
     return [[System_Type alloc] initWithMonoObject:(MonoObject *)monoReflectionType];
 }
 
+- (BOOL)db_is:(Class)aClass
+{
+    if (aClass != System_Object.class &&
+        ![aClass isSubclassOfClass:System_Object.class]) {
+        return NO;
+    }
+    
+    System_Type* systemTypeOfAClass = aClass.db_getType;
+    
+    if (!systemTypeOfAClass) {
+        return NO;
+    }
+    
+    BOOL isAssignable = [self.db_getType isAssignableFrom_withC:systemTypeOfAClass];
+    
+    return isAssignable;
+}
+
 #pragma mark -
 #pragma mark Generic factory convenience methods
 
