@@ -32,15 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 12.0\VSSDK\VisualStudioIntegration\Common\Assemblies\v4.0\Microsoft.VisualStudio.TextTemplating.Interfaces.10.0.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.11.0, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 12.0\VSSDK\VisualStudioIntegration\Common\Assemblies\v4.0\Microsoft.VisualStudio.TextTemplating.Interfaces.11.0.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.VisualStudio.TextTemplating.Modeling.14.0, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,6 +39,12 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0">
+      <HintPath>..\packages\Microsoft.VisualStudio.TextTemplating.Interfaces.10.0.10.0.30320\lib\net40\Microsoft.VisualStudio.TextTemplating.Interfaces.10.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.11.0">
+      <HintPath>..\packages\Microsoft.VisualStudio.TextTemplating.Interfaces.11.0.11.0.50728\lib\net45\Microsoft.VisualStudio.TextTemplating.Interfaces.11.0.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyParser.cs" />
@@ -100,6 +97,7 @@
       <CustomToolNamespace>Dubrovnik.Tools</CustomToolNamespace>
       <LastGenOutput>Net2ObjC.cs</LastGenOutput>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
