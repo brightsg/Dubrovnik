@@ -19,6 +19,13 @@
 + (System_Type *)db_getType;
 
 /**
+ 
+ Mirrors the functionality provided by the C# `is` operator. Validates if the passed in class is System_Object or a subclass of System_Object and then calls `IsAssignableFrom` on the instance of the receiver, using the `System_Type` of the passed in class.
+ 
+ */
+- (BOOL)db_is:(Class)otherClass;
+
+/**
 
  Create an instance of the receiver's core class with a generic type parameters.
  
