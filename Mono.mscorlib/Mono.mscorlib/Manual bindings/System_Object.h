@@ -24,6 +24,7 @@
 @class System_Object;
 @class System_String;
 @class System_Type;
+@class System_Delegate;
 
 // Import superclass and adopted protocols
 
@@ -101,5 +102,13 @@
 		Managed param types : 
 	 */
     - (NSString *)toString;
+
+
+#pragma mark -
+#pragma mark Events
+    - (void)addEventHandler:(System_Delegate*)eventHandler forEventNamed:(NSString*)eventName;
+    - (void)removeEventHandler:(System_Delegate*)eventHandler fromEventNamed:(NSString*)eventName;
+    - (NSArray<System_Delegate*>*)eventHandlersForEventNamed:(NSString*)eventName;
+
 @end
 //--Dubrovnik.CodeGenerator

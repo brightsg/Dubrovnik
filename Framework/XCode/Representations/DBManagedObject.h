@@ -96,6 +96,9 @@ extern char DBCacheSuffixChar;
  */
 + (void)registerEvent:(NSString *)eventName unmanagedHandler:(void *)handlerFunction;
 
+- (void)addMonoEventHandler:(MonoObject*)eventHandler forEventNamed:(NSString*)eventName;
+- (void)removeMonoEventHandler:(MonoObject*)eventHandler fromEventNamed:(NSString*)eventName;
+
 // Subclasses must override these
 + (const char *)monoAssemblyName;
 + (const char *)monoClassName;

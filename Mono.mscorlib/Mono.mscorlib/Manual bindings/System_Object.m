@@ -11,7 +11,15 @@
 // Local assembly import
 #import "mscorlib.h"
 
-@implementation System_Object
+@interface System_Object ()
+
+@property (strong, readonly) NSMutableDictionary<NSString*, NSMutableArray<System_Delegate*>*>* eventHandlers;
+
+@end
+
+@implementation System_Object {
+    __strong NSMutableDictionary<NSString*, NSMutableArray<System_Delegate*>*>* _eventHandlers;
+}
 
 #pragma mark -
 #pragma mark Setup
@@ -108,9 +116,91 @@
     }
 
 #pragma mark -
+#pragma mark Events
+
+    - (NSMutableDictionary<NSString*, NSMutableArray<System_Delegate*>*>*)eventHandlers
+    {
+        if (!_eventHandlers) {
+            _eventHandlers = NSMutableDictionary.dictionary;
+        }
+        
+        return _eventHandlers;
+    }
+
+    - (void)addEventHandler:(System_Delegate*)eventHandler forEventNamed:(NSString*)eventName
+    {
+        BOOL success = NO;
+        
+        @try {
+            [self addMonoEventHandler:eventHandler.monoObject forEventNamed:eventName];
+            
+            success = YES;
+        } @catch (NSException *exception) { }
+        
+        if (!success) {
+            return;
+        }
+        
+        [self cacheEventHandler:eventHandler forEventNamed:eventName];
+    }
+
+    - (void)cacheEventHandler:(System_Delegate*)eventHandler forEventNamed:(NSString*)eventName
+    {
+        NSMutableArray<System_Delegate*>* handlers = [self.eventHandlers objectForKey:eventName];
+        
+        if (!handlers) {
+            handlers = NSMutableArray.array;
+            
+            self.eventHandlers[eventName] = handlers;
+        }
+        
+        [handlers addObject:eventHandler];
+    }
+
+    - (void)removeEventHandler:(System_Delegate*)eventHandler fromEventNamed:(NSString*)eventName
+    {
+        BOOL success = NO;
+        
+        @try {
+            [self removeMonoEventHandler:eventHandler.monoObject fromEventNamed:eventName];
+            
+            success = YES;
+        } @catch (NSException *exception) { }
+        
+        if (!success) {
+            return;
+        }
+        
+        [self uncacheEventHandler:eventHandler forEventNamed:eventName];
+    }
+
+    - (void)uncacheEventHandler:(System_Delegate*)eventHandler forEventNamed:(NSString*)eventName
+    {
+        NSMutableArray<System_Delegate*>* handlers = [self.eventHandlers objectForKey:eventName];
+        
+        if (!handlers) {
+            return;
+        }
+        
+        [handlers removeObject:eventHandler];
+        
+        if (handlers.count <= 0) {
+            [self.eventHandlers removeObjectForKey:eventName];
+        }
+    }
+
+    - (NSArray<System_Delegate*>*)eventHandlersForEventNamed:(NSString*)eventName
+    {
+        NSArray<System_Delegate*>* handlers = [self.eventHandlers objectForKey:eventName];
+        
+        return handlers;
+    }
+
+#pragma mark -
 #pragma mark Teardown
 	- (void)dealloc
 	{
+        _eventHandlers = nil;
 	}
 @end
 //--Dubrovnik.CodeGenerator
