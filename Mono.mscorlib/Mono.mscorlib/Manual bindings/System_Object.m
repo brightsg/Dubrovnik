@@ -127,12 +127,12 @@
         return _eventHandlers;
     }
 
-    - (void)addEventHandler:(System_Delegate*)eventHandler forEventNamed:(NSString*)eventName
+    - (void)addEventHandler:(System_Delegate*)eventHandler toEventNamed:(NSString*)eventName
     {
         BOOL success = NO;
         
         @try {
-            [self addMonoEventHandler:eventHandler.monoObject forEventNamed:eventName];
+            [self addMonoEventHandler:eventHandler.monoObject toEventNamed:eventName];
             
             success = YES;
         } @catch (NSException *exception) { }

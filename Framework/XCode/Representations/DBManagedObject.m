@@ -1346,7 +1346,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     }
 }
 
-- (void)addMonoEventHandler:(MonoObject*)eventHandler forEventNamed:(NSString*)eventName
+- (void)addMonoEventHandler:(MonoObject*)eventHandler toEventNamed:(NSString*)eventName
 {
     MonoObject* monoType = [self invokeMonoMethod:"GetType()" withNumArgs:0];
     DBManagedObject* dbType = [DBManagedObject objectWithMonoObject:monoType];

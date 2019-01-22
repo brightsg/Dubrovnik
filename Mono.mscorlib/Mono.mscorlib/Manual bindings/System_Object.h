@@ -106,7 +106,7 @@
 
 #pragma mark -
 #pragma mark Events
-    - (void)addEventHandler:(System_Delegate*)eventHandler forEventNamed:(NSString*)eventName;
+    - (void)addEventHandler:(System_Delegate*)eventHandler toEventNamed:(NSString*)eventName;
     - (void)removeEventHandler:(System_Delegate*)eventHandler fromEventNamed:(NSString*)eventName;
     - (NSArray<System_Delegate*>*)eventHandlersForEventNamed:(NSString*)eventName;
 
