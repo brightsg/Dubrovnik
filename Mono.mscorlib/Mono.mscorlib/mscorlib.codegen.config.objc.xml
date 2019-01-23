@@ -1559,6 +1559,14 @@
 		<string>System.Byte</string>
 		<string>System.Char</string>
 		<string>System.Collections.ArrayList</string>
+		<string>System.Collections.Concurrent.ConcurrentDictionary`2</string>
+		<string>System.Collections.Concurrent.ConcurrentQueue`1</string>
+		<string>System.Collections.Concurrent.ConcurrentStack`1</string>
+		<string>System.Collections.Concurrent.EnumerablePartitionerOptions</string>
+		<string>System.Collections.Concurrent.IProducerConsumerCollection`1</string>
+		<string>System.Collections.Concurrent.OrderablePartitioner`1</string>
+		<string>System.Collections.Concurrent.Partitioner</string>
+		<string>System.Collections.Concurrent.Partitioner`1</string>
 		<string>System.Collections.Generic.Dictionary`2</string>
 		<string>System.Collections.Generic.ICollection`1</string>
 		<string>System.Collections.Generic.IComparer`1</string>
