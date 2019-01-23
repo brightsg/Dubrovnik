@@ -9,15 +9,15 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     12/31/2018 8:21:50 PM
+// Date:     1/23/2019 4:36:34 PM
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
 // Path:     C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll
 //
-// Platform: Microsoft Windows NT 6.2.9200.0
+// Platform: Unix 18.2.0.0
 // OS Arch:  64 bit
-// Process:  32 bit
+// Process:  64 bit
 // Target:   mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
 // Runtime:  4.0.30319.42000
 //
@@ -163,22 +163,14 @@
 /* Skipped type : System.Collections.CollectionBase CollectionBase */
 
 /* Skipped type : System.Collections.Comparer Comparer */
-
-/* Skipped type : System.Collections.Concurrent.ConcurrentDictionary`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue> ConcurrentDictionary`2<TKey, TValue> */
-
-/* Skipped type : System.Collections.Concurrent.ConcurrentQueue`1<System.Collections.Concurrent.ConcurrentQueue`1+T> ConcurrentQueue`1<T> */
-
-/* Skipped type : System.Collections.Concurrent.ConcurrentStack`1<System.Collections.Concurrent.ConcurrentStack`1+T> ConcurrentStack`1<T> */
-
-/* Skipped type : System.Collections.Concurrent.EnumerablePartitionerOptions EnumerablePartitionerOptions */
-
-/* Skipped type : System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.IProducerConsumerCollection`1+T> IProducerConsumerCollection`1<T> */
-
-/* Skipped type : System.Collections.Concurrent.OrderablePartitioner`1<System.Collections.Concurrent.OrderablePartitioner`1+TSource> OrderablePartitioner`1<TSource> */
-
-/* Skipped type : System.Collections.Concurrent.Partitioner Partitioner */
-
-/* Skipped type : System.Collections.Concurrent.Partitioner`1<System.Collections.Concurrent.Partitioner`1+TSource> Partitioner`1<TSource> */
+#define SCCConcurrentDictionaryA2_ System_Collections_Concurrent_ConcurrentDictionaryA2
+#define SCCConcurrentQueueA1_ System_Collections_Concurrent_ConcurrentQueueA1
+#define SCCConcurrentStackA1_ System_Collections_Concurrent_ConcurrentStackA1
+#define SCCEnumerablePartitionerOptions_ System_Collections_Concurrent_EnumerablePartitionerOptions
+#define SCCIProducerConsumerCollectionA1_ System_Collections_Concurrent_IProducerConsumerCollectionA1
+#define SCCOrderablePartitionerA1_ System_Collections_Concurrent_OrderablePartitionerA1
+#define SCCPartitioner_ System_Collections_Concurrent_Partitioner
+#define SCCPartitionerA1_ System_Collections_Concurrent_PartitionerA1
 
 /* Skipped type : System.Collections.DictionaryBase DictionaryBase */
 
@@ -3025,6 +3017,16 @@ Assembly type imports
 #import "System_Byte.h"
 #import "System_Char.h"
 #import "System_Collections_ArrayList.h"
+#import "System_Collections_Concurrent_ConcurrentDictionaryA2.h"
+#import "System_Collections_Concurrent_ConcurrentQueueA1.h"
+#import "System_Collections_Concurrent_ConcurrentStackA1.h"
+#import "System_Collections_Concurrent_EnumerablePartitionerOptions.h"
+#import "System_Collections_Concurrent_IProducerConsumerCollectionA1.h"
+#import "System_Collections_Concurrent_IProducerConsumerCollectionA1.h"
+#import "System_Collections_Concurrent_IProducerConsumerCollectionA1_Protocol.h"
+#import "System_Collections_Concurrent_OrderablePartitionerA1.h"
+#import "System_Collections_Concurrent_Partitioner.h"
+#import "System_Collections_Concurrent_PartitionerA1.h"
 #import "System_Collections_Generic_DictionaryA2__Enumerator.h"
 #import "System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator.h"
 #import "System_Collections_Generic_DictionaryA2__KeyCollection.h"

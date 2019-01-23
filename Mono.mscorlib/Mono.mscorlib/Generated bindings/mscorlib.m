@@ -9,15 +9,15 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     12/31/2018 8:21:50 PM
+// Date:     1/23/2019 4:36:34 PM
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
 // Path:     C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll
 //
-// Platform: Microsoft Windows NT 6.2.9200.0
+// Platform: Unix 18.2.0.0
 // OS Arch:  64 bit
-// Process:  32 bit
+// Process:  64 bit
 // Target:   mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
 // Runtime:  4.0.30319.42000
 //
@@ -57,6 +57,14 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_Byte.m
 // Dubrovnik.CodeGenerator made System_Char.m
 // Dubrovnik.CodeGenerator made System_Collections_ArrayList.m
+// Dubrovnik.CodeGenerator made System_Collections_Concurrent_ConcurrentDictionaryA2.m
+// Dubrovnik.CodeGenerator made System_Collections_Concurrent_ConcurrentQueueA1.m
+// Dubrovnik.CodeGenerator made System_Collections_Concurrent_ConcurrentStackA1.m
+// Dubrovnik.CodeGenerator made System_Collections_Concurrent_EnumerablePartitionerOptions.m
+// Dubrovnik.CodeGenerator made System_Collections_Concurrent_IProducerConsumerCollectionA1.m
+// Dubrovnik.CodeGenerator made System_Collections_Concurrent_OrderablePartitionerA1.m
+// Dubrovnik.CodeGenerator made System_Collections_Concurrent_Partitioner.m
+// Dubrovnik.CodeGenerator made System_Collections_Concurrent_PartitionerA1.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_DictionaryA2__Enumerator.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_DictionaryA2__KeyCollection.m
