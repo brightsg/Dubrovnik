@@ -19,6 +19,9 @@
 //
 @class System_Collections_Generic_ICollectionA1;
 @class System_Collections_Generic_IEnumerableA1;
+@class System_Collections_Generic_IListA1;
+@class System_Collections_Generic_IReadOnlyCollectionA1;
+@class System_Collections_Generic_IReadOnlyListA1;
 @class System_Collections_Generic_ListA1;
 @class System_Collections_IEnumerable;
 @class System_Collections_IList;
@@ -39,7 +42,7 @@
 //
 #import "System_ComponentModel_INotifyPropertyChanged_Protocol.h"
 
-@interface System_Collections_ObjectModel_ObservableCollectionA1 : System_Collections_ObjectModel_CollectionA1 <System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_IList_, System_ComponentModel_INotifyPropertyChanged_>
+@interface System_Collections_ObjectModel_ObservableCollectionA1 : System_Collections_ObjectModel_CollectionA1 <System_Collections_Generic_IListA1_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_IList_, System_Collections_Generic_IReadOnlyListA1_, System_Collections_Generic_IReadOnlyCollectionA1_, System_ComponentModel_INotifyPropertyChanged_>
 
 #pragma mark -
 #pragma mark Setup

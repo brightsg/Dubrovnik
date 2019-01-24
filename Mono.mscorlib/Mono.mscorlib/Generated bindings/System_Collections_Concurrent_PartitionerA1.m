@@ -61,7 +61,11 @@
 	return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
 }
 
-/* Skipped method : System.Collections.Generic.IList`1<System.Collections.Generic.IEnumerator`1<System.Collections.Concurrent.Partitioner`1+TSource>> GetPartitions(System.Int32 partitionCount) */
+- (id <System_Collections_Generic_IListA1>)getPartitions_withPartitionCount:(int32_t)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetPartitions(int)" withNumArgs:1, DB_VALUE(p1)];
+	return [System_Collections_Generic_IListA1 bestObjectWithMonoObject:monoObject];
+}
 
 #pragma mark -
 #pragma mark Teardown

@@ -20,10 +20,17 @@
 @class System_Boolean;
 @class System_Collections_Concurrent_OrderablePartitionerA1;
 @class System_Collections_Generic_IEnumerableA1;
+@class System_Collections_Generic_IEnumeratorA1;
+@class System_Collections_Generic_IListA1;
 @class System_Collections_Generic_KeyValuePairA2;
+@class System_Int32;
 @class System_Object;
 @protocol System_Collections_Generic_IEnumerableA1;
 @protocol System_Collections_Generic_IEnumerableA1_;
+@protocol System_Collections_Generic_IEnumeratorA1;
+@protocol System_Collections_Generic_IEnumeratorA1_;
+@protocol System_Collections_Generic_IListA1;
+@protocol System_Collections_Generic_IListA1_;
 
 //
 // Local assembly imports
@@ -115,8 +122,34 @@
 */
 - (id <System_Collections_Generic_IEnumerableA1>)getOrderableDynamicPartitions;
 
-/* Skipped method : System.Collections.Generic.IList`1<System.Collections.Generic.IEnumerator`1<System.Collections.Generic.KeyValuePair`2<System.Int64, System.Collections.Concurrent.OrderablePartitioner`1+TSource>>> GetOrderablePartitions(System.Int32 partitionCount) */
+/**
+ Managed method.
+ @textblock
+ Name
+   GetOrderablePartitions
 
-/* Skipped method : System.Collections.Generic.IList`1<System.Collections.Generic.IEnumerator`1<System.Collections.Concurrent.OrderablePartitioner`1+TSource>> GetPartitions(System.Int32 partitionCount) */
+ Params
+   System.Int32
+
+ Return
+   System.Collections.Generic.IList`1<System.Collections.Generic.IEnumerator`1<System.Collections.Generic.KeyValuePair`2<System.Int64, System.Collections.Concurrent.OrderablePartitioner`1+TSource>>>
+ @/textblock
+*/
+- (id <System_Collections_Generic_IListA1>)getOrderablePartitions_withPartitionCount:(int32_t)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetPartitions
+
+ Params
+   System.Int32
+
+ Return
+   System.Collections.Generic.IList`1<System.Collections.Generic.IEnumerator`1<System.Collections.Concurrent.OrderablePartitioner`1+TSource>>
+ @/textblock
+*/
+- (id <System_Collections_Generic_IListA1>)getPartitions_withPartitionCount:(int32_t)p1;
 @end
 //--Dubrovnik.CodeGenerator

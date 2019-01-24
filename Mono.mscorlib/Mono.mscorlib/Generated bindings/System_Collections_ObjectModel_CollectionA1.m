@@ -33,7 +33,11 @@
 #pragma mark -
 #pragma mark Constructors
 
-/* Skipped constructor : System.Collections.ObjectModel.Collection`1<System.Collections.ObjectModel.Collection`1+T> (System.Collections.Generic.IList`1<System.Collections.ObjectModel.Collection`1+T> list) */
++ (System_Collections_ObjectModel_CollectionA1 *)new_withList:(id <System_Collections_Generic_IListA1_>)p1
+{
+	System_Collections_ObjectModel_CollectionA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IList`1<System.Collections.ObjectModel.Collection`1/T>" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return object;
+}
 
 #pragma mark -
 #pragma mark Properties

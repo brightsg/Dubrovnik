@@ -23,10 +23,13 @@
 @class System_Collections_Concurrent_OrderablePartitionerA1;
 @class System_Collections_Concurrent_Partitioner;
 @class System_Collections_Generic_IEnumerableA1;
+@class System_Collections_Generic_IListA1;
 @class System_Object;
 @class TSource;
 @protocol System_Collections_Generic_IEnumerableA1;
 @protocol System_Collections_Generic_IEnumerableA1_;
+@protocol System_Collections_Generic_IListA1;
+@protocol System_Collections_Generic_IListA1_;
 
 //
 // Local assembly imports
@@ -86,7 +89,24 @@
 */
 + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withSource:(id <System_Collections_Generic_IEnumerableA1_>)p1 partitionerOptions:(enumSystem_Collections_Concurrent_EnumerablePartitionerOptions)p2 typeParameter:(id)typeParameter;
 
-/* Skipped method : System.Collections.Concurrent.OrderablePartitioner`1<System.Collections.Concurrent.Partitioner+TSource> Create(System.Collections.Generic.IList`1<System.Collections.Concurrent.Partitioner+TSource> list, System.Boolean loadBalance) */
+/**
+ Managed method.
+ @textblock
+ Name
+   Create
+
+ Params
+   System.Collections.Generic.IList`1<System.Collections.Concurrent.Partitioner+TSource>
+   System.Boolean
+
+ Generics
+   <System.Collections.Concurrent.Partitioner+TSource>
+
+ Return
+   System.Collections.Concurrent.OrderablePartitioner`1<System.Collections.Concurrent.Partitioner+TSource>
+ @/textblock
+*/
++ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withList:(id <System_Collections_Generic_IListA1_>)p1 loadBalance:(BOOL)p2 typeParameter:(id)typeParameter;
 
 /**
  Managed method.

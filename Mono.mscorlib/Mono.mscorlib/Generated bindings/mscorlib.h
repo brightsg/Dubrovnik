@@ -9,15 +9,15 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     1/23/2019 4:36:34 PM
+// Date:     24/01/2019 11:31:28
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
 // Path:     C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll
 //
-// Platform: Unix 18.2.0.0
+// Platform: Microsoft Windows NT 6.2.9200.0
 // OS Arch:  64 bit
-// Process:  64 bit
+// Process:  32 bit
 // Target:   mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
 // Runtime:  4.0.30319.42000
 //
@@ -192,14 +192,10 @@
 #define SCGIEnumeratorA1_ System_Collections_Generic_IEnumeratorA1
 
 /* Skipped type : System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.IEqualityComparer`1+T> IEqualityComparer`1<T> */
-
-/* Skipped type : System.Collections.Generic.IList`1<System.Collections.Generic.IList`1+T> IList`1<T> */
-
-/* Skipped type : System.Collections.Generic.IReadOnlyCollection`1<System.Collections.Generic.IReadOnlyCollection`1+T> IReadOnlyCollection`1<T> */
-
-/* Skipped type : System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey, System.Collections.Generic.IReadOnlyDictionary`2+TValue> IReadOnlyDictionary`2<TKey, TValue> */
-
-/* Skipped type : System.Collections.Generic.IReadOnlyList`1<System.Collections.Generic.IReadOnlyList`1+T> IReadOnlyList`1<T> */
+#define SCGIListA1_ System_Collections_Generic_IListA1
+#define SCGIReadOnlyCollectionA1_ System_Collections_Generic_IReadOnlyCollectionA1
+#define SCGIReadOnlyDictionaryA2_ System_Collections_Generic_IReadOnlyDictionaryA2
+#define SCGIReadOnlyListA1_ System_Collections_Generic_IReadOnlyListA1
 
 /* Skipped type : System.Collections.Generic.KeyNotFoundException KeyNotFoundException */
 #define SCGKeyValuePairA2_ System_Collections_Generic_KeyValuePairA2
@@ -3048,6 +3044,18 @@ Assembly type imports
 #import "System_Collections_Generic_IEnumeratorA1.h"
 #import "System_Collections_Generic_IEnumeratorA1.h"
 #import "System_Collections_Generic_IEnumeratorA1_Protocol.h"
+#import "System_Collections_Generic_IListA1.h"
+#import "System_Collections_Generic_IListA1.h"
+#import "System_Collections_Generic_IListA1_Protocol.h"
+#import "System_Collections_Generic_IReadOnlyCollectionA1.h"
+#import "System_Collections_Generic_IReadOnlyCollectionA1.h"
+#import "System_Collections_Generic_IReadOnlyCollectionA1_Protocol.h"
+#import "System_Collections_Generic_IReadOnlyDictionaryA2.h"
+#import "System_Collections_Generic_IReadOnlyDictionaryA2.h"
+#import "System_Collections_Generic_IReadOnlyDictionaryA2_Protocol.h"
+#import "System_Collections_Generic_IReadOnlyListA1.h"
+#import "System_Collections_Generic_IReadOnlyListA1.h"
+#import "System_Collections_Generic_IReadOnlyListA1_Protocol.h"
 #import "System_Collections_Generic_KeyValuePairA2.h"
 #import "System_Collections_Generic_ListA1__Enumerator.h"
 #import "System_Collections_Generic_ListA1.h"

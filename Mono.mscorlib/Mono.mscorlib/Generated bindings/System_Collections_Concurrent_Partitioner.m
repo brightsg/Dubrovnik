@@ -45,7 +45,11 @@
 	return [System_Collections_Concurrent_OrderablePartitionerA1 bestObjectWithMonoObject:monoObject];
 }
 
-/* Skipped method : System.Collections.Concurrent.OrderablePartitioner`1<System.Collections.Concurrent.Partitioner+TSource> Create(System.Collections.Generic.IList`1<System.Collections.Concurrent.Partitioner+TSource> list, System.Boolean loadBalance) */
++ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withList:(id <System_Collections_Generic_IListA1_>)p1 loadBalance:(BOOL)p2 typeParameter:(id)typeParameter
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Collections.Generic.IList`1<System.Collections.Concurrent.Partitioner/TSource>,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	return [System_Collections_Concurrent_OrderablePartitionerA1 bestObjectWithMonoObject:monoObject];
+}
 
 + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withArray:(System_Array *)p1 loadBalance:(BOOL)p2 typeParameter:(id)typeParameter
 {
