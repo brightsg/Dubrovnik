@@ -112,7 +112,7 @@
    System.Void
  @/textblock
 */
-- (void)attach_withEntities:(id <System_Collections_Generic_IEnumerableA1_>)p1;
+- (void)attach_withEntities:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1;
 
 /**
  Managed method.
@@ -203,7 +203,7 @@
    System.Collections.Generic.IEnumerator`1<System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1+TEntity>
  @/textblock
 */
-- (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator;
+- (System_Object <System_Collections_Generic_IEnumeratorA1> *)getEnumerator;
 
 /* Skipped method : System.Void Load(System.Data.Entity.Core.Objects.MergeOption mergeOption) */
 

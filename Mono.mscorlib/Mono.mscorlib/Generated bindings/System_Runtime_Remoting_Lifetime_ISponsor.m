@@ -33,7 +33,7 @@
 #pragma mark -
 #pragma mark Methods
 
-- (System_TimeSpan *)renewal_withLease:(id <System_Runtime_Remoting_Lifetime_ILease_>)p1
+- (System_TimeSpan *)renewal_withLease:(System_Object <System_Runtime_Remoting_Lifetime_ILease_> *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.Remoting.Lifetime.ISponsor.Renewal(System.Runtime.Remoting.Lifetime.ILease)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return [System_TimeSpan bestObjectWithMonoObject:monoObject];

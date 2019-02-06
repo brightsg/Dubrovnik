@@ -90,7 +90,7 @@
    System.Boolean
  @/textblock
 */
-+ (BOOL)any_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
++ (BOOL)any_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Boolean Any(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Boolean>> predicate) */
 
@@ -110,7 +110,7 @@
    System.Linq.IQueryable`1<System.Linq.Queryable+TElement>
  @/textblock
 */
-+ (id <System_Linq_IQueryableA1>)asQueryable_withSourceSCGILQueryable__TElement:(id <System_Collections_Generic_IEnumerableA1_>)p1 typeParameter:(id)typeParameter;
++ (System_Object <System_Linq_IQueryableA1> *)asQueryable_withSourceSCGILQueryable__TElement:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -125,7 +125,7 @@
    System.Linq.IQueryable
  @/textblock
 */
-+ (id <System_Linq_IQueryable>)asQueryable_withSourceSCIEnumerable:(id <System_Collections_IEnumerable_>)p1;
++ (System_Object <System_Linq_IQueryable> *)asQueryable_withSourceSCIEnumerable:(System_Object <System_Collections_IEnumerable_> *)p1;
 
 /**
  Managed method.
@@ -140,7 +140,7 @@
    System.Double
  @/textblock
 */
-+ (double)average_withSourceSLIQueryableA1int:(id <System_Linq_IQueryableA1_>)p1;
++ (double)average_withSourceSLIQueryableA1int:(System_Object <System_Linq_IQueryableA1_> *)p1;
 
 /**
  Managed method.
@@ -155,7 +155,7 @@
    System.Nullable`1<System.Double>
  @/textblock
 */
-+ (System_NullableA1 *)average_withSourceSLINullableA1int:(id <System_Linq_IQueryableA1_>)p1;
++ (System_NullableA1 *)average_withSourceSLINullableA1int:(System_Object <System_Linq_IQueryableA1_> *)p1;
 
 /**
  Managed method.
@@ -170,7 +170,7 @@
    System.Double
  @/textblock
 */
-+ (double)average_withSourceSLIQueryableA1long:(id <System_Linq_IQueryableA1_>)p1;
++ (double)average_withSourceSLIQueryableA1long:(System_Object <System_Linq_IQueryableA1_> *)p1;
 
 /**
  Managed method.
@@ -185,7 +185,7 @@
    System.Nullable`1<System.Double>
  @/textblock
 */
-+ (System_NullableA1 *)average_withSourceSLINullableA1long:(id <System_Linq_IQueryableA1_>)p1;
++ (System_NullableA1 *)average_withSourceSLINullableA1long:(System_Object <System_Linq_IQueryableA1_> *)p1;
 
 /**
  Managed method.
@@ -200,7 +200,7 @@
    System.Single
  @/textblock
 */
-+ (float)average_withSourceSLIQueryableA1single:(id <System_Linq_IQueryableA1_>)p1;
++ (float)average_withSourceSLIQueryableA1single:(System_Object <System_Linq_IQueryableA1_> *)p1;
 
 /**
  Managed method.
@@ -215,7 +215,7 @@
    System.Nullable`1<System.Single>
  @/textblock
 */
-+ (System_NullableA1 *)average_withSourceSLINullableA1single:(id <System_Linq_IQueryableA1_>)p1;
++ (System_NullableA1 *)average_withSourceSLINullableA1single:(System_Object <System_Linq_IQueryableA1_> *)p1;
 
 /**
  Managed method.
@@ -230,7 +230,7 @@
    System.Double
  @/textblock
 */
-+ (double)average_withSourceSLIQueryableA1double:(id <System_Linq_IQueryableA1_>)p1;
++ (double)average_withSourceSLIQueryableA1double:(System_Object <System_Linq_IQueryableA1_> *)p1;
 
 /**
  Managed method.
@@ -245,7 +245,7 @@
    System.Nullable`1<System.Double>
  @/textblock
 */
-+ (System_NullableA1 *)average_withSourceSLINullableA1double:(id <System_Linq_IQueryableA1_>)p1;
++ (System_NullableA1 *)average_withSourceSLINullableA1double:(System_Object <System_Linq_IQueryableA1_> *)p1;
 
 /**
  Managed method.
@@ -260,7 +260,7 @@
    System.Decimal
  @/textblock
 */
-+ (NSDecimalNumber *)average_withSourceSLIDecimal:(id <System_Linq_IQueryableA1_>)p1;
++ (NSDecimalNumber *)average_withSourceSLIDecimal:(System_Object <System_Linq_IQueryableA1_> *)p1;
 
 /**
  Managed method.
@@ -275,7 +275,7 @@
    System.Nullable`1<System.Decimal>
  @/textblock
 */
-+ (System_NullableA1 *)average_withSourceSLINDecimal:(id <System_Linq_IQueryableA1_>)p1;
++ (System_NullableA1 *)average_withSourceSLINDecimal:(System_Object <System_Linq_IQueryableA1_> *)p1;
 
 /* Skipped method : System.Double Average(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Int32>> selector) */
 
@@ -313,7 +313,7 @@
    System.Linq.IQueryable`1<System.Linq.Queryable+TResult>
  @/textblock
 */
-+ (id <System_Linq_IQueryableA1>)cast_withSource:(id <System_Linq_IQueryable_>)p1 typeParameter:(id)typeParameter;
++ (System_Object <System_Linq_IQueryableA1> *)cast_withSource:(System_Object <System_Linq_IQueryable_> *)p1 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -332,7 +332,7 @@
    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
  @/textblock
 */
-+ (id <System_Linq_IQueryableA1>)concat_withSource1:(id <System_Linq_IQueryableA1_>)p1 source2:(id <System_Collections_Generic_IEnumerableA1_>)p2 typeParameter:(id)typeParameter;
++ (System_Object <System_Linq_IQueryableA1> *)concat_withSource1:(System_Object <System_Linq_IQueryableA1_> *)p1 source2:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -351,7 +351,7 @@
    System.Boolean
  @/textblock
 */
-+ (BOOL)contains_withSource:(id <System_Linq_IQueryableA1_>)p1 item:(System_Object *)p2 typeParameter:(id)typeParameter;
++ (BOOL)contains_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 item:(System_Object *)p2 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Boolean Contains(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Queryable+TSource item, System.Collections.Generic.IEqualityComparer`1<System.Linq.Queryable+TSource> comparer) */
 
@@ -371,7 +371,7 @@
    System.Int32
  @/textblock
 */
-+ (int32_t)count_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
++ (int32_t)count_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Int32 Count(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Boolean>> predicate) */
 
@@ -391,7 +391,7 @@
    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
  @/textblock
 */
-+ (id <System_Linq_IQueryableA1>)defaultIfEmpty_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
++ (System_Object <System_Linq_IQueryableA1> *)defaultIfEmpty_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -410,7 +410,7 @@
    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
  @/textblock
 */
-+ (id <System_Linq_IQueryableA1>)defaultIfEmpty_withSource:(id <System_Linq_IQueryableA1_>)p1 defaultValue:(System_Object *)p2 typeParameter:(id)typeParameter;
++ (System_Object <System_Linq_IQueryableA1> *)defaultIfEmpty_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 defaultValue:(System_Object *)p2 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -428,7 +428,7 @@
    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
  @/textblock
 */
-+ (id <System_Linq_IQueryableA1>)distinct_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
++ (System_Object <System_Linq_IQueryableA1> *)distinct_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.IQueryable`1<System.Linq.Queryable+TSource> Distinct(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Collections.Generic.IEqualityComparer`1<System.Linq.Queryable+TSource> comparer) */
 
@@ -449,7 +449,7 @@
    <System.Linq.Queryable+TSource>
  @/textblock
 */
-+ (System_Object *)elementAt_withSource:(id <System_Linq_IQueryableA1_>)p1 index:(int32_t)p2 typeParameter:(id)typeParameter;
++ (System_Object *)elementAt_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 index:(int32_t)p2 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -468,7 +468,7 @@
    <System.Linq.Queryable+TSource>
  @/textblock
 */
-+ (System_Object *)elementAtOrDefault_withSource:(id <System_Linq_IQueryableA1_>)p1 index:(int32_t)p2 typeParameter:(id)typeParameter;
++ (System_Object *)elementAtOrDefault_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 index:(int32_t)p2 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -487,7 +487,7 @@
    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
  @/textblock
 */
-+ (id <System_Linq_IQueryableA1>)except_withSource1:(id <System_Linq_IQueryableA1_>)p1 source2:(id <System_Collections_Generic_IEnumerableA1_>)p2 typeParameter:(id)typeParameter;
++ (System_Object <System_Linq_IQueryableA1> *)except_withSource1:(System_Object <System_Linq_IQueryableA1_> *)p1 source2:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.IQueryable`1<System.Linq.Queryable+TSource> Except(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source1, System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TSource> source2, System.Collections.Generic.IEqualityComparer`1<System.Linq.Queryable+TSource> comparer) */
 
@@ -507,7 +507,7 @@
    <System.Linq.Queryable+TSource>
  @/textblock
 */
-+ (System_Object *)first_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
++ (System_Object *)first_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.Queryable+TSource First(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Boolean>> predicate) */
 
@@ -527,7 +527,7 @@
    <System.Linq.Queryable+TSource>
  @/textblock
 */
-+ (System_Object *)firstOrDefault_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
++ (System_Object *)firstOrDefault_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.Queryable+TSource FirstOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Boolean>> predicate) */
 
@@ -568,7 +568,7 @@
    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
  @/textblock
 */
-+ (id <System_Linq_IQueryableA1>)intersect_withSource1:(id <System_Linq_IQueryableA1_>)p1 source2:(id <System_Collections_Generic_IEnumerableA1_>)p2 typeParameter:(id)typeParameter;
++ (System_Object <System_Linq_IQueryableA1> *)intersect_withSource1:(System_Object <System_Linq_IQueryableA1_> *)p1 source2:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.IQueryable`1<System.Linq.Queryable+TSource> Intersect(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source1, System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TSource> source2, System.Collections.Generic.IEqualityComparer`1<System.Linq.Queryable+TSource> comparer) */
 
@@ -592,7 +592,7 @@
    <System.Linq.Queryable+TSource>
  @/textblock
 */
-+ (System_Object *)last_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
++ (System_Object *)last_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.Queryable+TSource Last(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Boolean>> predicate) */
 
@@ -612,7 +612,7 @@
    <System.Linq.Queryable+TSource>
  @/textblock
 */
-+ (System_Object *)lastOrDefault_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
++ (System_Object *)lastOrDefault_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.Queryable+TSource LastOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Boolean>> predicate) */
 
@@ -632,7 +632,7 @@
    System.Int64
  @/textblock
 */
-+ (int64_t)longCount_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
++ (int64_t)longCount_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Int64 LongCount(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Boolean>> predicate) */
 
@@ -652,7 +652,7 @@
    <System.Linq.Queryable+TSource>
  @/textblock
 */
-+ (System_Object *)max_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
++ (System_Object *)max_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.Queryable+TResult Max(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Linq.Queryable+TResult>> selector) */
 
@@ -672,7 +672,7 @@
    <System.Linq.Queryable+TSource>
  @/textblock
 */
-+ (System_Object *)min_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
++ (System_Object *)min_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.Queryable+TResult Min(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Linq.Queryable+TResult>> selector) */
 
@@ -692,7 +692,7 @@
    System.Linq.IQueryable`1<System.Linq.Queryable+TResult>
  @/textblock
 */
-+ (id <System_Linq_IQueryableA1>)ofType_withSource:(id <System_Linq_IQueryable_>)p1 typeParameter:(id)typeParameter;
++ (System_Object <System_Linq_IQueryableA1> *)ofType_withSource:(System_Object <System_Linq_IQueryable_> *)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.IOrderedQueryable`1<System.Linq.Queryable+TSource> OrderBy(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Linq.Queryable+TKey>> keySelector) */
 
@@ -718,7 +718,7 @@
    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
  @/textblock
 */
-+ (id <System_Linq_IQueryableA1>)reverse_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
++ (System_Object <System_Linq_IQueryableA1> *)reverse_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.IQueryable`1<System.Linq.Queryable+TResult> Select(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Linq.Queryable+TResult>> selector) */
 
@@ -749,7 +749,7 @@
    System.Boolean
  @/textblock
 */
-+ (BOOL)sequenceEqual_withSource1:(id <System_Linq_IQueryableA1_>)p1 source2:(id <System_Collections_Generic_IEnumerableA1_>)p2 typeParameter:(id)typeParameter;
++ (BOOL)sequenceEqual_withSource1:(System_Object <System_Linq_IQueryableA1_> *)p1 source2:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Boolean SequenceEqual(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source1, System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TSource> source2, System.Collections.Generic.IEqualityComparer`1<System.Linq.Queryable+TSource> comparer) */
 
@@ -769,7 +769,7 @@
    <System.Linq.Queryable+TSource>
  @/textblock
 */
-+ (System_Object *)single_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
++ (System_Object *)single_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.Queryable+TSource Single(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Boolean>> predicate) */
 
@@ -789,7 +789,7 @@
    <System.Linq.Queryable+TSource>
  @/textblock
 */
-+ (System_Object *)singleOrDefault_withSource:(id <System_Linq_IQueryableA1_>)p1 typeParameter:(id)typeParameter;
++ (System_Object *)singleOrDefault_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.Queryable+TSource SingleOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Boolean>> predicate) */
 
@@ -810,7 +810,7 @@
    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
  @/textblock
 */
-+ (id <System_Linq_IQueryableA1>)skip_withSource:(id <System_Linq_IQueryableA1_>)p1 count:(int32_t)p2 typeParameter:(id)typeParameter;
++ (System_Object <System_Linq_IQueryableA1> *)skip_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 count:(int32_t)p2 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.IQueryable`1<System.Linq.Queryable+TSource> SkipWhile(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Boolean>> predicate) */
 
@@ -829,7 +829,7 @@
    System.Int32
  @/textblock
 */
-+ (int32_t)sum_withSourceSLIQueryableA1int:(id <System_Linq_IQueryableA1_>)p1;
++ (int32_t)sum_withSourceSLIQueryableA1int:(System_Object <System_Linq_IQueryableA1_> *)p1;
 
 /**
  Managed method.
@@ -844,7 +844,7 @@
    System.Nullable`1<System.Int32>
  @/textblock
 */
-+ (System_NullableA1 *)sum_withSourceSLINullableA1int:(id <System_Linq_IQueryableA1_>)p1;
++ (System_NullableA1 *)sum_withSourceSLINullableA1int:(System_Object <System_Linq_IQueryableA1_> *)p1;
 
 /**
  Managed method.
@@ -859,7 +859,7 @@
    System.Int64
  @/textblock
 */
-+ (int64_t)sum_withSourceSLIQueryableA1long:(id <System_Linq_IQueryableA1_>)p1;
++ (int64_t)sum_withSourceSLIQueryableA1long:(System_Object <System_Linq_IQueryableA1_> *)p1;
 
 /**
  Managed method.
@@ -874,7 +874,7 @@
    System.Nullable`1<System.Int64>
  @/textblock
 */
-+ (System_NullableA1 *)sum_withSourceSLINullableA1long:(id <System_Linq_IQueryableA1_>)p1;
++ (System_NullableA1 *)sum_withSourceSLINullableA1long:(System_Object <System_Linq_IQueryableA1_> *)p1;
 
 /**
  Managed method.
@@ -889,7 +889,7 @@
    System.Single
  @/textblock
 */
-+ (float)sum_withSourceSLIQueryableA1single:(id <System_Linq_IQueryableA1_>)p1;
++ (float)sum_withSourceSLIQueryableA1single:(System_Object <System_Linq_IQueryableA1_> *)p1;
 
 /**
  Managed method.
@@ -904,7 +904,7 @@
    System.Nullable`1<System.Single>
  @/textblock
 */
-+ (System_NullableA1 *)sum_withSourceSLINullableA1single:(id <System_Linq_IQueryableA1_>)p1;
++ (System_NullableA1 *)sum_withSourceSLINullableA1single:(System_Object <System_Linq_IQueryableA1_> *)p1;
 
 /**
  Managed method.
@@ -919,7 +919,7 @@
    System.Double
  @/textblock
 */
-+ (double)sum_withSourceSLIQueryableA1double:(id <System_Linq_IQueryableA1_>)p1;
++ (double)sum_withSourceSLIQueryableA1double:(System_Object <System_Linq_IQueryableA1_> *)p1;
 
 /**
  Managed method.
@@ -934,7 +934,7 @@
    System.Nullable`1<System.Double>
  @/textblock
 */
-+ (System_NullableA1 *)sum_withSourceSLINullableA1double:(id <System_Linq_IQueryableA1_>)p1;
++ (System_NullableA1 *)sum_withSourceSLINullableA1double:(System_Object <System_Linq_IQueryableA1_> *)p1;
 
 /**
  Managed method.
@@ -949,7 +949,7 @@
    System.Decimal
  @/textblock
 */
-+ (NSDecimalNumber *)sum_withSourceSLIDecimal:(id <System_Linq_IQueryableA1_>)p1;
++ (NSDecimalNumber *)sum_withSourceSLIDecimal:(System_Object <System_Linq_IQueryableA1_> *)p1;
 
 /**
  Managed method.
@@ -964,7 +964,7 @@
    System.Nullable`1<System.Decimal>
  @/textblock
 */
-+ (System_NullableA1 *)sum_withSourceSLINDecimal:(id <System_Linq_IQueryableA1_>)p1;
++ (System_NullableA1 *)sum_withSourceSLINDecimal:(System_Object <System_Linq_IQueryableA1_> *)p1;
 
 /* Skipped method : System.Int32 Sum(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Int32>> selector) */
 
@@ -1003,7 +1003,7 @@
    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
  @/textblock
 */
-+ (id <System_Linq_IQueryableA1>)take_withSource:(id <System_Linq_IQueryableA1_>)p1 count:(int32_t)p2 typeParameter:(id)typeParameter;
++ (System_Object <System_Linq_IQueryableA1> *)take_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 count:(int32_t)p2 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.IQueryable`1<System.Linq.Queryable+TSource> TakeWhile(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Boolean>> predicate) */
 
@@ -1034,7 +1034,7 @@
    System.Linq.IQueryable`1<System.Linq.Queryable+TSource>
  @/textblock
 */
-+ (id <System_Linq_IQueryableA1>)union_withSource1:(id <System_Linq_IQueryableA1_>)p1 source2:(id <System_Collections_Generic_IEnumerableA1_>)p2 typeParameter:(id)typeParameter;
++ (System_Object <System_Linq_IQueryableA1> *)union_withSource1:(System_Object <System_Linq_IQueryableA1_> *)p1 source2:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Linq.IQueryable`1<System.Linq.Queryable+TSource> Union(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source1, System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TSource> source2, System.Collections.Generic.IEqualityComparer`1<System.Linq.Queryable+TSource> comparer) */
 

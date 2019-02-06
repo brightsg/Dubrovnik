@@ -180,12 +180,12 @@
 #pragma mark -
 #pragma mark Methods
 
-- (void)register_withObj:(id <System_Runtime_Remoting_Lifetime_ISponsor_>)p1
+- (void)register_withObj:(System_Object <System_Runtime_Remoting_Lifetime_ISponsor_> *)p1
 {
 	[self invokeMonoMethod:"System.Runtime.Remoting.Lifetime.ILease.Register(System.Runtime.Remoting.Lifetime.ISponsor)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
-- (void)register_withObj:(id <System_Runtime_Remoting_Lifetime_ISponsor_>)p1 renewalTime:(System_TimeSpan *)p2
+- (void)register_withObj:(System_Object <System_Runtime_Remoting_Lifetime_ISponsor_> *)p1 renewalTime:(System_TimeSpan *)p2
 {
 	[self invokeMonoMethod:"System.Runtime.Remoting.Lifetime.ILease.Register(System.Runtime.Remoting.Lifetime.ISponsor,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 }
@@ -196,7 +196,7 @@
 	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
 }
 
-- (void)unregister_withObj:(id <System_Runtime_Remoting_Lifetime_ISponsor_>)p1
+- (void)unregister_withObj:(System_Object <System_Runtime_Remoting_Lifetime_ISponsor_> *)p1
 {
 	[self invokeMonoMethod:"System.Runtime.Remoting.Lifetime.ILease.Unregister(System.Runtime.Remoting.Lifetime.ISponsor)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }

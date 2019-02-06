@@ -42,13 +42,13 @@
 #pragma mark -
 #pragma mark Methods
 
-- (id <System_IAsyncResult>)beginInvoke_withCallback:(System_AsyncCallback *)p1 object:(System_Object *)p2
+- (System_Object <System_IAsyncResult> *)beginInvoke_withCallback:(System_AsyncCallback *)p1 object:(System_Object *)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 	return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Object *)endInvoke_withResult:(id <System_IAsyncResult_>)p1
+- (System_Object *)endInvoke_withResult:(System_Object <System_IAsyncResult_> *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return [System_Object bestObjectWithMonoObject:monoObject];

@@ -62,7 +62,7 @@
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (id <System_Collections_Generic_IEnumerableA1>)addRange_withEntities:(id <System_Collections_Generic_IEnumerableA1_>)p1
+- (System_Object <System_Collections_Generic_IEnumerableA1> *)addRange_withEntities:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"AddRange(System.Collections.Generic.IEnumerable`1<System.Data.Entity.DbSet`1/TEntity>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
@@ -118,7 +118,7 @@
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (id <System_Collections_Generic_IEnumerableA1>)removeRange_withEntities:(id <System_Collections_Generic_IEnumerableA1_>)p1
+- (System_Object <System_Collections_Generic_IEnumerableA1> *)removeRange_withEntities:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"RemoveRange(System.Collections.Generic.IEnumerable`1<System.Data.Entity.DbSet`1/TEntity>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];

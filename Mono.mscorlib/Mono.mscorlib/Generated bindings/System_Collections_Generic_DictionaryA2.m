@@ -43,7 +43,7 @@
 
 /* Skipped constructor : System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2+TKey, System.Collections.Generic.Dictionary`2+TValue> (System.Int32 capacity, System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.Dictionary`2+TKey> comparer) */
 
-+ (System_Collections_Generic_DictionaryA2 *)new_withDictionary:(id <System_Collections_Generic_IDictionaryA2_>)p1
++ (System_Collections_Generic_DictionaryA2 *)new_withDictionary:(System_Object <System_Collections_Generic_IDictionaryA2_> *)p1
 {
 	System_Collections_Generic_DictionaryA2 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IDictionary`2<System.Collections.Generic.Dictionary`2/TKey, System.Collections.Generic.Dictionary`2/TValue>" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return object;

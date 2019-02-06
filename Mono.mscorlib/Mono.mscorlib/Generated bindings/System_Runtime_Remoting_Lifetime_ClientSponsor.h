@@ -141,7 +141,7 @@
    System.TimeSpan
  @/textblock
 */
-- (System_TimeSpan *)renewal_withLease:(id <System_Runtime_Remoting_Lifetime_ILease_>)p1;
+- (System_TimeSpan *)renewal_withLease:(System_Object <System_Runtime_Remoting_Lifetime_ILease_> *)p1;
 
 /**
  Managed method.

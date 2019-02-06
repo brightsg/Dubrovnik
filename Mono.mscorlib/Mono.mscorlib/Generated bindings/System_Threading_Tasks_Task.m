@@ -478,7 +478,7 @@ static System_NullableA1 * m_currentId;
 	return DB_UNBOX_INT32(monoObject);
 }
 
-+ (System_Threading_Tasks_Task *)whenAll_withTasksSCGITTTask:(id <System_Collections_Generic_IEnumerableA1_>)p1
++ (System_Threading_Tasks_Task *)whenAll_withTasksSCGITTTask:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"WhenAll(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Task>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
@@ -490,7 +490,7 @@ static System_NullableA1 * m_currentId;
 	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Threading_Tasks_TaskA1 *)whenAll_withTasksSCGITTTTTTask__TResult:(id <System_Collections_Generic_IEnumerableA1_>)p1 typeParameter:(id)typeParameter
++ (System_Threading_Tasks_TaskA1 *)whenAll_withTasksSCGITTTTTTask__TResult:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 typeParameter:(id)typeParameter
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"WhenAll(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task/TResult>>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
@@ -508,7 +508,7 @@ static System_NullableA1 * m_currentId;
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Threading_Tasks_TaskA1 *)whenAny_withTasksSCGITTTask:(id <System_Collections_Generic_IEnumerableA1_>)p1
++ (System_Threading_Tasks_TaskA1 *)whenAny_withTasksSCGITTTask:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"WhenAny(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Task>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
@@ -520,7 +520,7 @@ static System_NullableA1 * m_currentId;
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Threading_Tasks_TaskA1 *)whenAny_withTasksSCGITTTTTTask__TResult:(id <System_Collections_Generic_IEnumerableA1_>)p1 typeParameter:(id)typeParameter
++ (System_Threading_Tasks_TaskA1 *)whenAny_withTasksSCGITTTTTTask__TResult:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 typeParameter:(id)typeParameter
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"WhenAny(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task/TResult>>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];

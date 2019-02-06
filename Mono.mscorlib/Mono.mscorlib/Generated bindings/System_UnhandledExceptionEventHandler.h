@@ -87,7 +87,7 @@
    System.IAsyncResult
  @/textblock
 */
-- (id <System_IAsyncResult>)beginInvoke_withSender:(System_Object *)p1 e:(System_UnhandledExceptionEventArgs *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4;
+- (System_Object <System_IAsyncResult> *)beginInvoke_withSender:(System_Object *)p1 e:(System_UnhandledExceptionEventArgs *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4;
 
 /**
  Managed method.
@@ -102,7 +102,7 @@
    System.Void
  @/textblock
 */
-- (void)endInvoke_withResult:(id <System_IAsyncResult_>)p1;
+- (void)endInvoke_withResult:(System_Object <System_IAsyncResult_> *)p1;
 
 /**
  Managed method.

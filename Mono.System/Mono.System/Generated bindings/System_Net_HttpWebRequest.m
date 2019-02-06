@@ -1247,19 +1247,19 @@ static int32_t m_defaultMaximumResponseHeadersLength;
 	[self invokeMonoMethod:"AddRange(string,long)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
 }
 
-- (id <System_IAsyncResult>)beginGetRequestStream_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2
+- (System_Object <System_IAsyncResult> *)beginGetRequestStream_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"BeginGetRequestStream(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 	return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
 }
 
-- (id <System_IAsyncResult>)beginGetResponse_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2
+- (System_Object <System_IAsyncResult> *)beginGetResponse_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"BeginGetResponse(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 	return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
 }
 
-- (System_IO_Stream *)endGetRequestStream_withAsyncResult:(id <System_IAsyncResult_>)p1
+- (System_IO_Stream *)endGetRequestStream_withAsyncResult:(System_Object <System_IAsyncResult_> *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"EndGetRequestStream(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return [System_IO_Stream bestObjectWithMonoObject:monoObject];
@@ -1267,7 +1267,7 @@ static int32_t m_defaultMaximumResponseHeadersLength;
 
 /* Skipped method : System.IO.Stream EndGetRequestStream(System.IAsyncResult asyncResult, System.Net.TransportContext& context) */
 
-- (System_Net_WebResponse *)endGetResponse_withAsyncResult:(id <System_IAsyncResult_>)p1
+- (System_Net_WebResponse *)endGetResponse_withAsyncResult:(System_Object <System_IAsyncResult_> *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"EndGetResponse(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return [System_Net_WebResponse bestObjectWithMonoObject:monoObject];

@@ -98,7 +98,7 @@
    System.Collections.Generic.IEnumerator`1<System.Collections.Generic.IEnumerable`1+T>
  @/textblock
 */
-- (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator;
+- (System_Object <System_Collections_Generic_IEnumeratorA1> *)getEnumerator;
 #endif
 
 
@@ -129,7 +129,7 @@
    System.Collections.Generic.IEnumerator`1<System.Collections.Generic.IEnumerable`1+T>
  @/textblock
 */
-- (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator;
+- (System_Object <System_Collections_Generic_IEnumeratorA1> *)getEnumerator;
 
 @end
 

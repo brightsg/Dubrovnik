@@ -33,7 +33,7 @@
 #pragma mark -
 #pragma mark Constructors
 
-+ (System_Collections_Concurrent_ConcurrentQueueA1 *)new_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1
++ (System_Collections_Concurrent_ConcurrentQueueA1 *)new_withCollection:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1
 {
 	System_Collections_Concurrent_ConcurrentQueueA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.ConcurrentQueue`1/T>" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return object;
@@ -93,7 +93,7 @@
 	[self invokeMonoMethod:"Enqueue(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
-- (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator
+- (System_Object <System_Collections_Generic_IEnumeratorA1> *)getEnumerator
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
 	return [System_Collections_Generic_IEnumeratorA1 bestObjectWithMonoObject:monoObject];

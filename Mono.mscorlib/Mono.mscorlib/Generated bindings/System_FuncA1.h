@@ -83,7 +83,7 @@
    System.IAsyncResult
  @/textblock
 */
-- (id <System_IAsyncResult>)beginInvoke_withCallback:(System_AsyncCallback *)p1 object:(System_Object *)p2;
+- (System_Object <System_IAsyncResult> *)beginInvoke_withCallback:(System_AsyncCallback *)p1 object:(System_Object *)p2;
 
 /**
  Managed method.
@@ -98,7 +98,7 @@
    <System.Func`1+TResult>
  @/textblock
 */
-- (System_Object *)endInvoke_withResult:(id <System_IAsyncResult_>)p1;
+- (System_Object *)endInvoke_withResult:(System_Object <System_IAsyncResult_> *)p1;
 
 /**
  Managed method.

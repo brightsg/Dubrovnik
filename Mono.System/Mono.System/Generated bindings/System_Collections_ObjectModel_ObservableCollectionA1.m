@@ -39,7 +39,7 @@
 	return object;
 }
 
-+ (System_Collections_ObjectModel_ObservableCollectionA1 *)new_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1
++ (System_Collections_ObjectModel_ObservableCollectionA1 *)new_withCollection:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1
 {
 	System_Collections_ObjectModel_ObservableCollectionA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.ObjectModel.ObservableCollection`1/T>" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return object;

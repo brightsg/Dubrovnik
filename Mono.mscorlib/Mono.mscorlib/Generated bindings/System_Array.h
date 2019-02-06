@@ -228,7 +228,7 @@
    System.Int32
  @/textblock
 */
-+ (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 comparerSCGIArray__T:(id <System_Collections_Generic_IComparerA1_>)p3 typeParameter:(id)typeParameter;
++ (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 comparerSCGIArray__T:(System_Object <System_Collections_Generic_IComparerA1_> *)p3 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -271,7 +271,7 @@
    System.Int32
  @/textblock
 */
-+ (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueT:(System_Object *)p4 comparerSCGIArray__T:(id <System_Collections_Generic_IComparerA1_>)p5 typeParameter:(id)typeParameter;
++ (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueT:(System_Object *)p4 comparerSCGIArray__T:(System_Object <System_Collections_Generic_IComparerA1_> *)p5 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -600,7 +600,7 @@
    System.Collections.IEnumerator
  @/textblock
 */
-- (id <System_Collections_IEnumerator>)getEnumerator;
+- (System_Object <System_Collections_IEnumerator> *)getEnumerator;
 
 /**
  Managed method.
@@ -1362,7 +1362,7 @@
    System.Void
  @/textblock
 */
-+ (void)sort_withArrayTArray:(System_Array *)p1 comparerSCGIArray__T:(id <System_Collections_Generic_IComparerA1_>)p2 typeParameter:(id)typeParameter;
++ (void)sort_withArrayTArray:(System_Array *)p1 comparerSCGIArray__T:(System_Object <System_Collections_Generic_IComparerA1_> *)p2 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -1382,7 +1382,7 @@
    System.Void
  @/textblock
 */
-+ (void)sort_withKeysTKeyArray:(System_Array *)p1 itemsTValueArray:(System_Array *)p2 comparerSCGIArray__TKey:(id <System_Collections_Generic_IComparerA1_>)p3 typeParameters:(NSArray<id> *)typeParameter;
++ (void)sort_withKeysTKeyArray:(System_Array *)p1 itemsTValueArray:(System_Array *)p2 comparerSCGIArray__TKey:(System_Object <System_Collections_Generic_IComparerA1_> *)p3 typeParameters:(NSArray<id> *)typeParameter;
 
 /**
  Managed method.
@@ -1403,7 +1403,7 @@
    System.Void
  @/textblock
 */
-+ (void)sort_withArrayTArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 comparerSCGIArray__T:(id <System_Collections_Generic_IComparerA1_>)p4 typeParameter:(id)typeParameter;
++ (void)sort_withArrayTArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 comparerSCGIArray__T:(System_Object <System_Collections_Generic_IComparerA1_> *)p4 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -1425,7 +1425,7 @@
    System.Void
  @/textblock
 */
-+ (void)sort_withKeysTKeyArray:(System_Array *)p1 itemsTValueArray:(System_Array *)p2 indexInt:(int32_t)p3 lengthInt:(int32_t)p4 comparerSCGIArray__TKey:(id <System_Collections_Generic_IComparerA1_>)p5 typeParameters:(NSArray<id> *)typeParameter;
++ (void)sort_withKeysTKeyArray:(System_Array *)p1 itemsTValueArray:(System_Array *)p2 indexInt:(int32_t)p3 lengthInt:(int32_t)p4 comparerSCGIArray__TKey:(System_Object <System_Collections_Generic_IComparerA1_> *)p5 typeParameters:(NSArray<id> *)typeParameter;
 
 /* Skipped method : System.Void Sort(T[] array, System.Comparison`1<System.Array+T> comparison) */
 

@@ -187,7 +187,7 @@
    System.Collections.Generic.IEnumerable`1<System.String>
  @/textblock
 */
-- (id <System_Collections_Generic_IEnumerableA1>)getModifiedProperties;
+- (System_Object <System_Collections_Generic_IEnumerableA1> *)getModifiedProperties;
 
 /* Skipped method : System.Data.Entity.Core.Objects.OriginalValueRecord GetUpdatableOriginalValues() */
 

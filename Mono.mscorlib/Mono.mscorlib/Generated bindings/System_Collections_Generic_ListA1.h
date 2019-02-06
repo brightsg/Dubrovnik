@@ -23,6 +23,9 @@
 @class System_Collections_Generic_ICollectionA1;
 @class System_Collections_Generic_IComparerA1;
 @class System_Collections_Generic_IEnumerableA1;
+@class System_Collections_Generic_IListA1;
+@class System_Collections_Generic_IReadOnlyCollectionA1;
+@class System_Collections_Generic_IReadOnlyListA1;
 @class System_Collections_Generic_ListA1;
 @class System_Collections_Generic_ListA1__Enumerator;
 @class System_Collections_IEnumerable;
@@ -46,11 +49,14 @@
 //
 #import "System_Collections_Generic_ICollectionA1_Protocol.h"
 #import "System_Collections_Generic_IEnumerableA1_Protocol.h"
+#import "System_Collections_Generic_IListA1_Protocol.h"
+#import "System_Collections_Generic_IReadOnlyCollectionA1_Protocol.h"
+#import "System_Collections_Generic_IReadOnlyListA1_Protocol.h"
 #import "System_Collections_IEnumerable_Protocol.h"
 #import "System_Collections_IList_Protocol.h"
 #import "System_Object.h"
 
-@interface System_Collections_Generic_ListA1 : System_Object <System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_IList_>
+@interface System_Collections_Generic_ListA1 : System_Object <System_Collections_Generic_IListA1_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_IList_, System_Collections_Generic_IReadOnlyListA1_, System_Collections_Generic_IReadOnlyCollectionA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -89,7 +95,7 @@
    System.Collections.Generic.List`1<System.Collections.Generic.List`1+T>
  @/textblock
 */
-+ (System_Collections_Generic_ListA1 *)new_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1;
++ (System_Collections_Generic_ListA1 *)new_withCollection:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -180,7 +186,7 @@
    System.Void
  @/textblock
 */
-- (void)addRange_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1;
+- (void)addRange_withCollection:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1;
 
 /* Skipped method : System.Collections.ObjectModel.ReadOnlyCollection`1<System.Collections.Generic.List`1+T> AsReadOnly() */
 
@@ -200,7 +206,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)binarySearch_withIndex:(int32_t)p1 count:(int32_t)p2 item:(System_Object *)p3 comparer:(id <System_Collections_Generic_IComparerA1_>)p4;
+- (int32_t)binarySearch_withIndex:(int32_t)p1 count:(int32_t)p2 item:(System_Object *)p3 comparer:(System_Object <System_Collections_Generic_IComparerA1_> *)p4;
 
 /**
  Managed method.
@@ -231,7 +237,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)binarySearch_withItem:(System_Object *)p1 comparer:(id <System_Collections_Generic_IComparerA1_>)p2;
+- (int32_t)binarySearch_withItem:(System_Object *)p1 comparer:(System_Object <System_Collections_Generic_IComparerA1_> *)p2;
 
 /**
  Managed method.
@@ -458,7 +464,7 @@
    System.Void
  @/textblock
 */
-- (void)insertRange_withIndex:(int32_t)p1 collection:(id <System_Collections_Generic_IEnumerableA1_>)p2;
+- (void)insertRange_withIndex:(int32_t)p1 collection:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2;
 
 /**
  Managed method.
@@ -615,7 +621,7 @@
    System.Void
  @/textblock
 */
-- (void)sort_withComparer:(id <System_Collections_Generic_IComparerA1_>)p1;
+- (void)sort_withComparer:(System_Object <System_Collections_Generic_IComparerA1_> *)p1;
 
 /**
  Managed method.
@@ -632,7 +638,7 @@
    System.Void
  @/textblock
 */
-- (void)sort_withIndex:(int32_t)p1 count:(int32_t)p2 comparer:(id <System_Collections_Generic_IComparerA1_>)p3;
+- (void)sort_withIndex:(int32_t)p1 count:(int32_t)p2 comparer:(System_Object <System_Collections_Generic_IComparerA1_> *)p3;
 
 /* Skipped method : System.Void Sort(System.Comparison`1<System.Collections.Generic.List`1+T> comparison) */
 

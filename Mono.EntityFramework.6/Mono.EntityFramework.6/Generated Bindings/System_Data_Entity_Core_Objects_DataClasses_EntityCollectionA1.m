@@ -79,7 +79,7 @@
 	[self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
-- (void)attach_withEntities:(id <System_Collections_Generic_IEnumerableA1_>)p1
+- (void)attach_withEntities:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1
 {
 	[self invokeMonoMethod:"Attach(System.Collections.Generic.IEnumerable`1<System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1/TEntity>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
@@ -111,7 +111,7 @@
 	return [System_Data_Entity_Core_Objects_ObjectQueryA1 bestObjectWithMonoObject:monoObject];
 }
 
-- (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator
+- (System_Object <System_Collections_Generic_IEnumeratorA1> *)getEnumerator
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
 	return [System_Collections_Generic_IEnumeratorA1 bestObjectWithMonoObject:monoObject];

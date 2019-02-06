@@ -196,7 +196,7 @@
    System.Collections.ArrayList
  @/textblock
 */
-+ (System_Collections_ArrayList *)adapter_withList:(id <System_Collections_IList_>)p1;
++ (System_Collections_ArrayList *)adapter_withList:(System_Object <System_Collections_IList_> *)p1;
 
 /**
  Managed method.
@@ -341,7 +341,7 @@
    System.Collections.IList
  @/textblock
 */
-+ (id <System_Collections_IList>)fixedSize_withListSCIList:(id <System_Collections_IList_>)p1;
++ (System_Object <System_Collections_IList> *)fixedSize_withListSCIList:(System_Object <System_Collections_IList_> *)p1;
 
 /**
  Managed method.
@@ -371,7 +371,7 @@
    System.Collections.IEnumerator
  @/textblock
 */
-- (id <System_Collections_IEnumerator>)getEnumerator;
+- (System_Object <System_Collections_IEnumerator> *)getEnumerator;
 
 /**
  Managed method.
@@ -387,7 +387,7 @@
    System.Collections.IEnumerator
  @/textblock
 */
-- (id <System_Collections_IEnumerator>)getEnumerator_withIndex:(int32_t)p1 count:(int32_t)p2;
+- (System_Object <System_Collections_IEnumerator> *)getEnumerator_withIndex:(int32_t)p1 count:(int32_t)p2;
 
 /**
  Managed method.
@@ -532,7 +532,7 @@
    System.Collections.IList
  @/textblock
 */
-+ (id <System_Collections_IList>)readOnly_withListSCIList:(id <System_Collections_IList_>)p1;
++ (System_Object <System_Collections_IList> *)readOnly_withListSCIList:(System_Object <System_Collections_IList_> *)p1;
 
 /**
  Managed method.
@@ -676,7 +676,7 @@
    System.Collections.IList
  @/textblock
 */
-+ (id <System_Collections_IList>)synchronized_withListSCIList:(id <System_Collections_IList_>)p1;
++ (System_Object <System_Collections_IList> *)synchronized_withListSCIList:(System_Object <System_Collections_IList_> *)p1;
 
 /**
  Managed method.

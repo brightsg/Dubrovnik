@@ -246,13 +246,13 @@ static System_IO_Stream * m_null;
 #pragma mark -
 #pragma mark Methods
 
-- (id <System_IAsyncResult>)beginRead_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5
+- (System_Object <System_IAsyncResult> *)beginRead_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"BeginRead(byte[],int,int,System.AsyncCallback,object)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 	return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
 }
 
-- (id <System_IAsyncResult>)beginWrite_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5
+- (System_Object <System_IAsyncResult> *)beginWrite_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"BeginWrite(byte[],int,int,System.AsyncCallback,object)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
 	return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
@@ -296,13 +296,13 @@ static System_IO_Stream * m_null;
 	[self invokeMonoMethod:"Dispose()" withNumArgs:0];
 }
 
-- (int32_t)endRead_withAsyncResult:(id <System_IAsyncResult_>)p1
+- (int32_t)endRead_withAsyncResult:(System_Object <System_IAsyncResult_> *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"EndRead(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (void)endWrite_withAsyncResult:(id <System_IAsyncResult_>)p1
+- (void)endWrite_withAsyncResult:(System_Object <System_IAsyncResult_> *)p1
 {
 	[self invokeMonoMethod:"EndWrite(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }

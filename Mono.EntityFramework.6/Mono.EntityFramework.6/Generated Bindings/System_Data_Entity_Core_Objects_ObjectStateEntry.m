@@ -146,7 +146,7 @@
 	[self invokeMonoMethod:"Delete()" withNumArgs:0];
 }
 
-- (id <System_Collections_Generic_IEnumerableA1>)getModifiedProperties
+- (System_Object <System_Collections_Generic_IEnumerableA1> *)getModifiedProperties
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetModifiedProperties()" withNumArgs:0];
 	return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];

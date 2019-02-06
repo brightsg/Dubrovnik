@@ -227,7 +227,7 @@
 	return [System_Data_Entity_Core_Objects_ObjectSetA1 objectSetWithMonoObject:monoObject];
 }
 
-- (void)createProxyTypes_withTypes:(id <System_Collections_Generic_IEnumerableA1_>)p1
+- (void)createProxyTypes_withTypes:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1
 {
 	[self invokeMonoMethod:"CreateProxyTypes(System.Collections.Generic.IEnumerable`1<System.Type>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
@@ -317,7 +317,7 @@
 
 /* Skipped method : System.Threading.Tasks.Task`1<System.Data.Entity.Core.Objects.ObjectResult`1<System.Data.Entity.Core.Objects.ObjectContext+TElement>> ExecuteStoreQueryAsync(System.String commandText, System.String entitySetName, System.Data.Entity.Core.Objects.ExecutionOptions executionOptions, System.Threading.CancellationToken cancellationToken, System.Object[] parameters) */
 
-+ (id <System_Collections_Generic_IEnumerableA1>)getKnownProxyTypes
++ (System_Object <System_Collections_Generic_IEnumerableA1> *)getKnownProxyTypes
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"GetKnownProxyTypes()" withNumArgs:0];
 	return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
@@ -342,7 +342,7 @@
 
 /* Skipped method : System.Void LoadProperty(System.Data.Entity.Core.Objects.ObjectContext+TEntity entity, System.Linq.Expressions.Expression`1<System.Func`2<System.Data.Entity.Core.Objects.ObjectContext+TEntity, System.Object>> selector, System.Data.Entity.Core.Objects.MergeOption mergeOption) */
 
-- (void)refresh_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 collection:(id <System_Collections_IEnumerable_>)p2
+- (void)refresh_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 collection:(System_Object <System_Collections_IEnumerable_> *)p2
 {
 	[self invokeMonoMethod:"Refresh(System.Data.Entity.Core.Objects.RefreshMode,System.Collections.IEnumerable)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
 }
@@ -352,13 +352,13 @@
 	[self invokeMonoMethod:"Refresh(System.Data.Entity.Core.Objects.RefreshMode,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
 }
 
-- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 collection:(id <System_Collections_IEnumerable_>)p2
+- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 collection:(System_Object <System_Collections_IEnumerable_> *)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"RefreshAsync(System.Data.Entity.Core.Objects.RefreshMode,System.Collections.IEnumerable)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
 	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 collection:(id <System_Collections_IEnumerable_>)p2 cancellationToken:(System_Threading_CancellationToken *)p3
+- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 collection:(System_Object <System_Collections_IEnumerable_> *)p2 cancellationToken:(System_Threading_CancellationToken *)p3
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"RefreshAsync(System.Data.Entity.Core.Objects.RefreshMode,System.Collections.IEnumerable,System.Threading.CancellationToken)" withNumArgs:3, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
 	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];

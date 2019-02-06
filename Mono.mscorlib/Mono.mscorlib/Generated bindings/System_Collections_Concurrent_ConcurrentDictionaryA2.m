@@ -43,7 +43,7 @@
 
 /* Skipped constructor : System.Collections.Concurrent.ConcurrentDictionary`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue> (System.Int32 concurrencyLevel, System.Int32 capacity, System.Collections.Generic.IEqualityComparer`1<System.Collections.Concurrent.ConcurrentDictionary`2+TKey> comparer) */
 
-+ (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1
++ (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withCollection:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1
 {
 	System_Collections_Concurrent_ConcurrentDictionaryA2 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.Collections.Concurrent.ConcurrentDictionary`2/TKey, System.Collections.Concurrent.ConcurrentDictionary`2/TValue>>" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return object;
@@ -178,7 +178,7 @@
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-- (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator
+- (System_Object <System_Collections_Generic_IEnumeratorA1> *)getEnumerator
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
 	return [System_Collections_Generic_IEnumeratorA1 bestObjectWithMonoObject:monoObject];

@@ -125,7 +125,7 @@
    System.Void
  @/textblock
 */
-- (void)register_withObj:(id <System_Runtime_Remoting_Lifetime_ISponsor_>)p1;
+- (void)register_withObj:(System_Object <System_Runtime_Remoting_Lifetime_ISponsor_> *)p1;
 
 /**
  Managed method.
@@ -141,7 +141,7 @@
    System.Void
  @/textblock
 */
-- (void)register_withObj:(id <System_Runtime_Remoting_Lifetime_ISponsor_>)p1 renewalTime:(System_TimeSpan *)p2;
+- (void)register_withObj:(System_Object <System_Runtime_Remoting_Lifetime_ISponsor_> *)p1 renewalTime:(System_TimeSpan *)p2;
 
 /**
  Managed method.
@@ -171,6 +171,6 @@
    System.Void
  @/textblock
 */
-- (void)unregister_withObj:(id <System_Runtime_Remoting_Lifetime_ISponsor_>)p1;
+- (void)unregister_withObj:(System_Object <System_Runtime_Remoting_Lifetime_ISponsor_> *)p1;
 @end
 //--Dubrovnik.CodeGenerator

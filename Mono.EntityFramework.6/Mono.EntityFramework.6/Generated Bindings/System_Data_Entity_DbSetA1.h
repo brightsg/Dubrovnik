@@ -99,7 +99,7 @@
    System.Collections.Generic.IEnumerable`1<System.Data.Entity.DbSet`1+TEntity>
  @/textblock
 */
-- (id <System_Collections_Generic_IEnumerableA1>)addRange_withEntities:(id <System_Collections_Generic_IEnumerableA1_>)p1;
+- (System_Object <System_Collections_Generic_IEnumerableA1> *)addRange_withEntities:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1;
 
 /**
  Managed method.
@@ -237,7 +237,7 @@
    System.Collections.Generic.IEnumerable`1<System.Data.Entity.DbSet`1+TEntity>
  @/textblock
 */
-- (id <System_Collections_Generic_IEnumerableA1>)removeRange_withEntities:(id <System_Collections_Generic_IEnumerableA1_>)p1;
+- (System_Object <System_Collections_Generic_IEnumerableA1> *)removeRange_withEntities:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1;
 
 /* Skipped method : System.Data.Entity.Infrastructure.DbSqlQuery`1<System.Data.Entity.DbSet`1+TEntity> SqlQuery(System.String sql, System.Object[] parameters) */
 @end

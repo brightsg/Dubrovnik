@@ -187,7 +187,7 @@
    System.IAsyncResult
  @/textblock
 */
-- (id <System_IAsyncResult>)beginRead_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5;
+- (System_Object <System_IAsyncResult> *)beginRead_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5;
 
 /**
  Managed method.
@@ -206,7 +206,7 @@
    System.IAsyncResult
  @/textblock
 */
-- (id <System_IAsyncResult>)beginWrite_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5;
+- (System_Object <System_IAsyncResult> *)beginWrite_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5;
 
 /**
  Managed method.
@@ -330,7 +330,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)endRead_withAsyncResult:(id <System_IAsyncResult_>)p1;
+- (int32_t)endRead_withAsyncResult:(System_Object <System_IAsyncResult_> *)p1;
 
 /**
  Managed method.
@@ -345,7 +345,7 @@
    System.Void
  @/textblock
 */
-- (void)endWrite_withAsyncResult:(id <System_IAsyncResult_>)p1;
+- (void)endWrite_withAsyncResult:(System_Object <System_IAsyncResult_> *)p1;
 
 /**
  Managed method.

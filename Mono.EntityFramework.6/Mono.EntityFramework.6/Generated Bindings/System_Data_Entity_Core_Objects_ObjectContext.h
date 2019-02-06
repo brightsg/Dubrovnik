@@ -366,7 +366,7 @@
    System.Void
  @/textblock
 */
-- (void)createProxyTypes_withTypes:(id <System_Collections_Generic_IEnumerableA1_>)p1;
+- (void)createProxyTypes_withTypes:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1;
 
 /* Skipped method : System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectContext+T> CreateQuery(System.String queryString, System.Data.Entity.Core.Objects.ObjectParameter[] parameters) */
 
@@ -556,7 +556,7 @@
    System.Collections.Generic.IEnumerable`1<System.Type>
  @/textblock
 */
-+ (id <System_Collections_Generic_IEnumerableA1>)getKnownProxyTypes;
++ (System_Object <System_Collections_Generic_IEnumerableA1> *)getKnownProxyTypes;
 
 /* Skipped method : System.Object GetObjectByKey(System.Data.Entity.Core.EntityKey key) */
 
@@ -611,7 +611,7 @@
    System.Void
  @/textblock
 */
-- (void)refresh_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 collection:(id <System_Collections_IEnumerable_>)p2;
+- (void)refresh_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 collection:(System_Object <System_Collections_IEnumerable_> *)p2;
 
 /**
  Managed method.
@@ -643,7 +643,7 @@
    System.Threading.Tasks.Task
  @/textblock
 */
-- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 collection:(id <System_Collections_IEnumerable_>)p2;
+- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 collection:(System_Object <System_Collections_IEnumerable_> *)p2;
 
 /**
  Managed method.
@@ -660,7 +660,7 @@
    System.Threading.Tasks.Task
  @/textblock
 */
-- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 collection:(id <System_Collections_IEnumerable_>)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
+- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 collection:(System_Object <System_Collections_IEnumerable_> *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
 
 /**
  Managed method.

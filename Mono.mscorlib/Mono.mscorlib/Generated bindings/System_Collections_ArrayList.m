@@ -188,7 +188,7 @@
 	[self invokeMonoMethod:"set_Item(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
 }
 
-+ (System_Collections_ArrayList *)adapter_withList:(id <System_Collections_IList_>)p1
++ (System_Collections_ArrayList *)adapter_withList:(System_Object <System_Collections_IList_> *)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"Adapter(System.Collections.IList)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return [System_Collections_ArrayList listWithMonoObject:monoObject];
@@ -244,7 +244,7 @@
 	[self invokeMonoMethod:"CopyTo(int,System.Array,int,int)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
 }
 
-+ (id <System_Collections_IList>)fixedSize_withListSCIList:(id <System_Collections_IList_>)p1
++ (System_Object <System_Collections_IList> *)fixedSize_withListSCIList:(System_Object <System_Collections_IList_> *)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"FixedSize(System.Collections.IList)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return [System_Collections_IList bestObjectWithMonoObject:monoObject];
@@ -256,13 +256,13 @@
 	return [System_Collections_ArrayList listWithMonoObject:monoObject];
 }
 
-- (id <System_Collections_IEnumerator>)getEnumerator
+- (System_Object <System_Collections_IEnumerator> *)getEnumerator
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator()" withNumArgs:0];
 	return [System_Collections_IEnumerator bestObjectWithMonoObject:monoObject];
 }
 
-- (id <System_Collections_IEnumerator>)getEnumerator_withIndex:(int32_t)p1 count:(int32_t)p2
+- (System_Object <System_Collections_IEnumerator> *)getEnumerator_withIndex:(int32_t)p1 count:(int32_t)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
 	return [System_Collections_IEnumerator bestObjectWithMonoObject:monoObject];
@@ -317,7 +317,7 @@
 	return DB_UNBOX_INT32(monoObject);
 }
 
-+ (id <System_Collections_IList>)readOnly_withListSCIList:(id <System_Collections_IList_>)p1
++ (System_Object <System_Collections_IList> *)readOnly_withListSCIList:(System_Object <System_Collections_IList_> *)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ReadOnly(System.Collections.IList)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return [System_Collections_IList bestObjectWithMonoObject:monoObject];
@@ -371,7 +371,7 @@
 
 /* Skipped method : System.Void Sort(System.Int32 index, System.Int32 count, System.Collections.IComparer comparer) */
 
-+ (id <System_Collections_IList>)synchronized_withListSCIList:(id <System_Collections_IList_>)p1
++ (System_Object <System_Collections_IList> *)synchronized_withListSCIList:(System_Object <System_Collections_IList_> *)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"Synchronized(System.Collections.IList)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return [System_Collections_IList bestObjectWithMonoObject:monoObject];

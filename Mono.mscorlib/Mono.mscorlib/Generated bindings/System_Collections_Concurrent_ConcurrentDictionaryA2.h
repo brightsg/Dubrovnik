@@ -25,6 +25,8 @@
 @class System_Collections_Generic_IDictionaryA2;
 @class System_Collections_Generic_IEnumerableA1;
 @class System_Collections_Generic_IEnumeratorA1;
+@class System_Collections_Generic_IReadOnlyCollectionA1;
+@class System_Collections_Generic_IReadOnlyDictionaryA2;
 @class System_Collections_Generic_KeyValuePairA2;
 @class System_Collections_IEnumerable;
 @class System_FuncA2;
@@ -51,10 +53,12 @@
 #import "System_Collections_Generic_ICollectionA1_Protocol.h"
 #import "System_Collections_Generic_IDictionaryA2_Protocol.h"
 #import "System_Collections_Generic_IEnumerableA1_Protocol.h"
+#import "System_Collections_Generic_IReadOnlyCollectionA1_Protocol.h"
+#import "System_Collections_Generic_IReadOnlyDictionaryA2_Protocol.h"
 #import "System_Collections_IEnumerable_Protocol.h"
 #import "System_Object.h"
 
-@interface System_Collections_Concurrent_ConcurrentDictionaryA2 : System_Object <System_Collections_Generic_IDictionaryA2_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_>
+@interface System_Collections_Concurrent_ConcurrentDictionaryA2 : System_Object <System_Collections_Generic_IDictionaryA2_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_Generic_IReadOnlyDictionaryA2_, System_Collections_Generic_IReadOnlyCollectionA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -98,7 +102,7 @@
    System.Collections.Concurrent.ConcurrentDictionary`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
  @/textblock
 */
-+ (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1;
++ (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withCollection:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1;
 
 /* Skipped constructor : System.Collections.Concurrent.ConcurrentDictionary`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue> (System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>> collection, System.Collections.Generic.IEqualityComparer`1<System.Collections.Concurrent.ConcurrentDictionary`2+TKey> comparer) */
 
@@ -287,7 +291,7 @@
    System.Collections.Generic.IEnumerator`1<System.Collections.Generic.KeyValuePair`2<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>>
  @/textblock
 */
-- (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator;
+- (System_Object <System_Collections_Generic_IEnumeratorA1> *)getEnumerator;
 
 /**
  Managed method.

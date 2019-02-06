@@ -22,6 +22,9 @@
 @class System_Collections_Generic_ICollectionA1;
 @class System_Collections_Generic_IEnumerableA1;
 @class System_Collections_Generic_IEnumeratorA1;
+@class System_Collections_Generic_IListA1;
+@class System_Collections_Generic_IReadOnlyCollectionA1;
+@class System_Collections_Generic_IReadOnlyListA1;
 @class System_Collections_IEnumerable;
 @class System_Collections_IList;
 @class System_Collections_ObjectModel_CollectionA1;
@@ -31,6 +34,8 @@
 @class T;
 @protocol System_Collections_Generic_IEnumeratorA1;
 @protocol System_Collections_Generic_IEnumeratorA1_;
+@protocol System_Collections_Generic_IListA1;
+@protocol System_Collections_Generic_IListA1_;
 
 //
 // Local assembly imports
@@ -42,11 +47,14 @@
 //
 #import "System_Collections_Generic_ICollectionA1_Protocol.h"
 #import "System_Collections_Generic_IEnumerableA1_Protocol.h"
+#import "System_Collections_Generic_IListA1_Protocol.h"
+#import "System_Collections_Generic_IReadOnlyCollectionA1_Protocol.h"
+#import "System_Collections_Generic_IReadOnlyListA1_Protocol.h"
 #import "System_Collections_IEnumerable_Protocol.h"
 #import "System_Collections_IList_Protocol.h"
 #import "System_Object.h"
 
-@interface System_Collections_ObjectModel_CollectionA1 : System_Object <System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_IList_>
+@interface System_Collections_ObjectModel_CollectionA1 : System_Object <System_Collections_Generic_IListA1_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_IList_, System_Collections_Generic_IReadOnlyListA1_, System_Collections_Generic_IReadOnlyCollectionA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -57,7 +65,20 @@
 #pragma mark -
 #pragma mark Constructors
 
-/* Skipped constructor : System.Collections.ObjectModel.Collection`1<System.Collections.ObjectModel.Collection`1+T> (System.Collections.Generic.IList`1<System.Collections.ObjectModel.Collection`1+T> list) */
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Collections.Generic.IList`1<System.Collections.ObjectModel.Collection`1+T>
+
+ Return
+   System.Collections.ObjectModel.Collection`1<System.Collections.ObjectModel.Collection`1+T>
+ @/textblock
+*/
++ (System_Collections_ObjectModel_CollectionA1 *)new_withList:(System_Object <System_Collections_Generic_IListA1_> *)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -182,7 +203,7 @@
    System.Collections.Generic.IEnumerator`1<System.Collections.ObjectModel.Collection`1+T>
  @/textblock
 */
-- (id <System_Collections_Generic_IEnumeratorA1>)getEnumerator;
+- (System_Object <System_Collections_Generic_IEnumeratorA1> *)getEnumerator;
 
 /**
  Managed method.

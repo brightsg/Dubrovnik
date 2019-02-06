@@ -494,7 +494,7 @@
    System.String
  @/textblock
 */
-+ (NSString *)concat_withValuesSCGIEnumerableA1string__T:(id <System_Collections_Generic_IEnumerableA1_>)p1 typeParameter:(id)typeParameter;
++ (NSString *)concat_withValuesSCGIEnumerableA1string__T:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -509,7 +509,7 @@
    System.String
  @/textblock
 */
-+ (NSString *)concat_withValuesSCGIEnumerableA1string:(id <System_Collections_Generic_IEnumerableA1_>)p1;
++ (NSString *)concat_withValuesSCGIEnumerableA1string:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1;
 
 /**
  Managed method.
@@ -1183,7 +1183,7 @@
    System.String
  @/textblock
 */
-+ (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1string__T:(id <System_Collections_Generic_IEnumerableA1_>)p2 typeParameter:(id)typeParameter;
++ (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1string__T:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -1199,7 +1199,7 @@
    System.String
  @/textblock
 */
-+ (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1string:(id <System_Collections_Generic_IEnumerableA1_>)p2;
++ (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1string:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2;
 
 /**
  Managed method.

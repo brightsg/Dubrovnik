@@ -104,7 +104,7 @@
    System.Linq.IOrderedEnumerable`1<System.Linq.IOrderedEnumerable`1+TElement>
  @/textblock
 */
-- (id <System_Linq_IOrderedEnumerableA1>)createOrderedEnumerable_withKeySelector:(System_FuncA2 *)p1 comparer:(id <System_Collections_Generic_IComparerA1_>)p2 descending:(BOOL)p3 typeParameter:(id)typeParameter;
+- (System_Object <System_Linq_IOrderedEnumerableA1> *)createOrderedEnumerable_withKeySelector:(System_FuncA2 *)p1 comparer:(System_Object <System_Collections_Generic_IComparerA1_> *)p2 descending:(BOOL)p3 typeParameter:(id)typeParameter;
 #endif
 
 
@@ -140,7 +140,7 @@
    System.Linq.IOrderedEnumerable`1<System.Linq.IOrderedEnumerable`1+TElement>
  @/textblock
 */
-- (id <System_Linq_IOrderedEnumerableA1>)createOrderedEnumerable_withKeySelector:(System_FuncA2 *)p1 comparer:(id <System_Collections_Generic_IComparerA1_>)p2 descending:(BOOL)p3 typeParameter:(id)typeParameter;
+- (System_Object <System_Linq_IOrderedEnumerableA1> *)createOrderedEnumerable_withKeySelector:(System_FuncA2 *)p1 comparer:(System_Object <System_Collections_Generic_IComparerA1_> *)p2 descending:(BOOL)p3 typeParameter:(id)typeParameter;
 
 @end
 

@@ -217,13 +217,13 @@ static NSString * m_empty;
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
-+ (NSString *)concat_withValuesSCGIEnumerableA1string__T:(id <System_Collections_Generic_IEnumerableA1_>)p1 typeParameter:(id)typeParameter
++ (NSString *)concat_withValuesSCGIEnumerableA1string__T:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 typeParameter:(id)typeParameter
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"Concat(System.Collections.Generic.IEnumerable`1<string/T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
-+ (NSString *)concat_withValuesSCGIEnumerableA1string:(id <System_Collections_Generic_IEnumerableA1_>)p1
++ (NSString *)concat_withValuesSCGIEnumerableA1string:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"Concat(System.Collections.Generic.IEnumerable`1<string>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
@@ -482,13 +482,13 @@ static NSString * m_empty;
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
-+ (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1string__T:(id <System_Collections_Generic_IEnumerableA1_>)p2 typeParameter:(id)typeParameter
++ (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1string__T:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"Join(string,System.Collections.Generic.IEnumerable`1<string/T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
-+ (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1string:(id <System_Collections_Generic_IEnumerableA1_>)p2
++ (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1string:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"Join(string,System.Collections.Generic.IEnumerable`1<string>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];

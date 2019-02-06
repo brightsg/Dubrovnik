@@ -917,7 +917,7 @@
    System.Threading.Tasks.Task
  @/textblock
 */
-+ (System_Threading_Tasks_Task *)whenAll_withTasksSCGITTTask:(id <System_Collections_Generic_IEnumerableA1_>)p1;
++ (System_Threading_Tasks_Task *)whenAll_withTasksSCGITTTask:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1;
 
 /**
  Managed method.
@@ -950,7 +950,7 @@
    System.Threading.Tasks.Task`1<TResult[]>
  @/textblock
 */
-+ (System_Threading_Tasks_TaskA1 *)whenAll_withTasksSCGITTTTTTask__TResult:(id <System_Collections_Generic_IEnumerableA1_>)p1 typeParameter:(id)typeParameter;
++ (System_Threading_Tasks_TaskA1 *)whenAll_withTasksSCGITTTTTTask__TResult:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -998,7 +998,7 @@
    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task>
  @/textblock
 */
-+ (System_Threading_Tasks_TaskA1 *)whenAny_withTasksSCGITTTask:(id <System_Collections_Generic_IEnumerableA1_>)p1;
++ (System_Threading_Tasks_TaskA1 *)whenAny_withTasksSCGITTTask:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1;
 
 /**
  Managed method.
@@ -1034,7 +1034,7 @@
    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>>
  @/textblock
 */
-+ (System_Threading_Tasks_TaskA1 *)whenAny_withTasksSCGITTTTTTask__TResult:(id <System_Collections_Generic_IEnumerableA1_>)p1 typeParameter:(id)typeParameter;
++ (System_Threading_Tasks_TaskA1 *)whenAny_withTasksSCGITTTTTTask__TResult:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Runtime.CompilerServices.YieldAwaitable Yield() */
 @end

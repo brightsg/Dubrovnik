@@ -59,6 +59,6 @@
    System.Collections.IEnumerator
  @/textblock
 */
-- (id <System_Collections_IEnumerator>)getEnumerator;
+- (System_Object <System_Collections_IEnumerator> *)getEnumerator;
 @end
 //--Dubrovnik.CodeGenerator

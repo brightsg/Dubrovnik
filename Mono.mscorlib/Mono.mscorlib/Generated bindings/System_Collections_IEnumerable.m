@@ -33,7 +33,7 @@
 #pragma mark -
 #pragma mark Methods
 
-- (id <System_Collections_IEnumerator>)getEnumerator
+- (System_Object <System_Collections_IEnumerator> *)getEnumerator
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IEnumerable.GetEnumerator()" withNumArgs:0];
 	return [System_Collections_IEnumerator bestObjectWithMonoObject:monoObject];

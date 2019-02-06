@@ -39,7 +39,7 @@
 	return object;
 }
 
-+ (System_Collections_Generic_ListA1 *)new_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1
++ (System_Collections_Generic_ListA1 *)new_withCollection:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1
 {
 	System_Collections_Generic_ListA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Generic.List`1/T>" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return object;
@@ -120,14 +120,14 @@
 	[self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
-- (void)addRange_withCollection:(id <System_Collections_Generic_IEnumerableA1_>)p1
+- (void)addRange_withCollection:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1
 {
 	[self invokeMonoMethod:"AddRange(System.Collections.Generic.IEnumerable`1<System.Collections.Generic.List`1/T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
 /* Skipped method : System.Collections.ObjectModel.ReadOnlyCollection`1<System.Collections.Generic.List`1+T> AsReadOnly() */
 
-- (int32_t)binarySearch_withIndex:(int32_t)p1 count:(int32_t)p2 item:(System_Object *)p3 comparer:(id <System_Collections_Generic_IComparerA1_>)p4
+- (int32_t)binarySearch_withIndex:(int32_t)p1 count:(int32_t)p2 item:(System_Object *)p3 comparer:(System_Object <System_Collections_Generic_IComparerA1_> *)p4
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"BinarySearch(int,int,<_T_0>,System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1/T>)" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 	return DB_UNBOX_INT32(monoObject);
@@ -139,7 +139,7 @@
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (int32_t)binarySearch_withItem:(System_Object *)p1 comparer:(id <System_Collections_Generic_IComparerA1_>)p2
+- (int32_t)binarySearch_withItem:(System_Object *)p1 comparer:(System_Object <System_Collections_Generic_IComparerA1_> *)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"BinarySearch(<_T_0>,System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1/T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
 	return DB_UNBOX_INT32(monoObject);
@@ -233,7 +233,7 @@
 	[self invokeMonoMethod:"Insert(int,<_T_0>)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
 }
 
-- (void)insertRange_withIndex:(int32_t)p1 collection:(id <System_Collections_Generic_IEnumerableA1_>)p2
+- (void)insertRange_withIndex:(int32_t)p1 collection:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2
 {
 	[self invokeMonoMethod:"InsertRange(int,System.Collections.Generic.IEnumerable`1<System.Collections.Generic.List`1/T>)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
 }
@@ -289,12 +289,12 @@
 	[self invokeMonoMethod:"Sort()" withNumArgs:0];
 }
 
-- (void)sort_withComparer:(id <System_Collections_Generic_IComparerA1_>)p1
+- (void)sort_withComparer:(System_Object <System_Collections_Generic_IComparerA1_> *)p1
 {
 	[self invokeMonoMethod:"Sort(System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1/T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 }
 
-- (void)sort_withIndex:(int32_t)p1 count:(int32_t)p2 comparer:(id <System_Collections_Generic_IComparerA1_>)p3
+- (void)sort_withIndex:(int32_t)p1 count:(int32_t)p2 comparer:(System_Object <System_Collections_Generic_IComparerA1_> *)p3
 {
 	[self invokeMonoMethod:"Sort(int,int,System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1/T>)" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]];
 }
