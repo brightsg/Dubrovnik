@@ -42,13 +42,13 @@
 #pragma mark -
 #pragma mark Methods
 
-- (id <System_IAsyncResult>)beginInvoke_withValue:(int32_t)p1 message:(NSString *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4
+- (System_Object <System_IAsyncResult> *)beginInvoke_withValue:(int32_t)p1 message:(NSString *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(int,string,System.AsyncCallback,object)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
 	return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
 }
 
-- (int32_t)endInvoke_withResult:(id <System_IAsyncResult_>)p1
+- (int32_t)endInvoke_withResult:(System_Object <System_IAsyncResult_> *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return DB_UNBOX_INT32(monoObject);

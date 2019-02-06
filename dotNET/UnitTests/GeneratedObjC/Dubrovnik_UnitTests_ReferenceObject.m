@@ -1719,7 +1719,7 @@ static NSString * m_classStringProperty;
 #pragma mark -
 #pragma mark Methods
 
-- (NSString *)addIEnumerable_withList:(id <System_Collections_Generic_IEnumerableA1_>)p1
+- (NSString *)addIEnumerable_withList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"AddIEnumerable(System.Collections.Generic.IEnumerable`1<string>)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];

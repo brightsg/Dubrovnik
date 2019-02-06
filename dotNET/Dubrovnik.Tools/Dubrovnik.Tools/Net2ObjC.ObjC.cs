@@ -147,7 +147,7 @@ namespace Dubrovnik.Tools {
 		string ObjCConformingTypeFromObjCType(string objCType, bool writeImplementation) {
 			string suffix = writeImplementation ? "" : "_";
 
-			string result = "id <" + objCType + suffix + ">";
+			string result = "System_Object <" + objCType + suffix + "> *";
 
 			return result;
 		}

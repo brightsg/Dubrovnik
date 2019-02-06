@@ -84,7 +84,7 @@
    System.IAsyncResult
  @/textblock
 */
-- (id <System_IAsyncResult>)beginInvoke_withMessage:(NSString *)p1 callback:(System_AsyncCallback *)p2 object:(System_Object *)p3;
+- (System_Object <System_IAsyncResult> *)beginInvoke_withMessage:(NSString *)p1 callback:(System_AsyncCallback *)p2 object:(System_Object *)p3;
 
 /**
  Managed method.
@@ -99,7 +99,7 @@
    System.Void
  @/textblock
 */
-- (void)endInvoke_withResult:(id <System_IAsyncResult_>)p1;
+- (void)endInvoke_withResult:(System_Object <System_IAsyncResult_> *)p1;
 
 /**
  Managed method.

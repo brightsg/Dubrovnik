@@ -815,7 +815,7 @@
    System.String
  @/textblock
 */
-- (NSString *)addIEnumerable_withList:(id <System_Collections_Generic_IEnumerableA1_>)p1;
+- (NSString *)addIEnumerable_withList:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1;
 
 /**
  Managed method.
