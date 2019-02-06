@@ -1346,4 +1346,22 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     }
 }
 
+- (void)addMonoEventHandler:(MonoObject*)eventHandler toEventNamed:(NSString*)eventName
+{
+    MonoObject* monoType = [self invokeMonoMethod:"GetType()" withNumArgs:0];
+    DBManagedObject* dbType = [DBManagedObject objectWithMonoObject:monoType];
+    
+    MonoObject* monoEventInfo = [dbType invokeMonoMethod:"System.Reflection.GetEvent(string)" withNumArgs:1, eventName.monoRTInvokeArg];
+    DBManagedObject* eventInfo = [DBManagedObject objectWithMonoObject:monoEventInfo];
+    [eventInfo invokeMonoMethod:"System.Reflection.EventInfo.AddEventHandler(object,System.Delegate)" withNumArgs:2, self.monoObject, eventHandler];
+}
+
+- (void)removeMonoEventHandler:(MonoObject*)eventHandler fromEventNamed:(NSString*)eventName
+{
+    MonoObject* monoType = [self invokeMonoMethod:"GetType()" withNumArgs:0];
+    DBManagedObject* dbType = [DBManagedObject objectWithMonoObject:monoType];
+    MonoObject* monoEventInfo = [dbType invokeMonoMethod:"System.Reflection.GetEvent(string)" withNumArgs:1, eventName.monoRTInvokeArg];
+    DBManagedObject* eventInfo = [DBManagedObject objectWithMonoObject:monoEventInfo];
+    [eventInfo invokeMonoMethod:"System.Reflection.EventInfo.RemoveEventHandler(object,System.Delegate)" withNumArgs:2, self.monoObject, eventHandler];
+}
 @end

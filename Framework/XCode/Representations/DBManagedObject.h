@@ -309,5 +309,7 @@ extern char DBCacheSuffixChar;
 + (const char *)monoClassTypeName:(MonoClass *)klass;
 + (void)registerInternalCall:(NSString *)methodName callPointer:(void *)callPointer;
 
+- (void)addMonoEventHandler:(MonoObject*)eventHandler toEventNamed:(NSString*)eventName;
+- (void)removeMonoEventHandler:(MonoObject*)eventHandler fromEventNamed:(NSString*)eventName;
 
 @end

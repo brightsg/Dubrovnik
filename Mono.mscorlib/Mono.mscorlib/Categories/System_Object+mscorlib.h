@@ -9,6 +9,8 @@
 #import "System_Object.h"
 #import "System_Type.h"
 
+@class System_Delegate;
+
 @interface System_Object (mscorlib)
 
 /**
@@ -98,4 +100,7 @@
 - (uint32_t)unsigned32Value;
 - (uint64_t)unsigned64Value;
 
+- (void)addEventHandler:(System_Delegate *)eventHandler toEventNamed:(NSString *)eventName;
+- (void)removeEventHandler:(System_Delegate *)eventHandler fromEventNamed:(NSString *)eventName;
+- (NSArray<System_Delegate *> *)eventHandlersForEventNamed:(NSString *)eventName;
 @end

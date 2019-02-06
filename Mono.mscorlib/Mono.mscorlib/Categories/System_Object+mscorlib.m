@@ -10,6 +10,8 @@
 #import "System_Convert+mscorlib.h"
 #import "System_Type+mscorlib.h"
 #import "DBGenericTypeHelper.h"
+#import "System_Delegate.h"
+#import <objc/runtime.h>
 
 @implementation System_Object (mscorlib)
 
@@ -116,4 +118,90 @@
 	return([System_Convert convertMonoObjectToUInt64:self.monoObject]);
 }
 
+#pragma mark -
+#pragma mark Events
+
+- (NSMutableDictionary<NSString *, NSMutableArray<System_Delegate *> *> *)eventHandlers
+{
+    NSMutableDictionary *handlers = objc_getAssociatedObject(self, @selector(eventHandlers));
+    if (!handlers) {
+        handlers = NSMutableDictionary.dictionary;
+        objc_setAssociatedObject(self, @selector(eventHandlers), handlers, OBJC_ASSOCIATION_RETAIN);
+    }
+    
+    return handlers;
+}
+
+- (void)addEventHandler:(System_Delegate *)eventHandler toEventNamed:(NSString *)eventName
+{
+    BOOL success = NO;
+    
+    @try {
+        [self addMonoEventHandler:eventHandler.monoObject toEventNamed:eventName];
+        
+        success = YES;
+    }
+    @catch (NSException *ex) {
+        NSLog(@"%@:%s : %@", self.className, __FUNCTION__, ex.reason);
+    }
+    
+    if (!success) {
+        return;
+    }
+    
+    [self cacheEventHandler:eventHandler forEventNamed:eventName];
+}
+
+- (void)cacheEventHandler:(System_Delegate *)eventHandler forEventNamed:(NSString *)eventName
+{
+    NSMutableArray<System_Delegate *> *handlers = [self.eventHandlers objectForKey:eventName];
+    
+    if (!handlers) {
+        handlers = NSMutableArray.array;
+        self.eventHandlers[eventName] = handlers;
+    }
+    
+    [handlers addObject:eventHandler];
+}
+
+- (void)removeEventHandler:(System_Delegate *)eventHandler fromEventNamed:(NSString *)eventName
+{
+    BOOL success = NO;
+    
+    @try {
+        [self removeMonoEventHandler:eventHandler.monoObject fromEventNamed:eventName];
+        success = YES;
+    }
+    @catch (NSException *ex) {
+        NSLog(@"%@:%s : %@", self.className, __FUNCTION__, ex.reason);
+    }
+    
+    if (!success) {
+        return;
+    }
+    
+    [self uncacheEventHandler:eventHandler forEventNamed:eventName];
+}
+
+- (void)uncacheEventHandler:(System_Delegate *)eventHandler forEventNamed:(NSString *)eventName
+{
+    NSMutableArray<System_Delegate *> * handlers = [self.eventHandlers objectForKey:eventName];
+    
+    if (!handlers) {
+        return;
+    }
+    
+    [handlers removeObject:eventHandler];
+    
+    if (handlers.count <= 0) {
+        [self.eventHandlers removeObjectForKey:eventName];
+    }
+}
+
+- (NSArray<System_Delegate *> *)eventHandlersForEventNamed:(NSString *)eventName
+{
+    NSArray<System_Delegate*>* handlers = [self.eventHandlers objectForKey:eventName];
+    
+    return handlers;
+}
 @end
