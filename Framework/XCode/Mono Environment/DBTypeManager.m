@@ -488,7 +488,7 @@ static BOOL m_useClassLookupCache = YES;
 
 - (id)objectWithNonValueTypeMonoObject:(MonoObject *)monoObject defaultClass:(Class)defaultClass
 {
-    Class managedClass = nil;
+    Class nativeClass = nil;
     MonoClass *monoClass = mono_object_get_class(monoObject);
     BOOL isValueType = mono_class_is_valuetype(monoClass);
     
@@ -498,27 +498,27 @@ static BOOL m_useClassLookupCache = YES;
    
     // query the cache
     if (m_useClassLookupCache) {
-        managedClass = [self.classesByMonoClass objectForKey:(__bridge id)monoClass];
+        nativeClass = [self.classesByMonoClass objectForKey:(__bridge id)monoClass];
     }
     
     // cache miss
-    if (!managedClass) {
+    if (!nativeClass) {
         
         // search up the class hierarchy for an object that can be instantiated
         while (monoClass != NULL) {
             
             // get ObjC class name from mono class name
             NSString *monoClassName = [DBType monoFullyQualifiedClassNameForMonoClass:monoClass];
-            NSString *managedClassName = [DBType managedClassNameFromMonoClassName:monoClassName];
+            NSString *nativeClassName = [DBType nativeClassNameFromMonoClassName:monoClassName];
             
             // look for DB prefixed class
-            managedClass = NSClassFromString([@"DB" stringByAppendingString:managedClassName]);
+            nativeClass = NSClassFromString([@"DB" stringByAppendingString:nativeClassName]);
             
             // look for exact class name match.
-            if (!managedClass) {
-                managedClass = NSClassFromString(managedClassName);
+            if (!nativeClass) {
+                nativeClass = NSClassFromString(nativeClassName);
             }
-            if (managedClass) break;
+            if (nativeClass) break;
         
             // get the super class.
             // if we cannot represent the class precisely then the next best thing is to represent with a super class.
@@ -527,20 +527,20 @@ static BOOL m_useClassLookupCache = YES;
         }
         
         // default to root class
-        if (!managedClass) {
-            managedClass = self.rootClass;
+        if (!nativeClass) {
+            nativeClass = self.rootClass;
         }
         
         // use the default class in place of root class
-        if (defaultClass && managedClass == self.rootClass) {
-            managedClass = defaultClass;
+        if (defaultClass && nativeClass == self.rootClass) {
+            nativeClass = defaultClass;
         }
         
-        NSAssert(managedClass, @"No managed class found for : %s", mono_class_get_name(mono_object_get_class(monoObject)));
+        NSAssert(nativeClass, @"No managed class found for : %s", mono_class_get_name(mono_object_get_class(monoObject)));
         
         // cache the class
         if (m_useClassLookupCache) {
-            [self.classesByMonoClass setObject:managedClass forKey:(__bridge id)monoClass];
+            [self.classesByMonoClass setObject:nativeClass forKey:(__bridge id)monoClass];
         }
     } else {
         
@@ -553,7 +553,7 @@ static BOOL m_useClassLookupCache = YES;
     
     // instantiate an instance of the managed class.
     // if a suitable cached object exists then that object will be returned.
-    id object = [[managedClass alloc] initWithMonoObject:monoObject];
+    id object = [[nativeClass alloc] initWithMonoObject:monoObject];
     
     return(object);
 }
