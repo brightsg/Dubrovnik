@@ -85,7 +85,7 @@
     
     // System_Type instance - eg: [System_String db_getType]
     else if ([typeParameter isKindOfClass:[System_Type class]]) {
-        monoType = [(System_Type *)typeParameter monoType];
+        return [(System_Type *)typeParameter monoType];
     }
     
     // object responding to -monoObject (this obviously includes System_Object)
@@ -97,6 +97,7 @@
     
     // DBManagedType
     else if ([typeParameter isKindOfClass:[DBManagedType class]]) {
+        // if this misbehaves consider how we deal with [System_Type class] above
         monoType = [(DBManagedType *)typeParameter monoType];
     }
 

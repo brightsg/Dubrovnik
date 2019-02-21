@@ -12,5 +12,5 @@
 
 + (instancetype)constructCoreType:(const char *)typeName typeParameters:(NSArray<id> *)typeParameters;
 + (instancetype)constructType:(const char *)typeName monoImage:(MonoImage *)monoImage typeParameters:(NSArray<id> *)typeParameters;
-
+- (MonoType *)monoType;
 @end

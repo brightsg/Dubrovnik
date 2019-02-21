@@ -21,4 +21,10 @@
     return [[DBGenericTypeHelper sharedHelper] constructType:typeName monoImage:monoImage typeParameters:typeParameters];
 }
 
+- (MonoType *)monoType
+{
+    // get the underlying MonoType - we could also get the managed TypeHandle.Value.
+    // in this case we need to be careful not to request the type of our type in which case we would see System.RuntimeType returned.
+    return mono_reflection_type_get_type((MonoReflectionType *)self.monoObject); // SystemType.monoObject is MonoReflectionType
+}
 @end
