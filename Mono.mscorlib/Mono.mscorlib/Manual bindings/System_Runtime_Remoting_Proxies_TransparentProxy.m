@@ -62,7 +62,7 @@ NSString * const TransparentProxySetValueForKeyException = @"TransparentProxySet
 {
     if (!_proxyTargetMonoClass) {
         NSString *proxyTargetTypeName = self.proxyTargetType.fullName;
-        NSString *managedClassName = [DBType managedClassNameFromMonoClassName:proxyTargetTypeName];
+        NSString *managedClassName = [DBType nativeClassNameFromMonoClassName:proxyTargetTypeName];
         _proxyTargetMonoClass = [NSClassFromString(managedClassName) monoClass];
     }
     return _proxyTargetMonoClass;
@@ -71,7 +71,7 @@ NSString * const TransparentProxySetValueForKeyException = @"TransparentProxySet
 - (Class)proxyTargetClass
 {
     if (!_proxyTargetClass) {
-        NSString *proxyTargetClassName = [DBType managedClassNameFromMonoClassName:self.proxyTargetType.fullName];
+        NSString *proxyTargetClassName = [DBType nativeClassNameFromMonoClassName:self.proxyTargetType.fullName];
         _proxyTargetClass = NSClassFromString(proxyTargetClassName);
     }
     
