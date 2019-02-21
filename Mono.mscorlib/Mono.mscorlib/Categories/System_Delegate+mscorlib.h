@@ -37,8 +37,17 @@ typedef System_Object *(^DBUniversalDelegateBlock)(NSArray *parameters);
  Create a universal delegate of the constructed type using the given block. Use this method to create instances of generic delegates such as Action<T> and Func<T>. When the delegate is invoked the native block is called.
 
  @param delegateType Constructed delegate type.
- @param block Invocation block
- @return Delegate instance of constructed type.
+ @param block Invocation block.
+ @return Delegate Delegate instance.
  */
 + (instancetype)universalDelegateWithConstructedType:(System_Type *)delegateType block:(DBUniversalDelegateBlock)block;
+
+/**
+ Create a core type universal delegate;
+
+ @param typeParameters Delegate generic type parameters.
+ @param block Invocation block.
+ @return Delegate instance
+ */
++ (instancetype)coreUniversalDelegate:(NSArray <id> *)typeParameters block:(DBUniversalDelegateBlock)block;
 @end
