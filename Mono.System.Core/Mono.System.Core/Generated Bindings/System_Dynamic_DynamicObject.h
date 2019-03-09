@@ -20,7 +20,21 @@
 @class System_Array;
 @class System_Boolean;
 @class System_Collections_Generic_IEnumerableA1;
+@class System_Dynamic_BinaryOperationBinder;
+@class System_Dynamic_ConvertBinder;
+@class System_Dynamic_CreateInstanceBinder;
+@class System_Dynamic_DeleteIndexBinder;
+@class System_Dynamic_DeleteMemberBinder;
+@class System_Dynamic_DynamicMetaObject;
 @class System_Dynamic_DynamicObject;
+@class System_Dynamic_GetIndexBinder;
+@class System_Dynamic_GetMemberBinder;
+@class System_Dynamic_IDynamicMetaObjectProvider;
+@class System_Dynamic_InvokeBinder;
+@class System_Dynamic_InvokeMemberBinder;
+@class System_Dynamic_SetIndexBinder;
+@class System_Dynamic_SetMemberBinder;
+@class System_Dynamic_UnaryOperationBinder;
 @class System_Object;
 @class System_String;
 @protocol System_Collections_Generic_IEnumerableA1;
@@ -34,9 +48,9 @@
 //
 // Import superclass and adopted protocols
 //
+#import "System_Dynamic_IDynamicMetaObjectProvider_Protocol.h"
 
-
-@interface System_Dynamic_DynamicObject : System_Object
+@interface System_Dynamic_DynamicObject : System_Object <System_Dynamic_IDynamicMetaObjectProvider_>
 
 #pragma mark -
 #pragma mark Setup
@@ -64,28 +78,201 @@
 
 /* Skipped method : System.Dynamic.DynamicMetaObject GetMetaObject(System.Linq.Expressions.Expression parameter) */
 
-/* Skipped method : System.Boolean TryBinaryOperation(System.Dynamic.BinaryOperationBinder binder, System.Object arg, System.Object& result) */
+/**
+ Managed method.
+ @textblock
+ Name
+   TryBinaryOperation
 
-/* Skipped method : System.Boolean TryConvert(System.Dynamic.ConvertBinder binder, System.Object& result) */
+ Params
+   System.Dynamic.BinaryOperationBinder
+   System.Object
+   ref System.Object&
 
-/* Skipped method : System.Boolean TryCreateInstance(System.Dynamic.CreateInstanceBinder binder, System.Object[] args, System.Object& result) */
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)tryBinaryOperation_withBinder:(System_Dynamic_BinaryOperationBinder *)p1 arg:(System_Object *)p2 resultRef:(System_Object **)p3;
 
-/* Skipped method : System.Boolean TryDeleteIndex(System.Dynamic.DeleteIndexBinder binder, System.Object[] indexes) */
+/**
+ Managed method.
+ @textblock
+ Name
+   TryConvert
 
-/* Skipped method : System.Boolean TryDeleteMember(System.Dynamic.DeleteMemberBinder binder) */
+ Params
+   System.Dynamic.ConvertBinder
+   ref System.Object&
 
-/* Skipped method : System.Boolean TryGetIndex(System.Dynamic.GetIndexBinder binder, System.Object[] indexes, System.Object& result) */
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)tryConvert_withBinder:(System_Dynamic_ConvertBinder *)p1 resultRef:(System_Object **)p2;
 
-/* Skipped method : System.Boolean TryGetMember(System.Dynamic.GetMemberBinder binder, System.Object& result) */
+/**
+ Managed method.
+ @textblock
+ Name
+   TryCreateInstance
 
-/* Skipped method : System.Boolean TryInvoke(System.Dynamic.InvokeBinder binder, System.Object[] args, System.Object& result) */
+ Params
+   System.Dynamic.CreateInstanceBinder
+   System.Object[]
+   ref System.Object&
 
-/* Skipped method : System.Boolean TryInvokeMember(System.Dynamic.InvokeMemberBinder binder, System.Object[] args, System.Object& result) */
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)tryCreateInstance_withBinder:(System_Dynamic_CreateInstanceBinder *)p1 args:(System_Array *)p2 resultRef:(System_Object **)p3;
 
-/* Skipped method : System.Boolean TrySetIndex(System.Dynamic.SetIndexBinder binder, System.Object[] indexes, System.Object value) */
+/**
+ Managed method.
+ @textblock
+ Name
+   TryDeleteIndex
 
-/* Skipped method : System.Boolean TrySetMember(System.Dynamic.SetMemberBinder binder, System.Object value) */
+ Params
+   System.Dynamic.DeleteIndexBinder
+   System.Object[]
 
-/* Skipped method : System.Boolean TryUnaryOperation(System.Dynamic.UnaryOperationBinder binder, System.Object& result) */
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)tryDeleteIndex_withBinder:(System_Dynamic_DeleteIndexBinder *)p1 indexes:(System_Array *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryDeleteMember
+
+ Params
+   System.Dynamic.DeleteMemberBinder
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)tryDeleteMember_withBinder:(System_Dynamic_DeleteMemberBinder *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryGetIndex
+
+ Params
+   System.Dynamic.GetIndexBinder
+   System.Object[]
+   ref System.Object&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)tryGetIndex_withBinder:(System_Dynamic_GetIndexBinder *)p1 indexes:(System_Array *)p2 resultRef:(System_Object **)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryGetMember
+
+ Params
+   System.Dynamic.GetMemberBinder
+   ref System.Object&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)tryGetMember_withBinder:(System_Dynamic_GetMemberBinder *)p1 resultRef:(System_Object **)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryInvoke
+
+ Params
+   System.Dynamic.InvokeBinder
+   System.Object[]
+   ref System.Object&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)tryInvoke_withBinder:(System_Dynamic_InvokeBinder *)p1 args:(System_Array *)p2 resultRef:(System_Object **)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryInvokeMember
+
+ Params
+   System.Dynamic.InvokeMemberBinder
+   System.Object[]
+   ref System.Object&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)tryInvokeMember_withBinder:(System_Dynamic_InvokeMemberBinder *)p1 args:(System_Array *)p2 resultRef:(System_Object **)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TrySetIndex
+
+ Params
+   System.Dynamic.SetIndexBinder
+   System.Object[]
+   System.Object
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)trySetIndex_withBinder:(System_Dynamic_SetIndexBinder *)p1 indexes:(System_Array *)p2 value:(System_Object *)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TrySetMember
+
+ Params
+   System.Dynamic.SetMemberBinder
+   System.Object
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)trySetMember_withBinder:(System_Dynamic_SetMemberBinder *)p1 value:(System_Object *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TryUnaryOperation
+
+ Params
+   System.Dynamic.UnaryOperationBinder
+   ref System.Object&
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)tryUnaryOperation_withBinder:(System_Dynamic_UnaryOperationBinder *)p1 resultRef:(System_Object **)p2;
 @end
 //--Dubrovnik.CodeGenerator

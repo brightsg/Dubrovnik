@@ -41,29 +41,93 @@
 
 /* Skipped method : System.Dynamic.DynamicMetaObject GetMetaObject(System.Linq.Expressions.Expression parameter) */
 
-/* Skipped method : System.Boolean TryBinaryOperation(System.Dynamic.BinaryOperationBinder binder, System.Object arg, System.Object& result) */
+- (BOOL)tryBinaryOperation_withBinder:(System_Dynamic_BinaryOperationBinder *)p1 arg:(System_Object *)p2 resultRef:(System_Object **)p3
+{
+	void *refPtr3 = [*p3 monoRTInvokeArg];
+	MonoObject *monoObject = [self invokeMonoMethod:"TryBinaryOperation(System.Dynamic.BinaryOperationBinder,object,object&)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], &refPtr3];
+	*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-/* Skipped method : System.Boolean TryConvert(System.Dynamic.ConvertBinder binder, System.Object& result) */
+- (BOOL)tryConvert_withBinder:(System_Dynamic_ConvertBinder *)p1 resultRef:(System_Object **)p2
+{
+	void *refPtr2 = [*p2 monoRTInvokeArg];
+	MonoObject *monoObject = [self invokeMonoMethod:"TryConvert(System.Dynamic.ConvertBinder,object&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-/* Skipped method : System.Boolean TryCreateInstance(System.Dynamic.CreateInstanceBinder binder, System.Object[] args, System.Object& result) */
+- (BOOL)tryCreateInstance_withBinder:(System_Dynamic_CreateInstanceBinder *)p1 args:(System_Array *)p2 resultRef:(System_Object **)p3
+{
+	void *refPtr3 = [*p3 monoRTInvokeArg];
+	MonoObject *monoObject = [self invokeMonoMethod:"TryCreateInstance(System.Dynamic.CreateInstanceBinder,object[],object&)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], &refPtr3];
+	*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-/* Skipped method : System.Boolean TryDeleteIndex(System.Dynamic.DeleteIndexBinder binder, System.Object[] indexes) */
+- (BOOL)tryDeleteIndex_withBinder:(System_Dynamic_DeleteIndexBinder *)p1 indexes:(System_Array *)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"TryDeleteIndex(System.Dynamic.DeleteIndexBinder,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-/* Skipped method : System.Boolean TryDeleteMember(System.Dynamic.DeleteMemberBinder binder) */
+- (BOOL)tryDeleteMember_withBinder:(System_Dynamic_DeleteMemberBinder *)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"TryDeleteMember(System.Dynamic.DeleteMemberBinder)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-/* Skipped method : System.Boolean TryGetIndex(System.Dynamic.GetIndexBinder binder, System.Object[] indexes, System.Object& result) */
+- (BOOL)tryGetIndex_withBinder:(System_Dynamic_GetIndexBinder *)p1 indexes:(System_Array *)p2 resultRef:(System_Object **)p3
+{
+	void *refPtr3 = [*p3 monoRTInvokeArg];
+	MonoObject *monoObject = [self invokeMonoMethod:"TryGetIndex(System.Dynamic.GetIndexBinder,object[],object&)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], &refPtr3];
+	*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-/* Skipped method : System.Boolean TryGetMember(System.Dynamic.GetMemberBinder binder, System.Object& result) */
+- (BOOL)tryGetMember_withBinder:(System_Dynamic_GetMemberBinder *)p1 resultRef:(System_Object **)p2
+{
+	void *refPtr2 = [*p2 monoRTInvokeArg];
+	MonoObject *monoObject = [self invokeMonoMethod:"TryGetMember(System.Dynamic.GetMemberBinder,object&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-/* Skipped method : System.Boolean TryInvoke(System.Dynamic.InvokeBinder binder, System.Object[] args, System.Object& result) */
+- (BOOL)tryInvoke_withBinder:(System_Dynamic_InvokeBinder *)p1 args:(System_Array *)p2 resultRef:(System_Object **)p3
+{
+	void *refPtr3 = [*p3 monoRTInvokeArg];
+	MonoObject *monoObject = [self invokeMonoMethod:"TryInvoke(System.Dynamic.InvokeBinder,object[],object&)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], &refPtr3];
+	*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-/* Skipped method : System.Boolean TryInvokeMember(System.Dynamic.InvokeMemberBinder binder, System.Object[] args, System.Object& result) */
+- (BOOL)tryInvokeMember_withBinder:(System_Dynamic_InvokeMemberBinder *)p1 args:(System_Array *)p2 resultRef:(System_Object **)p3
+{
+	void *refPtr3 = [*p3 monoRTInvokeArg];
+	MonoObject *monoObject = [self invokeMonoMethod:"TryInvokeMember(System.Dynamic.InvokeMemberBinder,object[],object&)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], &refPtr3];
+	*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-/* Skipped method : System.Boolean TrySetIndex(System.Dynamic.SetIndexBinder binder, System.Object[] indexes, System.Object value) */
+- (BOOL)trySetIndex_withBinder:(System_Dynamic_SetIndexBinder *)p1 indexes:(System_Array *)p2 value:(System_Object *)p3
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"TrySetIndex(System.Dynamic.SetIndexBinder,object[],object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-/* Skipped method : System.Boolean TrySetMember(System.Dynamic.SetMemberBinder binder, System.Object value) */
+- (BOOL)trySetMember_withBinder:(System_Dynamic_SetMemberBinder *)p1 value:(System_Object *)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"TrySetMember(System.Dynamic.SetMemberBinder,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-/* Skipped method : System.Boolean TryUnaryOperation(System.Dynamic.UnaryOperationBinder binder, System.Object& result) */
+- (BOOL)tryUnaryOperation_withBinder:(System_Dynamic_UnaryOperationBinder *)p1 resultRef:(System_Object **)p2
+{
+	void *refPtr2 = [*p2 monoRTInvokeArg];
+	MonoObject *monoObject = [self invokeMonoMethod:"TryUnaryOperation(System.Dynamic.UnaryOperationBinder,object&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
 
 #pragma mark -
 #pragma mark Teardown

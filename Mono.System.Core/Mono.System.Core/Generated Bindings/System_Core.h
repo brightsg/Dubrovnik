@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     3/9/2019 5:30:46 PM
+// Date:     3/9/2019 5:49:30 PM
 //
 // Assembly: System.Core
 // Fullname: System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -206,45 +206,26 @@
 /* Skipped type : System.Diagnostics.TraceLogRetentionOption TraceLogRetentionOption */
 
 /* Skipped type : System.Diagnostics.UnescapedXmlDiagnosticData UnescapedXmlDiagnosticData */
-
-/* Skipped type : System.Dynamic.BinaryOperationBinder BinaryOperationBinder */
-
-/* Skipped type : System.Dynamic.BindingRestrictions BindingRestrictions */
-
-/* Skipped type : System.Dynamic.CallInfo CallInfo */
-
-/* Skipped type : System.Dynamic.ConvertBinder ConvertBinder */
-
-/* Skipped type : System.Dynamic.CreateInstanceBinder CreateInstanceBinder */
-
-/* Skipped type : System.Dynamic.DeleteIndexBinder DeleteIndexBinder */
-
-/* Skipped type : System.Dynamic.DeleteMemberBinder DeleteMemberBinder */
-
-/* Skipped type : System.Dynamic.DynamicMetaObject DynamicMetaObject */
-
-/* Skipped type : System.Dynamic.DynamicMetaObjectBinder DynamicMetaObjectBinder */
+#define SDBinaryOperationBinder_ System_Dynamic_BinaryOperationBinder
+#define SDBindingRestrictions_ System_Dynamic_BindingRestrictions
+#define SDCallInfo_ System_Dynamic_CallInfo
+#define SDConvertBinder_ System_Dynamic_ConvertBinder
+#define SDCreateInstanceBinder_ System_Dynamic_CreateInstanceBinder
+#define SDDeleteIndexBinder_ System_Dynamic_DeleteIndexBinder
+#define SDDeleteMemberBinder_ System_Dynamic_DeleteMemberBinder
+#define SDDynamicMetaObject_ System_Dynamic_DynamicMetaObject
+#define SDDynamicMetaObjectBinder_ System_Dynamic_DynamicMetaObjectBinder
 #define SDDynamicObject_ System_Dynamic_DynamicObject
-
-/* Skipped type : System.Dynamic.ExpandoObject ExpandoObject */
-
-/* Skipped type : System.Dynamic.GetIndexBinder GetIndexBinder */
-
-/* Skipped type : System.Dynamic.GetMemberBinder GetMemberBinder */
-
-/* Skipped type : System.Dynamic.IDynamicMetaObjectProvider IDynamicMetaObjectProvider */
-
-/* Skipped type : System.Dynamic.IInvokeOnGetBinder IInvokeOnGetBinder */
-
-/* Skipped type : System.Dynamic.InvokeBinder InvokeBinder */
-
-/* Skipped type : System.Dynamic.InvokeMemberBinder InvokeMemberBinder */
-
-/* Skipped type : System.Dynamic.SetIndexBinder SetIndexBinder */
-
-/* Skipped type : System.Dynamic.SetMemberBinder SetMemberBinder */
-
-/* Skipped type : System.Dynamic.UnaryOperationBinder UnaryOperationBinder */
+#define SDExpandoObject_ System_Dynamic_ExpandoObject
+#define SDGetIndexBinder_ System_Dynamic_GetIndexBinder
+#define SDGetMemberBinder_ System_Dynamic_GetMemberBinder
+#define SDIDynamicMetaObjectProvider_ System_Dynamic_IDynamicMetaObjectProvider
+#define SDIInvokeOnGetBinder_ System_Dynamic_IInvokeOnGetBinder
+#define SDInvokeBinder_ System_Dynamic_InvokeBinder
+#define SDInvokeMemberBinder_ System_Dynamic_InvokeMemberBinder
+#define SDSetIndexBinder_ System_Dynamic_SetIndexBinder
+#define SDSetMemberBinder_ System_Dynamic_SetMemberBinder
+#define SDUnaryOperationBinder_ System_Dynamic_UnaryOperationBinder
 
 /* Skipped type : System.Func`10 Func`10 */
 
@@ -624,7 +605,30 @@
 Assembly type imports
 
 */
+#import "System_Dynamic_BinaryOperationBinder.h"
+#import "System_Dynamic_BindingRestrictions.h"
+#import "System_Dynamic_CallInfo.h"
+#import "System_Dynamic_ConvertBinder.h"
+#import "System_Dynamic_CreateInstanceBinder.h"
+#import "System_Dynamic_DeleteIndexBinder.h"
+#import "System_Dynamic_DeleteMemberBinder.h"
+#import "System_Dynamic_DynamicMetaObject.h"
+#import "System_Dynamic_DynamicMetaObjectBinder.h"
 #import "System_Dynamic_DynamicObject.h"
+#import "System_Dynamic_ExpandoObject.h"
+#import "System_Dynamic_GetIndexBinder.h"
+#import "System_Dynamic_GetMemberBinder.h"
+#import "System_Dynamic_IDynamicMetaObjectProvider.h"
+#import "System_Dynamic_IDynamicMetaObjectProvider.h"
+#import "System_Dynamic_IDynamicMetaObjectProvider_Protocol.h"
+#import "System_Dynamic_IInvokeOnGetBinder.h"
+#import "System_Dynamic_IInvokeOnGetBinder.h"
+#import "System_Dynamic_IInvokeOnGetBinder_Protocol.h"
+#import "System_Dynamic_InvokeBinder.h"
+#import "System_Dynamic_InvokeMemberBinder.h"
+#import "System_Dynamic_SetIndexBinder.h"
+#import "System_Dynamic_SetMemberBinder.h"
+#import "System_Dynamic_UnaryOperationBinder.h"
 #import "System_Linq_IOrderedEnumerableA1.h"
 #import "System_Linq_IOrderedEnumerableA1.h"
 #import "System_Linq_IOrderedEnumerableA1_Protocol.h"
