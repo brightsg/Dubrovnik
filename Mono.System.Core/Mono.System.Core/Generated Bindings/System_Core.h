@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     2/6/2019 5:13:39 PM
+// Date:     3/9/2019 5:30:46 PM
 //
 // Assembly: System.Core
 // Fullname: System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -224,8 +224,7 @@
 /* Skipped type : System.Dynamic.DynamicMetaObject DynamicMetaObject */
 
 /* Skipped type : System.Dynamic.DynamicMetaObjectBinder DynamicMetaObjectBinder */
-
-/* Skipped type : System.Dynamic.DynamicObject DynamicObject */
+#define SDDynamicObject_ System_Dynamic_DynamicObject
 
 /* Skipped type : System.Dynamic.ExpandoObject ExpandoObject */
 
@@ -625,6 +624,7 @@
 Assembly type imports
 
 */
+#import "System_Dynamic_DynamicObject.h"
 #import "System_Linq_IOrderedEnumerableA1.h"
 #import "System_Linq_IOrderedEnumerableA1.h"
 #import "System_Linq_IOrderedEnumerableA1_Protocol.h"

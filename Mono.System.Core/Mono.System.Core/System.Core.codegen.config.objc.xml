@@ -279,6 +279,7 @@
         <string>System.Threading.Tasks.TaskExtensions</string>
 	</TypeNameSkipList>
 	<TypeNameWhiteList>
+        <string>System.Dynamic.DynamicObject</string>
         <string>System.Linq.IOrderedEnumerable`1</string>
         <string>System.Linq.IOrderedQueryable</string>
         <string>System.Linq.IOrderedQueryable`1</string>
