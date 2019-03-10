@@ -5,6 +5,10 @@
 //  Created by Jonathan Mitchell on 11/05/2015.
 //  Copyright (c) 2015 Thesaurus Software. All rights reserved.
 //
+@import Foundation;
+
+#import <Mono.mscorlib/FrameWork.h>
+
 @interface System_Collections_Generic_IEnumerableA1 (Linq)
 
 // list representation

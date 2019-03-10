@@ -6,14 +6,9 @@
 //
 //
 
+#import <Mono.mscorlib/FrameWork.h>
+#import <Dubrovnik/Dubrovnik.h>
 #import "System_Linq+core.h"
-
-#import "Dubrovnik/DBManagedMethod.h"
-#import "Dubrovnik/DBManagedObject.h"
-#import "Mono.mscorlib/System_Collections_IList.h"
-#import "Mono.mscorlib/DBGenericTypeHelper.h"
-#import "Dubrovnik/DBTypeManager.h"
-#import "Dubrovnik/DBMonoIncludes.h"
 
 @implementation DBLinq
 
