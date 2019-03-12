@@ -930,7 +930,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
     System_NullableA1 *nullableInt32 = [System_NullableA1 newNullableFromInt32:10995123];
     System_NullableA1 *nullableInt32Result = [refObject nullableInt32Method_withP1:nullableInt32];
-    XCTAssertTrue([nullableInt32Result int32Value] == 10995123, DBUEqualityTestFailed);
+    XCTAssertTrue([nullableInt32Result db_int32Value] == 10995123, DBUEqualityTestFailed);
 
     System_NullableA1 *nullableDouble = [System_NullableA1 newNullableFromDouble:33452.65672];
     System_NullableA1 *nullableDoubleResult = [refObject nullableDoubleMethod_withP1:nullableDouble];
@@ -1876,16 +1876,16 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val4 == [DULongEnum_ val4], DBUEqualityTestFailed);
     
         DUByteEnum_ *byteEnum = [DUByteEnum_ enumWithValue:Dubrovnik_UnitTests_ByteEnum_val1];
-        XCTAssertTrue(byteEnum.int8Value == Dubrovnik_UnitTests_ByteEnum_val1, DBUEqualityTestFailed);
+        XCTAssertTrue(byteEnum.db_int8Value == Dubrovnik_UnitTests_ByteEnum_val1, DBUEqualityTestFailed);
         
         DUShortEnum_ *shortEnum = [DUShortEnum_ enumWithValue:Dubrovnik_UnitTests_ShortEnum_val1];
-        XCTAssertTrue(shortEnum.int16Value == Dubrovnik_UnitTests_ShortEnum_val1, DBUEqualityTestFailed);
+        XCTAssertTrue(shortEnum.db_int16Value == Dubrovnik_UnitTests_ShortEnum_val1, DBUEqualityTestFailed);
         
         DUIntEnum_ *intEnum = [DUIntEnum_ enumWithValue:Dubrovnik_UnitTests_IntEnum_val1];
-        XCTAssertTrue(intEnum.int32Value == Dubrovnik_UnitTests_IntEnum_val1, DBUEqualityTestFailed);
+        XCTAssertTrue(intEnum.db_int32Value == Dubrovnik_UnitTests_IntEnum_val1, DBUEqualityTestFailed);
         
         DULongEnum_ *longEnum = [DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val1];
-        XCTAssertTrue(longEnum.int64Value == Dubrovnik_UnitTests_LongEnum_val1, DBUEqualityTestFailed);
+        XCTAssertTrue(longEnum.db_int64Value == Dubrovnik_UnitTests_LongEnum_val1, DBUEqualityTestFailed);
     }
 
 }

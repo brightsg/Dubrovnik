@@ -9,6 +9,7 @@
 #import "System_Object+mscorlib.h"
 #import "System_Convert+mscorlib.h"
 #import "System_Type+mscorlib.h"
+#import "System_Delegate+mscorlib.h"
 #import "DBGenericTypeHelper.h"
 #import "System_Delegate.h"
 #import <objc/runtime.h>
@@ -86,59 +87,63 @@
 #pragma mark -
 #pragma mark System.IConvertible convenience
 
-- (int8_t)int8Value {
+- (int8_t)db_int8Value {
 	return([System_Convert convertMonoObjectToInt8:self.monoObject]);
 }
 
-- (int16_t)int16Value {
+- (int16_t)db_int16Value {
 	return([System_Convert convertMonoObjectToInt16:self.monoObject]);
 }
 
-- (int32_t)int32Value {
+- (int32_t)db_int32Value {
 	return([System_Convert convertMonoObjectToInt32:self.monoObject]);
 }
 
-- (int64_t)int64Value {
+- (int64_t)db_int64Value {
 	return([System_Convert convertMonoObjectToInt64:self.monoObject]);
 }
 
-- (uint8_t)unsigned8Value {
+- (uint8_t)db_unsigned8Value {
 	return([System_Convert convertMonoObjectToUInt8:self.monoObject]);
 }
 
-- (uint16_t)unsigned16Value {
+- (uint16_t)db_unsigned16Value {
 	return([System_Convert convertMonoObjectToUInt16:self.monoObject]);
 }
 
-- (uint32_t)unsigned32Value {
+- (uint32_t)db_unsigned32Value {
 	return([System_Convert convertMonoObjectToUInt32:self.monoObject]);
 }
 
-- (uint64_t)unsigned64Value {
+- (uint64_t)db_unsigned64Value {
 	return([System_Convert convertMonoObjectToUInt64:self.monoObject]);
 }
 
 #pragma mark -
 #pragma mark Events
 
-- (NSMutableDictionary<NSString *, NSMutableArray<System_Delegate *> *> *)eventHandlers
+- (NSMutableDictionary<NSString *, NSMutableArray<System_Delegate *> *> *)db_eventHandlers
 {
-    NSMutableDictionary *handlers = objc_getAssociatedObject(self, @selector(eventHandlers));
+    NSMutableDictionary *handlers = objc_getAssociatedObject(self, @selector(db_eventHandlers));
     if (!handlers) {
         handlers = NSMutableDictionary.dictionary;
-        objc_setAssociatedObject(self, @selector(eventHandlers), handlers, OBJC_ASSOCIATION_RETAIN);
+        objc_setAssociatedObject(self, @selector(db_eventHandlers), handlers, OBJC_ASSOCIATION_RETAIN);
     }
     
     return handlers;
 }
 
-- (void)addEventHandler:(System_Delegate *)eventHandler toEventNamed:(NSString *)eventName
+- (void)db_addEventHandler:(System_Delegate *)eventHandler eventName:(NSString *)eventName
 {
     BOOL success = NO;
+ 
+    if (!eventHandler || !eventName) return;
     
     @try {
         [self addMonoEventHandler:eventHandler.monoObject toEventNamed:eventName];
         
+        // it's convenient when removing the handler to be able to access the event name
+        eventHandler.db_identifier = eventName;
         success = YES;
     }
     @catch (NSException *ex) {
@@ -149,24 +154,38 @@
         return;
     }
     
-    [self cacheEventHandler:eventHandler forEventNamed:eventName];
+    [self db_cacheEventHandler:eventHandler eventName:eventName];
 }
 
-- (void)cacheEventHandler:(System_Delegate *)eventHandler forEventNamed:(NSString *)eventName
+- (void)db_cacheEventHandler:(System_Delegate *)eventHandler eventName:(NSString *)eventName
 {
-    NSMutableArray<System_Delegate *> *handlers = [self.eventHandlers objectForKey:eventName];
+    if (!eventHandler || !eventName) return;
+    
+    NSMutableArray<System_Delegate *> *handlers = [self.db_eventHandlers objectForKey:eventName];
     
     if (!handlers) {
         handlers = NSMutableArray.array;
-        self.eventHandlers[eventName] = handlers;
+        self.db_eventHandlers[eventName] = handlers;
     }
     
     [handlers addObject:eventHandler];
 }
 
-- (void)removeEventHandler:(System_Delegate *)eventHandler fromEventNamed:(NSString *)eventName
+- (void)db_removeEventHandler:(System_Delegate *)eventHandler
+{
+    if (!eventHandler.db_identifier) {
+        NSLog(@"%@:%s : %@ : %@", self.className, __FUNCTION__, @"Event name not found in ", NSStringFromSelector(@selector((db_identifier))));
+        return;
+    }
+    
+    [self db_removeEventHandler:eventHandler eventName:eventHandler.db_identifier];
+}
+
+- (void)db_removeEventHandler:(System_Delegate *)eventHandler eventName:(NSString *)eventName
 {
     BOOL success = NO;
+    
+    if (!eventHandler || !eventName) return;
     
     @try {
         [self removeMonoEventHandler:eventHandler.monoObject fromEventNamed:eventName];
@@ -180,12 +199,14 @@
         return;
     }
     
-    [self uncacheEventHandler:eventHandler forEventNamed:eventName];
+    [self db_uncacheEventHandler:eventHandler eventName:eventName];
 }
 
-- (void)uncacheEventHandler:(System_Delegate *)eventHandler forEventNamed:(NSString *)eventName
+- (void)db_uncacheEventHandler:(System_Delegate *)eventHandler eventName:(NSString *)eventName
 {
-    NSMutableArray<System_Delegate *> * handlers = [self.eventHandlers objectForKey:eventName];
+    if (!eventHandler || !eventName) return;
+    
+    NSMutableArray<System_Delegate *> * handlers = [self.db_eventHandlers objectForKey:eventName];
     
     if (!handlers) {
         return;
@@ -194,13 +215,15 @@
     [handlers removeObject:eventHandler];
     
     if (handlers.count <= 0) {
-        [self.eventHandlers removeObjectForKey:eventName];
+        [self.db_eventHandlers removeObjectForKey:eventName];
     }
 }
 
-- (NSArray<System_Delegate *> *)eventHandlersForEventNamed:(NSString *)eventName
+- (NSArray<System_Delegate *> *)db_eventHandlersForEventName:(NSString *)eventName
 {
-    NSArray<System_Delegate*>* handlers = [self.eventHandlers objectForKey:eventName];
+    if (!eventName) return nil;
+    
+    NSArray<System_Delegate*>* handlers = [self.db_eventHandlers objectForKey:eventName];
     
     return handlers;
 }

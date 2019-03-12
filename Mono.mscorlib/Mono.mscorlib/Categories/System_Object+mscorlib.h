@@ -90,17 +90,47 @@
 + (System_Type *)constructTypeWithParameters:(NSArray <id> *)typeParameters monoImage:(MonoImage *)monoImage;
 
 //System.IConvertible convenience
-- (int8_t)int8Value;
-- (int16_t)int16Value;
-- (int32_t)int32Value;
-- (int64_t)int64Value;
+- (int8_t)db_int8Value;
+- (int16_t)db_int16Value;
+- (int32_t)db_int32Value;
+- (int64_t)db_int64Value;
 
-- (uint8_t)unsigned8Value;
-- (uint16_t)unsigned16Value;
-- (uint32_t)unsigned32Value;
-- (uint64_t)unsigned64Value;
+- (uint8_t)db_unsigned8Value;
+- (uint16_t)db_unsigned16Value;
+- (uint32_t)db_unsigned32Value;
+- (uint64_t)db_unsigned64Value;
 
-- (void)addEventHandler:(System_Delegate *)eventHandler toEventNamed:(NSString *)eventName;
-- (void)removeEventHandler:(System_Delegate *)eventHandler fromEventNamed:(NSString *)eventName;
-- (NSArray<System_Delegate *> *)eventHandlersForEventNamed:(NSString *)eventName;
+
+/**
+ Associates given event handler with named event.
+
+ @param eventHandler Event handler delegate
+ @param eventName Event name
+ */
+- (void)db_addEventHandler:(System_Delegate *)eventHandler eventName:(NSString *)eventName;
+
+/**
+ Remove associated event handler. The event name is accessible on the
+ eventHandler at -db_identifier.
+ 
+ @param eventHandler Event handler delegate
+ */
+- (void)db_removeEventHandler:(System_Delegate *)eventHandler;
+
+/**
+ Remove associated event handler for named event. In general prefer -db_removeEventHandler:.
+
+ @param eventHandler Event handler delegate
+ @param eventName vent name
+ */
+- (void)db_removeEventHandler:(System_Delegate *)eventHandler eventName:(NSString *)eventName;
+
+
+/**
+ Returns associated event handlers with named event.
+
+ @param eventName Event name
+ @return Collection of event handler delegates
+ */
+- (NSArray<System_Delegate *> *)db_eventHandlersForEventName:(NSString *)eventName;
 @end

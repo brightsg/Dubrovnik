@@ -379,42 +379,42 @@
 #pragma mark -
 #pragma mark Explicit width integer accessors
 
-- (int64_t)int64Value
+- (int64_t)db_int64Value
 {
     return [[self numberValue] longLongValue];
 }
 
-- (uint64_t)uint64Value
+- (uint64_t)db_uint64Value
 {
     return [[self numberValue] unsignedLongLongValue];
 }
 
-- (int32_t)int32Value
+- (int32_t)db_int32Value
 {
     return [[self numberValue] intValue];
 }
 
-- (uint32_t)uint32Value
+- (uint32_t)db_uint32Value
 {
     return [[self numberValue] unsignedIntValue];
 }
 
-- (int16_t)int16Value
+- (int16_t)db_int16Value
 {
     return [[self numberValue] shortValue];
 }
 
-- (uint16_t)uint16Value
+- (uint16_t)db_uint16Value
 {
     return [[self numberValue] unsignedShortValue];
 }
 
-- (int8_t)int8Value
+- (int8_t)db_int8Value
 {
     return [[self numberValue] charValue];
 }
 
-- (uint8_t)uint8Value
+- (uint8_t)db_uint8Value
 {
     return [[self numberValue] unsignedCharValue];
 }

@@ -50,4 +50,21 @@ typedef System_Object *(^DBUniversalDelegateBlock)(NSArray *parameters);
  @return Delegate instance
  */
 + (instancetype)coreUniversalDelegate:(NSArray <id> *)typeParameters block:(DBUniversalDelegateBlock)block;
+
+
+/**
+ Delegate identifier used internally by Dubrovnik to track usage.
+
+ @return Identifer
+ */
+- (NSString *)db_identifier;
+
+
+/**
+ Set delegate identifier used internally by Dubrovnik to track usage.
+
+ @param identifier String identifier.
+ */
+- (void)setDb_identifier:(NSString *)identifier;
+
 @end

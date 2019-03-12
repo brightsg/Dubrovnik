@@ -215,4 +215,13 @@ static MonoObject *UniversalDelegateServices_NativeHandler_DelegateInfoContext(v
     objc_setAssociatedObject(self, @selector(db_delegateInfo), info, OBJC_ASSOCIATION_RETAIN);
 }
 
+- (NSString *)db_identifier
+{
+    return objc_getAssociatedObject(self, @selector(db_identifier));
+}
+
+- (void)setDb_identifier:(NSString *)identifier
+{
+    objc_setAssociatedObject(self, @selector(db_identifier), identifier, OBJC_ASSOCIATION_RETAIN);
+}
 @end
