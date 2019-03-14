@@ -88,6 +88,7 @@
 
 + (System_Type *)constructCoreTypeWithParameters:(NSArray <id> *)typeParameters;
 + (System_Type *)constructTypeWithParameters:(NSArray <id> *)typeParameters monoImage:(MonoImage *)monoImage;
++ (System_Type *)constructTypeWithParameters:(NSArray <id> *)typeParameters;
 
 //System.IConvertible convenience
 - (int8_t)db_int8Value;

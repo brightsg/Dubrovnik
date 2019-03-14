@@ -5,14 +5,18 @@
 //  Created by Jonathan Mitchell on 16/04/2014.
 //  Copyright (c) 2014 Thesaurus Software. All rights reserved.
 //
+@import ObjectiveC;
+
+#import "System_Delegate.h"
+#import "System_Reflection_assembly.h"
 
 #import "System_Object+mscorlib.h"
 #import "System_Convert+mscorlib.h"
 #import "System_Type+mscorlib.h"
 #import "System_Delegate+mscorlib.h"
+
+#import "NSArray+mscorlib.h"
 #import "DBGenericTypeHelper.h"
-#import "System_Delegate.h"
-#import <objc/runtime.h>
 
 @implementation System_Object (mscorlib)
 
@@ -82,6 +86,18 @@
 + (System_Type *)constructTypeWithParameters:(NSArray <id> *)typeParameters monoImage:(MonoImage *)monoImage
 {
     return [System_Type constructType:[self monoTypeName] monoImage:monoImage typeParameters:typeParameters];
+}
+
++ (System_Type *)constructTypeWithParameters:(NSArray <id> *)typeParameters
+{
+    // get System.Array of System.Type
+    NSArray <System_Type *> *systemTypes = [[DBGenericTypeHelper sharedHelper] systemTypesForTypeParameters:typeParameters];
+    System_Array *systemTypesManaged = [systemTypes managedArrayWithTypeName:[System_Type managedTypeName]];
+
+    // construct the type
+    System_Type *constructedType = [self.db_getType makeGenericType_withTypeArguments:systemTypesManaged];
+    
+    return constructedType;
 }
 
 #pragma mark -
