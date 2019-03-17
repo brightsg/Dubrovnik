@@ -491,6 +491,18 @@
  Managed property.
  @textblock
  Name
+   IntEnumerationNullable
+
+ Type
+   System.Nullable`1<Dubrovnik.UnitTests.IntEnum>
+ @/textblock
+*/
+@property (nonatomic, strong) System_NullableA1 * intEnumerationNullable;
+
+/**
+ Managed property.
+ @textblock
+ Name
    InterfaceTestProperty
 
  Type
@@ -570,6 +582,18 @@
  @/textblock
 */
 @property (nonatomic) enumDubrovnik_UnitTests_LongEnum longEnumeration;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   LongEnumerationNullable
+
+ Type
+   System.Nullable`1<Dubrovnik.UnitTests.LongEnum>
+ @/textblock
+*/
+@property (nonatomic, strong) System_NullableA1 * longEnumerationNullable;
 
 /**
  Managed property.

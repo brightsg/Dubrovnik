@@ -244,6 +244,32 @@
     [self setMonoProperty:"LongEnumeration" valueObject:DB_VALUE(value)];    
 }
 
+- (System_NullableA1 *)intEnumerationNullable
+{
+    MonoObject *monoObject = [self getMonoProperty:"IntEnumerationNullable"];
+    System_NullableA1 *nullable = [System_NullableA1 objectWithMonoObject:monoObject];
+    return nullable;
+}
+
+- (void)setIntEnumerationNullable:(System_NullableA1 *)value
+{
+    MonoObject *monoObject = [value monoObject];
+    [self setMonoProperty:"IntEnumerationNullable" valueObject:monoObject];
+}
+
+- (System_NullableA1 *)longEnumerationNullable
+{
+    MonoObject *monoObject = [self getMonoProperty:"LongEnumerationNullable"];
+    System_NullableA1 *nullable = [System_NullableA1 objectWithMonoObject:monoObject];
+    return nullable;
+}
+
+- (void)setLongEnumerationNullable:(System_NullableA1 *)value
+{
+    MonoObject *monoObject = [value monoObject];
+    [self setMonoProperty:"LongEnumerationNullable" valueObject:monoObject];
+}
+
 - (DBUIReferenceObject *)minimalReferenceObject
 {
     MonoObject * monoObject = [self getMonoProperty:"MinimalReferenceObject"];

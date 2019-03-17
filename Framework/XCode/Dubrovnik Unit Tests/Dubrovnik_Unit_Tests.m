@@ -2118,7 +2118,16 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     [refObject setLongEnumeration:eDBULongEnum_Val4];
     XCTAssertTrue([refObject longEnumeration] == eDBULongEnum_Val4, DBUEqualityTestFailed);
-
+    
+    // Nullable enum properties
+    @try {
+        [refObject setIntEnumerationNullable:[System_NullableA1 newNullableFromInt32:1]];
+    }
+    @catch(NSException *e) {
+        NSLog(@"Mono 5.12+ do not allow System.Nullable<System.Enum> to be created with an instance of the underlying type. Earlier Mono versions do.");
+    }
+    [refObject setIntEnumerationNullable:[System_NullableA1 objectWithManagedObject:[DUIntEnum_ enumWithValue:Dubrovnik_UnitTests_IntEnum_val1]]];
+    [refObject setLongEnumerationNullable:[System_NullableA1 objectWithManagedObject:[DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val1]]];
 }
 
 - (void)doTestReferenceClass:(Class)testClass iterations:(int)iterations
