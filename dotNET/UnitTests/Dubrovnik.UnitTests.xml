@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Assembly Name="Dubrovnik.UnitTests" FullName="Dubrovnik.UnitTests, Version=1.0.6976.21332, Culture=neutral, PublicKeyToken=null" Path="C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe">
+<Assembly Name="Dubrovnik.UnitTests" FullName="Dubrovnik.UnitTests, Version=1.0.7015.31394, Culture=neutral, PublicKeyToken=null" Path="C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe">
   <Reference Name="mscorlib" FullName="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <Reference Name="System" FullName="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <Reference Name="System.Core" FullName="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
@@ -187,6 +187,9 @@
       <Property Name="Int64Array" Type="System.Int64[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Int64" IsReadable="True" IsWritable="True" />
       <Property Name="Int64Number" Type="System.Int64" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Property Name="IntEnumeration" Type="Dubrovnik.UnitTests.IntEnum" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsWritable="True" />
+      <Property Name="IntEnumerationNullable" Type="System.Nullable`1&lt;Dubrovnik.UnitTests.IntEnum&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsReadable="True" IsWritable="True">
+        <GenericTypeArgument Type="Dubrovnik.UnitTests.IntEnum" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Property>
       <Property Name="InterfaceTestProperty" Type="Dubrovnik.UnitTests.ITestProperty" IsInterface="True" IsReadable="True" IsWritable="True" />
       <Property Name="IntIntDictionary" Type="System.Collections.Generic.Dictionary`2&lt;System.Int32, System.Int32&gt;" BaseName="Object" BaseType="System.Object" IsGenericType="True" IsConstructedGenericType="True" IsReadable="True" IsWritable="True">
         <GenericTypeArgument Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -204,6 +207,9 @@
       </Property>
       <Property Name="IntNumber" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Property Name="LongEnumeration" Type="Dubrovnik.UnitTests.LongEnum" IsValueType="True" UnderlyingType="System.Int64" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsWritable="True" />
+      <Property Name="LongEnumerationNullable" Type="System.Nullable`1&lt;Dubrovnik.UnitTests.LongEnum&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsReadable="True" IsWritable="True">
+        <GenericTypeArgument Type="Dubrovnik.UnitTests.LongEnum" IsValueType="True" UnderlyingType="System.Int64" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Property>
       <Property Name="MinimalReferenceObject" Type="Dubrovnik.UnitTests.IMinimalReferenceObject" IsInterface="True" IsReadable="True" />
       <Property Name="Name" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Property Name="NestedClassList" Type="System.Collections.Generic.List`1&lt;Dubrovnik.UnitTests.ReferenceObject+NestedClass&gt;" BaseName="Object" BaseType="System.Object" IsGenericType="True" IsConstructedGenericType="True" IsReadable="True" IsWritable="True">

@@ -298,9 +298,11 @@ namespace Dubrovnik.UnitTests {
 		// enumeration properties
 		public IntEnum IntEnumeration { get; set; }
 		public LongEnum LongEnumeration { get; set; }
+        public IntEnum? IntEnumerationNullable { get; set; }
+        public LongEnum? LongEnumerationNullable { get; set; }
 
-		// array properties
-		public double[] DoubleArray { get; set; }
+        // array properties
+        public double[] DoubleArray { get; set; }
 		public float[] FloatArray { get; set; }
 		public Int64[] Int64Array { get; set; }
 		public Int32[] Int32Array { get; set; }

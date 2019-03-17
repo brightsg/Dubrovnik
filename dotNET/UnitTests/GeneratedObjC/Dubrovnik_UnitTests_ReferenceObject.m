@@ -854,6 +854,41 @@ static NSString * m_classStringProperty;
 	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 }
 
+@synthesize intEnumerationNullable = _intEnumerationNullable;
+- (System_NullableA1 *)intEnumerationNullable
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IntEnumerationNullable");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_intEnumerationNullable isEqualToMonoObject:monoObject]) return _intEnumerationNullable;
+	_intEnumerationNullable = [System_NullableA1 bestObjectWithMonoObject:monoObject];
+
+	return _intEnumerationNullable;
+}
+- (void)setIntEnumerationNullable:(System_NullableA1 *)value
+{
+	_intEnumerationNullable = value;
+	typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "IntEnumerationNullable");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	thunk(self.monoObject, [value monoObject], &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
+
 @synthesize interfaceTestProperty = _interfaceTestProperty;
 - (Dubrovnik_UnitTests_ITestProperty *)interfaceTestProperty
 {
@@ -1094,6 +1129,41 @@ static NSString * m_classStringProperty;
 		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
 	thunk(self.monoObject, value, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
+
+@synthesize longEnumerationNullable = _longEnumerationNullable;
+- (System_NullableA1 *)longEnumerationNullable
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "LongEnumerationNullable");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_longEnumerationNullable isEqualToMonoObject:monoObject]) return _longEnumerationNullable;
+	_longEnumerationNullable = [System_NullableA1 bestObjectWithMonoObject:monoObject];
+
+	return _longEnumerationNullable;
+}
+- (void)setLongEnumerationNullable:(System_NullableA1 *)value
+{
+	_longEnumerationNullable = value;
+	typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "LongEnumerationNullable");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	thunk(self.monoObject, [value monoObject], &monoException);
 	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 }
 
