@@ -8,6 +8,19 @@
 
 #import "System_NullableA1+mscorlib.h"
 
+/*
+ Regarding boxing of nullable types (ie: converting nullable type to an object.
+ see https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/nullable-types/using-nullable-types
+
+A nullable value type is boxed by the following rules:
+If HasValue returns false, the null reference is produced.
+If HasValue returns true, a value of the underlying value type T is boxed, not the instance of Nullable<T>.
+ 
+ Note that when when creating a System.Nullable<Enum> an instance of the enum must be used rather than an instance
+ of the underlying type.
+ 
+ */
+
 @implementation System_NullableA1 (mscorlib)
 
 + (NSDictionary *)typeAssociations

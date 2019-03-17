@@ -1793,6 +1793,10 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([[floatNullable numberValue] floatValue] == 5, DBUEqualityTestFailed);
     XCTAssertTrue(floatNullable.description != nil, DBUNotNilTestFailed);
     
+    // enum
+    // nullable enums must be created from an instance of the enum not the underlying type
+    [System_NullableA1 objectWithManagedObject:[DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val1]];
+    
     //=========================================================
     // Generic reference object
     // Dubrovnik.UnitTests.GenericReferenceObject<T, U>"
