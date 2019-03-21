@@ -251,7 +251,7 @@
     NSUInteger count = [self length];
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
     for (NSUInteger i = 0; i < count; i++) {
-        [array addObject:[self objectAtIndex:i]];
+        [array addObject:[self objectAtIndex:i] ?: [NSNull null]];
     }
     
     return array;
