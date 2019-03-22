@@ -189,6 +189,8 @@
 
 - (void)db_removeEventHandler:(System_Delegate *)eventHandler
 {
+    if (!eventHandler) return;
+    
     if (!eventHandler.db_identifier) {
         NSLog(@"%@:%s : %@ : %@", self.className, __FUNCTION__, @"Event name not found in ", NSStringFromSelector(@selector((db_identifier))));
         return;
