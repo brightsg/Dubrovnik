@@ -43,13 +43,13 @@ typedef System_Object *(^DBUniversalDelegateBlock)(NSArray *parameters);
 + (instancetype)universalDelegateWithConstructedType:(System_Type *)delegateType block:(DBUniversalDelegateBlock)block;
 
 /**
- Create a core type universal delegate;
+ Create a type universal delegate using given generic type parameters. When the delegate is invoked the native block is called.
 
  @param typeParameters Delegate generic type parameters.
  @param block Invocation block.
  @return Delegate instance
  */
-+ (instancetype)coreUniversalDelegate:(NSArray <id> *)typeParameters block:(DBUniversalDelegateBlock)block;
++ (instancetype)universalDelegate:(NSArray <id> *)typeParameters block:(DBUniversalDelegateBlock)block;
 
 
 /**

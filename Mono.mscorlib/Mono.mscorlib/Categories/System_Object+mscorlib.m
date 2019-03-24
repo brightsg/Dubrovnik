@@ -78,17 +78,7 @@
 #pragma mark -
 #pragma mark Type construction
 
-+ (System_Type *)constructCoreTypeWithParameters:(NSArray <id> *)typeParameters
-{
-    return [System_Type constructCoreType:[self monoTypeName] typeParameters:typeParameters];
-}
-
-+ (System_Type *)constructTypeWithParameters:(NSArray <id> *)typeParameters monoImage:(MonoImage *)monoImage
-{
-    return [System_Type constructType:[self monoTypeName] monoImage:monoImage typeParameters:typeParameters];
-}
-
-+ (System_Type *)constructTypeWithParameters:(NSArray <id> *)typeParameters
++ (System_Type *)db_constructTypeWithParameters:(NSArray <id> *)typeParameters
 {
     // get System.Array of System.Type
     NSArray <System_Type *> *systemTypes = [[DBGenericTypeHelper sharedHelper] systemTypesForTypeParameters:typeParameters];

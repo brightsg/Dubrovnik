@@ -140,13 +140,12 @@ static MonoObject *UniversalDelegateServices_NativeHandler_DelegateInfoContext(v
 {
     // get delegate type
     System_Type *delegateType = [self.class db_getType]; // in a class method self.class === self
-
     return [self universalDelegateWithConstructedType:delegateType block:block];
 }
 
-+ (instancetype)coreUniversalDelegate:(NSArray <id> *)typeParameters block:(DBUniversalDelegateBlock)block
++ (instancetype)universalDelegate:(NSArray <id> *)typeParameters block:(DBUniversalDelegateBlock)block
 {
-    System_Type *constructedType = [self constructCoreTypeWithParameters:typeParameters];
+    System_Type *constructedType = [self db_constructTypeWithParameters:typeParameters];
     System_Delegate *delegate = [self universalDelegateWithConstructedType:constructedType block:block];
     
     return delegate;
