@@ -43,7 +43,7 @@ extern NSString * const DBNoteManagedEnvironmentLoaded;
 
 /*!
  
- This framework is weakly linked to Mono.Framework. If Mono is not available at
+ This framework is weakly linked to Mono.framework. If Mono is not available at
  runtime then this method will return NO.
  
  If runtime checking is required then be sure to call this method and take appropriate

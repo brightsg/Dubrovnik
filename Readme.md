@@ -92,7 +92,7 @@ To setup a new XCode project using Dubrovnik:
 
 - Create an empty project normally, make sure it builds
 
-- Add Mono.Framework and Dubrovnik.Framework as to your project
+- Add Mono.framework and Dubrovnik.framework as to your project
 
 - Add /Library/Frameworks to "Framework Search Paths"
 
