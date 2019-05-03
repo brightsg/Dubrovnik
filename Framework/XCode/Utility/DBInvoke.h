@@ -25,9 +25,9 @@ extern void (^DBOnManagedExceptionWillRaise)(MonoObject *);
 void DBInvokeLogCache(BOOL freeContents);
 
 //Method Invocation
-MonoObject *DBMonoClassInvokeMethod(MonoMethod *method, int numArgs, ...);
-MonoObject *DBMonoClassInvoke(MonoClass *monoClass, const char *methodName, int numArgs, va_list va_args);
-MonoObject *DBMonoObjectInvoke(MonoObject *monoObject, const char *methodName, int numArgs, va_list va_args);
+MonoObject *DBMonoClassInvokeMethod(MonoMethod *method, unsigned int numArgs, ...);
+MonoObject *DBMonoClassInvoke(MonoClass *monoClass, const char *methodName, unsigned int numArgs, va_list va_args);
+MonoObject *DBMonoObjectInvoke(MonoObject *monoObject, const char *methodName, unsigned int numArgs, va_list va_args);
 void *DBMonoObjectValue(MonoObject *monoObject);
 
 //Property Access
@@ -47,10 +47,10 @@ MonoObject *DBMonoObjectGetIndexedObject(MonoObject *monoObject, void *indexObje
 void DBMonoObjectSetIndexedObject(MonoObject *monoObject, void *indexObject, MonoObject *valueObject);
 
 //Constructor Access
-MonoObject *DBMonoObjectConstruct(MonoClass *monoClass, int numArgs, ...);
-MonoObject *DBMonoObjectVarArgsConstruct(MonoClass *monoClass, int numArgs, va_list va_args);
-MonoObject *DBMonoObjectSignatureConstruct(MonoClass *monoClass, const char *signature, int numArgs, ...);
-MonoObject *DBMonoObjectSignatureVarArgsConstruct(MonoClass *monoClass, const char *signature, int numArgs, va_list va_args);
+MonoObject *DBMonoObjectConstruct(MonoClass *monoClass, unsigned int numArgs, ...);
+MonoObject *DBMonoObjectVarArgsConstruct(MonoClass *monoClass, unsigned int numArgs, va_list va_args);
+MonoObject *DBMonoObjectSignatureConstruct(MonoClass *monoClass, const char *signature, unsigned int numArgs, ...);
+MonoObject *DBMonoObjectSignatureVarArgsConstruct(MonoClass *monoClass, const char *signature, unsigned int numArgs, va_list va_args);
 
 //Nullable access
 BOOL DBMonoNullableObjectHasValue(MonoObject *monoNullable);

@@ -25,7 +25,7 @@ void (^DBOnManagedExceptionWillRaise)(MonoObject *) = nil;
 
 char *DBFormatPropertyName(const char * propertyName, const char* fmt);
 
-inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args, int numArgs) {
+inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args, unsigned int numArgs) {
 	if(numArgs > 0) {
 		int i;
 		for(i = 0; i < numArgs; i++) {
@@ -516,7 +516,7 @@ __attribute__((always_inline)) inline char *DBFormatPropertyName(const char * pr
 #pragma mark -
 #pragma mark Method Invocation
 
-MonoObject *DBMonoClassInvokeMethod(MonoMethod *method, int numArgs, ...) {
+MonoObject *DBMonoClassInvokeMethod(MonoMethod *method, unsigned int numArgs, ...) {
     MonoObject *monoException = NULL;
     MonoObject *monoResult = NULL;
 
@@ -538,7 +538,7 @@ MonoObject *DBMonoClassInvokeMethod(MonoMethod *method, int numArgs, ...) {
     return monoResult;
 }
 
-MonoObject *DBMonoClassInvoke(MonoClass *monoClass, const char *methodName, int numArgs, va_list va_args) {
+MonoObject *DBMonoClassInvoke(MonoClass *monoClass, const char *methodName, unsigned int numArgs, va_list va_args) {
 	MonoObject *monoException = NULL;
 	MonoObject *retval = NULL;
 	MonoMethod *meth = GetMonoClassMethod(monoClass, methodName, YES);
@@ -557,7 +557,7 @@ MonoObject *DBMonoClassInvoke(MonoClass *monoClass, const char *methodName, int 
 	return(retval);	
 }
 
-MonoObject *DBMonoObjectInvoke(MonoObject *monoObject, const char *methodName, int numArgs, va_list va_args)
+MonoObject *DBMonoObjectInvoke(MonoObject *monoObject, const char *methodName, unsigned int numArgs, va_list va_args)
 {
     // get the runtime method
 	MonoMethod *meth = GetMonoObjectMethod(monoObject, methodName, YES);
@@ -833,7 +833,7 @@ void DBMonoObjectSetIndexedObject(MonoObject *monoObject, void *indexObject, Mon
 #pragma mark -
 #pragma mark Constructor Access
 
-MonoObject *DBMonoObjectConstruct(MonoClass *monoClass, int numArgs, ...) {
+MonoObject *DBMonoObjectConstruct(MonoClass *monoClass, unsigned int numArgs, ...) {
 	MonoObject *newObject = mono_object_new(mono_domain_get(), monoClass);
 	if(newObject != NULL) {
 		va_list va_args;
@@ -847,7 +847,7 @@ MonoObject *DBMonoObjectConstruct(MonoClass *monoClass, int numArgs, ...) {
 	return(newObject);
 }
 
-MonoObject *DBMonoObjectVarArgsConstruct(MonoClass *monoClass, int numArgs, va_list va_args) {
+MonoObject *DBMonoObjectVarArgsConstruct(MonoClass *monoClass, unsigned int numArgs, va_list va_args) {
 	MonoObject *newObject = mono_object_new(mono_domain_get(), monoClass);
 	if(newObject != NULL) {
 		DBMonoObjectInvoke(newObject, ".ctor", numArgs, va_args);
@@ -856,7 +856,7 @@ MonoObject *DBMonoObjectVarArgsConstruct(MonoClass *monoClass, int numArgs, va_l
 	return(newObject);
 }
 
-MonoObject *DBMonoObjectSignatureConstruct(MonoClass *monoClass, const char *signature, int numArgs, ...) {
+MonoObject *DBMonoObjectSignatureConstruct(MonoClass *monoClass, const char *signature, unsigned int numArgs, ...) {
 	va_list va_args;
 	va_start(va_args, numArgs);
 	
@@ -867,7 +867,7 @@ MonoObject *DBMonoObjectSignatureConstruct(MonoClass *monoClass, const char *sig
 	return(newObject);
 }
 
-MonoObject *DBMonoObjectSignatureVarArgsConstruct(MonoClass *monoClass, const char *signature, int numArgs, va_list va_args) {
+MonoObject *DBMonoObjectSignatureVarArgsConstruct(MonoClass *monoClass, const char *signature, unsigned int numArgs, va_list va_args) {
 	MonoObject *newObject = mono_object_new(mono_domain_get(), monoClass);
 	if(newObject != NULL) {
 		char *fullSig = NULL;
