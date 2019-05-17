@@ -23,4 +23,15 @@
     return [self managedString];
 }
 
++ (NSString *)db_nameOf:(SEL)selector
+{
+    NSString *name = NSStringFromSelector(selector);
+    return [name db_uppercaseFirstCharacter];
+}
+
+- (NSString *)db_uppercaseFirstCharacter
+{
+    NSString *firstChar = [[self substringToIndex:1] capitalizedString];
+    return [self stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:firstChar];
+}
 @end
