@@ -8,6 +8,11 @@
 
 #import "System_Object.h"
 #import "System_Type.h"
+#import "System_EventArgs.h"
+#import "System_EventHandlerA1.h"
+#import "System_EventHandler.h"
+
+typedef void(^EventBlock)(System_Object* sender, System_EventArgs *eventArgs);
 
 @class System_Delegate;
 
@@ -97,6 +102,25 @@
 - (uint16_t)db_unsigned16Value;
 - (uint32_t)db_unsigned32Value;
 - (uint64_t)db_unsigned64Value;
+
+/**
+ Adds, and in doing so creates, a managed EventHandler for the named event. The block is executed when the managed event is invoked.
+ 
+ @param eventName Event namne
+ @param block Block to be executed when event is invoked.
+ @return Managed event handler instance.
+ */
+- (System_EventHandler *)db_addEventHandlerForEventName:(NSString *)eventName block:(EventBlock)block;
+
+/**
+ Adds, and in doing so creates, a managed EventHandler<TEventArgs> for the named event. The block is executed when the managed event is invoked.
+ 
+ @param eventName Event namne
+ @param typeParameter TEventArgs type parameter info for event handler.
+ @param block Block to be executed when event is invoked.
+ @return Managed event handler instance.
+ */
+- (System_EventHandlerA1 *)db_addEventHandlerForEventName:(NSString *)eventName typeParameter:(id)typeParameter block:(EventBlock)block;
 
 /**
  Associates given event handler with named event.

@@ -163,6 +163,26 @@
     [self db_cacheEventHandler:eventHandler eventName:eventName];
 }
 
+- (System_EventHandlerA1 *)db_addEventHandlerForEventName:(NSString *)eventName typeParameter:(id)typeParameter block:(EventBlock)block
+{
+    System_EventHandlerA1 *eventHandler = [System_EventHandlerA1 universalDelegate:@[typeParameter] block:^System_Object *(NSArray<id> *parameters) {
+        block(parameters[0], parameters[1]);
+        return nil;
+    }];
+    [self db_addEventHandler:eventHandler eventName:eventName];
+    return eventHandler;
+}
+
+- (System_EventHandler *)db_addEventHandlerForEventName:(NSString *)eventName block:(EventBlock)block
+{
+    System_EventHandler *eventHandler = [System_EventHandler universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
+        block(parameters[0], parameters[1]);
+        return nil;
+    }];
+    [self db_addEventHandler:eventHandler eventName:eventName];
+    return eventHandler;
+}
+
 - (void)db_cacheEventHandler:(System_Delegate *)eventHandler eventName:(NSString *)eventName
 {
     if (!eventHandler || !eventName) return;
