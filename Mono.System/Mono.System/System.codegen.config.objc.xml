@@ -1017,6 +1017,7 @@
     <string>System.Net.WebRequest</string>
     <string>System.Net.WebResponse</string>
 		<string>System.IO.ErrorEventArgs</string>
+    <string>System.IO.ErrorEventHandler</string>
 		<string>System.Text.RegularExpressions.Regex</string>
 		<string>System.Text.RegularExpressions.Options</string>
     <string>System.Text.RegularExpressions.RegexOptions</string>

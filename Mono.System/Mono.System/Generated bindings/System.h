@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     3/9/2019 5:49:25 PM
+// Date:     03/06/2019 20:49:39
 //
 // Assembly: System
 // Fullname: System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -1198,8 +1198,7 @@
 
 /* Skipped type : System.IO.Compression.GZipStream GZipStream */
 #define SIErrorEventArgs_ System_IO_ErrorEventArgs
-
-/* Skipped type : System.IO.ErrorEventHandler ErrorEventHandler */
+#define SIErrorEventHandler_ System_IO_ErrorEventHandler
 
 /* Skipped type : System.IO.FileSystemEventArgs FileSystemEventArgs */
 
@@ -2067,6 +2066,7 @@ Assembly type imports
 #import "System_ComponentModel_RunWorkerCompletedEventArgs.h"
 #import "System_Configuration_SettingsBase.h"
 #import "System_IO_ErrorEventArgs.h"
+#import "System_IO_ErrorEventHandler.h"
 #import "System_Net_HttpStatusCode.h"
 #import "System_Net_HttpWebRequest.h"
 #import "System_Net_HttpWebResponse.h"
