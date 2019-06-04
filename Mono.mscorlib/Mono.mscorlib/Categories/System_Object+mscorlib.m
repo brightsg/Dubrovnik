@@ -175,7 +175,13 @@
 
 - (System_EventHandler *)db_addEventHandlerForEventName:(NSString *)eventName block:(EventBlock)block
 {
-    System_EventHandler *eventHandler = [System_EventHandler universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
+    System_EventHandler *eventHandler = (System_EventHandler *)[self db_addEventHandlerWithClass:System_EventHandler.class forEventName:eventName block:block];
+    return eventHandler;
+}
+
+- (System_Delegate *)db_addEventHandlerWithClass:(Class)eventHandlerClass forEventName:(NSString *)eventName block:(EventBlock)block
+{
+    System_Delegate *eventHandler = [eventHandlerClass universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
         block(parameters[0], parameters[1]);
         return nil;
     }];

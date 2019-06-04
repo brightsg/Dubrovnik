@@ -63,7 +63,7 @@ static MonoObject *UniversalDelegateServices_NativeHandler_DelegateInfoContext(v
         
         // a cache miss should likely only occur then native wrapper has been deallocated but the managed delegate lives on
         if (!delegateInfo) {
-            NSLog(@"No native delegateInfo found for UniversalDelegate invocation.");
+            NSLog(@"No native delegateInfo found for UniversalDelegate invocation. It may well be that the native wrapper for the delegate has been delallocated.");
             return nil;
         }
     }

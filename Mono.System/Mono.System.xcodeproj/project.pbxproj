@@ -23,6 +23,8 @@
 		AB2E64F720D311AB00582990 /* System_Net_HttpWebResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E64ED20D311AA00582990 /* System_Net_HttpWebResponse.m */; };
 		AB2E64F820D311AB00582990 /* System_Net_HttpWebResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E64EE20D311AA00582990 /* System_Net_HttpWebResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E64FC20D31E9800582990 /* System_Net_HttpWebResponse.__Extra__.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E64FB20D31E9800582990 /* System_Net_HttpWebResponse.__Extra__.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB37108222A5B46600FAFAEA /* System_IO_ErrorEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AB37108022A5B46500FAFAEA /* System_IO_ErrorEventHandler.m */; };
+		AB37108322A5B46600FAFAEA /* System_IO_ErrorEventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = AB37108122A5B46500FAFAEA /* System_IO_ErrorEventHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB6245231E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h in Headers */ = {isa = PBXBuildFile; fileRef = AB6245211E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB6245241E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6245221E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m */; };
 		ABA397121906BA6300D5CA6E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA397111906BA6300D5CA6E /* Cocoa.framework */; };
@@ -108,6 +110,8 @@
 		AB2E64ED20D311AA00582990 /* System_Net_HttpWebResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Net_HttpWebResponse.m; sourceTree = "<group>"; };
 		AB2E64EE20D311AA00582990 /* System_Net_HttpWebResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Net_HttpWebResponse.h; sourceTree = "<group>"; };
 		AB2E64FB20D31E9800582990 /* System_Net_HttpWebResponse.__Extra__.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = System_Net_HttpWebResponse.__Extra__.h; sourceTree = "<group>"; };
+		AB37108022A5B46500FAFAEA /* System_IO_ErrorEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_IO_ErrorEventHandler.m; sourceTree = "<group>"; };
+		AB37108122A5B46500FAFAEA /* System_IO_ErrorEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_IO_ErrorEventHandler.h; sourceTree = "<group>"; };
 		AB6245211E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Collections_ObjectModel_ObservableCollectionA1+Events.h"; sourceTree = "<group>"; };
 		AB6245221E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Collections_ObjectModel_ObservableCollectionA1+Events.m"; sourceTree = "<group>"; };
 		ABA3970E1906BA6300D5CA6E /* Mono.System.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.System.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -311,6 +315,8 @@
 		ABB813BB20D15AB700623A23 /* Generated bindings */ = {
 			isa = PBXGroup;
 			children = (
+				AB37108122A5B46500FAFAEA /* System_IO_ErrorEventHandler.h */,
+				AB37108022A5B46500FAFAEA /* System_IO_ErrorEventHandler.m */,
 				AB2D58DE21678B44001F7D3D /* System_ComponentModel_ListSortDirection.h */,
 				AB2D58DF21678B44001F7D3D /* System_ComponentModel_ListSortDirection.m */,
 				AB2D58DB216788E8001F7D3D /* System_Text_RegularExpressions_RegexOptions.h */,
@@ -379,6 +385,7 @@
 				AB2E64F220D311AB00582990 /* System_Net_HttpWebRequest.h in Headers */,
 				AB2E64F820D311AB00582990 /* System_Net_HttpWebResponse.h in Headers */,
 				AB2E64EF20D311AB00582990 /* System_Net_WebResponse.h in Headers */,
+				AB37108322A5B46600FAFAEA /* System_IO_ErrorEventHandler.h in Headers */,
 				AB2E64F320D311AB00582990 /* System_Net_WebRequest.h in Headers */,
 				AB2E64F420D311AB00582990 /* System_Net_HttpStatusCode.h in Headers */,
 				ABB8140420D15AE900623A23 /* System_UriKind.h in Headers */,
@@ -473,6 +480,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = ABA397041906BA6300D5CA6E;
@@ -515,6 +523,7 @@
 				AB6245241E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m in Sources */,
 				ABB813F320D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanged.m in Sources */,
 				AB2E64F020D311AB00582990 /* System_Net_WebResponse.m in Sources */,
+				AB37108222A5B46600FAFAEA /* System_IO_ErrorEventHandler.m in Sources */,
 				ABB8140720D15AE900623A23 /* System_ComponentModel_RunWorkerCompletedEventArgs.m in Sources */,
 				ABB813E920D15AE900623A23 /* System_Collections_Specialized_NotifyCollectionChangedAction.m in Sources */,
 				AB2E64F520D311AB00582990 /* System_Net_HttpStatusCode.m in Sources */,
