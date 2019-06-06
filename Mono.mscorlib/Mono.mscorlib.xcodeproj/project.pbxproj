@@ -335,6 +335,8 @@
 		AB6752C520F40CC20040CAEF /* System_ValueType_ObjectArg__.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6752C320F40CC20040CAEF /* System_ValueType_ObjectArg__.m */; };
 		AB6752C820F40F840040CAEF /* System_ValueType+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = AB6752C620F40F840040CAEF /* System_ValueType+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB6752C920F40F840040CAEF /* System_ValueType+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6752C720F40F840040CAEF /* System_ValueType+mscorlib.m */; };
+		AB748CF622A906CB00A25754 /* System_PredicateA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB748CF422A906CB00A25754 /* System_PredicateA1.m */; };
+		AB748CF722A906CB00A25754 /* System_PredicateA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB748CF522A906CB00A25754 /* System_PredicateA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB8EE9FB21539EA1005C2E19 /* System_EventHandlerA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8EE9F721539EA0005C2E19 /* System_EventHandlerA1.m */; };
 		AB8EE9FC21539EA1005C2E19 /* System_EventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8EE9F821539EA0005C2E19 /* System_EventHandler.m */; };
 		AB8EE9FD21539EA1005C2E19 /* System_EventHandlerA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB8EE9F921539EA0005C2E19 /* System_EventHandlerA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -751,6 +753,8 @@
 		AB6752C320F40CC20040CAEF /* System_ValueType_ObjectArg__.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = System_ValueType_ObjectArg__.m; sourceTree = "<group>"; };
 		AB6752C620F40F840040CAEF /* System_ValueType+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "System_ValueType+mscorlib.h"; sourceTree = "<group>"; };
 		AB6752C720F40F840040CAEF /* System_ValueType+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "System_ValueType+mscorlib.m"; sourceTree = "<group>"; };
+		AB748CF422A906CB00A25754 /* System_PredicateA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_PredicateA1.m; sourceTree = "<group>"; };
+		AB748CF522A906CB00A25754 /* System_PredicateA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_PredicateA1.h; sourceTree = "<group>"; };
 		AB8EE9F721539EA0005C2E19 /* System_EventHandlerA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_EventHandlerA1.m; sourceTree = "<group>"; };
 		AB8EE9F821539EA0005C2E19 /* System_EventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_EventHandler.m; sourceTree = "<group>"; };
 		AB8EE9F921539EA0005C2E19 /* System_EventHandlerA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_EventHandlerA1.h; sourceTree = "<group>"; };
@@ -885,6 +889,8 @@
 		AB4CDBCE1FFBF4FE0096326D /* Generated bindings */ = {
 			isa = PBXGroup;
 			children = (
+				AB748CF522A906CB00A25754 /* System_PredicateA1.h */,
+				AB748CF422A906CB00A25754 /* System_PredicateA1.m */,
 				AB10F914220B4F43007EA4CA /* System_Collections_Generic_IListA1_Protocol.h */,
 				AB10F918220B4F43007EA4CA /* System_Collections_Generic_IListA1.h */,
 				AB10F917220B4F43007EA4CA /* System_Collections_Generic_IListA1.m */,
@@ -1568,6 +1574,7 @@
 				ABE1354D192AAEED000689BC /* DBNullableDecimalTransformer.h in Headers */,
 				AB950DE8192AA6720035ABC6 /* DBNullableDateTransformer.h in Headers */,
 				AB10F926220B4F44007EA4CA /* System_Collections_Generic_IReadOnlyDictionaryA2_Protocol.h in Headers */,
+				AB748CF722A906CB00A25754 /* System_PredicateA1.h in Headers */,
 				AB10F924220B4F44007EA4CA /* System_Collections_Generic_IListA1.h in Headers */,
 				AB950DEB192AA6C10035ABC6 /* ValueTransformers.h in Headers */,
 				AB35EBFC21DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_ISponsor_Protocol.h in Headers */,
@@ -1666,6 +1673,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = ABB8A27A18FEFB0700213B80;
@@ -1885,6 +1893,7 @@
 				AB512BE520D070860078F747 /* System_FuncA3.m in Sources */,
 				AB512B6520D062510078F747 /* System_Collections_Generic_DictionaryA2__KeyCollection.m in Sources */,
 				AB512B3820D062510078F747 /* System_Enum.m in Sources */,
+				AB748CF622A906CB00A25754 /* System_PredicateA1.m in Sources */,
 				E74BA74921F8C2FB0067C99F /* System_Collections_Concurrent_OrderablePartitionerA1.m in Sources */,
 				AB512B3420D062510078F747 /* System_Collections_IEnumerable.m in Sources */,
 				AB24601820F4F94100D1C09E /* System_Double+mscorlib.m in Sources */,
