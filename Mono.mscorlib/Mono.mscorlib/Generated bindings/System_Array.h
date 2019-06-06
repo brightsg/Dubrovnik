@@ -28,6 +28,7 @@
 @class System_Int32;
 @class System_Int64;
 @class System_Object;
+@class System_PredicateA1;
 @class System_Type;
 @class System_Void;
 @class T;
@@ -548,25 +549,201 @@
 */
 + (System_Array *)empty_withTypeParameter:(id)typeParameter;
 
-/* Skipped method : System.Boolean Exists(T[] array, System.Predicate`1<System.Array+T> match) */
+/**
+ Managed method.
+ @textblock
+ Name
+   Exists
 
-/* Skipped method : System.Array+T Find(T[] array, System.Predicate`1<System.Array+T> match) */
+ Params
+   T[]
+   System.Predicate`1<System.Array+T>
 
-/* Skipped method : T[] FindAll(T[] array, System.Predicate`1<System.Array+T> match) */
+ Generics
+   <System.Array+T>
 
-/* Skipped method : System.Int32 FindIndex(T[] array, System.Predicate`1<System.Array+T> match) */
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)exists_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter;
 
-/* Skipped method : System.Int32 FindIndex(T[] array, System.Int32 startIndex, System.Predicate`1<System.Array+T> match) */
+/**
+ Managed method.
+ @textblock
+ Name
+   Find
 
-/* Skipped method : System.Int32 FindIndex(T[] array, System.Int32 startIndex, System.Int32 count, System.Predicate`1<System.Array+T> match) */
+ Params
+   T[]
+   System.Predicate`1<System.Array+T>
 
-/* Skipped method : System.Array+T FindLast(T[] array, System.Predicate`1<System.Array+T> match) */
+ Generics
+   <System.Array+T>
 
-/* Skipped method : System.Int32 FindLastIndex(T[] array, System.Predicate`1<System.Array+T> match) */
+ Return
+   <System.Array+T>
+ @/textblock
+*/
++ (System_Object *)find_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter;
 
-/* Skipped method : System.Int32 FindLastIndex(T[] array, System.Int32 startIndex, System.Predicate`1<System.Array+T> match) */
+/**
+ Managed method.
+ @textblock
+ Name
+   FindAll
 
-/* Skipped method : System.Int32 FindLastIndex(T[] array, System.Int32 startIndex, System.Int32 count, System.Predicate`1<System.Array+T> match) */
+ Params
+   T[]
+   System.Predicate`1<System.Array+T>
+
+ Generics
+   <System.Array+T>
+
+ Return
+   T[]
+ @/textblock
+*/
++ (System_Array *)findAll_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindIndex
+
+ Params
+   T[]
+   System.Predicate`1<System.Array+T>
+
+ Generics
+   <System.Array+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
++ (int32_t)findIndex_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindIndex
+
+ Params
+   T[]
+   System.Int32
+   System.Predicate`1<System.Array+T>
+
+ Generics
+   <System.Array+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
++ (int32_t)findIndex_withArray:(System_Array *)p1 startIndex:(int32_t)p2 match:(System_PredicateA1 *)p3 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindIndex
+
+ Params
+   T[]
+   System.Int32
+   System.Int32
+   System.Predicate`1<System.Array+T>
+
+ Generics
+   <System.Array+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
++ (int32_t)findIndex_withArray:(System_Array *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 match:(System_PredicateA1 *)p4 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindLast
+
+ Params
+   T[]
+   System.Predicate`1<System.Array+T>
+
+ Generics
+   <System.Array+T>
+
+ Return
+   <System.Array+T>
+ @/textblock
+*/
++ (System_Object *)findLast_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindLastIndex
+
+ Params
+   T[]
+   System.Predicate`1<System.Array+T>
+
+ Generics
+   <System.Array+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
++ (int32_t)findLastIndex_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindLastIndex
+
+ Params
+   T[]
+   System.Int32
+   System.Predicate`1<System.Array+T>
+
+ Generics
+   <System.Array+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
++ (int32_t)findLastIndex_withArray:(System_Array *)p1 startIndex:(int32_t)p2 match:(System_PredicateA1 *)p3 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindLastIndex
+
+ Params
+   T[]
+   System.Int32
+   System.Int32
+   System.Predicate`1<System.Array+T>
+
+ Generics
+   <System.Array+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
++ (int32_t)findLastIndex_withArray:(System_Array *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 match:(System_PredicateA1 *)p4 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -1429,6 +1606,23 @@
 
 /* Skipped method : System.Void Sort(T[] array, System.Comparison`1<System.Array+T> comparison) */
 
-/* Skipped method : System.Boolean TrueForAll(T[] array, System.Predicate`1<System.Array+T> match) */
+/**
+ Managed method.
+ @textblock
+ Name
+   TrueForAll
+
+ Params
+   T[]
+   System.Predicate`1<System.Array+T>
+
+ Generics
+   <System.Array+T>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)trueForAll_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter;
 @end
 //--Dubrovnik.CodeGenerator

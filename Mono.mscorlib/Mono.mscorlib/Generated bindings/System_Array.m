@@ -302,25 +302,65 @@
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
-/* Skipped method : System.Boolean Exists(T[] array, System.Predicate`1<System.Array+T> match) */
++ (BOOL)exists_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Exists(T[],System.Predicate`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
 
-/* Skipped method : System.Array+T Find(T[] array, System.Predicate`1<System.Array+T> match) */
++ (System_Object *)find_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Find(T[],System.Predicate`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
-/* Skipped method : T[] FindAll(T[] array, System.Predicate`1<System.Array+T> match) */
++ (System_Array *)findAll_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FindAll(T[],System.Predicate`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+}
 
-/* Skipped method : System.Int32 FindIndex(T[] array, System.Predicate`1<System.Array+T> match) */
++ (int32_t)findIndex_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FindIndex(T[],System.Predicate`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return DB_UNBOX_INT32(monoObject);
+}
 
-/* Skipped method : System.Int32 FindIndex(T[] array, System.Int32 startIndex, System.Predicate`1<System.Array+T> match) */
++ (int32_t)findIndex_withArray:(System_Array *)p1 startIndex:(int32_t)p2 match:(System_PredicateA1 *)p3 typeParameter:(id)typeParameter
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FindIndex(T[],int,System.Predicate`1<System.Array/T>)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
+	return DB_UNBOX_INT32(monoObject);
+}
 
-/* Skipped method : System.Int32 FindIndex(T[] array, System.Int32 startIndex, System.Int32 count, System.Predicate`1<System.Array+T> match) */
++ (int32_t)findIndex_withArray:(System_Array *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 match:(System_PredicateA1 *)p4 typeParameter:(id)typeParameter
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FindIndex(T[],int,int,System.Predicate`1<System.Array/T>)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
+	return DB_UNBOX_INT32(monoObject);
+}
 
-/* Skipped method : System.Array+T FindLast(T[] array, System.Predicate`1<System.Array+T> match) */
++ (System_Object *)findLast_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FindLast(T[],System.Predicate`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
-/* Skipped method : System.Int32 FindLastIndex(T[] array, System.Predicate`1<System.Array+T> match) */
++ (int32_t)findLastIndex_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FindLastIndex(T[],System.Predicate`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return DB_UNBOX_INT32(monoObject);
+}
 
-/* Skipped method : System.Int32 FindLastIndex(T[] array, System.Int32 startIndex, System.Predicate`1<System.Array+T> match) */
++ (int32_t)findLastIndex_withArray:(System_Array *)p1 startIndex:(int32_t)p2 match:(System_PredicateA1 *)p3 typeParameter:(id)typeParameter
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FindLastIndex(T[],int,System.Predicate`1<System.Array/T>)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
+	return DB_UNBOX_INT32(monoObject);
+}
 
-/* Skipped method : System.Int32 FindLastIndex(T[] array, System.Int32 startIndex, System.Int32 count, System.Predicate`1<System.Array+T> match) */
++ (int32_t)findLastIndex_withArray:(System_Array *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 match:(System_PredicateA1 *)p4 typeParameter:(id)typeParameter
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FindLastIndex(T[],int,int,System.Predicate`1<System.Array/T>)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
+	return DB_UNBOX_INT32(monoObject);
+}
 
 + (void)forEach_withArray:(System_Array *)p1 action:(System_ActionA1 *)p2 typeParameter:(id)typeParameter
 {
@@ -604,7 +644,11 @@
 
 /* Skipped method : System.Void Sort(T[] array, System.Comparison`1<System.Array+T> comparison) */
 
-/* Skipped method : System.Boolean TrueForAll(T[] array, System.Predicate`1<System.Array+T> match) */
++ (BOOL)trueForAll_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TrueForAll(T[],System.Predicate`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
 
 #pragma mark -
 #pragma mark Teardown

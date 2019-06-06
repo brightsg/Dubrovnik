@@ -1626,6 +1626,7 @@
 		<string>System.MulticastDelegate</string>
 		<string>System.Nullable`1</string>
 		<string>System.Object</string>
+		<string>System.Predicate`1</string>
 		<string>System.Reflection.Assembly</string>
 		<string>System.Reflection.AssemblyName</string>
 		<string>System.Reflection.Binder</string>

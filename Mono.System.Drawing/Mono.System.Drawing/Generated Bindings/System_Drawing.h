@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     03/06/2019 20:49:54
+// Date:     06/06/2019 09:19:49
 //
 // Assembly: System.Drawing
 // Fullname: System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a

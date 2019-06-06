@@ -32,6 +32,7 @@
 @class System_Collections_IList;
 @class System_Int32;
 @class System_Object;
+@class System_PredicateA1;
 @class System_Void;
 @class T;
 @protocol System_Collections_Generic_IComparerA1;
@@ -320,25 +321,161 @@
 */
 - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2;
 
-/* Skipped method : System.Boolean Exists(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/**
+ Managed method.
+ @textblock
+ Name
+   Exists
 
-/* Skipped method : System.Collections.Generic.List`1+T Find(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+ Params
+   System.Predicate`1<System.Collections.Generic.List`1+T>
 
-/* Skipped method : System.Collections.Generic.List`1<System.Collections.Generic.List`1+T> FindAll(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)exists_withMatch:(System_PredicateA1 *)p1;
 
-/* Skipped method : System.Int32 FindIndex(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/**
+ Managed method.
+ @textblock
+ Name
+   Find
 
-/* Skipped method : System.Int32 FindIndex(System.Int32 startIndex, System.Int32 count, System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+ Params
+   System.Predicate`1<System.Collections.Generic.List`1+T>
 
-/* Skipped method : System.Int32 FindIndex(System.Int32 startIndex, System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+ Return
+   <System.Collections.Generic.List`1+T>
+ @/textblock
+*/
+- (System_Object *)find_withMatch:(System_PredicateA1 *)p1;
 
-/* Skipped method : System.Collections.Generic.List`1+T FindLast(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/**
+ Managed method.
+ @textblock
+ Name
+   FindAll
 
-/* Skipped method : System.Int32 FindLastIndex(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+ Params
+   System.Predicate`1<System.Collections.Generic.List`1+T>
 
-/* Skipped method : System.Int32 FindLastIndex(System.Int32 startIndex, System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+ Return
+   System.Collections.Generic.List`1<System.Collections.Generic.List`1+T>
+ @/textblock
+*/
+- (System_Collections_Generic_ListA1 *)findAll_withMatch:(System_PredicateA1 *)p1;
 
-/* Skipped method : System.Int32 FindLastIndex(System.Int32 startIndex, System.Int32 count, System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/**
+ Managed method.
+ @textblock
+ Name
+   FindIndex
+
+ Params
+   System.Predicate`1<System.Collections.Generic.List`1+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)findIndex_withMatch:(System_PredicateA1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindIndex
+
+ Params
+   System.Int32
+   System.Int32
+   System.Predicate`1<System.Collections.Generic.List`1+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)findIndex_withStartIndex:(int32_t)p1 count:(int32_t)p2 match:(System_PredicateA1 *)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindIndex
+
+ Params
+   System.Int32
+   System.Predicate`1<System.Collections.Generic.List`1+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)findIndex_withStartIndex:(int32_t)p1 match:(System_PredicateA1 *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindLast
+
+ Params
+   System.Predicate`1<System.Collections.Generic.List`1+T>
+
+ Return
+   <System.Collections.Generic.List`1+T>
+ @/textblock
+*/
+- (System_Object *)findLast_withMatch:(System_PredicateA1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindLastIndex
+
+ Params
+   System.Predicate`1<System.Collections.Generic.List`1+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)findLastIndex_withMatch:(System_PredicateA1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindLastIndex
+
+ Params
+   System.Int32
+   System.Predicate`1<System.Collections.Generic.List`1+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)findLastIndex_withStartIndex:(int32_t)p1 match:(System_PredicateA1 *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindLastIndex
+
+ Params
+   System.Int32
+   System.Int32
+   System.Predicate`1<System.Collections.Generic.List`1+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)findLastIndex_withStartIndex:(int32_t)p1 count:(int32_t)p2 match:(System_PredicateA1 *)p3;
 
 /**
  Managed method.
@@ -529,7 +666,20 @@
 */
 - (BOOL)remove_withItem:(System_Object *)p1;
 
-/* Skipped method : System.Int32 RemoveAll(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/**
+ Managed method.
+ @textblock
+ Name
+   RemoveAll
+
+ Params
+   System.Predicate`1<System.Collections.Generic.List`1+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)removeAll_withMatch:(System_PredicateA1 *)p1;
 
 /**
  Managed method.
@@ -672,6 +822,19 @@
 */
 - (void)trimExcess;
 
-/* Skipped method : System.Boolean TrueForAll(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/**
+ Managed method.
+ @textblock
+ Name
+   TrueForAll
+
+ Params
+   System.Predicate`1<System.Collections.Generic.List`1+T>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)trueForAll_withMatch:(System_PredicateA1 *)p1;
 @end
 //--Dubrovnik.CodeGenerator

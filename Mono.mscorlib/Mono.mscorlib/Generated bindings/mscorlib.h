@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     03/06/2019 20:49:16
+// Date:     06/06/2019 09:19:03
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -750,8 +750,7 @@
 /* Skipped type : System.PlatformID PlatformID */
 
 /* Skipped type : System.PlatformNotSupportedException PlatformNotSupportedException */
-
-/* Skipped type : System.Predicate`1<System.Predicate`1+T> Predicate`1<T> */
+#define SPredicateA1_ System_PredicateA1
 
 /* Skipped type : System.Progress`1<System.Progress`1+T> Progress`1<T> */
 
@@ -3120,6 +3119,7 @@ Assembly type imports
 #import "System_MulticastDelegate.h"
 #import "System_NullableA1.h"
 #import "System_Object.h"
+#import "System_PredicateA1.h"
 #import "System_Reflection_Assembly.h"
 #import "System_Reflection_AssemblyName.h"
 #import "System_Reflection_Binder.h"
