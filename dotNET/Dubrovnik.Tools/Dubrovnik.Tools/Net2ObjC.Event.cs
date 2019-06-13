@@ -19,12 +19,6 @@ namespace Dubrovnik.Tools
                 WritePragmaMark("Events");
 
                 foreach (EventFacet eventFacet in eventFacets) {
-
-                    if (!Config.GenerateFacetBinding(eventFacet)) {
-                        WriteSkippedItem("event", eventFacet.Description());
-                        continue;
-                    }
-
                     WriteFacetAsEvent(interfaceFacet, eventFacet, options);
                 }
             }
@@ -32,6 +26,10 @@ namespace Dubrovnik.Tools
 
         public void WriteFacetAsEvent(InterfaceFacet interfaceFacet, EventFacet eventFacet, Dictionary<string, object> options = null)
         {
+            if (!Config.GenerateFacetBinding(eventFacet)) {
+                WriteSkippedItem("event", eventFacet.Description());
+                return;
+            }
 
             // create Obj-C event ouput object
             ObjCEvent event_ = new ObjCEvent(this, interfaceFacet, eventFacet, options);

@@ -50,29 +50,29 @@
 // 
 // Event support
 // 
-#define System_AppDomain_AssemblyLoad_EventBlock System_AppDomain_AssemblyLoad_EventBlock
-typedef void (^System_AppDomain_AssemblyLoad_EventBlock)(System_Object *sender, System_AssemblyLoadEventArgs *args);
 
-#define System_AppDomain_AssemblyResolve_EventBlock System_AppDomain_AssemblyResolve_EventBlock
-typedef void (^System_AppDomain_AssemblyResolve_EventBlock)(System_Object *sender, System_ResolveEventArgs *args);
+/* Skipped event : System.AssemblyLoadEventHandler AssemblyLoad */
+
+
+/* Skipped event : System.ResolveEventHandler AssemblyResolve */
 
 #define System_AppDomain_DomainUnload_EventBlock System_AppDomain_DomainUnload_EventBlock
 typedef void (^System_AppDomain_DomainUnload_EventBlock)(System_Object *sender, System_EventArgs *e);
 
-#define System_AppDomain_FirstChanceException_EventBlock System_AppDomain_FirstChanceException_EventBlock
-typedef void (^System_AppDomain_FirstChanceException_EventBlock)(System_Object *sender, System_Runtime_ExceptionServices_FirstChanceExceptionEventArgs *e);
+
+/* Skipped event : System.EventHandler`1<System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs> FirstChanceException */
 
 #define System_AppDomain_ProcessExit_EventBlock System_AppDomain_ProcessExit_EventBlock
 typedef void (^System_AppDomain_ProcessExit_EventBlock)(System_Object *sender, System_EventArgs *e);
 
-#define System_AppDomain_ReflectionOnlyAssemblyResolve_EventBlock System_AppDomain_ReflectionOnlyAssemblyResolve_EventBlock
-typedef void (^System_AppDomain_ReflectionOnlyAssemblyResolve_EventBlock)(System_Object *sender, System_ResolveEventArgs *args);
 
-#define System_AppDomain_ResourceResolve_EventBlock System_AppDomain_ResourceResolve_EventBlock
-typedef void (^System_AppDomain_ResourceResolve_EventBlock)(System_Object *sender, System_ResolveEventArgs *args);
+/* Skipped event : System.ResolveEventHandler ReflectionOnlyAssemblyResolve */
 
-#define System_AppDomain_TypeResolve_EventBlock System_AppDomain_TypeResolve_EventBlock
-typedef void (^System_AppDomain_TypeResolve_EventBlock)(System_Object *sender, System_ResolveEventArgs *args);
+
+/* Skipped event : System.ResolveEventHandler ResourceResolve */
+
+
+/* Skipped event : System.ResolveEventHandler TypeResolve */
 
 #define System_AppDomain_UnhandledException_EventBlock System_AppDomain_UnhandledException_EventBlock
 typedef void (^System_AppDomain_UnhandledException_EventBlock)(System_Object *sender, System_UnhandledExceptionEventArgs *e);

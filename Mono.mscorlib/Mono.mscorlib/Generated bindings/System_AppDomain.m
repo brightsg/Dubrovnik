@@ -643,7 +643,7 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 - (System_EventHandler *)domainUnload_addEventHandlerWithBlock:(System_AppDomain_DomainUnload_EventBlock)block
 {
-	return (System_EventHandler *)[self db_addEventHandlerWithClass:System_EventHandler *.class forEventName:self.class.domainUnloadEventName block:(EventBlock)block];
+	return (System_EventHandler *)[self db_addEventHandlerWithClass:System_EventHandler.class forEventName:self.class.domainUnloadEventName block:(EventBlock)block];
 }
 
 /* Skipped event : System.EventHandler`1<System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs> FirstChanceException */
@@ -655,7 +655,7 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 - (System_EventHandler *)processExit_addEventHandlerWithBlock:(System_AppDomain_ProcessExit_EventBlock)block
 {
-	return (System_EventHandler *)[self db_addEventHandlerWithClass:System_EventHandler *.class forEventName:self.class.processExitEventName block:(EventBlock)block];
+	return (System_EventHandler *)[self db_addEventHandlerWithClass:System_EventHandler.class forEventName:self.class.processExitEventName block:(EventBlock)block];
 }
 
 /* Skipped event : System.ResolveEventHandler ReflectionOnlyAssemblyResolve */
@@ -671,7 +671,7 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 - (System_UnhandledExceptionEventHandler *)unhandledException_addEventHandlerWithBlock:(System_AppDomain_UnhandledException_EventBlock)block
 {
-	return (System_UnhandledExceptionEventHandler *)[self db_addEventHandlerWithClass:System_UnhandledExceptionEventHandler *.class forEventName:self.class.unhandledExceptionEventName block:(EventBlock)block];
+	return (System_UnhandledExceptionEventHandler *)[self db_addEventHandlerWithClass:System_UnhandledExceptionEventHandler.class forEventName:self.class.unhandledExceptionEventName block:(EventBlock)block];
 }
 
 #pragma mark -

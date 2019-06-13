@@ -59,8 +59,8 @@
 // 
 // Event support
 // 
-#define System_Data_Entity_Core_Objects_ObjectContext_ObjectMaterialized_EventBlock System_Data_Entity_Core_Objects_ObjectContext_ObjectMaterialized_EventBlock
-typedef void (^System_Data_Entity_Core_Objects_ObjectContext_ObjectMaterialized_EventBlock)(System_Object *sender, System_Data_Entity_Core_Objects_ObjectMaterializedEventArgs *e);
+
+/* Skipped event : System.Data.Entity.Core.Objects.ObjectMaterializedEventHandler ObjectMaterialized */
 
 #define System_Data_Entity_Core_Objects_ObjectContext_SavingChanges_EventBlock System_Data_Entity_Core_Objects_ObjectContext_SavingChanges_EventBlock
 typedef void (^System_Data_Entity_Core_Objects_ObjectContext_SavingChanges_EventBlock)(System_Object *sender, System_EventArgs *e);

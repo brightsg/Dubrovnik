@@ -39,23 +39,23 @@
 // 
 // Event support
 // 
-#define System_Xml_XmlDocument_NodeChanged_EventBlock System_Xml_XmlDocument_NodeChanged_EventBlock
-typedef void (^System_Xml_XmlDocument_NodeChanged_EventBlock)(System_Object *sender, System_Xml_XmlNodeChangedEventArgs *e);
 
-#define System_Xml_XmlDocument_NodeChanging_EventBlock System_Xml_XmlDocument_NodeChanging_EventBlock
-typedef void (^System_Xml_XmlDocument_NodeChanging_EventBlock)(System_Object *sender, System_Xml_XmlNodeChangedEventArgs *e);
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeChanged */
 
-#define System_Xml_XmlDocument_NodeInserted_EventBlock System_Xml_XmlDocument_NodeInserted_EventBlock
-typedef void (^System_Xml_XmlDocument_NodeInserted_EventBlock)(System_Object *sender, System_Xml_XmlNodeChangedEventArgs *e);
 
-#define System_Xml_XmlDocument_NodeInserting_EventBlock System_Xml_XmlDocument_NodeInserting_EventBlock
-typedef void (^System_Xml_XmlDocument_NodeInserting_EventBlock)(System_Object *sender, System_Xml_XmlNodeChangedEventArgs *e);
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeChanging */
 
-#define System_Xml_XmlDocument_NodeRemoved_EventBlock System_Xml_XmlDocument_NodeRemoved_EventBlock
-typedef void (^System_Xml_XmlDocument_NodeRemoved_EventBlock)(System_Object *sender, System_Xml_XmlNodeChangedEventArgs *e);
 
-#define System_Xml_XmlDocument_NodeRemoving_EventBlock System_Xml_XmlDocument_NodeRemoving_EventBlock
-typedef void (^System_Xml_XmlDocument_NodeRemoving_EventBlock)(System_Object *sender, System_Xml_XmlNodeChangedEventArgs *e);
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeInserted */
+
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeInserting */
+
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeRemoved */
+
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeRemoving */
 
 @interface System_Xml_XmlDocument : System_Object <System_ICloneable_, System_Collections_IEnumerable_>
 

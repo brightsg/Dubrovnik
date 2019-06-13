@@ -40,7 +40,7 @@
 
 - (System_ComponentModel_PropertyChangingEventHandler *)propertyChanging_addEventHandlerWithBlock:(System_ComponentModel_INotifyPropertyChanging_PropertyChanging_EventBlock)block
 {
-	return (System_ComponentModel_PropertyChangingEventHandler *)[self db_addEventHandlerWithClass:System_ComponentModel_PropertyChangingEventHandler *.class forEventName:self.class.propertyChangingEventName block:(EventBlock)block];
+	return (System_ComponentModel_PropertyChangingEventHandler *)[self db_addEventHandlerWithClass:System_ComponentModel_PropertyChangingEventHandler.class forEventName:self.class.propertyChangingEventName block:(EventBlock)block];
 }
 
 #pragma mark -

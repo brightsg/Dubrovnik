@@ -436,7 +436,7 @@
 
 - (System_EventHandler *)savingChanges_addEventHandlerWithBlock:(System_Data_Entity_Core_Objects_ObjectContext_SavingChanges_EventBlock)block
 {
-	return (System_EventHandler *)[self db_addEventHandlerWithClass:System_EventHandler *.class forEventName:self.class.savingChangesEventName block:(EventBlock)block];
+	return (System_EventHandler *)[self db_addEventHandlerWithClass:System_EventHandler.class forEventName:self.class.savingChangesEventName block:(EventBlock)block];
 }
 
 #pragma mark -

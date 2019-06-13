@@ -35,8 +35,8 @@
 // 
 // Event support
 // 
-#define System_Xml_Xsl_XsltArgumentList_XsltMessageEncountered_EventBlock System_Xml_Xsl_XsltArgumentList_XsltMessageEncountered_EventBlock
-typedef void (^System_Xml_Xsl_XsltArgumentList_XsltMessageEncountered_EventBlock)(System_Object *sender, System_Xml_Xsl_XsltMessageEncounteredEventArgs *e);
+
+/* Skipped event : System.Xml.Xsl.XsltMessageEncounteredEventHandler XsltMessageEncountered */
 
 @interface System_Xml_Xsl_XsltArgumentList : System_Object
 

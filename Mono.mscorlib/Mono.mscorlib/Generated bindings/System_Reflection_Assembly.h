@@ -52,8 +52,8 @@
 // 
 // Event support
 // 
-#define System_Reflection_Assembly_ModuleResolve_EventBlock System_Reflection_Assembly_ModuleResolve_EventBlock
-typedef void (^System_Reflection_Assembly_ModuleResolve_EventBlock)(System_Object *sender, System_ResolveEventArgs *e);
+
+/* Skipped event : System.Reflection.ModuleResolveEventHandler ModuleResolve */
 
 @interface System_Reflection_Assembly : System_Object <System_Runtime_Serialization_ISerializable_>
 

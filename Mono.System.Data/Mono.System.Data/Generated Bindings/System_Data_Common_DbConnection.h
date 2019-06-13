@@ -39,8 +39,8 @@
 // 
 // Event support
 // 
-#define System_Data_Common_DbConnection_StateChange_EventBlock System_Data_Common_DbConnection_StateChange_EventBlock
-typedef void (^System_Data_Common_DbConnection_StateChange_EventBlock)(System_Object *sender, System_Data_StateChangeEventArgs *e);
+
+/* Skipped event : System.Data.StateChangeEventHandler StateChange */
 
 @interface System_Data_Common_DbConnection : System_Object <System_IDisposable_, System_Data_IDbConnection_>
 
