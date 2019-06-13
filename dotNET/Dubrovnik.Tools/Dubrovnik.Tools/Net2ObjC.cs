@@ -16,6 +16,7 @@ namespace Dubrovnik.Tools
     using System.Reflection;
     using Dubrovnik.Tools;
     using Dubrovnik.Tools.Facets;
+    using Dubrovnik.Tools.Output;
     using System;
     
     /// <summary>
@@ -33,13 +34,12 @@ namespace Dubrovnik.Tools
         public virtual string TransformText()
         {
             this.Write("\r\n");
-            this.Write("\r\n");
             
             #line 12 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 
 //     .Net to Objective-C code generator
 //
-//     This template will generate Objective-C bindings  for each class
+//     This template will generate Objective-C bindings for each type
 //     defined in the input assembly file.
 //
 //     The wrapper files will generate references to the mono Dubrovnik project to provide
@@ -839,7 +839,7 @@ public void WriteProtocolStart(InterfaceFacet facet, string module, bool writeIm
 		WriteModuleBanner(facet, module);
    }
 	
-	Net2ObjC.Protocol protocol = new Net2ObjC.Protocol(this, facet, writeImplementation);
+	ObjCProtocol protocol = new ObjCProtocol(this, facet, writeImplementation);
 
 	if (!writeImplementation) {
 

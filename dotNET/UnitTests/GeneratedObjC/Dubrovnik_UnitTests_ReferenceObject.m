@@ -2128,6 +2128,49 @@ static NSString * m_classStringProperty;
 }
 
 #pragma mark -
+#pragma mark Events
+
++ (NSString *)propertyChangedEventName
+{
+	return @"PropertyChanged";
+}
+
+- (System_ComponentModel_PropertyChangedEventHandler *)propertyChanged_addEventHandlerWithBlock:(Dubrovnik_UnitTests_ReferenceObject_PropertyChanged_EventBlock)block
+{
+	return (System_ComponentModel_PropertyChangedEventHandler *)[self db_addEventHandlerWithClass:System_ComponentModel_PropertyChangedEventHandler.class forEventName:self.class.propertyChangedEventName block:(EventBlock)block];
+}
+
++ (NSString *)propertyChangingEventName
+{
+	return @"PropertyChanging";
+}
+
+- (System_ComponentModel_PropertyChangingEventHandler *)propertyChanging_addEventHandlerWithBlock:(Dubrovnik_UnitTests_ReferenceObject_PropertyChanging_EventBlock)block
+{
+	return (System_ComponentModel_PropertyChangingEventHandler *)[self db_addEventHandlerWithClass:System_ComponentModel_PropertyChangingEventHandler.class forEventName:self.class.propertyChangingEventName block:(EventBlock)block];
+}
+
++ (NSString *)unitTestEvent1EventName
+{
+	return @"UnitTestEvent1";
+}
+
+- (System_EventHandler *)unitTestEvent1_addEventHandlerWithBlock:(Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent1_EventBlock)block
+{
+	return (System_EventHandler *)[self db_addEventHandlerWithClass:System_EventHandler.class forEventName:self.class.unitTestEvent1EventName block:(EventBlock)block];
+}
+
++ (NSString *)unitTestEvent2EventName
+{
+	return @"UnitTestEvent2";
+}
+
+- (System_EventHandler *)unitTestEvent2_addEventHandlerWithBlock:(Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent2_EventBlock)block
+{
+	return (System_EventHandler *)[self db_addEventHandlerWithClass:System_EventHandler.class forEventName:self.class.unitTestEvent2EventName block:(EventBlock)block];
+}
+
+#pragma mark -
 #pragma mark Teardown
 
 - (void)dealloc

@@ -21,7 +21,8 @@ namespace Dubrovnik.Tools {
 				WriteProtocolStart(facet, "interface");
 				WriteProperties(facet.Properties);
 				WriteMethods(facet.Methods);
-				WriteProtocolEnd(facet);
+                WriteEvents(facet, facet.Events);
+                WriteProtocolEnd(facet);
 
 				// write interface as auxiliary protocol
 				// this can be used in expressions such as id <protocol>
@@ -29,7 +30,8 @@ namespace Dubrovnik.Tools {
 				WriteProtocolStart(facet, "interface", true);
 				WriteProperties(facet.Properties);
 				WriteMethods(facet.Methods);
-				WriteProtocolEnd(facet, true);
+                WriteEvents(facet, facet.Events);
+                WriteProtocolEnd(facet, true);
 			}
 		}
 
@@ -48,14 +50,16 @@ namespace Dubrovnik.Tools {
 				WriteClassStart(facet, "interface");
 				WriteProperties(facet.Properties);
 				WriteMethods(facet.Methods);
-				WriteClassEnd(facet);
+                WriteEvents(facet, facet.Events);
+                WriteClassEnd(facet);
 			} else {
 				// implementation
 				var options = new Dictionary<string, object> { { "cAPIMethodPrefix", facet.Type + "." } };
 				WriteClassStart(facet, "interface");
 				WriteProperties(facet.Properties, options);
 				WriteMethods(facet.Methods, options);
-				WriteClassEnd(facet);
+                WriteEvents(facet, facet.Events, options);
+                WriteClassEnd(facet);
 			}
 		}
 

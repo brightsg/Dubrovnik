@@ -45,9 +45,12 @@
 @class System_Collections_Generic_ListA1;
 @class System_ComponentModel_INotifyPropertyChanged;
 @class System_ComponentModel_INotifyPropertyChanging;
+@class System_ComponentModel_PropertyChangedEventHandler;
+@class System_ComponentModel_PropertyChangingEventHandler;
 @class System_DateTime;
 @class System_Decimal;
 @class System_Double;
+@class System_EventHandler;
 @class System_FuncA1;
 @class System_FuncA2;
 @class System_FuncA3;
@@ -85,6 +88,21 @@
 #import "Dubrovnik_UnitTests_IReferenceObject1_Protocol.h"
 #import "Dubrovnik_UnitTests_IReferenceObject2_Protocol.h"
 #import "Dubrovnik_UnitTests_IReferenceObjectBase_Protocol.h"
+
+// 
+// Event support
+// 
+#define Dubrovnik_UnitTests_ReferenceObject_PropertyChanged_EventBlock Dubrovnik_UnitTests_ReferenceObject_PropertyChanged_EventBlock
+typedef void (^Dubrovnik_UnitTests_ReferenceObject_PropertyChanged_EventBlock)(System_Object *sender, System_ComponentModel_PropertyChangedEventArgs *e);
+
+#define Dubrovnik_UnitTests_ReferenceObject_PropertyChanging_EventBlock Dubrovnik_UnitTests_ReferenceObject_PropertyChanging_EventBlock
+typedef void (^Dubrovnik_UnitTests_ReferenceObject_PropertyChanging_EventBlock)(System_Object *sender, System_ComponentModel_PropertyChangingEventArgs *e);
+
+#define Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent1_EventBlock Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent1_EventBlock
+typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent1_EventBlock)(System_Object *sender, System_EventArgs *e);
+
+#define Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent2_EventBlock Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent2_EventBlock
+typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent2_EventBlock)(System_Object *sender, System_EventArgs *e);
 
 @interface Dubrovnik_UnitTests_ReferenceObject : System_Object <Dubrovnik_UnitTests_IMinimalReferenceObject_, Dubrovnik_UnitTests_IReferenceObject1_, Dubrovnik_UnitTests_IReferenceObjectBase_, Dubrovnik_UnitTests_IReferenceObject2_>
 
@@ -1711,5 +1729,88 @@
  @/textblock
 */
 - (double)sumAndSwitch_withDoublePtrX:(double*)p1 doublePtrY:(double*)p2;
+
+#pragma mark -
+#pragma mark Events
+
+/**
+ Managed event name.
+ @textblock
+ Name
+   PropertyChanged
+
+ @/textblock
+*/
++ (NSString *)propertyChangedEventName;
+
+/**
+ Managed event handler add method.
+ @textblock
+ Event Name
+   PropertyChanged
+
+ @/textblock
+*/
+- (System_ComponentModel_PropertyChangedEventHandler *)propertyChanged_addEventHandlerWithBlock:(Dubrovnik_UnitTests_ReferenceObject_PropertyChanged_EventBlock)block;
+
+/**
+ Managed event name.
+ @textblock
+ Name
+   PropertyChanging
+
+ @/textblock
+*/
++ (NSString *)propertyChangingEventName;
+
+/**
+ Managed event handler add method.
+ @textblock
+ Event Name
+   PropertyChanging
+
+ @/textblock
+*/
+- (System_ComponentModel_PropertyChangingEventHandler *)propertyChanging_addEventHandlerWithBlock:(Dubrovnik_UnitTests_ReferenceObject_PropertyChanging_EventBlock)block;
+
+/**
+ Managed event name.
+ @textblock
+ Name
+   UnitTestEvent1
+
+ @/textblock
+*/
++ (NSString *)unitTestEvent1EventName;
+
+/**
+ Managed event handler add method.
+ @textblock
+ Event Name
+   UnitTestEvent1
+
+ @/textblock
+*/
+- (System_EventHandler *)unitTestEvent1_addEventHandlerWithBlock:(Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent1_EventBlock)block;
+
+/**
+ Managed event name.
+ @textblock
+ Name
+   UnitTestEvent2
+
+ @/textblock
+*/
++ (NSString *)unitTestEvent2EventName;
+
+/**
+ Managed event handler add method.
+ @textblock
+ Event Name
+   UnitTestEvent2
+
+ @/textblock
+*/
+- (System_EventHandler *)unitTestEvent2_addEventHandlerWithBlock:(Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent2_EventBlock)block;
 @end
 //--Dubrovnik.CodeGenerator

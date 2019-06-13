@@ -57,7 +57,7 @@ namespace Dubrovnik.Tools {
 									};
 		}
 
-		List<string> UnsafeObjCMethodNames() {
+		public List<string> UnsafeObjCMethodNames() {
 			return new List<string> {
 									"init" // methods beginning with init are expected to return a type related to the receiver
 			};
@@ -137,7 +137,7 @@ namespace Dubrovnik.Tools {
 		//
 		// ObjCConformingTypeDeclFromObjCTypeDecl
 		//
-		string ObjCConformingTypeFromObjCTypeDecl(string objCTypeDecl, bool writeImplementation) {
+		public string ObjCConformingTypeFromObjCTypeDecl(string objCTypeDecl, bool writeImplementation) {
 			string objCType = ObjCTypeFromObjCTypeDecl(objCTypeDecl);
 			string result = ObjCConformingTypeFromObjCType(objCType, writeImplementation);
 
@@ -568,7 +568,7 @@ namespace Dubrovnik.Tools {
 		//
 		// ObjCTypeAssociate()
 		//
-		ObjCTypeAssociation ObjCTypeAssociate(string managedType) {
+		public ObjCTypeAssociation ObjCTypeAssociate(string managedType) {
 			ObjCTypeAssociation typeAssoc = null;
 
 			// look for literal association
@@ -578,6 +578,16 @@ namespace Dubrovnik.Tools {
 
 			return typeAssoc;
 		}
+
+        /// <summary>
+        /// Convert string to an Obj-C string literal.
+        /// </summary>
+        /// <param name="s">String to be literalised.</param>
+        /// <returns>Obj-C string literal</returns>
+        string ObjCStringLiteral(string s)
+        {
+            return $"@\"{s}\"";
+        }
 
 	}
 }

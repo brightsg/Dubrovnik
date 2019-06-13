@@ -16,25 +16,27 @@ namespace Dubrovnik.Tools.Facets {
 			Properties = new FacetList<PropertyFacet>(xelement, "Property", this);
 			ImplementedInterfaces = new FacetList<ImplementedInterfaceFacet>(xelement, "ImplementedInterface", this);
 			Methods = new FacetList<MethodFacet>(xelement, "Method", this);
-			ParseMethodsForOverrides(Methods);
+            Events = new FacetList<EventFacet>(xelement, "Event", this);
+            ParseMethodsForOverrides(Methods);
 		}
 
-		// TODO: add events, indexers
 		public IList<PropertyFacet> Properties { get; set; }
 		public IList<MethodFacet> Methods { get; set; }
-		public IList<ImplementedInterfaceFacet> ImplementedInterfaces { get; set; }
+        public IList<ImplementedInterfaceFacet> ImplementedInterfaces { get; set; }
+        public IList<EventFacet> Events { get; set; }
 
-		/// <summary>
-		/// Returns list of child facets.
-		/// </summary>
-		public override List<CodeFacet> Children() {
+        /// <summary>
+        /// Returns list of child facets.
+        /// </summary>
+        public override List<CodeFacet> Children() {
 			List<CodeFacet> facets = new List<CodeFacet>();
 			facets.AddRange(base.Children());
 			facets.AddRange(Properties);
 			facets.AddRange(ImplementedInterfaces);
 			facets.AddRange(Methods);
+            facets.AddRange(Events);
 
-			return facets;
+            return facets;
 		}
 
 		/// <summary>

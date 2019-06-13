@@ -17,7 +17,8 @@ namespace Dubrovnik.Tools {
 			WriteFields(facet.Fields);
 			WriteProperties(facet.Properties);
 			WriteMethods(facet.Methods);
-			WriteClassEnd(facet);
+            WriteEvents(facet, facet.Events);
+            WriteClassEnd(facet);
 		}
 
 		//
@@ -41,13 +42,27 @@ namespace Dubrovnik.Tools {
 				WriteModuleBanner(facet, module);
 			}
 
-			if (OutputFileType == OutputType.Interface) { 
-				if (facet is EnumerationFacet) {
+			if (OutputFileType == OutputType.Interface) {
+                var options = new Dictionary<string, object> { { "caller", nameof(WriteClassStart) } };
+
+                if (facet is EnumerationFacet) {
 					WriteLine("");
 					WriteLine("// C enumeration");
 					WriteFacetAsEnumeration((EnumerationFacet)facet);
 					WriteLine("");
 				}
+                else if (facet is ClassFacet) {
+                    ClassFacet classFacet = (ClassFacet)facet;
+                    if (classFacet.Events.Count > 0) {
+                        WriteLine("// ");
+                        WriteLine("// Event support");
+                        WriteLine("// ");
+                        foreach (EventFacet eventFacet in classFacet.Events) { 
+                            WriteFacetAsEvent(classFacet, eventFacet, options);
+                            WriteLine("");
+                        }
+                    }
+                }
 			}
 
 			WriteLine($"@{classPrefix} {facet.ObjCFacet.Type}{superClass}{implementedProtocols}");

@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dubrovnik.Tools {
 	public partial class Net2ObjC {
@@ -156,13 +154,10 @@ namespace Dubrovnik.Tools {
 								value += (ObjCIdentifierFromManagedIdentifier(codeFacet.Type) + "_");
 							}
 
-
 							value += ">";
 						}
 					}
 				}
-
-
 			}
 			return value;
 		}

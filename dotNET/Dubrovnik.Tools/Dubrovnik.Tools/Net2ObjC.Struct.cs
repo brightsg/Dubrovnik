@@ -16,7 +16,8 @@ namespace Dubrovnik.Tools {
 			WriteFields(facet.Fields);
 			WriteProperties(facet.Properties);
 			WriteMethods(facet.Methods);
-			WriteClassEnd(facet);
+            WriteEvents(facet, facet.Events);
+            WriteClassEnd(facet);
 		}
 	}
 }

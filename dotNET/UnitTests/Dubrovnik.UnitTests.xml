@@ -449,10 +449,22 @@
         <Parameter Name="doublePtrX" Type="System.Double*" IsPointer="True" ElementType="System.Double" />
         <Parameter Name="doublePtrY" Type="System.Double*" IsPointer="True" ElementType="System.Double" />
       </Method>
-      <Event Name="PropertyChanged" HandlerType="System.ComponentModel.PropertyChangedEventHandler" />
-      <Event Name="PropertyChanging" HandlerType="System.ComponentModel.PropertyChangingEventHandler" />
-      <Event Name="UnitTestEvent1" HandlerType="System.EventHandler" />
-      <Event Name="UnitTestEvent2" HandlerType="System.EventHandler" />
+      <Event Name="PropertyChanged" Type="System.ComponentModel.PropertyChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.PropertyChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="PropertyChanging" Type="System.ComponentModel.PropertyChangingEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.PropertyChangingEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="UnitTestEvent1" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
+      <Event Name="UnitTestEvent2" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
     </Class>
     <Class Name="ReferenceObject.ActionDelegate" Type="Dubrovnik.UnitTests.ReferenceObject+ActionDelegate" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsNested="True">
       <ImplementedInterface Type="System.ICloneable" />

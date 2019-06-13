@@ -52,7 +52,6 @@ namespace Dubrovnik.Tools.Facets
             IsArray = XElementAttributeBool(xelement, "IsArray");
             ElementType = XElementAttributeValue(xelement, "ElementType");
             ArrayRank = Convert.ToInt32(XElementAttributeValue(xelement, "ArrayRank")); 
-            HandlerType = XElementAttributeValue(xelement, "HandlerType");
             IsConstant = XElementAttributeBool(xelement, "IsConstant");
             IsStatic= XElementAttributeBool(xelement, "IsStatic");
             BaseName = XElementAttributeValue(xelement, "BaseName");
@@ -80,7 +79,6 @@ namespace Dubrovnik.Tools.Facets
         public string FullName { get; private set; }
         public bool IsReadable { get; private set; }
         public bool IsWritable { get; private set; }
-        public string HandlerType { get; private set; }
         public bool IsConstant { get; private set; }
         public bool IsEnum { get; private set; }
         public bool IsValueType { get; private set; }
@@ -571,9 +569,9 @@ namespace Dubrovnik.Tools.Facets
         }
 
 		/// <summary>
-		/// 
+		/// Facet description : defaults to type and name strings. Subclasses may override.
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>Description string</returns>
 		public virtual string Description() {
 			return String.Format("{0} {1}", Type, Name);
 		}

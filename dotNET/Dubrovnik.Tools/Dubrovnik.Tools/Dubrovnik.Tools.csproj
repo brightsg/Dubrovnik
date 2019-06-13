@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyParser.cs" />
+    <Compile Include="Facets\EventFacet.cs" />
+    <Compile Include="Net2ObjC.Event.cs" />
     <Compile Include="Facets\AssemblyFacet.cs" />
     <Compile Include="Facets\ClassFacet.cs" />
     <Compile Include="Facets\CodeFacet.cs" />
@@ -83,6 +85,11 @@
     <Compile Include="Net2ObjC.Protocol.cs" />
     <Compile Include="Net2ObjC.Struct.cs" />
     <Compile Include="Net2ObjC.Type.cs" />
+    <Compile Include="Output\ObjCAccessor.cs" />
+    <Compile Include="Output\ObjCEvent.cs" />
+    <Compile Include="Output\ObjCMethod.cs" />
+    <Compile Include="Output\ObjCProtocol.cs" />
+    <Compile Include="Output\OutputCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringWriterWithEncoding.cs" />
     <Compile Include="Utility.cs" />

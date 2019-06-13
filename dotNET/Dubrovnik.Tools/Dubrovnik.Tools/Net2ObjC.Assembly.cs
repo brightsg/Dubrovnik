@@ -43,7 +43,6 @@ namespace Dubrovnik.Tools {
 		// WriteAssembly
 		//
 		public void WriteAssembly() {
-			// TODO: why don't we generate Event reps too?
 			WriteCommentBlock("Assembly type imports");
 
 			// get all all assembly facets and order by type
